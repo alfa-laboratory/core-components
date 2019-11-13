@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 4000",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,31 @@
   "bugs": {
     "url": "https://github.com/alfa-laboratory/core-components/issues"
   },
-  "homepage": "https://github.com/alfa-laboratory/core-components#readme"
+  "homepage": "https://github.com/alfa-laboratory/core-components#readme",
+  "dependencies": {
+    "@storybook/addon-docs": "^5.2.6",
+    "classnames": "^2.2.6",
+    "linaria": "^1.4.0-alpha.1",
+    "typescript": "^3.7.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
+    "@babel/preset-typescript": "^7.7.2",
+    "@storybook/addon-actions": "^5.2.6",
+    "@storybook/addon-info": "^5.2.6",
+    "@storybook/addon-knobs": "^5.2.6",
+    "@storybook/addon-links": "^5.2.6",
+    "@storybook/addon-storysource": "^5.2.6",
+    "@storybook/addons": "^5.2.6",
+    "@storybook/react": "^5.2.6",
+    "@types/jest": "^24.0.22",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "jest": "^24.9.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "react-docgen-typescript-loader": "^3.3.0",
+    "ts-jest": "^24.1.0"
+  }
 }
