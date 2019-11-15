@@ -10,18 +10,18 @@ import { action } from '@storybook/addon-actions';
  * Components
  */
 
-import { Button } from './Component';
+import { Input } from './Component';
 
 /**
  * Expo
  */
 
 export default {
-  component: Button,
-  title: 'Button',
+  component: Input,
+  title: 'Input',
 };
 
 export const basic = () => (
-  <Button onClick={() => alert('test')}>Hello Button</Button>
+  <Input onClick={() => alert('test')} />
 );
 

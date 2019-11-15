@@ -2,7 +2,6 @@
   "presets": [
     "@babel/preset-env",
     "@babel/preset-react",
-    "@babel/preset-typescript",
-    "linaria/babel"
+    "@babel/preset-typescript"
   ]
 }
