@@ -63,7 +63,6 @@ export const Button: React.FC<IButton> = (props) => {
   };
 
   const handleFocus = (event: React.SyntheticEvent) => {
-    console.log('Ало', pressed);
     if (pressed) return;
 
     setFocus(true);

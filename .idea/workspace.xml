@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87672a61-3528-4c98-bbc0-6f979f92ee0b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/core-components.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/admin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/@alfa/components-theme-white/button.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/@alfa/components-theme-white/fonts.styles.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/keyboard-code.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.linaria-cache/src/components/button/Component.style.linaria.css" beforeDir="false" afterPath="$PROJECT_DIR$/.linaria-cache/src/components/button/Component.style.linaria.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/@alfa/components-theme-white/fonts.styles.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/button/Component.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/button/Component.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/button/Component.style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/button/Component.style.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/button/Component.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/button/Component.tsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -98,7 +87,7 @@
       <workItem from="1573742603969" duration="10669000" />
       <workItem from="1573807223516" duration="6000" />
       <workItem from="1573807236062" duration="3000" />
-      <workItem from="1573807257468" duration="4368000" />
+      <workItem from="1573807257468" duration="10221000" />
     </task>
     <servers />
   </component>

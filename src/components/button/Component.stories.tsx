@@ -4,14 +4,13 @@
 
 import React from 'react';
 
-import { action } from '@storybook/addon-actions';
-
 /**
  * Components
  */
 
 import { Button } from './Component';
 import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
+import {storiesOf} from "@storybook/react";
 
 /**
  * Expo
@@ -20,17 +19,30 @@ import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 export default {
   component: Button,
   title: 'Button',
+  includeStories: ['basicStory', 'withActionStory']
 };
 
-export const basic = () => (
-  <Button
-      view={text('View','extra')}
-      size={text('Size','xl')}
-      onClick={() => alert('test')}
-      onFocus={(e) => console.log('что происходите', e)}
-      onBlur={(e) => console.log('Фокус ушел')}
-  >
+const basicButton = () => (
+  <Button>
     {text('Label', 'Hello World')}
   </Button>
 );
 
+const buttonWithAction = () => (
+    <Button
+        view={text('View','extra')}
+        size={text('Size','xl')}
+        onClick={() => alert('test')}
+        onFocus={(e) => console.log('что происходите', e)}
+        onBlur={(e) => console.log('Фокус ушел')}
+    >
+      {text('Label', 'Hello World')}
+    </Button>
+);
+
+export const basicStory = basicButton;
+export const withActionStory = buttonWithAction;
+
+basicStory.story = {
+  parameters: { info: 'asdfsfasf' },
+};
