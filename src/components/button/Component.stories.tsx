@@ -11,6 +11,7 @@ import { action } from '@storybook/addon-actions';
  */
 
 import { Button } from './Component';
+import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 
 /**
  * Expo
@@ -22,6 +23,14 @@ export default {
 };
 
 export const basic = () => (
-  <Button onClick={() => alert('test')}>Hello Button</Button>
+  <Button
+      view={text('View','extra')}
+      size={text('Size','xl')}
+      onClick={() => alert('test')}
+      onFocus={(e) => console.log('что происходите', e)}
+      onBlur={(e) => console.log('Фокус ушел')}
+  >
+    {text('Label', 'Hello World')}
+  </Button>
 );
 
