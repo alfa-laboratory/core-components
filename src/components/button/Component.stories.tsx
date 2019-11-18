@@ -8,13 +8,15 @@ import React from 'react';
  * Components
  */
 
-import { Button } from './Component';
-import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
-import {storiesOf} from "@storybook/react";
+import {IButton,Button, ViewType, SizeType} from './Component';
+import { text } from "@storybook/addon-knobs";
+
 
 /**
  * Expo
  */
+
+const enhanceText = <T extends string >(name: string, value: T): T => text(name, value) as T;
 
 export default {
   component: Button,
@@ -23,26 +25,27 @@ export default {
 };
 
 const basicButton = () => (
-  <Button>
+  <Button
+    view={enhanceText<ViewType>('view','extra')}
+    size={enhanceText<SizeType>('size','xl')}
+  >
     {text('Label', 'Hello World')}
   </Button>
 );
 
-const buttonWithAction = () => (
+const buttonWithAction = (): IButton => (
     <Button
-        view={text('View','extra')}
-        size={text('Size','xl')}
         onClick={() => alert('test')}
         onFocus={(e) => console.log('что происходите', e)}
-        onBlur={(e) => console.log('Фокус ушел')}
+        onBlur={() => console.log('Фокус ушел')}
     >
       {text('Label', 'Hello World')}
     </Button>
 );
 
-export const basicStory = basicButton;
+export const basicStory: IButton = basicButton as IButton;
 export const withActionStory = buttonWithAction;
 
 basicStory.story = {
-  parameters: { info: 'asdfsfasf' },
+  parameters: { info: 'Пример простой кнопки(без стилей) в сторибуке для нового дизайна' },
 };

@@ -9,34 +9,40 @@ import keyboardCode from '../../lib/keyboard-code';
  * Components
  */
 
-import { StyledButton, StyledButtonContent, StyledButtonIcon, StyledButtonText } from './Component.style';
-
 /**
  * Exp
  */
 
+export type ViewType = 'default' | 'action' | 'extra' | 'rounded';
+export type BtnType = 'button' | 'reset' | 'submit';
+export type TagType = 'button' | 'span';
+export type WidthType = 'default' | 'available';
+export type SizeType = 's' | 'm' | 'xl' | 'l';
+export type ThemeType = 'alfa-on-color' | 'alfa-on-white';
+export type TogglableType = 'check' | 'radio';
+
 export interface IButton {
   text?: JSX.Element;
   icon?: JSX.Element;
-  view?: 'default' | 'action' | 'extra' | 'rounded';
-  type?: 'button' | 'reset' | 'submit';
-  tag?: 'button' | 'span';
-  width?: 'default' | 'available';
-  size?: 's' | 'm' | 'xl' | 'l';
+  view?: ViewType;
+  type?: BtnType;
+  tag?: TagType;
+  width?: WidthType;
+  size?: SizeType;
   disabled?: boolean;
+  formNoValidate?: boolean,
   focused?: boolean;
   pseudo?: boolean;
   hovered?: boolean;
   pressed?: boolean;
   id?: string;
-  formNoValidate?: boolean;
   title?: string;
   tabIndex?: number;
-  togglable?: 'check' | 'radio';
+  togglable?: TogglableType;
   checked?: boolean;
-  children?: JSX.Element[] | JSX.Element;
+  children?: JSX.Element[] | JSX.Element | string;
   'data-test-id'?: string;
-  theme?: 'alfa-on-color' | 'alfa-on-white';
+  theme?: ThemeType;
   className?: string;
   onClick?: (event: React.SyntheticEvent) => void;
   onFocus?: (event: React.SyntheticEvent) => void;
@@ -48,6 +54,11 @@ export interface IButton {
   onMouseOut?: (event: React.SyntheticEvent) => void;
   onKeyUp?: (event: React.SyntheticEvent) => void;
   onKeyDown?: (event: React.SyntheticEvent) => void;
+  story?: {
+    parameters: {
+      info?: string
+    }
+  };
 }
 
 export const Button: React.FC<IButton> = (props) => {
@@ -150,14 +161,14 @@ export const Button: React.FC<IButton> = (props) => {
     }
   };
 
-  let buttonProps = {
+  const buttonProps = {
     role: 'button',
     id: props.id,
     type: props.type,
     title: props.title,
-    tabIndex: props.disabled ? '-1' : props.tabIndex,
+    tabIndex: props.disabled ? -1 : props.tabIndex,
     disabled: props.disabled,
-    formNoValidate: isButton ? props.formNoValidate : null,
+    formNoValidate: isButton ? props.formNoValidate : false,
     hovered,
     focused,
     pressed,
@@ -174,24 +185,24 @@ export const Button: React.FC<IButton> = (props) => {
     'data-test-id': props['data-test-id']
   };
 
-  let buttonContent = [
+  const buttonContent = [
     (props.children || props.text || props.icon) && (
-        <StyledButtonContent key="content">
+        <span key="content">
           { props.icon && (
-              <StyledButtonIcon key="icon">
+              <span key="icon">
                 { props.icon }
-              </StyledButtonIcon>
+              </span>
           ) }
           { (props.children || props.text) && (
-              <StyledButtonText key="text">
+              <span key="text">
                 { props.children || props.text }
-              </StyledButtonText>
+              </span>
           ) }
-        </StyledButtonContent>
+        </span>
     )
   ];
 
-  return <StyledButton {...buttonProps}>{buttonContent}</StyledButton>;
+  return <button {...buttonProps}>{buttonContent}</button>;
 
 };
 
