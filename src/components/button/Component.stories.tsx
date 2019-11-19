@@ -10,6 +10,7 @@ import React from 'react';
 
 import {IButton,Button, ViewType, SizeType} from './Component';
 import { text } from "@storybook/addon-knobs";
+import { action } from "@storybook/addon-actions";
 
 
 /**
@@ -21,31 +22,21 @@ const enhanceText = <T extends string >(name: string, value: T): T => text(name,
 export default {
   component: Button,
   title: 'Button',
-  includeStories: ['basicStory', 'withActionStory']
+  includeStories: ['basic']
 };
 
 const basicButton = () => (
   <Button
     view={enhanceText<ViewType>('view','extra')}
     size={enhanceText<SizeType>('size','xl')}
+    onClick={action('onClick')}
   >
     {text('Label', 'Hello World')}
   </Button>
 );
 
-const buttonWithAction = (): IButton => (
-    <Button
-        onClick={() => alert('test')}
-        onFocus={(e) => console.log('что происходите', e)}
-        onBlur={() => console.log('Фокус ушел')}
-    >
-      {text('Label', 'Hello World')}
-    </Button>
-);
+export const basic: IButton = basicButton as IButton;
 
-export const basicStory: IButton = basicButton as IButton;
-export const withActionStory = buttonWithAction;
-
-basicStory.story = {
+basic.story = {
   parameters: { info: 'Пример простой кнопки(без стилей) в сторибуке для нового дизайна' },
 };

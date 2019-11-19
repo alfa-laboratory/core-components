@@ -170,7 +170,7 @@ export const Button: React.FC<IButton> = (props) => {
     disabled: props.disabled,
     formNoValidate: isButton ? props.formNoValidate : false,
     hovered,
-    focused,
+    focused: props.focused ? props.focused : focused,
     pressed,
     onClick: handleClick,
     onFocus: handleFocus,
