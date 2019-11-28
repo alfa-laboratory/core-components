@@ -1,0 +1,18 @@
+.list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vertical {
+  flex-direction: column;
+}
+
+.horizontal {
+  flex-direction: row;
+
+  .listItem {
+    margin-right: 32px;
+  }
+}

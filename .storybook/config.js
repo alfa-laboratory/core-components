@@ -28,7 +28,7 @@ import { alfaTheme } from "./alfaTheme";
 
 // automatically import all files ending in *.stories.tsx
 configure([
-    require.context('../src/components', true, /\.stories\.tsx$/)
+    require.context('../src/components', true, /\.stories\.(tsx|mdx)$/)
 ], module);
 
 addDecorator(withInfo);

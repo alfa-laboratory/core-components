@@ -1,0 +1,11 @@
+@import '../../../assets/css/index.css';
+
+.component {
+  color: var(--primary-color);
+  text-decoration: none;
+  letter-spacing: 1px;
+
+  &:hover {
+    color: var(--link-hover-color);
+  }
+}

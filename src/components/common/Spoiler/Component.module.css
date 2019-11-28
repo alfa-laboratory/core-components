@@ -1,0 +1,31 @@
+@import '../../../assets/css/index.css';
+
+.component {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  margin: 0 !important;
+}
+
+.body {
+  padding: 15px 0;
+}
+
+.button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+.invisible {
+  display: none;
+}

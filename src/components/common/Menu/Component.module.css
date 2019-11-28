@@ -1,0 +1,30 @@
+@import '../../../assets/css/index.css';
+
+.menuItem {
+  color: #0b1f35;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0.1px;
+  text-transform: uppercase;
+}
+
+.menuItemLink {
+  display: flex;
+  align-items: center;
+  padding-bottom: 40px;
+  min-height: 70px;
+  border-bottom: 3px solid transparent;
+  transition: all ease .5s;
+
+  &:hover {
+    border-color: var(--accent-color);
+  }
+}
+
+.menuItem + .menuItem {
+  padding-left: 32px;
+}
+
+.badge {
+  margin-left: 12px;
+}

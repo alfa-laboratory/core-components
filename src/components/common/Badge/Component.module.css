@@ -1,0 +1,22 @@
+@import '../../../assets/css/index.css';
+
+.component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 24px;
+
+  padding: 0 8px;
+
+  border-radius: 16px;
+}
+
+.red {
+  color: #fff;
+  background-color: var(--accent-color);
+}
+
+.dark {
+  background-color: var(--color-dark-indigo);
+}

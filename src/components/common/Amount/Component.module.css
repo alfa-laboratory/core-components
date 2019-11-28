@@ -1,0 +1,11 @@
+@import '../../../assets/css/index.css';
+
+.component {
+  color: var(--subtext-color);
+  font-size: 16px;
+}
+
+.head {
+  color: var(--primary-color);
+  font-weight: bold;
+}

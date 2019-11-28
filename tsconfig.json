@@ -14,8 +14,9 @@
     "noImplicitReturns": true,
 
     "baseUrl": "./src",
-    "rootDirs": [
-      "src"
+    "typeRoots": [
+      "./node_modules/@types",
+      "./typings"
     ],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true 
