@@ -1,20 +1,36 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
+name: Предложить улучшение
+about: Создайте отчет, это поможет нам улучшить наш проект
 title: ''
 labels: ''
 assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+# Описание
+Предлогаю добавить новую кнопку
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+# Поведение
+При нажатии на кнопку должно появится модальное окно
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+# Чек лист
+- [ ] Тесты
+- [ ] Документация
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+# Внешний вид
+
+# Технические требования
+
+## Десктоп (если данных нет оставте блок пустым):
+ - OS: MacOS
+ - Browser: Safari
+ - Version: 10
+
+## Смартфон (если данных нет оставте блок пустым):
+ - Device: iPhone 6
+ - OS: iOS 10
+ - Browser: Chrome
+ - Version: 65
+
+# Дополнительная информация
+Дополнительная информация
