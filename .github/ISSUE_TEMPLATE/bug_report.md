@@ -1,38 +1,45 @@
 ---
-name: Bug report
-about: Create a report to help us improve
+name: Сообщить о проблеме
+about: Создайте отчет, это поможет нам улучшить наш проект
 title: ''
 labels: ''
 assignees: ''
 
 ---
 
-**Describe the bug**
+**Опишите проблему**
 A clear and concise description of what the bug is.
 
-**To Reproduce**
-Steps to reproduce the behavior:
+**Шаги для воспроизведения**
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
 4. See error
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**Ожидаемое поведение**
+При нажатии на кнопку должно появится модальное окно
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+# Чек лист
+- [ ] Тесты
+- [ ] Документация
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+# Внешний вид
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+Ожидаемый        | Фактический
+:---------------:|:--------------------|
+** Ожидаемый  ** | ** Фактический    **|
 
-**Additional context**
-Add any other context about the problem here.
+
+**Десктоп (если данных нет оставте блок пустым):**
+ - OS: MacOS
+ - Browser: Safari
+ - Version: 10
+
+**Смартфон (если данных нет оставте блок пустым):**
+ - Device: iPhone 6
+ - OS: iOS 10
+ - Browser: Chrome
+ - Version: 65
+
+**Дополнительная информация**
+Дополнительная информация
