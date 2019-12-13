@@ -1,0 +1,30 @@
+.component {
+  margin: 0 0 20px 0;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.level-1 {
+  font-size: 32px;
+}
+
+.level-2 {
+  font-size: 28px;
+}
+
+.level-3 {
+  font-size: 24px;
+}
+
+.level-4 {
+  font-size: 20px;
+}
+
+.level-5 {
+  font-size: 16px;
+}
+
+.level-6 {
+  font-size: 12px;
+}

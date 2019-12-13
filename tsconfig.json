@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "target": "esnext",
+    "module": "esnext",
+    "jsx": "react",
+    "rootDir": "./src",
+    "noEmit": true,
+
+    "strict": true,
+
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+
+    "baseUrl": "./src",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./typings"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true 
+  },
+  "exclude": ["node_modules", "dist", "webpack.config.js", "jest.config.js"]
+}
