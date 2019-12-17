@@ -63,3 +63,24 @@ $ npm start
 Open your browser and visit http://127.0.0.1:8081
 
 ## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
+<h2 align="center">Core Team</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top">
+        <img width="150" height="150" src="https://avatars1.githubusercontent.com/u/4591518?s=460&v=4">
+        <br>
+        <a href="https://github.com/etroynov">Troynov Evgeniy</a>
+        <p>Coordinator & Founder</p>
+      </td>
+      <td align="center" valign="top">
+        <img width="150" height="150" src="https://avatars1.githubusercontent.com/u/109410?s=460&v=4">
+        <br>
+        <a href="https://github.com/SiebenSieben">Evgeny Sergeev</a>
+        <p>maintainer</p>
+      </td>
+     </tr>
+  </tbody>
+</table>
