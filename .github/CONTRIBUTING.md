@@ -1,4 +1,4 @@
-The following is a set of guidelines for contributing to Ant Design. Please spend several minutes reading these guidelines before you create an issue or pull request.
+The following is a set of guidelines for contributing to Core components. Please spend several minutes reading these guidelines before you create an issue or pull request.
 
 ## Code of Conduct
 
@@ -6,7 +6,7 @@ We have adopted a [Code of Conduct](https://github.com/alfa-laboratory/core-comp
 
 ## Open Development
 
-All work on Ant Design happens directly on [GitHub](https://github.com/alfa-laboratory/core-components). Both core team members and external contributors send pull requests which go through the same review process.
+All work on Core components happens directly on [GitHub](https://github.com/alfa-laboratory/core-components). Both core team members and external contributors send pull requests which go through the same review process.
 
 ## Branch Organization
 
