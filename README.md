@@ -55,7 +55,7 @@ import "@alfa-labaratory/core-components/themes/dark.css";
 
 ```bash
 $ git clone git@github.com:alfa-laboratory/core-components.git
-$ cd atoms
+$ cd core-components
 $ npm install
 $ npm start
 ```
