@@ -43,7 +43,7 @@ ReactDOM.render(<Example />, mountNode);
 And import style manually:
 
 ```jsx
-import "@alfa-labaratory/atoms-themes/dark.css";
+import "@alfa-labaratory/core-components/themes/dark.css";
 ```
 
 ### TypeScript
