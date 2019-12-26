@@ -54,7 +54,7 @@ import "@alfa-labaratory/atoms-themes/dark.css";
 ## ⌨️ Development
 
 ```bash
-$ git clone git@github.com:alfa-labaratory/atoms.git
+$ git clone git@github.com:alfa-laboratory/core-components.git
 $ cd atoms
 $ npm install
 $ npm start
@@ -63,6 +63,10 @@ $ npm start
 Open your browser and visit http://127.0.0.1:8081
 
 ## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
+Read our [contributing guide](https://github.com/alfa-laboratory/core-components/blob/master/.github/CONTRIBUTING.md) and let's build a better antd together.
+
+We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/alfa-laboratory/core-components/blob/master/.github/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/alfa-laboratory/core-components/pulls) or as [GitHub issues](https://github.com/alfa-laboratory/core-components/issues). If you'd like to improve code, check out the [Development Instructions](https://github.com/alfa-laboratory/core-components/wiki/Development) and have a good time! :)
 
 <h2 align="center">Core Team</h2>
 
