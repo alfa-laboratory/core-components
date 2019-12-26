@@ -22,7 +22,7 @@ Before you report a bug, please make sure you've searched exists issues, and rea
 
 If you intend to change the public API or introduce new feature, we also recommend you use our [issue helper](http://new-issue.ant.design) to create a feature request issue.
 
-If you want to help on new API, please reference [API Naming Rules](https://github.com/ant-design/ant-design/wiki/API-Naming-rules) to name it.
+If you want to help on new API, please reference [API Naming Rules](https://github.com/alfa-laboratory/core-components/wiki/API-Naming-rules) to name it.
 
 ## Your First Pull Request
 
