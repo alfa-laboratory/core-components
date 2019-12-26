@@ -24,6 +24,7 @@ interface Props {
 
 export const Amount: React.FC<Props> = ({ value }) => {
   const [head, tail] = value.split(',');
+
   return (
     <div className={styles.component}>
       <span className={styles.head}>
