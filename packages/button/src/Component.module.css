@@ -1,0 +1,73 @@
+@import '../../themes/default.css';
+
+.component { 
+  border-color: transparent;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+.xs {
+  font-size: 14px;
+  min-height: 32px;
+  min-width: 88px;
+}
+
+.s {
+  font-size: 16px;
+  min-height: 48px;
+  min-width: 160px;
+}
+
+.m {
+  font-size: 16px;
+  min-height: 56px;
+  min-width: 160px;
+}
+
+.l {
+  font-size: 18px;
+  min-height: 68px;
+  min-width: 160px;
+}
+
+.default {
+  color: var(--primary-color);
+  background-color: var(--button-default-base-color);
+}
+
+.default:hover {
+  color: var(--primary-color);
+  background-color: var(--button-default-hover-color);
+}
+
+.default:active {
+  color: var(--primary-color);
+  background-color: var(--button-default-active-color);
+}
+
+.default[disabled] {
+  color: var(--button-default-disabled-color);
+  background-color: var(--button-default-base-color);
+}
+
+.primary {
+  color: var(--primary-invert-color);
+  background-color: var(--button-primary-base-color);
+}
+
+.primary:hover {
+  background-color: var(--button-primary-hover-color);
+}
+
+.primary:active {
+  background-color: var(--button-primary-active-color);
+}
+
+.primary[disabled] {
+  background-color: var(--button-primary-disabled-color);
+}
+
+.block {
+  width: 100%;
+}
