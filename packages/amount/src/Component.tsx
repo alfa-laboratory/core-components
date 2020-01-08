@@ -5,35 +5,59 @@
 import React from 'react';
 
 /**
- * Styles
+ * Utils
  */
 
-import styles from './Component.module.css';
+import { formatAmount } from '../../utils';
+
+/**
+ * Config
+ */
+
+import {
+  AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR,
+  THINSP,
+} from '../../configs/currencyCodes';
 
 /**
  * Types
  */
 
-interface Props {
-  value: string;
-}
+type Props = {
+  value: number;
+  currency: string;
+  minority: number;
+  hideMinority?: boolean;
+
+  className?: string;
+  minorityClassName?: string;
+};
 
 /**
  * Exp
  */
 
-export const Amount: React.FC<Props> = ({ value }) => {
-  const [head, tail] = value.split(',');
+export const Amount: React.FC<Props> = ({
+  value,
+  currency,
+  minority,
+  hideMinority = false,
+
+  className,
+  minorityClassName,
+}) => {
+  let { majorPart, minorPart, currencySymbol } = formatAmount(value);
+
   return (
-    <div className={styles.component}>
-      <span className={styles.head}>
-        {head}
-,
+    <div className={className}>
+      {minorPart}
+      {AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR}
+
+      {!hideMinority && <span className={minorityClassName}>{majorPart}</span>}
+      <span>
+        {THINSP}
+        {currencySymbol}
       </span>
-      {' '}
-      {tail}
-      {' '}
-₽
     </div>
   );
 };

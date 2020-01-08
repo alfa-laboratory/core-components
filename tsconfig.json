@@ -14,12 +14,9 @@
     "noImplicitReturns": true,
 
     "baseUrl": "./src",
-    "typeRoots": [
-      "./node_modules/@types",
-      "./typings"
-    ],
+    "typeRoots": ["./node_modules/@types", "./typings"],
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true 
+    "esModuleInterop": true
   },
   "exclude": ["node_modules", "dist", "webpack.config.js", "jest.config.js"]
 }
