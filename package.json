@@ -13,6 +13,9 @@
     "url": "https://github.com/alfa-laboratory/core-components/issues"
   },
   "homepage": "https://github.com/alfa-laboratory/core-components#readme",
+  "scripts": {
+    "update-colors": "node ./tools/update-colors.ts"
+  },
   "dependencies": {
     "@storybook/addon-docs": "^5.2.8",
     "classnames": "^2.2.6",
@@ -35,6 +38,7 @@
     "babel-loader": "^8.0.6",
     "jest": "^24.9.0",
     "lerna": "^3.19.0",
+    "alfa-ui-primitives": "2.4.0",
     "react-docgen-typescript-loader": "^3.6.0",
     "ts-jest": "^24.2.0"
   }
