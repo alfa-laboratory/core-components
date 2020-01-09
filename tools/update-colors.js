@@ -11,12 +11,10 @@ const colorsPath = path.resolve(
 const colors = JSON.parse(fs.readFileSync(colorsPath, 'utf8'));
 
 let css = '';
-Object.keys(colors).forEach(function(color) {
-  const token = colors[color];
-
+Object.entries(colors).forEach(([name, token]) => {
   if (token.deprecated) return;
 
-  const name = color.replace(UNDERSCORE_RE, DASH);
+  name = name.replace(UNDERSCORE_RE, DASH);
   const value = token.a === 1 ? token.hex : token.rgba;
 
   css += `  --color-${name}: ${value};\n`;
