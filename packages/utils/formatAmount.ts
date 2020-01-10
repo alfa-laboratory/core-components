@@ -24,34 +24,20 @@ import {
  * @returns {String}
  */
 
-const splitAmount = (
+export const splitAmount = (
   amount: string,
   partSize: number = 3,
   splitter: string = THINSP,
   splitFrom: number = 5
 ): string => {
-  const len = amount.length;
+  const splittingRegExp = `/\B(?=(\d{${partSize}})+(?!\d))/g/`;
 
   // Если длина суммы меньше требуемой, не форматируем сумму
-  if (len < splitFrom) {
+  if (amount.length < splitFrom) {
     return amount;
   }
 
-  return amount
-    .split('')
-    .reduce((acc: any, item: any, i: number) => {
-      const isLastItem = i !== len - 1;
-
-      // eslint-disable-next-line no-mixed-operators
-      const isStartOfPart = (
-        i - (len % partSize) + 1
-      ) % partSize === 0;
-
-      return isLastItem && isStartOfPart
-        ? [...acc, item, splitter]
-        : [...acc, item];
-    }, [])
-    .join('');
+  return amount.replace(splittingRegExp, splitter);
 };
 
 /**

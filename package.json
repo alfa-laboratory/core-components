@@ -13,6 +13,9 @@
     "url": "https://github.com/alfa-laboratory/core-components/issues"
   },
   "homepage": "https://github.com/alfa-laboratory/core-components#readme",
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "@storybook/addon-docs": "^5.2.8",
     "classnames": "^2.2.6",
