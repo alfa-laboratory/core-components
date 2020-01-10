@@ -30,14 +30,14 @@ export const splitAmount = (
   splitter: string = THINSP,
   splitFrom: number = 5
 ): string => {
-  const splittingRegExp = `/\B(?=(\d{${partSize}})+(?!\d))/g/`;
+  const splittingRegExp = `\\B(?=(\\d{${partSize}})+(?!\\d))`;
 
   // Если длина суммы меньше требуемой, не форматируем сумму
   if (amount.length < splitFrom) {
     return amount;
   }
 
-  return amount.replace(splittingRegExp, splitter);
+  return amount.replace(new RegExp(splittingRegExp, 'g'), splitter);
 };
 
 /**
