@@ -1,7 +1,6 @@
 export const THINSP = String.fromCharCode(8201); // &thinsp;
 export const AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR = ',';
 
-export const AMOUNT_MAJOR_PARTS_SPLITTER = THINSP;
 export const AMOUNT_MAJOR_PART_SIZE = 3;
 export const AMOUNT_SPLIT_CODE_FROM = 4;
 export const NEGATIVE_AMOUNT_SYMBOL = '−';

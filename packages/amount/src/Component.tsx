@@ -50,10 +50,10 @@ export const Amount: React.FC<Props> = ({
 
   return (
     <div className={className}>
-      {minorPart}
-      {AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR}
+      {majorPart}
+      {minorPart && AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR}
 
-      {!hideMinority && <span className={minorityClassName}>{majorPart}</span>}
+      {!hideMinority && <span className={minorityClassName}>{minorPart}</span>}
       <span>
         {THINSP}
         {currencySymbol}

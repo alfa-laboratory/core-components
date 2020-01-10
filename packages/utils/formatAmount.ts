@@ -7,7 +7,6 @@ import { getCurrencySymbol } from './getCurrencySymbol';
 import {
   THINSP,
   AMOUNT_MAJOR_PART_SIZE,
-  AMOUNT_MAJOR_PARTS_SPLITTER,
   NEGATIVE_AMOUNT_SYMBOL,
   AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR,
   AMOUNT_SPLIT_CODE_FROM,
@@ -40,10 +39,13 @@ const splitAmount = (
 
   return amount
     .split('')
-    .reduce((acc, item, i) => {
+    .reduce((acc: any, item: any, i: number) => {
       const isLastItem = i !== len - 1;
+
       // eslint-disable-next-line no-mixed-operators
-      const isStartOfPart = (i - (len % partSize) + 1) % partSize === 0;
+      const isStartOfPart = (
+        i - (len % partSize) + 1
+      ) % partSize === 0;
 
       return isLastItem && isStartOfPart
         ? [...acc, item, splitter]
@@ -93,7 +95,7 @@ export const formatAmount = ({
   const majorPartSplitted = splitAmount(
     majorPart,
     AMOUNT_MAJOR_PART_SIZE,
-    AMOUNT_MAJOR_PARTS_SPLITTER,
+    THINSP,
     AMOUNT_SPLIT_CODE_FROM
   );
 
@@ -126,7 +128,7 @@ export const formatAmount = ({
  * @returns {String} Форматированная сумма в виде строки
  */
 
-export const formatAmountToString = (amount: any) => {
+export const formatAmountToString = (amount: AmountType) => {
   const { value, currencySymbol } = formatAmount(amount);
 
   return `${value}${THINSP}${currencySymbol}`;
