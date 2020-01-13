@@ -2,15 +2,18 @@
   "name": "@alfa/core-components",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "classnames": "^2.2.6",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alfa-laboratory/core-components.git"
   },
+  "bugs": {
+    "url": "https://github.com/alfa-laboratory/core-components/issues"
+  },
+  "homepage": "https://github.com/alfa-laboratory/core-components#readme",
   "scripts": {
     "start": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "update-colors": "node ./tools/update-colors.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -26,6 +29,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.3.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -43,6 +52,7 @@
     "@storybook/preset-typescript": "^1.2.0",
     "@storybook/react": "^5.2.8",
     "@types/classnames": "^2.2.9",
+    "alfa-ui-primitives": "2.4.0",
     "babel-loader": "^8.0.6",
     "fork-ts-checker-webpack-plugin": "^4.0.0-beta.4",
     "react-docgen-typescript-loader": "^3.6.0",

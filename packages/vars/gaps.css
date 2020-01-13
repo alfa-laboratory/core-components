@@ -1,0 +1,15 @@
+:root {
+  --gap-2xs: 4px;
+  --gap-xs: 8px;
+  --gap-s: 12px;
+  --gap-m: 16px;
+  --gap-l: 20px;
+  --gap-xl: 24px;
+  --gap-2xl: 32px;
+  --gap-3xl: 40px;
+  --gap-4xl: 48px;
+  --gap-5xl: 64px;
+  --gap-6xl: 72px;
+  --gap-7xl: 96px;
+  --gap-8xl: 128px;
+}

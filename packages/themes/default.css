@@ -14,4 +14,7 @@
   --button-primary-hover-color: #ef3124;
   --button-primary-active-color: #d91d0b;
   --button-primary-disabled-color: #fbc2bd;
+
+  --font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Helvetica, sans-serif;
 }
