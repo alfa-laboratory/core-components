@@ -12,7 +12,7 @@ import { withDesign } from 'storybook-addon-designs';
  * Components
  */
 
-import { Button } from '../packages/button/src';
+import { Button } from './Component';
 
 export default {
   title: 'Common',
