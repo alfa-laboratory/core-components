@@ -5,8 +5,8 @@
 import React from 'react';
 
 import { action } from '@storybook/addon-actions';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { withDesign } from 'storybook-addon-designs';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
 /**
  * Components
@@ -20,7 +20,7 @@ export default {
   decorators: [withDesign, withKnobs],
 };
 
-export const myStory = () => (
+export const ButtonStory = () => (
   <Button
     type={select('Type', ['default', 'primary', 'secondary'], 'default')}
     title={text('Title', 'Button')}
@@ -37,7 +37,7 @@ export const myStory = () => (
   </Button>
 );
 
-myStory.story = {
+ButtonStory.story = {
   name: 'Button',
   parameters: {
     design: {
