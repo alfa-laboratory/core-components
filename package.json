@@ -12,7 +12,7 @@
   "homepage": "https://github.com/alfa-laboratory/core-components#readme",
   "scripts": {
     "start": "start-storybook -p 9009 -c .storybook",
-    "build-storybook": "build-storybook -s public",
+    "build-storybook": "build-storybook -o build",
     "update-colors": "node ./tools/update-colors.js"
   },
   "eslintConfig": {
@@ -39,7 +39,6 @@
   "devDependencies": {
     "@storybook/addon-actions": "^5.3.2",
     "@storybook/addon-knobs": "^5.3.2",
-    "@storybook/addon-links": "^5.3.2",
     "@storybook/addons": "^5.3.2",
     "@storybook/preset-typescript": "^1.2.0",
     "@storybook/react": "^5.3.2",

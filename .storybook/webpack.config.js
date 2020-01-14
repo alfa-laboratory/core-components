@@ -12,10 +12,6 @@ module.exports = ({ config }) => ({
             loader: 'babel-loader',
             options: {
               cacheDirectory: config.mode === 'development',
-              plugins: [
-                '@babel/plugin-proposal-object-rest-spread',
-                '@babel/plugin-proposal-class-properties',
-              ],
               presets: [
                 '@babel/react',
                 [
