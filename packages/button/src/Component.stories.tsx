@@ -22,18 +22,22 @@ export default {
 
 export const ButtonStory = () => (
   <Button
-    type={select('Type', ['default', 'primary', 'secondary'], 'default')}
-    title={text('Title', 'Button')}
+    type={select(
+      'Type',
+      ['primary', 'secondary', 'extra', 'dashed', 'link'],
+      'primary'
+    )}
+    title={text('Title', '')}
     disabled={boolean('Disabled', false)}
-    htmlType={(select('htmlType', ['button', 'reset', 'submit'], 'button'))}
+    htmlType={select('htmlType', ['button', 'reset', 'submit'], 'button')}
     loading={boolean('Loading', false)}
-    size={select('Size', ['xs', 's', 'm', 'l'], 'xs')}
+    size={select('Size', ['xs', 's', 'm', 'l'], 'm')}
     block={boolean('Block', false)}
     className={text('className', '')}
     dataTestId={text('dataTestId', '')}
     onClick={action('click')}
   >
-    {text('Label', 'Перевести')}
+    {text('Label', 'Оплатить')}
   </Button>
 );
 
@@ -42,7 +46,8 @@ ButtonStory.story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File',
+      // public link for testing
+      url: 'https://www.figma.com/file/cgApcObBwfNQzVVzJNqxoQ/Button',
     },
   },
 };

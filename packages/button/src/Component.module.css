@@ -1,13 +1,30 @@
 @import '../../themes/default.css';
 
-.component { 
-  border-color: transparent;
-  border-radius: 4px;
-  outline: none;
+.component {
+  padding: 0 24px;
+  line-height: 1.2;
+  font-weight: var(--button-font-weight);
+  border: 0;
+  border-radius: var(--button-border-radius);
+  transition: background 0.2s ease, border 0.2s ease;
+  box-sizing: border-box;
+  box-shadow: none;
+  user-select: none;
   cursor: pointer;
+
+  /* TODO default outline and themeable focus styles */
+  outline: none;
 }
 
+.component:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* Size */
+
 .xs {
+  padding: 0 12px;
   font-size: 14px;
   min-height: 32px;
   min-width: 88px;
@@ -31,42 +48,100 @@
   min-width: 160px;
 }
 
-.default {
-  color: var(--primary-color);
-  background-color: var(--button-default-base-color);
-}
-
-.default:hover {
-  color: var(--primary-color);
-  background-color: var(--button-default-hover-color);
-}
-
-.default:active {
-  color: var(--primary-color);
-  background-color: var(--button-default-active-color);
-}
-
-.default[disabled] {
-  color: var(--button-default-disabled-color);
-  background-color: var(--button-default-base-color);
-}
+/* Type */
 
 .primary {
-  color: var(--primary-invert-color);
+  color: var(--color-white);
   background-color: var(--button-primary-base-color);
 }
 
 .primary:hover {
-  background-color: var(--button-primary-hover-color);
+  background-color: color-mod(var(--button-primary-base-color) lightness(-5%));
 }
 
 .primary:active {
-  background-color: var(--button-primary-active-color);
+  background-color: color-mod(var(--button-primary-base-color) lightness(-10%));
 }
 
-.primary[disabled] {
-  background-color: var(--button-primary-disabled-color);
+.primary:disabled {
+  background-color: var(--button-primary-base-color);
 }
+
+.secondary {
+  color: var(--color-dark-indigo);
+  background-color: var(--button-secondary-base-color);
+  border: 1px solid var(--button-secondary-border-color);
+}
+
+.secondary:hover {
+  background-color: color-mod(
+    var(--button-secondary-base-color) lightness(-5%)
+  );
+  border-color: color-mod(var(--button-secondary-border-color) lightness(-10%));
+}
+
+.secondary:active {
+  background-color: color-mod(
+    var(--button-secondary-base-color) lightness(-10%)
+  );
+  border-color: color-mod(var(--button-secondary-border-color) lightness(-20%));
+}
+
+.secondary:disabled {
+  background-color: var(--button-secondary-base-color);
+  border-color: var(--button-secondary-border-color);
+}
+
+.extra {
+  color: var(--color-white);
+  background-color: var(--button-extra-base-color);
+}
+
+.extra:hover {
+  background-color: color-mod(var(--button-extra-base-color) lightness(-5%));
+}
+
+.extra:active {
+  background-color: color-mod(var(--button-extra-base-color) lightness(-10%));
+}
+
+.extra:disabled {
+  background-color: var(--button-extra-base-color);
+}
+
+.dashed {
+  color: var(--color-dark-indigo);
+  background-color: transparent;
+  border: 1px dashed var(--color-dark-indigo-60-flat);
+}
+
+.dashed:hover {
+  border-color: color-mod(var(--color-dark-indigo-60-flat) lightness(-10%));
+}
+
+.dashed:active {
+  border-color: color-mod(var(--color-dark-indigo-60-flat) lightness(-20%));
+}
+
+.dashed:disabled {
+  border-color: var(--color-dark-indigo-60-flat);
+}
+
+.link {
+  color: var(--color-dark-indigo);
+  background-color: transparent;
+}
+
+.link:hover {
+}
+
+.link:active {
+}
+
+.link:disabled {
+}
+
+/* Block */
 
 .block {
   width: 100%;

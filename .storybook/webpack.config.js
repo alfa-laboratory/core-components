@@ -47,13 +47,6 @@ module.exports = ({ config }) => ({
           },
           {
             loader: 'postcss-loader',
-            options: {
-              plugins: function() {
-                return [
-                  require('postcss-cssnext')(),
-                ];
-              },
-            },
           },
         ],
       },
