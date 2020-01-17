@@ -23,7 +23,7 @@
     "bootstrap": "lerna bootstrap --use-workspaces",
     "lerna-publish": "lerna changed && lerna publish",
     "lerna-step": "lerna exec -- cd .publish",
-    "publish:packages": "yarn build && lerna-step && yarn lerna-publish"
+    "publish:packages": "yarn build && yarn lerna-step && yarn lerna-publish"
   },
   "eslintConfig": {
     "extends": "react-app"
