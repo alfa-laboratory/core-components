@@ -21,8 +21,9 @@
     "build-storybook": "build-storybook -o build",
     "update-colors": "node ./tools/update-colors.js",
     "bootstrap": "lerna bootstrap --use-workspaces",
-    "update:version": "lerna version --no-push",
-    "lerna-publish": "lerna publish"
+    "update:version": "lerna version",
+    "lerna-publish": "lerna publish",
+    "publish:packages": "yarn build && yarn update:version && yarn lerna-publish"
   },
   "eslintConfig": {
     "extends": "react-app"
