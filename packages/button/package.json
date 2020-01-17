@@ -6,5 +6,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "gitHead": "af9a1987ac036831fac84089ed0c8cf7e9fe8da0"
+  "gitHead": "120290b7ddd4ad533ce1ac593bed015547fd1f44",
+  "publishConfig": {
+    "access": "public"
+  }
 }
