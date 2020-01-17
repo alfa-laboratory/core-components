@@ -46,7 +46,6 @@ export const Button: React.FC<Props> = function Button({
   block = false,
   className = '',
   dataTestId,
-
   onClick,
 }) {
   return (
