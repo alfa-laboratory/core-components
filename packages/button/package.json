@@ -11,6 +11,12 @@
   "files": [
     ".publish"
   ],
+  "directories": {
+    "lib": "src"
+  },
+  "lerna": {
+    "publishDir": ".publish"
+  },
   "publishConfig": {
     "access": "public",
     "directory": ".publish"
