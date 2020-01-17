@@ -17,7 +17,6 @@
 }
 
 .component:disabled {
-  opacity: 0.3;
   cursor: default;
 }
 
@@ -56,11 +55,11 @@
 }
 
 .primary:hover {
-  background-color: color-mod(var(--button-primary-base-color) lightness(-5%));
+  background-color: color-mod(var(--button-primary-base-color) lightness(-10%));
 }
 
 .primary:active {
-  background-color: color-mod(var(--button-primary-base-color) lightness(-10%));
+  background-color: color-mod(var(--button-primary-base-color) lightness(-20%));
 }
 
 .primary:disabled {
@@ -75,21 +74,22 @@
 
 .secondary:hover {
   background-color: color-mod(
-    var(--button-secondary-base-color) lightness(-5%)
-  );
-  border-color: color-mod(var(--button-secondary-border-color) lightness(-10%));
-}
-
-.secondary:active {
-  background-color: color-mod(
     var(--button-secondary-base-color) lightness(-10%)
   );
   border-color: color-mod(var(--button-secondary-border-color) lightness(-20%));
 }
 
+.secondary:active {
+  background-color: color-mod(
+    var(--button-secondary-base-color) lightness(-20%)
+  );
+  border-color: color-mod(var(--button-secondary-border-color) lightness(-40%));
+}
+
 .secondary:disabled {
-  background-color: var(--button-secondary-base-color);
-  border-color: var(--button-secondary-border-color);
+  color: color-mod(var(--color-dark-indigo) alpha(-70%));
+  background-color: var(--button-secondary-disabled-color);
+  border-color: color-mod(var(--button-secondary-border-color) alpha(-70%));
 }
 
 .extra {
@@ -98,11 +98,11 @@
 }
 
 .extra:hover {
-  background-color: color-mod(var(--button-extra-base-color) lightness(-5%));
+  background-color: color-mod(var(--button-extra-base-color) lightness(-10%));
 }
 
 .extra:active {
-  background-color: color-mod(var(--button-extra-base-color) lightness(-10%));
+  background-color: color-mod(var(--button-extra-base-color) lightness(-20%));
 }
 
 .extra:disabled {
@@ -116,11 +116,11 @@
 }
 
 .dashed:hover {
-  border-color: color-mod(var(--color-dark-indigo-60-flat) lightness(-10%));
+  border-color: color-mod(var(--color-dark-indigo-60-flat) lightness(-20%));
 }
 
 .dashed:active {
-  border-color: color-mod(var(--color-dark-indigo-60-flat) lightness(-20%));
+  border-color: color-mod(var(--color-dark-indigo-60-flat) lightness(-40%));
 }
 
 .dashed:disabled {

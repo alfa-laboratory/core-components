@@ -13,10 +13,12 @@
 
   --button-secondary-base-color: rgba(0, 0, 0, 0);
   --button-secondary-border-color: var(--color-dark-indigo-60-flat);
+  --button-secondary-disabled-color: var(--color-dark-indigo-15-flat);
   /* Click theme */
   /*
   --button-secondary-base-color: var(--color-dark-indigo-15-flat);
   --button-secondary-border-color: rgba(0, 0, 0, 0);
+  --button-secondary-disabled-color: var(--color-dark-indigo-15-flat);
   */
 
   --button-extra-base-color: rgba(11, 31, 53, 0.8);
