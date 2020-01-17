@@ -14,14 +14,15 @@
     "build:clean": "lerna exec --parallel -- rm -rf .publish",
     "build:types": "lerna exec --parallel -- tsc --emitDeclarationOnly --declaration --project tsconfig.json",
     "build:compile": "lerna exec --parallel -- NODE_ENV=production babel --root-mode upward --extensions '.ts,.tsx' src --out-dir .publish --copy-files --ignore src/Component.stories.tsx,src/Component.test.tsx",
-    "build": "yarn build:clean && yarn build:compile && yarn build:types",
+    "build:package": "lerna exec --parallel -- cp package.json .publish/package.json",
+    "build": "yarn build:clean && yarn build:compile && yarn build:types && yarn build:package",
     "test": "react-scripts test",
     "start": "start-storybook -p 9009 -c .storybook",
     "build-storybook": "build-storybook -o build",
     "update-colors": "node ./tools/update-colors.js",
     "bootstrap": "lerna bootstrap --use-workspaces",
     "lerna-publish": "lerna changed && lerna publish --contents .publish",
-    "publish:packages": "yarn build && yarn lerna-publish"
+    "publish:packages": "lerna version --no-push && yarn build && yarn lerna-publish"
   },
   "eslintConfig": {
     "extends": "react-app"

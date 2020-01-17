@@ -1,0 +1,91 @@
+0 silly argv { _: [ 'publish' ],
+0 silly argv   contents: '.publish',
+0 silly argv   composed: 'publish',
+0 silly argv   lernaVersion: '3.20.2',
+0 silly argv   '$0': '/Users/user/work/core-components/node_modules/.bin/lerna' }
+1 notice cli v3.20.2
+2 verbose rootPath /Users/user/work/core-components
+3 info versioning independent
+4 verbose session d5b8a9d437197436
+5 verbose user-agent lerna/3.20.2/node@v10.16.3+x64 (darwin)
+6 warn Yarn's registry proxy is broken, replacing with public npm registry
+7 warn If you don't have an npm token, you should exit and run `npm login`
+8 silly argv { _: [ 'publish' ],
+8 silly argv   contents: '.publish',
+8 silly argv   composed: 'publish',
+8 silly argv   lernaVersion: '3.20.2' }
+9 verbose rootPath /Users/user/work/core-components
+10 silly isAnythingCommitted
+11 verbose isAnythingCommitted 1
+12 silly currentBranch
+13 verbose currentBranch feat/publish-to-npm
+14 silly remoteBranchExists
+15 silly isBehindUpstream
+16 silly isBehindUpstream feat/publish-to-npm is behind origin/feat/publish-to-npm by 0 commit(s) and ahead by 2
+17 silly hasTags
+18 verbose hasTags true
+19 silly git-describe.sync "@alfalab/core-components-button@0.0.9-alpha.0-2-g3cc4c86" => {"lastTagName":"@alfalab/core-components-button@0.0.9-alpha.0","lastVersion":"0.0.9-alpha.0","refCount":"2","sha":"3cc4c86","isDirty":false}
+20 info Looking for changed packages since @alfalab/core-components-button@0.0.9-alpha.0
+21 silly checking diff packages/button copy
+22 silly no diff found in core-components-button-copy
+23 silly checking diff packages/button
+24 silly found diff in packages/button/package.json
+24 silly found diff in packages/button/src/Component.tsx
+25 verbose filtered diff [ 'packages/button/package.json',
+25 verbose filtered diff   'packages/button/src/Component.tsx' ]
+26 verbose updated @alfalab/core-components-button
+27 verbose git-describe undefined => "@alfalab/core-components-button@0.0.9-alpha.0-2-g3cc4c86"
+28 silly git-describe parsed => {"lastTagName":"@alfalab/core-components-button@0.0.9-alpha.0","lastVersion":"0.0.9-alpha.0","refCount":"2","sha":"3cc4c86","isDirty":false}
+29 info execute Skipping releases
+30 silly lifecycle No script for "preversion" in "@alfa/core-components", continuing
+31 silly lifecycle No script for "preversion" in "@alfalab/core-components-button", continuing
+32 silly lifecycle No script for "version" in "@alfalab/core-components-button", continuing
+33 silly lifecycle No script for "version" in "@alfa/core-components", continuing
+34 silly gitAdd [ '/Users/user/work/core-components/packages/button/package.json' ]
+35 silly gitCommit Publish
+35 silly gitCommit
+35 silly gitCommit  - @alfalab/core-components-button@0.0.10-alpha.0
+36 verbose git [ 'commit',
+36 verbose git   '-F',
+36 verbose git   '/private/var/folders/ch/336yfc414tq47ylm5pl0syjr0000gn/T/47c67b04-13f5-4e5f-a050-fb436bec76db/lerna-commit.txt' ]
+37 silly gitTag @alfalab/core-components-button@0.0.10-alpha.0
+38 verbose git [ 'tag',
+38 verbose git   '@alfalab/core-components-button@0.0.10-alpha.0',
+38 verbose git   '-m',
+38 verbose git   '@alfalab/core-components-button@0.0.10-alpha.0' ]
+39 silly lifecycle No script for "postversion" in "@alfalab/core-components-button", continuing
+40 silly lifecycle No script for "postversion" in "@alfa/core-components", continuing
+41 info git Pushing tags...
+42 silly gitPush origin feat/publish-to-npm
+43 info publish Publishing packages to npm...
+44 info Verifying npm credentials
+45 verbose Retrieving npm user profile
+46 http fetch GET 200 https://registry.npmjs.org/-/npm/v1/user 1078ms
+47 silly npm profile get received {"tfa":false,"name":"raylyanway","email":"raylyanway@gmail.com","email_verified":true,"created":"2018-10-02T20:26:10.469Z","updated":"2018-10-02T20:26:10.467Z","cidr_whitelist":null,"fullname":"ILYA RAYLYAN"}
+48 silly get npm username received {"username":"raylyanway","tfa":false,"name":"raylyanway","email":"raylyanway@gmail.com","email_verified":true,"created":"2018-10-02T20:26:10.469Z","updated":"2018-10-02T20:26:10.467Z","cidr_whitelist":null,"fullname":"ILYA RAYLYAN"}
+49 silly verifyNpmPackageAccess
+50 http fetch GET 200 https://registry.npmjs.org/-/org/raylyanway/package?format=cli 263ms
+51 info Checking two-factor auth mode
+52 verbose Retrieving npm user profile
+53 http fetch GET 200 https://registry.npmjs.org/-/npm/v1/user 850ms
+54 silly npm profile get received {"tfa":false,"name":"raylyanway","email":"raylyanway@gmail.com","email_verified":true,"created":"2018-10-02T20:26:10.469Z","updated":"2018-10-02T20:26:10.467Z","cidr_whitelist":null,"fullname":"ILYA RAYLYAN"}
+55 silly 2FA false
+56 warn ENOLICENSE Package @alfalab/core-components-button is missing a license.
+56 warn ENOLICENSE One way to fix this is to add a LICENSE.md file to the root of this repository.
+56 warn ENOLICENSE See https://choosealicense.com for additional guidance.
+57 silly getCurrentSHA
+58 verbose getCurrentSHA bdd5c9d73fed3c2449625edfa2e67ce4cdb6f813
+59 silly lifecycle No script for "prepublish" in "@alfa/core-components", continuing
+60 silly lifecycle No script for "prepare" in "@alfa/core-components", continuing
+61 silly lifecycle No script for "prepublishOnly" in "@alfa/core-components", continuing
+62 silly lifecycle No script for "prepack" in "@alfa/core-components", continuing
+63 verbose pack-directory packages/button/.publish
+64 silly lifecycle No script for "prepublish" in "@alfalab/core-components-button", continuing
+65 silly lifecycle No script for "prepare" in "@alfalab/core-components-button", continuing
+66 silly lifecycle No script for "prepublishOnly" in "@alfalab/core-components-button", continuing
+67 silly lifecycle No script for "prepack" in "@alfalab/core-components-button", continuing
+68 silly lifecycle No script for "postpack" in "@alfalab/core-components-button", continuing
+69 verbose packed packages/button/.publish
+70 silly lifecycle No script for "postpack" in "@alfa/core-components", continuing
+71 verbose publish @alfalab/core-components-button
+72 error
