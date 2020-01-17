@@ -8,8 +8,12 @@
   "license": "ISC",
   "main": ".publish/index.js",
   "module": "src/index.ts",
+  "files": [
+    ".publish"
+  ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": ".publish"
   },
   "peerDependencies": {
     "react": "^16.0.0"
