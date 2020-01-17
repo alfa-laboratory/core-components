@@ -11,9 +11,17 @@
   },
   "homepage": "https://github.com/alfa-laboratory/core-components#readme",
   "scripts": {
+    "build:clean": "lerna exec --parallel -- rm -rf .publish",
+    "build:types": "lerna exec --parallel -- tsc --emitDeclarationOnly --declaration --project tsconfig.json",
+    "build:compile": "lerna exec --parallel -- NODE_ENV=production babel --root-mode upward --extensions '.ts,.tsx' src --out-dir .publish --copy-files --ignore src/Component.stories.tsx,src/Component.test.tsx",
+    "build:package": "lerna exec --parallel -- cp package.json .publish/package.json",
+    "build": "yarn build:clean && yarn build:compile && yarn build:types && yarn build:package",
+    "test": "react-scripts test",
     "start": "start-storybook -p 9009 -c .storybook",
     "build-storybook": "build-storybook -o build",
-    "update-colors": "node ./tools/update-colors.js"
+    "update-colors": "node ./tools/update-colors.js",
+    "bootstrap": "lerna bootstrap --use-workspaces",
+    "update:version": "lerna version --no-push"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,6 +38,9 @@
       "last 1 safari version"
     ]
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "dependencies": {
     "classnames": "^2.2.6",
     "react": "^16.12.0",
@@ -37,6 +48,10 @@
     "react-scripts": "3.3.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
     "@storybook/addon-actions": "^5.3.2",
     "@storybook/addon-knobs": "^5.3.2",
@@ -52,12 +67,15 @@
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
     "alfa-ui-primitives": "2.4.0",
+    "babel-core": "7.0.0-bridge.0",
     "babel-loader": "^8.0.6",
     "fork-ts-checker-webpack-plugin": "^3.1.1",
+    "lerna": "^3.20.2",
     "postcss-cssnext": "^3.1.0",
     "react-docgen-typescript-loader": "^3.6.0",
     "storybook-addon-designs": "^5.1.1",
     "ts-loader": "^6.2.1",
-    "typescript": "~3.7.4"
+    "typescript": "~3.7.4",
+    "webpack": "^4.41.5"
   }
 }
