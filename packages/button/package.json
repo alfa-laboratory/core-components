@@ -6,9 +6,6 @@
   "license": "ISC",
   "main": "index.js",
   "name": "@alfalab/core-components-button",
-  "files": [
-    "package.json"
-  ],
   "publishConfig": {
     "access": "public"
   },

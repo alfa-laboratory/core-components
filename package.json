@@ -21,9 +21,8 @@
     "build-storybook": "build-storybook -o build",
     "update-colors": "node ./tools/update-colors.js",
     "bootstrap": "lerna bootstrap --use-workspaces",
-    "lerna-publish": "lerna changed && lerna publish --contents .publish",
     "prepublish": "yarn build",
-    "publish:packages": "yarn lerna-publish"
+    "publish:packages": "lerna changed && lerna publish --contents .publish"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -50,7 +49,7 @@
     "react-scripts": "3.3.0"
   },
   "devDependencies": {
-    "@alfalab/core-components-button": "^0.0.8-alpha.0",
+    "@alfalab/core-components-button": "^0.0.12-alpha.0",
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
