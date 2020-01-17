@@ -22,7 +22,7 @@
     "update-colors": "node ./tools/update-colors.js",
     "bootstrap": "lerna bootstrap --use-workspaces",
     "update:version": "lerna version",
-    "lerna-publish": "lerna changed && lerna publish from-git",
+    "lerna-publish": "lerna changed && lerna publish",
     "publish:packages": "yarn build && yarn update:version && yarn lerna-publish"
   },
   "eslintConfig": {
