@@ -4,7 +4,7 @@
   "files": [
     ".publish/"
   ],
-  "gitHead": "120290b7ddd4ad533ce1ac593bed015547fd1f44",
+  "gitHead": "840ab9be3701adaa2c1d5631dc3ec71810b376b2",
   "keywords": [],
   "license": "ISC",
   "main": "index.js",
