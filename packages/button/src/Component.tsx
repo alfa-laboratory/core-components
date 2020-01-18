@@ -12,7 +12,7 @@ import cn from 'classnames';
 import styles from './Component.module.css';
 
 /**
- * Types
+ * Types TODO
  */
 
 type Props = {
