@@ -1,13 +1,12 @@
 {
   "name": "@alfalab/core-components-button",
-  "version": "0.0.21-alpha.0",
+  "version": "0.0.24-alpha.1",
   "author": "",
   "description": "",
-  "gitHead": "521180419c5cc8999f2869edcf7c43d116b2eb6a",
+  "gitHead": "183c0c7b0497555065a3e3b25ee2747f8a448673",
   "keywords": [],
   "license": "ISC",
-  "main": ".publish/index.js",
-  "module": "src/index.ts",
+  "main": "index.js",
   "files": [
     ".publish/"
   ],
