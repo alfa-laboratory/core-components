@@ -1,10 +1,10 @@
 {
   "name": "core-components-button-copy",
-  "version": "0.0.13-alpha.0",
+  "version": "0.0.14-alpha.0",
   "description": "",
   "main": "index.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "gitHead": "dc7bf55f7d6ad3a866ec55b263df2859b3e12a9b"
+  "gitHead": "0ef579a5a4cc9db8fbd5f3d8bcf4e357fed3da69"
 }
