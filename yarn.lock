@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-"@alfalab/core-components-button@0.0.29-alpha.0":
-  version "0.0.29-alpha.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/core-components-button/-/core-components-button-0.0.29-alpha.0.tgz#1b32836425769dfa47fcaf965bf82be1e9b2012e"
-  integrity sha512-svhx7d6AbfF3KSQZH3pWVCxFa2Cgwa8xtNCyMzB8f8sPSfnahNaHUqUwcHob0dC4y8Pahd3DgDXEUAVaBJWVng==
-
 "@babel/cli@^7.8.3":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.8.3.tgz#121beb7c273e0521eb2feeb3883a2b7435d12328"
