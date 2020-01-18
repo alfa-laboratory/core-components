@@ -3,10 +3,11 @@
   "version": "0.0.21-alpha.0",
   "author": "",
   "description": "",
-  "gitHead": "bdd5c9d73fed3c2449625edfa2e67ce4cdb6f813",
+  "gitHead": "521180419c5cc8999f2869edcf7c43d116b2eb6a",
   "keywords": [],
   "license": "ISC",
-  "main": "index.js",
+  "main": ".publish/index.js",
+  "module": "src/index.ts",
   "files": [
     ".publish/"
   ],
