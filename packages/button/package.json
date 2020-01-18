@@ -8,7 +8,7 @@
   "license": "ISC",
   "main": "index.js",
   "files": [
-    ".publish/"
+    ".publish/*"
   ],
   "publishConfig": {
     "access": "public"
