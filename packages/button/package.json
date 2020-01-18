@@ -9,17 +9,10 @@
   "main": ".publish/index.js",
   "module": "src/index.ts",
   "files": [
-    ".publish"
+    ".publish/"
   ],
-  "directories": {
-    "lib": "src"
-  },
-  "lerna": {
-    "publishDir": ".publish"
-  },
   "publishConfig": {
-    "access": "public",
-    "directory": ".publish"
+    "access": "public"
   },
   "peerDependencies": {
     "react": "^16.0.0"
