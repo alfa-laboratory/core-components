@@ -11,10 +11,10 @@
   },
   "homepage": "https://github.com/alfa-laboratory/core-components#readme",
   "scripts": {
-    "build:clean": "lerna exec --parallel -- rm -rf .publish",
+    "build:clean": "lerna exec --parallel -- rm -rf dist",
     "build:types": "lerna exec --parallel -- tsc --emitDeclarationOnly --declaration --project tsconfig.json",
-    "build:compile": "lerna exec --parallel -- NODE_ENV=production babel --root-mode upward --extensions '.ts,.tsx' src -d .publish --copy-files --ignore src/Component.stories.tsx,src/Component.test.tsx",
-    "build:package": "lerna exec --parallel -- cp package.json .publish/package.json",
+    "build:compile": "lerna exec --parallel -- NODE_ENV=production babel --root-mode upward --extensions '.ts,.tsx' src -d dist --copy-files --ignore src/Component.stories.tsx,src/Component.test.tsx",
+    "build:package": "lerna exec --parallel -- cp package.json dist/package.json",
     "build": "yarn build:clean && yarn build:compile && yarn build:types && yarn build:package",
     "test": "react-scripts test",
     "start": "start-storybook -p 9009 -c .storybook",
@@ -22,7 +22,7 @@
     "update-colors": "node ./tools/update-colors.js",
     "bootstrap": "lerna bootstrap --use-workspaces",
     "prepublishOnly": "yarn build",
-    "publish:packages": "lerna publish",
+    "publish:packages": "lerna publish --contents dist",
     "postinstall": "yarn bootstrap"
   },
   "eslintConfig": {
@@ -50,7 +50,7 @@
     "react-scripts": "3.3.0"
   },
   "devDependencies": {
-    "@alfalab/core-components-button": "0.0.31-alpha.0",
+    "@alfalab/core-components-button": "0.0.33-alpha.0",
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
