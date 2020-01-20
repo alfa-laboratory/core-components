@@ -34,7 +34,7 @@ type Props = {
  * Expo
  */
 
-export const Button: React.FC<Props> = function Button({
+export const Button: React.FC<Props> = ({
   children,
   type = 'secondary',
   title = '',
@@ -48,7 +48,7 @@ export const Button: React.FC<Props> = function Button({
   dataTestId,
 
   onClick,
-}) {
+}) => {
   return (
     <button
       type={htmlType}
