@@ -1,12 +1,19 @@
 {
-  "name": "@alfa/core-components-button",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
+  "name": "@alfalab/core-components-button",
+  "version": "0.0.58-alpha.0",
   "author": "",
-  "license": "ISC"
+  "description": "",
+  "gitHead": "0782a5198eaf4b6f7d4600499e8a5b99ffcca73d",
+  "keywords": [],
+  "license": "ISC",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0"
+  }
 }

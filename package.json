@@ -11,9 +11,18 @@
   },
   "homepage": "https://github.com/alfa-laboratory/core-components#readme",
   "scripts": {
+    "build:clean": "lerna exec --parallel -- rm -rf dist",
+    "build:types": "lerna exec --parallel -- tsc --emitDeclarationOnly --declaration --project tsconfig.json",
+    "build:compile": "lerna exec --parallel -- NODE_ENV=production babel --root-mode upward --extensions '.ts,.tsx' src -d dist --copy-files --ignore src/Component.stories.tsx,src/Component.test.tsx",
+    "build": "yarn build:clean && yarn build:compile && yarn build:types",
+    "test": "react-scripts test",
     "start": "start-storybook -p 9009 -c .storybook",
     "build-storybook": "build-storybook -o build",
-    "update-colors": "node ./tools/update-colors.js"
+    "update-colors": "node ./tools/update-colors.js",
+    "bootstrap": "lerna bootstrap",
+    "prepublish": "yarn build",
+    "publish:packages": "lerna publish --no-push",
+    "postinstall": "yarn bootstrap"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,6 +46,9 @@
     "react-scripts": "3.3.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
     "@storybook/addon-actions": "^5.3.2",
     "@storybook/addon-knobs": "^5.3.2",
@@ -54,6 +66,7 @@
     "alfa-ui-primitives": "2.4.0",
     "babel-loader": "^8.0.6",
     "fork-ts-checker-webpack-plugin": "^3.1.1",
+    "lerna": "^3.20.2",
     "postcss-cssnext": "^3.1.0",
     "react-docgen-typescript-loader": "^3.6.0",
     "storybook-addon-designs": "^5.1.1",
