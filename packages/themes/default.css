@@ -1,3 +1,20 @@
 :root {
-  --primary-color: #ffffff;
+  --primary-color: #0b1f35;
+  --primary-invert-color: #ffffff;
+  --secondary-color: #dBdee1;
+  --brand-color: #f15045;
+
+  /** Button **/
+  --button-default-base-color: #dbdee1;
+  --button-default-hover-color: #ced2d7;
+  --button-default-active-color: #b6bcc3;
+  --button-default-disabled-color: #b6bcc3;
+
+  --button-primary-base-color: #f15045;
+  --button-primary-hover-color: #ef3124;
+  --button-primary-active-color: #d91d0b;
+  --button-primary-disabled-color: #fbc2bd;
+
+  --font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Helvetica, sans-serif;
 }

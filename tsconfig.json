@@ -1,22 +1,22 @@
 {
   "compilerOptions": {
-    "incremental": true,
-    "target": "esnext",
-    "module": "esnext",
-    "jsx": "react",
-    "rootDir": "./src",
-    "noEmit": true,
-
-    "strict": true,
-
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-
-    "baseUrl": "./src",
-    "typeRoots": ["./node_modules/@types", "./typings"],
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
-  },
-  "exclude": ["node_modules", "dist", "webpack.config.js", "jest.config.js"]
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react"
+  }
 }
