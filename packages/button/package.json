@@ -6,10 +6,7 @@
   "gitHead": "0782a5198eaf4b6f7d4600499e8a5b99ffcca73d",
   "keywords": [],
   "license": "ISC",
-  "main": "dist/index.js",
-  "files": [
-    "dist"
-  ],
+  "main": "index.js",
   "publishConfig": {
     "access": "public"
   },
