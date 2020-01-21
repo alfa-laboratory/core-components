@@ -13,9 +13,8 @@
   "scripts": {
     "build:clean": "lerna exec --parallel -- rm -rf dist",
     "build:types": "lerna exec --parallel -- tsc --emitDeclarationOnly --declaration --project tsconfig.json",
-    "build:compile": "lerna exec --parallel -- NODE_ENV=production babel --root-mode upward --extensions '.ts,.tsx' src -d dist --copy-files --ignore src/Component.stories.tsx,src/Component.test.tsx",
+    "build:compile": "lerna exec --parallel -- NODE_ENV=production babel --root-mode upward --extensions '.ts,.tsx' src -d dist --copy-files --ignore **/*.stories.tsx,**/*.test.tsx",
     "build": "yarn build:clean && yarn build:compile && yarn build:types",
-    "test": "react-scripts test",
     "start": "start-storybook -p 9009 -c .storybook",
     "build-storybook": "build-storybook -o build",
     "update-colors": "node ./tools/update-colors.js",
