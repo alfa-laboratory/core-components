@@ -13,7 +13,7 @@ module.exports = ({ config }) => ({
             options: {
               cacheDirectory: config.mode === 'development',
               presets: [
-                '@babel/react',
+                '@babel/preset-react',
                 [
                   '@babel/preset-typescript',
                   {
@@ -46,14 +46,7 @@ module.exports = ({ config }) => ({
             },
           },
           {
-            loader: 'postcss-loader',
-            options: {
-              plugins: function() {
-                return [
-                  require('postcss-cssnext')(),
-                ];
-              },
-            },
+            loader: 'postcss-loader'
           },
         ],
       },
