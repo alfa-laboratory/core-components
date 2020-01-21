@@ -17,7 +17,6 @@
     "build:postcss": "lerna exec --parallel -- postcss dist/*.css -d dist",
     "build:compile": "lerna exec --parallel -- NODE_ENV=production babel --root-mode upward --extensions '.ts,.tsx' src -d dist --copy-files --ignore **/*.stories.tsx,**/*.test.tsx",
     "build": "yarn build:clean && yarn build:compile && (yarn build:types & yarn build:postcss & yarn build:package)",
-    "test": "react-scripts test",
     "start": "start-storybook -p 9009 -c .storybook",
     "build-storybook": "build-storybook -o build",
     "update-colors": "node ./tools/update-colors.js",
