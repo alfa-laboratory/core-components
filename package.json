@@ -14,7 +14,7 @@
     "build:clean": "lerna exec --parallel -- rm -rf dist",
     "build:types": "lerna exec --parallel -- tsc --emitDeclarationOnly --declaration --project tsconfig.json",
     "build:compile": "lerna exec --parallel -- NODE_ENV=production babel --root-mode upward --extensions '.ts,.tsx' src -d dist --copy-files --ignore src/Component.stories.tsx,src/Component.test.tsx",
-    "build:package": "cp package.json dist/package.json",
+    "build:package": "lerna exec --parallel -- cp package.json dist/package.json",
     "build:postcss": "lerna exec --parallel -- postcss dist/*.css -d dist",
     "build": "yarn build:clean && yarn build:compile && yarn build:types && yarn build:postcss && yarn build:package",
     "test": "react-scripts test",
