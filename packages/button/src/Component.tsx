@@ -16,7 +16,7 @@ import styles from './Component.module.css';
  */
 
 type Props = {
-  type?: 'default' | 'primary' | 'secondary';
+  type?: 'primary' | 'secondary' | 'extra' | 'dashed' | 'link';
   title?: string;
   disabled?: boolean;
   htmlType?: 'button' | 'reset' | 'submit';
@@ -34,29 +34,35 @@ type Props = {
  * Expo
  */
 
-export const Button: React.FC<Props> = function Button({
+export const Button: React.FC<Props> = ({
   children,
-  type = 'default',
+  type = 'secondary',
   title = '',
   disabled = false,
   htmlType = 'button',
   icon,
   loading = false,
-  size = 'xs',
+  size = 'm',
   block = false,
   className = '',
   dataTestId,
 
   onClick,
-}) {
+}) => {
   return (
     <button
       type={htmlType}
       title={title}
       disabled={disabled}
-      className={cn(styles.component, styles[type], styles[size], {
-        [styles.block]: block,
-      }, className)}
+      className={cn(
+        styles.component,
+        styles[type],
+        styles[size],
+        {
+          [styles.block]: block,
+        },
+        className
+      )}
       onClick={onClick}
       data-test-id={dataTestId}
     >

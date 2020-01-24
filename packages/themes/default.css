@@ -1,20 +1,29 @@
+@import '../vars/colors.css';
+
 :root {
-  --primary-color: #0b1f35;
-  --primary-invert-color: #ffffff;
-  --secondary-color: #dBdee1;
-  --brand-color: #f15045;
-
-  /** Button **/
-  --button-default-base-color: #dbdee1;
-  --button-default-hover-color: #ced2d7;
-  --button-default-active-color: #b6bcc3;
-  --button-default-disabled-color: #b6bcc3;
-
-  --button-primary-base-color: #f15045;
-  --button-primary-hover-color: #ef3124;
-  --button-primary-active-color: #d91d0b;
-  --button-primary-disabled-color: #fbc2bd;
+  --primary-color: var(--color-dark-indigo);
+  --secondary-color: var(--color-dark-indigo-60-flat);
 
   --font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto,
     'Helvetica Neue', Helvetica, sans-serif;
+
+  /* Button */
+
+  --button-primary-base-color: var(--color-red-brand);
+
+  --button-secondary-base-color: rgba(0, 0, 0, 0);
+  --button-secondary-border-color: var(--color-dark-indigo-60-flat);
+  --button-secondary-disabled-color: var(--color-dark-indigo-15-flat);
+  /* Click theme */
+  /*
+  --button-secondary-base-color: var(--color-dark-indigo-15-flat);
+  --button-secondary-border-color: rgba(0, 0, 0, 0);
+  --button-secondary-disabled-color: var(--color-dark-indigo-15-flat);
+  */
+
+  --button-extra-base-color: rgba(11, 31, 53, 0.8);
+
+  --button-border-radius: 4px;
+  --button-font-weight: 600;
+  --button-font-family: var(--font-family);
 }
