@@ -13,7 +13,7 @@ module.exports = ({ config }) => ({
             options: {
               cacheDirectory: config.mode === 'development',
               presets: [
-                '@babel/react',
+                '@babel/preset-react',
                 [
                   '@babel/preset-typescript',
                   {

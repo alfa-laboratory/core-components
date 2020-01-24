@@ -17,6 +17,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "react",
+    "types": [
+      "./typings/module"
+    ],
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ]
   }
 }
