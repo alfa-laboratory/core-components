@@ -47,7 +47,7 @@ export const Button: React.FC<Props> = ({
   className = '',
   dataTestId,
 
-  onClick,
+  onClick
 }) => {
   return (
     <button
