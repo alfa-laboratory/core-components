@@ -15,7 +15,6 @@
     "start": "start-storybook -p 9009 -c .storybook",
     "build-storybook": "build-storybook -o build",
     "update-colors": "node ./tools/update-colors.js",
-    "postinstall": "lerna bootstrap",
     "pub": "./bin/publish.sh"
   },
   "eslintConfig": {
