@@ -47,6 +47,7 @@
     "@storybook/addon-actions": "^5.3.8",
     "@storybook/addon-knobs": "^5.3.8",
     "@storybook/addons": "^5.3.8",
+    "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/preset-typescript": "^1.2.0",
     "@storybook/react": "^5.3.8",
     "@testing-library/jest-dom": "^5.0.2",
