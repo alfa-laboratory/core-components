@@ -1,7 +1,7 @@
 {
-  "name": "@alfa/core-components",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@alfalab/core-components",
+  "version": "0.0.2",
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alfa-laboratory/core-components.git"
@@ -11,19 +11,11 @@
   },
   "homepage": "https://github.com/alfa-laboratory/core-components#readme",
   "scripts": {
-    "build:clean": "lerna exec --parallel -- rm -rf dist",
-    "build:types": "lerna exec --parallel -- tsc --p tsconfig.json",
-    "build:package": "lerna exec --parallel -- cp package.json dist/package.json",
-    "build:postcss": "lerna exec --parallel -- postcss dist/*.css -d dist",
-    "build:compile": "lerna exec --parallel -- NODE_ENV=production babel --root-mode upward --extensions '.ts,.tsx' src -d dist --copy-files --ignore **/*.stories.tsx,**/*.test.tsx",
-    "build": "yarn build:clean && yarn build:compile && (yarn build:types & yarn build:postcss & yarn build:package)",
+    "build": "./bin/build.sh",
     "start": "start-storybook -p 9009 -c .storybook",
     "build-storybook": "build-storybook -o build",
     "update-colors": "node ./tools/update-colors.js",
-    "bootstrap": "lerna bootstrap",
-    "prepublish": "yarn build",
-    "publish:packages": "lerna publish --contents dist --no-push",
-    "postinstall": "yarn bootstrap"
+    "pub": "./bin/publish.sh"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -76,5 +68,8 @@
     "storybook-addon-designs": "^5.1.2",
     "ts-loader": "^6.2.1",
     "typescript": "~3.7.5"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
