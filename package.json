@@ -15,10 +15,11 @@
     "start": "start-storybook -p 9009 -c .storybook",
     "build-storybook": "build-storybook -o build",
     "update-colors": "node ./tools/update-colors.js",
-    "pub": "./bin/publish.sh"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "pub": "./bin/publish.sh",
+    "lint": "yarn lint:css && yarn lint:js",
+    "lint:css": "stylelint ./packages/**/*.css",
+    "lint:js": "eslint ./ --ext .ts,.tsx,.js,.jsx",
+    "test": "yarn lint"
   },
   "browserslist": {
     "production": [
@@ -34,10 +35,7 @@
     ]
   },
   "dependencies": {
-    "classnames": "^2.2.6",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0"
+    "classnames": "^2.2.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
@@ -59,18 +57,49 @@
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
     "alfa-ui-primitives": "2.4.3",
+    "arui-presets-lint": "^2.0.1",
+    "arui-presets-ts": "^5.0.0",
     "babel-loader": "^8.0.6",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-airbnb-typescript": "^7.0.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-chai-friendly": "^0.5.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "eslint-plugin-sort-class-members": "^1.6.0",
     "fork-ts-checker-webpack-plugin": "^4.0.2",
+    "husky": "^4.2.1",
     "lerna": "^3.20.2",
     "postcss-cli": "^7.1.0",
     "postcss-import": "^12.0.1",
     "postcss-preset-env": "^6.7.0",
     "react-docgen-typescript-loader": "^3.6.0",
+    "react-scripts": "^3.3.1",
     "storybook-addon-designs": "^5.1.2",
+    "stylelint": "^13.1.0",
+    "stylelint-config-standard": "^20.0.0",
     "ts-loader": "^6.2.1",
     "typescript": "~3.7.5"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "peerDependencies": {
+    "react": ">=16.12.0",
+    "react-dom": ">=16.12.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "./node_modules/arui-presets-lint/commitlint"
+    ]
   }
 }

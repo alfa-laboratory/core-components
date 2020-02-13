@@ -11,5 +11,4 @@ import { CURRENCY_CODES } from '../configs/currencyCodes';
  * @returns {String}
  */
 
-export const getCurrencySymbol = (currencyCode: string): string =>
-  CURRENCY_CODES[currencyCode] ?? currencyCode;
+export const getCurrencySymbol = (currencyCode: string): string => CURRENCY_CODES[currencyCode] ?? currencyCode;
