@@ -35,6 +35,8 @@
     ]
   },
   "dependencies": {
+    "@storybook/preset-create-react-app": "^1.5.2",
+    "@types/jest": "^25.1.2",
     "classnames": "^2.2.6"
   },
   "devDependencies": {
@@ -45,14 +47,12 @@
     "@storybook/addon-actions": "^5.3.8",
     "@storybook/addon-knobs": "^5.3.8",
     "@storybook/addons": "^5.3.8",
-    "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/preset-typescript": "^1.2.0",
     "@storybook/react": "^5.3.8",
     "@testing-library/jest-dom": "^5.0.2",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^8.0.4",
     "@types/classnames": "^2.2.9",
-    "@types/jest": "^24.9.1",
     "@types/node": "^13.5.0",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
