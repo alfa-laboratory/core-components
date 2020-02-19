@@ -1,3 +1,9 @@
+/**
+ * !!!
+ * Если что-то сломается в этом скрипте CI об этом не узнает и завершиться успешно!
+ * !!!
+ */
+
 /* eslint-disable no-console */
 const shell = require('shelljs');
 const parseGitUrl = require('git-url-parse');
