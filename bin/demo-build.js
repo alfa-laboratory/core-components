@@ -18,7 +18,7 @@ const execOptions = {
     fatal: true
 };
 /** Temporary dir for builded file = last git commit hash */
-const tempOutputDir = shell.exec('git rev-parse HEAD', execOptions).stdout;
+const tempOutputDir = shell.exec('git rev-parse HEAD', execOptions).stdout.trim();
 /** Current git branch */
 const sourceBranch = shell.exec('git rev-parse --abbrev-ref HEAD', execOptions).stdout.trim();
 /** Git remote url */
@@ -28,6 +28,7 @@ const gitUrl = shell.exec(
 ).stdout.trim();
 /** Parsed git url */
 const parsedGitUrl = parseGitUrl(gitUrl);
+const gitPagesUrl = `https://${parsedGitUrl.owner}.github.io/${parsedGitUrl.name}`;
 
 console.log('Publish storybook demo for github');
 console.log('=> Build storybook');
@@ -70,7 +71,7 @@ shell.exec(`git commit -m "${defaultConfig.commitMessage}"`, execOptions);
 
 // log output url
 if (sourceBranch === 'master') {
-    console.log(`=> Storybook deployed to: https://${parsedGitUrl.owner}.github.io/${parsedGitUrl.name}/master/`);
+    console.log(`=> Storybook deployed to: ${gitPagesUrl}/master/`);
 } else {
-    console.log(`=> Storybook deployed to: https://${parsedGitUrl.owner}.github.io/${parsedGitUrl.name}/${tempOutputDir}/`);
+    console.log(`=> Storybook deployed to: ${gitPagesUrl}/${tempOutputDir}/`);
 }
