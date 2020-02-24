@@ -35,39 +35,39 @@ type Props = {
  */
 
 export const Button: React.FC<Props> = ({
-    children,
-    type = 'secondary',
-    title = '',
-    disabled = false,
-    htmlType = 'button',
-    icon,
-    // loading = false,
-    size = 'm',
-    block = false,
-    className = '',
-    dataTestId,
+  children,
+  type = 'secondary',
+  title = '',
+  disabled = false,
+  htmlType = 'button',
+  icon,
+  // loading = false,
+  size = 'm',
+  block = false,
+  className = '',
+  dataTestId,
 
-    onClick
+  onClick
 }) => (
-    // TODO need work
-    // eslint-disable-next-line react/button-has-type
-    <button
-        type={ htmlType }
-        title={ title }
-        disabled={ disabled }
-        className={ cn(
-            styles.component,
-            styles[type],
-            styles[size],
-            {
-                [styles.block]: block
-            },
-            className
-        ) }
-        onClick={ onClick }
-        data-test-id={ dataTestId }
-    >
-        { icon && icon }
-        { children }
-    </button>
+  // TODO need work
+  // eslint-disable-next-line react/button-has-type
+  <button
+    type={htmlType}
+    title={title}
+    disabled={disabled}
+    className={cn(
+      styles.component,
+      styles[type],
+      styles[size],
+      {
+        [styles.block]: block
+      },
+      className
+    )}
+    onClick={onClick}
+    data-test-id={dataTestId}
+  >
+    {icon && icon}
+    {children}
+  </button>
 );

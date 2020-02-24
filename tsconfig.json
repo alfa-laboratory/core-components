@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -18,13 +14,13 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react",
-    "types": [
-      "./typings/module"
-    ],
+    "typeRoots": ["./typings", "./node_modules/@types"],
     "plugins": [
       {
         "name": "typescript-plugin-css-modules"
       }
     ]
-  }
+  },
+  "include": ["packages", "typings"],
+  "exclude": ["node_modules", "build", "dist"]
 }

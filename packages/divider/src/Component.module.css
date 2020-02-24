@@ -1,0 +1,31 @@
+@import '../../vars/colors.css';
+
+:root {
+  --divider-primary-color: var(--color-dark-indigo-15);
+  --divider-accent-color: var(--color-red-brand);
+}
+
+.divider {
+  background-color: var(--divider-primary-color);
+}
+
+.horizontal {
+  height: 1px;
+}
+
+.horizontal.accent {
+  height: 3px;
+}
+
+.vertical {
+  width: 1px;
+  height: 100%;
+}
+
+.verticat.accent {
+  width: 3px;
+}
+
+.accent {
+  background-color: var(--divider-accent-color);
+}

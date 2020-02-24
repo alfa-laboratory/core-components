@@ -15,8 +15,9 @@ import { formatAmount } from '../../utils';
  */
 
 import {
-    AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR,
-    THINSP, CURRENCY_CODES
+  AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR,
+  THINSP,
+  CURRENCY_CODES
 } from '../../configs/currencyCodes';
 
 /**
@@ -38,31 +39,31 @@ type Props = {
  */
 
 export const Amount: React.FC<Props> = ({
-    value,
-    minority,
-    hideMinority = false,
+  value,
+  minority,
+  hideMinority = false,
 
-    className,
-    minorityClassName
+  className,
+  minorityClassName
 }) => {
-    const { majorPart, minorPart, currencySymbol } = formatAmount({
-        value,
-        currency: {
-            code: CURRENCY_CODES.RUR, // TODO need work
-            minority
-        }
-    });
+  const { majorPart, minorPart, currencySymbol } = formatAmount({
+    value,
+    currency: {
+      code: CURRENCY_CODES.RUR, // TODO need work
+      minority
+    }
+  });
 
-    return (
-        <div className={ className }>
-            { majorPart }
-            { !hideMinority && minorPart && AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR }
+  return (
+    <div className={className}>
+      {majorPart}
+      {!hideMinority && minorPart && AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR}
 
-            { !hideMinority && <span className={ minorityClassName }>{ minorPart }</span> }
-            <span>
-                { THINSP }
-                { currencySymbol }
-            </span>
-        </div>
-    );
+      {!hideMinority && <span className={minorityClassName}>{minorPart}</span>}
+      <span>
+        {THINSP}
+        {currencySymbol}
+      </span>
+    </div>
+  );
 };
