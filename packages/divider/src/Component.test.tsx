@@ -10,7 +10,8 @@ import { render } from '@testing-library/react';
  */
 
 import { Divider, DividerProps } from './index';
-import styles from './Component.module.css';
+
+const styles = require('./Component.module.css');
 
 describe('Divider', () => {
   it('should have a default orientation', () => {

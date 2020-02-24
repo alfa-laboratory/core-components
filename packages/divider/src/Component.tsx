@@ -16,14 +16,17 @@ import styles from './Component.module.css';
  */
 
 export type DividerProps = {
+  /** Кастомный класс */
   className?: string;
+  /** Ориентация разделителя */
   orientation?: 'horizontal' | 'vertical';
+  /** Делает разделитель более толстым */
   accent?: boolean;
-
   /** Id компонента для тестов */
   dataTestId?: string;
 };
 
+/** Разделитель */
 export const Divider: React.FC<DividerProps> = ({
   orientation = 'horizontal',
   accent = false,
