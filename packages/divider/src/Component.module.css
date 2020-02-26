@@ -1,0 +1,12 @@
+@import '../../vars/colors.css';
+
+:root {
+  --divider-primary-color: var(--color-dark-indigo-15);
+  --divider-accent-color: var(--color-red-brand);
+}
+
+.component {
+  background-color: var(--divider-primary-color);
+  border-style: unset;
+  height: 1px;
+}
