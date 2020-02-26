@@ -4,7 +4,6 @@
 
 import React from 'react';
 
-import { withDesign } from 'storybook-addon-designs';
 import { withKnobs } from '@storybook/addon-knobs';
 
 /**
@@ -16,7 +15,7 @@ import { Divider } from './Component';
 export default {
   title: 'Common|Divider',
   component: Divider,
-  decorators: [withDesign, withKnobs],
+  decorators: [withKnobs],
 };
 
 export const Basic = () => (
