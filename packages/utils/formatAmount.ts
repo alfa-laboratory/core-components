@@ -5,11 +5,11 @@
 import { getCurrencySymbol } from './getCurrencySymbol';
 
 import {
-    THINSP,
-    AMOUNT_MAJOR_PART_SIZE,
-    NEGATIVE_AMOUNT_SYMBOL,
-    AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR,
-    AMOUNT_SPLIT_CODE_FROM
+  THINSP,
+  AMOUNT_MAJOR_PART_SIZE,
+  NEGATIVE_AMOUNT_SYMBOL,
+  AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR,
+  AMOUNT_SPLIT_CODE_FROM
 } from '../configs/currencyCodes';
 
 /**
@@ -25,19 +25,19 @@ import {
  */
 
 export const splitAmount = (
-    amount: string,
-    partSize: number = 3,
-    splitter: string = THINSP,
-    splitFrom: number = 5
+  amount: string,
+  partSize: number = 3,
+  splitter: string = THINSP,
+  splitFrom: number = 5
 ): string => {
-    const splittingRegExp = `\\B(?=(\\d{${partSize}})+(?!\\d))`;
+  const splittingRegExp = `\\B(?=(\\d{${partSize}})+(?!\\d))`;
 
-    // Если длина суммы меньше требуемой, не форматируем сумму
-    if (amount.length < splitFrom) {
-        return amount;
-    }
+  // Если длина суммы меньше требуемой, не форматируем сумму
+  if (amount.length < splitFrom) {
+    return amount;
+  }
 
-    return amount.replace(new RegExp(splittingRegExp, 'g'), splitter);
+  return amount.replace(new RegExp(splittingRegExp, 'g'), splitter);
 };
 
 /**
@@ -68,35 +68,35 @@ type AmountType = {
 };
 
 export const formatAmount = ({
-    value,
-    currency: { code, minority }
+  value,
+  currency: { code, minority }
 }: AmountType) => {
-    minority = minority === 0 ? 1 : minority; // because Math.log(0) => -Infinity
+  minority = minority === 0 ? 1 : minority; // because Math.log(0) => -Infinity
 
-    const fractionDigits = Math.log(minority) * Math.LOG10E;
-    const valueAbsStr = (Math.abs(value) / minority).toFixed(fractionDigits);
+  const fractionDigits = Math.log(minority) * Math.LOG10E;
+  const valueAbsStr = (Math.abs(value) / minority).toFixed(fractionDigits);
 
-    const [majorPart, minorPart] = valueAbsStr.split('.');
+  const [majorPart, minorPart] = valueAbsStr.split('.');
 
-    const majorPartSplitted = splitAmount(
-        majorPart,
-        AMOUNT_MAJOR_PART_SIZE,
-        THINSP,
-        AMOUNT_SPLIT_CODE_FROM
-    );
+  const majorPartSplitted = splitAmount(
+    majorPart,
+    AMOUNT_MAJOR_PART_SIZE,
+    THINSP,
+    AMOUNT_SPLIT_CODE_FROM
+  );
 
-    const majorPartFormatted = value < 0 ? NEGATIVE_AMOUNT_SYMBOL + majorPartSplitted : majorPartSplitted;
+  const majorPartFormatted = value < 0 ? NEGATIVE_AMOUNT_SYMBOL + majorPartSplitted : majorPartSplitted;
 
-    const formattedValueStr = minorPart
-        ? majorPartFormatted + AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR + minorPart
-        : majorPartFormatted;
+  const formattedValueStr = minorPart
+    ? majorPartFormatted + AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR + minorPart
+    : majorPartFormatted;
 
-    return {
-        majorPart: majorPartFormatted,
-        minorPart,
-        value: formattedValueStr,
-        currencySymbol: getCurrencySymbol(code)
-    };
+  return {
+    majorPart: majorPartFormatted,
+    minorPart,
+    value: formattedValueStr,
+    currencySymbol: getCurrencySymbol(code)
+  };
 };
 
 /**
@@ -114,7 +114,7 @@ export const formatAmount = ({
  */
 
 export const formatAmountToString = (amount: AmountType) => {
-    const { value, currencySymbol } = formatAmount(amount);
+  const { value, currencySymbol } = formatAmount(amount);
 
-    return `${value}${THINSP}${currencySymbol}`;
+  return `${value}${THINSP}${currencySymbol}`;
 };
