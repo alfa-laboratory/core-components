@@ -16,11 +16,13 @@ import styles from './Component.module.css';
  */
 
 type Props = {
-  type?: 'primary' | 'secondary' | 'extra' | 'dashed' | 'link';
+  type?: 'primary' | 'secondary' | 'outlined' | 'link' | 'ghost';
   title?: string;
   disabled?: boolean;
   htmlType?: 'button' | 'reset' | 'submit';
+  href?: string;
   icon?: React.ReactNode;
+  rightIcon?: boolean;
   loading?: boolean;
   size?: 'xs' | 's' | 'm' | 'l';
   block?: boolean;
@@ -35,39 +37,57 @@ type Props = {
  */
 
 export const Button: React.FC<Props> = ({
-    children,
-    type = 'secondary',
-    title = '',
-    disabled = false,
-    htmlType = 'button',
-    icon,
-    // loading = false,
-    size = 'm',
-    block = false,
-    className = '',
-    dataTestId,
+  children,
+  type = 'secondary',
+  title,
+  disabled = false,
+  htmlType = 'button',
+  href,
+  icon,
+  rightIcon = false,
+  // loading = false,
+  size = 'm',
+  block = false,
+  className = '',
+  dataTestId,
 
-    onClick
-}) => (
-    // TODO need work
-    // eslint-disable-next-line react/button-has-type
-    <button
-        type={ htmlType }
-        title={ title }
-        disabled={ disabled }
-        className={ cn(
-            styles.component,
-            styles[type],
-            styles[size],
-            {
-                [styles.block]: block
-            },
-            className
-        ) }
-        onClick={ onClick }
-        data-test-id={ dataTestId }
-    >
-        { icon && icon }
-        { children }
+  onClick,
+}) => {
+  const buttonProps = {
+    title,
+    className: cn(
+      styles.component,
+      styles[type],
+      styles[size],
+      {
+        [styles.block]: block,
+        [styles['icon-only']]: !children,
+      },
+      className
+    ),
+    onClick,
+    'data-test-id': dataTestId || null,
+  };
+
+  const buttonChildren = (
+    <>
+      {!rightIcon && icon && <span className={cn(styles.icon)}>{icon}</span>}
+      {children && <span className={cn(styles.text)}>{children}</span>}
+      {rightIcon && icon && <span className={cn(styles.icon)}>{icon}</span>}
+    </>
+  );
+
+  if (href) {
+    return (
+      <a {...buttonProps} href={href}>
+        {buttonChildren}
+      </a>
+    );
+  }
+
+  return (
+    <button {...buttonProps} type={htmlType} disabled={disabled}>
+      {buttonChildren}
     </button>
-);
+  );
+};

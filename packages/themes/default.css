@@ -1,32 +1,12 @@
 @import '../vars/colors.css';
 
 :root {
-  --primary-color: var(--color-dark-indigo);
-  --secondary-color: var(--color-dark-indigo-60-flat);
-  --font-family:
-    BlinkMacSystemFont,
-    -apple-system,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Helvetica,
-    sans-serif;
+  --text-primary-color: var(--color-dark-indigo);
+  --text-secondary-color: var(--color-dark-indigo-60-flat);
+  --text-tertiary-color: var(--color-dark-indigo-30-flat);
 
-  /* Button */
+  --border-radius: 4px;
 
-  --button-primary-base-color: var(--color-red-brand);
-  --button-secondary-base-color: rgba(0, 0, 0, 0);
-  --button-secondary-border-color: var(--color-dark-indigo-60-flat);
-  --button-secondary-disabled-color: var(--color-dark-indigo-15-flat);
-
-  /* Click theme
-  --button-secondary-base-color: var(--color-dark-indigo-15-flat);
-  --button-secondary-border-color: rgba(0, 0, 0, 0);
-  --button-secondary-disabled-color: var(--color-dark-indigo-15-flat);
-  */
-
-  --button-extra-base-color: rgba(11, 31, 53, 0.8);
-  --button-border-radius: 4px;
-  --button-font-weight: 600;
-  --button-font-family: var(--font-family);
+  --font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Helvetica, sans-serif;
 }
