@@ -71,16 +71,14 @@ export const Input: React.FC<InputProps> = ({
                 onChange={ onChange }
                 onFocus={ onFocus }
                 onBlur={ onBlur }
-            />
-
-            { hasSub && (
-                <span className={ cn(styles.sub) }>
-                    { (hasHint && !hasError) && hint }
-                    { hasError && error }
-                </span>
-            ) }
-
-            { children }
+            >
+                { hasSub && (
+                    <span className={ cn(styles.sub) }>
+                        { (hasHint && !hasError) && hint }
+                        { hasError && error }
+                    </span>
+                ) }
+            </BaseInput>
         </div>
     );
 };
