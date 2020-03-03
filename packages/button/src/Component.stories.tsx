@@ -35,7 +35,7 @@ export const ButtonStory = () => (
         <Button
           type={select(
             'Type',
-            ['primary', 'secondary', 'outlined', 'link', 'icon', 'ghost'],
+            ['primary', 'secondary', 'outlined', 'link', 'ghost'],
             'primary'
           )}
           title={text('Title', '')}
