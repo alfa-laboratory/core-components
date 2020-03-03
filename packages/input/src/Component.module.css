@@ -1,0 +1,35 @@
+@import '../../themes/default.css';
+
+
+:root {
+    --input-font-family: var(--font-family);
+    --input-hint-color: var(--color-dark-indigo-60-flat);
+    --input-error-color: var(--color-red-brand-85-flat);
+}
+
+.component {
+    max-width: 310px;
+    font-family: var(--input-font-family);
+    box-sizing: border-box;
+}
+
+.input {}
+
+.sub {
+    display: block;
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: var(--gap-2xs);
+    color: var(--input-hint-color);
+}
+
+.has-error  .sub {
+    color: var(--input-error-color);
+}
+
+.has-error .inner {
+    box-shadow: inset 0 -1px var(--input-error-color);
+    border-bottom-color: var(--input-error-color);
+}
+
+.left-addons {}
