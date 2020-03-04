@@ -16,6 +16,9 @@ module.exports = {
         rules: {
             'import/no-extraneous-dependencies': 0,
             'react/prop-types': 'off',
+            'react/jsx-indent': 0,
+            'react/jsx-indent-props': 0,
+            indent: ['error', 2, { SwitchCase: 1 }],
         }
     }]
 };

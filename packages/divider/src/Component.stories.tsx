@@ -15,7 +15,7 @@ import { Divider } from './Component';
 export default {
   title: 'Common|Divider',
   component: Divider,
-  decorators: [withKnobs],
+  decorators: [withKnobs]
 };
 
 export const Basic = () => (
