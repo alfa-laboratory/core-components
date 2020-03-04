@@ -78,8 +78,8 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(({
     dataTestId
 }, ref) => {
     const [focused, setFocused] = useState(false);
-    const [filled, setFilled] = useState(!!value);
 
+    const filled = !!value;
     const hasLabel = !!label;
 
     function handleInputFocus(e: React.FocusEvent<HTMLInputElement>) {
@@ -99,8 +99,6 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(({
     }
 
     function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
-        setFilled(!!e.target.value);
-
         if (onChange) {
             onChange(e);
         }
