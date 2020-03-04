@@ -19,6 +19,8 @@ module.exports = {
         'react/prop-types': 'off',
         'react/jsx-indent': 0,
         'react/jsx-indent-props': 0,
+        'react/button-has-type': 'off',
+        'react/jsx-props-no-spreading': 'off',
         indent: ['error', 2, { SwitchCase: 1 }],
       },
     },

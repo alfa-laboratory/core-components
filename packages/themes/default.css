@@ -4,9 +4,13 @@
   --text-primary-color: var(--color-dark-indigo);
   --text-secondary-color: var(--color-dark-indigo-60-flat);
   --text-tertiary-color: var(--color-dark-indigo-30-flat);
-
   --border-radius: 4px;
-
-  --font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto,
-    'Helvetica Neue', Helvetica, sans-serif;
+  --font-family:
+    BlinkMacSystemFont,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Helvetica,
+    sans-serif;
 }

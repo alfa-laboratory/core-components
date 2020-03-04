@@ -51,7 +51,7 @@ export const Button: React.FC<Props> = ({
   className = '',
   dataTestId,
 
-  onClick,
+  onClick
 }) => {
   const buttonProps = {
     title,
@@ -61,37 +61,37 @@ export const Button: React.FC<Props> = ({
       styles[size],
       {
         [styles.block]: block,
-        [styles['icon-only']]: !children,
+        [styles['icon-only']]: !children
       },
       className
     ),
     onClick,
-    'data-test-id': dataTestId || null,
+    'data-test-id': dataTestId || null
   };
 
   const buttonChildren = (
     <>
-      {iconPosition === 'left' && icon && (
-        <span className={cn(styles.icon)}>{icon}</span>
-      )}
-      {children && <span className={cn(styles.text)}>{children}</span>}
-      {iconPosition === 'right' && icon && (
-        <span className={cn(styles.icon)}>{icon}</span>
-      )}
+      { iconPosition === 'left' && icon && (
+        <span className={ cn(styles.icon) }>{ icon }</span>
+      ) }
+      { children && <span className={ cn(styles.text) }>{ children }</span> }
+      { iconPosition === 'right' && icon && (
+        <span className={ cn(styles.icon) }>{ icon }</span>
+      ) }
     </>
   );
 
   if (href) {
     return (
-      <a {...buttonProps} href={href}>
-        {buttonChildren}
+      <a { ...buttonProps } href={ href }>
+        { buttonChildren }
       </a>
     );
   }
 
   return (
-    <button {...buttonProps} type={htmlType} disabled={disabled}>
-      {buttonChildren}
+    <button { ...buttonProps } type={ htmlType } disabled={ disabled }>
+      { buttonChildren }
     </button>
   );
 };
