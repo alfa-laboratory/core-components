@@ -1,0 +1,28 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    name: Demo build
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: yarn
+
+    - name: Run lint
+      run: yarn lint
+
+    # - name: Run test
+    #   run: yarn test
+
+    - name: Run build
+      run: node ./bin/demo-build.js
+
+    - name: Publish storybook
+      run: |
+        cd ./storybook-demo
+        git push -q -f "https://alfa-bot:${{ secrets.BOT_AUTH_TOKEN }}@github.com/alfa-laboratory/core-components.git" master:gh-pages

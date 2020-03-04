@@ -22,7 +22,7 @@ type Props = {
   htmlType?: 'button' | 'reset' | 'submit';
   href?: string;
   icon?: React.ReactNode;
-  rightIcon?: boolean;
+  iconPosition?: 'left' | 'right';
   loading?: boolean;
   size?: 'xs' | 's' | 'm' | 'l';
   block?: boolean;
@@ -44,7 +44,7 @@ export const Button: React.FC<Props> = ({
   htmlType = 'button',
   href,
   icon,
-  rightIcon = false,
+  iconPosition = 'left',
   // loading = false,
   size = 'm',
   block = false,
@@ -71,9 +71,13 @@ export const Button: React.FC<Props> = ({
 
   const buttonChildren = (
     <>
-      {!rightIcon && icon && <span className={cn(styles.icon)}>{icon}</span>}
+      {iconPosition === 'left' && icon && (
+        <span className={cn(styles.icon)}>{icon}</span>
+      )}
       {children && <span className={cn(styles.text)}>{children}</span>}
-      {rightIcon && icon && <span className={cn(styles.icon)}>{icon}</span>}
+      {iconPosition === 'right' && icon && (
+        <span className={cn(styles.icon)}>{icon}</span>
+      )}
     </>
   );
 
