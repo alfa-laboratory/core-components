@@ -52,6 +52,7 @@
 
 .input {
     position: relative;
+    width: 100%;
     color: var(--base-input-color);
     background: none;
     border: none;
