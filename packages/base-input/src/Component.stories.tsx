@@ -21,6 +21,7 @@ export const BaseInputStory = () => {
 
     return (
         <BaseInput
+            type={ select('type', ['text', 'number', 'card', 'email', 'file', 'hidden', 'money', 'password', 'tel', 'text'], 'text') }
             size={ select('size', ['s', 'm', 'l'], 's') }
             disabled={ boolean('Disabled', false) }
             placeholder={ text('placeholder', '') }

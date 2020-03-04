@@ -4,7 +4,7 @@
  * Vendor
  */
 
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import cn from 'classnames';
 
 /**
@@ -20,6 +20,8 @@ import styles from './Component.module.css';
 export type BaseInputProps = {
     /** Размер компонента */
     size?: 's' | 'm' | 'l';
+    /** Атрибут type */
+    type?: 'number' | 'card' | 'email' | 'file' | 'hidden' | 'money' | 'password' | 'tel' | 'text';
     /** Класс компонента */
     className?: string;
     /** Класс компонента */
@@ -46,7 +48,7 @@ export type BaseInputProps = {
     onFocus?: (event?: React.FocusEvent<HTMLInputElement>) => void;
     /** Обработчик блюра инпута */
     onBlur?: (event?: React.FocusEvent<HTMLInputElement>) => void;
-    /** */
+    /** Обработчик ввода */
     onChange?: (event?: React.ChangeEvent<HTMLInputElement>) => void;
     /** Id компонента для тестов */
     dataTestId?: string;
@@ -56,8 +58,9 @@ export type BaseInputProps = {
  * Expo
  */
 
-export const BaseInput: React.FC<BaseInputProps> = ({
+export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(({
     size='s',
+    type='text',
     className,
     innerClassName,
     inputClassName,
@@ -72,10 +75,8 @@ export const BaseInput: React.FC<BaseInputProps> = ({
     onFocus,
     onBlur,
     onChange,
-    dataTestId,
-    ...restProps
-}) => {
-    const inputRef = useRef(null);
+    dataTestId
+}, ref) => {
     const [focused, setFocused] = useState(false);
     const [filled, setFilled] = useState(!!value);
 
@@ -126,14 +127,15 @@ export const BaseInput: React.FC<BaseInputProps> = ({
                 ) }
 
                 { leftAddons && (
-                    <div className={ cn(styles.leftAddons) }>
+                    <div className={ cn(styles.addons, styles.leftAddons) }>
                         { leftAddons }
                     </div>
                 ) }
 
                 <input
                     className={ cn(styles.input, styles[size], inputClassName) }
-                    ref={ inputRef }
+                    ref={ ref }
+                    type={ type }
                     value={ value }
                     placeholder={ placeholder }
                     disabled={ disabled }
@@ -142,12 +144,10 @@ export const BaseInput: React.FC<BaseInputProps> = ({
                     onFocus={ handleInputFocus }
                     onBlur={ handleInputBlur }
                     data-test-id={ dataTestId }
-                    // REVIEW: Думаю в данном кейсе это нормальное решение
-                    { ...restProps }
                 />
 
                 { rightAddons && (
-                    <div className={ cn(styles.rightAddons) }>
+                    <div className={ cn(styles.addons, styles.rightAddons) }>
                         { rightAddons }
                     </div>
                 ) }
@@ -156,4 +156,4 @@ export const BaseInput: React.FC<BaseInputProps> = ({
             { children }
         </div>
     );
-};
+});

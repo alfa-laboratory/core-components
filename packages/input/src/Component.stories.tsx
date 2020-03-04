@@ -24,6 +24,7 @@ export const InputStory = () => {
     return (
         <Input
             size={ select('size', ['s', 'm', 'l'], 's') }
+            type={ select('type', ['text', 'number', 'card', 'email', 'file', 'hidden', 'money', 'password', 'tel', 'text'], 'text') }
             disabled={ boolean('Disabled', false) }
             placeholder={ text('placeholder', '') }
             label={ text('label', '') }

@@ -13,7 +13,14 @@
     box-sizing: border-box;
 }
 
+.inner {}
+
 .input {}
+
+.error-icon {
+    margin-left: var(--gap-s);
+    margin-right: var(--gap-s);
+}
 
 .sub {
     display: block;
@@ -31,5 +38,3 @@
     box-shadow: inset 0 -1px var(--input-error-color);
     border-bottom-color: var(--input-error-color);
 }
-
-.left-addons {}
