@@ -2,7 +2,9 @@
  * Vendor
  */
 
-import { withKnobs, select, text, boolean } from '@storybook/addon-knobs';
+import {
+    withKnobs, select, text, boolean
+} from '@storybook/addon-knobs';
 import React, { useState } from 'react';
 import { withDesign } from 'storybook-addon-designs';
 /**

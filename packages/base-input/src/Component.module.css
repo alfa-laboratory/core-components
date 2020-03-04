@@ -58,7 +58,6 @@
     margin: 0;
     outline: none;
     transition: background 0.2s ease;
-    flex-grow: 1;
     font-size: 16px;
     line-height: 20px;
 
@@ -74,6 +73,11 @@
 
 .input::placeholder {
     color: var(--base-input-placeholder-color);
+}
+
+.input-wrapper {
+    flex-grow: 1;
+    position: relative;
 }
 
 .label {
@@ -100,6 +104,10 @@
     flex-shrink: 0;
     align-items: center;
 }
+
+.left-addons {}
+
+.right-addos {}
 
 .s {
     padding: 14px var(--base-input-side-paddings) 13px var(--base-input-side-paddings);

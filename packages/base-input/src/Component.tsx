@@ -120,31 +120,34 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(({
             ) }
         >
             <div className={ cn(styles.inner, innerClassName) }>
-                { label && (
-                    <div className={ cn(styles.label) }>
-                        { label }
-                    </div>
-                ) }
-
                 { leftAddons && (
                     <div className={ cn(styles.addons, styles.leftAddons) }>
                         { leftAddons }
                     </div>
                 ) }
 
-                <input
-                    className={ cn(styles.input, styles[size], inputClassName) }
-                    ref={ ref }
-                    type={ type }
-                    value={ value }
-                    placeholder={ placeholder }
-                    disabled={ disabled }
-                    required={ required }
-                    onChange={ handleInputChange }
-                    onFocus={ handleInputFocus }
-                    onBlur={ handleInputBlur }
-                    data-test-id={ dataTestId }
-                />
+
+                <div className={ cn(styles.inputWrapper) }>
+                    { label && (
+                        <div className={ cn(styles.label) }>
+                            { label }
+                        </div>
+                    ) }
+
+                    <input
+                        className={ cn(styles.input, styles[size], inputClassName) }
+                        ref={ ref }
+                        type={ type }
+                        value={ value }
+                        placeholder={ placeholder }
+                        disabled={ disabled }
+                        required={ required }
+                        onChange={ handleInputChange }
+                        onFocus={ handleInputFocus }
+                        onBlur={ handleInputBlur }
+                        data-test-id={ dataTestId }
+                    />
+                </div>
 
                 { rightAddons && (
                     <div className={ cn(styles.addons, styles.rightAddons) }>

@@ -17,8 +17,13 @@
 
 .input {}
 
-.error-icon {
+.icon {}
+
+.left-icon {
     margin-left: var(--gap-s);
+}
+
+.right-icon {
     margin-right: var(--gap-s);
 }
 
