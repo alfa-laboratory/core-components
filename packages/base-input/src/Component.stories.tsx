@@ -7,9 +7,11 @@ import {
 } from '@storybook/addon-knobs';
 import React, { useState } from 'react';
 import { withDesign } from 'storybook-addon-designs';
+
 /**
  * Components
  */
+
 import { BaseInput } from './Component';
 
 export default {
@@ -21,6 +23,8 @@ export default {
 export const BaseInputStory = () => {
   const [value, setValue] = useState('value');
 
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => setValue(event.target.value);
+
   return (
     <BaseInput
       type={ select('type', ['text', 'number', 'card', 'email', 'file', 'hidden', 'money', 'password', 'tel', 'text'], 'text') }
@@ -29,7 +33,7 @@ export const BaseInputStory = () => {
       placeholder={ text('placeholder', '') }
       label={ text('label', '') }
       value={ value }
-      onChange={ (e: any) => setValue(e.target.value) }
+      onChange={ handleChange }
     />
   );
 };

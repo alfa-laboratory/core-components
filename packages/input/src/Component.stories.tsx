@@ -7,12 +7,14 @@ import {
 } from '@storybook/addon-knobs';
 import React, { useState } from 'react';
 import { withDesign } from 'storybook-addon-designs';
+
 /**
  * Components
  */
+
 import { Input } from './Component';
 
-// TODO:
+// TODO: move icons
 const icon = (
   <svg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'>
     <path fillRule='evenodd' clipRule='evenodd' d='M9 1C4.588 1 1 4.588 1 9C1 13.412 4.588 17 9 17C13.412 17 17 13.412 17 9C17 4.588 13.412 1 9 1ZM9 15.933C7.1619 15.9309 5.3997 15.1998 4.09997 13.9C2.80024 12.6003 2.06912 10.8381 2.067 9C2.06912 7.1619 2.80024 5.3997 4.09997 4.09997C5.3997 2.80024 7.1619 2.06912 9 2.067C10.8381 2.06912 12.6003 2.80024 13.9 4.09997C15.1998 5.3997 15.9309 7.1619 15.933 9C15.9309 10.8381 15.1998 12.6003 13.9 13.9C12.6003 15.1998 10.8381 15.9309 9 15.933Z' fill='#0B1F35' />
@@ -29,6 +31,8 @@ export default {
 export const InputStory = () => {
   const [value, setValue] = useState('value');
 
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => setValue(event.target.value);
+
   return (
     <div>
       <div style={ { marginBottom: '20px' } }>
@@ -41,7 +45,7 @@ export const InputStory = () => {
           hint={ text('hint', '') }
           error={ text('error', '') }
           value={ value }
-          onChange={ (e: any) => setValue(e.target.value) }
+          onChange={ handleChange }
         />
       </div>
 
@@ -51,7 +55,7 @@ export const InputStory = () => {
           placeholder='Enter text'
           label='Search'
           value={ value }
-          onChange={ (e: any) => setValue(e.target.value) }
+          onChange={ handleChange }
           leftIcon={ icon }
         />
       </div>
@@ -63,7 +67,7 @@ export const InputStory = () => {
           label='Search'
           value={ value }
           error='error'
-          onChange={ (e: any) => setValue(e.target.value) }
+          onChange={ handleChange }
           leftIcon={ icon }
         />
       </div>

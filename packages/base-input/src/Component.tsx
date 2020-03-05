@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
-
 /**
  * Vendor
  */
@@ -45,11 +43,11 @@ export type BaseInputProps = {
     /** Слот для отображения контента снизу */
     children?: React.ReactNode;
     /** Обработчик фокуса инпута */
-    onFocus?: (event?: React.FocusEvent<HTMLInputElement>) => void;
+    onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
     /** Обработчик блюра инпута */
-    onBlur?: (event?: React.FocusEvent<HTMLInputElement>) => void;
+    onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
     /** Обработчик ввода */
-    onChange?: (event?: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     /** Id компонента для тестов */
     dataTestId?: string;
 };
@@ -79,30 +77,27 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(({
 }, ref) => {
   const [focused, setFocused] = useState(false);
 
-  const filled = !!value;
-  const hasLabel = !!label;
-
-  function handleInputFocus(e: React.FocusEvent<HTMLInputElement>) {
+  const handleInputFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     setFocused(true);
 
     if (onFocus) {
       onFocus(e);
     }
-  }
+  };
 
-  function handleInputBlur(e: React.FocusEvent<HTMLInputElement>) {
+  const handleInputBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     setFocused(false);
 
     if (onBlur) {
       onBlur(e);
     }
-  }
+  };
 
-  function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
       onChange(e);
     }
-  }
+  };
 
   return (
     <div
@@ -111,22 +106,22 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(({
         {
           [styles.focused]: focused,
           [styles.disabled]: disabled,
-          [styles.filled]: filled,
-          [styles.hasLabel]: hasLabel
+          [styles.filled]: value,
+          [styles.hasLabel]: label
         },
         className
       ) }
     >
       <div className={ cn(styles.inner, innerClassName) }>
         { leftAddons && (
-          <div className={ cn(styles.addons, styles.leftAddons) }>
+          <div className={ styles.addons }>
             { leftAddons }
           </div>
         ) }
 
-        <div className={ cn(styles.inputWrapper) }>
+        <div className={ styles.inputWrapper }>
           { label && (
-            <div className={ cn(styles.label) }>
+            <div className={ styles.label }>
               { label }
             </div>
           ) }
@@ -147,7 +142,7 @@ export const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(({
         </div>
 
         { rightAddons && (
-          <div className={ cn(styles.addons, styles.rightAddons) }>
+          <div className={ styles.addons }>
             { rightAddons }
           </div>
         ) }

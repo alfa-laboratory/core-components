@@ -101,10 +101,6 @@
   align-items: center;
 }
 
-.left-addons {}
-
-.right-addos {}
-
 .s {
   padding: 14px var(--base-input-side-paddings) 13px var(--base-input-side-paddings);
 }

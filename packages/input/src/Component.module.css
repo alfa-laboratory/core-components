@@ -11,12 +11,6 @@
   box-sizing: border-box;
 }
 
-.inner {}
-
-.input {}
-
-.icon {}
-
 .left-icon {
   margin-left: var(--gap-s);
 }
