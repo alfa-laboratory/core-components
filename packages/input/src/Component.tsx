@@ -97,8 +97,8 @@ export const Input: React.FC<InputProps> = ({
       onFocus={ onFocus }
       onBlur={ onBlur }
       dataTestId={ dataTestId }
-      rightAddons={ rightAddonsRenderer }
-      leftAddons={ leftAddonsRenderer }
+      rightAddons={ rightAddonsRenderer() }
+      leftAddons={ leftAddonsRenderer() }
     >
       { (error || hint) && (
         <span className={ styles.sub }>
