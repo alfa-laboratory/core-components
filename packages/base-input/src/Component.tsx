@@ -16,40 +16,40 @@ import styles from './Component.module.css';
  */
 
 export type BaseInputProps = {
-    /** Размер компонента */
-    size?: 's' | 'm' | 'l';
-    /** Атрибут type */
-    type?: 'number' | 'card' | 'email' | 'file' | 'hidden' | 'money' | 'password' | 'tel' | 'text';
-    /** Класс компонента */
-    className?: string;
-    /** Класс компонента */
-    innerClassName?: string;
-    /** Класс компонента */
-    inputClassName?: string;
-    /** Значение поля */
-    value?: string;
-    /** Плейсхолдер */
-    placeholder?: string;
-    /** Лейбл компонента */
-    label?: React.ReactNode;
-    /** Атрибут disabled */
-    disabled?: boolean;
-    /** Атрибут required */
-    required?: boolean;
-    /** Слот слева от инпута */
-    leftAddons?: React.ReactNode;
-    /** Слот справа от инпута */
-    rightAddons?: React.ReactNode;
-    /** Слот для отображения контента снизу */
-    children?: React.ReactNode;
-    /** Обработчик фокуса инпута */
-    onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
-    /** Обработчик блюра инпута */
-    onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
-    /** Обработчик ввода */
-    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    /** Id компонента для тестов */
-    dataTestId?: string;
+  /** Размер компонента */
+  size?: 's' | 'm' | 'l';
+  /** Атрибут type */
+  type?: 'number' | 'card' | 'email' | 'file' | 'hidden' | 'money' | 'password' | 'tel' | 'text';
+  /** Класс компонента */
+  className?: string;
+  /** Класс компонента */
+  innerClassName?: string;
+  /** Класс компонента */
+  inputClassName?: string;
+  /** Значение поля */
+  value?: string;
+  /** Плейсхолдер */
+  placeholder?: string;
+  /** Лейбл компонента */
+  label?: React.ReactNode;
+  /** Атрибут disabled */
+  disabled?: boolean;
+  /** Атрибут required */
+  required?: boolean;
+  /** Слот слева от инпута */
+  leftAddons?: React.ReactNode;
+  /** Слот справа от инпута */
+  rightAddons?: React.ReactNode;
+  /** Слот для отображения контента снизу */
+  children?: React.ReactNode;
+  /** Обработчик фокуса инпута */
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  /** Обработчик блюра инпута */
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  /** Обработчик ввода */
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  /** Id компонента для тестов */
+  dataTestId?: string;
 };
 
 /**

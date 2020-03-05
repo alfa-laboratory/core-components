@@ -17,14 +17,14 @@ import { BaseInput, BaseInputProps } from '../../base-input/src';
  */
 
 type InputProps = BaseInputProps & {
-    /** Текст подсказки */
-    hint?: string;
-    /** Текст ошибки */
-    error?: string;
-    /** Иконка слева */
-    leftIcon?: React.ReactNode;
-    /** Иконка справа */
-    rightIcon?: React.ReactNode;
+  /** Текст подсказки */
+  hint?: string;
+  /** Текст ошибки */
+  error?: string;
+  /** Иконка слева */
+  leftIcon?: React.ReactNode;
+  /** Иконка справа */
+  rightIcon?: React.ReactNode;
 };
 
 /**
