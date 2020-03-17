@@ -16,8 +16,6 @@ import styles from './Component.module.css';
  */
 
 export type PureInputProps = {
-  /** Флаг - применять ли стили к компоненту */
-  styled?: boolean;
   /** Размер компонента */
   size?: 's' | 'm' | 'l';
   /** Атрибут type */
@@ -47,7 +45,6 @@ export type PureInputProps = {
  */
 
 export const PureInput = React.forwardRef<HTMLInputElement, PureInputProps>(({
-  styled=true,
   size='s',
   type='text',
   className,
@@ -61,13 +58,14 @@ export const PureInput = React.forwardRef<HTMLInputElement, PureInputProps>(({
   dataTestId
 }, ref) => (
   <input
-    className={ cn(className, styled && cn(
+    className={ cn(
+      className,
       styles.component,
       styles[size],
       {
         [styles.disabled]: disabled
       }
-    )) }
+    ) }
     ref={ ref }
     type={ type }
     value={ value }

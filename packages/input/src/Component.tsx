@@ -4,7 +4,6 @@
 
 import React, { useState } from 'react';
 import cn from 'classnames';
-import { PureInput, PureInputProps } from '../../pure-input/src';
 
 /**
  * Styles
@@ -16,13 +15,27 @@ import styles from './Component.module.css';
  * Types
  */
 
-export type InputProps = PureInputProps & {
+export type InputProps = {
+  /** Размер компонента */
+  size?: 's' | 'm' | 'l';
+  /** Атрибут type */
+  type?: 'number' | 'card' | 'email' | 'file' | 'hidden' | 'money' | 'password' | 'tel' | 'text';
+  /** Класс компонента */
+  className?: string;
   /** Класс компонента */
   innerClassName?: string;
   /** Класс компонента */
   inputClassName?: string;
   /** Класс аддонов */
   addonsClassName?: string;
+  /** Значение поля */
+  value?: string;
+  /** Плейсхолдер */
+  placeholder?: string;
+  /** Атрибут disabled */
+  disabled?: boolean;
+  /** Атрибут required */
+  required?: boolean;
   /** Лейбл компонента */
   label?: React.ReactNode;
   /** Текст подсказки */
@@ -35,6 +48,14 @@ export type InputProps = PureInputProps & {
   rightAddons?: React.ReactNode;
   /** Слот для отображения контента снизу */
   children?: React.ReactNode;
+  /** Обработчик фокуса инпута */
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  /** Обработчик блюра инпута */
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  /** Обработчик ввода */
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  /** Id компонента для тестов */
+  dataTestId?: string;
 };
 
 /**
@@ -131,8 +152,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(({
             </div>
           ) }
 
-          <PureInput
-            styled={ false }
+          <input
             className={ cn(styles.input, styles[size], inputClassName) }
             ref={ ref }
             type={ type }
