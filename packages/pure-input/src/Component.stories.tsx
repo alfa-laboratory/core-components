@@ -12,34 +12,34 @@ import { withDesign } from 'storybook-addon-designs';
  * Components
  */
 
-import { BaseInput } from './Component';
+import { PureInput } from './Component';
 
 export default {
   title: 'Common',
-  component: BaseInput,
+  component: PureInput,
   decorators: [withDesign, withKnobs]
 };
 
-export const BaseInputStory = () => {
+export const PureInputStory = () => {
   const [value, setValue] = useState('value');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => setValue(event.target.value);
 
   return (
-    <BaseInput
+    <PureInput
       type={ select('type', ['text', 'number', 'card', 'email', 'file', 'hidden', 'money', 'password', 'tel', 'text'], 'text') }
       size={ select('size', ['s', 'm', 'l'], 's') }
-      disabled={ boolean('Disabled', false) }
+      disabled={ boolean('disabled', false) }
+      styled={ boolean('styled', true) }
       placeholder={ text('placeholder', '') }
-      label={ text('label', '') }
       value={ value }
       onChange={ handleChange }
     />
   );
 };
 
-BaseInputStory.story = {
-  name: 'BaseInput',
+PureInputStory.story = {
+  name: 'PureInput',
   parameters: {
     design: {
       type: 'figma',
