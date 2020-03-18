@@ -1,7 +1,6 @@
 @import '../../themes/default.css';
 
 :root {
-  --input-font-family: var(--font-family);
   --input-font-size: 16px;
   --input-line-height: 16px;
   --input-color: var(--color-dark-indigo);
@@ -18,11 +17,9 @@
 }
 
 .component {
-  display: flex;
+  display: inline-flex;
   position: relative;
-  width: 100%;
-  max-width: 310px;
-  font-family: var(--input-font-family);
+  font-family: var(--font-family);
   font-size: var(--input-font-size);
   line-height: var(--input-line-height);
   box-sizing: border-box;
@@ -62,14 +59,18 @@
   background-color: var(--input-disabled-bg-color);
 }
 
+.block {
+  width: 100%;
+}
+
 .s {
-  padding: 14px var(--input-side-paddings) 13px var(--input-side-paddings);
+  padding: 14px var(--input-side-paddings) 13px;
 }
 
 .m {
-  padding: 18px var(--input-side-paddings) 17px var(--input-side-paddings);
+  padding: 18px var(--input-side-paddings) 17px;
 }
 
 .l {
-  padding: 24px var(--input-side-paddings) 23px var(--input-side-paddings);
+  padding: 24px var(--input-side-paddings) 23px;
 }

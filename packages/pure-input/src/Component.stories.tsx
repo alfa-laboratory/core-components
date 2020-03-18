@@ -27,10 +27,10 @@ export const PureInputStory = () => {
 
   return (
     <PureInput
-      type={ select('type', ['text', 'number', 'card', 'email', 'file', 'hidden', 'money', 'password', 'tel', 'text'], 'text') }
       size={ select('size', ['s', 'm', 'l'], 's') }
+      htmlType={ select('type', ['number', 'card', 'email', 'file', 'hidden', 'money', 'password', 'tel', 'text'], 'text') }
+      block={ boolean('block', false) }
       disabled={ boolean('disabled', false) }
-      styled={ boolean('styled', true) }
       placeholder={ text('placeholder', '') }
       value={ value }
       onChange={ handleChange }

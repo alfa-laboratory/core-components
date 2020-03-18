@@ -16,11 +16,13 @@ import styles from './Component.module.css';
  */
 
 export type InputProps = {
-  /** Класс аддонов */
+  /** Класс для контейнеров с аддонами */
   addonsClassName?: string;
+  /** Флаг - растягивать инпута на ширину контейнера */
+  block?: boolean;
   /** Слот для отображения контента снизу */
   children?: React.ReactNode;
-  /** Класс компонента */
+  /** Класс компонента (контейнера) */
   className?: string;
   /** Размер компонента */
   size?: 's' | 'm' | 'l';
@@ -34,9 +36,9 @@ export type InputProps = {
   error?: string;
   /** Текст подсказки */
   hint?: string;
-  /** Класс компонента */
-  innerClassName?: string;
-  /** Класс компонента */
+  /** Атрибут type */
+  htmlType?: 'number' | 'card' | 'email' | 'money' | 'password' | 'tel' | 'text';
+  /** Класс инпута */
   inputClassName?: string;
   /** Лейбл компонента */
   label?: React.ReactNode;
@@ -70,8 +72,6 @@ export type InputProps = {
   required?: boolean;
   /** Слот справа от инпута */
   rightAddons?: React.ReactNode;
-  /** Атрибут type */
-  type?: 'number' | 'card' | 'email' | 'file' | 'hidden' | 'money' | 'password' | 'tel' | 'text';
   /** Последовательность перехода между контролами при нажатии на Tab */
   tabIndex?: number;
   /** Значение поля */
@@ -91,7 +91,8 @@ const errorIcon = (
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(({
   size='s',
-  type='text',
+  htmlType='text',
+  block=false,
   addonsClassName,
   children,
   className,
@@ -100,7 +101,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(({
   disabled,
   error,
   hint,
-  innerClassName,
   inputClassName,
   label,
   leftAddons,
@@ -209,12 +209,13 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(({
           [styles.disabled]: disabled,
           [styles.filled]: value,
           [styles.hasLabel]: label,
-          [styles.hasError]: error
+          [styles.hasError]: error,
+          [styles.block]: block
         },
         className
       ) }
     >
-      <div className={ cn(styles.inner, innerClassName) }>
+      <div className={ styles.inner }>
         { leftAddonsRenderer() }
 
         <div className={ styles.inputWrapper }>
@@ -243,7 +244,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(({
             ref={ ref }
             required={ required }
             tabIndex={ tabIndex }
-            type={ type }
+            type={ htmlType }
             value={ value }
             data-test-id={ dataTestId }
           />

@@ -35,7 +35,8 @@ export const InputStory = () => {
 
   return (
     <Input
-      type={ select('type', ['text', 'number', 'card', 'email', 'file', 'hidden', 'money', 'password', 'tel', 'text'], 'text') }
+      htmlType={ select('type', ['number', 'card', 'email', 'money', 'password', 'tel', 'text'], 'text') }
+      block={ boolean('block', false) }
       size={ select('size', ['s', 'm', 'l'], 's') }
       disabled={ boolean('disabled', false) }
       placeholder={ text('placeholder', '') }

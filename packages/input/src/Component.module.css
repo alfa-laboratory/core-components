@@ -8,8 +8,8 @@
 }
 
 .component {
-  max-width: 310px;
-  font-family: var(--input-font-family);
+  display: inline-block;
+  font-family: var(--font-family);
   box-sizing: border-box;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .inner {
-  display: flex;
+  display: inline-flex;
   position: relative;
   background-color: var(--input-bg-color);
   border-radius: var(--input-border-radius);
@@ -120,6 +120,14 @@
   border-bottom-color: var(--input-error-color);
 }
 
+.block {
+  width: 100%;
+}
+
+.block .inner {
+  width: 100%;
+}
+
 .s {
   padding: 14px var(--input-side-paddings) 13px var(--input-side-paddings);
 }
@@ -148,13 +156,13 @@
 }
 
 .has-label .s {
-  padding: 23px var(--input-side-paddings) 4px var(--input-side-paddings);
+  padding: 23px var(--input-side-paddings) 4px;
 }
 
 .has-label .m {
-  padding: 28px var(--input-side-paddings) 7px var(--input-side-paddings);
+  padding: 28px var(--input-side-paddings) 7px;
 }
 
 .has-label .l {
-  padding: 34px var(--input-side-paddings) 13px var(--input-side-paddings);
+  padding: 34px var(--input-side-paddings) 13px;
 }
