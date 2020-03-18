@@ -2,7 +2,7 @@
  * Vendor
  */
 
-import React from 'react';
+import React, { InputHTMLAttributes } from 'react';
 import cn from 'classnames';
 
 /**
@@ -15,27 +15,9 @@ import styles from './Component.module.css';
  * Types
  */
 
-export type PureInputProps = {
+export type PureInputProps = InputHTMLAttributes<HTMLInputElement> & {
   /** Размер компонента */
   size?: 's' | 'm' | 'l';
-  /** Атрибут type */
-  type?: 'number' | 'card' | 'email' | 'file' | 'hidden' | 'money' | 'password' | 'tel' | 'text';
-  /** Класс компонента */
-  className?: string;
-  /** Значение поля */
-  value?: string;
-  /** Плейсхолдер */
-  placeholder?: string;
-  /** Атрибут disabled */
-  disabled?: boolean;
-  /** Атрибут required */
-  required?: boolean;
-  /** Обработчик фокуса инпута */
-  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
-  /** Обработчик блюра инпута */
-  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
-  /** Обработчик ввода */
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   /** Id компонента для тестов */
   dataTestId?: string;
 };
@@ -48,33 +30,21 @@ export const PureInput = React.forwardRef<HTMLInputElement, PureInputProps>(({
   size='s',
   type='text',
   className,
-  value,
-  disabled,
-  required,
-  placeholder,
-  onFocus,
-  onBlur,
-  onChange,
-  dataTestId
+  dataTestId,
+  ...rest
 }, ref) => (
   <input
+    // Уберем eslint-disable, как только обновим линтер
+    // https://github.com/alfa-laboratory/arui-presets-lint/blob/feat/new-rules/eslint/index.js#L87
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    { ...rest }
     className={ cn(
       className,
       styles.component,
-      styles[size],
-      {
-        [styles.disabled]: disabled
-      }
+      styles[size]
     ) }
     ref={ ref }
     type={ type }
-    value={ value }
-    placeholder={ placeholder }
-    disabled={ disabled }
-    required={ required }
-    onChange={ onChange }
-    onFocus={ onFocus }
-    onBlur={ onBlur }
     data-test-id={ dataTestId }
   />
 ));

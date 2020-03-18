@@ -16,46 +16,66 @@ import styles from './Component.module.css';
  */
 
 export type InputProps = {
-  /** Размер компонента */
-  size?: 's' | 'm' | 'l';
-  /** Атрибут type */
-  type?: 'number' | 'card' | 'email' | 'file' | 'hidden' | 'money' | 'password' | 'tel' | 'text';
+  /** Класс аддонов */
+  addonsClassName?: string;
+  /** Слот для отображения контента снизу */
+  children?: React.ReactNode;
   /** Класс компонента */
   className?: string;
+  /** Размер компонента */
+  size?: 's' | 'm' | 'l';
+  /** Id компонента для тестов */
+  dataTestId?: string;
+  /** Значение по умолчанию */
+  defaultValue?: string;
+  /** Атрибут disabled */
+  disabled?: boolean;
+  /** Текст ошибки */
+  error?: string;
+  /** Текст подсказки */
+  hint?: string;
   /** Класс компонента */
   innerClassName?: string;
   /** Класс компонента */
   inputClassName?: string;
-  /** Класс аддонов */
-  addonsClassName?: string;
-  /** Значение поля */
-  value?: string;
-  /** Плейсхолдер */
-  placeholder?: string;
-  /** Атрибут disabled */
-  disabled?: boolean;
-  /** Атрибут required */
-  required?: boolean;
   /** Лейбл компонента */
   label?: React.ReactNode;
-  /** Текст подсказки */
-  hint?: string;
-  /** Текст ошибки */
-  error?: string;
   /** Слот слева от инпута */
   leftAddons?: React.ReactNode;
-  /** Слот справа от инпута */
-  rightAddons?: React.ReactNode;
-  /** Слот для отображения контента снизу */
-  children?: React.ReactNode;
-  /** Обработчик фокуса инпута */
-  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  /** Максимальное число символов */
+  maxLength?: number;
   /** Обработчик блюра инпута */
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
   /** Обработчик ввода */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  /** Id компонента для тестов */
-  dataTestId?: string;
+  /** Обработчик фокуса инпута */
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  /** Обработчик события нажатия на клавишу клавиатуры в момент, когда фокус находится на компоненте */
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  /** Обработчик события отжатия на клавишу клавиатуры в момент, когда фокус находится на компоненте */
+  onKeyUp?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  /** Обработчик события вставки текста в поле */
+  onPaste?: (event: React.ClipboardEvent<HTMLInputElement>) => void;
+  /** Обработчик события прерывания касания по полю */
+  onTouchCancel?: (event: React.TouchEvent<HTMLInputElement>) => void;
+  /** Обработчик события прекращения касания по полю */
+  onTouchEnd?: (event: React.TouchEvent<HTMLInputElement>) => void;
+  /** Обработчик события перемещения при касании по полю */
+  onTouchMove?: (event: React.TouchEvent<HTMLInputElement>) => void;
+  /** Обработчик события касания по полю */
+  onTouchStart?: (event: React.TouchEvent<HTMLInputElement>) => void;
+  /** Плейсхолдер */
+  placeholder?: string;
+  /** Атрибут required */
+  required?: boolean;
+  /** Слот справа от инпута */
+  rightAddons?: React.ReactNode;
+  /** Атрибут type */
+  type?: 'number' | 'card' | 'email' | 'file' | 'hidden' | 'money' | 'password' | 'tel' | 'text';
+  /** Последовательность перехода между контролами при нажатии на Tab */
+  tabIndex?: number;
+  /** Значение поля */
+  value?: string;
 };
 
 /**
@@ -72,24 +92,34 @@ const errorIcon = (
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(({
   size='s',
   type='text',
+  addonsClassName,
+  children,
+  className,
+  dataTestId,
+  defaultValue,
+  disabled,
   error,
   hint,
-  className,
   innerClassName,
   inputClassName,
-  addonsClassName,
-  value,
-  disabled,
-  required,
-  placeholder,
   label,
   leftAddons,
-  rightAddons,
-  children,
-  onFocus,
-  onBlur,
+  maxLength,
   onChange,
-  dataTestId
+  onFocus,
+  onKeyDown,
+  onKeyUp,
+  onPaste,
+  onTouchCancel,
+  onTouchEnd,
+  onTouchMove,
+  onTouchStart,
+  onBlur,
+  placeholder,
+  required,
+  rightAddons,
+  tabIndex,
+  value
 }, ref) => {
   const [focused, setFocused] = useState(false);
 
@@ -112,6 +142,48 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(({
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
       onChange(e);
+    }
+  };
+
+  const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (onKeyDown) {
+      onKeyDown(e);
+    }
+  };
+
+  const handleInputKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (onKeyUp) {
+      onKeyUp(e);
+    }
+  };
+
+  const handleInputPaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
+    if (onPaste) {
+      onPaste(e);
+    }
+  };
+
+  const handleInputTouchCancel = (e: React.TouchEvent<HTMLInputElement>) => {
+    if (onTouchCancel) {
+      onTouchCancel(e);
+    }
+  };
+
+  const handleInputTouchEnd = (e: React.TouchEvent<HTMLInputElement>) => {
+    if (onTouchEnd) {
+      onTouchEnd(e);
+    }
+  };
+
+  const handleInputTouchMove = (e: React.TouchEvent<HTMLInputElement>) => {
+    if (onTouchMove) {
+      onTouchMove(e);
+    }
+  };
+
+  const handleInputTouchStart = (e: React.TouchEvent<HTMLInputElement>) => {
+    if (onTouchStart) {
+      onTouchStart(e);
     }
   };
 
@@ -154,15 +226,25 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(({
 
           <input
             className={ cn(styles.input, styles[size], inputClassName) }
-            ref={ ref }
-            type={ type }
-            value={ value }
-            placeholder={ placeholder }
+            defaultValue={ defaultValue }
             disabled={ disabled }
-            required={ required }
+            maxLength={ maxLength }
+            onBlur={ handleInputBlur }
             onChange={ handleInputChange }
             onFocus={ handleInputFocus }
-            onBlur={ handleInputBlur }
+            onKeyDown={ handleInputKeyDown }
+            onKeyUp={ handleInputKeyUp }
+            onPaste={ handleInputPaste }
+            onTouchCancel={ handleInputTouchCancel }
+            onTouchEnd={ handleInputTouchEnd }
+            onTouchMove={ handleInputTouchMove }
+            onTouchStart={ handleInputTouchStart }
+            placeholder={ placeholder }
+            ref={ ref }
+            required={ required }
+            tabIndex={ tabIndex }
+            type={ type }
+            value={ value }
             data-test-id={ dataTestId }
           />
         </div>
