@@ -2,7 +2,7 @@
  * Vendor
  */
 
-import React, { useState } from 'react';
+import React, { useState, InputHTMLAttributes } from 'react';
 import cn from 'classnames';
 
 /**
@@ -15,67 +15,31 @@ import styles from './Component.module.css';
  * Types
  */
 
-export type InputProps = {
-  /** Класс для контейнеров с аддонами */
-  addonsClassName?: string;
+export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
   /** Флаг - растягивать инпута на ширину контейнера */
   block?: boolean;
   /** Слот для отображения контента снизу */
   children?: React.ReactNode;
-  /** Класс компонента (контейнера) */
-  className?: string;
   /** Размер компонента */
   size?: 's' | 'm' | 'l';
-  /** Id компонента для тестов */
-  dataTestId?: string;
-  /** Значение по умолчанию */
-  defaultValue?: string;
-  /** Атрибут disabled */
-  disabled?: boolean;
   /** Текст ошибки */
   error?: string;
   /** Текст подсказки */
   hint?: string;
-  /** Атрибут type */
-  htmlType?: 'number' | 'card' | 'email' | 'money' | 'password' | 'tel' | 'text';
-  /** Класс инпута */
-  inputClassName?: string;
   /** Лейбл компонента */
   label?: React.ReactNode;
+  /** Атрибут type */
+  htmlType?: 'number' | 'card' | 'email' | 'money' | 'password' | 'tel' | 'text';
+  /** Класс для контейнеров с аддонами */
+  addonsClassName?: string;
+  /** Класс инпута */
+  inputClassName?: string;
   /** Слот слева от инпута */
   leftAddons?: React.ReactNode;
-  /** Максимальное число символов */
-  maxLength?: number;
-  /** Обработчик блюра инпута */
-  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
-  /** Обработчик ввода */
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  /** Обработчик фокуса инпута */
-  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
-  /** Обработчик события нажатия на клавишу клавиатуры в момент, когда фокус находится на компоненте */
-  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
-  /** Обработчик события отжатия на клавишу клавиатуры в момент, когда фокус находится на компоненте */
-  onKeyUp?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
-  /** Обработчик события вставки текста в поле */
-  onPaste?: (event: React.ClipboardEvent<HTMLInputElement>) => void;
-  /** Обработчик события прерывания касания по полю */
-  onTouchCancel?: (event: React.TouchEvent<HTMLInputElement>) => void;
-  /** Обработчик события прекращения касания по полю */
-  onTouchEnd?: (event: React.TouchEvent<HTMLInputElement>) => void;
-  /** Обработчик события перемещения при касании по полю */
-  onTouchMove?: (event: React.TouchEvent<HTMLInputElement>) => void;
-  /** Обработчик события касания по полю */
-  onTouchStart?: (event: React.TouchEvent<HTMLInputElement>) => void;
-  /** Плейсхолдер */
-  placeholder?: string;
-  /** Атрибут required */
-  required?: boolean;
   /** Слот справа от инпута */
   rightAddons?: React.ReactNode;
-  /** Последовательность перехода между контролами при нажатии на Tab */
-  tabIndex?: number;
-  /** Значение поля */
-  value?: string;
+  /** Id компонента для тестов */
+  dataTestId?: string;
 };
 
 /**
@@ -97,29 +61,17 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(({
   children,
   className,
   dataTestId,
-  defaultValue,
   disabled,
   error,
   hint,
   inputClassName,
   label,
   leftAddons,
-  maxLength,
-  onChange,
   onFocus,
-  onKeyDown,
-  onKeyUp,
-  onPaste,
-  onTouchCancel,
-  onTouchEnd,
-  onTouchMove,
-  onTouchStart,
   onBlur,
-  placeholder,
-  required,
   rightAddons,
-  tabIndex,
-  value
+  value,
+  ...restProps
 }, ref) => {
   const [focused, setFocused] = useState(false);
 
@@ -136,54 +88,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(({
 
     if (onBlur) {
       onBlur(e);
-    }
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (onChange) {
-      onChange(e);
-    }
-  };
-
-  const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (onKeyDown) {
-      onKeyDown(e);
-    }
-  };
-
-  const handleInputKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (onKeyUp) {
-      onKeyUp(e);
-    }
-  };
-
-  const handleInputPaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
-    if (onPaste) {
-      onPaste(e);
-    }
-  };
-
-  const handleInputTouchCancel = (e: React.TouchEvent<HTMLInputElement>) => {
-    if (onTouchCancel) {
-      onTouchCancel(e);
-    }
-  };
-
-  const handleInputTouchEnd = (e: React.TouchEvent<HTMLInputElement>) => {
-    if (onTouchEnd) {
-      onTouchEnd(e);
-    }
-  };
-
-  const handleInputTouchMove = (e: React.TouchEvent<HTMLInputElement>) => {
-    if (onTouchMove) {
-      onTouchMove(e);
-    }
-  };
-
-  const handleInputTouchStart = (e: React.TouchEvent<HTMLInputElement>) => {
-    if (onTouchStart) {
-      onTouchStart(e);
     }
   };
 
@@ -226,24 +130,15 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(({
           ) }
 
           <input
+            // Уберем eslint-disable, как только обновим линтер
+            // https://github.com/alfa-laboratory/arui-presets-lint/blob/feat/new-rules/eslint/index.js#L87
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            { ...restProps }
             className={ cn(styles.input, styles[size], inputClassName) }
-            defaultValue={ defaultValue }
             disabled={ disabled }
-            maxLength={ maxLength }
             onBlur={ handleInputBlur }
-            onChange={ handleInputChange }
             onFocus={ handleInputFocus }
-            onKeyDown={ handleInputKeyDown }
-            onKeyUp={ handleInputKeyUp }
-            onPaste={ handleInputPaste }
-            onTouchCancel={ handleInputTouchCancel }
-            onTouchEnd={ handleInputTouchEnd }
-            onTouchMove={ handleInputTouchMove }
-            onTouchStart={ handleInputTouchStart }
-            placeholder={ placeholder }
             ref={ ref }
-            required={ required }
-            tabIndex={ tabIndex }
             type={ htmlType }
             value={ value }
             data-test-id={ dataTestId }
