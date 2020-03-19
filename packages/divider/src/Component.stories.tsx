@@ -13,15 +13,15 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { Divider } from './Component';
 
 export default {
-  title: 'Common|Divider',
-  component: Divider,
-  decorators: [withKnobs]
+    title: 'Common|Divider',
+    component: Divider,
+    decorators: [withKnobs],
 };
 
 export const Basic = () => (
-  <div>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-    <Divider />
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-  </div>
+    <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <Divider />
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </div>
 );
