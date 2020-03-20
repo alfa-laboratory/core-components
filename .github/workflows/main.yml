@@ -29,7 +29,8 @@ jobs:
         git push -q -f "https://alfa-bot:${{ secrets.BOT_AUTH_TOKEN }}@github.com/alfa-laboratory/core-components.git" master:gh-pages
 
     # Ищем открытый PR
-    - uses: jwalton/gh-find-current-pr@v1
+    - name: Find open PR
+      uses: jwalton/gh-find-current-pr@v1
       id: find_pr
       with:
         github-token: ${{ secrets.BOT_AUTH_TOKEN }}
