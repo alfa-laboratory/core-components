@@ -30,9 +30,9 @@ jobs:
 
     # Ищем открытый PR
     - uses: jwalton/gh-find-current-pr@v1
-        id: find_pr
-        with:
-          github-token: ${{ secrets.BOT_AUTH_TOKEN }}
+      id: find_pr
+      with:
+        github-token: ${{ secrets.BOT_AUTH_TOKEN }}
 
     # Если нашли открытый PR, то добавляем коммент с ссылкой на демку.
     # storybook_url заполняется в demo-build.js
