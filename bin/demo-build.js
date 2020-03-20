@@ -76,8 +76,9 @@ shell.exec('git add .', execOptions);
 shell.exec(`git commit -m "${defaultConfig.commitMessage}"`, execOptions);
 
 // log output url
-if (sourceBranch === 'master') {
-  console.log(`=> Storybook deployed to: ${gitPagesUrl}/master/`);
-} else {
-  console.log(`=> Storybook deployed to: ${gitPagesUrl}/${tempOutputDir}/`);
-}
+const storybookUrl = `${gitPagesUrl}/${sourceBranch === 'master' ? 'master' : tempOutputDir}/`;
+
+console.log(`=> Storybook deployed to: ${storybookUrl}`);
+
+// store storybook url
+shell.exec(`echo ::set-output name=storybook_url::${storybookUrl}`);
