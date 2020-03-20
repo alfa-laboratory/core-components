@@ -19,7 +19,8 @@
     "lint": "yarn lint:css && yarn lint:js",
     "lint:css": "stylelint ./packages/**/*.css",
     "lint:js": "eslint ./ --ext .ts,.tsx,.js,.jsx",
-    "test": "yarn lint"
+    "test": "yarn lint",
+    "format": "prettier --write \"./{packages,bin}/**/*.{ts,tsx,js,jsx,css}\""
   },
   "browserslist": {
     "production": [
@@ -56,33 +57,40 @@
     "@types/node": "^13.5.0",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
     "alfa-ui-primitives": "2.4.3",
-    "arui-presets-lint": "^2.0.1",
+    "arui-presets-lint": "4.0.0",
     "arui-presets-ts": "^5.0.0",
     "babel-loader": "^8.0.6",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-airbnb-typescript": "^7.0.0",
+    "eslint-config-prettier": "^6.10.0",
     "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-chai-friendly": "^0.5.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.18.3",
-    "eslint-plugin-react-hooks": "^2.3.0",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.0",
     "eslint-plugin-sort-class-members": "^1.6.0",
     "fork-ts-checker-webpack-plugin": "^4.0.2",
+    "git-url-parse": "^11.1.2",
     "husky": "^4.2.1",
     "lerna": "^3.20.2",
+    "lint-staged": "^10.0.8",
     "postcss-cli": "^7.1.0",
     "postcss-import": "^12.0.1",
     "postcss-preset-env": "^6.7.0",
+    "prettier": "^1.19.1",
     "react-docgen-typescript-loader": "^3.6.0",
     "react-scripts": "^3.3.1",
+    "shelljs": "^0.8.3",
     "storybook-addon-designs": "^5.1.2",
-    "stylelint": "^13.1.0",
+    "stylelint": "^12.0.0",
     "stylelint-config-standard": "^20.0.0",
     "ts-loader": "^6.2.1",
-    "typescript": "~3.7.5"
+    "typescript": "~3.8.3"
   },
   "publishConfig": {
     "access": "public"
@@ -91,9 +99,28 @@
     "react": ">=16.12.0",
     "react-dom": ">=16.12.0"
   },
+  "prettier": "arui-presets-lint/prettier",
+  "eslintConfig": {
+    "extends": "./node_modules/arui-presets-lint/eslint/index.js"
+  },
+  "stylelint": {
+    "extends": "arui-presets-lint/stylelint"
+  },
+  "lint-staged": {
+    "{packages,bin}/**/*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "git add",
+      "eslint"
+    ],
+    "*.css": [
+      "prettier --write",
+      "git add",
+      "stylelint"
+    ]
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test",
+      "pre-commit": "yarn lint-staged && yarn test",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },

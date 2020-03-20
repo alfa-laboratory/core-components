@@ -1,139 +1,135 @@
 @import '../../themes/default.css';
 
 .component {
-  padding: 0 24px;
-  line-height: 1.2;
-  font-weight: var(--button-font-weight);
-  border: 0;
-  border-radius: var(--button-border-radius);
-  transition: background 0.2s ease, border 0.2s ease;
-  box-sizing: border-box;
-  box-shadow: none;
-  user-select: none;
-  cursor: pointer;
+    padding: 0 24px;
+    line-height: 1.2;
+    font-weight: var(--button-font-weight);
+    border: 0;
+    border-radius: var(--button-border-radius);
+    transition: background 0.2s ease, border 0.2s ease;
+    box-sizing: border-box;
+    box-shadow: none;
+    user-select: none;
+    cursor: pointer;
 
-  /* TODO default outline and themeable focus styles */
-  outline: none;
+    /* TODO default outline and themeable focus styles */
+    outline: none;
 }
 
 .component:disabled {
-  cursor: default;
+    cursor: default;
 }
 
 /* Size */
 
 .xs {
-  padding: 0 12px;
-  font-size: 14px;
-  min-height: 32px;
-  min-width: 88px;
+    padding: 0 12px;
+    font-size: 14px;
+    min-height: 32px;
+    min-width: 88px;
 }
 
 .s {
-  font-size: 16px;
-  min-height: 48px;
-  min-width: 160px;
+    font-size: 16px;
+    min-height: 48px;
+    min-width: 160px;
 }
 
 .m {
-  font-size: 16px;
-  min-height: 56px;
-  min-width: 160px;
+    font-size: 16px;
+    min-height: 56px;
+    min-width: 160px;
 }
 
 .l {
-  font-size: 18px;
-  min-height: 68px;
-  min-width: 160px;
+    font-size: 18px;
+    min-height: 68px;
+    min-width: 160px;
 }
 
 /* Type */
 
 .primary {
-  color: var(--color-white);
-  background-color: var(--button-primary-base-color);
+    color: var(--color-white);
+    background-color: var(--button-primary-base-color);
 }
 
 .primary:hover {
-  background-color: color-mod(var(--button-primary-base-color) lightness(-10%));
+    background-color: color-mod(var(--button-primary-base-color) lightness(-10%));
 }
 
 .primary:active {
-  background-color: color-mod(var(--button-primary-base-color) lightness(-20%));
+    background-color: color-mod(var(--button-primary-base-color) lightness(-20%));
 }
 
 .primary:disabled {
-  background-color: var(--button-primary-base-color);
+    background-color: var(--button-primary-base-color);
 }
 
 .secondary {
-  color: var(--color-dark-indigo);
-  background-color: var(--button-secondary-base-color);
-  border: 1px solid var(--button-secondary-border-color);
+    color: var(--color-dark-indigo);
+    background-color: var(--button-secondary-base-color);
+    border: 1px solid var(--button-secondary-border-color);
 }
 
 .secondary:hover {
-  background-color: color-mod(
-    var(--button-secondary-base-color) lightness(-10%)
-  );
-  border-color: color-mod(var(--button-secondary-border-color) lightness(-20%));
+    background-color: color-mod(var(--button-secondary-base-color) lightness(-10%));
+    border-color: color-mod(var(--button-secondary-border-color) lightness(-20%));
 }
 
 .secondary:active {
-  background-color: color-mod(
-    var(--button-secondary-base-color) lightness(-20%)
-  );
-  border-color: color-mod(var(--button-secondary-border-color) lightness(-40%));
+    background-color: color-mod(var(--button-secondary-base-color) lightness(-20%));
+    border-color: color-mod(var(--button-secondary-border-color) lightness(-40%));
 }
 
 .secondary:disabled {
-  color: color-mod(var(--color-dark-indigo) alpha(-70%));
-  background-color: var(--button-secondary-disabled-color);
-  border-color: color-mod(var(--button-secondary-border-color) alpha(-70%));
+    color: color-mod(var(--color-dark-indigo) alpha(-70%));
+    background-color: var(--button-secondary-disabled-color);
+    border-color: color-mod(var(--button-secondary-border-color) alpha(-70%));
 }
 
 .extra {
-  color: var(--color-white);
-  background-color: var(--button-extra-base-color);
+    color: var(--color-white);
+    background-color: var(--button-extra-base-color);
 }
 
 .extra:hover {
-  background-color: color-mod(var(--button-extra-base-color) lightness(-10%));
+    background-color: color-mod(var(--button-extra-base-color) lightness(-10%));
 }
 
 .extra:active {
-  background-color: color-mod(var(--button-extra-base-color) lightness(-20%));
+    background-color: color-mod(var(--button-extra-base-color) lightness(-20%));
 }
 
 .extra:disabled {
-  background-color: var(--button-extra-base-color);
+    background-color: var(--button-extra-base-color);
 }
 
 .dashed {
-  color: var(--color-dark-indigo);
-  background-color: transparent;
-  border: 1px dashed var(--color-dark-indigo-60-flat);
+    color: var(--color-dark-indigo);
+    background-color: transparent;
+    border: 1px dashed var(--color-dark-indigo-60-flat);
 }
 
 .dashed:hover {
-  border-color: color-mod(var(--color-dark-indigo-60-flat) lightness(-20%));
+    border-color: color-mod(var(--color-dark-indigo-60-flat) lightness(-20%));
 }
 
 .dashed:active {
-  border-color: color-mod(var(--color-dark-indigo-60-flat) lightness(-40%));
+    border-color: color-mod(var(--color-dark-indigo-60-flat) lightness(-40%));
 }
 
 .dashed:disabled {
-  border-color: var(--color-dark-indigo-60-flat);
+    border-color: var(--color-dark-indigo-60-flat);
 }
 
 .link {
-  color: var(--color-dark-indigo);
-  background-color: transparent;
+    color: var(--color-dark-indigo);
+    background-color: transparent;
 }
 
 /* Block */
 
 .block {
-  width: 100%;
+    width: 100%;
 }

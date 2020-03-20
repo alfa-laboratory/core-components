@@ -1,11 +1,11 @@
 @import '../../vars/colors.css';
 
 :root {
-  --divider-color: var(--color-dark-indigo-15);
+    --divider-color: var(--color-dark-indigo-15);
 }
 
 .component {
-  border: none;
-  border-bottom: 1px solid var(--divider-color);
-  margin: 0;
+    border: none;
+    border-bottom: 1px solid var(--divider-color);
+    margin: 0;
 }
