@@ -20,9 +20,28 @@ jobs:
     #   run: yarn test
 
     - name: Run build
+      id: demo_build
       run: node ./bin/demo-build.js
 
     - name: Publish storybook
       run: |
         cd ./storybook-demo
         git push -q -f "https://alfa-bot:${{ secrets.BOT_AUTH_TOKEN }}@github.com/alfa-laboratory/core-components.git" master:gh-pages
+
+    # Ищем открытый PR
+    - uses: jwalton/gh-find-current-pr@v1
+        id: find_pr
+        with:
+          github-token: ${{ secrets.BOT_AUTH_TOKEN }}
+
+    # Если нашли открытый PR, то добавляем коммент с ссылкой на демку.
+    # storybook_url заполняется в demo-build.js
+    - name: Create comment
+      if: success() && steps.find_pr.outputs.number
+      uses: peter-evans/create-or-update-comment@v1
+      with:
+        token: ${{ secrets.BOT_AUTH_TOKEN }}
+        issue-number: ${{ steps.find_pr.outputs.pr }}
+        body: |
+          Собрана новая [демка](${{ steps.demo_build.outputs.storybook_url }}).
+        reaction-type: 'rocket'
