@@ -17,10 +17,10 @@
     "update-colors": "node ./tools/update-colors.js",
     "pub": "./bin/publish.sh",
     "lint": "yarn lint:css && yarn lint:js",
-    "lint:css": "stylelint ./packages/**/*.css",
+    "lint:css": "stylelint ./src/**/*.css",
     "lint:js": "eslint ./ --ext .ts,.tsx,.js,.jsx",
     "test": "yarn lint",
-    "format": "prettier --write \"./{packages,bin}/**/*.{ts,tsx,js,jsx,css}\""
+    "format": "prettier --write \"./{src,bin}/**/*.{ts,tsx,js,jsx,css}\""
   },
   "browserslist": {
     "production": [
@@ -107,7 +107,7 @@
     "extends": "arui-presets-lint/stylelint"
   },
   "lint-staged": {
-    "{packages,bin}/**/*.{js,jsx,ts,tsx}": [
+    "{src,bin}/**/*.{js,jsx,ts,tsx}": [
       "prettier --write",
       "git add",
       "eslint"

@@ -20,6 +20,6 @@ rm -rf dist
 # запускаю скрипт build-root-package.sh во всех подпакетах
 lerna exec --parallel -- $(pwd)/bin/build-root-package.sh \$LERNA_PACKAGE_NAME
 # копирую vars в сборку корневого пакета
-cp -r packages/vars dist
+cp -r src/vars dist
 # копирую package.json в сборку корневого пакета
 cp package.json dist/package.json
