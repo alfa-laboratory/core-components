@@ -5,8 +5,8 @@ module.exports = {
       '@babel/preset-typescript',
       {
         isTSX: true,
-        allExtensions: true
-      }
-    ]
-  ]
+        allExtensions: true,
+      },
+    ],
+  ],
 };

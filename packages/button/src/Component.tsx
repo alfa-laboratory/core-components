@@ -16,20 +16,19 @@ import styles from './Component.module.css';
  */
 
 type Props = {
-  type?: 'primary' | 'secondary' | 'outlined' | 'link' | 'ghost';
-  title?: string;
-  disabled?: boolean;
-  htmlType?: 'button' | 'reset' | 'submit';
-  href?: string;
-  icon?: React.ReactNode;
-  iconPosition?: 'left' | 'right';
-  loading?: boolean;
-  size?: 'xs' | 's' | 'm' | 'l';
-  block?: boolean;
-  className?: string;
-  dataTestId?: string;
-
-  onClick?: (e: React.MouseEvent) => void;
+    type?: 'primary' | 'secondary' | 'outlined' | 'link' | 'ghost';
+    title?: string;
+    disabled?: boolean;
+    htmlType?: 'button' | 'reset' | 'submit';
+    href?: string;
+    icon?: React.ReactNode;
+    iconPosition?: 'left' | 'right';
+    loading?: boolean;
+    size?: 'xs' | 's' | 'm' | 'l';
+    block?: boolean;
+    className?: string;
+    dataTestId?: string;
+    onClick?: (e: React.MouseEvent) => void;
 };
 
 /**
@@ -37,61 +36,58 @@ type Props = {
  */
 
 export const Button: React.FC<Props> = ({
-  children,
-  type = 'secondary',
-  title,
-  disabled = false,
-  htmlType = 'button',
-  href,
-  icon,
-  iconPosition = 'left',
-  // loading = false,
-  size = 'm',
-  block = false,
-  className = '',
-  dataTestId,
-
-  onClick
-}) => {
-  const buttonProps = {
+    children,
+    type = 'secondary',
     title,
-    className: cn(
-      styles.component,
-      styles[type],
-      styles[size],
-      {
-        [styles.block]: block,
-        [styles['icon-only']]: !children
-      },
-      className
-    ),
+    disabled = false,
+    htmlType = 'button',
+    href,
+    icon,
+    iconPosition = 'left',
+    // loading = false,
+    size = 'm',
+    block = false,
+    className = '',
+    dataTestId,
+
     onClick,
-    'data-test-id': dataTestId || null
-  };
+}) => {
+    const buttonProps = {
+        title,
+        className: cn(
+            styles.component,
+            styles[type],
+            styles[size],
+            {
+                [styles.block]: block,
+                [styles['icon-only']]: !children,
+            },
+            className,
+        ),
+        onClick,
+        'data-test-id': dataTestId || null,
+    };
 
-  const buttonChildren = (
-    <>
-      { iconPosition === 'left' && icon && (
-        <span className={ cn(styles.icon) }>{ icon }</span>
-      ) }
-      { children && <span className={ cn(styles.text) }>{ children }</span> }
-      { iconPosition === 'right' && icon && (
-        <span className={ cn(styles.icon) }>{ icon }</span>
-      ) }
-    </>
-  );
-
-  if (href) {
-    return (
-      <a { ...buttonProps } href={ href }>
-        { buttonChildren }
-      </a>
+    const buttonChildren = (
+        <React.Fragment>
+            {iconPosition === 'left' && icon && <span className={cn(styles.icon)}>{icon}</span>}
+            {children && <span className={cn(styles.text)}>{children}</span>}
+            {iconPosition === 'right' && icon && <span className={cn(styles.icon)}>{icon}</span>}
+        </React.Fragment>
     );
-  }
 
-  return (
-    <button { ...buttonProps } type={ htmlType } disabled={ disabled }>
-      { buttonChildren }
-    </button>
-  );
+    if (href) {
+        return (
+            <a {...buttonProps} href={href}>
+                {buttonChildren}
+            </a>
+        );
+    }
+
+    return (
+        // eslint-disable-next-line react/button-has-type
+        <button {...buttonProps} type={htmlType} disabled={disabled}>
+            {buttonChildren}
+        </button>
+    );
 };

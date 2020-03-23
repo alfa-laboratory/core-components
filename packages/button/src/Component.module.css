@@ -1,202 +1,187 @@
 @import '../../themes/default.css';
 
 :root {
-  --button-primary-base-color: var(--color-red-brand-85-flat);
-  --button-primary-hover-color: color-mod(
-    var(--button-primary-base-color) lightness(-10%)
-  );
-  --button-primary-active-color: color-mod(
-    var(--button-primary-base-color) lightness(-20%)
-  );
-  --button-primary-disabled-color: var(--button-primary-base-color);
-
-  --button-secondary-base-color: var(--color-dark-indigo-15-flat);
-  --button-secondary-disabled-color: var(--color-dark-indigo-15-flat);
-
-  --button-secondary-base-color: var(--color-dark-indigo-15-flat);
-  --button-secondary-hover-color: color-mod(
-    var(--color-red-brand) lightness(-10%)
-  );
-  --button-secondary-active-color: color-mod(
-    var(--color-red-brand) lightness(-20%)
-  );
-  --button-secondary-disabled-color: var(--color-dark-indigo-15-flat);
-
-  --button-font-weight: 500;
-  --button-font-family: var(--font-family);
+    --button-primary-base-color: var(--color-red-brand-85-flat);
+    --button-primary-hover-color: color-mod(var(--button-primary-base-color) lightness(-10%));
+    --button-primary-active-color: color-mod(var(--button-primary-base-color) lightness(-20%));
+    --button-primary-disabled-color: var(--button-primary-base-color);
+    --button-secondary-base-color: var(--color-dark-indigo-15-flat);
+    --button-secondary-disabled-color: var(--color-dark-indigo-15-flat);
+    --button-secondary-base-color: var(--color-dark-indigo-15-flat);
+    --button-secondary-hover-color: color-mod(var(--color-red-brand) lightness(-10%));
+    --button-secondary-active-color: color-mod(var(--color-red-brand) lightness(-20%));
+    --button-secondary-disabled-color: var(--color-dark-indigo-15-flat);
+    --button-font-weight: 500;
+    --button-font-family: var(--font-family);
 }
 
 .component {
-  display: inline-flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0 24px;
-  line-height: 1.2;
-  font-weight: var(--button-font-weight);
-  font-family: var(--font-family);
-  text-decoration: none;
-  background-color: transparent;
-  border: 0;
-  border-radius: var(--border-radius);
-  transition: background 0.2s ease, border 0.2s ease;
-  box-sizing: border-box;
-  box-shadow: none;
-  user-select: none;
-  cursor: pointer;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0 24px;
+    line-height: 1.2;
+    font-weight: var(--button-font-weight);
+    font-family: var(--font-family);
+    text-decoration: none;
+    background-color: transparent;
+    border: 0;
+    border-radius: var(--border-radius);
+    transition: background 0.2s ease, border 0.2s ease;
+    box-sizing: border-box;
+    box-shadow: none;
+    user-select: none;
+    cursor: pointer;
 
-  /* TODO default outline and themeable focus styles */
-  outline: none;
+    /* TODO default outline and themeable focus styles */
+    outline: none;
 }
 
 .component:disabled {
-  cursor: initial;
+    cursor: initial;
 }
 
 /* Size */
 
 .xs {
-  min-width: 80px;
-  min-height: 32px;
-  padding: 0 12px;
-  font-size: 14px;
+    min-width: 80px;
+    min-height: 32px;
+    padding: 0 12px;
+    font-size: 14px;
 
-  &.icon-only {
-    min-width: 32px;
-  }
+    &.icon-only {
+        min-width: 32px;
+    }
 }
 
 .s {
-  min-width: 104px;
-  min-height: 48px;
-  font-size: 16px;
+    min-width: 104px;
+    min-height: 48px;
+    font-size: 16px;
 
-  &.icon-only {
-    min-width: 48px;
-  }
+    &.icon-only {
+        min-width: 48px;
+    }
 }
 
 .m {
-  min-width: 128px;
-  min-height: 56px;
-  font-size: 16px;
+    min-width: 128px;
+    min-height: 56px;
+    font-size: 16px;
 
-  &.icon-only {
-    min-width: 56px;
-  }
+    &.icon-only {
+        min-width: 56px;
+    }
 }
 
 .l {
-  min-width: 160px;
-  min-height: 68px;
-  font-size: 18px;
+    min-width: 160px;
+    min-height: 68px;
+    font-size: 18px;
 
-  &.icon-only {
-    min-width: 68px;
-  }
+    &.icon-only {
+        min-width: 68px;
+    }
 }
 
 /* Type */
 
 .primary {
-  color: var(--color-white);
-  background-color: var(--button-primary-base-color);
+    color: var(--color-white);
+    background-color: var(--button-primary-base-color);
 }
 
 .primary:hover {
-  background-color: var(--button-primary-hover-color);
+    background-color: var(--button-primary-hover-color);
 }
 
 .primary:active {
-  background-color: var(--button-primary-active-color);
+    background-color: var(--button-primary-active-color);
 }
 
 .primary:disabled {
-  background-color: var(--button-primary-disabled-color);
+    background-color: var(--button-primary-disabled-color);
 }
 
 .secondary {
-  color: var(--color-dark-indigo);
-  background-color: var(--button-secondary-base-color);
+    color: var(--color-dark-indigo);
+    background-color: var(--button-secondary-base-color);
 }
 
 .secondary:hover {
-  background-color: color-mod(
-    var(--button-secondary-base-color) lightness(-10%)
-  );
+    background-color: color-mod(var(--button-secondary-base-color) lightness(-10%));
 }
 
 .secondary:active {
-  background-color: color-mod(
-    var(--button-secondary-base-color) lightness(-20%)
-  );
+    background-color: color-mod(var(--button-secondary-base-color) lightness(-20%));
 }
 
 .secondary:disabled {
-  color: color-mod(var(--color-dark-indigo) alpha(-70%));
-  background-color: var(--button-secondary-disabled-color);
+    color: color-mod(var(--color-dark-indigo) alpha(-70%));
+    background-color: var(--button-secondary-disabled-color);
 }
 
 .outlined {
-  color: var(--color-dark-indigo);
-  background-color: transparent;
-  border: 1px solid var(--color-dark-indigo-60-flat);
+    color: var(--color-dark-indigo);
+    background-color: transparent;
+    border: 1px solid var(--color-dark-indigo-60-flat);
 }
 
 .outlined:hover {
-  border-color: color-mod(var(--color-dark-indigo-60-flat) lightness(-20%));
+    border-color: color-mod(var(--color-dark-indigo-60-flat) lightness(-20%));
 }
 
 .outlined:active {
-  border-color: color-mod(var(--color-dark-indigo-60-flat) lightness(-40%));
+    border-color: color-mod(var(--color-dark-indigo-60-flat) lightness(-40%));
 }
 
 .outlined:disabled {
-  border-color: var(--color-dark-indigo-60-flat);
+    border-color: var(--color-dark-indigo-60-flat);
 }
 
 .link {
-  min-width: 0;
-  color: var(--color-dark-indigo);
-  background-color: transparent;
+    min-width: 0;
+    color: var(--color-dark-indigo);
+    background-color: transparent;
 
-  &:hover {
-    background-color: var(--button-secondary-base-color);
-  }
+    &:hover {
+        background-color: var(--button-secondary-base-color);
+    }
 }
 
 .ghost {
-  min-width: 0;
-  min-height: 0;
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  appearance: none;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    appearance: none;
 }
 
 /* Icon */
 
 .icon {
-  margin: 0 12px 0 0;
+    margin: 0 12px 0 0;
 }
 
 .text + .icon {
-  margin: 0 0 0 12px;
+    margin: 0 0 0 12px;
 }
 
 .icon:only-child {
-  margin: 0;
+    margin: 0;
 }
 
 .icon-only {
-  padding: 0;
+    padding: 0;
 }
 
 /* Block */
 
 .block {
-  width: 100%;
+    width: 100%;
 }
