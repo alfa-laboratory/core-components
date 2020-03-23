@@ -15,7 +15,7 @@ describe('Divider', () => {
     it('should have a default test identifier', () => {
         const { container } = render(<Divider />);
 
-        expect(container.firstElementChild).toHaveAttribute('data-testid');
+        expect(container.firstElementChild).toHaveAttribute('data-test-id');
     });
 
     it('should use a dataTestId prop', () => {
