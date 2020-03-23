@@ -19,12 +19,16 @@
     "noEmit": true,
     "jsx": "react",
     "types": [
-      "./typings/module"
+      "./typings/module",
+      "jest"
     ],
     "plugins": [
       {
         "name": "typescript-plugin-css-modules"
       }
     ]
-  }
+  },
+  "include": [
+    "src"
+  ]
 }

@@ -2,11 +2,24 @@
  * Vendor
  */
 
-// import React from 'react';
-// import { render } from '@testing-library/react';
+import React from 'react';
+import { render } from '@testing-library/react';
 
 /**
- * Exp
+ * Component
  */
 
-// test('renders learn react link', () => {});
+import { Button } from './index';
+
+describe('Button', () => {
+    it('should render without problem', () => {
+        expect(render(<Button />)).toMatchSnapshot();
+    });
+
+    it('should use a className prop', () => {
+        const className = 'short';
+        const { container } = render(<Button className={className} />);
+
+        expect(container.firstElementChild?.classList).toContain(className);
+    });
+});

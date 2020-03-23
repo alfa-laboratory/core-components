@@ -19,7 +19,7 @@
     "lint": "yarn lint:css && yarn lint:js",
     "lint:css": "stylelint ./src/**/*.css",
     "lint:js": "eslint ./ --ext .ts,.tsx,.js,.jsx",
-    "test": "yarn lint",
+    "test": "react-scripts test --watchAll=false",
     "format": "prettier --write \"./{src,bin}/**/*.{ts,tsx,js,jsx,css}\""
   },
   "browserslist": {

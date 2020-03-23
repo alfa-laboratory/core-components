@@ -12,10 +12,8 @@ import { render } from '@testing-library/react';
 import { Divider } from './index';
 
 describe('Divider', () => {
-    it('should have a default test identifier', () => {
-        const { container } = render(<Divider />);
-
-        expect(container.firstElementChild).toHaveAttribute('data-testid');
+    it('should render without problem', () => {
+        expect(render(<Divider />)).toMatchSnapshot();
     });
 
     it('should use a dataTestId prop', () => {
