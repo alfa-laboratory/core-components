@@ -130,9 +130,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                         {label && <div className={styles.label}>{label}</div>}
 
                         <input
-                            // Уберем eslint-disable, как только обновим линтер
-                            // https://github.com/alfa-laboratory/arui-presets-lint/blob/feat/new-rules/eslint/index.js#L87
-                            // eslint-disable-next-line react/jsx-props-no-spreading
                             {...restProps}
                             className={cn(styles.input, styles[size], inputClassName)}
                             disabled={disabled}

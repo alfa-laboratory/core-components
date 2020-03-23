@@ -1,76 +1,77 @@
 @import '../../themes/default.css';
 
 :root {
-  --input-font-size: 16px;
-  --input-line-height: 16px;
-  --input-color: var(--color-dark-indigo);
-  --input-disabled-color: var(--color-dark-indigo-60-flat);
-  --input-disabled-bg-color: var(--color-dark-indigo-15);
-  --input-bg-color: var(--color-dark-indigo-07);
-  --input-hover-bg-color: var(--color-dark-indigo-15);
-  --input-placeholder-color: var(--color-dark-indigo-60-flat);
-  --input-border-color: var(--color-dark-indigo-30-flat);
-  --input-focus-border-color: var(--color-dark-indigo);
-  --input-disabled-border-color: var(--color-dark-indigo-30-flat);
-  --input-border-radius: 4px 4px 0 0;
-  --input-side-paddings: 12px;
+    --input-font-size: 16px;
+    --input-line-height: 16px;
+    --input-color: var(--color-dark-indigo);
+    --input-disabled-color: var(--color-dark-indigo-60-flat);
+    --input-disabled-bg-color: var(--color-dark-indigo-15);
+    --input-bg-color: var(--color-dark-indigo-07);
+    --input-hover-bg-color: var(--color-dark-indigo-15);
+    --input-placeholder-color: var(--color-dark-indigo-60-flat);
+    --input-border-color: var(--color-dark-indigo-30-flat);
+    --input-focus-border-color: var(--color-dark-indigo);
+    --input-disabled-border-color: var(--color-dark-indigo-30-flat);
+    --input-border-radius: 4px 4px 0 0;
+    --input-side-paddings: 12px;
 }
 
 .component {
-  display: inline-flex;
-  position: relative;
-  font-family: var(--font-family);
-  font-size: var(--input-font-size);
-  line-height: var(--input-line-height);
-  box-sizing: border-box;
-  color: var(--input-color);
-  background-color: var(--input-bg-color);
-  border-radius: var(--input-border-radius);
-  transition: background 0.2s ease, box-shadow 0.2s ease, border 0.2s ease, opacity 0.2s ease-in-out, color 0.2s ease-in-out;
-  border: none;
-  margin: 0;
-  border-bottom: 1px solid var(--input-border-color);
-  outline: none;
-  -webkit-appearance: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    display: inline-flex;
+    position: relative;
+    font-family: var(--font-family);
+    font-size: var(--input-font-size);
+    line-height: var(--input-line-height);
+    box-sizing: border-box;
+    color: var(--input-color);
+    background-color: var(--input-bg-color);
+    border-radius: var(--input-border-radius);
+    transition: background 0.2s ease, box-shadow 0.2s ease, border 0.2s ease,
+        opacity 0.2s ease-in-out, color 0.2s ease-in-out;
+    border: none;
+    margin: 0;
+    border-bottom: 1px solid var(--input-border-color);
+    outline: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .component::placeholder,
 .component[placeholder] {
-  text-overflow: ellipsis;
+    text-overflow: ellipsis;
 }
 
 .component::placeholder {
-  color: var(--input-placeholder-color);
+    color: var(--input-placeholder-color);
 }
 
 .component:not(:disabled):hover {
-  background-color: var(--input-hover-bg-color);
+    background-color: var(--input-hover-bg-color);
 }
 
 .component:disabled:focus {
-  border-bottom-color: var(--input-focus-border-color);
-  box-shadow: inset 0 -1px var(--input-focus-border-color);
+    border-bottom-color: var(--input-focus-border-color);
+    box-shadow: inset 0 -1px var(--input-focus-border-color);
 }
 
 .component:disabled {
-  color: var(--input-disabled-color);
-  border-bottom: 1px dashed var(--input-disabled-border-color);
-  background-color: var(--input-disabled-bg-color);
+    color: var(--input-disabled-color);
+    border-bottom: 1px dashed var(--input-disabled-border-color);
+    background-color: var(--input-disabled-bg-color);
 }
 
 .block {
-  width: 100%;
+    width: 100%;
 }
 
 .s {
-  padding: 14px var(--input-side-paddings) 13px;
+    padding: 14px var(--input-side-paddings) 13px;
 }
 
 .m {
-  padding: 18px var(--input-side-paddings) 17px;
+    padding: 18px var(--input-side-paddings) 17px;
 }
 
 .l {
-  padding: 24px var(--input-side-paddings) 23px;
+    padding: 24px var(--input-side-paddings) 23px;
 }

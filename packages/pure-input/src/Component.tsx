@@ -45,9 +45,6 @@ export const PureInput = React.forwardRef<HTMLInputElement, PureInputProps>(
         ref,
     ) => (
         <input
-            // Уберем eslint-disable, как только обновим линтер
-            // https://github.com/alfa-laboratory/arui-presets-lint/blob/feat/new-rules/eslint/index.js#L87
-            // eslint-disable-next-line react/jsx-props-no-spreading
             {...restProps}
             className={cn(className, styles.component, styles[size], {
                 [styles.block]: block,
