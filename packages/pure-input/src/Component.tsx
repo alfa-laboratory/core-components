@@ -16,43 +16,45 @@ import styles from './Component.module.css';
  */
 
 export type PureInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
-  /** Флаг - растягивать инпута на ширину контейнера */
-  block?: boolean;
-  /** Атрибут type */
-  htmlType?: 'number' | 'card' | 'email' | 'file' | 'hidden' | 'money' | 'password' | 'tel' | 'text';
-  /** Размер компонента */
-  size?: 's' | 'm' | 'l';
-  /** Id компонента для тестов */
-  dataTestId?: string;
+    /** Флаг - растягивать инпута на ширину контейнера */
+    block?: boolean;
+    /** Атрибут type */
+    htmlType?:
+        | 'number'
+        | 'card'
+        | 'email'
+        | 'file'
+        | 'hidden'
+        | 'money'
+        | 'password'
+        | 'tel'
+        | 'text';
+    /** Размер компонента */
+    size?: 's' | 'm' | 'l';
+    /** Id компонента для тестов */
+    dataTestId?: string;
 };
 
 /**
  * Expo
  */
 
-export const PureInput = React.forwardRef<HTMLInputElement, PureInputProps>(({
-  size='s',
-  htmlType='text',
-  block=false,
-  className,
-  dataTestId,
-  ...restProps
-}, ref) => (
-  <input
-    // Уберем eslint-disable, как только обновим линтер
-    // https://github.com/alfa-laboratory/arui-presets-lint/blob/feat/new-rules/eslint/index.js#L87
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    { ...restProps }
-    className={ cn(
-      className,
-      styles.component,
-      styles[size],
-      {
-        [styles.block]: block
-      }
-    ) }
-    ref={ ref }
-    type={ htmlType }
-    data-test-id={ dataTestId }
-  />
-));
+export const PureInput = React.forwardRef<HTMLInputElement, PureInputProps>(
+    (
+        { size = 's', htmlType = 'text', block = false, className, dataTestId, ...restProps },
+        ref,
+    ) => (
+        <input
+            // Уберем eslint-disable, как только обновим линтер
+            // https://github.com/alfa-laboratory/arui-presets-lint/blob/feat/new-rules/eslint/index.js#L87
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            {...restProps}
+            className={cn(className, styles.component, styles[size], {
+                [styles.block]: block,
+            })}
+            ref={ref}
+            type={htmlType}
+            data-test-id={dataTestId}
+        />
+    ),
+);

@@ -12,23 +12,23 @@ import { render } from '@testing-library/react';
 import { Divider } from './index';
 
 describe('Divider', () => {
-  it('should have a default test identifier', () => {
-    const { container } = render(<Divider />);
+    it('should have a default test identifier', () => {
+        const { container } = render(<Divider />);
 
-    expect(container.firstElementChild).toHaveAttribute('data-testid');
-  });
+        expect(container.firstElementChild).toHaveAttribute('data-testid');
+    });
 
-  it('should use a dataTestId prop', () => {
-    const testId = 'header-divider';
-    const { getByTestId } = render(<Divider dataTestId={ testId } />);
+    it('should use a dataTestId prop', () => {
+        const testId = 'header-divider';
+        const { getByTestId } = render(<Divider dataTestId={testId} />);
 
-    expect(getByTestId(testId)).toBeTruthy;
-  });
+        expect(getByTestId(testId)).toBeTruthy();
+    });
 
-  it('should use a className prop', () => {
-    const className = 'short';
-    const { container } = render(<Divider className={ className } />);
+    it('should use a className prop', () => {
+        const className = 'short';
+        const { container } = render(<Divider className={className} />);
 
-    expect(container.firstElementChild?.classList).toContain(className);
-  });
+        expect(container.firstElementChild?.classList).toContain(className);
+    });
 });
