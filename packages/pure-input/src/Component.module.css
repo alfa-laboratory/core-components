@@ -1,36 +1,49 @@
 @import '../../themes/default.css';
 
 :root {
-    --input-font-size: 16px;
-    --input-line-height: 16px;
-    --input-color: var(--color-dark-indigo);
-    --input-disabled-color: var(--color-dark-indigo-60-flat);
-    --input-disabled-bg-color: var(--color-dark-indigo-15);
-    --input-bg-color: var(--color-dark-indigo-07);
-    --input-hover-bg-color: var(--color-dark-indigo-15);
-    --input-placeholder-color: var(--color-dark-indigo-60-flat);
-    --input-border-color: var(--color-dark-indigo-30-flat);
-    --input-focus-border-color: var(--color-dark-indigo);
-    --input-disabled-border-color: var(--color-dark-indigo-30-flat);
-    --input-border-radius: 4px 4px 0 0;
-    --input-side-paddings: 12px;
+    --pure-input-border-radius: 4px 4px 0 0;
+    --pure-input-side-paddings: 12px;
+
+    /* paddings */
+    --pure-input-s-paddings: 14px var(--pure-input-side-paddings) 13px;
+    --pure-input-m-paddings: 18px var(--pure-input-side-paddings) 17px;
+    --pure-input-l-paddings: 24px var(--pure-input-side-paddings) 23px;
+
+    /* colors */
+    --pure-input-color: var(--color-dark-indigo);
+    --pure-input-bg-color: var(--color-dark-indigo-07);
+    --pure-input-border-bottom: 1px solid var(--color-dark-indigo-30-flat);
+    --pure-input-placeholder-color: var(--color-dark-indigo-60-flat);
+    --pure-input-hint-color: var(--color-dark-indigo-60-flat);
+
+    /* disabled */
+    --pure-input-disabled-color: var(--color-dark-indigo-60-flat);
+    --pure-input-disabled-bg-color: var(--color-dark-indigo-15);
+    --pure-input-disabled-border-bottom: 1px dashed var(--color-dark-indigo-30-flat);
+
+    /* focus */
+    --pure-input-focus-shadow: inset 0 -1px var(--color-dark-indigo);
+    --pure-input-focus-border-bottom: 1px solid var(--color-dark-indigo);
+
+    /* hover */
+    --pure-input-hover-bg-color: var(--color-dark-indigo-15);
 }
 
 .component {
     display: inline-flex;
     position: relative;
     font-family: var(--font-family);
-    font-size: var(--input-font-size);
-    line-height: var(--input-line-height);
+    font-size: 16px;
+    line-height: 20px;
     box-sizing: border-box;
-    color: var(--input-color);
-    background-color: var(--input-bg-color);
-    border-radius: var(--input-border-radius);
+    color: var(--pure-input-color);
+    background-color: var(--pure-input-bg-color);
+    border-radius: var(--pure-input-border-radius);
     transition: background 0.2s ease, box-shadow 0.2s ease, border 0.2s ease,
         opacity 0.2s ease-in-out, color 0.2s ease-in-out;
     border: none;
     margin: 0;
-    border-bottom: 1px solid var(--input-border-color);
+    border-bottom: var(--pure-input-border-bottom);
     outline: none;
     -webkit-appearance: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -42,36 +55,44 @@
 }
 
 .component::placeholder {
-    color: var(--input-placeholder-color);
-}
-
-.component:not(:disabled):hover {
-    background-color: var(--input-hover-bg-color);
-}
-
-.component:disabled:focus {
-    border-bottom-color: var(--input-focus-border-color);
-    box-shadow: inset 0 -1px var(--input-focus-border-color);
-}
-
-.component:disabled {
-    color: var(--input-disabled-color);
-    border-bottom: 1px dashed var(--input-disabled-border-color);
-    background-color: var(--input-disabled-bg-color);
+    color: var(--pure-input-placeholder-color);
 }
 
 .block {
     width: 100%;
 }
 
+/* INPUT PADDINGS */
+
 .s {
-    padding: 14px var(--input-side-paddings) 13px;
+    padding: var(--pure-input-s-paddings);
 }
 
 .m {
-    padding: 18px var(--input-side-paddings) 17px;
+    padding: var(--pure-input-m-paddings);
 }
 
 .l {
-    padding: 24px var(--input-side-paddings) 23px;
+    padding: var(--pure-input-l-paddings);
+}
+
+/* DISABLED STATE */
+
+.component:disabled {
+    color: var(--pure-input-disabled-color);
+    border-bottom: var(--pure-input-disabled-border-bottom);
+    background-color: var(--pure-input-disabled-bg-color);
+}
+
+/* FOCUS STATE */
+
+.component:not(:disabled):focus {
+    border-bottom: var(--pure-input-focus-border-bottom);
+    box-shadow: var(--pure-input-focus-shadow);
+}
+
+/* HOVER STATE */
+
+.component:not(:disabled):hover {
+    background-color: var(--pure-input-hover-bg-color);
 }

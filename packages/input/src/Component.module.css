@@ -1,10 +1,41 @@
 @import '../../themes/default.css';
 
 :root {
+    --input-border-radius: 4px 4px 0 0;
+    --input-side-paddings: 12px;
+
+    /* paddings */
+    --input-s-paddings: 14px var(--input-side-paddings) 13px;
+    --input-m-paddings: 18px var(--input-side-paddings) 17px;
+    --input-l-paddings: 24px var(--input-side-paddings) 23px;
+    --input-labeled-s-paddings: 23px var(--input-side-paddings) 4px;
+    --input-labeled-m-paddings: 28px var(--input-side-paddings) 7px;
+    --input-labeled-l-paddings: 34px var(--input-side-paddings) 13px;
+
+    /* colors */
+    --input-color: var(--color-dark-indigo);
+    --input-bg-color: var(--color-dark-indigo-07);
+    --input-border-bottom: 1px solid var(--color-dark-indigo-30-flat);
+    --input-placeholder-color: var(--color-dark-indigo-60-flat);
     --input-hint-color: var(--color-dark-indigo-60-flat);
+
+    /* disabled */
+    --input-disabled-color: var(--color-dark-indigo-60-flat);
+    --input-disabled-label-color: var(--color-dark-indigo-60-flat);
+    --input-disabled-bg-color: var(--color-dark-indigo-15);
+    --input-disabled-border-bottom: 1px dashed var(--color-dark-indigo-30-flat);
+
+    /* focus */
+    --input-focus-shadow: inset 0 -1px var(--color-dark-indigo);
+    --input-focus-border-bottom: 1px solid var(--color-dark-indigo);
+
+    /* hover */
+    --input-hover-bg-color: var(--color-dark-indigo-15);
+
+    /* error */
     --input-error-color: var(--color-red-brand-85-flat);
-    --input-sub-font-size: 14px;
-    --input-sub-line-height: 18px;
+    --input-error-shadow: inset 0 -1px var(--input-error-color);
+    --input-error-border-bottom: 1px solid var(--input-error-color);
 }
 
 .component {
@@ -13,30 +44,12 @@
     box-sizing: border-box;
 }
 
-.component:not(.disabled) .inner:hover {
-    background-color: var(--input-hover-bg-color);
-}
-
-.disabled.focused .inner {
-    border-bottom-color: var(--input-focus-border-color);
-    box-shadow: inset 0 -1px var(--input-focus-border-color);
-}
-
-.disabled .inner {
-    border-bottom: 1px dashed var(--input-disabled-border-color);
-    background-color: var(--input-disabled-bg-color);
-}
-
-.disabled .input {
-    color: var(--input-disabled-color);
-}
-
 .inner {
     display: flex;
     position: relative;
     background-color: var(--input-bg-color);
     border-radius: var(--input-border-radius);
-    border-bottom: 1px solid var(--input-border-color);
+    border-bottom: var(--input-border-bottom);
     transition: background 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
 }
 
@@ -49,8 +62,8 @@
     margin: 0;
     outline: none;
     transition: background 0.2s ease;
-    font-size: var(--input-font-size);
-    line-height: var(--input-line-height);
+    font-size: 16px;
+    line-height: 20px;
     box-sizing: border-box;
     -webkit-appearance: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -79,8 +92,8 @@
     height: 100%;
     left: var(--input-side-paddings);
     color: var(--input-placeholder-color);
-    font-size: var(--input-font-size);
-    line-height: var(--input-line-height);
+    font-size: 16px;
+    line-height: 20px;
     text-overflow: ellipsis;
     white-space: nowrap;
     transform: scale(1) translateY(0);
@@ -105,19 +118,14 @@
 
 .sub {
     display: block;
-    font-size: var(--input-sub-font-size);
-    line-height: var(--input-sub-line-height);
+    font-size: 14px;
+    line-height: 18px;
     margin-top: var(--gap-2xs);
     color: var(--input-hint-color);
 }
 
-.has-error .sub {
-    color: var(--input-error-color);
-}
-
-.has-error .inner {
-    box-shadow: inset 0 -1px var(--input-error-color);
-    border-bottom-color: var(--input-error-color);
+.has-label .input::placeholder {
+    opacity: 0;
 }
 
 .block {
@@ -128,23 +136,55 @@
     width: 100%;
 }
 
+/* INPUT PADDINGS */
+
 .s {
-    padding: 14px var(--input-side-paddings) 13px var(--input-side-paddings);
+    padding: var(--input-s-paddings);
 }
 
 .m {
-    padding: 18px var(--input-side-paddings) 17px var(--input-side-paddings);
+    padding: var(--input-m-paddings);
 }
 
 .l {
-    padding: 24px var(--input-side-paddings) 23px var(--input-side-paddings);
+    padding: var(--input-l-paddings);
 }
 
-.has-label .input::placeholder {
-    opacity: 0;
+.has-label .s {
+    padding: var(--input-labeled-s-paddings);
 }
 
-.has-label.focused .input::placeholder {
+.has-label .m {
+    padding: var(--input-labeled-m-paddings);
+}
+
+.has-label .l {
+    padding: var(--input-labeled-l-paddings);
+}
+
+/* DISABLED STATE */
+
+.disabled .inner {
+    border-bottom: var(--input-disabled-border-bottom);
+    background-color: var(--input-disabled-bg-color);
+}
+
+.disabled .input {
+    color: var(--input-disabled-color);
+}
+
+.disabled .label {
+    color: var(--input-disabled-label-color);
+}
+
+/* FOCUS STATE */
+
+.focused:not(.disabled):not(.has-error) .inner {
+    border-bottom: var(--input-focus-border-bottom);
+    box-shadow: var(--input-focus-shadow);
+}
+
+.focused.has-label .input::placeholder {
     opacity: 1;
 }
 
@@ -155,14 +195,19 @@
     transform: scale(1) translateY(-10px);
 }
 
-.has-label .s {
-    padding: 23px var(--input-side-paddings) 4px;
+/* HOVER STATE */
+
+.component:not(.disabled):hover .inner {
+    background-color: var(--input-hover-bg-color);
 }
 
-.has-label .m {
-    padding: 28px var(--input-side-paddings) 7px;
+/* ERROR STATE */
+
+.has-error .sub {
+    color: var(--input-error-color);
 }
 
-.has-label .l {
-    padding: 34px var(--input-side-paddings) 13px;
+.has-error .inner {
+    box-shadow: var(--input-error-shadow);
+    border-bottom: var(--input-error-border-bottom);
 }
