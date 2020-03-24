@@ -2,7 +2,7 @@
  * Vendor
  */
 
-import React from 'react';
+import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 import cn from 'classnames';
 
 /**
@@ -15,12 +15,9 @@ import styles from './Component.module.css';
  * Types
  */
 
-type Props = {
+type ComponentProps = {
     type?: 'primary' | 'secondary' | 'outlined' | 'link' | 'ghost';
-    title?: string;
-    disabled?: boolean;
     htmlType?: 'button' | 'reset' | 'submit';
-    href?: string;
     leftAddons?: React.ReactNode;
     rightAddons?: React.ReactNode;
     addonsClassName?: string;
@@ -28,67 +25,74 @@ type Props = {
     block?: boolean;
     className?: string;
     dataTestId?: string;
-    onClick?: (e: React.MouseEvent) => void;
 };
+
+type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
+type NativeButtonProps = ComponentProps & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'>;
+type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
 /**
  * Expo
  */
 
-export const Button: React.FC<Props> = ({
-    children,
-    type = 'secondary',
-    title,
-    disabled = false,
-    htmlType = 'button',
-    href,
-    leftAddons,
-    rightAddons,
-    addonsClassName,
-    size = 'm',
-    block = false,
-    className = '',
-    dataTestId,
-    onClick,
-}) => {
-    const buttonProps = {
-        title,
-        className: cn(
-            styles.component,
-            styles[type],
-            styles[size],
-            {
-                [styles.block]: block,
-                [styles['icon-only']]: !children,
-            },
-            className,
-        ),
-        onClick,
-        'data-test-id': dataTestId || null,
-    };
+export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, ButtonProps>(
+    (
+        {
+            children,
+            type = 'secondary',
+            leftAddons,
+            rightAddons,
+            addonsClassName,
+            size = 'm',
+            block = false,
+            className = '',
+            dataTestId,
+            href,
+            ...restProps
+        },
+        ref,
+    ) => {
+        const componentProps = {
+            className: cn(
+                styles.component,
+                styles[type],
+                styles[size],
+                {
+                    [styles.block]: block,
+                    [styles['icon-only']]: !children,
+                },
+                className,
+            ),
+            'data-test-id': dataTestId || null,
+        };
 
-    const buttonChildren = (
-        <React.Fragment>
-            {leftAddons && <span className={cn(styles.addons, addonsClassName)}>{leftAddons}</span>}
-            {children && <span className={cn(styles.text)}>{children}</span>}
-            {rightAddons && (
-                <span className={cn(styles.addons, addonsClassName)}>{rightAddons}</span>
-            )}
-        </React.Fragment>
-    );
-
-    if (href) {
-        return (
-            <a {...buttonProps} href={href}>
-                {buttonChildren}
-            </a>
+        const buttonChildren = (
+            <React.Fragment>
+                {leftAddons && (
+                    <span className={cn(styles.addons, addonsClassName)}>{leftAddons}</span>
+                )}
+                {children && <span className={cn(styles.text)}>{children}</span>}
+                {rightAddons && (
+                    <span className={cn(styles.addons, addonsClassName)}>{rightAddons}</span>
+                )}
+            </React.Fragment>
         );
-    }
 
-    return (
-        // eslint-disable-next-line react/button-has-type
-        <button {...buttonProps} type={htmlType} disabled={disabled}>
-            {buttonChildren}
-        </button>
-    );
-};
+        if (href) {
+            return (
+                <a {...componentProps} {...restProps} ref={ref}>
+                    {buttonChildren}
+                </a>
+            );
+        }
+
+        const { htmlType, ...buttonProps } = restProps;
+
+        return (
+            // eslint-disable-next-line react/button-has-type
+            <button {...componentProps} {...buttonProps} type={htmlType} ref={ref}>
+                {buttonChildren}
+            </button>
+        );
+    },
+);
