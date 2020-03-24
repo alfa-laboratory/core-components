@@ -42,7 +42,6 @@ export const ButtonStory = () => (
                     disabled={boolean('Disabled', false)}
                     htmlType={select('htmlType', ['button', 'reset', 'submit'], 'button')}
                     href={text('href', '')}
-                    loading={boolean('Loading', false)}
                     size={select('Size', ['xs', 's', 'm', 'l'], 'm')}
                     block={boolean('Block', false)}
                     className={text('className', '')}
@@ -55,14 +54,14 @@ export const ButtonStory = () => (
         </div>
         <div className={cn(styles.row)}>
             <div className={cn(styles.col)}>
-                <Button type='secondary' icon={icon} size='m'>
+                <Button type='secondary' leftAddons={icon} size='m'>
                     Secondary
                 </Button>
             </div>
         </div>
         <div className={cn(styles.row)}>
             <div className={cn(styles.col)}>
-                <Button type='secondary' icon={icon} size='m' />
+                <Button type='secondary' rightAddons={icon} size='m' />
             </div>
         </div>
         <div className={cn(styles.row)}>

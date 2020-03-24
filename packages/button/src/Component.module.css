@@ -164,15 +164,15 @@
 
 /* Icon */
 
-.icon {
+.addons:first-child {
     margin: 0 12px 0 0;
 }
 
-.text + .icon {
+.addons:last-child {
     margin: 0 0 0 12px;
 }
 
-.icon:only-child {
+.addons:only-child {
     margin: 0;
 }
 

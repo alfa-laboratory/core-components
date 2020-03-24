@@ -21,9 +21,9 @@ type Props = {
     disabled?: boolean;
     htmlType?: 'button' | 'reset' | 'submit';
     href?: string;
-    icon?: React.ReactNode;
-    iconPosition?: 'left' | 'right';
-    loading?: boolean;
+    leftAddons?: React.ReactNode;
+    rightAddons?: React.ReactNode;
+    addonsClassName?: string;
     size?: 'xs' | 's' | 'm' | 'l';
     block?: boolean;
     className?: string;
@@ -42,14 +42,13 @@ export const Button: React.FC<Props> = ({
     disabled = false,
     htmlType = 'button',
     href,
-    icon,
-    iconPosition = 'left',
-    // loading = false,
+    leftAddons,
+    rightAddons,
+    addonsClassName,
     size = 'm',
     block = false,
     className = '',
     dataTestId,
-
     onClick,
 }) => {
     const buttonProps = {
@@ -70,9 +69,11 @@ export const Button: React.FC<Props> = ({
 
     const buttonChildren = (
         <React.Fragment>
-            {iconPosition === 'left' && icon && <span className={cn(styles.icon)}>{icon}</span>}
+            {leftAddons && <span className={cn(styles.addons, addonsClassName)}>{leftAddons}</span>}
             {children && <span className={cn(styles.text)}>{children}</span>}
-            {iconPosition === 'right' && icon && <span className={cn(styles.icon)}>{icon}</span>}
+            {rightAddons && (
+                <span className={cn(styles.addons, addonsClassName)}>{rightAddons}</span>
+            )}
         </React.Fragment>
     );
 
