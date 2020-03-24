@@ -19,16 +19,7 @@ export type PureInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>
     /** Флаг - растягивать инпута на ширину контейнера */
     block?: boolean;
     /** Атрибут type */
-    htmlType?:
-        | 'number'
-        | 'card'
-        | 'email'
-        | 'file'
-        | 'hidden'
-        | 'money'
-        | 'password'
-        | 'tel'
-        | 'text';
+    htmlType?: 'number' | 'card' | 'email' | 'hidden' | 'money' | 'password' | 'tel' | 'text';
     /** Размер компонента */
     size?: 's' | 'm' | 'l';
     /** Id компонента для тестов */

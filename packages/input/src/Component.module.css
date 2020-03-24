@@ -32,7 +32,7 @@
 }
 
 .inner {
-    display: inline-flex;
+    display: flex;
     position: relative;
     background-color: var(--input-bg-color);
     border-radius: var(--input-border-radius);

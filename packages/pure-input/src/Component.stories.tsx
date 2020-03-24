@@ -29,7 +29,7 @@ export const PureInputStory = () => {
             size={select('size', ['s', 'm', 'l'], 's')}
             htmlType={select(
                 'type',
-                ['number', 'card', 'email', 'file', 'hidden', 'money', 'password', 'tel', 'text'],
+                ['number', 'card', 'email', 'hidden', 'money', 'password', 'tel', 'text'],
                 'text',
             )}
             block={boolean('block', false)}

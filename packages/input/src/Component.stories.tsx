@@ -58,7 +58,7 @@ export const InputStory = () => {
             error={text('error', '')}
             value={value}
             onChange={handleChange}
-            rightAddons={boolean('withIcon', true) && !text('error', '') && icon}
+            rightAddons={boolean('rightAddons', true) && !text('error', '') && icon}
         />
     );
 };
