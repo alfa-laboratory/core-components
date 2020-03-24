@@ -112,6 +112,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             <div
                 className={cn(
                     styles.component,
+                    styles[size],
                     {
                         [styles.focused]: focused,
                         [styles.disabled]: disabled,
@@ -131,7 +132,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
                         <input
                             {...restProps}
-                            className={cn(styles.input, styles[size], inputClassName)}
+                            className={cn(styles.input, inputClassName)}
                             disabled={disabled}
                             onBlur={handleInputBlur}
                             onFocus={handleInputFocus}

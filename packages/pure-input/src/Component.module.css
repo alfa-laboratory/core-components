@@ -3,21 +3,11 @@
 :root {
     --pure-input-border-radius: 4px 4px 0 0;
     --pure-input-side-paddings: 12px;
-
-    /* paddings */
-    --pure-input-s-paddings: 14px var(--pure-input-side-paddings) 13px;
-    --pure-input-m-paddings: 18px var(--pure-input-side-paddings) 17px;
-    --pure-input-l-paddings: 24px var(--pure-input-side-paddings) 23px;
-
-    /* colors */
-    --pure-input-color: var(--color-dark-indigo);
-    --pure-input-bg-color: var(--color-dark-indigo-07);
     --pure-input-border-bottom: 1px solid var(--color-dark-indigo-30-flat);
-    --pure-input-placeholder-color: var(--color-dark-indigo-60-flat);
-    --pure-input-hint-color: var(--color-dark-indigo-60-flat);
+    --pure-input-paddings: 1px var(--pure-input-side-paddings) 0;
+    --pure-input-bg-color: var(--color-dark-indigo-07);
 
     /* disabled */
-    --pure-input-disabled-color: var(--color-dark-indigo-60-flat);
     --pure-input-disabled-bg-color: var(--color-dark-indigo-15);
     --pure-input-disabled-border-bottom: 1px dashed var(--color-dark-indigo-30-flat);
 
@@ -36,13 +26,14 @@
     font-size: 16px;
     line-height: 20px;
     box-sizing: border-box;
-    color: var(--pure-input-color);
+    color: var(--color-dark-indigo);
     background-color: var(--pure-input-bg-color);
     border-radius: var(--pure-input-border-radius);
     transition: background 0.2s ease, box-shadow 0.2s ease, border 0.2s ease,
         opacity 0.2s ease-in-out, color 0.2s ease-in-out;
     border: none;
     margin: 0;
+    padding: var(--input-paddings);
     border-bottom: var(--pure-input-border-bottom);
     outline: none;
     -webkit-appearance: none;
@@ -55,7 +46,7 @@
 }
 
 .component::placeholder {
-    color: var(--pure-input-placeholder-color);
+    color: var(--color-dark-indigo-60-flat);
 }
 
 .block {
@@ -65,21 +56,21 @@
 /* INPUT PADDINGS */
 
 .s {
-    padding: var(--pure-input-s-paddings);
+    height: 48px;
 }
 
 .m {
-    padding: var(--pure-input-m-paddings);
+    height: 56px;
 }
 
 .l {
-    padding: var(--pure-input-l-paddings);
+    height: 68px;
 }
 
 /* DISABLED STATE */
 
 .component:disabled {
-    color: var(--pure-input-disabled-color);
+    color: var(--color-dark-indigo-60-flat);
     border-bottom: var(--pure-input-disabled-border-bottom);
     background-color: var(--pure-input-disabled-bg-color);
 }

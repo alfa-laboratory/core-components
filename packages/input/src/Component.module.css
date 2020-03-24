@@ -3,25 +3,13 @@
 :root {
     --input-border-radius: 4px 4px 0 0;
     --input-side-paddings: 12px;
-
-    /* paddings */
-    --input-s-paddings: 14px var(--input-side-paddings) 13px;
-    --input-m-paddings: 18px var(--input-side-paddings) 17px;
-    --input-l-paddings: 24px var(--input-side-paddings) 23px;
-    --input-labeled-s-paddings: 23px var(--input-side-paddings) 4px;
-    --input-labeled-m-paddings: 28px var(--input-side-paddings) 7px;
-    --input-labeled-l-paddings: 34px var(--input-side-paddings) 13px;
-
-    /* colors */
-    --input-color: var(--color-dark-indigo);
-    --input-bg-color: var(--color-dark-indigo-07);
     --input-border-bottom: 1px solid var(--color-dark-indigo-30-flat);
-    --input-placeholder-color: var(--color-dark-indigo-60-flat);
-    --input-hint-color: var(--color-dark-indigo-60-flat);
+    --input-bg-color: var(--color-dark-indigo-07);
+    --input-paddings: 1px var(--input-side-paddings) 0;
+    --input-labeled-paddings: 21px var(--input-side-paddings) 0;
+    --input-labeled-s-paddings: 20px var(--input-side-paddings) 0;
 
     /* disabled */
-    --input-disabled-color: var(--color-dark-indigo-60-flat);
-    --input-disabled-label-color: var(--color-dark-indigo-60-flat);
     --input-disabled-bg-color: var(--color-dark-indigo-15);
     --input-disabled-border-bottom: 1px dashed var(--color-dark-indigo-30-flat);
 
@@ -47,6 +35,7 @@
 .inner {
     display: flex;
     position: relative;
+    height: 100%;
     background-color: var(--input-bg-color);
     border-radius: var(--input-border-radius);
     border-bottom: var(--input-border-bottom);
@@ -56,7 +45,8 @@
 .input {
     position: relative;
     width: 100%;
-    color: var(--input-color);
+    height: 100%;
+    color: var(--color-dark-indigo);
     background: none;
     border: none;
     margin: 0;
@@ -64,6 +54,7 @@
     transition: background 0.2s ease;
     font-size: 16px;
     line-height: 20px;
+    padding: var(--input-paddings);
     box-sizing: border-box;
     -webkit-appearance: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -76,7 +67,7 @@
 }
 
 .input::placeholder {
-    color: var(--input-placeholder-color);
+    color: var(--color-dark-indigo-60-flat);
 }
 
 .input-wrapper {
@@ -91,7 +82,7 @@
     align-items: center;
     height: 100%;
     left: var(--input-side-paddings);
-    color: var(--input-placeholder-color);
+    color: var(--color-dark-indigo-60-flat);
     font-size: 16px;
     line-height: 20px;
     text-overflow: ellipsis;
@@ -121,7 +112,7 @@
     font-size: 14px;
     line-height: 18px;
     margin-top: var(--gap-2xs);
-    color: var(--input-hint-color);
+    color: var(--color-dark-indigo-60-flat);
 }
 
 .has-label .input::placeholder {
@@ -132,34 +123,24 @@
     width: 100%;
 }
 
-.block .inner {
-    width: 100%;
-}
-
-/* INPUT PADDINGS */
-
 .s {
-    padding: var(--input-s-paddings);
+    height: 48px;
 }
 
 .m {
-    padding: var(--input-m-paddings);
+    height: 56px;
 }
 
 .l {
-    padding: var(--input-l-paddings);
+    height: 68px;
 }
 
-.has-label .s {
+.has-label.s .input {
     padding: var(--input-labeled-s-paddings);
 }
 
-.has-label .m {
-    padding: var(--input-labeled-m-paddings);
-}
-
-.has-label .l {
-    padding: var(--input-labeled-l-paddings);
+.has-label .input {
+    padding: var(--input-labeled-paddings);
 }
 
 /* DISABLED STATE */
@@ -170,11 +151,11 @@
 }
 
 .disabled .input {
-    color: var(--input-disabled-color);
+    color: var(--color-dark-indigo-60-flat);
 }
 
 .disabled .label {
-    color: var(--input-disabled-label-color);
+    color: var(--color-dark-indigo-60-flat);
 }
 
 /* FOCUS STATE */
