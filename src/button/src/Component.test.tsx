@@ -12,7 +12,7 @@ import { render } from '@testing-library/react';
 import { Button } from './index';
 
 describe('Button', () => {
-    it('should render without problem', () => {
+    it('should match snapshot', () => {
         expect(render(<Button />)).toMatchSnapshot();
     });
 

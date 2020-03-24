@@ -12,7 +12,7 @@ import { render } from '@testing-library/react';
 import { Divider } from './index';
 
 describe('Divider', () => {
-    it('should render without problem', () => {
+    it('should match snapshot', () => {
         expect(render(<Divider />)).toMatchSnapshot();
     });
 

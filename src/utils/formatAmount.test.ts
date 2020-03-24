@@ -1,6 +1,6 @@
 import { splitAmount } from './formatAmount';
 
-test('Split test for amount', () => {
+test('splitAmount', () => {
     expect(splitAmount('100', 3, ' ')).toBe('100');
     expect(splitAmount('1000', 3, ' ')).toBe('1000');
     expect(splitAmount('10000', 3, ' ')).toBe('10 000');

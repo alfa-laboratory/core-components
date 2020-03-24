@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button should render without problem 1`] = `
+exports[`Button should match snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
