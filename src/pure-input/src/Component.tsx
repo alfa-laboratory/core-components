@@ -16,13 +16,19 @@ import styles from './Component.module.css';
  */
 
 export type PureInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
-    /** Флаг - растягивать инпута на ширину контейнера */
+    /** Растягивает компонент на ширину контейнера */
     block?: boolean;
+
     /** Атрибут type */
     htmlType?: 'number' | 'card' | 'email' | 'hidden' | 'money' | 'password' | 'tel' | 'text';
+
     /** Размер компонента */
     size?: 's' | 'm' | 'l';
-    /** Id компонента для тестов */
+
+    /** Дополнительный класс */
+    className?: string;
+
+    /** Идентификатор для систем автоматизированного тестирования */
     dataTestId?: string;
 };
 
@@ -37,9 +43,14 @@ export const PureInput = React.forwardRef<HTMLInputElement, PureInputProps>(
     ) => (
         <input
             {...restProps}
-            className={cn(className, styles.component, styles[size], {
-                [styles.block]: block,
-            })}
+            className={cn(
+                styles.component,
+                styles[size],
+                {
+                    [styles.block]: block,
+                },
+                className,
+            )}
             ref={ref}
             type={htmlType}
             data-test-id={dataTestId}

@@ -87,7 +87,7 @@
     line-height: 20px;
     text-overflow: ellipsis;
     white-space: nowrap;
-    transform: scale(1) translateY(0);
+    transform: translateY(0);
     transform-origin: 0 100%;
     transition-duration: 200ms;
     transition-property: color, transform, font-size;
@@ -99,6 +99,7 @@
     flex-shrink: 0;
     align-items: center;
 }
+
 .addons:last-child {
     padding-right: var(--gap-s);
 }
@@ -173,7 +174,7 @@
 .filled .label {
     font-size: 14px;
     line-height: 18px;
-    transform: scale(1) translateY(-10px);
+    transform: translateY(-10px);
 }
 
 /* HOVER STATE */
