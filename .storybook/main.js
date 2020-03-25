@@ -3,6 +3,5 @@ module.exports = {
     '@storybook/addon-actions',
     '@storybook/addon-knobs',
     '@storybook/preset-create-react-app',
-    'storybook-addon-designs',
   ],
 };

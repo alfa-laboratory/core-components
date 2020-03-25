@@ -59,7 +59,7 @@
     "@types/react-dom": "^16.9.5",
     "@typescript-eslint/eslint-plugin": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
-    "alfa-ui-primitives": "2.4.3",
+    "alfa-ui-primitives": "2.5.0",
     "arui-presets-lint": "4.0.0",
     "arui-presets-ts": "^5.0.0",
     "babel-loader": "^8.0.6",
