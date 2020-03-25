@@ -72,7 +72,7 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
                 styles[size],
                 {
                     [styles.block]: block,
-                    [styles['icon-only']]: !children,
+                    [styles.iconOnly]: !children,
                 },
                 className,
             ),

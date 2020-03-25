@@ -116,7 +116,7 @@
     color: var(--color-dark-indigo-60-flat);
 }
 
-.has-label .input::placeholder {
+.hasLabel .input::placeholder {
     opacity: 0;
 }
 
@@ -136,11 +136,11 @@
     height: 68px;
 }
 
-.has-label.s .input {
+.hasLabel.s .input {
     padding: var(--input-labeled-s-paddings);
 }
 
-.has-label .input {
+.hasLabel .input {
     padding: var(--input-labeled-paddings);
 }
 
@@ -161,12 +161,12 @@
 
 /* FOCUS STATE */
 
-.focused:not(.disabled):not(.has-error) .inner {
+.focused:not(.disabled):not(.hasError) .inner {
     border-bottom: var(--input-focus-border-bottom);
     box-shadow: var(--input-focus-shadow);
 }
 
-.focused.has-label .input::placeholder {
+.focused.hasLabel .input::placeholder {
     opacity: 1;
 }
 
@@ -185,11 +185,11 @@
 
 /* ERROR STATE */
 
-.has-error .sub {
+.hasError .sub {
     color: var(--input-error-color);
 }
 
-.has-error .inner {
+.hasError .inner {
     box-shadow: var(--input-error-shadow);
     border-bottom: var(--input-error-border-bottom);
 }

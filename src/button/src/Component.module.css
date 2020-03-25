@@ -53,7 +53,7 @@
     padding: 0 12px;
     font-size: 14px;
 
-    &.icon-only {
+    &.iconOnly {
         min-width: 32px;
     }
 }
@@ -63,7 +63,7 @@
     min-height: 48px;
     font-size: 16px;
 
-    &.icon-only {
+    &.iconOnly {
         min-width: 48px;
     }
 }
@@ -73,7 +73,7 @@
     min-height: 56px;
     font-size: 16px;
 
-    &.icon-only {
+    &.iconOnly {
         min-width: 56px;
     }
 }
@@ -84,7 +84,7 @@
     padding: 0 32px;
     font-size: 18px;
 
-    &.icon-only {
+    &.iconOnly {
         min-width: 68px;
     }
 }
@@ -183,7 +183,7 @@
     margin: 0;
 }
 
-.icon-only {
+.iconOnly {
     padding: 0;
 }
 
