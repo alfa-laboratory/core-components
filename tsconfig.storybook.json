@@ -13,14 +13,10 @@
     "sourceMap": true,
     "jsx": "react",
     "rootDirs": [
-      "src",
-      "packages"
+      "src"
     ],
     "baseUrl": "./"
   },
-  "include": [
-    "packages"
-  ],
   "exclude": [
     "node_modules",
     "build",

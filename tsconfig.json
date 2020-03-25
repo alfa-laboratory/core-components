@@ -18,13 +18,17 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react",
-    "types": [
-      "./typings/module"
+    "typeRoots": [
+      "./typings",
+      "./node_modules/@types"
     ],
     "plugins": [
       {
         "name": "typescript-plugin-css-modules"
       }
     ]
-  }
+  },
+  "include": [
+    "src"
+  ]
 }
