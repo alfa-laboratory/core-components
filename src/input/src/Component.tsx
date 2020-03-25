@@ -16,29 +16,40 @@ import styles from './Component.module.css';
  */
 
 export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
-    /** Флаг - растягивать инпута на ширину контейнера */
+    /** Растягивает компонент на ширину контейнера */
     block?: boolean;
-    /** Слот для отображения контента снизу */
-    children?: React.ReactNode;
+
     /** Размер компонента */
     size?: 's' | 'm' | 'l';
+
     /** Текст ошибки */
     error?: string;
+
     /** Текст подсказки */
     hint?: string;
+
     /** Лейбл компонента */
     label?: React.ReactNode;
+
     /** Атрибут type */
     htmlType?: 'number' | 'card' | 'email' | 'money' | 'password' | 'tel' | 'text';
-    /** Класс для контейнеров с аддонами */
-    addonsClassName?: string;
-    /** Класс инпута */
-    inputClassName?: string;
-    /** Слот слева от инпута */
+
+    /** Слот слева */
     leftAddons?: React.ReactNode;
-    /** Слот справа от инпута */
+
+    /** Слот справа */
     rightAddons?: React.ReactNode;
-    /** Id компонента для тестов */
+
+    /** Слот под инпутом */
+    bottomAddons?: React.ReactNode;
+
+    /** Дополнительный класс */
+    className?: string;
+
+    /** Дополнительный класс инпута */
+    inputClassName?: string;
+
+    /** Идентификатор для систем автоматизированного тестирования */
     dataTestId?: string;
 };
 
@@ -62,8 +73,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             size = 's',
             htmlType = 'text',
             block = false,
-            addonsClassName,
-            children,
+            bottomAddons,
             className,
             dataTestId,
             disabled,
@@ -99,7 +109,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         };
 
         const rightAddonsRenderer = () => (
-            <div className={cn(styles.addons, addonsClassName)}>
+            <div className={cn(styles.addons)}>
                 {error && errorIcon}
                 {rightAddons}
             </div>
@@ -148,7 +158,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
                 {(error || hint) && <span className={styles.sub}>{error || hint}</span>}
 
-                {children}
+                {bottomAddons}
             </div>
         );
     },

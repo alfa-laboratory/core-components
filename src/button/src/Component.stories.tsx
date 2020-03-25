@@ -17,7 +17,7 @@ import styles from '../../../.storybook/styles.css';
 import { Button } from './Component';
 
 const icon = (
-    <svg width='24' height='24' style={{ display: 'block' }} viewBox='0 0 24 24'>
+    <svg width='24' height='24'>
         <path d='M11.511 2.327a.528.528 0 01.978 0L15 8.967h6.474c.498 0 .716.619.325.923L16.5 14l2 7c.121.462-.403.825-.804.557L12 17.133l-5.696 4.424c-.4.268-.925-.095-.804-.557l2-7-5.299-4.11c-.391-.304-.173-.923.325-.923H9l2.511-6.64z' />
     </svg>
 );

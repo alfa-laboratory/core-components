@@ -81,6 +81,7 @@
 .l {
     min-width: 160px;
     min-height: 68px;
+    padding: 0 32px;
     font-size: 18px;
 
     &.icon-only {
@@ -162,7 +163,13 @@
     appearance: none;
 }
 
-/* Icon */
+/* Addons */
+
+.addons {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+}
 
 .addons:first-child {
     margin: 0 12px 0 0;

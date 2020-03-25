@@ -16,14 +16,28 @@ import styles from './Component.module.css';
  */
 
 type ComponentProps = {
+    /** Тип кнопки */
     type?: 'primary' | 'secondary' | 'outlined' | 'link' | 'ghost';
+
+    /** Атрибут type */
     htmlType?: 'button' | 'reset' | 'submit';
+
+    /** Слот слева */
     leftAddons?: React.ReactNode;
+
+    /** Слот справа */
     rightAddons?: React.ReactNode;
-    addonsClassName?: string;
+
+    /** Размер компонента */
     size?: 'xs' | 's' | 'm' | 'l';
+
+    /** Растягивает компонент на ширину контейнера */
     block?: boolean;
+
+    /** Дополнительный класс */
     className?: string;
+
+    /** Идентификатор для систем автоматизированного тестирования */
     dataTestId?: string;
 };
 
@@ -42,10 +56,9 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
             type = 'secondary',
             leftAddons,
             rightAddons,
-            addonsClassName,
             size = 'm',
             block = false,
-            className = '',
+            className,
             dataTestId,
             href,
             ...restProps
@@ -68,13 +81,9 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
 
         const buttonChildren = (
             <React.Fragment>
-                {leftAddons && (
-                    <span className={cn(styles.addons, addonsClassName)}>{leftAddons}</span>
-                )}
+                {leftAddons && <span className={cn(styles.addons)}>{leftAddons}</span>}
                 {children && <span className={cn(styles.text)}>{children}</span>}
-                {rightAddons && (
-                    <span className={cn(styles.addons, addonsClassName)}>{rightAddons}</span>
-                )}
+                {rightAddons && <span className={cn(styles.addons)}>{rightAddons}</span>}
             </React.Fragment>
         );
 
