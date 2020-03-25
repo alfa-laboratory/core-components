@@ -6,17 +6,13 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component secondary m"
-        title=""
-        type="button"
+        class="component secondary m icon-only"
       />
     </div>
   </body>,
   "container": <div>
     <button
-      class="component secondary m"
-      title=""
-      type="button"
+      class="component secondary m icon-only"
     />
   </div>,
   "debug": [Function],

@@ -19,7 +19,7 @@
     "lint": "yarn lint:css && yarn lint:js",
     "lint:css": "stylelint ./src/**/*.css",
     "lint:js": "eslint ./ --ext .ts,.tsx,.js,.jsx",
-    "test": "react-scripts test --watchAll=false",
+    "test": "react-scripts test --watchAll=false --testPathIgnorePatterns=./*/dist",
     "format": "prettier --write \"./{src,bin}/**/*.{ts,tsx,js,jsx,css}\""
   },
   "browserslist": {
@@ -109,24 +109,16 @@
   "lint-staged": {
     "{src,bin}/**/*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      "git add",
       "eslint"
     ],
     "*.css": [
       "prettier --write",
-      "git add",
       "stylelint"
     ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint-staged && yarn test",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "pre-commit": "yarn lint-staged && yarn test"
     }
-  },
-  "commitlint": {
-    "extends": [
-      "./node_modules/arui-presets-lint/commitlint"
-    ]
   }
 }
