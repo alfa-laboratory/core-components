@@ -2,11 +2,17 @@
  * Vendor
  */
 
-// import React from 'react';
-// import { render } from '@testing-library/react';
+import React from 'react';
+import { render } from '@testing-library/react';
 
 /**
- * Exp
+ * Component
  */
 
-// test('renders learn react link', () => {});
+import { Input } from './index';
+
+describe('Input', () => {
+    it('should match snapshot', () => {
+        expect(render(<Input />)).toMatchSnapshot();
+    });
+});
