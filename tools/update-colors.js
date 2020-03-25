@@ -23,6 +23,6 @@ Object.entries(colors).forEach(([name, token]) => {
   css += `  --color-${formatedName}: ${value};\n`;
 });
 
-const cssPath = resolve(__dirname, '../packages/vars/colors.css');
+const cssPath = resolve(__dirname, '../src/vars/colors.css');
 
 writeFileSync(cssPath, `:root {\n${css}}\n`);
