@@ -1,0 +1,194 @@
+@import '../../themes/default.css';
+
+:root {
+    --input-border-radius: 4px 4px 0 0;
+    --input-side-paddings: 12px;
+    --input-border-bottom: 1px solid var(--color-dark-indigo-30-flat);
+    --input-bg-color: var(--color-dark-indigo-07);
+    --input-paddings: 1px var(--input-side-paddings) 0;
+    --input-labeled-paddings: 21px var(--input-side-paddings) 0;
+    --input-labeled-s-paddings: 20px var(--input-side-paddings) 0;
+
+    /* disabled */
+    --input-disabled-bg-color: var(--color-dark-indigo-15);
+    --input-disabled-border-bottom: 1px dashed var(--color-dark-indigo-30-flat);
+
+    /* focus */
+    --input-focus-shadow: inset 0 -1px var(--color-dark-indigo);
+    --input-focus-border-bottom: 1px solid var(--color-dark-indigo);
+
+    /* hover */
+    --input-hover-bg-color: var(--color-dark-indigo-15);
+
+    /* error */
+    --input-error-color: var(--color-red-brand-85-flat);
+    --input-error-shadow: inset 0 -1px var(--input-error-color);
+    --input-error-border-bottom: 1px solid var(--input-error-color);
+}
+
+.component {
+    display: inline-block;
+    font-family: var(--font-family);
+}
+
+.inner {
+    display: flex;
+    position: relative;
+    height: 100%;
+    background-color: var(--input-bg-color);
+    border-radius: var(--input-border-radius);
+    border-bottom: var(--input-border-bottom);
+    transition: background 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+    box-sizing: border-box;
+}
+
+.input {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: var(--color-dark-indigo);
+    background: none;
+    border: none;
+    margin: 0;
+    outline: none;
+    transition: background 0.2s ease;
+    font-size: 16px;
+    line-height: 20px;
+    padding: var(--input-paddings);
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.input::placeholder,
+.input[placeholder] {
+    text-overflow: ellipsis;
+    transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.input::placeholder {
+    color: var(--color-dark-indigo-60-flat);
+}
+
+.input-wrapper {
+    flex-grow: 1;
+    position: relative;
+}
+
+.label {
+    overflow: hidden;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    left: var(--input-side-paddings);
+    color: var(--color-dark-indigo-60-flat);
+    font-size: 16px;
+    line-height: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transform: scale(1) translateY(0);
+    transform-origin: 0 100%;
+    transition-duration: 200ms;
+    transition-property: color, transform, font-size;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.addons {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+}
+.addons:last-child {
+    padding-right: var(--gap-s);
+}
+
+.addons:first-child {
+    padding-right: var(--gap-s);
+}
+
+.sub {
+    display: block;
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: var(--gap-2xs);
+    color: var(--color-dark-indigo-60-flat);
+}
+
+.has-label .input::placeholder {
+    opacity: 0;
+}
+
+.block {
+    width: 100%;
+}
+
+.s {
+    height: 48px;
+}
+
+.m {
+    height: 56px;
+}
+
+.l {
+    height: 68px;
+}
+
+.has-label.s .input {
+    padding: var(--input-labeled-s-paddings);
+}
+
+.has-label .input {
+    padding: var(--input-labeled-paddings);
+}
+
+/* DISABLED STATE */
+
+.disabled .inner {
+    border-bottom: var(--input-disabled-border-bottom);
+    background-color: var(--input-disabled-bg-color);
+}
+
+.disabled .input {
+    color: var(--color-dark-indigo-60-flat);
+}
+
+.disabled .label {
+    color: var(--color-dark-indigo-60-flat);
+}
+
+/* FOCUS STATE */
+
+.focused:not(.disabled):not(.has-error) .inner {
+    border-bottom: var(--input-focus-border-bottom);
+    box-shadow: var(--input-focus-shadow);
+}
+
+.focused.has-label .input::placeholder {
+    opacity: 1;
+}
+
+.focused .label,
+.filled .label {
+    font-size: 14px;
+    line-height: 18px;
+    transform: scale(1) translateY(-10px);
+}
+
+/* HOVER STATE */
+
+.component:not(.disabled):hover .inner {
+    background-color: var(--input-hover-bg-color);
+}
+
+/* ERROR STATE */
+
+.has-error .sub {
+    color: var(--input-error-color);
+}
+
+.has-error .inner {
+    box-shadow: var(--input-error-shadow);
+    border-bottom: var(--input-error-border-bottom);
+}
