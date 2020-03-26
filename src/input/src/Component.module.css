@@ -136,6 +136,11 @@
     height: 68px;
 }
 
+.l .input {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
 .hasLabel.s .input {
     padding: var(--input-labeled-s-paddings);
 }

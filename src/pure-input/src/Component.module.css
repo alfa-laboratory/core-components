@@ -65,6 +65,8 @@
 
 .l {
     height: 68px;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 /* DISABLED STATE */
