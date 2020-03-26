@@ -9,8 +9,6 @@
 - Written in TypeScript with predictable static types.
 - Only primitives without extra functionality.
 
-<div align="center"><img width="444" alt="" src="https://user-images.githubusercontent.com/109410/77626953-2877d000-6f57-11ea-9f26-400c252479c2.png"></div>
-
 ## 🖥 Environment Support
 
 - Modern browsers and Internet Explorer 11+
