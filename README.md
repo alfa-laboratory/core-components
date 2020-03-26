@@ -1,11 +1,6 @@
 <p align="center">
-  <a href="http://ant.design">
-    <img width="200" src="logo.svg">
-  </a>
-</p>
-
-<div align="center">An enterprise-class UI design language and React UI library.</div>
-
+   <img width="444" alt="" src="https://user-images.githubusercontent.com/109410/77626953-2877d000-6f57-11ea-9f26-400c252479c2.png"></p>
+<p align="center">Библиотека React компонентов для создания веб-интерфейсов</p>
 
 ## ✨ Features
 
@@ -48,7 +43,6 @@ import "@alfa-labaratory/core-components/themes/dark.css";
 
 ### TypeScript
 
-
 ## 🔗 Links
 
 ## ⌨️ Development
@@ -68,23 +62,9 @@ Read our [contributing guide](https://github.com/alfa-laboratory/core-components
 
 We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/alfa-laboratory/core-components/blob/master/.github/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/alfa-laboratory/core-components/pulls) or as [GitHub issues](https://github.com/alfa-laboratory/core-components/issues). If you'd like to improve code, check out the [Development Instructions](https://github.com/alfa-laboratory/core-components/wiki/Development) and have a good time! :)
 
-<h2 align="center">Core Team</h2>
+## 👨🏻‍💻 Мейнтейнеры
 
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="top">
-        <img width="150" height="150" src="https://avatars1.githubusercontent.com/u/4591518?s=460&v=4">
-        <br>
-        <a href="https://github.com/etroynov">Troynov Evgeniy</a>
-        <p>Coordinator & Founder</p>
-      </td>
-      <td align="center" valign="top">
-        <img width="150" height="150" src="https://avatars1.githubusercontent.com/u/109410?s=460&v=4">
-        <br>
-        <a href="https://github.com/SiebenSieben">Evgeny Sergeev</a>
-        <p>maintainer</p>
-      </td>
-     </tr>
-  </tbody>
-</table>
+* [Евгений Сергеев](https://github.com/SiebenSieben)
+* [Александр Яценко](https://github.com/reme3d2y)
+* [Дмитрий Савкин](https://github.com/dmitrsavk)
+* [Евгений Тройнов](https://github.com/etroynov)
