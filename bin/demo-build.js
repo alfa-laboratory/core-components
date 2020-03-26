@@ -60,13 +60,13 @@ shell.exec(`git pull -f -q ${gitUrl} ${defaultConfig.targetBranch}`, execOptions
 
 // Merge builded storybook
 console.log('=> Merge builded storybook');
-shell.cd('../');
+
+shell.cp('-rf', `../${tempOutputDir}`, `./`);
+
 if (sourceBranch === 'master') {
-    shell.cp('-rf', `./${tempOutputDir}`, `./${ghMergeDir}/master`);
-} else {
-    shell.cp('-rf', `./${tempOutputDir}`, `./${ghMergeDir}`);
+    shell.rm('-rf', `./master`);
+    shell.mv('-f', `./${tempOutputDir}`, `./master`);
 }
-shell.cd(ghMergeDir);
 
 // The first and only commit to this new Git repo contains all the
 // files present with the commit message "Deploy to GitHub Pages".
