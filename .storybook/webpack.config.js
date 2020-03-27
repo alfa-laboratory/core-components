@@ -24,7 +24,20 @@ module.exports = ({ config }) => ({
               ],
             },
           },
-          require.resolve('react-docgen-typescript-loader'),
+          {
+            loader: require.resolve("react-docgen-typescript-loader"),
+            options: {
+              tsconfigPath: path.resolve(__dirname, "../tsconfig.storybook.json"),
+              propFilter: (props, component) => {
+                if (props.parent) {
+                    // Показываем только пользовательские пропсы. (Иначе будет простыня из HTMLAttributes)
+                    return !props.parent.fileName.includes('node_modules');
+                } else {
+                    return true;
+                }
+              }
+            }
+          }
         ],
         include: [path.resolve('./')],
       },

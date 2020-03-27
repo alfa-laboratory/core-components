@@ -23,7 +23,7 @@ const icon = (
 );
 
 export default {
-    title: 'Common',
+    title: 'Common|Button',
     component: Button,
     decorators: [withKnobs],
 };

@@ -45,6 +45,7 @@
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
     "@storybook/addon-actions": "^5.3.8",
+    "@storybook/addon-docs": "^5.3.17",
     "@storybook/addon-knobs": "^5.3.8",
     "@storybook/addons": "^5.3.8",
     "@storybook/preset-typescript": "^1.2.0",

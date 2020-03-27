@@ -13,7 +13,7 @@ import { withDesign } from 'storybook-addon-designs';
 import { PureInput } from './Component';
 
 export default {
-    title: 'Common',
+    title: 'Common|PureInput',
     component: PureInput,
     decorators: [withDesign, withKnobs],
 };
