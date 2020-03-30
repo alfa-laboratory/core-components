@@ -13,6 +13,7 @@
   "scripts": {
     "build": "./bin/build.sh",
     "start": "start-storybook -p 9009 -c .storybook",
+    "start:quick": "RDTL=off yarn start",
     "build-storybook": "build-storybook -o build",
     "update-colors": "node ./tools/update-colors.js",
     "pub": "./bin/publish.sh",

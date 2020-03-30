@@ -1,46 +1,64 @@
 const path = require('path');
 
+/**
+ * Добавляет генерацию интерфейсов в зависимости от флага RDTL.
+ * @param mode
+ * @param withRDTL
+ * @returns {{include: [string], test: RegExp, use: [{loader: string, options: {presets: [[string, {modules: boolean}], string, [string, {isTSX: boolean, allExtensions: boolean}]], babelrc: boolean, plugins: [string, string, string], cacheDirectory: boolean}}], exclude: RegExp[]}}
+ */
+const getBabelRules = ({ mode, withRDTL }) => {
+  const rule = {
+    test: /\.(ts|tsx)$/,
+    use: [
+      {
+        loader: 'babel-loader',
+        options: {
+          cacheDirectory: mode === 'development',
+          presets: [
+            '@babel/preset-react',
+            [
+              '@babel/preset-typescript',
+              {
+                isTSX: true,
+                allExtensions: true,
+              },
+            ],
+          ],
+        },
+      },
+    ],
+    include: [path.resolve('./')],
+  };
+
+  if (withRDTL) {
+    rule.use.push({
+      loader: require.resolve('react-docgen-typescript-loader'),
+      options: {
+        tsconfigPath: path.resolve(__dirname, '../tsconfig.storybook.json'),
+        propFilter: (props, component) => {
+          if (props.parent) {
+            // Показываем только пользовательские пропсы. (Иначе будет простыня из HTMLAttributes)
+            return !props.parent.fileName.includes('node_modules');
+          } else {
+            return true;
+          }
+        }
+      }
+    });
+  }
+
+  return rule;
+};
+
 module.exports = ({ config }) => ({
   ...config,
 
   module: {
     rules: [
-      {
-        test: /\.(ts|tsx)$/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              cacheDirectory: config.mode === 'development',
-              presets: [
-                '@babel/preset-react',
-                [
-                  '@babel/preset-typescript',
-                  {
-                    isTSX: true,
-                    allExtensions: true,
-                  },
-                ],
-              ],
-            },
-          },
-          {
-            loader: require.resolve("react-docgen-typescript-loader"),
-            options: {
-              tsconfigPath: path.resolve(__dirname, "../tsconfig.storybook.json"),
-              propFilter: (props, component) => {
-                if (props.parent) {
-                    // Показываем только пользовательские пропсы. (Иначе будет простыня из HTMLAttributes)
-                    return !props.parent.fileName.includes('node_modules');
-                } else {
-                    return true;
-                }
-              }
-            }
-          }
-        ],
-        include: [path.resolve('./')],
-      },
+      getBabelRules({
+        mode: config.mode,
+        withRDTL: process.env.RDTL !== 'off',
+      }),
       {
         test: /\.css$/,
         use: [
