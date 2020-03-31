@@ -5,7 +5,7 @@ const path = require('path');
 
 module.exports = function getCSSModuleLocalIdent(context, localIdentName, localName, options) {
     const matches = context.resourcePath.match(
-        /src\/(.*)\/src\/(index|Component)\.module\.(css|scss|sass)$/,
+        /src\/(.*)\/src\/index\.module\.(css|scss|sass)$/,
     );
 
     // Use the filename or component folder name, based on some uses the index.js / index.module.(css|scss|sass) project style
@@ -19,6 +19,7 @@ module.exports = function getCSSModuleLocalIdent(context, localIdentName, localN
         'base64',
         5,
     );
+
     // Use loaderUtils to find the file or folder name
     const className = loaderUtils.interpolateName(
         context,
