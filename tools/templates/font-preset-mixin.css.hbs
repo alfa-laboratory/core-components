@@ -1,0 +1,10 @@
+@define-mixin font-preset $fontFamily, $fontSize, $lineHeight, $fontWeight, $letterSpacing {
+    font-size: $(fontSize)px;
+    line-height: $(lineHeight)px;
+    font-weight: $fontWeight;
+    font-family: $fontFamily;
+    letter-spacing: $letterSpacing;
+    font-feature-settings: 'ss01';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
