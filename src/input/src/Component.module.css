@@ -3,9 +3,9 @@
 :root {
     --input-border-radius: 4px 4px 0 0;
     --input-side-paddings: 12px;
+    --input-paddings: 1px var(--input-side-paddings) 0;
     --input-border-bottom: 1px solid var(--color-dark-indigo-30-flat);
     --input-bg-color: var(--color-dark-indigo-07);
-    --input-paddings: 1px var(--input-side-paddings) 0;
     --input-labeled-paddings: 21px var(--input-side-paddings) 0;
     --input-labeled-s-paddings: 20px var(--input-side-paddings) 0;
 

@@ -3,6 +3,7 @@
 :root {
     --pure-input-border-radius: 4px 4px 0 0;
     --pure-input-side-paddings: 12px;
+    --pure-input-paddings: 1px var(--pure-input-side-paddings) 0;
     --pure-input-border-bottom: 1px solid var(--color-dark-indigo-30-flat);
     --pure-input-paddings: 1px var(--pure-input-side-paddings) 0;
     --pure-input-bg-color: var(--color-dark-indigo-07);
@@ -33,7 +34,7 @@
         opacity 0.2s ease-in-out, color 0.2s ease-in-out;
     border: none;
     margin: 0;
-    padding: var(--input-paddings);
+    padding: var(--pure-input-paddings);
     border-bottom: var(--pure-input-border-bottom);
     outline: none;
     -webkit-appearance: none;
