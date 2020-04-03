@@ -1,91 +1,153 @@
-/* prettier-ignore */
-@define-mixin font-preset $fontFamily, $fontSize, $lineHeight, $fontWeight, $letterSpacing {
-    font-size: $(fontSize)px;
-    line-height: $(lineHeight)px;
-    font-weight: $fontWeight;
-    font-family: $fontFamily;
-    letter-spacing: $letterSpacing;
-    font-feature-settings: 'ss01';
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+:root {
+    --font-family-system: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+        Helvetica, sans-serif;
+    --font-family-styrene: 'Styrene UI', BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto,
+        'Helvetica Neue', Helvetica, sans-serif;
 }
 
-@define-mixin sf_48-52_bold {
-    @mixin font-preset var(--font-family-system), 48, 52, bold, normal;
+@define-mixin system_48-52_bold {
+    font-size: 48px;
+    line-height: 52px;
+    font-weight: 700;
+    font-family: var(--font-family-system);
 }
 
-@define-mixin sf_40-48_bold {
-    @mixin font-preset var(--font-family-system), 40, 48, bold, normal;
+@define-mixin system_40-48_bold {
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: 700;
+    font-family: var(--font-family-system);
 }
 
-@define-mixin sf_30-36_bold {
-    @mixin font-preset var(--font-family-system), 30, 36, bold, normal;
+@define-mixin system_30-36_bold {
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 700;
+    font-family: var(--font-family-system);
 }
 
-@define-mixin sf_22-26_bold {
-    @mixin font-preset var(--font-family-system), 22, 26, bold, normal;
+@define-mixin system_22-26_bold {
+    font-size: 22px;
+    line-height: 26px;
+    font-weight: 700;
+    font-family: var(--font-family-system);
 }
 
-@define-mixin sf_18-22_bold {
-    @mixin font-preset var(--font-family-system), 18, 22, bold, normal;
+@define-mixin system_18-22_bold {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+    font-family: var(--font-family-system);
 }
 
-@define-mixin sf_18-22_medium {
-    @mixin font-preset var(--font-family-system), 18, 22, 500, normal;
+@define-mixin system_18-22_medium {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 500;
+    font-family: var(--font-family-system);
 }
 
-@define-mixin sf_16-24_regular {
-    @mixin font-preset var(--font-family-system), 16, 24, normal, normal;
+@define-mixin system_16-24_regular {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
-@define-mixin sf_16-24_medium {
-    @mixin font-preset var(--font-family-system), 16, 24, 500, normal;
+@define-mixin system_16-24_medium {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    font-family: var(--font-family-system);
 }
 
-@define-mixin sf_16-24_bold {
-    @mixin font-preset var(--font-family-system), 16, 24, bold, normal;
+@define-mixin system_16-24_bold {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    font-family: var(--font-family-system);
 }
 
-@define-mixin sf_16-20_regular {
-    @mixin font-preset var(--font-family-system), 16, 20, normal, normal;
+@define-mixin system_16-20_regular {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
-@define-mixin sf_16-20_medium {
-    @mixin font-preset var(--font-family-system), 16, 20, 500, normal;
+@define-mixin system_16-20_medium {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    font-family: var(--font-family-system);
 }
 
-@define-mixin sf_16-20_bold {
-    @mixin font-preset var(--font-family-system), 16, 20, bold, normal;
+@define-mixin system_16-20_bold {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+    font-family: var(--font-family-system);
 }
 
-@define-mixin sf_14-18_regular {
-    @mixin font-preset var(--font-family-system), 14, 18, normal, normal;
+@define-mixin system_14-18_regular {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
-@define-mixin sf_12-16_medium_caps {
-    @mixin font-preset var(--font-family-system), 12, 16, 500, 1.5px;
+@define-mixin system_12-16_medium_caps {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: var(--font-family-system);
 }
 
-@define-mixin sf_12-16_regular {
-    @mixin font-preset var(--font-family-system), 12, 16, normal, normal;
+@define-mixin system_12-16_regular {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    font-family: var(--font-family-system);
 }
 
 @define-mixin styrene_40-48_medium {
-    @mixin font-preset var(--font-family-styrene), 40, 48, 500, normal;
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
 }
 
 @define-mixin styrene_32-40_medium {
-    @mixin font-preset var(--font-family-styrene), 32, 40, 500, normal;
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
 }
 
 @define-mixin styrene_28-34_medium {
-    @mixin font-preset var(--font-family-styrene), 28, 34, 500, normal;
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
 }
 
 @define-mixin styrene_24-30_medium {
-    @mixin font-preset var(--font-family-styrene), 24, 30, 500, normal;
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
 }
 
 @define-mixin styrene_20-24_medium {
-    @mixin font-preset var(--font-family-styrene), 20, 24, 500, normal;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
 }

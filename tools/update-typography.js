@@ -4,9 +4,7 @@ const handlebars = require('handlebars');
 
 const typography = require('../node_modules/alfa-ui-primitives/styles/typography_web.json');
 
-const out = [
-    compileTemplate('font-preset-mixin.css.hbs')
-];
+const out = [compileTemplate('font-vars.css.hbs')];
 
 Object.entries(typography).forEach(([name, rules]) => {
     if (rules.deprecated) return;
@@ -14,7 +12,7 @@ Object.entries(typography).forEach(([name, rules]) => {
     out.push(
         compileTemplate('font-style-mixin.css.hbs', {
             name,
-            ...normalizeRules(rules),
+            rules: normalizeRules(rules),
         }),
     );
 });
@@ -37,28 +35,27 @@ function compileTemplate(filename, data) {
 }
 
 /**
- * Преобразовывает значения из набора в валидные css значения в соответствии с набором правил
+ * Преобразовывает значения из набора в валидные css значения
  *
  * @param {Object} rules
  * @returns {Object}
  */
 function normalizeRules(rules) {
-    const convertRules = {
-        font_weight: v => {
-            if (v === 'medium') return 500;
-            if (v === 'regular') return 'normal';
-            return v;
-        },
-        letter_spacing: v => {
-            return v ? `${v}px` : 'normal';
-        },
-    };
+    const nonPxRules = ['font-weight'];
 
-    Object.entries(rules).forEach(([name, value]) => {
-        if (name in convertRules) {
-            rules[name] = convertRules[name](value);
+    return Object.entries(rules).reduce((acc, [name, value]) => {
+        name = name.replace(/_/, '-').toLocaleLowerCase();
+
+        if (typeof value === 'number' && !nonPxRules.includes(name)) {
+            value = `${value}px`;
         }
-    });
 
-    return rules;
+        if (name === 'font-family' && value.includes('styrene')) {
+            acc['font-feature-settings'] = `'ss01'`;
+        }
+
+        acc[name] = value;
+
+        return acc;
+    }, {});
 }
