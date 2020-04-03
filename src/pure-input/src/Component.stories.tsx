@@ -27,7 +27,7 @@ export const PureInputStory = () => {
     return (
         <PureInput
             size={select('size', ['s', 'm', 'l'], 's')}
-            htmlType={select(
+            type={select(
                 'type',
                 ['number', 'card', 'email', 'hidden', 'money', 'password', 'tel', 'text'],
                 'text',

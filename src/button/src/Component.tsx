@@ -17,10 +17,7 @@ import styles from './index.module.css';
 
 type ComponentProps = {
     /** Тип кнопки */
-    type?: 'primary' | 'secondary' | 'outlined' | 'link' | 'ghost';
-
-    /** Атрибут type */
-    htmlType?: 'button' | 'reset' | 'submit';
+    view?: 'primary' | 'secondary' | 'outlined' | 'link' | 'ghost';
 
     /** Слот слева */
     leftAddons?: React.ReactNode;
@@ -42,7 +39,7 @@ type ComponentProps = {
 };
 
 type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
-type NativeButtonProps = ComponentProps & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'>;
+type NativeButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
 type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
 /**
@@ -53,7 +50,7 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
     (
         {
             children,
-            type = 'secondary',
+            view = 'secondary',
             leftAddons,
             rightAddons,
             size = 'm',
@@ -68,7 +65,7 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
         const componentProps = {
             className: cn(
                 styles.component,
-                styles[type],
+                styles[view],
                 styles[size],
                 {
                     [styles.block]: block,
@@ -95,11 +92,9 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
             );
         }
 
-        const { htmlType, ...buttonProps } = restProps;
-
         return (
             // eslint-disable-next-line react/button-has-type
-            <button {...componentProps} {...buttonProps} type={htmlType} ref={ref}>
+            <button {...componentProps} {...restProps} ref={ref}>
                 {buttonChildren}
             </button>
         );
