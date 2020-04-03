@@ -1,4 +1,5 @@
 const path = require('path');
+const getCSSModuleLocalIdent = require('./utils/getCSSModuleLocalIdent');
 
 /**
  * Добавляет генерацию интерфейсов в зависимости от флага RDTL.
@@ -69,7 +70,7 @@ module.exports = ({ config }) => ({
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: '[local]_[hash:base64:5]',
+                getLocalIdent: getCSSModuleLocalIdent,
               },
               localsConvention: 'dashes',
               importLoaders: 1,

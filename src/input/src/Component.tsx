@@ -9,7 +9,7 @@ import cn from 'classnames';
  * Styles
  */
 
-import styles from './Component.module.css';
+import styles from './index.module.css';
 
 /**
  * Types
