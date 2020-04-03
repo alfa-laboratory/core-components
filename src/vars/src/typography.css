@@ -1,0 +1,153 @@
+:root {
+    --font-family-system: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+        Helvetica, sans-serif;
+    --font-family-styrene: 'Styrene UI', BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto,
+        'Helvetica Neue', Helvetica, sans-serif;
+}
+
+@define-mixin system_48-52_bold {
+    font-size: 48px;
+    line-height: 52px;
+    font-weight: 700;
+    font-family: var(--font-family-system);
+}
+
+@define-mixin system_40-48_bold {
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: 700;
+    font-family: var(--font-family-system);
+}
+
+@define-mixin system_30-36_bold {
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 700;
+    font-family: var(--font-family-system);
+}
+
+@define-mixin system_22-26_bold {
+    font-size: 22px;
+    line-height: 26px;
+    font-weight: 700;
+    font-family: var(--font-family-system);
+}
+
+@define-mixin system_18-22_bold {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+    font-family: var(--font-family-system);
+}
+
+@define-mixin system_18-22_medium {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 500;
+    font-family: var(--font-family-system);
+}
+
+@define-mixin system_16-24_regular {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: var(--font-family-system);
+}
+
+@define-mixin system_16-24_medium {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    font-family: var(--font-family-system);
+}
+
+@define-mixin system_16-24_bold {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    font-family: var(--font-family-system);
+}
+
+@define-mixin system_16-20_regular {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
+    font-family: var(--font-family-system);
+}
+
+@define-mixin system_16-20_medium {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    font-family: var(--font-family-system);
+}
+
+@define-mixin system_16-20_bold {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+    font-family: var(--font-family-system);
+}
+
+@define-mixin system_14-18_regular {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    font-family: var(--font-family-system);
+}
+
+@define-mixin system_12-16_medium_caps {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: var(--font-family-system);
+}
+
+@define-mixin system_12-16_regular {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    font-family: var(--font-family-system);
+}
+
+@define-mixin styrene_40-48_medium {
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin styrene_32-40_medium {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin styrene_28-34_medium {
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin styrene_24-30_medium {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin styrene_20-24_medium {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}

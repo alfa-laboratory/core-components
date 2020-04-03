@@ -1,28 +1,24 @@
-import { readFileSync, writeFileSync } from 'fs';
-import { resolve } from 'path';
+const fs = require('fs');
+const path = require('path');
 
 const UNDERSCORE_RE = /_/g;
 const DASH = '-';
 
-const colorsPath = resolve(
-  __dirname,
-  '../node_modules/alfa-ui-primitives/styles/colors.json',
-);
-const colors = JSON.parse(readFileSync(colorsPath, 'utf8'));
+const colors = require('../node_modules/alfa-ui-primitives/styles/colors.json');
 
 let css = '';
 
 Object.entries(colors).forEach(([name, token]) => {
-  if (token.deprecated) {
-    return;
-  }
+    if (token.deprecated) {
+        return;
+    }
 
-  const formatedName = name.replace(UNDERSCORE_RE, DASH);
-  const value = token.a === 1 ? token.hex : token.rgba;
+    const formatedName = name.replace(UNDERSCORE_RE, DASH);
+    let value = token.a === 1 ? token.hex : token.rgba;
 
-  css += `  --color-${formatedName}: ${value};\n`;
+    css += `    --color-${formatedName}: ${value};\n`;
 });
 
-const cssPath = resolve(__dirname, '../src/vars/colors.css');
+const cssPath = path.resolve(__dirname, '../src/vars/src/colors.css');
 
-writeFileSync(cssPath, `:root {\n${css}}\n`);
+fs.writeFileSync(cssPath, `:root {\n${css}}\n`);
