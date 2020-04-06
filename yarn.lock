@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@alfalab/icons-glyph@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.5.0.tgz#254c3a319044809e5129b79e628c3bdb9a128df8"
+  integrity sha512-WcUyXt0Ob+c/aSI+jYM2JKl1U4JuS+gC0tl6x+HjoecSh7XwuFEMc3lC+t5qgycolyNuqL4ZEtKI/LI52DQ64w==
+
 "@babel/cli@^7.8.3":
   version "7.8.4"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.8.4.tgz#505fb053721a98777b2b175323ea4f090b7d3c1c"

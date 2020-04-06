@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import cn from 'classnames';
 
 import styles from './Component.module.css';
 
-export type TagProps = {
+export type TagProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     /** Текст всплывающей подсказки */
     title?: string;
 
@@ -46,6 +46,7 @@ export const Tag = ({
     checked,
     className,
     dataTestId,
+    ...rest
 }: TagProps) => {
     const tagProps = {
         className: cn(styles.component, styles[size], { [styles.checked]: checked }, className),
@@ -56,7 +57,7 @@ export const Tag = ({
     };
 
     return (
-        <button type='button' {...tagProps}>
+        <button type='button' {...tagProps} {...rest}>
             {leftAddons ? <span className={cn(styles.addons)}>{leftAddons}</span> : null}
             <span>{children}</span>
             {rightAddons ? <span className={cn(styles.addons)}>{rightAddons}</span> : null}

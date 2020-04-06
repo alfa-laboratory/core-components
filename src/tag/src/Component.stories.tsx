@@ -2,6 +2,7 @@ import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 import React, { useState } from 'react';
 import { withDesign } from 'storybook-addon-designs';
 import cn from 'classnames';
+import Icon from '@alfalab/icons-glyph/CopyMIcon';
 
 import { Tag } from './Component';
 import styles from '../../../.storybook/styles.css';
@@ -33,6 +34,7 @@ export const TagStory = () => {
                         disabled={disabled}
                         onClick={() => onClick(0)}
                         checked={value[0]}
+                        className='custom'
                     >
                         Нажми меня
                     </Tag>
@@ -46,6 +48,7 @@ export const TagStory = () => {
                         onClick={() => onClick(1)}
                         checked={value[1]}
                         className={cn(styles.tag, { checked: value[1] })}
+                        rightAddons={<Icon />}
                     >
                         Нажми меня
                     </Tag>
@@ -54,7 +57,12 @@ export const TagStory = () => {
 
             <div className={cn(styles.row)}>
                 <div className={cn(styles.col)}>
-                    <Tag size='m' onClick={() => onClick(2)} checked={value[2]}>
+                    <Tag
+                        size='m'
+                        onClick={() => onClick(2)}
+                        checked={value[2]}
+                        leftAddons={<Icon />}
+                    >
                         Нажми меня
                     </Tag>
                 </div>
