@@ -19,7 +19,7 @@
     "pub": "./bin/publish.sh",
     "lint": "yarn lint:css && yarn lint:js",
     "lint:css": "stylelint ./src/**/*.css",
-    "lint:js": "eslint ./ --ext .ts,.tsx,.js,.jsx",
+    "lint:js": "eslint ./src --ext .ts,.tsx,.js,.jsx",
     "test": "react-scripts test --watchAll=false --testPathIgnorePatterns=./*/dist",
     "format": "prettier --write \"./{src,bin}/**/*.{ts,tsx,js,jsx,css}\""
   },
@@ -63,7 +63,7 @@
     "@typescript-eslint/eslint-plugin": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
     "alfa-ui-primitives": "2.8.0",
-    "arui-presets-lint": "4.0.0",
+    "arui-presets-lint": "4.1.1",
     "arui-presets-ts": "^5.0.0",
     "babel-loader": "^8.0.6",
     "eslint": "^6.8.0",
@@ -72,6 +72,7 @@
     "eslint-config-prettier": "^6.10.0",
     "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-chai-friendly": "^0.5.0",
+    "eslint-plugin-cypress": "2.10.3",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
@@ -109,7 +110,10 @@
     "extends": "./node_modules/arui-presets-lint/eslint/index.js"
   },
   "stylelint": {
-    "extends": "arui-presets-lint/stylelint"
+    "extends": "arui-presets-lint/stylelint",
+    "rules": {
+      "arui-cssvars/use-variables": false
+    }
   },
   "lint-staged": {
     "{src,bin}/**/*.{js,jsx,ts,tsx}": [
