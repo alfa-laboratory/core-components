@@ -15,12 +15,12 @@ import styles from './index.module.css';
  * Types
  */
 
-export type PureInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
+export type PureInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> & {
     /** Растягивает компонент на ширину контейнера */
     block?: boolean;
 
     /** Атрибут type */
-    htmlType?: 'number' | 'card' | 'email' | 'hidden' | 'money' | 'password' | 'tel' | 'text';
+    type?: 'number' | 'card' | 'email' | 'hidden' | 'money' | 'password' | 'tel' | 'text';
 
     /** Размер компонента */
     size?: 's' | 'm' | 'l';
@@ -37,10 +37,7 @@ export type PureInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>
  */
 
 export const PureInput = React.forwardRef<HTMLInputElement, PureInputProps>(
-    (
-        { size = 's', htmlType = 'text', block = false, className, dataTestId, ...restProps },
-        ref,
-    ) => (
+    ({ size = 's', type = 'text', block = false, className, dataTestId, ...restProps }, ref) => (
         <input
             {...restProps}
             className={cn(
@@ -52,7 +49,7 @@ export const PureInput = React.forwardRef<HTMLInputElement, PureInputProps>(
                 className,
             )}
             ref={ref}
-            type={htmlType}
+            type={type}
             data-test-id={dataTestId}
         />
     ),
