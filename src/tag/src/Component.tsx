@@ -40,24 +40,18 @@ export const Tag = ({
     leftAddons,
     children,
     size = 's',
-    title,
-    disabled,
-    onClick,
     checked,
     className,
     dataTestId,
-    ...rest
+    ...restProps
 }: TagProps) => {
     const tagProps = {
         className: cn(styles.component, styles[size], { [styles.checked]: checked }, className),
-        title,
-        disabled,
-        onClick,
         'data-test-id': dataTestId,
     };
 
     return (
-        <button type='button' {...tagProps} {...rest}>
+        <button type='button' {...tagProps} {...restProps}>
             {leftAddons ? <span className={cn(styles.addons)}>{leftAddons}</span> : null}
             <span>{children}</span>
             {rightAddons ? <span className={cn(styles.addons)}>{rightAddons}</span> : null}
