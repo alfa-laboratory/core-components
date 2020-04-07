@@ -36,6 +36,12 @@ describe('Classes tests', () => {
         expect(container.firstElementChild).toHaveClass('s');
     });
 
+    it('should set size', () => {
+        const { container } = render(<Tag size='l' />);
+
+        expect(container.firstElementChild).toHaveClass('l');
+    });
+
     it('should set `checked` class if props `checked` is presented', () => {
         const { container } = render(<Tag checked={true} />);
 
