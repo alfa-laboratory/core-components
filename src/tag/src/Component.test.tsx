@@ -49,6 +49,16 @@ describe('Attributes tests', () => {
 
         expect(container.firstElementChild).toBeDisabled();
     });
+
+    it('should set data-test-id attribute', () => {
+        const dataTestId = 'tag-test-id';
+
+        const { container } = render(<Tag disabled={true} dataTestId={dataTestId} />);
+
+        const testIdAttr = container.firstElementChild?.getAttribute('data-test-id');
+
+        expect(container.firstElementChild?.getAttribute('data-test-id')).toBe(testIdAttr);
+    });
 });
 
 describe('Render tests', () => {
