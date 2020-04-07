@@ -51,22 +51,17 @@
     border: none;
     margin: 0;
     outline: none;
-    transition: background 0.2s ease;
     font-size: 16px;
     line-height: 20px;
     padding: var(--input-paddings);
+    text-overflow: ellipsis;
     box-sizing: border-box;
     -webkit-appearance: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.input::placeholder,
-.input[placeholder] {
-    text-overflow: ellipsis;
-    transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out;
-}
-
 .input::placeholder {
+    transition: opacity 0.2s ease, color 0.2s ease;
     color: var(--color-dark-indigo-60-flat);
 }
 
@@ -118,6 +113,7 @@
 
 .hasLabel .input::placeholder {
     opacity: 0;
+    color: var(--color-dark-indigo-30-flat);
 }
 
 .block {
@@ -180,6 +176,10 @@
     font-size: 14px;
     line-height: 18px;
     transform: translateY(-10px);
+}
+
+.focused .input::placeholder {
+    color: var(--color-dark-indigo-30-flat);
 }
 
 /* HOVER STATE */

@@ -30,23 +30,20 @@
     color: var(--color-dark-indigo);
     background-color: var(--pure-input-bg-color);
     border-radius: var(--pure-input-border-radius);
-    transition: background 0.2s ease, box-shadow 0.2s ease, border 0.2s ease,
-        opacity 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: background 0.2s ease, box-shadow 0.2s ease, border 0.2s ease, opacity 0.2s ease,
+        color 0.2s ease;
     border: none;
     margin: 0;
     padding: var(--pure-input-paddings);
     border-bottom: var(--pure-input-border-bottom);
     outline: none;
+    text-overflow: ellipsis;
     -webkit-appearance: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.component::placeholder,
-.component[placeholder] {
-    text-overflow: ellipsis;
-}
-
 .component::placeholder {
+    text-overflow: ellipsis;
     color: var(--color-dark-indigo-60-flat);
 }
 
@@ -83,6 +80,10 @@
 .component:not(:disabled):focus {
     border-bottom: var(--pure-input-focus-border-bottom);
     box-shadow: var(--pure-input-focus-shadow);
+
+    &::placeholder {
+        color: var(--color-dark-indigo-30-flat);
+    }
 }
 
 /* HOVER STATE */
