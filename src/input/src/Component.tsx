@@ -15,7 +15,7 @@ import styles from './index.module.css';
  * Types
  */
 
-export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
+export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> & {
     /** Растягивает компонент на ширину контейнера */
     block?: boolean;
 
@@ -32,7 +32,7 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
     label?: React.ReactNode;
 
     /** Атрибут type */
-    htmlType?: 'number' | 'card' | 'email' | 'money' | 'password' | 'tel' | 'text';
+    type?: 'number' | 'card' | 'email' | 'money' | 'password' | 'tel' | 'text';
 
     /** Слот слева */
     leftAddons?: React.ReactNode;
@@ -71,7 +71,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     (
         {
             size = 's',
-            htmlType = 'text',
+            type = 'text',
             block = false,
             bottomAddons,
             className,
@@ -147,7 +147,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                             onBlur={handleInputBlur}
                             onFocus={handleInputFocus}
                             ref={ref}
-                            type={htmlType}
+                            type={type}
                             value={value}
                             data-test-id={dataTestId}
                         />
