@@ -134,7 +134,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     },
                     className,
                 )}
-                data-test-id={dataTestId}
             >
                 <div className={styles.inner}>
                     {leftAddonsRenderer()}
@@ -151,6 +150,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                             ref={ref}
                             type={type}
                             value={value}
+                            data-test-id={dataTestId}
                         />
                     </div>
 

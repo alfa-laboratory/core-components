@@ -12,195 +12,172 @@ import { render, fireEvent } from '@testing-library/react';
 import { Input } from './index';
 
 describe('Input', () => {
-    it('should match snapshot', () => {
-        expect(render(<Input />)).toMatchSnapshot();
+    describe('Snapshots tests', () => {
+        it('should match snapshot', () => {
+            expect(render(<Input value='value' onChange={jest.fn()} />)).toMatchSnapshot();
+        });
+
+        it('should render label', () => {
+            expect(render(<Input label={<span>This is label</span>} />)).toMatchSnapshot();
+        });
+
+        it('should render hint', () => {
+            expect(render(<Input hint='This is hint' />)).toMatchSnapshot();
+        });
+
+        it('should render error', () => {
+            expect(render(<Input error='This is error' />)).toMatchSnapshot();
+        });
+
+        it('should not render hint if has error', () => {
+            const result = render(<Input error='error' hint='hint' />);
+
+            expect(result).toMatchSnapshot();
+            expect(result.queryByText('hint')).toBeNull();
+        });
+
+        it('should render left addons', () => {
+            expect(render(<Input leftAddons={<div>Left addons</div>} />)).toMatchSnapshot();
+        });
+
+        it('should render right addons', () => {
+            expect(render(<Input rightAddons={<div>Right addons</div>} />)).toMatchSnapshot();
+        });
+
+        it('should render bottom addons', () => {
+            expect(render(<Input bottomAddons={<div>Bottom addons</div>} />)).toMatchSnapshot();
+        });
+    });
+
+    it('should forward ref to input', () => {
+        const inputRef = jest.fn();
+        const dataTestId = 'test-id';
+        const { getByTestId } = render(<Input ref={inputRef} dataTestId={dataTestId} />);
+
+        expect(inputRef.mock.calls).toEqual([[getByTestId(dataTestId)]]);
     });
 
     it('should set `data-test-id` atribute', () => {
         const dataTestId = 'test-id';
         const { getByTestId } = render(<Input block={true} dataTestId={dataTestId} />);
 
-        expect(getByTestId(dataTestId)).toBeTruthy();
+        expect(getByTestId(dataTestId).tagName).toBe('INPUT');
     });
 
-    describe('classNames', () => {
+    describe('Classes tests', () => {
         it('should set `className` class to root', () => {
             const className = 'test-class';
             const { container } = render(<Input className={className} />);
 
-            expect(container.firstElementChild?.classList).toContain(className);
+            expect(container.firstElementChild).toHaveClass(className);
         });
 
         it('should set `inputClassName` class to input', () => {
+            const dataTestId = 'test-id';
             const className = 'test-class';
-            const { container } = render(<Input inputClassName={className} />);
+            const { getByTestId } = render(
+                <Input inputClassName={className} dataTestId={dataTestId} />,
+            );
 
-            const input = container.querySelector('input');
-
-            expect(input?.classList).toContain(className);
+            expect(getByTestId(dataTestId).classList).toContain(className);
         });
 
         it('should set `size` class', () => {
             const size = 'm';
             const { container } = render(<Input size={size} />);
 
-            expect(container.firstElementChild?.classList).toContain(size);
+            expect(container.firstElementChild).toHaveClass(size);
         });
 
         it('should set `block` class', () => {
             const { container } = render(<Input block={true} />);
 
-            expect(container.firstElementChild?.classList).toContain('block');
+            expect(container.firstElementChild).toHaveClass('block');
         });
 
         it('should set `filled` class', () => {
             const { container } = render(<Input value='some value' readOnly={true} />);
 
-            expect(container.firstElementChild?.classList).toContain('filled');
+            expect(container.firstElementChild).toHaveClass('filled');
         });
 
         it('should set `hasLabel` class', () => {
             const { container } = render(<Input label='label' />);
 
-            expect(container.firstElementChild?.classList).toContain('hasLabel');
+            expect(container.firstElementChild).toHaveClass('hasLabel');
         });
 
         it('should set `hasError` class', () => {
             const { container } = render(<Input error='error' />);
 
-            expect(container.firstElementChild?.classList).toContain('hasError');
+            expect(container.firstElementChild).toHaveClass('hasError');
         });
 
         it('should set `disabled` class and atribute', () => {
-            const { container } = render(<Input disabled={true} />);
-            const input = container.querySelector('input');
+            const dataTestId = 'test-id';
+            const { container, getByTestId } = render(
+                <Input disabled={true} dataTestId={dataTestId} />,
+            );
 
-            expect(input).toHaveAttribute('disabled');
-            expect(container.firstElementChild?.classList).toContain('disabled');
+            expect(getByTestId(dataTestId)).toHaveAttribute('disabled');
+            expect(container.firstElementChild).toHaveClass('disabled');
         });
 
         it('should set `focused` class after focus', () => {
             const dataTestId = 'test-id';
             const { getByTestId, container } = render(<Input dataTestId={dataTestId} />);
 
-            const input = container.querySelector('input');
-            if (input) fireEvent.focus(input);
+            fireEvent.focus(getByTestId(dataTestId));
 
-            expect(getByTestId(dataTestId).classList).toContain('focused');
+            expect(container.firstElementChild).toHaveClass('focused');
         });
 
         it('should unset `focused` class after blur', () => {
             const dataTestId = 'test-id';
             const { getByTestId, container } = render(<Input dataTestId={dataTestId} />);
 
-            const input = container.querySelector('input');
-            if (input) {
-                fireEvent.focus(input);
-                fireEvent.blur(input);
-            }
+            fireEvent.focus(getByTestId(dataTestId));
+            fireEvent.blur(getByTestId(dataTestId));
 
-            expect(getByTestId(dataTestId).classList).not.toContain('focused');
+            expect(container.firstElementChild?.classList).not.toContain('focused');
         });
     });
 
-    describe('callbacks', () => {
+    describe('Callbacks tests', () => {
         it('should call `onChange` prop', () => {
             const cb = jest.fn();
-            const { container } = render(<Input onChange={cb} />);
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<Input onChange={cb} dataTestId={dataTestId} />);
 
-            const input = container.querySelector('input');
-            if (input) {
-                fireEvent.change(input, { target: { value: '123' } });
-            }
+            fireEvent.change(getByTestId(dataTestId), { target: { value: '123' } });
 
             expect(cb).toBeCalledTimes(1);
         });
 
         it('should call `onFocus` prop', () => {
             const cb = jest.fn();
-            const { container } = render(<Input onFocus={cb} />);
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<Input onFocus={cb} dataTestId={dataTestId} />);
 
-            const input = container.querySelector('input');
-            if (input) {
-                fireEvent.focus(input);
-            }
+            fireEvent.focus(getByTestId(dataTestId));
 
             expect(cb).toBeCalledTimes(1);
         });
 
         it('should call `onBlur` prop', () => {
             const cb = jest.fn();
-            const { container } = render(<Input onBlur={cb} />);
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<Input onBlur={cb} dataTestId={dataTestId} />);
 
-            const input = container.querySelector('input');
-            if (input) {
-                fireEvent.blur(input);
-            }
+            fireEvent.blur(getByTestId(dataTestId));
 
             expect(cb).toBeCalledTimes(1);
         });
     });
 
-    describe('render', () => {
-        it('should forward ref to input', () => {
-            const inputRef = jest.fn();
-            const { container } = render(<Input ref={inputRef} />);
-            const input = container.querySelector('input');
+    it('should unmount without errors', () => {
+        const { unmount } = render(<Input value='value' onChange={jest.fn()} />);
 
-            expect(inputRef.mock.calls).toEqual([[input]]);
-        });
-
-        it('should render label', () => {
-            const labelText = 'This is label';
-            const { container, getByText } = render(<Input label={<span>{labelText}</span>} />);
-
-            expect(container).toContainElement(getByText(labelText));
-        });
-
-        it('should render hint', () => {
-            const hintText = 'This is hint';
-            const { container, getByText } = render(<Input hint={hintText} />);
-
-            expect(container).toContainElement(getByText(hintText));
-        });
-
-        it('should render error', () => {
-            const errorText = 'This is error';
-            const { container, getByText } = render(<Input error={errorText} />);
-
-            expect(container).toContainElement(getByText(errorText));
-        });
-
-        it('should not render hint if has error', () => {
-            const hintText = 'This is hint';
-            const { queryByText } = render(<Input error='error' hint={hintText} />);
-
-            expect(queryByText(hintText)).toBeNull();
-        });
-
-        it('should render left addons', () => {
-            const addonsText = 'Left addons';
-            const { container, getByText } = render(<Input leftAddons={<div>{addonsText}</div>} />);
-
-            expect(container).toContainElement(getByText(addonsText));
-        });
-
-        it('should render right addons', () => {
-            const addonsText = 'Right addons';
-            const { container, getByText } = render(
-                <Input rightAddons={<div>{addonsText}</div>} />,
-            );
-
-            expect(container).toContainElement(getByText(addonsText));
-        });
-
-        it('should render bottom addons', () => {
-            const addonsText = 'Bottom addons';
-            const { container, getByText } = render(
-                <Input bottomAddons={<div>{addonsText}</div>} />,
-            );
-
-            expect(container).toContainElement(getByText(addonsText));
-        });
+        expect(unmount).not.toThrowError();
     });
 });

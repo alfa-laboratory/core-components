@@ -12,23 +12,33 @@ import { render } from '@testing-library/react';
 import { Divider } from './index';
 
 describe('Divider', () => {
-    it('should match snapshot', () => {
-        expect(render(<Divider />)).toMatchSnapshot();
+    describe('Snapshots tests', () => {
+        it('should match snapshot', () => {
+            expect(render(<Divider />)).toMatchSnapshot();
+        });
     });
 
-    it('should set `data-test-id` atribute', () => {
-        const dataTestId = 'test-id';
-        const { getByTestId } = render(<Divider dataTestId={dataTestId} />);
+    describe('Attributes tests', () => {
+        it('should set `data-test-id` atribute', () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<Divider dataTestId={dataTestId} />);
 
-        expect(getByTestId(dataTestId)).toBeTruthy();
+            expect(getByTestId(dataTestId).tagName).toBe('HR');
+        });
     });
 
-    describe('classNames', () => {
+    describe('Classes tests', () => {
         it('should set `className` class to root', () => {
             const className = 'test-class';
             const { container } = render(<Divider className={className} />);
 
-            expect(container.firstElementChild?.classList).toContain(className);
+            expect(container.firstElementChild).toHaveClass(className);
         });
+    });
+
+    it('should unmount without errors', () => {
+        const { unmount } = render(<Divider />);
+
+        expect(unmount).not.toThrowError();
     });
 });
