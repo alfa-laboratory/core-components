@@ -108,12 +108,13 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             }
         };
 
-        const rightAddonsRenderer = () => (
-            <div className={cn(styles.addons)}>
-                {error && errorIcon}
-                {rightAddons}
-            </div>
-        );
+        const rightAddonsRenderer = () =>
+            (error || rightAddons) && (
+                <div className={cn(styles.addons)}>
+                    {error && errorIcon}
+                    {rightAddons}
+                </div>
+            );
 
         const leftAddonsRenderer = () =>
             leftAddons && <div className={styles.addons}>{leftAddons}</div>;
@@ -133,6 +134,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     },
                     className,
                 )}
+                data-test-id={dataTestId}
             >
                 <div className={styles.inner}>
                     {leftAddonsRenderer()}
@@ -149,7 +151,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                             ref={ref}
                             type={type}
                             value={value}
-                            data-test-id={dataTestId}
                         />
                     </div>
 

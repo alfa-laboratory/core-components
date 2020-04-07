@@ -16,17 +16,19 @@ describe('Divider', () => {
         expect(render(<Divider />)).toMatchSnapshot();
     });
 
-    it('should use a dataTestId prop', () => {
-        const testId = 'header-divider';
-        const { getByTestId } = render(<Divider dataTestId={testId} />);
+    it('should set `data-test-id` atribute', () => {
+        const dataTestId = 'test-id';
+        const { getByTestId } = render(<Divider dataTestId={dataTestId} />);
 
-        expect(getByTestId(testId)).toBeTruthy();
+        expect(getByTestId(dataTestId)).toBeTruthy();
     });
 
-    it('should use a className prop', () => {
-        const className = 'short';
-        const { container } = render(<Divider className={className} />);
+    describe('classNames', () => {
+        it('should set `className` class to root', () => {
+            const className = 'test-class';
+            const { container } = render(<Divider className={className} />);
 
-        expect(container.firstElementChild?.classList).toContain(className);
+            expect(container.firstElementChild?.classList).toContain(className);
+        });
     });
 });

@@ -20,9 +20,6 @@ Object {
               value=""
             />
           </div>
-          <div
-            class="addons"
-          />
         </div>
       </div>
     </div>
@@ -43,9 +40,6 @@ Object {
             value=""
           />
         </div>
-        <div
-          class="addons"
-        />
       </div>
     </div>
   </div>,
