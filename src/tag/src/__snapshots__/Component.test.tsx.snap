@@ -79,7 +79,7 @@ Object {
 }
 `;
 
-exports[`Snapshots tests should match with left addons snapshot 1`] = `
+exports[`Snapshots tests should match snapshot with left addons 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -172,7 +172,7 @@ Object {
 }
 `;
 
-exports[`Snapshots tests should match with rigth addons snapshot 1`] = `
+exports[`Snapshots tests should match snapshot with right addons 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -265,7 +265,7 @@ Object {
 }
 `;
 
-exports[`Snapshots tests should match without childrens snapshot 1`] = `
+exports[`Snapshots tests should match without children snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>

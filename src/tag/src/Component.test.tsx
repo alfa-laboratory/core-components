@@ -8,15 +8,15 @@ describe('Snapshots tests', () => {
         expect(render(<Tag>Press me</Tag>)).toMatchSnapshot();
     });
 
-    it('should match without childrens snapshot', () => {
+    it('should match without children snapshot', () => {
         expect(render(<Tag />)).toMatchSnapshot();
     });
 
-    it('should match with rigth addons snapshot', () => {
+    it('should match snapshot with right addons', () => {
         expect(render(<Tag rightAddons={<span>10 000 $</span>}>Press me</Tag>)).toMatchSnapshot();
     });
 
-    it('should match with left addons snapshot', () => {
+    it('should match snapshot with left addons', () => {
         expect(render(<Tag leftAddons={<span>10 000 $</span>}>Press me</Tag>)).toMatchSnapshot();
     });
 });
@@ -42,7 +42,7 @@ describe('Classes tests', () => {
         expect(container.firstElementChild).toHaveClass('l');
     });
 
-    it('should set `checked` class if props `checked` is presented', () => {
+    it('should set `checked` class if prop `checked` is present', () => {
         const { container } = render(<Tag checked={true} />);
 
         expect(container.firstElementChild).toHaveClass('checked');
@@ -108,7 +108,7 @@ describe('Interaction tests', () => {
         expect(cb).toBeCalledTimes(1);
     });
 
-    test('should do not call `onClick` prop, if tag is disabled', () => {
+    test('should not call `onClick` prop, if tag is disabled', () => {
         const cb = jest.fn();
 
         const { container } = render(
