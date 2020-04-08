@@ -1,8 +1,6 @@
 @import '../../themes/default.css';
 
 :root {
-    --tag-font-family: var(--font-family);
-
     /* border */
     --tag-border: 1px solid var(--color-dark-indigo-30);
     --tag-border-hover: 1px solid var(--color-dark-indigo);
