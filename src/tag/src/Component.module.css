@@ -2,10 +2,12 @@
 
 :root {
     /* border */
-    --tag-border: 1px solid var(--color-dark-indigo-30);
-    --tag-border-hover: 1px solid var(--color-dark-indigo);
-    --tag-border-active: 1px solid var(--color-dark-indigo);
-    --tag-border-checked-disabled: 1px solid var(--color-dark-indigo-30-flat);
+    --tag-border-width: 1px;
+    --tag-border-style: solid;
+    --tag-border-color: var(--color-dark-indigo-30);
+    --tag-border-color-hover: var(--color-dark-indigo);
+    --tag-border-color-active: var(--color-dark-indigo);
+    --tag-border-color-disabled: var(--color-dark-indigo-30-flat);
 
     /* background-color */
     --tag-background-color-active: var(--color-dark-indigo-07);
@@ -20,22 +22,19 @@
 
 .component {
     display: inline-flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
     justify-content: center;
     align-content: center;
     align-items: center;
     margin: 0;
     font-family: var(--font-family);
     text-decoration: none;
-    border: var(--tag-border);
+    border: var(--tag-border-width) var(--tag-border-style) var(--tag-border-color);
     border-radius: var(--tag-border-radius);
     transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
     box-sizing: border-box;
     box-shadow: none;
     user-select: none;
     cursor: pointer;
-    outline: none;
 }
 
 .addons {
@@ -63,7 +62,7 @@
     }
 
     &:hover {
-        border: var(--tag-border-hover);
+        border: var(--tag-border-width) var(--tag-border-style) var(--tag-border-color-hover);
     }
 
     &:disabled {
@@ -77,13 +76,13 @@
 
     &:disabled {
         background-color: var(--tag-background-color-checked-disabled);
-        border: var(--tag-border-checked-disabled);
+        border: var(--tag-border-width) var(--tag-border-style) var(--tag-border-color-disabled);
     }
 }
 
 .xs {
-    height: 32px;
-    padding: 6px 16px;
+    min-height: 32px;
+    padding: 4px 16px;
     border-radius: 32px;
     font-size: 14px;
     line-height: 18px;
@@ -91,8 +90,8 @@
 }
 
 .s {
-    height: 48px;
-    padding: 7px 16px;
+    min-height: 48px;
+    padding: 4px 16px;
     border-radius: 48px;
     font-size: 16px;
     line-height: 20px;
@@ -100,8 +99,8 @@
 }
 
 .m {
-    height: 56px;
-    padding: 7px 24px;
+    min-height: 56px;
+    padding: 4px 24px;
     border-radius: 56px;
     font-size: 16px;
     line-height: 20px;
@@ -109,8 +108,8 @@
 }
 
 .l {
-    height: 68px;
-    padding: 7px 32px;
+    min-height: 68px;
+    padding: 4px 32px;
     border-radius: 68px;
     font-size: 18px;
     line-height: 22px;

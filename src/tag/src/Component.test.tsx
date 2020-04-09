@@ -124,7 +124,7 @@ describe('Interaction tests', () => {
         expect(cb).toBeCalledTimes(0);
     });
 
-    test('should do not call `onClick` prop, if tag is disabled and checked', () => {
+    test('should not call `onClick` prop, if tag is disabled and checked', () => {
         const cb = jest.fn();
 
         const { container } = render(
