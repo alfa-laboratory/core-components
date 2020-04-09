@@ -14,7 +14,7 @@ lerna exec --parallel -- rm -rf ./dist/__snapshots__
 # обрабатываю ts во всех подпакетах
 lerna exec --parallel -- tsc --p tsconfig.json
 # обрабатываю postcss во всех подпакетах
-lerna exec --parallel -- postcss dist/*.css -d dist
+lerna exec --parallel --ignore @alfalab/core-components-vars -- postcss dist/*.css -d dist
 # копирую package.json во всех подпакетах
 lerna exec --parallel -- cp package.json dist/package.json
 # удаляю папку dist в корне проекта
