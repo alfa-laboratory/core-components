@@ -1,6 +1,4 @@
-<p align="center">
-   <img width="444" alt="" src="https://user-images.githubusercontent.com/109410/77626953-2877d000-6f57-11ea-9f26-400c252479c2.png"></p>
-<p align="center">Библиотека React компонентов для создания веб-интерфейсов</p>
+<img width="914" alt="Библиотека React компонентов для создания веб-интерфейсов" src="https://user-images.githubusercontent.com/109410/78970104-3873e000-7b11-11ea-945d-02f86cad62e0.png">
 
 ## ✨ Возможности
 
