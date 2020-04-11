@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input should match snapshot 1`] = `
+exports[`MaskedInput Snapshots tests should match snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
