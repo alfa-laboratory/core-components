@@ -108,10 +108,14 @@ export const MaskedInput = React.forwardRef<HTMLInputElement | null, MaskedInput
                     showMask,
                     pipe,
                 }) as TextMask;
+            }
+        }, [placeholderChar, showMask, pipe, mask, guide, keepCharPositions]);
 
+        useEffect(() => {
+            if (textMask.current) {
                 textMask.current.update(value);
             }
-        }, [value, inputRef, guide, keepCharPositions, mask, placeholderChar, showMask, pipe]);
+        }, [textMask, value]);
 
         return <Input {...restProps} value={value} onChange={handleInputChange} ref={inputRef} />;
     },
