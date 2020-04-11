@@ -108,12 +108,13 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             }
         };
 
-        const rightAddonsRenderer = () => (
-            <div className={cn(styles.addons)}>
-                {error && errorIcon}
-                {rightAddons}
-            </div>
-        );
+        const rightAddonsRenderer = () =>
+            (error || rightAddons) && (
+                <div className={cn(styles.addons)}>
+                    {error && errorIcon}
+                    {rightAddons}
+                </div>
+            );
 
         const leftAddonsRenderer = () =>
             leftAddons && <div className={styles.addons}>{leftAddons}</div>;
