@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 
 /**
  * Component
@@ -75,6 +75,30 @@ describe('Button', () => {
             const { container } = render(<Button />);
 
             expect(container.firstElementChild).toHaveClass('iconOnly');
+        });
+    });
+
+    describe('Callbacks tests', () => {
+        it('should call `onClick` prop', () => {
+            const cb = jest.fn();
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<Button onClick={cb} dataTestId={dataTestId} />);
+
+            fireEvent.click(getByTestId(dataTestId));
+
+            expect(cb).toBeCalledTimes(1);
+        });
+
+        it('should not call `onClick` prop if disabled', () => {
+            const cb = jest.fn();
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <Button onClick={cb} dataTestId={dataTestId} disabled={true} />,
+            );
+
+            fireEvent.click(getByTestId(dataTestId));
+
+            expect(cb).not.toBeCalled();
         });
     });
 

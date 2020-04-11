@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 /**
  * Component
@@ -147,11 +148,15 @@ describe('Input', () => {
         it('should call `onChange` prop', () => {
             const cb = jest.fn();
             const dataTestId = 'test-id';
+            const value = '123';
             const { getByTestId } = render(<Input onChange={cb} dataTestId={dataTestId} />);
 
-            fireEvent.change(getByTestId(dataTestId), { target: { value: '123' } });
+            const input = getByTestId(dataTestId) as HTMLInputElement;
+
+            fireEvent.change(input, { target: { value } });
 
             expect(cb).toBeCalledTimes(1);
+            expect(input.value).toBe(value);
         });
 
         it('should call `onFocus` prop', () => {
@@ -172,6 +177,20 @@ describe('Input', () => {
             fireEvent.blur(getByTestId(dataTestId));
 
             expect(cb).toBeCalledTimes(1);
+        });
+
+        it('should not call `onChange` prop if disabled', async () => {
+            const cb = jest.fn();
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <Input onChange={cb} dataTestId={dataTestId} disabled={true} />,
+            );
+
+            const input = getByTestId(dataTestId) as HTMLInputElement;
+
+            await userEvent.type(input, '123');
+
+            expect(cb).not.toBeCalled();
         });
     });
 
