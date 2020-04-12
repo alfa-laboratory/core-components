@@ -1,7 +1,3 @@
-/**
- * Config
- */
-
 import { CURRENCY_CODES } from '../configs/currencyCodes';
 
 /**

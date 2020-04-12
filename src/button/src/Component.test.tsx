@@ -1,13 +1,5 @@
-/**
- * Vendor
- */
-
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-
-/**
- * Component
- */
 
 import { Button } from './index';
 
