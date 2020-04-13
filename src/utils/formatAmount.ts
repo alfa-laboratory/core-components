@@ -1,7 +1,3 @@
-/**
- * Utils
- */
-
 import { getCurrencySymbol } from './getCurrencySymbol';
 
 import {

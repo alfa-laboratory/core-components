@@ -1,19 +1,7 @@
-/**
- * Vendor
- */
-
 import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 import cn from 'classnames';
 
-/**
- * Styles
- */
-
 import styles from './index.module.css';
-
-/**
- * Types
- */
 
 type ComponentProps = {
     /** Тип кнопки */
@@ -41,10 +29,6 @@ type ComponentProps = {
 type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
 type NativeButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
 type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
-
-/**
- * Expo
- */
 
 export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, ButtonProps>(
     (
