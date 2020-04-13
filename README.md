@@ -1,66 +1,87 @@
-<p align="center">
-   <img width="444" alt="" src="https://user-images.githubusercontent.com/109410/77626953-2877d000-6f57-11ea-9f26-400c252479c2.png"></p>
-<p align="center">Библиотека React компонентов для создания веб-интерфейсов</p>
+<img width="914" alt="Библиотека React компонентов для создания веб-интерфейсов" src="https://user-images.githubusercontent.com/109410/78970104-3873e000-7b11-11ea-945d-02f86cad62e0.png">
 
-## ✨ Features
+## ✨ Возможности
 
-- An enterprise-class UI design system for web applications.
-- A set of high-quality React components out of the box.
-- Written in TypeScript with predictable static types.
-- Only primitives without extra functionality.
+- Набор готовых к использованию и протестированных React компонентов, которые реализуют [дизайн-систему Альфа-банка](https://digital.alfabank.ru/principles)
+- Все компоненты написаны на TypeScript и типизированы.
+- Удобный [сторибук](https://alfa-laboratory.github.io/core-components/) с песочницей.
+- Компоненты открыты к темизации через css-переменные.
 
-## 🖥 Environment Support
+## 🖥 Поддерживаемые браузеры
 
-- Modern browsers and Internet Explorer 11+
-- Server-side Rendering
 
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Electron |
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/yandex/yandex_48x48.png" alt="Yandex Browser" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Yandex Browser |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IE11, Edge                                                                                                                                                                                           | last 2 versions                                                                                                                                                                                                   | last 2 versions                                                                                                                                                                                               | last 2 versions                                                                                                                                                                                               | last 2 versions                                                                                                                                                                                           | last 2 versions                                                                                                                                                                                                       |
+| <p align="center">IE11, Edge</p>                                                                                                                                                                                            | <p align="center">последние 2 версии</p>                                                                                                                                                                                                  | <p align="center">последние 2 версии</p>                                                                                                                                                                                                | <p align="center">последние 2 версии</p>                                                                                                                                                                                                | <p align="center">последние 2 версии</p>                                                                                                                                                                                            | <p align="center">последние 2 версии</p>                                                                                                                                                                                                        |
 
-## 📦 Install
+## 📦 Установка
+
+
+### Установка всех компонентов
+```bash
+yarn add @alfa-labaratory/core-components
+```
+
+### Установка определенного компонента
+
+Каждый компонент публикуется отдельным пакетом, поэтому вы можете подключить только нужный, не устанавливая библиотеку целиком.
 
 ```bash
-npm install example
+yarn add @alfa-labaratory/core-components-button
 ```
 
-```bash
-yarn add example
-```
-
-## 🔨 Usage
+## 🔨 Использование
 
 ```jsx
-import { Example } from "example";
-ReactDOM.render(<Example />, mountNode);
+import { Button } from '@alfalab/core-components/button';
+import { Button } from '@alfalab/core-components-button';
 ```
 
-And import style manually:
+## 💅 Темизация
 
-```jsx
-import "@alfa-labaratory/core-components/themes/dark.css";
+1. Создайте у себя на проекте css файл с темой, например theme.css:
+```
+:root {
+    --border-radius: 100px;
+}
 ```
 
-### TypeScript
+2. Подключите файл с темой:
+- Если вы используете нативные css-переменные, то просто подключите файл к проекту.
 
-## 🔗 Links
+- Если вы используете [arui-scripts](https://github.com/alfa-laboratory/arui-scripts), то добавьте в `package.json`:
+   ```
+   "сomponentsTheme": "./src/styles/theme.css"
+   ```
+- В другом случае - используйте [alfa-laboratory/postcss-custom-properties](https://github.com/alfa-laboratory/postcss-custom-properties), указав в `importFrom` путь к файлу с темой.
 
-## ⌨️ Development
+## 🔗 Ссылки
+
+[Alfa-Bank UI Icons](https://github.com/alfa-laboratory/icons)
+
+## ⌨️ Разработка
 
 ```bash
 $ git clone git@github.com:alfa-laboratory/core-components.git
 $ cd core-components
-$ npm install
-$ npm start
+$ yarn install
+$ yarn start
 ```
 
-Open your browser and visit http://127.0.0.1:8081
+Сторибук будет доступен по адресу http://localhost:9009/
+
+### Сигнатуры коллбэков
+
+> Компоненты передают в функции обратного вызова два аргумента:
+> 
+> 1. `event: SyntheticEvent` - объект события, инициировавшего вызов.
+> 2. `payload: {}` - объект с дополнительными данными. Например `{ amount: 5000 }`
 
 ## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-Read our [contributing guide](https://github.com/alfa-laboratory/core-components/blob/master/.github/CONTRIBUTING.md) and let's build a better antd together.
-
-We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/alfa-laboratory/core-components/blob/master/.github/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/alfa-laboratory/core-components/pulls) or as [GitHub issues](https://github.com/alfa-laboratory/core-components/issues). If you'd like to improve code, check out the [Development Instructions](https://github.com/alfa-laboratory/core-components/wiki/Development) and have a good time! :)
+Мы открыты к любым предложениям по развитию библиотеки.
+Отправляйте свои идеи и вопросы через [pull requests](https://github.com/alfa-laboratory/core-components/pulls) или [issues](https://github.com/alfa-laboratory/core-components/issues).
+Пожалуйста, сначала прочтите наш [contributing guide](https://github.com/alfa-laboratory/core-components/blob/master/.github/CONTRIBUTING.md) и [правила разработки](https://github.com/alfa-laboratory/core-components/wiki/Development).
 
 ## 👨🏻‍💻 Мейнтейнеры
 

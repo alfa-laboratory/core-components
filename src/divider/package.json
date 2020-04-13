@@ -1,6 +1,6 @@
 {
   "name": "@alfalab/core-components-divider",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "keywords": [],
   "license": "ISC",
@@ -10,5 +10,8 @@
   },
   "peerDependencies": {
     "react": "^16.9.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6"
   }
 }

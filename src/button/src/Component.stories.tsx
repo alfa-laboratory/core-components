@@ -33,14 +33,14 @@ export const ButtonStory = () => (
         <div className={cn(styles.row)}>
             <div className={cn(styles.col)}>
                 <Button
-                    type={select(
-                        'Type',
+                    view={select(
+                        'View',
                         ['primary', 'secondary', 'outlined', 'link', 'ghost'],
                         'primary',
                     )}
                     title={text('Title', '')}
                     disabled={boolean('Disabled', false)}
-                    htmlType={select('htmlType', ['button', 'reset', 'submit'], 'button')}
+                    type={select('type', ['button', 'reset', 'submit'], 'button')}
                     href={text('href', '')}
                     size={select('Size', ['xs', 's', 'm', 'l'], 'm')}
                     block={boolean('Block', false)}
@@ -54,33 +54,33 @@ export const ButtonStory = () => (
         </div>
         <div className={cn(styles.row)}>
             <div className={cn(styles.col)}>
-                <Button type='secondary' leftAddons={icon} size='m'>
+                <Button view='secondary' leftAddons={icon} size='m'>
                     Secondary
                 </Button>
             </div>
         </div>
         <div className={cn(styles.row)}>
             <div className={cn(styles.col)}>
-                <Button type='secondary' rightAddons={icon} size='m' />
+                <Button view='secondary' rightAddons={icon} size='m' />
             </div>
         </div>
         <div className={cn(styles.row)}>
             <div className={cn(styles.col)}>
-                <Button type='outlined' size='m'>
+                <Button view='outlined' size='m'>
                     Outlined
                 </Button>
             </div>
         </div>
         <div className={cn(styles.row)}>
             <div className={cn(styles.col)}>
-                <Button type='link' size='m'>
+                <Button view='link' size='m'>
                     Link
                 </Button>
             </div>
         </div>
         <div className={cn(styles.row)}>
             <div className={cn(styles.col)}>
-                <Button type='ghost' size='m'>
+                <Button view='ghost' size='m'>
                     Ghost
                 </Button>
             </div>

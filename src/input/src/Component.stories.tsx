@@ -34,7 +34,7 @@ export const InputStory = () => {
 
     return (
         <Input
-            htmlType={select(
+            type={select(
                 'type',
                 ['number', 'card', 'email', 'money', 'password', 'tel', 'text'],
                 'text',

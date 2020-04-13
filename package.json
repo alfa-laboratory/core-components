@@ -1,6 +1,6 @@
 {
   "name": "@alfalab/core-components",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
     "pub": "./bin/publish.sh",
     "lint": "yarn lint:css && yarn lint:js",
     "lint:css": "stylelint ./src/**/*.css",
-    "lint:js": "eslint ./ --ext .ts,.tsx,.js,.jsx",
+    "lint:js": "eslint ./src --ext .ts,.tsx,.js,.jsx",
     "test": "react-scripts test --watchAll=false --testPathIgnorePatterns=./*/dist",
     "format": "prettier --write \"./{src,bin}/**/*.{ts,tsx,js,jsx,css}\""
   },
@@ -55,7 +55,7 @@
     "@storybook/react": "^5.3.8",
     "@testing-library/jest-dom": "^5.0.2",
     "@testing-library/react": "^9.4.0",
-    "@testing-library/user-event": "^8.0.4",
+    "@testing-library/user-event": "^10.0.1",
     "@types/classnames": "^2.2.9",
     "@types/jest": "^25.1.2",
     "@types/node": "^13.5.0",
@@ -63,8 +63,8 @@
     "@types/react-dom": "^16.9.5",
     "@typescript-eslint/eslint-plugin": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
-    "alfa-ui-primitives": "2.5.0",
-    "arui-presets-lint": "4.0.0",
+    "alfa-ui-primitives": "2.8.0",
+    "arui-presets-lint": "4.1.1",
     "arui-presets-ts": "^5.0.0",
     "babel-loader": "^8.0.6",
     "eslint": "^6.8.0",
@@ -73,6 +73,7 @@
     "eslint-config-prettier": "^6.10.0",
     "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-chai-friendly": "^0.5.0",
+    "eslint-plugin-cypress": "2.10.3",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
@@ -80,11 +81,13 @@
     "eslint-plugin-sort-class-members": "^1.6.0",
     "fork-ts-checker-webpack-plugin": "^4.0.2",
     "git-url-parse": "^11.1.2",
+    "handlebars": "^4.7.3",
     "husky": "^4.2.1",
     "lerna": "^3.20.2",
     "lint-staged": "^10.0.8",
     "postcss-cli": "^7.1.0",
     "postcss-import": "^12.0.1",
+    "postcss-mixins": "^6.2.3",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^1.19.1",
     "react-docgen-typescript-loader": "^3.6.0",
@@ -108,7 +111,10 @@
     "extends": "./node_modules/arui-presets-lint/eslint/index.js"
   },
   "stylelint": {
-    "extends": "arui-presets-lint/stylelint"
+    "extends": "arui-presets-lint/stylelint",
+    "rules": {
+      "arui-cssvars/use-variables": false
+    }
   },
   "lint-staged": {
     "{src,bin}/**/*.{js,jsx,ts,tsx}": [

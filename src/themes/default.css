@@ -1,5 +1,6 @@
 @import '../vars/src/colors.css';
 @import '../vars/src/gaps.css';
+@import '../vars/src/typography.css';
 
 :root {
     --text-primary-color: var(--color-dark-indigo);
