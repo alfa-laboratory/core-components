@@ -1,13 +1,5 @@
-/**
- * Vendor
- */
-
 import React from 'react';
 import { render } from '@testing-library/react';
-
-/**
- * Component
- */
 
 import { Divider } from './index';
 

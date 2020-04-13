@@ -1,19 +1,7 @@
-/**
- * Vendor
- */
-
 import React from 'react';
 import cn from 'classnames';
 
-/**
- * Styles
- */
-
 import styles from './index.module.css';
-
-/**
- * Expo
- */
 
 export type DividerProps = {
     /** Кастомный класс */

@@ -1,7 +1,3 @@
-/**
- * Vendor
- */
-
 import React from 'react';
 import cn from 'classnames';
 
@@ -9,10 +5,6 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
 import styles from '../../../.storybook/styles.css';
-
-/**
- * Components
- */
 
 import { Button } from './Component';
 
