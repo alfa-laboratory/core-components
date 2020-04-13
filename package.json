@@ -41,6 +41,7 @@
     "classnames": "^2.2.6"
   },
   "devDependencies": {
+    "@alfalab/icons-glyph": "^1.6.0",
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
     "@babel/plugin-transform-modules-commonjs": "^7.9.0",
