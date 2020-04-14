@@ -1,7 +1,7 @@
 import React, { ButtonHTMLAttributes } from 'react';
 import cn from 'classnames';
 
-import styles from './Component.module.css';
+import styles from './index.module.css';
 
 export type TagProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     /** Отображение кнопки в отмеченном (зажатом) состоянии */
