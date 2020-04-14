@@ -1,0 +1,116 @@
+@import '../../themes/default.css';
+
+:root {
+    --switch-checked-color: var(--color-red-brand-85-flat);
+}
+
+.component {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+
+    /* TODO default outline and themeable focus styles */
+    outline: none;
+}
+
+input {
+    opacity: 0;
+    position: absolute;
+}
+
+.switch {
+    position: relative;
+    border-radius: 16px;
+    width: 40px;
+    height: 24px;
+    background-color: var(--color-dark-indigo-30-flat);
+    transition: background-color 0.2s ease;
+}
+
+.switch:before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 0.5px solid var(--color-dark-indigo-05);
+    box-shadow: 0 2px 4px var(--color-dark-indigo-30);
+    box-sizing: border-box;
+    transition: transform 0.2s ease;
+}
+
+.content {
+    margin-left: var(--gap-m);
+    flex-grow: 1;
+}
+
+.label {
+    @mixin system_16-24_regular;
+    display: block;
+    color: var(--color-dark-indigo);
+}
+
+.label:not(:only-child) {
+    margin-bottom: var(--gap-2xs);
+}
+
+.hint {
+    @mixin system_14-18_regular;
+    color: var(--color-dark-indigo-60-flat);
+    display: block;
+}
+
+/* Left align state */
+
+.component.alignLeft {
+    flex-direction: row-reverse;
+}
+
+.alignLeft .content {
+    margin-right: var(--gap-m);
+    margin-left: 0;
+}
+
+/* Checked state */
+
+.checked .switch {
+    background-color: var(--switch-checked-color);
+}
+
+.checked .switch:before {
+    /* ширина компонента(40px) - отступы(2 * 2px) - размер кружка(20px) */
+    transform: translateX(16px);
+}
+
+/* Disabled state */
+.disabled {
+    cursor: initial;
+}
+
+.disabled .switch {
+    background-color: var(--color-dark-indigo-15-flat);
+}
+
+.disabled .switch:before {
+    box-shadow: none;
+}
+
+.disabled.checked .switch {
+    background-color: var(--color-red-brand-30-flat);
+}
+
+/* TODO focus state */
+
+/* Block */
+
+.block {
+    width: 100%;
+}
