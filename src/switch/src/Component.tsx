@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, useCallback, ChangeEvent } from 'react';
+import React, { InputHTMLAttributes, useCallback, ChangeEvent, ReactNode } from 'react';
 import cn from 'classnames';
 
 import styles from './index.module.css';
@@ -15,27 +15,17 @@ export type SwitchProps = Omit<
     /**
      * Текст подписи к переключателю
      */
-    label?: string;
+    label?: ReactNode;
 
     /**
      * Текст подсказки снизу
      */
-    hint?: string;
+    hint?: ReactNode;
 
     /**
-     * Растягивает компонент на ширину контейнера
+     * Переключатель будет отрисован справа от контента
      */
-    block?: boolean;
-
-    /**
-     * Кастомный контент
-     */
-    children?: React.ReactNode;
-
-    /**
-     * Сторона, с которой будет отображаться контент
-     */
-    contentAlign?: 'left' | 'right';
+    reversed?: boolean;
 
     /**
      * Обработчик переключения компонента
@@ -56,22 +46,18 @@ export type SwitchProps = Omit<
 };
 
 export const Switch = ({
-    contentAlign = 'right',
+    reversed = false,
     checked = false,
     disabled,
     label,
     hint,
     name,
     value,
-    children,
     className,
     onChange,
-    block,
     dataTestId,
     ...restProps
 }: SwitchProps) => {
-    const hasContent = label || hint || children;
-
     const handleChange = useCallback(
         (e: ChangeEvent<HTMLInputElement>) => {
             if (onChange) {
@@ -87,8 +73,7 @@ export const Switch = ({
             className={cn(styles.component, className, {
                 [styles.disabled]: disabled,
                 [styles.checked]: checked,
-                [styles.block]: block,
-                [styles.alignLeft]: contentAlign === 'left',
+                [styles.reversed]: reversed,
             })}
         >
             <input
@@ -104,11 +89,10 @@ export const Switch = ({
 
             <span className={styles.switch} />
 
-            {hasContent && (
+            {(label || hint) && (
                 <div className={styles.content}>
                     {label && <span className={styles.label}>{label}</span>}
                     {hint && <span className={styles.hint}>{hint}</span>}
-                    {children}
                 </div>
             )}
         </label>

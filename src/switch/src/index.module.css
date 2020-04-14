@@ -6,7 +6,6 @@
 
 .component {
     display: inline-flex;
-    flex-direction: row;
     align-items: flex-start;
     margin: 0;
     padding: 0;
@@ -70,13 +69,13 @@ input {
     display: block;
 }
 
-/* Left align state */
+/* Reversed state */
 
-.component.alignLeft {
+.component.reversed {
     flex-direction: row-reverse;
 }
 
-.alignLeft .content {
+.reversed .content {
     margin-right: var(--gap-m);
     margin-left: 0;
 }
@@ -110,9 +109,3 @@ input {
 }
 
 /* TODO focus state */
-
-/* Block */
-
-.block {
-    width: 100%;
-}

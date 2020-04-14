@@ -6,13 +6,7 @@ import { Switch } from './index';
 describe('Switch', () => {
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
-            expect(
-                render(
-                    <Switch label='label' hint='hint'>
-                        content
-                    </Switch>,
-                ),
-            ).toMatchSnapshot();
+            expect(render(<Switch label='label' hint='hint' />)).toMatchSnapshot();
         });
 
         it('should render only switch if no content', () => {
@@ -28,28 +22,21 @@ describe('Switch', () => {
             expect(container.firstElementChild).toHaveClass(className);
         });
 
-        it('should set `checked` class and atribute', () => {
+        it('should set `checked` class', () => {
             const { container } = render(<Switch checked={true} />);
 
             expect(container.firstElementChild).toHaveClass('checked');
         });
 
-        it('should set `disabled` class if disabled', () => {
+        it('should set `disabled` class', () => {
             const { container } = render(<Switch disabled={true} />);
 
             expect(container.firstElementChild).toHaveClass('disabled');
         });
+        it('should set `reversed` class', () => {
+            const { container } = render(<Switch reversed={true} />);
 
-        it('should set `alignLeft` class', () => {
-            const { container } = render(<Switch disabled={true} />);
-
-            expect(container.firstElementChild).toHaveClass('disabled');
-        });
-
-        it('should set `block` class', () => {
-            const { container } = render(<Switch block={true} />);
-
-            expect(container.firstElementChild).toHaveClass('block');
+            expect(container.firstElementChild).toHaveClass('reversed');
         });
     });
 

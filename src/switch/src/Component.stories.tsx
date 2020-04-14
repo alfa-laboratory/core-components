@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import cn from 'classnames';
 
-import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 
 import styles from '../../../.storybook/styles.css';
 
 import { Switch } from './Component';
+import { Button } from '../../button/src';
 
 export default {
     title: 'Common|Switch',
@@ -27,12 +28,11 @@ export const SwitchStory = () => {
                     <Switch
                         checked={checked}
                         disabled={boolean('Disabled', false)}
-                        block={boolean('Block', false)}
-                        contentAlign={select('contentAlign', ['left', 'right'], 'right')}
+                        reversed={boolean('reversed', false)}
                         className={text('className', '')}
                         dataTestId={text('dataTestId', '')}
-                        label={text('text', 'Условие тоггла')}
-                        hint={text('description', 'Описание пункта')}
+                        label={text('label', 'Условие тоггла')}
+                        hint={text('hint', 'Описание пункта')}
                         name='switch'
                         value='value'
                         onChange={handleChange}
@@ -45,16 +45,13 @@ export const SwitchStory = () => {
                     <Switch
                         checked={checked}
                         disabled={boolean('Disabled', false)}
-                        block={boolean('Block', false)}
-                        contentAlign={select('contentAlign', ['left', 'right'], 'right')}
+                        reversed={boolean('reversed', false)}
                         className={text('className', '')}
                         dataTestId={text('dataTestId', '')}
-                        name='switch2'
-                        value='value2'
+                        name='switch3'
+                        value='value3'
                         onChange={handleChange}
-                    >
-                        <em>Custom content</em>
-                    </Switch>
+                    />
                 </div>
             </div>
 
@@ -63,12 +60,33 @@ export const SwitchStory = () => {
                     <Switch
                         checked={checked}
                         disabled={boolean('Disabled', false)}
-                        block={boolean('Block', false)}
-                        contentAlign={select('contentAlign', ['left', 'right'], 'right')}
+                        reversed={boolean('reversed', false)}
                         className={text('className', '')}
                         dataTestId={text('dataTestId', '')}
                         name='switch3'
                         value='value3'
+                        label='Согласен'
+                        hint={
+                            <span>
+                                вы соглашаетесь с <Button view='ghost'>условиями</Button>
+                            </span>
+                        }
+                        onChange={handleChange}
+                    />
+                </div>
+            </div>
+
+            <div className={cn(styles.row)}>
+                <div className={cn(styles.col)}>
+                    <Switch
+                        checked={checked}
+                        disabled={boolean('Disabled', false)}
+                        reversed={true}
+                        className={text('className', '')}
+                        dataTestId={text('dataTestId', '')}
+                        name='switch3'
+                        value='value3'
+                        label='reversed'
                         onChange={handleChange}
                     />
                 </div>
