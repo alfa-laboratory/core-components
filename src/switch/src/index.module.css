@@ -27,6 +27,7 @@ input {
     border-radius: 16px;
     width: 40px;
     height: 24px;
+    flex-shrink: 0;
     background-color: var(--color-dark-indigo-30-flat);
     transition: background-color 0.2s ease;
 }
