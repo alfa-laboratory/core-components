@@ -1,14 +1,6 @@
-/**
- * Vendor
- */
-
 import React from 'react';
 
 import { withKnobs } from '@storybook/addon-knobs';
-
-/**
- * Components
- */
 
 import { Divider } from './Component';
 

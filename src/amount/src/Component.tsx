@@ -1,28 +1,11 @@
-/**
- * Vendor
- */
-
 import React from 'react';
 
-/**
- * Utils
- */
-
 import { formatAmount } from '../../utils';
-
-/**
- * Config
- */
-
 import {
     AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR,
     THINSP,
     CURRENCY_CODES,
 } from '../../configs/currencyCodes';
-
-/**
- * Types
- */
 
 type Props = {
     value: number;
@@ -33,10 +16,6 @@ type Props = {
     className?: string;
     minorityClassName?: string;
 };
-
-/**
- * Exp
- */
 
 export const Amount: React.FC<Props> = ({
     value,

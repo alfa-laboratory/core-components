@@ -38,8 +38,8 @@ const getBabelRules = ({ mode, withRDTL }) => {
         tsconfigPath: path.resolve(__dirname, '../tsconfig.storybook.json'),
         propFilter: (props, component) => {
           if (props.parent) {
-            // Показываем только пользовательские пропсы. (Иначе будет простыня из HTMLAttributes)
-            return !props.parent.fileName.includes('node_modules');
+            // Показываем только пользовательские пропсы и пропсы, помеченные как (native prop). (Иначе будет простыня из HTMLAttributes)
+            return !props.parent.fileName.includes('node_modules') || props.description.includes('(native prop)');
           } else {
             return true;
           }

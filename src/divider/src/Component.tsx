@@ -1,19 +1,7 @@
-/**
- * Vendor
- */
-
 import React from 'react';
 import cn from 'classnames';
 
-/**
- * Styles
- */
-
 import styles from './index.module.css';
-
-/**
- * Expo
- */
 
 export type DividerProps = {
     /** Кастомный класс */
@@ -24,5 +12,5 @@ export type DividerProps = {
 
 /** Разделитель */
 export const Divider: React.FC<DividerProps> = ({ className, dataTestId }) => (
-    <hr className={cn(styles.component, className)} data-testid={dataTestId} />
+    <hr className={cn(styles.component, className)} data-test-id={dataTestId} />
 );
