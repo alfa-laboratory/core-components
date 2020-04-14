@@ -40,7 +40,14 @@ export type SwitchProps = Omit<
     /**
      * Обработчик переключения компонента
      */
-    onChange?: (event?: ChangeEvent<HTMLInputElement>, payload?: { checked: boolean }) => void;
+    onChange?: (
+        event?: ChangeEvent<HTMLInputElement>,
+        payload?: {
+            checked: boolean;
+            name: InputHTMLAttributes<HTMLInputElement>['name'];
+            value: InputHTMLAttributes<HTMLInputElement>['value'];
+        },
+    ) => void;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -54,6 +61,8 @@ export const Switch = ({
     disabled,
     label,
     hint,
+    name,
+    value,
     children,
     className,
     onChange,
@@ -66,10 +75,10 @@ export const Switch = ({
     const handleChange = useCallback(
         (e: ChangeEvent<HTMLInputElement>) => {
             if (onChange) {
-                onChange(e, { checked: e.target.checked });
+                onChange(e, { checked: e.target.checked, name, value });
             }
         },
-        [onChange],
+        [onChange, name, value],
     );
 
     return (
@@ -87,6 +96,8 @@ export const Switch = ({
                 onChange={handleChange}
                 disabled={disabled}
                 checked={checked}
+                name={name}
+                value={value}
                 data-test-id={dataTestId}
                 {...restProps}
             />

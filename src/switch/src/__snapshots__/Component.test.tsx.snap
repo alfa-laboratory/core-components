@@ -10,6 +10,7 @@ Object {
       >
         <input
           type="checkbox"
+          value=""
         />
         <span
           class="switch"
@@ -38,6 +39,7 @@ Object {
     >
       <input
         type="checkbox"
+        value=""
       />
       <span
         class="switch"
@@ -123,6 +125,7 @@ Object {
       >
         <input
           type="checkbox"
+          value=""
         />
         <span
           class="switch"
@@ -136,6 +139,7 @@ Object {
     >
       <input
         type="checkbox"
+        value=""
       />
       <span
         class="switch"

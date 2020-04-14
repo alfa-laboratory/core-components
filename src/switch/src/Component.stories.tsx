@@ -33,6 +33,8 @@ export const SwitchStory = () => {
                         dataTestId={text('dataTestId', '')}
                         label={text('text', 'Условие тоггла')}
                         hint={text('description', 'Описание пункта')}
+                        name='switch'
+                        value='value'
                         onChange={handleChange}
                     />
                 </div>
@@ -47,6 +49,8 @@ export const SwitchStory = () => {
                         contentAlign={select('contentAlign', ['left', 'right'], 'right')}
                         className={text('className', '')}
                         dataTestId={text('dataTestId', '')}
+                        name='switch2'
+                        value='value2'
                         onChange={handleChange}
                     >
                         <em>Custom content</em>
@@ -63,6 +67,8 @@ export const SwitchStory = () => {
                         contentAlign={select('contentAlign', ['left', 'right'], 'right')}
                         className={text('className', '')}
                         dataTestId={text('dataTestId', '')}
+                        name='switch3'
+                        value='value3'
                         onChange={handleChange}
                     />
                 </div>
