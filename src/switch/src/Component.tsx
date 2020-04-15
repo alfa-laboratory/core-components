@@ -35,7 +35,6 @@ export type SwitchProps = Omit<
         payload?: {
             checked: boolean;
             name: InputHTMLAttributes<HTMLInputElement>['name'];
-            value: InputHTMLAttributes<HTMLInputElement>['value'];
         },
     ) => void;
 
@@ -61,10 +60,10 @@ export const Switch = ({
     const handleChange = useCallback(
         (e: ChangeEvent<HTMLInputElement>) => {
             if (onChange) {
-                onChange(e, { checked: e.target.checked, name, value });
+                onChange(e, { checked: e.target.checked, name });
             }
         },
-        [onChange, name, value],
+        [onChange, name],
     );
 
     return (
