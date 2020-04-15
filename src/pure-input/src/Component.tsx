@@ -4,19 +4,29 @@ import cn from 'classnames';
 import styles from './index.module.css';
 
 export type PureInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> & {
-    /** Растягивает компонент на ширину контейнера */
+    /**
+     * Растягивает компонент на ширину контейнера
+     */
     block?: boolean;
 
-    /** Атрибут type */
+    /**
+     * Атрибут type
+     */
     type?: 'number' | 'card' | 'email' | 'hidden' | 'money' | 'password' | 'tel' | 'text';
 
-    /** Размер компонента */
+    /**
+     * Размер компонента
+     */
     size?: 's' | 'm' | 'l';
 
-    /** Дополнительный класс */
+    /**
+     * Дополнительный класс
+     */
     className?: string;
 
-    /** Идентификатор для систем автоматизированного тестирования */
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
     dataTestId?: string;
 };
 
