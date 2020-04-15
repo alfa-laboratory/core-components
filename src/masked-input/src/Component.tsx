@@ -3,87 +3,34 @@
  */
 
 import React, { useEffect, useRef, useCallback, useImperativeHandle } from 'react';
-import { createTextMaskInputElement } from 'text-mask-core';
+import { createTextMaskInputElement, TextMaskConfig, TextMaskInputElement } from 'text-mask-core';
 import { Input, InputProps } from '../../input/src/Component';
 
-/**
- * Types
- */
+export type MaskedInputProps = Omit<InputProps, 'value'> & {
+    /**
+     * Значение поля
+     */
+    value?: string;
 
-type Mask = Array<string | RegExp>;
-
-/* https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md */
-type TextMaskConfig = {
     /**
      * Маска для поля ввода
+     * https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#mask-array
      */
-    mask?: Mask | ((rawValue?: string) => Mask);
-
-    /**
-     * Если true - отображает маску во время ввода
-     */
-    guide?: boolean;
-
-    /**
-     * Показывать маску, если поле ввода пустое
-     */
-    showMask?: boolean;
-
-    /**
-     * Плейсхолдер для отображения незаполненных символов
-     */
-    placeholderChar?: string;
-
-    /**
-     * Если true - не дает перезаписывать уже введенные символы
-     */
-    keepCharPositions?: boolean;
+    mask?: TextMaskConfig['mask'];
 
     /**
      * Дает возможность изменить значение поле перед рендером
      */
-    pipe?: (
-        conformedValue?: string,
-        config?: TextMaskConfig,
-    ) => false | string | { value: string; indexesOfPipedChars: number[] };
+    onBeforeDisplay?: TextMaskConfig['pipe'];
 };
 
-type TextMask = {
-    state: { previousConformedValue: string; previousPlaceholder: string };
-    update: (
-        rawValue?: string,
-        textMaskConfig?: TextMaskConfig & { inputElement: HTMLInputElement },
-    ) => void;
-};
-
-// prettier-ignore
-type MaskedInputProps = Omit<InputProps, 'value'> & TextMaskConfig & {
-    value?: string;
-};
-
-/**
- * Expo
- */
-
-export const DEFAULT_PLACEHOLDER_CHAR = '\u2000';
+// Символ плейсхолдера не может входить в маску, поэтому вместо проблела используется \u2000
+export const PLACEHOLDER_CHAR = '\u2000';
 
 export const MaskedInput = React.forwardRef<HTMLInputElement | null, MaskedInputProps>(
-    (
-        {
-            mask,
-            guide = false,
-            placeholderChar = DEFAULT_PLACEHOLDER_CHAR,
-            keepCharPositions = false,
-            showMask = false,
-            value,
-            pipe,
-            onChange,
-            ...restProps
-        },
-        ref,
-    ) => {
+    ({ mask, value, onBeforeDisplay, onChange, ...restProps }, ref) => {
         const inputRef = useRef<HTMLInputElement>(null);
-        const textMask = useRef<TextMask | null>(null);
+        const textMask = useRef<TextMaskInputElement | null>(null);
 
         // Оставляет возможность прокинуть реф извне
         useImperativeHandle(ref, () => inputRef.current);
@@ -97,19 +44,19 @@ export const MaskedInput = React.forwardRef<HTMLInputElement | null, MaskedInput
         );
 
         useEffect(() => {
-            const input = inputRef.current;
-            if (input) {
+            const inputElement = inputRef.current;
+            if (inputElement) {
                 textMask.current = createTextMaskInputElement({
-                    inputElement: inputRef.current,
+                    inputElement,
                     mask,
-                    guide,
-                    placeholderChar,
-                    keepCharPositions,
-                    showMask,
-                    pipe,
-                }) as TextMask;
+                    pipe: onBeforeDisplay,
+                    guide: false,
+                    keepCharPositions: false,
+                    showMask: false,
+                    placeholderChar: PLACEHOLDER_CHAR,
+                });
             }
-        }, [placeholderChar, showMask, pipe, mask, guide, keepCharPositions]);
+        }, [onBeforeDisplay, mask]);
 
         useEffect(() => {
             if (textMask.current) {

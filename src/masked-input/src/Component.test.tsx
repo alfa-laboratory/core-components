@@ -21,45 +21,6 @@ describe('MaskedInput', () => {
         });
     });
 
-    describe('Guide mode', () => {
-        it('should render empty input if `guide` not enabled', () => {
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(<MaskedInput mask={cardMask} dataTestId={dataTestId} />);
-
-            const input = getByTestId(dataTestId) as HTMLInputElement;
-
-            expect(input.value).toBeFalsy();
-        });
-
-        it('should render empty input if `guide` enabled', () => {
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(
-                <MaskedInput mask={cardMask} guide={true} dataTestId={dataTestId} />,
-            );
-
-            const input = getByTestId(dataTestId) as HTMLInputElement;
-
-            expect(input.value).toBeFalsy();
-        });
-
-        it('should render filled input if `guide` and `showMask` enabled', () => {
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(
-                <MaskedInput
-                    mask={cardMask}
-                    guide={true}
-                    showMask={true}
-                    placeholderChar='_'
-                    dataTestId={dataTestId}
-                />,
-            );
-
-            const input = getByTestId(dataTestId) as HTMLInputElement;
-
-            expect(input.value).toBe('____ ____ ____ ____');
-        });
-    });
-
     it('should format value according to mask', () => {
         const dataTestId = 'test-id';
         const { getByTestId } = render(<MaskedInput mask={cardMask} dataTestId={dataTestId} />);
