@@ -46,7 +46,7 @@ describe('Portal tests', () => {
     it('should render overlay into container (DOMNode)', () => {
         const textInPortal = 'Text in portal';
 
-        const getPortalContainer = () => document.querySelector(`#portal-container`);
+        const getPortalContainer = () => document.querySelector('#portal-container');
 
         const { getByText } = render(
             <div>
@@ -60,6 +60,6 @@ describe('Portal tests', () => {
 
         const portalChild = getByText(textInPortal);
 
-        expect(document.querySelector(`#portal-container`)).toContainElement(portalChild);
+        expect(document.querySelector('#portal-container')).toContainElement(portalChild);
     });
 });
