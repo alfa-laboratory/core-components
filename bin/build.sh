@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# выхожу, если одна из команд завершилась неудачно
+set -e
+
 # удаляю папки dist во всех подпакетах
 lerna exec --parallel -- rm -rf dist
 # компилю все подпакеты
@@ -9,7 +12,7 @@ lerna exec --parallel -- NODE_ENV=production babel \
     --copy-files \
     --no-copy-ignored \
     --ignore **/*.stories.tsx,**/*.test.tsx
-# удаляем лишнее из билдов во всех подпакетах
+# удаляю снэпшоты из билдов во всех подпакетах
 lerna exec --parallel -- rm -rf ./dist/__snapshots__
 # обрабатываю ts во всех подпакетах
 lerna exec --parallel -- tsc --p tsconfig.json
