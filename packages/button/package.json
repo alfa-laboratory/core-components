@@ -13,7 +13,6 @@
     "react": "^16.9.0"
   },
   "dependencies": {
-    "@alfalab/core-components-input": "1.0.4",
     "classnames": "^2.2.6"
   }
 }
