@@ -2,6 +2,7 @@ module.exports = {
     preset: 'ts-jest/presets/js-with-ts',
     testEnvironment: 'jsdom',
     setupFilesAfterEnv: ['./packages/setupTests.ts'],
+    modulePathIgnorePatterns: ['dist'],
     globals: {
         'ts-jest': {
             babelConfig: {

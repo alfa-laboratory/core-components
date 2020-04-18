@@ -17,21 +17,8 @@
         "plugins": [{ "name": "typescript-plugin-css-modules" }],
         "composite": true,
         "declaration": true,
-        "baseUrl": ".",
-        "paths": {
-            "@alfalab/core-components-*": ["packages/*/src"]
-        },
+        "baseUrl": "."
     },
     "exclude": ["node_modules", "dist", "**/*.stories*", "**/*.test*"],
-    "files": [],
-    "include": ["./typings"],
-    "references": [
-        { "path": "packages/button" },
-        { "path": "packages/divider" },
-        { "path": "packages/input" },
-        { "path": "packages/portal" },
-        { "path": "packages/pure-input" },
-        { "path": "packages/tag" },
-        { "path": "packages/vars" }
-    ]
+    "include": ["./typings"]
 }
