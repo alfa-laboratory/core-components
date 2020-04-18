@@ -46,7 +46,8 @@ describe('Portal tests', () => {
     it('should render overlay into container (DOMNode)', () => {
         const textInPortal = 'Text in portal';
 
-        const getPortalContainer = () => document.querySelector('#portal-container');
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        const getPortalContainer = () => document.querySelector('#portal-container')!;
 
         const { getByText } = render(
             <div>

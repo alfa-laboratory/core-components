@@ -1,0 +1,7 @@
+{
+    "include": ["src", "../../typings"],
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "dist"
+    }
+}

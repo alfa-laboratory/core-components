@@ -1,34 +1,37 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react",
-    "typeRoots": [
-      "./typings",
-      "./node_modules/@types"
-    ],
-    "plugins": [
-      {
-        "name": "typescript-plugin-css-modules"
-      }
+    "compilerOptions": {
+        "skipLibCheck": true,
+        "target": "esnext",
+        "module": "commonjs",
+        "jsx": "react",
+        "rootDir": ".",
+        "outDir": "dist",
+        "allowJs": true,
+        "esModuleInterop": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "typeRoots": ["./typings", "./node_modules/@types"],
+        "plugins": [{ "name": "typescript-plugin-css-modules" }],
+        "composite": true,
+        "declaration": true,
+        "baseUrl": ".",
+        "paths": {
+            "@alfalab/core-components-*": ["packages/*/src"]
+        },
+    },
+    "exclude": ["node_modules", "dist", "**/*.stories*", "**/*.test*"],
+    "files": [],
+    "include": ["./typings"],
+    "references": [
+        { "path": "packages/button" },
+        { "path": "packages/divider" },
+        { "path": "packages/input" },
+        { "path": "packages/portal" },
+        { "path": "packages/pure-input" },
+        { "path": "packages/tag" },
+        { "path": "packages/vars" }
     ]
-  },
-  "include": [
-    "src"
-  ]
 }

@@ -1,5 +1,6 @@
 const path = require('path');
 const getCSSModuleLocalIdent = require('./utils/getCSSModuleLocalIdent');
+const componentsResolver = require('./utils/componentsResolver');
 
 /**
  * Добавляет генерацию интерфейсов в зависимости от флага RDTL.
@@ -53,6 +54,11 @@ const getBabelRules = ({ mode, withRDTL }) => {
 
 module.exports = ({ config }) => ({
   ...config,
+
+  resolve: {
+    plugins: [componentsResolver],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+  },
 
   module: {
     rules: [

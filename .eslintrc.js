@@ -4,10 +4,7 @@ module.exports = {
         {
             files: ['**/*.tsx', '**/*.ts', '**/*.jsx', '**/*.js'],
             rules: {
-                'import/no-extraneous-dependencies': [
-                    'error',
-                    { devDependencies: true, packageDir: './' },
-                ],
+                'import/no-extraneous-dependencies': 'off'
             },
         },
     ],

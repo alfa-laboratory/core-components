@@ -18,10 +18,11 @@
     "update-colors": "node ./tools/update-colors.js",
     "pub": "./bin/publish.sh",
     "lint": "yarn lint:css && yarn lint:js",
-    "lint:css": "stylelint ./src/**/*.css",
-    "lint:js": "eslint ./src --ext .ts,.tsx,.js,.jsx",
-    "test": "react-scripts test --watchAll=false --testPathIgnorePatterns=./*/dist",
-    "format": "prettier --write \"./{src,bin}/**/*.{ts,tsx,js,jsx,css}\""
+    "lint:css": "stylelint ./packages/**/*.css",
+    "lint:js": "eslint ./packages --ext .ts,.tsx,.js,.jsx",
+    "test": "jest --watchAll=false",
+    "format": "prettier --write \"./{packages,bin}/**/*.{ts,tsx,js,jsx,css}\"",
+    "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist} && rimraf {dist,build}"
   },
   "browserslist": {
     "production": [
@@ -42,11 +43,8 @@
   },
   "devDependencies": {
     "@alfalab/icons-glyph": "^1.6.0",
-    "@babel/cli": "^7.8.3",
-    "@babel/core": "^7.8.3",
-    "@babel/plugin-transform-modules-commonjs": "^7.9.0",
-    "@babel/preset-react": "^7.8.3",
-    "@babel/preset-typescript": "^7.8.3",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.8.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.9.0",
     "@storybook/addon-actions": "^5.3.8",
     "@storybook/addon-docs": "^5.3.17",
     "@storybook/addon-knobs": "^5.3.8",
@@ -66,7 +64,9 @@
     "alfa-ui-primitives": "2.8.0",
     "arui-presets-lint": "4.1.1",
     "arui-presets-ts": "^5.0.0",
+    "babel-jest": "^25.3.0",
     "babel-loader": "^8.0.6",
+    "copyfiles": "^2.2.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-airbnb-typescript": "^7.0.0",
@@ -83,6 +83,8 @@
     "git-url-parse": "^11.1.2",
     "handlebars": "^4.7.3",
     "husky": "^4.2.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^25.3.0",
     "lerna": "^3.20.2",
     "lint-staged": "^10.0.8",
     "postcss-cli": "^7.1.0",
@@ -92,10 +94,13 @@
     "prettier": "^1.19.1",
     "react-docgen-typescript-loader": "^3.6.0",
     "react-scripts": "^3.3.1",
+    "replace-in-file": "^5.0.2",
+    "rimraf": "^3.0.2",
     "shelljs": "^0.8.3",
     "storybook-addon-designs": "^5.1.2",
     "stylelint": "^12.0.0",
     "stylelint-config-standard": "^20.0.0",
+    "ts-jest": "^25.4.0",
     "ts-loader": "^6.2.1",
     "typescript": "~3.8.3"
   },
@@ -117,7 +122,7 @@
     }
   },
   "lint-staged": {
-    "{src,bin}/**/*.{js,jsx,ts,tsx}": [
+    "{packages,bin}/**/*.{js,jsx,ts,tsx}": [
       "prettier --write",
       "eslint"
     ],
