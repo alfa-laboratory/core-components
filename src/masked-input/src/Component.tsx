@@ -1,7 +1,3 @@
-/**
- * Vendor
- */
-
 import React, { useEffect, useRef, useCallback, useImperativeHandle } from 'react';
 import { createTextMaskInputElement, TextMaskConfig, TextMaskInputElement } from 'text-mask-core';
 import { Input, InputProps } from '../../input/src/Component';
@@ -19,7 +15,7 @@ export type MaskedInputProps = Omit<InputProps, 'value'> & {
     mask?: TextMaskConfig['mask'];
 
     /**
-     * Дает возможность изменить значение поле перед рендером
+     * Дает возможность изменить значение поля перед рендером
      */
     onBeforeDisplay?: TextMaskConfig['pipe'];
 };
@@ -44,11 +40,10 @@ export const MaskedInput = React.forwardRef<HTMLInputElement | null, MaskedInput
         );
 
         useEffect(() => {
-            const inputElement = inputRef.current;
-            if (inputElement) {
+            if (inputRef.current) {
                 textMask.current = createTextMaskInputElement({
-                    inputElement,
                     mask,
+                    inputElement: inputRef.current,
                     pipe: onBeforeDisplay,
                     guide: false,
                     keepCharPositions: false,
