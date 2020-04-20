@@ -27,7 +27,7 @@ export const SwitchStory = () => {
                 <div className={cn(styles.col)}>
                     <Switch
                         checked={checked}
-                        disabled={boolean('Disabled', false)}
+                        disabled={boolean('disabled', false)}
                         reversed={boolean('reversed', false)}
                         className={text('className', '')}
                         dataTestId={text('dataTestId', '')}
@@ -44,7 +44,7 @@ export const SwitchStory = () => {
                 <div className={cn(styles.col)}>
                     <Switch
                         checked={checked}
-                        disabled={boolean('Disabled', false)}
+                        disabled={boolean('disabled', false)}
                         reversed={boolean('reversed', false)}
                         className={text('className', '')}
                         dataTestId={text('dataTestId', '')}
@@ -59,7 +59,7 @@ export const SwitchStory = () => {
                 <div className={cn(styles.col)}>
                     <Switch
                         checked={checked}
-                        disabled={boolean('Disabled', false)}
+                        disabled={boolean('disabled', false)}
                         reversed={boolean('reversed', false)}
                         className={text('className', '')}
                         dataTestId={text('dataTestId', '')}
@@ -80,7 +80,7 @@ export const SwitchStory = () => {
                 <div className={cn(styles.col)}>
                     <Switch
                         checked={checked}
-                        disabled={boolean('Disabled', false)}
+                        disabled={boolean('disabled', false)}
                         reversed={true}
                         className={text('className', '')}
                         dataTestId={text('dataTestId', '')}
