@@ -1,6 +1,6 @@
 {
   "name": "@alfalab/core-components",
-  "version": "1.0.4",
+  "version": "1.1.2",
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -42,6 +42,7 @@
     "text-mask-core": "^5.1.2"
   },
   "devDependencies": {
+    "@alfalab/icons-glyph": "^1.6.0",
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
     "@babel/plugin-transform-modules-commonjs": "^7.9.0",
@@ -55,7 +56,7 @@
     "@storybook/react": "^5.3.8",
     "@testing-library/jest-dom": "^5.0.2",
     "@testing-library/react": "^9.4.0",
-    "@testing-library/user-event": "^8.0.4",
+    "@testing-library/user-event": "^10.0.1",
     "@types/classnames": "^2.2.9",
     "@types/jest": "^25.1.2",
     "@types/node": "^13.5.0",

@@ -11,4 +11,7 @@ module.exports = {
             },
         },
     ],
+    rules: {
+        'multiline-comment-style': ['error', 'starred-block']
+    }
 };

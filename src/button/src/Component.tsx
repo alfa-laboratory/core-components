@@ -1,50 +1,48 @@
-/**
- * Vendor
- */
-
 import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 import cn from 'classnames';
 
-/**
- * Styles
- */
-
 import styles from './index.module.css';
 
-/**
- * Types
- */
-
 type ComponentProps = {
-    /** Тип кнопки */
+    /**
+     * Тип кнопки
+     */
     view?: 'primary' | 'secondary' | 'outlined' | 'link' | 'ghost';
 
-    /** Слот слева */
+    /**
+     * Слот слева
+     */
     leftAddons?: React.ReactNode;
 
-    /** Слот справа */
+    /**
+     * Слот справа
+     */
     rightAddons?: React.ReactNode;
 
-    /** Размер компонента */
+    /**
+     * Размер компонента
+     */
     size?: 'xs' | 's' | 'm' | 'l';
 
-    /** Растягивает компонент на ширину контейнера */
+    /**
+     * Растягивает компонент на ширину контейнера
+     */
     block?: boolean;
 
-    /** Дополнительный класс */
+    /**
+     * Дополнительный класс
+     */
     className?: string;
 
-    /** Идентификатор для систем автоматизированного тестирования */
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
     dataTestId?: string;
 };
 
 type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
 type NativeButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
 type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
-
-/**
- * Expo
- */
 
 export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, ButtonProps>(
     (

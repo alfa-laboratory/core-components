@@ -1,40 +1,34 @@
-/**
- * Vendor
- */
-
 import React, { InputHTMLAttributes } from 'react';
 import cn from 'classnames';
 
-/**
- * Styles
- */
-
 import styles from './index.module.css';
 
-/**
- * Types
- */
-
 export type PureInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> & {
-    /** Растягивает компонент на ширину контейнера */
+    /**
+     * Растягивает компонент на ширину контейнера
+     */
     block?: boolean;
 
-    /** Атрибут type */
+    /**
+     * Атрибут type
+     */
     type?: 'number' | 'card' | 'email' | 'hidden' | 'money' | 'password' | 'tel' | 'text';
 
-    /** Размер компонента */
+    /**
+     * Размер компонента
+     */
     size?: 's' | 'm' | 'l';
 
-    /** Дополнительный класс */
+    /**
+     * Дополнительный класс
+     */
     className?: string;
 
-    /** Идентификатор для систем автоматизированного тестирования */
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
     dataTestId?: string;
 };
-
-/**
- * Expo
- */
 
 export const PureInput = React.forwardRef<HTMLInputElement, PureInputProps>(
     ({ size = 's', type = 'text', block = false, className, dataTestId, ...restProps }, ref) => (

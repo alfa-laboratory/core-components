@@ -1,61 +1,69 @@
-/**
- * Vendor
- */
-
 import React, { useState, InputHTMLAttributes } from 'react';
 import cn from 'classnames';
 
-/**
- * Styles
- */
-
 import styles from './index.module.css';
 
-/**
- * Types
- */
-
 export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> & {
-    /** Растягивает компонент на ширину контейнера */
+    /**
+     * Растягивает компонент на ширину контейнера
+     */
     block?: boolean;
 
-    /** Размер компонента */
+    /**
+     * Размер компонента
+     */
     size?: 's' | 'm' | 'l';
 
-    /** Текст ошибки */
+    /**
+     * Текст ошибки
+     */
     error?: string;
 
-    /** Текст подсказки */
+    /**
+     * Текст подсказки
+     */
     hint?: string;
 
-    /** Лейбл компонента */
+    /**
+     * Лейбл компонента
+     */
     label?: React.ReactNode;
 
-    /** Атрибут type */
+    /**
+     * Атрибут type
+     */
     type?: 'number' | 'card' | 'email' | 'money' | 'password' | 'tel' | 'text';
 
-    /** Слот слева */
+    /**
+     * Слот слева
+     */
     leftAddons?: React.ReactNode;
 
-    /** Слот справа */
+    /**
+     * Слот справа
+     */
     rightAddons?: React.ReactNode;
 
-    /** Слот под инпутом */
+    /**
+     * Слот под инпутом
+     */
     bottomAddons?: React.ReactNode;
 
-    /** Дополнительный класс */
+    /**
+     * Дополнительный класс
+     */
     className?: string;
 
-    /** Дополнительный класс инпута */
+    /**
+     * Дополнительный класс инпута
+     */
     inputClassName?: string;
 
-    /** Идентификатор для систем автоматизированного тестирования */
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
     dataTestId?: string;
 };
-
-/**
- * Expo
- */
 
 // TODO: Этого не будет, когда появится компонент иконки.
 const errorIcon = (
@@ -108,12 +116,13 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             }
         };
 
-        const rightAddonsRenderer = () => (
-            <div className={cn(styles.addons)}>
-                {error && errorIcon}
-                {rightAddons}
-            </div>
-        );
+        const rightAddonsRenderer = () =>
+            (error || rightAddons) && (
+                <div className={cn(styles.addons)}>
+                    {error && errorIcon}
+                    {rightAddons}
+                </div>
+            );
 
         const leftAddonsRenderer = () =>
             leftAddons && <div className={styles.addons}>{leftAddons}</div>;
