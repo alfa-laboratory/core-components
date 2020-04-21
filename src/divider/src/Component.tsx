@@ -4,13 +4,17 @@ import cn from 'classnames';
 import styles from './index.module.css';
 
 export type DividerProps = {
-    /** Кастомный класс */
+    /**
+     * Кастомный класс
+     */
     className?: string;
-    /** Id компонента для тестов */
+
+    /**
+     * Id компонента для тестов
+     */
     dataTestId?: string;
 };
 
-/** Разделитель */
 export const Divider: React.FC<DividerProps> = ({ className, dataTestId }) => (
     <hr className={cn(styles.component, className)} data-test-id={dataTestId} />
 );

@@ -1,22 +1,32 @@
 import React, { ButtonHTMLAttributes } from 'react';
 import cn from 'classnames';
 
-import styles from './Component.module.css';
+import styles from './index.module.css';
 
 export type TagProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-    /** Отображение кнопки в отмеченном (зажатом) состоянии */
+    /**
+     * Отображение кнопки в отмеченном (зажатом) состоянии
+     */
     checked?: boolean;
 
-    /** Размер компонента */
+    /**
+     * Размер компонента
+     */
     size?: 'xs' | 's' | 'm' | 'l';
 
-    /** Слот слева */
+    /**
+     * Слот слева
+     */
     leftAddons?: React.ReactNode;
 
-    /** Слот справа */
+    /**
+     * Слот справа
+     */
     rightAddons?: React.ReactNode;
 
-    /** Идентификатор для систем автоматизированного тестирования */
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
     dataTestId?: string;
 };
 
