@@ -8,15 +8,12 @@ import React, {
     useCallback,
     ReactNode,
 } from 'react';
-import { BasePlacement, VariationPlacement } from '@popperjs/core';
 import NodeResolver from 'react-node-resolver';
 import cn from 'classnames';
 
-import { Popover } from '@alfalab/core-components-popover';
+import { Popover, Position } from '@alfalab/core-components-popover';
 
 import styles from './index.module.css';
-
-export type Position = BasePlacement | VariationPlacement;
 
 type Trigger = 'click' | 'hover';
 

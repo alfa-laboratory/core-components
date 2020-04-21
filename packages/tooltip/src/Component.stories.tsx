@@ -2,7 +2,8 @@ import React from 'react';
 import { withKnobs, select, number } from '@storybook/addon-knobs';
 import { withDesign } from 'storybook-addon-designs';
 
-import { Tooltip, Position } from './Component';
+import { Tooltip } from './Component';
+import { Position } from '../../popover/src';
 
 export default {
     title: 'Common|Tooltip',
