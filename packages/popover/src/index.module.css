@@ -1,0 +1,86 @@
+@import '../../themes/default.css';
+
+:root {
+    --popover-border-color: #e6e8eb;
+    --popover-z-index: 1;
+}
+
+.component {
+    background-color: #fff;
+    box-shadow: 0 3px 10px rgba(10, 30, 50, 0.15);
+    border: 1px solid var(--popover-border-color);
+    z-index: var(--popover-z-index);
+    transition-property: opacity;
+    transition-timing-function: ease;
+}
+
+.arrow:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border: 1px solid var(--popover-border-color);
+    transform: rotate(45deg);
+}
+
+.component[data-popper-placement='left'] .arrow,
+.component[data-popper-placement='left-start'] .arrow,
+.component[data-popper-placement='left-end'] .arrow {
+    right: 5px;
+
+    &:after {
+        border-bottom: none;
+        border-left: none;
+    }
+}
+
+.component[data-popper-placement='right'] .arrow,
+.component[data-popper-placement='right-start'] .arrow,
+.component[data-popper-placement='right-end'] .arrow {
+    left: -6px;
+
+    &:after {
+        border-top: none;
+        border-right: none;
+    }
+}
+
+.component[data-popper-placement='top'] .arrow,
+.component[data-popper-placement='top-start'] .arrow,
+.component[data-popper-placement='top-end'] .arrow {
+    bottom: 5px;
+
+    &:after {
+        border-top: none;
+        border-left: none;
+    }
+}
+
+.component[data-popper-placement='bottom'] .arrow,
+.component[data-popper-placement='bottom-start'] .arrow,
+.component[data-popper-placement='bottom-end'] .arrow {
+    top: -6px;
+
+    &:after {
+        border-bottom: none;
+        border-right: none;
+    }
+}
+
+.entering {
+    opacity: 0;
+}
+
+.entered {
+    opacity: 1;
+}
+
+.exiting {
+    opacity: 0;
+}
+
+.exited {
+    opacity: 0;
+}
