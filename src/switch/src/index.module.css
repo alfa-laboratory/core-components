@@ -26,7 +26,7 @@
     outline: none;
 }
 
-input {
+.component input {
     opacity: 0;
     position: absolute;
 }
