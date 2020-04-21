@@ -25,7 +25,7 @@
     "lint:css": "stylelint ./packages/**/*.css",
     "lint:js": "eslint ./packages --ext .ts,.tsx,.js,.jsx",
     "test": "jest --watchAll=false",
-    "format": "prettier --write \"./{packages,bin}/**/*.{ts,tsx,js,jsx,css}\"",
+    "format": "prettier --write \"./{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
     "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist} && rimraf {dist,build}"
   },
   "browserslist": {

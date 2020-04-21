@@ -1,0 +1,124 @@
+@import '../../themes/default.css';
+
+:root {
+    --switch-label-color: var(--color-dark-indigo);
+    --switch-hint-color: var(--color-dark-indigo-60-flat);
+    --switch-bg-color: var(--color-dark-indigo-30-flat);
+    --switch-border-color: var(--color-dark-indigo-30-flat);
+    --switch-checked-color: var(--color-red-brand-85-flat);
+    --switch-checked-border-color: var(--color-red-brand-85-flat);
+    --switch-disabled-color: var(--color-dark-indigo-15-flat);
+    --switch-disabled-border-color: var(--color-dark-indigo-15-flat);
+    --switch-disabled-checked-color: var(--color-red-brand-30-flat);
+    --switch-disabled-checked-border-color: var(--color-red-brand-30-flat);
+}
+
+.component {
+    display: inline-flex;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    /* TODO default outline and themeable focus styles */
+    outline: none;
+}
+
+.component input {
+    opacity: 0;
+    position: absolute;
+}
+
+.switch {
+    position: relative;
+    border-radius: 16px;
+    width: 36px;
+    height: 20px;
+    flex-shrink: 0;
+    background-color: var(--switch-bg-color);
+    border: 2px solid var(--switch-border-color);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.switch:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 0.5px solid var(--color-dark-indigo-05);
+    box-shadow: 0 2px 4px var(--color-dark-indigo-30);
+    box-sizing: border-box;
+    transition: transform 0.2s ease;
+}
+
+.content {
+    margin-left: var(--gap-m);
+    flex-grow: 1;
+}
+
+.label {
+    @mixin system_16-24_regular;
+    display: block;
+    color: var(--switch-label-color);
+}
+
+.label:not(:only-child) {
+    margin-bottom: var(--gap-2xs);
+}
+
+.hint {
+    @mixin system_14-18_regular;
+    display: block;
+    color: var(--switch-hint-color);
+}
+
+/* Reversed state */
+
+.component.reversed {
+    flex-direction: row-reverse;
+}
+
+.reversed .content {
+    margin-right: var(--gap-m);
+    margin-left: 0;
+}
+
+/* Checked state */
+
+.checked .switch {
+    background-color: var(--switch-checked-color);
+    border-color: var(--switch-checked-border-color);
+}
+
+.checked .switch:before {
+    /* ширина компонента(36px + 2*2px) - отступы(2 * 2px) - размер кружка(20px) */
+    transform: translateX(16px);
+}
+
+/* Disabled state */
+.disabled {
+    cursor: initial;
+}
+
+.disabled .switch {
+    background-color: var(--switch-disabled-color);
+    border-color: var(--switch-disabled-border-color);
+}
+
+.disabled .switch:before {
+    box-shadow: none;
+}
+
+.disabled.checked .switch {
+    background-color: var(--switch-disabled-checked-color);
+    border-color: var(--switch-disabled-checked-border-color);
+}
+
+/* TODO focus state */
