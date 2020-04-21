@@ -42,8 +42,7 @@
     ]
   },
   "dependencies": {
-    "@storybook/preset-create-react-app": "^1.5.2",
-    "classnames": "^2.2.6"
+    "text-mask-core": "^5.1.2"
   },
   "devDependencies": {
     "@alfalab/icons-glyph": "^1.6.0",
@@ -53,6 +52,7 @@
     "@storybook/addon-docs": "^5.3.17",
     "@storybook/addon-knobs": "^5.3.8",
     "@storybook/addons": "^5.3.8",
+    "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/preset-typescript": "^1.2.0",
     "@storybook/react": "^5.3.8",
     "@testing-library/jest-dom": "^5.0.2",
@@ -109,12 +109,13 @@
     "ts-loader": "^6.2.1",
     "typescript": "~3.8.3"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "peerDependencies": {
     "react": ">=16.12.0",
-    "react-dom": ">=16.12.0"
+    "react-dom": ">=16.12.0",
+    "classnames": "^2.2.6"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "prettier": "arui-presets-lint/prettier",
   "eslintConfig": {

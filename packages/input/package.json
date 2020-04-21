@@ -12,9 +12,7 @@
         "access": "public"
     },
     "peerDependencies": {
-        "react": "^16.9.0"
-    },
-    "dependencies": {
-        "classnames": "^2.2.6"
+      "react": "^16.9.0",
+      "classnames": "^2.2.6"
     }
 }
