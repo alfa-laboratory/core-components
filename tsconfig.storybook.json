@@ -13,7 +13,7 @@
     "sourceMap": true,
     "jsx": "react",
     "rootDirs": [
-      "src"
+      "packages"
     ],
     "baseUrl": "./"
   },

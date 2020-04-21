@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = function getCSSModuleLocalIdent(context, localIdentName, localName, options) {
     // В случае компонентов - использует имя папки, в остальных - имя ресурса.
-    const matches = context.resourcePath.match(/src\/(.*)\/src\/index\.module\.css$/);
+    const matches = context.resourcePath.match(/packages\/(.*)\/src\/index\.module\.css$/);
     const componentOrFileName = matches ? matches[1] : '[name]';
 
     // Создает уникальный хэш, основанные на расположении файла и className.

@@ -1,0 +1,18 @@
+{
+    "name": "@alfalab/core-components-switch",
+    "version": "1.0.0",
+    "description": "",
+    "gitHead": "f054fef20200664c65e2501ef1f916c555cdf05d",
+    "keywords": [],
+    "license": "ISC",
+    "main": "index.js",
+    "publishConfig": {
+        "access": "public"
+    },
+    "peerDependencies": {
+        "react": "^16.9.0"
+    },
+    "dependencies": {
+        "classnames": "^2.2.6"
+    }
+}
