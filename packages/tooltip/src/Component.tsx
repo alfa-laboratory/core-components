@@ -6,6 +6,7 @@ import React, {
     useState,
     useEffect,
     useCallback,
+    ReactNode,
 } from 'react';
 import { BasePlacement, VariationPlacement } from '@popperjs/core';
 import NodeResolver from 'react-node-resolver';
@@ -27,7 +28,7 @@ export type TooltipProps = {
     /**
      * Контент тултипа
      */
-    content: ReactElement;
+    content: ReactNode;
 
     /**
      * Позиционирование тултипа
