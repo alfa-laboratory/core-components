@@ -5,7 +5,10 @@
     "gitHead": "f054fef20200664c65e2501ef1f916c555cdf05d",
     "keywords": [],
     "license": "ISC",
-    "main": "index.js",
+    "main": "dist/index.js",
+    "files": [
+        "dist"
+    ],
     "publishConfig": {
         "access": "public"
     },
