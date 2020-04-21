@@ -38,7 +38,8 @@
   },
   "dependencies": {
     "@storybook/preset-create-react-app": "^1.5.2",
-    "classnames": "^2.2.6"
+    "classnames": "^2.2.6",
+    "text-mask-core": "^5.1.2"
   },
   "devDependencies": {
     "@alfalab/icons-glyph": "^1.6.0",
