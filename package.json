@@ -45,6 +45,7 @@
     "@popperjs/core": "^2.3.3",
     "@storybook/preset-create-react-app": "^1.5.2",
     "classnames": "^2.2.6",
+    "react-node-resolver": "^2.0.1",
     "react-popper": "^2.2.2",
     "react-transition-group": "^4.3.0"
   },

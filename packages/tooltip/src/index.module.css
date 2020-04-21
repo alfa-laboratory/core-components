@@ -1,0 +1,19 @@
+@import '../../themes/default.css';
+
+:root {
+    --tooltip-border-color: #e6e8eb;
+    --tooltip-z-index: 1;
+}
+
+.component {
+    @mixin system_14-18_regular;
+    padding: var(--gap-s) var(--gap-m);
+}
+
+.popper {
+    border-radius: 8px;
+}
+
+.target {
+    cursor: pointer;
+}
