@@ -12,11 +12,11 @@
         "access": "public"
     },
     "peerDependencies": {
-        "react": "^16.9.0"
+        "react": "^16.9.0",
+        "classnames": "^2.2.6"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "1.1.2",
-        "classnames": "^2.2.6",
+        "@alfalab/core-components-input": "^1.1.2",
         "text-mask-core": "^5.1.2"
     }
 }
