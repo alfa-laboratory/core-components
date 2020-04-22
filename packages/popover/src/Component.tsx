@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import cn from 'classnames';
 import { Transition } from 'react-transition-group';
 import { TransitionProps } from 'react-transition-group/Transition';
@@ -118,23 +118,14 @@ export const Popover: React.FC<PopoverProps> = ({
         [classNames.popper],
     );
 
-    const getArrowClassName = useCallback(() => cn(styles.arrow, classNames.arrow), [
-        classNames.arrow,
-    ]);
-
     const timeout = transition.timeout === undefined ? TRANSITION_DURATION : transition.timeout;
 
-    const getTransitionProps = useCallback(() => {
-        return {
-            mountOnEnter: true,
-            unmountOnExit: true,
-            ...transition,
-            in: open,
-            timeout,
-        };
-    }, [open, transition, timeout]);
+    const props = useMemo(
+        () => ({ mountOnEnter: true, unmountOnExit: true, ...transition, in: open, timeout }),
+        [open, transition, timeout],
+    );
 
-    const props = getTransitionProps();
+    const arrowClassName = useMemo(() => cn(styles.arrow, classNames.arrow), [classNames.arrow]);
 
     return (
         <Transition {...props}>
@@ -155,7 +146,7 @@ export const Popover: React.FC<PopoverProps> = ({
                             <div
                                 ref={setArrowElement}
                                 style={popperStyles.arrow}
-                                className={getArrowClassName()}
+                                className={arrowClassName}
                             />
                         )}
                     </div>
