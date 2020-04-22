@@ -19,8 +19,6 @@ type Trigger = 'click' | 'hover';
 
 type RefElement = HTMLElement | null;
 
-const { setTimeout } = window;
-
 export type TooltipProps = {
     /**
      * Контент тултипа
@@ -120,7 +118,7 @@ export const Tooltip: FC<TooltipProps> = ({
     const targetRef = React.useRef<RefElement>(null);
     const contentRef = React.useRef<RefElement>(null);
 
-    let timerId: number;
+    let timerId = 0;
 
     const open = () => {
         if (!visible) {
@@ -175,36 +173,38 @@ export const Tooltip: FC<TooltipProps> = ({
 
         return () => {
             document.body.removeEventListener('click', onBodyClick);
-        };
-    }, [close]);
 
-    const onTargetClick = () => {
+            clearTimeout(timerId);
+        };
+    }, [close, timerId]);
+
+    const handleTargetClick = () => {
         toggle();
     };
 
-    const onMouseOver = () => {
+    const handleMouseOver = () => {
         clearTimeout(timerId);
 
-        timerId = setTimeout(() => {
+        timerId = window.setTimeout(() => {
             open();
         }, onOpenDelay);
     };
 
-    const onMouseOut = () => {
+    const handleMouseOut = () => {
         clearTimeout(timerId);
 
-        timerId = setTimeout(() => {
+        timerId = window.setTimeout(() => {
             close();
         }, onCloseDelay);
     };
 
-    const onTouchStart = (event: React.TouchEvent<HTMLElement>) => {
+    const handleTouchStart = (event: React.TouchEvent<HTMLElement>) => {
         const eventTarget = event.target as Element;
 
         clearTimeout(timerId);
 
         if (clickedOutside(eventTarget)) {
-            timerId = setTimeout(() => {
+            timerId = window.setTimeout(() => {
                 close();
             }, onCloseDelay);
         } else {
@@ -212,9 +212,13 @@ export const Tooltip: FC<TooltipProps> = ({
         }
     };
 
-    const onClickProps = { onClick: onTargetClick };
+    const onClickProps = { onClick: handleTargetClick };
 
-    const onHoverProps = { onMouseOver, onMouseOut, onTouchStart };
+    const onHoverProps = {
+        onMouseOver: handleMouseOver,
+        onMouseOut: handleMouseOut,
+        onTouchStart: handleTouchStart,
+    };
 
     const getTargetProps = (): HTMLAttributes<HTMLElement> => {
         const props = {
