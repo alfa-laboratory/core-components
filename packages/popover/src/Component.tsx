@@ -42,17 +42,7 @@ export type PopoverProps = {
     /**
      * Смещение поповера
      */
-    offset?: {
-        /**
-         * Смещение по оси x
-         */
-        x: number;
-
-        /**
-         * Смещение по оси y
-         */
-        y: number;
-    };
+    offset?: [number, number];
 
     /**
      * Дополнительные классы
@@ -93,7 +83,7 @@ export const Popover: React.FC<PopoverProps> = ({
     getPortalContainer,
     transition = {},
     anchorElement,
-    offset = { x: 0, y: 0 },
+    offset = [0, 0],
     withArrow = false,
     position = 'left',
     classNames = {},
@@ -105,9 +95,7 @@ export const Popover: React.FC<PopoverProps> = ({
     const [arrowElement, setArrowElement] = useState<RefElement>(null);
 
     const getModifiers = useCallback(() => {
-        const modifiers: PopperModifier[] = [
-            { name: 'offset', options: { offset: [offset.x, offset.y] } },
-        ];
+        const modifiers: PopperModifier[] = [{ name: 'offset', options: { offset } }];
 
         if (withArrow) {
             modifiers.push({ name: 'arrow', options: { element: arrowElement } });

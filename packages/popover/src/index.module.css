@@ -31,7 +31,6 @@
     right: 5px;
 
     &:after {
-        top: -4px;
         border-bottom: none;
         border-left: none;
     }
@@ -43,7 +42,6 @@
     left: -6px;
 
     &:after {
-        top: -4px;
         border-top: none;
         border-right: none;
     }
@@ -55,7 +53,6 @@
     bottom: 5px;
 
     &:after {
-        left: -4px;
         border-top: none;
         border-left: none;
     }
@@ -67,7 +64,6 @@
     top: -6px;
 
     &:after {
-        left: -4px;
         border-bottom: none;
         border-right: none;
     }
