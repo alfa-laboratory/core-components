@@ -6,6 +6,7 @@ import { usePopper } from 'react-popper';
 import { BasePlacement, VariationPlacement, Obj } from '@popperjs/core';
 
 import { Portal } from '@alfalab/core-components-portal';
+
 import styles from './index.module.css';
 
 type RefElement = HTMLElement | null;
@@ -48,12 +49,12 @@ export type PopoverProps = {
      */
     classNames?: {
         /**
-         * Дополнительный класс для стрелочки
+         * Дополнительный класс для поповера
          */
         popper?: string;
 
         /**
-         * Дополнительный класс для поповера
+         * Дополнительный класс для стрелочки
          */
         arrow?: string;
     };
@@ -124,16 +125,12 @@ export const Popover: React.FC<PopoverProps> = ({
     const timeout = transition.timeout === undefined ? TRANSITION_DURATION : transition.timeout;
 
     const getTransitionProps = useCallback(() => {
-        const mountOnEnter = transition.mountOnEnter === undefined ? true : transition.mountOnEnter;
-        const unmountOnExit =
-            transition.unmountOnExit === undefined ? true : transition.unmountOnExit;
-
         return {
+            mountOnEnter: true,
+            unmountOnExit: true,
             ...transition,
             in: open,
             timeout,
-            mountOnEnter,
-            unmountOnExit,
         };
     }, [open, transition, timeout]);
 
