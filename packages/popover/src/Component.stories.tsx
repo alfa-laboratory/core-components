@@ -49,7 +49,7 @@ export const Basic = () => {
                 position={select('position', POSITION_OPTIONS, 'bottom') as Position}
                 open={open}
                 transition={{ timeout: 0 }}
-                offset={[number('offset[0]', 0), number('offset[1]', 0)]}
+                offset={{ x: number('offset.x', 0), y: number('offset.y', 0) }}
                 withArrow={boolean('withArrow', false)}
             >
                 <div style={{ padding: '15px', width: '156px' }}>I am popover</div>
