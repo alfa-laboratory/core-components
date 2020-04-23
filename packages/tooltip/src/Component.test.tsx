@@ -56,9 +56,7 @@ describe('Attributes tests', () => {
             children: <div>Hover me</div>,
             content: <div>I am tooltip</div>,
             open: true,
-            classNames: {
-                content: className,
-            },
+            contentClassName: className,
             dataTestId: testId,
         });
 
@@ -79,9 +77,7 @@ describe('Styles tests', () => {
             children: <div>Hover me</div>,
             content: <div>I am tooltip</div>,
             open: true,
-            classNames: {
-                content: className,
-            },
+            contentClassName: className,
             dataTestId: testId,
         });
 
@@ -95,9 +91,7 @@ describe('Styles tests', () => {
             children: <div>Hover me</div>,
             content: <div>I am tooltip</div>,
             open: true,
-            classNames: {
-                arrow: arrowClassName,
-            },
+            arrowClassName,
         });
 
         expect(document.body.querySelector(`.${arrowClassName}`)).toHaveClass('arrow');

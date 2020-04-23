@@ -82,19 +82,14 @@ export type TooltipProps = {
     getPortalContainer?: () => HTMLElement;
 
     /**
-     * Дополнительные классы
+     * Дополнительный класс для стрелочки
      */
-    classNames?: {
-        /**
-         * Дополнительный класс для стрелочки
-         */
-        arrow?: string;
+    arrowClassName?: string;
 
-        /**
-         * Дополнительный класс для контента
-         */
-        content?: string;
-    };
+    /**
+     * Дополнительный класс для контента
+     */
+    contentClassName?: string;
 };
 
 export const Tooltip: FC<TooltipProps> = ({
@@ -108,9 +103,10 @@ export const Tooltip: FC<TooltipProps> = ({
     onOpen,
     open: forcedOpen,
     getPortalContainer,
-    classNames = {},
     offset = [0, 10],
     position,
+    contentClassName,
+    arrowClassName,
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
     const [target, setTarget] = useState<RefElement>(null);
@@ -245,7 +241,7 @@ export const Tooltip: FC<TooltipProps> = ({
         const props = {
             ref: contentRef,
             'data-test-id': dataTestId,
-            className: cn(styles.component, classNames.content),
+            className: cn(styles.component, contentClassName),
         };
 
         switch (trigger) {
@@ -288,10 +284,8 @@ export const Tooltip: FC<TooltipProps> = ({
                     anchorElement={target}
                     open={show}
                     getPortalContainer={getPortalContainer}
-                    classNames={{
-                        arrow: classNames.arrow,
-                        popper: styles.popper,
-                    }}
+                    arrowClassName={arrowClassName}
+                    popperClassName={styles.popper}
                     offset={offset}
                     withArrow={true}
                     position={position}

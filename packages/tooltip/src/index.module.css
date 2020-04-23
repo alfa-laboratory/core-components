@@ -1,7 +1,7 @@
 @import '../../themes/default.css';
 
 :root {
-    --tooltip-border-color: #e6e8eb;
+    --tooltip-border-color: var(--color-dark-indigo-15-flat);
     --tooltip-z-index: 1;
 }
 

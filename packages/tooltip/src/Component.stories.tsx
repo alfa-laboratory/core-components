@@ -59,9 +59,6 @@ export const TooltipStory = () => {
                 onCloseDelay={number('onCloseDelay (in ms)', 300)}
                 onOpenDelay={number('onOpenDelay (in ms)', 300)}
                 dataTestId='test-id'
-                classNames={{
-                    arrow: 'arrow',
-                }}
             >
                 <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
                     {trigger === 'hover' ? 'Hover me' : 'Click me'}
