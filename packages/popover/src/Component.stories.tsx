@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 
 import { withKnobs, select, number, boolean } from '@storybook/addon-knobs';
 import { Popover, Position } from './index';
@@ -27,11 +27,14 @@ const POSITION_OPTIONS = [
 
 export const Basic = () => {
     const [open, setOpen] = useState(false);
-
-    const buttonRef = useRef<HTMLAnchorElement & HTMLButtonElement>(null);
+    const [buttonElement, setButtonElement] = useState(null);
 
     const toggle = () => {
         setOpen(!open);
+    };
+
+    const handleButtonRef = node => {
+        setButtonElement(node);
     };
 
     return (
@@ -45,7 +48,7 @@ export const Basic = () => {
             }}
         >
             <Popover
-                anchorElement={buttonRef.current}
+                anchorElement={buttonElement}
                 position={select('position', POSITION_OPTIONS, 'bottom') as Position}
                 open={open}
                 transition={{ timeout: 0 }}
@@ -55,7 +58,7 @@ export const Basic = () => {
                 <div style={{ padding: '15px', width: '156px' }}>I am popover</div>
             </Popover>
 
-            <Button ref={buttonRef} onClick={toggle}>
+            <Button ref={handleButtonRef} onClick={toggle}>
                 Show/Hide popover
             </Button>
         </div>

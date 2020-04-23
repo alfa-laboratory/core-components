@@ -27,7 +27,7 @@ export type PopoverProps = {
     /**
      * Элемент, относительного которого появляется поповер
      */
-    anchorElement: RefElement;
+    anchorElement: HTMLElement;
 
     /**
      * Позиционирование поповера
@@ -102,14 +102,24 @@ export const Popover: React.FC<PopoverProps> = ({
         return modifiers;
     }, [withArrow, arrowElement, offset]);
 
-    const { styles: popperStyles, attributes } = usePopper(referenceElement, popperElement, {
-        placement: position,
-        modifiers: getModifiers(),
-    });
+    const { styles: popperStyles, attributes, update } = usePopper(
+        referenceElement,
+        popperElement,
+        {
+            placement: position,
+            modifiers: getModifiers(),
+        },
+    );
 
     useEffect(() => {
         setReferenceElement(anchorElement);
     }, [anchorElement]);
+
+    useEffect(() => {
+        if (update) {
+            update();
+        }
+    }, [update, arrowElement]);
 
     const timeout = transition.timeout === undefined ? TRANSITION_DURATION : transition.timeout;
 
