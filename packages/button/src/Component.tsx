@@ -63,28 +63,33 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
         const componentProps = {
             className: cn(
                 styles.component,
-                styles[view],
-                styles[size],
                 {
                     [styles.block]: block,
-                    [styles.iconOnly]: !children,
                 },
                 className,
             ),
             'data-test-id': dataTestId || null,
         };
 
+        const wrapperProps = {
+            className: cn(styles.wrapper, styles[view], styles[size], {
+                [styles.iconOnly]: !children,
+            }),
+        };
+
         const buttonChildren = (
-            <React.Fragment>
+            // https://www.kizu.ru/keyboard-only-focus/
+            <span {...wrapperProps} tabIndex={-1}>
                 {leftAddons && <span className={cn(styles.addons)}>{leftAddons}</span>}
                 {children && <span className={cn(styles.text)}>{children}</span>}
                 {rightAddons && <span className={cn(styles.addons)}>{rightAddons}</span>}
-            </React.Fragment>
+            </span>
         );
 
         if (href) {
             return (
-                <a {...componentProps} {...restProps} ref={ref}>
+                // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+                <a {...componentProps} {...restProps} ref={ref} tabIndex={0}>
                     {buttonChildren}
                 </a>
             );
@@ -92,7 +97,7 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
 
         return (
             // eslint-disable-next-line react/button-has-type
-            <button {...componentProps} {...restProps} ref={ref}>
+            <button {...componentProps} {...restProps} ref={ref} tabIndex={0}>
                 {buttonChildren}
             </button>
         );

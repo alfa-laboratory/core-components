@@ -47,7 +47,7 @@ describe('Button', () => {
             const size = 'm';
             const { container } = render(<Button size={size} />);
 
-            expect(container.firstElementChild).toHaveClass(size);
+            expect(container.querySelector('.wrapper')).toHaveClass(size);
         });
 
         it('should set `block` class', () => {
@@ -60,13 +60,13 @@ describe('Button', () => {
             const view = 'primary';
             const { container } = render(<Button view={view} />);
 
-            expect(container.firstElementChild).toHaveClass(view);
+            expect(container.querySelector('.wrapper')).toHaveClass(view);
         });
 
         it('should set `iconOnly` class', () => {
             const { container } = render(<Button />);
 
-            expect(container.firstElementChild).toHaveClass('iconOnly');
+            expect(container.querySelector('.wrapper')).toHaveClass('iconOnly');
         });
     });
 
