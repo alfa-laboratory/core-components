@@ -22,7 +22,7 @@ describe('Display tests', () => {
         const component = await renderPopover({
             children: <div>I am popover</div>,
             open: true,
-            anchorElement: null,
+            anchorElement: document.body,
         });
 
         expect(component).toMatchSnapshot();
@@ -37,7 +37,7 @@ describe('Attributes tests', () => {
         await renderPopover({
             children: <div>I am popover</div>,
             open: true,
-            anchorElement: null,
+            anchorElement: document.body,
             dataTestId: testId,
             popperClassName: className,
         });
@@ -58,7 +58,7 @@ describe('Styles tests', () => {
         const { getByTestId } = await renderPopover({
             children: <div>I am popover</div>,
             open: true,
-            anchorElement: null,
+            anchorElement: document.body,
             dataTestId: testId,
             popperClassName: className,
         });
@@ -73,7 +73,7 @@ describe('Styles tests', () => {
         await renderPopover({
             children: <div>I am popover</div>,
             open: true,
-            anchorElement: null,
+            anchorElement: document.body,
             dataTestId: testId,
             arrowClassName,
             withArrow: true,
@@ -88,7 +88,7 @@ describe('Render tests', () => {
         const { unmount } = await renderPopover({
             children: <div>I am popover</div>,
             open: true,
-            anchorElement: null,
+            anchorElement: document.body,
         });
 
         expect(unmount).not.toThrowError();
