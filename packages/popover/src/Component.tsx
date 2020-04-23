@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import cn from 'classnames';
 import { Transition } from 'react-transition-group';
 import { TransitionProps } from 'react-transition-group/Transition';
@@ -40,24 +40,21 @@ export type PopoverProps = {
     withArrow?: boolean;
 
     /**
-     * Смещение поповера
+     * Смещение поповера.
+     * Если позиционирование top, bottom, то [x, y].
+     * Если позиционирование left, right то [y, x].
      */
     offset?: [number, number];
 
     /**
-     * Дополнительные классы
+     * Дополнительный класс для поповера
      */
-    classNames?: {
-        /**
-         * Дополнительный класс для поповера
-         */
-        popper?: string;
+    popperClassName?: string;
 
-        /**
-         * Дополнительный класс для стрелочки
-         */
-        arrow?: string;
-    };
+    /**
+     * Дополнительный класс для стрелочки
+     */
+    arrowClassName?: string;
 
     /**
      * Функция, возвращающая контейнер, в который будет рендериться поповер
@@ -86,7 +83,8 @@ export const Popover: React.FC<PopoverProps> = ({
     offset = [0, 0],
     withArrow = false,
     position = 'left',
-    classNames = {},
+    popperClassName,
+    arrowClassName,
     open,
     dataTestId,
 }) => {
@@ -113,19 +111,9 @@ export const Popover: React.FC<PopoverProps> = ({
         setReferenceElement(anchorElement);
     }, [anchorElement]);
 
-    const getPopperClassName = useCallback(
-        status => cn(styles.component, styles[status], classNames.popper, status),
-        [classNames.popper],
-    );
-
     const timeout = transition.timeout === undefined ? TRANSITION_DURATION : transition.timeout;
 
-    const props = useMemo(
-        () => ({ mountOnEnter: true, unmountOnExit: true, ...transition, in: open, timeout }),
-        [open, transition, timeout],
-    );
-
-    const arrowClassName = useMemo(() => cn(styles.arrow, classNames.arrow), [classNames.arrow]);
+    const props = { mountOnEnter: true, unmountOnExit: true, ...transition, in: open, timeout };
 
     return (
         <Transition {...props}>
@@ -133,7 +121,7 @@ export const Popover: React.FC<PopoverProps> = ({
                 <Portal getPortalContainer={getPortalContainer}>
                     <div
                         ref={setPopperElement}
-                        className={getPopperClassName(status)}
+                        className={cn(styles.component, styles[status], popperClassName, status)}
                         style={{
                             ...popperStyles.popper,
                             transitionDuration: `${timeout}ms`,
@@ -146,7 +134,7 @@ export const Popover: React.FC<PopoverProps> = ({
                             <div
                                 ref={setArrowElement}
                                 style={popperStyles.arrow}
-                                className={arrowClassName}
+                                className={cn(styles.arrow, arrowClassName)}
                             />
                         )}
                     </div>
