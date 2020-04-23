@@ -4,11 +4,9 @@
     "description": "",
     "keywords": [],
     "license": "ISC",
-    "main": "dist/index.js",
-    "files": [
-        "dist"
-    ],
+    "style": "index.css",
     "publishConfig": {
-        "access": "public"
+        "access": "public",
+        "directory": "dist"
     }
 }
