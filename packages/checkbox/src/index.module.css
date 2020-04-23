@@ -1,0 +1,133 @@
+@import '../../themes/default.css';
+
+:root {
+    --checkbox-bg-color: var(--color-dark-indigo-05-flat);
+    --checkbox-border-color: var(--color-dark-indigo-60-flat);
+
+    /* checked */
+    --checkbox-checked-bg-color: var(--color-red-brand-85-flat);
+    --checkbox-checked-border-color: var(--color-red-dark);
+
+    /* disabled */
+    --checkbox-disabled-bg-color: var(--color-dark-indigo-15-flat);
+    --checkbox-disabled-border-color: var(--color-dark-indigo-15-flat);
+
+    /* disabled and checked */
+    --checkbox-checked-disabled-bg-color: var(--color-red-brand-30-flat);
+    --checkbox-checked-disabled-border-color: var(--color-red-brand-30-flat);
+
+    /* hover */
+    --checkbox-hover-bg-color: var(--color-dark-indigo-30-flat);
+    --checkbox-hover-border-color: var(--color-dark-indigo-60-flat);
+    --checkbox-checked-hover-border-color: var(--color-red-dark);
+    --checkbox-checked-hover-bg-color: var(--color-red-brand);
+
+    /* active */
+    --checkbox-active-border-color: var(--color-dark-indigo);
+}
+
+.component {
+    display: inline-flex;
+    align-items: flex-start;
+    cursor: pointer;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin-top: var(--gap-2xs);
+    margin-right: var(--gap-xs);
+    border: 1px solid var(--checkbox-border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--checkbox-bg-color);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* component states */
+.component:hover .box {
+    background-color: var(--checkbox-hover-bg-color);
+    border-color: var(--checkbox-hover-border-color);
+}
+
+.checked:hover .box {
+    background-color: var(--checkbox-checked-hover-bg-color);
+    border-color: var(--checkbox-checked-hover-border-color);
+}
+
+.checked .box {
+    background-color: var(--checkbox-checked-bg-color);
+    border-color: var(--checkbox-checked-border-color);
+}
+
+.disabled .box,
+.disabled:hover .box {
+    background-color: var(--checkbox-disabled-bg-color);
+    border-color: var(--checkbox-disabled-border-color);
+}
+
+.disabled.checked .box {
+    background-color: var(--checkbox-checked-disabled-bg-color);
+    border-color: var(--checkbox-checked-disabled-border-color);
+}
+
+.component:active .box {
+    border-color: var(--checkbox-active-border-color);
+}
+
+/* component indeterminate states */
+.indeterminate .box {
+    background-color: var(--checkbox-checked-bg-color);
+    border-color: var(--checkbox-checked-hover-border-color);
+}
+
+.indeterminate:hover .box {
+    background-color: var(--checkbox-checked-hover-bg-color);
+    border-color: var(--checkbox-checked-border-color);
+}
+
+.disabled.indeterminate .box,
+.disabled.indeterminate:hover .box {
+    background-color: var(--checkbox-checked-disabled-bg-color);
+    border-color: var(--checkbox-checked-disabled-border-color);
+}
+
+.indeterminate:active .box {
+    border-color: var(--checkbox-active-border-color);
+}
+
+.content {
+    flex-grow: 1;
+}
+
+.label {
+    @mixin system_16-24_regular;
+    display: block;
+    color: var(--switch-label-color);
+}
+
+.label:not(:only-child) {
+    margin-bottom: var(--gap-2xs);
+}
+
+.hint {
+    @mixin system_14-18_regular;
+    display: block;
+    color: var(--switch-hint-color);
+}
+
+.indeterminate-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.component input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
