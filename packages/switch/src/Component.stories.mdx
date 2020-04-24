@@ -1,0 +1,95 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { text, boolean } from '@storybook/addon-knobs';
+import { Switch } from './Component';
+import { Button } from '../../button/src';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+
+<Meta title='Компоненты|Switch' component={Switch} />
+
+# Switch
+
+```
+import { Switch } from '@alfalab/core-components-switch';
+```
+
+Компонент переключателя.
+
+<Story name='Песочница'>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleChange = () => setChecked(!checked);
+        return (
+            <Switch
+                checked={checked}
+                disabled={boolean('disabled', false)}
+                reversed={boolean('reversed', false)}
+                className={text('className', '')}
+                dataTestId={text('dataTestId', '')}
+                label={text('label', 'Условие тоггла')}
+                hint={text('hint', 'Описание пункта')}
+                onChange={handleChange}
+            />
+        );
+    })}
+</Story>
+
+<Props of={Switch} />
+
+### Переключатель без текста
+
+<Preview>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleChange = () => setChecked(!checked);
+        return (
+            <Switch
+                checked={checked}
+                onChange={handleChange}
+            />
+        );
+    })}
+</Preview>
+
+### Кастомный контент
+
+<Preview>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleChange = () => setChecked(!checked);
+        return (
+            <Switch
+                checked={checked}
+                onChange={handleChange}
+                label={
+                    <span style={{ display: 'flex' }}>
+                        <span style={{ marginRight: '8px' }}>Согласен</span>
+                        <Icon />
+                    </span>
+                }
+                hint={
+                    <span>
+                        вы соглашаетесь с <Button view='ghost'>условиями</Button>
+                    </span>
+                }
+            />
+        );
+    })}
+</Preview>
+
+### Переключатель справа от контента
+
+<Preview>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleChange = () => setChecked(!checked);
+        return (
+            <Switch
+                checked={checked}
+                onChange={handleChange}
+                reversed={true}
+                label='Условие тоггла'
+                hint='Описание пункта'
+            />
+        );
+    })}
+</Preview>

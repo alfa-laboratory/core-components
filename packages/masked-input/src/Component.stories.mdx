@@ -1,0 +1,32 @@
+import { Meta, Props } from '@storybook/addon-docs/blocks';
+import { MaskedInput } from './Component';
+
+<!-- prettier-ignore -->
+export const masks = {
+    phone: ['+', /\d/, ' ', '(', /\d/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/],
+    card: [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/],
+};
+
+export const placeholders = {
+    phone: '+7 (000) 000-00-00',
+    card: '0000 0000 0000 0000',
+};
+
+<Meta title='Компоненты|MaskedInput' component={MaskedInput} />
+
+# MaskedInput
+
+```
+import { MaskedInput } from '@alfalab/core-components-masked-input';
+```
+
+Компонент текстового поля для ввода текста по указанной маске.
+
+<div style={{ width: '240px' }}>
+    <MaskedInput mask={masks.phone} placeholder={placeholders.phone} block={true} />
+    <br/>
+    <br/>
+    <MaskedInput mask={masks.card} placeholder={placeholders.card} block={true} />
+</div>
+
+<Props of={MaskedInput} />

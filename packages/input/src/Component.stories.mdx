@@ -1,0 +1,34 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { Input } from './Component';
+
+<Meta title='Компоненты|Input' component={Input} />
+
+# Input
+
+```
+import { Input } from '@alfalab/core-components-input';
+```
+
+Компонент текстового поля ввода.
+
+<Story name='Песочница'>
+    <Input
+        type={select(
+            'type',
+            ['number', 'card', 'email', 'money', 'password', 'tel', 'text'],
+            'text',
+        )}
+        block={boolean('block', false)}
+        size={select('size', ['s', 'm', 'l'], 's')}
+        disabled={boolean('disabled', false)}
+        placeholder={text('placeholder', '')}
+        label={text('label', '')}
+        hint={text('hint', '')}
+        error={text('error', '')}
+        rightAddons={boolean('rightAddons', false) && !text('error', '') && <Icon />}
+    />
+</Story>
+
+<Props of={Input} />
