@@ -76,7 +76,7 @@
     border-color: var(--checkbox-checked-disabled-border-color);
 }
 
-.component:active .box {
+.component:active:not(.disabled) .box {
     border-color: var(--checkbox-active-border-color);
 }
 
