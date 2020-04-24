@@ -95,10 +95,10 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                 </span>
 
                 {(label || hint) && (
-                    <div className={styles.content}>
+                    <span className={styles.content}>
                         {label && <span className={styles.label}>{label}</span>}
                         {hint && <span className={styles.hint}>{hint}</span>}
-                    </div>
+                    </span>
                 )}
             </label>
         );
