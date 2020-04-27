@@ -26,8 +26,13 @@
     }
 }
 
+.horizontal .checkbox-list {
+    flex-wrap: wrap;
+}
+
 .horizontal .checkbox {
     margin-right: var(--gap-xl);
+    margin-bottom: var(--gap-xs);
 
     &:last-child {
         margin-right: 0;

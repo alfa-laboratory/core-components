@@ -1,36 +1,67 @@
-import React, {
-    FC,
-    ReactNode,
-    Children,
-    cloneElement,
-    ReactElement,
-    ChangeEvent,
-    InputHTMLAttributes,
-} from 'react';
+import React, { FC, ReactNode, Children, cloneElement, ReactElement, ChangeEvent } from 'react';
 import cn from 'classnames';
 
 import styles from './index.module.css';
-
-type NativeProps = InputHTMLAttributes<HTMLInputElement>;
 
 export type Direction = 'horizontal' | 'vertical';
 export type CheckboxGroupType = 'checkbox' | 'tag';
 
 export type CheckboxGroupProp = {
+    /**
+     * Заголовок для группы
+     */
     label?: ReactNode;
+
+    /**
+     * Дополнительный класс
+     */
     className?: string;
+
+    /**
+     * Дополнительный класс для заголовка
+     */
     labelClassName?: string;
+
+    /**
+     * Направление
+     */
     direction?: Direction;
+
+    /**
+     * Текст ошибки
+     */
     error?: string;
+
+    /**
+     * Дочерние элементы. Ожидаются компоненты `Checkbox` или `Tag`
+     */
     children: ReactElement[];
+
+    /**
+     * Обработчик изменения значения 'checked' одного из дочерних компонентов
+     */
     onChange?: (
         event?: ChangeEvent<HTMLInputElement>,
         payload?: {
             checked: boolean;
-            name: NativeProps['name'];
+            name?: string;
         },
     ) => void;
+
+    /**
+     * Тип компонента
+     */
     type?: CheckboxGroupType;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
+
+    /**
+     * Управление возможностью изменения состояния 'checked' дочерних компонентов CheckBox
+     */
+    disabled?: boolean;
 };
 
 export const CheckboxGroup: FC<CheckboxGroupProp> = ({
@@ -42,6 +73,8 @@ export const CheckboxGroup: FC<CheckboxGroupProp> = ({
     error,
     onChange,
     type = 'checkbox',
+    dataTestId,
+    disabled = false,
 }) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const renderChild = (child: ReactElement, props: any): ReactElement => {
@@ -64,12 +97,18 @@ export const CheckboxGroup: FC<CheckboxGroupProp> = ({
                 { [styles.error]: error },
                 className,
             )}
+            data-test-id={dataTestId}
         >
             {label ? <span className={cn(styles.label, labelClassName)}>{label}</span> : null}
 
             <div className={cn(styles.checkboxList)}>
                 {Children.map(children, child => {
+                    if (child === null) {
+                        return child;
+                    }
+
                     const props = {
+                        disabled,
                         ...child.props,
                         className: cn(child.props.className, styles.checkbox),
                     };
