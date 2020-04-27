@@ -3,7 +3,9 @@ import cn from 'classnames';
 
 import styles from './index.module.css';
 
-export type TagProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+type NativeProps = ButtonHTMLAttributes<HTMLButtonElement>;
+
+export type TagProps = Omit<NativeProps, 'onClick'> & {
     /**
      * Отображение кнопки в отмеченном (зажатом) состоянии
      */
@@ -28,6 +30,17 @@ export type TagProps = ButtonHTMLAttributes<HTMLButtonElement> & {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Обработчик нажатия
+     */
+    onClick?: (
+        event?: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+        payload?: {
+            checked: boolean;
+            name?: string;
+        },
+    ) => void;
 };
 
 export const Tag = ({
@@ -38,6 +51,8 @@ export const Tag = ({
     checked,
     className,
     dataTestId,
+    name,
+    onClick,
     ...restProps
 }: TagProps) => {
     const tagProps = {
@@ -45,8 +60,14 @@ export const Tag = ({
         'data-test-id': dataTestId,
     };
 
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        if (onClick) {
+            onClick(event, { name, checked: !checked });
+        }
+    };
+
     return (
-        <button type='button' {...tagProps} {...restProps}>
+        <button type='button' onClick={handleClick} {...tagProps} {...restProps}>
             {leftAddons ? <span className={cn(styles.addons)}>{leftAddons}</span> : null}
             <span>{children}</span>
             {rightAddons ? <span className={cn(styles.addons)}>{rightAddons}</span> : null}

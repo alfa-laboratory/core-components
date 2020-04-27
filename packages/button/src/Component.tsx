@@ -84,7 +84,7 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
 
         if (href) {
             return (
-                <a {...componentProps} {...restProps} ref={ref}>
+                <a {...componentProps} {...restProps} href={href} ref={ref}>
                     {buttonChildren}
                 </a>
             );
