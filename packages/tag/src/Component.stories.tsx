@@ -14,12 +14,10 @@ export default {
 };
 
 export const TagStory = () => {
-    const [value, setValue] = useState([false, false, false]);
+    const [value, setValue] = useState({ one: false, two: false, three: false, four: false });
 
-    const onClick = (index: number) => {
-        const newValue = value.slice();
-        newValue[index] = !newValue[index];
-        setValue(newValue);
+    const onClick = (_, payload) => {
+        setValue({ ...value, [payload.name]: payload.checked });
     };
 
     const size = select('size', ['xs', 's', 'm', 'l'], 'xs');
@@ -32,8 +30,9 @@ export const TagStory = () => {
                     <Tag
                         size={size}
                         disabled={disabled}
-                        onClick={() => onClick(0)}
-                        checked={value[0]}
+                        onClick={onClick}
+                        name='one'
+                        checked={value.one}
                         className='custom'
                     >
                         Нажми меня
@@ -45,8 +44,9 @@ export const TagStory = () => {
                 <div className={cn(styles.col)}>
                     <Tag
                         size='s'
-                        onClick={() => onClick(1)}
-                        checked={value[1]}
+                        onClick={onClick}
+                        name='two'
+                        checked={value.two}
                         className={cn(styles.tag, { checked: value[1] })}
                         rightAddons={<Icon />}
                     >
@@ -59,8 +59,9 @@ export const TagStory = () => {
                 <div className={cn(styles.col)}>
                     <Tag
                         size='m'
-                        onClick={() => onClick(2)}
-                        checked={value[2]}
+                        onClick={onClick}
+                        name='three'
+                        checked={value.three}
                         leftAddons={<Icon />}
                     >
                         Нажми меня
@@ -70,7 +71,7 @@ export const TagStory = () => {
 
             <div className={cn(styles.row)}>
                 <div className={cn(styles.col)}>
-                    <Tag size='l' onClick={() => onClick(3)} checked={value[3]}>
+                    <Tag size='l' onClick={onClick} checked={value.four} name='four'>
                         Нажми меня
                     </Tag>
                 </div>
