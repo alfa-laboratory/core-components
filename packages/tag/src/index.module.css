@@ -35,6 +35,7 @@
     box-shadow: none;
     user-select: none;
     cursor: pointer;
+    outline: none;
 }
 
 .addons {
