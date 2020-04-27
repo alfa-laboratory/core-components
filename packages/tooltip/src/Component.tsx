@@ -51,7 +51,7 @@ export type TooltipProps = {
     onClose?: () => void;
 
     /**
-     * События, по которому происходит открытие тултипа
+     * Событие, по которому происходит открытие тултипа
      */
     trigger?: Trigger;
 
@@ -157,7 +157,7 @@ export const Tooltip: FC<TooltipProps> = ({
     };
 
     useEffect(() => {
-        const onBodyClick = (event: MouseEvent) => {
+        const handleBodyClick = (event: MouseEvent) => {
             const eventTarget = event.target as Element;
 
             if (clickedOutside(eventTarget)) {
@@ -165,10 +165,10 @@ export const Tooltip: FC<TooltipProps> = ({
             }
         };
 
-        document.body.addEventListener('click', onBodyClick);
+        document.body.addEventListener('click', handleBodyClick);
 
         return () => {
-            document.body.removeEventListener('click', onBodyClick);
+            document.body.removeEventListener('click', handleBodyClick);
 
             clearTimeout(timerId);
         };
