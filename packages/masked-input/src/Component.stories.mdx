@@ -1,5 +1,8 @@
-import { Meta, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Props, Title } from '@storybook/addon-docs/blocks';
+
 import { MaskedInput } from './Component';
+import { name, version } from '../package.json';
+
 
 <!-- prettier-ignore -->
 export const masks = {
@@ -14,11 +17,15 @@ export const placeholders = {
 
 <Meta title='Компоненты|MaskedInput' component={MaskedInput} />
 
-# MaskedInput
+<Title>
+    MaskedInput ({name}@{version})
+</Title>
 
 ```
 import { MaskedInput } from '@alfalab/core-components-masked-input';
 ```
+
+## Описание
 
 Компонент текстового поля для ввода текста по указанной маске.
 

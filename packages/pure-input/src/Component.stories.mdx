@@ -1,14 +1,21 @@
-import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
+
 import { PureInput } from './Component';
+import { name, version } from '../package.json';
+
 
 <Meta title='Компоненты|PureInput' component={PureInput} />
 
-# PureInput
+<Title>
+    PureInput ({name}@{version})
+</Title>
 
 ```
 import { PureInput } from '@alfalab/core-components-pure-input';
 ```
+
+## Описание
 
 Компонент, представляющий из себя стилизованный нативный `input`
 

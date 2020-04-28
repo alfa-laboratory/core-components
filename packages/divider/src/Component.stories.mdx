@@ -1,13 +1,20 @@
-import { Preview, Props } from '@storybook/addon-docs/blocks';
+import { Preview, Props, Title } from '@storybook/addon-docs/blocks';
+
 import { Divider } from './Component';
+import { name, version } from '../package.json';
+
 
 <Meta title='Компоненты|Divider' component={Divider} />
 
-# Divider
+<Title>
+    Divider ({name}@{version})
+</Title>
 
 ```
 import { Divider } from '@alfalab/core-components-divider';
 ```
+
+## Описание
 
 Создаёт горизонтальную линию. Данный элемент является блочным элементом и располагается на отдельной строке.
 

@@ -1,16 +1,23 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
 import { text, boolean } from '@storybook/addon-knobs';
-import { Switch } from './Component';
 import { Button } from '../../button/src';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
+import { Switch } from './Component';
+import { name, version } from '../package.json';
+
+
 <Meta title='Компоненты|Switch' component={Switch} />
 
-# Switch
+<Title>
+    Switch ({name}@{version})
+</Title>
 
 ```
 import { Switch } from '@alfalab/core-components-switch';
 ```
+
+## Описание
 
 Компонент переключателя.
 

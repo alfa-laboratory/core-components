@@ -1,15 +1,22 @@
-import { Meta, Props, Preview } from '@storybook/addon-docs/blocks';
-import { Portal } from './Component';
+import { Meta, Props, Preview, Title } from '@storybook/addon-docs/blocks';
 import { Button } from '../../button/src';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
+import { Portal } from './Component';
+import { name, version } from '../package.json';
+
+
 <Meta title='Компоненты|Portal' component={Portal} />
 
-# Portal
+<Title>
+    Portal ({name}@{version})
+</Title>
 
 ```
 import { Portal } from '@alfalab/core-components-portal';
 ```
+
+## Описание
 
 Порталы позволяют рендерить дочерние элементы в DOM-узел, который находится вне DOM-иерархии родительского компонента.
 

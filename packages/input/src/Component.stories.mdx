@@ -1,15 +1,22 @@
-import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
+
 import { Input } from './Component';
+import { name, version } from '../package.json';
+
 
 <Meta title='Компоненты|Input' component={Input} />
 
-# Input
+<Title>
+    Input ({name}@{version})
+</Title>
 
 ```
 import { Input } from '@alfalab/core-components-input';
 ```
+
+## Описание
 
 Компонент текстового поля ввода.
 
