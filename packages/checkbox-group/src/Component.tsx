@@ -1,4 +1,12 @@
-import React, { FC, ReactNode, Children, cloneElement, ReactElement, ChangeEvent } from 'react';
+import React, {
+    FC,
+    ReactNode,
+    Children,
+    cloneElement,
+    ReactElement,
+    ChangeEvent,
+    isValidElement,
+} from 'react';
 import cn from 'classnames';
 
 import styles from './index.module.css';
@@ -6,26 +14,30 @@ import styles from './index.module.css';
 export type Direction = 'horizontal' | 'vertical';
 export type CheckboxGroupType = 'checkbox' | 'tag';
 
-export type CheckboxGroupProp = {
+type ChildProps = {
+    [key: string]: unknown;
+};
+
+export type CheckboxGroupProps = {
     /**
-     * Заголовок для группы
+     * Заголовок группы
      */
     label?: ReactNode;
-
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
-
-    /**
-     * Дополнительный класс для заголовка
-     */
-    labelClassName?: string;
 
     /**
      * Направление
      */
     direction?: Direction;
+
+    /**
+     * Тип компонента
+     */
+    type?: CheckboxGroupType;
+
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
 
     /**
      * Текст ошибки
@@ -35,13 +47,13 @@ export type CheckboxGroupProp = {
     /**
      * Дочерние элементы. Ожидаются компоненты `Checkbox` или `Tag`
      */
-    children: ReactElement[];
+    children: ReactNode;
 
     /**
      * Обработчик изменения значения 'checked' одного из дочерних компонентов
      */
     onChange?: (
-        event?: ChangeEvent<HTMLInputElement>,
+        event?: ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLButtonElement, MouseEvent>,
         payload?: {
             checked: boolean;
             name?: string;
@@ -49,44 +61,45 @@ export type CheckboxGroupProp = {
     ) => void;
 
     /**
-     * Тип компонента
+     * Управление возможностью изменения состояния 'checked' дочерних компонентов CheckBox
      */
-    type?: CheckboxGroupType;
+    disabled?: boolean;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
-
-    /**
-     * Управление возможностью изменения состояния 'checked' дочерних компонентов CheckBox
-     */
-    disabled?: boolean;
 };
 
-export const CheckboxGroup: FC<CheckboxGroupProp> = ({
+export const CheckboxGroup: FC<CheckboxGroupProps> = ({
     children,
     className,
     direction = 'vertical',
     label,
-    labelClassName,
     error,
     onChange,
     type = 'checkbox',
     dataTestId,
     disabled = false,
 }) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const renderChild = (child: ReactElement, props: any): ReactElement => {
+    const renderCheckbox = (child: ReactElement, props: ChildProps) => {
         const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
             if (onChange) {
-                onChange(event, { name: props.name, checked: event.target.checked });
+                onChange(event, { name: child.props.name, checked: event.target.checked });
             }
         };
 
-        const handlerName = type === 'checkbox' ? 'onChange' : 'onClick';
+        return cloneElement(child, { onChange: handleChange, ...props });
+    };
 
-        return cloneElement(child, { [handlerName]: handleChange, ...props });
+    const renderTag = (child: ReactElement, props: ChildProps) => {
+        const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+            if (onChange) {
+                onChange(event, { name: child.props.name, checked: !child.props.checked });
+            }
+        };
+
+        return cloneElement(child, { onClick: handleClick, ...props });
     };
 
     return (
@@ -99,23 +112,27 @@ export const CheckboxGroup: FC<CheckboxGroupProp> = ({
             )}
             data-test-id={dataTestId}
         >
-            {label ? <span className={cn(styles.label, labelClassName)}>{label}</span> : null}
+            {label ? <span className={styles.label}>{label}</span> : null}
 
-            <div className={cn(styles.checkboxList)}>
-                {Children.map(children, child => {
-                    if (child === null) {
-                        return child;
-                    }
+            {children ? (
+                <div className={cn(styles.checkboxList)}>
+                    {Children.map(children, child => {
+                        if (isValidElement(child)) {
+                            const props = {
+                                disabled,
+                                ...child.props,
+                                className: cn(child.props.className, styles.checkbox),
+                            };
 
-                    const props = {
-                        disabled,
-                        ...child.props,
-                        className: cn(child.props.className, styles.checkbox),
-                    };
+                            return type === 'checkbox'
+                                ? renderCheckbox(child, props)
+                                : renderTag(child, props);
+                        }
 
-                    return renderChild(child, props);
-                })}
-            </div>
+                        return null;
+                    })}
+                </div>
+            ) : null}
 
             {error && <span className={styles.errorMessage}>{error}</span>}
         </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, select, text, boolean } from '@storybook/addon-knobs';
 import { withDesign } from 'storybook-addon-designs';
 
 import { CheckboxGroup } from './Component';
@@ -19,8 +19,18 @@ export const CheckboxStory = () => {
         setValue({ ...value, [payload.name]: payload.checked });
     };
 
+    const direction = select('direction', ['vertical', 'horizontal'], 'vertical');
+    const error = text('error', '');
+    const disabled = boolean('disabled', false);
+
     return (
-        <CheckboxGroup label='Заголовок группы' onChange={onChange}>
+        <CheckboxGroup
+            label='Заголовок группы'
+            onChange={onChange}
+            direction={direction}
+            error={error}
+            disabled={disabled}
+        >
             <Checkbox label='Первый вариант' name='one' checked={value.one} />
 
             <Checkbox label='Второй вариант' name='two' checked={value.two} />
@@ -37,22 +47,28 @@ export const CheckboxTagStory = () => {
         setValue({ ...value, [payload.name]: payload.checked });
     };
 
+    const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
+    const error = text('error', '');
+    const disabled = boolean('disabled', false);
+
     return (
         <CheckboxGroup
             label='Заголовок группы'
             onChange={onChange}
-            direction='horizontal'
+            direction={direction}
             type='tag'
+            error={error}
+            disabled={disabled}
         >
             <Tag name='one' checked={value.one}>
                 Первый вариант
             </Tag>
 
-            <Tag name='one' checked={value.two}>
+            <Tag name='two' checked={value.two}>
                 Второй вариант
             </Tag>
 
-            <Tag name='one' checked={value.three}>
+            <Tag name='three' checked={value.three}>
                 Третий вариант
             </Tag>
         </CheckboxGroup>
