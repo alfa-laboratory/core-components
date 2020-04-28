@@ -1,16 +1,33 @@
 @import '../../themes/default.css';
 
 :root {
-    --button-primary-base-color: var(--color-red-brand-85-flat);
-    --button-primary-hover-color: color-mod(var(--button-primary-base-color) lightness(-10%));
-    --button-primary-active-color: color-mod(var(--button-primary-base-color) lightness(-20%));
-    --button-primary-disabled-color: var(--button-primary-base-color);
-    --button-secondary-base-color: var(--color-dark-indigo-15-flat);
-    --button-secondary-disabled-color: var(--color-dark-indigo-15-flat);
-    --button-secondary-base-color: var(--color-dark-indigo-15-flat);
-    --button-secondary-hover-color: color-mod(var(--color-red-brand) lightness(-10%));
-    --button-secondary-active-color: color-mod(var(--color-red-brand) lightness(-20%));
-    --button-secondary-disabled-color: var(--color-dark-indigo-15-flat);
+    /* primary */
+    --button-primary-base-bg-color: var(--color-red-brand-85);
+    --button-primary-hover-bg-color: color-mod(
+        var(--button-primary-base-bg-color) blenda(black 7%)
+    );
+    --button-primary-active-bg-color: color-mod(
+        var(--button-primary-base-bg-color) blenda(black 15%)
+    );
+    --button-primary-disabled-bg-color: var(--color-red-brand-30);
+
+    /* secondary */
+    --button-secondary-base-bg-color: var(--color-dark-indigo-07);
+    --button-secondary-hover-bg-color: color-mod(
+        var(--button-secondary-base-bg-color) blenda(black 7%)
+    );
+    --button-secondary-active-bg-color: color-mod(
+        var(--button-secondary-base-bg-color) blenda(black 15%)
+    );
+    --button-secondary-disabled-bg-color: var(--color-dark-indigo-07);
+
+    /* ghost */
+    --button-ghost-base-color: var(--color-dark-indigo);
+    --button-ghost-hover-color: var(--color-dark-indigo);
+    --button-ghost-active-color: var(--color-dark-indigo);
+    --button-ghost-disabled-color: var(--color-dark-indigo-30);
+
+    /* font */
     --button-font-weight: 500;
     --button-font-family: var(--font-family);
 }
@@ -31,7 +48,7 @@
     background-color: transparent;
     border: 0;
     border-radius: var(--border-radius);
-    transition: background 0.2s ease, border 0.2s ease;
+    transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
     box-sizing: border-box;
     box-shadow: none;
     user-select: none;
@@ -93,55 +110,57 @@
 
 .primary {
     color: var(--color-white);
-    background-color: var(--button-primary-base-color);
-}
+    background-color: var(--button-primary-base-bg-color);
 
-.primary:hover {
-    background-color: var(--button-primary-hover-color);
-}
+    &:hover {
+        background-color: var(--button-primary-hover-bg-color);
+    }
 
-.primary:active {
-    background-color: var(--button-primary-active-color);
-}
+    &:active {
+        background-color: var(--button-primary-active-bg-color);
+    }
 
-.primary:disabled {
-    background-color: var(--button-primary-disabled-color);
+    &:disabled {
+        background-color: var(--button-primary-disabled-bg-color);
+    }
 }
 
 .secondary {
     color: var(--color-dark-indigo);
-    background-color: var(--button-secondary-base-color);
-}
+    background-color: var(--button-secondary-base-bg-color);
 
-.secondary:hover {
-    background-color: color-mod(var(--button-secondary-base-color) lightness(-10%));
-}
+    &:hover {
+        background-color: var(--button-secondary-hover-bg-color);
+    }
 
-.secondary:active {
-    background-color: color-mod(var(--button-secondary-base-color) lightness(-20%));
-}
+    &:active {
+        background-color: var(--button-secondary-active-bg-color);
+    }
 
-.secondary:disabled {
-    color: color-mod(var(--color-dark-indigo) alpha(-70%));
-    background-color: var(--button-secondary-disabled-color);
+    &:disabled {
+        color: var(--color-dark-indigo-30);
+        background-color: var(--button-secondary-disabled-bg-color);
+    }
 }
 
 .outlined {
     color: var(--color-dark-indigo);
     background-color: transparent;
-    border: 1px solid var(--color-dark-indigo-60-flat);
-}
+    border: 1px solid var(--color-dark-indigo-60);
 
-.outlined:hover {
-    border-color: color-mod(var(--color-dark-indigo-60-flat) lightness(-20%));
-}
+    &:hover {
+        background-color: var(--color-dark-indigo-07);
+    }
 
-.outlined:active {
-    border-color: color-mod(var(--color-dark-indigo-60-flat) lightness(-40%));
-}
+    &:active {
+        background-color: color-mod(var(--color-dark-indigo-07) blenda(black 7%));
+    }
 
-.outlined:disabled {
-    border-color: var(--color-dark-indigo-60-flat);
+    &:disabled {
+        color: var(--color-dark-indigo-30);
+        background-color: transparent;
+        border-color: var(--color-dark-indigo-10);
+    }
 }
 
 .link {
@@ -150,7 +169,16 @@
     background-color: transparent;
 
     &:hover {
-        background-color: var(--button-secondary-base-color);
+        background-color: var(--color-dark-indigo-07);
+    }
+
+    &:active {
+        background-color: color-mod(var(--color-dark-indigo-07) blenda(black 7%));
+    }
+
+    &:disabled {
+        color: var(--color-dark-indigo-30);
+        background-color: transparent;
     }
 }
 
@@ -158,9 +186,22 @@
     min-width: 0;
     min-height: 0;
     padding: 0;
+    color: var(--button-ghost-base-color);
     border: none;
     background-color: transparent;
     appearance: none;
+
+    &:hover {
+        color: var(--button-ghost-hover-color);
+    }
+
+    &:active {
+        color: var(--button-ghost-active-color);
+    }
+
+    &:disabled {
+        color: var(--button-ghost-disabled-color);
+    }
 }
 
 /* Addons */

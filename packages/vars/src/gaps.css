@@ -12,4 +12,17 @@
     --gap-6xl: 72px;
     --gap-7xl: 96px;
     --gap-8xl: 128px;
+    --gap-2xs-neg: -4px;
+    --gap-xs-neg: -8px;
+    --gap-s-neg: -12px;
+    --gap-m-neg: -16px;
+    --gap-l-neg: -20px;
+    --gap-xl-neg: -24px;
+    --gap-2xl-neg: -32px;
+    --gap-3xl-neg: -40px;
+    --gap-4xl-neg: -48px;
+    --gap-5xl-neg: -64px;
+    --gap-6xl-neg: -72px;
+    --gap-7xl-neg: -96px;
+    --gap-8xl-neg: -128px;
 }

@@ -6,8 +6,8 @@ set -e
 # удаляю билды
 yarn clean
 
-# компилю все подпакеты
-lerna exec --parallel -- tsc --build
+# компилю все подпакеты, за исключением core-components-vars
+lerna exec --parallel --ignore @alfalab/core-components-vars -- tsc --build
 
 # копирую все дополнительные файлы в dist
 copy_cmd="node $(pwd)/node_modules/.bin/copyfiles -e \"**/*.{[jt]s*(x),snap}\" -u 1 \"src/**/*\" dist"
@@ -34,3 +34,6 @@ cp package.json dist/package.json
 
 # делаю корневой пакет публичным
 yarn json -f dist/package.json -I -e "delete this.private" -e "delete this.workspaces"
+
+# копирую package.json в dist для @alfalab/core-components-vars, т.к. он публикуется из папки dist
+lerna exec --scope @alfalab/core-components-vars -- cp package.json dist/package.json

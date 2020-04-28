@@ -76,12 +76,14 @@ Object {
     <div>
       <a
         class="component secondary m iconOnly"
+        href="https://some-url"
       />
     </div>
   </body>,
   "container": <div>
     <a
       class="component secondary m iconOnly"
+      href="https://some-url"
     />
   </div>,
   "debug": [Function],
