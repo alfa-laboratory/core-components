@@ -1,0 +1,28 @@
+{
+    "name": "@alfalab/core-components-popover",
+    "version": "1.0.0",
+    "description": "Popover component",
+    "keywords": [],
+    "license": "ISC",
+    "main": "dist/index.js",
+    "files": [
+        "dist"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "peerDependencies": {
+        "classnames": "^2.2.6",
+        "react": "^16.9.0",
+        "react-dom": "^16.9.0"
+    },
+    "dependencies": {
+        "@alfalab/core-components-portal": "^1.1.2",
+        "@popperjs/core": "^2.3.3",
+        "react-popper": "^2.2.2",
+        "react-transition-group": "^4.3.0"
+    },
+    "devDependencies": {
+        "@types/react-transition-group": "^4.2.4"
+    }
+}
