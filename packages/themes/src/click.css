@@ -1,5 +1,5 @@
 @import './input/click.css';
-@import './input/button.css';
+@import './button/click.css';
 
 :root {
     @mixin input-click;
