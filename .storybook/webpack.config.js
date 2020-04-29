@@ -76,7 +76,7 @@ module.exports = ({ config }) => ({
             loader: 'css-loader',
             options: {
               modules: {
-                getLocalIdent: getCSSModuleLocalIdent,
+                localIdentName: '[local]_[hash:base64:5]',
               },
               localsConvention: 'dashes',
               importLoaders: 1,

@@ -1,0 +1,23 @@
+@define-mixin input-click {
+    --input-border-radius: 4px;
+    --input-border-bottom: 0;
+
+    /* paddings */
+    --input-paddings: 0 var(--input-side-paddings);
+
+    /* disabled */
+    --input-disabled-border-bottom: 0;
+    --input-disabled-bg-color: var(--color-dark-indigo-07-flat);
+
+    /* focus */
+    --input-focus-shadow: none;
+    --input-focus-border-bottom: 0;
+
+    /* error */
+    --input-error-shadow: inset 0 0 0 1px var(--input-error-color);
+    --input-error-border-bottom: 0;
+}
+
+.inputClick {
+    @mixin input-click;
+}
