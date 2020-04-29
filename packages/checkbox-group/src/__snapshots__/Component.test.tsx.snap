@@ -573,30 +573,57 @@ Object {
         <div
           class="checkboxList"
         >
-          <button
-            class="component s my-tag checkbox"
-            type="button"
+          <label
+            class="checkbox tagLabel"
           >
-            <span>
-              Первый вариант
-            </span>
-          </button>
-          <button
-            class="component s checkbox"
-            type="button"
+            <button
+              class="component s my-tag"
+              type="button"
+            >
+              <span>
+                Первый вариант
+              </span>
+            </button>
+            <input
+              autocomplete="off"
+              class="hiddenInput"
+              type="checkbox"
+            />
+          </label>
+          <label
+            class="checkbox tagLabel"
           >
-            <span>
-              Второй вариант
-            </span>
-          </button>
-          <button
-            class="component s checkbox"
-            type="button"
+            <button
+              class="component s"
+              type="button"
+            >
+              <span>
+                Второй вариант
+              </span>
+            </button>
+            <input
+              autocomplete="off"
+              class="hiddenInput"
+              type="checkbox"
+            />
+          </label>
+          <label
+            class="checkbox tagLabel"
           >
-            <span>
-              Третий вариант
-            </span>
-          </button>
+            <button
+              class="component s"
+              type="button"
+            >
+              <span>
+                Третий вариант
+              </span>
+            </button>
+            <input
+              autocomplete="off"
+              class="hiddenInput"
+              type="checkbox"
+            />
+          </label>
         </div>
       </div>
     </div>
@@ -613,30 +640,57 @@ Object {
       <div
         class="checkboxList"
       >
-        <button
-          class="component s my-tag checkbox"
-          type="button"
+        <label
+          class="checkbox tagLabel"
         >
-          <span>
-            Первый вариант
-          </span>
-        </button>
-        <button
-          class="component s checkbox"
-          type="button"
+          <button
+            class="component s my-tag"
+            type="button"
+          >
+            <span>
+              Первый вариант
+            </span>
+          </button>
+          <input
+            autocomplete="off"
+            class="hiddenInput"
+            type="checkbox"
+          />
+        </label>
+        <label
+          class="checkbox tagLabel"
         >
-          <span>
-            Второй вариант
-          </span>
-        </button>
-        <button
-          class="component s checkbox"
-          type="button"
+          <button
+            class="component s"
+            type="button"
+          >
+            <span>
+              Второй вариант
+            </span>
+          </button>
+          <input
+            autocomplete="off"
+            class="hiddenInput"
+            type="checkbox"
+          />
+        </label>
+        <label
+          class="checkbox tagLabel"
         >
-          <span>
-            Третий вариант
-          </span>
-        </button>
+          <button
+            class="component s"
+            type="button"
+          >
+            <span>
+              Третий вариант
+            </span>
+          </button>
+          <input
+            autocomplete="off"
+            class="hiddenInput"
+            type="checkbox"
+          />
+        </label>
       </div>
     </div>
   </div>,

@@ -51,3 +51,15 @@
     margin-top: var(--gap-m);
     color: var(--color-red-brand-85-flat);
 }
+
+.hidden-input {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.tag-label {
+    position: relative;
+}

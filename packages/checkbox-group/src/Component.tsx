@@ -5,6 +5,7 @@ import React, {
     cloneElement,
     ReactElement,
     ChangeEvent,
+    MouseEvent,
     isValidElement,
 } from 'react';
 import cn from 'classnames';
@@ -13,10 +14,6 @@ import styles from './index.module.css';
 
 export type Direction = 'horizontal' | 'vertical';
 export type CheckboxGroupType = 'checkbox' | 'tag';
-
-type ChildProps = {
-    [key: string]: unknown;
-};
 
 export type CheckboxGroupProps = {
     /**
@@ -53,7 +50,7 @@ export type CheckboxGroupProps = {
      * Обработчик изменения значения 'checked' одного из дочерних компонентов
      */
     onChange?: (
-        event?: ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLButtonElement, MouseEvent>,
+        event?: ChangeEvent | MouseEvent,
         payload?: {
             checked: boolean;
             name?: string;
@@ -82,24 +79,48 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
     dataTestId,
     disabled = false,
 }) => {
-    const renderCheckbox = (child: ReactElement, props: ChildProps) => {
-        const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const renderCheckbox = (child: ReactElement) => {
+        const { name, checked, className: childClassName } = child.props;
+
+        const handleChange = (event: ChangeEvent) => {
             if (onChange) {
-                onChange(event, { name: child.props.name, checked: event.target.checked });
+                onChange(event, { name, checked: !checked });
             }
         };
 
-        return cloneElement(child, { onChange: handleChange, ...props });
+        return cloneElement(child, {
+            onChange: handleChange,
+            disabled,
+            ...child.props,
+            className: cn(childClassName, styles.checkbox),
+        });
     };
 
-    const renderTag = (child: ReactElement, props: ChildProps) => {
-        const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const renderTag = (child: ReactElement) => {
+        const { name, checked } = child.props;
+
+        const handleChange = (event: ChangeEvent | MouseEvent) => {
             if (onChange) {
-                onChange(event, { name: child.props.name, checked: !child.props.checked });
+                onChange(event, { name, checked: !checked });
             }
         };
 
-        return cloneElement(child, { onClick: handleClick, ...props });
+        const clone = cloneElement(child, { onClick: handleChange, disabled, ...child.props });
+
+        return (
+            // eslint-disable-next-line jsx-a11y/label-has-associated-control
+            <label className={cn(styles.checkbox, styles.tagLabel)}>
+                {clone}
+                <input
+                    type='checkbox'
+                    autoComplete='off'
+                    onChange={handleChange}
+                    disabled={disabled || child.props.disabled}
+                    checked={checked}
+                    className={styles.hiddenInput}
+                />
+            </label>
+        );
     };
 
     return (
@@ -118,15 +139,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
                 <div className={cn(styles.checkboxList)}>
                     {Children.map(children, child => {
                         if (isValidElement(child)) {
-                            const props = {
-                                disabled,
-                                ...child.props,
-                                className: cn(child.props.className, styles.checkbox),
-                            };
-
-                            return type === 'checkbox'
-                                ? renderCheckbox(child, props)
-                                : renderTag(child, props);
+                            return type === 'checkbox' ? renderCheckbox(child) : renderTag(child);
                         }
 
                         return null;
