@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@alfalab/icons-classic@^1.7.0":
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-classic/-/icons-classic-1.7.0.tgz#e597f19ee604d8ba863c34f0fde6839d459ac801"
+  integrity sha512-FHQ8c6aIf4/aiW202IBE9IJG8muea9Wgkf5PiG9dLkYdLmbclem4ITicajCFG5WDaBSryn0uJ0ThuPMvWuLqag==
+
 "@alfalab/icons-glyph@^1.6.0":
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.7.0.tgz#0addf916925a253cae6c3aaee22258b9cf274d4e"

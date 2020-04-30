@@ -42,6 +42,7 @@
     ]
   },
   "dependencies": {
+    "@alfalab/icons-classic": "^1.7.0",
     "@popperjs/core": "^2.3.3",
     "react-node-resolver": "^2.0.1",
     "react-popper": "^2.2.2",
