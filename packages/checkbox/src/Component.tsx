@@ -12,7 +12,7 @@ export type CheckboxProps = Omit<NativeProps, 'onChange'> & {
     /**
      * Управление состоянием вкл/выкл чекбокса (native prop)
      */
-    checked?: NativeProps['checked'];
+    checked?: boolean;
 
     /**
      * Обработчик переключения чекбокса
