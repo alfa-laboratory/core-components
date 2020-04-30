@@ -22,10 +22,11 @@ export const CheckboxStory = () => {
     const direction = select('direction', ['vertical', 'horizontal'], 'vertical');
     const error = text('error', '');
     const disabled = boolean('disabled', false);
+    const label = text('label', 'Заголовок группы');
 
     return (
         <CheckboxGroup
-            label='Заголовок группы'
+            label={label}
             onChange={onChange}
             direction={direction}
             error={error}
@@ -50,10 +51,11 @@ export const CheckboxTagStory = () => {
     const direction = select('direction', ['vertical', 'horizontal'], 'horizontal');
     const error = text('error', '');
     const disabled = boolean('disabled', false);
+    const label = text('label', 'Заголовок группы');
 
     return (
         <CheckboxGroup
-            label='Заголовок группы'
+            label={label}
             onChange={onChange}
             direction={direction}
             type='tag'
