@@ -20,6 +20,13 @@ if [ $(find . -type f -name "*.css" | wc -l) -gt 0 ];
 fi'
 lerna exec --parallel --ignore @alfalab/core-components-vars -- $postcss_cmd
 
+# копирую результат сборки в dist/esnext
+copy_esnext="mkdir dist/esnext && $(pwd)/node_modules/.bin/copyfiles -e dist/esnext -u 1 dist/**/* dist/esnext"
+lerna exec --parallel --ignore @alfalab/core-components-vars -- $copy_esnext
+
+# компилю все подпакеты в es2020, за исключением core-components-vars
+lerna exec --parallel --ignore @alfalab/core-components-vars -- tsc --target es2020 --module esnext --outDir dist/esnext
+
 # удаляю папку dist в корне проекта
 rm -rf dist
 
