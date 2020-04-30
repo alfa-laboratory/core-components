@@ -1,5 +1,5 @@
 import { withKnobs, select, text, boolean } from '@storybook/addon-knobs';
-import React, { useState } from 'react';
+import React from 'react';
 import { withDesign } from 'storybook-addon-designs';
 
 import { Input } from './Component';
@@ -19,11 +19,6 @@ const icon = (
 );
 
 export const InputStory = () => {
-    const [value, setValue] = useState('value');
-
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void =>
-        setValue(event.target.value);
-
     return (
         <Input
             type={select(
@@ -38,8 +33,6 @@ export const InputStory = () => {
             label={text('label', '')}
             hint={text('hint', '')}
             error={text('error', '')}
-            value={value}
-            onChange={handleChange}
             rightAddons={boolean('rightAddons', true) && !text('error', '') && icon}
         />
     );
