@@ -173,6 +173,10 @@
     left: var(--gap-s);
 }
 
+.l .sub {
+    margin-top: var(--gap-xs);
+}
+
 /* DISABLED STATE */
 
 .disabled .inner {
