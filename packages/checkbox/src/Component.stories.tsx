@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import cn from 'classnames';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
-import { withDesign } from 'storybook-addon-designs';
 
 import { Checkbox } from './Component';
 import styles from '../../../.storybook/styles.css';
@@ -9,7 +8,7 @@ import styles from '../../../.storybook/styles.css';
 export default {
     title: 'Common|Checkbox',
     component: Checkbox,
-    decorators: [withDesign, withKnobs],
+    decorators: [withKnobs],
 };
 
 export const CheckboxStory = () => {
