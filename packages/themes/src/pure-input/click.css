@@ -1,0 +1,22 @@
+@define-mixin pure-input-click {
+    --pure-input-border-radius: 4px;
+    --pure-input-border-bottom: 0;
+    --pure-input-bg-color: var(--color-dark-indigo-07-flat);
+
+    /* paddings */
+    --pure-input-paddings: 0 var(--gap-s);
+    --pure-input-l-paddings: 0 var(--gap-m);
+
+    /* disabled */
+    --pure-input-disabled-border-bottom: 0;
+    --pure-input-disabled-bg-color: var(--color-dark-indigo-07-flat);
+
+    /* focus */
+    --pure-input-focus-shadow: none;
+    --pure-input-focus-border-bottom: 0;
+    --pure-input-hover-bg-color: var(--color-dark-indigo-07-flat);
+}
+
+.pureInputClick {
+    @mixin pure-input-click;
+}

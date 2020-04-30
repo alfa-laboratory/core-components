@@ -1,3 +1,5 @@
+@import '../packages/themes/src/full/click.css';
+
 .row {
     display: flex;
     flex-direction: row;
@@ -19,4 +21,8 @@
 
 .col:last-child {
     margin-right: 0;
+}
+
+.themeClick {
+    @mixin theme-click;
 }
