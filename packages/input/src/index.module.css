@@ -2,12 +2,15 @@
 
 :root {
     --input-border-radius: 4px 4px 0 0;
-    --input-side-paddings: 12px;
-    --input-paddings: 1px var(--input-side-paddings) 0;
     --input-border-bottom: 1px solid var(--color-dark-indigo-30-flat);
     --input-bg-color: var(--color-dark-indigo-07);
-    --input-labeled-paddings: 21px var(--input-side-paddings) 0;
-    --input-labeled-s-paddings: 20px var(--input-side-paddings) 0;
+
+    /* paddings */
+    --input-paddings: 1px var(--gap-s) 0;
+    --input-l-paddings: 1px var(--gap-m) 0;
+    --input-labeled-s-paddings: 23px var(--gap-s) 4px;
+    --input-labeled-m-paddings: 28px var(--gap-s) 7px;
+    --input-labeled-l-paddings: 34px var(--gap-m) 13px;
 
     /* disabled */
     --input-disabled-bg-color: var(--color-dark-indigo-15);
@@ -28,7 +31,6 @@
 
 .component {
     display: inline-block;
-    font-family: var(--font-family);
 }
 
 .inner {
@@ -43,6 +45,8 @@
 }
 
 .input {
+    @mixin system_16-20_regular;
+
     position: relative;
     width: 100%;
     height: 100%;
@@ -51,8 +55,6 @@
     border: none;
     margin: 0;
     outline: none;
-    font-size: 16px;
-    line-height: 20px;
     padding: var(--input-paddings);
     text-overflow: ellipsis;
     box-sizing: border-box;
@@ -71,15 +73,15 @@
 }
 
 .label {
+    @mixin system_16-20_regular;
+
     overflow: hidden;
     position: absolute;
     display: flex;
     align-items: center;
     height: 100%;
-    left: var(--input-side-paddings);
+    left: var(--gap-s);
     color: var(--color-dark-indigo-60-flat);
-    font-size: 16px;
-    line-height: 20px;
     text-overflow: ellipsis;
     white-space: nowrap;
     transform: translateY(0);
@@ -95,18 +97,18 @@
     align-items: center;
 }
 
+.addons:first-child {
+    padding-left: var(--gap-s);
+}
+
 .addons:last-child {
     padding-right: var(--gap-s);
 }
 
-.addons:first-child {
-    padding-right: var(--gap-s);
-}
-
 .sub {
+    @mixin system_14-18_regular;
+
     display: block;
-    font-size: 14px;
-    line-height: 18px;
     margin-top: var(--gap-2xs);
     color: var(--color-dark-indigo-60-flat);
 }
@@ -116,9 +118,15 @@
     color: var(--color-dark-indigo-30-flat);
 }
 
+.hasLabel .input {
+    padding: var(--input-labeled-s-paddings);
+}
+
 .block {
     width: 100%;
 }
+
+/* SIZES */
 
 .s {
     height: 48px;
@@ -128,21 +136,45 @@
     height: 56px;
 }
 
+.m.hasLabel .input {
+    padding: var(--input-labeled-m-paddings);
+}
+
 .l {
     height: 68px;
 }
 
 .l .input {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: var(--input-l-paddings);
 }
 
-.hasLabel.s .input {
-    padding: var(--input-labeled-s-paddings);
+.l.hasLabel .input {
+    padding: var(--input-labeled-l-paddings);
 }
 
-.hasLabel .input {
-    padding: var(--input-labeled-paddings);
+.l .label {
+    left: var(--gap-m);
+}
+
+.l .addons:first-child {
+    padding-left: var(--gap-m);
+}
+
+.l .addons:last-child {
+    padding-right: var(--gap-m);
+}
+
+.l .addons:first-child + .input-wrapper .input {
+    padding-left: var(--gap-s);
+    padding-right: var(--gap-s);
+}
+
+.l .addons:first-child + .input-wrapper .label {
+    left: var(--gap-s);
+}
+
+.l .sub {
+    margin-top: var(--gap-xs);
 }
 
 /* DISABLED STATE */
@@ -173,8 +205,8 @@
 
 .focused .label,
 .filled .label {
-    font-size: 14px;
-    line-height: 18px;
+    @mixin system_14-18_regular;
+
     transform: translateY(-10px);
 }
 

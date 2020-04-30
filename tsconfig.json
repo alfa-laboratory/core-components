@@ -17,7 +17,10 @@
         "plugins": [{ "name": "typescript-plugin-css-modules" }],
         "composite": true,
         "declaration": true,
-        "baseUrl": "."
+        "baseUrl": ".",
+        "paths": {
+            "@alfalab/core-components-*": ["packages/*/src"]
+        }
     },
     "exclude": ["node_modules", "dist", "**/*.stories*", "**/*.test*"],
     "include": ["./typings"]

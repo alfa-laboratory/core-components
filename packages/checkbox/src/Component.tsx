@@ -12,7 +12,7 @@ export type CheckboxProps = Omit<NativeProps, 'onChange'> & {
     /**
      * Управление состоянием вкл/выкл чекбокса (native prop)
      */
-    checked?: NativeProps['checked'];
+    checked?: boolean;
 
     /**
      * Обработчик переключения чекбокса
@@ -21,7 +21,7 @@ export type CheckboxProps = Omit<NativeProps, 'onChange'> & {
         event?: ChangeEvent<HTMLInputElement>,
         payload?: {
             checked: boolean;
-            name: NativeProps['name'];
+            name?: string;
         },
     ) => void;
 
@@ -89,6 +89,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                     />
 
                     {checked && <CheckedIcon />}
+
                     {indeterminate && !checked && (
                         <IndeterminateIcon className={styles.indeterminateIcon} />
                     )}
