@@ -1,0 +1,46 @@
+import { Meta, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { Button } from '../../button/src';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+
+import { Portal } from './Component';
+import { name, version } from '../package.json';
+
+
+<Meta title='Компоненты|Portal' component={Portal} />
+
+<Title>
+    Portal ({name}@{version})
+</Title>
+
+```tsx
+import { Portal } from '@alfalab/core-components-portal';
+```
+
+## Описание
+
+Порталы позволяют рендерить дочерние элементы в DOM-узел, который находится вне DOM-иерархии родительского компонента.
+
+<Preview>
+    {React.createElement(() => {
+        const [show, setShow] = React.useState(false);
+        const handleClick = () => setShow(!show);
+        const styles = { border: '1px solid lightgray', marginTop: '10px' };
+        return (
+            <div>
+                <Button onClick={handleClick}>{show ? 'Unmount children' : 'Mount children'}</Button>
+                <div>
+                    {show && (
+                        <Portal getPortalContainer={() => document.getElementById('portal-container')}>
+                            <Icon />
+                        </Portal>
+                    )}
+                </div>
+                <div id='portal-container' style={styles}>
+                    <div>Контейнер для контента портала</div>
+                </div>
+            </div>
+        );
+    })}
+</Preview>
+
+<Props of={Portal} />
