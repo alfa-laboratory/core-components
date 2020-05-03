@@ -16,7 +16,3 @@
     --pure-input-focus-border-bottom: 0;
     --pure-input-hover-bg-color: var(--color-dark-indigo-07-flat);
 }
-
-.pureInputClick {
-    @mixin pure-input-click;
-}

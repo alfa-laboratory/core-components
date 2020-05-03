@@ -26,6 +26,9 @@ lerna exec --parallel \
     --ignore @alfalab/core-components-themes \
     -- $postcss_cmd
 
+# собираю пакет themes
+lerna exec --scope @alfalab/core-components-themes -- node $(pwd)/bin/build-themes.js
+
 # удаляю папку dist в корне проекта
 rm -rf dist
 

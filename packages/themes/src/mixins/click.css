@@ -1,6 +1,6 @@
-@import '../input/click.css';
-@import '../pure-input/click.css';
-@import '../button/click.css';
+@import './input/click.css';
+@import './pure-input/click.css';
+@import './button/click.css';
 
 @define-mixin theme-click {
     @mixin input-click;

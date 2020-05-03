@@ -1,5 +1,0 @@
-@import './full/click.css';
-
-:root {
-    @mixin theme-click;
-}
