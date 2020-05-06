@@ -11,10 +11,7 @@ yarn build
 lerna publish from-git
 # публикую корневой проект
 yarn publish dist --no-git-tag-version
-# обновляю версию в корневом package.json после публикации
-version=$(yarn --silent json -f dist/package.json version)
-yarn json -f package.json -I -e "this.version='$version'"
-# сохраняю в гите поднятую версию
-git add package.json
-git commit -m 'update version'
-git push
+# обновляю версию в корневом пакете, генерирую CHANGELOG.MD, делаю коммит, создаю git-tag
+yarn release
+# отправляю изменения на github
+git push --follow-tags
