@@ -4,7 +4,7 @@
 set -e
 
 # поднимаю версию во всех подпакетах
-lerna version --no-push
+lerna version --no-push --no-commit-hooks
 # собираю корневой проект
 yarn build
 # публикую все подпакеты
