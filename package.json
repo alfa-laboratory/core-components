@@ -20,7 +20,6 @@
     "start:quick": "RDTL=off yarn start",
     "build-storybook": "build-storybook -o build",
     "update-colors": "node ./tools/update-colors.js",
-    "pub": "./bin/publish.sh",
     "lint": "yarn lint:css && yarn lint:js",
     "lint:css": "stylelint ./packages/**/*.css",
     "lint:js": "eslint ./packages --ext .ts,.tsx,.js,.jsx",
@@ -28,7 +27,10 @@
     "format": "prettier --write \"./{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
     "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist} && rimraf {dist,build}",
     "cm": "git-cz",
-    "release": "standard-version --release-as minor --no-verify --releaseCommitMessageFormat \"chore: release\""
+    "pub:patch": "RELEASE_TYPE=\"patch\" ./bin/publish.sh",
+    "pub:minor": "RELEASE_TYPE=\"minor\" ./bin/publish.sh",
+    "pub:major": "RELEASE_TYPE=\"major\" ./bin/publish.sh",
+    "release": "standard-version --no-verify --releaseCommitMessageFormat \"chore: release\""
   },
   "browserslist": {
     "production": [

@@ -12,6 +12,6 @@ lerna publish from-git
 # публикую корневой проект
 yarn publish dist --no-git-tag-version
 # обновляю версию в корневом пакете, генерирую CHANGELOG.MD, делаю коммит, создаю git-tag
-yarn release
+yarn release --release-as $RELEASE_TYPE
 # отправляю изменения на github
 git push --follow-tags
