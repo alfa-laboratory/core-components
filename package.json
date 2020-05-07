@@ -28,7 +28,7 @@
     "format": "prettier --write \"./{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
     "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist} && rimraf {dist,build}",
     "cm": "git-cz",
-    "release": "standard-version --release-as minor --no-verify"
+    "release": "standard-version --release-as minor --no-verify --releaseCommitMessageFormat \"chore: release\""
   },
   "browserslist": {
     "production": [
