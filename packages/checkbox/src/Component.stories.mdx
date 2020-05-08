@@ -1,0 +1,60 @@
+import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { text, boolean } from '@storybook/addon-knobs';
+
+import { Checkbox } from './Component';
+import { name, version } from '../package.json';
+
+
+<Meta title='Компоненты|Checkbox' component={Checkbox} />
+
+<Title>
+    Checkbox ({name}@{version})
+</Title>
+
+```tsx
+import { Checkbox } from '@alfalab/core-components-checkbox';
+```
+
+## Описание
+
+Компонент чекбокса.
+
+<Story name='Песочница'>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleChange = () => setChecked(!checked);
+        const disabled = boolean('disabled', false);
+        const label = text('label', 'Согласен с условиями');
+        const indeterminate = boolean('indeterminate', false);
+        const hint = text('hint', 'Дополнительная информация');
+        return (
+            <Checkbox
+                disabled={disabled}
+                onChange={handleChange}
+                checked={checked}
+                label={label}
+                indeterminate={indeterminate}
+                hint={hint}
+            />
+        );
+    })}
+</Story>
+
+<Props of={Checkbox} />
+
+### Чекбокс c неопределенным (indeterminate) состоянием
+
+<Preview>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleChange = () => setChecked(!checked);
+        return (
+            <Checkbox
+                onChange={handleChange}
+                checked={checked}
+                label="Выберите опции"
+                indeterminate={true}
+            />
+        );
+    })}
+</Preview>

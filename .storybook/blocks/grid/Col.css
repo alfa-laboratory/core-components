@@ -1,0 +1,32 @@
+.col {
+    flex: 1 1 auto;
+    margin: 0 8px 0 0;
+}
+
+.col:last-child {
+    margin-right: 0;
+}
+
+.span-1 {
+    max-width: calc(100% / 12);
+}
+
+.span-2 {
+    max-width: calc(100% / 12 * 2);
+}
+
+.span-3 {
+    max-width: calc(100% / 12 * 3);
+}
+
+.span-4 {
+    max-width: calc(100% / 12 * 4);
+}
+
+.span-5 {
+    max-width: calc(100% / 12 * 5);
+}
+
+.span-6 {
+    max-width: calc(100% / 2);
+}

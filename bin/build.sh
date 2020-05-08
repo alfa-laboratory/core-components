@@ -10,7 +10,7 @@ yarn clean
 lerna exec --parallel --ignore @alfalab/core-components-vars -- tsc --build
 
 # копирую все дополнительные файлы в dist
-copy_cmd="yarn copyfiles -e \"**/*.{[jt]s*(x),snap}\" -u 1 \"src/**/*\" dist"
+copy_cmd="yarn copyfiles -e \"**/*.{[jt]s*(x),mdx,snap}\" -u 1 \"src/**/*\" dist"
 lerna exec --parallel -- $copy_cmd
 
 # обрабатываю postcss в подпакетах, которые содержат css-файлы, за исключением core-components-vars
