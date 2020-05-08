@@ -29,12 +29,13 @@ lerna exec --parallel \
 # собираю пакет themes
 lerna exec --scope @alfalab/core-components-themes -- node $(pwd)/bin/build-themes.js
 
-# копирую результат сборки в dist/modern
+# копирую результат сборки в dist/modern, за исключением css-пакетов (vars, themes)
 copy_modern="mkdir dist/modern && yarn copyfiles -e dist/modern -u 1 dist/**/* dist/modern"
-lerna exec --parallel --ignore @alfalab/core-components-vars -- $copy_modern
+lerna exec --parallel --ignore @alfalab/core-components-vars --ignore @alfalab/core-components-themes -- $copy_modern
 
-# компилю все подпакеты в es2020, за исключением core-components-vars
-lerna exec --parallel --ignore @alfalab/core-components-vars -- tsc --target es2020 --module ES2015 --outDir dist/modern --tsBuildInfoFile tsconfig.tsbuildinfo
+# компилю все подпакеты в es2020, за исключением css-пакетов (vars, themes)
+lerna exec --parallel --ignore @alfalab/core-components-vars --ignore @alfalab/core-components-themes \
+    -- tsc --target es2020 --module ES2015 --outDir dist/modern --tsBuildInfoFile tsconfig.tsbuildinfo
 
 # удаляю папку dist в корне проекта
 rm -rf dist
