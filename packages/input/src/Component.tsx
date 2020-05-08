@@ -92,6 +92,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             leftAddons,
             onFocus,
             onBlur,
+            onChange,
             rightAddons,
             value,
             ...restProps
@@ -99,6 +100,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         ref,
     ) => {
         const [focused, setFocused] = useState(false);
+        const [filled, setFilled] = useState(value !== undefined && value !== '');
 
         const handleInputFocus = (e: React.FocusEvent<HTMLInputElement>) => {
             setFocused(true);
@@ -113,6 +115,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
             if (onBlur) {
                 onBlur(e);
+            }
+        };
+
+        const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+            setFilled(e.target.value !== '');
+
+            if (onChange) {
+                onChange(e);
             }
         };
 
@@ -135,7 +145,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     {
                         [styles.focused]: focused,
                         [styles.disabled]: disabled,
-                        [styles.filled]: value,
+                        [styles.filled]: filled,
                         [styles.hasLabel]: label,
                         [styles.hasError]: error,
                         [styles.block]: block,
@@ -155,6 +165,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                             disabled={disabled}
                             onBlur={handleInputBlur}
                             onFocus={handleInputFocus}
+                            onChange={handleInputChange}
                             ref={ref}
                             type={type}
                             value={value}

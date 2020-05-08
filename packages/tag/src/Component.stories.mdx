@@ -1,0 +1,59 @@
+import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { text, select } from '@storybook/addon-knobs';
+import Icon from '@alfalab/icons-glyph/CopyMIcon';
+
+import { Tag } from './Component';
+import { name, version } from '../package.json';
+
+
+export const SIZES = ['xs', 's', 'm', 'l'];
+
+<Meta title='Компоненты|Tag' component={Tag} />
+
+<Title>
+    Tag ({name}@{version})
+</Title>
+
+```tsx
+import { Tag } from '@alfalab/core-components-tag';
+```
+
+## Описание
+
+Компонент тэг(чипсы).
+
+<Story name='Песочница'>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleClick = () => setChecked(!checked);
+        return (
+            <Tag
+                size={select('size', SIZES, 'm')}
+                checked={checked}
+                onClick={handleClick}
+            >
+                {text('label', 'Оплатить')}
+            </Tag>
+        );
+    })}
+</Story>
+
+<Props of={Tag} />
+
+### Тэг с иконкой
+
+<Preview>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleClick = () => setChecked(!checked);
+        return (
+            <Tag
+                checked={checked}
+                onClick={handleClick}
+                rightAddons={<Icon />}
+            >
+                Нажми меня
+            </Tag>
+        );
+    })}
+</Preview>

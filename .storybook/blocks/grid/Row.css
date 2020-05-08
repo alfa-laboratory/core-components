@@ -1,0 +1,21 @@
+.row {
+    display: flex;
+    flex: 1 1 auto;
+    margin: 8px 0 0;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &.top {
+        align-items: flex-start;
+    }
+
+    &.middle {
+        align-items: center;
+    }
+
+    &.bottom {
+        align-items: flex-end;
+    }
+}

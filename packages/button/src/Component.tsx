@@ -35,6 +35,11 @@ type ComponentProps = {
     className?: string;
 
     /**
+     * Выводит ссылку в виде кнопки
+     */
+    href?: AnchorHTMLAttributes<HTMLAnchorElement>['href'];
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
