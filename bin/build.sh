@@ -25,7 +25,7 @@ copy_modern="mkdir dist/modern && yarn copyfiles -e dist/modern -u 1 dist/**/* d
 lerna exec --parallel --ignore @alfalab/core-components-vars -- $copy_modern
 
 # компилю все подпакеты в es2020, за исключением core-components-vars
-lerna exec --parallel --ignore @alfalab/core-components-vars -- tsc --target es2020 --module ES2015 --outDir dist/modern
+lerna exec --parallel --ignore @alfalab/core-components-vars -- tsc --target es2020 --module ES2015 --outDir dist/modern --tsBuildInfoFile tsconfig.tsbuildinfo
 
 # удаляю папку dist в корне проекта
 rm -rf dist
