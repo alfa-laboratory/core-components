@@ -10,7 +10,7 @@ yarn clean
 lerna exec --parallel --ignore @alfalab/core-components-vars -- tsc --build
 
 # копирую все дополнительные файлы в dist
-copy_cmd="node $(pwd)/node_modules/.bin/copyfiles -e \"**/*.{[jt]s*(x),mdx,snap}\" -u 1 \"src/**/*\" dist"
+copy_cmd="yarn copyfiles -e \"**/*.{[jt]s*(x),mdx,snap}\" -u 1 \"src/**/*\" dist"
 lerna exec --parallel -- $copy_cmd
 
 # обрабатываю postcss в подпакетах, которые содержат css-файлы, за исключением core-components-vars
@@ -19,6 +19,13 @@ if [ $(find . -type f -name "*.css" | wc -l) -gt 0 ];
     then postcss dist/*.css -d dist;
 fi'
 lerna exec --parallel --ignore @alfalab/core-components-vars -- $postcss_cmd
+
+# копирую результат сборки в dist/modern
+copy_modern="mkdir dist/modern && yarn copyfiles -e dist/modern -u 1 dist/**/* dist/modern"
+lerna exec --parallel --ignore @alfalab/core-components-vars -- $copy_modern
+
+# компилю все подпакеты в es2020, за исключением core-components-vars
+lerna exec --parallel --ignore @alfalab/core-components-vars -- tsc --target es2020 --module ES2015 --outDir dist/modern
 
 # удаляю папку dist в корне проекта
 rm -rf dist
