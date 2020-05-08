@@ -13,7 +13,7 @@ lerna exec --parallel \
     -- tsc --build
 
 # копирую все дополнительные файлы в dist
-copy_cmd="node $(pwd)/node_modules/.bin/copyfiles -e \"**/*.{[jt]s*(x),snap}\" -u 1 \"src/**/*\" dist"
+copy_cmd="yarn copyfiles -e \"**/*.{[jt]s*(x),mdx,snap}\" -u 1 \"src/**/*\" dist"
 lerna exec --parallel -- $copy_cmd
 
 # обрабатываю postcss в подпакетах, которые содержат css-файлы, за исключением css-пакетов (vars, themes)
@@ -28,6 +28,13 @@ lerna exec --parallel \
 
 # собираю пакет themes
 lerna exec --scope @alfalab/core-components-themes -- node $(pwd)/bin/build-themes.js
+
+# копирую результат сборки в dist/modern
+copy_modern="mkdir dist/modern && yarn copyfiles -e dist/modern -u 1 dist/**/* dist/modern"
+lerna exec --parallel --ignore @alfalab/core-components-vars -- $copy_modern
+
+# компилю все подпакеты в es2020, за исключением core-components-vars
+lerna exec --parallel --ignore @alfalab/core-components-vars -- tsc --target es2020 --module ES2015 --outDir dist/modern
 
 # удаляю папку dist в корне проекта
 rm -rf dist
