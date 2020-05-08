@@ -20,13 +20,17 @@
     "start:quick": "RDTL=off yarn start",
     "build-storybook": "build-storybook -o build",
     "update-colors": "node ./tools/update-colors.js",
-    "pub": "./bin/publish.sh",
     "lint": "yarn lint:css && yarn lint:js",
     "lint:css": "stylelint ./packages/**/*.css",
     "lint:js": "eslint ./packages --ext .ts,.tsx,.js,.jsx",
     "test": "jest --watchAll=false",
     "format": "prettier --write \"./{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
-    "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist} && rimraf {dist,build}"
+    "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist} && rimraf {dist,build}",
+    "cm": "git-cz",
+    "pub:patch": "RELEASE_TYPE=\"patch\" ./bin/publish.sh",
+    "pub:minor": "RELEASE_TYPE=\"minor\" ./bin/publish.sh",
+    "pub:major": "RELEASE_TYPE=\"major\" ./bin/publish.sh",
+    "release": "standard-version --no-verify --releaseCommitMessageFormat \"chore: release\""
   },
   "browserslist": {
     "production": [
@@ -53,6 +57,8 @@
     "@alfalab/icons-glyph": "^1.6.0",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.8.3",
     "@babel/plugin-proposal-optional-chaining": "^7.9.0",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@commitlint/config-lerna-scopes": "^8.3.4",
     "@storybook/addon-actions": "^5.3.8",
     "@storybook/addon-docs": "^5.3.17",
     "@storybook/addon-knobs": "^5.3.8",
@@ -75,7 +81,9 @@
     "arui-presets-ts": "^5.0.0",
     "babel-jest": "^25.3.0",
     "babel-loader": "^8.0.6",
+    "commitizen": "^4.1.2",
     "copyfiles": "^2.2.0",
+    "cz-conventional-changelog": "3.2.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-airbnb-typescript": "^7.0.0",
@@ -144,7 +152,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint-staged && yarn test"
+      "pre-commit": "yarn lint-staged && yarn test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }
