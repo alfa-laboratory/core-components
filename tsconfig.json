@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "skipLibCheck": true,
-        "target": "esnext",
+        "target": "ES5",
         "module": "commonjs",
         "jsx": "react",
         "rootDir": ".",
