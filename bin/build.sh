@@ -6,19 +6,28 @@ set -e
 # удаляю билды
 yarn clean
 
-# компилю все подпакеты, за исключением core-components-vars
-lerna exec --parallel --ignore @alfalab/core-components-vars -- tsc --build
+# компилю все подпакеты, за исключением css-пакетов (vars, themes)
+lerna exec --parallel \
+    --ignore @alfalab/core-components-vars \
+    --ignore @alfalab/core-components-themes \
+    -- tsc --build
 
 # копирую все дополнительные файлы в dist
 copy_cmd="yarn copyfiles -e \"**/*.{[jt]s*(x),mdx,snap}\" -u 1 \"src/**/*\" dist"
 lerna exec --parallel -- $copy_cmd
 
-# обрабатываю postcss в подпакетах, которые содержат css-файлы, за исключением core-components-vars
+# обрабатываю postcss в подпакетах, которые содержат css-файлы, за исключением css-пакетов (vars, themes)
 postcss_cmd='
 if [ $(find . -type f -name "*.css" | wc -l) -gt 0 ];
     then postcss dist/*.css -d dist;
 fi'
-lerna exec --parallel --ignore @alfalab/core-components-vars -- $postcss_cmd
+lerna exec --parallel \
+    --ignore @alfalab/core-components-vars \
+    --ignore @alfalab/core-components-themes \
+    -- $postcss_cmd
+
+# собираю пакет themes
+lerna exec --scope @alfalab/core-components-themes -- node $(pwd)/bin/build-themes.js
 
 # копирую результат сборки в dist/modern
 copy_modern="mkdir dist/modern && yarn copyfiles -e dist/modern -u 1 dist/**/* dist/modern"
@@ -42,5 +51,8 @@ cp package.json dist/package.json
 # делаю корневой пакет публичным
 yarn json -f dist/package.json -I -e "delete this.private" -e "delete this.workspaces"
 
-# копирую package.json в dist для @alfalab/core-components-vars, т.к. он публикуется из папки dist
-lerna exec --scope @alfalab/core-components-vars -- cp package.json dist/package.json
+# копирую package.json в dist для css-пакетов, т.к. они публикуется из папки dist
+lerna exec \
+    --scope @alfalab/core-components-vars \
+    --scope @alfalab/core-components-themes \
+    -- cp package.json dist/package.json
