@@ -3,6 +3,10 @@ import cn from 'classnames';
 
 import styles from './index.module.css';
 
+import { helper } from './helper/helper';
+
+helper();
+
 type NativeProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type TagProps = Omit<NativeProps, 'onClick'> & {
