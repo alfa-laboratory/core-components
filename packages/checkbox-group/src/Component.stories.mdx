@@ -1,0 +1,78 @@
+import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { text, boolean, select } from '@storybook/addon-knobs';
+
+import { CheckboxGroup } from './Component';
+import { name, version } from '../package.json';
+import { Checkbox } from '../../checkbox/src';
+import { Tag } from '../../tag/src';
+
+<Meta title='Компоненты|CheckboxGroup' component={CheckboxGroup} />
+
+<Title>
+    CheckboxGroup ({name}@{version})
+</Title>
+
+```tsx
+import { CheckboxGroup } from '@alfalab/core-components-checkbox-group';
+```
+
+## Описание
+
+Компонент группы чекбоксов.
+
+<Story name='Песочница'>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState({ one: false, two: false, three: false });
+        const onChange = (_, payload) => {
+            setValue({ ...value, [payload.name]: payload.checked });
+        };
+        const direction = select('direction', ['vertical', 'horizontal'], 'vertical');
+        const error = text('error', '');
+        const disabled = boolean('disabled', false);
+        const label = text('label', 'Заголовок группы');
+        return (
+            <CheckboxGroup
+                label={label}
+                onChange={onChange}
+                direction={direction}
+                error={error}
+                disabled={disabled}
+            >
+                <Checkbox label='Первый вариант' name='one' checked={value.one} />
+                <Checkbox label='Второй вариант' name='two' checked={value.two} />
+                <Checkbox label='Третий вариант' name='three' checked={value.three} />
+            </CheckboxGroup>
+        );
+    })}
+</Story>
+
+<Props of={CheckboxGroup} />
+
+### Группа чекбоксов, использующая компонент `Tag`
+
+<Preview>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState({ one: false, two: false, three: false });
+        const onChange = (_, payload) => {
+            setValue({ ...value, [payload.name]: payload.checked });
+        };
+        return (
+            <CheckboxGroup
+                label="Заголовок группы"
+                onChange={onChange}
+                direction="horizontal"
+                type='tag'
+            >
+                <Tag name='one' checked={value.one}>
+                    Первый вариант
+                </Tag>
+                <Tag name='two' checked={value.two}>
+                    Второй вариант
+                </Tag>
+                <Tag name='three' checked={value.three}>
+                    Третий вариант
+                </Tag>
+            </CheckboxGroup>
+        );
+    })}
+</Preview>

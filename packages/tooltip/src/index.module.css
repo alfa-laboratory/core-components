@@ -1,4 +1,4 @@
-@import '../../themes/default.css';
+@import '../../themes/src/default.css';
 
 :root {
     --tooltip-border-color: var(--color-dark-indigo-15-flat);
