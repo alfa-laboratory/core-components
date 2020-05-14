@@ -46,11 +46,11 @@ export type SelectProps<T extends ItemShape> = Omit<
     MenuItem?: React.ComponentType<MenuItemProps<T>>;
 
     onChange?: (
-        event?: ChangeEvent<HTMLSelectElement>,
+        event?: ChangeEvent,
         payload?: {
             selected?: T | T[];
             value?: string | string[];
-            name?: SelectHTMLAttributes<HTMLSelectElement>['name'];
+            name?: string;
         },
     ) => void;
 };
@@ -200,27 +200,28 @@ export function Select<T extends ItemShape>({
             // https://github.com/downshift-js/downshift/pull/985
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const { type, selectedItem } = changes as any;
-            const alreadySelected = selectedItems.find(item => item === selectedItem);
 
             switch (type) {
                 case useSelect.stateChangeTypes.MenuKeyDownEnter:
                 case useSelect.stateChangeTypes.MenuKeyDownSpaceButton:
                 case useSelect.stateChangeTypes.ItemClick:
-                    // Необходимо для работы "отжатия" пункта, т.к. при выборе уже выбранного пункта selectedItem === undefined
-                    selectItem(undefined);
+                    if (selectedItem) {
+                        const alreadySelected = selectedItems.find(item => item === selectedItem);
+                        // Необходимо для работы "отжатия" пункта, т.к. при выборе уже выбранного пункта selectedItem === undefined
+                        selectItem(undefined);
 
-                    if ((multiple || allowUnselect) && alreadySelected) {
-                        removeSelectedItem(selectedItem);
-                    }
+                        if ((multiple || allowUnselect) && alreadySelected) {
+                            removeSelectedItem(selectedItem);
+                        }
 
-                    if (!alreadySelected) {
-                        if (multiple) {
-                            addSelectedItem(selectedItem);
-                        } else {
-                            setSelectedItems([selectedItem]);
+                        if (!alreadySelected) {
+                            if (multiple) {
+                                addSelectedItem(selectedItem);
+                            } else {
+                                setSelectedItems([selectedItem]);
+                            }
                         }
                     }
-
                     break;
                 default:
                     break;
