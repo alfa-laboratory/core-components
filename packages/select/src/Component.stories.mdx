@@ -1,0 +1,109 @@
+import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
+
+import { Select } from './Component';
+import { name, version } from '../package.json';
+
+export const items = [
+    { label: 'Neptunium' },
+    { label: 'Plutonium' },
+    { label: 'Americium' },
+    { label: 'Curium' },
+    { label: 'Berkelium' },
+    { label: 'Californium' },
+    { label: 'Einsteinium' },
+    { label: 'Fermium' },
+    { label: 'Mendelevium' },
+    { label: 'Nobelium' },
+    { label: 'Lawrencium' },
+    { label: 'Rutherfordium' },
+    { label: 'Dubnium' },
+    { label: 'Seaborgium' },
+    { label: 'Bohrium' },
+    { label: 'Hassium' },
+    { label: 'Meitnerium' },
+    { label: 'Darmstadtium' },
+    { label: 'Roentgenium' },
+    { label: 'Copernicium' },
+    { label: 'Nihonium' },
+    { label: 'Flerovium' },
+    { label: 'Moscovium' },
+    { label: 'Livermorium' },
+    { label: 'Tennessine' },
+    { label: 'Oganesson' },
+];
+
+export const stringItems = items.map(item => item.label)
+
+export const CustomField = ({ itemToString, selectedItems }) => {
+    return (
+        <span style={{ background: '#ff4784', color: '#fff', display: 'block' }}>
+            {selectedItems.length === 0 ? 'Custom field.' : ' Selected: '}
+            {selectedItems
+                .map(item => {
+                    return itemToString(item).toUpperCase();
+                })
+                .join(', ')}
+        </span>
+    );
+};
+
+export const onChange = (event, payload) => {
+    const form = document.getElementById('form');
+    const data = new FormData(form);
+    console.log(event, payload);
+    console.log(Array.from(data.entries()));
+};
+
+<Meta title='Компоненты|Select' component={Select} />
+
+<Title>
+    Select ({name}@{version})
+</Title>
+
+```tsx
+import { Select } from '@alfalab/core-components-select';
+```
+
+## Описание
+
+Компонент селект.
+
+<Story name='Песочница'>
+    <form id="form">
+        <div style={{ marginBottom: '10px'}}>
+            <Select
+                items={items}
+                itemToString={item => item.label}
+                multiple={true}
+                placeholder='Выберите элемент'
+                label='Элемент'
+                name='select1'
+                onChange={onChange}
+            />
+        </div>
+        <div style={{ marginBottom: '10px'}}>
+            <Select
+                items={stringItems}
+                placeholder='Выберите элемент'
+                label='Элемент'
+                name='select2'
+                multiple={true}
+                onChange={onChange}
+            />
+        </div>
+        <div style={{ marginBottom: '10px'}}>
+            <Select
+                items={items}
+                itemToString={item => item.label}
+                label='Элемент'
+                name='select3'
+                allowUnselect={true}
+                Field={CustomField}
+                onChange={onChange}
+            />
+        </div>
+    </form>
+</Story>
+
+<Props of={Select} />
+
