@@ -19,7 +19,7 @@ export type ItemToStringFn<T> = (item?: T) => string;
 
 export type SelectProps<T extends ItemShape> = Omit<
     SelectHTMLAttributes<HTMLSelectElement>,
-    'size' | 'unselectable'
+    'size'
 > & {
     className?: string;
 
