@@ -35,6 +35,8 @@ export type SelectProps<T extends ItemShape> = Omit<
 
     allowUnselect?: boolean;
 
+    closeOnSelect?: boolean;
+
     placeholder?: string;
 
     itemToString?: ItemToStringFn<T>;
@@ -150,6 +152,7 @@ export function Select<T extends ItemShape>({
     multiple = false,
     allowUnselect = false,
     disabled = false,
+    closeOnSelect = true,
     size = 's',
     label,
     placeholder,
@@ -196,6 +199,21 @@ export function Select<T extends ItemShape>({
     } = useSelect<T | undefined>({
         items,
         itemToString,
+        stateReducer: (_, actionAndChanges) => {
+            const { type, changes } = actionAndChanges;
+
+            switch (type) {
+                case useSelect.stateChangeTypes.MenuKeyDownEnter:
+                case useSelect.stateChangeTypes.MenuKeyDownSpaceButton:
+                case useSelect.stateChangeTypes.ItemClick:
+                    return {
+                        ...changes,
+                        isOpen: !closeOnSelect,
+                    };
+                default:
+                    return changes;
+            }
+        },
         onStateChange: changes => {
             // https://github.com/downshift-js/downshift/pull/985
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
