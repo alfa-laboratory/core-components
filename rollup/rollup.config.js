@@ -1,5 +1,4 @@
 import path from 'path';
-// import typescript from '@rollup/plugin-typescript';
 import multiInput from 'rollup-plugin-multi-input';
 import postcss from 'rollup-plugin-postcss';
 import typescript from 'rollup-plugin-ts';
