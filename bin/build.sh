@@ -1,56 +1,31 @@
 #!/bin/bash
-
 # выхожу, если одна из команд завершилась неудачно
 set -e
 
 # удаляю билды
 yarn clean
 
-# компилю все подпакеты, за исключением css-пакетов (vars, themes)
+# собираю все подпакеты, за исключением css-пакетов (vars, themes)
 lerna exec --parallel \
     --ignore @alfalab/core-components-vars \
     --ignore @alfalab/core-components-themes \
-    -- tsc --build
+    -- $(pwd)/bin/rollup.sh
 
-# копирую все дополнительные файлы в dist
-copy_cmd="yarn copyfiles -e \"**/*.{[jt]s*(x),mdx,snap}\" -u 1 \"src/**/*\" dist"
-lerna exec --parallel -- $copy_cmd
-
-# обрабатываю postcss в подпакетах, которые содержат css-файлы, за исключением css-пакетов (vars, themes)
-postcss_cmd='
-if [ $(find . -type f -name "*.css" | wc -l) -gt 0 ];
-    then postcss dist/*.css -d dist;
-fi'
-lerna exec --parallel \
-    --ignore @alfalab/core-components-vars \
-    --ignore @alfalab/core-components-themes \
-    -- $postcss_cmd
+# копирую src в dist в css-пакетах (vars, themes)
+copy_css="yarn copyfiles -u 1 \"src/**/*.css\" dist"
+lerna exec \
+    --scope @alfalab/core-components-vars \
+    --scope @alfalab/core-components-themes \
+    -- $copy_css
 
 # собираю пакет themes
 lerna exec --scope @alfalab/core-components-themes -- node $(pwd)/bin/build-themes.js
-
-# копирую результат сборки в dist/modern, за исключением css-пакетов (vars, themes)
-copy_modern="mkdir dist/modern && yarn copyfiles -e dist/modern -u 1 dist/**/* dist/modern"
-lerna exec --parallel --ignore @alfalab/core-components-vars --ignore @alfalab/core-components-themes -- $copy_modern
-
-# компилю все подпакеты в es2020, за исключением css-пакетов (vars, themes)
-lerna exec --parallel --ignore @alfalab/core-components-vars --ignore @alfalab/core-components-themes \
-    -- tsc --target es2020 --module ES2015 --outDir dist/modern --tsBuildInfoFile tsconfig.tsbuildinfo
-
-# копирую результат сборки в dist/modern
-copy_modern="mkdir dist/modern && yarn copyfiles -e dist/modern -u 1 dist/**/* dist/modern"
-lerna exec --parallel --ignore @alfalab/core-components-vars -- $copy_modern
-
-# компилю все подпакеты в es2020, за исключением core-components-vars
-lerna exec --parallel --ignore @alfalab/core-components-vars -- tsc --target es2020 --module ES2015 --outDir dist/modern
-
-# удаляю папку dist в корне проекта
-rm -rf dist
 
 # запускаю скрипт build-root-package.sh во всех подпакетах
 lerna exec --parallel -- $(pwd)/bin/build-root-package.sh \$LERNA_PACKAGE_NAME
 
 # меняю импорты из @alfalab/core-components на относительные в агрегирующем пакете
+# TODO: сделать это плагином rollup
 yarn replace-in-file '/require\("@alfalab\/core-components-/g' 'require("../' dist/**/*.js --isRegex
 
 # копирую package.json в сборку корневого пакета

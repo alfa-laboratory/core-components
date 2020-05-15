@@ -1,6 +1,7 @@
+import { ScriptTarget } from 'typescript';
 import path from 'path';
 import multiInput from 'rollup-plugin-multi-input';
-import postcss from 'rollup-plugin-postcss';
+import postcss from '@alfalab/rollup-plugin-postcss';
 import typescript from 'rollup-plugin-ts';
 
 import { addCssImports } from './addCssImports';
@@ -10,10 +11,22 @@ const currentPkg = path.join(currentPackageDir, 'package.json');
 
 const pkg = require(currentPkg);
 
+const currentComponentName = pkg.name.replace('@alfalab/core-components-', '');
+
 const baseConfig = {
     input: ['src/**/*.{ts,tsx}', '!src/**/*.{test,stories}.tsx', '!src/**/*.mdx'],
     external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
 };
+
+const multiInputPlugin = multiInput();
+
+const postcssPlugin = postcss({
+    modules: {
+        generateScopedName: `${currentComponentName}__[local]__[contenthash:5]`,
+    },
+    extract: true,
+    separateCssFiles: true,
+});
 
 const es5 = {
     ...baseConfig,
@@ -25,13 +38,14 @@ const es5 = {
         },
     ],
     plugins: [
-        multiInput(),
-        typescript(),
-        postcss({
-            modules: true,
-            extract: true,
-            separateCssFiles: true,
+        multiInputPlugin,
+        typescript({
+            tsconfig: resolvedConfig => ({
+                ...resolvedConfig,
+                tsBuildInfoFile: 'tsconfig.tsbuildinfo',
+            }),
         }),
+        postcssPlugin,
     ],
 };
 
@@ -45,16 +59,16 @@ const modern = {
         },
     ],
     plugins: [
-        multiInput(),
+        multiInputPlugin,
         typescript({
             outDir: 'dist/modern',
-            target: 'es2020',
+            tsconfig: resolvedConfig => ({
+                ...resolvedConfig,
+                target: ScriptTarget.ES2020,
+                tsBuildInfoFile: 'tsconfig.tsbuildinfo',
+            }),
         }),
-        postcss({
-            modules: true,
-            extract: true,
-            separateCssFiles: true,
-        }),
+        postcssPlugin,
     ],
 };
 

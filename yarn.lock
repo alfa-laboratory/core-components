@@ -12,6 +12,26 @@
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.7.0.tgz#0addf916925a253cae6c3aaee22258b9cf274d4e"
   integrity sha512-SoTQA1dOWixaBLo6kCHGhiNYwD+OLmTzPjfLZ6qFuBkVjmudmzS4v+sqz/rfsTT8IUbWz+OLpeP6xti/qBWFog==
 
+"@alfalab/rollup-plugin-postcss@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/rollup-plugin-postcss/-/rollup-plugin-postcss-3.1.0.tgz#af89f10a275f3da5825369535a8fe30322881294"
+  integrity sha512-g21sLONkSk7qfBh5ZEUE3t76fSz0fRa9kJY4ZjWk6ROHqnDD124uMegye497NYHQmMptj7H5ISvIOTiNFOfg1A==
+  dependencies:
+    chalk "^4.0.0"
+    concat-with-sourcemaps "^1.1.0"
+    cssnano "^4.1.10"
+    import-cwd "^3.0.0"
+    p-queue "^6.3.0"
+    pify "^5.0.0"
+    postcss "^7.0.27"
+    postcss-load-config "^2.1.0"
+    postcss-modules "^2.0.0"
+    promise.series "^0.2.0"
+    resolve "^1.16.1"
+    rollup-pluginutils "^2.8.2"
+    safe-identifier "^0.4.1"
+    style-inject "^0.3.0"
+
 "@babel/code-frame@7.5.5":
   version "7.5.5"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.5.5.tgz#bc0782f6d69f7b7d49531219699b988f669a8f9d"
@@ -16939,26 +16959,6 @@ rollup-plugin-multi-input@^1.1.1:
     core-js "^3.1.3"
     fast-glob "^3.0.0"
     lodash "^4.17.11"
-
-rollup-plugin-postcss@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-postcss/-/rollup-plugin-postcss-3.1.1.tgz#eb895bd919285aaf6200324071103b4d3ea68607"
-  integrity sha512-4/FO5/2O5kv2uWRd7PPTN4mBCWoHwwFTnpEGokfPKfj6kygvTORqkBWNgVPXi7bBefNKtMA3FqQ10se6/J8kKw==
-  dependencies:
-    chalk "^4.0.0"
-    concat-with-sourcemaps "^1.1.0"
-    cssnano "^4.1.10"
-    import-cwd "^3.0.0"
-    p-queue "^6.3.0"
-    pify "^5.0.0"
-    postcss "^7.0.27"
-    postcss-load-config "^2.1.0"
-    postcss-modules "^2.0.0"
-    promise.series "^0.2.0"
-    resolve "^1.16.1"
-    rollup-pluginutils "^2.8.2"
-    safe-identifier "^0.4.1"
-    style-inject "^0.3.0"
 
 rollup-plugin-ts@^1.2.24:
   version "1.2.24"
