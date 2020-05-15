@@ -30,8 +30,7 @@
     "pub:patch": "RELEASE_TYPE=\"patch\" ./bin/publish.sh",
     "pub:minor": "RELEASE_TYPE=\"minor\" ./bin/publish.sh",
     "pub:major": "RELEASE_TYPE=\"major\" ./bin/publish.sh",
-    "release": "standard-version --no-verify --releaseCommitMessageFormat \"chore: release\"",
-    "new_build": "./bin/new_build.sh"
+    "release": "standard-version --no-verify --releaseCommitMessageFormat \"chore: release\""
   },
   "browserslist": {
     "production": [
