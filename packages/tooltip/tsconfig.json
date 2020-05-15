@@ -3,7 +3,11 @@
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",
-        "rootDir": "src"
+        // "rootDir": "src",
+        "rootDirs": ["../../typings", "src"],
+        "paths": {
+            "@alfalab/core-components-popover": ["../popover"]
+        }
     },
     "references": [{ "path": "../popover" }]
   }
