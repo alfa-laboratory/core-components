@@ -195,29 +195,12 @@ export function Select<T extends ItemShape>({
         getMenuProps,
         highlightedIndex,
         getItemProps,
-        selectItem,
     } = useSelect<T | undefined>({
         items,
         itemToString,
         stateReducer: (_, actionAndChanges) => {
             const { type, changes } = actionAndChanges;
-
-            switch (type) {
-                case useSelect.stateChangeTypes.MenuKeyDownEnter:
-                case useSelect.stateChangeTypes.MenuKeyDownSpaceButton:
-                case useSelect.stateChangeTypes.ItemClick:
-                    return {
-                        ...changes,
-                        isOpen: !closeOnSelect,
-                    };
-                default:
-                    return changes;
-            }
-        },
-        onStateChange: changes => {
-            // https://github.com/downshift-js/downshift/pull/985
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const { type, selectedItem } = changes as any;
+            const { selectedItem } = changes;
 
             switch (type) {
                 case useSelect.stateChangeTypes.MenuKeyDownEnter:
@@ -225,8 +208,6 @@ export function Select<T extends ItemShape>({
                 case useSelect.stateChangeTypes.ItemClick:
                     if (selectedItem) {
                         const alreadySelected = selectedItems.find(item => item === selectedItem);
-                        // Необходимо для работы "отжатия" пункта, т.к. при выборе уже выбранного пункта selectedItem === undefined
-                        selectItem(undefined);
 
                         if ((multiple || allowUnselect) && alreadySelected) {
                             removeSelectedItem(selectedItem);
@@ -240,9 +221,13 @@ export function Select<T extends ItemShape>({
                             }
                         }
                     }
-                    break;
+
+                    return {
+                        ...changes,
+                        isOpen: !closeOnSelect,
+                    };
                 default:
-                    break;
+                    return changes;
             }
         },
     });
