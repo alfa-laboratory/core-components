@@ -85,7 +85,7 @@
     }
 }
 
-.field.focused:not(.disabled) {
+.field.isOpen:not(.disabled) {
     border-bottom: var(--input-focus-border-bottom);
     box-shadow: var(--input-focus-shadow);
 }

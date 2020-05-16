@@ -3,7 +3,6 @@ import React, {
     ReactNode,
     useMemo,
     useCallback,
-    useState,
     ChangeEvent,
     SelectHTMLAttributes,
 } from 'react';
@@ -63,7 +62,7 @@ export type FieldProps<T extends ItemShape> = Pick<
 > & {
     itemToString: ItemToStringFn<T>;
 
-    focused?: boolean;
+    isOpen?: boolean;
 
     filled?: boolean;
 
@@ -93,7 +92,7 @@ export type MenuItemProps<T extends ItemShape> = {
 function DefualtField<T extends ItemShape>({
     itemToString,
     size = 'm',
-    focused,
+    isOpen,
     disabled,
     filled,
     label,
@@ -103,7 +102,7 @@ function DefualtField<T extends ItemShape>({
     return (
         <span
             className={cn(styles.field, styles[size], {
-                [styles.focused]: focused,
+                [styles.isOpen]: isOpen,
                 [styles.disabled]: disabled,
                 [styles.filled]: filled,
                 [styles.hasLabel]: label,
@@ -236,8 +235,6 @@ export function Select<T extends ItemShape>({
     const selectRef = useRef<HTMLDivElement>(null);
     const menuRef = useRef<HTMLElement>(null);
 
-    const [focused, setFocused] = useState(false);
-
     const getPortalContainer = () => selectRef.current as HTMLDivElement;
 
     const getTransitionProps = useMemo(() => {
@@ -265,14 +262,6 @@ export function Select<T extends ItemShape>({
         };
     }, [highlightedIndex, setHighlightedIndex]);
 
-    const handleSelectFocus = useCallback(() => {
-        setFocused(true);
-    }, []);
-
-    const handleSelectBlur = useCallback(() => {
-        setFocused(false);
-    }, []);
-
     const fieldProps = {
         itemToString,
         selectedItems,
@@ -280,7 +269,7 @@ export function Select<T extends ItemShape>({
         removeSelectedItem,
         multiple,
         size,
-        focused,
+        isOpen,
         disabled,
         filled: selectedItems.length > 0,
         label,
@@ -330,12 +319,7 @@ export function Select<T extends ItemShape>({
     );
 
     return (
-        <div
-            ref={selectRef}
-            className={cn(styles.component, className)}
-            onFocus={handleSelectFocus}
-            onBlur={handleSelectBlur}
-        >
+        <div ref={selectRef} className={cn(styles.component, className)}>
             <button type='button' {...getToggleButtonProps()} className={styles.fieldWrapper}>
                 <Field {...fieldProps} />
             </button>
