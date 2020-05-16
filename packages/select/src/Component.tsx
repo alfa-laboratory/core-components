@@ -195,6 +195,7 @@ export function Select<T extends ItemShape>({
         getMenuProps,
         highlightedIndex,
         getItemProps,
+        setHighlightedIndex,
     } = useSelect<T | undefined>({
         items,
         itemToString,
@@ -242,12 +243,27 @@ export function Select<T extends ItemShape>({
     const getTransitionProps = useMemo(() => {
         return {
             onEntered: () => {
+                /*
+                 * Из-за использования Transition внутри Popover'а - меню и его пункты рендерятся с задержкой.
+                 * Поэтому приходится вручную перезапускать некоторую логику. Либо стоит отказаться от анимации через Transition
+                 */
                 if (menuRef.current !== null) {
                     menuRef.current.focus();
+
+                    if (highlightedIndex !== -1) {
+                        /*
+                         * Перезапускаем scrollIntoView
+                         * https://github.com/downshift-js/downshift/blob/master/src/hooks/useSelect/index.js#L189
+                         */
+                        setHighlightedIndex(-1);
+                        setTimeout(() => {
+                            setHighlightedIndex(highlightedIndex);
+                        }, 0);
+                    }
                 }
             },
         };
-    }, []);
+    }, [highlightedIndex, setHighlightedIndex]);
 
     const handleSelectFocus = useCallback(() => {
         setFocused(true);
