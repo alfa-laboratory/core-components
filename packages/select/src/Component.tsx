@@ -9,6 +9,7 @@ import React, {
 import cn from 'classnames';
 import { Popover } from '@alfalab/core-components-popover';
 import { useMultipleSelection, useSelect } from 'downshift';
+import { TransitionProps } from 'react-transition-group/Transition';
 
 import styles from './index.module.css';
 
@@ -237,8 +238,9 @@ export function Select<T extends ItemShape>({
 
     const getPortalContainer = () => selectRef.current as HTMLDivElement;
 
-    const getTransitionProps = useMemo(() => {
+    const getTransitionProps = useMemo((): Partial<TransitionProps> => {
         return {
+            appear: true,
             onEntered: () => {
                 /*
                  * Из-за использования Transition внутри Popover'а - меню и его пункты рендерятся с задержкой.
