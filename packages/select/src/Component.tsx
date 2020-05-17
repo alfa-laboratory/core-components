@@ -200,20 +200,22 @@ export function Select<T extends ItemShape>({
                 if (menuRef.current !== null) {
                     menuRef.current.focus();
 
-                    if (highlightedIndex !== -1) {
+                    if (selectedItems.length) {
                         /*
                          * Перезапускаем scrollIntoView
                          * https://github.com/downshift-js/downshift/blob/master/src/hooks/useSelect/index.js#L189
                          */
                         setHighlightedIndex(-1);
                         setTimeout(() => {
-                            setHighlightedIndex(highlightedIndex);
+                            setHighlightedIndex(
+                                items.indexOf(selectedItems[selectedItems.length - 1]),
+                            );
                         }, 0);
                     }
                 }
             },
         };
-    }, [highlightedIndex, setHighlightedIndex]);
+    }, [items, selectedItems, setHighlightedIndex]);
 
     const fieldProps = {
         itemToString,
