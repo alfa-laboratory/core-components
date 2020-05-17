@@ -1,6 +1,7 @@
 import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
 
 import { Select } from './Component';
+import { Field } from './components/Field';
 import { name, version } from '../package.json';
 
 export const items = [
@@ -89,6 +90,26 @@ import { Select } from '@alfalab/core-components-select';
                 name='select2'
                 multiple={true}
                 onChange={onChange}
+            />
+        </div>
+        <div style={{ marginBottom: '10px'}}>
+            <Select
+                items={stringItems}
+                label='Элемент'
+                name='select2'
+                multiple={true}
+                onChange={onChange}
+                size="m"
+            />
+        </div>
+        <div style={{ marginBottom: '10px'}}>
+            <Select
+                items={stringItems}
+                label='Элемент'
+                name='select2'
+                onChange={onChange}
+                Field={(props) => <Field {...props} showArrow={false} />}
+                size="l"
             />
         </div>
         <div style={{ marginBottom: '10px'}}>

@@ -1,0 +1,19 @@
+@import '../../../../themes/default.css';
+
+.item {
+    @mixin system_14-18_regular;
+
+    display: block;
+    padding: 10px var(--gap-m);
+    transition: background-color 0.2s ease;
+}
+
+.selected {
+    background-color: var(--input-hover-bg-color);
+    font-weight: 600;
+}
+
+.highlighted {
+    background-color: var(--input-bg-color);
+    cursor: pointer;
+}

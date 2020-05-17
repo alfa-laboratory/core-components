@@ -10,6 +10,9 @@ import cn from 'classnames';
 import { Popover } from '@alfalab/core-components-popover';
 import { useMultipleSelection, useSelect } from 'downshift';
 import { TransitionProps } from 'react-transition-group/Transition';
+import { Field as DefaultField } from './components/Field';
+import { Menu as DefaultMenu } from './components/Menu';
+import { MenuItem as DefaultMenuItem } from './components/MenuItem';
 
 import styles from './index.module.css';
 
@@ -67,7 +70,11 @@ export type FieldProps<T extends ItemShape> = Pick<
 
     filled?: boolean;
 
+    showArrow?: boolean;
+
     selectedItems: T[];
+
+    leftAddons?: React.ReactNode;
 };
 
 export type MenuProps<T extends ItemShape> = Pick<SelectProps<T>, 'multiple' | 'items' | 'size'> & {
@@ -90,62 +97,6 @@ export type MenuItemProps<T extends ItemShape> = {
     highlighted?: boolean;
 };
 
-function DefualtField<T extends ItemShape>({
-    itemToString,
-    size = 'm',
-    isOpen,
-    disabled,
-    filled,
-    label,
-    placeholder,
-    selectedItems,
-}: FieldProps<T>) {
-    return (
-        <span
-            className={cn(styles.field, styles[size], {
-                [styles.isOpen]: isOpen,
-                [styles.disabled]: disabled,
-                [styles.filled]: filled,
-                [styles.hasLabel]: label,
-            })}
-        >
-            {placeholder && !filled && <span className={styles.placeholder}>{placeholder}</span>}
-
-            {label && <span className={styles.label}>{label}</span>}
-
-            {filled && (
-                <span className={styles.value}>
-                    {selectedItems.map(item => itemToString(item)).join(', ')}
-                </span>
-            )}
-        </span>
-    );
-}
-
-export const DefaultMenu = <T extends ItemShape>({ children, isOpen, items }: MenuProps<T>) => {
-    return isOpen ? (
-        <div className={styles.menu}>{items.map((item, index) => children({ item, index }))}</div>
-    ) : null;
-};
-
-export function DefaultMenuItem<T extends ItemShape>({
-    item,
-    itemToString,
-    selected,
-    highlighted,
-}: MenuItemProps<T>) {
-    return (
-        <span
-            className={cn(styles.item, {
-                [styles.highlighted]: highlighted,
-                [styles.selected]: selected,
-            })}
-        >
-            {itemToString && itemToString(item)}
-        </span>
-    );
-}
-
 export function Select<T extends ItemShape>({
     className,
     items,
@@ -158,7 +109,7 @@ export function Select<T extends ItemShape>({
     placeholder,
     name,
     itemToString = (item?: ItemShape) => (item ? item.toString() : ''),
-    Field = DefualtField,
+    Field = DefaultField,
     Menu = DefaultMenu,
     MenuItem = DefaultMenuItem,
     onChange,

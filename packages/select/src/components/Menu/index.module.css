@@ -1,0 +1,9 @@
+@import '../../../../themes/default.css';
+
+.menu {
+    max-height: 120px;
+    overflow: auto;
+    width: 100%;
+    outline: none;
+    padding: var(--gap-xs) 0;
+}

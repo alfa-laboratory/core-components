@@ -17,8 +17,37 @@ Object {
           type="button"
         >
           <span
-            class="field s"
-          />
+            class="component s"
+          >
+            <span
+              class="contentWrapper"
+            />
+            <span
+              class="addons"
+            >
+              <svg
+                class="arrow"
+                focusable="false"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <path
+                    d="M0 24h24V0H0z"
+                  />
+                  <path
+                    d="M16.074 9.646l.708.708-5.068 5.068-5.068-5.068.708-.708 4.36 4.362z"
+                    fill="#000"
+                    fill-rule="nonzero"
+                  />
+                </g>
+              </svg>
+            </span>
+          </span>
         </button>
       </div>
     </div>
@@ -36,8 +65,37 @@ Object {
         type="button"
       >
         <span
-          class="field s"
-        />
+          class="component s"
+        >
+          <span
+            class="contentWrapper"
+          />
+          <span
+            class="addons"
+          >
+            <svg
+              class="arrow"
+              focusable="false"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 24h24V0H0z"
+                />
+                <path
+                  d="M16.074 9.646l.708.708-5.068 5.068-5.068-5.068.708-.708 4.36 4.362z"
+                  fill="#000"
+                  fill-rule="nonzero"
+                />
+              </g>
+            </svg>
+          </span>
+        </span>
       </button>
     </div>
   </div>,

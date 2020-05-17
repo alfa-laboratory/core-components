@@ -18,6 +18,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-popover": "^1.0.0",
+        "@alfalab/icons-classic": "^1.7.0",
         "downshift": "5.2.7"
     }
 }
