@@ -96,11 +96,11 @@
 /* SIZES */
 
 .s {
-    height: 48px;
+    min-height: 48px;
 }
 
 .m {
-    height: 56px;
+    min-height: 56px;
 }
 
 .m.hasLabel .contentWrapper {
@@ -108,7 +108,7 @@
 }
 
 .l {
-    height: 68px;
+    min-height: 68px;
 }
 
 .l .contentWrapper {

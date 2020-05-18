@@ -4,20 +4,24 @@ import { ItemShape, MenuItemProps } from '../../Component';
 
 import styles from './index.module.css';
 
+const defaultValueRenderer = <T extends ItemShape>(item: T, itemToString: (item: T) => string) =>
+    itemToString(item);
+
 export const MenuItem = <T extends ItemShape>({
     item,
     itemToString,
     selected,
     highlighted,
+    valueRenderer = defaultValueRenderer,
 }: MenuItemProps<T>) => {
     return (
-        <span
+        <div
             className={cn(styles.item, {
                 [styles.highlighted]: highlighted,
                 [styles.selected]: selected,
             })}
         >
-            {itemToString && itemToString(item)}
-        </span>
+            {valueRenderer(item, itemToString)}
+        </div>
     );
 };

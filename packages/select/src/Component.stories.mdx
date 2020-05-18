@@ -2,7 +2,11 @@ import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
 
 import { Select } from './Component';
 import { Field } from './components/Field';
+import { Menu } from './components/MenuItem';
+import { MenuItem } from './components/MenuItem';
 import { name, version } from '../package.json';
+
+import Icon from '@alfalab/icons-classic/BankAlfaMBlackIcon';
 
 export const items = [
     { label: 'Neptunium' },
@@ -35,24 +39,15 @@ export const items = [
 
 export const stringItems = items.map(item => item.label)
 
-export const CustomField = ({ itemToString, selectedItems }) => {
-    return (
-        <span style={{ background: '#ff4784', color: '#fff', display: 'block' }}>
-            {selectedItems.length === 0 ? 'Custom field.' : ' Selected: '}
-            {selectedItems
-                .map(item => {
-                    return itemToString(item).toUpperCase();
-                })
-                .join(', ')}
-        </span>
-    );
-};
-
 export const onChange = (event, payload) => {
     const form = document.getElementById('form');
     const data = new FormData(form);
     console.log(event, payload);
     console.log(Array.from(data.entries()));
+};
+
+export const renderUppercased = (items, itemToString) => {
+    return items.map(item => itemToString(item).toUpperCase()).join(', ');
 };
 
 <Meta title='Компоненты|Select' component={Select} />
@@ -107,24 +102,71 @@ import { Select } from '@alfalab/core-components-select';
                 items={stringItems}
                 label='Элемент'
                 name='select2'
-                onChange={onChange}
-                Field={(props) => <Field {...props} showArrow={false} />}
+                multiple={true}
+                allowUnselect={true}
                 size="l"
+                onChange={onChange}
+                Field={(props) => <Field {...props} showArrow={false} valueRenderer={renderUppercased} />}
             />
         </div>
         <div style={{ marginBottom: '10px'}}>
-            <Select
-                items={items}
-                itemToString={item => item.label}
-                label='Элемент'
-                name='select3'
-                allowUnselect={true}
-                Field={CustomField}
-                onChange={onChange}
-            />
+            {React.createElement(() => {
+                const renderValue = (item, itemToString) => (
+                    <span style={{ display: 'flex' }} key={itemToString(item)}>
+                        <Icon />
+                        {itemToString(item)}
+                    </span>
+                );
+                const renderFieldValue = (items, itemToString) => items.map(item => renderValue(item, itemToString));
+                return (
+                    <Select
+                        items={items}
+                        itemToString={item => item.label}
+                        label='Кастомный контент'
+                        name='select3'
+                        allowUnselect={true}
+                        Field={(props) => <Field {...props} valueRenderer={renderFieldValue} />}
+                        MenuItem={(props) => <MenuItem {...props} valueRenderer={renderValue} />}
+                        onChange={onChange}
+                    />
+                );
+            })}
+        </div>
+        <div style={{ marginBottom: '10px'}}>
+            {React.createElement(() => {
+                const CustomField = ({ itemToString, selectedItems }) => {
+                    return (
+                        <span style={{ background: '#ff4784', color: '#fff', display: 'block' }}>
+                            {selectedItems.length === 0 ? 'Custom field.' : ' Selected: '}
+                            {selectedItems
+                                .map(item => {
+                                    return itemToString(item).toUpperCase();
+                                })
+                                .join(', ')}
+                        </span>
+                    );
+                };
+                return (
+                    <Select
+                        items={items}
+                        itemToString={item => item.label}
+                        label='Элемент'
+                        name='select3'
+                        allowUnselect={true}
+                        Field={CustomField}
+                        onChange={onChange}
+                    />
+                );
+            })}
         </div>
     </form>
 </Story>
 
 <Props of={Select} />
+
+<Props of={Field} />
+
+<Props of={Menu} />
+
+<Props of={MenuItem} />
 

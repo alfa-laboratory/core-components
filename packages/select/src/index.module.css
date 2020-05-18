@@ -2,7 +2,7 @@
 
 .component {
     display: inline-block;
-    min-width: 180px;
+    min-width: 200px;
     position: relative;
 }
 

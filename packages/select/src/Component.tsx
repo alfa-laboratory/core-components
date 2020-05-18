@@ -66,15 +66,17 @@ export type FieldProps<T extends ItemShape> = Pick<
 > & {
     itemToString: ItemToStringFn<T>;
 
+    selectedItems: T[];
+
     isOpen?: boolean;
 
     filled?: boolean;
 
     showArrow?: boolean;
 
-    selectedItems: T[];
+    leftAddons?: ReactNode;
 
-    leftAddons?: React.ReactNode;
+    valueRenderer?: (items: T[], itemToString: ItemToStringFn<T>) => ReactNode;
 };
 
 export type MenuProps<T extends ItemShape> = Pick<SelectProps<T>, 'multiple' | 'items' | 'size'> & {
@@ -95,6 +97,8 @@ export type MenuItemProps<T extends ItemShape> = {
     selected?: boolean;
 
     highlighted?: boolean;
+
+    valueRenderer?: (item: T, itemToString: ItemToStringFn<T>) => ReactNode;
 };
 
 export function Select<T extends ItemShape>({

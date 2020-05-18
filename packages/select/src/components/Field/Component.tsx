@@ -5,6 +5,9 @@ import { ItemShape, FieldProps } from '../../Component';
 
 import styles from './index.module.css';
 
+const defaultValueRenderer = <T extends ItemShape>(items: T[], itemToString: (item: T) => string) =>
+    items.map(item => itemToString(item)).join(', ');
+
 export const Field = <T extends ItemShape>({
     itemToString,
     size = 'm',
@@ -16,6 +19,7 @@ export const Field = <T extends ItemShape>({
     selectedItems,
     leftAddons,
     showArrow = true,
+    valueRenderer = defaultValueRenderer,
 }: FieldProps<T>) => {
     const leftAddonsRenderer = () =>
         leftAddons && <span className={styles.addons}>{leftAddons}</span>;
@@ -40,7 +44,7 @@ export const Field = <T extends ItemShape>({
 
                 {filled && (
                     <span className={styles.value}>
-                        {selectedItems.map(item => itemToString(item)).join(', ')}
+                        {valueRenderer(selectedItems, itemToString)}
                     </span>
                 )}
             </span>
