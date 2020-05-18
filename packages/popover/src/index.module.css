@@ -12,6 +12,7 @@
     z-index: var(--popover-z-index);
     transition-property: opacity;
     transition-timing-function: ease;
+    box-sizing: border-box;
 }
 
 .arrow:after {
