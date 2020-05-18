@@ -4,15 +4,11 @@ import { ItemShape, MenuItemProps } from '../../Component';
 
 import styles from './index.module.css';
 
-const defaultValueRenderer = <T extends ItemShape>(item: T, itemToString: (item: T) => string) =>
-    itemToString(item);
-
 export const MenuItem = <T extends ItemShape>({
     item,
-    itemToString,
     selected,
     highlighted,
-    valueRenderer = defaultValueRenderer,
+    valueRenderer,
 }: MenuItemProps<T>) => {
     return (
         <div
@@ -21,7 +17,7 @@ export const MenuItem = <T extends ItemShape>({
                 [styles.selected]: selected,
             })}
         >
-            {valueRenderer(item, itemToString)}
+            {valueRenderer ? valueRenderer(item) : item.text}
         </div>
     );
 };

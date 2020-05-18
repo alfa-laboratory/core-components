@@ -1,15 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import cn from 'classnames';
 import ArrowIcon from '@alfalab/icons-classic/ArrowDownMBlackIcon';
 import { ItemShape, FieldProps } from '../../Component';
 
 import styles from './index.module.css';
 
-const defaultValueRenderer = <T extends ItemShape>(items: T[], itemToString: (item: T) => string) =>
-    items.map(item => itemToString(item)).join(', ');
-
 export const Field = <T extends ItemShape>({
-    itemToString,
     size = 'm',
     isOpen,
     disabled,
@@ -19,7 +15,7 @@ export const Field = <T extends ItemShape>({
     selectedItems,
     leftAddons,
     showArrow = true,
-    valueRenderer = defaultValueRenderer,
+    valueRenderer,
 }: FieldProps<T>) => {
     const leftAddonsRenderer = () =>
         leftAddons && <span className={styles.addons}>{leftAddons}</span>;
@@ -44,7 +40,16 @@ export const Field = <T extends ItemShape>({
 
                 {filled && (
                     <span className={styles.value}>
-                        {valueRenderer(selectedItems, itemToString)}
+                        {valueRenderer
+                            ? valueRenderer(selectedItems)
+                            : selectedItems.reduce(
+                                  (acc: Array<ReactNode | string>, item, index) => {
+                                      acc.push(item.text);
+                                      if (index < selectedItems.length - 1) acc.push(', ');
+                                      return acc;
+                                  },
+                                  [],
+                              )}
                     </span>
                 )}
             </span>

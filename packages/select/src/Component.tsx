@@ -16,9 +16,11 @@ import { MenuItem as DefaultMenuItem } from './components/MenuItem';
 
 import styles from './index.module.css';
 
-export type ItemShape = object | string;
+export type ItemShape = {
+    value: string | number;
 
-export type ItemToStringFn<T> = (item?: T) => string;
+    text?: ReactNode;
+};
 
 export type SelectProps<T extends ItemShape> = Omit<
     SelectHTMLAttributes<HTMLSelectElement>,
@@ -42,8 +44,6 @@ export type SelectProps<T extends ItemShape> = Omit<
 
     placeholder?: string;
 
-    itemToString?: ItemToStringFn<T>;
-
     Field?: React.ComponentType<FieldProps<T>>;
 
     Menu?: React.ComponentType<MenuProps<T>>;
@@ -54,7 +54,7 @@ export type SelectProps<T extends ItemShape> = Omit<
         event?: ChangeEvent,
         payload?: {
             selected?: T | T[];
-            value?: string | string[];
+            value?: string | number | Array<string | number>;
             name?: string;
         },
     ) => void;
@@ -64,8 +64,6 @@ export type FieldProps<T extends ItemShape> = Pick<
     SelectProps<T>,
     'multiple' | 'size' | 'disabled' | 'label' | 'placeholder'
 > & {
-    itemToString: ItemToStringFn<T>;
-
     selectedItems: T[];
 
     isOpen?: boolean;
@@ -76,7 +74,7 @@ export type FieldProps<T extends ItemShape> = Pick<
 
     leftAddons?: ReactNode;
 
-    valueRenderer?: (items: T[], itemToString: ItemToStringFn<T>) => ReactNode;
+    valueRenderer?: (items: T[]) => ReactNode;
 };
 
 export type MenuProps<T extends ItemShape> = Pick<SelectProps<T>, 'multiple' | 'items' | 'size'> & {
@@ -88,8 +86,6 @@ export type MenuProps<T extends ItemShape> = Pick<SelectProps<T>, 'multiple' | '
 export type MenuItemProps<T extends ItemShape> = {
     item: T;
 
-    itemToString: ItemToStringFn<T>;
-
     size: SelectProps<T>['size'];
 
     index: number;
@@ -98,7 +94,7 @@ export type MenuItemProps<T extends ItemShape> = {
 
     highlighted?: boolean;
 
-    valueRenderer?: (item: T, itemToString: ItemToStringFn<T>) => ReactNode;
+    valueRenderer?: (item: T) => ReactNode;
 };
 
 export function Select<T extends ItemShape>({
@@ -112,7 +108,6 @@ export function Select<T extends ItemShape>({
     label,
     placeholder,
     name,
-    itemToString = (item?: ItemShape) => (item ? item.toString() : ''),
     Field = DefaultField,
     Menu = DefaultMenu,
     MenuItem = DefaultMenuItem,
@@ -125,12 +120,12 @@ export function Select<T extends ItemShape>({
         selectedItems,
         setSelectedItems,
     } = useMultipleSelection<T>({
-        itemToString,
+        itemToString: item => item.value.toString(),
         onSelectedItemsChange: changes => {
             if (onChange) {
                 let value;
                 if (changes.selectedItems) {
-                    value = changes.selectedItems.map(item => itemToString(item));
+                    value = changes.selectedItems.map(item => item.value);
                     // eslint-disable-next-line prefer-destructuring
                     if (!multiple) value = value[0];
                 }
@@ -153,7 +148,7 @@ export function Select<T extends ItemShape>({
         setHighlightedIndex,
     } = useSelect<T | undefined>({
         items,
-        itemToString,
+        itemToString: item => (item ? item.value.toString() : ''),
         stateReducer: (_, actionAndChanges) => {
             const { type, changes } = actionAndChanges;
             const { selectedItem } = changes;
@@ -222,7 +217,6 @@ export function Select<T extends ItemShape>({
     }, [items, selectedItems, setHighlightedIndex]);
 
     const fieldProps = {
-        itemToString,
         selectedItems,
         getSelectedItemProps,
         removeSelectedItem,
@@ -236,7 +230,6 @@ export function Select<T extends ItemShape>({
     };
 
     const menuProps = {
-        itemToString,
         multiple,
         isOpen,
         items,
@@ -249,32 +242,26 @@ export function Select<T extends ItemShape>({
                 ...rest,
                 item,
                 index,
-                itemToString,
                 size,
                 highlighted: index === highlightedIndex,
                 selected: selectedItems.includes(item),
             };
 
             return (
-                <div {...getItemProps({ index, item })} key={itemToString(item)}>
+                <div {...getItemProps({ index, item })} key={item.value}>
                     <MenuItem {...itemProps} />
                 </div>
             );
         },
-        [getItemProps, selectedItems, highlightedIndex, itemToString, size],
+        [getItemProps, selectedItems, highlightedIndex, size],
     );
 
     const renderValue = useCallback(
         () =>
             selectedItems.map(item => (
-                <input
-                    type='hidden'
-                    name={name}
-                    value={itemToString(item)}
-                    key={itemToString(item)}
-                />
+                <input type='hidden' name={name} value={item.value} key={item.value} />
             )),
-        [selectedItems, itemToString, name],
+        [selectedItems, name],
     );
 
     return (

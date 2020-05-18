@@ -2,42 +2,33 @@ import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
 
 import { Select } from './Component';
 import { Field } from './components/Field';
-import { Menu } from './components/MenuItem';
+import { Menu } from './components/Menu';
 import { MenuItem } from './components/MenuItem';
 import { name, version } from '../package.json';
 
 import Icon from '@alfalab/icons-classic/BankAlfaMBlackIcon';
 
 export const items = [
-    { label: 'Neptunium' },
-    { label: 'Plutonium' },
-    { label: 'Americium' },
-    { label: 'Curium' },
-    { label: 'Berkelium' },
-    { label: 'Californium' },
-    { label: 'Einsteinium' },
-    { label: 'Fermium' },
-    { label: 'Mendelevium' },
-    { label: 'Nobelium' },
-    { label: 'Lawrencium' },
-    { label: 'Rutherfordium' },
-    { label: 'Dubnium' },
-    { label: 'Seaborgium' },
-    { label: 'Bohrium' },
-    { label: 'Hassium' },
-    { label: 'Meitnerium' },
-    { label: 'Darmstadtium' },
-    { label: 'Roentgenium' },
-    { label: 'Copernicium' },
-    { label: 'Nihonium' },
-    { label: 'Flerovium' },
-    { label: 'Moscovium' },
-    { label: 'Livermorium' },
-    { label: 'Tennessine' },
-    { label: 'Oganesson' },
+    { value: '1', text: 'Neptunium' },
+    { value: '2', text: 'Plutonium' },
+    { value: '3', text: 'Americium' },
+    { value: '4', text: 'Curium' },
+    { value: '5', text: 'Berkelium' },
+    { value: '6', text: 'Californium' },
+    { value: '7', text: 'Einsteinium' },
+    { value: '8', text: 'Fermium' },
+    { value: '9', text: 'Mendelevium' },
+    { value: '10', text: 'Nobelium' },
+    { value: '11', text: 'Lawrencium' },
+    { value: '12', text: 'Rutherfordium' },
+    { value: '13', text: 'Dubnium' },
+    { value: '14', text: 'Seaborgium' },
+    { value: '15', text: 'Bohrium' },
 ];
 
-export const stringItems = items.map(item => item.label)
+export const itemsWithHtml = items.map(item => {
+    return {...item, text: (<span style={{ border: '1px solid red'}}>{item.text}</span>)};
+});
 
 export const onChange = (event, payload) => {
     const form = document.getElementById('form');
@@ -46,8 +37,8 @@ export const onChange = (event, payload) => {
     console.log(Array.from(data.entries()));
 };
 
-export const renderUppercased = (items, itemToString) => {
-    return items.map(item => itemToString(item).toUpperCase()).join(', ');
+export const renderUppercased = (items) => {
+    return items.map(item => item.text.toUpperCase()).join(', ');
 };
 
 <Meta title='Компоненты|Select' component={Select} />
@@ -69,7 +60,6 @@ import { Select } from '@alfalab/core-components-select';
         <div style={{ marginBottom: '10px'}}>
             <Select
                 items={items}
-                itemToString={item => item.label}
                 multiple={true}
                 placeholder='Выберите элемент'
                 label='Элемент'
@@ -79,7 +69,7 @@ import { Select } from '@alfalab/core-components-select';
         </div>
         <div style={{ marginBottom: '10px'}}>
             <Select
-                items={stringItems}
+                items={itemsWithHtml}
                 placeholder='Выберите элемент'
                 label='Элемент'
                 name='select2'
@@ -89,7 +79,7 @@ import { Select } from '@alfalab/core-components-select';
         </div>
         <div style={{ marginBottom: '10px'}}>
             <Select
-                items={stringItems}
+                items={items}
                 label='Элемент'
                 name='select2'
                 multiple={true}
@@ -99,7 +89,7 @@ import { Select } from '@alfalab/core-components-select';
         </div>
         <div style={{ marginBottom: '10px'}}>
             <Select
-                items={stringItems}
+                items={items}
                 label='Элемент'
                 name='select2'
                 multiple={true}
@@ -111,17 +101,16 @@ import { Select } from '@alfalab/core-components-select';
         </div>
         <div style={{ marginBottom: '10px'}}>
             {React.createElement(() => {
-                const renderValue = (item, itemToString) => (
-                    <span style={{ display: 'flex' }} key={itemToString(item)}>
+                const renderValue = (item) => (
+                    <span style={{ display: 'flex' }} key={item.value}>
                         <Icon />
-                        {itemToString(item)}
+                        {item.text}
                     </span>
                 );
-                const renderFieldValue = (items, itemToString) => items.map(item => renderValue(item, itemToString));
+                const renderFieldValue = (items) => items.map(renderValue);
                 return (
                     <Select
                         items={items}
-                        itemToString={item => item.label}
                         label='Кастомный контент'
                         name='select3'
                         allowUnselect={true}
@@ -134,22 +123,17 @@ import { Select } from '@alfalab/core-components-select';
         </div>
         <div style={{ marginBottom: '10px'}}>
             {React.createElement(() => {
-                const CustomField = ({ itemToString, selectedItems }) => {
+                const CustomField = ({ selectedItems }) => {
                     return (
                         <span style={{ background: '#ff4784', color: '#fff', display: 'block' }}>
                             {selectedItems.length === 0 ? 'Custom field.' : ' Selected: '}
-                            {selectedItems
-                                .map(item => {
-                                    return itemToString(item).toUpperCase();
-                                })
-                                .join(', ')}
+                            {selectedItems.map(item => item.text.toUpperCase()).join(', ')}
                         </span>
                     );
                 };
                 return (
                     <Select
                         items={items}
-                        itemToString={item => item.label}
                         label='Элемент'
                         name='select3'
                         allowUnselect={true}
@@ -162,11 +146,19 @@ import { Select } from '@alfalab/core-components-select';
     </form>
 </Story>
 
+## Select Props
+
 <Props of={Select} />
+
+## Field Props
 
 <Props of={Field} />
 
+## Menu Props
+
 <Props of={Menu} />
+
+## MenuItem Props
 
 <Props of={MenuItem} />
 
