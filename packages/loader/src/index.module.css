@@ -1,0 +1,45 @@
+:root {
+    --animation-delay: 750ms;
+}
+
+.component {
+    fill: currentColor;
+
+    & circle:nth-child(1) {
+        animation-name: blink;
+        animation-duration: var(--animation-delay);
+        animation-delay: 0ms;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-out;
+    }
+
+    & circle:nth-child(2) {
+        animation-name: blink;
+        animation-duration: var(--animation-delay);
+        animation-delay: calc(var(--animation-delay) / 3);
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-out;
+    }
+
+    & circle:nth-child(3) {
+        animation-name: blink;
+        animation-duration: var(--animation-delay);
+        animation-delay: calc(var(--animation-delay) * 2 / 3);
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-out;
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0.2;
+    }
+
+    60% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
