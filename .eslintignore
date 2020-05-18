@@ -1,4 +1,4 @@
 /bin
 /tools
 **/dist
-/rollup
+rollup.config.js

@@ -12,10 +12,10 @@
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.7.0.tgz#0addf916925a253cae6c3aaee22258b9cf274d4e"
   integrity sha512-SoTQA1dOWixaBLo6kCHGhiNYwD+OLmTzPjfLZ6qFuBkVjmudmzS4v+sqz/rfsTT8IUbWz+OLpeP6xti/qBWFog==
 
-"@alfalab/rollup-plugin-postcss@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/rollup-plugin-postcss/-/rollup-plugin-postcss-3.1.0.tgz#af89f10a275f3da5825369535a8fe30322881294"
-  integrity sha512-g21sLONkSk7qfBh5ZEUE3t76fSz0fRa9kJY4ZjWk6ROHqnDD124uMegye497NYHQmMptj7H5ISvIOTiNFOfg1A==
+"@alfalab/rollup-plugin-postcss@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/rollup-plugin-postcss/-/rollup-plugin-postcss-3.2.0.tgz#5ace0c087ad816884e7fdcea8ac1c0508a45d2dc"
+  integrity sha512-c9l2iTJwXnVkoDmbEgNTZJDlJv8VqiQvd37p8YpnnFyOC+oHM3lHIFG2sXR1AFluLd1T/Mr1f2NNBoku2AKkpg==
   dependencies:
     chalk "^4.0.0"
     concat-with-sourcemaps "^1.1.0"

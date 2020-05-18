@@ -1,10 +1,8 @@
 import { ScriptTarget } from 'typescript';
 import path from 'path';
 import multiInput from 'rollup-plugin-multi-input';
-import postcss from '@alfalab/rollup-plugin-postcss';
+import postcss, { addCssImports } from '@alfalab/rollup-plugin-postcss';
 import typescript from 'rollup-plugin-ts';
-
-import { addCssImports } from './addCssImports';
 
 const currentPackageDir = process.cwd();
 const currentPkg = path.join(currentPackageDir, 'package.json');
