@@ -36,6 +36,7 @@ import { Button } from '@alfalab/core-components-button';
         className={text('className', '')}
         dataTestId={text('dataTestId', '')}
         onClick={action('click')}
+        loading={boolean('loading')}
     >
         {text('label', 'Оплатить')}
     </Button>
@@ -173,6 +174,32 @@ import { Button } from '@alfalab/core-components-button';
             </Col>
             <Col>
                 <Button rightAddons={<Icon/>} view="outlined"/>
+            </Col>
+        </Row>
+    </Container>
+</Preview>
+
+## Состояние загрузки
+С помощью свойства `loading` можно отрисовать состояние загрузки
+
+
+<Preview>
+    <Container>
+        <Row align="middle">
+            <Col>
+                <Button view="primary" loading={true}>
+                    Loading
+                </Button>
+            </Col>
+            <Col>
+                <Button view="secondary" loading={true}>
+                    Loading
+                </Button>
+            </Col>
+            <Col>
+                <Button view="outlined" loading={true}>
+                    Loading
+                </Button>
             </Col>
         </Row>
     </Container>

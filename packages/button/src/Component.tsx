@@ -1,6 +1,8 @@
 import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 import cn from 'classnames';
 
+import { Loader } from '@alfalab/core-components-loader';
+
 import styles from './index.module.css';
 
 type ComponentProps = {
@@ -43,6 +45,11 @@ type ComponentProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Показать лоадер
+     */
+    loading?: boolean;
 };
 
 type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
@@ -61,6 +68,8 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
             className,
             dataTestId,
             href,
+            loading = false,
+            disabled = false,
             ...restProps
         },
         ref,
@@ -73,10 +82,12 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
                 {
                     [styles.block]: block,
                     [styles.iconOnly]: !children,
+                    [styles.loading]: loading,
                 },
                 className,
             ),
             'data-test-id': dataTestId || null,
+            disabled: disabled || loading,
         };
 
         const buttonChildren = (
@@ -99,6 +110,7 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
             // eslint-disable-next-line react/button-has-type
             <button {...componentProps} {...restProps} ref={ref}>
                 {buttonChildren}
+                {loading && <Loader />}
             </button>
         );
     },
