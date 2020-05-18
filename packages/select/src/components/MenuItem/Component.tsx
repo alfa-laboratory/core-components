@@ -8,7 +8,7 @@ export const MenuItem = <T extends ItemShape>({
     item,
     selected,
     highlighted,
-    valueRenderer,
+    itemRenderer,
 }: MenuItemProps<T>) => {
     return (
         <div
@@ -17,7 +17,7 @@ export const MenuItem = <T extends ItemShape>({
                 [styles.selected]: selected,
             })}
         >
-            {valueRenderer ? valueRenderer(item) : item.text}
+            {itemRenderer ? itemRenderer(item) : item.text}
         </div>
     );
 };

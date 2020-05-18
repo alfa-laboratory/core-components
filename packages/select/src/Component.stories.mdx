@@ -114,8 +114,8 @@ import { Select } from '@alfalab/core-components-select';
                         label='Кастомный контент'
                         name='select3'
                         allowUnselect={true}
-                        Field={(props) => <Field {...props} valueRenderer={renderFieldValue} />}
-                        MenuItem={(props) => <MenuItem {...props} valueRenderer={renderValue} />}
+                        valueRenderer={renderFieldValue}
+                        itemRenderer={renderValue}
                         onChange={onChange}
                     />
                 );

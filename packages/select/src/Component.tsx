@@ -1,11 +1,4 @@
-import React, {
-    useRef,
-    ReactNode,
-    useMemo,
-    useCallback,
-    ChangeEvent,
-    SelectHTMLAttributes,
-} from 'react';
+import React, { useRef, ReactNode, useMemo, useCallback, ChangeEvent } from 'react';
 import cn from 'classnames';
 import { Popover } from '@alfalab/core-components-popover';
 import { useMultipleSelection, useSelect } from 'downshift';
@@ -17,39 +10,101 @@ import { MenuItem as DefaultMenuItem } from './components/MenuItem';
 import styles from './index.module.css';
 
 export type ItemShape = {
+    /**
+     * Значение выбранного пункта (например, для отправки на сервер)
+     */
     value: string | number;
 
+    /**
+     * Контент, который будет отрендерен в выпадающем списке и в поле при выборе
+     */
     text?: ReactNode;
 };
 
-export type SelectProps<T extends ItemShape> = Omit<
-    SelectHTMLAttributes<HTMLSelectElement>,
-    'size'
-> & {
+export type SelectProps<T extends ItemShape> = {
+    /**
+     * Дополнительный класс
+     */
     className?: string;
 
+    /**
+     * Список вариантов выбора
+     */
     items: T[];
 
+    /**
+     * Размер компонента
+     */
     size?: 's' | 'm' | 'l' | 'xl';
 
+    /**
+     * Атрибут name
+     */
+    name?: string;
+
+    /**
+     * Управление возможностью выбора значения
+     */
     disabled?: boolean;
 
+    /**
+     * Лейбл поля
+     */
     label?: ReactNode;
 
-    multiple?: boolean;
-
-    allowUnselect?: boolean;
-
-    closeOnSelect?: boolean;
-
+    /**
+     * Плейсхолдер поля
+     */
     placeholder?: string;
 
+    /**
+     * Возможность выбрать несколько значений
+     */
+    multiple?: boolean;
+
+    /**
+     * Позволяет снять выбранное значение
+     */
+    allowUnselect?: boolean;
+
+    /**
+     * Закрывать меню после выбора?
+     */
+    closeOnSelect?: boolean;
+
+    /**
+     * Рендерить стрелку?
+     */
+    showArrow?: boolean;
+
+    /**
+     * Компонент поля
+     */
     Field?: React.ComponentType<FieldProps<T>>;
 
+    /**
+     * Компонент выпадающего меню
+     */
     Menu?: React.ComponentType<MenuProps<T>>;
 
+    /**
+     * Компонент пункта меню
+     */
     MenuItem?: React.ComponentType<MenuItemProps<T>>;
 
+    /**
+     * Кастомный рендер выбранного пункта
+     */
+    valueRenderer?: (items: T[]) => ReactNode;
+
+    /**
+     * Кастомный рендер пункта меню
+     */
+    itemRenderer?: (item: T) => ReactNode;
+
+    /**
+     * Обработчик выбора
+     */
     onChange?: (
         event?: ChangeEvent,
         payload?: {
@@ -62,39 +117,61 @@ export type SelectProps<T extends ItemShape> = Omit<
 
 export type FieldProps<T extends ItemShape> = Pick<
     SelectProps<T>,
-    'multiple' | 'size' | 'disabled' | 'label' | 'placeholder'
+    'multiple' | 'size' | 'disabled' | 'label' | 'placeholder' | 'valueRenderer' | 'showArrow'
 > & {
+    /**
+     * Список выбранных пунктов
+     */
     selectedItems: T[];
 
+    /**
+     * Флаг, открыто ли меню
+     */
     isOpen?: boolean;
 
+    /**
+     * Флаг, есть ли выбранные пункты
+     */
     filled?: boolean;
 
-    showArrow?: boolean;
-
+    /**
+     * Слот для дополнительного контента слева
+     */
     leftAddons?: ReactNode;
-
-    valueRenderer?: (items: T[]) => ReactNode;
 };
 
 export type MenuProps<T extends ItemShape> = Pick<SelectProps<T>, 'multiple' | 'items' | 'size'> & {
+    /**
+     * Список пунктов меню
+     */
     children: (props: Pick<MenuItemProps<T>, 'item' | 'index'>) => ReactNode;
 
+    /**
+     * Флаг, открыто ли меню
+     */
     isOpen: boolean;
 };
 
-export type MenuItemProps<T extends ItemShape> = {
+export type MenuItemProps<T extends ItemShape> = Pick<SelectProps<T>, 'itemRenderer' | 'size'> & {
+    /**
+     * Данные пункта меню
+     */
     item: T;
 
-    size: SelectProps<T>['size'];
-
+    /**
+     * Индект пункта
+     */
     index: number;
 
+    /**
+     * Флаг, выбран ли данный пункт
+     */
     selected?: boolean;
 
+    /**
+     * Флаг, подсвечен ли данный пункт
+     */
     highlighted?: boolean;
-
-    valueRenderer?: (item: T) => ReactNode;
 };
 
 export function Select<T extends ItemShape>({
@@ -104,6 +181,7 @@ export function Select<T extends ItemShape>({
     allowUnselect = false,
     disabled = false,
     closeOnSelect = true,
+    showArrow,
     size = 's',
     label,
     placeholder,
@@ -111,6 +189,8 @@ export function Select<T extends ItemShape>({
     Field = DefaultField,
     Menu = DefaultMenu,
     MenuItem = DefaultMenuItem,
+    valueRenderer,
+    itemRenderer,
     onChange,
 }: SelectProps<T>) {
     const {
@@ -223,10 +303,12 @@ export function Select<T extends ItemShape>({
         multiple,
         size,
         isOpen,
+        showArrow,
         disabled,
         filled: selectedItems.length > 0,
         label,
         placeholder,
+        valueRenderer,
     };
 
     const menuProps = {
@@ -243,6 +325,7 @@ export function Select<T extends ItemShape>({
                 item,
                 index,
                 size,
+                itemRenderer,
                 highlighted: index === highlightedIndex,
                 selected: selectedItems.includes(item),
             };
@@ -253,7 +336,7 @@ export function Select<T extends ItemShape>({
                 </div>
             );
         },
-        [getItemProps, selectedItems, highlightedIndex, size],
+        [getItemProps, highlightedIndex, itemRenderer, selectedItems, size],
     );
 
     const renderValue = useCallback(
@@ -266,7 +349,11 @@ export function Select<T extends ItemShape>({
 
     return (
         <div ref={selectRef} className={cn(styles.component, className)}>
-            <button type='button' {...getToggleButtonProps()} className={styles.fieldWrapper}>
+            <button
+                type='button'
+                {...getToggleButtonProps({ disabled })}
+                className={styles.fieldWrapper}
+            >
                 <Field {...fieldProps} />
             </button>
 
