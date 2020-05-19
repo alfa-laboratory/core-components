@@ -19,7 +19,7 @@ export const MenuItem = <T extends ItemShape>({
                 [styles.disabled]: disabled,
             })}
         >
-            {itemRenderer ? itemRenderer(item) : item.text}
+            {itemRenderer ? itemRenderer(item) : item.text || item.value}
         </div>
     );
 };

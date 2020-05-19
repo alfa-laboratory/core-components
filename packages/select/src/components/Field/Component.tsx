@@ -49,7 +49,7 @@ export const Field = <T extends ItemShape>({
                                               React.cloneElement(item.text, { key: item.value }),
                                           );
                                       } else {
-                                          acc.push(item.text);
+                                          acc.push(item.text || item.value);
                                       }
 
                                       if (index < selectedItems.length - 1) acc.push(', ');

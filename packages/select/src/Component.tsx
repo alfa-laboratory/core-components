@@ -416,7 +416,7 @@ export function Select<T extends ItemShape>({
             >
                 {items.map(item => (
                     <option value={item.value} disabled={item.disabled} key={item.value}>
-                        {item.nativeText || item.text}
+                        {item.nativeText || item.text || item.value}
                     </option>
                 ))}
             </select>
