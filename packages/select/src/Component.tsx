@@ -5,7 +5,7 @@ import { useMultipleSelection, useSelect } from 'downshift';
 import { TransitionProps } from 'react-transition-group/Transition';
 import { Field as DefaultField } from './components/Field';
 import { Menu as DefaultMenu } from './components/Menu';
-import { MenuItem as DefaultMenuItem } from './components/MenuItem';
+import { Option as DefaultOption } from './components/Option';
 
 import styles from './index.module.css';
 
@@ -90,7 +90,7 @@ export type SelectProps<T extends ItemShape> = {
     /**
      * Компонент пункта меню
      */
-    MenuItem?: React.ComponentType<MenuItemProps<T>>;
+    Option?: React.ComponentType<OptionProps<T>>;
 
     /**
      * Кастомный рендер выбранного пункта
@@ -144,7 +144,7 @@ export type MenuProps<T extends ItemShape> = Pick<SelectProps<T>, 'multiple' | '
     /**
      * Список пунктов меню
      */
-    children: (props: Pick<MenuItemProps<T>, 'item' | 'index'>) => ReactNode;
+    children: (props: Pick<OptionProps<T>, 'item' | 'index'>) => ReactNode;
 
     /**
      * Флаг, открыто ли меню
@@ -152,7 +152,7 @@ export type MenuProps<T extends ItemShape> = Pick<SelectProps<T>, 'multiple' | '
     isOpen: boolean;
 };
 
-export type MenuItemProps<T extends ItemShape> = Pick<SelectProps<T>, 'itemRenderer' | 'size'> & {
+export type OptionProps<T extends ItemShape> = Pick<SelectProps<T>, 'itemRenderer' | 'size'> & {
     /**
      * Данные пункта меню
      */
@@ -188,7 +188,7 @@ export function Select<T extends ItemShape>({
     name,
     Field = DefaultField,
     Menu = DefaultMenu,
-    MenuItem = DefaultMenuItem,
+    Option = DefaultOption,
     valueRenderer,
     itemRenderer,
     onChange,
@@ -318,9 +318,9 @@ export function Select<T extends ItemShape>({
         size,
     };
 
-    const WrappedMenuItem = useCallback(
-        ({ item, index, ...rest }: Pick<MenuItemProps<T>, 'item' | 'index'>) => {
-            const itemProps = {
+    const WrappedOption = useCallback(
+        ({ item, index, ...rest }: Pick<OptionProps<T>, 'item' | 'index'>) => {
+            const optionProps = {
                 ...rest,
                 item,
                 index,
@@ -332,7 +332,7 @@ export function Select<T extends ItemShape>({
 
             return (
                 <div {...getItemProps({ index, item })} key={item.value}>
-                    <MenuItem {...itemProps} />
+                    <Option {...optionProps} />
                 </div>
             );
         },
@@ -369,7 +369,7 @@ export function Select<T extends ItemShape>({
                     popperClassName={styles.popover}
                 >
                     <div {...getMenuProps({ ref: menuRef })} className={styles.menuWrapper}>
-                        <Menu {...menuProps}>{WrappedMenuItem}</Menu>
+                        <Menu {...menuProps}>{WrappedOption}</Menu>
                     </div>
                 </Popover>
             )}
