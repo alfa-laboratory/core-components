@@ -1,4 +1,4 @@
-@import '../../../../themes/default.css';
+@import '../../../../themes/src/default.css';
 
 .component {
     @mixin system_16-20_regular;
