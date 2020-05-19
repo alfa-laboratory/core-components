@@ -6,6 +6,7 @@
     display: block;
     padding: 10px var(--gap-m);
     transition: background-color 0.2s ease;
+    background-color: #fff;
 }
 
 .selected {
@@ -16,4 +17,10 @@
 .highlighted {
     background-color: var(--input-bg-color);
     cursor: pointer;
+}
+
+.disabled {
+    cursor: default;
+    background-color: #fff;
+    color: var(--color-dark-indigo-60-flat);
 }

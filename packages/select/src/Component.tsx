@@ -19,6 +19,11 @@ export type ItemShape = {
      * Контент, который будет отрендерен в выпадающем списке и в поле при выборе
      */
     text?: ReactNode;
+
+    /**
+     * Блокирует данный пункт для выбора
+     */
+    disabled?: boolean;
 };
 
 export type SelectProps<T extends ItemShape> = {
@@ -172,6 +177,11 @@ export type OptionProps<T extends ItemShape> = Pick<SelectProps<T>, 'itemRendere
      * Флаг, подсвечен ли данный пункт
      */
     highlighted?: boolean;
+
+    /**
+     * Флаг, заблокирован ли данный пункт
+     */
+    disabled?: boolean;
 };
 
 export function Select<T extends ItemShape>({
@@ -326,12 +336,13 @@ export function Select<T extends ItemShape>({
                 index,
                 size,
                 itemRenderer,
+                disabled: item.disabled,
                 highlighted: index === highlightedIndex,
                 selected: selectedItems.includes(item),
             };
 
             return (
-                <div {...getItemProps({ index, item })} key={item.value}>
+                <div {...getItemProps({ index, item, disabled: item.disabled })} key={item.value}>
                     <Option {...optionProps} />
                 </div>
             );

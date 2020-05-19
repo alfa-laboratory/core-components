@@ -8,6 +8,7 @@ export const Option = <T extends ItemShape>({
     item,
     selected,
     highlighted,
+    disabled,
     itemRenderer,
 }: OptionProps<T>) => {
     return (
@@ -15,6 +16,7 @@ export const Option = <T extends ItemShape>({
             className={cn(styles.option, {
                 [styles.highlighted]: highlighted,
                 [styles.selected]: selected,
+                [styles.disabled]: disabled,
             })}
         >
             {itemRenderer ? itemRenderer(item) : item.text}
