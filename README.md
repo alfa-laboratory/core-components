@@ -1,3 +1,5 @@
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 <img width="914" alt="Библиотека React компонентов для создания веб-интерфейсов" src="https://user-images.githubusercontent.com/109410/78970104-3873e000-7b11-11ea-945d-02f86cad62e0.png"/>
 
 ## ✨ Возможности
@@ -76,6 +78,24 @@ $ yarn start
 >
 > 1. `event: SyntheticEvent` - объект события, инициировавшего вызов.
 > 2. `payload: {}` - объект с дополнительными данными. Например `{ amount: 5000 }`
+
+## Релизы
+### Как публиковать пакеты:
+```bash
+$ yarn pub:patch # соберет и выпустит patch-версию
+$ yarn pub:minor # соберет и выпустит minor-версию
+$ yarn pub:major # соберет и выпустит major-версию
+```
+
+## Коммиты
+На проекте подключен `commitlint` для линтинга коммитов. На основании коммитов формируется `CHANGELOG.MD`.
+Мы придерживаемся [AngularJS commit conventions.](https://gist.github.com/stephenparish/9941e89d80e2bc58a153)
+Коммиты можно делать с помощью утилиты `commitizen`:
+```bash
+$ git add .
+$ yarn cm # запустит утилиту commitizen для создания коммита
+$ git push
+```
 
 ## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 

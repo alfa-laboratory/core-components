@@ -1,5 +1,4 @@
 const path = require('path');
-const getCSSModuleLocalIdent = require('./utils/getCSSModuleLocalIdent');
 const componentsResolver = require('./utils/componentsResolver');
 const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
 

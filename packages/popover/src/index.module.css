@@ -1,4 +1,4 @@
-@import '../../themes/default.css';
+@import '../../themes/src/default.css';
 
 :root {
     --popover-border-color: var(--color-dark-indigo-15-flat);
@@ -12,6 +12,7 @@
     z-index: var(--popover-z-index);
     transition-property: opacity;
     transition-timing-function: ease;
+    box-sizing: border-box;
 }
 
 .arrow:after {

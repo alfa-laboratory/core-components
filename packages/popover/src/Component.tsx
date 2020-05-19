@@ -65,7 +65,7 @@ export type PopoverProps = {
      * Transition props, прокидываются в компонент Transition.
      * См. https://reactcommunity.org/react-transition-group/transition
      */
-    transition?: TransitionProps;
+    transition?: Partial<TransitionProps>;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
