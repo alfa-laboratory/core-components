@@ -3,7 +3,6 @@
 .component {
     @mixin system_16-20_regular;
 
-    position: relative;
     display: flex;
     width: 100%;
     align-items: center;
@@ -24,11 +23,14 @@
     cursor: pointer;
 }
 
-.component:not(.disabled):hover {
+.component:not(.disabled):hover,
+select:hover ~ .component {
     background-color: var(--input-hover-bg-color);
 }
 
-.isOpen:not(.disabled) {
+.isOpen:not(.disabled),
+select:focus + button .component,
+button:focus .component {
     border-bottom: var(--input-focus-border-bottom);
     box-shadow: var(--input-focus-shadow);
 }
@@ -97,7 +99,8 @@
     padding-right: var(--gap-s);
 }
 
-.isOpen .arrow {
+.isOpen .arrow,
+select:focus + button .arrow {
     transform: rotate(180deg);
 }
 

@@ -27,7 +27,11 @@ export const items = [
 ];
 
 export const itemsWithHtml = items.map(item => {
-    return {...item, text: (<span style={{ border: '1px solid red'}}>{item.text}</span>)};
+    return {
+        ...item,
+        text: (<span style={{ border: '1px solid red'}}>{item.text}</span>),
+        nativeText: item.text
+    };
 });
 
 export const onChange = (event, payload) => {
@@ -70,7 +74,7 @@ import { Select } from '@alfalab/core-components-select';
         </div>
         <div style={{ marginBottom: '10px', width: '200px'}}>
             {React.createElement(() => {
-                const [selected, setSelected] = React.useState([itemsWithHtml[0], itemsWithHtml[1]]);
+                const [selected, setSelected] = React.useState([itemsWithHtml[1], itemsWithHtml[2]]);
                 const handleChange = (event, payload) => {
                     setSelected(payload.selected);
                 };
@@ -94,6 +98,17 @@ import { Select } from '@alfalab/core-components-select';
                 label='Элемент'
                 name='select2'
                 multiple={true}
+                nativeMenu={true}
+                onChange={onChange}
+                size="m"
+            />
+        </div>
+        <div style={{ marginBottom: '10px'}}>
+            <Select
+                items={items}
+                label='Native'
+                name='select2'
+                nativeMenu={true}
                 onChange={onChange}
                 size="m"
             />

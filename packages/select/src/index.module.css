@@ -36,3 +36,16 @@
     width: 100%;
     outline: none;
 }
+
+.nativeSelect {
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: 100%;
+    cursor: pointer;
+}

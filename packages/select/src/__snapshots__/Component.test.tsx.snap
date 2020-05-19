@@ -14,6 +14,7 @@ Object {
           aria-labelledby="downshift-0-label downshift-0-toggle-button"
           class="fieldWrapper"
           id="downshift-0-toggle-button"
+          tabindex="0"
           type="button"
         >
           <span
@@ -62,6 +63,7 @@ Object {
         aria-labelledby="downshift-0-label downshift-0-toggle-button"
         class="fieldWrapper"
         id="downshift-0-toggle-button"
+        tabindex="0"
         type="button"
       >
         <span

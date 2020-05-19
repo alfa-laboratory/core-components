@@ -13,12 +13,17 @@ export type ItemShape = {
     /**
      * Значение выбранного пункта (например, для отправки на сервер)
      */
-    value: string | number;
+    value: string;
 
     /**
      * Контент, который будет отрендерен в выпадающем списке и в поле при выборе
      */
     text?: ReactNode;
+
+    /**
+     * Текст для нативного option (nativeMenu)
+     */
+    nativeText?: string;
 
     /**
      * Блокирует данный пункт для выбора
@@ -91,6 +96,11 @@ export type SelectProps<T extends ItemShape> = {
      * Список выбранных пунктов (controlled-селект)
      */
     selected: T | T[];
+
+    /**
+     * Рендерит нативный селект вместо выпадающего меню. (на десктопе использовать только с multiple=false)
+     */
+    nativeMenu?: boolean;
 
     /**
      * Компонент поля
@@ -202,8 +212,9 @@ export function Select<T extends ItemShape>({
     allowUnselect = false,
     disabled = false,
     closeOnSelect = true,
-    showArrow,
+    showArrow = true,
     size = 's',
+    nativeMenu = false,
     label,
     placeholder,
     name,
@@ -376,19 +387,58 @@ export function Select<T extends ItemShape>({
         [selectedItems, name],
     );
 
+    const handleNativeSelectChange = useCallback(
+        event => {
+            const selectedOptions = [...event.target.options].reduce((acc, option, index) => {
+                if (option.selected) acc.push(items[index]);
+                return acc;
+            }, []);
+
+            setSelectedItems(selectedOptions);
+        },
+        [items, setSelectedItems],
+    );
+
+    const renderNativeSelect = useCallback(() => {
+        const value = multiple
+            ? selectedItems.map(item => item.value)
+            : (selectedItems[0] || {}).value;
+
+        return (
+            <select
+                className={styles.nativeSelect}
+                disabled={disabled}
+                multiple={multiple}
+                name={name}
+                value={value}
+                onChange={handleNativeSelectChange}
+                tabIndex={0}
+            >
+                {items.map(item => (
+                    <option value={item.value} disabled={item.disabled} key={item.value}>
+                        {item.nativeText || item.text}
+                    </option>
+                ))}
+            </select>
+        );
+    }, [disabled, handleNativeSelectChange, items, multiple, name, selectedItems]);
+
     return (
         <div ref={selectRef} className={cn(styles.component, className, { [styles.block]: block })}>
+            {nativeMenu && renderNativeSelect()}
+
             <button
                 type='button'
                 {...getToggleButtonProps({ disabled })}
                 className={styles.fieldWrapper}
+                tabIndex={nativeMenu ? -1 : 0}
             >
                 <Field {...fieldProps} />
             </button>
 
-            {name && renderValue()}
+            {name && !nativeMenu && renderValue()}
 
-            {selectRef.current && (
+            {!nativeMenu && selectRef.current && (
                 <Popover
                     open={isOpen}
                     transition={getTransitionProps}
