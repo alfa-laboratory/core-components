@@ -1,5 +1,5 @@
 :root {
-    --animation-delay: 750ms;
+    --animation-duration: 750ms;
 }
 
 .component {
@@ -7,7 +7,7 @@
 
     & circle:nth-child(1) {
         animation-name: blink;
-        animation-duration: var(--animation-delay);
+        animation-duration: var(--animation-duration);
         animation-delay: 0ms;
         animation-iteration-count: infinite;
         animation-timing-function: ease-out;
@@ -15,16 +15,16 @@
 
     & circle:nth-child(2) {
         animation-name: blink;
-        animation-duration: var(--animation-delay);
-        animation-delay: calc(var(--animation-delay) / 3);
+        animation-duration: var(--animation-duration);
+        animation-delay: calc(var(--animation-duration) / 3);
         animation-iteration-count: infinite;
         animation-timing-function: ease-out;
     }
 
     & circle:nth-child(3) {
         animation-name: blink;
-        animation-duration: var(--animation-delay);
-        animation-delay: calc(var(--animation-delay) * 2 / 3);
+        animation-duration: var(--animation-duration);
+        animation-delay: calc(var(--animation-duration) * 2 / 3);
         animation-iteration-count: infinite;
         animation-timing-function: ease-out;
     }
