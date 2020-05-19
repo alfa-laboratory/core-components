@@ -1,19 +1,19 @@
 import React from 'react';
 import cn from 'classnames';
-import { ItemShape, OptionProps } from '../../Component';
+import { ItemShape, MenuItemProps } from '../../Component';
 
 import styles from './index.module.css';
 
-export const Option = <T extends ItemShape>({
+export const MenuItem = <T extends ItemShape>({
     item,
     selected,
     highlighted,
     disabled,
     itemRenderer,
-}: OptionProps<T>) => {
+}: MenuItemProps<T>) => {
     return (
         <div
-            className={cn(styles.option, {
+            className={cn(styles.item, {
                 [styles.highlighted]: highlighted,
                 [styles.selected]: selected,
                 [styles.disabled]: disabled,
