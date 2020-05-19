@@ -28,6 +28,11 @@ export type ItemShape = {
 
 export type SelectProps<T extends ItemShape> = {
     /**
+     * Растягивает компонент на ширину контейнера
+     */
+    block?: boolean;
+
+    /**
      * Дополнительный класс
      */
     className?: string;
@@ -185,6 +190,7 @@ export type OptionProps<T extends ItemShape> = Pick<SelectProps<T>, 'itemRendere
 };
 
 export function Select<T extends ItemShape>({
+    block,
     className,
     items,
     multiple = false,
@@ -359,7 +365,7 @@ export function Select<T extends ItemShape>({
     );
 
     return (
-        <div ref={selectRef} className={cn(styles.component, className)}>
+        <div ref={selectRef} className={cn(styles.component, className, { [styles.block]: block })}>
             <button
                 type='button'
                 {...getToggleButtonProps({ disabled })}

@@ -2,8 +2,13 @@
 
 .component {
     display: inline-block;
-    min-width: 200px;
+    min-width: 240px;
     position: relative;
+}
+
+.block {
+    width: 100%;
+    min-width: auto;
 }
 
 .fieldWrapper {

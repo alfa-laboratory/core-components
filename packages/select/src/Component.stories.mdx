@@ -57,8 +57,9 @@ import { Select } from '@alfalab/core-components-select';
 
 <Story name='Песочница'>
     <form id="form">
-        <div style={{ marginBottom: '10px'}}>
+        <div style={{ marginBottom: '10px', width: '200px'}}>
             <Select
+                block={true}
                 items={items}
                 multiple={true}
                 placeholder='Выберите элемент'
@@ -67,8 +68,9 @@ import { Select } from '@alfalab/core-components-select';
                 onChange={onChange}
             />
         </div>
-        <div style={{ marginBottom: '10px'}}>
+        <div style={{ marginBottom: '10px', width: '200px'}}>
             <Select
+                block={true}
                 items={itemsWithHtml}
                 placeholder='Выберите элемент'
                 label='Элемент'
