@@ -1,7 +1,7 @@
 import React, { useRef, ReactNode, useMemo, useCallback, ChangeEvent } from 'react';
 import cn from 'classnames';
 import { Popover } from '@alfalab/core-components-popover';
-import { useMultipleSelection, useSelect } from 'downshift';
+import { useMultipleSelection, useSelect, UseMultipleSelectionProps } from 'downshift';
 import { TransitionProps } from 'react-transition-group/Transition';
 import { Field as DefaultField } from './components/Field';
 import { Menu as DefaultMenu } from './components/Menu';
@@ -86,6 +86,11 @@ export type SelectProps<T extends ItemShape> = {
      * Рендерить стрелку?
      */
     showArrow?: boolean;
+
+    /**
+     * Список выбранных пунктов (controlled-селект)
+     */
+    selected: T | T[];
 
     /**
      * Компонент поля
@@ -205,17 +210,12 @@ export function Select<T extends ItemShape>({
     Field = DefaultField,
     Menu = DefaultMenu,
     Option = DefaultOption,
+    selected,
     valueRenderer,
     itemRenderer,
     onChange,
 }: SelectProps<T>) {
-    const {
-        getSelectedItemProps,
-        addSelectedItem,
-        removeSelectedItem,
-        selectedItems,
-        setSelectedItems,
-    } = useMultipleSelection<T>({
+    const useMultipleSelectionProps: UseMultipleSelectionProps<T> = {
         itemToString: item => item.value.toString(),
         onSelectedItemsChange: changes => {
             if (onChange) {
@@ -233,7 +233,19 @@ export function Select<T extends ItemShape>({
                 });
             }
         },
-    });
+    };
+
+    if (selected) {
+        useMultipleSelectionProps.selectedItems = Array.isArray(selected) ? selected : [selected];
+    }
+
+    const {
+        getSelectedItemProps,
+        addSelectedItem,
+        removeSelectedItem,
+        selectedItems,
+        setSelectedItems,
+    } = useMultipleSelection<T>(useMultipleSelectionProps);
 
     const {
         isOpen,

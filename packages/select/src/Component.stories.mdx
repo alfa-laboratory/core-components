@@ -69,15 +69,24 @@ import { Select } from '@alfalab/core-components-select';
             />
         </div>
         <div style={{ marginBottom: '10px', width: '200px'}}>
-            <Select
-                block={true}
-                items={itemsWithHtml}
-                placeholder='Выберите элемент'
-                label='Элемент'
-                name='select2'
-                multiple={true}
-                onChange={onChange}
-            />
+            {React.createElement(() => {
+                const [selected, setSelected] = React.useState([itemsWithHtml[0], itemsWithHtml[1]]);
+                const handleChange = (event, payload) => {
+                    setSelected(payload.selected);
+                };
+                return (
+                    <Select
+                        block={true}
+                        items={itemsWithHtml}
+                        placeholder='Выберите элемент'
+                        label='controlled'
+                        name='select2'
+                        multiple={true}
+                        onChange={handleChange}
+                        selected={selected}
+                    />
+                );
+            })}
         </div>
         <div style={{ marginBottom: '10px'}}>
             <Select
