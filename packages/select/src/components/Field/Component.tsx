@@ -44,7 +44,14 @@ export const Field = <T extends ItemShape>({
                             ? valueRenderer(selectedItems)
                             : selectedItems.reduce(
                                   (acc: Array<ReactNode | string>, item, index) => {
-                                      acc.push(item.text);
+                                      if (React.isValidElement(item.text)) {
+                                          acc.push(
+                                              React.cloneElement(item.text, { key: item.value }),
+                                          );
+                                      } else {
+                                          acc.push(item.text);
+                                      }
+
                                       if (index < selectedItems.length - 1) acc.push(', ');
                                       return acc;
                                   },

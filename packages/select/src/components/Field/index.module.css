@@ -80,6 +80,7 @@
 .value {
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align: left;
 }
 
 .addons {
