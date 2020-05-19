@@ -62,10 +62,17 @@
     cursor: initial;
 }
 
+.loading {
+    position: relative;
+}
+
 .loading .text,
 .loading .addons {
-    position: absolute;
     opacity: 0;
+}
+
+.loader {
+    position: absolute;
 }
 
 /* Size */

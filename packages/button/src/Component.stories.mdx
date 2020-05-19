@@ -7,7 +7,6 @@ import Icon from '@alfalab/icons-glyph/StarMIcon';
 import { Button } from './Component';
 import { name, version } from '../package.json';
 
-
 export const VIEWS = ['primary', 'secondary', 'outlined', 'link', 'ghost'];
 export const SIZES = ['xs', 's', 'm', 'l'];
 
@@ -180,27 +179,45 @@ import { Button } from '@alfalab/core-components-button';
 </Preview>
 
 ## Состояние загрузки
-С помощью свойства `loading` можно отрисовать состояние загрузки
+С помощью свойства `loading` можно отрисовать состояние загрузки.
 
+Лоадер появляется с задержкой в 200ms, чтобы при быстрых ответах от сервера кнопка не "моргала".
 
 <Preview>
-    <Container>
-        <Row align="middle">
-            <Col>
-                <Button view="primary" loading={true}>
-                    Loading
-                </Button>
-            </Col>
-            <Col>
-                <Button view="secondary" loading={true}>
-                    Loading
-                </Button>
-            </Col>
-            <Col>
-                <Button view="outlined" loading={true}>
-                    Loading
-                </Button>
-            </Col>
-        </Row>
-    </Container>
+    {React.createElement(() => {
+        const [loading, setLoading] = React.useState([false, false]);
+        const handleLongRequest = () => {
+            setLoading([true, false]);
+            setTimeout(() => {
+                setLoading([false, false]);
+            }, 2000)
+        }
+        const handleFastRequest = () => {
+            setLoading([false, true]);
+            setTimeout(() => {
+                setLoading([false, false]);
+            }, 100)
+        }
+        return (
+            <Container>
+                <Row align="middle">
+                    <Col>
+                        <Button view="primary" loading={loading[0]} onClick={handleLongRequest}>
+                            Отправить долгий запрос
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button view="secondary" loading={loading[1]} onClick={handleFastRequest}>
+                            Отправить быстрый запрос
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button view="outlined" loading={true}>
+                            Loading
+                        </Button>
+                    </Col>
+                </Row>
+            </Container>
+        );
+    })}
 </Preview>
