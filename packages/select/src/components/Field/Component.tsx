@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react';
 import cn from 'classnames';
 import ArrowIcon from '@alfalab/icons-classic/ArrowDownMBlackIcon';
-import { ItemShape, FieldProps } from '../../Component';
+import { FieldProps } from '../../Component';
 
 import styles from './index.module.css';
 
-export const Field = <T extends ItemShape>({
+export const Field = ({
     size = 'm',
     isOpen,
     disabled,
@@ -16,7 +16,7 @@ export const Field = <T extends ItemShape>({
     leftAddons,
     showArrow = true,
     valueRenderer,
-}: FieldProps<T>) => {
+}: FieldProps) => {
     const leftAddonsRenderer = () =>
         leftAddons && <span className={styles.addons}>{leftAddons}</span>;
 

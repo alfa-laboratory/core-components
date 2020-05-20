@@ -30,6 +30,9 @@
 
 .popover {
     min-width: 100%;
+
+    /* должен быть всегда поверх других элементов */
+    z-index: 9999;
 }
 
 .menuWrapper {
@@ -48,4 +51,5 @@
     min-width: 0;
     height: 100%;
     cursor: pointer;
+    z-index: 1;
 }

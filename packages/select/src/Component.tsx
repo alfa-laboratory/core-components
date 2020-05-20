@@ -6,6 +6,7 @@ import { TransitionProps } from 'react-transition-group/Transition';
 import { Field as DefaultField } from './components/Field';
 import { Menu as DefaultMenu } from './components/Menu';
 import { MenuItem as DefaultMenuItem } from './components/MenuItem';
+import { Optgroup as DefaultOptgroup } from './components/Optgroup';
 
 import styles from './index.module.css';
 
@@ -31,7 +32,19 @@ export type ItemShape = {
     disabled?: boolean;
 };
 
-export type SelectProps<T extends ItemShape> = {
+export type GroupShape = {
+    /**
+     * Заголовок группы
+     */
+    label?: string;
+
+    /**
+     * Дочерние элементы
+     */
+    items: ItemShape[];
+};
+
+export type SelectProps = {
     /**
      * Растягивает компонент на ширину контейнера
      */
@@ -45,7 +58,7 @@ export type SelectProps<T extends ItemShape> = {
     /**
      * Список вариантов выбора
      */
-    items: T[];
+    items: Array<ItemShape | GroupShape>;
 
     /**
      * Размер компонента
@@ -95,7 +108,7 @@ export type SelectProps<T extends ItemShape> = {
     /**
      * Список выбранных пунктов (controlled-селект)
      */
-    selected: T | T[];
+    selected?: ItemShape | ItemShape[];
 
     /**
      * Рендерит нативный селект вместо выпадающего меню. (на десктопе использовать только с multiple=false)
@@ -105,27 +118,32 @@ export type SelectProps<T extends ItemShape> = {
     /**
      * Компонент поля
      */
-    Field?: React.ComponentType<FieldProps<T>>;
+    Field?: React.ComponentType<FieldProps>;
 
     /**
      * Компонент выпадающего меню
      */
-    Menu?: React.ComponentType<MenuProps<T>>;
+    Menu?: React.ComponentType<MenuProps>;
+
+    /**
+     * Компонент группы
+     */
+    Optgroup?: React.ComponentType<OptgroupProps>;
 
     /**
      * Компонент пункта меню
      */
-    MenuItem?: React.ComponentType<MenuItemProps<T>>;
+    MenuItem?: React.ComponentType<MenuItemProps>;
 
     /**
      * Кастомный рендер выбранного пункта
      */
-    valueRenderer?: (items: T[]) => ReactNode;
+    valueRenderer?: (items: ItemShape[]) => ReactNode;
 
     /**
      * Кастомный рендер пункта меню
      */
-    itemRenderer?: (item: T) => ReactNode;
+    itemRenderer?: (item: ItemShape) => ReactNode;
 
     /**
      * Обработчик выбора
@@ -133,21 +151,21 @@ export type SelectProps<T extends ItemShape> = {
     onChange?: (
         event?: ChangeEvent,
         payload?: {
-            selected?: T | T[];
+            selected?: ItemShape | ItemShape[];
             value?: string | number | Array<string | number>;
             name?: string;
         },
     ) => void;
 };
 
-export type FieldProps<T extends ItemShape> = Pick<
-    SelectProps<T>,
+export type FieldProps = Pick<
+    SelectProps,
     'multiple' | 'size' | 'disabled' | 'label' | 'placeholder' | 'valueRenderer' | 'showArrow'
 > & {
     /**
      * Список выбранных пунктов
      */
-    selectedItems: T[];
+    selectedItems: ItemShape[];
 
     /**
      * Флаг, открыто ли меню
@@ -165,11 +183,11 @@ export type FieldProps<T extends ItemShape> = Pick<
     leftAddons?: ReactNode;
 };
 
-export type MenuProps<T extends ItemShape> = Pick<SelectProps<T>, 'multiple' | 'items' | 'size'> & {
+export type MenuProps = Pick<SelectProps, 'multiple' | 'items' | 'size' | 'Optgroup'> & {
     /**
      * Список пунктов меню
      */
-    children: (props: Pick<MenuItemProps<T>, 'item' | 'index'>) => ReactNode;
+    children: (props: Pick<MenuItemProps, 'item' | 'index'>) => ReactNode;
 
     /**
      * Флаг, открыто ли меню
@@ -177,11 +195,23 @@ export type MenuProps<T extends ItemShape> = Pick<SelectProps<T>, 'multiple' | '
     isOpen: boolean;
 };
 
-export type MenuItemProps<T extends ItemShape> = Pick<SelectProps<T>, 'itemRenderer' | 'size'> & {
+export type OptgroupProps = {
+    /**
+     * Заголовок группы
+     */
+    label?: string;
+
+    /**
+     * Дочерние элементы
+     */
+    children: ReactNode;
+};
+
+export type MenuItemProps = Pick<SelectProps, 'itemRenderer' | 'size'> & {
     /**
      * Данные пункта меню
      */
-    item: T;
+    item: ItemShape;
 
     /**
      * Индект пункта
@@ -204,7 +234,7 @@ export type MenuItemProps<T extends ItemShape> = Pick<SelectProps<T>, 'itemRende
     disabled?: boolean;
 };
 
-export function Select<T extends ItemShape>({
+export function Select({
     block,
     className,
     items,
@@ -220,13 +250,27 @@ export function Select<T extends ItemShape>({
     name,
     Field = DefaultField,
     Menu = DefaultMenu,
+    Optgroup = DefaultOptgroup,
     MenuItem = DefaultMenuItem,
     selected,
     valueRenderer,
     itemRenderer,
     onChange,
-}: SelectProps<T>) {
-    const useMultipleSelectionProps: UseMultipleSelectionProps<T> = {
+}: SelectProps) {
+    const flatItems = useMemo(
+        () =>
+            items.reduce((acc: ItemShape[], item) => {
+                if ('items' in item) {
+                    return acc.concat(item.items);
+                }
+
+                acc.push(item);
+                return acc;
+            }, []),
+        [items],
+    );
+
+    const useMultipleSelectionProps: UseMultipleSelectionProps<ItemShape> = {
         itemToString: item => item.value.toString(),
         onSelectedItemsChange: changes => {
             if (onChange) {
@@ -256,7 +300,7 @@ export function Select<T extends ItemShape>({
         removeSelectedItem,
         selectedItems,
         setSelectedItems,
-    } = useMultipleSelection<T>(useMultipleSelectionProps);
+    } = useMultipleSelection(useMultipleSelectionProps);
 
     const {
         isOpen,
@@ -265,8 +309,8 @@ export function Select<T extends ItemShape>({
         highlightedIndex,
         getItemProps,
         setHighlightedIndex,
-    } = useSelect<T | undefined>({
-        items,
+    } = useSelect<ItemShape>({
+        items: flatItems,
         itemToString: item => (item ? item.value.toString() : ''),
         stateReducer: (_, actionAndChanges) => {
             const { type, changes } = actionAndChanges;
@@ -326,14 +370,14 @@ export function Select<T extends ItemShape>({
                         setHighlightedIndex(-1);
                         setTimeout(() => {
                             setHighlightedIndex(
-                                items.indexOf(selectedItems[selectedItems.length - 1]),
+                                flatItems.indexOf(selectedItems[selectedItems.length - 1]),
                             );
                         }, 0);
                     }
                 }
             },
         };
-    }, [items, selectedItems, setHighlightedIndex]);
+    }, [flatItems, selectedItems, setHighlightedIndex]);
 
     const fieldProps = {
         selectedItems,
@@ -355,10 +399,11 @@ export function Select<T extends ItemShape>({
         isOpen,
         items,
         size,
+        Optgroup,
     };
 
     const WrappedMenuItem = useCallback(
-        ({ item, index, ...rest }: Pick<MenuItemProps<T>, 'item' | 'index'>) => {
+        ({ item, index, ...rest }: Pick<MenuItemProps, 'item' | 'index'>) => {
             const itemProps = {
                 ...rest,
                 item,
@@ -390,19 +435,25 @@ export function Select<T extends ItemShape>({
     const handleNativeSelectChange = useCallback(
         event => {
             const selectedOptions = [...event.target.options].reduce((acc, option, index) => {
-                if (option.selected) acc.push(items[index]);
+                if (option.selected) acc.push(flatItems[index]);
                 return acc;
             }, []);
 
             setSelectedItems(selectedOptions);
         },
-        [items, setSelectedItems],
+        [flatItems, setSelectedItems],
     );
 
     const renderNativeSelect = useCallback(() => {
         const value = multiple
             ? selectedItems.map(item => item.value)
             : (selectedItems[0] || {}).value;
+
+        const renderOption = (item: ItemShape) => (
+            <option value={item.value} disabled={item.disabled} key={item.value}>
+                {item.nativeText || item.text || item.value}
+            </option>
+        );
 
         return (
             <select
@@ -414,14 +465,18 @@ export function Select<T extends ItemShape>({
                 onChange={handleNativeSelectChange}
                 tabIndex={0}
             >
-                {items.map(item => (
-                    <option value={item.value} disabled={item.disabled} key={item.value}>
-                        {item.nativeText || item.text || item.value}
-                    </option>
-                ))}
+                {items.map(item =>
+                    'items' in item ? (
+                        <optgroup label={item.label} key={item.label}>
+                            {item.items.map(renderOption)}
+                        </optgroup>
+                    ) : (
+                        renderOption(item)
+                    ),
+                )}
             </select>
         );
-    }, [disabled, handleNativeSelectChange, items, multiple, name, selectedItems]);
+    }, [multiple, selectedItems, disabled, name, handleNativeSelectChange, items]);
 
     return (
         <div ref={selectRef} className={cn(styles.component, className, { [styles.block]: block })}>

@@ -1,16 +1,16 @@
 import React from 'react';
 import cn from 'classnames';
-import { ItemShape, MenuItemProps } from '../../Component';
+import { MenuItemProps } from '../../Component';
 
 import styles from './index.module.css';
 
-export const MenuItem = <T extends ItemShape>({
+export const MenuItem = ({
     item,
     selected,
     highlighted,
     disabled,
     itemRenderer,
-}: MenuItemProps<T>) => {
+}: MenuItemProps) => {
     return (
         <div
             className={cn(styles.item, {
@@ -19,7 +19,7 @@ export const MenuItem = <T extends ItemShape>({
                 [styles.disabled]: disabled,
             })}
         >
-            {itemRenderer ? itemRenderer(item) : item.text || item.value}
+            {itemRenderer ? itemRenderer(item) : item.text}
         </div>
     );
 };

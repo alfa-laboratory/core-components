@@ -3,6 +3,7 @@ import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
 import { Select } from './Component';
 import { Field } from './components/Field';
 import { Menu } from './components/Menu';
+import { Optgroup } from './components/Optgroup';
 import { MenuItem } from './components/MenuItem';
 import { name, version } from '../package.json';
 
@@ -24,6 +25,39 @@ export const items = [
     { value: '13', text: 'Dubnium' },
     { value: '14', text: 'Seaborgium' },
     { value: '15', text: 'Bohrium' },
+];
+
+export const groups = [
+    {
+        label: 'group1',
+        items: [
+            { value: '1', text: 'Neptunium', disabled: true },
+            { value: '2', text: 'Plutonium' },
+            { value: '3', text: 'Americium' },
+            { value: '4', text: 'Curium' },
+        ]
+    },
+    {
+        label: 'group2',
+        items: [
+            { value: '5', text: 'Berkelium' },
+            { value: '6', text: 'Californium' },
+            { value: '7', text: 'Einsteinium' },
+            { value: '8', text: 'Fermium' },
+            { value: '9', text: 'Mendelevium' },
+            { value: '10', text: 'Nobelium' },
+        ]
+    },
+    {
+        label: 'group3',
+        items: [
+            { value: '11', text: 'Lawrencium' },
+            { value: '12', text: 'Rutherfordium' },
+            { value: '13', text: 'Dubnium' },
+            { value: '14', text: 'Seaborgium' },
+            { value: '15', text: 'Bohrium' },
+        ]
+    },
 ];
 
 export const itemsWithHtml = items.map(item => {
@@ -69,6 +103,16 @@ import { Select } from '@alfalab/core-components-select';
                 placeholder='Выберите элемент'
                 label='Элемент'
                 name='select1'
+                onChange={onChange}
+            />
+        </div>
+        <div style={{ marginBottom: '10px', width: '200px'}}>
+            <Select
+                block={true}
+                items={groups}
+                placeholder='Выберите элемент'
+                label='Элемент'
+                name='select2'
                 onChange={onChange}
             />
         </div>
@@ -184,7 +228,10 @@ import { Select } from '@alfalab/core-components-select';
 
 <Props of={Menu} />
 
+## Optgroup Props
+
+<Props of={Optgroup} />
+
 ## MenuItem Props
 
 <Props of={MenuItem} />
-
