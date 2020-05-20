@@ -5,6 +5,6 @@ import { Select } from './index';
 
 describe('Snapshots tests', () => {
     it('should match snapshot', () => {
-        expect(render(<Select items={[]} />)).toMatchSnapshot();
+        expect(render(<Select options={[]} />)).toMatchSnapshot();
     });
 });

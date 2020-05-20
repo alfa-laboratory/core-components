@@ -3,14 +3,15 @@ import cn from 'classnames';
 import { Popover } from '@alfalab/core-components-popover';
 import { useMultipleSelection, useSelect, UseMultipleSelectionProps } from 'downshift';
 import { TransitionProps } from 'react-transition-group/Transition';
-import { Field as DefaultField } from './components/Field';
-import { Menu as DefaultMenu } from './components/Menu';
-import { MenuItem as DefaultMenuItem } from './components/MenuItem';
-import { Optgroup as DefaultOptgroup } from './components/Optgroup';
+import { Field as DefaultField } from './components/field';
+import { OptionsList as DefaultOptionsList } from './components/options-list';
+import { Option as DefaultOption } from './components/option';
+import { Optgroup as DefaultOptgroup } from './components/optgroup';
+import { NativeSelect } from './components/native-select';
 
 import styles from './index.module.css';
 
-export type ItemShape = {
+export type OptionShape = {
     /**
      * Значение выбранного пункта (например, для отправки на сервер)
      */
@@ -22,7 +23,7 @@ export type ItemShape = {
     text?: ReactNode;
 
     /**
-     * Текст для нативного option (nativeMenu)
+     * Текст для нативного option (nativeSelect)
      */
     nativeText?: string;
 
@@ -41,7 +42,7 @@ export type GroupShape = {
     /**
      * Дочерние элементы
      */
-    items: ItemShape[];
+    options: OptionShape[];
 };
 
 export type SelectProps = {
@@ -58,7 +59,7 @@ export type SelectProps = {
     /**
      * Список вариантов выбора
      */
-    items: Array<ItemShape | GroupShape>;
+    options: Array<OptionShape | GroupShape>;
 
     /**
      * Размер компонента
@@ -108,12 +109,12 @@ export type SelectProps = {
     /**
      * Список выбранных пунктов (controlled-селект)
      */
-    selected?: ItemShape | ItemShape[];
+    selected?: OptionShape | OptionShape[];
 
     /**
      * Рендерит нативный селект вместо выпадающего меню. (на десктопе использовать только с multiple=false)
      */
-    nativeMenu?: boolean;
+    nativeSelect?: boolean;
 
     /**
      * Компонент поля
@@ -123,7 +124,7 @@ export type SelectProps = {
     /**
      * Компонент выпадающего меню
      */
-    Menu?: React.ComponentType<MenuProps>;
+    OptionsList?: React.ComponentType<OptionsListProps>;
 
     /**
      * Компонент группы
@@ -133,17 +134,17 @@ export type SelectProps = {
     /**
      * Компонент пункта меню
      */
-    MenuItem?: React.ComponentType<MenuItemProps>;
+    Option?: React.ComponentType<OptionProps>;
 
     /**
      * Кастомный рендер выбранного пункта
      */
-    valueRenderer?: (items: ItemShape[]) => ReactNode;
+    valueRenderer?: (options: OptionShape[]) => ReactNode;
 
     /**
      * Кастомный рендер пункта меню
      */
-    itemRenderer?: (item: ItemShape) => ReactNode;
+    optionRenderer?: (option: OptionShape) => ReactNode;
 
     /**
      * Обработчик выбора
@@ -151,7 +152,7 @@ export type SelectProps = {
     onChange?: (
         event?: ChangeEvent,
         payload?: {
-            selected?: ItemShape | ItemShape[];
+            selected?: OptionShape | OptionShape[];
             value?: string | number | Array<string | number>;
             name?: string;
         },
@@ -165,7 +166,7 @@ export type FieldProps = Pick<
     /**
      * Список выбранных пунктов
      */
-    selectedItems: ItemShape[];
+    value: OptionShape[];
 
     /**
      * Флаг, открыто ли меню
@@ -183,11 +184,11 @@ export type FieldProps = Pick<
     leftAddons?: ReactNode;
 };
 
-export type MenuProps = Pick<SelectProps, 'multiple' | 'items' | 'size' | 'Optgroup'> & {
+export type OptionsListProps = Pick<SelectProps, 'multiple' | 'options' | 'size' | 'Optgroup'> & {
     /**
      * Список пунктов меню
      */
-    children: (props: Pick<MenuItemProps, 'item' | 'index'>) => ReactNode;
+    children: (props: Pick<OptionProps, 'option' | 'index'>) => ReactNode;
 
     /**
      * Флаг, открыто ли меню
@@ -207,11 +208,11 @@ export type OptgroupProps = {
     children: ReactNode;
 };
 
-export type MenuItemProps = Pick<SelectProps, 'itemRenderer' | 'size'> & {
+export type OptionProps = Pick<SelectProps, 'optionRenderer' | 'size'> & {
     /**
      * Данные пункта меню
      */
-    item: ItemShape;
+    option: OptionShape;
 
     /**
      * Индект пункта
@@ -237,52 +238,56 @@ export type MenuItemProps = Pick<SelectProps, 'itemRenderer' | 'size'> & {
 export function Select({
     block,
     className,
-    items,
+    options,
     multiple = false,
     allowUnselect = false,
     disabled = false,
     closeOnSelect = true,
     showArrow = true,
     size = 's',
-    nativeMenu = false,
+    nativeSelect = false,
     label,
     placeholder,
     name,
     Field = DefaultField,
-    Menu = DefaultMenu,
+    OptionsList = DefaultOptionsList,
     Optgroup = DefaultOptgroup,
-    MenuItem = DefaultMenuItem,
+    Option = DefaultOption,
     selected,
     valueRenderer,
-    itemRenderer,
+    optionRenderer,
     onChange,
 }: SelectProps) {
-    const flatItems = useMemo(
-        () =>
-            items.reduce((acc: ItemShape[], item) => {
-                if ('items' in item) {
-                    return acc.concat(item.items);
-                }
+    const selectRef = useRef<HTMLDivElement>(null);
+    const optionsListRef = useRef<HTMLElement>(null);
 
-                acc.push(item);
-                return acc;
-            }, []),
-        [items],
+    const getPortalContainer = () => selectRef.current as HTMLDivElement;
+
+    const flatOptions = useMemo(
+        () =>
+            options.reduce(
+                (acc: OptionShape[], option) =>
+                    acc.concat('options' in option ? option.options : option),
+                [],
+            ),
+        [options],
     );
 
-    const useMultipleSelectionProps: UseMultipleSelectionProps<ItemShape> = {
+    const useMultipleSelectionProps: UseMultipleSelectionProps<OptionShape> = {
         itemToString: item => item.value.toString(),
         onSelectedItemsChange: changes => {
             if (onChange) {
+                const { selectedItems } = changes;
+
                 let value;
-                if (changes.selectedItems) {
-                    value = changes.selectedItems.map(item => item.value);
+                if (selectedItems) {
+                    value = selectedItems.map(item => item.value);
                     // eslint-disable-next-line prefer-destructuring
                     if (!multiple) value = value[0];
                 }
 
                 onChange(undefined, {
-                    selected: multiple ? changes.selectedItems : (changes.selectedItems || [])[0],
+                    selected: multiple ? selectedItems : (selectedItems || [])[0],
                     value,
                     name,
                 });
@@ -295,11 +300,10 @@ export function Select({
     }
 
     const {
-        getSelectedItemProps,
-        addSelectedItem,
-        removeSelectedItem,
         selectedItems,
+        addSelectedItem,
         setSelectedItems,
+        removeSelectedItem,
     } = useMultipleSelection(useMultipleSelectionProps);
 
     const {
@@ -309,8 +313,8 @@ export function Select({
         highlightedIndex,
         getItemProps,
         setHighlightedIndex,
-    } = useSelect<ItemShape>({
-        items: flatItems,
+    } = useSelect<OptionShape>({
+        items: flatOptions,
         itemToString: item => (item ? item.value.toString() : ''),
         stateReducer: (_, actionAndChanges) => {
             const { type, changes } = actionAndChanges;
@@ -346,11 +350,6 @@ export function Select({
         },
     });
 
-    const selectRef = useRef<HTMLDivElement>(null);
-    const menuRef = useRef<HTMLElement>(null);
-
-    const getPortalContainer = () => selectRef.current as HTMLDivElement;
-
     const getTransitionProps = useMemo((): Partial<TransitionProps> => {
         return {
             appear: true,
@@ -359,8 +358,8 @@ export function Select({
                  * Из-за использования Transition внутри Popover'а - меню и его пункты рендерятся с задержкой.
                  * Поэтому приходится вручную перезапускать некоторую логику. Либо стоит отказаться от анимации через Transition
                  */
-                if (menuRef.current !== null) {
-                    menuRef.current.focus();
+                if (optionsListRef.current !== null) {
+                    optionsListRef.current.focus();
 
                     if (selectedItems.length) {
                         /*
@@ -370,19 +369,78 @@ export function Select({
                         setHighlightedIndex(-1);
                         setTimeout(() => {
                             setHighlightedIndex(
-                                flatItems.indexOf(selectedItems[selectedItems.length - 1]),
+                                flatOptions.indexOf(selectedItems[selectedItems.length - 1]),
                             );
                         }, 0);
                     }
                 }
             },
         };
-    }, [flatItems, selectedItems, setHighlightedIndex]);
+    }, [flatOptions, selectedItems, setHighlightedIndex]);
 
-    const fieldProps = {
-        selectedItems,
-        getSelectedItemProps,
-        removeSelectedItem,
+    const handleNativeSelectChange = useCallback(
+        event => {
+            const selectedOptions = [...event.target.options].reduce(
+                (acc, option, index) => (option.selected ? acc.concat(flatOptions[index]) : acc),
+                [],
+            );
+
+            setSelectedItems(selectedOptions);
+        },
+        [flatOptions, setSelectedItems],
+    );
+
+    const WrappedOption = useCallback(
+        ({ option, index, ...rest }: Pick<OptionProps, 'option' | 'index'>) => {
+            return (
+                <div
+                    {...getItemProps({ index, item: option, disabled: option.disabled })}
+                    key={option.value}
+                >
+                    <Option
+                        {...rest}
+                        option={option}
+                        index={index}
+                        size={size}
+                        optionRenderer={optionRenderer}
+                        disabled={option.disabled}
+                        highlighted={index === highlightedIndex}
+                        selected={selectedItems.includes(option)}
+                    />
+                </div>
+            );
+        },
+        [getItemProps, highlightedIndex, optionRenderer, selectedItems, size],
+    );
+
+    const renderValue = useCallback(
+        () =>
+            selectedItems.map(option => (
+                <input type='hidden' name={name} value={option.value} key={option.value} />
+            )),
+        [selectedItems, name],
+    );
+
+    const renderNativeSelect = useCallback(() => {
+        const value = multiple
+            ? selectedItems.map(option => option.value)
+            : (selectedItems[0] || {}).value;
+
+        return (
+            <NativeSelect
+                className={styles.nativeSelect}
+                disabled={disabled}
+                multiple={multiple}
+                name={name}
+                value={value}
+                onChange={handleNativeSelectChange}
+                options={options}
+            />
+        );
+    }, [multiple, selectedItems, disabled, name, handleNativeSelectChange, options]);
+
+    const fieldProps: FieldProps = {
+        value: selectedItems,
         multiple,
         size,
         isOpen,
@@ -394,116 +452,40 @@ export function Select({
         valueRenderer,
     };
 
-    const menuProps = {
+    const optionsListProps = {
         multiple,
         isOpen,
-        items,
+        options,
         size,
         Optgroup,
     };
 
-    const WrappedMenuItem = useCallback(
-        ({ item, index, ...rest }: Pick<MenuItemProps, 'item' | 'index'>) => {
-            const itemProps = {
-                ...rest,
-                item,
-                index,
-                size,
-                itemRenderer,
-                disabled: item.disabled,
-                highlighted: index === highlightedIndex,
-                selected: selectedItems.includes(item),
-            };
-
-            return (
-                <div {...getItemProps({ index, item, disabled: item.disabled })} key={item.value}>
-                    <MenuItem {...itemProps} />
-                </div>
-            );
-        },
-        [getItemProps, highlightedIndex, itemRenderer, selectedItems, size],
-    );
-
-    const renderValue = useCallback(
-        () =>
-            selectedItems.map(item => (
-                <input type='hidden' name={name} value={item.value} key={item.value} />
-            )),
-        [selectedItems, name],
-    );
-
-    const handleNativeSelectChange = useCallback(
-        event => {
-            const selectedOptions = [...event.target.options].reduce((acc, option, index) => {
-                if (option.selected) acc.push(flatItems[index]);
-                return acc;
-            }, []);
-
-            setSelectedItems(selectedOptions);
-        },
-        [flatItems, setSelectedItems],
-    );
-
-    const renderNativeSelect = useCallback(() => {
-        const value = multiple
-            ? selectedItems.map(item => item.value)
-            : (selectedItems[0] || {}).value;
-
-        const renderOption = (item: ItemShape) => (
-            <option value={item.value} disabled={item.disabled} key={item.value}>
-                {item.nativeText || item.text || item.value}
-            </option>
-        );
-
-        return (
-            <select
-                className={styles.nativeSelect}
-                disabled={disabled}
-                multiple={multiple}
-                name={name}
-                value={value}
-                onChange={handleNativeSelectChange}
-                tabIndex={0}
-            >
-                {items.map(item =>
-                    'items' in item ? (
-                        <optgroup label={item.label} key={item.label}>
-                            {item.items.map(renderOption)}
-                        </optgroup>
-                    ) : (
-                        renderOption(item)
-                    ),
-                )}
-            </select>
-        );
-    }, [multiple, selectedItems, disabled, name, handleNativeSelectChange, items]);
-
     return (
         <div ref={selectRef} className={cn(styles.component, className, { [styles.block]: block })}>
-            {nativeMenu && renderNativeSelect()}
+            {nativeSelect && renderNativeSelect()}
 
             <button
                 type='button'
                 {...getToggleButtonProps({ disabled })}
                 className={styles.fieldWrapper}
-                tabIndex={nativeMenu ? -1 : 0}
+                tabIndex={nativeSelect ? -1 : 0}
             >
                 <Field {...fieldProps} />
             </button>
 
-            {name && !nativeMenu && renderValue()}
+            {name && !nativeSelect && renderValue()}
 
-            {!nativeMenu && selectRef.current && (
+            {!nativeSelect && (
                 <Popover
                     open={isOpen}
                     transition={getTransitionProps}
-                    anchorElement={selectRef.current}
+                    anchorElement={selectRef.current as HTMLElement}
                     position='bottom-start'
                     getPortalContainer={getPortalContainer}
                     popperClassName={styles.popover}
                 >
-                    <div {...getMenuProps({ ref: menuRef })} className={styles.menuWrapper}>
-                        <Menu {...menuProps}>{WrappedMenuItem}</Menu>
+                    <div {...getMenuProps({ ref: optionsListRef })} className={styles.listWrapper}>
+                        <OptionsList {...optionsListProps}>{WrappedOption}</OptionsList>
                     </div>
                 </Popover>
             )}

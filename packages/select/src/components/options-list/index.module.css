@@ -1,6 +1,6 @@
 @import '../../../../themes/src/default.css';
 
-.menu {
+.optionsList {
     max-height: 120px;
     overflow: auto;
     width: 100%;

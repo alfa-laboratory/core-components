@@ -12,7 +12,7 @@ export const Field = ({
     filled,
     label,
     placeholder,
-    selectedItems,
+    value,
     leftAddons,
     showArrow = true,
     valueRenderer,
@@ -41,22 +41,19 @@ export const Field = ({
                 {filled && (
                     <span className={styles.value}>
                         {valueRenderer
-                            ? valueRenderer(selectedItems)
-                            : selectedItems.reduce(
-                                  (acc: Array<ReactNode | string>, item, index) => {
-                                      if (React.isValidElement(item.text)) {
-                                          acc.push(
-                                              React.cloneElement(item.text, { key: item.value }),
-                                          );
-                                      } else {
-                                          acc.push(item.text || item.value);
-                                      }
+                            ? valueRenderer(value)
+                            : value.reduce((acc: Array<ReactNode | string>, option, index) => {
+                                  if (React.isValidElement(option.text)) {
+                                      acc.push(
+                                          React.cloneElement(option.text, { key: option.value }),
+                                      );
+                                  } else {
+                                      acc.push(option.text || option.value);
+                                  }
 
-                                      if (index < selectedItems.length - 1) acc.push(', ');
-                                      return acc;
-                                  },
-                                  [],
-                              )}
+                                  if (index < value.length - 1) acc.push(', ');
+                                  return acc;
+                              }, [])}
                     </span>
                 )}
             </span>

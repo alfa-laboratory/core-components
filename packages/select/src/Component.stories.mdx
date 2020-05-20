@@ -1,15 +1,15 @@
 import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
 
 import { Select } from './Component';
-import { Field } from './components/Field';
-import { Menu } from './components/Menu';
-import { Optgroup } from './components/Optgroup';
-import { MenuItem } from './components/MenuItem';
+import { Field } from './components/field';
+import { OptionsList } from './components/options-list';
+import { Optgroup } from './components/optgroup';
+import { Option } from './components/option';
 import { name, version } from '../package.json';
 
 import Icon from '@alfalab/icons-classic/BankAlfaMBlackIcon';
 
-export const items = [
+export const options = [
     { value: '1', text: 'Neptunium', disabled: true },
     { value: '2', text: 'Plutonium' },
     { value: '3', text: 'Americium' },
@@ -30,7 +30,7 @@ export const items = [
 export const groups = [
     {
         label: 'group1',
-        items: [
+        options: [
             { value: '1', text: 'Neptunium', disabled: true },
             { value: '2', text: 'Plutonium' },
             { value: '3', text: 'Americium' },
@@ -39,7 +39,7 @@ export const groups = [
     },
     {
         label: 'group2',
-        items: [
+        options: [
             { value: '5', text: 'Berkelium' },
             { value: '6', text: 'Californium' },
             { value: '7', text: 'Einsteinium' },
@@ -50,7 +50,7 @@ export const groups = [
     },
     {
         label: 'group3',
-        items: [
+        options: [
             { value: '11', text: 'Lawrencium' },
             { value: '12', text: 'Rutherfordium' },
             { value: '13', text: 'Dubnium' },
@@ -60,11 +60,11 @@ export const groups = [
     },
 ];
 
-export const itemsWithHtml = items.map(item => {
+export const optionsWithHtml = options.map(option => {
     return {
-        ...item,
-        text: (<span style={{ border: '1px solid red'}}>{item.text}</span>),
-        nativeText: item.text
+        ...option,
+        text: (<span style={{ border: '1px solid red'}}>{option.text}</span>),
+        nativeText: option.text
     };
 });
 
@@ -75,8 +75,8 @@ export const onChange = (event, payload) => {
     console.log(Array.from(data.entries()));
 };
 
-export const renderUppercased = (items) => {
-    return items.map(item => item.text.toUpperCase()).join(', ');
+export const renderUppercased = (options) => {
+    return options.map(option => option.text.toUpperCase()).join(', ');
 };
 
 <Meta title='Компоненты|Select' component={Select} />
@@ -98,7 +98,7 @@ import { Select } from '@alfalab/core-components-select';
         <div style={{ marginBottom: '10px', width: '200px'}}>
             <Select
                 block={true}
-                items={items}
+                options={options}
                 multiple={true}
                 placeholder='Выберите элемент'
                 label='Элемент'
@@ -109,23 +109,25 @@ import { Select } from '@alfalab/core-components-select';
         <div style={{ marginBottom: '10px', width: '200px'}}>
             <Select
                 block={true}
-                items={groups}
+                options={groups}
+                multiple={true}
                 placeholder='Выберите элемент'
                 label='Элемент'
                 name='select2'
                 onChange={onChange}
+                nativeSelect={true}
             />
         </div>
         <div style={{ marginBottom: '10px', width: '200px'}}>
             {React.createElement(() => {
-                const [selected, setSelected] = React.useState([itemsWithHtml[1], itemsWithHtml[2]]);
+                const [selected, setSelected] = React.useState([optionsWithHtml[1], optionsWithHtml[2]]);
                 const handleChange = (event, payload) => {
                     setSelected(payload.selected);
                 };
                 return (
                     <Select
                         block={true}
-                        items={itemsWithHtml}
+                        options={optionsWithHtml}
                         placeholder='Выберите элемент'
                         label='controlled'
                         name='select2'
@@ -138,28 +140,28 @@ import { Select } from '@alfalab/core-components-select';
         </div>
         <div style={{ marginBottom: '10px'}}>
             <Select
-                items={items}
+                options={options}
                 label='Элемент'
                 name='select2'
                 multiple={true}
-                nativeMenu={true}
+                nativeSelect={true}
                 onChange={onChange}
                 size="m"
             />
         </div>
         <div style={{ marginBottom: '10px'}}>
             <Select
-                items={items}
+                options={options}
                 label='Native'
                 name='select2'
-                nativeMenu={true}
+                nativeSelect={true}
                 onChange={onChange}
                 size="m"
             />
         </div>
         <div style={{ marginBottom: '10px'}}>
             <Select
-                items={items}
+                options={options}
                 label='Элемент'
                 name='select2'
                 multiple={true}
@@ -171,21 +173,21 @@ import { Select } from '@alfalab/core-components-select';
         </div>
         <div style={{ marginBottom: '10px'}}>
             {React.createElement(() => {
-                const renderValue = (item) => (
-                    <span style={{ display: 'flex' }} key={item.value}>
+                const renderOption = (option) => (
+                    <span style={{ display: 'flex' }} key={option.value}>
                         <Icon />
-                        {item.text}
+                        {option.text}
                     </span>
                 );
-                const renderFieldValue = (items) => items.map(renderValue);
+                const renderFieldValue = (options) => options.map(renderOption);
                 return (
                     <Select
-                        items={items}
+                        options={options}
                         label='Кастомный контент'
                         name='select3'
                         allowUnselect={true}
                         valueRenderer={renderFieldValue}
-                        itemRenderer={renderValue}
+                        optionRenderer={renderOption}
                         onChange={onChange}
                     />
                 );
@@ -193,17 +195,17 @@ import { Select } from '@alfalab/core-components-select';
         </div>
         <div style={{ marginBottom: '10px'}}>
             {React.createElement(() => {
-                const CustomField = ({ selectedItems }) => {
+                const CustomField = ({ value }) => {
                     return (
                         <span style={{ background: '#ff4784', color: '#fff', display: 'block' }}>
-                            {selectedItems.length === 0 ? 'Custom field.' : ' Selected: '}
-                            {selectedItems.map(item => item.text.toUpperCase()).join(', ')}
+                            {value.length === 0 ? 'Custom field.' : ' Selected: '}
+                            {value.map(option => option.text.toUpperCase()).join(', ')}
                         </span>
                     );
                 };
                 return (
                     <Select
-                        items={items}
+                        options={options}
                         label='Элемент'
                         name='select3'
                         allowUnselect={true}
@@ -224,14 +226,14 @@ import { Select } from '@alfalab/core-components-select';
 
 <Props of={Field} />
 
-## Menu Props
+## OptionsList Props
 
-<Props of={Menu} />
+<Props of={OptionsList} />
 
 ## Optgroup Props
 
 <Props of={Optgroup} />
 
-## MenuItem Props
+## Option Props
 
-<Props of={MenuItem} />
+<Props of={Option} />
