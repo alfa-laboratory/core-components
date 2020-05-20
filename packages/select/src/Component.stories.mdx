@@ -1,4 +1,7 @@
-import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Props, Description, Title } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
 
 import { Select } from './Component';
 import { Field } from './components/field';
@@ -7,7 +10,7 @@ import { Optgroup } from './components/optgroup';
 import { Option } from './components/option';
 import { name, version } from '../package.json';
 
-import Icon from '@alfalab/icons-classic/BankAlfaMBlackIcon';
+import Icon from '@alfalab/icons-classic/BankAlfaSBlackIcon';
 
 export const options = [
     { value: '1', text: 'Neptunium', disabled: true },
@@ -29,16 +32,16 @@ export const options = [
 
 export const groups = [
     {
-        label: 'group1',
+        label: 'Группа №1',
         options: [
-            { value: '1', text: 'Neptunium', disabled: true },
+            { value: '1', text: 'Neptunium' },
             { value: '2', text: 'Plutonium' },
             { value: '3', text: 'Americium' },
             { value: '4', text: 'Curium' },
         ]
     },
     {
-        label: 'group2',
+        label: 'Группа №2',
         options: [
             { value: '5', text: 'Berkelium' },
             { value: '6', text: 'Californium' },
@@ -49,7 +52,7 @@ export const groups = [
         ]
     },
     {
-        label: 'group3',
+        label: 'Группа №3',
         options: [
             { value: '11', text: 'Lawrencium' },
             { value: '12', text: 'Rutherfordium' },
@@ -63,7 +66,7 @@ export const groups = [
 export const optionsWithHtml = options.map(option => {
     return {
         ...option,
-        text: (<span style={{ border: '1px solid red'}}>{option.text}</span>),
+        text: (<span style={{ fontWeight: 'bold' }}>{option.text}</span>),
         nativeText: option.text
     };
 });
@@ -91,132 +94,26 @@ import { Select } from '@alfalab/core-components-select';
 
 ## Описание
 
-Компонент селект.
+Компонент выпадающего списка.
 
 <Story name='Песочница'>
-    <form id="form">
-        <div style={{ marginBottom: '10px', width: '200px'}}>
-            <Select
-                block={true}
-                options={options}
-                multiple={true}
-                placeholder='Выберите элемент'
-                label='Элемент'
-                name='select1'
-                onChange={onChange}
-            />
-        </div>
-        <div style={{ marginBottom: '10px', width: '200px'}}>
-            <Select
-                block={true}
-                options={groups}
-                multiple={true}
-                placeholder='Выберите элемент'
-                label='Элемент'
-                name='select2'
-                onChange={onChange}
-                nativeSelect={true}
-            />
-        </div>
-        <div style={{ marginBottom: '10px', width: '200px'}}>
-            {React.createElement(() => {
-                const [selected, setSelected] = React.useState([optionsWithHtml[1], optionsWithHtml[2]]);
-                const handleChange = (event, payload) => {
-                    setSelected(payload.selected);
-                };
-                return (
-                    <Select
-                        block={true}
-                        options={optionsWithHtml}
-                        placeholder='Выберите элемент'
-                        label='controlled'
-                        name='select2'
-                        multiple={true}
-                        onChange={handleChange}
-                        selected={selected}
-                    />
-                );
-            })}
-        </div>
-        <div style={{ marginBottom: '10px'}}>
-            <Select
-                options={options}
-                label='Элемент'
-                name='select2'
-                multiple={true}
-                nativeSelect={true}
-                onChange={onChange}
-                size="m"
-            />
-        </div>
-        <div style={{ marginBottom: '10px'}}>
-            <Select
-                options={options}
-                label='Native'
-                name='select2'
-                nativeSelect={true}
-                onChange={onChange}
-                size="m"
-            />
-        </div>
-        <div style={{ marginBottom: '10px'}}>
-            <Select
-                options={options}
-                label='Элемент'
-                name='select2'
-                multiple={true}
-                allowUnselect={true}
-                size="l"
-                onChange={onChange}
-                Field={(props) => <Field {...props} showArrow={false} valueRenderer={renderUppercased} />}
-            />
-        </div>
-        <div style={{ marginBottom: '10px'}}>
-            {React.createElement(() => {
-                const renderOption = (option) => (
-                    <span style={{ display: 'flex' }} key={option.value}>
-                        <Icon />
-                        {option.text}
-                    </span>
-                );
-                const renderFieldValue = (options) => options.map(renderOption);
-                return (
-                    <Select
-                        options={options}
-                        label='Кастомный контент'
-                        name='select3'
-                        allowUnselect={true}
-                        valueRenderer={renderFieldValue}
-                        optionRenderer={renderOption}
-                        onChange={onChange}
-                    />
-                );
-            })}
-        </div>
-        <div style={{ marginBottom: '10px'}}>
-            {React.createElement(() => {
-                const CustomField = ({ value }) => {
-                    return (
-                        <span style={{ background: '#ff4784', color: '#fff', display: 'block' }}>
-                            {value.length === 0 ? 'Custom field.' : ' Selected: '}
-                            {value.map(option => option.text.toUpperCase()).join(', ')}
-                        </span>
-                    );
-                };
-                return (
-                    <Select
-                        options={options}
-                        label='Элемент'
-                        name='select3'
-                        allowUnselect={true}
-                        Field={CustomField}
-                        onChange={onChange}
-                    />
-                );
-            })}
-        </div>
-    </form>
+    <Select
+        block={boolean('block', false)}
+        size={select('size', ['s', 'm', 'l'], 's')}
+        disabled={boolean('disabled', false)}
+        className={text('className', '')}
+        options={options}
+        multiple={boolean('multiple', false)}
+        allowUnselect={boolean('allowUnselect', false)}
+        closeOnSelect={boolean('closeOnSelect', true)}
+        showArrow={boolean('showArrow', true)}
+        nativeSelect={boolean('nativeSelect', false)}
+        placeholder={text('placeholder', 'Выберите элемент')}
+        label={text('label', 'Элемент')}
+        name={text('name', 'select')}
+    />
 </Story>
+
 
 ## Select Props
 
@@ -237,3 +134,152 @@ import { Select } from '@alfalab/core-components-select';
 ## Option Props
 
 <Props of={Option} />
+
+## Использование
+<br/>
+
+### Controlled-way
+
+Компонент может быть использован как controlled с помощью `onChange` и `selected`:
+
+<Preview>
+    <div style={{ height: 180, width: 300 }}>
+        {React.createElement(() => {
+            const [selected, setSelected] = React.useState([options[1], options[2]]);
+            const handleChange = (event, payload) => {
+                setSelected(payload.selected);
+            };
+            return (
+                <Select
+                    block={true}
+                    options={options}
+                    placeholder='Выберите элемент'
+                    label='controlled'
+                    multiple={true}
+                    onChange={handleChange}
+                    selected={selected}
+                />
+            );
+        })}
+    </div>
+</Preview>
+
+## Настройка рендера
+
+Помимо текста, компонент позволяет использовать html в качестве поля `text` у вариантов выбора
+
+<Preview>
+    <div style={{ height: 180, width: 200 }}>
+        {React.createElement(() => {
+            return (
+                <Select
+                    block={true}
+                    options={optionsWithHtml}
+                    label='html'
+                    multiple={true}
+                />
+            );
+        })}
+    </div>
+</Preview>
+
+Стандартные компоненты **Field** и **Option** позволяют управлять рендером с помощью `valueRenderer` и `optionRenderer`
+
+<Preview>
+    <div style={{ height: 180 }}>
+        <Container>
+            <Row align="middle">
+                <Col>
+                    {React.createElement(() => {
+                        const renderFieldValue = (options) => options.map(option => option && option.text.toUpperCase());
+                        const optionRenderer = (option) => (<b>{option.text}</b>);
+                        return (
+                            <Select
+                                options={options}
+                                label='Uppercased'
+                                placeholder='bold'
+                                valueRenderer={renderFieldValue}
+                                optionRenderer={optionRenderer}
+                                allowUnselect={true}
+                            />
+                        );
+                    })}
+                </Col>
+                <Col>
+                    {React.createElement(() => {
+                        const OptionWithIcon = ({ text }) => (
+                            <span style={{ display: 'flex' }}>
+                                <Icon />
+                                {text}
+                            </span>
+                        );
+                        const renderOption = (option) => <OptionWithIcon key={option.value} {...option} />;
+                        const renderFieldValue = (options) => options.map(renderOption);
+                        return (
+                            <Select
+                                options={options}
+                                label='С иконкой'
+                                valueRenderer={renderFieldValue}
+                                optionRenderer={renderOption}
+                            />
+                        );
+                    })}
+                </Col>
+            </Row>
+        </Container>
+    </div>
+</Preview>
+
+Для более сложных кейсов — **Field**, **OptionsList**, **Optgroup** и **Option** можно заменить на собственные компоненты.
+
+<Preview>
+    <div style={{ height: 180 }}>
+        <Container>
+            <Row align="middle">
+                <Col>
+                    {React.createElement(() => {
+                        const CustomField = ({ value }) => (
+                            <span style={{ border: '1px solid #ff4784', display: 'block' }}>
+                                {value.length === 0 ? 'Custom field.' : ' Selected: '}
+                                {value.map(option => option.text.toUpperCase()).join(', ')}
+                            </span>
+                        );
+                        return (
+                            <Select
+                                options={options}
+                                label='CustomField'
+                                Field={CustomField}
+                            />
+                        );
+                    })}
+                </Col>
+            </Row>
+        </Container>
+    </div>
+</Preview>
+
+## Группы
+
+Группированный селект
+
+<Preview>
+    <div style={{ height: 180 }}>
+        <Select
+            options={groups}
+            label='Optgroup'
+            multiple={true}
+        />
+    </div>
+</Preview>
+
+## Нативный селект
+
+Рендерит нативный селект вместо выпадающего меню. (на десктопе использовать только с multiple=false)
+
+<Preview>
+    <Select
+        options={groups}
+        label='native'
+        nativeSelect={true}
+    />
+</Preview>

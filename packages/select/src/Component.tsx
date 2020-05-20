@@ -64,7 +64,7 @@ export type SelectProps = {
     /**
      * Размер компонента
      */
-    size?: 's' | 'm' | 'l' | 'xl';
+    size?: 's' | 'm' | 'l';
 
     /**
      * Атрибут name
