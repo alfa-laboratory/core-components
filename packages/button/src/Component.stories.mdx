@@ -190,7 +190,7 @@ import { Button } from '@alfalab/core-components-button';
             setLoading([true, false]);
             setTimeout(() => {
                 setLoading([false, false]);
-            }, 2000)
+            }, 1000)
         }
         const handleFastRequest = () => {
             setLoading([false, true]);
@@ -203,12 +203,12 @@ import { Button } from '@alfalab/core-components-button';
                 <Row align="middle">
                     <Col>
                         <Button view="primary" loading={loading[0]} onClick={handleLongRequest}>
-                            Отправить долгий запрос
+                            Долгий запрос
                         </Button>
                     </Col>
                     <Col>
                         <Button view="secondary" loading={loading[1]} onClick={handleFastRequest}>
-                            Отправить быстрый запрос
+                            Быстрый запрос
                         </Button>
                     </Col>
                     <Col>

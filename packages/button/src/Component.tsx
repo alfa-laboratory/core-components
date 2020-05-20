@@ -1,10 +1,4 @@
-import React, {
-    AnchorHTMLAttributes,
-    ButtonHTMLAttributes,
-    useEffect,
-    useState,
-    useRef,
-} from 'react';
+import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 import cn from 'classnames';
 
 import { Loader } from '@alfalab/core-components-loader';
@@ -62,32 +56,6 @@ type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement
 type NativeButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
 type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
-function useDelayedRender(render: boolean, delay = 200) {
-    const [pastValue, setValue] = useState(render);
-
-    const timer = useRef(0);
-
-    useEffect(() => {
-        if (timer.current) {
-            clearTimeout(timer.current);
-        }
-
-        if (render !== pastValue) {
-            timer.current = window.setTimeout(() => {
-                setValue(render);
-            }, delay);
-        }
-
-        return () => {
-            if (timer.current) {
-                clearTimeout(timer.current);
-            }
-        };
-    }, [render, delay, pastValue]);
-
-    return [pastValue];
-}
-
 export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, ButtonProps>(
     (
         {
@@ -106,8 +74,6 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
         },
         ref,
     ) => {
-        const [showLoader] = useDelayedRender(loading);
-
         const componentProps = {
             className: cn(
                 styles.component,
@@ -116,12 +82,12 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
                 {
                     [styles.block]: block,
                     [styles.iconOnly]: !children,
-                    [styles.loading]: showLoader,
+                    [styles.loading]: loading,
                 },
                 className,
             ),
             'data-test-id': dataTestId || null,
-            disabled: disabled || showLoader,
+            disabled: disabled || loading,
         };
 
         const buttonChildren = (
@@ -144,7 +110,7 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
             // eslint-disable-next-line react/button-has-type
             <button {...componentProps} {...restProps} ref={ref}>
                 {buttonChildren}
-                {showLoader && <Loader className={cn(styles.loader)} />}
+                {loading && <Loader className={cn(styles.loader)} />}
             </button>
         );
     },
