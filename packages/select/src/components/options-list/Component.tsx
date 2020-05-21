@@ -12,7 +12,7 @@ const createCounter = () => {
 
 export const OptionsList = ({
     children,
-    isOpen,
+    open,
     options,
     Optgroup = DefaultOptgroup,
 }: OptionsListProps) => {
@@ -29,7 +29,7 @@ export const OptionsList = ({
         [children, counter],
     );
 
-    if (!isOpen) return null;
+    if (!open) return null;
 
     return (
         <div className={styles.optionsList}>

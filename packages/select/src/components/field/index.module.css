@@ -1,5 +1,7 @@
 @import '../../../../themes/src/default.css';
 
+/* TODO: еще нужно привести в порядок. Стили пока только для теста */
+
 .component {
     @mixin system_16-20_regular;
 
@@ -28,7 +30,7 @@ select:hover ~ .component {
     background-color: var(--input-hover-bg-color);
 }
 
-.isOpen:not(.disabled),
+.open:not(.disabled),
 select:focus + button .component,
 button:focus .component {
     border-bottom: var(--input-focus-border-bottom);
@@ -99,7 +101,7 @@ button:focus .component {
     padding-right: var(--gap-s);
 }
 
-.isOpen .arrow,
+.open .arrow,
 select:focus + button .arrow {
     transform: rotate(180deg);
 }

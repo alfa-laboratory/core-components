@@ -1,4 +1,4 @@
-import React, { useRef, ReactNode, useMemo, useCallback, ChangeEvent } from 'react';
+import React, { useRef, ReactNode, useMemo, useCallback, ChangeEvent, ComponentType } from 'react';
 import cn from 'classnames';
 import { Popover } from '@alfalab/core-components-popover';
 import { useMultipleSelection, useSelect, UseMultipleSelectionProps } from 'downshift';
@@ -119,22 +119,22 @@ export type SelectProps = {
     /**
      * Компонент поля
      */
-    Field?: React.ComponentType<FieldProps>;
+    Field?: ComponentType<FieldProps>;
 
     /**
      * Компонент выпадающего меню
      */
-    OptionsList?: React.ComponentType<OptionsListProps>;
+    OptionsList?: ComponentType<OptionsListProps>;
 
     /**
      * Компонент группы
      */
-    Optgroup?: React.ComponentType<OptgroupProps>;
+    Optgroup?: ComponentType<OptgroupProps>;
 
     /**
      * Компонент пункта меню
      */
-    Option?: React.ComponentType<OptionProps>;
+    Option?: ComponentType<OptionProps>;
 
     /**
      * Кастомный рендер выбранного пункта
@@ -171,7 +171,7 @@ export type FieldProps = Pick<
     /**
      * Флаг, открыто ли меню
      */
-    isOpen?: boolean;
+    open?: boolean;
 
     /**
      * Флаг, есть ли выбранные пункты
@@ -193,7 +193,7 @@ export type OptionsListProps = Pick<SelectProps, 'multiple' | 'options' | 'size'
     /**
      * Флаг, открыто ли меню
      */
-    isOpen: boolean;
+    open: boolean;
 };
 
 export type OptgroupProps = {
@@ -307,7 +307,7 @@ export function Select({
     } = useMultipleSelection(useMultipleSelectionProps);
 
     const {
-        isOpen,
+        isOpen: open,
         getToggleButtonProps,
         getMenuProps,
         highlightedIndex,
@@ -325,7 +325,7 @@ export function Select({
                 case useSelect.stateChangeTypes.MenuKeyDownSpaceButton:
                 case useSelect.stateChangeTypes.ItemClick:
                     if (selectedItem) {
-                        const alreadySelected = selectedItems.find(item => item === selectedItem);
+                        const alreadySelected = selectedItems.includes(selectedItem);
 
                         if ((multiple || allowUnselect) && alreadySelected) {
                             removeSelectedItem(selectedItem);
@@ -443,7 +443,7 @@ export function Select({
         value: selectedItems,
         multiple,
         size,
-        isOpen,
+        open,
         showArrow,
         disabled,
         filled: selectedItems.length > 0,
@@ -454,7 +454,7 @@ export function Select({
 
     const optionsListProps = {
         multiple,
-        isOpen,
+        open,
         options,
         size,
         Optgroup,
@@ -477,7 +477,7 @@ export function Select({
 
             {!nativeSelect && (
                 <Popover
-                    open={isOpen}
+                    open={open}
                     transition={getTransitionProps}
                     anchorElement={selectRef.current as HTMLElement}
                     position='bottom-start'

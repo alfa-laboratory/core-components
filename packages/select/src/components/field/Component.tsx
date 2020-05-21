@@ -7,7 +7,7 @@ import styles from './index.module.css';
 
 export const Field = ({
     size = 'm',
-    isOpen,
+    open,
     disabled,
     filled,
     label,
@@ -23,7 +23,7 @@ export const Field = ({
     return (
         <span
             className={cn(styles.component, styles[size], {
-                [styles.isOpen]: isOpen,
+                [styles.open]: open,
                 [styles.disabled]: disabled,
                 [styles.filled]: filled,
                 [styles.hasLabel]: label,
