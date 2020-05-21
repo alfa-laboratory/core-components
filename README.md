@@ -1,6 +1,6 @@
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-
 <img width="914" alt="Библиотека React компонентов для создания веб-интерфейсов" src="https://user-images.githubusercontent.com/109410/78970104-3873e000-7b11-11ea-945d-02f86cad62e0.png"/>
+
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 ## ✨ Возможности
 
