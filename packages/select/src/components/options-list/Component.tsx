@@ -3,6 +3,7 @@ import { OptionsListProps, GroupShape } from '../../Component';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 
 import styles from './index.module.css';
+import { isGroup } from '../../utils';
 
 const createCounter = () => {
     let count = 0;
@@ -34,7 +35,7 @@ export const OptionsList = ({
     return (
         <div className={styles.optionsList}>
             {options.map(option =>
-                'options' in option ? renderGroup(option) : children({ option, index: counter() }),
+                isGroup(option) ? renderGroup(option) : children({ option, index: counter() }),
             )}
         </div>
     );

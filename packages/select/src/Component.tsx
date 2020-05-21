@@ -10,6 +10,7 @@ import { Optgroup as DefaultOptgroup } from './components/optgroup';
 import { NativeSelect } from './components/native-select';
 
 import styles from './index.module.css';
+import { isGroup } from './utils';
 
 export type OptionShape = {
     /**
@@ -267,7 +268,7 @@ export function Select({
         () =>
             options.reduce(
                 (acc: OptionShape[], option) =>
-                    acc.concat('options' in option ? option.options : option),
+                    acc.concat(isGroup(option) ? option.options : option),
                 [],
             ),
         [options],

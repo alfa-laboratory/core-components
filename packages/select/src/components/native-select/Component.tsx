@@ -1,5 +1,6 @@
 import React from 'react';
 import { OptionShape, GroupShape, SelectProps } from '../../Component';
+import { isGroup } from '../../utils';
 
 type NativeSelectProps = Pick<
     SelectProps,
@@ -43,8 +44,6 @@ export const NativeSelect = ({
         onChange={onChange}
         tabIndex={0}
     >
-        {options.map(option =>
-            'options' in option ? <Group {...option} /> : <Option {...option} />,
-        )}
+        {options.map(option => (isGroup(option) ? <Group {...option} /> : <Option {...option} />))}
     </select>
 );
