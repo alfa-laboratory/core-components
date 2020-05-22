@@ -197,6 +197,16 @@ export type OptionsListProps = Pick<SelectProps, 'multiple' | 'options' | 'size'
     children: (props: Pick<OptionProps, 'option' | 'index'>) => ReactNode;
 
     /**
+     * Плоский список пунктов меню (например, нужно для виртуализации)
+     */
+    flatOptions: OptionShape[];
+
+    /**
+     * Индекс выделенного пункта
+     */
+    highlightedIndex: number;
+
+    /**
      * Флаг, открыто ли меню
      */
     open: boolean;
@@ -211,7 +221,7 @@ export type OptgroupProps = {
     /**
      * Дочерние элементы
      */
-    children: ReactNode;
+    children?: ReactNode;
 };
 
 export type OptionProps = Pick<SelectProps, 'optionRenderer' | 'size'> & {
@@ -471,14 +481,6 @@ export function Select({
         valueRenderer,
     };
 
-    const optionsListProps = {
-        multiple,
-        open,
-        options,
-        size,
-        Optgroup,
-    };
-
     return (
         <div ref={selectRef} className={cn(styles.component, className, { [styles.block]: block })}>
             {nativeSelect && renderNativeSelect()}
@@ -507,7 +509,17 @@ export function Select({
                     popperClassName={styles.popover}
                 >
                     <div {...getMenuProps({ ref: optionsListRef })} className={styles.listWrapper}>
-                        <OptionsList {...optionsListProps}>{WrappedOption}</OptionsList>
+                        <OptionsList
+                            flatOptions={flatOptions}
+                            highlightedIndex={highlightedIndex}
+                            multiple={multiple}
+                            open={open}
+                            options={options}
+                            size={size}
+                            Optgroup={Optgroup}
+                        >
+                            {WrappedOption}
+                        </OptionsList>
                     </div>
                 </Popover>
             )}

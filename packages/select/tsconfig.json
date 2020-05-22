@@ -3,10 +3,12 @@
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",
-        "rootDir": "src"
+        "rootDirs": ["src"],
+        "baseUrl": ".",
+        "paths": {
+            "@alfalab/core-components-input": ["../input/src"],
+            "@alfalab/core-components-popover": ["../popover/src"]
+        }
     },
-    "references": [
-        { "path": "../popover" },
-        { "path": "../input" }
-    ]
+    "references": [{ "path": "../input" }, { "path": "../popover" }]
 }

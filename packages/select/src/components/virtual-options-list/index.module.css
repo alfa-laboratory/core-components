@@ -1,0 +1,17 @@
+@import '../../../../themes/src/default.css';
+
+.virtualOptionsList {
+    min-height: 120px;
+    position: relative;
+    overflow: auto;
+    width: 100%;
+    outline: none;
+    padding: var(--gap-xs) 0;
+}
+
+.virtualRow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
