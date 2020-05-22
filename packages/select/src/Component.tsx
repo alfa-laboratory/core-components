@@ -108,6 +108,11 @@ export type SelectProps = {
     showArrow?: boolean;
 
     /**
+     * При навигации с клавиатуры переходить от последнего пункта меню к первому и наоборот.
+     */
+    circularNavigation?: boolean;
+
+    /**
      * Список выбранных пунктов (controlled-селект)
      */
     selected?: OptionShape | OptionShape[];
@@ -245,6 +250,7 @@ export function Select({
     disabled = false,
     closeOnSelect = true,
     showArrow = true,
+    circularNavigation = false,
     size = 's',
     nativeSelect = false,
     label,
@@ -315,6 +321,7 @@ export function Select({
         getItemProps,
         setHighlightedIndex,
     } = useSelect<OptionShape>({
+        circularNavigation,
         items: flatOptions,
         itemToString: item => (item ? item.value.toString() : ''),
         stateReducer: (_, actionAndChanges) => {
