@@ -8,14 +8,14 @@ Object {
       <div
         class="component"
       >
-        <button
+        <div
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-labelledby="downshift-0-label downshift-0-toggle-button"
           class="fieldWrapper"
           id="downshift-0-toggle-button"
+          role="button"
           tabindex="0"
-          type="button"
         >
           <span
             class="component s"
@@ -49,7 +49,7 @@ Object {
               </svg>
             </span>
           </span>
-        </button>
+        </div>
       </div>
     </div>
   </body>,
@@ -57,14 +57,14 @@ Object {
     <div
       class="component"
     >
-      <button
+      <div
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-labelledby="downshift-0-label downshift-0-toggle-button"
         class="fieldWrapper"
         id="downshift-0-toggle-button"
+        role="button"
         tabindex="0"
-        type="button"
       >
         <span
           class="component s"
@@ -98,7 +98,7 @@ Object {
             </svg>
           </span>
         </span>
-      </button>
+      </div>
     </div>
   </div>,
   "debug": [Function],

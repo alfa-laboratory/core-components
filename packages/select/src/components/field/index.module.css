@@ -32,7 +32,7 @@ select:hover ~ .component {
 
 .open:not(.disabled),
 select:focus + button .component,
-button:focus .component {
+*:focus > .component {
     border-bottom: var(--input-focus-border-bottom);
     box-shadow: var(--input-focus-shadow);
 }

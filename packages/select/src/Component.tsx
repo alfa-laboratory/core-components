@@ -320,6 +320,7 @@ export function Select({
         highlightedIndex,
         getItemProps,
         setHighlightedIndex,
+        toggleMenu,
     } = useSelect<OptionShape>({
         circularNavigation,
         items: flatOptions,
@@ -398,6 +399,16 @@ export function Select({
         [flatOptions, setSelectedItems],
     );
 
+    const handleToggleButtonKeyDown = useCallback(
+        event => {
+            if ([' ', 'Enter'].includes(event.key)) {
+                event.preventDefault();
+                toggleMenu();
+            }
+        },
+        [toggleMenu],
+    );
+
     const WrappedOption = useCallback(
         ({ option, index, ...rest }: Pick<OptionProps, 'option' | 'index'>) => {
             return (
@@ -472,14 +483,17 @@ export function Select({
         <div ref={selectRef} className={cn(styles.component, className, { [styles.block]: block })}>
             {nativeSelect && renderNativeSelect()}
 
-            <button
-                type='button'
-                {...getToggleButtonProps({ disabled })}
+            <div
+                role='button'
+                {...getToggleButtonProps({
+                    disabled,
+                    onKeyDown: handleToggleButtonKeyDown,
+                })}
                 className={styles.fieldWrapper}
                 tabIndex={nativeSelect ? -1 : 0}
             >
                 <Field {...fieldProps} />
-            </button>
+            </div>
 
             {name && !nativeSelect && renderValue()}
 
