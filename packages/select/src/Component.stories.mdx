@@ -303,7 +303,7 @@ const groups = [{
 
 ## Рендер длинных списков
 
-Рендерит нативный селект вместо выпадающего меню. (на десктопе использовать только с multiple=false)
+Используйте `OptionsList={VirtualOptionsList}` для рендера большого количества данных
 
 <Preview>
     <Container>
@@ -332,6 +332,7 @@ const groups = [{
                                 options={options}
                                 circularNavigation={true}
                                 OptionsList={VirtualOptionsList}
+                                allowUnselect={true}
                             />
                         );
                     })}
@@ -351,6 +352,7 @@ const groups = [{
                                 block={true}
                                 options={groups}
                                 multiple={true}
+                                allowUnselect={true}
                                 circularNavigation={true}
                                 OptionsList={VirtualOptionsList}
                             />
