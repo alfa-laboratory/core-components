@@ -13,15 +13,15 @@ type NativeSelectProps = Pick<
 };
 
 const Option = ({ value, text, nativeText, disabled }: OptionShape) => (
-    <option value={value} disabled={disabled} key={value}>
+    <option value={value} disabled={disabled}>
         {nativeText || text || value}
     </option>
 );
 
 const Group = ({ label, options }: GroupShape) => (
-    <optgroup label={label} key={label}>
+    <optgroup label={label}>
         {options.map(option => (
-            <Option {...option} />
+            <Option {...option} key={option.value} />
         ))}
     </optgroup>
 );
@@ -44,6 +44,12 @@ export const NativeSelect = ({
         onChange={onChange}
         tabIndex={0}
     >
-        {options.map(option => (isGroup(option) ? <Group {...option} /> : <Option {...option} />))}
+        {options.map(option =>
+            isGroup(option) ? (
+                <Group {...option} key={option.label} />
+            ) : (
+                <Option {...option} key={option.value} />
+            ),
+        )}
     </select>
 );
