@@ -381,22 +381,23 @@ export function Select({
                 if (optionsListRef.current !== null) {
                     optionsListRef.current.focus();
 
-                    if (selectedItems.length) {
-                        /*
-                         * Перезапускаем scrollIntoView
-                         * https://github.com/downshift-js/downshift/blob/master/src/hooks/useSelect/index.js#L189
-                         */
-                        setHighlightedIndex(-1);
-                        setTimeout(() => {
-                            setHighlightedIndex(
-                                flatOptions.indexOf(selectedItems[selectedItems.length - 1]),
-                            );
-                        }, 0);
+                    /*
+                     * Перезапускаем scrollIntoView
+                     * https://github.com/downshift-js/downshift/blob/master/src/hooks/useSelect/index.js#L189
+                     */
+                    setHighlightedIndex(-1);
+                    let scrollIndex = highlightedIndex;
+                    if (scrollIndex === -1 && selectedItems.length > 0) {
+                        scrollIndex = flatOptions.indexOf(selectedItems[selectedItems.length - 1]);
                     }
+
+                    setTimeout(() => {
+                        setHighlightedIndex(scrollIndex);
+                    }, 0);
                 }
             },
         };
-    }, [flatOptions, selectedItems, setHighlightedIndex]);
+    }, [flatOptions, highlightedIndex, selectedItems, setHighlightedIndex]);
 
     const handleNativeSelectChange = useCallback(
         event => {
