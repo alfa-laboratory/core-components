@@ -345,8 +345,9 @@ export function Select({
                 case useSelect.stateChangeTypes.ItemClick:
                     if (selectedItem) {
                         const alreadySelected = selectedItems.includes(selectedItem);
+                        const allowRemove = allowUnselect || (multiple && selectedItems.length > 1);
 
-                        if ((multiple || allowUnselect) && alreadySelected) {
+                        if (alreadySelected && allowRemove) {
                             removeSelectedItem(selectedItem);
                         }
 
