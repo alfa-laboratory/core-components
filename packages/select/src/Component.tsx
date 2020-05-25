@@ -343,7 +343,7 @@ export function Select({
                 case useSelect.stateChangeTypes.MenuKeyDownEnter:
                 case useSelect.stateChangeTypes.MenuKeyDownSpaceButton:
                 case useSelect.stateChangeTypes.ItemClick:
-                    if (selectedItem) {
+                    if (selectedItem && !selectedItem.disabled) {
                         const alreadySelected = selectedItems.includes(selectedItem);
                         const allowRemove = allowUnselect || (multiple && selectedItems.length > 1);
 
