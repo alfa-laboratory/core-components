@@ -26,7 +26,7 @@ import { Button } from '@alfalab/core-components-button';
 
 <Story name='Песочница'>
     <Button
-        view={select('view', VIEWS)}
+        view={select('view', VIEWS, 'primary')}
         size={select('size', SIZES, 'm')}
         type={select('type', ['button', 'reset', 'submit'])}
         href={text('href', '')}
