@@ -42,7 +42,6 @@ export const NativeSelect = ({
         name={name}
         value={value}
         onChange={onChange}
-        tabIndex={0}
     >
         {options.map(option =>
             isGroup(option) ? (
