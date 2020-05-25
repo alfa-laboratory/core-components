@@ -6,7 +6,8 @@
         "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-popover": ["../popover/src"]
+            "@alfalab/core-components-popover": ["../popover/src"],
+            "@alfalab/core-components-portal": ["../portal/src"]
         }
     },
     "references": [{ "path": "../popover" }]

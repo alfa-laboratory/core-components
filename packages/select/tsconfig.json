@@ -7,7 +7,8 @@
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-input": ["../input/src"],
-            "@alfalab/core-components-popover": ["../popover/src"]
+            "@alfalab/core-components-popover": ["../popover/src"],
+            "@alfalab/core-components-portal": ["../portal/src"]
         }
     },
     "references": [{ "path": "../input" }, { "path": "../popover" }]
