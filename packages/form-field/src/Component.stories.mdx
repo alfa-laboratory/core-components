@@ -2,35 +2,31 @@ import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
-import { Input } from './Component';
+import { FormField } from './Component';
 import { name, version } from '../package.json';
 
 
-<Meta title='Компоненты|Input' component={Input} />
+<Meta title='Компоненты|FormField' component={FormField} />
 
 <Title>
-    Input ({name}@{version})
+    FormField ({name}@{version})
 </Title>
 
 ```tsx
-import { Input } from '@alfalab/core-components-input';
+import { FormField } from '@alfalab/core-components-form-field';
 ```
 
 ## Описание
 
-Компонент текстового поля ввода.
+Базовый компонент для постоения полей ввода - input, textarea, select и др.
 
 <Story name='Песочница'>
-    <Input
-        type={select(
-            'type',
-            ['number', 'card', 'email', 'money', 'password', 'tel', 'text'],
-            'text',
-        )}
-        block={boolean('block', false)}
+    <FormField
+        block={boolean('block', true)}
         size={select('size', ['s', 'm', 'l'], 's')}
         disabled={boolean('disabled', false)}
-        placeholder={text('placeholder', '')}
+        filled={boolean('filled', false)}
+        focused={boolean('focused', false)}
         label={text('label', '')}
         hint={text('hint', '')}
         error={text('error', '')}
@@ -40,4 +36,4 @@ import { Input } from '@alfalab/core-components-input';
     />
 </Story>
 
-<Props of={Input} />
+<Props of={FormField} />

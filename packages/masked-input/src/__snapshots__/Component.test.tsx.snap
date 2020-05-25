@@ -15,7 +15,7 @@ Object {
             class="inputWrapper"
           >
             <input
-              class="input"
+              class="input s"
               type="text"
               value=""
             />
@@ -35,7 +35,7 @@ Object {
           class="inputWrapper"
         >
           <input
-            class="input"
+            class="input s"
             type="text"
             value=""
           />

@@ -3,6 +3,11 @@
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",
-        "rootDirs": ["src"]
-    }
+        "rootDirs": ["src"],
+        "baseUrl": ".",
+        "paths": {
+            "@alfalab/core-components-form-field": ["../form-field/src"]
+        }
+    },
+    "references": [{ "path": "../form-field" }]
 }

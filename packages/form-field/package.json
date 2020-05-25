@@ -1,7 +1,7 @@
 {
-    "name": "@alfalab/core-components-input",
-    "version": "1.3.0",
-    "description": "",
+    "name": "@alfalab/core-components-form-field",
+    "version": "1.0.0",
+    "description": "FormField component",
     "keywords": [],
     "license": "ISC",
     "main": "dist/index.js",
@@ -13,9 +13,10 @@
     },
     "peerDependencies": {
         "classnames": "^2.2.6",
-        "react": "^16.9.0"
+        "react": "^16.9.0",
+        "react-dom": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/core-components-form-field": "^1.0.0"
+        "@alfalab/icons-classic": "^1.7.0"
     }
 }
