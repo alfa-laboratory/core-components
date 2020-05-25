@@ -12,6 +12,7 @@
 }
 
 .fieldWrapper {
+    position: relative;
     display: block;
     border: none;
     margin: 0;
@@ -42,6 +43,7 @@
     overflow: hidden;
     position: absolute;
     top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
     max-width: 100%;

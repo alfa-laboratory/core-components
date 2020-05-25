@@ -413,12 +413,12 @@ export function Select({
 
     const handleToggleButtonKeyDown = useCallback(
         event => {
-            if ([' ', 'Enter'].includes(event.key)) {
+            if (!nativeSelect && [' ', 'Enter'].includes(event.key)) {
                 event.preventDefault();
                 toggleMenu();
             }
         },
-        [toggleMenu],
+        [nativeSelect, toggleMenu],
     );
 
     const WrappedOption = useCallback(
@@ -485,8 +485,6 @@ export function Select({
 
     return (
         <div ref={selectRef} className={cn(styles.component, className, { [styles.block]: block })}>
-            {nativeSelect && renderNativeSelect()}
-
             <div
                 role='button'
                 {...getToggleButtonProps({
@@ -496,6 +494,7 @@ export function Select({
                 className={styles.fieldWrapper}
                 tabIndex={nativeSelect ? -1 : 0}
             >
+                {nativeSelect && renderNativeSelect()}
                 <Field {...fieldProps} />
             </div>
 
