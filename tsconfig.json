@@ -15,7 +15,11 @@
         "resolveJsonModule": true,
         "typeRoots": ["./typings", "./node_modules/@types"],
         "composite": true,
-        "declaration": true
+        "declaration": true,
+        "baseUrl": ".",
+        "paths": {
+            "@alfalab/core-components-*": ["packages/*/src"]
+        }
     },
     "exclude": ["node_modules", "dist", "**/*.stories*", "**/*.test*"],
     "include": ["./typings"]
