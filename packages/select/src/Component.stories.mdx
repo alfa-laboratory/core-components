@@ -13,7 +13,7 @@ import { name, version } from '../package.json';
 import Icon from '@alfalab/icons-classic/BankAlfaSBlackIcon';
 
 export const options = [
-    { value: '1', text: 'Neptunium', disabled: true },
+    { value: '1', text: 'Neptunium'},
     { value: '2', text: 'Plutonium' },
     { value: '3', text: 'Americium' },
     { value: '4', text: 'Curium' },
@@ -71,13 +71,6 @@ export const optionsWithHtml = options.map(option => {
     };
 });
 
-export const onChange = (event, payload) => {
-    const form = document.getElementById('form');
-    const data = new FormData(form);
-    console.log(event, payload);
-    console.log(Array.from(data.entries()));
-};
-
 export const renderUppercased = (options) => {
     return options.map(option => option.text.toUpperCase()).join(', ');
 };
@@ -104,7 +97,7 @@ import { Select } from '@alfalab/core-components-select';
         className={text('className', '')}
         options={options}
         multiple={boolean('multiple', false)}
-        allowUnselect={boolean('allowUnselect', false)}
+        allowUnselect={boolean('allowUnselect', true)}
         closeOnSelect={boolean('closeOnSelect', true)}
         showArrow={boolean('showArrow', true)}
         circularNavigation={boolean('circularNavigation', false)}
@@ -145,7 +138,7 @@ import { Select } from '@alfalab/core-components-select';
 <Preview>
     <div style={{ height: 180, width: 300 }}>
         {React.createElement(() => {
-            const [selected, setSelected] = React.useState([options[1], options[2]]);
+            const [selected, setSelected] = React.useState([options[8], options[9]]);
             const handleChange = (event, payload) => {
                 setSelected(payload.selected);
             };
@@ -159,6 +152,44 @@ import { Select } from '@alfalab/core-components-select';
                     onChange={handleChange}
                     selected={selected}
                 />
+            );
+        })}
+    </div>
+</Preview>
+
+### Использование в форме
+
+Чтобы использовать селект внутри формы - следует указать атрибут `name`
+
+<Preview>
+    <div style={{ height: 180, width: 300 }}>
+        {React.createElement(() => {
+            const options = [
+                { value: 'value1', text: 'Neptunium'},
+                { value: 'value2', text: 'Plutonium' },
+                { value: 'value3', text: 'Americium' },
+            ];
+            const [serialized, setSerialized] = React.useState();
+            const onSubmit = (event) => {
+                event.preventDefault();
+                const form = event.target;
+                const formData = new FormData(form);
+                setSerialized(new URLSearchParams(formData).toString());
+            };
+            return (
+                <div>
+                    <form onSubmit={onSubmit}>
+                        <Select
+                            block={true}
+                            options={options}
+                            placeholder='Выберите элемент'
+                            name='select'
+                            multiple={true}
+                        />
+                        <button type="submit">Отправить</button>
+                    </form>
+                    <div>serialized: {serialized}</div>
+                </div>
             );
         })}
     </div>
