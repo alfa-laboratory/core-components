@@ -31,8 +31,8 @@ select:hover ~ .component {
 }
 
 .open:not(.disabled),
-select:focus + button .component,
-*:focus > .component {
+select:focus + * .component:not(.disabled),
+*:focus > .component:not(.disabled) {
     border-bottom: var(--input-focus-border-bottom);
     box-shadow: var(--input-focus-shadow);
 }
