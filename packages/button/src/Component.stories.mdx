@@ -181,39 +181,47 @@ import { Button } from '@alfalab/core-components-button';
 ## Состояние загрузки
 С помощью свойства `loading` можно отрисовать состояние загрузки.
 
-Лоадер появляется с задержкой в 200ms, чтобы при быстрых ответах от сервера кнопка не "моргала".
-
 <Preview>
     {React.createElement(() => {
-        const [loading, setLoading] = React.useState([false, false]);
-        const handleLongRequest = () => {
-            setLoading([true, false]);
+        const [loading, setLoading] = React.useState({
+            primary: false,
+            secondary: false,
+            outlined: false,
+            link: false,
+            ghost: false
+        });
+        const handleClick = (buttonName) => {
+            setLoading({...loading, [buttonName]: true});
             setTimeout(() => {
-                setLoading([false, false]);
-            }, 1000)
-        }
-        const handleFastRequest = () => {
-            setLoading([false, true]);
-            setTimeout(() => {
-                setLoading([false, false]);
-            }, 100)
+                setLoading({...loading, [buttonName]: false});
+            }, 500)
         }
         return (
             <Container>
                 <Row align="middle">
                     <Col>
-                        <Button view="primary" loading={loading[0]} onClick={handleLongRequest}>
-                            Долгий запрос
+                        <Button view="primary" loading={loading.primary} onClick={() => handleClick('primary')}>
+                            Отправить запрос
                         </Button>
                     </Col>
                     <Col>
-                        <Button view="secondary" loading={loading[1]} onClick={handleFastRequest}>
-                            Быстрый запрос
+                        <Button view="secondary" loading={loading.secondary} onClick={() => handleClick('secondary')}>
+                            Отправить запрос
                         </Button>
                     </Col>
                     <Col>
-                        <Button view="outlined" loading={true}>
-                            Loading
+                        <Button view="outlined" loading={loading.outlined} onClick={() => handleClick('outlined')}>
+                            Отправить запрос
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button view="link" loading={loading.link} onClick={() => handleClick('link')}>
+                            Отправить запрос
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button view="ghost" loading={loading.ghost} onClick={() => handleClick('ghost')}>
+                            Отправить запрос
                         </Button>
                     </Col>
                 </Row>

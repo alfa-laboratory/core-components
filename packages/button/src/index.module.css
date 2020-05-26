@@ -65,28 +65,10 @@
 .loading .text,
 .loading .addons {
     opacity: 0;
-
-    /* задержка перед скрытием текста, 0.2s */
-    transition: opacity 0s ease 0.2s;
 }
 
 .loader {
     position: absolute;
-    opacity: 0;
-
-    /* задержка перед показом лоадера, 0.2s */
-    animation: show-loader 1s ease 0.2s infinite;
-}
-
-/* это нужно, чтобы поменять прозрачность лоадера через 0.2s без js  */
-@keyframes show-loader {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 1;
-    }
 }
 
 /* Size */
