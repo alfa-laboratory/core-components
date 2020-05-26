@@ -1,6 +1,6 @@
 import React, { useState, InputHTMLAttributes, useCallback } from 'react';
 import cn from 'classnames';
-import { FormField } from '@alfalab/core-components-form-field';
+import { FormControl } from '@alfalab/core-components-form-control';
 
 import styles from './index.module.css';
 
@@ -127,7 +127,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         );
 
         return (
-            <FormField
+            <FormControl
                 className={className}
                 size={size}
                 block={block}
@@ -161,7 +161,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     value={value}
                     data-test-id={dataTestId}
                 />
-            </FormField>
+            </FormControl>
         );
     },
 );

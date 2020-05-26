@@ -4,7 +4,7 @@ import ErrorIcon from '@alfalab/icons-classic/ErrorMColorIcon';
 
 import styles from './index.module.css';
 
-export type FormFieldProps = {
+export type FormControlProps = {
     /**
      * Растягивает компонент на ширину контейнера
      */
@@ -26,7 +26,7 @@ export type FormFieldProps = {
     filled?: boolean;
 
     /**
-     * Выбранное(фокус) состояние
+     * Выбранное (фокус) состояние
      */
     focused?: boolean;
 
@@ -81,7 +81,7 @@ export type FormFieldProps = {
     children?: ReactNode;
 };
 
-export const FormField = ({
+export const FormControl = ({
     block = false,
     size = 's',
     className,
@@ -97,7 +97,7 @@ export const FormField = ({
     bottomAddons,
     children,
     dataTestId,
-}: FormFieldProps) => {
+}: FormControlProps) => {
     const rightAddonsRenderer = useCallback(
         () =>
             (error || rightAddons) && (

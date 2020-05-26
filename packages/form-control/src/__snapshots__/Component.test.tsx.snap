@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FormField Snapshots tests should match snapshot 1`] = `
+exports[`FormControl Snapshots tests should match snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -85,7 +85,7 @@ Object {
 }
 `;
 
-exports[`FormField Snapshots tests should not render hint if has error 1`] = `
+exports[`FormControl Snapshots tests should not render hint if has error 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -218,7 +218,7 @@ Object {
 }
 `;
 
-exports[`FormField Snapshots tests should render bottom addons 1`] = `
+exports[`FormControl Snapshots tests should render bottom addons 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -309,7 +309,7 @@ Object {
 }
 `;
 
-exports[`FormField Snapshots tests should render error 1`] = `
+exports[`FormControl Snapshots tests should render error 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -442,7 +442,7 @@ Object {
 }
 `;
 
-exports[`FormField Snapshots tests should render hint 1`] = `
+exports[`FormControl Snapshots tests should render hint 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -537,7 +537,7 @@ Object {
 }
 `;
 
-exports[`FormField Snapshots tests should render label 1`] = `
+exports[`FormControl Snapshots tests should render label 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -646,7 +646,7 @@ Object {
 }
 `;
 
-exports[`FormField Snapshots tests should render left addons 1`] = `
+exports[`FormControl Snapshots tests should render left addons 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -745,7 +745,7 @@ Object {
 }
 `;
 
-exports[`FormField Snapshots tests should render right addons 1`] = `
+exports[`FormControl Snapshots tests should render right addons 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>

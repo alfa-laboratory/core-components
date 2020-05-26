@@ -2,26 +2,26 @@ import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
-import { FormField } from './Component';
+import { FormControl } from './Component';
 import { name, version } from '../package.json';
 
 
-<Meta title='Компоненты|FormField' component={FormField} />
+<Meta title='Компоненты|FormControl' component={FormControl} />
 
 <Title>
-    FormField ({name}@{version})
+    FormControl ({name}@{version})
 </Title>
 
 ```tsx
-import { FormField } from '@alfalab/core-components-form-field';
+import { FormControl } from '@alfalab/core-components-form-control';
 ```
 
 ## Описание
 
-Базовый компонент для постоения полей ввода - input, textarea, select и др.
+Базовый компонент для построения полей ввода - input, textarea, select и др.
 
 <Story name='Песочница'>
-    <FormField
+    <FormControl
         block={boolean('block', true)}
         size={select('size', ['s', 'm', 'l'], 's')}
         disabled={boolean('disabled', false)}
@@ -36,4 +36,4 @@ import { FormField } from '@alfalab/core-components-form-field';
     />
 </Story>
 
-<Props of={FormField} />
+<Props of={FormControl} />
