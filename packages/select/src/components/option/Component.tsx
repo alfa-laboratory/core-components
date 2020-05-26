@@ -5,14 +5,17 @@ import { OptionProps } from '../../Component';
 import styles from './index.module.css';
 
 export const Option = ({
+    size = 's',
     option,
     selected,
     highlighted,
     disabled,
     optionRenderer,
+    ...rest
 }: OptionProps) => (
     <div
-        className={cn(styles.option, {
+        {...rest}
+        className={cn(styles.option, styles[size], {
             [styles.highlighted]: highlighted,
             [styles.selected]: selected,
             [styles.disabled]: disabled,

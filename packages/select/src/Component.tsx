@@ -123,6 +123,11 @@ export type SelectProps = {
     nativeSelect?: boolean;
 
     /**
+     * Смещение выпадающего меню по вертикали
+     */
+    popoverOffset?: number;
+
+    /**
      * Компонент поля
      */
     Field?: ComponentType<FieldProps>;
@@ -263,6 +268,7 @@ export function Select({
     circularNavigation = false,
     size = 's',
     nativeSelect = false,
+    popoverOffset = 4,
     label,
     placeholder,
     name,
@@ -279,6 +285,8 @@ export function Select({
     const optionsListRef = useRef<HTMLElement>(null);
 
     const getPortalContainer = () => selectRef.current as HTMLDivElement;
+
+    const getPopoverOffset = useMemo((): [number, number] => [0, popoverOffset], [popoverOffset]);
 
     const flatOptions = useMemo(
         () =>
@@ -373,6 +381,8 @@ export function Select({
     const getTransitionProps = useMemo((): Partial<TransitionProps> => {
         return {
             appear: true,
+            // TODO: определиться, нужна ли вообще анимация
+            timeout: 0,
             onEntered: () => {
                 /*
                  * Из-за использования Transition внутри Popover'а - меню и его пункты рендерятся с задержкой.
@@ -422,25 +432,20 @@ export function Select({
     );
 
     const WrappedOption = useCallback(
-        ({ option, index, ...rest }: Pick<OptionProps, 'option' | 'index'>) => {
-            return (
-                <div
-                    {...getItemProps({ index, item: option, disabled: option.disabled })}
-                    key={option.value}
-                >
-                    <Option
-                        {...rest}
-                        option={option}
-                        index={index}
-                        size={size}
-                        optionRenderer={optionRenderer}
-                        disabled={option.disabled}
-                        highlighted={index === highlightedIndex}
-                        selected={selectedItems.includes(option)}
-                    />
-                </div>
-            );
-        },
+        ({ option, index, ...rest }: Pick<OptionProps, 'option' | 'index'>) => (
+            <Option
+                {...rest}
+                {...getItemProps({ index, item: option, disabled: option.disabled })}
+                key={option.value}
+                option={option}
+                index={index}
+                size={size}
+                optionRenderer={optionRenderer}
+                disabled={option.disabled}
+                highlighted={index === highlightedIndex}
+                selected={selectedItems.includes(option)}
+            />
+        ),
         [getItemProps, highlightedIndex, optionRenderer, selectedItems, size],
     );
 
@@ -508,6 +513,7 @@ export function Select({
                     position='bottom-start'
                     getPortalContainer={getPortalContainer}
                     popperClassName={styles.popover}
+                    offset={getPopoverOffset}
                 >
                     <div {...getMenuProps({ ref: optionsListRef })} className={styles.listWrapper}>
                         <OptionsList

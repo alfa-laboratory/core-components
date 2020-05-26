@@ -1,12 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import React, { useRef, useEffect, useMemo } from 'react';
+import cn from 'classnames';
 import { useVirtual } from 'react-virtual';
 import { OptionsListProps, GroupShape, OptionShape } from '../../Component';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
+import { isGroup, lastIndexOf, usePrevious } from '../../utils';
 
 import styles from './index.module.css';
-import { isGroup, lastIndexOf, usePrevious } from '../../utils';
 
 export type VirtualOptionsList = OptionsListProps & {
     /**
@@ -16,6 +17,7 @@ export type VirtualOptionsList = OptionsListProps & {
 };
 
 export const VirtualOptionsList = ({
+    size = 's',
     flatOptions,
     highlightedIndex,
     children,
@@ -75,7 +77,7 @@ export const VirtualOptionsList = ({
     if (!open) return null;
 
     return (
-        <div className={styles.virtualOptionsList} ref={parentRef}>
+        <div className={cn(styles.virtualOptionsList, styles[size])} ref={parentRef}>
             {rowVirtualizer.virtualItems.map(virtualRow => {
                 const option = flatOptions[virtualRow.index];
                 const group = options[groupStartIndexes[virtualRow.index]] as GroupShape;

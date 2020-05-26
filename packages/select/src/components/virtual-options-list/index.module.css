@@ -1,12 +1,23 @@
 @import '../../../../themes/src/default.css';
 
 .virtualOptionsList {
-    min-height: 120px;
     position: relative;
     overflow: auto;
     width: 100%;
     outline: none;
     padding: var(--gap-xs) 0;
+}
+
+.s {
+    height: 240px;
+}
+
+.m {
+    height: 280px;
+}
+
+.l {
+    height: 340px;
 }
 
 .virtualRow {

@@ -1,6 +1,6 @@
 @import '../../../../themes/src/default.css';
 
-/* TODO: еще нужно привести в порядок. Стили пока только для теста */
+/* TODO: будет удалено после мерджа https://github.com/alfa-laboratory/core-components/pull/127 */
 
 .component {
     @mixin system_16-20_regular;

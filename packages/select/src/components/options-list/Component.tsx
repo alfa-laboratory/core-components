@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import cn from 'classnames';
 import { OptionsListProps, GroupShape } from '../../Component';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 
@@ -12,8 +13,8 @@ const createCounter = () => {
 };
 
 export const OptionsList = ({
+    size = 's',
     children,
-    open,
     options,
     Optgroup = DefaultOptgroup,
 }: OptionsListProps) => {
@@ -30,10 +31,8 @@ export const OptionsList = ({
         [children, counter],
     );
 
-    if (!open) return null;
-
     return (
-        <div className={styles.optionsList}>
+        <div className={cn(styles.optionsList, styles[size])}>
             {options.map(option =>
                 isGroup(option) ? renderGroup(option) : children({ option, index: counter() }),
             )}
