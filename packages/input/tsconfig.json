@@ -3,6 +3,11 @@
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",
-        "rootDirs": ["src"]
-    }
+        "rootDirs": ["src"],
+        "baseUrl": ".",
+        "paths": {
+            "@alfalab/core-components-form-control": ["../form-control/src"]
+        }
+    },
+    "references": [{ "path": "../form-control" }]
 }

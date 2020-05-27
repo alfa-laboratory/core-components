@@ -9,37 +9,6 @@ describe('Input', () => {
         it('should match snapshot', () => {
             expect(render(<Input value='value' onChange={jest.fn()} />)).toMatchSnapshot();
         });
-
-        it('should render label', () => {
-            expect(render(<Input label={<span>This is label</span>} />)).toMatchSnapshot();
-        });
-
-        it('should render hint', () => {
-            expect(render(<Input hint='This is hint' />)).toMatchSnapshot();
-        });
-
-        it('should render error', () => {
-            expect(render(<Input error='This is error' />)).toMatchSnapshot();
-        });
-
-        it('should not render hint if has error', () => {
-            const result = render(<Input error='error' hint='hint' />);
-
-            expect(result).toMatchSnapshot();
-            expect(result.queryByText('hint')).toBeNull();
-        });
-
-        it('should render left addons', () => {
-            expect(render(<Input leftAddons={<div>Left addons</div>} />)).toMatchSnapshot();
-        });
-
-        it('should render right addons', () => {
-            expect(render(<Input rightAddons={<div>Right addons</div>} />)).toMatchSnapshot();
-        });
-
-        it('should render bottom addons', () => {
-            expect(render(<Input bottomAddons={<div>Bottom addons</div>} />)).toMatchSnapshot();
-        });
     });
 
     it('should forward ref to input', () => {
@@ -50,7 +19,7 @@ describe('Input', () => {
         expect(inputRef.mock.calls).toEqual([[getByTestId(dataTestId)]]);
     });
 
-    it('should set `data-test-id` atribute', () => {
+    it('should set `data-test-id` atribute to input', () => {
         const dataTestId = 'test-id';
         const { getByTestId } = render(<Input block={true} dataTestId={dataTestId} />);
 
@@ -72,20 +41,7 @@ describe('Input', () => {
                 <Input inputClassName={className} dataTestId={dataTestId} />,
             );
 
-            expect(getByTestId(dataTestId).classList).toContain(className);
-        });
-
-        it('should set `size` class', () => {
-            const size = 'm';
-            const { container } = render(<Input size={size} />);
-
-            expect(container.firstElementChild).toHaveClass(size);
-        });
-
-        it('should set `block` class', () => {
-            const { container } = render(<Input block={true} />);
-
-            expect(container.firstElementChild).toHaveClass('block');
+            expect(getByTestId(dataTestId)).toHaveClass(className);
         });
 
         it('should set `filled` class', () => {
@@ -95,44 +51,17 @@ describe('Input', () => {
         });
 
         it('should set `hasLabel` class', () => {
-            const { container } = render(<Input label='label' />);
-
-            expect(container.firstElementChild).toHaveClass('hasLabel');
-        });
-
-        it('should set `hasError` class', () => {
-            const { container } = render(<Input error='error' />);
-
-            expect(container.firstElementChild).toHaveClass('hasError');
-        });
-
-        it('should set `disabled` class and atribute', () => {
             const dataTestId = 'test-id';
-            const { container, getByTestId } = render(
-                <Input disabled={true} dataTestId={dataTestId} />,
-            );
+            const { getByTestId } = render(<Input label='label' dataTestId={dataTestId} />);
+
+            expect(getByTestId(dataTestId)).toHaveClass('hasLabel');
+        });
+
+        it('should set `disabled` atribute', () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<Input disabled={true} dataTestId={dataTestId} />);
 
             expect(getByTestId(dataTestId)).toHaveAttribute('disabled');
-            expect(container.firstElementChild).toHaveClass('disabled');
-        });
-
-        it('should set `focused` class after focus', () => {
-            const dataTestId = 'test-id';
-            const { getByTestId, container } = render(<Input dataTestId={dataTestId} />);
-
-            fireEvent.focus(getByTestId(dataTestId));
-
-            expect(container.firstElementChild).toHaveClass('focused');
-        });
-
-        it('should unset `focused` class after blur', () => {
-            const dataTestId = 'test-id';
-            const { getByTestId, container } = render(<Input dataTestId={dataTestId} />);
-
-            fireEvent.focus(getByTestId(dataTestId));
-            fireEvent.blur(getByTestId(dataTestId));
-
-            expect(container.firstElementChild?.classList).not.toContain('focused');
         });
     });
 
