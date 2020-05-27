@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, CSSProperties } from 'react';
 import cn from 'classnames';
 import { Transition } from 'react-transition-group';
 import { TransitionProps } from 'react-transition-group/Transition';
@@ -68,6 +68,11 @@ export type PopoverProps = {
     transition?: Partial<TransitionProps>;
 
     /**
+     * Рендерит компонент, обернутый в Transition
+     */
+    withTransition?: boolean;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -82,6 +87,7 @@ export const Popover: React.FC<PopoverProps> = ({
     anchorElement,
     offset = [0, 0],
     withArrow = false,
+    withTransition = true,
     position = 'left',
     popperClassName,
     arrowClassName,
@@ -121,35 +127,53 @@ export const Popover: React.FC<PopoverProps> = ({
         }
     }, [update, arrowElement]);
 
-    const timeout = transition.timeout === undefined ? TRANSITION_DURATION : transition.timeout;
-
-    const props = { mountOnEnter: true, unmountOnExit: true, ...transition, in: open, timeout };
-
-    return (
-        <Transition {...props}>
-            {status => (
-                <Portal getPortalContainer={getPortalContainer}>
-                    <div
-                        ref={setPopperElement}
-                        className={cn(styles.component, styles[status], popperClassName, status)}
-                        style={{
-                            ...popperStyles.popper,
-                            transitionDuration: `${timeout}ms`,
-                        }}
-                        data-test-id={dataTestId}
-                        {...attributes.popper}
-                    >
-                        {children}
-                        {withArrow && (
-                            <div
-                                ref={setArrowElement}
-                                style={popperStyles.arrow}
-                                className={cn(styles.arrow, arrowClassName)}
-                            />
-                        )}
-                    </div>
-                </Portal>
+    const renderPortal = (showContent: boolean, className?: string, style?: CSSProperties) => (
+        <Portal getPortalContainer={getPortalContainer}>
+            {showContent && (
+                <div
+                    ref={setPopperElement}
+                    className={cn(styles.component, className, popperClassName)}
+                    style={{
+                        ...popperStyles.popper,
+                        ...style,
+                    }}
+                    data-test-id={dataTestId}
+                    {...attributes.popper}
+                >
+                    {children}
+                    {withArrow && (
+                        <div
+                            ref={setArrowElement}
+                            style={popperStyles.arrow}
+                            className={cn(styles.arrow, arrowClassName)}
+                        />
+                    )}
+                </div>
             )}
-        </Transition>
+        </Portal>
     );
+
+    if (withTransition) {
+        const timeout = transition.timeout === undefined ? TRANSITION_DURATION : transition.timeout;
+
+        const transitionProps = {
+            mountOnEnter: true,
+            unmountOnExit: true,
+            ...transition,
+            in: open,
+            timeout,
+        };
+
+        return (
+            <Transition {...transitionProps}>
+                {status =>
+                    renderPortal(true, cn(styles[status], status), {
+                        transitionDuration: `${timeout}ms`,
+                    })
+                }
+            </Transition>
+        );
+    }
+
+    return renderPortal(open);
 };
