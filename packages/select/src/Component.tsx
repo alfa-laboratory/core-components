@@ -270,7 +270,7 @@ export function Select({
     multiple = false,
     allowUnselect = false,
     disabled = false,
-    closeOnSelect = true,
+    closeOnSelect = !multiple,
     showArrow = true,
     circularNavigation = false,
     size = 's',
@@ -351,7 +351,7 @@ export function Select({
         circularNavigation,
         items: flatOptions,
         itemToString: item => (item ? item.value.toString() : ''),
-        stateReducer: (_, actionAndChanges) => {
+        stateReducer: (state, actionAndChanges) => {
             const { type, changes } = actionAndChanges;
             const { selectedItem } = changes;
 
@@ -379,6 +379,11 @@ export function Select({
                     return {
                         ...changes,
                         isOpen: !closeOnSelect,
+                        // при closeOnSelect === false - сохраняем подсвеченный индекс
+                        highlightedIndex:
+                            state.isOpen && !closeOnSelect
+                                ? state.highlightedIndex
+                                : changes.highlightedIndex,
                     };
                 default:
                     return changes;

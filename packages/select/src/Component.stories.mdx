@@ -131,6 +131,20 @@ import { Select } from '@alfalab/core-components-select';
 ## Использование
 <br/>
 
+По умолчанию - селект `multiple=false` закрывается после выбора, а при `multiple=true` - остается открытым.
+Изменить это поведение можно с помощью `closeOnSelect`.
+
+<Preview>
+    <div style={{ height: 300, width: 300 }}>
+        <Select
+            options={options}
+            multiple={true}
+            placeholder='Выберите элемент'
+            allowUnselect={true}
+        />
+    </div>
+</Preview>
+
 ### Controlled-way
 
 Компонент может быть использован как controlled с помощью `onChange` и `selected`:
