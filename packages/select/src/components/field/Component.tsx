@@ -1,43 +1,56 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useCallback } from 'react';
 import cn from 'classnames';
 import ArrowIcon from '@alfalab/icons-classic/ArrowDownMBlackIcon';
-import { FieldProps } from '../../Component';
+import { FormControl, FormControlProps } from '@alfalab/core-components-form-control';
+import { FieldProps as CommonFieldProps } from '../../Component';
 
 import styles from './index.module.css';
+
+type FieldProps = CommonFieldProps & Pick<FormControlProps, 'leftAddons' | 'rightAddons'>;
 
 export const Field = ({
     size = 'm',
     open,
     disabled,
     filled,
+    focused,
     label,
     placeholder,
     value,
     leftAddons,
+    rightAddons,
     showArrow = true,
     valueRenderer,
 }: FieldProps) => {
-    const leftAddonsRenderer = () =>
-        leftAddons && <span className={styles.addons}>{leftAddons}</span>;
+    const rightAddonsRenderer = useCallback(
+        () =>
+            (rightAddons || showArrow) && (
+                <React.Fragment>
+                    {rightAddons}
+                    {showArrow && <ArrowIcon className={styles.arrow} />}
+                </React.Fragment>
+            ),
+        [rightAddons, showArrow],
+    );
 
     return (
-        <span
+        <FormControl
             className={cn(styles.component, styles[size], {
                 [styles.open]: open,
-                [styles.disabled]: disabled,
-                [styles.filled]: filled,
                 [styles.hasLabel]: label,
             })}
+            size={size}
+            focused={open || focused}
+            disabled={disabled}
+            filled={filled || !!placeholder}
+            label={label}
+            rightAddons={rightAddonsRenderer()}
+            leftAddons={leftAddons}
         >
-            {leftAddonsRenderer()}
-
-            <span className={styles.contentWrapper}>
+            <div className={styles.contentWrapper}>
                 {placeholder && !filled && (
                     <span className={styles.placeholder}>{placeholder}</span>
                 )}
-
-                {label && <span className={styles.label}>{label}</span>}
-
                 {filled && (
                     <span className={styles.value}>
                         {valueRenderer
@@ -56,13 +69,7 @@ export const Field = ({
                               }, [])}
                     </span>
                 )}
-            </span>
-
-            {showArrow && (
-                <span className={cn(styles.addons)}>
-                    <ArrowIcon className={cn(styles.arrow)} />
-                </span>
-            )}
-        </span>
+            </div>
+        </FormControl>
     );
 };

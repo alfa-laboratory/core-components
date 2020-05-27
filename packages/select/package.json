@@ -17,6 +17,7 @@
         "react-dom": "^16.12.0"
     },
     "dependencies": {
+        "@alfalab/core-components-form-control": "^1.0.0",
         "@alfalab/core-components-popover": "^1.0.0",
         "@alfalab/icons-classic": "^1.7.0",
         "downshift": "5.2.7",

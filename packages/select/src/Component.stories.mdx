@@ -261,6 +261,18 @@ import { Select } from '@alfalab/core-components-select';
     </div>
 </Preview>
 
+Селект позволяет настраивать отображение дочерних компонентов **Field** и **Option** и др.
+
+<Preview>
+    <div style={{ height: 180 }}>
+        <Select
+            options={options}
+            label='With addons'
+            Field={(props) => <Field {...props} leftAddons={<Icon/>} />}
+        />
+    </div>
+</Preview>
+
 Для более сложных кейсов — **Field**, **OptionsList**, **Optgroup** и **Option** можно заменить на собственные компоненты.
 
 <Preview>

@@ -1,8 +1,15 @@
-import React, { useRef, ReactNode, useMemo, useCallback, ChangeEvent, ComponentType } from 'react';
+import React, {
+    useRef,
+    useMemo,
+    useCallback,
+    useState,
+    ReactNode,
+    ChangeEvent,
+    ComponentType,
+} from 'react';
 import cn from 'classnames';
 import { Popover } from '@alfalab/core-components-popover';
 import { useMultipleSelection, useSelect, UseMultipleSelectionProps } from 'downshift';
-import { TransitionProps } from 'react-transition-group/Transition';
 import { Field as DefaultField } from './components/field';
 import { OptionsList as DefaultOptionsList } from './components/options-list';
 import { Option as DefaultOption } from './components/option';
@@ -190,9 +197,9 @@ export type FieldProps = Pick<
     filled?: boolean;
 
     /**
-     * Слот для дополнительного контента слева
+     * Флаг, поле находится в фокусе
      */
-    leftAddons?: ReactNode;
+    focused?: boolean;
 };
 
 export type OptionsListProps = Pick<SelectProps, 'multiple' | 'options' | 'size' | 'Optgroup'> & {
@@ -281,10 +288,12 @@ export function Select({
     optionRenderer,
     onChange,
 }: SelectProps) {
+    const [focused, setFocused] = useState(false);
+
     const selectRef = useRef<HTMLDivElement>(null);
     const optionsListRef = useRef<HTMLElement>(null);
 
-    const getPortalContainer = () => selectRef.current as HTMLDivElement;
+    const getPortalContainer = () => optionsListRef.current as HTMLDivElement;
 
     const getPopoverOffset = useMemo((): [number, number] => [0, popoverOffset], [popoverOffset]);
 
@@ -337,7 +346,6 @@ export function Select({
         getMenuProps,
         highlightedIndex,
         getItemProps,
-        setHighlightedIndex,
         toggleMenu,
     } = useSelect<OptionShape>({
         circularNavigation,
@@ -378,37 +386,6 @@ export function Select({
         },
     });
 
-    const getTransitionProps = useMemo((): Partial<TransitionProps> => {
-        return {
-            appear: true,
-            // TODO: определиться, нужна ли вообще анимация
-            timeout: 0,
-            onEntered: () => {
-                /*
-                 * Из-за использования Transition внутри Popover'а - меню и его пункты рендерятся с задержкой.
-                 * Поэтому приходится вручную перезапускать некоторую логику. Либо стоит отказаться от анимации через Transition
-                 */
-                if (optionsListRef.current !== null) {
-                    optionsListRef.current.focus();
-
-                    /*
-                     * Перезапускаем scrollIntoView
-                     * https://github.com/downshift-js/downshift/blob/master/src/hooks/useSelect/index.js#L189
-                     */
-                    setHighlightedIndex(-1);
-                    let scrollIndex = highlightedIndex;
-                    if (scrollIndex === -1 && selectedItems.length > 0) {
-                        scrollIndex = flatOptions.indexOf(selectedItems[selectedItems.length - 1]);
-                    }
-
-                    setTimeout(() => {
-                        setHighlightedIndex(scrollIndex);
-                    }, 0);
-                }
-            },
-        };
-    }, [flatOptions, highlightedIndex, selectedItems, setHighlightedIndex]);
-
     const handleNativeSelectChange = useCallback(
         event => {
             const selectedOptions = [...event.target.options].reduce(
@@ -430,6 +407,14 @@ export function Select({
         },
         [nativeSelect, toggleMenu],
     );
+
+    const handleFocus = useCallback(() => {
+        setFocused(true);
+    }, []);
+
+    const handleBlur = useCallback(() => {
+        setFocused(false);
+    }, []);
 
     const WrappedOption = useCallback(
         ({ option, index, ...rest }: Pick<OptionProps, 'option' | 'index'>) => (
@@ -483,6 +468,7 @@ export function Select({
         showArrow,
         disabled,
         filled: selectedItems.length > 0,
+        focused,
         label,
         placeholder,
         valueRenderer,
@@ -495,6 +481,8 @@ export function Select({
                 {...getToggleButtonProps({
                     disabled,
                     onKeyDown: handleToggleButtonKeyDown,
+                    onBlur: handleBlur,
+                    onFocus: handleFocus,
                 })}
                 className={styles.fieldWrapper}
                 tabIndex={nativeSelect ? -1 : 0}
@@ -506,16 +494,16 @@ export function Select({
             {name && !nativeSelect && renderValue()}
 
             {!nativeSelect && (
-                <Popover
-                    open={open}
-                    transition={getTransitionProps}
-                    anchorElement={selectRef.current as HTMLElement}
-                    position='bottom-start'
-                    getPortalContainer={getPortalContainer}
-                    popperClassName={styles.popover}
-                    offset={getPopoverOffset}
-                >
-                    <div {...getMenuProps({ ref: optionsListRef })} className={styles.listWrapper}>
+                <div {...getMenuProps({ ref: optionsListRef })} className={styles.listWrapper}>
+                    <Popover
+                        open={open}
+                        withTransition={false}
+                        anchorElement={optionsListRef.current as HTMLElement}
+                        position='bottom-start'
+                        getPortalContainer={getPortalContainer}
+                        popperClassName={styles.popover}
+                        offset={getPopoverOffset}
+                    >
                         <OptionsList
                             flatOptions={flatOptions}
                             highlightedIndex={highlightedIndex}
@@ -527,8 +515,8 @@ export function Select({
                         >
                             {WrappedOption}
                         </OptionsList>
-                    </div>
-                </Popover>
+                    </Popover>
+                </div>
             )}
         </div>
     );

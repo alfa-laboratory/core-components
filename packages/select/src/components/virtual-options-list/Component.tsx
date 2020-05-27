@@ -74,8 +74,6 @@ export const VirtualOptionsList = ({
         }, {});
     }, [options]);
 
-    if (!open) return null;
-
     return (
         <div className={cn(styles.virtualOptionsList, styles[size])} ref={parentRef}>
             {rowVirtualizer.virtualItems.map(virtualRow => {

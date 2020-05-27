@@ -17,13 +17,92 @@ Object {
           role="button"
           tabindex="0"
         >
-          <span
-            class="component s"
+          <div
+            class="component s hasRightAddons component s"
           >
-            <span
-              class="contentWrapper"
-            />
-            <span
+            <div
+              class="inner"
+            >
+              <div
+                class="inputWrapper"
+              >
+                <div
+                  class="input"
+                >
+                  <div
+                    class="contentWrapper"
+                  />
+                </div>
+              </div>
+              <div
+                class="addons"
+              >
+                <svg
+                  class="arrow"
+                  focusable="false"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <g
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <path
+                      d="M0 24h24V0H0z"
+                    />
+                    <path
+                      d="M16.074 9.646l.708.708-5.068 5.068-5.068-5.068.708-.708 4.36 4.362z"
+                      fill="#000"
+                      fill-rule="nonzero"
+                    />
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-labelledby="downshift-0-label"
+          class="listWrapper"
+          id="downshift-0-menu"
+          role="listbox"
+          tabindex="-1"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="component"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-labelledby="downshift-0-label downshift-0-toggle-button"
+        class="fieldWrapper"
+        id="downshift-0-toggle-button"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="component s hasRightAddons component s"
+        >
+          <div
+            class="inner"
+          >
+            <div
+              class="inputWrapper"
+            >
+              <div
+                class="input"
+              >
+                <div
+                  class="contentWrapper"
+                />
+              </div>
+            </div>
+            <div
               class="addons"
             >
               <svg
@@ -47,58 +126,17 @@ Object {
                   />
                 </g>
               </svg>
-            </span>
-          </span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="component"
-    >
       <div
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-labelledby="downshift-0-label downshift-0-toggle-button"
-        class="fieldWrapper"
-        id="downshift-0-toggle-button"
-        role="button"
-        tabindex="0"
-      >
-        <span
-          class="component s"
-        >
-          <span
-            class="contentWrapper"
-          />
-          <span
-            class="addons"
-          >
-            <svg
-              class="arrow"
-              focusable="false"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-            >
-              <g
-                fill="none"
-                fill-rule="evenodd"
-              >
-                <path
-                  d="M0 24h24V0H0z"
-                />
-                <path
-                  d="M16.074 9.646l.708.708-5.068 5.068-5.068-5.068.708-.708 4.36 4.362z"
-                  fill="#000"
-                  fill-rule="nonzero"
-                />
-              </g>
-            </svg>
-          </span>
-        </span>
-      </div>
+        aria-labelledby="downshift-0-label"
+        class="listWrapper"
+        id="downshift-0-menu"
+        role="listbox"
+        tabindex="-1"
+      />
     </div>
   </div>,
   "debug": [Function],
