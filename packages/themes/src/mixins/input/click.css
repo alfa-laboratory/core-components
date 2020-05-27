@@ -1,8 +1,0 @@
-@define-mixin input-click {
-    /* paddings */
-    --input-paddings: 0 var(--gap-s);
-    --input-l-paddings: 0 var(--gap-m);
-    --input-labeled-s-paddings: 23px var(--gap-s) 5px;
-    --input-labeled-m-paddings: 28px var(--gap-s) 8px;
-    --input-labeled-l-paddings: 34px var(--gap-m) 14px;
-}

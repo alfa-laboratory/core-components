@@ -132,7 +132,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 size={size}
                 block={block}
                 disabled={disabled}
-                filled={filled || !!value}
+                filled={filled || focused || !!value}
                 focused={focused}
                 error={error}
                 label={label}
@@ -145,10 +145,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     {...restProps}
                     className={cn(
                         styles.input,
-                        styles[size],
                         {
                             [styles.hasLabel]: label,
-                            [styles.hasInputAddons]: leftAddons || rightAddons,
                         },
                         inputClassName,
                     )}

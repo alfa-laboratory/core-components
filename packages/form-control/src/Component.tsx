@@ -1,10 +1,10 @@
-import React, { ReactNode, useCallback } from 'react';
+import React, { ReactNode, useCallback, HTMLAttributes } from 'react';
 import cn from 'classnames';
 import ErrorIcon from '@alfalab/icons-classic/ErrorMColorIcon';
 
 import styles from './index.module.css';
 
-export type FormControlProps = {
+export type FormControlProps = HTMLAttributes<HTMLDivElement> & {
     /**
      * Растягивает компонент на ширину контейнера
      */
@@ -97,6 +97,7 @@ export const FormControl = ({
     bottomAddons,
     children,
     dataTestId,
+    ...restProps
 }: FormControlProps) => {
     const rightAddonsRenderer = useCallback(
         () =>
@@ -125,10 +126,14 @@ export const FormControl = ({
                     [styles.disabled]: disabled,
                     [styles.filled]: filled,
                     [styles.hasError]: error,
+                    [styles.hasLabel]: label,
                     [styles.block]: block,
+                    [styles.hasLeftAddons]: leftAddons,
+                    [styles.hasRightAddons]: rightAddons || error,
                 },
                 className,
             )}
+            {...restProps}
         >
             <div className={styles.inner}>
                 {leftAddonsRenderer()}
@@ -140,7 +145,7 @@ export const FormControl = ({
                         </div>
                     )}
 
-                    {children}
+                    <div className={styles.input}>{children}</div>
                 </div>
 
                 {rightAddonsRenderer()}

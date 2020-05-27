@@ -14,11 +14,15 @@ Object {
           <div
             class="inputWrapper"
           >
-            <input
-              class="input s"
-              type="text"
-              value="value"
-            />
+            <div
+              class="input"
+            >
+              <input
+                class="input"
+                type="text"
+                value="value"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -34,11 +38,15 @@ Object {
         <div
           class="inputWrapper"
         >
-          <input
-            class="input s"
-            type="text"
-            value="value"
-          />
+          <div
+            class="input"
+          >
+            <input
+              class="input"
+              type="text"
+              value="value"
+            />
+          </div>
         </div>
       </div>
     </div>

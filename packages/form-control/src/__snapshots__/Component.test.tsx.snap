@@ -13,7 +13,11 @@ Object {
         >
           <div
             class="inputWrapper"
-          />
+          >
+            <div
+              class="input"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -27,7 +31,11 @@ Object {
       >
         <div
           class="inputWrapper"
-        />
+        >
+          <div
+            class="input"
+          />
+        </div>
       </div>
     </div>
   </div>,
@@ -91,14 +99,18 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component s hasError"
+        class="component s hasError hasRightAddons"
       >
         <div
           class="inner"
         >
           <div
             class="inputWrapper"
-          />
+          >
+            <div
+              class="input"
+            />
+          </div>
           <div
             class="addons"
           >
@@ -129,14 +141,18 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component s hasError"
+      class="component s hasError hasRightAddons"
     >
       <div
         class="inner"
       >
         <div
           class="inputWrapper"
-        />
+        >
+          <div
+            class="input"
+          />
+        </div>
         <div
           class="addons"
         >
@@ -231,7 +247,11 @@ Object {
         >
           <div
             class="inputWrapper"
-          />
+          >
+            <div
+              class="input"
+            />
+          </div>
         </div>
         <div>
           Bottom addons
@@ -248,7 +268,11 @@ Object {
       >
         <div
           class="inputWrapper"
-        />
+        >
+          <div
+            class="input"
+          />
+        </div>
       </div>
       <div>
         Bottom addons
@@ -315,14 +339,18 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component s hasError"
+        class="component s hasError hasRightAddons"
       >
         <div
           class="inner"
         >
           <div
             class="inputWrapper"
-          />
+          >
+            <div
+              class="input"
+            />
+          </div>
           <div
             class="addons"
           >
@@ -353,14 +381,18 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component s hasError"
+      class="component s hasError hasRightAddons"
     >
       <div
         class="inner"
       >
         <div
           class="inputWrapper"
-        />
+        >
+          <div
+            class="input"
+          />
+        </div>
         <div
           class="addons"
         >
@@ -455,7 +487,11 @@ Object {
         >
           <div
             class="inputWrapper"
-          />
+          >
+            <div
+              class="input"
+            />
+          </div>
         </div>
         <span
           class="sub"
@@ -474,7 +510,11 @@ Object {
       >
         <div
           class="inputWrapper"
-        />
+        >
+          <div
+            class="input"
+          />
+        </div>
       </div>
       <span
         class="sub"
@@ -543,7 +583,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component s"
+        class="component s hasLabel"
       >
         <div
           class="inner"
@@ -562,6 +602,9 @@ Object {
                 </span>
               </span>
             </div>
+            <div
+              class="input"
+            />
           </div>
         </div>
       </div>
@@ -569,7 +612,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component s"
+      class="component s hasLabel"
     >
       <div
         class="inner"
@@ -588,6 +631,9 @@ Object {
               </span>
             </span>
           </div>
+          <div
+            class="input"
+          />
         </div>
       </div>
     </div>
@@ -652,7 +698,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component s"
+        class="component s hasLeftAddons"
       >
         <div
           class="inner"
@@ -666,14 +712,18 @@ Object {
           </div>
           <div
             class="inputWrapper"
-          />
+          >
+            <div
+              class="input"
+            />
+          </div>
         </div>
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="component s"
+      class="component s hasLeftAddons"
     >
       <div
         class="inner"
@@ -687,7 +737,11 @@ Object {
         </div>
         <div
           class="inputWrapper"
-        />
+        >
+          <div
+            class="input"
+          />
+        </div>
       </div>
     </div>
   </div>,
@@ -751,14 +805,18 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component s"
+        class="component s hasRightAddons"
       >
         <div
           class="inner"
         >
           <div
             class="inputWrapper"
-          />
+          >
+            <div
+              class="input"
+            />
+          </div>
           <div
             class="addons"
           >
@@ -772,14 +830,18 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component s"
+      class="component s hasRightAddons"
     >
       <div
         class="inner"
       >
         <div
           class="inputWrapper"
-        />
+        >
+          <div
+            class="input"
+          />
+        </div>
         <div
           class="addons"
         >

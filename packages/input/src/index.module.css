@@ -1,14 +1,5 @@
 @import '../../themes/src/default.css';
 
-:root {
-    /* paddings */
-    --input-paddings: 1px var(--gap-s) 0;
-    --input-l-paddings: 1px var(--gap-m) 0;
-    --input-labeled-s-paddings: 23px var(--gap-s) 4px;
-    --input-labeled-m-paddings: 28px var(--gap-s) 7px;
-    --input-labeled-l-paddings: 34px var(--gap-m) 13px;
-}
-
 .input {
     @mixin system_16-20_regular;
 
@@ -21,7 +12,6 @@
     border: none;
     margin: 0;
     outline: none;
-    padding: var(--input-paddings);
     text-overflow: ellipsis;
     box-sizing: border-box;
     -webkit-appearance: none;
@@ -38,31 +28,8 @@
     color: var(--color-dark-indigo-30-flat);
 }
 
-.hasLabel {
-    padding: var(--input-labeled-s-paddings);
-}
-
 .block {
     width: 100%;
-}
-
-/* SIZES */
-
-.m.hasLabel {
-    padding: var(--input-labeled-m-paddings);
-}
-
-.l {
-    padding: var(--input-l-paddings);
-}
-
-.l.hasLabel {
-    padding: var(--input-labeled-l-paddings);
-}
-
-.l.hasInputAddons {
-    padding-left: var(--gap-s);
-    padding-right: var(--gap-s);
 }
 
 /* DISABLED STATE */

@@ -57,13 +57,6 @@ describe('Input', () => {
             expect(getByTestId(dataTestId)).toHaveClass('hasLabel');
         });
 
-        it('should set `hasInputAddons` class', () => {
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(<Input leftAddons='label' dataTestId={dataTestId} />);
-
-            expect(getByTestId(dataTestId)).toHaveClass('hasInputAddons');
-        });
-
         it('should set `disabled` atribute', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(<Input disabled={true} dataTestId={dataTestId} />);
