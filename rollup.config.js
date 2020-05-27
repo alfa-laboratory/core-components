@@ -21,8 +21,10 @@ const multiInputPlugin = multiInput();
 
 const postcssPlugin = postcss({
     modules: {
-        generateScopedName: function(name) {
-            const str = `${pkg.name}@${pkg.version}`;
+        generateScopedName: function(name, fileName) {
+            const folderName = path.basename(path.dirname(fileName));
+
+            const str = `${pkg.name}@${pkg.version}@${folderName}`;
 
             const hash = stringHash(str)
                 .toString(36)
