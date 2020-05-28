@@ -1,0 +1,215 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --form-control-border-radius: 4px 4px 0 0;
+    --form-control-border-bottom: 1px solid var(--color-dark-indigo-30-flat);
+    --form-control-bg-color: var(--color-dark-indigo-07);
+
+    /* paddings */
+    --form-control-paddings: 1px var(--gap-s) 0;
+    --form-control-l-paddings: 1px var(--gap-m) 0;
+    --form-control-labeled-s-paddings: 23px var(--gap-s) 4px;
+    --form-control-labeled-m-paddings: 28px var(--gap-s) 7px;
+    --form-control-labeled-l-paddings: 34px var(--gap-m) 13px;
+
+    /* disabled */
+    --form-control-disabled-bg-color: var(--color-dark-indigo-15);
+    --form-control-disabled-border-bottom: 1px dashed var(--color-dark-indigo-30-flat);
+
+    /* focus */
+    --form-control-focus-shadow: inset 0 -1px var(--color-dark-indigo);
+    --form-control-focus-border-bottom: 1px solid var(--color-dark-indigo);
+
+    /* hover */
+    --form-control-hover-bg-color: var(--color-dark-indigo-15);
+
+    /* error */
+    --form-control-error-color: var(--color-red-brand-85-flat);
+    --form-control-error-shadow: inset 0 -1px var(--form-control-error-color);
+    --form-control-error-border-bottom: 1px solid var(--form-control-error-color);
+}
+
+.component {
+    display: inline-block;
+}
+
+.inner {
+    display: flex;
+    position: relative;
+    min-height: 100%;
+    background-color: var(--form-control-bg-color);
+    border-radius: var(--form-control-border-radius);
+    border-bottom: var(--form-control-border-bottom);
+    transition: background 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+    box-sizing: border-box;
+}
+
+.component:not(.disabled) .inner {
+    cursor: pointer;
+}
+
+.inputWrapper {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.input {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.input > * {
+    padding: var(--form-control-paddings);
+}
+
+.label {
+    @mixin system_16-20_regular;
+
+    position: absolute;
+    display: flex;
+    align-items: center;
+    min-height: 100%;
+    left: var(--gap-s);
+    right: 0;
+    color: var(--color-dark-indigo-60-flat);
+    transform: translateY(0);
+    transform-origin: 0 100%;
+    transition-duration: 200ms;
+    transition-property: color, transform, font-size;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.labelInner {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.addons {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+}
+
+.addons:first-child {
+    padding-left: var(--gap-s);
+}
+
+.addons:last-child {
+    padding-right: var(--gap-s);
+}
+
+.sub {
+    @mixin system_14-18_regular;
+
+    display: block;
+    margin-top: var(--gap-2xs);
+    color: var(--color-dark-indigo-60-flat);
+}
+
+.block {
+    width: 100%;
+}
+
+/* SIZES */
+
+.s .inner {
+    min-height: 48px;
+}
+
+.s.hasLabel .input > * {
+    padding: var(--form-control-labeled-s-paddings);
+}
+
+.m .inner {
+    min-height: 56px;
+}
+
+.m.hasLabel .input > * {
+    padding: var(--form-control-labeled-m-paddings);
+}
+
+.l .inner {
+    min-height: 68px;
+}
+
+.l .label {
+    left: var(--gap-m);
+}
+
+.l .input > * {
+    padding: var(--form-control-l-paddings);
+}
+
+.l.hasLabel .input > * {
+    padding: var(--form-control-labeled-l-paddings);
+}
+
+.l .addons:first-child {
+    padding-left: var(--gap-m);
+}
+
+.l .addons:last-child {
+    padding-right: var(--gap-m);
+}
+
+.l.hasLeftAddons .label {
+    left: var(--gap-s);
+}
+
+.l.hasLeftAddons .input > * {
+    padding-left: var(--gap-s);
+}
+
+.l.hasRightAddons .input > * {
+    padding-right: var(--gap-s);
+}
+
+.l .sub {
+    margin-top: var(--gap-xs);
+}
+
+/* DISABLED STATE */
+
+.disabled .inner {
+    border-bottom: var(--form-control-disabled-border-bottom);
+    background-color: var(--form-control-disabled-bg-color);
+}
+
+.disabled .label {
+    color: var(--color-dark-indigo-60-flat);
+}
+
+/* FOCUS STATE */
+
+.focused:not(.disabled):not(.hasError) .inner {
+    border-bottom: var(--form-control-focus-border-bottom);
+    box-shadow: var(--form-control-focus-shadow);
+}
+
+.filled .label {
+    @mixin system_14-18_regular;
+
+    transform: translateY(-10px);
+}
+
+/* HOVER STATE */
+
+.component:not(.disabled):hover .inner {
+    background-color: var(--form-control-hover-bg-color);
+}
+
+/* ERROR STATE */
+
+.hasError .sub {
+    color: var(--form-control-error-color);
+}
+
+.hasError .inner {
+    box-shadow: var(--form-control-error-shadow);
+    border-bottom: var(--form-control-error-border-bottom);
+}

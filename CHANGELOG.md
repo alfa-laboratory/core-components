@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/alfa-laboratory/core-components/compare/v1.2.0...v1.3.0) (2020-05-22)
+
+
+### Bug Fixes
+
+* **core-components-popover:** change box-sizing to border-box ([#121](https://github.com/alfa-laboratory/core-components/issues/121)) ([2a6883d](https://github.com/alfa-laboratory/core-components/commit/2a6883d6832713d197447e23ada822ea07bed5f4))
+* **core-components-popover:** make transition props optional ([#119](https://github.com/alfa-laboratory/core-components/issues/119)) ([dce9249](https://github.com/alfa-laboratory/core-components/commit/dce924922b67dff1c4ea6b173bd2b70874b56270))
+
 ## 1.2.0 (2020-05-08)
 
 

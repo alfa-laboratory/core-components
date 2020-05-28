@@ -1,6 +1,6 @@
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-
 <img width="914" alt="Библиотека React компонентов для создания веб-интерфейсов" src="https://user-images.githubusercontent.com/109410/78970104-3873e000-7b11-11ea-945d-02f86cad62e0.png"/>
+
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 ## ✨ Возможности
 
@@ -78,6 +78,20 @@ $ yarn start
 >
 > 1. `event: SyntheticEvent` - объект события, инициировавшего вызов.
 > 2. `payload: {}` - объект с дополнительными данными. Например `{ amount: 5000 }`
+
+### Импорт компонентов внутри компонентов
+
+Так как у нас монорепозиторий, то все пакеты должны быть независимы. Если при разработке компонента вам потребовался другой компонент, то его нужно добавить как зависимость. Пример можно посмотреть в [Тултипе](https://github.com/alfa-laboratory/core-components/tree/master/packages/tooltip). Также нужно добавить пару опций в `tsconfig.json`:
+```json
+{
+    "compilerOptions": {
+        "paths": {
+            "@alfalab/core-components-popover": ["../popover/src"] // для корректоной сборки rollup
+        }
+    },
+    "references": [{ "path": "../popover" }] // для корректной работы IDE
+}
+```
 
 ## Релизы
 ### Как публиковать пакеты:

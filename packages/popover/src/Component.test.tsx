@@ -84,6 +84,17 @@ describe('Styles tests', () => {
 });
 
 describe('Render tests', () => {
+    it('should render without Transition of withTransition is false', async () => {
+        const component = await renderPopover({
+            children: <div>I am popover</div>,
+            open: true,
+            anchorElement: document.body,
+            withTransition: false,
+        });
+
+        expect(component).toMatchSnapshot();
+    });
+
     it('should unmount without errors', async () => {
         const { unmount } = await renderPopover({
             children: <div>I am popover</div>,

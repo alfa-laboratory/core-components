@@ -88,7 +88,7 @@ Object {
       alfa-portal-container=""
     >
       <div
-        class="component [object Object] popper mountOnEnter unmountOnExit in timeout children"
+        class="component [object Object] mountOnEnter unmountOnExit in timeout children popper"
         data-popper-escaped="true"
         data-popper-placement="left"
         data-popper-reference-hidden="true"

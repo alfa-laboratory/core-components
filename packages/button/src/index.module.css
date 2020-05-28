@@ -233,6 +233,10 @@
     &.loading {
         color: var(--button-ghost-base-color);
     }
+
+    &.iconOnly {
+        min-width: 0;
+    }
 }
 
 /* Addons */

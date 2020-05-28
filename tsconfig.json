@@ -14,7 +14,6 @@
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "typeRoots": ["./typings", "./node_modules/@types"],
-        "plugins": [{ "name": "typescript-plugin-css-modules" }],
         "composite": true,
         "declaration": true,
         "baseUrl": ".",

@@ -27,6 +27,6 @@ describe('Attributes tests', () => {
 
         const testIdAttr = container.firstElementChild?.getAttribute('data-test-id');
 
-        expect(container.firstElementChild?.getAttribute('data-test-id')).toBe(testIdAttr);
+        expect(testIdAttr).toBe(dataTestId);
     });
 });
