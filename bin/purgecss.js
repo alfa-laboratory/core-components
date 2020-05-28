@@ -18,6 +18,7 @@ matches.forEach(match => {
         })
         .then(result => {
             result.forEach(({ css, file }) => {
+                // удаляем пустые блоки :root
                 css = css.replace(/^:root {\n}\n/gm, '');
                 writeFile(file, css);
             });
