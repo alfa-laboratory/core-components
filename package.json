@@ -30,7 +30,9 @@
     "pub:patch": "RELEASE_TYPE=\"patch\" ./bin/publish.sh",
     "pub:minor": "RELEASE_TYPE=\"minor\" ./bin/publish.sh",
     "pub:major": "RELEASE_TYPE=\"major\" ./bin/publish.sh",
-    "release": "standard-version --no-verify --releaseCommitMessageFormat \"chore: release\""
+    "release": "standard-version --no-verify --releaseCommitMessageFormat \"chore: release\"",
+    "postbuild": "yarn purgecss",
+    "purgecss": "./bin/purgecss.sh"
   },
   "browserslist": {
     "production": [
@@ -113,6 +115,7 @@
     "postcss-mixins": "^6.2.3",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^1.19.1",
+    "purgecss": "^2.2.1",
     "raw-loader": "^4.0.1",
     "react-docgen-typescript-loader": "^3.6.0",
     "react-scripts": "^3.3.1",
