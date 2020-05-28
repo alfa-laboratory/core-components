@@ -1,4 +1,5 @@
 @import '../../../../themes/src/default.css';
+@import '../../vars.css';
 
 .option {
     @mixin system_14-18_regular;
