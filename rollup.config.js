@@ -2,8 +2,10 @@ import { ScriptTarget } from 'typescript';
 import path from 'path';
 import multiInput from 'rollup-plugin-multi-input';
 import postcss, { addCssImports } from '@alfalab/rollup-plugin-postcss';
+import coreComponentsResolver from './tools/core-components-resolver';
 import typescript from 'rollup-plugin-ts';
 import stringHash from 'string-hash';
+import copy from 'rollup-plugin-copy';
 
 const currentPackageDir = process.cwd();
 const currentPkg = path.join(currentPackageDir, 'package.json');
@@ -79,4 +81,26 @@ const modern = {
     ],
 };
 
-export default [es5, modern];
+const root = {
+    input: ['dist/**/*.js'],
+    external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
+    plugins: [
+        multiInput({
+            relative: 'dist',
+        }),
+        copy({
+            flatten: false,
+            targets: [
+                { src: ['dist/**/*', '!**/*.js'], dest: `../../dist/${currentComponentName}` },
+            ],
+        }),
+        coreComponentsResolver({ currentPackageDir }),
+    ],
+    output: [
+        {
+            dir: `../../dist/${currentComponentName}`,
+        },
+    ],
+};
+
+export default [es5, modern, root];
