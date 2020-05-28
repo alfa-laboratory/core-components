@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.1](https://github.com/alfa-laboratory/core-components/compare/v1.3.0...v1.3.1) (2020-05-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* **core-components-form-control:** Компонент Input теперь зависим от FormField. Большая часть стилей перенесена в
+FormField
+
+* refactor(core-components-form-control): rename component
+
+* refactor(core-components-form-control): component improvements
+
+### Features
+
+* **core-components-button:** add loading state ([5c0a75a](https://github.com/alfa-laboratory/core-components/commit/5c0a75a3cae3232ce52be5cd800644c2030abb3b))
+* **core-components-form-control:** add FormControl component ([#127](https://github.com/alfa-laboratory/core-components/issues/127)) ([1ea79d1](https://github.com/alfa-laboratory/core-components/commit/1ea79d1fc565c2073483a7480893958efff25dff))
+* **core-components-loader:** add new component ([24f0c35](https://github.com/alfa-laboratory/core-components/commit/24f0c3538d79059ee64468ab6c7e372eb5647f76))
+* **core-components-popover:** can render without Transition ([#130](https://github.com/alfa-laboratory/core-components/issues/130)) ([2569a32](https://github.com/alfa-laboratory/core-components/commit/2569a32994e8de57c4a4a5bce853f706183af749))
+* **select:** add select component ([#118](https://github.com/alfa-laboratory/core-components/issues/118)) ([8892bd9](https://github.com/alfa-laboratory/core-components/commit/8892bd94a6be3ad8ba1e609545becadc8be54b47))
+
+
+### Bug Fixes
+
+* **core-components-button:** iconOnly button min-width fix ([ecdf518](https://github.com/alfa-laboratory/core-components/commit/ecdf518c89a931b649a6c917caa45b9f4dc2dc7b))
+* **core-components-select:** fix onOpen description ([b28f75a](https://github.com/alfa-laboratory/core-components/commit/b28f75afe180dd252900139147f2c7c8df92aeb8))
+
 ## [1.3.0](https://github.com/alfa-laboratory/core-components/compare/v1.2.0...v1.3.0) (2020-05-22)
 
 
