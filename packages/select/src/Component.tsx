@@ -177,7 +177,7 @@ export type SelectProps = {
     ) => void;
 
     /**
-     * Обработчик выбора
+     * Обработчик открытия\закрытия селекта
      */
     onOpen?: (payload?: { open?: boolean; name?: string }) => void;
 };
