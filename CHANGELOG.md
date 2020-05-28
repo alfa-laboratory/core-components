@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/alfa-laboratory/core-components/compare/v1.3.1...v1.4.0) (2020-05-28)
+
+
+### Bug Fixes
+
+* **core-components-select:** move select vars to separate file ([8e09aba](https://github.com/alfa-laboratory/core-components/commit/8e09abaa90d8a91298be69ef136770588630d824))
+
 ### [1.3.1](https://github.com/alfa-laboratory/core-components/compare/v1.3.0...v1.3.1) (2020-05-28)
 
 
