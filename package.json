@@ -122,6 +122,7 @@
     "replace-in-file": "^5.0.2",
     "rimraf": "^3.0.2",
     "rollup": "^2.10.2",
+    "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-multi-input": "^1.1.1",
     "rollup-plugin-ts": "^1.2.24",
     "shelljs": "^0.8.3",
