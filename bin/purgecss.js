@@ -5,7 +5,7 @@ const { promisify } = require('util');
 
 const writeFile = promisify(fs.writeFile);
 
-const matches = glob.sync('dist/**/*.css');
+const matches = glob.sync('dist/**/*.css', { ignore: 'dist/+(themes|vars)/**' });
 
 matches.forEach(match => {
     const purge = new PurgeCSS();
