@@ -83,7 +83,7 @@ const modern = {
 
 const root = {
     input: ['dist/**/*.js'],
-    external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
+    external: baseConfig.external,
     plugins: [
         multiInput({
             relative: 'dist',
