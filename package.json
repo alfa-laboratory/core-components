@@ -50,9 +50,11 @@
   "dependencies": {
     "@alfalab/icons-classic": "^1.7.0",
     "@popperjs/core": "^2.3.3",
+    "downshift": "5.2.7",
     "react-node-resolver": "^2.0.1",
     "react-popper": "^2.2.2",
     "react-transition-group": "^4.3.0",
+    "react-virtual": "^2.2.0",
     "text-mask-core": "^5.1.2"
   },
   "devDependencies": {

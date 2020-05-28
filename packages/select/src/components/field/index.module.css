@@ -1,0 +1,30 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    width: 100%;
+    outline: none;
+}
+
+.placeholder {
+    color: var(--color-dark-indigo-30-flat);
+}
+
+.contentWrapper {
+    @mixin system_16-20_regular;
+
+    color: var(--color-dark-indigo);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.value {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.open .arrow,
+select:focus + button .arrow {
+    transform: rotate(180deg);
+}
