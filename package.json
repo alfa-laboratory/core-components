@@ -30,7 +30,9 @@
     "pub:patch": "RELEASE_TYPE=\"patch\" ./bin/publish.sh",
     "pub:minor": "RELEASE_TYPE=\"minor\" ./bin/publish.sh",
     "pub:major": "RELEASE_TYPE=\"major\" ./bin/publish.sh",
-    "release": "standard-version --no-verify --releaseCommitMessageFormat \"chore: release\""
+    "release": "standard-version --no-verify --releaseCommitMessageFormat \"chore: release\"",
+    "postbuild": "yarn purgecss",
+    "purgecss": "./bin/purgecss.sh"
   },
   "browserslist": {
     "production": [
@@ -115,12 +117,14 @@
     "postcss-mixins": "^6.2.3",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^1.19.1",
+    "purgecss": "^2.2.1",
     "raw-loader": "^4.0.1",
     "react-docgen-typescript-loader": "^3.6.0",
     "react-scripts": "^3.3.1",
     "replace-in-file": "^5.0.2",
     "rimraf": "^3.0.2",
     "rollup": "^2.10.2",
+    "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-multi-input": "^1.1.1",
     "rollup-plugin-ts": "^1.2.24",
     "shelljs": "^0.8.3",

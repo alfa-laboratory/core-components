@@ -62,6 +62,15 @@
     cursor: initial;
 }
 
+.loading .text,
+.loading .addons {
+    opacity: 0;
+}
+
+.loader {
+    position: absolute;
+}
+
 /* Size */
 
 .xs {
@@ -123,6 +132,10 @@
     &:disabled {
         background-color: var(--button-primary-disabled-bg-color);
     }
+
+    &.loading {
+        background-color: var(--button-primary-base-bg-color);
+    }
 }
 
 .secondary {
@@ -140,6 +153,11 @@
     &:disabled {
         color: var(--color-dark-indigo-30);
         background-color: var(--button-secondary-disabled-bg-color);
+    }
+
+    &.loading {
+        color: var(--color-dark-indigo);
+        background-color: var(--button-secondary-base-bg-color);
     }
 }
 
@@ -161,6 +179,11 @@
         background-color: transparent;
         border-color: var(--color-dark-indigo-10);
     }
+
+    &.loading {
+        color: var(--color-dark-indigo);
+        border-color: var(--color-dark-indigo-60);
+    }
 }
 
 .link {
@@ -179,6 +202,10 @@
     &:disabled {
         color: var(--color-dark-indigo-30);
         background-color: transparent;
+    }
+
+    &.loading {
+        color: var(--color-dark-indigo);
     }
 }
 
@@ -201,6 +228,10 @@
 
     &:disabled {
         color: var(--button-ghost-disabled-color);
+    }
+
+    &.loading {
+        color: var(--button-ghost-base-color);
     }
 
     &.iconOnly {

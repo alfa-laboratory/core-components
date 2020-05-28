@@ -11,31 +11,26 @@ lerna exec --parallel \
     --ignore @alfalab/core-components-themes \
     -- $(pwd)/bin/rollup.sh
 
-# копирую src в dist в css-пакетах (vars, themes)
+# собираю css пакеты
 copy_css="yarn copyfiles -u 1 \"src/**/*.css\" dist"
+copy_package="yarn copyfiles package.json dist"
 lerna exec \
     --scope @alfalab/core-components-vars \
     --scope @alfalab/core-components-themes \
-    -- $copy_css
+    -- "$copy_css && $copy_package"
 
 # собираю пакет themes
 lerna exec --scope @alfalab/core-components-themes -- node $(pwd)/bin/build-themes.js
 
-# запускаю скрипт build-root-package.sh во всех подпакетах
-lerna exec --parallel -- $(pwd)/bin/build-root-package.sh \$LERNA_PACKAGE_NAME
-
-# меняю импорты из @alfalab/core-components на относительные в агрегирующем пакете
-# TODO: сделать это плагином rollup
-yarn replace-in-file '/require\("@alfalab\/core-components-/g' 'require("../' dist/**/*.js --isRegex
+# копирую собранные css пакеты в корневой пакет
+copy_to_root="mkdir -p ../../dist/\${PWD##*/} && cp -r dist/ ../../dist/\${PWD##*/}"
+lerna exec \
+    --scope @alfalab/core-components-vars \
+    --scope @alfalab/core-components-themes \
+    -- $copy_to_root
 
 # копирую package.json в сборку корневого пакета
 cp package.json dist/package.json
 
 # делаю корневой пакет публичным
 yarn json -f dist/package.json -I -e "delete this.private" -e "delete this.workspaces"
-
-# копирую package.json в dist для css-пакетов, т.к. они публикуется из папки dist
-lerna exec \
-    --scope @alfalab/core-components-vars \
-    --scope @alfalab/core-components-themes \
-    -- cp package.json dist/package.json
