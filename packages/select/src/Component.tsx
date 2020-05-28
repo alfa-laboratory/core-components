@@ -175,6 +175,11 @@ export type SelectProps = {
             name?: string;
         },
     ) => void;
+
+    /**
+     * Обработчик выбора
+     */
+    onOpen?: (payload?: { open?: boolean; name?: string }) => void;
 };
 
 export type FieldProps = Pick<
@@ -287,6 +292,7 @@ export function Select({
     valueRenderer,
     optionRenderer,
     onChange,
+    onOpen,
 }: SelectProps) {
     const [focused, setFocused] = useState(false);
 
@@ -320,6 +326,11 @@ export function Select({
                     if (!multiple) value = value[0];
                 }
 
+                /**
+                 * https://github.com/alfa-laboratory/core-components/issues/45
+                 *
+                 * TODO: Если события нет, нужно ли сохранять сигнатуру?
+                 */
                 onChange(undefined, {
                     selected: multiple ? selectedItems : (selectedItems || [])[0],
                     value,
@@ -351,6 +362,14 @@ export function Select({
         circularNavigation,
         items: flatOptions,
         itemToString: item => (item ? item.value.toString() : ''),
+        onIsOpenChange: changes => {
+            if (onOpen) {
+                onOpen({
+                    open: changes.isOpen,
+                    name,
+                });
+            }
+        },
         stateReducer: (state, actionAndChanges) => {
             const { type, changes } = actionAndChanges;
             const { selectedItem } = changes;

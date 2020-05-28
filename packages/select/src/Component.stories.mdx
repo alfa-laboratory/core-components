@@ -1,5 +1,6 @@
 import { Meta, Story, Preview, Props, Title } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 import { Container, Row, Col } from 'storybook/blocks/grid';
 
 import { Select } from './Component';
@@ -104,6 +105,8 @@ import { Select } from '@alfalab/core-components-select';
         nativeSelect={boolean('nativeSelect', false)}
         placeholder={text('placeholder', 'Выберите элемент')}
         label={text('label', 'Элемент')}
+        onChange={action('change')}
+        onOpen={action('open')}
     />
 </Story>
 
