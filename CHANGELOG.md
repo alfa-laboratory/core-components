@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.1](https://github.com/alfa-laboratory/core-components/compare/v1.4.0...v1.4.1) (2020-06-01)
+
+
+### Bug Fixes
+
+* fixed themes and default font-family ([6bab367](https://github.com/alfa-laboratory/core-components/commit/6bab367eb0df53c7d42e31c5e404859638d8d6c9))
+* **core-components-checkbox-group:** fix classnames to camelcase ([522af20](https://github.com/alfa-laboratory/core-components/commit/522af2088bbc7ef9343b4f6c3de5bb7ee51c6202))
+
 ## [1.4.0](https://github.com/alfa-laboratory/core-components/compare/v1.3.1...v1.4.0) (2020-05-28)
 
 
