@@ -121,7 +121,7 @@
     color: var(--switch-hint-color);
 }
 
-.indeterminate-icon {
+.indeterminateIcon {
     width: 16px;
     height: 16px;
 }
