@@ -1,4 +1,10 @@
 @define-mixin form-control-click {
+    /* core vars */
+    --color-dark-indigo-07-flat: #eeeff1;
+    --gap-s: 12px;
+    --gap-m: 16px;
+
+    /* base */
     --form-control-border-radius: 4px;
     --form-control-border-bottom: 0;
     --form-control-bg-color: var(--color-dark-indigo-07-flat);

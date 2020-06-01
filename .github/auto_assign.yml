@@ -1,15 +1,16 @@
 addReviewers: true
 
 reviewers:
-  - stepancar
-  - FenkoAlex
-  - raylyanway
-  - ilatovsky
-  - aweppc
-  - IBelyaev
-  - 7rulnik
-  - pavelozavr
-  - denisx
+    - stepancar
+    - FenkoAlex
+    - raylyanway
+    - ilatovsky
+    - aweppc
+    - IBelyaev
+    - 7rulnik
+    - pavelozavr
+    - denisx
+    - vorozhtsoff
 
 skipKeywords:
-  - wip
+    - wip

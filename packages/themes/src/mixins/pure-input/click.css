@@ -1,4 +1,10 @@
 @define-mixin pure-input-click {
+    /* core vars */
+    --color-dark-indigo-07-flat: #eeeff1;
+    --gap-s: 12px;
+    --gap-m: 16px;
+
+    /* base */
     --pure-input-border-radius: 4px;
     --pure-input-border-bottom: 0;
     --pure-input-bg-color: var(--color-dark-indigo-07-flat);
