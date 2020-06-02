@@ -32,7 +32,8 @@
     --button-font-family: var(--font-family);
 
     /* focus */
-    --button-focus-shadow: 0 0 0 4px var(--color-dark-indigo-15);
+    --button-outline: 2px solid var(--focus-color);
+    --button-outline-offset: 2px;
 }
 
 .component {
@@ -69,7 +70,8 @@
 }
 
 .component:focus .wrapper {
-    box-shadow: var(--button-focus-shadow);
+    outline: var(--button-outline);
+    outline-offset: var(--button-outline-offset);
 }
 
 .component:disabled {
