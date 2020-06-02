@@ -86,15 +86,14 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
             disabled: disabled || loading,
         };
 
-        const wrapperProps = {
-            className: cn(styles.wrapper, styles[view], styles[size], {
-                [styles.iconOnly]: !children,
-            }),
-        };
-
         const buttonChildren = (
             // https://www.kizu.ru/keyboard-only-focus/
-            <span {...wrapperProps} tabIndex={-1}>
+            <span
+                className={cn(styles.wrapper, styles[view], styles[size], {
+                    [styles.iconOnly]: !children,
+                })}
+                tabIndex={-1}
+            >
                 {leftAddons && <span className={cn(styles.addons)}>{leftAddons}</span>}
                 {children && <span className={cn(styles.text)}>{children}</span>}
                 {rightAddons && <span className={cn(styles.addons)}>{rightAddons}</span>}
