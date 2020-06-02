@@ -1,0 +1,9 @@
+@define-mixin button-click {
+    /* core vars */
+    --color-red-brand: #ef3124;
+    --color-red-dark: #d91d0b;
+
+    /* ghost */
+    --button-ghost-hover-color: var(--color-red-brand);
+    --button-ghost-active-color: var(--color-red-dark);
+}

@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "skipLibCheck": true,
-        "target": "esnext",
+        "target": "ES5",
         "module": "commonjs",
         "jsx": "react",
         "rootDir": ".",
@@ -14,10 +14,12 @@
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "typeRoots": ["./typings", "./node_modules/@types"],
-        "plugins": [{ "name": "typescript-plugin-css-modules" }],
         "composite": true,
         "declaration": true,
-        "baseUrl": "."
+        "baseUrl": ".",
+        "paths": {
+            "@alfalab/core-components-*": ["packages/*/src"]
+        }
     },
     "exclude": ["node_modules", "dist", "**/*.stories*", "**/*.test*"],
     "include": ["./typings"]

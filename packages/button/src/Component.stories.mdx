@@ -1,0 +1,231 @@
+import { Meta, Story, Preview, Props, Description, Title } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+
+import { Button } from './Component';
+import { name, version } from '../package.json';
+
+export const VIEWS = ['primary', 'secondary', 'outlined', 'link', 'ghost'];
+export const SIZES = ['xs', 's', 'm', 'l'];
+
+<Meta title='Компоненты|Button' component={Button} />
+
+<Title>
+    Button ({name}@{version})
+</Title>
+
+```tsx
+import { Button } from '@alfalab/core-components-button';
+```
+
+## Описание
+
+Кнопка используется как триггер для выполнения определённого действия.
+
+<Story name='Песочница'>
+    <Button
+        view={select('view', VIEWS, 'primary')}
+        size={select('size', SIZES, 'm')}
+        type={select('type', ['button', 'reset', 'submit'])}
+        href={text('href', '')}
+        disabled={boolean('disabled', false)}
+        block={boolean('block', false)}
+        className={text('className', '')}
+        dataTestId={text('dataTestId', '')}
+        onClick={action('click')}
+        loading={boolean('loading')}
+    >
+        {text('label', 'Оплатить')}
+    </Button>
+</Story>
+
+<Props of={Button} />
+
+## Виды кнопок
+<br/>
+
+### В библиотеке доступно несколько типов кнопок:
+
+- `view="primary"`: обозначает ключевое действие. Желательно, чтобы на экране была только одна главная кнопка.
+
+<Preview>
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <Button size={size} view="primary">
+                        Оплатить
+                    </Button>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+</Preview>
+
+- `view="secondary"`: второстепенная кнопка. Предназначена для менее важных действий.
+
+<Preview>
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <Button size={size} view="secondary">
+                        Закрыть
+                    </Button>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+</Preview>
+
+- `view="outlined"`: обычная кнопка. Может использоваться для любых действий.
+
+<Preview>
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <Button size={size} view="outlined">
+                        Показать
+                    </Button>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+</Preview>
+
+- `view="link"`: прозрачная кнопка-ссылка. Для получения ссылки, нужно установить пропс `href`
+
+<Preview>
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <Button size={size} view="link">
+                        Открыть
+                    </Button>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+</Preview>
+
+
+- `view="ghost"`: прозрачная кнопка без отступов. Use-кейсы такие же загадочные, как и название типа.
+
+<Preview>
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <Button size={size} view="ghost">
+                        Кнопка
+                    </Button>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+</Preview>
+
+## Ссылка
+Любую кнопку можно превратить в ссылку, передав компоненту пропс `href`.
+<Preview>
+    <Container>
+        <Row align="middle">
+            {VIEWS.map(view => (
+                <Col key={view}>
+                    <Button view={view} href="https://github.com" target="_blank" >
+                        Открыть
+                    </Button>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+</Preview>
+
+## Ширина кнопки
+
+С помощью пропса `block` можно заставить кнопку занимать всю ширину родителя
+<Preview>
+    <Button view="primary" block={true} size="s" >
+        Открыть
+    </Button>
+</Preview>
+
+## Слоты для кастомизации
+С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать кнопку - например, отобразить иконку.
+
+Переданный контент будет отрисован слева или справа от текста кнопки. Если текста нет - будет отрисована квадратная кнопка.
+
+
+<Preview>
+    <Container>
+        <Row align="middle">
+            <Col>
+                <Button rightAddons={<Icon/>} view="primary">
+                    Like
+                </Button>
+            </Col>
+            <Col>
+                <Button leftAddons={<Icon/>} />
+            </Col>
+            <Col>
+                <Button rightAddons={<Icon/>} view="outlined"/>
+            </Col>
+        </Row>
+    </Container>
+</Preview>
+
+## Состояние загрузки
+С помощью свойства `loading` можно отрисовать состояние загрузки.
+
+<Preview>
+    {React.createElement(() => {
+        const [loading, setLoading] = React.useState({
+            primary: false,
+            secondary: false,
+            outlined: false,
+            link: false,
+            ghost: false
+        });
+        const handleClick = (buttonName) => {
+            setLoading({...loading, [buttonName]: true});
+            setTimeout(() => {
+                setLoading({...loading, [buttonName]: false});
+            }, 500)
+        }
+        return (
+            <Container>
+                <Row align="middle">
+                    <Col>
+                        <Button view="primary" loading={loading.primary} onClick={() => handleClick('primary')}>
+                            Отправить запрос
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button view="secondary" loading={loading.secondary} onClick={() => handleClick('secondary')}>
+                            Отправить запрос
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button view="outlined" loading={loading.outlined} onClick={() => handleClick('outlined')}>
+                            Отправить запрос
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button view="link" loading={loading.link} onClick={() => handleClick('link')}>
+                            Отправить запрос
+                        </Button>
+                    </Col>
+                    <Col>
+                        <Button view="ghost" loading={loading.ghost} onClick={() => handleClick('ghost')}>
+                            Отправить запрос
+                        </Button>
+                    </Col>
+                </Row>
+            </Container>
+        );
+    })}
+</Preview>

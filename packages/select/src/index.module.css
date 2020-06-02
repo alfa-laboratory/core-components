@@ -1,0 +1,59 @@
+@import '../../themes/src/default.css';
+@import './vars.css';
+
+.component {
+    display: inline-block;
+    min-width: 240px;
+    position: relative;
+}
+
+.block {
+    width: 100%;
+    min-width: auto;
+}
+
+.fieldWrapper {
+    position: relative;
+    display: block;
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    outline: none;
+    text-align: left;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+}
+
+.popover {
+    min-width: 100%;
+    border: none;
+    box-shadow: var(--select-popover-box-shadow);
+    border-radius: var(--select-popover-border-radius);
+    overflow: hidden;
+}
+
+.listWrapper {
+    width: 100%;
+    outline: none;
+}
+
+.nativeSelect {
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: 100%;
+    cursor: pointer;
+    z-index: 1;
+}

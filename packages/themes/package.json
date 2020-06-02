@@ -1,0 +1,11 @@
+{
+    "name": "@alfalab/core-components-themes",
+    "version": "1.0.2",
+    "description": "",
+    "keywords": [],
+    "license": "ISC",
+    "publishConfig": {
+        "access": "public",
+        "directory": "dist"
+    }
+}

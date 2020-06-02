@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-switch",
-    "version": "1.0.0",
+    "version": "1.2.0",
     "description": "",
     "gitHead": "f054fef20200664c65e2501ef1f916c555cdf05d",
     "keywords": [],
@@ -13,7 +13,7 @@
         "access": "public"
     },
     "peerDependencies": {
-        "react": "^16.9.0",
-        "classnames": "^2.2.6"
+        "classnames": "^2.2.6",
+        "react": "^16.9.0"
     }
 }

@@ -1,6 +1,6 @@
 const path = require('path');
-const getCSSModuleLocalIdent = require('./utils/getCSSModuleLocalIdent');
 const componentsResolver = require('./utils/componentsResolver');
+const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
 
 /**
  * Добавляет генерацию интерфейсов в зависимости от флага RDTL.
@@ -9,85 +9,119 @@ const componentsResolver = require('./utils/componentsResolver');
  * @returns {{include: [string], test: RegExp, use: [{loader: string, options: {presets: [[string, {modules: boolean}], string, [string, {isTSX: boolean, allExtensions: boolean}]], babelrc: boolean, plugins: [string, string, string], cacheDirectory: boolean}}], exclude: RegExp[]}}
  */
 const getBabelRules = ({ mode, withRDTL }) => {
-  const rule = {
-    test: /\.(ts|tsx)$/,
-    use: [
-      {
-        loader: 'babel-loader',
-        options: {
-          cacheDirectory: mode === 'development',
-          presets: [
-            '@babel/preset-react',
-            [
-              '@babel/preset-typescript',
-              {
-                isTSX: true,
-                allExtensions: true,
-              },
-            ],
-          ],
-        },
-      },
-    ],
-    include: [path.resolve('./')],
-  };
+    const rule = {
+        test: /\.(ts|tsx)$/,
+        use: [
+            {
+                loader: 'babel-loader',
+                options: {
+                    cacheDirectory: mode === 'development',
+                    presets: [
+                        '@babel/preset-react',
+                        [
+                            '@babel/preset-typescript',
+                            {
+                                isTSX: true,
+                                allExtensions: true,
+                            },
+                        ],
+                    ],
+                },
+            },
+        ],
+        include: [path.resolve('./')],
+    };
 
-  if (withRDTL) {
-    rule.use.push({
-      loader: require.resolve('react-docgen-typescript-loader'),
-      options: {
-        tsconfigPath: path.resolve(__dirname, '../tsconfig.storybook.json'),
-        propFilter: (props, component) => {
-          if (props.parent) {
-            // Показываем только пользовательские пропсы и пропсы, помеченные как (native prop). (Иначе будет простыня из HTMLAttributes)
-            return !props.parent.fileName.includes('node_modules') || props.description.includes('(native prop)');
-          } else {
-            return true;
-          }
-        }
-      }
-    });
-  }
+    if (withRDTL) {
+        rule.use.push({
+            loader: require.resolve('react-docgen-typescript-loader'),
+            options: {
+                tsconfigPath: path.resolve(__dirname, '../tsconfig.storybook.json'),
+                propFilter: (props, component) => {
+                    if (props.parent) {
+                        // Показываем только пользовательские пропсы и пропсы, помеченные как (native prop). (Иначе будет простыня из HTMLAttributes)
+                        return (
+                            !props.parent.fileName.includes('node_modules') ||
+                            props.description.includes('(native prop)')
+                        );
+                    } else {
+                        return true;
+                    }
+                },
+            },
+        });
+    }
 
-  return rule;
+    return rule;
 };
 
 module.exports = ({ config }) => ({
-  ...config,
+    ...config,
 
-  resolve: {
-    plugins: [componentsResolver],
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
-  },
+    resolve: {
+        plugins: [componentsResolver],
+        alias: {
+            storybook: path.resolve(__dirname),
+        },
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    },
 
-  module: {
-    rules: [
-      getBabelRules({
-        mode: config.mode,
-        withRDTL: process.env.RDTL !== 'off',
-      }),
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                getLocalIdent: getCSSModuleLocalIdent,
-              },
-              localsConvention: 'dashes',
-              importLoaders: 1,
-              sourceMap: true,
+    module: {
+        rules: [
+            {
+                test: /\.md$/,
+                use: ['raw-loader'],
             },
-          },
-          {
-            loader: 'postcss-loader',
-          },
+            {
+                test: /\.(stories|story)\.mdx$/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        // may or may not need this line depending on your app's setup
+                        options: {
+                            plugins: ['@babel/plugin-transform-react-jsx'],
+                        },
+                    },
+                    {
+                        loader: '@mdx-js/loader',
+                        options: {
+                            compilers: [createCompiler({})],
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.(stories|story)\.[tj]sx?$/,
+                loader: require.resolve('@storybook/source-loader'),
+                exclude: [/node_modules/],
+                enforce: 'pre',
+            },
+            getBabelRules({
+                mode: config.mode,
+                withRDTL: process.env.RDTL !== 'off',
+            }),
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: 'style-loader',
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                localIdentName: '[local]_[hash:base64:5]',
+                            },
+                            localsConvention: 'dashes',
+                            importLoaders: 1,
+                            sourceMap: true,
+                        },
+                    },
+                    {
+                        loader: 'postcss-loader',
+                    },
+                ],
+            },
         ],
-      },
-    ],
-  },
+    },
 });

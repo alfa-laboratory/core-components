@@ -1,0 +1,58 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.option {
+    @mixin system_14-18_regular;
+
+    display: flex;
+    align-items: center;
+    padding: var(--gap-xs) var(--gap-s);
+    transition: background-color 0.2s ease;
+    background-color: var(--color-white);
+    box-sizing: border-box;
+    position: relative;
+}
+
+.option:before {
+    opacity: 0;
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+    background-color: rgba(11, 31, 53, 0.95);
+    border-radius: 50%;
+    margin-right: var(--gap-xs);
+}
+
+.s {
+    min-height: 48px;
+}
+
+.m {
+    min-height: 56px;
+}
+
+.l {
+    min-height: 68px;
+    padding: var(--gap-xs) var(--gap-m);
+}
+
+.l:before {
+    margin-right: var(--gap-s);
+}
+
+.highlighted {
+    background-color: var(--select-option-hover-bg-color);
+    cursor: pointer;
+}
+
+.selected:before {
+    opacity: 1;
+}
+
+.disabled {
+    cursor: default;
+    background-color: var(--color-white);
+    color: var(--color-dark-indigo-60-flat);
+}

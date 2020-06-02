@@ -1,12 +1,13 @@
-@import '../../themes/default.css';
+@import '../../themes/src/default.css';
 
 :root {
     --pure-input-border-radius: 4px 4px 0 0;
-    --pure-input-side-paddings: 12px;
-    --pure-input-paddings: 1px var(--pure-input-side-paddings) 0;
     --pure-input-border-bottom: 1px solid var(--color-dark-indigo-30-flat);
-    --pure-input-paddings: 1px var(--pure-input-side-paddings) 0;
     --pure-input-bg-color: var(--color-dark-indigo-07);
+
+    /* paddings */
+    --pure-input-paddings: 1px var(--gap-s) 0;
+    --pure-input-l-paddings: 1px var(--gap-m) 0;
 
     /* disabled */
     --pure-input-disabled-bg-color: var(--color-dark-indigo-15);
@@ -21,17 +22,14 @@
 }
 
 .component {
+    @mixin system_16-20_regular;
+
     display: inline-flex;
-    position: relative;
-    font-family: var(--font-family);
-    font-size: 16px;
-    line-height: 20px;
     box-sizing: border-box;
     color: var(--color-dark-indigo);
     background-color: var(--pure-input-bg-color);
     border-radius: var(--pure-input-border-radius);
-    transition: background 0.2s ease, box-shadow 0.2s ease, border 0.2s ease, opacity 0.2s ease,
-        color 0.2s ease;
+    transition: background 0.2s ease, box-shadow 0.2s ease, border 0.2s ease, color 0.2s ease;
     border: none;
     margin: 0;
     padding: var(--pure-input-paddings);
@@ -45,6 +43,7 @@
 .component::placeholder {
     text-overflow: ellipsis;
     color: var(--color-dark-indigo-60-flat);
+    transition: color 0.2s ease;
 }
 
 .block {
@@ -63,8 +62,7 @@
 
 .l {
     height: 68px;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: var(--pure-input-l-paddings);
 }
 
 /* DISABLED STATE */

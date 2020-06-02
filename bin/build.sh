@@ -1,33 +1,33 @@
 #!/bin/bash
-
 # выхожу, если одна из команд завершилась неудачно
 set -e
 
 # удаляю билды
 yarn clean
 
-# компилю все подпакеты
-lerna exec --parallel -- tsc --build
+# собираю все подпакеты, за исключением css-пакетов (vars, themes)
+lerna exec --parallel \
+    --ignore @alfalab/core-components-vars \
+    --ignore @alfalab/core-components-themes \
+    -- $(pwd)/bin/rollup.sh
 
-# копирую все дополнительные файлы в dist
-copy_cmd="node $(pwd)/node_modules/.bin/copyfiles -e \"**/*.{[jt]s*(x),snap}\" -u 1 \"src/**/*\" dist"
-lerna exec --parallel -- $copy_cmd
+# собираю css пакеты
+copy_css="yarn copyfiles -u 1 \"src/**/*.css\" dist"
+copy_package="yarn copyfiles package.json dist"
+lerna exec \
+    --scope @alfalab/core-components-vars \
+    --scope @alfalab/core-components-themes \
+    -- "$copy_css && $copy_package"
 
-# обрабатываю postcss в подпакетах, которые содержат css-файлы, за исключением core-components-vars
-postcss_cmd='
-if [ $(find . -type f -name "*.css" | wc -l) -gt 0 ];
-    then postcss dist/*.css -d dist;
-fi'
-lerna exec --parallel --ignore @alfalab/core-components-vars -- $postcss_cmd
+# собираю пакет themes
+lerna exec --scope @alfalab/core-components-themes -- node $(pwd)/bin/build-themes.js
 
-# удаляю папку dist в корне проекта
-rm -rf dist
-
-# запускаю скрипт build-root-package.sh во всех подпакетах
-lerna exec --parallel -- $(pwd)/bin/build-root-package.sh \$LERNA_PACKAGE_NAME
-
-# меняю импорты из @alfalab/core-components на относительные в агрегирующем пакете
-yarn replace-in-file '/require\("@alfalab\/core-components-/g' 'require("../' dist/**/*.js --isRegex
+# копирую собранные css пакеты в корневой пакет
+copy_to_root="mkdir -p ../../dist/\${PWD##*/} && cp -r dist/ ../../dist/\${PWD##*/}"
+lerna exec \
+    --scope @alfalab/core-components-vars \
+    --scope @alfalab/core-components-themes \
+    -- $copy_to_root
 
 # копирую package.json в сборку корневого пакета
 cp package.json dist/package.json

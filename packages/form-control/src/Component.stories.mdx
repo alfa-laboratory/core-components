@@ -1,0 +1,39 @@
+import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+
+import { FormControl } from './Component';
+import { name, version } from '../package.json';
+
+
+<Meta title='Компоненты|FormControl' component={FormControl} />
+
+<Title>
+    FormControl ({name}@{version})
+</Title>
+
+```tsx
+import { FormControl } from '@alfalab/core-components-form-control';
+```
+
+## Описание
+
+Базовый компонент для построения полей ввода - input, textarea, select и др.
+
+<Story name='Песочница'>
+    <FormControl
+        block={boolean('block', true)}
+        size={select('size', ['s', 'm', 'l'], 's')}
+        disabled={boolean('disabled', false)}
+        filled={boolean('filled', false)}
+        focused={boolean('focused', false)}
+        label={text('label', '')}
+        hint={text('hint', '')}
+        error={text('error', '')}
+        rightAddons={boolean('rightAddons', false) && !text('error', '') && <Icon />}
+        leftAddons={boolean('leftAddons', false) && <Icon />}
+        bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
+    />
+</Story>
+
+<Props of={FormControl} />

@@ -1,4 +1,4 @@
-@import '../../themes/default.css';
+@import '../../themes/src/default.css';
 
 :root {
     --switch-label-color: var(--color-dark-indigo);

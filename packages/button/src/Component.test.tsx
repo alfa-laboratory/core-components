@@ -24,6 +24,10 @@ describe('Button', () => {
         it('should render anchor if href pass', () => {
             expect(render(<Button href='https://some-url' />)).toMatchSnapshot();
         });
+
+        it('should render loader if loading pass', () => {
+            expect(render(<Button loading={true} />)).toMatchSnapshot();
+        });
     });
 
     describe('Attributes tests', () => {

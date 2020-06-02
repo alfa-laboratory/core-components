@@ -1,0 +1,36 @@
+import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
+
+import { PureInput } from './Component';
+import { name, version } from '../package.json';
+
+
+<Meta title='Компоненты|PureInput' component={PureInput} />
+
+<Title>
+    PureInput ({name}@{version})
+</Title>
+
+```tsx
+import { PureInput } from '@alfalab/core-components-pure-input';
+```
+
+## Описание
+
+Компонент, представляющий из себя стилизованный нативный `input`
+
+<Story name='Песочница'>
+    <PureInput
+        size={select('size', ['s', 'm', 'l'], 's')}
+        type={select(
+            'type',
+            ['number', 'card', 'email', 'money', 'password', 'tel', 'text'],
+            'text',
+        )}
+        block={boolean('block', false)}
+        disabled={boolean('disabled', false)}
+        placeholder={text('placeholder', '')}
+    />
+</Story>
+
+<Props of={PureInput} />

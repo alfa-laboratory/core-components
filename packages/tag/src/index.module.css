@@ -1,4 +1,4 @@
-@import '../../themes/default.css';
+@import '../../themes/src/default.css';
 
 :root {
     /* border */
@@ -35,6 +35,7 @@
     box-shadow: none;
     user-select: none;
     cursor: pointer;
+    outline: none;
 }
 
 .addons {
@@ -56,12 +57,12 @@
 }
 
 .component {
-    &:active {
+    &:active:not(:disabled) {
         background-color: var(--tag-background-color-active);
         color: var(--tag-text-color);
     }
 
-    &:hover {
+    &:hover:not(:disabled) {
         border: var(--tag-border-width) var(--tag-border-style) var(--tag-border-color-hover);
     }
 

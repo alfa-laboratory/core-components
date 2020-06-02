@@ -1,0 +1,20 @@
+@import '../../../../themes/src/default.css';
+
+.optionsList {
+    overflow: auto;
+    width: 100%;
+    outline: none;
+    padding: var(--gap-xs) 0;
+}
+
+.s {
+    max-height: 240px;
+}
+
+.m {
+    max-height: 280px;
+}
+
+.l {
+    max-height: 340px;
+}

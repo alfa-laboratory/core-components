@@ -1,0 +1,65 @@
+@import '../../themes/src/default.css';
+
+.component {
+    display: flex;
+    flex-direction: column;
+}
+
+.error {
+    padding-left: var(--gap-m);
+    border-left: 1px solid var(--color-red-brand-85-flat);
+}
+
+.checkboxList {
+    display: flex;
+}
+
+.vertical .checkboxList {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.vertical .checkbox {
+    margin-bottom: var(--gap-m);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.horizontal .checkboxList {
+    flex-wrap: wrap;
+}
+
+.horizontal .checkbox {
+    margin-right: var(--gap-xl);
+    margin-bottom: var(--gap-xs);
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.label {
+    @mixin system_14-18_regular;
+    margin-bottom: var(--gap-m);
+    color: var(--color-dark-indigo-60-flat);
+}
+
+.error-message {
+    @mixin system_14-18_regular;
+    margin-top: var(--gap-m);
+    color: var(--color-red-brand-85-flat);
+}
+
+.hiddenInput {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.tag-label {
+    position: relative;
+}
