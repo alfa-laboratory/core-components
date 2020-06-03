@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import cn from 'classnames';
-import { OptionProps } from '../../Component';
+import { BaseOptionProps, OptionShape } from '../../typings';
 
 import styles from './index.module.css';
+
+export type OptionProps = BaseOptionProps & {
+    /**
+     * Размер компонента
+     */
+    size?: 's' | 'm' | 'l';
+
+    /**
+     * Кастомный рендер пункта меню
+     */
+    optionRenderer?: (option: OptionShape) => ReactNode;
+};
 
 export const Option = ({
     size = 's',

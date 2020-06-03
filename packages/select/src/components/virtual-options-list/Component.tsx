@@ -3,13 +3,18 @@
 import React, { useRef, useEffect, useMemo } from 'react';
 import cn from 'classnames';
 import { useVirtual } from 'react-virtual';
-import { OptionsListProps, GroupShape, OptionShape } from '../../Component';
+import { BaseOptionsListProps, GroupShape, OptionShape } from '../../typings';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 import { isGroup, lastIndexOf, usePrevious } from '../../utils';
 
 import styles from './index.module.css';
 
-export type VirtualOptionsList = OptionsListProps & {
+export type VirtualOptionsList = BaseOptionsListProps & {
+    /**
+     * Размер компонента
+     */
+    size?: 's' | 'm' | 'l';
+
     /**
      * Число отрисованных пунктов до\после видимого окна
      */
