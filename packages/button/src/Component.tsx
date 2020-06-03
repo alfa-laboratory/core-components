@@ -1,4 +1,4 @@
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
+import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, Ref } from 'react';
 import cn from 'classnames';
 
 import { Loader } from '@alfalab/core-components-loader';
@@ -54,9 +54,9 @@ type ComponentProps = {
 
 type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
 type NativeButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
-type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
+type ButtonProps = Partial<AnchorButtonProps | NativeButtonProps>;
 
-export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, ButtonProps>(
+export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
     (
         {
             children,
@@ -69,7 +69,6 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
             dataTestId,
             href,
             loading = false,
-            disabled = false,
             ...restProps
         },
         ref,
@@ -87,7 +86,6 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
                 className,
             ),
             'data-test-id': dataTestId || null,
-            disabled: disabled || loading,
         };
 
         const buttonChildren = (
@@ -100,15 +98,29 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
 
         if (href) {
             return (
-                <a {...componentProps} {...restProps} href={href} ref={ref}>
+                <a
+                    {...componentProps}
+                    {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
+                    href={href}
+                    ref={ref as Ref<HTMLAnchorElement>}
+                >
                     {buttonChildren}
                 </a>
             );
         }
 
+        const { disabled, ...restButtonProps } = restProps as ButtonHTMLAttributes<
+            HTMLButtonElement
+        >;
+
         return (
             // eslint-disable-next-line react/button-has-type
-            <button {...componentProps} {...restProps} ref={ref}>
+            <button
+                {...componentProps}
+                {...restButtonProps}
+                disabled={disabled || loading}
+                ref={ref as Ref<HTMLButtonElement>}
+            >
                 {buttonChildren}
                 {loading && <Loader className={cn(styles.loader)} />}
             </button>
