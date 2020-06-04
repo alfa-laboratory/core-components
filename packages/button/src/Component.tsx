@@ -5,7 +5,7 @@ import { Loader } from '@alfalab/core-components-loader';
 
 import styles from './index.module.css';
 
-type ComponentProps = {
+export type ComponentProps = {
     /**
      * Тип кнопки
      */
