@@ -9,7 +9,7 @@ export type LinkProps = NativeProps & {
     /**
      * URL для перехода (native prop)
      */
-    href: string;
+    href?: string;
 
     /**
      * Тип ссылки
