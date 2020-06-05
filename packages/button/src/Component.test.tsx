@@ -97,6 +97,10 @@ describe('Button', () => {
             expect(cb).not.toBeCalled();
         });
 
+        /**
+         * Тест нужен для проверки типа eventTarget (HTMLButtonElement/HTMLAnchorElement).
+         * Если тест скомпилился - то все ок.
+         */
         it('target should contain button element', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(<Button onClick={cb} dataTestId={dataTestId} />);
@@ -110,6 +114,10 @@ describe('Button', () => {
             fireEvent.click(buttonNode, { target: buttonNode });
         });
 
+        /**
+         * Тест нужен для проверки типа eventTarget (HTMLButtonElement/HTMLAnchorElement).
+         * Если тест скомпилился - то все ок.
+         */
         it('target should contain anchor element', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(
