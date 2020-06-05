@@ -1,0 +1,45 @@
+@import '../../themes/src/default.css';
+
+:root {
+    /* primary */
+    --link-primary-color: var(--text-primary-color);
+
+    /* secondary */
+    --link-secondary-color: var(--text-secondary-color);
+
+    /* default */
+    --link-default-color: var(--color-blue-link-web);
+}
+
+.component {
+    box-sizing: border-box;
+    text-decoration: none;
+    border-bottom: 1px solid;
+    font-family: var(--font-family);
+    transition: border 0.1s ease-out;
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+        border-bottom-color: rgba(0, 0, 0, 0);
+    }
+}
+
+.primary {
+    color: var(--link-primary-color);
+    border-bottom-color: var(--link-primary-color);
+}
+
+.secondary {
+    color: var(--link-secondary-color);
+    border-bottom-color: var(--link-secondary-color);
+}
+
+.default {
+    color: var(--link-default-color);
+    border-bottom-color: var(--link-default-color);
+}
+
+.pseudo {
+    border-bottom-style: dashed;
+}
