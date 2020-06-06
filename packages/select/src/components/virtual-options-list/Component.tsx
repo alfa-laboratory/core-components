@@ -47,6 +47,13 @@ export const VirtualOptionsList = ({
         }
     }, [open]);
 
+    // Скролл к пункту, которого нет на экране
+    useEffect(() => {
+        if (!rowVirtualizer.virtualItems.some(option => option.index === highlightedIndex)) {
+            rowVirtualizer.scrollToIndex(highlightedIndex, { align: 'end' });
+        }
+    }, [highlightedIndex]);
+
     // Циклическая навигация
     useEffect(() => {
         const notDisabled = (option: OptionShape) => !option.disabled;

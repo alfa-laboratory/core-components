@@ -36,6 +36,9 @@ export const BaseSelect = ({
 
     const getPopoverOffset = useMemo((): [number, number] => [0, popoverOffset], [popoverOffset]);
 
+    const itemToString = (option: OptionShape) =>
+        (typeof option.text === 'string' ? option.text : '') || option.nativeText || option.value;
+
     const flatOptions = useMemo(
         () =>
             options.reduce(
@@ -47,7 +50,7 @@ export const BaseSelect = ({
     );
 
     const useMultipleSelectionProps: UseMultipleSelectionProps<OptionShape> = {
-        itemToString: item => item.value.toString(),
+        itemToString,
         onSelectedItemsChange: changes => {
             if (onChange) {
                 const { selectedItems } = changes;
@@ -94,7 +97,7 @@ export const BaseSelect = ({
     } = useSelect<OptionShape>({
         circularNavigation,
         items: flatOptions,
-        itemToString: item => (item ? item.value.toString() : ''),
+        itemToString,
         onIsOpenChange: changes => {
             if (onOpen) {
                 onOpen({
