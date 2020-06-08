@@ -14,6 +14,6 @@
     },
     "peerDependencies": {
         "classnames": "^2.2.6",
-        "react": "^16.9.0"
+        "react": "^16.13.1"
     }
 }
