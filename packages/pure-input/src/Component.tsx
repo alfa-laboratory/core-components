@@ -48,3 +48,12 @@ export const PureInput = React.forwardRef<HTMLInputElement, PureInputProps>(
         />
     ),
 );
+
+/**
+ * Для отображения в сторибуке
+ */
+PureInput.defaultProps = {
+    size: 's',
+    type: 'text',
+    block: false,
+};
