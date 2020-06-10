@@ -31,9 +31,14 @@ export type FormControlProps = HTMLAttributes<HTMLDivElement> & {
     focused?: boolean;
 
     /**
-     * Текст ошибки
+     * Отображение ошибки
      */
-    error?: string;
+    error?: string | boolean;
+
+    /**
+     * Скрыть иконку ошибки
+     */
+    hideErrorIcon?: boolean;
 
     /**
      * Текст подсказки
@@ -90,6 +95,7 @@ export const FormControl = ({
     focused,
     filled,
     error,
+    hideErrorIcon = false,
     hint,
     label,
     leftAddons,
@@ -99,21 +105,25 @@ export const FormControl = ({
     dataTestId,
     ...restProps
 }: FormControlProps) => {
-    const rightAddonsRenderer = useCallback(
-        () =>
-            (error || rightAddons) && (
+    const rightAddonsRenderer = useCallback(() => {
+        const showIcon = error && !hideErrorIcon;
+
+        return (
+            (showIcon || rightAddons) && (
                 <div className={cn(styles.addons)}>
-                    {error && <ErrorIcon />}
+                    {showIcon && <ErrorIcon />}
                     {rightAddons}
                 </div>
-            ),
-        [error, rightAddons],
-    );
+            )
+        );
+    }, [error, hideErrorIcon, rightAddons]);
 
     const leftAddonsRenderer = useCallback(
         () => leftAddons && <div className={styles.addons}>{leftAddons}</div>,
         [leftAddons],
     );
+
+    const errorMessage = typeof error === 'string' ? error : '';
 
     return (
         <div
@@ -151,7 +161,9 @@ export const FormControl = ({
                 {rightAddonsRenderer()}
             </div>
 
-            {(error || hint) && <span className={styles.sub}>{error || hint}</span>}
+            {errorMessage && <span className={cn(styles.sub, styles.error)}>{errorMessage}</span>}
+
+            {hint && !errorMessage && <span className={styles.sub}>{hint}</span>}
 
             {bottomAddons}
         </div>

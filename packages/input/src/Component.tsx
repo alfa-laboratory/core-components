@@ -16,9 +16,14 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 't
     size?: 's' | 'm' | 'l';
 
     /**
-     * Текст ошибки
+     * Отображение ошибки
      */
-    error?: string;
+    error?: string | boolean;
+
+    /**
+     * Скрыть иконку ошибки
+     */
+    hideErrorIcon?: boolean;
 
     /**
      * Текст подсказки
@@ -77,6 +82,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             dataTestId,
             disabled,
             error,
+            hideErrorIcon,
             hint,
             inputClassName,
             label,
@@ -135,6 +141,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 filled={filled || focused || !!value}
                 focused={focused}
                 error={error}
+                hideErrorIcon={hideErrorIcon}
                 label={label}
                 hint={hint}
                 leftAddons={leftAddons}
