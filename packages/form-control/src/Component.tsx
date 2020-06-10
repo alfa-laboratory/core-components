@@ -36,9 +36,9 @@ export type FormControlProps = HTMLAttributes<HTMLDivElement> & {
     error?: string | boolean;
 
     /**
-     * Скрыть иконку ошибки
+     * Показывать иконку ошибки
      */
-    hideErrorIcon?: boolean;
+    hasErrorIcon?: boolean;
 
     /**
      * Текст подсказки
@@ -95,7 +95,7 @@ export const FormControl = ({
     focused,
     filled,
     error,
-    hideErrorIcon = false,
+    hasErrorIcon = true,
     hint,
     label,
     leftAddons,
@@ -106,7 +106,7 @@ export const FormControl = ({
     ...restProps
 }: FormControlProps) => {
     const rightAddonsRenderer = useCallback(() => {
-        const showIcon = error && !hideErrorIcon;
+        const showIcon = error && hasErrorIcon;
 
         return (
             (showIcon || rightAddons) && (
@@ -116,7 +116,7 @@ export const FormControl = ({
                 </div>
             )
         );
-    }, [error, hideErrorIcon, rightAddons]);
+    }, [error, hasErrorIcon, rightAddons]);
 
     const leftAddonsRenderer = useCallback(
         () => leftAddons && <div className={styles.addons}>{leftAddons}</div>,

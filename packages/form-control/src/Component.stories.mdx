@@ -30,8 +30,8 @@ import { FormControl } from '@alfalab/core-components-form-control';
         label={text('label', '')}
         hint={text('hint', '')}
         error={text('error', '')}
-        hideErrorIcon={boolean('hideErrorIcon', false)}
-        rightAddons={boolean('rightAddons', false) && (!text('error') || boolean('hideErrorIcon')) && <Icon />}
+        hasErrorIcon={boolean('hasErrorIcon', true)}
+        rightAddons={boolean('rightAddons', false) && !(text('error') && boolean('hasErrorIcon')) && <Icon />}
         leftAddons={boolean('leftAddons', false) && <Icon />}
         bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
     />
