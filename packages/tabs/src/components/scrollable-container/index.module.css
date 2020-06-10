@@ -1,0 +1,19 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    overflow: hidden;
+    &:after {
+        content: '';
+        display: block;
+        margin-bottom: calc(var(--tabs-header-hidden-scrollbar-height) * -1);
+    }
+}
+
+.container {
+    position: relative;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: var(--tabs-header-hidden-scrollbar-height);
+}

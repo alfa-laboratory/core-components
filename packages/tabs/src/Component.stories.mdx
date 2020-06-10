@@ -1,0 +1,40 @@
+import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { boolean } from '@storybook/addon-knobs';
+
+import { PrimaryTabsHeader } from './components/primary-tabs-header';
+import { Tabs } from './Component';
+import { name, version } from '../package.json';
+
+export const titles = Array(10).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`, id: i + 1 }));
+
+
+<Meta title='Компоненты|Tabs' component={Tabs} />
+
+<Title>
+    Tabs ({name}@{version})
+</Title>
+
+```tsx
+import { Tabs } from '@alfalab/core-components-tabs';
+```
+
+## Описание
+
+Компонент табов.
+
+<Story name='PrimaryTabsHeader'>
+    {React.createElement(() => {
+        const [selected, setSelected] = React.useState(1);
+        const handleChange = (event, { selected }) => setSelected(selected);
+        return (
+            <PrimaryTabsHeader
+                titles={titles}
+                selected={selected}
+                scrollable={boolean('scrollable', false)}
+                onChange={handleChange}
+            />
+        );
+    })}
+</Story>
+
+<Props of={Tabs} />

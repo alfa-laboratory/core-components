@@ -1,0 +1,8 @@
+:root {
+    --tabs-header-hidden-scrollbar-height: 20px;
+    --primary-tab-header-color: var(--color-dark-indigo-60-flat);
+    --primary-tab-header-hover-color: var(--color-dark-indigo);
+    --primary-tab-header-selected-color: var(--color-dark-indigo);
+    --primary-tab-header-bottom-border-color: var(--color-dark-indigo-30);
+    --primary-tab-header-line-color: var(--color-red-brand);
+}

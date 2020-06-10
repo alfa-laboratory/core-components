@@ -1,0 +1,81 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    position: relative;
+    margin-bottom: var(--gap-2xl);
+    margin-top: var(--gap-2xl);
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 1px;
+        height: 1px;
+        width: 100%;
+        background-color: var(--primary-tab-header-bottom-border-color);
+    }
+}
+
+.container {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+
+.title {
+    @mixin system_18-22_medium;
+
+    margin-right: var(--gap-2xl);
+    padding: 0;
+    cursor: pointer;
+    color: var(--primary-tab-header-color);
+    font-weight: 300;
+    transition: color 0.2s ease;
+    border: 0;
+    background: none;
+    white-space: nowrap;
+    box-shadow: none;
+    user-select: none;
+    cursor: pointer;
+    outline: none;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    &:hover {
+        color: var(--primary-tab-header-hover-color);
+    }
+}
+
+.titleWrapper {
+    display: block;
+    position: relative;
+    outline: none;
+    box-shadow: none;
+    padding: 0 0 var(--gap-m);
+}
+
+.title:focus .titleWrapper {
+    /* TODO: проработать стиль для фокуса с клавиатуры */
+    color: var(--focus-color);
+}
+
+.selected {
+    cursor: default;
+    color: var(--primary-tab-header-selected-color);
+}
+
+.line {
+    position: absolute;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-tab-header-line-color);
+    transition: transform 0.2s ease;
+}
+
+.scrollable .line {
+    bottom: var(--tabs-header-hidden-scrollbar-height);
+}
