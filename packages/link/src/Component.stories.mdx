@@ -1,0 +1,86 @@
+import { Meta, Story, Preview, Props, Description, Title } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+
+import { Link } from './Component';
+import { name, version } from '../package.json';
+
+export const VIEWS = ['primary', 'secondary', 'default'];
+
+<Meta title='Компоненты|Link' component={Link} />
+
+<Title>
+    Link ({name}@{version})
+</Title>
+
+```tsx
+import { Link } from '@alfalab/core-components-link';
+```
+
+## Описание
+
+Ссылка — элемент навигации, который обозначает возможность перехода на другую страницу
+или вызова нового информационного слоя.
+
+<Story name='Песочница'>
+    <Link
+        view={select('view', VIEWS, 'primary')}
+        pseudo={boolean('pseudo', false)}
+        href={text('href', '')}
+    >
+        Вернуться в интернет-банк
+    </Link>
+</Story>
+
+<Props of={Link} />
+
+## Виды ссылок
+<br />
+
+### Обычная ссылка
+Нестареющая классика. Ссылка может вести как на страницу внутри системы, так и на внешний ресурс.
+
+<Preview>
+    <Container>
+        <Row>
+            <Link view="primary">
+                Primary
+            </Link>
+        </Row>
+         <Row>
+            <Link view="secondary">
+                Secondary
+            </Link>
+        </Row>
+         <Row>
+            <Link view="default">
+                Default
+            </Link>
+        </Row>
+    </Container>
+</Preview>
+
+### Псевдоссылка
+Вызывает информационный слой (collapse, dropdown, popup) без перехода на другую страницу.
+
+<Preview>
+    <Container>
+        <Row>
+            <Link view="primary" pseudo={true}>
+                Primary
+            </Link>
+        </Row>
+         <Row>
+            <Link view="secondary" pseudo={true}>
+                Secondary
+            </Link>
+        </Row>
+         <Row>
+            <Link view="default" pseudo={true}>
+                Default
+            </Link>
+        </Row>
+    </Container>
+</Preview>
