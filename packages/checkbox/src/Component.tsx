@@ -105,3 +105,10 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
         );
     },
 );
+
+/**
+ * Для отображения в сторибуке
+ */
+Checkbox.defaultProps = {
+    indeterminate: false,
+};
