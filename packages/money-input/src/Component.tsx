@@ -16,16 +16,11 @@ type AmountType = {
     minorUnits: number;
 };
 
-export type MoneyInputProps = Omit<InputProps, 'label' | 'onChange' | 'rightAddons'> & {
+export type MoneyInputProps = Omit<InputProps, 'onChange' | 'rightAddons'> & {
     /**
      * Денежное значение
      */
     amount?: AmountType;
-
-    /**
-     * Label для input
-     */
-    label?: string;
 
     /**
      * Дополнительный класс
