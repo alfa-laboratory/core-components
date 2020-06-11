@@ -53,7 +53,9 @@ import { Button } from '@alfalab/core-components-button';
 
 - Если вы используете [arui-scripts](https://github.com/alfa-laboratory/arui-scripts), то добавьте в `package.json`:
    ```
-   "сomponentsTheme": "./src/styles/theme.css"
+   "aruiScripts": {
+        "сomponentsTheme": "./node_modules/@alfalab/core-components-themes/click.css"
+    }
    ```
 - В другом случае - используйте [alfa-laboratory/postcss-custom-properties](https://github.com/alfa-laboratory/postcss-custom-properties), указав в `importFrom` путь к файлу с темой.
 
