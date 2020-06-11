@@ -2,25 +2,24 @@ import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks
 import { boolean } from '@storybook/addon-knobs';
 
 import { PrimaryTabsHeader } from './components/primary-tabs-header';
-import { Tabs } from './Component';
+import { SecondaryTabsHeader } from './components/secondary-tabs-header';
+
 import { name, version } from '../package.json';
 
-export const titles = Array(10).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`, id: i + 1 }));
+export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`, id: i + 1 }));
 
 
-<Meta title='Компоненты|Tabs' component={Tabs} />
+<Meta title='Компоненты|Tabs' />
 
 <Title>
     Tabs ({name}@{version})
 </Title>
 
-```tsx
-import { Tabs } from '@alfalab/core-components-tabs';
-```
-
 ## Описание
 
-Компонент табов.
+Компоненты для построения табов.
+
+### PrimaryTabsHeader
 
 <Story name='PrimaryTabsHeader'>
     {React.createElement(() => {
@@ -37,4 +36,24 @@ import { Tabs } from '@alfalab/core-components-tabs';
     })}
 </Story>
 
-<Props of={Tabs} />
+### SecondaryTabsHeader
+
+<Story name='SecondaryTabsHeader'>
+    {React.createElement(() => {
+        const [selected, setSelected] = React.useState(1);
+        const handleChange = (event, { selected }) => setSelected(selected);
+        return (
+            <SecondaryTabsHeader
+                titles={titles}
+                selected={selected}
+                scrollable={boolean('scrollable', false)}
+                onChange={handleChange}
+            />
+        );
+    })}
+</Story>
+
+<Props components={{
+    PrimaryTabsHeader,
+    SecondaryTabsHeader
+}} />

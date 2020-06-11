@@ -1,1 +1,2 @@
-export * from './primary-tabs';
+export * from './primary-tabs-header';
+export * from './secondary-tabs-header';

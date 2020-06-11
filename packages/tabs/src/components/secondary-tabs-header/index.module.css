@@ -1,0 +1,22 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    position: relative;
+    margin-bottom: var(--gap-2xl);
+    margin-top: var(--gap-2xl);
+}
+
+.container {
+    display: flex;
+    overflow: hidden;
+}
+
+.title {
+    margin-right: var(--gap-s);
+    white-space: nowrap;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}

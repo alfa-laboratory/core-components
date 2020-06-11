@@ -6,7 +6,7 @@ import styles from './index.module.css';
 export type ScrollableContainerProps = {
     children: ReactNode;
 
-    activeChild?: Element;
+    activeChild: HTMLElement | null;
 };
 
 export const ScrollableContainer = ({ children, activeChild }: ScrollableContainerProps) => {
