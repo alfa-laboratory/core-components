@@ -50,6 +50,7 @@
   "dependencies": {
     "@alfalab/icons-classic": "^1.7.0",
     "@popperjs/core": "^2.3.3",
+    "alfa-ui-primitives": "2.13.0",
     "downshift": "5.2.7",
     "react-node-resolver": "^2.0.1",
     "react-popper": "^2.2.2",
@@ -82,7 +83,6 @@
     "@types/react-dom": "^16.9.5",
     "@typescript-eslint/eslint-plugin": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
-    "alfa-ui-primitives": "2.8.0",
     "arui-presets-lint": "4.1.1",
     "arui-presets-ts": "^5.0.0",
     "babel-jest": "^25.3.0",
