@@ -5,13 +5,18 @@ import { TabsHeaderProps } from '../../typings';
 
 import styles from './index.module.css';
 
+type PrimaryTabsHeaderProps = TabsHeaderProps & {
+    gaps?: 'default' | 'wide';
+};
+
 export const PrimaryTabsHeader = ({
     className,
+    gaps = 'default',
     titles = [],
     selected = titles[0].id,
     scrollable = true,
     onChange,
-}: TabsHeaderProps) => {
+}: PrimaryTabsHeaderProps) => {
     const [selectedTab, setSelectedTab] = useState<HTMLElement | null>(null);
     const [lineStyles, setLineStyles] = useState<{ width?: number; transform?: string }>();
 
@@ -42,7 +47,7 @@ export const PrimaryTabsHeader = ({
                     <button
                         key={item.id}
                         type='button'
-                        className={cn(styles.title, {
+                        className={cn(styles.title, styles[gaps], {
                             [styles.selected]: itemSelected,
                         })}
                         ref={itemSelected ? setSelectedTab : null}

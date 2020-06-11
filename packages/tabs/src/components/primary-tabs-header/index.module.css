@@ -26,7 +26,6 @@
 .title {
     @mixin system_18-22_medium;
 
-    margin-right: var(--gap-2xl);
     padding: 0;
     cursor: pointer;
     color: var(--primary-tab-header-color);
@@ -40,13 +39,21 @@
     cursor: pointer;
     outline: none;
 
-    &:last-child {
-        margin-right: 0;
-    }
-
     &:hover {
         color: var(--primary-tab-header-hover-color);
     }
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.default {
+    margin-right: var(--gap-2xl);
+}
+
+.wide {
+    margin-right: var(--gap-4xl);
 }
 
 .titleWrapper {
