@@ -216,9 +216,11 @@ export const Tooltip: FC<TooltipProps> = ({
         onTouchStart: handleTouchStart,
     };
 
-    const getTargetProps = (): HTMLAttributes<HTMLElement> => {
+    const getTargetProps = (
+        targetProps: HTMLAttributes<HTMLElement>,
+    ): HTMLAttributes<HTMLElement> => {
         const props = {
-            className: cn(styles.target),
+            className: cn(styles.target, targetProps.className),
         };
 
         switch (trigger) {
@@ -256,7 +258,7 @@ export const Tooltip: FC<TooltipProps> = ({
     };
 
     const renderTarget = () => {
-        const props = getTargetProps();
+        const props = getTargetProps(children.props);
 
         return cloneElement(children, props);
     };

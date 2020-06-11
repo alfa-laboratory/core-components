@@ -163,3 +163,12 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         );
     },
 );
+
+/**
+ * Для отображения в сторибуке
+ */
+Input.defaultProps = {
+    size: 's',
+    type: 'text',
+    block: false,
+};

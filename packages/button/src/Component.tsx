@@ -127,3 +127,13 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
         );
     },
 );
+
+/**
+ * Для отображения в сторибуке
+ */
+Button.defaultProps = {
+    view: 'secondary',
+    size: 'm',
+    block: false,
+    loading: false,
+};

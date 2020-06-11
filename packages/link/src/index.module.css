@@ -1,0 +1,75 @@
+@import '../../themes/src/default.css';
+
+:root {
+    /* primary */
+    --link-primary-color: var(--text-primary-color);
+    --link-primary-hover-color: color-mod(var(--link-primary-color) blenda(black 20%));
+    --link-primary-active-color: color-mod(var(--link-primary-color) blenda(black 40%));
+
+    /* secondary */
+    --link-secondary-color: var(--text-secondary-color);
+    --link-secondary-hover-color: color-mod(var(--link-secondary-color) blenda(black 20%));
+    --link-secondary-active-color: color-mod(var(--link-secondary-color) blenda(black 40%));
+
+    /* default */
+    --link-default-color: var(--color-blue-link-web);
+    --link-default-hover-color: color-mod(var(--link-default-color) blenda(black 20%));
+    --link-default-active-color: color-mod(var(--link-default-color) blenda(black 40%));
+}
+
+.component {
+    box-sizing: border-box;
+    text-decoration: none;
+    border-bottom: 1px solid;
+    font-family: var(--font-family);
+    transition: border 0.1s ease-out;
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+        border-bottom-color: rgba(0, 0, 0, 0);
+    }
+}
+
+.primary {
+    color: var(--link-primary-color);
+    border-bottom-color: var(--link-primary-color);
+
+    &:hover {
+        color: var(--link-primary-hover-color);
+    }
+
+    &:active {
+        color: var(--link-primary-active-color);
+    }
+}
+
+.secondary {
+    color: var(--link-secondary-color);
+    border-bottom-color: var(--link-secondary-color);
+
+    &:hover {
+        color: var(--link-secondary-hover-color);
+    }
+
+    &:active {
+        color: var(--link-secondary-active-color);
+    }
+}
+
+.default {
+    color: var(--link-default-color);
+    border-bottom-color: var(--link-default-color);
+
+    &:hover {
+        color: var(--link-default-hover-color);
+    }
+
+    &:active {
+        color: var(--link-default-active-color);
+    }
+}
+
+.pseudo {
+    border-bottom-style: dashed;
+}
