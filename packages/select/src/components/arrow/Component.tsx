@@ -8,9 +8,5 @@ import styles from './index.module.css';
 export type ArrowProps = BaseArrowProps;
 
 export const Arrow = ({ open }: ArrowProps) => {
-    return (
-        <div className={cn(styles.arrow, { [styles.open]: open })}>
-            <ArrowIcon />
-        </div>
-    );
+    return <ArrowIcon className={cn(styles.arrow, { [styles.open]: open })} />;
 };

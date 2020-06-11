@@ -9,20 +9,6 @@
 
 .fieldWrapper {
     position: relative;
-    display: block;
-    border: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    background: transparent;
-    color: inherit;
-    font: inherit;
-    line-height: normal;
-    outline: none;
-    text-align: left;
-    -webkit-font-smoothing: inherit;
-    -moz-osx-font-smoothing: inherit;
-    -webkit-appearance: none;
 }
 
 .popover {
