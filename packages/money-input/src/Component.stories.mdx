@@ -1,0 +1,76 @@
+import { Meta, Props, Title } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+
+
+import { MoneyInput } from './Component';
+import { name, version } from '../package.json';
+
+
+<!-- prettier-ignore -->
+
+
+<Meta title='Компоненты|MoneyInput' component={MoneyInput} />
+
+<Title>
+    MoneyInput ({name}@{version})
+</Title>
+
+```tsx
+import { MoneyInput } from '@alfalab/core-components-money-input';
+```
+
+## Описание
+
+Компонент текстового поля для ввода денежных значений
+
+<div style={{ width: '240px' }}>
+    <MoneyInput />
+</div>
+
+<Props of={MoneyInput} />
+
+<Story name='Песочница'>
+    <MoneyInput
+        block={boolean('block', false)}
+        size={select('size', ['s', 'm', 'l'], 's')}
+        disabled={boolean('disabled', false)}
+        placeholder={text('placeholder', '')}
+        label={text('label', '')}
+        hint={text('hint', '')}
+        error={text('error', '')}
+        leftAddons={boolean('leftAddons', false) && <Icon />}
+        bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
+    />
+</Story>
+
+
+Компонент может быть использован как controlled с помощью `onChange` и `selected`:
+
+<Preview>
+    {React.createElement(() => {
+        const [amount, setAmount] = React.useState({
+            value: 100000,
+            currency: 'RUR',
+            minorUnits: 100
+        });
+        const handleChange = (event, payload) => {
+            setAmount(payload.amount);
+        };
+        return (
+            <Container>
+                <Row align="middle">
+                    <Col>
+                        <MoneyInput
+                            amount={amount}
+                            onChange={handleChange}
+                        />
+                    </Col>
+                    <Col>
+                        { JSON.stringify(amount) }
+                    </Col>
+                </Row>
+            </Container>
+        );
+    })}
+</Preview>

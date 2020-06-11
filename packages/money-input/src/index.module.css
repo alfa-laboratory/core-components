@@ -1,0 +1,17 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --money-input-currency-color: var(--color-dark-indigo-60-flat);
+}
+
+.input {
+    font-weight: bold;
+}
+
+.currency {
+    width: 24px;
+    display: flex;
+    justify-content: center;
+    color: var(--money-input-currency-color);
+    @mixin styrene_20-24_medium;
+}
