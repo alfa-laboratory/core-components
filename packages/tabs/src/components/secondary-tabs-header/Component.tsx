@@ -9,7 +9,7 @@ import styles from './index.module.css';
 export const SecondaryTabsHeader = ({
     className,
     titles = [],
-    selected = titles[0].id,
+    selectedId = titles[0].id,
     scrollable = true,
     onChange,
 }: TabsHeaderProps) => {
@@ -18,7 +18,7 @@ export const SecondaryTabsHeader = ({
     const handleItemClick = useCallback(
         (event, item) => {
             if (onChange) {
-                onChange(event, { selected: item.id });
+                onChange(event, { selectedId: item.id });
             }
         },
         [onChange],
@@ -27,7 +27,7 @@ export const SecondaryTabsHeader = ({
     const renderContent = () => (
         <React.Fragment>
             {titles.map(item => {
-                const itemSelected = item.id === selected;
+                const itemSelected = item.id === selectedId;
 
                 return (
                     <Tag

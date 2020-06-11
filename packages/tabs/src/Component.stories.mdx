@@ -23,12 +23,12 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
 
 <Story name='PrimaryTabsHeader'>
     {React.createElement(() => {
-        const [selected, setSelected] = React.useState(1);
-        const handleChange = (event, { selected }) => setSelected(selected);
+        const [selectedId, setSelectedId] = React.useState(1);
+        const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
         return (
             <PrimaryTabsHeader
                 titles={titles}
-                selected={selected}
+                selectedId={selectedId}
                 scrollable={boolean('scrollable', false)}
                 gaps={select('gaps', ['default', 'wide'], 'default')}
                 onChange={handleChange}
@@ -41,12 +41,12 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
 
 <Story name='SecondaryTabsHeader'>
     {React.createElement(() => {
-        const [selected, setSelected] = React.useState(1);
-        const handleChange = (event, { selected }) => setSelected(selected);
+        const [selectedId, setSelectedId] = React.useState(1);
+        const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
         return (
             <SecondaryTabsHeader
                 titles={titles}
-                selected={selected}
+                selectedId={selectedId}
                 scrollable={boolean('scrollable', false)}
                 onChange={handleChange}
             />

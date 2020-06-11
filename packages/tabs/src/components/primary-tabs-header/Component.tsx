@@ -13,7 +13,7 @@ export const PrimaryTabsHeader = ({
     className,
     gaps = 'default',
     titles = [],
-    selected = titles[0].id,
+    selectedId = titles[0].id,
     scrollable = true,
     onChange,
 }: PrimaryTabsHeaderProps) => {
@@ -23,7 +23,7 @@ export const PrimaryTabsHeader = ({
     const handleItemClick = useCallback(
         (event, item) => {
             if (onChange) {
-                onChange(event, { selected: item.id });
+                onChange(event, { selectedId: item.id });
             }
         },
         [onChange],
@@ -41,7 +41,7 @@ export const PrimaryTabsHeader = ({
     const renderContent = () => (
         <React.Fragment>
             {titles.map(item => {
-                const itemSelected = item.id === selected;
+                const itemSelected = item.id === selectedId;
 
                 return (
                     <button

@@ -6,9 +6,9 @@ export type TabsHeaderProps = {
         id: string | number;
     }>;
 
-    selected?: string | number;
+    selectedId?: string | number;
 
     scrollable?: boolean;
 
-    onChange?: (event: MouseEvent, payload: { selected?: string | number }) => void;
+    onChange?: (event: MouseEvent, payload: { selectedId?: string | number }) => void;
 };
