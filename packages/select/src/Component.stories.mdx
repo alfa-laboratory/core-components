@@ -5,6 +5,7 @@ import { Container, Row, Col } from 'storybook/blocks/grid';
 
 import { Select } from './Component';
 import { Field } from './components/field';
+import { Arrow } from './components/arrow';
 import { OptionsList } from './components/options-list';
 import { VirtualOptionsList } from './components/virtual-options-list';
 import { Optgroup } from './components/optgroup';
@@ -100,7 +101,7 @@ import { Select } from '@alfalab/core-components-select';
         multiple={boolean('multiple', false)}
         allowUnselect={boolean('allowUnselect', true)}
         closeOnSelect={boolean('closeOnSelect', true)}
-        showArrow={boolean('showArrow', true)}
+        Arrow={boolean('Arrow', true) ? Arrow : null}
         circularNavigation={boolean('circularNavigation', false)}
         nativeSelect={boolean('nativeSelect', false)}
         placeholder={text('placeholder', 'Выберите элемент')}
@@ -132,7 +133,13 @@ import { Select } from '@alfalab/core-components-select';
 <Props of={Option} />
 
 ## Использование
-<br/>
+
+В случае, если нужно собрать селект под очень специфичный кейс - за основу стоит взять компонент `BaseSelect`,
+который содержит только основные пропсы и позволяет заменить или настроить почти что угодно.
+
+Компонент `Select` является преднастроенной оберткой над `BaseSelect`
+
+---
 
 По умолчанию - селект `multiple=false` закрывается после выбора, а при `multiple=true` - остается открытым.
 Изменить это поведение можно с помощью `closeOnSelect`.
@@ -285,7 +292,7 @@ import { Select } from '@alfalab/core-components-select';
         <Select
             options={options}
             label='With addons'
-            Field={(props) => <Field {...props} leftAddons={<Icon/>} />}
+            Field={(props) => <Field {...props} leftAddons={props.value.length > 0 && <Icon/>} />}
         />
     </div>
 </Preview>
