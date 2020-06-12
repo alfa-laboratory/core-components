@@ -7,20 +7,21 @@ import { CURRENCY_CODES } from './utils/currencyCodes';
 import { getFormatedValue, getAmountValueFromStr, formatAmount } from './utils';
 import styles from './index.module.css';
 
-type AmountType = {
-    /** Сумма в минорных единицах */
-    value: number;
-    /** Валюта */
-    currency: string;
-    /** Минорные единицы */
-    minorUnits: number;
-};
-
 export type MoneyInputProps = Omit<InputProps, 'onChange' | 'rightAddons'> & {
     /**
-     * Денежное значение
+     * Денежное значение в минорных единицах
      */
-    amount?: AmountType;
+    value?: number;
+
+    /**
+     * Валюта
+     */
+    currency?: string;
+
+    /**
+     * Минорные единицы
+     */
+    minorUnits?: number;
 
     /**
      * Дополнительный класс
@@ -32,7 +33,16 @@ export type MoneyInputProps = Omit<InputProps, 'onChange' | 'rightAddons'> & {
      */
     onChange?: (
         e: React.ChangeEvent<HTMLInputElement>,
-        payload: { amount: AmountType; value: string },
+        payload: {
+            /**
+             * Денежное значение в минорных единицах
+             */
+            value: number;
+            /**
+             * Значение инпута
+             */
+            valueString: string;
+        },
     ) => void;
 
     /**
@@ -42,18 +52,15 @@ export type MoneyInputProps = Omit<InputProps, 'onChange' | 'rightAddons'> & {
 };
 
 export const MoneyInput: React.FC<MoneyInputProps> = ({
-    amount = {
-        value: 0,
-        minorUnits: 100,
-        currency: 'RUR',
-    },
+    value = 0,
+    minorUnits = 100,
+    currency = 'RUR',
     label = 'Сумма',
     className,
     dataTestId,
     onChange,
     ...restProps
 }: MoneyInputProps) => {
-    const { value, minorUnits, currency } = amount;
     const [inputValue, setInputValue] = useState<string>(value === 0 ? '' : value.toString());
     const currencySymbol = CURRENCY_CODES[currency];
 
@@ -116,13 +123,9 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
 
             setInputValue(newFormatedValue);
             if (onChange) {
-                const enteredAmount = {
-                    ...amount,
-                    value: getAmountValueFromStr(newFormatedValue, minorUnits),
-                };
                 onChange(e, {
-                    amount: enteredAmount,
-                    value: '',
+                    value: getAmountValueFromStr(newFormatedValue, minorUnits),
+                    valueString: newFormatedValue,
                 });
             }
         } else {
@@ -147,5 +150,21 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
             onChange={handleChange}
             dataTestId={dataTestId}
         />
+    );
+};
+
+/**
+ * Заготовка еслиминорные единицы нужно красить иначп
+ */
+export const ContentEditableMoneyInput = () => {
+    function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
+        console.log(e);
+    }
+
+    return (
+        <div contentEditable={true} onInput={handleInput}>
+            1234
+            <span>,56</span>
+        </div>
     );
 };

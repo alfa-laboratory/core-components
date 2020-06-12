@@ -1,9 +1,9 @@
 import { Meta, Props, Title } from '@storybook/addon-docs/blocks';
-import { text, select, boolean } from '@storybook/addon-knobs';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 import { Container, Row, Col } from 'storybook/blocks/grid';
 
-
-import { MoneyInput } from './Component';
+import { MoneyInput, ContentEditableMoneyInput } from './Component';
 import { name, version } from '../package.json';
 
 
@@ -32,6 +32,9 @@ import { MoneyInput } from '@alfalab/core-components-money-input';
 
 <Story name='Песочница'>
     <MoneyInput
+        value={number('value', 123456)}
+        currency={text('currency', 'RUR')}
+        minorUnits={number('minorUnits', 100)}
         block={boolean('block', false)}
         size={select('size', ['s', 'm', 'l'], 's')}
         disabled={boolean('disabled', false)}
@@ -41,6 +44,7 @@ import { MoneyInput } from '@alfalab/core-components-money-input';
         error={text('error', '')}
         leftAddons={boolean('leftAddons', false) && <Icon />}
         bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
+        onChange={action('change')}
     />
 </Story>
 
@@ -49,25 +53,21 @@ import { MoneyInput } from '@alfalab/core-components-money-input';
 
 <Preview>
     {React.createElement(() => {
-        const [amount, setAmount] = React.useState({
-            value: 100000,
-            currency: 'RUR',
-            minorUnits: 100
-        });
+        const [value, setValue] = React.useState(10000);
         const handleChange = (event, payload) => {
-            setAmount(payload.amount);
+            setValue(payload.value);
         };
         return (
             <Container>
                 <Row align="middle">
                     <Col>
                         <MoneyInput
-                            amount={amount}
+                            value={value}
                             onChange={handleChange}
                         />
                     </Col>
                     <Col>
-                        { JSON.stringify(amount) }
+                        { value }
                     </Col>
                 </Row>
             </Container>

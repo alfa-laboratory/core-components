@@ -6,25 +6,16 @@ import React, { useState } from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { MoneyInput, MoneyInputProps } from './index';
+import { MoneyInput } from './index';
 
 const THINSP = String.fromCharCode(8201);
-
-type AmountType = MoneyInputProps['amount'];
 
 describe('MoneyInput', () => {
     function renderMoneyInput(value: number) {
         // TODO: почему тесты в кор компонентах цепляются к data-test-id вместо label?
         const dataTestId = 'test-id';
         const { getByTestId } = render(
-            <MoneyInput
-                amount={{
-                    value,
-                    currency: 'RUR',
-                    minorUnits: 100,
-                }}
-                dataTestId={dataTestId}
-            />,
+            <MoneyInput value={value} currency='RUR' minorUnits={100} dataTestId={dataTestId} />,
         );
 
         const input = getByTestId(dataTestId) as HTMLInputElement;
@@ -36,9 +27,7 @@ describe('MoneyInput', () => {
         it('should match snapshot', () => {
             expect(render(<MoneyInput />)).toMatchSnapshot();
             expect(
-                render(
-                    <MoneyInput amount={{ value: 1234567, currency: 'USD', minorUnits: 100 }} />,
-                ),
+                render(<MoneyInput value={1234567} currency='USD' minorUnits={100} />),
             ).toMatchSnapshot();
         });
     });
@@ -142,21 +131,25 @@ describe('MoneyInput', () => {
 
     it('should render new amount from props (looped value)', async () => {
         const dataTestId = 'test-id';
-        let setAmountManually: (newAmount: AmountType) => void;
+        let setAmountManually: (value: number, currency: string, minorUnits: number) => void;
         const HOCWithAmountInState = () => {
-            const [amount, setAmount] = useState<AmountType>({
-                value: 200,
-                currency: 'RUR',
-                minorUnits: 100,
-            });
+            const [value, setValue] = useState(200);
+            const [currency, setCurrency] = useState('RUR');
+            const [minorUnits, setMinorUnits] = useState(100);
 
-            setAmountManually = (newAmount: AmountType) => setAmount(newAmount);
+            setAmountManually = (value: number, currency: string, minorUnits: number) => {
+                setValue(value);
+                setCurrency(currency);
+                setMinorUnits(minorUnits);
+            };
 
             return (
                 <MoneyInput
-                    amount={amount}
+                    value={value}
+                    currency={currency}
+                    minorUnits={minorUnits}
                     dataTestId={dataTestId}
-                    onChange={(e, payload) => setAmount(payload.amount)}
+                    onChange={(e, payload) => setValue(payload.value)}
                 />
             );
         };
@@ -170,11 +163,7 @@ describe('MoneyInput', () => {
         expect(input.value).toBe(`5${THINSP}678`);
 
         act(() => {
-            setAmountManually({
-                value: 34567,
-                currency: 'USD',
-                minorUnits: 100,
-            });
+            setAmountManually(34567, 'USD', 100);
         });
 
         expect(input.value).toBe('345,67');
@@ -188,11 +177,7 @@ describe('MoneyInput', () => {
         expect(input.value).toBe('0,');
 
         act(() => {
-            setAmountManually({
-                value: 1,
-                currency: 'USD',
-                minorUnits: 100,
-            });
+            setAmountManually(1, 'USD', 100);
         });
 
         expect(input.value).toBe('0,01');
