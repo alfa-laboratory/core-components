@@ -75,7 +75,7 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const enteredValue = e.target.value.replace(/\s/g, '').replace('.', ',');
-        const isCorrectEnteredValue = /(^[0-9]{1,12}(,([0-9]+)?)?$|^\s*$)/.test(enteredValue);
+        const isCorrectEnteredValue = /(^[0-9]{1,9}(,([0-9]+)?)?$|^\s*$)/.test(enteredValue);
 
         if (isCorrectEnteredValue) {
             const newFormatedValue = getFormatedValue(enteredValue, currency, minorUnits);
