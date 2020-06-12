@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { Input, InputProps } from '@alfalab/core-components-input';
 
 import { CURRENCY_CODES } from './utils/currencyCodes';
-
 import { getFormatedValue, getAmountValueFromStr, formatAmount } from './utils';
 import styles from './index.module.css';
 
@@ -51,6 +50,10 @@ export type MoneyInputProps = Omit<InputProps, 'onChange' | 'rightAddons'> & {
     dataTestId?: string;
 };
 
+/**
+ * Компонент для ввода денежных значений
+ * [Figma](https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=532%3A544)
+ */
 export const MoneyInput: React.FC<MoneyInputProps> = ({
     value = 0,
     minorUnits = 100,
@@ -101,18 +104,16 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
                  * или запятая - каретка прыгает в конец и ее необходимо ставить в правильное место
                  */
 
-                // TODO: тут полная жопа
-
                 // Узнаем длину оригинального инпута с учловием обрезания лишних символов
 
                 const [head, tail] = e.target.value.split(/\.|,/);
-                let l = head.length;
+                let notFormattedEnteredValueLength = head.length;
                 if (tail) {
-                    l += 1;
-                    l += tail.slice(0, 2).length;
+                    notFormattedEnteredValueLength += 1; // запятая или точка
+                    notFormattedEnteredValueLength += tail.slice(0, 2).length; // только 2 символа в минорной части
                 }
 
-                const diff = newFormatedValue.length - l;
+                const diff = newFormatedValue.length - notFormattedEnteredValueLength;
                 const caret = (e.target.selectionStart as number) + diff;
                 const element = e.target;
                 window.requestAnimationFrame(() => {
@@ -154,7 +155,7 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
 };
 
 /**
- * Заготовка еслиминорные единицы нужно красить иначп
+ * Заготовка если минорные единицы нужно красить иначп
  */
 export const ContentEditableMoneyInput = () => {
     function handleInput(e: React.ChangeEvent<HTMLInputElement>) {

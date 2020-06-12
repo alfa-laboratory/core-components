@@ -11,6 +11,10 @@ type AmountType = {
     minorUnits: number;
 };
 
+/**
+ * Компонент для ввода денежных значений в Клик
+ * В клик средний формат денежных значений такой как описано в AmountType
+ */
 export type ClickMoneyInputProps = Omit<
     MoneyInputProps,
     'value' | 'currency' | 'minorUnits' | 'onChange'
@@ -18,7 +22,7 @@ export type ClickMoneyInputProps = Omit<
     amount: AmountType;
     onChange: (
         e: React.ChangeEvent<HTMLInputElement>,
-        payload: { amount: AmountType; value: string },
+        payload: { amount: AmountType; valueString: string },
     ) => void;
 };
 
@@ -27,8 +31,11 @@ export const ClickMoneyInput: React.FC<ClickMoneyInputProps> = ({
     onChange,
     ...restProps
 }) => {
-    function handleChange(e: React.ChangeEvent<HTMLInputElement>, payload: { value: number }) {
-        const { value: newValue } = payload;
+    function handleChange(
+        e: React.ChangeEvent<HTMLInputElement>,
+        payload: { value: number; valueString: string },
+    ) {
+        const { value: newValue, valueString } = payload;
         if (onChange) {
             onChange(e, {
                 amount: {
@@ -36,7 +43,7 @@ export const ClickMoneyInput: React.FC<ClickMoneyInputProps> = ({
                     currency,
                     minorUnits,
                 },
-                value: '',
+                valueString,
             });
         }
     }
