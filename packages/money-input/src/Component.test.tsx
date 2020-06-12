@@ -2,13 +2,15 @@
  * @jest-environment jsdom-sixteen
  */
 
-import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import React, { useState } from 'react';
+import { render, fireEvent, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { MoneyInput } from './index';
+import { MoneyInput, MoneyInputProps } from './index';
 
 const THINSP = String.fromCharCode(8201);
+
+type AmountType = MoneyInputProps['amount'];
 
 describe('MoneyInput', () => {
     function renderMoneyInput(value: number) {
@@ -138,13 +140,73 @@ describe('MoneyInput', () => {
         expect(input.value).toBe(`1${THINSP}234`);
     });
 
+    it('should render new amount from props (looped value)', async () => {
+        const dataTestId = 'test-id';
+        let setAmountManually: (newAmount: AmountType) => void;
+        const HOCWithAmountInState = () => {
+            const [amount, setAmount] = useState<AmountType>({
+                value: 200,
+                currency: 'RUR',
+                minorUnits: 100,
+            });
+
+            setAmountManually = (newAmount: AmountType) => setAmount(newAmount);
+
+            return (
+                <MoneyInput
+                    amount={amount}
+                    dataTestId={dataTestId}
+                    onChange={(e, payload) => setAmount(payload.amount)}
+                />
+            );
+        };
+
+        const { getByTestId } = render(<HOCWithAmountInState />);
+
+        const input = getByTestId(dataTestId) as HTMLInputElement;
+
+        await userEvent.type(input, '{backspace}{backspace}{backspace}{backspace}5678');
+
+        expect(input.value).toBe(`5${THINSP}678`);
+
+        act(() => {
+            setAmountManually({
+                value: 34567,
+                currency: 'USD',
+                minorUnits: 100,
+            });
+        });
+
+        expect(input.value).toBe('345,67');
+
+        await userEvent.clear(input);
+
+        expect(input.value).toBe('');
+
+        await userEvent.type(input, '0,');
+
+        expect(input.value).toBe('0,');
+
+        act(() => {
+            setAmountManually({
+                value: 1,
+                currency: 'USD',
+                minorUnits: 100,
+            });
+        });
+
+        expect(input.value).toBe('0,01');
+    });
+
     /**
+     * + тест на адекватность (снапшот)
+     * + тест на дефолтные значения (нужно разобраться про label)
+     * - проброс пропсов
      * + 100003 вставить ',' после 100
      * + 100003 вставить '.' после 100
      * максимум 12 символов в мажорной части и не более 2х в минорной
      * + 1234 каретка перед двойкой backspace
-     * Тест на то что если amount зацикливать то все ок
-     * Тест на то что если задать amount1 раз - все работает
+     * + Тест на то что если amount зацикливать то все ок
      * - Тест при вставке невалидного символа каретка не двигается
      */
 });
