@@ -31,9 +31,9 @@ export type FormControlProps = HTMLAttributes<HTMLDivElement> & {
     focused?: boolean;
 
     /**
-     * Текст ошибки
+     * Отображение ошибки
      */
-    error?: string;
+    error?: string | boolean;
 
     /**
      * Текст подсказки
@@ -115,6 +115,8 @@ export const FormControl = ({
         [leftAddons],
     );
 
+    const errorMessage = typeof error === 'string' ? error : '';
+
     return (
         <div
             data-test-id={dataTestId}
@@ -151,7 +153,9 @@ export const FormControl = ({
                 {rightAddonsRenderer()}
             </div>
 
-            {(error || hint) && <span className={styles.sub}>{error || hint}</span>}
+            {errorMessage && <span className={cn(styles.sub, styles.error)}>{errorMessage}</span>}
+
+            {hint && !errorMessage && <span className={styles.sub}>{hint}</span>}
 
             {bottomAddons}
         </div>

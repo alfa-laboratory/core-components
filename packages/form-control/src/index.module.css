@@ -205,7 +205,7 @@
 
 /* ERROR STATE */
 
-.hasError .sub {
+.error {
     color: var(--form-control-error-color);
 }
 
