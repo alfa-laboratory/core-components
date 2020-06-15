@@ -34,8 +34,7 @@ import { Input } from '@alfalab/core-components-input';
         label={text('label', '')}
         hint={text('hint', '')}
         error={text('error', '')}
-        hasErrorIcon={boolean('hasErrorIcon', false)}
-        rightAddons={boolean('rightAddons', false) && !(text('error') && boolean('hasErrorIcon')) && <Icon />}
+        rightAddons={boolean('rightAddons', false) && !text('error') && <Icon />}
         leftAddons={boolean('leftAddons', false) && <Icon />}
         bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
     />
