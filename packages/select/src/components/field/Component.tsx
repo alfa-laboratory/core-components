@@ -1,12 +1,17 @@
-import React, { ReactNode, useCallback } from 'react';
+import React, { ReactNode } from 'react';
 import cn from 'classnames';
-import ArrowIcon from '@alfalab/icons-classic/ArrowDownMBlackIcon';
 import { FormControl, FormControlProps } from '@alfalab/core-components-form-control';
-import { FieldProps as CommonFieldProps } from '../../Component';
+import { BaseFieldProps, OptionShape } from '../../typings';
 
 import styles from './index.module.css';
 
-type FieldProps = CommonFieldProps & Pick<FormControlProps, 'leftAddons' | 'rightAddons'>;
+export type FieldProps = BaseFieldProps &
+    Pick<FormControlProps, 'leftAddons' | 'rightAddons' | 'label' | 'placeholder' | 'size'> & {
+        /**
+         * Кастомный рендер выбранного пункта
+         */
+        valueRenderer?: (options: OptionShape[]) => ReactNode;
+    };
 
 export const Field = ({
     size = 'm',
@@ -19,20 +24,8 @@ export const Field = ({
     value,
     leftAddons,
     rightAddons,
-    showArrow = true,
     valueRenderer,
 }: FieldProps) => {
-    const rightAddonsRenderer = useCallback(
-        () =>
-            (rightAddons || showArrow) && (
-                <React.Fragment>
-                    {rightAddons}
-                    {showArrow && <ArrowIcon className={styles.arrow} />}
-                </React.Fragment>
-            ),
-        [rightAddons, showArrow],
-    );
-
     return (
         <FormControl
             className={cn(styles.component, styles[size], {
@@ -44,7 +37,7 @@ export const Field = ({
             disabled={disabled}
             filled={filled || !!placeholder}
             label={label}
-            rightAddons={rightAddonsRenderer()}
+            rightAddons={rightAddons}
             leftAddons={leftAddons}
         >
             <div className={styles.contentWrapper}>

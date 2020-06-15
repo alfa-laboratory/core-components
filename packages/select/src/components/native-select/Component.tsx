@@ -1,9 +1,9 @@
 import React from 'react';
-import { OptionShape, GroupShape, SelectProps } from '../../Component';
+import { OptionShape, GroupShape, BaseSelectProps } from '../../typings';
 import { isGroup } from '../../utils';
 
-type NativeSelectProps = Pick<
-    SelectProps,
+export type NativeSelectProps = Pick<
+    BaseSelectProps,
     'disabled' | 'className' | 'options' | 'multiple' | 'onChange' | 'name'
 > & {
     /**

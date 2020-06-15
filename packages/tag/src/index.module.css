@@ -10,6 +10,7 @@
     --tag-border-color-disabled: var(--color-dark-indigo-30-flat);
 
     /* background-color */
+    --tag-background-color: transparent;
     --tag-background-color-active: var(--color-dark-indigo-07);
     --tag-background-color-checked: var(--color-dark-indigo);
     --tag-background-color-checked-disabled: var(--color-dark-indigo-30-flat);
@@ -30,6 +31,7 @@
     text-decoration: none;
     border: var(--tag-border-width) var(--tag-border-style) var(--tag-border-color);
     border-radius: var(--tag-border-radius);
+    background-color: var(--tag-background-color);
     transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
     box-sizing: border-box;
     box-shadow: none;
