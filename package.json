@@ -82,7 +82,7 @@
     "@types/react-dom": "^16.9.5",
     "@typescript-eslint/eslint-plugin": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
-    "alfa-ui-primitives": "2.8.0",
+    "alfa-ui-primitives": "2.13.0",
     "arui-presets-lint": "4.1.1",
     "arui-presets-ts": "^5.0.0",
     "babel-jest": "^25.3.0",
