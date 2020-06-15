@@ -6,14 +6,26 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component secondary m iconOnly"
-      />
+        class="component"
+        tabindex="0"
+      >
+        <span
+          class="wrapper secondary m iconOnly"
+          tabindex="-1"
+        />
+      </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component secondary m iconOnly"
-    />
+      class="component"
+      tabindex="0"
+    >
+      <span
+        class="wrapper secondary m iconOnly"
+        tabindex="-1"
+      />
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -75,16 +87,28 @@ Object {
   "baseElement": <body>
     <div>
       <a
-        class="component secondary m iconOnly"
+        class="component"
         href="https://some-url"
-      />
+        tabindex="0"
+      >
+        <span
+          class="wrapper secondary m iconOnly"
+          tabindex="-1"
+        />
+      </a>
     </div>
   </body>,
   "container": <div>
     <a
-      class="component secondary m iconOnly"
+      class="component"
       href="https://some-url"
-    />
+      tabindex="0"
+    >
+      <span
+        class="wrapper secondary m iconOnly"
+        tabindex="-1"
+      />
+    </a>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -146,14 +170,26 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component secondary m iconOnly"
-      />
+        class="component"
+        tabindex="0"
+      >
+        <span
+          class="wrapper secondary m iconOnly"
+          tabindex="-1"
+        />
+      </button>
     </div>
   </body>,
   "container": <div>
     <button
-      class="component secondary m iconOnly"
-    />
+      class="component"
+      tabindex="0"
+    >
+      <span
+        class="wrapper secondary m iconOnly"
+        tabindex="-1"
+      />
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -215,7 +251,32 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component secondary m iconOnly"
+        class="component"
+        tabindex="0"
+      >
+        <span
+          class="wrapper secondary m iconOnly"
+          tabindex="-1"
+        >
+          <span
+            class="addons"
+          >
+            <div>
+              Left addons
+            </div>
+          </span>
+        </span>
+      </button>
+    </div>
+  </body>,
+  "container": <div>
+    <button
+      class="component"
+      tabindex="0"
+    >
+      <span
+        class="wrapper secondary m iconOnly"
+        tabindex="-1"
       >
         <span
           class="addons"
@@ -224,19 +285,6 @@ Object {
             Left addons
           </div>
         </span>
-      </button>
-    </div>
-  </body>,
-  "container": <div>
-    <button
-      class="component secondary m iconOnly"
-    >
-      <span
-        class="addons"
-      >
-        <div>
-          Left addons
-        </div>
       </span>
     </button>
   </div>,
@@ -300,9 +348,14 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component secondary m iconOnly loading"
+        class="component"
         disabled=""
+        tabindex="0"
       >
+        <span
+          class="wrapper secondary m iconOnly"
+          tabindex="-1"
+        />
         <svg
           class="component loader"
           height="24"
@@ -330,9 +383,14 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component secondary m iconOnly loading"
+      class="component"
       disabled=""
+      tabindex="0"
     >
+      <span
+        class="wrapper secondary m iconOnly"
+        tabindex="-1"
+      />
       <svg
         class="component loader"
         height="24"
@@ -417,7 +475,32 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component secondary m iconOnly"
+        class="component"
+        tabindex="0"
+      >
+        <span
+          class="wrapper secondary m iconOnly"
+          tabindex="-1"
+        >
+          <span
+            class="addons"
+          >
+            <div>
+              Right addons
+            </div>
+          </span>
+        </span>
+      </button>
+    </div>
+  </body>,
+  "container": <div>
+    <button
+      class="component"
+      tabindex="0"
+    >
+      <span
+        class="wrapper secondary m iconOnly"
+        tabindex="-1"
       >
         <span
           class="addons"
@@ -426,19 +509,6 @@ Object {
             Right addons
           </div>
         </span>
-      </button>
-    </div>
-  </body>,
-  "container": <div>
-    <button
-      class="component secondary m iconOnly"
-    >
-      <span
-        class="addons"
-      >
-        <div>
-          Right addons
-        </div>
       </span>
     </button>
   </div>,

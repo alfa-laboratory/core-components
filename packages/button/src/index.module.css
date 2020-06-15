@@ -30,10 +30,27 @@
     /* font */
     --button-font-weight: 500;
     --button-font-family: var(--font-family);
+
+    /* focus */
+    --button-outline: 2px solid var(--focus-color);
+    --button-outline-offset: 2px;
 }
 
 .component {
     display: inline-flex;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+    user-select: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.wrapper {
+    display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
@@ -44,18 +61,17 @@
     line-height: 1.2;
     font-weight: var(--button-font-weight);
     font-family: var(--font-family);
-    text-decoration: none;
     background-color: transparent;
     border: 0;
     border-radius: var(--border-radius);
     transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
     box-sizing: border-box;
-    box-shadow: none;
-    user-select: none;
-    cursor: pointer;
-
-    /* TODO default outline and themeable focus styles */
     outline: none;
+}
+
+.component:focus .wrapper {
+    outline: var(--button-outline);
+    outline-offset: var(--button-outline-offset);
 }
 
 .component:disabled {
