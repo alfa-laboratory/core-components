@@ -1,9 +1,9 @@
 import React from 'react';
-import { OptgroupProps } from '../../Component';
+import { BaseOptgroupProps } from '../../typings';
 
 import styles from './index.module.css';
 
-export const Optgroup = ({ children, label }: OptgroupProps) => {
+export const Optgroup = ({ children, label }: BaseOptgroupProps) => {
     return (
         <React.Fragment>
             <div className={styles.optgroup}>

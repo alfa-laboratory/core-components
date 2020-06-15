@@ -23,8 +23,3 @@
     text-overflow: ellipsis;
     text-align: left;
 }
-
-.open .arrow,
-select:focus + button .arrow {
-    transform: rotate(180deg);
-}
