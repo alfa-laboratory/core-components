@@ -7,6 +7,13 @@ const writeFile = promisify(fs.writeFile);
 
 const matches = glob.sync('dist/**/*.css', { ignore: 'dist/+(themes|vars)/**' });
 
+/**
+ * Purgecss вырезает селекторы по атрибуту (например .component[data-popper-placement='left'] .arrow в поповере).
+ * https://github.com/FullHuman/purgecss/issues/303
+ * После того, как баг будет исправлен, можно будет это удалить, а пока добавляем сюда все такие селекторы.
+ */
+const whitelistPatternsChildren = [/component/];
+
 matches.forEach(match => {
     const purge = new PurgeCSS();
 
@@ -15,6 +22,7 @@ matches.forEach(match => {
             content: ['dist/**/*.js'],
             css: [match],
             variables: true,
+            whitelistPatternsChildren,
         })
         .then(result => {
             result.forEach(({ css, file }) => {

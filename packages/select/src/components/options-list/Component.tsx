@@ -1,10 +1,17 @@
 import React, { useCallback } from 'react';
 import cn from 'classnames';
-import { OptionsListProps, GroupShape } from '../../Component';
+import { BaseOptionsListProps, GroupShape } from '../../typings';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 
 import styles from './index.module.css';
 import { isGroup } from '../../utils';
+
+export type OptionsListProps = BaseOptionsListProps & {
+    /**
+     * Размер компонента
+     */
+    size?: 's' | 'm' | 'l';
+};
 
 const createCounter = () => {
     let count = 0;

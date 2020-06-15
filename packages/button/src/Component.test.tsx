@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import { render, fireEvent } from '@testing-library/react';
 
 import { Button } from './index';
@@ -95,6 +95,42 @@ describe('Button', () => {
             fireEvent.click(getByTestId(dataTestId));
 
             expect(cb).not.toBeCalled();
+        });
+
+        /**
+         * Тест нужен для проверки типа eventTarget (HTMLButtonElement/HTMLAnchorElement).
+         * Если тест скомпилился - то все ок.
+         */
+        it('target should contain button element', () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<Button onClick={cb} dataTestId={dataTestId} />);
+
+            const buttonNode = getByTestId(dataTestId);
+
+            function cb(event: MouseEvent<HTMLButtonElement>) {
+                expect(event.target).toBe(buttonNode);
+            }
+
+            fireEvent.click(buttonNode, { target: buttonNode });
+        });
+
+        /**
+         * Тест нужен для проверки типа eventTarget (HTMLButtonElement/HTMLAnchorElement).
+         * Если тест скомпилился - то все ок.
+         */
+        it('target should contain anchor element', () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <Button onClick={cb} dataTestId={dataTestId} href='#' />,
+            );
+
+            const anchorNode = getByTestId(dataTestId);
+
+            function cb(event: MouseEvent<HTMLAnchorElement>) {
+                expect(event.target).toBe(anchorNode);
+            }
+
+            fireEvent.click(anchorNode, { target: anchorNode });
         });
     });
 

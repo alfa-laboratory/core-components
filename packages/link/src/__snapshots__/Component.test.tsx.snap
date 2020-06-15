@@ -1,57 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input Snapshots tests should match snapshot 1`] = `
+exports[`Snapshots tests should match snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="component s filled"
+      <a
+        class="component primary"
+        href=""
       >
-        <div
-          class="inner"
-        >
-          <div
-            class="inputWrapper"
-          >
-            <div
-              class="input"
-            >
-              <input
-                class="input"
-                type="text"
-                value="value"
-              />
-            </div>
-          </div>
-        </div>
-        
-      </div>
+        Link
+      </a>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="component s filled"
+    <a
+      class="component primary"
+      href=""
     >
-      <div
-        class="inner"
-      >
-        <div
-          class="inputWrapper"
-        >
-          <div
-            class="input"
-          >
-            <input
-              class="input"
-              type="text"
-              value="value"
-            />
-          </div>
-        </div>
-      </div>
-      
-    </div>
+      Link
+    </a>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

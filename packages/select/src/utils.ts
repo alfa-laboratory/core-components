@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import { OptionShape, GroupShape } from './Component';
+import { OptionShape, GroupShape } from './typings';
 
 export const isGroup = (item: OptionShape | GroupShape): item is GroupShape =>
     Object.prototype.hasOwnProperty.call(item, 'options');

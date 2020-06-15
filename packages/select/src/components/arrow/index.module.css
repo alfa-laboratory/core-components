@@ -1,0 +1,9 @@
+@import '../../../../themes/src/default.css';
+
+.arrow {
+    display: block;
+}
+
+.open {
+    transform: rotate(180deg);
+}

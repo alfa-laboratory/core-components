@@ -1,11 +1,11 @@
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
+import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, Ref } from 'react';
 import cn from 'classnames';
 
 import { Loader } from '@alfalab/core-components-loader';
 
 import styles from './index.module.css';
 
-type ComponentProps = {
+export type ComponentProps = {
     /**
      * Тип кнопки
      */
@@ -54,9 +54,9 @@ type ComponentProps = {
 
 type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
 type NativeButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
-type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
+type ButtonProps = Partial<AnchorButtonProps | NativeButtonProps>;
 
-export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, ButtonProps>(
+export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
     (
         {
             children,
@@ -69,7 +69,6 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
             dataTestId,
             href,
             loading = false,
-            disabled = false,
             ...restProps
         },
         ref,
@@ -83,7 +82,6 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
                 className,
             ),
             'data-test-id': dataTestId || null,
-            disabled: disabled || loading,
         };
 
         const buttonChildren = (
@@ -102,19 +100,44 @@ export const Button = React.forwardRef<HTMLAnchorElement & HTMLButtonElement, Bu
 
         if (href) {
             return (
-                // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-                <a {...componentProps} {...restProps} href={href} ref={ref} tabIndex={0}>
+                <a
+                    {...componentProps}
+                    {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
+                    href={href}
+                    ref={ref as Ref<HTMLAnchorElement>}
+                    tabIndex={0}
+                >
                     {buttonChildren}
                 </a>
             );
         }
 
+        const { disabled, ...restButtonProps } = restProps as ButtonHTMLAttributes<
+            HTMLButtonElement
+        >;
+
         return (
             // eslint-disable-next-line react/button-has-type
-            <button {...componentProps} {...restProps} ref={ref} tabIndex={0}>
+            <button
+                {...componentProps}
+                {...restButtonProps}
+                disabled={disabled || loading}
+                ref={ref as Ref<HTMLButtonElement>}
+                tabIndex={0}
+            >
                 {buttonChildren}
                 {loading && <Loader className={cn(styles.loader)} />}
             </button>
         );
     },
 );
+
+/**
+ * Для отображения в сторибуке
+ */
+Button.defaultProps = {
+    view: 'secondary',
+    size: 'm',
+    block: false,
+    loading: false,
+};

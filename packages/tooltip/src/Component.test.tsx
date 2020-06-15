@@ -295,3 +295,22 @@ describe('Hover event tests', () => {
         expect(content).toBeNull();
     });
 });
+
+describe('Child render tests', () => {
+    it('should pass child classname', async () => {
+        const childClassName = 'child-classname';
+        const testId = 'test-id';
+
+        const { getByTestId } = await renderTooltip({
+            children: (
+                <div className={childClassName} data-test-id={testId}>
+                    Hover me
+                </div>
+            ),
+            content: <div>I am tooltip</div>,
+            open: true,
+        });
+
+        expect(getByTestId(testId)).toHaveClass(childClassName);
+    });
+});
