@@ -6,8 +6,9 @@
         "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-input": ["../input/src"]
+            "@alfalab/core-components-input": ["../input/src"],
+            "@alfalab/core-components-form-control": ["../form-comtrol/src"]
         }
     },
-    "references": [{ "path": "../input" }]
+    "references": [{ "path": "../input" }, { "path": "../form-control" }]
 }

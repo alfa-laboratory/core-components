@@ -4,14 +4,31 @@
     --money-input-currency-color: var(--color-dark-indigo-60-flat);
 }
 
-.input {
-    font-weight: bold;
+/*
+* Задача:
+* 1) Отобразить символ валюты сразу за последним введенным символом
+* 2) Не дать возможность попасть кареткой за валюту
+* 3) Не дать выделить символ валюты при выделении денежного значения
+* 4) (ВОЗМОЖНОЕ будущее) Отображать символ валюты другим цветом
+* 5) (ВОЗМОЖНОЕ будущее) Отображать копейки другим цветом
+*
+* Решение
+* Делаем скрытый текст где держим то же значение, добавляем символ валюты
+* Важно расположить этот текст ровно на месте инпута и чтобы он имел те же параметры что и текст в инпуте
+*/
+.fakeValueWithCurrency {
+    @mixin system_16-20_regular;
+    position: absolute;
+    pointer-events: none;
+    visibility: hidden;
 }
 
 .currency {
-    width: 24px;
-    display: flex;
-    justify-content: center;
     color: var(--money-input-currency-color);
-    @mixin styrene_20-24_medium;
+    visibility: visible;
+}
+
+.bold .fakeValueWithCurrency,
+.input {
+    font-weight: bold;
 }

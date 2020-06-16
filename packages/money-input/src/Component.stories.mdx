@@ -35,6 +35,7 @@ import { MoneyInput } from '@alfalab/core-components-money-input';
         value={number('value', 123456)}
         currency={text('currency', 'RUR')}
         minorUnits={number('minorUnits', 100)}
+        bold={boolean('bold', true)}
         block={boolean('block', false)}
         size={select('size', ['s', 'm', 'l'], 's')}
         disabled={boolean('disabled', false)}
@@ -54,6 +55,10 @@ import { MoneyInput } from '@alfalab/core-components-money-input';
 <Preview>
     {React.createElement(() => {
         const [value, setValue] = React.useState(10000);
+        const [suggests] = React.useState([
+            { currency: 'RUR', minorUnits: 100, value: 15600 },
+            { currency: 'RUR', minorUnits: 100, value: 500 },
+        ]);
         const handleChange = (event, payload) => {
             setValue(payload.value);
         };
@@ -69,6 +74,13 @@ import { MoneyInput } from '@alfalab/core-components-money-input';
                     <Col>
                         { value }
                     </Col>
+                    {suggests.map((s) => (
+                        <button
+                            onClick={() => { setValue(s.value) }}
+                        >
+                           Установить {s.value}
+                        </button>
+                    ))}
                 </Row>
             </Container>
         );

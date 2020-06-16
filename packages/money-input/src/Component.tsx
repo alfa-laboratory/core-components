@@ -1,8 +1,9 @@
 import cn from 'classnames';
 import React, { useState, useEffect } from 'react';
 import { Input, InputProps } from '@alfalab/core-components-input';
+import { FormControl } from '@alfalab/core-components-form-control';
 
-import { CURRENCY_CODES } from './utils/currencyCodes';
+import { CURRENCY_CODES, THINSP } from './utils/currencyCodes';
 import { getFormatedValue, getAmountValueFromStr, formatAmount } from './utils';
 import styles from './index.module.css';
 
@@ -21,6 +22,11 @@ export type MoneyInputProps = Omit<InputProps, 'onChange' | 'rightAddons'> & {
      * Минорные единицы
      */
     minorUnits?: number;
+
+    /**
+     * Жир
+     */
+    bold?: boolean;
 
     /**
      * Дополнительный класс
@@ -59,6 +65,7 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
     minorUnits = 100,
     currency = 'RUR',
     label = 'Сумма',
+    bold = true,
     className,
     dataTestId,
     onChange,
@@ -141,31 +148,26 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
     };
 
     return (
-        <Input
-            {...restProps}
-            label={label}
-            value={inputValue}
-            rightAddons={<span className={styles.currency}>{currencySymbol}</span>}
-            className={className}
-            inputClassName={cn(styles.input)}
-            onChange={handleChange}
-            dataTestId={dataTestId}
-        />
-    );
-};
+        <div className={cn({ [styles.bold]: bold })}>
+            <FormControl {...restProps} label={label} className={cn(styles.fakeValueWithCurrency)}>
+                {inputValue}
+                {inputValue && (
+                    <span className={styles.currency}>
+                        {THINSP}
+                        {currencySymbol}
+                    </span>
+                )}
+            </FormControl>
 
-/**
- * Заготовка если минорные единицы нужно красить иначп
- */
-export const ContentEditableMoneyInput = () => {
-    function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
-        console.log(e);
-    }
-
-    return (
-        <div contentEditable={true} onInput={handleInput}>
-            1234
-            <span>,56</span>
+            <Input
+                {...restProps}
+                label={label}
+                value={inputValue}
+                className={cn(styles.component, className)}
+                inputClassName={styles.input}
+                onChange={handleChange}
+                dataTestId={dataTestId}
+            />
         </div>
     );
 };
