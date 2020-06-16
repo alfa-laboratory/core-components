@@ -104,7 +104,7 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
                  * или запятая - каретка прыгает в конец и ее необходимо ставить в правильное место
                  */
 
-                // Узнаем длину оригинального инпута с учловием обрезания лишних символов
+                // Узнаем длину оригинального инпута с условием обрезания лишних символов
 
                 const [head, tail] = e.target.value.split(/\.|,/);
                 let notFormattedEnteredValueLength = head.length;
