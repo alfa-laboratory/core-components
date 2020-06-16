@@ -24,32 +24,38 @@ import { MoneyInput } from '@alfalab/core-components-money-input';
 
 Компонент текстового поля для ввода денежных значений
 
-<div style={{ width: '240px' }}>
-    <MoneyInput />
-
-    <Story name='Песочница'>
-        <MoneyInput
-            value={number('value', 123456)}
-            currency={text('currency', 'RUR')}
-            minority={number('minority', 100)}
-            bold={boolean('bold', true)}
-            block={boolean('block', false)}
-            size={select('size', ['s', 'm', 'l'], 's')}
-            disabled={boolean('disabled', false)}
-            placeholder={text('placeholder', '')}
-            label={text('label', '')}
-            hint={text('hint', '')}
-            error={text('error', '')}
-            leftAddons={boolean('leftAddons', false) && <Icon />}
-            bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
-            onChange={action('change')}
-        />
-    </Story>
-</div>
+<Story name='Песочница'>
+    <MoneyInput
+        value={number('value', 0)}
+        currency={text('currency', 'RUR')}
+        minority={number('minority', 100)}
+        bold={boolean('bold', true)}
+        block={boolean('block', false)}
+        size={select('size', ['s', 'm', 'l'], 's')}
+        disabled={boolean('disabled', false)}
+        placeholder={text('placeholder', '')}
+        label={text('label', '')}
+        hint={text('hint', '')}
+        error={text('error', '')}
+        leftAddons={boolean('leftAddons', false) && <Icon />}
+        bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
+        onChange={action('change')}
+    />
+</Story>
 
 <Props of={MoneyInput} />
 
-Пример использования controlled компонента
+### Uncontrolled-way
+
+Можно ничего не передавать в компонент и реагировать на 'onChange'
+
+<Preview>
+    <MoneyInput />
+</Preview>
+
+### Controlled-way
+
+Компонент может быть использован как controlled с помощью `onChange` и `selected`:
 
 <Preview>
     {React.createElement(() => {
