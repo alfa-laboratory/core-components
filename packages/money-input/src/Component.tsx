@@ -7,7 +7,7 @@ import { CURRENCY_CODES, THINSP } from './utils/currencyCodes';
 import { getFormatedValue, getAmountValueFromStr, formatAmount } from './utils';
 import styles from './index.module.css';
 
-export type MoneyInputProps = Omit<InputProps, 'onChange' | 'rightAddons'> & {
+export type MoneyInputProps = Omit<InputProps, 'onChange' | 'rightAddons' | 'type'> & {
     /**
      * Денежное значение в минорных единицах
      */
