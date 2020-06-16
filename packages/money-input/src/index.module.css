@@ -23,9 +23,18 @@
     visibility: hidden;
 }
 
+.major {
+    visibility: visible;
+}
+
 .currency {
     color: var(--money-input-currency-color);
     visibility: visible;
+}
+
+.input {
+    -webkit-text-fill-color: transparent; /* Для IE текст будет черным */
+    caret-color: black; /* Для IE каретка будет черной */
 }
 
 .bold .fakeValueWithCurrency,

@@ -29,8 +29,12 @@ Object {
               <div
                 class="input"
               >
-                
-                
+                <div>
+                  <span
+                    class="major"
+                  />
+                  
+                </div>
               </div>
             </div>
           </div>
@@ -93,8 +97,12 @@ Object {
             <div
               class="input"
             >
-              
-              
+              <div>
+                <span
+                  class="major"
+                />
+                
+              </div>
             </div>
           </div>
         </div>
@@ -214,8 +222,12 @@ Object {
               <div
                 class="input"
               >
-                
-                
+                <div>
+                  <span
+                    class="major"
+                  />
+                  
+                </div>
               </div>
             </div>
           </div>
@@ -277,13 +289,20 @@ Object {
               <div
                 class="input"
               >
-                12 345,67
-                <span
-                  class="currency"
-                >
-                   
-                  $
-                </span>
+                <div>
+                  <span
+                    class="major"
+                  >
+                    12 345
+                  </span>
+                  <span
+                    class="currency"
+                  >
+                    ,67
+                     
+                    $
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -346,13 +365,20 @@ Object {
             <div
               class="input"
             >
-              12 345,67
-              <span
-                class="currency"
-              >
-                 
-                $
-              </span>
+              <div>
+                <span
+                  class="major"
+                >
+                  12 345
+                </span>
+                <span
+                  class="currency"
+                >
+                  ,67
+                   
+                  $
+                </span>
+              </div>
             </div>
           </div>
         </div>
