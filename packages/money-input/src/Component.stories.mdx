@@ -26,29 +26,28 @@ import { MoneyInput } from '@alfalab/core-components-money-input';
 
 <div style={{ width: '240px' }}>
     <MoneyInput />
+
+    <Story name='Песочница'>
+        <MoneyInput
+            value={number('value', 123456)}
+            currency={text('currency', 'RUR')}
+            minority={number('minority', 100)}
+            bold={boolean('bold', true)}
+            block={boolean('block', false)}
+            size={select('size', ['s', 'm', 'l'], 's')}
+            disabled={boolean('disabled', false)}
+            placeholder={text('placeholder', '')}
+            label={text('label', '')}
+            hint={text('hint', '')}
+            error={text('error', '')}
+            leftAddons={boolean('leftAddons', false) && <Icon />}
+            bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
+            onChange={action('change')}
+        />
+    </Story>
 </div>
 
 <Props of={MoneyInput} />
-
-<Story name='Песочница'>
-    <MoneyInput
-        value={number('value', 123456)}
-        currency={text('currency', 'RUR')}
-        minority={number('minority', 100)}
-        bold={boolean('bold', true)}
-        block={boolean('block', false)}
-        size={select('size', ['s', 'm', 'l'], 's')}
-        disabled={boolean('disabled', false)}
-        placeholder={text('placeholder', '')}
-        label={text('label', '')}
-        hint={text('hint', '')}
-        error={text('error', '')}
-        leftAddons={boolean('leftAddons', false) && <Icon />}
-        bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
-        onChange={action('change')}
-    />
-</Story>
-
 
 Пример использования controlled компонента
 

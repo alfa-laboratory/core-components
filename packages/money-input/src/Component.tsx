@@ -7,7 +7,7 @@ import { CURRENCY_CODES, THINSP } from './utils/currencyCodes';
 import { getFormatedValue, getAmountValueFromStr, formatAmount } from './utils';
 import styles from './index.module.css';
 
-export type MoneyInputProps = Omit<InputProps, 'onChange' | 'rightAddons'> & {
+export type MoneyInputProps = Omit<InputProps, 'onChange' | 'type'> & {
     /**
      * Денежное значение в минорных единицах
      */
@@ -29,11 +29,6 @@ export type MoneyInputProps = Omit<InputProps, 'onChange' | 'rightAddons'> & {
     bold?: boolean;
 
     /**
-     * Дополнительный класс
-     */
-    className?: string;
-
-    /**
      * Обработчик события изменения значения
      */
     onChange?: (
@@ -49,11 +44,6 @@ export type MoneyInputProps = Omit<InputProps, 'onChange' | 'rightAddons'> & {
             valueString: string;
         },
     ) => void;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
 };
 
 /**
@@ -91,18 +81,18 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
     }, [value, currency, minority]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const enteredValue = e.target.value.replace(/\s/g, '').replace('.', ',');
+        const input = e.target;
+        const enteredValue = input.value.replace(/\s/g, '').replace('.', ',');
         const isCorrectEnteredValue = /(^[0-9]{1,9}(,([0-9]+)?)?$|^\s*$)/.test(enteredValue);
 
         if (isCorrectEnteredValue) {
             const newFormatedValue = getFormatedValue(enteredValue, currency, minority);
 
             if (newFormatedValue === inputValue) {
-                const caret = e.target.selectionStart;
-                const element = e.target;
+                const caret = input.selectionStart;
                 window.requestAnimationFrame(() => {
-                    element.selectionStart = caret;
-                    element.selectionEnd = caret;
+                    input.selectionStart = caret;
+                    input.selectionEnd = caret;
                 });
             } else {
                 /**
@@ -113,7 +103,7 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
 
                 // Узнаем длину оригинального инпута с условием обрезания лишних символов
 
-                const [head, tail] = e.target.value.split(/\.|,/);
+                const [head, tail] = input.value.split(/\.|,/);
                 let notFormattedEnteredValueLength = head.length;
                 if (tail) {
                     notFormattedEnteredValueLength += 1; // запятая или точка
@@ -121,11 +111,10 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
                 }
 
                 const diff = newFormatedValue.length - notFormattedEnteredValueLength;
-                const caret = (e.target.selectionStart as number) + diff;
-                const element = e.target;
+                const caret = (input.selectionStart as number) + diff;
                 window.requestAnimationFrame(() => {
-                    element.selectionStart = caret;
-                    element.selectionEnd = caret;
+                    input.selectionStart = caret;
+                    input.selectionEnd = caret;
                 });
             }
 
@@ -138,11 +127,10 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
             }
         } else {
             // Не двигаем каретку когда вставляется невалидный символ
-            const caret = (e.target.selectionStart as number) - 1;
-            const element = e.target;
+            const caret = (input.selectionStart as number) - 1;
             window.requestAnimationFrame(() => {
-                element.selectionStart = caret;
-                element.selectionEnd = caret;
+                input.selectionStart = caret;
+                input.selectionEnd = caret;
             });
         }
     };
