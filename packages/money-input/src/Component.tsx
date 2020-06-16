@@ -7,7 +7,7 @@ import { CURRENCY_CODES, THINSP } from './utils/currencyCodes';
 import { getFormatedValue, getAmountValueFromStr, formatAmount } from './utils';
 import styles from './index.module.css';
 
-export type MoneyInputProps = Omit<InputProps, 'onChange' | 'rightAddons' | 'type'> & {
+export type MoneyInputProps = Omit<InputProps, 'onChange' | 'type'> & {
     /**
      * Денежное значение в минорных единицах
      */
@@ -29,11 +29,6 @@ export type MoneyInputProps = Omit<InputProps, 'onChange' | 'rightAddons' | 'typ
     bold?: boolean;
 
     /**
-     * Дополнительный класс
-     */
-    className?: string;
-
-    /**
      * Обработчик события изменения значения
      */
     onChange?: (
@@ -49,11 +44,6 @@ export type MoneyInputProps = Omit<InputProps, 'onChange' | 'rightAddons' | 'typ
             valueString: string;
         },
     ) => void;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
 };
 
 /**
