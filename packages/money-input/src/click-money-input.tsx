@@ -17,7 +17,7 @@ type AmountType = {
  */
 export type ClickMoneyInputProps = Omit<
     MoneyInputProps,
-    'value' | 'currency' | 'minorUnits' | 'onChange'
+    'value' | 'currency' | 'minority' | 'onChange'
 > & {
     amount: AmountType;
     onChange: (
@@ -53,7 +53,7 @@ export const ClickMoneyInput: React.FC<ClickMoneyInputProps> = ({
             {...restProps}
             value={value}
             currency={currency}
-            minorUnits={minorUnits}
+            minority={minorUnits}
             onChange={handleChange}
         />
     );

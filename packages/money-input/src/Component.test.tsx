@@ -15,7 +15,7 @@ describe('MoneyInput', () => {
         // TODO: почему тесты в кор компонентах цепляются к data-test-id вместо label?
         const dataTestId = 'test-id';
         const { getByTestId } = render(
-            <MoneyInput value={value} currency='RUR' minorUnits={100} dataTestId={dataTestId} />,
+            <MoneyInput value={value} currency='RUR' minority={100} dataTestId={dataTestId} />,
         );
 
         const input = getByTestId(dataTestId) as HTMLInputElement;
@@ -27,7 +27,7 @@ describe('MoneyInput', () => {
         it('should match snapshot', () => {
             expect(render(<MoneyInput />)).toMatchSnapshot();
             expect(
-                render(<MoneyInput value={1234567} currency='USD' minorUnits={100} />),
+                render(<MoneyInput value={1234567} currency='USD' minority={100} />),
             ).toMatchSnapshot();
         });
     });
@@ -131,23 +131,23 @@ describe('MoneyInput', () => {
 
     it('should render new amount from props (looped value)', async () => {
         const dataTestId = 'test-id';
-        let setAmountManually: (value: number, currency: string, minorUnits: number) => void;
+        let setAmountManually: (value: number, currency: string, minority: number) => void;
         const HOCWithAmountInState = () => {
             const [value, setValue] = useState(200);
             const [currency, setCurrency] = useState('RUR');
-            const [minorUnits, setMinorUnits] = useState(100);
+            const [minority, setMinority] = useState(100);
 
-            setAmountManually = (value: number, currency: string, minorUnits: number) => {
+            setAmountManually = (value: number, currency: string, minority: number) => {
                 setValue(value);
                 setCurrency(currency);
-                setMinorUnits(minorUnits);
+                setMinority(minority);
             };
 
             return (
                 <MoneyInput
                     value={value}
                     currency={currency}
-                    minorUnits={minorUnits}
+                    minority={minority}
                     dataTestId={dataTestId}
                     onChange={(e, payload) => setValue(payload.value)}
                 />

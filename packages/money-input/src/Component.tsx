@@ -21,7 +21,7 @@ export type MoneyInputProps = Omit<InputProps, 'onChange' | 'rightAddons'> & {
     /**
      * Минорные единицы
      */
-    minorUnits?: number;
+    minority?: number;
 
     /**
      * Жир
@@ -62,7 +62,7 @@ export type MoneyInputProps = Omit<InputProps, 'onChange' | 'rightAddons'> & {
  */
 export const MoneyInput: React.FC<MoneyInputProps> = ({
     value = 0,
-    minorUnits = 100,
+    minority = 100,
     currency = 'RUR',
     label = 'Сумма',
     bold = true,
@@ -75,11 +75,11 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
     const currencySymbol = CURRENCY_CODES[currency];
 
     useEffect(() => {
-        const currentAmountValue = getAmountValueFromStr(inputValue, minorUnits);
+        const currentAmountValue = getAmountValueFromStr(inputValue, minority);
         if (currentAmountValue !== value) {
             const { majorPart, minorPart } = formatAmount({
                 value,
-                currency: { code: currency, minority: minorUnits },
+                currency: { code: currency, minority },
             });
 
             const newFormatedValue = `${majorPart},${minorPart}`;
@@ -88,14 +88,14 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
 
         return () => undefined;
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [value, currency, minorUnits]);
+    }, [value, currency, minority]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const enteredValue = e.target.value.replace(/\s/g, '').replace('.', ',');
         const isCorrectEnteredValue = /(^[0-9]{1,9}(,([0-9]+)?)?$|^\s*$)/.test(enteredValue);
 
         if (isCorrectEnteredValue) {
-            const newFormatedValue = getFormatedValue(enteredValue, currency, minorUnits);
+            const newFormatedValue = getFormatedValue(enteredValue, currency, minority);
 
             if (newFormatedValue === inputValue) {
                 const caret = e.target.selectionStart;
@@ -132,7 +132,7 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
             setInputValue(newFormatedValue);
             if (onChange) {
                 onChange(e, {
-                    value: getAmountValueFromStr(newFormatedValue, minorUnits),
+                    value: getAmountValueFromStr(newFormatedValue, minority),
                     valueString: newFormatedValue,
                 });
             }

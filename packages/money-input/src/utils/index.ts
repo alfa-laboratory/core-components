@@ -7,13 +7,13 @@ export * from './getCurrencySymbol';
  * Форматирует введенное значение
  * @param enteredValue Значение введенное в инпут
  * @param currency валюта
- * @param minorUnits количество минорных единиц
+ * @param minority количество минорных единиц
  */
-export function getFormatedValue(enteredValue: string, currency: string, minorUnits: number) {
+export function getFormatedValue(enteredValue: string, currency: string, minority: number) {
     const [head, tail] = enteredValue.split(',');
     const { majorPart } = formatAmount({
-        value: Number(head) * minorUnits,
-        currency: { code: currency, minority: minorUnits },
+        value: Number(head) * minority,
+        currency: { code: currency, minority },
     });
 
     if (!enteredValue) {
@@ -31,6 +31,6 @@ export function getFormatedValue(enteredValue: string, currency: string, minorUn
     return majorPart;
 }
 
-export function getAmountValueFromStr(str: string, minorUnits: number) {
-    return Number(str.replace(',', '.').replace(/[^0-9.]/g, '')) * minorUnits;
+export function getAmountValueFromStr(str: string, minority: number) {
+    return Number(str.replace(',', '.').replace(/[^0-9.]/g, '')) * minority;
 }
