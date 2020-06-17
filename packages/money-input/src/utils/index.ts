@@ -1,3 +1,7 @@
+/**
+ * https://github.com/alfa-laboratory/utils
+ * TODO: нужно перенести утилиты в этот проект, когда он будет готов
+ */
 import { formatAmount } from './formatAmount';
 import { CurrencyCodes } from './currencyCodes';
 
