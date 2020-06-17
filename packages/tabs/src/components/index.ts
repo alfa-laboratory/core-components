@@ -1,2 +1,4 @@
-export * from './primary-tabs-header';
-export * from './secondary-tabs-header';
+export * from './primary-tablist';
+export * from './secondary-tablist';
+export * from './scrollable-container';
+export * from './tab';

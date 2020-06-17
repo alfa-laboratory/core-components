@@ -7,7 +7,7 @@
     &:after {
         content: '';
         display: block;
-        margin-bottom: calc(var(--tabs-header-hidden-scrollbar-height) * -1);
+        margin-bottom: calc(var(--tablist-hidden-scrollbar-height) * -1);
     }
 }
 
@@ -16,5 +16,5 @@
     display: flex;
     overflow-x: auto;
     overflow-y: hidden;
-    padding-bottom: var(--tabs-header-hidden-scrollbar-height);
+    padding-bottom: var(--tablist-hidden-scrollbar-height);
 }

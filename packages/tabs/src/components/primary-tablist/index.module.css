@@ -13,7 +13,7 @@
         bottom: 1px;
         height: 1px;
         width: 100%;
-        background-color: var(--primary-tab-header-bottom-border-color);
+        background-color: var(--primary-tablist-bottom-border-color);
     }
 }
 
@@ -28,7 +28,7 @@
 
     padding: 0;
     cursor: pointer;
-    color: var(--primary-tab-header-color);
+    color: var(--primary-tablist-color);
     font-weight: 300;
     transition: color 0.2s ease;
     border: 0;
@@ -40,7 +40,7 @@
     outline: none;
 
     &:hover {
-        color: var(--primary-tab-header-hover-color);
+        color: var(--primary-tablist-hover-color);
     }
 
     &:last-child {
@@ -71,7 +71,7 @@
 
 .selected {
     cursor: default;
-    color: var(--primary-tab-header-selected-color);
+    color: var(--primary-tablist-selected-color);
 }
 
 .line {
@@ -79,10 +79,10 @@
     height: 3px;
     bottom: 0;
     left: 0;
-    background-color: var(--primary-tab-header-line-color);
+    background-color: var(--primary-tablist-line-color);
     transition: transform 0.2s ease;
 }
 
 .scrollable .line {
-    bottom: var(--tabs-header-hidden-scrollbar-height);
+    bottom: var(--tablist-hidden-scrollbar-height);
 }

@@ -1,8 +1,10 @@
 import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
 import { boolean, select } from '@storybook/addon-knobs';
 
-import { PrimaryTabsHeader } from './components/primary-tabs-header';
-import { SecondaryTabsHeader } from './components/secondary-tabs-header';
+import { Tabs } from './Component';
+import { Tab } from './components/tab';
+import { PrimaryTablist } from './components/primary-tablist';
+import { SecondaryTablist } from './components/secondary-tablist';
 
 import { name, version } from '../package.json';
 
@@ -19,14 +21,56 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
 
 Компоненты для построения табов.
 
-### PrimaryTabsHeader
+### Tabs
 
-<Story name='PrimaryTabsHeader'>
+<Story name='Tabs'>
+    {React.createElement(() => {
+        const [selectedId, setSelectedId] = React.useState('tab-1');
+        const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
+        const renderTabList = React.useCallback((props) => {
+            const component = select('TabList', ['PrimaryTablist', 'SecondaryTablist'], 'PrimaryTablist');
+            if (component === 'PrimaryTablist') {
+                return <PrimaryTablist {...props} gaps='wide' />;
+            }
+            if (component === 'SecondaryTablist') {
+                return <SecondaryTablist {...props} />;
+            }
+        }, []);
+        return (
+            <Tabs
+                TabList={renderTabList}
+                selectedId={selectedId}
+                keepMounted={true}
+                onChange={handleChange}
+            >
+                <Tab title='Таб 1' id='tab-1'>
+                    Таб 1
+                </Tab>
+                <Tab title='Таб 2' id='tab-2'>
+                    Таб 2
+                </Tab>
+                <Tab title='Таб 3' id='tab-3'>
+                    Таб 3
+                </Tab>
+                <Tab title='Таб 4' id='tab-4'>
+                    Таб 4
+                </Tab>
+                <Tab title='Таб 5' id='tab-5'>
+                    Таб 5
+                </Tab>
+            </Tabs>
+        );
+    })}
+</Story>
+
+### PrimaryTablist
+
+<Story name='PrimaryTablist'>
     {React.createElement(() => {
         const [selectedId, setSelectedId] = React.useState(1);
         const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
         return (
-            <PrimaryTabsHeader
+            <PrimaryTablist
                 titles={titles}
                 selectedId={selectedId}
                 scrollable={boolean('scrollable', false)}
@@ -37,14 +81,14 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
     })}
 </Story>
 
-### SecondaryTabsHeader
+### SecondaryTablist
 
-<Story name='SecondaryTabsHeader'>
+<Story name='SecondaryTablist'>
     {React.createElement(() => {
         const [selectedId, setSelectedId] = React.useState(1);
         const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
         return (
-            <SecondaryTabsHeader
+            <SecondaryTablist
                 titles={titles}
                 selectedId={selectedId}
                 scrollable={boolean('scrollable', false)}
@@ -55,6 +99,7 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
 </Story>
 
 <Props components={{
-    PrimaryTabsHeader,
-    SecondaryTabsHeader
+    Tabs,
+    PrimaryTablist,
+    SecondaryTablist
 }} />

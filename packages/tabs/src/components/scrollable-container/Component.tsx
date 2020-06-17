@@ -4,8 +4,14 @@ import computeScrollIntoView from 'compute-scroll-into-view';
 import styles from './index.module.css';
 
 export type ScrollableContainerProps = {
+    /**
+     * Дочерние компоненты
+     */
     children: ReactNode;
 
+    /**
+     * Активный элемент (всегда будет в видимой области)
+     */
     activeChild: HTMLElement | null;
 };
 
