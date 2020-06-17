@@ -3,9 +3,16 @@ import React, { useState, useEffect } from 'react';
 import { Input, InputProps } from '@alfalab/core-components-input';
 import { FormControl } from '@alfalab/core-components-form-control';
 
-import { CURRENCY_CODES, THINSP } from './utils/currencyCodes';
+import { CURRENCY_CODES, CurrencyCodes, THINSP } from './utils/currencyCodes';
 import { getFormatedValue, getAmountValueFromStr, formatAmount } from './utils';
 import styles from './index.module.css';
+
+/**
+ * Тип явно описывающий набор поддерживаемых валют
+ * Если вам на проекте приходится что-то кастовать - дайте знать
+ * TODO: тип должен стать общим для банка
+ */
+export { CurrencyCodes } from './utils/currencyCodes';
 
 export type MoneyInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> & {
     /**
@@ -17,7 +24,7 @@ export type MoneyInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> & 
     /**
      * Валюта
      */
-    currency?: string;
+    currency?: CurrencyCodes;
 
     /**
      * Минорные единицы

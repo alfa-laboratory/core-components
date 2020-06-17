@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { MoneyInputProps, MoneyInput } from './Component';
+import { MoneyInputProps, MoneyInput, CurrencyCodes } from './Component';
 
 type AmountType = {
     /** Сумма в минорных единицах */
-    value: number;
+    value: number | null;
     /** Валюта */
     currency: string;
     /** Минорные единицы */
@@ -33,7 +33,7 @@ export const ClickMoneyInput: React.FC<ClickMoneyInputProps> = ({
 }) => {
     function handleChange(
         e: React.ChangeEvent<HTMLInputElement>,
-        payload: { value: number; valueString: string },
+        payload: { value: number | null; valueString: string },
     ) {
         const { value: newValue, valueString } = payload;
         if (onChange) {
@@ -52,7 +52,7 @@ export const ClickMoneyInput: React.FC<ClickMoneyInputProps> = ({
         <MoneyInput
             {...restProps}
             value={value}
-            currency={currency}
+            currency={currency as CurrencyCodes}
             minority={minorUnits}
             onChange={handleChange}
         />

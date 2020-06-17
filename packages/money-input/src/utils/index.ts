@@ -1,7 +1,7 @@
 import { formatAmount } from './formatAmount';
+import { CurrencyCodes } from './currencyCodes';
 
 export * from './formatAmount';
-export * from './getCurrencySymbol';
 
 /**
  * Форматирует введенное значение
@@ -9,7 +9,7 @@ export * from './getCurrencySymbol';
  * @param currency валюта
  * @param minority количество минорных единиц
  */
-export function getFormatedValue(enteredValue: string, currency: string, minority: number) {
+export function getFormatedValue(enteredValue: string, currency: CurrencyCodes, minority: number) {
     const [head, tail] = enteredValue.split(',');
     const { majorPart } = formatAmount({
         value: Number(head) * minority,

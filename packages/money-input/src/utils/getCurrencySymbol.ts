@@ -1,8 +1,9 @@
-import { CURRENCY_CODES } from './currencyCodes';
+import { CURRENCY_CODES, CurrencyCodes } from './currencyCodes';
 
 /**
  * Возвращает знак валюты по ISO коду.
  *
  * @param currencyCode Код валюты.
  */
-export const getCurrencySymbol = (currencyCode: string): string => CURRENCY_CODES[currencyCode];
+export const getCurrencySymbol = (currencyCode: CurrencyCodes): string =>
+    CURRENCY_CODES[currencyCode];

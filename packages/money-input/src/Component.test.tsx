@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { MoneyInput } from './index';
+import { MoneyInput, CurrencyCodes } from './index';
 
 const THINSP = String.fromCharCode(8201);
 
@@ -178,13 +178,17 @@ describe('MoneyInput', () => {
 
     it('should render new amount from props (looped value)', async () => {
         const dataTestId = 'test-id';
-        let setAmountManually: (value: number, currency: string, minority: number) => void;
+        let setAmountManually: (value: number, currency: CurrencyCodes, minority: number) => void;
         const HOCWithAmountInState = () => {
             const [value, setValue] = useState<number | null>(200);
-            const [currency, setCurrency] = useState('RUR');
+            const [currency, setCurrency] = useState<CurrencyCodes>('RUR');
             const [minority, setMinority] = useState(100);
 
-            setAmountManually = (value: number | null, currency: string, minority: number) => {
+            setAmountManually = (
+                value: number | null,
+                currency: CurrencyCodes,
+                minority: number,
+            ) => {
                 setValue(value);
                 setCurrency(currency);
                 setMinority(minority);
