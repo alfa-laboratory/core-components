@@ -1,4 +1,4 @@
-import React, { ReactNode, useCallback, HTMLAttributes } from 'react';
+import React, { ReactNode, HTMLAttributes } from 'react';
 import cn from 'classnames';
 import ErrorIcon from '@alfalab/icons-classic/ErrorMColorIcon';
 
@@ -99,22 +99,6 @@ export const FormControl = ({
     dataTestId,
     ...restProps
 }: FormControlProps) => {
-    const rightAddonsRenderer = useCallback(
-        () =>
-            (error || rightAddons) && (
-                <div className={cn(styles.addons)}>
-                    {error && <ErrorIcon />}
-                    {rightAddons}
-                </div>
-            ),
-        [error, rightAddons],
-    );
-
-    const leftAddonsRenderer = useCallback(
-        () => leftAddons && <div className={styles.addons}>{leftAddons}</div>,
-        [leftAddons],
-    );
-
     const errorMessage = typeof error === 'string' ? error : '';
 
     return (
@@ -138,7 +122,9 @@ export const FormControl = ({
             {...restProps}
         >
             <div className={styles.inner}>
-                {leftAddonsRenderer()}
+                {leftAddons && (
+                    <div className={cn(styles.addons, styles.leftAddons)}>{leftAddons}</div>
+                )}
 
                 <div className={styles.inputWrapper}>
                     {label && (
@@ -150,7 +136,15 @@ export const FormControl = ({
                     <div className={styles.input}>{children}</div>
                 </div>
 
-                {rightAddonsRenderer()}
+                {rightAddons && (
+                    <div className={cn(styles.addons, styles.rightAddons)}>{rightAddons}</div>
+                )}
+
+                {error && (
+                    <div className={styles.errorIcon}>
+                        <ErrorIcon />
+                    </div>
+                )}
             </div>
 
             {errorMessage && <span className={cn(styles.sub, styles.error)}>{errorMessage}</span>}

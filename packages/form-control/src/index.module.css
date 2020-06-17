@@ -27,6 +27,7 @@
     --form-control-error-color: var(--color-red-brand-85-flat);
     --form-control-error-shadow: inset 0 -1px var(--form-control-error-color);
     --form-control-error-border-bottom: 1px solid var(--form-control-error-color);
+    --form-control-error-icon-display: flex;
 }
 
 .component {
@@ -89,17 +90,19 @@
     white-space: nowrap;
 }
 
-.addons {
+.addons,
+.errorIcon {
     display: flex;
     flex-shrink: 0;
     align-items: center;
 }
 
-.addons:first-child {
+.leftAddons {
     padding-left: var(--gap-s);
 }
 
-.addons:last-child {
+.rightAddons,
+.errorIcon {
     padding-right: var(--gap-s);
 }
 
@@ -149,11 +152,12 @@
     padding: var(--form-control-labeled-l-paddings);
 }
 
-.l .addons:first-child {
+.l .leftAddons {
     padding-left: var(--gap-m);
 }
 
-.l .addons:last-child {
+.l .rightAddons,
+.l .errorIcon {
     padding-right: var(--gap-m);
 }
 
@@ -212,4 +216,8 @@
 .hasError .inner {
     box-shadow: var(--form-control-error-shadow);
     border-bottom: var(--form-control-error-border-bottom);
+}
+
+.errorIcon {
+    display: var(--form-control-error-icon-display);
 }
