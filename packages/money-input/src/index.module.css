@@ -28,7 +28,7 @@
     visibility: visible;
 }
 
-.bold .fakeValueWithCurrency,
-.input {
+.bold .input,
+.bold .fakeValueWithCurrency {
     font-weight: bold;
 }
