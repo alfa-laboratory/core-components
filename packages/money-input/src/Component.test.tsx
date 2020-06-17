@@ -11,7 +11,7 @@ import { MoneyInput } from './index';
 const THINSP = String.fromCharCode(8201);
 
 describe('MoneyInput', () => {
-    function renderMoneyInput(value: number) {
+    function renderMoneyInput(value: number | null) {
         // TODO: почему тесты в кор компонентах цепляются к data-test-id вместо label?
         const dataTestId = 'test-id';
         const { getByTestId } = render(
@@ -37,9 +37,14 @@ describe('MoneyInput', () => {
         expect(input.value).toBe(`12${THINSP}345,00`);
     });
 
-    it('should render empty input if passed amount.value is 0', () => {
-        const input = renderMoneyInput(0);
+    it('should render empty input if passed amount.value is null', () => {
+        const input = renderMoneyInput(null);
         expect(input.value).toBe('');
+    });
+
+    it('should render 0,00 in input if passed amount.value is 0', () => {
+        const input = renderMoneyInput(0);
+        expect(input.value).toBe('0,00');
     });
 
     it('should render passed decimal amount', () => {
@@ -91,8 +96,50 @@ describe('MoneyInput', () => {
         expect(input.value).toBe(`12${THINSP}345,00`);
     });
 
+    it('should avoid inserting leading zero before number, but allow inserting zero', async () => {
+        const input = renderMoneyInput(null);
+        await userEvent.type(input, '0');
+        expect(input.value).toBe('0');
+        await userEvent.type(input, '1234');
+        expect(input.value).toBe(`1${THINSP}234`);
+        input.focus();
+        input.setSelectionRange(0, 0);
+        await userEvent.type(input, '0', { initialSelectionStart: 0, initialSelectionEnd: 0 });
+        expect(input.value).toBe(`1${THINSP}234`);
+        fireEvent.change(input, { target: { value: '' } });
+        await userEvent.type(input, '0');
+        expect(input.value).toBe('0');
+    });
+
+    it('should allow replace minor part without deleting', async () => {
+        const input = renderMoneyInput(1234500);
+
+        input.focus();
+        input.setSelectionRange(7, 7);
+
+        await userEvent.type(input, '6', { initialSelectionStart: 7, initialSelectionEnd: 7 });
+        expect(input.value).toBe(`12${THINSP}345,60`);
+    });
+
+    it('should allow to past value with spaces', async () => {
+        const input = renderMoneyInput(null);
+
+        await userEvent.paste(input, '1 23');
+        expect(input.value).toBe('123');
+    });
+
+    it('should delete symbols on delete button press event', async () => {
+        const input = renderMoneyInput(null);
+
+        await userEvent.type(input, '123,45');
+        input.focus();
+        input.setSelectionRange(1, 1);
+        await userEvent.type(input, '{del}', { initialSelectionStart: 1, initialSelectionEnd: 1 });
+        expect(input.value).toBe('13,45');
+    });
+
     it('should allow set carret in the middle and enter decimal divider symbol', async () => {
-        const input = renderMoneyInput(0);
+        const input = renderMoneyInput(null);
 
         await userEvent.type(input, '123456');
 
@@ -119,7 +166,7 @@ describe('MoneyInput', () => {
     });
 
     it('should not delete any symbol when caret set after space and backspace pressed', async () => {
-        const input = renderMoneyInput(0);
+        const input = renderMoneyInput(null);
 
         await userEvent.type(input, '1234');
         expect(input.value).toBe(`1${THINSP}234`);
@@ -133,11 +180,11 @@ describe('MoneyInput', () => {
         const dataTestId = 'test-id';
         let setAmountManually: (value: number, currency: string, minority: number) => void;
         const HOCWithAmountInState = () => {
-            const [value, setValue] = useState(200);
+            const [value, setValue] = useState<number | null>(200);
             const [currency, setCurrency] = useState('RUR');
             const [minority, setMinority] = useState(100);
 
-            setAmountManually = (value: number, currency: string, minority: number) => {
+            setAmountManually = (value: number | null, currency: string, minority: number) => {
                 setValue(value);
                 setCurrency(currency);
                 setMinority(minority);

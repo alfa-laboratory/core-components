@@ -32,5 +32,5 @@ export function getFormatedValue(enteredValue: string, currency: string, minorit
 }
 
 export function getAmountValueFromStr(str: string, minority: number) {
-    return Number(str.replace(',', '.').replace(/[^0-9.]/g, '')) * minority;
+    return str === '' ? null : Number(str.replace(',', '.').replace(/[^0-9.]/g, '')) * minority;
 }

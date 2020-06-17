@@ -7,11 +7,12 @@ import { CURRENCY_CODES, THINSP } from './utils/currencyCodes';
 import { getFormatedValue, getAmountValueFromStr, formatAmount } from './utils';
 import styles from './index.module.css';
 
-export type MoneyInputProps = Omit<InputProps, 'onChange' | 'type'> & {
+export type MoneyInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> & {
     /**
      * Денежное значение в минорных единицах
+     * Значение null - значит не установлено
      */
-    value?: number;
+    value?: number | null;
 
     /**
      * Валюта
@@ -36,8 +37,9 @@ export type MoneyInputProps = Omit<InputProps, 'onChange' | 'type'> & {
         payload: {
             /**
              * Денежное значение в минорных единицах
+             * Значение null - значит не установлено
              */
-            value: number;
+            value: number | null;
             /**
              * Значение инпута
              */
@@ -51,7 +53,7 @@ export type MoneyInputProps = Omit<InputProps, 'onChange' | 'type'> & {
  * [Figma](https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=532%3A544)
  */
 export const MoneyInput: React.FC<MoneyInputProps> = ({
-    value = 0,
+    value = null,
     minority = 100,
     currency = 'RUR',
     label = 'Сумма',
@@ -61,19 +63,24 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
     onChange,
     ...restProps
 }: MoneyInputProps) => {
-    const [inputValue, setInputValue] = useState<string>(value === 0 ? '' : value.toString());
+    const [inputValue, setInputValue] = useState<string>(
+        formatAmount({
+            value,
+            currency: { code: currency, minority },
+        }).value,
+    );
+
     const currencySymbol = CURRENCY_CODES[currency];
 
     useEffect(() => {
         const currentAmountValue = getAmountValueFromStr(inputValue, minority);
         if (currentAmountValue !== value) {
-            const { majorPart, minorPart } = formatAmount({
-                value,
-                currency: { code: currency, minority },
-            });
-
-            const newFormatedValue = `${majorPart},${minorPart}`;
-            return setInputValue(newFormatedValue);
+            return setInputValue(
+                formatAmount({
+                    value,
+                    currency: { code: currency, minority },
+                }).value,
+            );
         }
 
         return () => undefined;

@@ -56,7 +56,7 @@ export const splitAmount = (
  */
 
 type AmountType = {
-    value: number;
+    value: number | null;
     currency: {
         code: string;
         minority: number;
@@ -64,6 +64,15 @@ type AmountType = {
 };
 
 export const formatAmount = ({ value, currency: { code, minority } }: AmountType) => {
+    if (value === null) {
+        return {
+            majorPart: '',
+            minorPart: '',
+            value: '',
+            currencySymbol: getCurrencySymbol(code),
+        };
+    }
+
     // eslint-disable-next-line no-param-reassign
     minority = minority === 0 ? 1 : minority; // because Math.log(0) => -Infinity
 

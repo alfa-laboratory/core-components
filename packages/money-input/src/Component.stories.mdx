@@ -63,6 +63,8 @@ import { MoneyInput } from '@alfalab/core-components-money-input';
         const [suggests] = React.useState([
             { currency: 'RUR', minorUnits: 100, value: 15600 },
             { currency: 'RUR', minorUnits: 100, value: 500 },
+            { currency: 'RUR', minorUnits: 100, value: null },
+            { currency: 'RUR', minorUnits: 100, value: 0 },
         ]);
         const handleChange = (event, payload) => {
             setValue(payload.value);
@@ -77,13 +79,13 @@ import { MoneyInput } from '@alfalab/core-components-money-input';
                         />
                     </Col>
                     <Col>
-                        { value }
+                        { String(value) }
                     </Col>
                     {suggests.map((s) => (
                         <button
                             onClick={() => { setValue(s.value) }}
                         >
-                           Установить {s.value}
+                           Установить {String(s.value)}
                         </button>
                     ))}
                 </Row>
