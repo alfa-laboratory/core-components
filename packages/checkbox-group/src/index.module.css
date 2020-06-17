@@ -33,13 +33,17 @@
     margin-bottom: var(--gap-xs-neg);
 }
 
+.tag.horizontal .checkboxList {
+    margin-right: var(--gap-xs-neg);
+}
+
 .horizontal .checkbox {
     margin-right: var(--gap-xl);
     margin-bottom: var(--gap-xs);
+}
 
-    &:last-child {
-        margin-right: 0;
-    }
+.horizontal .tag-label {
+    margin-right: var(--gap-xs);
 }
 
 .label {
