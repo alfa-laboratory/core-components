@@ -29,6 +29,8 @@
 
 .horizontal .checkboxList {
     flex-wrap: wrap;
+    margin-right: var(--gap-xl-neg);
+    margin-bottom: var(--gap-xs-neg);
 }
 
 .horizontal .checkbox {
