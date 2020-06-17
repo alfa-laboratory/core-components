@@ -1,8 +1,9 @@
 import React, { cloneElement } from 'react';
+import { PrimaryTablist } from './components';
 import { TabsProps } from './typings';
 
 export const Tabs = ({
-    TabList,
+    TabList = PrimaryTablist,
     children,
     selectedId,
     scrollable,
