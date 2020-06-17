@@ -1,3 +1,2 @@
-export * from './Component';
-export * from './useTabs';
 export * from './components';
+export * from './useTabs';
