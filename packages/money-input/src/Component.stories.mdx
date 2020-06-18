@@ -26,14 +26,14 @@ import { MoneyInput } from '@alfalab/core-components-money-input';
 
 <Story name='Песочница'>
     <MoneyInput
-        value={number('value', 0)}
+        value={number('value', null)}
         currency={text('currency', 'RUR')}
         minority={number('minority', 100)}
         bold={boolean('bold', true)}
         block={boolean('block', false)}
         size={select('size', ['s', 'm', 'l'], 's')}
         disabled={boolean('disabled', false)}
-        placeholder={text('placeholder', '')}
+        placeholder={text('placeholder', undefined)}
         label={text('label', '')}
         hint={text('hint', '')}
         error={text('error', '')}

@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Input, InputProps } from '@alfalab/core-components-input';
 import { FormControl } from '@alfalab/core-components-form-control';
 
@@ -63,13 +63,16 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
     value = null,
     minority = 100,
     currency = 'RUR',
-    label = 'Сумма',
+    placeholder = `0\u2009${CURRENCY_CODES[currency]}`,
     bold = true,
     className,
     dataTestId,
     onChange,
+    onBlur,
+    onFocus,
     ...restProps
 }: MoneyInputProps) => {
+    const [focused, setFocused] = useState(false);
     const [inputValue, setInputValue] = useState<string>(
         formatAmount({
             value,
@@ -149,25 +152,52 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
         }
     };
 
+    const handleInputFocus = useCallback(
+        (e: React.FocusEvent<HTMLInputElement>) => {
+            setFocused(true);
+
+            if (onFocus) {
+                onFocus(e);
+            }
+        },
+        [onFocus],
+    );
+
+    const handleInputBlur = useCallback(
+        (e: React.FocusEvent<HTMLInputElement>) => {
+            setFocused(false);
+
+            if (onBlur) {
+                onBlur(e);
+            }
+        },
+        [onBlur],
+    );
+
     return (
         <div className={cn({ [styles.bold]: bold })}>
-            <FormControl {...restProps} label={label} className={cn(styles.fakeValueWithCurrency)}>
+            <FormControl
+                {...restProps}
+                className={cn(styles.fakeValueWithCurrency)}
+                focused={focused}
+                filled={Boolean(inputValue || focused)}
+            >
                 {inputValue}
-                {inputValue && (
-                    <span className={styles.currency}>
-                        {THINSP}
-                        {currencySymbol}
-                    </span>
-                )}
+                <span className={styles.currency}>
+                    {THINSP}
+                    {currencySymbol}
+                </span>
             </FormControl>
 
             <Input
                 {...restProps}
-                label={label}
+                placeholder={placeholder}
                 value={inputValue}
                 className={cn(styles.component, className)}
                 inputClassName={styles.input}
                 onChange={handleChange}
+                onFocus={handleInputFocus}
+                onBlur={handleInputBlur}
                 dataTestId={dataTestId}
             />
         </div>
