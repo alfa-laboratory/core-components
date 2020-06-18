@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.2](https://github.com/alfa-laboratory/core-components/compare/v1.5.1...v1.5.2) (2020-06-18)
+
+
+### Bug Fixes
+
+* **checkbox-group:** fix css classnames ([1ec07fa](https://github.com/alfa-laboratory/core-components/commit/1ec07faa276bfa20917b1ff4decfde2c81c66ffe))
+
 ### [1.5.1](https://github.com/alfa-laboratory/core-components/compare/v1.5.0...v1.5.1) (2020-06-18)
 
 
