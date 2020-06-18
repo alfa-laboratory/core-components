@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.1](https://github.com/alfa-laboratory/core-components/compare/v1.5.0...v1.5.1) (2020-06-18)
+
+
+### Bug Fixes
+
+* **core-components-button:** fix block button width ([4abf5d9](https://github.com/alfa-laboratory/core-components/commit/4abf5d9d915909c4b5b4beddad7d287df812beb4))
+
 ## [1.5.0](https://github.com/alfa-laboratory/core-components/compare/v1.4.1...v1.5.0) (2020-06-15)
 
 
