@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/alfa-laboratory/core-components/compare/v1.5.2...v1.6.0) (2020-06-19)
+
+
+### Features
+
+* **core-components-form-control:** allow to hide error icon in theme ([c19a73c](https://github.com/alfa-laboratory/core-components/commit/c19a73c676e359f2ecba8b21a53f671b725ec032))
+
+
+### Bug Fixes
+
+* **core-components-button:** fix button loading state ([eac3c3c](https://github.com/alfa-laboratory/core-components/commit/eac3c3ca888ee0092a1693b9a39843c1dd9a75f1))
+
 ### [1.5.2](https://github.com/alfa-laboratory/core-components/compare/v1.5.1...v1.5.2) (2020-06-18)
 
 
