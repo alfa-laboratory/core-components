@@ -19,6 +19,7 @@ Object {
             />
           </div>
         </div>
+        
       </div>
     </div>
   </body>,
@@ -37,6 +38,7 @@ Object {
           />
         </div>
       </div>
+      
     </div>
   </div>,
   "debug": [Function],
@@ -132,7 +134,7 @@ Object {
           </div>
         </div>
         <span
-          class="sub"
+          class="sub error"
         >
           error
         </span>
@@ -174,7 +176,7 @@ Object {
         </div>
       </div>
       <span
-        class="sub"
+        class="sub error"
       >
         error
       </span>
@@ -253,6 +255,7 @@ Object {
             />
           </div>
         </div>
+        
         <div>
           Bottom addons
         </div>
@@ -274,6 +277,7 @@ Object {
           />
         </div>
       </div>
+      
       <div>
         Bottom addons
       </div>
@@ -372,7 +376,7 @@ Object {
           </div>
         </div>
         <span
-          class="sub"
+          class="sub error"
         >
           This is error
         </span>
@@ -414,7 +418,7 @@ Object {
         </div>
       </div>
       <span
-        class="sub"
+        class="sub error"
       >
         This is error
       </span>
@@ -493,6 +497,7 @@ Object {
             />
           </div>
         </div>
+        
         <span
           class="sub"
         >
@@ -516,6 +521,7 @@ Object {
           />
         </div>
       </div>
+      
       <span
         class="sub"
       >
@@ -607,6 +613,7 @@ Object {
             />
           </div>
         </div>
+        
       </div>
     </div>
   </body>,
@@ -636,6 +643,7 @@ Object {
           />
         </div>
       </div>
+      
     </div>
   </div>,
   "debug": [Function],
@@ -718,6 +726,7 @@ Object {
             />
           </div>
         </div>
+        
       </div>
     </div>
   </body>,
@@ -743,6 +752,7 @@ Object {
           />
         </div>
       </div>
+      
     </div>
   </div>,
   "debug": [Function],
@@ -825,6 +835,7 @@ Object {
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   </body>,
@@ -850,6 +861,7 @@ Object {
           </div>
         </div>
       </div>
+      
     </div>
   </div>,
   "debug": [Function],

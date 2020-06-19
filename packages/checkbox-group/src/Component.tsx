@@ -127,6 +127,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
         <div
             className={cn(
                 styles.component,
+                styles[type],
                 styles[direction],
                 { [styles.error]: error },
                 className,
