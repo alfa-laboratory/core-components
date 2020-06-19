@@ -37,6 +37,22 @@ describe('MoneyInput', () => {
         expect(input.placeholder).toBe(`0${THINSP}₽`);
     });
 
+    it('should use passed placeholder', () => {
+        const dataTestId = 'test-id';
+        const { getByTestId } = render(
+            <MoneyInput
+                value={null}
+                currency='RUR'
+                minority={100}
+                dataTestId={dataTestId}
+                placeholder='Сумма'
+            />,
+        );
+
+        const input = getByTestId(dataTestId) as HTMLInputElement;
+        expect(input.placeholder).toBe('Сумма');
+    });
+
     it('should render passed amount', () => {
         const input = renderMoneyInput(1234500);
         expect(input.value).toBe(`12${THINSP}345,00`);
