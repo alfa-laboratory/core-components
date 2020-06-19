@@ -9,7 +9,7 @@ Object {
         class="bold"
       >
         <div
-          class="component s fakeValueWithCurrency"
+          class="component s fakeValueWithCurrencyContainer"
         >
           <div
             class="inner"
@@ -22,9 +22,14 @@ Object {
               >
                 <div>
                   <span
-                    class="major"
+                    class="majorPart"
                   />
-                  
+                  <span
+                    class="minorPartAndCurrency"
+                  >
+                     
+                    ₽
+                  </span>
                 </div>
               </div>
             </div>
@@ -62,7 +67,7 @@ Object {
       class="bold"
     >
       <div
-        class="component s fakeValueWithCurrency"
+        class="component s fakeValueWithCurrencyContainer"
       >
         <div
           class="inner"
@@ -75,9 +80,14 @@ Object {
             >
               <div>
                 <span
-                  class="major"
+                  class="majorPart"
                 />
-                
+                <span
+                  class="minorPartAndCurrency"
+                >
+                   
+                  ₽
+                </span>
               </div>
             </div>
           </div>
@@ -172,7 +182,7 @@ Object {
         class="bold"
       >
         <div
-          class="component s fakeValueWithCurrency"
+          class="component s fakeValueWithCurrencyContainer"
         >
           <div
             class="inner"
@@ -185,9 +195,14 @@ Object {
               >
                 <div>
                   <span
-                    class="major"
+                    class="majorPart"
                   />
-                  
+                  <span
+                    class="minorPartAndCurrency"
+                  >
+                     
+                    ₽
+                  </span>
                 </div>
               </div>
             </div>
@@ -224,7 +239,7 @@ Object {
         class="bold filled"
       >
         <div
-          class="component s filled fakeValueWithCurrency"
+          class="component s filled fakeValueWithCurrencyContainer"
         >
           <div
             class="inner"
@@ -237,12 +252,12 @@ Object {
               >
                 <div>
                   <span
-                    class="major"
+                    class="majorPart"
                   >
                     12 345
                   </span>
                   <span
-                    class="currency"
+                    class="minorPartAndCurrency"
                   >
                     ,67
                      
@@ -285,7 +300,7 @@ Object {
       class="bold filled"
     >
       <div
-        class="component s filled fakeValueWithCurrency"
+        class="component s filled fakeValueWithCurrencyContainer"
       >
         <div
           class="inner"
@@ -298,12 +313,12 @@ Object {
             >
               <div>
                 <span
-                  class="major"
+                  class="majorPart"
                 >
                   12 345
                 </span>
                 <span
-                  class="currency"
+                  class="minorPartAndCurrency"
                 >
                   ,67
                    

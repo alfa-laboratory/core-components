@@ -32,6 +32,11 @@ describe('MoneyInput', () => {
         });
     });
 
+    it('should use default placeholder', () => {
+        const input = renderMoneyInput(null);
+        expect(input.placeholder).toBe(`0${THINSP}₽`);
+    });
+
     it('should render passed amount', () => {
         const input = renderMoneyInput(1234500);
         expect(input.value).toBe(`12${THINSP}345,00`);

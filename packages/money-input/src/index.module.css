@@ -1,7 +1,7 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --money-input-currency-color: var(--color-dark-indigo-60-flat);
+    --money-input-minor-part-and-currency-color: var(--color-dark-indigo-60-flat);
 }
 
 /*
@@ -9,40 +9,40 @@
 * 1) Отобразить символ валюты сразу за последним введенным символом
 * 2) Не дать возможность попасть кареткой за валюту
 * 3) Не дать выделить символ валюты при выделении денежного значения
-* 4) (ВОЗМОЖНОЕ будущее) Отображать символ валюты другим цветом
-* 5) (ВОЗМОЖНОЕ будущее) Отображать копейки другим цветом
+* 4) Отображать символ валюты другим цветом
+* 5) Отображать копейки другим цветом
 *
 * Решение
 * Делаем скрытый текст где держим то же значение, добавляем символ валюты
 * Важно расположить этот текст ровно на месте инпута и чтобы он имел те же параметры что и текст в инпуте
 */
-.fakeValueWithCurrency {
+.fakeValueWithCurrencyContainer {
     @mixin system_16-20_regular;
     position: absolute;
     pointer-events: none;
     visibility: hidden;
 }
 
-.major {
+.majorPart {
     visibility: visible;
 }
 
-.currency {
-    color: var(--money-input-currency-color);
+.minorPartAndCurrency {
+    color: var(--money-input-minor-part-and-currency-color);
 }
 
-.input {
-    -webkit-text-fill-color: transparent; /* Для IE текст будет черным */
-    caret-color: black; /* Для IE каретка будет черной */
-}
-
-.bold .input,
-.bold .fakeValueWithCurrency {
+.bold .fakeValueWithCurrencyContainer,
+.bold .input {
     font-weight: bold;
 }
 
-.filled .currency {
+.filled .minorPartAndCurrency {
     visibility: visible;
+}
+
+.filled .input {
+    -webkit-text-fill-color: transparent; /* Для IE текст будет черным */
+    caret-color: black; /* Для IE каретка будет черной */
 }
 
 .focused .input::placeholder {
