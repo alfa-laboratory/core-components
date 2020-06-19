@@ -16,9 +16,9 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 't
     size?: 's' | 'm' | 'l';
 
     /**
-     * Текст ошибки
+     * Отображение ошибки
      */
-    error?: string;
+    error?: string | boolean;
 
     /**
      * Текст подсказки

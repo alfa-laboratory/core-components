@@ -76,12 +76,8 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
         const componentProps = {
             className: cn(
                 styles.component,
-                styles[view],
-                styles[size],
                 {
                     [styles.block]: block,
-                    [styles.iconOnly]: !children,
-                    [styles.loading]: loading,
                 },
                 className,
             ),
@@ -89,11 +85,17 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
         };
 
         const buttonChildren = (
-            <React.Fragment>
+            // https://www.kizu.ru/keyboard-only-focus/
+            <span
+                className={cn(styles.wrapper, styles[view], styles[size], {
+                    [styles.iconOnly]: !children,
+                })}
+                tabIndex={-1}
+            >
                 {leftAddons && <span className={cn(styles.addons)}>{leftAddons}</span>}
                 {children && <span className={cn(styles.text)}>{children}</span>}
                 {rightAddons && <span className={cn(styles.addons)}>{rightAddons}</span>}
-            </React.Fragment>
+            </span>
         );
 
         if (href) {
@@ -103,6 +105,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                     {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
                     href={href}
                     ref={ref as Ref<HTMLAnchorElement>}
+                    tabIndex={0}
                 >
                     {buttonChildren}
                 </a>
@@ -120,6 +123,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                 {...restButtonProps}
                 disabled={disabled || loading}
                 ref={ref as Ref<HTMLButtonElement>}
+                tabIndex={0}
             >
                 {buttonChildren}
                 {loading && <Loader className={cn(styles.loader)} />}
