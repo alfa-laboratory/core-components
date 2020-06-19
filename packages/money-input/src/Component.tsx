@@ -175,6 +175,8 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
         [onBlur],
     );
 
+    const [head, tail] = inputValue.split(',');
+
     return (
         <div
             className={cn({
@@ -189,11 +191,16 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
                 focused={focused}
                 filled={filled}
             >
-                {inputValue}
-                <span className={styles.currency}>
-                    {THINSP}
-                    {currencySymbol}
-                </span>
+                <div>
+                    <span className={styles.major}>{head}</span>
+                    {head && (
+                        <span className={styles.currency}>
+                            {tail !== undefined && `,${tail}`}
+                            {THINSP}
+                            {currencySymbol}
+                        </span>
+                    )}
+                </div>
             </FormControl>
 
             <Input
