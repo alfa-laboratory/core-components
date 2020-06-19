@@ -224,7 +224,7 @@ Object {
     </div>
     <div>
       <div
-        class="bold"
+        class="bold filled"
       >
         <div
           class="component s filled fakeValueWithCurrency"
@@ -278,7 +278,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="bold"
+      class="bold filled"
     >
       <div
         class="component s filled fakeValueWithCurrency"

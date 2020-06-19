@@ -79,6 +79,7 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
             currency: { code: currency, minority },
         }).value,
     );
+    const filled = Boolean(inputValue || focused);
 
     const currencySymbol = CURRENCY_CODES[currency];
 
@@ -175,12 +176,18 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
     );
 
     return (
-        <div className={cn({ [styles.bold]: bold })}>
+        <div
+            className={cn({
+                [styles.bold]: bold,
+                [styles.focused]: focused,
+                [styles.filled]: filled,
+            })}
+        >
             <FormControl
                 {...restProps}
                 className={cn(styles.fakeValueWithCurrency)}
                 focused={focused}
-                filled={Boolean(inputValue || focused)}
+                filled={filled}
             >
                 {inputValue}
                 <span className={styles.currency}>
