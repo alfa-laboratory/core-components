@@ -5,11 +5,7 @@ export const AMOUNT_MAJOR_PART_SIZE = 3;
 export const AMOUNT_SPLIT_CODE_FROM = 4;
 export const NEGATIVE_AMOUNT_SYMBOL = '−';
 
-export type CurrencyType = {
-    [key: string]: string;
-};
-
-export const CURRENCY_CODES: CurrencyType = {
+export const CURRENCY_CODES = {
     ALL: '\u004c\u0065\u006b',
     AFN: '\u060b',
     ARS: '\u0024',
@@ -125,3 +121,5 @@ export const CURRENCY_CODES: CurrencyType = {
     YER: '\ufdfc',
     ZWD: '\u005a\u0024',
 };
+
+export type CurrencyCodes = keyof typeof CURRENCY_CODES;

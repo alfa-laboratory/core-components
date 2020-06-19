@@ -1,22 +1,30 @@
 import cn from 'classnames';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Input, InputProps } from '@alfalab/core-components-input';
 import { FormControl } from '@alfalab/core-components-form-control';
 
-import { CURRENCY_CODES, THINSP } from './utils/currencyCodes';
+import { CURRENCY_CODES, CurrencyCodes, THINSP } from './utils/currencyCodes';
 import { getFormatedValue, getAmountValueFromStr, formatAmount } from './utils';
 import styles from './index.module.css';
 
-export type MoneyInputProps = Omit<InputProps, 'onChange' | 'type'> & {
+/**
+ * Тип явно описывающий набор поддерживаемых валют
+ * Если вам на проекте приходится что-то кастовать - дайте знать
+ * TODO: тип должен стать общим для банка
+ */
+export { CurrencyCodes } from './utils/currencyCodes';
+
+export type MoneyInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> & {
     /**
      * Денежное значение в минорных единицах
+     * Значение null - значит не установлено
      */
-    value?: number;
+    value?: number | null;
 
     /**
      * Валюта
      */
-    currency?: string;
+    currency?: CurrencyCodes;
 
     /**
      * Минорные единицы
@@ -36,8 +44,9 @@ export type MoneyInputProps = Omit<InputProps, 'onChange' | 'type'> & {
         payload: {
             /**
              * Денежное значение в минорных единицах
+             * Значение null - значит не установлено
              */
-            value: number;
+            value: number | null;
             /**
              * Значение инпута
              */
@@ -51,29 +60,38 @@ export type MoneyInputProps = Omit<InputProps, 'onChange' | 'type'> & {
  * [Figma](https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=532%3A544)
  */
 export const MoneyInput: React.FC<MoneyInputProps> = ({
-    value = 0,
+    value = null,
     minority = 100,
     currency = 'RUR',
-    label = 'Сумма',
+    placeholder = `0\u2009${CURRENCY_CODES[currency]}`,
     bold = true,
     className,
     dataTestId,
     onChange,
+    onBlur,
+    onFocus,
     ...restProps
 }: MoneyInputProps) => {
-    const [inputValue, setInputValue] = useState<string>(value === 0 ? '' : value.toString());
+    const [focused, setFocused] = useState(false);
+    const [inputValue, setInputValue] = useState<string>(
+        formatAmount({
+            value,
+            currency: { code: currency, minority },
+        }).value,
+    );
+    const filled = Boolean(inputValue || focused);
+
     const currencySymbol = CURRENCY_CODES[currency];
 
     useEffect(() => {
         const currentAmountValue = getAmountValueFromStr(inputValue, minority);
         if (currentAmountValue !== value) {
-            const { majorPart, minorPart } = formatAmount({
-                value,
-                currency: { code: currency, minority },
-            });
-
-            const newFormatedValue = `${majorPart},${minorPart}`;
-            return setInputValue(newFormatedValue);
+            return setInputValue(
+                formatAmount({
+                    value,
+                    currency: { code: currency, minority },
+                }).value,
+            );
         }
 
         return () => undefined;
@@ -135,11 +153,44 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
         }
     };
 
+    const handleInputFocus = useCallback(
+        (e: React.FocusEvent<HTMLInputElement>) => {
+            setFocused(true);
+
+            if (onFocus) {
+                onFocus(e);
+            }
+        },
+        [onFocus],
+    );
+
+    const handleInputBlur = useCallback(
+        (e: React.FocusEvent<HTMLInputElement>) => {
+            setFocused(false);
+
+            if (onBlur) {
+                onBlur(e);
+            }
+        },
+        [onBlur],
+    );
+
     const [head, tail] = inputValue.split(',');
 
     return (
-        <div className={cn({ [styles.bold]: bold })}>
-            <FormControl {...restProps} label={label} className={cn(styles.fakeValueWithCurrency)}>
+        <div
+            className={cn({
+                [styles.bold]: bold,
+                [styles.focused]: focused,
+                [styles.filled]: filled,
+            })}
+        >
+            <FormControl
+                {...restProps}
+                className={cn(styles.fakeValueWithCurrency)}
+                focused={focused}
+                filled={filled}
+            >
                 <div>
                     <span className={styles.major}>{head}</span>
                     {head && (
@@ -154,11 +205,13 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
 
             <Input
                 {...restProps}
-                label={label}
+                placeholder={placeholder}
                 value={inputValue}
                 className={cn(styles.component, className)}
                 inputClassName={styles.input}
                 onChange={handleChange}
+                onFocus={handleInputFocus}
+                onBlur={handleInputBlur}
                 dataTestId={dataTestId}
             />
         </div>

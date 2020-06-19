@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.2](https://github.com/alfa-laboratory/core-components/compare/v1.5.1...v1.5.2) (2020-06-18)
+
+
+### Bug Fixes
+
+* **checkbox-group:** fix css classnames ([1ec07fa](https://github.com/alfa-laboratory/core-components/commit/1ec07faa276bfa20917b1ff4decfde2c81c66ffe))
+
+### [1.5.1](https://github.com/alfa-laboratory/core-components/compare/v1.5.0...v1.5.1) (2020-06-18)
+
+
+### Bug Fixes
+
+* **core-components-button:** fix block button width ([4abf5d9](https://github.com/alfa-laboratory/core-components/commit/4abf5d9d915909c4b5b4beddad7d287df812beb4))
+
+## [1.5.0](https://github.com/alfa-laboratory/core-components/compare/v1.4.1...v1.5.0) (2020-06-15)
+
+
+### Features
+
+* **button:** keyboard-only focus ([#102](https://github.com/alfa-laboratory/core-components/issues/102)) ([739d240](https://github.com/alfa-laboratory/core-components/commit/739d240ab3d06b5a232b8c863f54ea888f2f635a)), closes [#125](https://github.com/alfa-laboratory/core-components/issues/125)
+* **core-components-button:** fix button types ([#138](https://github.com/alfa-laboratory/core-components/issues/138)) ([6af3a2c](https://github.com/alfa-laboratory/core-components/commit/6af3a2c099c52d94fbb91663facfb3d5c79a8492))
+* **core-components-form-control:** change errors logic ([#150](https://github.com/alfa-laboratory/core-components/issues/150)) ([1c0e494](https://github.com/alfa-laboratory/core-components/commit/1c0e49489fb59dce68504223744efd290c38d214))
+* **core-components-link:** add new component ([#142](https://github.com/alfa-laboratory/core-components/issues/142)) ([33e11eb](https://github.com/alfa-laboratory/core-components/commit/33e11eb403fb7d8231e00cf55adf116b914aef3b))
+* **core-components-vars:** update alfa-ui-primitives and build colors ([#153](https://github.com/alfa-laboratory/core-components/issues/153)) ([007e2d6](https://github.com/alfa-laboratory/core-components/commit/007e2d67d5e22e830ca353de3d7ea690b82af73f))
+
+
+### Bug Fixes
+
+* **core-components-tag:** fix tag background ([#151](https://github.com/alfa-laboratory/core-components/issues/151)) ([03b465b](https://github.com/alfa-laboratory/core-components/commit/03b465b9f6c231375da8803382ed3539b2e7743a))
+* **core-components-tooltip:** pass target original classname ([#147](https://github.com/alfa-laboratory/core-components/issues/147)) ([d253f8a](https://github.com/alfa-laboratory/core-components/commit/d253f8a363a0b4c605ee897a9b3172fdf977a073))
+
 ### [1.4.1](https://github.com/alfa-laboratory/core-components/compare/v1.4.0...v1.4.1) (2020-06-01)
 
 

@@ -6,6 +6,7 @@ import {
     NEGATIVE_AMOUNT_SYMBOL,
     AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR,
     AMOUNT_SPLIT_CODE_FROM,
+    CurrencyCodes,
 } from './currencyCodes';
 
 /**
@@ -15,8 +16,8 @@ import {
  * @param {Number} [partSize=3] Размер частей суммы
  * @param {String} [splitter=THINSP] Символ, разбивающий части суммы
  * @param {String} [splitFrom=5] Длина суммы, начиная с которой необходимо осуществлять разбивку. По-умолчанию длина
- * равняется пяти по требованию гайдлайнов: https://design.alfabank.ru/patterns/amount. Пример: 2900 — не разбивается,
- * 29 000 — разбивается.
+ * равняется пяти по требованию гайдлайнов: https://design.alfabank.ru/patterns/amount. Пример: 2900 - не разбивается,
+ * 29 000 - разбивается.
  * @returns {String}
  */
 
@@ -56,14 +57,23 @@ export const splitAmount = (
  */
 
 type AmountType = {
-    value: number;
+    value: number | null;
     currency: {
-        code: string;
+        code: CurrencyCodes;
         minority: number;
     };
 };
 
 export const formatAmount = ({ value, currency: { code, minority } }: AmountType) => {
+    if (value === null) {
+        return {
+            majorPart: '',
+            minorPart: '',
+            value: '',
+            currencySymbol: getCurrencySymbol(code),
+        };
+    }
+
     // eslint-disable-next-line no-param-reassign
     minority = minority === 0 ? 1 : minority; // because Math.log(0) => -Infinity
 

@@ -29,15 +29,21 @@
 
 .horizontal .checkboxList {
     flex-wrap: wrap;
+    margin-right: var(--gap-xl-neg);
+    margin-bottom: var(--gap-xs-neg);
+}
+
+.tag.horizontal .checkboxList {
+    margin-right: var(--gap-xs-neg);
 }
 
 .horizontal .checkbox {
     margin-right: var(--gap-xl);
     margin-bottom: var(--gap-xs);
+}
 
-    &:last-child {
-        margin-right: 0;
-    }
+.horizontal .tagLabel {
+    margin-right: var(--gap-xs);
 }
 
 .label {
@@ -46,7 +52,7 @@
     color: var(--color-dark-indigo-60-flat);
 }
 
-.error-message {
+.errorMessage {
     @mixin system_14-18_regular;
     margin-top: var(--gap-m);
     color: var(--color-red-brand-85-flat);
@@ -60,6 +66,6 @@
     opacity: 0;
 }
 
-.tag-label {
+.tagLabel {
     position: relative;
 }

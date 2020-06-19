@@ -1,6 +1,6 @@
 {
   "name": "@alfalab/core-components",
-  "version": "1.4.1",
+  "version": "1.5.2",
   "private": true,
   "workspaces": [
     "packages/*"
@@ -50,6 +50,7 @@
   "dependencies": {
     "@alfalab/icons-classic": "^1.7.0",
     "@popperjs/core": "^2.3.3",
+    "alfa-ui-primitives": "^2.14.1",
     "downshift": "5.2.7",
     "react-node-resolver": "^2.0.1",
     "react-popper": "^2.2.2",
@@ -72,9 +73,9 @@
     "@storybook/preset-create-react-app": "^2.1.1",
     "@storybook/preset-typescript": "^1.2.0",
     "@storybook/react": "^5.3.8",
-    "@testing-library/jest-dom": "^5.10.0",
+    "@testing-library/jest-dom": "^5.10.1",
     "@testing-library/react": "^10.2.1",
-    "@testing-library/user-event": "^11.4.2",
+    "@testing-library/user-event": "^12.0.2",
     "@types/classnames": "^2.2.9",
     "@types/jest": "^25.1.2",
     "@types/node": "^13.5.0",
@@ -82,7 +83,6 @@
     "@types/react-dom": "^16.9.5",
     "@typescript-eslint/eslint-plugin": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
-    "alfa-ui-primitives": "2.8.0",
     "arui-presets-lint": "4.1.1",
     "arui-presets-ts": "^5.0.0",
     "babel-jest": "^25.3.0",

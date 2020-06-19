@@ -29,7 +29,6 @@
 
 .currency {
     color: var(--money-input-currency-color);
-    visibility: visible;
 }
 
 .input {
@@ -37,7 +36,16 @@
     caret-color: black; /* Для IE каретка будет черной */
 }
 
-.bold .fakeValueWithCurrency,
-.input {
+.bold .input,
+.bold .fakeValueWithCurrency {
     font-weight: bold;
+}
+
+.filled .currency {
+    visibility: visible;
+}
+
+.focused .input::placeholder {
+    color: transparent;
+    transition: none;
 }
