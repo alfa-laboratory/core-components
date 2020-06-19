@@ -15,7 +15,7 @@ const pkg = require(currentPkg);
 const currentComponentName = pkg.name.replace('@alfalab/core-components-', '');
 
 const baseConfig = {
-    input: ['src/**/*.{ts,tsx}', '!src/**/*.{test,stories}.tsx', '!src/**/*.mdx', '!src/**/*.d.ts'],
+    input: ['src/**/*.{ts,tsx}', '!src/**/*.{test,stories}.{ts,tsx}', '!src/**/*.mdx', '!src/**/*.d.ts'],
     external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
 };
 

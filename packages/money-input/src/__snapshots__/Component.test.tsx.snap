@@ -9,7 +9,7 @@ Object {
         class="bold"
       >
         <div
-          class="component s hasLabel fakeValueWithCurrency"
+          class="component s fakeValueWithCurrency"
         >
           <div
             class="inner"
@@ -17,26 +17,23 @@ Object {
             <div
               class="inputWrapper"
             >
-              <div
-                class="label"
-              >
-                <span
-                  class="labelInner"
-                >
-                  Сумма
-                </span>
-              </div>
               <div
                 class="input"
               >
                 
-                
+                <span
+                  class="currency"
+                >
+                   
+                  ₽
+                </span>
               </div>
             </div>
           </div>
+          
         </div>
         <div
-          class="component s hasLabel component"
+          class="component s component"
         >
           <div
             class="inner"
@@ -44,26 +41,19 @@ Object {
             <div
               class="inputWrapper"
             >
-              <div
-                class="label"
-              >
-                <span
-                  class="labelInner"
-                >
-                  Сумма
-                </span>
-              </div>
               <div
                 class="input"
               >
                 <input
-                  class="input hasLabel input"
+                  class="input input"
+                  placeholder="0 ₽"
                   type="text"
                   value=""
                 />
               </div>
             </div>
           </div>
+          
         </div>
       </div>
     </div>
@@ -73,7 +63,7 @@ Object {
       class="bold"
     >
       <div
-        class="component s hasLabel fakeValueWithCurrency"
+        class="component s fakeValueWithCurrency"
       >
         <div
           class="inner"
@@ -81,26 +71,23 @@ Object {
           <div
             class="inputWrapper"
           >
-            <div
-              class="label"
-            >
-              <span
-                class="labelInner"
-              >
-                Сумма
-              </span>
-            </div>
             <div
               class="input"
             >
               
-              
+              <span
+                class="currency"
+              >
+                 
+                ₽
+              </span>
             </div>
           </div>
         </div>
+        
       </div>
       <div
-        class="component s hasLabel component"
+        class="component s component"
       >
         <div
           class="inner"
@@ -108,26 +95,19 @@ Object {
           <div
             class="inputWrapper"
           >
-            <div
-              class="label"
-            >
-              <span
-                class="labelInner"
-              >
-                Сумма
-              </span>
-            </div>
             <div
               class="input"
             >
               <input
-                class="input hasLabel input"
+                class="input input"
+                placeholder="0 ₽"
                 type="text"
                 value=""
               />
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   </div>,
@@ -194,7 +174,7 @@ Object {
         class="bold"
       >
         <div
-          class="component s hasLabel fakeValueWithCurrency"
+          class="component s fakeValueWithCurrency"
         >
           <div
             class="inner"
@@ -202,26 +182,23 @@ Object {
             <div
               class="inputWrapper"
             >
-              <div
-                class="label"
-              >
-                <span
-                  class="labelInner"
-                >
-                  Сумма
-                </span>
-              </div>
               <div
                 class="input"
               >
                 
-                
+                <span
+                  class="currency"
+                >
+                   
+                  ₽
+                </span>
               </div>
             </div>
           </div>
+          
         </div>
         <div
-          class="component s hasLabel component"
+          class="component s component"
         >
           <div
             class="inner"
@@ -229,26 +206,19 @@ Object {
             <div
               class="inputWrapper"
             >
-              <div
-                class="label"
-              >
-                <span
-                  class="labelInner"
-                >
-                  Сумма
-                </span>
-              </div>
               <div
                 class="input"
               >
                 <input
-                  class="input hasLabel input"
+                  class="input input"
+                  placeholder="0 ₽"
                   type="text"
                   value=""
                 />
               </div>
             </div>
           </div>
+          
         </div>
       </div>
     </div>
@@ -257,7 +227,7 @@ Object {
         class="bold"
       >
         <div
-          class="component s hasLabel fakeValueWithCurrency"
+          class="component s filled fakeValueWithCurrency"
         >
           <div
             class="inner"
@@ -265,15 +235,6 @@ Object {
             <div
               class="inputWrapper"
             >
-              <div
-                class="label"
-              >
-                <span
-                  class="labelInner"
-                >
-                  Сумма
-                </span>
-              </div>
               <div
                 class="input"
               >
@@ -287,9 +248,10 @@ Object {
               </div>
             </div>
           </div>
+          
         </div>
         <div
-          class="component s filled hasLabel component"
+          class="component s filled component"
         >
           <div
             class="inner"
@@ -298,25 +260,18 @@ Object {
               class="inputWrapper"
             >
               <div
-                class="label"
-              >
-                <span
-                  class="labelInner"
-                >
-                  Сумма
-                </span>
-              </div>
-              <div
                 class="input"
               >
                 <input
-                  class="input hasLabel input"
+                  class="input input"
+                  placeholder="0 $"
                   type="text"
                   value="12 345,67"
                 />
               </div>
             </div>
           </div>
+          
         </div>
       </div>
     </div>
@@ -326,7 +281,7 @@ Object {
       class="bold"
     >
       <div
-        class="component s hasLabel fakeValueWithCurrency"
+        class="component s filled fakeValueWithCurrency"
       >
         <div
           class="inner"
@@ -334,15 +289,6 @@ Object {
           <div
             class="inputWrapper"
           >
-            <div
-              class="label"
-            >
-              <span
-                class="labelInner"
-              >
-                Сумма
-              </span>
-            </div>
             <div
               class="input"
             >
@@ -356,9 +302,10 @@ Object {
             </div>
           </div>
         </div>
+        
       </div>
       <div
-        class="component s filled hasLabel component"
+        class="component s filled component"
       >
         <div
           class="inner"
@@ -367,25 +314,18 @@ Object {
             class="inputWrapper"
           >
             <div
-              class="label"
-            >
-              <span
-                class="labelInner"
-              >
-                Сумма
-              </span>
-            </div>
-            <div
               class="input"
             >
               <input
-                class="input hasLabel input"
+                class="input input"
+                placeholder="0 $"
                 type="text"
                 value="12 345,67"
               />
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   </div>,

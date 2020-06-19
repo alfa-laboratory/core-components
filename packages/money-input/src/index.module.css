@@ -3,6 +3,11 @@
 :root {
     --money-input-currency-color: var(--color-dark-indigo-60-flat);
 }
+/* stylelint-disable selector-pseudo-class-no-unknown */
+:import('../../form-control/src/index.module.css') {
+    filled: filled;
+    focused: focused;
+}
 
 /*
 * Задача:
@@ -25,10 +30,18 @@
 
 .currency {
     color: var(--money-input-currency-color);
-    visibility: visible;
 }
 
 .bold .input,
 .bold .fakeValueWithCurrency {
     font-weight: bold;
+}
+
+.filled .currency {
+    visibility: visible;
+}
+
+.focused .input::placeholder {
+    color: transparent;
+    transition: none;
 }
