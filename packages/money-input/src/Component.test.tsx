@@ -11,11 +11,16 @@ import { MoneyInput, CurrencyCodes } from './index';
 const THINSP = String.fromCharCode(8201);
 
 describe('MoneyInput', () => {
-    function renderMoneyInput(value: number | null) {
+    function renderMoneyInput(value: number | null, currency: CurrencyCodes | null = 'RUR') {
         // TODO: почему тесты в кор компонентах цепляются к data-test-id вместо label?
         const dataTestId = 'test-id';
         const { getByTestId } = render(
-            <MoneyInput value={value} currency='RUR' minority={100} dataTestId={dataTestId} />,
+            <MoneyInput
+                value={value}
+                currency={currency as CurrencyCodes}
+                minority={100}
+                dataTestId={dataTestId}
+            />,
         );
 
         const input = getByTestId(dataTestId) as HTMLInputElement;
@@ -35,6 +40,11 @@ describe('MoneyInput', () => {
     it('should use default placeholder', () => {
         const input = renderMoneyInput(null);
         expect(input.placeholder).toBe(`0${THINSP}₽`);
+    });
+
+    it('should correctly render default placeholder if currency is empty', () => {
+        const input = renderMoneyInput(null, null);
+        expect(input.placeholder).toBe(`0${THINSP}`);
     });
 
     it('should use passed placeholder', () => {
