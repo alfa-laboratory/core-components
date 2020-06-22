@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.2](https://github.com/alfa-laboratory/core-components/compare/v1.7.1...v1.7.2) (2020-06-22)
+
+
+### Bug Fixes
+
+* **core-components-money-input:** fix default placeholder ([2efbcbd](https://github.com/alfa-laboratory/core-components/commit/2efbcbd49fbc2c02a6644867bfa25c96b3943223))
+
 ### [1.7.1](https://github.com/alfa-laboratory/core-components/compare/v1.7.0...v1.7.1) (2020-06-19)
 
 
