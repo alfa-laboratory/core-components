@@ -63,7 +63,7 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
     value = null,
     minority = 100,
     currency = 'RUR',
-    placeholder = `0\u2009${CURRENCY_CODES[currency]}`,
+    placeholder = `0\u2009${CURRENCY_CODES[currency] || ''}`,
     bold = true,
     className,
     dataTestId,
