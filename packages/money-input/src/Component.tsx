@@ -57,7 +57,6 @@ export type MoneyInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> & 
 
 /**
  * Компонент для ввода денежных значений
- * [Figma](https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=532%3A544)
  */
 export const MoneyInput: React.FC<MoneyInputProps> = ({
     value = null,
