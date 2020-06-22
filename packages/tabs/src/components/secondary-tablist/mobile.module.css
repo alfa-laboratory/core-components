@@ -1,0 +1,19 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    composes: component from './index.module.css';
+
+    margin-bottom: var(--gap-xl);
+    margin-top: var(--gap-xl);
+}
+
+.title {
+    composes: title from './index.module.css';
+
+    margin-right: var(--gap-xs);
+
+    &:last-child {
+        margin-right: 0;
+    }
+}

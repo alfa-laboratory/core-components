@@ -2,25 +2,16 @@ import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
 import { useTabs } from '../../useTabs';
 import { ScrollableContainer } from '../scrollable-container';
-import { TablistProps } from '../../typings';
-
-import styles from './index.module.css';
-
-type PrimaryTablistProps = TablistProps & {
-    /**
-     * Управление размером отступов между заголовками
-     */
-    gaps?: 'default' | 'wide';
-};
+import { TablistProps, Styles } from '../../typings';
 
 export const PrimaryTablist = ({
+    styles = {},
     className,
-    gaps = 'default',
     titles = [],
     selectedId = titles[0].id,
     scrollable = true,
     onChange,
-}: PrimaryTablistProps) => {
+}: TablistProps & Styles) => {
     const { selectedTab, focusedTab, getTablistItemProps } = useTabs({
         titles,
         selectedId,
@@ -44,7 +35,7 @@ export const PrimaryTablist = ({
                     {...getTablistItemProps(index)}
                     type='button'
                     key={item.id}
-                    className={cn(styles.title, styles[gaps], {
+                    className={cn(styles.title, {
                         [styles.selected]: item.id === selectedId,
                     })}
                 >

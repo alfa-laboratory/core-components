@@ -3,8 +3,6 @@
 
 .component {
     position: relative;
-    margin-bottom: var(--gap-2xl);
-    margin-top: var(--gap-2xl);
 
     &:before {
         content: '';
@@ -24,12 +22,9 @@
 }
 
 .title {
-    @mixin system_18-22_medium;
-
     padding: 0;
     cursor: pointer;
     color: var(--primary-tablist-color);
-    font-weight: 300;
     transition: color 0.2s ease;
     border: 0;
     background: none;
@@ -42,26 +37,12 @@
     &:hover {
         color: var(--primary-tablist-hover-color);
     }
-
-    &:last-child {
-        margin-right: 0;
-    }
-}
-
-.default {
-    margin-right: var(--gap-2xl);
-}
-
-.wide {
-    margin-right: var(--gap-4xl);
 }
 
 .titleWrapper {
     display: block;
     position: relative;
     outline: none;
-    box-shadow: none;
-    padding: 0 0 var(--gap-m);
 }
 
 .title:focus .titleWrapper {

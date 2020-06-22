@@ -1,10 +1,10 @@
 import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
 import { boolean, select } from '@storybook/addon-knobs';
 
-import { Tabs } from './components/tabs';
+import { Tabs, TabsDesktop, TabsMobile } from './components/tabs';
 import { Tab } from './components/tab';
-import { PrimaryTablist } from './components/primary-tablist';
-import { SecondaryTablist } from './components/secondary-tablist';
+import { PrimaryTablistDesktop, PrimaryTablistMobile } from './components/primary-tablist';
+import { SecondaryTablistDesktop, SecondaryTablistMobile } from './components/secondary-tablist';
 
 import { name, version } from '../package.json';
 
@@ -21,27 +21,20 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
 
 Компоненты для построения табов.
 
-### Tabs
+### TabsDesktop
 
-<Story name='Tabs'>
+<Story name='TabsDesktop'>
     {React.createElement(() => {
         const [selectedId, setSelectedId] = React.useState('tab-1');
         const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
-        const renderTabList = React.useCallback((props) => {
-            const component = select('TabList', ['PrimaryTablist', 'SecondaryTablist'], 'PrimaryTablist');
-            if (component === 'PrimaryTablist') {
-                return <PrimaryTablist {...props} gaps='wide' />;
-            }
-            if (component === 'SecondaryTablist') {
-                return <SecondaryTablist {...props} />;
-            }
-        }, []);
         return (
-            <Tabs
-                TabList={renderTabList}
+            <TabsDesktop
+                view={select('view', ['primary', 'secondary'], 'primary')}
                 selectedId={selectedId}
-                keepMounted={true}
+                keepMounted={boolean('keepMounted')}
                 onChange={handleChange}
+                scrollable={boolean('scrollable')}
+                gaps={select('gaps', ['default', 'wide'], 'default')}
             >
                 <Tab title='Таб 1' id='tab-1'>
                     Таб 1
@@ -58,48 +51,46 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
                 <Tab title='Таб 5' id='tab-5'>
                     Таб 5
                 </Tab>
-            </Tabs>
+            </TabsDesktop>
         );
     })}
 </Story>
 
-### PrimaryTablist
+### TabsMobile
 
-<Story name='PrimaryTablist'>
+<Story name='TabsMobile'>
     {React.createElement(() => {
-        const [selectedId, setSelectedId] = React.useState(1);
+        const [selectedId, setSelectedId] = React.useState('tab-1');
         const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
         return (
-            <PrimaryTablist
-                titles={titles}
+            <TabsMobile
+                view={select('view', ['primary', 'secondary'], 'primary')}
                 selectedId={selectedId}
-                scrollable={boolean('scrollable', false)}
-                gaps={select('gaps', ['default', 'wide'], 'default')}
+                keepMounted={boolean('keepMounted')}
                 onChange={handleChange}
-            />
-        );
-    })}
-</Story>
-
-### SecondaryTablist
-
-<Story name='SecondaryTablist'>
-    {React.createElement(() => {
-        const [selectedId, setSelectedId] = React.useState(1);
-        const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
-        return (
-            <SecondaryTablist
-                titles={titles}
-                selectedId={selectedId}
-                scrollable={boolean('scrollable', false)}
-                onChange={handleChange}
-            />
+                scrollable={boolean('scrollable')}
+            >
+                <Tab title='Таб 1' id='tab-1'>
+                    Таб 1
+                </Tab>
+                <Tab title='Таб 2' id='tab-2'>
+                    Таб 2
+                </Tab>
+                <Tab title='Таб 3' id='tab-3'>
+                    Таб 3
+                </Tab>
+                <Tab title='Таб 4' id='tab-4'>
+                    Таб 4
+                </Tab>
+                <Tab title='Таб 5' id='tab-5'>
+                    Таб 5
+                </Tab>
+            </TabsMobile>
         );
     })}
 </Story>
 
 <Props components={{
-    Tabs,
-    PrimaryTablist,
-    SecondaryTablist
+    TabsDesktop,
+    TabsMobile
 }} />

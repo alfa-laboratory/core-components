@@ -1,15 +1,14 @@
 import React, { cloneElement } from 'react';
-import { PrimaryTablist } from '../primary-tablist';
 import { TabsProps } from '../../typings';
 
 export const Tabs = ({
-    TabList = PrimaryTablist,
+    Tablist,
     children,
     selectedId,
     scrollable,
-    keepMounted,
+    keepMounted = false,
     onChange,
-}: TabsProps) => {
+}: Omit<TabsProps, 'view'>) => {
     const tabsArray = React.Children.toArray(children) as TabsProps['children'];
     const titles = tabsArray.map(({ props: { title, id } }) => ({ title, id }));
     const tabs = tabsArray.filter(
@@ -18,7 +17,7 @@ export const Tabs = ({
 
     return (
         <div>
-            <TabList
+            <Tablist
                 titles={titles}
                 selectedId={selectedId}
                 scrollable={scrollable}
