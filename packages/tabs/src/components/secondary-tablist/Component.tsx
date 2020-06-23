@@ -10,7 +10,7 @@ import styles from './index.module.css';
 export const SecondaryTablist = ({
     className,
     titles = [],
-    selectedId = titles[0].id,
+    selectedId = titles.length ? titles[0].id : undefined,
     scrollable = true,
     onChange,
 }: TablistProps) => {

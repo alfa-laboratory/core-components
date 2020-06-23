@@ -17,7 +17,7 @@ export const PrimaryTablist = ({
     className,
     gaps = 'default',
     titles = [],
-    selectedId = titles[0].id,
+    selectedId = titles.length ? titles[0].id : undefined,
     scrollable = true,
     onChange,
 }: PrimaryTablistProps) => {
