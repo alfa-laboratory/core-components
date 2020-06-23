@@ -2,6 +2,7 @@ import { Meta, Story, Preview, Props, Title } from '@storybook/addon-docs/blocks
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { Container, Row, Col } from 'storybook/blocks/grid';
+import { Design } from 'storybook/blocks/design';
 
 import { Select } from './Component';
 import { Field } from './components/field';
@@ -77,6 +78,7 @@ export const renderUppercased = (options) => {
     return options.map(option => option.text.toUpperCase()).join(', ');
 };
 
+
 <Meta title='Компоненты|Select' component={Select} />
 
 <Title>
@@ -86,6 +88,10 @@ export const renderUppercased = (options) => {
 ```tsx
 import { Select } from '@alfalab/core-components-select';
 ```
+
+<Design>
+  <a href="https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=719%3A0">Figma</a>
+</Design>
 
 ## Описание
 

@@ -2,12 +2,14 @@ import { Meta, Story, Preview, Props, Description, Title } from '@storybook/addo
 import { action } from '@storybook/addon-actions';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { Container, Row, Col } from 'storybook/blocks/grid';
+import { Design } from 'storybook/blocks/design';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
 import { Link } from './Component';
 import { name, version } from '../package.json';
 
 export const VIEWS = ['primary', 'secondary', 'default'];
+
 
 <Meta title='Компоненты|Link' component={Link} />
 
@@ -18,6 +20,10 @@ export const VIEWS = ['primary', 'secondary', 'default'];
 ```tsx
 import { Link } from '@alfalab/core-components-link';
 ```
+
+<Design>
+  <a href="https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=719%3A1">Figma</a>
+</Design>
 
 ## Описание
 
