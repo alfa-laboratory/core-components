@@ -1,7 +1,7 @@
 import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
 import { boolean, select } from '@storybook/addon-knobs';
 
-import { Tabs, TabsDesktop, TabsMobile } from './components/tabs';
+import { TabsDesktop, TabsMobile, TabsResponsive } from './components/tabs';
 import { Tab } from './components/tab';
 import { PrimaryTablistDesktop, PrimaryTablistMobile } from './components/primary-tablist';
 import { SecondaryTablistDesktop, SecondaryTablistMobile } from './components/secondary-tablist';
@@ -86,6 +86,38 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
                     Таб 5
                 </Tab>
             </TabsMobile>
+        );
+    })}
+</Story>
+
+<Story name='TabsResponsive'>
+    {React.createElement(() => {
+        const [selectedId, setSelectedId] = React.useState('tab-1');
+        const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
+        return (
+            <TabsResponsive
+                view={select('view', ['primary', 'secondary'], 'primary')}
+                selectedId={selectedId}
+                keepMounted={boolean('keepMounted')}
+                onChange={handleChange}
+                scrollable={boolean('scrollable')}
+            >
+                <Tab title='Таб 1' id='tab-1'>
+                    Таб 1
+                </Tab>
+                <Tab title='Таб 2' id='tab-2'>
+                    Таб 2
+                </Tab>
+                <Tab title='Таб 3' id='tab-3'>
+                    Таб 3
+                </Tab>
+                <Tab title='Таб 4' id='tab-4'>
+                    Таб 4
+                </Tab>
+                <Tab title='Таб 5' id='tab-5'>
+                    Таб 5
+                </Tab>
+            </TabsResponsive>
         );
     })}
 </Story>
