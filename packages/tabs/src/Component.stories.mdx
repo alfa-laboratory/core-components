@@ -90,6 +90,10 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
     })}
 </Story>
 
+### TabsResponsive
+
+Адаптивная версия табов, перестраивается при 768px
+
 <Story name='TabsResponsive'>
     {React.createElement(() => {
         const [selectedId, setSelectedId] = React.useState('tab-1');
