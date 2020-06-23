@@ -112,7 +112,6 @@ module.exports = ({ config }) => ({
                             modules: {
                                 localIdentName: '[local]_[hash:base64:5]',
                             },
-                            localsConvention: 'dashes',
                             importLoaders: 1,
                             sourceMap: true,
                         },
