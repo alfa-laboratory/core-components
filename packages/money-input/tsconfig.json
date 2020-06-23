@@ -1,0 +1,14 @@
+{
+    "include": ["src", "../../typings"],
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "dist",
+        "rootDirs": ["src"],
+        "baseUrl": ".",
+        "paths": {
+            "@alfalab/core-components-input": ["../input/src"],
+            "@alfalab/core-components-form-control": ["../form-control/src"]
+        }
+    },
+    "references": [{ "path": "../input" }, { "path": "../form-control" }]
+}

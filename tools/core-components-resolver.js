@@ -11,7 +11,7 @@ const coreComponentsResolver = ({ currentPackageDir }) => ({
             let code = bundles[bundleName].code;
 
             const requireRegExp = new RegExp(
-                /(\b(?:require\(|import |from )['"])@alfalab\/core-components-(.*?)(['"])/g,
+                /(\b(?:require\(|import |from )['"])@alfalab\/core-components-(.*?)(['"])/,
             );
 
             let matches;

@@ -24,7 +24,7 @@ export function useTabs({ titles, selectedId, onChange }: UseTabsProps) {
     );
 
     const focusTab = useCallback(
-        (position: -1 | 1 | 'start' | 'end') => {
+        (position: 'prev' | 'next' | 'start' | 'end') => {
             const refs = itemRefs.current;
 
             let focusedTabIndex = refs.findIndex(node => document.activeElement === node);
@@ -35,11 +35,11 @@ export function useTabs({ titles, selectedId, onChange }: UseTabsProps) {
 
             let newFocusIndex;
             switch (position) {
-                case 1:
-                    newFocusIndex = focusedTabIndex === refs.length - 1 ? 0 : focusedTabIndex + 1;
-                    break;
-                case -1:
+                case 'prev':
                     newFocusIndex = focusedTabIndex === 0 ? refs.length - 1 : focusedTabIndex - 1;
+                    break;
+                case 'next':
+                    newFocusIndex = focusedTabIndex === refs.length - 1 ? 0 : focusedTabIndex + 1;
                     break;
                 case 'start':
                     newFocusIndex = 0;
@@ -60,12 +60,12 @@ export function useTabs({ titles, selectedId, onChange }: UseTabsProps) {
         (event: KeyboardEvent<HTMLButtonElement>) => {
             switch (event.key) {
                 case 'ArrowLeft':
-                    focusTab(-1);
+                    focusTab('prev');
 
                     event.preventDefault();
                     break;
                 case 'ArrowRight':
-                    focusTab(1);
+                    focusTab('next');
 
                     event.preventDefault();
                     break;

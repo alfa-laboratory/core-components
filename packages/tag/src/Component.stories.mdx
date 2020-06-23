@@ -1,12 +1,13 @@
 import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
 import { text, select } from '@storybook/addon-knobs';
+import { Design } from 'storybook/blocks/design';
 import Icon from '@alfalab/icons-glyph/CopyMIcon';
 
 import { Tag } from './Component';
 import { name, version } from '../package.json';
 
-
 export const SIZES = ['xs', 's', 'm', 'l'];
+
 
 <Meta title='Компоненты|Tag' component={Tag} />
 
@@ -17,6 +18,10 @@ export const SIZES = ['xs', 's', 'm', 'l'];
 ```tsx
 import { Tag } from '@alfalab/core-components-tag';
 ```
+
+<Design>
+  <a href="https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=214%3A1873">Figma</a>
+</Design>
 
 ## Описание
 

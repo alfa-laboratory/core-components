@@ -2,6 +2,7 @@ import { Meta, Story, Preview, Props, Description, Title } from '@storybook/addo
 import { action } from '@storybook/addon-actions';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { Container, Row, Col } from 'storybook/blocks/grid';
+import { Design } from 'storybook/blocks/design';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
 import { Button } from './Component';
@@ -9,6 +10,7 @@ import { name, version } from '../package.json';
 
 export const VIEWS = ['primary', 'secondary', 'outlined', 'link', 'ghost'];
 export const SIZES = ['xs', 's', 'm', 'l'];
+
 
 <Meta title='Компоненты|Button' component={Button} />
 
@@ -19,6 +21,10 @@ export const SIZES = ['xs', 's', 'm', 'l'];
 ```tsx
 import { Button } from '@alfalab/core-components-button';
 ```
+
+<Design>
+  <a href="https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=1%3A2">Figma</a>
+</Design>
 
 ## Описание
 
@@ -200,7 +206,7 @@ import { Button } from '@alfalab/core-components-button';
             <Container>
                 <Row align="middle">
                     <Col>
-                        <Button view="primary" loading={loading.primary} onClick={() => handleClick('primary')}>
+                        <Button view="primary" loading={loading.primary} onClick={() => handleClick('primary')} rightAddons={<Icon/>} leftAddons={<Icon/>}>
                             Отправить запрос
                         </Button>
                     </Col>

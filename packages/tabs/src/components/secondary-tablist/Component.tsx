@@ -9,7 +9,7 @@ export const SecondaryTablist = ({
     styles = {},
     className,
     titles = [],
-    selectedId = titles[0].id,
+    selectedId = titles.length ? titles[0].id : undefined,
     scrollable = true,
     tagSize,
     onChange,
