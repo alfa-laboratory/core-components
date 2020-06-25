@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.7.3](https://github.com/alfa-laboratory/core-components/compare/v1.7.2...v1.7.3) (2020-06-23)
+
+
+### Bug Fixes
+
+* **core-components-button:** background in loading state ([2064e59](https://github.com/alfa-laboratory/core-components/commit/2064e593914354258cd47a4da9ca65cf26585542))
+* **core-components-button:** disabled styles are back ([bf81264](https://github.com/alfa-laboratory/core-components/commit/bf81264bb922ea98752adb9b2a6b09c946d48ed9))
+
 ### [1.7.2](https://github.com/alfa-laboratory/core-components/compare/v1.7.1...v1.7.2) (2020-06-22)
 
 
