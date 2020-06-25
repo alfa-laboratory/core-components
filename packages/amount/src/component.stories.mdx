@@ -1,0 +1,28 @@
+import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
+
+import { Amount } from './component';
+import { name, version } from '../package.json';
+
+<Meta title='Компоненты|Amount' component={Amount} />
+
+<Title>
+    Amount ({name}@{version})
+</Title>
+
+```tsx
+import { Amount } from '@alfalab/core-components-amount';
+```
+
+## Описание
+
+Компонент для ввода Денежных значений.
+
+<Story name='Песочница'>
+    {React.createElement(() => {
+        return (
+            <Amount value={100} currency='RUR' minority={100} />
+        );
+    })}
+</Story>
+
+<Props of={Amount} />
