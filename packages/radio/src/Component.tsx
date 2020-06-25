@@ -33,7 +33,6 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
         ref,
     ) => {
         const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-            // console.warn('handleChange', onChange)
             if (onChange) {
                 onChange(event, { checked: event.target.checked, name });
             }
