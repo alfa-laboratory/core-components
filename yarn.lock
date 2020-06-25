@@ -2,13 +2,6 @@
 # yarn lockfile v1
 
 
-"@alfalab/core-components-form-control@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@alfalab/core-components-form-control/-/core-components-form-control-1.0.1.tgz#66b383ed30023619ca3fa1a3c52d88ae17bba08b"
-  integrity sha512-OUY/k3xND8FWRK4gS9EIS7mTx2WwYWo8zbQ1V4c41DYaEwUVIGrf7TPWvMWnnmEs40VjKNqLcOVRds80WvdknA==
-  dependencies:
-    "@alfalab/icons-classic" "^1.7.0"
-
 "@alfalab/icons-classic@^1.7.0":
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-classic/-/icons-classic-1.7.0.tgz#e597f19ee604d8ba863c34f0fde6839d459ac801"

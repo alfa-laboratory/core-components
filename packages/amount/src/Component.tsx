@@ -1,30 +1,60 @@
 import React from 'react';
+import cn from 'classnames';
 
 import { formatAmount } from './utils';
 import { AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR, THINSP, CurrencyCodes } from './utils/currencyCodes';
 
+import styles from './index.module.css';
+
 type Props = {
+    /**
+     * Денежное значение в минорных единицах
+     */
     value: number;
+
+    /**
+     * Валюта
+     */
     currency: CurrencyCodes;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
     minority: number;
+
+    // TODO: подумать над описанием
+    /**
+     * Отображение минорной части, если она нулевая
+     */
     hideMinority?: boolean;
 
+    /**
+     * Отключает стили
+     */
+    pure?: boolean;
+
+    /**
+     * Дополнительный класс
+     */
     className?: string;
-    minorityClassName?: string;
+
     /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
 };
 
+/**
+ * Компонент для отображения суммы, согласно следующему гайдлайну:
+ * https://design.alfabank.ru/patterns/amount
+ */
 export const Amount: React.FC<Props> = ({
     value,
     minority,
     currency,
     hideMinority = false,
-
+    pure = false,
     className,
-    minorityClassName,
     dataTestId,
 }) => {
     const { majorPart, minorPart, currencySymbol } = formatAmount({
@@ -36,12 +66,14 @@ export const Amount: React.FC<Props> = ({
     });
 
     return (
-        <div className={className} data-test-id={dataTestId}>
+        <div
+            className={cn(styles.component, { [styles.amount]: !pure }, className)}
+            data-test-id={dataTestId}
+        >
             {majorPart}
-            {!hideMinority && minorPart && AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR}
-
-            {!hideMinority && <span className={minorityClassName}>{minorPart}</span>}
-            <span>
+            <span className={cn(!pure && styles.minorPart)}>
+                {!hideMinority && minorPart && AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR}
+                {!hideMinority && minorPart}
                 {THINSP}
                 {currencySymbol}
             </span>

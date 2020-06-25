@@ -1,1 +1,14 @@
 @import '../../themes/src/default.css';
+
+.component {
+    white-space: nowrap;
+}
+
+.amount {
+    font-weight: bold;
+}
+
+.minorPart {
+    opacity: 0.6;
+    font-weight: normal;
+}

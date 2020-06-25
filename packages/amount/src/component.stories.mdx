@@ -1,6 +1,8 @@
 import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
 
 import { Amount } from './component';
+import { CURRENCY_CODES } from './utils/currencyCodes';
 import { name, version } from '../package.json';
 
 <Meta title='Компоненты|Amount' component={Amount} />
@@ -15,14 +17,80 @@ import { Amount } from '@alfalab/core-components-amount';
 
 ## Описание
 
-Компонент для ввода Денежных значений.
+ Компонент для отображения суммы, согласно следующему гайдлайну:
+ https://design.alfabank.ru/patterns/amount
 
 <Story name='Песочница'>
-    {React.createElement(() => {
-        return (
-            <Amount value={100} currency='RUR' minority={100} />
-        );
-    })}
+    <Amount
+        value={number('value', 100)}
+        currency={select('currency', Object.keys(CURRENCY_CODES), 'RUR')}
+        minority={number('minority', 100)}
+        hideMinority={boolean('hideMinority', false)}
+        className={select('className', '')}
+        dataTestId={text('dataTestId', '')}
+        pure={ boolean('pure', false) }
+    />
 </Story>
 
 <Props of={Amount} />
+
+## Контекст использования
+<br/>
+
+- `hideMinority="true"`: не показывает минорную часть, если её значение равно 0.
+
+<Preview>
+    <Container>
+        <Amount value={1234500} currency='RUR' minority={100} hideMinority={true} />
+        <Amount value={1234567} currency='RUR' minority={100} hideMinority={true} />
+    </Container>
+</Preview>
+
+- Внутри заголовка
+
+<Preview>
+    <Container>
+        <h1>
+            <Amount value={1234500} currency='RUR' minority={100} />
+        </h1>
+        <h2>
+            <Amount value={1234500} currency='RUR' minority={100} />
+        </h2>
+        <h3>
+            <Amount value={1234500} currency='RUR' minority={100} />
+        </h3>
+        <h4>
+            <Amount value={1234500} currency='RUR' minority={100} />
+        </h4>
+    </Container>
+</Preview>
+
+- Внутри параграфа
+
+<Preview>
+    <Container>
+        <p>
+            <Amount value={1234500} currency='RUR' minority={100} />
+        </p>
+    </Container>
+</Preview>
+
+- Внутри красного текста
+
+<Preview>
+    <Container>
+        <span style={{ color: 'red' }}>
+            <Amount value={1234500} currency='RUR' minority={100} />
+        </span>
+    </Container>
+</Preview>
+
+- Без стилей
+
+<Preview>
+    <Container>
+        <span>
+            <Amount value={1234500} currency='RUR' minority={100} pure={true} />
+        </span>
+    </Container>
+</Preview>
