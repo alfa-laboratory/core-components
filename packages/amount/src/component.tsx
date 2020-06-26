@@ -3,15 +3,16 @@ import cn from 'classnames';
 
 import { formatAmount } from './utils';
 import { AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR, THINSP } from './utils/currencyCodes';
-import { AmounProps } from './types';
+import { AmountProps } from './types';
 import styles from './index.module.css';
 
 /**
  * Компонент для отображения суммы, согласно следующему гайдлайну:
  * https://design.alfabank.ru/patterns/amount
  */
-export const Amount: React.FC<AmounProps> = ({
+export const Amount: React.FC<AmountProps> = ({
     value,
+    // TODO: "minority" точно надо передавать? может это статичное значение, которое зависит от currency?
     minority,
     currency,
     view = 'default',

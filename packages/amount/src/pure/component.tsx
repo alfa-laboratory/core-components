@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { formatAmount } from '../utils';
 import { AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR, THINSP } from '../utils/currencyCodes';
-import { AmounProps } from '../types';
+import { AmountProps } from '../types';
 import styles from './index.module.css';
 
 /**
@@ -11,7 +11,7 @@ import styles from './index.module.css';
  * https://design.alfabank.ru/patterns/amount
  * Не содержит стилей кроме неразрывности строки
  */
-export const PureAmount: React.FC<AmounProps> = ({
+export const PureAmount: React.FC<AmountProps> = ({
     value,
     minority,
     currency,
