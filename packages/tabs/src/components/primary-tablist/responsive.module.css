@@ -1,3 +1,6 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
 /* TODO: затащить брейкпоинты */
 .component {
     composes: component from './index.module.css';
