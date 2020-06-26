@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Amount } from './index';
+import { Amount } from '.';
 
 describe('Amount', () => {
     it('should match snapshot', () => {
