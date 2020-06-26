@@ -23,7 +23,7 @@ import { Amount } from '@alfalab/core-components-amount';
 
 <Story name='Песочница'>
     {React.createElement(() => {
-        const value = number('value', 100);
+        const value = number('value', 12300);
         const currency = select('currency', Object.keys(CURRENCY_CODES), 'RUR');
         const minority = number('minority', 100);
         const view = select('view', ['default', 'withZeroMinorPart'], 'default');
