@@ -2,12 +2,12 @@
 
 exports[`Amount should match snapshot 1`] = `
 <span
-  class="component amount"
+  class="component"
   data-test-id="test-id"
 >
   1
   <span
-    class="minorPart"
+    class="minorPartAndCurrency"
   >
     ,
     00

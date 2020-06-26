@@ -2,13 +2,10 @@
 
 .component {
     white-space: nowrap;
-}
-
-.amount {
     font-weight: bold;
 }
 
-.minorPart {
+.minorPartAndCurrency {
     opacity: 0.6;
     font-weight: normal;
 }

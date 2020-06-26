@@ -1,5 +1,6 @@
-import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Title, Preview } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
 
 import { Amount } from '.';
 import { CURRENCY_CODES } from './utils/currencyCodes';
@@ -21,15 +22,44 @@ import { Amount } from '@alfalab/core-components-amount';
  https://design.alfabank.ru/patterns/amount
 
 <Story name='Песочница'>
-    <Amount
-        value={number('value', 100)}
-        currency={select('currency', Object.keys(CURRENCY_CODES), 'RUR')}
-        minority={number('minority', 100)}
-        hideMinority={boolean('hideMinority', false)}
-        className={select('className', '')}
-        dataTestId={text('dataTestId', '')}
-        pure={ boolean('pure', false) }
-    />
+    {React.createElement(() => {
+        const value = number('value', 100);
+        const currency = select('currency', Object.keys(CURRENCY_CODES), 'RUR');
+        const minority = number('minority', 100);
+        const view = select('view', ['default', 'withZeroMinorPart'], 'default');
+        const className = select('className', '');
+        const dataTestId = text('dataTestId', '');
+        return (
+            <React.Fragment>
+                <Row>
+                    <Col>Amount</Col>
+                    <Col>Amount.Pure (Без стилей)</Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Amount
+                            value={value}
+                            currency={currency}
+                            minority={minority}
+                            view={view}
+                            className={className}
+                            dataTestId={dataTestId}
+                        />
+                    </Col>
+                    <Col>
+                        <Amount.Pure
+                            value={value}
+                            currency={currency}
+                            minority={minority}
+                            view={view}
+                            className={className}
+                            dataTestId={dataTestId}
+                        />
+                    </Col>
+                </Row>
+            </React.Fragment>
+        );
+    })}
 </Story>
 
 <Props of={Amount} />
@@ -37,11 +67,21 @@ import { Amount } from '@alfalab/core-components-amount';
 ## Контекст использования
 <br/>
 
-- `hideMinority="true"`: не показывает минорную часть, если её значение равно 0.
-
+- `view="withZeroMinorPart"`: не показывает минорную часть, если её значение равно 0.
+TODO: siebian хотели красивую таблицу которая показывает разницу
 <Preview>
     <Container>
-        <Amount value={1234500} currency='RUR' minority={100} hideMinority={true} />
+        <Row>
+            <Col>Значение</Col>
+            <Col>view="default"</Col>
+            <Col>view="withZeroMinorPart"</Col>
+        </Row>
+        <Row>
+            <Col>1234500</Col>
+            <Col><Amount value={1234500} currency='RUR' minority={100} /></Col>
+            <Col><Amount view="withZeroMinorPart" value={1234500} currency='RUR' minority={100} /></Col>
+        </Row>
+        <Amount value={1234500} currency='RUR' minority={100} />
         <Amount value={1234567} currency='RUR' minority={100} hideMinority={true} />
     </Container>
 </Preview>
@@ -90,7 +130,7 @@ import { Amount } from '@alfalab/core-components-amount';
 <Preview>
     <Container>
         <span>
-            <Amount value={1234500} currency='RUR' minority={100} pure={true} />
+            <Amount.Pure value={1234500} currency='RUR' minority={100} />
         </span>
     </Container>
 </Preview>

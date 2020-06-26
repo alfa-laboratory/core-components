@@ -62,6 +62,7 @@ type AmountType = {
         code: CurrencyCodes;
         minority: number;
     };
+    withZeroMinorPart?: boolean;
 };
 
 export const formatAmount = ({ value, currency: { code, minority } }: AmountType) => {
