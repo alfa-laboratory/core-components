@@ -1,8 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { formatAmount } from '../utils';
-import { AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR, THINSP } from '../utils/currencyCodes';
+import { formatAmount } from '../utils/format-amount';
 import { AmountProps } from '../types';
 import styles from './index.module.css';
 
@@ -19,22 +18,16 @@ export const PureAmount: React.FC<AmountProps> = ({
     className,
     dataTestId,
 }) => {
-    const { majorPart, minorPart, currencySymbol } = formatAmount({
+    const { formatedWithCurrency } = formatAmount({
         value,
-        currency: {
-            code: currency,
-            minority,
-        },
-        withZeroMinorPart: view === 'withZeroMinorPart',
+        currency,
+        minority,
+        view,
     });
 
     return (
         <span className={cn(styles.component, className)} data-test-id={dataTestId}>
-            {majorPart}
-            {minorPart && AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR}
-            {minorPart}
-            {THINSP}
-            {currencySymbol}
+            {formatedWithCurrency}
         </span>
     );
 };

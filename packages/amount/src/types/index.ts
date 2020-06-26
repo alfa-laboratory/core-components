@@ -1,4 +1,4 @@
-import { CurrencyCodes } from '../utils/currencyCodes';
+import { CurrencyCodes } from '../utils/currency-codes';
 
 export type AmountProps = {
     /**
@@ -17,7 +17,7 @@ export type AmountProps = {
     minority: number;
 
     /**
-     * default - не отображаем копейки, если из значение 0
+     * default - не отображаем копейки, если их значение 0
      * withZeroMinorPart - отображаем копейки, даже если их значение равно 0
      */
     view?: 'default' | 'withZeroMinorPart';

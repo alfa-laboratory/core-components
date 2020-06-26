@@ -3,13 +3,13 @@ import { render } from '@testing-library/react';
 import { Amount } from '.';
 
 describe('Amount', () => {
-    it('should match snapshot', () => {
-        const testId = 'test-id';
-
-        const { getByTestId } = render(
-            <Amount value={100} currency='RUR' minority={100} dataTestId={testId} />,
+    it('should match snapshots for base and Pure components', () => {
+        const { container } = render(
+            <React.Fragment>
+                <Amount value={100} currency='RUR' minority={100} />
+                <Amount.Pure value={100} currency='RUR' minority={100} />
+            </React.Fragment>,
         );
-        const amount = getByTestId(testId);
-        expect(amount).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
     });
 });

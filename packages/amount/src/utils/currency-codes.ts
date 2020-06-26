@@ -1,10 +1,3 @@
-export const THINSP = String.fromCharCode(8201); // &thinsp;
-export const AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR = ',';
-
-export const AMOUNT_MAJOR_PART_SIZE = 3;
-export const AMOUNT_SPLIT_CODE_FROM = 4;
-export const NEGATIVE_AMOUNT_SYMBOL = '−';
-
 export const CURRENCY_CODES = {
     ALL: '\u004c\u0065\u006b',
     AFN: '\u060b',
@@ -123,3 +116,11 @@ export const CURRENCY_CODES = {
 };
 
 export type CurrencyCodes = keyof typeof CURRENCY_CODES;
+
+/**
+ * Возвращает знак валюты по ISO коду.
+ *
+ * @param currencyCode Код валюты.
+ */
+export const getCurrencySymbol = (currencyCode: CurrencyCodes): string =>
+    CURRENCY_CODES[currencyCode];
