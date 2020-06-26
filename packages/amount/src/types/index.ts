@@ -1,5 +1,7 @@
 import { CurrencyCodes } from '../utils/currency-codes';
 
+export { CurrencyCodes } from '../utils/currency-codes';
+
 export type AmountProps = {
     /**
      * Денежное значение в минорных единицах
