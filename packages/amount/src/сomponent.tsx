@@ -66,7 +66,7 @@ export const Amount: React.FC<Props> = ({
     });
 
     return (
-        <div
+        <span
             className={cn(styles.component, { [styles.amount]: !pure }, className)}
             data-test-id={dataTestId}
         >
@@ -77,6 +77,6 @@ export const Amount: React.FC<Props> = ({
                 {THINSP}
                 {currencySymbol}
             </span>
-        </div>
+        </span>
     );
 };

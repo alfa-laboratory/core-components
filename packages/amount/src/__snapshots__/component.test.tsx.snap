@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Amount should match snapshot 1`] = `
-<div
+<span
   class="component amount"
   data-test-id="test-id"
 >
@@ -14,5 +14,5 @@ exports[`Amount should match snapshot 1`] = `
      
     ₽
   </span>
-</div>
+</span>
 `;

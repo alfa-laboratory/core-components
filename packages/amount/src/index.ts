@@ -1,1 +1,1 @@
-export * from './с-omponent';
+export * from './сomponent';
