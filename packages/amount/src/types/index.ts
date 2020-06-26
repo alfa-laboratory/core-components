@@ -12,7 +12,7 @@ export type AmountProps = {
     currency: CurrencyCodes;
 
     /**
-     * Идентификатор для систем автоматизированного тестирования
+     * Количество минорных единиц в валюте
      */
     minority: number;
 
