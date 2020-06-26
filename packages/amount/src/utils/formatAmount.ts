@@ -65,7 +65,11 @@ type AmountType = {
     withZeroMinorPart?: boolean;
 };
 
-export const formatAmount = ({ value, currency: { code, minority } }: AmountType) => {
+export const formatAmount = ({
+    value,
+    currency: { code, minority },
+    withZeroMinorPart,
+}: AmountType) => {
     if (value === null) {
         return {
             majorPart: '',
@@ -80,6 +84,7 @@ export const formatAmount = ({ value, currency: { code, minority } }: AmountType
 
     const fractionDigits = Math.log(minority) * Math.LOG10E;
     const valueAbsStr = (Math.abs(value) / minority).toFixed(fractionDigits);
+    // TODO: проверить что toFixed возврает всегда точку.
 
     const [majorPart, minorPart] = valueAbsStr.split('.');
 
@@ -99,7 +104,7 @@ export const formatAmount = ({ value, currency: { code, minority } }: AmountType
 
     return {
         majorPart: majorPartFormatted,
-        minorPart,
+        minorPart: !withZeroMinorPart && value % minority === 0 ? null : minorPart,
         value: formattedValueStr,
         currencySymbol: getCurrencySymbol(code),
     };

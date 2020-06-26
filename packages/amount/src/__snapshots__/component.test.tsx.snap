@@ -9,8 +9,6 @@ exports[`Amount should match snapshot 1`] = `
   <span
     class="minorPartAndCurrency"
   >
-    ,
-    00
      
     ₽
   </span>

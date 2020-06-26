@@ -6,8 +6,6 @@ exports[`PureAmount should match snapshot 1`] = `
   data-test-id="test-id"
 >
   1
-  ,
-  00
    
   ₽
 </span>
