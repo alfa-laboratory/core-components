@@ -76,7 +76,6 @@ export const formatAmount = ({ value, currency, minority, view }: AmountType) =>
 
     const fractionDigits = Math.log(minority) * Math.LOG10E;
     const valueAbsStr = (Math.abs(value) / minority).toFixed(fractionDigits);
-    // TODO: проверить что toFixed возвращает всегда точку.
 
     const [majorPart] = valueAbsStr.split('.');
     let [, minorPart] = valueAbsStr.split('.');
