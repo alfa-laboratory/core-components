@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/alfa-laboratory/core-components/compare/v1.7.3...v1.8.0) (2020-06-30)
+
+
+### Features
+
+* **core-components-amount:** add boilerplate for amount ([5614885](https://github.com/alfa-laboratory/core-components/commit/5614885237a9a4843fb312c22c6b5810a3509e63))
+* **core-components-amount:** add click theme ([b4b0699](https://github.com/alfa-laboratory/core-components/commit/b4b0699dcffd2f505935489d66fd0d48b633ecf7))
+* **core-components-amount:** allow withZeroMinorPart formatting ([e86529d](https://github.com/alfa-laboratory/core-components/commit/e86529d72e28e8cde8bffbfd4b4d263129ec4d78))
+* **core-components-amount:** export CurrencyCodes ([1a6155a](https://github.com/alfa-laboratory/core-components/commit/1a6155a63655084895831094127404cdbcb0ef54))
+* **core-components-amount:** feat, change api, add PureAmount ([f946776](https://github.com/alfa-laboratory/core-components/commit/f94677645a8244dedf6f003f901290d5a2c6c16d))
+* **core-components-amount:** implemented amount, add demo ([1e78129](https://github.com/alfa-laboratory/core-components/commit/1e781295de03ff4aac5f5a7ec761f22b529716bd))
+* **core-components-popover:** add classname for tooltip popover ([c837199](https://github.com/alfa-laboratory/core-components/commit/c837199eda8890806388f87a32d61cc88a4165dd))
+
+
+### Bug Fixes
+
+* 🐛 use mixinsDir to import mixins ([#182](https://github.com/alfa-laboratory/core-components/issues/182)) ([06a6f2d](https://github.com/alfa-laboratory/core-components/commit/06a6f2dde49db07681d09a5afb94e91ab1c9da04)), closes [#181](https://github.com/alfa-laboratory/core-components/issues/181)
+
 ### [1.7.3](https://github.com/alfa-laboratory/core-components/compare/v1.7.2...v1.7.3) (2020-06-23)
 
 
