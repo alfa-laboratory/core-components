@@ -1,0 +1,16 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --amount-major-part-font-weight: bold;
+    --amount-minor-part-font-weight: normal;
+}
+
+.component {
+    white-space: nowrap;
+    font-weight: var(--amount-major-part-font-weight);
+}
+
+.minorPartAndCurrency {
+    opacity: 0.6;
+    font-weight: var(--amount-minor-part-font-weight);
+}
