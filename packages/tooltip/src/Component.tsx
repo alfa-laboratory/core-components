@@ -90,6 +90,11 @@ export type TooltipProps = {
      * Дополнительный класс для контента
      */
     contentClassName?: string;
+
+    /**
+     * Дополнительный класс для поповера
+     */
+    popoverClassName?: string;
 };
 
 export const Tooltip: FC<TooltipProps> = ({
@@ -107,6 +112,7 @@ export const Tooltip: FC<TooltipProps> = ({
     position,
     contentClassName,
     arrowClassName,
+    popoverClassName,
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
     const [target, setTarget] = useState<RefElement>(null);
@@ -287,7 +293,7 @@ export const Tooltip: FC<TooltipProps> = ({
                     open={show}
                     getPortalContainer={getPortalContainer}
                     arrowClassName={arrowClassName}
-                    popperClassName={styles.popper}
+                    popperClassName={cn(styles.popper, popoverClassName)}
                     offset={offset}
                     withArrow={true}
                     position={position}
