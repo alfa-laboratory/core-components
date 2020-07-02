@@ -11,6 +11,10 @@
     "publishConfig": {
         "access": "public"
     },
+    "dependencies": {
+      "@alfalab/data": "^0.1.0",
+      "@alfalab/utils": "^0.1.0"
+    },
     "peerDependencies": {
         "classnames": "^2.2.6",
         "react": "^16.9.0"

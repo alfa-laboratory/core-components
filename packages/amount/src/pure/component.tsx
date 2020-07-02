@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
+import { formatAmount } from '@alfalab/utils';
 
-import { formatAmount } from '../utils/format-amount';
 import { AmountProps } from '../types';
 import styles from './index.module.css';
 
