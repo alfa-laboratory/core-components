@@ -1,4 +1,4 @@
-import { CurrencyCodes } from '../utils/currency-codes';
+import { CurrencyCodes } from '@alfalab/data';
 
 export type AmountProps = {
     /**

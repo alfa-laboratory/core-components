@@ -3,7 +3,7 @@ import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { Container, Row, Col } from 'storybook/blocks/grid';
 
 import { Amount } from '.';
-import { CURRENCY_CODES } from './utils/currency-codes';
+import { getAllCurrencyCodes } from '@alfalab/utils';
 import { name, version } from '../package.json';
 
 <Meta title='Компоненты|Amount' component={Amount} />
@@ -23,8 +23,9 @@ import { Amount } from '@alfalab/core-components-amount';
 
 <Story name='Песочница'>
     {React.createElement(() => {
+        const currencyCodes = getAllCurrencyCodes();
         const value = number('value', 12300);
-        const currency = select('currency', Object.keys(CURRENCY_CODES), 'RUR');
+        const currency = select('currency', currencyCodes, 'RUR');
         const minority = number('minority', 100);
         const view = select('view', ['default', 'withZeroMinorPart'], 'default');
         const className = select('className', '');
