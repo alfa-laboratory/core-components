@@ -5,8 +5,8 @@
 import React, { useState } from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-
-import { MoneyInput, CurrencyCodes } from './index';
+import { CurrencyCodes } from '@alfalab/data';
+import { MoneyInput } from './index';
 
 const THINSP = String.fromCharCode(8201);
 

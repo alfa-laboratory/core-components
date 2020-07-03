@@ -2,10 +2,9 @@
  * https://github.com/alfa-laboratory/utils
  * TODO: нужно перенести утилиты в этот проект, когда он будет готов
  */
-import { formatAmount } from './formatAmount';
-import { CurrencyCodes } from './currencyCodes';
 
-export * from './formatAmount';
+import { formatAmount } from '@alfalab/utils';
+import { CurrencyCodes } from '@alfalab/data';
 
 /**
  * Форматирует введенное значение
@@ -17,7 +16,8 @@ export function getFormatedValue(enteredValue: string, currency: CurrencyCodes, 
     const [head, tail] = enteredValue.split(',');
     const { majorPart } = formatAmount({
         value: Number(head) * minority,
-        currency: { code: currency, minority },
+        currency,
+        minority,
     });
 
     if (!enteredValue) {
