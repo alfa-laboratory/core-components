@@ -2,9 +2,10 @@ import cn from 'classnames';
 import React, { useState, useEffect, useCallback } from 'react';
 import { Input, InputProps } from '@alfalab/core-components-input';
 import { FormControl } from '@alfalab/core-components-form-control';
+import { THINSP, formatAmount, getCurrencySymbol } from '@alfalab/utils';
+import { CurrencyCodes } from '@alfalab/data';
+import { getFormatedValue, getAmountValueFromStr } from './utils';
 
-import { CURRENCY_CODES, CurrencyCodes, THINSP } from './utils/currencyCodes';
-import { getFormatedValue, getAmountValueFromStr, formatAmount } from './utils';
 import styles from './index.module.css';
 
 /**
@@ -12,7 +13,6 @@ import styles from './index.module.css';
  * Если вам на проекте приходится что-то кастовать - дайте знать
  * TODO: тип должен стать общим для банка
  */
-export { CurrencyCodes } from './utils/currencyCodes';
 
 export type MoneyInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> & {
     /**
@@ -62,7 +62,7 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
     value = null,
     minority = 100,
     currency = 'RUR',
-    placeholder = `0\u2009${CURRENCY_CODES[currency] || ''}`,
+    placeholder = `0\u2009${getCurrencySymbol(currency) || ''}`,
     bold = true,
     className,
     dataTestId,
@@ -74,22 +74,26 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
     const [focused, setFocused] = useState(false);
     const [inputValue, setInputValue] = useState<string>(
         formatAmount({
-            value,
-            currency: { code: currency, minority },
-        }).value,
+            // TODO: поддержать nullable в utils
+            value: value as number,
+            currency,
+            minority,
+        }).formated,
     );
     const filled = Boolean(inputValue || focused);
 
-    const currencySymbol = CURRENCY_CODES[currency];
+    const currencySymbol = getCurrencySymbol(currency);
 
     useEffect(() => {
         const currentAmountValue = getAmountValueFromStr(inputValue, minority);
         if (currentAmountValue !== value) {
             return setInputValue(
                 formatAmount({
-                    value,
-                    currency: { code: currency, minority },
-                }).value,
+                    // TODO: поддержать nullable в utils
+                    value: value as number,
+                    currency,
+                    minority,
+                }).formated,
             );
         }
 
