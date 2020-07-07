@@ -89,6 +89,7 @@
 
     & .hint {
         @mixin system_14-18_regular;
+        margin-top: var(--gap-2xs);
         color: var(--switch-hint-color);
     }
 }
