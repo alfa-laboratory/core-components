@@ -25,13 +25,13 @@ import { Radio } from '@alfalab/core-components-radio';
         const handleChange = () => setChecked(!checked);
         const disabled = boolean('disabled', false);
         const content = text('content', 'Text content')
-        const description = text('description', 'Description');
+        const hint = text('hint', 'Hint');
         return (
             <Radio
                 disabled={disabled}
                 onChange={handleChange}
                 checked={checked}
-                description={description}
+                hint={hint}
             >
                 {content}
             </Radio>
@@ -51,7 +51,7 @@ import { Radio } from '@alfalab/core-components-radio';
             <Radio
                 onChange={handleChange}
                 checked={checked}
-                description="Some description"
+                hint="Some description"
             >
                 Some text
             </Radio>

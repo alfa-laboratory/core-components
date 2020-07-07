@@ -124,9 +124,9 @@ Object {
             text
           </span>
           <span
-            class="description"
+            class="hint"
           >
-            description
+            hint
           </span>
         </div>
       </label>
@@ -151,9 +151,9 @@ Object {
           text
         </span>
         <span
-          class="description"
+          class="hint"
         >
-          description
+          hint
         </span>
       </div>
     </label>

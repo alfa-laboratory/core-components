@@ -7,7 +7,7 @@ type NativeProps = InputHTMLAttributes<HTMLInputElement>;
 
 export type RadioProps = Omit<NativeProps, 'type'> & {
     dataTestId?: string;
-    description?: ReactNode;
+    hint?: ReactNode;
     onChange?: (
         event?: ChangeEvent<HTMLInputElement>,
         payload?: {
@@ -19,17 +19,7 @@ export type RadioProps = Omit<NativeProps, 'type'> & {
 
 export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
     (
-        {
-            onChange,
-            className,
-            name,
-            disabled,
-            dataTestId,
-            children,
-            checked,
-            description,
-            ...restProps
-        },
+        { onChange, className, name, disabled, dataTestId, children, checked, hint, ...restProps },
         ref,
     ) => {
         const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -59,7 +49,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
                 <div className={styles.circle} />
                 <div className={styles.content}>
                     <span className={styles.label}>{children}</span>
-                    {description && <span className={styles.description}>{description}</span>}
+                    {hint && <span className={styles.hint}>{hint}</span>}
                 </div>
             </label>
         );

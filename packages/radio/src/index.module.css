@@ -87,7 +87,7 @@
         color: var(--switch-label-color);
     }
 
-    & .description {
+    & .hint {
         @mixin system_14-18_regular;
         color: var(--switch-hint-color);
     }

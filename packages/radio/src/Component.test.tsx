@@ -10,7 +10,7 @@ describe('Radio', () => {
         });
 
         it('should display with description correctly', () => {
-            expect(render(<Radio description='description'>text</Radio>)).toMatchSnapshot();
+            expect(render(<Radio hint='hint'>text</Radio>)).toMatchSnapshot();
         });
     });
 
