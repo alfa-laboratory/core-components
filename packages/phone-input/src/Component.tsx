@@ -40,9 +40,8 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
 
             // Вставка номера с 10 цифрами без кода (+7 или 8)
             if (
-                (conformedValue.length === mask.length ||
-                    conformedValue.length + 1 === mask.length) &&
-                rawValue.length === 10
+                rawValue.length === 10 &&
+                (conformedValue.length === mask.length || conformedValue.length + 1 === mask.length)
             ) {
                 const masked = conformToMask(`+7${rawValue}`, mask, config);
                 return masked.conformedValue;
