@@ -46,11 +46,11 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
                     name={name}
                     {...restProps}
                 />
-                <div className={styles.circle} />
-                <div className={styles.content}>
+                <span className={styles.circle} />
+                <span className={styles.content}>
                     <span className={styles.label}>{children}</span>
                     {hint && <span className={styles.hint}>{hint}</span>}
-                </div>
+                </span>
             </label>
         );
     },

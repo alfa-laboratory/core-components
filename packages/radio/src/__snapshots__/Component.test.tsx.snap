@@ -11,10 +11,10 @@ Object {
         <input
           type="radio"
         />
-        <div
+        <span
           class="circle"
         />
-        <div
+        <span
           class="content"
         >
           <span
@@ -22,7 +22,7 @@ Object {
           >
             text
           </span>
-        </div>
+        </span>
       </label>
     </div>
   </body>,
@@ -33,10 +33,10 @@ Object {
       <input
         type="radio"
       />
-      <div
+      <span
         class="circle"
       />
-      <div
+      <span
         class="content"
       >
         <span
@@ -44,7 +44,7 @@ Object {
         >
           text
         </span>
-      </div>
+      </span>
     </label>
   </div>,
   "debug": [Function],
@@ -112,10 +112,10 @@ Object {
         <input
           type="radio"
         />
-        <div
+        <span
           class="circle"
         />
-        <div
+        <span
           class="content"
         >
           <span
@@ -128,7 +128,7 @@ Object {
           >
             hint
           </span>
-        </div>
+        </span>
       </label>
     </div>
   </body>,
@@ -139,10 +139,10 @@ Object {
       <input
         type="radio"
       />
-      <div
+      <span
         class="circle"
       />
-      <div
+      <span
         class="content"
       >
         <span
@@ -155,7 +155,7 @@ Object {
         >
           hint
         </span>
-      </div>
+      </span>
     </label>
   </div>,
   "debug": [Function],
