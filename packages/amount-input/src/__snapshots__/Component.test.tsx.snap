@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MoneyInput Snapshots tests should match snapshot 1`] = `
+exports[`AmountInput Snapshots tests should match snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -173,7 +173,7 @@ Object {
 }
 `;
 
-exports[`MoneyInput Snapshots tests should match snapshot 2`] = `
+exports[`AmountInput Snapshots tests should match snapshot 2`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
