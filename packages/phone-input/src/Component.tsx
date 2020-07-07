@@ -26,7 +26,6 @@ export type PhoneInputProps = Omit<MaskedInputProps, 'onBeforeDisplay' | 'type'>
 export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
     ({ mask = defaultMask, ...restProps }, ref) => {
         const inputRef = useRef<HTMLInputElement>(null);
-        console.debug(restProps);
 
         // Оставляет возможность прокинуть ref извне
         useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
