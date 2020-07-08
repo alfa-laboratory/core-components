@@ -90,6 +90,12 @@
     font-size: 14px;
     line-height: 18px;
     font-weight: normal;
+
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        /* Хак для ие, в котором не работает центрирование по высоте с использованием флексов, если указан min-height
+        Возможно другое решение - если в будущем у компонента появится обертка, установить ей display: flex / inline-flex */
+        height: 32px;
+    }
 }
 
 .s {
@@ -99,6 +105,12 @@
     font-size: 16px;
     line-height: 20px;
     font-weight: normal;
+
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        /* Хак для ие, в котором не работает центрирование по высоте с использованием флексов, если указан min-height
+        Возможно другое решение - если в будущем у компонента появится обертка, установить ей display: flex / inline-flex */
+        height: 48px;
+    }
 }
 
 .m {
@@ -108,6 +120,12 @@
     font-size: 16px;
     line-height: 20px;
     font-weight: 500;
+
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        /* Хак для ие, в котором не работает центрирование по высоте с использованием флексов, если указан min-height
+        Возможно другое решение - если в будущем у компонента появится обертка, установить ей display: flex / inline-flex */
+        height: 56px;
+    }
 }
 
 .l {
@@ -117,4 +135,10 @@
     font-size: 18px;
     line-height: 22px;
     font-weight: 500;
+
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        /* Хак для ие, в котором не работает центрирование по высоте с использованием флексов, если указан min-height
+        Возможно другое решение - если в будущем у компонента появится обертка, установить ей display: flex / inline-flex */
+        height: 68px;
+    }
 }
