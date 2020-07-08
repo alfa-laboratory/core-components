@@ -19,8 +19,6 @@ Object {
             >
               <input
                 class="input"
-                formnovalidate=""
-                name="phone"
                 type="tel"
                 value=""
               />
@@ -46,8 +44,6 @@ Object {
           >
             <input
               class="input"
-              formnovalidate=""
-              name="phone"
               type="tel"
               value=""
             />

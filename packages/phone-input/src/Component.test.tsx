@@ -21,7 +21,7 @@ describe('PhoneInput', () => {
     });
 
     describe('should format a phone number according default to mask', () => {
-        it('"+" -> "+7 "', () => {
+        it('input "+" -> "+7 "', () => {
             const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} />);
             const inputElement = getByTestId(dataTestId) as HTMLInputElement;
 
@@ -29,7 +29,7 @@ describe('PhoneInput', () => {
             expect(inputElement.value).toBe('+7 ');
         });
 
-        it('"7" -> "+7 "', () => {
+        it('input "7" -> "+7 "', () => {
             const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} />);
             const inputElement = getByTestId(dataTestId) as HTMLInputElement;
 
@@ -37,23 +37,23 @@ describe('PhoneInput', () => {
             expect(inputElement.value).toBe('+7 ');
         });
 
-        it('"8" -> "+7 "', () => {
+        it('input "8" -> "+7 "', () => {
             const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} />);
             const inputElement = getByTestId(dataTestId) as HTMLInputElement;
 
-            fireEvent.change(inputElement, { target: { value: '8' } });
+            userEvent.type(inputElement, '8');
             expect(inputElement.value).toBe('+7 ');
         });
 
-        it('"5" -> "+7 1"', () => {
+        it('input "1" -> "+7 1"', () => {
             const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} />);
             const inputElement = getByTestId(dataTestId) as HTMLInputElement;
 
-            fireEvent.change(inputElement, { target: { value: '1' } });
+            userEvent.type(inputElement, '1');
             expect(inputElement.value).toBe('+7 1');
         });
 
-        it('"+71112223344" -> "+7 111 222-33-44"', () => {
+        it('insert "+71112223344" -> "+7 111 222-33-44"', () => {
             const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} />);
             const inputElement = getByTestId(dataTestId) as HTMLInputElement;
 
@@ -61,7 +61,7 @@ describe('PhoneInput', () => {
             expect(inputElement.value).toBe('+7 111 222-33-44');
         });
 
-        it('"81112223344" -> "+7 111 222-33-44"', () => {
+        it('insert "81112223344" -> "+7 111 222-33-44"', () => {
             const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} />);
             const inputElement = getByTestId(dataTestId) as HTMLInputElement;
 
@@ -69,7 +69,7 @@ describe('PhoneInput', () => {
             expect(inputElement.value).toBe('+7 111 222-33-44');
         });
 
-        it('"1112223344" -> "+7 111 222-33-44"', () => {
+        it('insert "1112223344" -> "+7 111 222-33-44"', () => {
             const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} />);
             const inputElement = getByTestId(dataTestId) as HTMLInputElement;
 
@@ -77,7 +77,7 @@ describe('PhoneInput', () => {
             expect(inputElement.value).toBe('+7 111 222-33-44');
         });
 
-        it('"8882223344" -> "+7 888 222-33-44"', () => {
+        it('insert "8882223344" -> "+7 888 222-33-44"', () => {
             const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} />);
             const inputElement = getByTestId(dataTestId) as HTMLInputElement;
 
@@ -85,15 +85,15 @@ describe('PhoneInput', () => {
             expect(inputElement.value).toBe('+7 888 222-33-44');
         });
 
-        it('"7772223344" -> "+7 777 222-33-44"', () => {
+        it('insert "71112223344" -> "+7 111 222-33-44"', () => {
             const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} />);
             const inputElement = getByTestId(dataTestId) as HTMLInputElement;
 
-            fireEvent.change(inputElement, { target: { value: '7772223344' } });
-            expect(inputElement.value).toBe('+7 777 222-33-44');
+            fireEvent.change(inputElement, { target: { value: '71112223344' } });
+            expect(inputElement.value).toBe('+7 111 222-33-44');
         });
 
-        it('"8 (777) 222-33-44" -> "+7 777 222-33-44"', () => {
+        it('insert "8 (777) 222-33-44" -> "+7 777 222-33-44"', () => {
             const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} />);
             const inputElement = getByTestId(dataTestId) as HTMLInputElement;
 
@@ -101,7 +101,7 @@ describe('PhoneInput', () => {
             expect(inputElement.value).toBe('+7 777 222-33-44');
         });
 
-        it('"111222334455" -> "+7 111 222-33-44"', () => {
+        it('insert "111222334455" -> "+7 111 222-33-44"', () => {
             const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} />);
             const inputElement = getByTestId(dataTestId) as HTMLInputElement;
 

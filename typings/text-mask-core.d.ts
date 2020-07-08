@@ -2,6 +2,7 @@ declare module 'text-mask-core' {
     export type Mask = Array<string | RegExp>;
 
     export type TextMaskConfig = {
+        currentCaretPosition?: number;
         rawValue: string;
         previousConformedValue?: string;
         mask?: Mask | ((rawValue: string) => Mask);

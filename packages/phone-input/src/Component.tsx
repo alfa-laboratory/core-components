@@ -38,17 +38,17 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                 return rawValue;
             }
 
-            // Вставка номера с 10 цифрами без кода (+7 или 8)
-            if (
-                rawValue.length === 10 &&
-                (conformedValue.length === mask.length || conformedValue.length + 1 === mask.length)
-            ) {
+            // Вставка номера с 10 цифрами без кода страны
+            if (rawValue.length === 10 && conformedValue.length === mask.length) {
                 const masked = conformToMask(`+7${rawValue}`, mask, config);
                 return masked.conformedValue;
             }
 
-            // Вставка номера, начинающегося с 8: 89990313131
-            if (conformedValue.length === mask.length && rawValue.startsWith('8')) {
+            // Вставка номера, начинающегося с 8 или 7: 89990313131, 71112223344
+            if (
+                conformedValue.length === mask.length &&
+                (rawValue.startsWith('8') || rawValue.startsWith('7'))
+            ) {
                 const masked = conformToMask(`+7${rawValue.slice(1)}`, mask, config);
                 return masked.conformedValue;
             }
@@ -67,8 +67,6 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                 mask={mask}
                 onBeforeDisplay={handleBeforeDisplay}
                 type='tel'
-                formNoValidate={true}
-                name='phone'
                 ref={inputRef}
             />
         );
