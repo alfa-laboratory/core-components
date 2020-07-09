@@ -48,16 +48,6 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                 });
             }
 
-            if (config.currentCaretPosition === 11) {
-                const caret = 11;
-                window.requestAnimationFrame(() => {
-                    if (inputRef !== null && inputRef.current) {
-                        inputRef.current.selectionStart = caret;
-                        inputRef.current.selectionEnd = caret;
-                    }
-                });
-            }
-
             // Удаление цифры перед кодом страны удаляет только саму цифру, код остается ("+7 1" -> "+7 ")
             if (rawValue === '+7 ') {
                 return rawValue;
