@@ -11,13 +11,19 @@ describe('PhoneInput', () => {
         expect(render(<PhoneInput />)).toMatchSnapshot();
     });
 
-    it('should not delete "+7" when "+7 1" is in input and delete button press event', () => {
-        const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} />);
-        const inputElement = getByTestId(dataTestId) as HTMLInputElement;
+    describe('should right delete number', () => {
+        it('"+7 1" -> press backspace -> "+7 "', () => {
+            const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} />);
+            const inputElement = getByTestId(dataTestId) as HTMLInputElement;
 
-        fireEvent.change(inputElement, { target: { value: '+7 1' } });
-        userEvent.type(inputElement, '{backspace}');
-        expect(inputElement.value).toBe('+7 ');
+            fireEvent.change(inputElement, { target: { value: '+7 1' } });
+            userEvent.type(inputElement, '{backspace}');
+            expect(inputElement.value).toBe('+7 ');
+        });
+        /*
+         * TODO: хотелось бы добавить тестов на проверку удаления цифр в номере,
+         * но не нашел способа двигать каретку
+         */
     });
 
     describe('should format a phone number according default to mask', () => {

@@ -33,7 +33,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
         const handleBeforeDisplay = (conformedValue: string, config: TextMaskConfig) => {
             const { rawValue } = config;
 
-            // Удаление цифры перед кодом города удаляет только саму цифру, код остается ("+7 1" -> "+7 ")
+            // Удаление цифры перед кодом страны удаляет только саму цифру, код остается ("+7 1" -> "+7 ")
             if (rawValue === '+7 ') {
                 return rawValue;
             }
@@ -50,6 +50,15 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                 (rawValue.startsWith('8') || rawValue.startsWith('7'))
             ) {
                 const masked = conformToMask(`+7${rawValue.slice(1)}`, mask, config);
+                return masked.conformedValue;
+            }
+
+            /*
+             * это условие необходимо для более менее корректного поведения при удалении
+             * первой цифры в номере после кода страны
+             */
+            if (rawValue[1] === '+') {
+                const masked = conformToMask(`+7${rawValue[0]}${rawValue.slice(4)}`, mask, config);
                 return masked.conformedValue;
             }
 

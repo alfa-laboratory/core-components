@@ -178,7 +178,7 @@ describe('MoneyInput', () => {
 
         await userEvent.type(input, ',');
         /**
-         * TODO: проверить положение картки
+         * TODO: проверить положение карeтки
          * expect(input.selectionStart).toBe(4);
          */
         expect(input.value).toBe('123,45');
@@ -190,7 +190,7 @@ describe('MoneyInput', () => {
         input.setSelectionRange(4, 4);
         await userEvent.type(input, '.');
         /**
-         * TODO: проверить положение картки
+         * TODO: проверить положение карeтки
          * expect(input.selectionStart).toBe(4);
          */
         expect(input.value).toBe('123,45');
