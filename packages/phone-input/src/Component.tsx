@@ -33,6 +33,31 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
         const handleBeforeDisplay = (conformedValue: string, config: TextMaskConfig) => {
             const { rawValue } = config;
 
+            /**
+             * При удалении цифры которая идет за кодом страны происходит прыжок картеки. Баг в maskcore
+             * и вот ссылка не демку TODO: sdfsf
+             */
+
+            if (config.currentCaretPosition === 3) {
+                const caret = 3;
+                window.requestAnimationFrame(() => {
+                    if (inputRef !== null && inputRef.current) {
+                        inputRef.current.selectionStart = caret;
+                        inputRef.current.selectionEnd = caret;
+                    }
+                });
+            }
+
+            if (config.currentCaretPosition === 11) {
+                const caret = 11;
+                window.requestAnimationFrame(() => {
+                    if (inputRef !== null && inputRef.current) {
+                        inputRef.current.selectionStart = caret;
+                        inputRef.current.selectionEnd = caret;
+                    }
+                });
+            }
+
             // Удаление цифры перед кодом страны удаляет только саму цифру, код остается ("+7 1" -> "+7 ")
             if (rawValue === '+7 ') {
                 return rawValue;
@@ -67,6 +92,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                 return conformedValue.slice(0, -1);
             }
 
+            console.log(config);
             return conformedValue;
         };
 
