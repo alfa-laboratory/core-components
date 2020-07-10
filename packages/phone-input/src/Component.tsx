@@ -2,7 +2,7 @@ import React, { useImperativeHandle, useRef } from 'react';
 import { conformToMask, TextMaskConfig } from 'text-mask-core';
 import { MaskedInput, MaskedInputProps } from '@alfalab/core-components-masked-input';
 
-const defaultMask = [
+const mask = [
     '+',
     '7',
     ' ',
@@ -21,25 +21,25 @@ const defaultMask = [
     /\d/,
 ];
 
-export type PhoneInputProps = Omit<MaskedInputProps, 'onBeforeDisplay' | 'type'>;
+export type PhoneInputProps = Omit<MaskedInputProps, 'onBeforeDisplay' | 'type' | 'mask'>;
 
 export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
-    ({ mask = defaultMask, ...restProps }, ref) => {
+    ({ ...restProps }, ref) => {
         const inputRef = useRef<HTMLInputElement>(null);
 
         // Оставляет возможность прокинуть ref извне
         useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
 
         const handleBeforeDisplay = (conformedValue: string, config: TextMaskConfig) => {
-            const { rawValue } = config;
+            const { rawValue, previousConformedValue, currentCaretPosition } = config;
 
-            /**
-             * При удалении цифры которая идет за кодом страны происходит прыжок картеки. Баг в maskcore
-             * и вот ссылка не демку TODO: sdfsf
-             */
-
-            if (config.currentCaretPosition === 3) {
-                const caret = 3;
+            // Для норм поведения каретки
+            if (
+                [3, 6, 11].includes(currentCaretPosition) ||
+                ([7, 10, 13].includes(currentCaretPosition) &&
+                    previousConformedValue.length > currentCaretPosition)
+            ) {
+                const caret = currentCaretPosition;
                 window.requestAnimationFrame(() => {
                     if (inputRef !== null && inputRef.current) {
                         inputRef.current.selectionStart = caret;
@@ -68,21 +68,11 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                 return masked.conformedValue;
             }
 
-            /*
-             * это условие необходимо для более менее корректного поведения при удалении
-             * первой цифры в номере после кода страны
-             */
-            if (rawValue[1] === '+') {
-                const masked = conformToMask(`+7${rawValue[0]}${rawValue.slice(4)}`, mask, config);
-                return masked.conformedValue;
-            }
-
             // Если ввод начат с 7 или 8 - выводит +7 и дает продолжить ввод со след. цифры
             if (rawValue.length === 1 && ['7', '8'].includes(rawValue[0])) {
                 return conformedValue.slice(0, -1);
             }
 
-            console.log(config);
             return conformedValue;
         };
 

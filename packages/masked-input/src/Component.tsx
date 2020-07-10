@@ -50,6 +50,8 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
                     showMask: false,
                     placeholderChar: PLACEHOLDER_CHAR,
                     rawValue: '',
+                    currentCaretPosition: 0,
+                    previousConformedValue: '',
                 });
             }
         }, [onBeforeDisplay, mask]);
