@@ -6,11 +6,11 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component"
+        class="component secondary m iconOnly"
         tabindex="0"
       >
         <span
-          class="wrapper secondary m iconOnly"
+          class="wrapper"
           tabindex="-1"
         />
       </button>
@@ -18,11 +18,11 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component"
+      class="component secondary m iconOnly"
       tabindex="0"
     >
       <span
-        class="wrapper secondary m iconOnly"
+        class="wrapper"
         tabindex="-1"
       />
     </button>
@@ -87,12 +87,12 @@ Object {
   "baseElement": <body>
     <div>
       <a
-        class="component"
+        class="component secondary m iconOnly"
         href="https://some-url"
         tabindex="0"
       >
         <span
-          class="wrapper secondary m iconOnly"
+          class="wrapper"
           tabindex="-1"
         />
       </a>
@@ -100,12 +100,12 @@ Object {
   </body>,
   "container": <div>
     <a
-      class="component"
+      class="component secondary m iconOnly"
       href="https://some-url"
       tabindex="0"
     >
       <span
-        class="wrapper secondary m iconOnly"
+        class="wrapper"
         tabindex="-1"
       />
     </a>
@@ -170,11 +170,11 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component"
+        class="component secondary m iconOnly"
         tabindex="0"
       >
         <span
-          class="wrapper secondary m iconOnly"
+          class="wrapper"
           tabindex="-1"
         />
       </button>
@@ -182,11 +182,11 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component"
+      class="component secondary m iconOnly"
       tabindex="0"
     >
       <span
-        class="wrapper secondary m iconOnly"
+        class="wrapper"
         tabindex="-1"
       />
     </button>
@@ -251,11 +251,11 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component"
+        class="component secondary m iconOnly"
         tabindex="0"
       >
         <span
-          class="wrapper secondary m iconOnly"
+          class="wrapper"
           tabindex="-1"
         >
           <span
@@ -271,11 +271,11 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component"
+      class="component secondary m iconOnly"
       tabindex="0"
     >
       <span
-        class="wrapper secondary m iconOnly"
+        class="wrapper"
         tabindex="-1"
       >
         <span
@@ -348,12 +348,12 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component"
+        class="component secondary m iconOnly loading"
         disabled=""
         tabindex="0"
       >
         <span
-          class="wrapper secondary m iconOnly loading"
+          class="wrapper"
           tabindex="-1"
         >
           <svg
@@ -384,12 +384,12 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component"
+      class="component secondary m iconOnly loading"
       disabled=""
       tabindex="0"
     >
       <span
-        class="wrapper secondary m iconOnly loading"
+        class="wrapper"
         tabindex="-1"
       >
         <svg
@@ -477,11 +477,11 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component"
+        class="component secondary m iconOnly"
         tabindex="0"
       >
         <span
-          class="wrapper secondary m iconOnly"
+          class="wrapper"
           tabindex="-1"
         >
           <span
@@ -497,11 +497,11 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component"
+      class="component secondary m iconOnly"
       tabindex="0"
     >
       <span
-        class="wrapper secondary m iconOnly"
+        class="wrapper"
         tabindex="-1"
       >
         <span

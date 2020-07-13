@@ -38,8 +38,9 @@
 
 .component {
     display: inline-flex;
+    align-items: stretch;
     margin: 0;
-    padding: 0;
+    padding: 0 24px;
     text-decoration: none;
     background-color: transparent;
     border: 0;
@@ -47,25 +48,23 @@
     user-select: none;
     cursor: pointer;
     outline: none;
+    border-radius: var(--border-radius);
+    transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
+    box-sizing: border-box;
 }
 
 .wrapper {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    flex: 1 1 100%;
     justify-content: center;
     align-content: center;
     align-items: center;
     margin: 0;
-    padding: 0 24px;
     line-height: 1.2;
     font-weight: var(--button-font-weight);
     font-family: var(--font-family);
-    background-color: transparent;
-    border: 0;
-    border-radius: var(--border-radius);
-    transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
-    box-sizing: border-box;
     outline: none;
 }
 
@@ -210,7 +209,7 @@
 .component:disabled {
     cursor: initial;
 
-    & .primary {
+    &.primary {
         background-color: var(--button-primary-disabled-bg-color);
 
         &.loading {
@@ -218,7 +217,7 @@
         }
     }
 
-    & .secondary {
+    &.secondary {
         color: var(--color-dark-indigo-30);
         background-color: var(--button-secondary-disabled-bg-color);
 
@@ -228,7 +227,7 @@
         }
     }
 
-    & .outlined {
+    &.outlined {
         color: var(--color-dark-indigo-30);
         background-color: transparent;
         border-color: var(--color-dark-indigo-10);
@@ -239,7 +238,7 @@
         }
     }
 
-    & .link {
+    &.link {
         color: var(--color-dark-indigo-30);
         background-color: transparent;
 
@@ -248,7 +247,7 @@
         }
     }
 
-    & .ghost {
+    &.ghost {
         color: var(--button-ghost-disabled-color);
 
         &.loading {
