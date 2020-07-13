@@ -42,7 +42,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
              * а не остается на том же месте, на котором была до редактирования
              */
             if (
-                [3, 6, 11].includes(currentCaretPosition) ||
+                (previousConformedValue?.length > 1 && [3, 6, 11].includes(currentCaretPosition)) ||
                 ([7, 10, 13].includes(currentCaretPosition) &&
                     previousConformedValue.length > currentCaretPosition)
             ) {
