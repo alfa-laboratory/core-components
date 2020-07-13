@@ -21,7 +21,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
     dataTestId,
 }) => {
     const fillTranslate = useMemo(() => {
-        return Number((-1 * (100 - value)).toFixed(2));
+        return Number((value - 100).toFixed(2));
     }, [value]);
 
     return (
