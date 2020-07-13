@@ -6,10 +6,10 @@
     cursor: pointer;
 
     & .circle {
-        width: var(--gap-m);
-        height: var(--gap-m);
+        width: 16px;
+        height: 16px;
         box-sizing: border-box;
-        border-radius: var(--gap-xs);
+        border-radius: 8px;
         position: relative;
         margin-right: var(--gap-xs);
         margin-top: var(--gap-2xs);
