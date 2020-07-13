@@ -6,7 +6,7 @@ const mask = [
     '+',
     '7',
     ' ',
-    /\d/,
+    /([0-6]|[8-9])/,
     /\d/,
     /\d/,
     ' ',
@@ -75,9 +75,9 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                 return masked.conformedValue;
             }
 
-            // Если ввод начат с 7 или 8 - выводит +7 и дает продолжить ввод со след. цифры
+            // Если ввод начат с 7 или 8 - выводит "+7 " и дает продолжить ввод со след. цифры
             if (rawValue.length === 1 && ['7', '8'].includes(rawValue[0])) {
-                return conformedValue.slice(0, -1);
+                return '+7 ';
             }
 
             return conformedValue;

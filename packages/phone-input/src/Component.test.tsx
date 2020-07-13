@@ -99,12 +99,12 @@ describe('PhoneInput', () => {
             expect(inputElement.value).toBe('+7 111 222-33-44');
         });
 
-        it('insert "8 (777) 222-33-44" -> "+7 777 222-33-44"', () => {
+        it('insert "8 (111) 222-33-44" -> "+7 111 222-33-44"', () => {
             const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} />);
             const inputElement = getByTestId(dataTestId) as HTMLInputElement;
 
-            fireEvent.change(inputElement, { target: { value: '8 (777) 222-33-44' } });
-            expect(inputElement.value).toBe('+7 777 222-33-44');
+            fireEvent.change(inputElement, { target: { value: '8 (111) 222-33-44' } });
+            expect(inputElement.value).toBe('+7 111 222-33-44');
         });
 
         it('insert "111222334455" -> "+7 111 222-33-44"', () => {
