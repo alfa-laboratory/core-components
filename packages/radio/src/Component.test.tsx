@@ -6,11 +6,11 @@ import { Radio } from './index';
 describe('Radio', () => {
     describe('Display tests', () => {
         it('should display correctly', () => {
-            expect(render(<Radio>text</Radio>)).toMatchSnapshot();
+            expect(render(<Radio label='text' />)).toMatchSnapshot();
         });
 
         it('should display with description correctly', () => {
-            expect(render(<Radio hint='hint'>text</Radio>)).toMatchSnapshot();
+            expect(render(<Radio hint='hint' label='text' />)).toMatchSnapshot();
         });
     });
 

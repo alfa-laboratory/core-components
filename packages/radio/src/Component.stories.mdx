@@ -32,9 +32,8 @@ import { Radio } from '@alfalab/core-components-radio';
                 onChange={handleChange}
                 checked={checked}
                 hint={hint}
-            >
-                {content}
-            </Radio>
+                label={content}
+            />
         );
     })}
 </Story>
@@ -51,10 +50,9 @@ import { Radio } from '@alfalab/core-components-radio';
             <Radio
                 onChange={handleChange}
                 checked={checked}
+                label="Some label"
                 hint="Some description"
-            >
-                Some text
-            </Radio>
+            />
         );
     })}
 </Preview>
