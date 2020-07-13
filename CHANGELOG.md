@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/alfa-laboratory/core-components/compare/v1.8.0...v1.9.0) (2020-07-13)
+
+
+### Bug Fixes
+
+* **tag:** add height in ie (fix bug with flex and align-items) ([9fd2abd](https://github.com/alfa-laboratory/core-components/commit/9fd2abd401d92e01e853ce5a3f497645d74b8e04))
+
 ## [1.8.0](https://github.com/alfa-laboratory/core-components/compare/v1.7.3...v1.8.0) (2020-06-30)
 
 
