@@ -5,18 +5,20 @@
     align-items: flex-start;
     cursor: pointer;
 
-    &:not(.checked):not(.disabled) .circle {
-        background: var(--color-dark-indigo-05-flat);
-        border: 1px solid var(--color-dark-indigo-60-flat);
+    &:not(.checked):not(.disabled) {
+        & .circle {
+            background: var(--color-dark-indigo-05-flat);
+            border: 1px solid var(--color-dark-indigo-60-flat);
 
-        &:not(:active):hover {
-            background: var(--color-dark-indigo-30-flat);
-            border: 1px solid #6d7986;
+            &:active {
+                background: var(--color-dark-indigo-30-flat);
+                border: 1px solid var(--color-dark-indigo);
+            }
         }
 
-        &:active {
+        &:hover .circle:not(:active) {
             background: var(--color-dark-indigo-30-flat);
-            border: 1px solid var(--color-dark-indigo);
+            border: 1px solid #6d7986;
         }
     }
 
@@ -44,17 +46,19 @@
         bottom: 0;
     }
 
-    &.checked .circle {
-        border: 1px solid var(--color-red-dark);
-        background-color: var(--color-red-brand-85-flat);
+    &.checked {
+        & .circle {
+            border: 1px solid var(--color-red-dark);
+            background-color: var(--color-red-brand-85-flat);
 
-        &:hover {
-            background-color: var(--color-red-brand);
+            &:active {
+                background: var(--color-red-brand);
+                border: 1px solid var(--color-dark-indigo);
+            }
         }
 
-        &:active {
-            background: var(--color-red-brand);
-            border: 1px solid var(--color-dark-indigo);
+        &:hover .circle {
+            background-color: var(--color-red-brand);
         }
     }
 
