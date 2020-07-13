@@ -8,13 +8,7 @@ import { getFormatedValue, getAmountValueFromStr } from './utils';
 
 import styles from './index.module.css';
 
-/**
- * Тип явно описывающий набор поддерживаемых валют
- * Если вам на проекте приходится что-то кастовать - дайте знать
- * TODO: тип должен стать общим для банка
- */
-
-export type MoneyInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> & {
+export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> & {
     /**
      * Денежное значение в минорных единицах
      * Значение null - значит не установлено
@@ -58,7 +52,7 @@ export type MoneyInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> & 
 /**
  * Компонент для ввода денежных значений
  */
-export const MoneyInput: React.FC<MoneyInputProps> = ({
+export const AmountInput: React.FC<AmountInputProps> = ({
     value = null,
     minority = 100,
     currency = 'RUR',
@@ -70,7 +64,7 @@ export const MoneyInput: React.FC<MoneyInputProps> = ({
     onBlur,
     onFocus,
     ...restProps
-}: MoneyInputProps) => {
+}: AmountInputProps) => {
     const [focused, setFocused] = useState(false);
     const [inputValue, setInputValue] = useState<string>(
         formatAmount({

@@ -4,21 +4,21 @@ import { action } from '@storybook/addon-actions';
 import { Container, Row, Col } from 'storybook/blocks/grid';
 import { Design } from 'storybook/blocks/design';
 
-import { MoneyInput, ContentEditableMoneyInput } from './Component';
+import { AmountInput } from './Component';
 import { name, version } from '../package.json';
 
 
 <!-- prettier-ignore -->
 
 
-<Meta title='Компоненты|MoneyInput' component={MoneyInput} />
+<Meta title='Компоненты|AmountInput' component={AmountInput} />
 
 <Title>
-    MoneyInput ({name}@{version})
+    AmountInput ({name}@{version})
 </Title>
 
 ```tsx
-import { MoneyInput } from '@alfalab/core-components-money-input';
+import { AmountInput } from '@alfalab/core-components-amount-input';
 ```
 
 <Design>
@@ -30,7 +30,7 @@ import { MoneyInput } from '@alfalab/core-components-money-input';
 Компонент текстового поля для ввода денежных значений
 
 <Story name='Песочница'>
-    <MoneyInput
+    <AmountInput
         value={number('value', null)}
         currency={text('currency', 'RUR')}
         minority={number('minority', 100)}
@@ -48,14 +48,14 @@ import { MoneyInput } from '@alfalab/core-components-money-input';
     />
 </Story>
 
-<Props of={MoneyInput} />
+<Props of={AmountInput} />
 
 ### Uncontrolled-way
 
 Можно ничего не передавать в компонент и реагировать на 'onChange'
 
 <Preview>
-    <MoneyInput />
+    <AmountInput />
 </Preview>
 
 ### Controlled-way
@@ -78,7 +78,7 @@ import { MoneyInput } from '@alfalab/core-components-money-input';
             <Container>
                 <Row align="middle">
                     <Col>
-                        <MoneyInput
+                        <AmountInput
                             value={value}
                             onChange={handleChange}
                         />
