@@ -33,7 +33,14 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
         const handleBeforeDisplay = (conformedValue: string, config: TextMaskConfig) => {
             const { rawValue, previousConformedValue, currentCaretPosition } = config;
 
-            // Для норм поведения каретки
+            /*
+             * код ниже нужен для фикса следующих багов библиотеки text-mask:
+             * 1) так как код страны указан в маске жестко как "+7",
+             * то при удалении цифры перед ним каретку устанавливается перед кодом страны
+             * 2) в номере телефона есть пробелы и дефисы,
+             * при редактировании цифр рядом с этими символами каретка перескакивает через них,
+             * а не остается на том же месте, на котором была до редактирования
+             */
             if (
                 [3, 6, 11].includes(currentCaretPosition) ||
                 ([7, 10, 13].includes(currentCaretPosition) &&
