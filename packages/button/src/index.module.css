@@ -40,7 +40,10 @@
     display: inline-flex;
     align-items: stretch;
     margin: 0;
-    padding: 0 24px;
+    padding: 0;
+    line-height: 1.2;
+    font-weight: var(--button-font-weight);
+    font-family: var(--font-family);
     text-decoration: none;
     background-color: transparent;
     border: 0;
@@ -61,10 +64,7 @@
     justify-content: center;
     align-content: center;
     align-items: center;
-    margin: 0;
-    line-height: 1.2;
-    font-weight: var(--button-font-weight);
-    font-family: var(--font-family);
+    padding: 0 24px;
     outline: none;
 }
 
@@ -87,11 +87,14 @@
 .xs {
     min-width: 80px;
     min-height: 32px;
-    padding: 0 12px;
     font-size: 14px;
 
     &.iconOnly {
         min-width: 32px;
+    }
+
+    & .wrapper {
+        padding: 0 12px;
     }
 }
 
@@ -118,11 +121,14 @@
 .l {
     min-width: 160px;
     min-height: 68px;
-    padding: 0 32px;
     font-size: 18px;
 
     &.iconOnly {
         min-width: 68px;
+    }
+
+    & .wrapper {
+        padding: 0 32px;
     }
 }
 
@@ -185,7 +191,7 @@
 .ghost {
     min-width: 0;
     min-height: 0;
-    padding: 0;
+
     color: var(--button-ghost-base-color);
     border: none;
     background-color: transparent;
@@ -201,6 +207,10 @@
 
     &.iconOnly {
         min-width: 0;
+    }
+
+    & .wrapper {
+        padding: 0;
     }
 }
 
@@ -277,7 +287,9 @@
 }
 
 .iconOnly {
-    padding: 0;
+    & .wrapper {
+        padding: 0;
+    }
 }
 
 /* Block */
