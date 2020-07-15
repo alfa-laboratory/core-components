@@ -1,0 +1,14 @@
+@import '../../../packages/themes/src/mixins/click.css';
+
+.tool {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.select {
+    background: red;
+}
+
+.click {
+    @mixin theme-click;
+}
