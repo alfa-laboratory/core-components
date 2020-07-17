@@ -9,11 +9,13 @@ const views = {
     secondary: SecondaryTablistMobile,
 };
 
+export type TabsMobileProps = Omit<TabsProps, 'Tablist'>;
+
 export const TabsMobile = ({
     view = 'primary',
     scrollable = true,
     ...restProps
-}: Omit<TabsProps, 'Tablist'>) => {
+}: TabsMobileProps) => {
     const Tablist = views[view];
 
     return <Tabs Tablist={Tablist} scrollable={scrollable} {...restProps} />;

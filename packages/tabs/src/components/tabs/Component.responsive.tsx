@@ -9,12 +9,14 @@ const views = {
     secondary: SecondaryTablistResponsive,
 };
 
+export type TabsResponsiveProps = Omit<TabsProps, 'Tablist'> & Gaps;
+
 export const TabsResponsive = ({
     view = 'primary',
     scrollable = false,
     gaps = 'default',
     ...restProps
-}: Omit<TabsProps, 'Tablist'> & Gaps) => {
+}: TabsResponsiveProps) => {
     const Tablist = views[view];
     const renderTablist = useCallback(props => <Tablist {...props} gaps={gaps} />, [gaps]);
 

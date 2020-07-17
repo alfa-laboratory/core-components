@@ -3,10 +3,12 @@ import { TabsProps } from '../../typings';
 
 export const Tabs = ({
     Tablist,
+    className,
     children,
     selectedId,
     scrollable,
     keepMounted = false,
+    dataTestId,
     onChange,
 }: Omit<TabsProps, 'view'>) => {
     const tabsArray = React.Children.toArray(children) as TabsProps['children'];
@@ -16,12 +18,13 @@ export const Tabs = ({
     );
 
     return (
-        <div>
+        <div className={className}>
             <Tablist
                 titles={titles}
                 selectedId={selectedId}
                 scrollable={scrollable}
                 onChange={onChange}
+                dataTestId={dataTestId}
             />
 
             {tabs.map(tab => cloneElement(tab, { hidden: tab.props.id !== selectedId }))}

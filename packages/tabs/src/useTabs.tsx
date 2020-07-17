@@ -16,11 +16,11 @@ export function useTabs({ titles, selectedId, onChange }: UseTabsProps) {
 
     const handleItemClick = useCallback(
         (event, item) => {
-            if (onChange) {
+            if (onChange && item.id !== selectedId) {
                 onChange(event, { selectedId: item.id });
             }
         },
-        [onChange],
+        [onChange, selectedId],
     );
 
     const focusTab = useCallback(
@@ -92,6 +92,7 @@ export function useTabs({ titles, selectedId, onChange }: UseTabsProps) {
         return {
             role: 'tab',
             tabIndex: itemSelected ? 0 : -1,
+            'aria-selected': itemSelected,
             ref: (node: HTMLButtonElement) => handleItemRef(node, item, index),
             onKeyDown: handleKeyDown,
             onClick: (event?: MouseEvent) => handleItemClick(event, item),

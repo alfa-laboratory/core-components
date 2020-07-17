@@ -13,6 +13,7 @@ export const SecondaryTablist = ({
     scrollable = true,
     tagSize,
     onChange,
+    dataTestId,
 }: SecondaryTablistProps & Styles) => {
     const { focusedTab, selectedTab, getTablistItemProps } = useTabs({
         titles,
@@ -36,6 +37,7 @@ export const SecondaryTablist = ({
     return (
         <div
             role='tablist'
+            data-test-id={dataTestId}
             className={cn(styles.component, className, {
                 [styles.scrollable]: scrollable,
             })}
