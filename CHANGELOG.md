@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.10.0](https://github.com/alfa-laboratory/core-components/compare/v1.9.0...v1.10.0) (2020-07-17)
+
+
+### Features
+
+* **core-components-progress-bar:** add progress bar component ([39ee713](https://github.com/alfa-laboratory/core-components/commit/39ee713522f67f2744fc2f6b4fcb2ac861a55f41))
+
+
+### Bug Fixes
+
+* **core-components-progress-bar:** refactor, snapshot tests fix ([7b0b553](https://github.com/alfa-laboratory/core-components/commit/7b0b553eafce92307bec53d0d35f847969bf8904))
+
 ## [1.9.0](https://github.com/alfa-laboratory/core-components/compare/v1.8.0...v1.9.0) (2020-07-13)
 
 
