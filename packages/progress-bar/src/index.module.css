@@ -1,0 +1,34 @@
+@import '../../vars/src/colors-indigo.css';
+
+:root {
+    /* bg */
+    --progressbar-bg-color: var(--color-light-graphic-neutral);
+
+    /* positive */
+    --progressbar-positive-color: var(--color-light-graphic-positive);
+
+    /* negative */
+    --progressbar-negative-color: var(--color-light-graphic-negative);
+}
+
+.container {
+    background: var(--progressbar-bg-color);
+    border-radius: var(--border-radius);
+    display: flex;
+    height: 6px;
+    overflow: hidden;
+}
+
+.filled {
+    border-radius: inherit;
+    width: 100%;
+    transition: transform 0.4s ease;
+
+    &.positive {
+        background: var(--progressbar-positive-color);
+    }
+
+    &.negative {
+        background: var(--progressbar-negative-color);
+    }
+}
