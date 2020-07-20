@@ -55,6 +55,9 @@ object-assign
  * Released under the MIT License.
  */
 
+/*! store2 - v2.11.1 - 2020-04-14
+* Copyright (c) 2020 Nathan Bubna; Licensed (MIT OR GPL-3.0) */
+
 /**
  * @license
  * Lodash <https://lodash.com/>
