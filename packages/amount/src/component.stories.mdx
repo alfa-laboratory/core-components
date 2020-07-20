@@ -6,7 +6,11 @@ import { Amount } from '.';
 import { getAllCurrencyCodes } from '@alfalab/utils';
 import { name, version } from '../package.json';
 
-<Meta title='Компоненты|Amount' component={Amount} />
+<Meta
+    title='Компоненты|Amount'
+    component={Amount}
+    parameters={{ 'theme-switcher': { enabled: true } }}
+/>
 
 <Title>
     Amount ({name}@{version})
