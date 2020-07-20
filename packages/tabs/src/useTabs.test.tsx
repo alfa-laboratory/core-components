@@ -35,7 +35,7 @@ const renderTabs = (props = { selectedId: 'tab-1' }) => {
 };
 
 describe('useTabs', () => {
-    describe('Tab pressed', () => {
+    describe('when Tab pressed', () => {
         it('should focus active tab element when focus moves into the tab list', () => {
             const selectedId = 'tab-2';
             const { getByRole } = renderTabs({ selectedId });
@@ -55,7 +55,7 @@ describe('useTabs', () => {
         });
     });
 
-    describe('Left Arrow pressed', () => {
+    describe('when Left Arrow pressed', () => {
         it('should focus prev tab', () => {
             const selectedId = 'tab-3';
             renderTabs({ selectedId });
@@ -79,7 +79,7 @@ describe('useTabs', () => {
         });
     });
 
-    describe('Right Arrow pressed', () => {
+    describe('when Right Arrow pressed', () => {
         it('should focus next tab', () => {
             const selectedId = 'tab-1';
             renderTabs({ selectedId });
@@ -103,7 +103,7 @@ describe('useTabs', () => {
         });
     });
 
-    describe('Home pressed', () => {
+    describe('when Home pressed', () => {
         it('should focus first tab', () => {
             const selectedId = 'tab-3';
             renderTabs({ selectedId });
@@ -116,7 +116,7 @@ describe('useTabs', () => {
         });
     });
 
-    describe('End pressed', () => {
+    describe('when End pressed', () => {
         it('should focus last tab', () => {
             const selectedId = 'tab-3';
             renderTabs({ selectedId });

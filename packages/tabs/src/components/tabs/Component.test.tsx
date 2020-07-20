@@ -7,7 +7,7 @@ import { Tab } from '../tab';
 import { TabsResponsive } from './Component.responsive';
 import { TabsProps } from '../../typings';
 
-const tabsTable: Array<[
+const tabVariants: Array<[
     typeof TabsMobile | typeof TabsDesktop | typeof TabsResponsive,
     TabsProps['view'],
 ]> = [
@@ -45,14 +45,14 @@ const renderTabs = (
 
 describe('Tabs', () => {
     describe('Snapshots tests', () => {
-        it.each(tabsTable)('should match snapshot', (Component, view) => {
+        it.each(tabVariants)('should match snapshot', (Component, view) => {
             const { container } = renderTabs(Component, { view });
             expect(container).toMatchSnapshot();
         });
     });
 
     describe('Classes tests', () => {
-        it.each(tabsTable)('should set custom class', (Component, view) => {
+        it.each(tabVariants)('should set custom class', (Component, view) => {
             const className = 'custom-class';
             const { container } = renderTabs(Component, { view, className });
 
@@ -61,7 +61,7 @@ describe('Tabs', () => {
     });
 
     describe('Attributes tests', () => {
-        it.each(tabsTable)('should set `data-test-id` atribute', (Component, view) => {
+        it.each(tabVariants)('should set `data-test-id` atribute', (Component, view) => {
             const dataTestId = 'test-id';
             const { getByTestId } = renderTabs(Component, { view, dataTestId });
 
@@ -70,14 +70,17 @@ describe('Tabs', () => {
     });
 
     describe('Render tests', () => {
-        it.each(tabsTable)('should render only selected tabpanel by default', (Component, view) => {
-            const { getAllByRole } = renderTabs(Component, { view });
-            const tabpanels = getAllByRole('tabpanel');
+        it.each(tabVariants)(
+            'should render only selected tabpanel by default',
+            (Component, view) => {
+                const { getAllByRole } = renderTabs(Component, { view });
+                const tabpanels = getAllByRole('tabpanel');
 
-            expect(tabpanels.length).toEqual(1);
-        });
+                expect(tabpanels.length).toEqual(1);
+            },
+        );
 
-        it.each(tabsTable)(
+        it.each(tabVariants)(
             'should render only one visible tabpanel if keepMounted=`true`',
             (Component, view) => {
                 const { getAllByRole } = renderTabs(Component, { view, keepMounted: true });
@@ -89,7 +92,7 @@ describe('Tabs', () => {
             },
         );
 
-        it.each(tabsTable)('should render corresponding tabpanel', (Component, view) => {
+        it.each(tabVariants)('should render corresponding tabpanel', (Component, view) => {
             const { getByRole } = renderTabs(Component, { view });
             const selectedTab = getByRole('tab', { selected: true });
             const tabpanel = getByRole('tabpanel', { hidden: false });
@@ -97,7 +100,7 @@ describe('Tabs', () => {
             expect(tabpanel.textContent).toEqual(selectedTab.textContent);
         });
 
-        it.each(tabsTable)('should unmount without errors', (Component, view) => {
+        it.each(tabVariants)('should unmount without errors', (Component, view) => {
             const { unmount } = renderTabs(Component, { view });
 
             expect(unmount).not.toThrowError();
@@ -105,7 +108,7 @@ describe('Tabs', () => {
     });
 
     describe('Interaction tests', () => {
-        it.each(tabsTable)('should call `onChange`', (Component, view) => {
+        it.each(tabVariants)('should call `onChange`', (Component, view) => {
             const cb = jest.fn();
             const { getAllByRole } = renderTabs(Component, { view, onChange: cb });
             const tab = getAllByRole('tab', { selected: false });
@@ -117,7 +120,7 @@ describe('Tabs', () => {
             expect(cb).toBeCalledTimes(1);
         });
 
-        it.each(tabsTable)('should not call `onChange` for selected tab', (Component, view) => {
+        it.each(tabVariants)('should not call `onChange` for selected tab', (Component, view) => {
             const cb = jest.fn();
             const { getByRole } = renderTabs(Component, { view, onChange: cb });
             const tab = getByRole('tab', { selected: true });
