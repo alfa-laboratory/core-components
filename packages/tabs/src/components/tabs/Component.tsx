@@ -17,12 +17,12 @@ export const Tabs = ({
 
     return (
         <div>
-            <Tablist
-                titles={titles}
-                selectedId={selectedId}
-                scrollable={scrollable}
-                onChange={onChange}
-            />
+            {cloneElement(Tablist, {
+                titles,
+                selectedId,
+                scrollable,
+                onChange,
+            })}
 
             {tabs.map(tab => cloneElement(tab, { hidden: tab.props.id !== selectedId }))}
         </div>

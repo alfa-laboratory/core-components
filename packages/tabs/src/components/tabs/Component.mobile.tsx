@@ -16,5 +16,5 @@ export const TabsMobile = ({
 }: Omit<TabsProps, 'Tablist'>) => {
     const Tablist = views[view];
 
-    return <Tabs Tablist={Tablist} scrollable={scrollable} {...restProps} />;
+    return <Tabs Tablist={<Tablist />} scrollable={scrollable} {...restProps} />;
 };

@@ -4,13 +4,7 @@ import { SecondaryTablist } from './Component';
 import { TablistProps, Gaps } from '../../typings';
 import { useWindowWidth } from '../../utils';
 
-import commonStyles from './index.module.css';
-import responsiveStyles from './responsive.module.css';
-
-const styles = {
-    ...commonStyles,
-    ...responsiveStyles,
-};
+import styles from './responsive.module.css';
 
 export const SecondaryTablistResponsive = ({
     gaps = 'default',

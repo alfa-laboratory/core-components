@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { TabsProps, Gaps } from '../../typings';
 import { PrimaryTablistDesktop } from '../primary-tablist';
 import { SecondaryTablistDesktop } from '../secondary-tablist';
@@ -16,7 +16,6 @@ export const TabsDesktop = ({
     ...restProps
 }: Omit<TabsProps, 'Tablist'> & Gaps) => {
     const Tablist = views[view];
-    const renderTablist = useCallback(props => <Tablist {...props} gaps={gaps} />, [gaps]);
 
-    return <Tabs Tablist={renderTablist} scrollable={scrollable} {...restProps} />;
+    return <Tabs Tablist={<Tablist gaps={gaps} />} scrollable={scrollable} {...restProps} />;
 };

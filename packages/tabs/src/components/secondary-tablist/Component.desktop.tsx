@@ -3,13 +3,7 @@ import cn from 'classnames';
 import { SecondaryTablist } from './Component';
 import { TablistProps, Gaps } from '../../typings';
 
-import commonStyles from './index.module.css';
-import desktopStyles from './desktop.module.css';
-
-const styles = {
-    ...commonStyles,
-    ...desktopStyles,
-};
+import styles from './desktop.module.css';
 
 export const SecondaryTablistDesktop = ({
     gaps = 'default',
