@@ -1,0 +1,23 @@
+{
+    "name": "@alfalab/core-components-confirmation",
+    "version": "1.0.0",
+    "description": "Sms countdown component",
+    "keywords": [],
+    "license": "ISC",
+    "main": "dist/index.js",
+    "files": [
+        "dist"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+        "@alfalab/core-components-button": "^1.3.5",
+        "@alfalab/core-components-link": "^1.0.2",
+        "@alfalab/utils": "^0.1.0"
+    },
+    "peerDependencies": {
+        "classnames": "^2.2.6",
+        "react": "^16.9.0"
+    }
+}

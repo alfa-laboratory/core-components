@@ -1,0 +1,13 @@
+@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/colors-indigo.css';
+
+.component {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 32px;
+    font-family: var(--font-family);
+    color: var(--color-light-text-secondary-transparent);
+
+    @mixin system_14-18_regular;
+}

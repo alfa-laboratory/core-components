@@ -1,0 +1,64 @@
+import { useState } from 'react';
+import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { text, select, number, boolean } from '@storybook/addon-knobs';
+import { Design } from 'storybook/blocks/design';
+
+import { Confirmation } from './component';
+import { name, version } from '../package.json';
+
+<Meta title='Компоненты|Confirmation' component={Confirmation} />
+
+<Title>
+    Confirmation ({name}@{version})
+</Title>
+
+```tsx
+import { Confirmation } from '@alfalab/core-components-confirmation';
+```
+
+## Описание
+
+Компонент обратного отсчета для SMS подтверждения.
+
+<Story name='Песочница'>
+    {React.createElement(() => {
+        const [error, setError] = useState('');
+        const [isProcessing, setIsProcessing] = useState(false);
+        const [errorIsFatal, setErrorIsFatal] = useState(false);
+        const handleSubmit = () => {
+            setIsProcessing(true);
+            setError('');
+            setErrorIsFatal(false);
+            setTimeout(() => {
+                setIsProcessing(false);
+                setError('Неправильный код');
+                // setIsProcessing(false);
+                // setError('Срок подписания кодом истёк. Пожалуйста, выполните операцию заново');
+                // setErrorIsFatal(true);
+            }, 1500);
+        };
+        const handleSmsRetryClick = () => {
+            setIsProcessing(true);
+            setError('');
+            setErrorIsFatal(false);
+            setTimeout(() => {
+                setIsProcessing(false);
+            }, 1500);
+        };
+        return (
+            <div style={{display: 'flex', width: '320px', justifyContent: 'center', padding: '15px'}}>
+                <Confirmation
+                    phone='+7 000 000 00 42'
+                    onInputFinished={handleSubmit}
+                    onSmsRetryClick={handleSmsRetryClick}
+                    isProcessing={isProcessing}
+                    error={error}
+                    errorIsFatal={errorIsFatal}
+                    countdownDuration={5000}
+                />
+            </div>
+        );
+    })}
+</Story>
+
+<Props of={Confirmation} />

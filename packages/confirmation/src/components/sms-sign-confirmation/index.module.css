@@ -1,0 +1,56 @@
+@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/colors-indigo.css';
+
+.component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font-family);
+}
+
+.header {
+    margin: 0;
+    text-align: center;
+    color: var(--color-light-text-primary);
+
+    @mixin system_22-26_bold;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 162px;
+    margin-top: var(--gap-m);
+
+    & input {
+        margin-bottom: var(--gap-xs);
+    }
+}
+
+.spin {
+    margin-top: var(--gap-3xl);
+}
+
+.countdown {
+    margin-top: var(--gap-2xl);
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.retryHint {
+    margin-top: var(--gap-m);
+    text-align: center;
+}
+
+.smsComeLink {
+    @mixin system_14-18_regular;
+}
+
+.error {
+    color: var(--color-light-text-negative);
+    @mixin system_14-18_regular;
+}
