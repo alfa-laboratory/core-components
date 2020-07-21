@@ -39,7 +39,7 @@ export type TabsProps = {
     /**
      * Компонент заголовков табов
      */
-    Tablist: ReactElement<TablistProps>;
+    TabList: ReactElement<TabListProps>;
 
     /**
      * Обработчик переключения табов
@@ -79,7 +79,7 @@ export type TabProps = {
     children: ReactNode;
 };
 
-export type TablistProps = Pick<TabsProps, 'selectedId' | 'scrollable' | 'onChange'> & {
+export type TabListProps = Pick<TabsProps, 'selectedId' | 'scrollable' | 'onChange'> & {
     /**
      * Дополнительный класс
      */
@@ -94,11 +94,11 @@ export type TablistProps = Pick<TabsProps, 'selectedId' | 'scrollable' | 'onChan
     }>;
 };
 
-export type SecondaryTablistProps = TablistProps & {
+export type SecondaryTabListProps = TabListProps & {
     tagSize?: TagProps['size'];
 };
 
-export type UseTabsProps = TablistProps;
+export type UseTabsProps = TabListProps;
 
 export type Styles = {
     styles: { [key: string]: string };

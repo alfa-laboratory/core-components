@@ -1,9 +1,9 @@
 import React from 'react';
-import { SecondaryTablist } from './Component';
-import { TablistProps } from '../../typings';
+import { SecondaryTabList } from './Component';
+import { TabListProps } from '../../typings';
 
 import styles from './mobile.module.css';
 
-export const SecondaryTablistMobile = (props: TablistProps) => (
-    <SecondaryTablist {...props} styles={styles} tagSize='xs' />
+export const SecondaryTabListMobile = (props: TabListProps) => (
+    <SecondaryTabList {...props} styles={styles} tagSize='xs' />
 );

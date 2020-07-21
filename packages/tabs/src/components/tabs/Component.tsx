@@ -2,7 +2,7 @@ import React, { cloneElement } from 'react';
 import { TabsProps } from '../../typings';
 
 export const Tabs = ({
-    Tablist,
+    TabList,
     children,
     selectedId,
     scrollable,
@@ -17,7 +17,7 @@ export const Tabs = ({
 
     return (
         <div>
-            {cloneElement(Tablist, {
+            {cloneElement(TabList, {
                 titles,
                 selectedId,
                 scrollable,

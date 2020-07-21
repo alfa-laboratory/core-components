@@ -1,20 +1,20 @@
 import React from 'react';
 import cn from 'classnames';
-import { SecondaryTablist } from './Component';
-import { TablistProps, Gaps } from '../../typings';
+import { SecondaryTabList } from './Component';
+import { TabListProps, Gaps } from '../../typings';
 import { useWindowWidth } from '../../utils';
 
 import styles from './responsive.module.css';
 
-export const SecondaryTablistResponsive = ({
+export const SecondaryTabListResponsive = ({
     gaps = 'default',
     className,
     ...restProps
-}: TablistProps & Gaps) => {
+}: TabListProps & Gaps) => {
     const width = useWindowWidth();
 
     return (
-        <SecondaryTablist
+        <SecondaryTabList
             {...restProps}
             styles={styles}
             className={cn(className, styles[gaps])}

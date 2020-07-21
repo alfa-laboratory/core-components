@@ -1,20 +1,20 @@
 import React from 'react';
 import { TabsProps } from '../../typings';
-import { PrimaryTablistMobile } from '../primary-tablist';
-import { SecondaryTablistMobile } from '../secondary-tablist';
+import { PrimaryTabListMobile } from '../primary-tablist';
+import { SecondaryTabListMobile } from '../secondary-tablist';
 import { Tabs } from './Component';
 
 const views = {
-    primary: PrimaryTablistMobile,
-    secondary: SecondaryTablistMobile,
+    primary: PrimaryTabListMobile,
+    secondary: SecondaryTabListMobile,
 };
 
 export const TabsMobile = ({
     view = 'primary',
     scrollable = true,
     ...restProps
-}: Omit<TabsProps, 'Tablist'>) => {
-    const Tablist = views[view];
+}: Omit<TabsProps, 'TabList'>) => {
+    const TabList = views[view];
 
-    return <Tabs Tablist={<Tablist />} scrollable={scrollable} {...restProps} />;
+    return <Tabs TabList={<TabList />} scrollable={scrollable} {...restProps} />;
 };

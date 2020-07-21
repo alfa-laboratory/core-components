@@ -1,16 +1,16 @@
 import React from 'react';
 import cn from 'classnames';
-import { SecondaryTablist } from './Component';
-import { TablistProps, Gaps } from '../../typings';
+import { SecondaryTabList } from './Component';
+import { TabListProps, Gaps } from '../../typings';
 
 import styles from './desktop.module.css';
 
-export const SecondaryTablistDesktop = ({
+export const SecondaryTabListDesktop = ({
     gaps = 'default',
     className,
     ...restProps
-}: TablistProps & Gaps) => (
-    <SecondaryTablist
+}: TabListProps & Gaps) => (
+    <SecondaryTabList
         {...restProps}
         styles={styles}
         className={cn(className, styles[gaps])}

@@ -86,7 +86,7 @@ export function useTabs({ titles, selectedId, onChange }: UseTabsProps) {
         [focusTab],
     );
 
-    const getTablistItemProps = (index: number) => {
+    const getTabListItemProps = (index: number) => {
         const item = titles[index];
         const itemSelected = item.id === selectedId;
         return {
@@ -99,7 +99,7 @@ export function useTabs({ titles, selectedId, onChange }: UseTabsProps) {
     };
 
     return {
-        getTablistItemProps,
+        getTabListItemProps,
         selectedTab,
         focusedTab,
     };
