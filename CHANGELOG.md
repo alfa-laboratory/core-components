@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/alfa-laboratory/core-components/compare/v1.10.0...v1.11.0) (2020-07-22)
+
+
+### Features
+
+* **storybook:** add theme switcher to storybook ([#199](https://github.com/alfa-laboratory/core-components/issues/199)) ([7794f80](https://github.com/alfa-laboratory/core-components/commit/7794f80dc83cba171ffe7282e54d5ce0f4bd8245))
+
+
+### Bug Fixes
+
+* **core-components-progress-bar:** use theme ([#201](https://github.com/alfa-laboratory/core-components/issues/201)) ([a9ab773](https://github.com/alfa-laboratory/core-components/commit/a9ab773d75f4fcbc68ad648b378cfb3c2b9c0c19))
+
 ## [1.10.0](https://github.com/alfa-laboratory/core-components/compare/v1.9.0...v1.10.0) (2020-07-17)
 
 
