@@ -2,6 +2,8 @@ import React, { useImperativeHandle, useRef } from 'react';
 import { conformToMask, TextMaskConfig } from 'text-mask-core';
 import { MaskedInput, MaskedInputProps } from '@alfalab/core-components-masked-input';
 
+import { deleteFormatting } from './utils';
+
 const mask = [
     '+',
     '7',
@@ -41,9 +43,16 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
              * при редактировании цифр рядом с этими символами каретка перескакивает через них,
              * а не остается на том же месте, на котором была до редактирования
              */
+            const previousValueWithoutFormatting = previousConformedValue
+                ? deleteFormatting(previousConformedValue)
+                : '';
+            const currentValueWithoutFormatting = deleteFormatting(conformedValue);
             if (
                 (previousConformedValue &&
-                    previousConformedValue.length > 1 &&
+                    Math.abs(
+                        previousValueWithoutFormatting.length -
+                            currentValueWithoutFormatting?.length,
+                    ) === 1 &&
                     [3, 6, 11].includes(currentCaretPosition)) ||
                 ([7, 10, 13].includes(currentCaretPosition) &&
                     previousConformedValue.length > currentCaretPosition)
