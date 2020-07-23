@@ -4,5 +4,6 @@ module.exports = {
         '@storybook/addon-knobs',
         '@storybook/preset-create-react-app',
         '@storybook/addon-docs',
+        './.storybook/addons/theme-switcher/register.js',
     ],
 };

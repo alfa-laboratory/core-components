@@ -6,16 +6,16 @@ import React, { useState } from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { CurrencyCodes } from '@alfalab/data';
-import { MoneyInput } from './index';
+import { AmountInput } from './index';
 
 const THINSP = String.fromCharCode(8201);
 
-describe('MoneyInput', () => {
-    function renderMoneyInput(value: number | null, currency: CurrencyCodes | null = 'RUR') {
+describe('AmountInput', () => {
+    function renderAmountInput(value: number | null, currency: CurrencyCodes | null = 'RUR') {
         // TODO: почему тесты в кор компонентах цепляются к data-test-id вместо label?
         const dataTestId = 'test-id';
         const { getByTestId } = render(
-            <MoneyInput
+            <AmountInput
                 value={value}
                 currency={currency as CurrencyCodes}
                 minority={100}
@@ -30,27 +30,27 @@ describe('MoneyInput', () => {
 
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
-            expect(render(<MoneyInput />)).toMatchSnapshot();
+            expect(render(<AmountInput />)).toMatchSnapshot();
             expect(
-                render(<MoneyInput value={1234567} currency='USD' minority={100} />),
+                render(<AmountInput value={1234567} currency='USD' minority={100} />),
             ).toMatchSnapshot();
         });
     });
 
     it('should use default placeholder', () => {
-        const input = renderMoneyInput(null);
+        const input = renderAmountInput(null);
         expect(input.placeholder).toBe(`0${THINSP}₽`);
     });
 
     it('should correctly render default placeholder if currency is empty', () => {
-        const input = renderMoneyInput(null, null);
+        const input = renderAmountInput(null, null);
         expect(input.placeholder).toBe(`0${THINSP}`);
     });
 
     it('should use passed placeholder', () => {
         const dataTestId = 'test-id';
         const { getByTestId } = render(
-            <MoneyInput
+            <AmountInput
                 value={null}
                 currency='RUR'
                 minority={100}
@@ -64,27 +64,27 @@ describe('MoneyInput', () => {
     });
 
     it('should render passed amount', () => {
-        const input = renderMoneyInput(1234500);
+        const input = renderAmountInput(1234500);
         expect(input.value).toBe(`12${THINSP}345,00`);
     });
 
     it('should render empty input if passed amount.value is null', () => {
-        const input = renderMoneyInput(null);
+        const input = renderAmountInput(null);
         expect(input.value).toBe('');
     });
 
     it('should render 0,00 in input if passed amount.value is 0', () => {
-        const input = renderMoneyInput(0);
+        const input = renderAmountInput(0);
         expect(input.value).toBe('0,00');
     });
 
     it('should render passed decimal amount', () => {
-        const input = renderMoneyInput(1234567);
+        const input = renderAmountInput(1234567);
         expect(input.value).toBe(`12${THINSP}345,67`);
     });
 
     it('should allow input correct amounts', () => {
-        const input = renderMoneyInput(0);
+        const input = renderAmountInput(0);
 
         fireEvent.change(input, { target: { value: '123456' } });
         expect(input.value).toBe(`123${THINSP}456`);
@@ -118,7 +118,7 @@ describe('MoneyInput', () => {
     });
 
     it('should prevent input of incorrect amounts', () => {
-        const input = renderMoneyInput(1234500);
+        const input = renderAmountInput(1234500);
 
         fireEvent.change(input, { target: { value: 'f' } });
         expect(input.value).toBe(`12${THINSP}345,00`);
@@ -128,7 +128,7 @@ describe('MoneyInput', () => {
     });
 
     it('should avoid inserting leading zero before number, but allow inserting zero', async () => {
-        const input = renderMoneyInput(null);
+        const input = renderAmountInput(null);
         await userEvent.type(input, '0');
         expect(input.value).toBe('0');
         await userEvent.type(input, '1234');
@@ -143,7 +143,7 @@ describe('MoneyInput', () => {
     });
 
     it('should allow replace minor part without deleting', async () => {
-        const input = renderMoneyInput(1234500);
+        const input = renderAmountInput(1234500);
 
         input.focus();
         input.setSelectionRange(7, 7);
@@ -153,14 +153,14 @@ describe('MoneyInput', () => {
     });
 
     it('should allow to past value with spaces', async () => {
-        const input = renderMoneyInput(null);
+        const input = renderAmountInput(null);
 
         await userEvent.paste(input, '1 23');
         expect(input.value).toBe('123');
     });
 
     it('should delete symbols on delete button press event', async () => {
-        const input = renderMoneyInput(null);
+        const input = renderAmountInput(null);
 
         await userEvent.type(input, '123,45');
         input.focus();
@@ -170,7 +170,7 @@ describe('MoneyInput', () => {
     });
 
     it('should allow set carret in the middle and enter decimal divider symbol', async () => {
-        const input = renderMoneyInput(null);
+        const input = renderAmountInput(null);
 
         await userEvent.type(input, '123456');
 
@@ -197,7 +197,7 @@ describe('MoneyInput', () => {
     });
 
     it('should not delete any symbol when caret set after space and backspace pressed', async () => {
-        const input = renderMoneyInput(null);
+        const input = renderAmountInput(null);
 
         await userEvent.type(input, '1234');
         expect(input.value).toBe(`1${THINSP}234`);
@@ -226,7 +226,7 @@ describe('MoneyInput', () => {
             };
 
             return (
-                <MoneyInput
+                <AmountInput
                     value={value}
                     currency={currency}
                     minority={minority}

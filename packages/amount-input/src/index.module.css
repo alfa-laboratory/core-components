@@ -1,7 +1,7 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --money-input-minor-part-and-currency-color: var(--color-dark-indigo-60-flat);
+    --amount-input-minor-part-and-currency-color: var(--color-dark-indigo-60-flat);
 }
 
 /*
@@ -29,7 +29,7 @@
 }
 
 .minorPartAndCurrency {
-    color: var(--money-input-minor-part-and-currency-color);
+    color: var(--amount-input-minor-part-and-currency-color);
 }
 
 .bold .fakeValueWithCurrencyContainer,
