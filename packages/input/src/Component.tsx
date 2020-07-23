@@ -61,6 +61,11 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 't
     inputClassName?: string;
 
     /**
+     * Позволяет отрисовать инпут в состоянии фокуса
+     */
+    focused?: boolean;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -74,6 +79,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             block = false,
             bottomAddons,
             className,
+            focused,
             dataTestId,
             disabled,
             error,
@@ -90,12 +96,12 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         },
         ref,
     ) => {
-        const [focused, setFocused] = useState(false);
+        const [focusedState, setFocusedState] = useState(false);
         const [filled, setFilled] = useState(value !== undefined && value !== '');
 
         const handleInputFocus = useCallback(
             (e: React.FocusEvent<HTMLInputElement>) => {
-                setFocused(true);
+                setFocusedState(true);
 
                 if (onFocus) {
                     onFocus(e);
@@ -106,7 +112,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
         const handleInputBlur = useCallback(
             (e: React.FocusEvent<HTMLInputElement>) => {
-                setFocused(false);
+                setFocusedState(false);
 
                 if (onBlur) {
                     onBlur(e);
@@ -132,8 +138,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 size={size}
                 block={block}
                 disabled={disabled}
-                filled={filled || focused || !!value}
-                focused={focused}
+                filled={filled || focused || focusedState || !!value}
+                focused={focused || focusedState}
                 error={error}
                 label={label}
                 hint={hint}

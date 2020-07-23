@@ -175,13 +175,14 @@ export const BaseSelect = ({
     const handleToggleButtonKeyDown = useCallback(
         event => {
             if (!nativeSelect && [' ', 'Enter'].includes(event.key)) {
+                if (!open || highlightedIndex === -1) toggleMenu();
+
                 if (!open) {
-                    toggleMenu();
                     if (fieldRef.current) fieldRef.current.focus();
                 }
             }
         },
-        [nativeSelect, open, toggleMenu],
+        [highlightedIndex, nativeSelect, open, toggleMenu],
     );
 
     const handleFocus = useCallback(() => {
@@ -245,15 +246,17 @@ export const BaseSelect = ({
         const fieldWrapperProps = {
             className: styles.fieldWrapper,
             role: 'button',
-            tabIndex: nativeSelect ? -1 : 0,
+            tabIndex: nativeSelect || autocomplete ? -1 : 0,
             ref: autocomplete ? null : inputProps.ref,
             disabled: disabled || (autocomplete && open),
             onBlur: handleBlur,
             onFocus: handleFocus,
             onKeyDown: (event: KeyboardEvent<HTMLButtonElement>) => {
-                handleToggleButtonKeyDown(event);
-                if (!autocomplete) {
-                    inputProps.onKeyDown(event);
+                if (!disabled) {
+                    handleToggleButtonKeyDown(event);
+                    if (!autocomplete) {
+                        inputProps.onKeyDown(event);
+                    }
                 }
             },
         };
@@ -271,11 +274,11 @@ export const BaseSelect = ({
                     disabled,
                     size,
                     placeholder,
-                    block,
                     label,
                     Arrow: Arrow({ open }),
                     filled: selectedItems.length > 0,
                     focused,
+                    toggleMenu,
                     ...fieldProps,
                 })}
             </div>

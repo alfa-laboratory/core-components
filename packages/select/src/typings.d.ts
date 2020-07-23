@@ -205,6 +205,11 @@ export type BaseFieldProps = {
     placeholder?: string;
 
     /**
+     * Апи для управления открытием меню
+     */
+    toggleMenu: () => void;
+
+    /**
      * Компонент стрелки
      */
     Arrow?: BaseSelectProps['Arrow'];
