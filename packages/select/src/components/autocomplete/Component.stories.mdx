@@ -142,6 +142,9 @@ export const matchOption = (option, inputValue) =>
             const filteredOptions = options
                 .filter(option => !selected.includes(option.text))
                 .filter(option => matchOption(option, value));
+            if (filteredOptions.length === 0) {
+                filteredOptions.push({ text: value });
+            }
             return (
                 <React.Fragment>
                     <Autocomplete
