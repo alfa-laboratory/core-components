@@ -29,6 +29,7 @@ export const Autocomplete = ({
     OptionsList = DefaultOptionsList,
     Optgroup = DefaultOptgroup,
     Option = DefaultOption,
+    closeOnSelect = false,
     onInput,
     value,
     options,
@@ -70,6 +71,7 @@ export const Autocomplete = ({
         <BaseSelect
             autocomplete={true}
             options={options}
+            closeOnSelect={closeOnSelect}
             Option={Option}
             Field={renderField}
             Optgroup={Optgroup}

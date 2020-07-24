@@ -59,12 +59,13 @@ export const matchOption = (option, inputValue) =>
             return (
                 <Autocomplete
                     options={filteredOptions}
+                    selected={boolean('prevent select', true) ? [] : undefined}
                     block={boolean('block', false)}
                     size={select('size', ['s', 'm', 'l'], 's')}
                     disabled={boolean('disabled', false)}
                     multiple={boolean('multiple', false)}
                     allowUnselect={boolean('allowUnselect', true)}
-                    closeOnSelect={boolean('closeOnSelect', true)}
+                    closeOnSelect={boolean('closeOnSelect', false)}
                     Arrow={boolean('Arrow', false) ? Arrow : undefined}
                     circularNavigation={boolean('circularNavigation', false)}
                     placeholder={text('placeholder', 'Элемент')}
@@ -95,7 +96,7 @@ export const matchOption = (option, inputValue) =>
             };
             const renderAddons = () => (
                 value.length > 0 && (
-                    <div role='button' onClick={() => setValue('')}>
+                    <div role='button' onClick={() => setValue('')} style={{ display: 'flex' }}>
                         <CloseSBlackIcon />
                     </div>
                 )
