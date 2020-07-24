@@ -275,6 +275,7 @@ export const BaseSelect = ({
                     size,
                     placeholder,
                     label,
+                    name,
                     Arrow: Arrow({ open }),
                     filled: selectedItems.length > 0,
                     focused,
