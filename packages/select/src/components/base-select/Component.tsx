@@ -21,7 +21,7 @@ export const BaseSelect = ({
     popoverOffset = 4,
     name,
     selected,
-    size,
+    size = 's',
     block,
     label,
     placeholder,

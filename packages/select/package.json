@@ -21,7 +21,7 @@
         "@alfalab/core-components-form-control": "^1.1.1",
         "@alfalab/core-components-popover": "^1.1.1",
         "@alfalab/icons-classic": "^1.7.0",
-        "downshift": "5.4.7",
+        "downshift": "^5.4.7",
         "react-virtual": "^2.2.0"
     }
 }
