@@ -5,10 +5,41 @@ import styles from './index.module.css';
 
 type NativeProps = InputHTMLAttributes<HTMLInputElement>;
 
-export type RadioProps = Omit<NativeProps, 'type'> & {
+export type RadioProps = Omit<
+    NativeProps,
+    'type' | 'onChange' | 'checked' | 'disabled' | 'name' | 'className'
+> & {
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
     dataTestId?: string;
+    /**
+     * Текст подсказки снизу
+     */
     hint?: ReactNode;
+    /**
+     * Текст подписи
+     */
     label?: ReactNode;
+    /**
+     * Управление состоянием отмечен/не отмечен
+     */
+    checked?: boolean;
+    /**
+     * Управление состоянием активен / не активен
+     */
+    disabled?: boolean;
+    /**
+     * Html аттрибут name инпута
+     */
+    name?: string;
+    /**
+     * Класс компонента
+     */
+    className?: string;
+    /**
+     * Обработчик на выбор элемента
+     */
     onChange?: (
         event?: ChangeEvent<HTMLInputElement>,
         payload?: {
