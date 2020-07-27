@@ -61,6 +61,11 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 't
     inputClassName?: string;
 
     /**
+     * Дополнительный класс для лейбла
+     */
+    labelClassName?: string;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -79,6 +84,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             error,
             hint,
             inputClassName,
+            labelClassName,
             label,
             leftAddons,
             onFocus,
@@ -129,6 +135,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         return (
             <FormControl
                 className={className}
+                labelClassName={labelClassName}
                 size={size}
                 block={block}
                 disabled={disabled}
