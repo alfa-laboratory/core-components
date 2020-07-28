@@ -1,6 +1,8 @@
 import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, Ref } from 'react';
 import cn from 'classnames';
 
+import { useKeyboardOnlyFocus } from '@alfalab/core-components-hooks';
+
 import { Loader } from '@alfalab/core-components-loader';
 
 import styles from './index.module.css';
@@ -73,31 +75,34 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
         },
         ref,
     ) => {
+        const { wrapperProps, focusProps } = useKeyboardOnlyFocus();
+
         const componentProps = {
+            ...wrapperProps,
             className: cn(
                 styles.component,
+                styles[view],
+                styles[size],
                 {
+                    [styles.iconOnly]: !children,
+                    [styles.loading]: loading && !href,
                     [styles.block]: block,
                 },
+                wrapperProps.className,
                 className,
             ),
             'data-test-id': dataTestId || null,
         };
 
         const buttonChildren = (
-            // https://www.kizu.ru/keyboard-only-focus/
-            <span
-                className={cn(styles.wrapper, styles[view], styles[size], {
-                    [styles.iconOnly]: !children,
-                    [styles.loading]: loading && !href,
-                })}
-                tabIndex={-1}
-            >
+            <React.Fragment>
+                <span {...focusProps} />
+
                 {leftAddons && <span className={cn(styles.addons)}>{leftAddons}</span>}
                 {children && <span className={cn(styles.text)}>{children}</span>}
                 {loading && !href && <Loader className={cn(styles.loader)} />}
                 {rightAddons && <span className={cn(styles.addons)}>{rightAddons}</span>}
-            </span>
+            </React.Fragment>
         );
 
         if (href) {
@@ -107,7 +112,6 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                     {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
                     href={href}
                     ref={ref as Ref<HTMLAnchorElement>}
-                    tabIndex={0}
                 >
                     {buttonChildren}
                 </a>
@@ -125,7 +129,6 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                 {...restButtonProps}
                 disabled={disabled || loading}
                 ref={ref as Ref<HTMLButtonElement>}
-                tabIndex={0}
             >
                 {buttonChildren}
             </button>

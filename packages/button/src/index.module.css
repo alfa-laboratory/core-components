@@ -30,27 +30,10 @@
     /* font */
     --button-font-weight: 500;
     --button-font-family: var(--font-family);
-
-    /* focus */
-    --button-outline: 2px solid var(--focus-color);
-    --button-outline-offset: 2px;
 }
 
 .component {
     display: inline-flex;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    background-color: transparent;
-    border: 0;
-    box-shadow: none;
-    user-select: none;
-    cursor: pointer;
-    outline: none;
-}
-
-.wrapper {
-    display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
@@ -58,6 +41,10 @@
     align-items: center;
     margin: 0;
     padding: 0 24px;
+    text-decoration: none;
+    box-shadow: none;
+    user-select: none;
+    cursor: pointer;
     line-height: 1.2;
     font-weight: var(--button-font-weight);
     font-family: var(--font-family);
@@ -66,12 +53,6 @@
     border-radius: var(--border-radius);
     transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
     box-sizing: border-box;
-    outline: none;
-}
-
-.component:focus .wrapper {
-    outline: var(--button-outline);
-    outline-offset: var(--button-outline-offset);
 }
 
 .loading .text,
@@ -210,7 +191,7 @@
 .component:disabled {
     cursor: initial;
 
-    & .primary {
+    &.primary {
         background-color: var(--button-primary-disabled-bg-color);
 
         &.loading {
@@ -218,7 +199,7 @@
         }
     }
 
-    & .secondary {
+    &.secondary {
         color: var(--color-dark-indigo-30);
         background-color: var(--button-secondary-disabled-bg-color);
 
@@ -228,7 +209,7 @@
         }
     }
 
-    & .outlined {
+    &.outlined {
         color: var(--color-dark-indigo-30);
         background-color: transparent;
         border-color: var(--color-dark-indigo-10);
@@ -239,7 +220,7 @@
         }
     }
 
-    & .link {
+    &.link {
         color: var(--color-dark-indigo-30);
         background-color: transparent;
 
@@ -248,7 +229,7 @@
         }
     }
 
-    & .ghost {
+    &.ghost {
         color: var(--button-ghost-disabled-color);
 
         &.loading {
@@ -273,12 +254,12 @@
     margin: 0 0 0 12px;
 }
 
-.addons:only-child {
-    margin: 0;
-}
-
 .iconOnly {
     padding: 0;
+
+    & .addons {
+        margin: 0;
+    }
 }
 
 /* Block */
