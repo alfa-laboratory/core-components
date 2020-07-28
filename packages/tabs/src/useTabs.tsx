@@ -1,7 +1,7 @@
 import { useState, useCallback, useRef, MouseEvent, KeyboardEvent } from 'react';
 import { UseTabsProps } from './typings';
 
-export function useTabs({ titles, selectedId, onChange }: UseTabsProps) {
+export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
     const [selectedTab, setSelectedTab] = useState<HTMLButtonElement | null>(null);
     const [focusedTab, setFocusedTab] = useState<HTMLButtonElement | null>(null);
     const itemRefs = useRef<HTMLButtonElement[]>([]);
@@ -86,7 +86,7 @@ export function useTabs({ titles, selectedId, onChange }: UseTabsProps) {
         [focusTab],
     );
 
-    const getTablistItemProps = (index: number) => {
+    const getTabListItemProps = (index: number) => {
         const item = titles[index];
         const itemSelected = item.id === selectedId;
         return {
@@ -100,7 +100,7 @@ export function useTabs({ titles, selectedId, onChange }: UseTabsProps) {
     };
 
     return {
-        getTablistItemProps,
+        getTabListItemProps,
         selectedTab,
         focusedTab,
     };

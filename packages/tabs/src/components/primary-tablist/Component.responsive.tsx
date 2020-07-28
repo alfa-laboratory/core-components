@@ -1,22 +1,16 @@
 import React from 'react';
 import cn from 'classnames';
-import { PrimaryTablist } from './Component';
-import { TablistProps, Gaps } from '../../typings';
+import { PrimaryTabList } from './Component';
+import { TabListProps, Gaps } from '../../typings';
 import { useWindowWidth } from '../../utils';
 
-import commonStyles from './index.module.css';
-import responsiveStyles from './responsive.module.css';
+import styles from './responsive.module.css';
 
-const styles = {
-    ...commonStyles,
-    ...responsiveStyles,
-};
-
-export const PrimaryTablistResponsive = ({
+export const PrimaryTabListResponsive = ({
     gaps = 'default',
     className,
     ...restProps
-}: TablistProps & Gaps) => {
+}: TabListProps & Gaps) => {
     const width = useWindowWidth();
 
     /**
@@ -26,7 +20,7 @@ export const PrimaryTablistResponsive = ({
     const key = width >= 768 ? 'desktop' : 'mobile';
 
     return (
-        <PrimaryTablist
+        <PrimaryTabList
             {...restProps}
             styles={styles}
             className={cn(className, styles[gaps])}

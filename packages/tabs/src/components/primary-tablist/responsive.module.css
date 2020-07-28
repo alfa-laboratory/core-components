@@ -1,5 +1,4 @@
-@import '../../../../themes/src/default.css';
-@import '../../vars.css';
+@import './index.module.css';
 
 /* TODO: затащить брейкпоинты */
 .component {

@@ -1,4 +1,4 @@
-import { ReactElement, ComponentType } from 'react';
+import { ReactElement } from 'react';
 import { TagProps } from '@alfalab/core-components-tag';
 
 export type SelectedId = string | number;
@@ -44,7 +44,7 @@ export type TabsProps = {
     /**
      * Компонент заголовков табов
      */
-    Tablist: ComponentType<TablistProps>;
+    TabList: ReactElement<TabListProps>;
 
     /**
      * Обработчик переключения табов
@@ -89,24 +89,24 @@ export type TabProps = {
     children: ReactNode;
 };
 
-export type TablistProps = Pick<
+export type TabListProps = Pick<
     TabsProps,
     'className' | 'selectedId' | 'scrollable' | 'onChange' | 'dataTestId'
 > & {
     /**
      * Заголовки табов
      */
-    titles: Array<{
+    titles?: Array<{
         title: string;
         id: SelectedId;
     }>;
 };
 
-export type SecondaryTablistProps = TablistProps & {
+export type SecondaryTabListProps = TabListProps & {
     tagSize?: TagProps['size'];
 };
 
-export type UseTabsProps = TablistProps;
+export type UseTabsProps = TabListProps;
 
 export type Styles = {
     styles: { [key: string]: string };

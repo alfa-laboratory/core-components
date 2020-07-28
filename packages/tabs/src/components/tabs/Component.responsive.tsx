@@ -1,15 +1,15 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { TabsProps, Gaps } from '../../typings';
-import { PrimaryTablistResponsive } from '../primary-tablist';
-import { SecondaryTablistResponsive } from '../secondary-tablist';
+import { PrimaryTabListResponsive } from '../primary-tablist';
+import { SecondaryTabListResponsive } from '../secondary-tablist';
 import { Tabs } from './Component';
 
 const views = {
-    primary: PrimaryTablistResponsive,
-    secondary: SecondaryTablistResponsive,
+    primary: PrimaryTabListResponsive,
+    secondary: SecondaryTabListResponsive,
 };
 
-export type TabsResponsiveProps = Omit<TabsProps, 'Tablist'> & Gaps;
+export type TabsResponsiveProps = Omit<TabsProps, 'TabList'> & Gaps;
 
 export const TabsResponsive = ({
     view = 'primary',
@@ -17,8 +17,7 @@ export const TabsResponsive = ({
     gaps = 'default',
     ...restProps
 }: TabsResponsiveProps) => {
-    const Tablist = views[view];
-    const renderTablist = useCallback(props => <Tablist {...props} gaps={gaps} />, [gaps]);
+    const TabList = views[view];
 
-    return <Tabs Tablist={renderTablist} scrollable={scrollable} {...restProps} />;
+    return <Tabs TabList={<TabList gaps={gaps} />} scrollable={scrollable} {...restProps} />;
 };

@@ -2,10 +2,10 @@ import React from 'react';
 import cn from 'classnames';
 import { Tag } from '@alfalab/core-components-tag';
 import { ScrollableContainer } from '../scrollable-container';
-import { SecondaryTablistProps, Styles } from '../../typings';
+import { SecondaryTabListProps, Styles } from '../../typings';
 import { useTabs } from '../../useTabs';
 
-export const SecondaryTablist = ({
+export const SecondaryTabList = ({
     styles = {},
     className,
     titles = [],
@@ -14,8 +14,8 @@ export const SecondaryTablist = ({
     tagSize,
     onChange,
     dataTestId,
-}: SecondaryTablistProps & Styles) => {
-    const { focusedTab, selectedTab, getTablistItemProps } = useTabs({
+}: SecondaryTabListProps & Styles) => {
+    const { focusedTab, selectedTab, getTabListItemProps } = useTabs({
         titles,
         selectedId,
         onChange,
@@ -24,7 +24,7 @@ export const SecondaryTablist = ({
     const renderContent = () =>
         titles.map((item, index) => (
             <Tag
-                {...getTablistItemProps(index)}
+                {...getTabListItemProps(index)}
                 key={item.id}
                 className={styles.title}
                 checked={item.id === selectedId}

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
 import { useTabs } from '../../useTabs';
 import { ScrollableContainer } from '../scrollable-container';
-import { TablistProps, Styles } from '../../typings';
+import { TabListProps, Styles } from '../../typings';
 
-export const PrimaryTablist = ({
+export const PrimaryTabList = ({
     styles = {},
     className,
     titles = [],
@@ -12,8 +12,8 @@ export const PrimaryTablist = ({
     scrollable = true,
     onChange,
     dataTestId,
-}: TablistProps & Styles) => {
-    const { selectedTab, focusedTab, getTablistItemProps } = useTabs({
+}: TabListProps & Styles) => {
+    const { selectedTab, focusedTab, getTabListItemProps } = useTabs({
         titles,
         selectedId,
         onChange,
@@ -33,7 +33,7 @@ export const PrimaryTablist = ({
         <React.Fragment>
             {titles.map((item, index) => (
                 <button
-                    {...getTablistItemProps(index)}
+                    {...getTabListItemProps(index)}
                     type='button'
                     key={item.id}
                     className={cn(styles.title, {
