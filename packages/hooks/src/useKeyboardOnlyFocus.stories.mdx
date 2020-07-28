@@ -9,8 +9,6 @@ import { useKeyboardOnlyFocus } from './useKeyboardOnlyFocus';
 
 Хук для настройки Keyboard-Only фокуса — обводка будет видна только в случае выбора элемента с клавиатуры.
 
-В отличии от `:focus-visible`, позволяет настроить такой фокус для `<input type={text|email|password|...}>` или `<textarea>`
-
 ---
 
 ### Пример
@@ -19,10 +17,16 @@ import { useKeyboardOnlyFocus } from './useKeyboardOnlyFocus';
     {React.createElement(() => {
         const { wrapperProps, focusProps } = useKeyboardOnlyFocus();
         return (
-            <a href='#' {...wrapperProps}>
-                <span {...focusProps} />
-                focus me
-            </a>
+            <React.Fragment>
+                <button style={{ padding: '5px', borderColor: 'red' }}>
+                    Стандартный фокус
+                </button>
+                <div style={{ marginBottom: '10px' }} />
+                <button style={{ padding: '5px', borderColor: 'red' }} {...wrapperProps}>
+                    <span {...focusProps} />
+                    Keyboard only фокус
+                </button>
+            </React.Fragment>
         );
     })}
 </Preview>
