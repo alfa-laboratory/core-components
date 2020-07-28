@@ -11,6 +11,7 @@ export const PrimaryTabList = ({
     selectedId = titles.length ? titles[0].id : undefined,
     scrollable = true,
     onChange,
+    dataTestId,
 }: TabListProps & Styles) => {
     const { selectedTab, focusedTab, getTabListItemProps } = useTabs({
         titles,
@@ -52,6 +53,7 @@ export const PrimaryTabList = ({
     return (
         <div
             role='tablist'
+            data-test-id={dataTestId}
             className={cn(styles.component, className, {
                 [styles.scrollable]: scrollable,
             })}

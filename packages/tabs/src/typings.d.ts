@@ -12,6 +12,11 @@ export type Gaps = {
 
 export type TabsProps = {
     /**
+     * Дополнительный класс
+     */
+    className?: string;
+
+    /**
      * Id активного таба
      */
     selectedId?: SelectedId;
@@ -45,6 +50,11 @@ export type TabsProps = {
      * Обработчик переключения табов
      */
     onChange?: (event: MouseEvent, payload: { selectedId: SelectedId }) => void;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
 };
 
 export type TabProps = {
@@ -79,12 +89,10 @@ export type TabProps = {
     children: ReactNode;
 };
 
-export type TabListProps = Pick<TabsProps, 'selectedId' | 'scrollable' | 'onChange'> & {
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
-
+export type TabListProps = Pick<
+    TabsProps,
+    'className' | 'selectedId' | 'scrollable' | 'onChange' | 'dataTestId'
+> & {
     /**
      * Заголовки табов
      */

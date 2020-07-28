@@ -9,12 +9,14 @@ const views = {
     secondary: SecondaryTabListDesktop,
 };
 
+export type TabsDesktopProps = Omit<TabsProps, 'TabList'> & Gaps;
+
 export const TabsDesktop = ({
     view = 'primary',
     scrollable = false,
     gaps = 'default',
     ...restProps
-}: Omit<TabsProps, 'TabList'> & Gaps) => {
+}: TabsDesktopProps) => {
     const TabList = views[view];
 
     return <Tabs TabList={<TabList gaps={gaps} />} scrollable={scrollable} {...restProps} />;
