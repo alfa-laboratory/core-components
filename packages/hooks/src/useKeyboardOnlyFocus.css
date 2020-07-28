@@ -1,0 +1,25 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --keyboard-focus-outline: 2px solid var(--focus-color);
+    --keyboard-focus-outline-offset: 2px;
+}
+
+.wrapper {
+    position: relative;
+    outline: none;
+}
+
+.focus {
+    outline: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper:focus .focus {
+    outline: var(--keyboard-focus-outline);
+    outline-offset: var(--keyboard-focus-outline-offset);
+}

@@ -1,0 +1,28 @@
+import { Meta, Story, Props, Title, Preview } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { Design } from 'storybook/blocks/design';
+import { useKeyboardOnlyFocus } from './useKeyboardOnlyFocus';
+
+<Meta title='Хуки|useKeyboardOnlyFocus' />
+
+## useKeyboardOnlyFocus
+
+Хук для настройки Keyboard-Only фокуса — обводка будет видна только в случае выбора элемента с клавиатуры.
+
+В отличии от `:focus-visible`, позволяет настроить такой фокус для `<input type={text|email|password|...}>` или `<textarea>`
+
+---
+
+### Пример
+
+<Preview isExpanded={true}>
+    {React.createElement(() => {
+        const { wrapperProps, focusProps } = useKeyboardOnlyFocus();
+        return (
+            <a href='#' {...wrapperProps}>
+                <span {...focusProps} />
+                focus me
+            </a>
+        );
+    })}
+</Preview>
