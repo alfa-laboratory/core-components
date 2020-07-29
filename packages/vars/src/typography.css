@@ -5,7 +5,7 @@
         'Helvetica Neue', Helvetica, sans-serif;
 }
 
-@define-mixin headline–styrene_xlarge {
+@define-mixin headline-styrene_xlarge {
     font-size: 48px;
     line-height: 64px;
     font-weight: 500;
@@ -13,7 +13,7 @@
     font-family: var(--font-family-styrene);
 }
 
-@define-mixin headline–styrene_large {
+@define-mixin headline-styrene_large {
     font-size: 40px;
     line-height: 48px;
     font-weight: 500;
@@ -21,7 +21,7 @@
     font-family: var(--font-family-styrene);
 }
 
-@define-mixin headline–styrene_normal {
+@define-mixin headline-styrene_normal {
     font-size: 32px;
     line-height: 40px;
     font-weight: 500;
@@ -29,7 +29,7 @@
     font-family: var(--font-family-styrene);
 }
 
-@define-mixin headline–styrene_small {
+@define-mixin headline-styrene_small {
     font-size: 24px;
     line-height: 32px;
     font-weight: 500;
@@ -37,7 +37,7 @@
     font-family: var(--font-family-styrene);
 }
 
-@define-mixin headline–styrene_xsmall {
+@define-mixin headline-styrene_xsmall {
     font-size: 20px;
     line-height: 24px;
     font-weight: 500;
@@ -173,14 +173,14 @@
     font-family: var(--font-family-system);
 }
 
-@define-mixin headline–system_xlarge {
+@define-mixin headline-system_xlarge {
     font-size: 48px;
     line-height: 52px;
     font-weight: 700;
     font-family: var(--font-family-system);
 }
 
-@define-mixin headline–system_large {
+@define-mixin headline-system_large {
     font-size: 40px;
     line-height: 48px;
     font-weight: 700;
@@ -188,7 +188,7 @@
     font-family: var(--font-family-system);
 }
 
-@define-mixin headline–system_normal {
+@define-mixin headline-system_normal {
     font-size: 30px;
     line-height: 36px;
     font-weight: 700;
@@ -196,7 +196,7 @@
     font-family: var(--font-family-system);
 }
 
-@define-mixin headline–system_small {
+@define-mixin headline-system_small {
     font-size: 22px;
     line-height: 26px;
     font-weight: 700;
@@ -204,7 +204,7 @@
     font-family: var(--font-family-system);
 }
 
-@define-mixin headline–system_xsmall {
+@define-mixin headline-system_xsmall {
     font-size: 18px;
     line-height: 22px;
     font-weight: 700;
