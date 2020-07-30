@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "@alfalab/icons-classic": "^1.7.0",
+    "@alfalab/icons-glyph": "^1.26.0",
     "@popperjs/core": "^2.3.3",
     "alfa-ui-primitives": "^2.14.1",
     "downshift": "5.2.7",
@@ -59,7 +60,6 @@
     "text-mask-core": "^5.1.2"
   },
   "devDependencies": {
-    "@alfalab/icons-glyph": "^1.6.0",
     "@alfalab/rollup-plugin-postcss": "^3.2.0",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.8.3",
     "@babel/plugin-proposal-optional-chaining": "^7.9.0",

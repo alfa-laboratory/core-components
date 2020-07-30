@@ -63,16 +63,15 @@ exports[`BankCard Snapshots tests should match snapshots 1`] = `
               type="button"
             >
               <svg
-                fill="none"
+                fill="currentColor"
+                focusable="false"
                 height="24"
                 viewBox="0 0 24 24"
                 width="24"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   clip-rule="evenodd"
-                  d="M7.77208 4.68377C7.90819 4.27543 8.29033 4 8.72076 4H15.2792C15.7097 4 16.0918 4.27543 16.2279 4.68377L17 7H20C20.5523 7 21 7.44772 21 8V18C21 18.5523 20.5523 19 20 19H4C3.44772 19 3 18.5523 3 18V8C3 7.44772 3.44772 7 4 7H7L7.77208 4.68377ZM12 16C13.6569 16 15 14.6569 15 13C15 11.3431 13.6569 10 12 10C10.3431 10 9 11.3431 9 13C9 14.6569 10.3431 16 12 16Z"
-                  fill="black"
+                  d="M7.772 4.684A1 1 0 018.721 4h6.558a1 1 0 01.949.684L17 7h3a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1h3l.772-2.316zM12 16a3 3 0 100-6 3 3 0 000 6z"
                   fill-rule="evenodd"
                 />
               </svg>
@@ -172,16 +171,15 @@ exports[`BankCard Snapshots tests should match snapshots 2`] = `
               type="button"
             >
               <svg
-                fill="none"
+                fill="currentColor"
+                focusable="false"
                 height="24"
                 viewBox="0 0 24 24"
                 width="24"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   clip-rule="evenodd"
-                  d="M7.77208 4.68377C7.90819 4.27543 8.29033 4 8.72076 4H15.2792C15.7097 4 16.0918 4.27543 16.2279 4.68377L17 7H20C20.5523 7 21 7.44772 21 8V18C21 18.5523 20.5523 19 20 19H4C3.44772 19 3 18.5523 3 18V8C3 7.44772 3.44772 7 4 7H7L7.77208 4.68377ZM12 16C13.6569 16 15 14.6569 15 13C15 11.3431 13.6569 10 12 10C10.3431 10 9 11.3431 9 13C9 14.6569 10.3431 16 12 16Z"
-                  fill="black"
+                  d="M7.772 4.684A1 1 0 018.721 4h6.558a1 1 0 01.949.684L17 7h3a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1h3l.772-2.316zM12 16a3 3 0 100-6 3 3 0 000 6z"
                   fill-rule="evenodd"
                 />
               </svg>
@@ -281,16 +279,15 @@ exports[`BankCard Snapshots tests should match snapshots 3`] = `
               type="button"
             >
               <svg
-                fill="none"
+                fill="currentColor"
+                focusable="false"
                 height="24"
                 viewBox="0 0 24 24"
                 width="24"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   clip-rule="evenodd"
-                  d="M7.77208 4.68377C7.90819 4.27543 8.29033 4 8.72076 4H15.2792C15.7097 4 16.0918 4.27543 16.2279 4.68377L17 7H20C20.5523 7 21 7.44772 21 8V18C21 18.5523 20.5523 19 20 19H4C3.44772 19 3 18.5523 3 18V8C3 7.44772 3.44772 7 4 7H7L7.77208 4.68377ZM12 16C13.6569 16 15 14.6569 15 13C15 11.3431 13.6569 10 12 10C10.3431 10 9 11.3431 9 13C9 14.6569 10.3431 16 12 16Z"
-                  fill="black"
+                  d="M7.772 4.684A1 1 0 018.721 4h6.558a1 1 0 01.949.684L17 7h3a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1h3l.772-2.316zM12 16a3 3 0 100-6 3 3 0 000 6z"
                   fill-rule="evenodd"
                 />
               </svg>
@@ -400,16 +397,15 @@ exports[`BankCard Snapshots tests should match snapshots 4`] = `
               type="button"
             >
               <svg
-                fill="none"
+                fill="currentColor"
+                focusable="false"
                 height="24"
                 viewBox="0 0 24 24"
                 width="24"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   clip-rule="evenodd"
-                  d="M7.77208 4.68377C7.90819 4.27543 8.29033 4 8.72076 4H15.2792C15.7097 4 16.0918 4.27543 16.2279 4.68377L17 7H20C20.5523 7 21 7.44772 21 8V18C21 18.5523 20.5523 19 20 19H4C3.44772 19 3 18.5523 3 18V8C3 7.44772 3.44772 7 4 7H7L7.77208 4.68377ZM12 16C13.6569 16 15 14.6569 15 13C15 11.3431 13.6569 10 12 10C10.3431 10 9 11.3431 9 13C9 14.6569 10.3431 16 12 16Z"
-                  fill="black"
+                  d="M7.772 4.684A1 1 0 018.721 4h6.558a1 1 0 01.949.684L17 7h3a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1h3l.772-2.316zM12 16a3 3 0 100-6 3 3 0 000 6z"
                   fill-rule="evenodd"
                 />
               </svg>

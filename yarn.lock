@@ -12,10 +12,10 @@
   resolved "https://registry.yarnpkg.com/@alfalab/icons-classic/-/icons-classic-1.7.0.tgz#e597f19ee604d8ba863c34f0fde6839d459ac801"
   integrity sha512-FHQ8c6aIf4/aiW202IBE9IJG8muea9Wgkf5PiG9dLkYdLmbclem4ITicajCFG5WDaBSryn0uJ0ThuPMvWuLqag==
 
-"@alfalab/icons-glyph@^1.6.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.7.0.tgz#0addf916925a253cae6c3aaee22258b9cf274d4e"
-  integrity sha512-SoTQA1dOWixaBLo6kCHGhiNYwD+OLmTzPjfLZ6qFuBkVjmudmzS4v+sqz/rfsTT8IUbWz+OLpeP6xti/qBWFog==
+"@alfalab/icons-glyph@^1.26.0":
+  version "1.26.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.26.0.tgz#eed52dd778440f6ef59b3fd524dc2eaadd5c86e6"
+  integrity sha512-dBjvQ8yRiM1UtEHVna7U8Idh+EdyjOkdEms7uMXHgBoZg5Yn198auYHFs3Yu70k0kG0DHxdvtyoG+ES3Gl7idg==
 
 "@alfalab/rollup-plugin-postcss@^3.2.0":
   version "3.2.0"
