@@ -9,6 +9,7 @@ describe('BankCard', () => {
         it('should match snapshots', () => {
             expect(render(<BankCard value='4111 1111 1111 1111' />).container).toMatchSnapshot();
             expect(render(<BankCard value='5500 0000 0000 0004' />).container).toMatchSnapshot();
+            expect(render(<BankCard value='2201 3820 0000 0013' />).container).toMatchSnapshot();
             expect(
                 render(<BankCard value='1234 1234 1234 1234 1234' />).container,
             ).toMatchSnapshot();

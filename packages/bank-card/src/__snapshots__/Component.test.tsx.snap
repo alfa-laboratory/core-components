@@ -269,6 +269,125 @@ exports[`BankCard Snapshots tests should match snapshots 3`] = `
               <input
                 class="input hasLabel input"
                 type="text"
+                value="2201 3820 0000 0013"
+              />
+            </div>
+          </div>
+          <div
+            class="addons rightAddons"
+          >
+            <button
+              class="usePhoto"
+              type="button"
+            >
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M7.77208 4.68377C7.90819 4.27543 8.29033 4 8.72076 4H15.2792C15.7097 4 16.0918 4.27543 16.2279 4.68377L17 7H20C20.5523 7 21 7.44772 21 8V18C21 18.5523 20.5523 19 20 19H4C3.44772 19 3 18.5523 3 18V8C3 7.44772 3.44772 7 4 7H7L7.77208 4.68377ZM12 16C13.6569 16 15 14.6569 15 13C15 11.3431 13.6569 10 12 10C10.3431 10 9 11.3431 9 13C9 14.6569 10.3431 16 12 16Z"
+                  fill="black"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+      </div>
+      <div
+        class="brandLogo"
+      >
+        <svg
+          focusable="false"
+          height="48"
+          viewBox="0 0 48 48"
+          width="48"
+        >
+          <g
+            fill="none"
+            fill-rule="evenodd"
+          >
+            <polygon
+              points="0 0 48 0 48 48 0 48"
+            />
+            <g
+              fill="#0B1F35"
+              fill-rule="nonzero"
+            >
+              <path
+                d="M30.684 17.101h1.79V29.74h-4.016v-7.381c0-.182-.255-.24-.336-.074l-3.303 6.682c-.238.475-.73.775-1.266.773H19.4V17.101h3.89c.07 0 .128.055.128.123v7.23c0 .316.441.411.578.124l3.187-6.686a1.408 1.408 0 0 1 1.275-.79h2.226zm-15.95 0h2.616V29.74h-3.925v-7.29c0-.197-.278-.238-.336-.05l-2.28 7.34H7.54L5.262 22.4c-.058-.188-.337-.147-.337.05v7.29H1V17.101h4.64c.608 0 1.145.4 1.315.982l1.936 6.599c.083.282.486.282.568 0l1.936-6.6a1.37 1.37 0 0 1 1.315-.98h2.024zm23.14 5.906h8.81a4.43 4.43 0 0 1-4.108 2.698h-4.701v4.035h-4.018v-6.733h4.018z"
+                fill-opacity=".9"
+              />
+              <path
+                d="M33.2 17.101c0 2.853 3.72 5.164 6.658 5.164h6.999c.06-.283.09-.572.09-.862 0-2.376-1.984-4.302-4.431-4.302H33.2z"
+                fill-opacity=".6"
+                opacity=".5"
+              />
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BankCard Snapshots tests should match snapshots 4`] = `
+<div>
+  <div
+    class="component filled"
+    style="background-color: rgb(239, 49, 36);"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="bankLogo"
+      >
+        <svg
+          focusable="false"
+          height="30"
+          viewBox="0 0 30 30"
+          width="30"
+        >
+          <g
+            fill="#0b1f35"
+          >
+            <path
+              d="M5 29h20v-4H5zM12.29 13.62l2.69-8h.09l2.54 8zm6.21-9.46c-.5-1.62-1.17-2.91-3.33-2.91s-2.82 1.28-3.4 2.91L5.85 21h3.93l1.37-4h7.55l1.3 4h4.18z"
+            />
+          </g>
+        </svg>
+      </div>
+      <div
+        class="component s filled hasLabel block hasRightAddons"
+      >
+        <div
+          class="inner"
+        >
+          <div
+            class="inputWrapper"
+          >
+            <div
+              class="label label"
+            >
+              <span
+                class="labelInner"
+              >
+                Номер карты или счёта
+              </span>
+            </div>
+            <div
+              class="input"
+            >
+              <input
+                class="input hasLabel input"
+                type="text"
                 value="1234 1234 1234 1234 1234"
               />
             </div>

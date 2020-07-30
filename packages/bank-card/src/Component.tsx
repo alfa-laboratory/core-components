@@ -4,10 +4,12 @@ import { MaskedInput } from '@alfalab/core-components-masked-input';
 import {
     BankAlfaLBlackIcon,
     CardVisaXxlBlackIcon,
+    CardMirXxlBlackIcon,
     CardMastercardXxlBlackIcon,
 } from '@alfalab/icons-classic';
 
 import styles from './index.module.css';
+import { validateCardNumber } from './utils';
 
 export type BankCardProps = {
     /**
@@ -57,7 +59,9 @@ const cardMask = [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/
 const accountNumberMask = [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/];
 
 const getBrandIcon = (value = '') => {
-    if (value.trim().length <= cardMask.length) {
+    // Показываем логотип только после ввода всех цифр карты
+    if (value.length === cardMask.length && validateCardNumber(value)) {
+        if (value.startsWith('2')) return <CardMirXxlBlackIcon />;
         if (value.startsWith('4')) return <CardVisaXxlBlackIcon />;
         if (value.startsWith('5')) return <CardMastercardXxlBlackIcon />;
     }
