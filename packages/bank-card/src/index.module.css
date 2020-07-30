@@ -1,6 +1,7 @@
 @import '../../themes/src/default.css';
 
 .component {
+    /* TODO: как это будет собираться и работать в webView */
     --form-control-border-radius: 0;
     --form-control-border-bottom: 1px solid var(--color-black);
     --form-control-bg-color: transparent;
@@ -12,27 +13,52 @@
     /* hover */
     --form-control-hover-bg-color: transparent;
 
-    display: flex;
-    align-items: center;
     position: relative;
-    width: 343px;
-    height: 215px;
+    width: 100%;
+
+    /* Эталонный размер 343x215. TODO: max-width: ? */
+    padding-bottom: 62.6%;
     border-radius: 12px;
-    padding-left: 20px;
-    padding-right: 20px;
 
     & .input {
         color: var(--color-black);
 
-        /* TODO: обсудить с дизайнером, почему инпут не соответствует дизайн-системе, либо уменьшить каскад в form-control */
+        /* Костылёк. TODO: обсудить с дизайнером, почему инпут не соответствует дизайн-системе, либо уменьшить каскад в form-control */
         padding-left: 0 !important;
+
+        /* Переопределение, т.к. в либе нет такого стиля */
+        line-height: 24px;
+
+        /* TODO: Размер щрифта на этом отрезке должен меняться с 16px до 20px. Уточнить - это то, что реально нужно? */
+        @media (min-width: 320px) and (max-width: 375px) {
+            font-size: calc(16px + (100vw - 320px) * (4 / (375 - 320)));
+        }
     }
 
     & .label {
         /* TODO: разобраться с цветами. Цвета сейчас не кастомизируются, а в данном кейсе цвет лейбла меняется еще и при фокусе */
-        color: #810d0d;
+        color: var(--color-black);
         left: 0;
     }
+
+    /* Костылёк. В макете - лейбл и инпут находятся на одной высоте, поэтому приходится двигать лейбл чуть ниже */
+    &:not(.focused):not(.filled) .label {
+        color: var(--color-black-60);
+        transform: translateY(8px);
+    }
+}
+
+.container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
 }
 
 .bankLogo {
@@ -56,7 +82,7 @@
 }
 
 .usePhoto {
-    display: inline-flex;
+    display: block;
     margin: 0;
     padding: 0;
     text-decoration: none;
@@ -66,6 +92,13 @@
     user-select: none;
     cursor: pointer;
     outline: none;
+    margin-bottom: 4px;
+    align-self: flex-end;
 
+    /* Костылёк. В макете иконка прилегает к правому краю поля, а по дизайн-системе там должен быть отступ */
     margin-right: calc(var(--gap-s) * -1);
+
+    & svg {
+        display: block;
+    }
 }
