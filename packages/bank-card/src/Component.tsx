@@ -161,3 +161,9 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
         );
     },
 );
+
+BankCard.defaultProps = {
+    bankLogo: <BankAlfaLBlackIcon />,
+    backgroundColor: '#EF3124',
+    inputLabel: 'Номер карты или счёта',
+};
