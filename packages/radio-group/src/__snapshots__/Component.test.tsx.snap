@@ -1,0 +1,836 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioGroup Display tests should display radio group correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="component radio vertical"
+      >
+        <span
+          class="label"
+        >
+          Заголовок группы
+        </span>
+        <div
+          class="radioList"
+        >
+          <label
+            class="container my-radio radio"
+          >
+            <input
+              type="radio"
+              value="one"
+            />
+            <span
+              class="circle"
+            />
+            <span
+              class="content"
+            >
+              <span
+                class="label"
+              >
+                Первый вариант
+              </span>
+            </span>
+          </label>
+          <label
+            class="container my-second-radio radio"
+          >
+            <input
+              type="radio"
+              value="two"
+            />
+            <span
+              class="circle"
+            />
+            <span
+              class="content"
+            >
+              <span
+                class="label"
+              >
+                Второй вариант
+              </span>
+            </span>
+          </label>
+          <label
+            class="container radio"
+          >
+            <input
+              type="radio"
+              value="three"
+            />
+            <span
+              class="circle"
+            />
+            <span
+              class="content"
+            >
+              <span
+                class="label"
+              >
+                Третий вариант
+              </span>
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="component radio vertical"
+    >
+      <span
+        class="label"
+      >
+        Заголовок группы
+      </span>
+      <div
+        class="radioList"
+      >
+        <label
+          class="container my-radio radio"
+        >
+          <input
+            type="radio"
+            value="one"
+          />
+          <span
+            class="circle"
+          />
+          <span
+            class="content"
+          >
+            <span
+              class="label"
+            >
+              Первый вариант
+            </span>
+          </span>
+        </label>
+        <label
+          class="container my-second-radio radio"
+        >
+          <input
+            type="radio"
+            value="two"
+          />
+          <span
+            class="circle"
+          />
+          <span
+            class="content"
+          >
+            <span
+              class="label"
+            >
+              Второй вариант
+            </span>
+          </span>
+        </label>
+        <label
+          class="container radio"
+        >
+          <input
+            type="radio"
+            value="three"
+          />
+          <span
+            class="circle"
+          />
+          <span
+            class="content"
+          >
+            <span
+              class="label"
+            >
+              Третий вариант
+            </span>
+          </span>
+        </label>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`RadioGroup Display tests should display radio group with error correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="component radio vertical error"
+      >
+        <span
+          class="label"
+        >
+          Заголовок группы
+        </span>
+        <div
+          class="radioList"
+        >
+          <label
+            class="container my-radio radio"
+          >
+            <input
+              type="radio"
+              value="one"
+            />
+            <span
+              class="circle"
+            />
+            <span
+              class="content"
+            >
+              <span
+                class="label"
+              >
+                Первый вариант
+              </span>
+            </span>
+          </label>
+          <label
+            class="container my-second-radio radio"
+          >
+            <input
+              type="radio"
+              value="two"
+            />
+            <span
+              class="circle"
+            />
+            <span
+              class="content"
+            >
+              <span
+                class="label"
+              >
+                Второй вариант
+              </span>
+            </span>
+          </label>
+          <label
+            class="container radio"
+          >
+            <input
+              type="radio"
+              value="three"
+            />
+            <span
+              class="circle"
+            />
+            <span
+              class="content"
+            >
+              <span
+                class="label"
+              >
+                Третий вариант
+              </span>
+            </span>
+          </label>
+        </div>
+        <span
+          class="errorMessage"
+        >
+          Error
+        </span>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="component radio vertical error"
+    >
+      <span
+        class="label"
+      >
+        Заголовок группы
+      </span>
+      <div
+        class="radioList"
+      >
+        <label
+          class="container my-radio radio"
+        >
+          <input
+            type="radio"
+            value="one"
+          />
+          <span
+            class="circle"
+          />
+          <span
+            class="content"
+          >
+            <span
+              class="label"
+            >
+              Первый вариант
+            </span>
+          </span>
+        </label>
+        <label
+          class="container my-second-radio radio"
+        >
+          <input
+            type="radio"
+            value="two"
+          />
+          <span
+            class="circle"
+          />
+          <span
+            class="content"
+          >
+            <span
+              class="label"
+            >
+              Второй вариант
+            </span>
+          </span>
+        </label>
+        <label
+          class="container radio"
+        >
+          <input
+            type="radio"
+            value="three"
+          />
+          <span
+            class="circle"
+          />
+          <span
+            class="content"
+          >
+            <span
+              class="label"
+            >
+              Третий вариант
+            </span>
+          </span>
+        </label>
+      </div>
+      <span
+        class="errorMessage"
+      >
+        Error
+      </span>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`RadioGroup Display tests should display radio group with one child correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="component radio vertical"
+      >
+        <span
+          class="label"
+        >
+          Заголовок группы
+        </span>
+        <div
+          class="radioList"
+        >
+          <label
+            class="container radio-group radio"
+          >
+            <input
+              type="radio"
+              value="one"
+            />
+            <span
+              class="circle"
+            />
+            <span
+              class="content"
+            >
+              <span
+                class="label"
+              >
+                Первый вариант
+              </span>
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="component radio vertical"
+    >
+      <span
+        class="label"
+      >
+        Заголовок группы
+      </span>
+      <div
+        class="radioList"
+      >
+        <label
+          class="container radio-group radio"
+        >
+          <input
+            type="radio"
+            value="one"
+          />
+          <span
+            class="circle"
+          />
+          <span
+            class="content"
+          >
+            <span
+              class="label"
+            >
+              Первый вариант
+            </span>
+          </span>
+        </label>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`RadioGroup Display tests should display tag radio group correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="component tag vertical"
+      >
+        <span
+          class="label"
+        >
+          Заголовок группы
+        </span>
+        <div
+          class="radioList"
+        >
+          <label
+            class="radio tagLabel"
+          >
+            <button
+              class="component s my-tag"
+              type="button"
+            >
+              <span>
+                Первый вариант
+              </span>
+            </button>
+            <input
+              autocomplete="off"
+              class="hiddenInput"
+              type="radio"
+            />
+          </label>
+          <label
+            class="radio tagLabel"
+          >
+            <button
+              class="component s"
+              type="button"
+            >
+              <span>
+                Второй вариант
+              </span>
+            </button>
+            <input
+              autocomplete="off"
+              class="hiddenInput"
+              type="radio"
+            />
+          </label>
+          <label
+            class="radio tagLabel"
+          >
+            <button
+              class="component s"
+              type="button"
+            >
+              <span>
+                Третий вариант
+              </span>
+            </button>
+            <input
+              autocomplete="off"
+              class="hiddenInput"
+              type="radio"
+            />
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="component tag vertical"
+    >
+      <span
+        class="label"
+      >
+        Заголовок группы
+      </span>
+      <div
+        class="radioList"
+      >
+        <label
+          class="radio tagLabel"
+        >
+          <button
+            class="component s my-tag"
+            type="button"
+          >
+            <span>
+              Первый вариант
+            </span>
+          </button>
+          <input
+            autocomplete="off"
+            class="hiddenInput"
+            type="radio"
+          />
+        </label>
+        <label
+          class="radio tagLabel"
+        >
+          <button
+            class="component s"
+            type="button"
+          >
+            <span>
+              Второй вариант
+            </span>
+          </button>
+          <input
+            autocomplete="off"
+            class="hiddenInput"
+            type="radio"
+          />
+        </label>
+        <label
+          class="radio tagLabel"
+        >
+          <button
+            class="component s"
+            type="button"
+          >
+            <span>
+              Третий вариант
+            </span>
+          </button>
+          <input
+            autocomplete="off"
+            class="hiddenInput"
+            type="radio"
+          />
+        </label>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`RadioGroup Display tests should display with children like boolean or string or others react children type correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="component radio vertical"
+      >
+        <span
+          class="label"
+        >
+          Заголовок группы
+        </span>
+        <div
+          class="radioList"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="component radio vertical"
+    >
+      <span
+        class="label"
+      >
+        Заголовок группы
+      </span>
+      <div
+        class="radioList"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
