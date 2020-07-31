@@ -1,0 +1,104 @@
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { Meta, Props, Title } from '@storybook/addon-docs/blocks';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { Design } from 'storybook/blocks/design';
+
+import { AmountInput } from './Component';
+import { name, version } from '../package.json';
+
+
+<!-- prettier-ignore -->
+
+<Meta
+    title='Компоненты|AmountInput'
+    component={AmountInput}
+    parameters={{ 'theme-switcher': { enabled: true } }}
+/>
+
+<Title>
+    AmountInput ({name}@{version})
+</Title>
+
+```tsx
+import { AmountInput } from '@alfalab/core-components-amount-input';
+```
+
+<Design>
+  <a href="https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=532%3A544">Figma</a>
+</Design>
+
+## Описание
+
+Компонент текстового поля для ввода денежных значений
+
+<Story name='Песочница'>
+    <AmountInput
+        value={number('value', null)}
+        currency={text('currency', 'RUR')}
+        minority={number('minority', 100)}
+        bold={boolean('bold', true)}
+        block={boolean('block', false)}
+        size={select('size', ['s', 'm', 'l'], 's')}
+        disabled={boolean('disabled', false)}
+        placeholder={text('placeholder', undefined)}
+        label={text('label', '')}
+        hint={text('hint', '')}
+        error={text('error', '')}
+        leftAddons={boolean('leftAddons', false) && <Icon />}
+        bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
+        onChange={action('change')}
+    />
+</Story>
+
+<Props of={AmountInput} />
+
+### Uncontrolled-way
+
+Можно ничего не передавать в компонент и реагировать на 'onChange'
+
+<Preview>
+    <AmountInput />
+</Preview>
+
+### Controlled-way
+
+Компонент может быть использован как controlled с помощью `onChange` и `selected`:
+
+<Preview>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState(10000);
+        const [suggests] = React.useState([
+            { currency: 'RUR', minorUnits: 100, value: 15600 },
+            { currency: 'RUR', minorUnits: 100, value: 500 },
+            { currency: 'RUR', minorUnits: 100, value: null },
+            { currency: 'RUR', minorUnits: 100, value: 0 },
+        ]);
+        const handleChange = (event, payload) => {
+            setValue(payload.value);
+        };
+        return (
+            <Container>
+                <Row align="middle">
+                    <Col>
+                        <AmountInput
+                            value={value}
+                            onChange={handleChange}
+                        />
+                    </Col>
+                    <Col>
+                        { String(value) }
+                    </Col>
+                    {suggests.map((s) => (
+                        <button
+                            onClick={() => { setValue(s.value) }}
+                        >
+                           Установить {String(s.value)}
+                        </button>
+                    ))}
+                </Row>
+            </Container>
+        );
+    })}
+</Preview>

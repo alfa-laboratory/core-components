@@ -2,6 +2,55 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/alfa-laboratory/core-components/compare/v1.10.0...v1.11.0) (2020-07-22)
+
+
+### Features
+
+* **storybook:** add theme switcher to storybook ([#199](https://github.com/alfa-laboratory/core-components/issues/199)) ([7794f80](https://github.com/alfa-laboratory/core-components/commit/7794f80dc83cba171ffe7282e54d5ce0f4bd8245))
+
+
+### Bug Fixes
+
+* **core-components-progress-bar:** use theme ([#201](https://github.com/alfa-laboratory/core-components/issues/201)) ([a9ab773](https://github.com/alfa-laboratory/core-components/commit/a9ab773d75f4fcbc68ad648b378cfb3c2b9c0c19))
+
+## [1.10.0](https://github.com/alfa-laboratory/core-components/compare/v1.9.0...v1.10.0) (2020-07-17)
+
+
+### Features
+
+* **core-components-progress-bar:** add progress bar component ([39ee713](https://github.com/alfa-laboratory/core-components/commit/39ee713522f67f2744fc2f6b4fcb2ac861a55f41))
+
+
+### Bug Fixes
+
+* **core-components-progress-bar:** refactor, snapshot tests fix ([7b0b553](https://github.com/alfa-laboratory/core-components/commit/7b0b553eafce92307bec53d0d35f847969bf8904))
+
+## [1.9.0](https://github.com/alfa-laboratory/core-components/compare/v1.8.0...v1.9.0) (2020-07-13)
+
+
+### Bug Fixes
+
+* **tag:** add height in ie (fix bug with flex and align-items) ([9fd2abd](https://github.com/alfa-laboratory/core-components/commit/9fd2abd401d92e01e853ce5a3f497645d74b8e04))
+
+## [1.8.0](https://github.com/alfa-laboratory/core-components/compare/v1.7.3...v1.8.0) (2020-06-30)
+
+
+### Features
+
+* **core-components-amount:** add boilerplate for amount ([5614885](https://github.com/alfa-laboratory/core-components/commit/5614885237a9a4843fb312c22c6b5810a3509e63))
+* **core-components-amount:** add click theme ([b4b0699](https://github.com/alfa-laboratory/core-components/commit/b4b0699dcffd2f505935489d66fd0d48b633ecf7))
+* **core-components-amount:** allow withZeroMinorPart formatting ([e86529d](https://github.com/alfa-laboratory/core-components/commit/e86529d72e28e8cde8bffbfd4b4d263129ec4d78))
+* **core-components-amount:** export CurrencyCodes ([1a6155a](https://github.com/alfa-laboratory/core-components/commit/1a6155a63655084895831094127404cdbcb0ef54))
+* **core-components-amount:** feat, change api, add PureAmount ([f946776](https://github.com/alfa-laboratory/core-components/commit/f94677645a8244dedf6f003f901290d5a2c6c16d))
+* **core-components-amount:** implemented amount, add demo ([1e78129](https://github.com/alfa-laboratory/core-components/commit/1e781295de03ff4aac5f5a7ec761f22b529716bd))
+* **core-components-popover:** add classname for tooltip popover ([c837199](https://github.com/alfa-laboratory/core-components/commit/c837199eda8890806388f87a32d61cc88a4165dd))
+
+
+### Bug Fixes
+
+* 🐛 use mixinsDir to import mixins ([#182](https://github.com/alfa-laboratory/core-components/issues/182)) ([06a6f2d](https://github.com/alfa-laboratory/core-components/commit/06a6f2dde49db07681d09a5afb94e91ab1c9da04)), closes [#181](https://github.com/alfa-laboratory/core-components/issues/181)
+
 ### [1.7.3](https://github.com/alfa-laboratory/core-components/compare/v1.7.2...v1.7.3) (2020-06-23)
 
 

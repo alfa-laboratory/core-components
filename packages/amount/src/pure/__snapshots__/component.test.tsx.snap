@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PureAmount should match snapshot 1`] = `
+<span
+  class="component"
+  data-test-id="test-id"
+>
+  1 ₽
+</span>
+`;
