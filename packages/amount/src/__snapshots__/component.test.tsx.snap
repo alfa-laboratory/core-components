@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Amount should match snapshots for base and Pure components 1`] = `
+<div>
+  <span
+    class="component"
+  >
+    1
+    <span
+      class="minorPartAndCurrency"
+    >
+      
+      
+       
+      ₽
+    </span>
+  </span>
+  <span
+    class="component"
+  >
+    1 ₽
+  </span>
+</div>
+`;
