@@ -1,8 +1,21 @@
-import { ReactElement, ComponentType } from 'react';
+import { ReactElement } from 'react';
+import { TagProps } from '@alfalab/core-components-tag';
 
 export type SelectedId = string | number;
 
+export type Gaps = {
+    /**
+     * Управление размером отступов между заголовками (desktop only)
+     */
+    gaps?: 'default' | 'wide';
+};
+
 export type TabsProps = {
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
+
     /**
      * Id активного таба
      */
@@ -12,6 +25,11 @@ export type TabsProps = {
      * Рендерить неактивные табы
      */
     keepMounted?: boolean;
+
+    /**
+     * Внешний вид заголовков табов
+     */
+    view?: 'primary' | 'secondary';
 
     /**
      * Рендерить заголовки табов в контейнере со скроллом
@@ -26,12 +44,17 @@ export type TabsProps = {
     /**
      * Компонент заголовков табов
      */
-    TabList: ComponentType<TablistProps>;
+    TabList: ReactElement<TabListProps>;
 
     /**
      * Обработчик переключения табов
      */
     onChange?: (event: MouseEvent, payload: { selectedId: SelectedId }) => void;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
 };
 
 export type TabProps = {
@@ -66,19 +89,25 @@ export type TabProps = {
     children: ReactNode;
 };
 
-export type TablistProps = Pick<TabsProps, 'selectedId' | 'scrollable' | 'onChange'> & {
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
-
+export type TabListProps = Pick<
+    TabsProps,
+    'className' | 'selectedId' | 'scrollable' | 'onChange' | 'dataTestId'
+> & {
     /**
      * Заголовки табов
      */
-    titles: Array<{
+    titles?: Array<{
         title: string;
         id: SelectedId;
     }>;
 };
 
-export type UseTabsProps = TabsListProps;
+export type SecondaryTabListProps = TabListProps & {
+    tagSize?: TagProps['size'];
+};
+
+export type UseTabsProps = TabListProps;
+
+export type Styles = {
+    styles: { [key: string]: string };
+};

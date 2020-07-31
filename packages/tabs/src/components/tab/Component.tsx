@@ -13,6 +13,7 @@ export const Tab = ({ children, hidden, className }: TabProps) => (
             },
             className,
         )}
+        hidden={hidden}
         role='tabpanel'
         tabIndex={0}
     >

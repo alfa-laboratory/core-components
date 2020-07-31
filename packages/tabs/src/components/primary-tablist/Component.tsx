@@ -2,26 +2,18 @@ import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
 import { useTabs } from '../../useTabs';
 import { ScrollableContainer } from '../scrollable-container';
-import { TablistProps } from '../../typings';
+import { TabListProps, Styles } from '../../typings';
 
-import styles from './index.module.css';
-
-type PrimaryTablistProps = TablistProps & {
-    /**
-     * Управление размером отступов между заголовками
-     */
-    gaps?: 'default' | 'wide';
-};
-
-export const PrimaryTablist = ({
+export const PrimaryTabList = ({
+    styles = {},
     className,
-    gaps = 'default',
     titles = [],
     selectedId = titles.length ? titles[0].id : undefined,
     scrollable = true,
     onChange,
-}: PrimaryTablistProps) => {
-    const { selectedTab, focusedTab, getTablistItemProps } = useTabs({
+    dataTestId,
+}: TabListProps & Styles) => {
+    const { selectedTab, focusedTab, getTabListItemProps } = useTabs({
         titles,
         selectedId,
         onChange,
@@ -41,10 +33,10 @@ export const PrimaryTablist = ({
         <React.Fragment>
             {titles.map((item, index) => (
                 <button
-                    {...getTablistItemProps(index)}
+                    {...getTabListItemProps(index)}
                     type='button'
                     key={item.id}
-                    className={cn(styles.title, styles[gaps], {
+                    className={cn(styles.title, {
                         [styles.selected]: item.id === selectedId,
                     })}
                 >
@@ -61,6 +53,7 @@ export const PrimaryTablist = ({
     return (
         <div
             role='tablist'
+            data-test-id={dataTestId}
             className={cn(styles.component, className, {
                 [styles.scrollable]: scrollable,
             })}

@@ -1,0 +1,67 @@
+@import './index.module.css';
+
+/* TODO: затащить брейкпоинты */
+.component {
+    composes: component from './index.module.css';
+
+    @media (min-width: 768px) {
+        margin-bottom: var(--gap-2xl);
+        margin-top: var(--gap-2xl);
+    }
+
+    @media (max-width: 767px) {
+        margin-bottom: var(--gap-xl);
+        margin-top: var(--gap-xl);
+    }
+}
+
+.title {
+    composes: title from './index.module.css';
+
+    @media (min-width: 768px) {
+        @mixin system_18-22_medium;
+        font-weight: 300;
+    }
+
+    @media (max-width: 767px) {
+        @mixin system_16-20_regular;
+        font-weight: 300;
+        margin-right: var(--gap-xl);
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.default .title {
+    @media (min-width: 768px) {
+        margin-right: var(--gap-2xl);
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.wide .title {
+    @media (min-width: 768px) {
+        margin-right: var(--gap-4xl);
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.titleWrapper {
+    composes: titleWrapper from './index.module.css';
+
+    @media (min-width: 768px) {
+        padding-bottom: var(--gap-m);
+    }
+
+    @media (max-width: 767px) {
+        padding-bottom: var(--gap-s);
+    }
+}

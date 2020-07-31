@@ -1,15 +1,16 @@
 import React, { cloneElement } from 'react';
-import { PrimaryTablist } from '../primary-tablist';
 import { TabsProps } from '../../typings';
 
 export const Tabs = ({
-    TabList = PrimaryTablist,
+    TabList,
+    className,
     children,
     selectedId,
     scrollable,
-    keepMounted,
+    keepMounted = false,
+    dataTestId,
     onChange,
-}: TabsProps) => {
+}: Omit<TabsProps, 'view'>) => {
     const tabsArray = React.Children.toArray(children) as TabsProps['children'];
     const titles = tabsArray.map(({ props: { title, id } }) => ({ title, id }));
     const tabs = tabsArray.filter(
@@ -17,13 +18,14 @@ export const Tabs = ({
     );
 
     return (
-        <div>
-            <TabList
-                titles={titles}
-                selectedId={selectedId}
-                scrollable={scrollable}
-                onChange={onChange}
-            />
+        <div className={className}>
+            {cloneElement(TabList, {
+                titles,
+                selectedId,
+                scrollable,
+                onChange,
+                dataTestId,
+            })}
 
             {tabs.map(tab => cloneElement(tab, { hidden: tab.props.id !== selectedId }))}
         </div>
