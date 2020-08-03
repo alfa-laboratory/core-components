@@ -1,0 +1,154 @@
+import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { text, boolean, select, number } from '@storybook/addon-knobs';
+import { Design } from 'storybook/blocks/design';
+
+import { Typography } from './Component';
+import { HedaingProps } from './heading';
+import { ParagraphProps } from './paragraph';
+import { name, version } from '../package.json';
+
+
+<Meta title='Компоненты|Typography' component={Typography} />
+
+<Title>
+    Typography ({name}@{version})
+</Title>
+
+```tsx
+import { Typography } from '@alfalab/core-components-tooltip/typography';
+```
+
+<Design>
+  <a href="https://www.figma.com/file/FWya6P55TnXkiVGaM2qBio/2020-Web-Hybrid-Typography?node-id=593%3A0">Figma</a>
+</Design>
+
+## Описание
+
+Компонент `Typography.Heading`.
+
+<Story name='Heading'>
+    {React.createElement(() => {
+        const VIEW_TYPES = [
+            'headline-styrene-xlarge',
+            'headline-styrene-large',
+            'headline-styrene-normal',
+            'headline-styrene-small',
+            'headline-styrene-xsmall',
+            'headline-system-xlarge',
+            'headline-system-large',
+            'headline-system-normal',
+            'headline-system-small',
+            'headline-system-xsmall',
+            'promo-xlarge',
+            'promo-large',
+            'promo-normal',
+            'promo-small',
+            'promo-xsmall',
+        ];
+        const level = select('level', [1, 2, 3, 4, 5], '2');
+        const view = select('view', VIEW_TYPES, 'headline-styrene-large');
+        const className = text('className', '');
+        const dataTestId = text('dataTestId', '');
+        return (
+            <Typography.Heading level={level} view={view} className={className} dataTestId={dataTestId}>Заголовок {level}</Typography.Heading>
+        );
+    })}
+</Story>
+
+## Описание
+
+Компонент `Typography.Paragraph`.
+
+<Story name='Paragraph'>
+    {React.createElement(() => {
+        const VIEW_TYPES = [
+            'paragraph-primary-large',
+            'paragraph-primary-normal',
+            'paragraph-primary-small',
+            'paragraph-secondary-large',
+            'paragraph-secondary-normal',
+            'paragraph-secondary-small',
+            'paragraph-component',
+            'paragraph-caps',
+            'accent-primary-large',
+            'accent-primary-normal',
+            'accent-primary-small',
+            'accent-secondary-large',
+            'accent-secondary-normal',
+            'accent-secondary-small',
+            'accent-component',
+            'accent-caps',
+            'action-primary-large',
+            'action-primary-normal',
+            'action-primary-small',
+            'action-secondary-large',
+            'action-secondary-normal',
+            'action-secondary-small',
+            'key-xlarge',
+            'key-large',
+            'key-normal',
+            'key-small',
+            'key-xsmall',
+            'legacy-styrene-normal',
+            'legacy-primary-small',
+        ];
+        const view = select('view', VIEW_TYPES, 'headline-styrene-large');
+        const type = select('type', ['secondary', 'negative', 'positive', 'attention']);
+        const className = text('className', '');
+        const dataTestId = text('dataTestId', '');
+        return (
+            <Typography.Paragraph view={view} type={type} className={className} dataTestId={dataTestId}>Параграф</Typography.Paragraph>
+        );
+    })}
+</Story>
+
+## Описание
+
+Компонент `Typography.Text`.
+
+<Story name='Typography.Text'>
+    {React.createElement(() => {
+        const VIEW_TYPES = [
+            'paragraph-primary-large',
+            'paragraph-primary-normal',
+            'paragraph-primary-small',
+            'paragraph-secondary-large',
+            'paragraph-secondary-normal',
+            'paragraph-secondary-small',
+            'paragraph-component',
+            'paragraph-caps',
+            'accent-primary-large',
+            'accent-primary-normal',
+            'accent-primary-small',
+            'accent-secondary-large',
+            'accent-secondary-normal',
+            'accent-secondary-small',
+            'accent-component',
+            'accent-caps',
+            'action-primary-large',
+            'action-primary-normal',
+            'action-primary-small',
+            'action-secondary-large',
+            'action-secondary-normal',
+            'action-secondary-small',
+            'key-xlarge',
+            'key-large',
+            'key-normal',
+            'key-small',
+            'key-xsmall',
+            'legacy-styrene-normal',
+            'legacy-primary-small',
+        ];
+        const view = select('view', VIEW_TYPES, 'headline-styrene-large');
+        const type = select('type', ['secondary', 'negative', 'positive', 'attention']);
+        const className = text('className', '');
+        const dataTestId = text('dataTestId', '');
+        return (
+            <Typography.Text view={view} type={type} className={className} dataTestId={dataTestId}>Текст</Typography.Text>
+        );
+    })}
+</Story>
+
+<Props of={{
+    Typography,
+}} />
