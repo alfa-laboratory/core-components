@@ -5,22 +5,42 @@
     padding: 0;
 }
 
-.headlineSystemXlarge {
-    @mixin headline-system_xlarge;
+.headlineXlarge {
+    @mixin headline_xlarge;
 }
 
-.headlineSystemLarge {
-    @mixin headline-system_large;
+.headlineLarge {
+    @mixin headline_large;
 }
 
-.headlineSystemNormal {
-    @mixin headline-system_normal;
+.headlineNormal {
+    @mixin headline_normal;
 }
 
-.headlineSystemSmall {
-    @mixin headline-system_small;
+.headlineSmall {
+    @mixin headline_small;
 }
 
-.headlineSystemXsmall {
-    @mixin headline-system_xsmall;
+.headlineXsmall {
+    @mixin headline_xsmall;
+}
+
+.promoXlarge {
+    @mixin promo_xlarge;
+}
+
+.promoLarge {
+    @mixin promo_large;
+}
+
+.promoNormal {
+    @mixin promo_normal;
+}
+
+.promoSmall {
+    @mixin promo_small;
+}
+
+.promoXsmall {
+    @mixin promo_xsmall;
 }

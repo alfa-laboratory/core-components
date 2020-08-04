@@ -30,14 +30,19 @@ import { Typography } from '@alfalab/core-components-tooltip/typography';
 <Story name='Heading'>
     {React.createElement(() => {
         const VIEW_TYPES = [
-            'headline-system-xlarge',
-            'headline-system-large',
-            'headline-system-normal',
-            'headline-system-small',
-            'headline-system-xsmall',
+            'headline-styrene-xlarge',
+            'headline-styrene-large',
+            'headline-styrene-normal',
+            'headline-styrene-small',
+            'headline-styrene-xsmall',
+            'promo-xlarge',
+            'promo-large',
+            'promo-normal',
+            'promo-small',
+            'promo-xsmall',
         ];
         const level = select('level', [1, 2, 3, 4, 5], '2');
-        const view = select('view', VIEW_TYPES, 'headline-system-xlarge');
+        const view = select('view', VIEW_TYPES, 'headline-styrene-large');
         const className = text('className', '');
         const dataTestId = text('dataTestId', '');
         return (
@@ -53,19 +58,14 @@ import { Typography } from '@alfalab/core-components-tooltip/typography';
 <Story name='HeadingClassic'>
     {React.createElement(() => {
         const VIEW_TYPES = [
-            'headline-styrene-xlarge',
-            'headline-styrene-large',
-            'headline-styrene-normal',
-            'headline-styrene-small',
-            'headline-styrene-xsmall',
-            'promo-xlarge',
-            'promo-large',
-            'promo-normal',
-            'promo-small',
-            'promo-xsmall',
+            'headline-system-xlarge',
+            'headline-system-large',
+            'headline-system-normal',
+            'headline-system-small',
+            'headline-system-xsmall',
         ];
         const level = select('level', [1, 2, 3, 4, 5], '2');
-        const view = select('view', VIEW_TYPES, 'headline-styrene-large');
+        const view = select('view', VIEW_TYPES, 'headline-system-large');
         const className = text('className', '');
         const dataTestId = text('dataTestId', '');
         return (

@@ -4,11 +4,16 @@ import React from 'react';
 import styles from './index.module.css';
 
 const View = {
-    'headline-system-xlarge': styles.headlineSystemXlarge,
-    'headline-system-large': styles.headlineSystemLarge,
-    'headline-system-normal': styles.headlineSystemNormal,
-    'headline-system-small': styles.headlineSystemSmall,
-    'headline-system-xsmall': styles.headlineSystemXsmall,
+    'headline-xlarge': styles.headlineXlarge,
+    'headline-large': styles.headlineLarge,
+    'headline-normal': styles.headlineNormal,
+    'headline-small': styles.headlineSmall,
+    'headline-xsmall': styles.headlineXsmall,
+    'promo-xlarge': styles.promoXlarge,
+    'promo-large': styles.promoLarge,
+    'promo-normal': styles.promoNormal,
+    'promo-small': styles.promoSmall,
+    'promo-xsmall': styles.promoXsmall,
 };
 
 type ViewType = keyof typeof View;
@@ -28,7 +33,7 @@ export type HeadingProps = {
 
 export const Heading: React.FC<HeadingProps> = ({
     level = 2,
-    view = 'headline-system-large',
+    view = 'headline-large',
     className,
     dataTestId,
     children,
