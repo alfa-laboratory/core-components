@@ -5,7 +5,7 @@
         'Helvetica Neue', Helvetica, sans-serif;
 }
 
-@define-mixin headline-styrene_xlarge {
+@define-mixin headline_xlarge {
     font-size: 48px;
     line-height: 64px;
     font-weight: 500;
@@ -13,7 +13,7 @@
     font-family: var(--font-family-styrene);
 }
 
-@define-mixin headline-styrene_large {
+@define-mixin headline_large {
     font-size: 40px;
     line-height: 48px;
     font-weight: 500;
@@ -21,7 +21,7 @@
     font-family: var(--font-family-styrene);
 }
 
-@define-mixin headline-styrene_normal {
+@define-mixin headline_normal {
     font-size: 32px;
     line-height: 40px;
     font-weight: 500;
@@ -29,7 +29,7 @@
     font-family: var(--font-family-styrene);
 }
 
-@define-mixin headline-styrene_small {
+@define-mixin headline_small {
     font-size: 24px;
     line-height: 32px;
     font-weight: 500;
@@ -37,7 +37,7 @@
     font-family: var(--font-family-styrene);
 }
 
-@define-mixin headline-styrene_xsmall {
+@define-mixin headline_xsmall {
     font-size: 20px;
     line-height: 24px;
     font-weight: 500;
@@ -50,7 +50,6 @@
     line-height: 24px;
     font-weight: 400;
     letter-spacing: -0.45px;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin paragraph_primary_normal {
@@ -58,7 +57,6 @@
     line-height: 24px;
     font-weight: 400;
     letter-spacing: -0.32px;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin paragraph_primary_small {
@@ -66,7 +64,6 @@
     line-height: 20px;
     font-weight: 400;
     letter-spacing: -0.15px;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin paragraph_secondary_large {
@@ -74,14 +71,12 @@
     line-height: 16px;
     font-weight: 400;
     letter-spacing: -0.08px;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin paragraph_secondary_normal {
     font-size: 12px;
     line-height: 16px;
     font-weight: 400;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin paragraph_secondary_small {
@@ -89,7 +84,6 @@
     line-height: 16px;
     font-weight: 400;
     letter-spacing: 0.07px;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin paragraph_component {
@@ -97,7 +91,6 @@
     line-height: 20px;
     font-weight: 400;
     letter-spacing: -0.32px;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin paragraph_caps {
@@ -106,7 +99,6 @@
     font-weight: 500;
     letter-spacing: 1.25px;
     text-transform: uppercase;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin accent_primary_large {
@@ -114,7 +106,6 @@
     line-height: 24px;
     font-weight: 700;
     letter-spacing: -0.45px;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin accent_primary_normal {
@@ -122,7 +113,6 @@
     line-height: 24px;
     font-weight: 700;
     letter-spacing: -0.32px;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin accent_primary_small {
@@ -130,7 +120,6 @@
     line-height: 20px;
     font-weight: 700;
     letter-spacing: -0.15px;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin accent_secondary_large {
@@ -138,14 +127,12 @@
     line-height: 16px;
     font-weight: 700;
     letter-spacing: -0.08px;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin accent_secondary_normal {
     font-size: 12px;
     line-height: 16px;
     font-weight: 700;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin accent_secondary_small {
@@ -153,7 +140,6 @@
     line-height: 16px;
     font-weight: 700;
     letter-spacing: 0.07px;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin accent_component {
@@ -161,7 +147,6 @@
     line-height: 20px;
     font-weight: 700;
     letter-spacing: -0.32px;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin accent_caps {
@@ -170,46 +155,40 @@
     font-weight: 700;
     letter-spacing: 1.25px;
     text-transform: uppercase;
-    font-family: var(--font-family-system);
 }
 
-@define-mixin headline-system_xlarge {
+@define-mixin headline-classic_xlarge {
     font-size: 48px;
     line-height: 52px;
     font-weight: 700;
-    font-family: var(--font-family-system);
 }
 
-@define-mixin headline-system_large {
+@define-mixin headline-classic_large {
     font-size: 40px;
     line-height: 48px;
     font-weight: 700;
     letter-spacing: 0.25px;
-    font-family: var(--font-family-system);
 }
 
-@define-mixin headline-system_normal {
+@define-mixin headline-classic_normal {
     font-size: 30px;
     line-height: 36px;
     font-weight: 700;
     letter-spacing: 0.25px;
-    font-family: var(--font-family-system);
 }
 
-@define-mixin headline-system_small {
+@define-mixin headline-classic_small {
     font-size: 22px;
     line-height: 26px;
     font-weight: 700;
     letter-spacing: 0.25px;
-    font-family: var(--font-family-system);
 }
 
-@define-mixin headline-system_xsmall {
+@define-mixin headline-classic_xsmall {
     font-size: 18px;
     line-height: 22px;
     font-weight: 700;
     letter-spacing: 0.25px;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin action_primary_large {
@@ -217,7 +196,6 @@
     line-height: 24px;
     font-weight: 500;
     letter-spacing: -0.45px;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin action_primary_normal {
@@ -225,7 +203,6 @@
     line-height: 24px;
     font-weight: 500;
     letter-spacing: -0.32px;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin action_primary_small {
@@ -233,7 +210,6 @@
     line-height: 20px;
     font-weight: 500;
     letter-spacing: -0.15px;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin action_secondary_large {
@@ -241,14 +217,12 @@
     line-height: 16px;
     font-weight: 500;
     letter-spacing: -0.08px;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin action_secondary_normal {
     font-size: 12px;
     line-height: 16px;
     font-weight: 500;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin action_secondary_small {
@@ -256,7 +230,6 @@
     line-height: 16px;
     font-weight: 500;
     letter-spacing: 0.07px;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin promo_xlarge {
@@ -353,105 +326,90 @@
     line-height: 18px;
     font-weight: 400;
     letter-spacing: -0.15px;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin system_48-52_bold {
     font-size: 48px;
     line-height: 52px;
     font-weight: 700;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin system_40-48_bold {
     font-size: 40px;
     line-height: 48px;
     font-weight: 700;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin system_30-36_bold {
     font-size: 30px;
     line-height: 36px;
     font-weight: 700;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin system_22-26_bold {
     font-size: 22px;
     line-height: 26px;
     font-weight: 700;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin system_18-22_bold {
     font-size: 18px;
     line-height: 22px;
     font-weight: 700;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin system_18-22_regular {
     font-size: 18px;
     line-height: 22px;
     font-weight: 400;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin system_18-22_medium {
     font-size: 18px;
     line-height: 22px;
     font-weight: 500;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin system_16-24_regular {
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin system_16-24_medium {
     font-size: 16px;
     line-height: 24px;
     font-weight: 500;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin system_16-24_bold {
     font-size: 16px;
     line-height: 24px;
     font-weight: 700;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin system_16-20_regular {
     font-size: 16px;
     line-height: 20px;
     font-weight: 400;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin system_16-20_medium {
     font-size: 16px;
     line-height: 20px;
     font-weight: 500;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin system_16-20_bold {
     font-size: 16px;
     line-height: 20px;
     font-weight: 700;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin system_14-18_regular {
     font-size: 14px;
     line-height: 18px;
     font-weight: 400;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin system_12-16_medium_caps {
@@ -460,14 +418,12 @@
     font-weight: 500;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin system_12-16_regular {
     font-size: 12px;
     line-height: 16px;
     font-weight: 400;
-    font-family: var(--font-family-system);
 }
 
 @define-mixin styrene_40-48_medium {
