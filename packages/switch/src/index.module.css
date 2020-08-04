@@ -59,8 +59,7 @@
 }
 
 .focused .switch {
-    outline: 2px solid var(--focus-color);
-    outline-offset: 2px;
+    @mixin focus-outline;
 }
 
 .content {
