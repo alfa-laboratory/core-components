@@ -43,7 +43,7 @@ export const Heading: React.FC<HeadingProps> = ({
     return React.createElement(
         Component,
         {
-            className: cn(styles.component, className, styles[view]),
+            className: cn(styles.component, className, View[view]),
             'data-test-id': dataTestId,
         },
         children,

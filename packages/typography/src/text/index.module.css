@@ -1,7 +1,7 @@
 @import '../../../vars/src/typography.css';
 
 .component {
-    margin: 0 0 0 var(--gap-m);
+    margin: 0 0 var(--gap-m);
     padding: 0;
 }
 

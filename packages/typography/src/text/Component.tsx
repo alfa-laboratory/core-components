@@ -61,7 +61,7 @@ export const Text: React.FC<TextProps> = ({
     children,
 }: TextProps): React.ReactElement => {
     const Component = tag;
-    const viewClass = view ? styles[view] : '';
+    const viewClass = view ? View[view] : '';
     const typeClass = type ? styles[type] : '';
 
     return React.createElement(
