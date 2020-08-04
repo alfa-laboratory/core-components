@@ -19,7 +19,7 @@
     composes: title from './index.module.css';
 
     @media (min-width: 768px) {
-        @mixin system_18-22_medium;
+        @mixin system_18-22_regular;
         font-weight: 300;
     }
 

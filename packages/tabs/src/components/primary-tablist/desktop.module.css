@@ -10,7 +10,7 @@
 .title {
     composes: title from './index.module.css';
 
-    @mixin system_18-22_medium;
+    @mixin system_18-22_regular;
     font-weight: 300;
 }
 
