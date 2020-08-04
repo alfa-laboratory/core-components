@@ -1,3 +1,4 @@
+import Icon from '@alfalab/icons-glyph/StarMIcon';
 import { Meta, Props, Title } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
@@ -10,8 +11,11 @@ import { name, version } from '../package.json';
 
 <!-- prettier-ignore -->
 
-
-<Meta title='Компоненты|AmountInput' component={AmountInput} />
+<Meta
+    title='Компоненты|AmountInput'
+    component={AmountInput}
+    parameters={{ 'theme-switcher': { enabled: true } }}
+/>
 
 <Title>
     AmountInput ({name}@{version})

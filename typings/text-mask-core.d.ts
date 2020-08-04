@@ -1,7 +1,10 @@
 declare module 'text-mask-core' {
-    export type Mask = Array<string | RegExp> | boolean;
+    export type Mask = Array<string | RegExp>;
 
     export type TextMaskConfig = {
+        currentCaretPosition: number;
+        rawValue: string;
+        previousConformedValue: string;
         mask?: Mask | ((rawValue: string) => Mask);
         guide?: boolean;
         showMask?: boolean;
@@ -27,7 +30,7 @@ declare module 'text-mask-core' {
 
     export function conformToMask(
         text: string,
-        mask: Mask,
+        mask: Mask | ((rawValue: string) => Mask),
         config?: TextMaskConfig,
     ): conformToMaskResult;
 

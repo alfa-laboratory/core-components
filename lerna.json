@@ -5,7 +5,13 @@
     "version": "independent",
     "command": {
         "version": {
-            "message": "chore: publish"
+            "message": "chore: publish",
+            "ignoreChanges": [
+                "*.stories.*",
+                "**/__snapshots__/**",
+                "*.test.*"
+            ]
+
         }
     }
 }
