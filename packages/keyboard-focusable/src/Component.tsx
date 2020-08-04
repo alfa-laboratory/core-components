@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, RefObject } from 'react';
+import React, { useState, useEffect, useCallback, RefObject, ReactNode } from 'react';
 import NodeResolver from 'react-node-resolver';
 
 let prevInputMethod: 'mouse' | 'keyboard';
@@ -21,7 +21,10 @@ if (typeof window !== 'undefined') {
 }
 
 type KeyboardFocusableProps = {
-    children?: (focused: boolean) => void;
+    /**
+     * Рендер-проп, в который передается состояние фокуса
+     */
+    children?: (focused: boolean) => ReactNode;
 };
 
 export const KeyboardFocusable = ({ children }: KeyboardFocusableProps) => {
@@ -64,10 +67,19 @@ export function useKeyboardFocusable(ref: RefObject<HTMLElement>) {
     }, []);
 
     useEffect(() => {
-        if (ref.current) {
-            ref.current.addEventListener('focusin', handleFocus);
-            ref.current.addEventListener('focusout', handleBlur);
+        const node = ref.current;
+
+        if (node) {
+            node.addEventListener('focusin', handleFocus);
+            node.addEventListener('focusout', handleBlur);
         }
+
+        return () => {
+            if (node) {
+                node.removeEventListener('focusin', handleFocus);
+                node.removeEventListener('focusout', handleBlur);
+            }
+        };
     }, [handleBlur, handleFocus, ref]);
 
     return {
