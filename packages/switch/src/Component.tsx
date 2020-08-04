@@ -1,6 +1,5 @@
 import React, { InputHTMLAttributes, useCallback, ChangeEvent, ReactNode } from 'react';
 import cn from 'classnames';
-import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
 
 import styles from './index.module.css';
 
@@ -76,24 +75,18 @@ export const Switch = ({
                 [styles.reversed]: reversed,
             })}
         >
-            <KeyboardFocusable>
-                {focused => (
-                    <React.Fragment>
-                        <input
-                            type='checkbox'
-                            onChange={handleChange}
-                            disabled={disabled}
-                            checked={checked}
-                            name={name}
-                            value={value}
-                            data-test-id={dataTestId}
-                            {...restProps}
-                        />
+            <input
+                type='checkbox'
+                onChange={handleChange}
+                disabled={disabled}
+                checked={checked}
+                name={name}
+                value={value}
+                data-test-id={dataTestId}
+                {...restProps}
+            />
 
-                        <span className={cn(styles.switch, { [styles.focused]: focused })} />
-                    </React.Fragment>
-                )}
-            </KeyboardFocusable>
+            <span className={styles.switch} />
 
             {(label || hint) && (
                 <span className={styles.content}>

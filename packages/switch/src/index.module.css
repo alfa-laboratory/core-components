@@ -58,10 +58,6 @@
     transition: transform 0.2s ease;
 }
 
-.focused {
-    @mixin focus-outline;
-}
-
 .content {
     margin-left: var(--gap-m);
     flex-grow: 1;

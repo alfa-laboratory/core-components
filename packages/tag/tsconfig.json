@@ -3,11 +3,6 @@
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",
-        "rootDirs": ["src"],
-        "baseUrl": ".",
-        "paths": {
-            "@alfalab/core-components-keyboard-focusable": ["../keyboard-focusable/src"]
-        }
-    },
-    "references": [{ "path": "../keyboard-focusable" }]
+        "rootDirs": ["src"]
+    }
 }

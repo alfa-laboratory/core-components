@@ -15,8 +15,5 @@
         "classnames": "^2.2.6",
         "react": "^16.9.0",
         "react-dom": "^16.9.0"
-    },
-    "dependencies": {
-        "@alfalab/core-components-keyboard-focusable": "^1.0.0"
     }
 }
