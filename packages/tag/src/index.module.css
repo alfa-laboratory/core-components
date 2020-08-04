@@ -40,6 +40,11 @@
     outline: none;
 }
 
+.focused {
+    outline: 2px solid var(--focus-color);
+    outline-offset: 2px;
+}
+
 .addons {
     display: flex;
     flex-shrink: 0;

@@ -58,6 +58,11 @@
     transition: transform 0.2s ease;
 }
 
+.focused .switch {
+    outline: 2px solid var(--focus-color);
+    outline-offset: 2px;
+}
+
 .content {
     margin-left: var(--gap-m);
     flex-grow: 1;
