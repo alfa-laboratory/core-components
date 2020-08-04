@@ -1,0 +1,46 @@
+@import '../../../vars/src/typography.css';
+
+.component {
+    margin: 0;
+    padding: 0;
+}
+
+.headlineStyreneXlarge {
+    @mixin headline-styrene_xlarge;
+}
+
+.headlineStyreneLarge {
+    @mixin headline-styrene_large;
+}
+
+.headlineStyreneNormal {
+    @mixin headline-styrene_normal;
+}
+
+.headlineStyreneSmall {
+    @mixin headline-styrene_small;
+}
+
+.headlineStyreneXsmall {
+    @mixin headline-styrene_xsmall;
+}
+
+.promoXlarge {
+    @mixin promo_xlarge;
+}
+
+.promoLarge {
+    @mixin promo_large;
+}
+
+.promoNormal {
+    @mixin promo_normal;
+}
+
+.promoSmall {
+    @mixin promo_small;
+}
+
+.promoXsmall {
+    @mixin promo_xsmall;
+}

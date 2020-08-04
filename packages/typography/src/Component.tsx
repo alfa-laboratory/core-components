@@ -1,13 +1,13 @@
 import { Heading, HeadingProps } from './heading';
-import { Paragraph, ParagraphProps } from './paragraph';
-import { Text } from './text';
+import { HeadingClassic, HeadingClassicProps } from './heading-classic';
+import { Text, TextProps } from './text';
 
 export const Typography: {
     Heading: React.FC<HeadingProps>;
-    Paragraph: React.FC<ParagraphProps>;
-    Text: React.FC<ParagraphProps>;
+    HeadingClassic: React.FC<HeadingClassicProps>;
+    Text: React.FC<TextProps>;
 } = {
     Heading,
-    Paragraph,
+    HeadingClassic,
     Text,
 };
