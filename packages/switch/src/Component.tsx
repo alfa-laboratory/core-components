@@ -68,38 +68,39 @@ export const Switch = ({
     );
 
     return (
-        <KeyboardFocusable>
-            {focused => (
-                // eslint-disable-next-line jsx-a11y/label-has-associated-control
-                <label
-                    className={cn(styles.component, className, {
-                        [styles.disabled]: disabled,
-                        [styles.checked]: checked,
-                        [styles.reversed]: reversed,
-                        [styles.focused]: focused,
-                    })}
-                >
-                    <input
-                        type='checkbox'
-                        onChange={handleChange}
-                        disabled={disabled}
-                        checked={checked}
-                        name={name}
-                        value={value}
-                        data-test-id={dataTestId}
-                        {...restProps}
-                    />
+        // eslint-disable-next-line jsx-a11y/label-has-associated-control
+        <label
+            className={cn(styles.component, className, {
+                [styles.disabled]: disabled,
+                [styles.checked]: checked,
+                [styles.reversed]: reversed,
+            })}
+        >
+            <KeyboardFocusable>
+                {focused => (
+                    <React.Fragment>
+                        <input
+                            type='checkbox'
+                            onChange={handleChange}
+                            disabled={disabled}
+                            checked={checked}
+                            name={name}
+                            value={value}
+                            data-test-id={dataTestId}
+                            {...restProps}
+                        />
 
-                    <span className={styles.switch} />
+                        <span className={cn(styles.switch, { [styles.focused]: focused })} />
+                    </React.Fragment>
+                )}
+            </KeyboardFocusable>
 
-                    {(label || hint) && (
-                        <span className={styles.content}>
-                            {label && <span className={styles.label}>{label}</span>}
-                            {hint && <span className={styles.hint}>{hint}</span>}
-                        </span>
-                    )}
-                </label>
+            {(label || hint) && (
+                <span className={styles.content}>
+                    {label && <span className={styles.label}>{label}</span>}
+                    {hint && <span className={styles.hint}>{hint}</span>}
+                </span>
             )}
-        </KeyboardFocusable>
+        </label>
     );
 };
