@@ -135,27 +135,28 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
                     [styles.focused]: focused,
                     [styles.filled]: filled,
                 })}
-                style={{ backgroundColor }}
             >
-                <div className={styles.container}>
-                    <div className={styles.bankLogo}>{bankLogo}</div>
+                <div className={styles.aspectRatioContainer}>
+                    <div className={styles.content} style={{ backgroundColor }}>
+                        <div className={styles.bankLogo}>{bankLogo}</div>
 
-                    <MaskedInput
-                        ref={ref}
-                        value={value}
-                        mask={getMask}
-                        block={true}
-                        label={inputLabel}
-                        rightAddons={renderRightAddons()}
-                        inputClassName={styles.input}
-                        labelClassName={styles.label}
-                        onChange={handleInputChange}
-                        onFocus={handleInputFocus}
-                        onBlur={handleInputBlur}
-                        dataTestId={dataTestId}
-                    />
+                        <MaskedInput
+                            ref={ref}
+                            value={value}
+                            mask={getMask}
+                            block={true}
+                            label={inputLabel}
+                            rightAddons={renderRightAddons()}
+                            inputClassName={styles.input}
+                            labelClassName={styles.label}
+                            onChange={handleInputChange}
+                            onFocus={handleInputFocus}
+                            onBlur={handleInputBlur}
+                            dataTestId={dataTestId}
+                        />
 
-                    {brandIcon && <div className={styles.brandLogo}>{brandIcon}</div>}
+                        {brandIcon && <div className={styles.brandLogo}>{brandIcon}</div>}
+                    </div>
                 </div>
             </div>
         );

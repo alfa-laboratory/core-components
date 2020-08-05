@@ -64,7 +64,7 @@ describe('BankCard', () => {
         const backgroundColor = '#b000b5';
         const { container } = render(<BankCard backgroundColor={backgroundColor} />);
 
-        expect(container.firstElementChild).toHaveStyle({
+        expect(container.querySelector('.content')).toHaveStyle({
             backgroundColor,
         });
     });

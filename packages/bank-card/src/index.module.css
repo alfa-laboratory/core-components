@@ -16,41 +16,7 @@
     position: relative;
     max-width: 343px;
 
-    /* Эталонный размер 343x215 */
-    padding-bottom: 62.6%;
-    border-radius: 12px;
-
     font-family: var(--font-family-styrene);
-
-    & .input {
-        color: var(--color-black);
-
-        /* TODO: убрать ff из миксинов */
-        font-family: var(--font-family-styrene);
-
-        /* Костылёк. TODO: обсудить с дизайнером, почему инпут не соответствует дизайн-системе, либо уменьшить каскад в form-control */
-        padding-left: 0 !important;
-
-        /* Переопределение, т.к. в либе нет такого стиля */
-        font-size: 20px;
-        line-height: 24px;
-
-        /* TODO: Размер щрифта на этом отрезке должен меняться с 16px до 20px. Уточнить - это то, что реально нужно? */
-        @media (min-width: 320px) and (max-width: 375px) {
-            font-size: calc(16px + (100vw - 320px) * (4 / (375 - 320)));
-        }
-    }
-
-    & .label {
-        /* TODO: разобраться с цветами. Цвета сейчас не кастомизируются, а в данном кейсе цвет лейбла меняется еще и при фокусе */
-        color: var(--color-black);
-        left: 0;
-    }
-
-    &.focused .label,
-    &.filled .label {
-        font-size: 12px;
-    }
 
     /* Костылёк. В макете - лейбл и инпут находятся на одной высоте, поэтому приходится двигать лейбл чуть ниже */
     &:not(.focused):not(.filled) .label {
@@ -59,17 +25,52 @@
     }
 }
 
-.container {
+.aspectRatioContainer {
+    /* Эталонный размер 343x215 */
+    padding-bottom: 62.6%;
+}
+
+.content {
     position: absolute;
-    display: flex;
-    align-items: center;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    display: flex;
+    align-items: center;
     padding-left: 20px;
     padding-right: 20px;
+    border-radius: 12px;
     box-sizing: border-box;
+}
+
+.label {
+    /* TODO: разобраться с цветами. Цвета сейчас не кастомизируются, а в данном кейсе цвет лейбла меняется еще и при фокусе */
+    color: var(--color-black);
+    left: 0;
+}
+
+.focused .label,
+.filled .label {
+    font-size: 12px;
+}
+
+.input {
+    color: var(--color-black);
+
+    /* TODO: убрать ff из миксинов */
+    font-family: var(--font-family-styrene);
+
+    /* Костылёк. TODO: обсудить с дизайнером, почему инпут не соответствует дизайн-системе, либо уменьшить каскад в form-control */
+    padding-left: 0 !important;
+
+    /* Переопределение, т.к. в либе нет такого стиля */
+    font-size: 20px;
+    line-height: 24px;
+
+    @media (max-width: 360px) {
+        font-size: 16px;
+    }
 }
 
 .bankLogo {
