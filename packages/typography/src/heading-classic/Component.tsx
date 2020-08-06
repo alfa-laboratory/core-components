@@ -14,15 +14,29 @@ const View = {
 type ViewType = keyof typeof View;
 
 export type HeadingClassicProps = {
-    /** Уровень заголовка */
+    /**
+     * Уровень заголовка
+     */
     level?: 1 | 2 | 3 | 4 | 5;
-    /** Вариант начертания */
+
+    /**
+     * Вариант начертания
+     */
     view?: ViewType;
-    /** Css-класс для стилизации */
+
+    /**
+     * Css-класс для стилизации
+     */
     className?: string;
-    /** Id компонента для тестов */
+
+    /**
+     * Id компонента для тестов
+     */
     dataTestId?: string;
-    /** Контент */
+
+    /**
+     * Контент
+     */
     children?: React.ReactNode;
 };
 

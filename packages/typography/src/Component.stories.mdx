@@ -25,9 +25,21 @@ import { Typography } from '@alfalab/core-components-tooltip/typography';
 
 ## Описание
 
-Компонент `Typography.Heading`. Использует шрифт 'Styrene UI'
+Набор компонентов для оформления текста, реализующий [гибридную систему типографики.](https://www.figma.com/file/FWya6P55TnXkiVGaM2qBio/2020-Web-Hybrid-Typography?node-id=593%3A0)
 
-<Story name='Heading'>
+> **_NOTE:_** Компоненты не устанавливают свойство `font-family`, кроме случаев, когда используется шрифт 'Styrene UI'. Подразумевается, что шрифт будет установлен у родителя.
+
+<Props components={{
+    Heading,
+    HeadingClassic,
+    Text
+}} />
+
+## Typography.Heading
+
+Компонент заголовка, использующий шрифт 'Styrene UI'.
+
+<Story name='Typography.Heading'>
     {React.createElement(() => {
         const VIEW_TYPES = [
             'headline-xlarge',
@@ -41,42 +53,42 @@ import { Typography } from '@alfalab/core-components-tooltip/typography';
             'promo-small',
             'promo-xsmall',
         ];
-        const level = select('level', [1, 2, 3, 4, 5], '2');
-        const view = select('view', VIEW_TYPES, 'headline-large');
-        const className = text('className', '');
-        const dataTestId = text('dataTestId', '');
-        return (
-            <Typography.Heading level={level} view={view} className={className} dataTestId={dataTestId}>Заголовок {level}</Typography.Heading>
-        );
+        return VIEW_TYPES.map(view => <Typography.Heading view={view} key={view}>view='{view}'</Typography.Heading>);
     })}
 </Story>
 
-## Описание
+<br />
+<br />
 
-Компонент `Typography.HeadingClassic`.
+## Typography.HeadingClassic
 
-<Story name='HeadingClassic'>
+Компонент заголовка, использующий шрифт 'system-ui'.
+
+<Story name='Typography.HeadingClassic'>
     {React.createElement(() => {
         const VIEW_TYPES = [
-            'headline-system-xlarge',
-            'headline-system-large',
-            'headline-system-normal',
-            'headline-system-small',
-            'headline-system-xsmall',
+            'headline-classic-xlarge',
+            'headline-classic-large',
+            'headline-classic-normal',
+            'headline-classic-small',
+            'headline-classic-xsmall',
         ];
-        const level = select('level', [1, 2, 3, 4, 5], '2');
-        const view = select('view', VIEW_TYPES, 'headline-system-large');
-        const className = text('className', '');
-        const dataTestId = text('dataTestId', '');
         return (
-            <Typography.HeadingClassic level={level} view={view} className={className} dataTestId={dataTestId}>Заголовок {level}</Typography.HeadingClassic>
-        );
+            <div style={{fontFamily: 'var(--font-family-system)'}}>
+                {VIEW_TYPES.map(view => (
+                    <Typography.HeadingClassic view={view} key={view}>view='{view}'</Typography.HeadingClassic>
+                ))}
+            </div>
+        )
     })}
 </Story>
 
-## Описание
+<br />
+<br />
 
-Компонент `Typography.Text`.
+## Typography.Text
+
+Компонент для оформления текста. Позволяет задать внешний вид, тэг и цвет текста.
 
 <Story name='Typography.Text'>
     {React.createElement(() => {
@@ -113,31 +125,25 @@ import { Typography } from '@alfalab/core-components-tooltip/typography';
         ];
         const view = select('view', VIEW_TYPES, 'paragraph-primary-large');
         const type = select('type', ['', 'secondary', 'negative', 'positive', 'attention'], '');
-        const tag = select('tag', ['p', 'span'], 'span');
+        const tag = select('tag', ['p', 'span'], 'p');
         const className = text('className', '');
         const dataTestId = text('dataTestId', '');
         return (
-            <React.Fragment>
+            <div style={{ fontFamily: 'var(--font-family-system)' }}>
                 <Typography.Text view={view} type={type} tag={tag} className={className} dataTestId={dataTestId}>
-                    Космологи́ческая сингуля́рность — состояния Вселенной в определённый момент времени в прошлом, 
-                    когда плотность энергии (материи) и кривизна пространства-времени были очень велики — порядка 
-                    планковских значений. Это состояние, вместе с последующим этапом эволюции Вселенной, 
-                    пока плотность энергии (материи) оставалась высокой, называют также Большим взрывом. 
-                    Космологическая сингулярность является одним из примеров гравитационных сингулярностей, 
+                    Космологи́ческая сингуля́рность — состояния Вселенной в определённый момент времени в прошлом,
+                    когда плотность энергии (материи) и кривизна пространства-времени были очень велики — порядка
+                    планковских значений. Это состояние, вместе с последующим этапом эволюции Вселенной,
+                    пока плотность энергии (материи) оставалась высокой, называют также Большим взрывом.
+                    Космологическая сингулярность является одним из примеров гравитационных сингулярностей,
                     предсказываемых общей теорией относительности (ОТО) и некоторыми другими теориями гравитации.
                 </Typography.Text>
                 <Typography.Text view={view} type={type} tag={tag} className={className} dataTestId={dataTestId}>
-                    Проблема существования космологической сингулярности является одной из наиболее серьёзных 
-                    проблем физической космологии. Дело в том, что никакие наши сведения о том, что произошло 
+                    Проблема существования космологической сингулярности является одной из наиболее серьёзных
+                    проблем физической космологии. Дело в том, что никакие наши сведения о том, что произошло
                     после Большого взрыва, не могут дать нам никакой информации о том, что происходило до этого.
                 </Typography.Text>
-            </React.Fragment>
+            </div>
         );
     })}
 </Story>
-
-<Props components={{
-    Heading,
-    HeadingClassic,
-    Text
-}} />

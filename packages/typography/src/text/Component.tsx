@@ -38,17 +38,34 @@ const View = {
 type ViewType = keyof typeof View;
 
 export type TextProps = {
-    /** Вариант начертания */
+    /**
+     * Вариант начертания
+     */
     view?: ViewType;
-    /** Тип */
+
+    /**
+     * Тип
+     */
     type?: 'secondary' | 'negative' | 'positive' | 'attention';
-    /** HTML тег */
+
+    /**
+     * HTML тег
+     */
     tag?: 'p' | 'span';
-    /** Css-класс для стилизации */
+
+    /**
+     * Css-класс для стилизации
+     */
     className?: string;
-    /** Id компонента для тестов */
+
+    /**
+     * Id компонента для тестов
+     */
     dataTestId?: string;
-    /** Контент */
+
+    /**
+     * Контент
+     */
     children?: React.ReactNode;
 };
 
