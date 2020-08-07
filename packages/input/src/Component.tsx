@@ -38,7 +38,7 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 't
     /**
      * Ref для обертки input
      */
-    wrapperRef?: React.MutableRefObject<HTMLDivElement>;
+    wrapperRef?: React.MutableRefObject<HTMLDivElement> | null;
 
     /**
      * Слот слева
