@@ -4,10 +4,6 @@
     color: var(--color-light-text-tertiary);
 }
 
-.disabled-transparent {
-    color: var(--color-light-text-disabled-transparent);
-}
-
 .disabled {
     color: var(--color-light-text-disabled);
 }
@@ -16,20 +12,8 @@
     color: var(--color-light-text-accent);
 }
 
-.tertiary-inverted-transparent {
-    color: var(--color-light-text-tertiary-inverted-transparent);
-}
-
 .primary {
     color: var(--color-light-text-primary);
-}
-
-.secondary-transparent {
-    color: var(--color-light-text-secondary-transparent);
-}
-
-.secondary-inverted-transparent {
-    color: var(--color-light-text-secondary-inverted-transparent);
 }
 
 .attention {
@@ -46,10 +30,6 @@
 
 .tertiary-inverted {
     color: var(--color-light-text-tertiary-inverted);
-}
-
-.tertiary-transparent {
-    color: var(--color-light-text-tertiary-transparent);
 }
 
 .primary-inverted {
