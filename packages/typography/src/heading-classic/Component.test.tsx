@@ -12,19 +12,19 @@ describe('Classes tests', () => {
         expect(container.firstElementChild).toHaveClass(className);
     });
 
-    it('should set class `headlineClassicLarge` as default view', () => {
+    it('should set class `headlineLarge` as default view', () => {
         const { container } = render(<HeadingClassic />);
 
-        expect(container.firstElementChild).toHaveClass('headlineClassicLarge');
+        expect(container.firstElementChild).toHaveClass('headlineLarge');
     });
 
     it('should set `view` class', () => {
         const views: Array<HeadingClassicProps['view']> = [
-            'headline-classic-xlarge',
-            'headline-classic-large',
-            'headline-classic-normal',
-            'headline-classic-small',
-            'headline-classic-xsmall',
+            'headline-xlarge',
+            'headline-large',
+            'headline-normal',
+            'headline-small',
+            'headline-xsmall',
         ];
         views.forEach(view => {
             if (!view) return;

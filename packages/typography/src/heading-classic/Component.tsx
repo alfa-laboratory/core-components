@@ -4,11 +4,11 @@ import React from 'react';
 import styles from './index.module.css';
 
 const View = {
-    'headline-classic-xlarge': styles.headlineClassicXlarge,
-    'headline-classic-large': styles.headlineClassicLarge,
-    'headline-classic-normal': styles.headlineClassicNormal,
-    'headline-classic-small': styles.headlineClassicSmall,
-    'headline-classic-xsmall': styles.headlineClassicXsmall,
+    'headline-xlarge': styles.headlineXlarge,
+    'headline-large': styles.headlineLarge,
+    'headline-normal': styles.headlineNormal,
+    'headline-small': styles.headlineSmall,
+    'headline-xsmall': styles.headlineXsmall,
 };
 
 type ViewType = keyof typeof View;
@@ -42,7 +42,7 @@ export type HeadingClassicProps = {
 
 export const HeadingClassic: React.FC<HeadingClassicProps> = ({
     level = 2,
-    view = 'headline-classic-large',
+    view = 'headline-large',
     className,
     dataTestId,
     children,
