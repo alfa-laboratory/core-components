@@ -64,7 +64,7 @@ export const Text: React.FC<TextProps> = ({
         Component,
         {
             className: cn(
-                { [styles.component]: tag === 'p' },
+                { [styles.paragraph]: tag === 'p' },
                 className,
                 colorClass,
                 styles[view],

@@ -1,6 +1,6 @@
 @import '../../../vars/src/typography.css';
 
-.component {
+.paragraph {
     margin: 0 0 var(--gap-m);
     padding: 0;
 }
