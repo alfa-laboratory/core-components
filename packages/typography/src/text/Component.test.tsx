@@ -1,94 +1,102 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
+import { colors } from '../colors';
 import { Text, TextProps } from './index';
 
-describe('Classes tests', () => {
-    it('should set custom class', () => {
-        const className = 'custom-class';
+describe('Text', () => {
+    describe('Classes tests', () => {
+        it('should set custom class', () => {
+            const className = 'custom-class';
 
-        const { container } = render(<Text className={className} />);
-
-        expect(container.firstElementChild).toHaveClass(className);
-    });
-
-    it('should set `view` class', () => {
-        const views: Array<TextProps['view']> = [
-            'paragraph-primary-large',
-            'paragraph-primary-normal',
-            'paragraph-primary-small',
-            'paragraph-secondary-large',
-            'paragraph-secondary-normal',
-            'paragraph-secondary-small',
-            'paragraph-component',
-            'paragraph-caps',
-            'accent-primary-large',
-            'accent-primary-normal',
-            'accent-primary-small',
-            'accent-secondary-large',
-            'accent-secondary-normal',
-            'accent-secondary-small',
-            'accent-component',
-            'accent-caps',
-            'action-primary-large',
-            'action-primary-normal',
-            'action-primary-small',
-            'action-secondary-large',
-            'action-secondary-normal',
-            'action-secondary-small',
-            'key-xlarge',
-            'key-large',
-            'key-normal',
-            'key-small',
-            'key-xsmall',
-            'legacy-styrene-normal',
-            'legacy-primary-small',
-        ];
-        views.forEach(view => {
-            if (!view) return;
-
-            const className = view.replace(/-+(.)/g, (_, chr) => chr.toUpperCase());
-
-            const { container } = render(<Text view={view} />);
+            const { container } = render(<Text className={className} />);
 
             expect(container.firstElementChild).toHaveClass(className);
         });
-    });
 
-    it('should set `type` class', () => {
-        const types: Array<TextProps['type']> = ['secondary', 'negative', 'positive', 'attention'];
-        types.forEach(type => {
-            if (!type) return;
+        it('should set class `primary-normal` as default view', () => {
+            const { container } = render(<Text />);
 
-            const { container } = render(<Text type={type} />);
+            expect(container.firstElementChild).toHaveClass('primary-normal');
+        });
 
-            expect(container.firstElementChild).toHaveClass(type);
+        it('should set class `regular` as default weight', () => {
+            const { container } = render(<Text />);
+
+            expect(container.firstElementChild).toHaveClass('regular');
+        });
+
+        it('should set `view` class', () => {
+            const views: Array<TextProps['view']> = [
+                'primary-large',
+                'primary-normal',
+                'primary-small',
+                'secondary-large',
+                'secondary-normal',
+                'secondary-small',
+            ];
+
+            views.forEach(view => {
+                if (!view) return;
+
+                const { container } = render(<Text view={view} />);
+
+                expect(container.firstElementChild).toHaveClass(view);
+            });
+        });
+
+        it('should set `color` class', () => {
+            colors.forEach(color => {
+                const { container } = render(<Text color={color} />);
+
+                expect(container.firstElementChild).toHaveClass(color);
+            });
+        });
+
+        it('should set `weight` class', () => {
+            const weights: Array<TextProps['weight']> = ['regular', 'medium', 'bold'];
+
+            weights.forEach(weight => {
+                if (!weight) return;
+
+                const { container } = render(<Text weight={weight} />);
+
+                expect(container.firstElementChild).toHaveClass(weight);
+            });
         });
     });
-});
 
-describe('Attributes tests', () => {
-    it('should set data-test-id attribute', () => {
-        const dataTestId = 'text-test-id';
+    describe('Attributes tests', () => {
+        it('should set data-test-id attribute', () => {
+            const dataTestId = 'heading-test-id';
 
-        const { container } = render(<Text dataTestId={dataTestId} />);
+            const { container } = render(<Text dataTestId={dataTestId} />);
 
-        const testIdAttr = container.firstElementChild?.getAttribute('data-test-id');
+            const testIdAttr = container.firstElementChild?.getAttribute('data-test-id');
 
-        expect(container.firstElementChild?.getAttribute('data-test-id')).toBe(testIdAttr);
-    });
+            expect(container.firstElementChild?.getAttribute('data-test-id')).toBe(testIdAttr);
+        });
 
-    it('should have a default node', () => {
-        const defaultTextTag = 'span';
-        const { container } = render(<Text />);
+        it('should set span tag by default', () => {
+            const defaultTextTag = 'SPAN';
+            const { container } = render(<Text />);
 
-        expect(container.firstElementChild?.nodeName).toEqual(defaultTextTag.toUpperCase());
-    });
+            expect(container.firstElementChild?.nodeName).toEqual(defaultTextTag);
+        });
 
-    it('should set `tag` node', () => {
-        const tag = 'p';
-        const { container } = render(<Text tag={tag} />);
+        it('should set tag correcly', () => {
+            const { container, rerender } = render(<Text />);
+            const tags: Array<TextProps['tag']> = ['div', 'p', 'span'];
 
-        expect(container.firstElementChild?.nodeName).toEqual(tag.toUpperCase());
+            tags.forEach(tag => {
+                if (!tag) return;
+
+                const requiredTextTag = tag.toUpperCase();
+
+                rerender(<Text tag={tag} />);
+
+                expect(container.firstElementChild?.nodeName).toEqual(requiredTextTag);
+            });
+        });
     });
 });

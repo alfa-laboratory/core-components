@@ -1,77 +1,101 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
+import { colors } from '../colors';
 import { Heading, HeadingProps } from './index';
 
-describe('Classes tests', () => {
-    it('should set custom class', () => {
-        const className = 'custom-class';
+describe('Heading', () => {
+    describe('Classes tests', () => {
+        it('should set custom class', () => {
+            const className = 'custom-class';
 
-        const { container } = render(<Heading className={className} />);
-
-        expect(container.firstElementChild).toHaveClass(className);
-    });
-
-    it('should set class `headlineLarge` as default view', () => {
-        const { container } = render(<Heading />);
-
-        expect(container.firstElementChild).toHaveClass('headlineLarge');
-    });
-
-    it('should set `view` class', () => {
-        const views: Array<HeadingProps['view']> = [
-            'headline-xlarge',
-            'headline-large',
-            'headline-normal',
-            'headline-small',
-            'headline-xsmall',
-            'promo-xlarge',
-            'promo-large',
-            'promo-normal',
-            'promo-small',
-            'promo-xsmall',
-        ];
-        views.forEach(view => {
-            if (!view) return;
-
-            const className = view.replace(/-+(.)/g, (_, chr) => chr.toUpperCase());
-
-            const { container } = render(<Heading view={view} />);
+            const { container } = render(<Heading className={className} />);
 
             expect(container.firstElementChild).toHaveClass(className);
         });
+
+        it('should set class `large` as default view', () => {
+            const { container } = render(<Heading />);
+
+            expect(container.firstElementChild).toHaveClass('large');
+        });
+
+        it('should set class `medium` as default weight', () => {
+            const { container } = render(<Heading />);
+
+            expect(container.firstElementChild).toHaveClass('medium');
+        });
+
+        it('should set `view` class', () => {
+            const views: Array<HeadingProps['view']> = [
+                'xlarge',
+                'large',
+                'normal',
+                'small',
+                'xsmall',
+            ];
+
+            views.forEach(view => {
+                if (!view) return;
+
+                const { container } = render(<Heading view={view} />);
+
+                expect(container.firstElementChild).toHaveClass(view);
+            });
+        });
+
+        it('should set `color` class', () => {
+            colors.forEach(color => {
+                const { container } = render(<Heading color={color} />);
+
+                expect(container.firstElementChild).toHaveClass(color);
+            });
+        });
+
+        it('should set `weight` class', () => {
+            const weights: Array<HeadingProps['weight']> = ['regular', 'medium', 'bold'];
+
+            weights.forEach(weight => {
+                if (!weight) return;
+
+                const { container } = render(<Heading weight={weight} />);
+
+                expect(container.firstElementChild).toHaveClass(weight);
+            });
+        });
     });
-});
 
-describe('Attributes tests', () => {
-    it('should set data-test-id attribute', () => {
-        const dataTestId = 'heading-test-id';
+    describe('Attributes tests', () => {
+        it('should set data-test-id attribute', () => {
+            const dataTestId = 'heading-test-id';
 
-        const { container } = render(<Heading dataTestId={dataTestId} />);
+            const { container } = render(<Heading dataTestId={dataTestId} />);
 
-        const testIdAttr = container.firstElementChild?.getAttribute('data-test-id');
+            const testIdAttr = container.firstElementChild?.getAttribute('data-test-id');
 
-        expect(container.firstElementChild?.getAttribute('data-test-id')).toBe(testIdAttr);
-    });
+            expect(container.firstElementChild?.getAttribute('data-test-id')).toBe(testIdAttr);
+        });
 
-    it('should have a default level', () => {
-        const defaultLevel: HeadingProps['level'] = 2;
-        const defaultHeadingTag = `H${defaultLevel}`;
-        const { container } = render(<Heading />);
+        it('should set h2 tag by default', () => {
+            const defaultHeadingTag = 'H2';
+            const { container } = render(<Heading />);
 
-        expect(container.firstElementChild?.nodeName).toEqual(defaultHeadingTag);
-    });
+            expect(container.firstElementChild?.nodeName).toEqual(defaultHeadingTag);
+        });
 
-    it('should use a level prop', () => {
-        const { container, rerender } = render(<Heading />);
-        const levels: Array<HeadingProps['level']> = [1, 2, 3, 4, 5];
+        it('should set tag correcly', () => {
+            const { container, rerender } = render(<Heading />);
+            const tags: Array<HeadingProps['tag']> = ['h1', 'h2', 'h3', 'h4', 'h5', 'div'];
 
-        levels.forEach(requiredLevel => {
-            const requiredHeadingTag = `H${requiredLevel}`;
+            tags.forEach(tag => {
+                if (!tag) return;
 
-            rerender(<Heading level={requiredLevel} />);
+                const requiredHeadingTag = tag.toUpperCase();
 
-            expect(container.firstElementChild?.nodeName).toEqual(requiredHeadingTag);
+                rerender(<Heading tag={tag} />);
+
+                expect(container.firstElementChild?.nodeName).toEqual(requiredHeadingTag);
+            });
         });
     });
 });

@@ -5,42 +5,34 @@
     padding: 0;
 }
 
-.headlineXlarge {
+.xlarge {
     @mixin headline_xlarge;
 }
 
-.headlineLarge {
+.large {
     @mixin headline_large;
 }
 
-.headlineNormal {
+.normal {
     @mixin headline_normal;
 }
 
-.headlineSmall {
+.small {
     @mixin headline_small;
 }
 
-.headlineXsmall {
+.xsmall {
     @mixin headline_xsmall;
 }
 
-.promoXlarge {
-    @mixin promo_xlarge;
+.bold {
+    font-weight: bold;
 }
 
-.promoLarge {
-    @mixin promo_large;
+.medium {
+    font-weight: 500;
 }
 
-.promoNormal {
-    @mixin promo_normal;
-}
-
-.promoSmall {
-    @mixin promo_small;
-}
-
-.promoXsmall {
-    @mixin promo_xsmall;
+.regular {
+    font-weight: normal;
 }

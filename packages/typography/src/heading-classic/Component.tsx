@@ -1,28 +1,30 @@
 import cn from 'classnames';
 import React from 'react';
+import { Color } from '../colors';
 
 import styles from './index.module.css';
-
-const View = {
-    'headline-xlarge': styles.headlineXlarge,
-    'headline-large': styles.headlineLarge,
-    'headline-normal': styles.headlineNormal,
-    'headline-small': styles.headlineSmall,
-    'headline-xsmall': styles.headlineXsmall,
-};
-
-type ViewType = keyof typeof View;
+import colors from '../colors.module.css';
 
 export type HeadingClassicProps = {
     /**
-     * Уровень заголовка
+     * HTML тег
      */
-    level?: 1 | 2 | 3 | 4 | 5;
+    tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'div';
 
     /**
      * Вариант начертания
      */
-    view?: ViewType;
+    view?: 'xlarge' | 'large' | 'normal' | 'small' | 'xsmall';
+
+    /**
+     * Цвет текста
+     */
+    color?: Color;
+
+    /**
+     * Толщина шрифта
+     */
+    weight?: 'regular' | 'medium' | 'bold';
 
     /**
      * Css-класс для стилизации
@@ -41,18 +43,21 @@ export type HeadingClassicProps = {
 };
 
 export const HeadingClassic: React.FC<HeadingClassicProps> = ({
-    level = 2,
-    view = 'headline-large',
+    tag = 'h2',
+    view = 'large',
+    weight = 'bold',
+    color,
     className,
     dataTestId,
     children,
 }: HeadingClassicProps): React.ReactElement => {
-    const Component = `h${level}`;
+    const Component = tag;
+    const colorClass = color ? colors[color] : '';
 
     return React.createElement(
         Component,
         {
-            className: cn(styles.component, className, View[view]),
+            className: cn(styles.component, className, styles[view], styles[weight], colorClass),
             'data-test-id': dataTestId,
         },
         children,
