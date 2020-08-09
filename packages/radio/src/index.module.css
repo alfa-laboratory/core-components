@@ -32,17 +32,7 @@
 
     &.checked:not(:active) .circle:before,
     &.checked.disabled:active .circle:before {
-        content: '';
-        background-color: white;
-        position: absolute;
-        width: 6px;
-        height: 6px;
-        border-radius: 3px;
-        margin: auto;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
+        opacity: 1;
     }
 
     &.checked {
@@ -80,6 +70,23 @@
     position: relative;
     margin-right: var(--gap-xs);
     margin-top: var(--gap-2xs);
+    transition: background-color 0.2s ease, border 0.2s ease;
+
+    &:before {
+        content: '';
+        background-color: white;
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-radius: 3px;
+        margin: auto;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        transition: opacity 0.2s ease;
+        opacity: 0;
+    }
 }
 
 .content {
