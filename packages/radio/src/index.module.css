@@ -6,17 +6,16 @@
     cursor: pointer;
 
     &:not(.checked):not(.disabled) {
+        &:active .circle {
+            background: var(--color-dark-indigo-30-flat);
+            border: 1px solid var(--color-dark-indigo);
+        }
         & .circle {
             background: var(--color-dark-indigo-05-flat);
             border: 1px solid var(--color-dark-indigo-60-flat);
-
-            &:active {
-                background: var(--color-dark-indigo-30-flat);
-                border: 1px solid var(--color-dark-indigo);
-            }
         }
 
-        &:hover .circle:not(:active) {
+        &:hover:not(:active) .circle {
             background: var(--color-dark-indigo-30-flat);
             border: 1px solid #6d7986;
         }
@@ -31,8 +30,8 @@
         }
     }
 
-    &.checked .circle:not(:active):before,
-    &.checked.disabled .circle:active:before {
+    &.checked:not(:active) .circle:before,
+    &.checked.disabled:active .circle:before {
         content: '';
         background-color: white;
         position: absolute;
@@ -47,14 +46,14 @@
     }
 
     &.checked {
+        &:active .circle {
+            background: var(--color-red-brand);
+            border: 1px solid var(--color-dark-indigo);
+        }
+
         & .circle {
             border: 1px solid var(--color-red-dark);
             background-color: var(--color-red-brand-85-flat);
-
-            &:active {
-                background: var(--color-red-brand);
-                border: 1px solid var(--color-dark-indigo);
-            }
         }
 
         &:hover .circle {
