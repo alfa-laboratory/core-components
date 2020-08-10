@@ -70,11 +70,9 @@ describe('Text', () => {
         it('should set data-test-id attribute', () => {
             const dataTestId = 'heading-test-id';
 
-            const { container } = render(<Text dataTestId={dataTestId} />);
+            const { getByTestId } = render(<Text dataTestId={dataTestId} />);
 
-            const testIdAttr = container.firstElementChild?.getAttribute('data-test-id');
-
-            expect(container.firstElementChild?.getAttribute('data-test-id')).toBe(testIdAttr);
+            expect(getByTestId(dataTestId)).toBeInTheDocument();
         });
 
         it('should set span tag by default', () => {
