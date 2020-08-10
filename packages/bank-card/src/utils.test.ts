@@ -4,6 +4,7 @@ describe('validateCardNumber', () => {
     const VISA_VALID_NUMBER = '4111111111111111';
     const MC_VALID_NUMBER = '5500000000000004';
     const MIR_VALID_NUMBER = '2201382000000013';
+    const MAESTRO_VALID_NUMBER = '6759649826438453';
 
     it('should pass correct VISA number', () => {
         expect(validateCardNumber(VISA_VALID_NUMBER)).toBe(true);
@@ -17,10 +18,15 @@ describe('validateCardNumber', () => {
         expect(validateCardNumber(MIR_VALID_NUMBER)).toBe(true);
     });
 
+    it('should pass correct MAESTRO number', () => {
+        expect(validateCardNumber(MAESTRO_VALID_NUMBER)).toBe(true);
+    });
+
     it('should pass correct number with spaces', () => {
         expect(validateCardNumber(`${MIR_VALID_NUMBER} `)).toBe(true);
         expect(validateCardNumber(` ${MIR_VALID_NUMBER}`)).toBe(true);
         expect(validateCardNumber(` ${MIR_VALID_NUMBER} `)).toBe(true);
+        expect(validateCardNumber(` ${MAESTRO_VALID_NUMBER} `)).toBe(true);
 
         expect(validateCardNumber('5500 0000 0000 0004')).toBe(true);
         expect(validateCardNumber('5 5 0 0 0 0 0 0 0 0 0 0 0 0 0 4')).toBe(true);

@@ -63,6 +63,7 @@ const getBrandIcon = (value = '') => {
         if (value.startsWith('2')) return <MirXxlIcon />;
         if (value.startsWith('4')) return <VisaXxlIcon />;
         if (value.startsWith('5')) return <MastercardLIcon />;
+        if (value.startsWith('6')) return <MastercardLIcon />;
     }
     return null;
 };
