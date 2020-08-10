@@ -1,14 +1,11 @@
 import React, { useCallback, MouseEvent, ReactNode, useState, ChangeEvent } from 'react';
 import cn from 'classnames';
 import { MaskedInput } from '@alfalab/core-components-masked-input';
-import {
-    BankAlfaLBlackIcon,
-    CardVisaXxlBlackIcon,
-    CardMirXxlBlackIcon,
-    CardMastercardXxlBlackIcon,
-} from '@alfalab/icons-classic';
+import { BankAlfaLColorIcon } from '@alfalab/icons-classic';
 
 import { CameraMIcon } from '@alfalab/icons-glyph';
+
+import { VisaXxlIcon, MastercardLIcon, MirXxlIcon } from '@alfalab/icons-logotype';
 
 import styles from './index.module.css';
 import { validateCardNumber } from './utils';
@@ -63,9 +60,9 @@ const accountNumberMask = [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, 
 const getBrandIcon = (value = '') => {
     // Показываем логотип только после ввода всех цифр карты
     if (value.length === cardMask.length && validateCardNumber(value)) {
-        if (value.startsWith('2')) return <CardMirXxlBlackIcon />;
-        if (value.startsWith('4')) return <CardVisaXxlBlackIcon />;
-        if (value.startsWith('5')) return <CardMastercardXxlBlackIcon />;
+        if (value.startsWith('2')) return <MirXxlIcon />;
+        if (value.startsWith('4')) return <VisaXxlIcon />;
+        if (value.startsWith('5')) return <MastercardLIcon />;
     }
     return null;
 };
@@ -81,7 +78,7 @@ const getBrandIcon = (value = '') => {
 export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
     (
         {
-            bankLogo = <BankAlfaLBlackIcon />,
+            bankLogo = <BankAlfaLColorIcon />,
             backgroundColor = '#EF3124',
             inputLabel = 'Номер карты или счёта',
             value,
@@ -164,7 +161,7 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
 );
 
 BankCard.defaultProps = {
-    bankLogo: <BankAlfaLBlackIcon />,
+    bankLogo: <BankAlfaLColorIcon />,
     backgroundColor: '#EF3124',
     inputLabel: 'Номер карты или счёта',
 };

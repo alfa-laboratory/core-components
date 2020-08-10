@@ -17,6 +17,11 @@
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.26.0.tgz#eed52dd778440f6ef59b3fd524dc2eaadd5c86e6"
   integrity sha512-dBjvQ8yRiM1UtEHVna7U8Idh+EdyjOkdEms7uMXHgBoZg5Yn198auYHFs3Yu70k0kG0DHxdvtyoG+ES3Gl7idg==
 
+"@alfalab/icons-logotype@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-logotype/-/icons-logotype-1.4.0.tgz#9122da85f55dee73d9a5ad1c90d62b07a9ff3e5e"
+  integrity sha512-99dislr70hmkoWXha3aHe/2ORd03vF+zh67iXkqyiSqoHHEbJ2ydowxZhDSZBG64lgwVrhIZLEdSmyRPgpOL2w==
+
 "@alfalab/rollup-plugin-postcss@^3.2.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@alfalab/rollup-plugin-postcss/-/rollup-plugin-postcss-3.2.0.tgz#5ace0c087ad816884e7fdcea8ac1c0508a45d2dc"

@@ -78,16 +78,21 @@
 
     & svg {
         display: block;
+
+        & g {
+            fill: var(--color-black);
+        }
     }
 }
 
 .brandLogo {
     position: absolute;
-    bottom: 4px;
+    bottom: 20px;
     right: 20px;
 
     & svg {
         display: block;
+        fill: var(--color-black);
     }
 }
 
