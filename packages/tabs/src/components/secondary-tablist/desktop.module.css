@@ -1,0 +1,28 @@
+@import './index.module.css';
+
+.component {
+    composes: component from './index.module.css';
+
+    margin-bottom: var(--gap-2xl);
+    margin-top: var(--gap-2xl);
+}
+
+.title {
+    composes: title from './index.module.css';
+}
+
+.default .title {
+    margin-right: var(--gap-s);
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.wide .title {
+    margin-right: var(--gap-m);
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
