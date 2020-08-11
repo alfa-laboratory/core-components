@@ -9,7 +9,7 @@ export type HeadingClassicProps = {
     /**
      * HTML тег
      */
-    tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'div';
+    tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
 
     /**
      * Вариант начертания

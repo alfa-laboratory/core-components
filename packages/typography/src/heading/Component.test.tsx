@@ -83,7 +83,7 @@ describe('Heading', () => {
 
         it('should set tag correcly', () => {
             const { container, rerender } = render(<Heading />);
-            const tags: Array<HeadingProps['tag']> = ['h1', 'h2', 'h3', 'h4', 'h5', 'div'];
+            const tags: Array<HeadingProps['tag']> = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div'];
 
             tags.forEach(tag => {
                 if (!tag) return;
