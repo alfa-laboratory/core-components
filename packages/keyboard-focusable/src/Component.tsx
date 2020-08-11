@@ -3,21 +3,24 @@ import NodeResolver from 'react-node-resolver';
 
 let prevInputMethod: 'mouse' | 'keyboard';
 
-if (typeof document !== 'undefined') {
-    /**
-     * Навешиваем несколько глобальных обработчиков и отслеживаем метод ввода - мышь или клавиатура
-     */
+addGlobalListeners();
 
-    document.addEventListener('keydown', () => {
-        prevInputMethod = 'keyboard';
-    });
+/**
+ * Навешиваем несколько глобальных обработчиков и отслеживаем метод ввода - мышь или клавиатура
+ */
+export function addGlobalListeners() {
+    if (typeof document !== 'undefined') {
+        document.addEventListener('keydown', () => {
+            prevInputMethod = 'keyboard';
+        });
 
-    const handleMouseDown = () => {
-        prevInputMethod = 'mouse';
-    };
+        const handleMouseDown = () => {
+            prevInputMethod = 'mouse';
+        };
 
-    document.addEventListener('mousedown', handleMouseDown);
-    document.addEventListener('touchstart', handleMouseDown);
+        document.addEventListener('mousedown', handleMouseDown);
+        document.addEventListener('touchstart', handleMouseDown);
+    }
 }
 
 type KeyboardFocusableProps = {
