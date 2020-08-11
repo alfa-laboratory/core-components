@@ -1,0 +1,534 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs Snapshots tests should match snapshot 1`] = `
+<div>
+  <div>
+    <div
+      class="component default"
+      role="tablist"
+    >
+      <div
+        class="container"
+      >
+        <button
+          aria-selected="false"
+          class="title"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            class="titleWrapper"
+            tabindex="-1"
+          >
+            Таб 1
+          </span>
+        </button>
+        <button
+          aria-selected="true"
+          class="title selected"
+          role="tab"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="titleWrapper"
+            tabindex="-1"
+          >
+            Таб 2
+          </span>
+        </button>
+        <button
+          aria-selected="false"
+          class="title"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            class="titleWrapper"
+            tabindex="-1"
+          >
+            Таб 3
+          </span>
+        </button>
+        <button
+          aria-selected="false"
+          class="title"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            class="titleWrapper"
+            tabindex="-1"
+          >
+            Таб 4
+          </span>
+        </button>
+        <button
+          aria-selected="false"
+          class="title"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            class="titleWrapper"
+            tabindex="-1"
+          >
+            Таб 5
+          </span>
+        </button>
+        <div
+          class="line"
+          style="width: 0px; transform: translateX(0px);"
+        />
+      </div>
+    </div>
+    <div
+      class="component"
+      role="tabpanel"
+      tabindex="0"
+    >
+      Таб 2
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tabs Snapshots tests should match snapshot 2`] = `
+<div>
+  <div>
+    <div
+      class="component default"
+      role="tablist"
+    >
+      <div
+        class="container"
+      >
+        <button
+          aria-selected="false"
+          class="component s title"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span>
+            Таб 1
+          </span>
+        </button>
+        <button
+          aria-selected="true"
+          class="component s checked title"
+          role="tab"
+          tabindex="0"
+          type="button"
+        >
+          <span>
+            Таб 2
+          </span>
+        </button>
+        <button
+          aria-selected="false"
+          class="component s title"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span>
+            Таб 3
+          </span>
+        </button>
+        <button
+          aria-selected="false"
+          class="component s title"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span>
+            Таб 4
+          </span>
+        </button>
+        <button
+          aria-selected="false"
+          class="component s title"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span>
+            Таб 5
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="component"
+      role="tabpanel"
+      tabindex="0"
+    >
+      Таб 2
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tabs Snapshots tests should match snapshot 3`] = `
+<div>
+  <div>
+    <div
+      class="component scrollable"
+      role="tablist"
+    >
+      <div
+        class="component"
+      >
+        <div
+          class="container"
+        >
+          <button
+            aria-selected="false"
+            class="title"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="titleWrapper"
+              tabindex="-1"
+            >
+              Таб 1
+            </span>
+          </button>
+          <button
+            aria-selected="true"
+            class="title selected"
+            role="tab"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="titleWrapper"
+              tabindex="-1"
+            >
+              Таб 2
+            </span>
+          </button>
+          <button
+            aria-selected="false"
+            class="title"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="titleWrapper"
+              tabindex="-1"
+            >
+              Таб 3
+            </span>
+          </button>
+          <button
+            aria-selected="false"
+            class="title"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="titleWrapper"
+              tabindex="-1"
+            >
+              Таб 4
+            </span>
+          </button>
+          <button
+            aria-selected="false"
+            class="title"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              class="titleWrapper"
+              tabindex="-1"
+            >
+              Таб 5
+            </span>
+          </button>
+          <div
+            class="line"
+            style="width: 0px; transform: translateX(0px);"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="component"
+      role="tabpanel"
+      tabindex="0"
+    >
+      Таб 2
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tabs Snapshots tests should match snapshot 4`] = `
+<div>
+  <div>
+    <div
+      class="component scrollable"
+      role="tablist"
+    >
+      <div
+        class="component"
+      >
+        <div
+          class="container"
+        >
+          <button
+            aria-selected="false"
+            class="component xs title"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span>
+              Таб 1
+            </span>
+          </button>
+          <button
+            aria-selected="true"
+            class="component xs checked title"
+            role="tab"
+            tabindex="0"
+            type="button"
+          >
+            <span>
+              Таб 2
+            </span>
+          </button>
+          <button
+            aria-selected="false"
+            class="component xs title"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span>
+              Таб 3
+            </span>
+          </button>
+          <button
+            aria-selected="false"
+            class="component xs title"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span>
+              Таб 4
+            </span>
+          </button>
+          <button
+            aria-selected="false"
+            class="component xs title"
+            role="tab"
+            tabindex="-1"
+            type="button"
+          >
+            <span>
+              Таб 5
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="component"
+      role="tabpanel"
+      tabindex="0"
+    >
+      Таб 2
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tabs Snapshots tests should match snapshot 5`] = `
+<div>
+  <div>
+    <div
+      class="component default"
+      role="tablist"
+    >
+      <div
+        class="container"
+      >
+        <button
+          aria-selected="false"
+          class="title"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            class="titleWrapper"
+            tabindex="-1"
+          >
+            Таб 1
+          </span>
+        </button>
+        <button
+          aria-selected="true"
+          class="title selected"
+          role="tab"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="titleWrapper"
+            tabindex="-1"
+          >
+            Таб 2
+          </span>
+        </button>
+        <button
+          aria-selected="false"
+          class="title"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            class="titleWrapper"
+            tabindex="-1"
+          >
+            Таб 3
+          </span>
+        </button>
+        <button
+          aria-selected="false"
+          class="title"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            class="titleWrapper"
+            tabindex="-1"
+          >
+            Таб 4
+          </span>
+        </button>
+        <button
+          aria-selected="false"
+          class="title"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            class="titleWrapper"
+            tabindex="-1"
+          >
+            Таб 5
+          </span>
+        </button>
+        <div
+          class="line"
+          style="width: 0px; transform: translateX(0px);"
+        />
+      </div>
+    </div>
+    <div
+      class="component"
+      role="tabpanel"
+      tabindex="0"
+    >
+      Таб 2
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tabs Snapshots tests should match snapshot 6`] = `
+<div>
+  <div>
+    <div
+      class="component default"
+      role="tablist"
+    >
+      <div
+        class="container"
+      >
+        <button
+          aria-selected="false"
+          class="component s title"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span>
+            Таб 1
+          </span>
+        </button>
+        <button
+          aria-selected="true"
+          class="component s checked title"
+          role="tab"
+          tabindex="0"
+          type="button"
+        >
+          <span>
+            Таб 2
+          </span>
+        </button>
+        <button
+          aria-selected="false"
+          class="component s title"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span>
+            Таб 3
+          </span>
+        </button>
+        <button
+          aria-selected="false"
+          class="component s title"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span>
+            Таб 4
+          </span>
+        </button>
+        <button
+          aria-selected="false"
+          class="component s title"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span>
+            Таб 5
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="component"
+      role="tabpanel"
+      tabindex="0"
+    >
+      Таб 2
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,26 @@
+@import './index.module.css';
+
+.component {
+    composes: component from './index.module.css';
+
+    margin-bottom: var(--gap-xl);
+    margin-top: var(--gap-xl);
+}
+
+.title {
+    composes: title from './index.module.css';
+
+    @mixin system_16-20_regular;
+    font-weight: 300;
+    margin-right: var(--gap-xl);
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.titleWrapper {
+    composes: titleWrapper from './index.module.css';
+
+    padding-bottom: var(--gap-s);
+}

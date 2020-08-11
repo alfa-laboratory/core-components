@@ -1,0 +1,8 @@
+:root {
+    --tablist-hidden-scrollbar-height: 20px;
+    --primary-tablist-color: var(--color-dark-indigo-60-flat);
+    --primary-tablist-hover-color: var(--color-dark-indigo);
+    --primary-tablist-selected-color: var(--color-dark-indigo);
+    --primary-tablist-bottom-border-color: var(--color-dark-indigo-30);
+    --primary-tablist-line-color: var(--color-red-brand);
+}
