@@ -36,6 +36,11 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 't
     type?: 'number' | 'card' | 'email' | 'money' | 'password' | 'tel' | 'text';
 
     /**
+     * Ref для обертки input
+     */
+    wrapperRef?: React.MutableRefObject<HTMLDivElement | null>;
+
+    /**
      * Слот слева
      */
     leftAddons?: React.ReactNode;
@@ -86,6 +91,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             onChange,
             rightAddons,
             value,
+            wrapperRef,
             ...restProps
         },
         ref,
@@ -128,6 +134,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
         return (
             <FormControl
+                ref={wrapperRef}
                 className={className}
                 size={size}
                 block={block}
