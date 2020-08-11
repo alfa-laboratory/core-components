@@ -133,7 +133,6 @@
     padding: var(--form-control-labeled-s-paddings);
 }
 
-.s .addons,
 .s .errorIcon {
     height: 47px;
 }
@@ -146,7 +145,6 @@
     padding: var(--form-control-labeled-m-paddings);
 }
 
-.m .addons,
 .m .errorIcon {
     height: 55px;
 }
@@ -176,7 +174,6 @@
     padding-right: var(--gap-m);
 }
 
-.l .addons,
 .l .errorIcon {
     height: 67px;
 }
