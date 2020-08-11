@@ -26,7 +26,7 @@ describe('KeyboardFocusable', () => {
         );
 
     it('should display children', async () => {
-        const { container } = renderComponent();
+        const { container } = render(<KeyboardFocusable>{() => <span />}</KeyboardFocusable>);
 
         expect(container.firstElementChild).toBeInTheDocument();
     });
