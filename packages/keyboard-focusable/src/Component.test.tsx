@@ -2,17 +2,7 @@ import React, { useRef } from 'react';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { KeyboardFocusable, addGlobalListeners, useKeyboardFocusable } from './index';
-
-beforeAll(() => {
-    document.addEventListener = jest.fn((_, handler) => {
-        if (typeof handler === 'function') {
-            handler({} as Event);
-        }
-    });
-
-    addGlobalListeners();
-});
+import { KeyboardFocusable, useKeyboardFocusable } from './index';
 
 describe('KeyboardFocusable', () => {
     const renderComponent = () =>

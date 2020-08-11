@@ -3,24 +3,22 @@ import NodeResolver from 'react-node-resolver';
 
 let prevInputMethod: 'mouse' | 'keyboard';
 
-addGlobalListeners();
+const handleKeyDown = () => {
+    prevInputMethod = 'keyboard';
+};
+
+const handleMouseDown = () => {
+    prevInputMethod = 'mouse';
+};
 
 /**
- * Навешиваем несколько глобальных обработчиков и отслеживаем метод ввода - мышь или клавиатура
+ * Навешивает несколько глобальных обработчиков и отслеживает метод ввода - мышь или клавиатура.
+ * Note: Повторный вызов функции не дублирует обработчики
  */
 export function addGlobalListeners() {
-    if (typeof document !== 'undefined') {
-        document.addEventListener('keydown', () => {
-            prevInputMethod = 'keyboard';
-        });
-
-        const handleMouseDown = () => {
-            prevInputMethod = 'mouse';
-        };
-
-        document.addEventListener('mousedown', handleMouseDown);
-        document.addEventListener('touchstart', handleMouseDown);
-    }
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('touchstart', handleMouseDown);
 }
 
 type KeyboardFocusableProps = {
@@ -53,6 +51,10 @@ export const KeyboardFocusable = ({ children }: KeyboardFocusableProps) => {
         [handleBlur, handleFocus],
     );
 
+    useEffect(() => {
+        addGlobalListeners();
+    }, []);
+
     return <NodeResolver innerRef={handleTargetRef}>{children && children(focused)}</NodeResolver>;
 };
 
@@ -84,6 +86,10 @@ export function useKeyboardFocusable(ref: RefObject<HTMLElement>) {
             }
         };
     }, [handleBlur, handleFocus, ref]);
+
+    useEffect(() => {
+        addGlobalListeners();
+    }, []);
 
     return {
         focused,
