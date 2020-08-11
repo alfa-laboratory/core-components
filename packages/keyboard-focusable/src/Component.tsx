@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, RefObject, ReactNode } from 'react';
+import React, { useState, useEffect, useCallback, RefObject, ReactNode, useRef } from 'react';
 import NodeResolver from 'react-node-resolver';
 
 let prevInputMethod: 'mouse' | 'keyboard';
@@ -20,43 +20,6 @@ export function addGlobalListeners() {
     document.addEventListener('mousedown', handleMouseDown);
     document.addEventListener('touchstart', handleMouseDown);
 }
-
-type KeyboardFocusableProps = {
-    /**
-     * Рендер-проп, в который передается состояние фокуса
-     */
-    children?: (focused: boolean) => ReactNode;
-};
-
-export const KeyboardFocusable = ({ children }: KeyboardFocusableProps) => {
-    const [focused, setFocused] = useState(false);
-
-    const handleFocus = useCallback(() => {
-        if (prevInputMethod === 'keyboard') {
-            setFocused(true);
-        }
-    }, []);
-
-    const handleBlur = useCallback(() => {
-        setFocused(false);
-    }, []);
-
-    const handleTargetRef = useCallback(
-        node => {
-            if (node) {
-                node.addEventListener('focusin', handleFocus);
-                node.addEventListener('focusout', handleBlur);
-            }
-        },
-        [handleBlur, handleFocus],
-    );
-
-    useEffect(() => {
-        addGlobalListeners();
-    }, []);
-
-    return <NodeResolver innerRef={handleTargetRef}>{children && children(focused)}</NodeResolver>;
-};
 
 export function useKeyboardFocusable(ref: RefObject<HTMLElement>) {
     const [focused, setFocused] = useState(false);
@@ -95,3 +58,22 @@ export function useKeyboardFocusable(ref: RefObject<HTMLElement>) {
         focused,
     };
 }
+
+type KeyboardFocusableProps = {
+    /**
+     * Рендер-проп, в который передается состояние фокуса
+     */
+    children?: (focused: boolean) => ReactNode;
+};
+
+export const KeyboardFocusable = ({ children }: KeyboardFocusableProps) => {
+    const targetRef = useRef<HTMLElement | null>(null);
+
+    const { focused } = useKeyboardFocusable(targetRef);
+
+    const handleTargetRef = useCallback(node => {
+        targetRef.current = node;
+    }, []);
+
+    return <NodeResolver innerRef={handleTargetRef}>{children && children(focused)}</NodeResolver>;
+};
