@@ -1,7 +1,13 @@
-import React, { useState, useCallback, useEffect, useRef, TextareaHTMLAttributes } from 'react';
+import React, {
+    useState,
+    useCallback,
+    useEffect,
+    useRef,
+    TextareaHTMLAttributes,
+    useImperativeHandle,
+} from 'react';
 import cn from 'classnames';
 import TextareaAutosize from 'react-textarea-autosize';
-import mergeRefs from 'react-merge-refs';
 import { FormControl } from '@alfalab/core-components-form-control';
 
 import styles from './index.module.css';
@@ -132,14 +138,17 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         const [focused, setFocused] = useState(false);
         const [filled, setFilled] = useState(value !== undefined && value !== '');
 
-        const innerRef = useRef<HTMLTextAreaElement>(null);
+        const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+        // Оставляет возможность прокинуть реф извне
+        useImperativeHandle(ref, () => textareaRef.current as HTMLTextAreaElement);
 
         // Хак, так как react-textarea-autosize перестал поддерживать maxHeight
         useEffect(() => {
-            if (autosize && maxHeight && innerRef.current && innerRef.current.style) {
-                innerRef.current.style.maxHeight = `${maxHeight}px`;
+            if (autosize && maxHeight && textareaRef.current && textareaRef.current.style) {
+                textareaRef.current.style.maxHeight = `${maxHeight}px`;
             }
-        }, [innerRef, autosize, maxHeight]);
+        }, [textareaRef, autosize, maxHeight]);
 
         const handleTextareaFocus = useCallback(
             (e: React.FocusEvent<HTMLTextAreaElement>) => {
@@ -218,10 +227,15 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
                         minRows={minRows}
                         onHeightChange={onHeightChange}
                         value={value}
-                        ref={mergeRefs([ref, innerRef])}
+                        ref={textareaRef}
                     />
                 ) : (
-                    <textarea {...textareaProps} style={{ maxHeight }} value={value} ref={ref} />
+                    <textarea
+                        {...textareaProps}
+                        style={{ maxHeight }}
+                        value={value}
+                        ref={textareaRef}
+                    />
                 )}
             </FormControl>
         );
