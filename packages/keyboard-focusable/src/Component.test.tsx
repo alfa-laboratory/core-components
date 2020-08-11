@@ -7,7 +7,7 @@ import { KeyboardFocusable, addGlobalListeners, useKeyboardFocusable } from './i
 beforeAll(() => {
     document.addEventListener = jest.fn((_, handler) => {
         if (typeof handler === 'function') {
-            handler({} as KeyboardEvent);
+            handler({} as Event);
         }
     });
 
