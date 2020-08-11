@@ -15,7 +15,7 @@ const handleMouseDown = () => {
  * Навешивает несколько глобальных обработчиков и отслеживает метод ввода - мышь или клавиатура.
  * Note: Повторный вызов функции не дублирует обработчики
  */
-export function addGlobalListeners() {
+function addGlobalListeners() {
     document.addEventListener('keydown', handleKeyDown);
     document.addEventListener('mousedown', handleMouseDown);
     document.addEventListener('touchstart', handleMouseDown);
