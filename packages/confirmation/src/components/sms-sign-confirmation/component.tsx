@@ -137,39 +137,54 @@ export const SmsSignConfirmation: FC<SmsSignConfirmationProps> = ({
 
     const displayedError = isProcessing ? '' : error;
 
-    const handleInputKeyDown = (event: KeyboardEvent) => {
-        if (event.key === 'Enter') {
-            onInputFinished((event.target as HTMLInputElement).value);
-        }
-    };
+    const handleInputKeyDown = useCallback(
+        (event: KeyboardEvent) => {
+            if (event.key === 'Enter') {
+                onInputFinished((event.target as HTMLInputElement).value);
+            }
+        },
+        [onInputFinished],
+    );
 
-    const handleSmsRetryClick = (event: MouseEvent) => {
-        onSmsRetryClick(event);
-    };
+    const handleSmsRetryClick = useCallback(
+        (event: MouseEvent) => {
+            onSmsRetryClick(event);
+        },
+        [onSmsRetryClick],
+    );
 
-    const handleSmsHintLinkClick = (event: MouseEvent) => {
-        if (onSmsHintLinkClick) {
-            onSmsHintLinkClick(event);
-        }
-    };
+    const handleSmsHintLinkClick = useCallback(
+        (event: MouseEvent) => {
+            if (onSmsHintLinkClick) {
+                onSmsHintLinkClick(event);
+            }
+        },
+        [onSmsHintLinkClick],
+    );
 
-    const handleInputFinished = (value: string) => {
-        onInputFinished(value);
+    const handleInputFinished = useCallback(
+        (value: string) => {
+            onInputFinished(value);
 
-        blur();
-    };
+            blur();
+        },
+        [blur, onInputFinished],
+    );
 
-    const handleInputChange = (value: string) => {
-        if (onInputChange) {
-            onInputChange(value);
-        }
-    };
+    const handleInputChange = useCallback(
+        (value: string) => {
+            if (onInputChange) {
+                onInputChange(value);
+            }
+        },
+        [onInputChange],
+    );
 
-    const handleCountdownFinished = () => {
+    const handleCountdownFinished = useCallback(() => {
         if (onCountdownFinished) {
             onCountdownFinished();
         }
-    };
+    }, [onCountdownFinished]);
 
     useEffect(() => {
         if (error) {

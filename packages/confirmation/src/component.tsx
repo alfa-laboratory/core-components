@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useRef, useEffect } from 'react';
+import React, { forwardRef, useState, useRef, useEffect, useCallback } from 'react';
 import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
 import { Link } from '@alfalab/core-components-link';
@@ -167,52 +167,58 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
 
         const inputRef = useRef<HTMLInputElement>(null);
 
-        const handleInputFinished = (v: string) => {
-            onInputFinished(v);
-        };
+        const handleInputFinished = useCallback(
+            (inputValue: string) => {
+                onInputFinished(inputValue);
+            },
+            [onInputFinished],
+        );
 
-        const handleInputChange = (v: string) => {
-            if (onInputChange) {
-                onInputChange(v);
-            }
-        };
+        const handleInputChange = useCallback(
+            (inputValue: string) => {
+                if (onInputChange) {
+                    onInputChange(inputValue);
+                }
+            },
+            [onInputChange],
+        );
 
-        const handleSmsRetryClick = () => {
+        const handleSmsRetryClick = useCallback(() => {
             setRetries(prevRetry => prevRetry + 1);
             setCountdownFinished(false);
             onSmsRetryClick();
-        };
+        }, [onSmsRetryClick]);
 
-        const handleSmsRetryFromHintClick = () => {
+        const handleSmsRetryFromHintClick = useCallback(() => {
             setRetries(prevRetry => prevRetry + 1);
             setCountdownFinished(false);
             setShowHint(false);
             onSmsRetryClick();
-        };
+        }, [onSmsRetryClick]);
 
-        const handleCountdownFinished = () => {
+        const handleCountdownFinished = useCallback(() => {
             setCountdownFinished(true);
 
             if (onCountdownFinished) {
                 onCountdownFinished();
             }
-        };
+        }, [onCountdownFinished]);
 
-        const handleSmsHintLinkClick = () => {
+        const handleSmsHintLinkClick = useCallback(() => {
             setShowHint(true);
 
             if (onSmsHintLinkClick) {
                 onSmsHintLinkClick();
             }
-        };
+        }, [onSmsHintLinkClick]);
 
-        const handleErrorSmsRetryClick = () => {
+        const handleErrorSmsRetryClick = useCallback(() => {
             if (onActionWithFatalError) {
                 onActionWithFatalError();
             } else {
                 onSmsRetryClick();
             }
-        };
+        }, [onActionWithFatalError, onSmsRetryClick]);
 
         useEffect(() => {
             if (inputRef.current) {

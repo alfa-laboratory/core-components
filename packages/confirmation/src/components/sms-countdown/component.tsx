@@ -5,8 +5,8 @@ import { Button } from '@alfalab/core-components-button';
 import styles from './index.module.css';
 
 /**
+ * TODO: Вынести это в utils
  * Маскирует номер телефона.
- * Вынести это в utils?
  *
  * @param {String} number Номер телефона
  * @returns {String}
@@ -19,8 +19,8 @@ export function formatMaskedPhone(number: string) {
 }
 
 /**
+ * TODO: Вынести это в utils
  * Форматирование миллисекунд в mm:ss.
- * Вынести это в utils?
  *
  * @param {Number} ms миллисекунды
  * @returns {String} время в формате mm:ss, но если оно более 100 минут,
@@ -143,7 +143,7 @@ export const SmsCountdown = forwardRef<HTMLDivElement, SmsCountdownProps>(
 
         const [repeatSmsButtonShow, setRepeatSmsButtonShow] = useState(false);
 
-        const timerID = useRef<ReturnType<typeof setTimeout> | null>(null);
+        const timerID = useRef<number>(0);
 
         const getFormattedTimeLeft = () => {
             return format === TIME_FORMAT.MINUTES
@@ -154,7 +154,7 @@ export const SmsCountdown = forwardRef<HTMLDivElement, SmsCountdownProps>(
         const stopTimer = () => {
             if (timerID.current) {
                 clearTimeout(timerID.current);
-                timerID.current = null;
+                timerID.current = 0;
             }
         };
 
@@ -171,14 +171,14 @@ export const SmsCountdown = forwardRef<HTMLDivElement, SmsCountdownProps>(
             } else {
                 setTimer(prevTimer => prevTimer - TIMER_ITERATION_VALUE);
 
-                timerID.current = setTimeout(tic, TIMER_ITERATION_VALUE);
+                timerID.current = window.setTimeout(tic, TIMER_ITERATION_VALUE);
             }
         }, [onCountdownFinished, timer]);
 
         const startTimer = useCallback(() => {
             stopTimer();
 
-            timerID.current = setTimeout(tic, TIMER_ITERATION_VALUE);
+            timerID.current = window.setTimeout(tic, TIMER_ITERATION_VALUE);
         }, [tic]);
 
         const startSmsCountdown = useCallback(() => {
@@ -208,11 +208,7 @@ export const SmsCountdown = forwardRef<HTMLDivElement, SmsCountdownProps>(
         }, [startTimer]);
 
         useEffect(() => {
-            if (repeatSmsButtonShow) {
-                return;
-            }
-
-            if (!disabled && !timerID.current) {
+            if (!repeatSmsButtonShow && !disabled && !timerID.current) {
                 // если компонент переключился в активное состояние, а таймер еще не запущен, то стартуем его
                 startTimer();
             }
