@@ -69,9 +69,9 @@ describe('HeadingClassic', () => {
         it('should set data-test-id attribute', () => {
             const dataTestId = 'heading-test-id';
 
-            const { getByTestId } = render(<HeadingClassic dataTestId={dataTestId} />);
+            const { queryByTestId } = render(<HeadingClassic dataTestId={dataTestId} />);
 
-            expect(getByTestId(dataTestId)).toBeInTheDocument();
+            expect(queryByTestId(dataTestId)).toBeInTheDocument();
         });
 
         it('should set h2 tag by default', () => {
@@ -83,7 +83,15 @@ describe('HeadingClassic', () => {
 
         it('should set tag correcly', () => {
             const { container, rerender } = render(<HeadingClassic />);
-            const tags: Array<HeadingClassicProps['tag']> = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div'];
+            const tags: Array<HeadingClassicProps['tag']> = [
+                'h1',
+                'h2',
+                'h3',
+                'h4',
+                'h5',
+                'h6',
+                'div',
+            ];
 
             tags.forEach(tag => {
                 if (!tag) return;

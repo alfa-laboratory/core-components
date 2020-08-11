@@ -69,9 +69,9 @@ describe('Heading', () => {
         it('should set data-test-id attribute', () => {
             const dataTestId = 'heading-test-id';
 
-            const { getByTestId } = render(<Heading dataTestId={dataTestId} />);
+            const { queryByTestId } = render(<Heading dataTestId={dataTestId} />);
 
-            expect(getByTestId(dataTestId)).toBeInTheDocument();
+            expect(queryByTestId(dataTestId)).toBeInTheDocument();
         });
 
         it('should set h2 tag by default', () => {
