@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { KeyboardFocusable, useKeyboardFocusable } from './index';
+import { KeyboardFocusable, useKeyboardFocus } from './index';
 
 describe('KeyboardFocusable', () => {
     const renderComponent = () =>
@@ -70,11 +70,11 @@ describe('KeyboardFocusable', () => {
     });
 });
 
-describe('useKeyboardFocusable', () => {
+describe('useKeyboardFocus', () => {
     const renderComponent = () => {
         const FocusableButton = () => {
             const ref = useRef<HTMLButtonElement>(null);
-            const { focused } = useKeyboardFocusable(ref);
+            const { focused } = useKeyboardFocus(ref);
 
             return (
                 <button type='button' ref={ref}>
@@ -120,7 +120,7 @@ describe('useKeyboardFocusable', () => {
     it('should pass `focused=false` for non-interactive ref element', async () => {
         const FocusableButton = () => {
             const ref = useRef<HTMLDivElement>(null);
-            const { focused } = useKeyboardFocusable(ref);
+            const { focused } = useKeyboardFocus(ref);
 
             return <div ref={ref}>{focused ? 'focused' : ''}</div>;
         };

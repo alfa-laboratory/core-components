@@ -21,7 +21,7 @@ function addGlobalListeners() {
     document.addEventListener('touchstart', handleMouseDown);
 }
 
-export function useKeyboardFocusable(ref: RefObject<HTMLElement>) {
+export function useKeyboardFocus(ref: RefObject<HTMLElement>) {
     const [focused, setFocused] = useState(false);
 
     const handleFocus = useCallback(() => {
@@ -69,7 +69,7 @@ type KeyboardFocusableProps = {
 export const KeyboardFocusable = ({ children }: KeyboardFocusableProps) => {
     const targetRef = useRef<HTMLElement | null>(null);
 
-    const { focused } = useKeyboardFocusable(targetRef);
+    const { focused } = useKeyboardFocus(targetRef);
 
     const handleTargetRef = useCallback(node => {
         targetRef.current = node;

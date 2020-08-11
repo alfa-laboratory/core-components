@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { Design } from 'storybook/blocks/design';
 
-import { KeyboardFocusable, useKeyboardFocusable } from './Component';
+import { KeyboardFocusable, useKeyboardFocus } from './Component';
 import { name, version } from '../package.json';
 
 export const focusOutlineStyles = {
@@ -18,7 +18,7 @@ export const focusOutlineStyles = {
 </Title>
 
 ```tsx
-import { KeyboardFocusable, useKeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
+import { KeyboardFocusable, useKeyboardFocus } from '@alfalab/core-components-keyboard-focusable';
 ```
 
 <Design>
@@ -32,7 +32,7 @@ import { KeyboardFocusable, useKeyboardFocusable } from '@alfalab/core-component
 В соответствии с дизайн-системой все интерактивные элементы должны иметь определенную обводку при фокусе, но только при переключении с клавиатуры.
 При клике мышки обводки быть не должно.
 
-Для получения такого поведения — можно воспользоваться компонентом `<KeyboardFocusable />` или хуком `useKeyboardFocusable`.
+Для получения такого поведения — можно воспользоваться компонентом `<KeyboardFocusable />` или хуком `useKeyboardFocus`.
 
 Также, стили для фокуса доступны через миксин `focus-outline`.
 
@@ -50,11 +50,11 @@ import { KeyboardFocusable, useKeyboardFocusable } from '@alfalab/core-component
     })}
 </Preview>
 
-## Хук useKeyboardFocusable
+## Хук useKeyboardFocus
 
 ```tsx
 const ref = useRef<HTMLButtonElement>(null);
-const { focused } = useKeyboardFocusable(ref);
+const { focused } = useKeyboardFocus(ref);
 
 return (
     <button ref={ref} className={cn({ [styles.focused]: focused })}>focus me</button>
