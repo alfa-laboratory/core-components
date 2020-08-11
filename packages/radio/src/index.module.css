@@ -16,7 +16,7 @@
 
     /* hover */
     --radio-hover-bg-color: var(--color-dark-indigo-30-flat);
-    --radio-hover-border-color: #6d7986;
+    --radio-hover-border-color: var(--color-dark-indigo-60-flat);
     --radio-checked-hover-bg-color: var(--color-red-brand);
 
     /* active */
