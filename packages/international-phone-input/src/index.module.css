@@ -1,0 +1,30 @@
+@import '../../themes/src/default.css';
+
+.select {
+    display: flex;
+    flex-direction: column;
+    min-width: initial;
+}
+
+.selectField {
+    display: flex;
+    align-items: center;
+}
+
+.s {
+    & .selectField {
+        min-height: 48px;
+    }
+}
+
+.m {
+    & .selectField {
+        min-height: 56px;
+    }
+}
+
+.l {
+    & .selectField {
+        min-height: 68px;
+    }
+}
