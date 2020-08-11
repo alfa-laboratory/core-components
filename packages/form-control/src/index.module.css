@@ -30,12 +30,12 @@
     --form-control-error-icon-display: flex;
 
     /* font */
-    --form-control-input-font-family: var(--font-family);
+    --form-control-font-family: var(--font-family);
 }
 
 .component {
     display: inline-block;
-    font-family: var(--form-control-input-font-family);
+    font-family: var(--form-control-font-family);
 }
 
 .inner {
@@ -68,7 +68,7 @@
 
 .input > * {
     padding: var(--form-control-paddings);
-    font-family: var(--form-control-input-font-family);
+    font-family: var(--form-control-font-family);
 }
 
 .label {

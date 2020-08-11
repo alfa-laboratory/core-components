@@ -19,6 +19,9 @@
     --textarea-l-filled-min-height: calc(
         var(--textarea-l-min-height) - var(--textarea-l-filled-margin-top)
     );
+    --textarea-text-color: var(--color-dark-indigo);
+    --textarea-placeholder-color: var(--color-dark-indigo-60-flat);
+    --textarea-focused-placeholder-color: var(--color-dark-indigo-30-flat);
 }
 
 .textarea {
@@ -29,7 +32,7 @@
     width: 100%;
     height: 100%;
     padding-bottom: var(--gap-xs);
-    color: var(--color-dark-indigo);
+    color: var(--textarea-text-color);
     background: none;
     border: none;
     margin: 0;
@@ -55,12 +58,12 @@
 
 .textarea::placeholder {
     transition: opacity 0.2s ease, color 0.2s ease;
-    color: var(--color-dark-indigo-60-flat);
+    color: var(--textarea-placeholder-color);
 }
 
 .hasLabel::placeholder {
     opacity: 0;
-    color: var(--color-dark-indigo-30-flat);
+    color: var(--textarea-focused-placeholder-color);
 }
 
 .block {
@@ -107,7 +110,7 @@
 /* DISABLED STATE */
 
 .textarea:disabled {
-    color: var(--color-dark-indigo-60-flat);
+    color: var(--textarea-placeholder-color);
 }
 
 /* FOCUS STATE */
@@ -117,7 +120,7 @@
 }
 
 .textarea:focus::placeholder {
-    color: var(--color-dark-indigo-30-flat);
+    color: var(--textarea-focused-placeholder-color);
 }
 
 /* FILLED STATE */
