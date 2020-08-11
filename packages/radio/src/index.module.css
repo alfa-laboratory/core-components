@@ -1,5 +1,28 @@
 @import '../../themes/src/default.css';
 
+:root {
+    --radio-bg-color: var(--color-dark-indigo-05-flat);
+    --radio-border-color: var(--color-dark-indigo-60-flat);
+
+    /* checked */
+    --radio-checked-bg-color: var(--color-red-brand-85-flat);
+    --radio-checked-border-color: var(--color-red-dark);
+
+    /* disabled */
+    --radio-disabled-bg-color: var(--color-dark-indigo-15-flat);
+
+    /* disabled and checked */
+    --radio-checked-disabled-bg-color: var(--color-red-brand-30-flat);
+
+    /* hover */
+    --radio-hover-bg-color: var(--color-dark-indigo-30-flat);
+    --radio-hover-border-color: #6d7986;
+    --radio-checked-hover-bg-color: var(--color-red-brand);
+
+    /* active */
+    --radio-active-border-color: var(--color-dark-indigo);
+}
+
 .container {
     display: inline-flex;
     align-items: flex-start;
@@ -8,16 +31,16 @@
     &:not(.checked):not(.disabled) {
         &:active .circle {
             background: var(--color-dark-indigo-30-flat);
-            border: 1px solid var(--color-dark-indigo);
+            border: 1px solid var(--radio-active-border-color);
         }
         & .circle {
-            background: var(--color-dark-indigo-05-flat);
-            border: 1px solid var(--color-dark-indigo-60-flat);
+            background: var(--radio-bg-color);
+            border: 1px solid var(--radio-border-color);
         }
 
         &:hover:not(:active) .circle {
-            background: var(--color-dark-indigo-30-flat);
-            border: 1px solid #6d7986;
+            background: var(--radio-hover-bg-color);
+            border: 1px solid var(--radio-hover-border-color);
         }
     }
 
@@ -25,7 +48,7 @@
         cursor: default;
 
         & .circle {
-            background: var(--color-dark-indigo-15-flat);
+            background: var(--radio-disabled-bg-color);
             border: none;
         }
     }
@@ -38,21 +61,21 @@
     &.checked {
         &:active .circle {
             background: var(--color-red-brand);
-            border: 1px solid var(--color-dark-indigo);
+            border: 1px solid var(--radio-active-border-color);
         }
 
         & .circle {
-            border: 1px solid var(--color-red-dark);
-            background-color: var(--color-red-brand-85-flat);
+            border: 1px solid var(--radio-checked-border-color);
+            background-color: var(--radio-checked-bg-color);
         }
 
         &:hover .circle {
-            background-color: var(--color-red-brand);
+            background-color: var(--radio-checked-hover-bg-color);
         }
     }
 
     &.disabled.checked .circle {
-        background-color: var(--color-red-brand-30-flat);
+        background-color: var(--radio-checked-disabled-bg-color);
         border: none;
     }
     & input {
