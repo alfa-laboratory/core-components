@@ -28,11 +28,14 @@
     --form-control-error-shadow: inset 0 -1px var(--form-control-error-color);
     --form-control-error-border-bottom: 1px solid var(--form-control-error-color);
     --form-control-error-icon-display: flex;
+
+    /* font */
+    --form-control-input-font-family: var(--font-family);
 }
 
 .component {
     display: inline-block;
-    font-family: var(--font-family);
+    font-family: var(--form-control-input-font-family);
 }
 
 .inner {
@@ -65,7 +68,7 @@
 
 .input > * {
     padding: var(--form-control-paddings);
-    font-family: var(--font-family);
+    font-family: var(--form-control-input-font-family);
 }
 
 .label {
