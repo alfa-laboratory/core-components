@@ -43,23 +43,24 @@ export type HeadingClassicProps = {
 };
 
 export const HeadingClassic: React.FC<HeadingClassicProps> = ({
-    tag = 'h2',
+    tag: Component = 'h2',
     view = 'large',
     weight = 'bold',
     color,
     className,
     dataTestId,
     children,
-}: HeadingClassicProps): React.ReactElement => {
-    const Component = tag;
-    const colorClass = color ? colors[color] : '';
-
-    return React.createElement(
-        Component,
-        {
-            className: cn(styles.component, className, styles[view], styles[weight], colorClass),
-            'data-test-id': dataTestId,
-        },
-        children,
-    );
-};
+}: HeadingClassicProps): React.ReactElement => (
+    <Component
+        className={cn(
+            styles.component,
+            className,
+            styles[view],
+            styles[weight],
+            color && colors[color],
+        )}
+        data-test-id={dataTestId}
+    >
+        {children}
+    </Component>
+);

@@ -50,28 +50,23 @@ export type TextProps = {
 
 export const Text: React.FC<TextProps> = ({
     view = 'primary-normal',
-    tag = 'span',
+    tag: Component = 'span',
     weight = 'regular',
     color,
     className,
     dataTestId,
     children,
-}: TextProps): React.ReactElement => {
-    const Component = tag;
-    const colorClass = color ? colors[color] : '';
-
-    return React.createElement(
-        Component,
-        {
-            className: cn(
-                { [styles.paragraph]: tag === 'p' },
-                className,
-                colorClass,
-                styles[view],
-                styles[weight],
-            ),
-            'data-test-id': dataTestId,
-        },
-        children,
-    );
-};
+}: TextProps): React.ReactElement => (
+    <Component
+        className={cn(
+            { [styles.paragraph]: Component === 'p' },
+            className,
+            color && colors[color],
+            styles[view],
+            styles[weight],
+        )}
+        data-test-id={dataTestId}
+    >
+        {children}
+    </Component>
+);
