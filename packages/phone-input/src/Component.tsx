@@ -46,12 +46,12 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
             const previousValueWithoutFormatting = previousConformedValue
                 ? deleteFormatting(previousConformedValue)
                 : '';
-            const currentValueWithoutFormatting = deleteFormatting(conformedValue);
+            const currentValueWithoutFormatting = deleteFormatting(conformedValue) || '';
             if (
                 (previousConformedValue &&
                     Math.abs(
                         previousValueWithoutFormatting.length -
-                            currentValueWithoutFormatting?.length,
+                            currentValueWithoutFormatting.length,
                     ) === 1 &&
                     [3, 6, 11].includes(currentCaretPosition)) ||
                 ([7, 10, 13].includes(currentCaretPosition) &&
