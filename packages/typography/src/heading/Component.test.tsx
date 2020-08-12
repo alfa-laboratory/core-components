@@ -14,10 +14,10 @@ describe('Heading', () => {
             expect(container.firstElementChild).toHaveClass(className);
         });
 
-        it('should set class `large` as default view', () => {
+        it('should set class `styrene-large` as default view', () => {
             const { container } = render(<Heading />);
 
-            expect(container.firstElementChild).toHaveClass('large');
+            expect(container.firstElementChild).toHaveClass('styrene-large');
         });
 
         it('should set class `medium` as default weight', () => {
@@ -26,7 +26,9 @@ describe('Heading', () => {
             expect(container.firstElementChild).toHaveClass('medium');
         });
 
-        it('should set `view` class', () => {
+        it('should set `view` class according to the font', () => {
+            const fonts: Array<HeadingProps['font']> = ['styrene', 'system'];
+
             const views: Array<HeadingProps['view']> = [
                 'xlarge',
                 'large',
@@ -35,12 +37,16 @@ describe('Heading', () => {
                 'xsmall',
             ];
 
-            views.forEach(view => {
-                if (!view) return;
+            fonts.forEach(font => {
+                if (!font) return;
 
-                const { container } = render(<Heading view={view} />);
+                views.forEach(view => {
+                    if (!view) return;
 
-                expect(container.firstElementChild).toHaveClass(view);
+                    const { container } = render(<Heading view={view} font={font} />);
+
+                    expect(container.firstElementChild).toHaveClass(`${font}-${view}`);
+                });
             });
         });
 

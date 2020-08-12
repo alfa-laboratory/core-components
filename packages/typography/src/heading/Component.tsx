@@ -27,6 +27,11 @@ export type HeadingProps = {
     weight?: 'regular' | 'medium' | 'bold';
 
     /**
+     * Шрифт текста
+     */
+    font?: 'styrene' | 'system';
+
+    /**
      * Css-класс для стилизации
      */
     className?: string;
@@ -45,7 +50,8 @@ export type HeadingProps = {
 export const Heading: React.FC<HeadingProps> = ({
     tag: Component = 'h2',
     view = 'large',
-    weight = 'medium',
+    font = 'styrene',
+    weight = font === 'styrene' ? 'medium' : 'bold',
     color,
     className,
     dataTestId,
@@ -55,7 +61,7 @@ export const Heading: React.FC<HeadingProps> = ({
         className={cn(
             styles.component,
             className,
-            styles[view],
+            styles[`${font}-${view}`],
             styles[weight],
             color && colors[color],
         )}

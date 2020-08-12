@@ -7,7 +7,6 @@ import { name, version } from '../package.json';
 import { colors } from './colors';
 
 export const Heading = Typography.Heading;
-export const HeadingClassic = Typography.HeadingClassic;
 export const Text = Typography.Text;
 
 
@@ -33,13 +32,15 @@ import { Typography } from '@alfalab/core-components-tooltip/typography';
 
 <Props components={{
     Heading,
-    HeadingClassic,
     Text
 }} />
 
 ## Typography.Heading
 
-Компонент заголовка, использующий шрифт 'Styrene UI'.
+<Typography.Heading>Стандартный заголовок для шрифта styrene</Typography.Heading>
+<div style={{fontFamily: 'var(--font-family-system)'}}>
+    <Typography.Heading font='system'>Стандартный заголовок для шрифта system</Typography.Heading>
+</div>
 
 <Story name='Typography.Heading'>
     {React.createElement(() => {
@@ -52,41 +53,17 @@ import { Typography } from '@alfalab/core-components-tooltip/typography';
         ];
         const color = select('color', colors, '');
         const weight = select('weight', ['regular', 'medium', 'bold'], 'medium');
-        return VIEW_TYPES.map(view => (
-            <Typography.Heading view={view} color={color} weight={weight} key={view}>
-                view='{view}'
-            </Typography.Heading>
-        ));
-    })}
-</Story>
-
-<br />
-<br />
-
-## Typography.HeadingClassic
-
-Компонент заголовка, использующий шрифт 'system-ui'.
-
-<Story name='Typography.HeadingClassic'>
-    {React.createElement(() => {
-        const VIEW_TYPES = [
-            'xlarge',
-            'large',
-            'normal',
-            'small',
-            'xsmall',
-        ];
-        const color = select('color', colors, '');
-        const weight = select('weight', ['regular', 'medium', 'bold'], 'bold');
+        const font = select('font', ['styrene', 'system'], 'styrene');
+        const containerStyle = font === 'system' ? {fontFamily: 'var(--font-family-system)'} : {};
         return (
-            <div style={{fontFamily: 'var(--font-family-system)'}}>
+            <div style={containerStyle}>
                 {VIEW_TYPES.map(view => (
-                    <Typography.HeadingClassic view={view} color={color} weight={weight} key={view}>
+                    <Typography.Heading view={view} color={color} weight={weight} font={font} key={view}>
                         view='{view}'
-                    </Typography.HeadingClassic>
+                    </Typography.Heading>
                 ))}
             </div>
-        )
+        );
     })}
 </Story>
 
