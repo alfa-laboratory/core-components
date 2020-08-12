@@ -4,53 +4,50 @@
 .component {
     display: flex;
     flex-direction: column;
-    align-items: center;
     font-family: var(--font-family);
 }
 
 .header {
-    margin: 0;
-    text-align: center;
-    color: var(--color-light-text-primary);
+    @mixin headline_small;
 
-    @mixin system_22-26_bold;
+    margin-bottom: var(--gap-2xl);
+    color: var(--color-light-text-primary);
 }
 
 .inputContainer {
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 162px;
-    margin-top: var(--gap-m);
-
-    & input {
-        margin-bottom: var(--gap-xs);
-    }
-}
-
-.spin {
-    margin-top: var(--gap-3xl);
-}
-
-.countdown {
-    margin-top: var(--gap-2xl);
-    text-align: center;
+    margin-bottom: var(--gap-2xl);
 }
 
 .hidden {
     display: none;
 }
 
-.retryHint {
-    margin-top: var(--gap-m);
-    text-align: center;
+.smsComeLinkWrap {
+    margin-top: var(--gap-2xl);
 }
 
 .smsComeLink {
-    @mixin system_14-18_regular;
+    @mixin paragraph_primary_small;
 }
 
 .error {
+    @mixin paragraph_primary_normal;
+
+    margin-top: var(--gap-s);
     color: var(--color-light-text-negative);
-    @mixin system_14-18_regular;
+}
+
+.loaderWrap {
+    display: flex;
+    align-items: center;
+}
+
+.loaderText {
+    @mixin paragraph_primary_normal;
+
+    margin-left: var(--gap-s);
+    color: var(--color-light-text-secondary);
 }

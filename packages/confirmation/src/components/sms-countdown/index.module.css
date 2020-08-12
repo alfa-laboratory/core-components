@@ -2,12 +2,15 @@
 @import '../../../../vars/src/colors-indigo.css';
 
 .component {
+    @mixin paragraph_primary_normal;
+
     display: flex;
     flex-direction: column;
-    justify-content: center;
     min-height: 32px;
     font-family: var(--font-family);
-    color: var(--color-light-text-secondary-transparent);
+    color: var(--color-light-text-secondary);
+}
 
-    @mixin system_14-18_regular;
+.info {
+    margin-bottom: var(--gap-s);
 }

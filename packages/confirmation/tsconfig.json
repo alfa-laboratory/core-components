@@ -8,6 +8,7 @@
     },
     "paths": {
         "@alfalab/core-components-button": ["../button/src"],
+        "@alfalab/core-components-loader": ["../loader/src"]
     },
-    "references": [{ "path": "../button" }]
+    "references": [{ "path": "../button" }, { "path": "../loader" }]
 }

@@ -223,8 +223,9 @@ export const SmsCountdown = forwardRef<HTMLDivElement, SmsCountdownProps>(
             >
                 {repeatSmsButtonShow ? (
                     <Button
-                        size='xs'
-                        view='outlined'
+                        size='s'
+                        view='secondary'
+                        block={true}
                         onClick={handleRepeatSmsButtonClick}
                         disabled={disabled}
                     >
@@ -239,7 +240,10 @@ export const SmsCountdown = forwardRef<HTMLDivElement, SmsCountdownProps>(
                                 {hasPhoneMask ? formatMaskedPhone(phone) : phone}
                             </div>
                         )}
-                        {`${retryText || message} через ${getFormattedTimeLeft()}`}
+
+                        <div className={styles.info}>{retryText || message} через</div>
+
+                        {getFormattedTimeLeft()}
                     </div>
                 )}
             </div>

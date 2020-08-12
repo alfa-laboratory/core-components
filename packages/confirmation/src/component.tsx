@@ -10,10 +10,13 @@ import styles from './index.module.css';
 export type ConfirmationProps = {
     /**
      * Флаг состояния обработки введенного кода.
-     * Если true - рисуется спиннер и дизейблится поле ввода.
-     * Если false - рисуется компонент обратного отсчета на повторный запрос смс.
      */
-    isProcessing: boolean;
+    codeChecking: boolean;
+
+    /**
+     * Флаг состояния отправки кода.
+     */
+    codeSending: boolean;
 
     /**
      * Текст ошибки подписания
@@ -134,12 +137,13 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
             errorTitle,
             hasPhoneMask,
             hasSmsCountdown,
-            isProcessing,
+            codeChecking,
             id,
             phone,
             requiredCharAmount,
             signTitle,
             value,
+            codeSending,
             onInputFinished,
             onSmsRetryClick,
             onActionWithFatalError,
@@ -163,7 +167,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
 
         const nonFatalError = errorIsFatal ? '' : error;
 
-        const shouldShowHintLink = countdownFinished && !isProcessing && retries > 0;
+        const shouldShowHintLink = countdownFinished && !codeChecking && retries > 0;
 
         const inputRef = useRef<HTMLInputElement>(null);
 
@@ -235,7 +239,8 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
             >
                 {shouldShowSignComponent && (
                     <SmsSignConfirmation
-                        isProcessing={isProcessing}
+                        codeChecking={codeChecking}
+                        codeSending={codeSending}
                         isSmsHintVisible={shouldShowHintLink}
                         additionalContent={additionalContent}
                         requiredCharAmount={requiredCharAmount}
@@ -261,7 +266,12 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
 
                         <span className={styles.errorText}>{error}</span>
 
-                        <Button size='xs' view='outlined' onClick={handleErrorSmsRetryClick}>
+                        <Button
+                            size='s'
+                            view='secondary'
+                            onClick={handleErrorSmsRetryClick}
+                            block={true}
+                        >
                             Попробовать заново
                         </Button>
                     </div>
@@ -292,8 +302,9 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
 
                         <Button
                             className={styles.repeatButton}
-                            size='xs'
-                            view='outlined'
+                            size='s'
+                            view='secondary'
+                            block={true}
                             onClick={handleSmsRetryFromHintClick}
                         >
                             Запросить пароль повторно

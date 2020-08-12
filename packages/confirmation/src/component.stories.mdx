@@ -23,35 +23,37 @@ import { Confirmation } from '@alfalab/core-components-confirmation';
 <Story name='Песочница'>
     {React.createElement(() => {
         const [error, setError] = useState('');
-        const [isProcessing, setIsProcessing] = useState(false);
+        const [codeSending, setCodeSending] = useState(false);
+        const [codeChecking, setCodeChecking] = useState(false);
         const [errorIsFatal, setErrorIsFatal] = useState(false);
         const handleSubmit = () => {
-            setIsProcessing(true);
+            setCodeChecking(true);
             setError('');
             setErrorIsFatal(false);
             setTimeout(() => {
-                setIsProcessing(false);
-                setError('Неправильный код');
-                // setIsProcessing(false);
-                // setError('Срок подписания кодом истёк. Пожалуйста, выполните операцию заново');
-                // setErrorIsFatal(true);
+                 setCodeChecking(false);
+                 setError('Неправильный код');
+                 //setCodeChecking(false);
+                 //setError('Срок подписания кодом истёк. Пожалуйста, выполните операцию заново');
+                 //setErrorIsFatal(true);
             }, 1500);
         };
         const handleSmsRetryClick = () => {
-            setIsProcessing(true);
+            setCodeSending(true);
             setError('');
             setErrorIsFatal(false);
             setTimeout(() => {
-                setIsProcessing(false);
+                setCodeSending(false);
             }, 1500);
         };
         return (
-            <div style={{display: 'flex', width: '320px', justifyContent: 'center', padding: '15px'}}>
+            <div style={{display: 'flex', width: '320px', padding: '15px'}}>
                 <Confirmation
                     phone='+7 000 000 00 42'
                     onInputFinished={handleSubmit}
                     onSmsRetryClick={handleSmsRetryClick}
-                    isProcessing={isProcessing}
+                    codeSending={codeSending}
+                    codeChecking={codeChecking}
                     error={error}
                     errorIsFatal={errorIsFatal}
                     countdownDuration={5000}

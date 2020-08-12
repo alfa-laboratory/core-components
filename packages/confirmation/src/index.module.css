@@ -4,68 +4,46 @@
 .component {
     display: flex;
     flex-direction: column;
+    width: 100%;
     font-family: var(--font-family);
 }
 
 .error {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .errorHeader {
-    margin: 0;
-    text-align: center;
+    @mixin headline_small;
 
-    @mixin system_22-26_bold;
+    margin: 0;
 }
 
 .errorText {
+    @mixin paragraph_primary_normal;
+
     max-width: 280px;
     min-height: 48px;
-    margin-top: var(--gap-xl);
-    text-align: center;
     color: var(--color-light-text-primary);
-
-    @mixin system_14-18_regular;
 }
 
 .phoneHintWrap {
+    @mixin paragraph_primary_normal;
+
     display: flex;
     flex-direction: column;
-    align-items: center;
     color: var(--color-light-text-primary);
-
-    @mixin system_14-18_regular;
 }
 
 .phoneHintText {
     max-width: 396px;
-    margin-top: var(--gap-xs);
-    text-align: center;
 }
 
 .phonesWrap {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-top: var(--gap-s);
-}
-
-.phoneLink {
-    text-align: center;
-    margin-top: var(--gap-xs);
-
-    &:first-child {
-        margin-top: 0;
-    }
 }
 
 .phoneDescription {
-    text-align: center;
-    color: var(--color-light-text-secondary-transparent);
-}
-
-.repeatButton {
-    margin-top: var(--gap-m);
+    color: var(--color-light-text-secondary);
 }

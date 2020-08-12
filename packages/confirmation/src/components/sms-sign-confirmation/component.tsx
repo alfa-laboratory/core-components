@@ -7,7 +7,9 @@ import React, {
     useCallback,
 } from 'react';
 import cn from 'classnames';
+
 import { Link } from '@alfalab/core-components-link';
+import { Loader } from '@alfalab/core-components-loader';
 
 import { SmsCountdown } from '../sms-countdown';
 
@@ -16,10 +18,13 @@ import styles from './index.module.css';
 export type SmsSignConfirmationProps = {
     /**
      * Флаг состояния обработки введенного кода.
-     * Если true - рисуется спиннер и дизейблится поле ввода.
-     * Если false - рисуется компонент обратного отсчета на повторный запрос смс.
      */
-    isProcessing: boolean;
+    codeChecking: boolean;
+
+    /**
+     * Флаг состояния отправки кода.
+     */
+    codeSending: boolean;
 
     /**
      * Флаг отрисовки подсказки "не приходит смс?"
@@ -69,7 +74,17 @@ export type SmsSignConfirmationProps = {
     title?: string;
 
     /**
-     * Управление отображением таймера с кнопкой "Запросить пароль повторно'"
+     * Текст лоадера при проверке кода
+     */
+    codeCheckingText?: string;
+
+    /**
+     * Текст лоадера при отправке кода
+     */
+    codeSendingText?: string;
+
+    /**
+     * Управление отображением таймера с кнопкой "Запросить код повторно'"
      */
     hasSmsCountdown?: boolean;
 
@@ -84,7 +99,7 @@ export type SmsSignConfirmationProps = {
     onInputChange?: (value: string) => void;
 
     /**
-     * Обработчик события нажатия на кнопку "запросить пароль повторно"
+     * Обработчик события нажатия на кнопку "запросить код повторно"
      */
     onSmsRetryClick: (event?: React.MouseEvent) => void;
 
@@ -105,7 +120,8 @@ export type SmsSignConfirmationProps = {
 };
 
 export const SmsSignConfirmation: FC<SmsSignConfirmationProps> = ({
-    isProcessing,
+    codeChecking,
+    codeSending,
     isSmsHintVisible = false,
     requiredCharAmount = 4,
     countdownDuration = 60000,
@@ -122,6 +138,8 @@ export const SmsSignConfirmation: FC<SmsSignConfirmationProps> = ({
     onCountdownFinished,
     onSmsHintLinkClick,
     inputRef,
+    codeCheckingText = 'Проверка кода',
+    codeSendingText = 'Отправляем код',
 }) => {
     const focus = useCallback(() => {
         if (inputRef.current) {
@@ -134,6 +152,8 @@ export const SmsSignConfirmation: FC<SmsSignConfirmationProps> = ({
             inputRef.current.blur();
         }
     }, [inputRef]);
+
+    const isProcessing = codeChecking || codeSending;
 
     const displayedError = isProcessing ? '' : error;
 
@@ -223,7 +243,14 @@ export const SmsSignConfirmation: FC<SmsSignConfirmationProps> = ({
                 {displayedError && <div className={styles.error}>{displayedError}</div>}
             </div>
 
-            {isProcessing && <div>spinner</div>}
+            {isProcessing && (
+                <div className={styles.loaderWrap}>
+                    <Loader />
+                    <span className={styles.loaderText}>
+                        {codeChecking ? codeCheckingText : codeSendingText}
+                    </span>
+                </div>
+            )}
 
             {hasSmsCountdown && (
                 <div className={cn('countdown', { [styles.hidden]: isProcessing })}>
@@ -234,7 +261,7 @@ export const SmsSignConfirmation: FC<SmsSignConfirmationProps> = ({
                         phone={phone}
                         hasPhoneMask={hasPhoneMask}
                         retryText='Запросить повторно можно'
-                        buttonText='Запросить пароль повторно'
+                        buttonText='Запросить код повторно'
                         onRepeatSms={handleSmsRetryClick}
                         onCountdownFinished={handleCountdownFinished}
                         className={styles.countdown}
@@ -243,9 +270,13 @@ export const SmsSignConfirmation: FC<SmsSignConfirmationProps> = ({
             )}
 
             {isSmsHintVisible && (
-                <div className={styles.retryHint}>
-                    <Link onClick={handleSmsHintLinkClick} className={styles.smsComeLink}>
-                        Не приходит SMS?
+                <div className={styles.smsComeLinkWrap}>
+                    <Link
+                        onClick={handleSmsHintLinkClick}
+                        className={styles.smsComeLink}
+                        view='secondary'
+                    >
+                        Не приходит сообщение?
                     </Link>
                 </div>
             )}
