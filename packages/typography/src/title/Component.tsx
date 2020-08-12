@@ -5,7 +5,7 @@ import { Color } from '../colors';
 import styles from './index.module.css';
 import colors from '../colors.module.css';
 
-export type HeadingProps = {
+export type TitleProps = {
     /**
      * HTML тег
      */
@@ -47,7 +47,7 @@ export type HeadingProps = {
     children?: React.ReactNode;
 };
 
-export const Heading: React.FC<HeadingProps> = ({
+export const Title: React.FC<TitleProps> = ({
     tag: Component = 'h2',
     view = 'large',
     font = 'styrene',
@@ -56,7 +56,7 @@ export const Heading: React.FC<HeadingProps> = ({
     className,
     dataTestId,
     children,
-}: HeadingProps): React.ReactElement => (
+}: TitleProps): React.ReactElement => (
     <Component
         className={cn(
             styles.component,

@@ -6,10 +6,6 @@ import { Typography } from './Component';
 import { name, version } from '../package.json';
 import { colors } from './colors';
 
-export const Heading = Typography.Heading;
-export const Text = Typography.Text;
-
-
 <Meta title='Компоненты|Typography' component={Typography} />
 
 <Title>
@@ -30,19 +26,16 @@ import { Typography } from '@alfalab/core-components-tooltip/typography';
 
 > **_NOTE:_** Компоненты не устанавливают свойство `font-family`, кроме случаев, когда используется шрифт 'Styrene UI'. Подразумевается, что шрифт будет установлен у родителя.
 
-<Props components={{
-    Heading,
-    Text
-}} />
+<Props components={Typography} />
 
-## Typography.Heading
+## Typography.Title
 
-<Typography.Heading>Стандартный заголовок для шрифта styrene</Typography.Heading>
+<Typography.Title>Стандартный заголовок для шрифта styrene</Typography.Title>
 <div style={{fontFamily: 'var(--font-family-system)'}}>
-    <Typography.Heading font='system'>Стандартный заголовок для шрифта system</Typography.Heading>
+    <Typography.Title font='system'>Стандартный заголовок для шрифта system</Typography.Title>
 </div>
 
-<Story name='Typography.Heading'>
+<Story name='Typography.Title'>
     {React.createElement(() => {
         const VIEW_TYPES = [
             'xlarge',
@@ -58,9 +51,9 @@ import { Typography } from '@alfalab/core-components-tooltip/typography';
         return (
             <div style={containerStyle}>
                 {VIEW_TYPES.map(view => (
-                    <Typography.Heading view={view} color={color} weight={weight} font={font} key={view}>
+                    <Typography.Title view={view} color={color} weight={weight} font={font} key={view}>
                         view='{view}'
-                    </Typography.Heading>
+                    </Typography.Title>
                 ))}
             </div>
         );

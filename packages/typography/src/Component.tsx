@@ -1,10 +1,10 @@
-import { Heading, HeadingProps } from './heading';
+import { Title, TitleProps } from './title';
 import { Text, TextProps } from './text';
 
 export const Typography: {
-    Heading: React.FC<HeadingProps>;
+    Title: React.FC<TitleProps>;
     Text: React.FC<TextProps>;
 } = {
-    Heading,
+    Title,
     Text,
 };

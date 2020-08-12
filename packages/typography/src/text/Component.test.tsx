@@ -68,7 +68,7 @@ describe('Text', () => {
 
     describe('Attributes tests', () => {
         it('should set data-test-id attribute', () => {
-            const dataTestId = 'heading-test-id';
+            const dataTestId = 'title-test-id';
 
             const { queryByTestId } = render(<Text dataTestId={dataTestId} />);
 
