@@ -70,8 +70,7 @@ export const groups = [
 export const optionsWithHtml = options.map(option => {
     return {
         ...option,
-        text: (<span style={{ fontWeight: 'bold' }}>{option.text}</span>),
-        nativeText: option.text
+        content: (<span style={{ fontWeight: 'bold' }}>{option.text}</span>),
     };
 });
 
@@ -221,7 +220,7 @@ import { Select } from '@alfalab/core-components-select';
 
 ## Настройка рендера
 
-Помимо текста, компонент позволяет использовать html в качестве поля `text` у вариантов выбора
+Помимо текста, компонент позволяет использовать html в качестве поля `content` у вариантов выбора
 
 <Preview>
     <div style={{ height: 180, width: 200 }}>

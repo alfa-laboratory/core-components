@@ -6,8 +6,8 @@ export const isGroup = (item: OptionShape | GroupShape): item is GroupShape =>
 
 export const joinOptions = (options: OptionShape[]) =>
     options.reduce((acc: Array<ReactNode | string>, option: OptionShape, index: number) => {
-        if (isValidElement(option.text)) {
-            acc.push(cloneElement(option.text, { key: option.value }));
+        if (isValidElement(option.content)) {
+            acc.push(cloneElement(option.content, { key: option.value }));
         } else {
             acc.push(option.text || option.value);
         }
