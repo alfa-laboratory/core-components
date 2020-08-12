@@ -1,7 +1,11 @@
 @import '../../../vars/src/typography.css';
 
+:root {
+    --text-paragraph-margin-bottom: 0 0 var(--gap-m);
+}
+
 .paragraph {
-    margin: 0 0 var(--gap-m);
+    margin: var(--text-paragraph-margin-bottom);
     padding: 0;
 }
 
