@@ -57,11 +57,54 @@ describe('Textarea', () => {
             expect(getByTestId(dataTestId)).toHaveClass('hasLabel');
         });
 
+        it('should set `resizeVertical` class', () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<Textarea resize='vertical' dataTestId={dataTestId} />);
+
+            expect(getByTestId(dataTestId)).toHaveClass('resizeVertical');
+        });
+
         it('should set `disabled` atribute', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(<Textarea disabled={true} dataTestId={dataTestId} />);
 
             expect(getByTestId(dataTestId)).toHaveAttribute('disabled');
+        });
+
+        it('should render with `off` autocomplete attribute', () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <Textarea autocomplete={false} dataTestId={dataTestId} />,
+            );
+
+            expect(getByTestId(dataTestId).getAttribute('autoComplete')).toEqual('off');
+        });
+
+        it('should render with `on` autocomplete attribute', () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <Textarea autocomplete={true} dataTestId={dataTestId} />,
+            );
+
+            expect(getByTestId(dataTestId).getAttribute('autoComplete')).toEqual('on');
+        });
+
+        it('should set `maxHeight` style with autosize on', () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <Textarea autosize={true} maxHeight={100} dataTestId={dataTestId} />,
+            );
+
+            expect(getByTestId(dataTestId)).toHaveStyle('max-height: 100px');
+        });
+
+        it('should set `maxHeight` style with autosize off', () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <Textarea autosize={false} maxHeight={100} dataTestId={dataTestId} />,
+            );
+
+            expect(getByTestId(dataTestId)).toHaveStyle('max-height: 100px');
         });
     });
 
