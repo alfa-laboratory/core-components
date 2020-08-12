@@ -130,7 +130,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             maxHeight,
             resize = 'none',
             value,
-            rows = 1,
+            rows = autosize ? 1 : 3,
             ...restProps
         },
         ref,

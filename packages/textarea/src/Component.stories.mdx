@@ -1,5 +1,5 @@
 import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
-import { text, select, boolean } from '@storybook/addon-knobs';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { Design } from 'storybook/blocks/design';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
@@ -38,6 +38,9 @@ import { Textarea } from '@alfalab/core-components-textarea';
         disabled={boolean('disabled', false)}
         placeholder={text('placeholder', '')}
         resize={select('resize', ['none', 'vertical'], 'none')}
+        minRows={number('minRows', undefined)}
+        maxRows={number('maxRows', undefined)}
+        maxHeight={number('maxHeight', undefined)}
         label={text('label', '')}
         hint={text('hint', '')}
         error={text('error', '')}
