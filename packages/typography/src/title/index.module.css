@@ -26,23 +26,23 @@
 }
 
 .system-xlarge {
-    @mixin headline-classic_xlarge;
+    @mixin headline-system_xlarge;
 }
 
 .system-large {
-    @mixin headline-classic_large;
+    @mixin headline-system_large;
 }
 
 .system-normal {
-    @mixin headline-classic_normal;
+    @mixin headline-system_normal;
 }
 
 .system-small {
-    @mixin headline-classic_small;
+    @mixin headline-system_small;
 }
 
 .system-xsmall {
-    @mixin headline-classic_xsmall;
+    @mixin headline-system_xsmall;
 }
 
 .bold {
