@@ -7,8 +7,6 @@ const typography = require('../node_modules/alfa-ui-primitives/styles/typography
 const out = [compileTemplate('font-vars.css.hbs')];
 
 Object.entries(typography).forEach(([name, rules]) => {
-    if (rules.deprecated) return;
-
     out.push(
         compileTemplate('font-style-mixin.css.hbs', {
             name,
@@ -50,11 +48,21 @@ function normalizeRules(rules) {
             value = `${value}px`;
         }
 
-        if (name === 'font-family' && value.includes('styrene')) {
-            acc['font-feature-settings'] = `'ss01'`;
-        }
+        switch (name) {
+            case 'font-family':
+                if (value === 'var(--font-family-styrene)') {
+                    acc['font-feature-settings'] = `'ss01'`;
+                }
 
-        acc[name] = value;
+                if (value !== 'var(--font-family-system)') {
+                    acc[name] = value;
+                }
+                break;
+            case 'deprecated':
+                break;
+            default:
+                acc[name] = value;
+        }
 
         return acc;
     }, {});

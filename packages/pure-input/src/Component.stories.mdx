@@ -1,11 +1,16 @@
 import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
+import { Design } from 'storybook/blocks/design';
 
 import { PureInput } from './Component';
 import { name, version } from '../package.json';
 
 
-<Meta title='Компоненты|PureInput' component={PureInput} />
+<Meta
+    title='Компоненты|PureInput'
+    component={PureInput}
+    parameters={{ 'theme-switcher': { enabled: true } }}
+/>
 
 <Title>
     PureInput ({name}@{version})
@@ -14,6 +19,10 @@ import { name, version } from '../package.json';
 ```tsx
 import { PureInput } from '@alfalab/core-components-pure-input';
 ```
+
+<Design>
+  <a href="https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=49%3A0">Figma</a>
+</Design>
 
 ## Описание
 

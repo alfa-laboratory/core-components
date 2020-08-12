@@ -1,0 +1,138 @@
+import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { boolean, select } from '@storybook/addon-knobs';
+
+import {
+    TabsDesktop,
+    TabsMobile,
+    TabsResponsive,
+    PrimaryTabListDesktop,
+    PrimaryTabListMobile,
+    SecondaryTabListDesktop,
+    SecondaryTabListMobile,
+    Tab,
+} from './index';
+
+import { name, version } from '../package.json';
+
+export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`, id: i + 1 }));
+
+
+<Meta title='Компоненты|Tabs' />
+
+<Title>
+    Tabs ({name}@{version})
+</Title>
+
+## Описание
+
+Компоненты для построения табов.
+
+### TabsDesktop
+
+<Story name='TabsDesktop'>
+    {React.createElement(() => {
+        const [selectedId, setSelectedId] = React.useState('tab-1');
+        const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
+        return (
+            <TabsDesktop
+                view={select('view', ['primary', 'secondary'], 'primary')}
+                selectedId={selectedId}
+                keepMounted={boolean('keepMounted')}
+                onChange={handleChange}
+                scrollable={boolean('scrollable')}
+                gaps={select('gaps', ['default', 'wide'], 'default')}
+            >
+                <Tab title='Таб 1' id='tab-1'>
+                    Таб 1
+                </Tab>
+                <Tab title='Таб 2' id='tab-2'>
+                    Таб 2
+                </Tab>
+                <Tab title='Таб 3' id='tab-3'>
+                    Таб 3
+                </Tab>
+                <Tab title='Таб 4' id='tab-4'>
+                    Таб 4
+                </Tab>
+                <Tab title='Таб 5' id='tab-5'>
+                    Таб 5
+                </Tab>
+            </TabsDesktop>
+        );
+    })}
+</Story>
+
+### TabsMobile
+
+<Story name='TabsMobile'>
+    {React.createElement(() => {
+        const [selectedId, setSelectedId] = React.useState('tab-1');
+        const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
+        return (
+            <TabsMobile
+                view={select('view', ['primary', 'secondary'], 'primary')}
+                selectedId={selectedId}
+                keepMounted={boolean('keepMounted')}
+                onChange={handleChange}
+                scrollable={boolean('scrollable')}
+            >
+                <Tab title='Таб 1' id='tab-1'>
+                    Таб 1
+                </Tab>
+                <Tab title='Таб 2' id='tab-2'>
+                    Таб 2
+                </Tab>
+                <Tab title='Таб 3' id='tab-3'>
+                    Таб 3
+                </Tab>
+                <Tab title='Таб 4' id='tab-4'>
+                    Таб 4
+                </Tab>
+                <Tab title='Таб 5' id='tab-5'>
+                    Таб 5
+                </Tab>
+            </TabsMobile>
+        );
+    })}
+</Story>
+
+### TabsResponsive
+
+Адаптивная версия табов, перестраивается при 768px
+
+<Story name='TabsResponsive'>
+    {React.createElement(() => {
+        const [selectedId, setSelectedId] = React.useState('tab-1');
+        const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
+        return (
+            <TabsResponsive
+                view={select('view', ['primary', 'secondary'], 'primary')}
+                selectedId={selectedId}
+                keepMounted={boolean('keepMounted')}
+                onChange={handleChange}
+                scrollable={boolean('scrollable')}
+            >
+                <Tab title='Таб 1' id='tab-1'>
+                    Таб 1
+                </Tab>
+                <Tab title='Таб 2' id='tab-2'>
+                    Таб 2
+                </Tab>
+                <Tab title='Таб 3' id='tab-3'>
+                    Таб 3
+                </Tab>
+                <Tab title='Таб 4' id='tab-4'>
+                    Таб 4
+                </Tab>
+                <Tab title='Таб 5' id='tab-5'>
+                    Таб 5
+                </Tab>
+            </TabsResponsive>
+        );
+    })}
+</Story>
+
+<Props components={{
+    TabsDesktop,
+    TabsMobile
+}} />

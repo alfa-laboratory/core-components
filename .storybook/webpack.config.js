@@ -25,7 +25,8 @@ const getBabelRules = ({ mode, withRDTL }) => {
                                 allExtensions: true,
                             },
                         ],
-                    ],
+                        '@babel/preset-env',
+                    ]
                 },
             },
         ],
@@ -80,6 +81,9 @@ module.exports = ({ config }) => ({
                         // may or may not need this line depending on your app's setup
                         options: {
                             plugins: ['@babel/plugin-transform-react-jsx'],
+                            presets: [
+                                '@babel/preset-env',
+                            ]
                         },
                     },
                     {
@@ -101,6 +105,20 @@ module.exports = ({ config }) => ({
                 withRDTL: process.env.RDTL !== 'off',
             }),
             {
+                test: /\.js$/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: [
+                                '@babel/preset-env',
+                            ]
+                        },
+                    },
+                ],
+                exclude: [/node_modules\/core-js/]
+            },
+            {
                 test: /\.css$/,
                 use: [
                     {
@@ -112,7 +130,6 @@ module.exports = ({ config }) => ({
                             modules: {
                                 localIdentName: '[local]_[hash:base64:5]',
                             },
-                            localsConvention: 'dashes',
                             importLoaders: 1,
                             sourceMap: true,
                         },

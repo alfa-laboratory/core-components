@@ -1,0 +1,69 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    position: relative;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 1px;
+        height: 1px;
+        width: 100%;
+        background-color: var(--primary-tablist-bottom-border-color);
+    }
+}
+
+.container {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+
+.title {
+    padding: 0;
+    cursor: pointer;
+    color: var(--primary-tablist-color);
+    transition: color 0.2s ease;
+    border: 0;
+    background: none;
+    white-space: nowrap;
+    box-shadow: none;
+    user-select: none;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+        color: var(--primary-tablist-hover-color);
+    }
+}
+
+.titleWrapper {
+    display: block;
+    position: relative;
+    outline: none;
+}
+
+.title:focus .titleWrapper {
+    /* TODO: проработать стиль для фокуса с клавиатуры */
+    color: var(--focus-color);
+}
+
+.selected {
+    cursor: default;
+    color: var(--primary-tablist-selected-color);
+}
+
+.line {
+    position: absolute;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-tablist-line-color);
+    transition: transform 0.2s ease;
+}
+
+.scrollable .line {
+    bottom: var(--tablist-hidden-scrollbar-height);
+}

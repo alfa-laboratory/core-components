@@ -7,6 +7,7 @@ import React, {
     useEffect,
     useCallback,
     ReactNode,
+    useRef,
 } from 'react';
 import NodeResolver from 'react-node-resolver';
 import cn from 'classnames';
@@ -90,6 +91,11 @@ export type TooltipProps = {
      * Дополнительный класс для контента
      */
     contentClassName?: string;
+
+    /**
+     * Дополнительный класс для поповера
+     */
+    popoverClassName?: string;
 };
 
 export const Tooltip: FC<TooltipProps> = ({
@@ -107,6 +113,7 @@ export const Tooltip: FC<TooltipProps> = ({
     position,
     contentClassName,
     arrowClassName,
+    popoverClassName,
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
     const [target, setTarget] = useState<RefElement>(null);
@@ -114,7 +121,7 @@ export const Tooltip: FC<TooltipProps> = ({
     const targetRef = React.useRef<RefElement>(null);
     const contentRef = React.useRef<RefElement>(null);
 
-    let timerId = 0;
+    const timer = useRef(0);
 
     const open = () => {
         if (!visible) {
@@ -170,26 +177,26 @@ export const Tooltip: FC<TooltipProps> = ({
         return () => {
             document.body.removeEventListener('click', handleBodyClick);
 
-            clearTimeout(timerId);
+            clearTimeout(timer.current);
         };
-    }, [close, timerId]);
+    }, [close]);
 
     const handleTargetClick = () => {
         toggle();
     };
 
     const handleMouseOver = () => {
-        clearTimeout(timerId);
+        clearTimeout(timer.current);
 
-        timerId = window.setTimeout(() => {
+        timer.current = window.setTimeout(() => {
             open();
         }, onOpenDelay);
     };
 
     const handleMouseOut = () => {
-        clearTimeout(timerId);
+        clearTimeout(timer.current);
 
-        timerId = window.setTimeout(() => {
+        timer.current = window.setTimeout(() => {
             close();
         }, onCloseDelay);
     };
@@ -197,10 +204,10 @@ export const Tooltip: FC<TooltipProps> = ({
     const handleTouchStart = (event: React.TouchEvent<HTMLElement>) => {
         const eventTarget = event.target as Element;
 
-        clearTimeout(timerId);
+        clearTimeout(timer.current);
 
         if (clickedOutside(eventTarget)) {
-            timerId = window.setTimeout(() => {
+            timer.current = window.setTimeout(() => {
                 close();
             }, onCloseDelay);
         } else {
@@ -287,7 +294,7 @@ export const Tooltip: FC<TooltipProps> = ({
                     open={show}
                     getPortalContainer={getPortalContainer}
                     arrowClassName={arrowClassName}
-                    popperClassName={styles.popper}
+                    popperClassName={cn(styles.popper, popoverClassName)}
                     offset={offset}
                     withArrow={true}
                     position={position}
