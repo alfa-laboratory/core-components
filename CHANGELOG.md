@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.12.0](https://github.com/alfa-laboratory/core-components/compare/v1.11.0...v1.12.0) (2020-08-12)
+
+
+### Features
+
+* **core-components-input:** add input wrapper ref ([9c1fba0](https://github.com/alfa-laboratory/core-components/commit/9c1fba07c233206eab0defe6e4341fdb0c8b3664))
+* **core-components-input:** add ref tests ([9ed193c](https://github.com/alfa-laboratory/core-components/commit/9ed193c1f5f0f4a22a276877893e6d5de4c4a2a0))
+* **core-components-input:** update type ([9ab3733](https://github.com/alfa-laboratory/core-components/commit/9ab373369c5b692bd3632d43ef1afda7d9ffc63e))
+* **core-components-phone-input:** add phone-input ([#192](https://github.com/alfa-laboratory/core-components/issues/192)) ([42cedbf](https://github.com/alfa-laboratory/core-components/commit/42cedbf9583f1c836cb0825789b0d4b47fbbdddd))
+* **core-components-phone-input:** remove optional chaining ([#222](https://github.com/alfa-laboratory/core-components/issues/222)) ([d8a9ca2](https://github.com/alfa-laboratory/core-components/commit/d8a9ca2f004bb8bd1df31a5499ead7d7c28e0d80))
+* **core-components-radio:** add radio component ([#183](https://github.com/alfa-laboratory/core-components/issues/183)) ([858c81b](https://github.com/alfa-laboratory/core-components/commit/858c81b7b3e6bef27b39e719bbecfe1d32f92d19))
+* **core-components-tabs:** add tabs ([#149](https://github.com/alfa-laboratory/core-components/issues/149)) ([b08b668](https://github.com/alfa-laboratory/core-components/commit/b08b66861fd7c068a1db7e32d3d697ad13acbd6f)), closes [#175](https://github.com/alfa-laboratory/core-components/issues/175) [#200](https://github.com/alfa-laboratory/core-components/issues/200)
+* **core-components-vars:** add new typography styles ([#211](https://github.com/alfa-laboratory/core-components/issues/211)) ([7df831f](https://github.com/alfa-laboratory/core-components/commit/7df831f396525bec0c57264606a44abd2417a78c))
+
+
+### Bug Fixes
+
+* **core-components-tooltip:** change tooltip timer to ref ([#207](https://github.com/alfa-laboratory/core-components/issues/207)) ([139f0a7](https://github.com/alfa-laboratory/core-components/commit/139f0a74d414f3c1dde11b46ecf96a984b599359))
+
 ## [1.11.0](https://github.com/alfa-laboratory/core-components/compare/v1.10.0...v1.11.0) (2020-07-22)
 
 
