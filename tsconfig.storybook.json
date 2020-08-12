@@ -1,25 +1,22 @@
 {
-  "compilerOptions": {
-    "target": "esnext",
-    "moduleResolution": "node",
-    "allowJs": true,
-    "noEmit": true,
-    "strict": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "outDir": "build",
-    "module": "commonjs",
-    "skipLibCheck": true,
-    "sourceMap": true,
-    "jsx": "react",
-    "rootDirs": [
-      "packages"
-    ],
-    "baseUrl": "./"
-  },
-  "exclude": [
-    "node_modules",
-    "build",
-    "coverage"
-  ]
+    "compilerOptions": {
+        "target": "esnext",
+        "moduleResolution": "node",
+        "allowJs": true,
+        "noEmit": true,
+        "strict": true,
+        "isolatedModules": true,
+        "esModuleInterop": true,
+        "outDir": "build",
+        "module": "commonjs",
+        "skipLibCheck": true,
+        "sourceMap": true,
+        "jsx": "react",
+        "rootDirs": ["packages"],
+        "baseUrl": "./",
+        "paths": {
+            "@alfalab/core-components-*": ["packages/*/src"]
+        }
+    },
+    "exclude": ["node_modules", "build", "coverage"]
 }

@@ -1,0 +1,58 @@
+import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { text, boolean } from '@storybook/addon-knobs';
+
+import { Radio } from './Component';
+import { name, version } from '../package.json';
+
+
+<Meta title='Компоненты|Radio' component={Radio} />
+
+<Title>
+    Radio ({name}@{version})
+</Title>
+
+```tsx
+import { Radio } from '@alfalab/core-components-radio';
+```
+
+## Описание
+
+Компонент радио.
+
+<Story name='Песочница'>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleChange = () => setChecked(!checked);
+        const disabled = boolean('disabled', false);
+        const label = text('label', 'Text label')
+        const hint = text('hint', 'Hint');
+        return (
+            <Radio
+                disabled={disabled}
+                onChange={handleChange}
+                checked={checked}
+                hint={hint}
+                label={label}
+            />
+        );
+    })}
+</Story>
+
+<Props of={Radio} />
+
+### Компонент Radio
+
+<Preview>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleChange = () => setChecked(!checked);
+        return (
+            <Radio
+                onChange={handleChange}
+                checked={checked}
+                label="Some label"
+                hint="Some description"
+            />
+        );
+    })}
+</Preview>
