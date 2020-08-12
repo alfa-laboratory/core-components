@@ -37,7 +37,6 @@
     border: none;
     margin: 0;
     outline: none;
-    text-overflow: ellipsis;
     box-sizing: border-box;
     resize: none;
     -webkit-appearance: none;
@@ -64,10 +63,6 @@
 .hasLabel::placeholder {
     opacity: 0;
     color: var(--textarea-focused-placeholder-color);
-}
-
-.block {
-    width: 100%;
 }
 
 .resizeVertical {
