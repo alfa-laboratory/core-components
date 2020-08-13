@@ -6,7 +6,9 @@
         "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-masked-input": ["../masked-input/src"]
+            "@alfalab/core-components-masked-input": ["../masked-input/src"],
+            "@alfalab/core-components-form-control": ["../form-control/src"],
+            "@alfalab/core-components-input": ["../input/src"]
         }
     },
     "references": [{ "path": "../masked-input" }]

@@ -9,6 +9,14 @@ describe('FormControl', () => {
             expect(render(<FormControl />)).toMatchSnapshot();
         });
 
+        it('should forward ref to FormControl', () => {
+            const ref = jest.fn();
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<FormControl ref={ref} dataTestId={dataTestId} />);
+
+            expect(ref.mock.calls).toEqual([[getByTestId(dataTestId)]]);
+        });
+
         it('should render label', () => {
             expect(render(<FormControl label={<span>This is label</span>} />)).toMatchSnapshot();
         });
