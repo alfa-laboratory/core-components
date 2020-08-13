@@ -16,32 +16,43 @@
 .errorHeader {
     @mixin headline_small;
 
-    margin: 0;
+    margin-bottom: var(--gap-2xl);
+    color: var(--color-light-text-primary);
 }
 
 .errorText {
     @mixin paragraph_primary_normal;
 
-    max-width: 280px;
-    min-height: 48px;
-    color: var(--color-light-text-primary);
+    margin-bottom: var(--gap-2xl);
+    color: var(--color-light-text-secondary);
 }
 
 .phoneHintWrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.phoneHintText {
+    @mixin paragraph_primary_normal;
+
+    margin-bottom: var(--gap-2xl);
+    color: var(--color-light-text-secondary);
+}
+
+.phonesWrap {
     @mixin paragraph_primary_normal;
 
     display: flex;
     flex-direction: column;
-    color: var(--color-light-text-primary);
+    margin-bottom: var(--gap-2xl);
 }
 
-.phoneHintText {
-    max-width: 396px;
-}
+.phoneWrap {
+    margin-bottom: var(--gap-xs);
 
-.phonesWrap {
-    display: flex;
-    flex-direction: column;
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
 .phoneDescription {

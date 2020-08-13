@@ -26,16 +26,17 @@ import { Confirmation } from '@alfalab/core-components-confirmation';
         const [codeSending, setCodeSending] = useState(false);
         const [codeChecking, setCodeChecking] = useState(false);
         const [errorIsFatal, setErrorIsFatal] = useState(false);
+        const [code, setCode] = useState('');
         const handleSubmit = () => {
             setCodeChecking(true);
             setError('');
             setErrorIsFatal(false);
             setTimeout(() => {
-                 setCodeChecking(false);
-                 setError('Неправильный код');
-                 //setCodeChecking(false);
-                 //setError('Срок подписания кодом истёк. Пожалуйста, выполните операцию заново');
-                 //setErrorIsFatal(true);
+                // setCodeChecking(false);
+                // setError('Неправильный код');
+                setCodeChecking(false);
+                setError('Срок подписания кодом истёк. Пожалуйста, выполните операцию заново');
+                setErrorIsFatal(true);
             }, 1500);
         };
         const handleSmsRetryClick = () => {
@@ -46,8 +47,14 @@ import { Confirmation } from '@alfalab/core-components-confirmation';
                 setCodeSending(false);
             }, 1500);
         };
+        const handleInputChange = (code) => {
+            setCode(code);
+            if (error) {
+                setError('')
+            }
+        }
         return (
-            <div style={{display: 'flex', width: '320px', padding: '15px'}}>
+            <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
                 <Confirmation
                     phone='+7 000 000 00 42'
                     onInputFinished={handleSubmit}
@@ -57,6 +64,8 @@ import { Confirmation } from '@alfalab/core-components-confirmation';
                     error={error}
                     errorIsFatal={errorIsFatal}
                     countdownDuration={5000}
+                    value={code}
+                    onInputChange={handleInputChange}
                 />
             </div>
         );

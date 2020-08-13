@@ -3,20 +3,25 @@ import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
 import { Link } from '@alfalab/core-components-link';
 
-import { SmsSignConfirmation } from './components';
+import { SignConfirmation } from './components';
 
 import styles from './index.module.css';
 
 export type ConfirmationProps = {
     /**
+     * Значение поля ввода
+     */
+    value: string;
+
+    /**
      * Флаг состояния обработки введенного кода.
      */
-    codeChecking: boolean;
+    codeChecking?: boolean;
 
     /**
      * Флаг состояния отправки кода.
      */
-    codeSending: boolean;
+    codeSending?: boolean;
 
     /**
      * Текст ошибки подписания
@@ -30,7 +35,7 @@ export type ConfirmationProps = {
 
     /**
      * Флаг критичности ошибки подписания.
-     * Если true - ошибка подписания рисуется на экране без поля ввода, но с кнопкой "запросить пароль еще раз"
+     * Если true - ошибка подписания рисуется на экране без поля ввода, но с кнопкой "запросить код еще раз"
      * Если false - ошибка подписания рисуется под полем ввода кода
      */
     errorIsFatal?: boolean;
@@ -41,11 +46,6 @@ export type ConfirmationProps = {
     className?: string;
 
     /**
-     * Уникальный идентификатор модального окна подписания
-     */
-    id?: string;
-
-    /**
      * Номер телефона, на который отправляется смс.
      * Пробрасывается в компонент обратного отсчета as is и форматируется там же.
      * Должен быть в формате '+7 000 000 00 00'
@@ -54,7 +54,6 @@ export type ConfirmationProps = {
 
     /**
      * Управление необходимостью маскировать номер телефона
-     * @default true
      */
     hasPhoneMask?: boolean;
 
@@ -64,8 +63,7 @@ export type ConfirmationProps = {
     requiredCharAmount?: number;
 
     /**
-     * Управление отображением таймера с кнопкой "Запросить пароль повторно'"
-     * @default true
+     * Управление отображением таймера с кнопкой "Запросить код повторно'"
      */
     hasSmsCountdown?: boolean;
 
@@ -85,9 +83,29 @@ export type ConfirmationProps = {
     errorTitle?: string;
 
     /**
-     * Значение поля ввода
+     * Идентификатор для систем автоматизированного тестирования
      */
-    value?: string;
+    dataTestId?: string;
+
+    /**
+     * Текст лоадера при проверке кода
+     */
+    codeCheckingText?: string;
+
+    /**
+     * Текст лоадера при отправке кода
+     */
+    codeSendingText?: string;
+
+    /**
+     * Текст кнопки при блокирующей ошибке
+     */
+    buttonErrorText?: string;
+
+    /**
+     * Текст кнопки 'Запросить код'
+     */
+    buttonRetryText?: string;
 
     /**
      * Обработчик события завершения ввода кода подписания
@@ -97,10 +115,10 @@ export type ConfirmationProps = {
     /**
      * Обработчик события изменения значения поля ввода кода подписания
      */
-    onInputChange?: (value?: string) => void;
+    onInputChange: (value?: string) => void;
 
     /**
-     * Обработчик события нажатия на кнопку "запросить пароль повторно"
+     * Обработчик события нажатия на кнопку "запросить код повторно"
      */
     onSmsRetryClick: () => void;
 
@@ -118,11 +136,6 @@ export type ConfirmationProps = {
      * Обработчик события нажатия на ссылку "Попробовать заново", которая появляется при критической ошибке
      */
     onActionWithFatalError?: () => void;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
 };
 
 export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
@@ -130,20 +143,23 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
         {
             additionalContent,
             className,
-            countdownDuration,
+            countdownDuration = 60000,
             dataTestId,
-            error,
             errorIsFatal,
-            errorTitle,
-            hasPhoneMask,
-            hasSmsCountdown,
-            codeChecking,
-            id,
+            errorTitle = 'Превышено количество попыток ввода кода',
+            error = 'Выполните операцию с\xa0самого начала',
+            hasPhoneMask = true,
+            hasSmsCountdown = true,
             phone,
-            requiredCharAmount,
-            signTitle,
+            requiredCharAmount = 5,
+            signTitle = 'Введите код из\xa0смс',
             value,
-            codeSending,
+            codeSending = false,
+            codeChecking = false,
+            codeCheckingText = 'Проверка кода',
+            codeSendingText = 'Отправляем код',
+            buttonErrorText = 'Понятно',
+            buttonRetryText = 'Запросить код повторно',
             onInputFinished,
             onSmsRetryClick,
             onActionWithFatalError,
@@ -170,22 +186,6 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
         const shouldShowHintLink = countdownFinished && !codeChecking && retries > 0;
 
         const inputRef = useRef<HTMLInputElement>(null);
-
-        const handleInputFinished = useCallback(
-            (inputValue: string) => {
-                onInputFinished(inputValue);
-            },
-            [onInputFinished],
-        );
-
-        const handleInputChange = useCallback(
-            (inputValue: string) => {
-                if (onInputChange) {
-                    onInputChange(inputValue);
-                }
-            },
-            [onInputChange],
-        );
 
         const handleSmsRetryClick = useCallback(() => {
             setRetries(prevRetry => prevRetry + 1);
@@ -231,17 +231,12 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
         }, []);
 
         return (
-            <div
-                className={cn(styles.component, className)}
-                ref={ref}
-                data-test-id={dataTestId}
-                id={id}
-            >
+            <div className={cn(styles.component, className)} ref={ref} data-test-id={dataTestId}>
                 {shouldShowSignComponent && (
-                    <SmsSignConfirmation
+                    <SignConfirmation
                         codeChecking={codeChecking}
                         codeSending={codeSending}
-                        isSmsHintVisible={shouldShowHintLink}
+                        smsHintVisible={shouldShowHintLink}
                         additionalContent={additionalContent}
                         requiredCharAmount={requiredCharAmount}
                         hasSmsCountdown={hasSmsCountdown}
@@ -251,12 +246,14 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                         hasPhoneMask={hasPhoneMask}
                         error={nonFatalError}
                         title={signTitle}
-                        onInputFinished={handleInputFinished}
-                        onInputChange={handleInputChange}
+                        inputRef={inputRef}
+                        codeCheckingText={codeCheckingText}
+                        codeSendingText={codeSendingText}
+                        onInputFinished={onInputFinished}
+                        onInputChange={onInputChange}
                         onSmsRetryClick={handleSmsRetryClick}
                         onCountdownFinished={handleCountdownFinished}
                         onSmsHintLinkClick={handleSmsHintLinkClick}
-                        inputRef={inputRef}
                     />
                 )}
 
@@ -272,14 +269,14 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                             onClick={handleErrorSmsRetryClick}
                             block={true}
                         >
-                            Попробовать заново
+                            {buttonErrorText}
                         </Button>
                     </div>
                 )}
 
                 {shouldShowHintComponent && (
                     <div className={styles.phoneHintWrap}>
-                        <span className={styles.errorHeader}>Не приходит смс?</span>
+                        <span className={styles.errorHeader}>Не приходит сообщение?</span>
 
                         <span className={styles.phoneHintText}>
                             Если у вас сменился номер телефона, пожалуйста, обратитесь в любое
@@ -287,17 +284,25 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                         </span>
 
                         <div className={styles.phonesWrap}>
-                            <Link className={styles.phoneLink} href='tel:+78002000000'>
-                                8 (800) 200-00-00
-                            </Link>
+                            <div className={styles.phoneWrap}>
+                                <Link className={styles.phoneLink} href='tel:+78002000000'>
+                                    8 800 200 00 00{' '}
+                                </Link>
 
-                            <span className={styles.phoneDescription}>для звонков по России</span>
+                                <span className={styles.phoneDescription}>
+                                    — для звонков по России
+                                </span>
+                            </div>
 
-                            <Link className={styles.phoneLink} href='tel:+74957888878'>
-                                +7 (495) 788-88-78
-                            </Link>
+                            <div className={styles.phoneWrap}>
+                                <Link className={styles.phoneLink} href='tel:+74957888878'>
+                                    +7 495 788 88 78{' '}
+                                </Link>
 
-                            <span className={styles.phoneDescription}>в Москве и за границей</span>
+                                <span className={styles.phoneDescription}>
+                                    — в Москве и за границей
+                                </span>
+                            </div>
                         </div>
 
                         <Button
@@ -307,7 +312,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                             block={true}
                             onClick={handleSmsRetryFromHintClick}
                         >
-                            Запросить пароль повторно
+                            {buttonRetryText}
                         </Button>
                     </div>
                 )}
@@ -315,3 +320,19 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
         );
     },
 );
+
+Confirmation.defaultProps = {
+    countdownDuration: 60000,
+    errorTitle: 'Превышено количество попыток ввода кода',
+    error: 'Выполните операцию с\xa0самого начала',
+    hasPhoneMask: true,
+    hasSmsCountdown: true,
+    requiredCharAmount: 5,
+    signTitle: 'Введите код из\xa0смс',
+    codeSending: false,
+    codeChecking: false,
+    codeCheckingText: 'Проверка кода',
+    codeSendingText: 'Отправляем код',
+    buttonErrorText: 'Понятно',
+    buttonRetryText: 'Запросить код повторно',
+};

@@ -1,0 +1,31 @@
+@import '../../../../themes/src/default.css';
+@import '../../../../vars/src/colors-indigo.css';
+
+.component {
+    display: flex;
+}
+
+.input {
+    @mixin promo_small;
+
+    flex-shrink: 0;
+    width: 32px;
+    height: 48px;
+    margin-right: var(--gap-xs);
+    padding: 0 var(--gap-xs);
+    background-color: var(--color-light-bg-secondary);
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+    color: var(--color-light-text-primary);
+
+    &:last-child {
+        margin-right: var(--gap-xs);
+    }
+
+    &.hasError {
+        color: var(--color-light-text-negative);
+        caret-color: var(--color-light-text-primary);
+    }
+}
