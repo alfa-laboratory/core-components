@@ -165,3 +165,9 @@ export const RadioGroup: FC<RadioGroupProps> = ({
         </div>
     );
 };
+
+RadioGroup.defaultProps = {
+    direction: 'vertical',
+    type: 'radio',
+    disabled: false,
+};
