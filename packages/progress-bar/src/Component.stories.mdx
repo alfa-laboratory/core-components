@@ -1,0 +1,28 @@
+import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
+import { text, select, number } from '@storybook/addon-knobs';
+
+import { name, version } from '../package.json';
+import { ProgressBar } from './Component';
+
+<Meta title='Компоненты|ProgressBar' component={ProgressBar} />
+
+<Title>
+    ProgressBar ({name}@{version})
+</Title>
+
+```tsx
+import { ProgressBar } from 'newclick-components/progress-bar';
+```
+
+## Описание
+
+Отображает линейный индикатор прогресса (0-100%)
+
+<Story name='Песочница'>
+    <ProgressBar
+        value={number('value', 40)}
+        view={select('view', ['positive', 'negative'])}
+    />
+</Story>
+
+<Props of={ProgressBar} />

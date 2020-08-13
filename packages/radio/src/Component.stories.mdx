@@ -24,7 +24,7 @@ import { Radio } from '@alfalab/core-components-radio';
         const [checked, setChecked] = React.useState(false);
         const handleChange = () => setChecked(!checked);
         const disabled = boolean('disabled', false);
-        const content = text('content', 'Text content')
+        const label = text('label', 'Text label')
         const hint = text('hint', 'Hint');
         return (
             <Radio
@@ -32,7 +32,7 @@ import { Radio } from '@alfalab/core-components-radio';
                 onChange={handleChange}
                 checked={checked}
                 hint={hint}
-                label={content}
+                label={label}
             />
         );
     })}

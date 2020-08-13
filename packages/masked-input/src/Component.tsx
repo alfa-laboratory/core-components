@@ -20,7 +20,7 @@ export type MaskedInputProps = Omit<InputProps, 'value'> & {
     onBeforeDisplay?: TextMaskConfig['pipe'];
 };
 
-// Символ плейсхолдера не может входить в маску, поэтому вместо проблела используется \u2000
+// Символ плейсхолдера не может входить в маску, поэтому вместо пробела используется \u2000
 export const PLACEHOLDER_CHAR = '\u2000';
 
 export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
@@ -49,6 +49,9 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
                     keepCharPositions: false,
                     showMask: false,
                     placeholderChar: PLACEHOLDER_CHAR,
+                    rawValue: '',
+                    currentCaretPosition: 0,
+                    previousConformedValue: '',
                 });
             }
         }, [onBeforeDisplay, mask]);

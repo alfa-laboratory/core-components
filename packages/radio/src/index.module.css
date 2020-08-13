@@ -1,24 +1,46 @@
 @import '../../themes/src/default.css';
 
+:root {
+    --radio-bg-color: var(--color-dark-indigo-05-flat);
+    --radio-border-color: var(--color-dark-indigo-60-flat);
+
+    /* checked */
+    --radio-checked-bg-color: var(--color-red-brand-85-flat);
+    --radio-checked-border-color: var(--color-red-dark);
+
+    /* disabled */
+    --radio-disabled-bg-color: var(--color-dark-indigo-15-flat);
+
+    /* disabled and checked */
+    --radio-checked-disabled-bg-color: var(--color-red-brand-30-flat);
+
+    /* hover */
+    --radio-hover-bg-color: var(--color-dark-indigo-30-flat);
+    --radio-hover-border-color: var(--color-dark-indigo-60-flat);
+    --radio-checked-hover-bg-color: var(--color-red-brand);
+
+    /* active */
+    --radio-active-border-color: var(--color-dark-indigo);
+}
+
 .container {
     display: inline-flex;
     align-items: flex-start;
     cursor: pointer;
 
     &:not(.checked):not(.disabled) {
+        &:active .circle {
+            background: var(--color-dark-indigo-30-flat);
+            border: 1px solid var(--radio-active-border-color);
+        }
         & .circle {
-            background: var(--color-dark-indigo-05-flat);
-            border: 1px solid var(--color-dark-indigo-60-flat);
-
-            &:active {
-                background: var(--color-dark-indigo-30-flat);
-                border: 1px solid var(--color-dark-indigo);
-            }
+            background: var(--radio-bg-color);
+            border: 1px solid var(--radio-border-color);
         }
 
-        &:hover .circle:not(:active) {
-            background: var(--color-dark-indigo-30-flat);
-            border: 1px solid #6d7986;
+        &:hover:not(:active) .circle {
+            background: var(--radio-hover-bg-color);
+            border: 1px solid var(--radio-hover-border-color);
         }
     }
 
@@ -26,44 +48,34 @@
         cursor: default;
 
         & .circle {
-            background: var(--color-dark-indigo-15-flat);
+            background: var(--radio-disabled-bg-color);
             border: none;
         }
     }
 
-    &.checked .circle:not(:active):before,
-    &.checked.disabled .circle:active:before {
-        content: '';
-        background-color: white;
-        position: absolute;
-        width: 6px;
-        height: 6px;
-        border-radius: 3px;
-        margin: auto;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
+    &.checked:not(:active) .circle:before,
+    &.checked.disabled:active .circle:before {
+        opacity: 1;
     }
 
     &.checked {
-        & .circle {
-            border: 1px solid var(--color-red-dark);
-            background-color: var(--color-red-brand-85-flat);
+        &:active .circle {
+            background: var(--color-red-brand);
+            border: 1px solid var(--radio-active-border-color);
+        }
 
-            &:active {
-                background: var(--color-red-brand);
-                border: 1px solid var(--color-dark-indigo);
-            }
+        & .circle {
+            border: 1px solid var(--radio-checked-border-color);
+            background-color: var(--radio-checked-bg-color);
         }
 
         &:hover .circle {
-            background-color: var(--color-red-brand);
+            background-color: var(--radio-checked-hover-bg-color);
         }
     }
 
     &.disabled.checked .circle {
-        background-color: var(--color-red-brand-30-flat);
+        background-color: var(--radio-checked-disabled-bg-color);
         border: none;
     }
     & input {
@@ -81,6 +93,23 @@
     position: relative;
     margin-right: var(--gap-xs);
     margin-top: var(--gap-2xs);
+    transition: background-color 0.2s ease, border 0.2s ease;
+
+    &:before {
+        content: '';
+        background-color: white;
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-radius: 3px;
+        margin: auto;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        transition: opacity 0.2s ease;
+        opacity: 0;
+    }
 }
 
 .content {

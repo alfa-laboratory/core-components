@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component vertical"
+        class="component checkbox vertical"
       >
         <span
           class="label"
@@ -82,7 +82,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component vertical"
+      class="component checkbox vertical"
     >
       <span
         class="label"
@@ -215,7 +215,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component vertical error"
+        class="component checkbox vertical error"
       >
         <span
           class="label"
@@ -296,7 +296,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component vertical error"
+      class="component checkbox vertical error"
     >
       <span
         class="label"
@@ -434,7 +434,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component vertical"
+        class="component checkbox vertical"
       >
         <span
           class="label"
@@ -470,7 +470,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component vertical"
+      class="component checkbox vertical"
     >
       <span
         class="label"
@@ -563,7 +563,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component vertical"
+        class="component tag vertical"
       >
         <span
           class="label"
@@ -630,7 +630,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component vertical"
+      class="component tag vertical"
     >
       <span
         class="label"
@@ -754,7 +754,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component vertical"
+        class="component checkbox vertical"
       >
         <span
           class="label"
@@ -769,7 +769,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component vertical"
+      class="component checkbox vertical"
     >
       <span
         class="label"

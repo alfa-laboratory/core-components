@@ -2,6 +2,142 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.14.0](https://github.com/alfa-laboratory/core-components/compare/v1.13.0...v1.14.0) (2020-08-12)
+
+## [1.13.0](https://github.com/alfa-laboratory/core-components/compare/v1.12.1...v1.13.0) (2020-08-12)
+
+### [1.12.1](https://github.com/alfa-laboratory/core-components/compare/v1.12.0...v1.12.1) (2020-08-12)
+
+## [1.12.0](https://github.com/alfa-laboratory/core-components/compare/v1.11.0...v1.12.0) (2020-08-12)
+
+
+### Features
+
+* **core-components-input:** add input wrapper ref ([9c1fba0](https://github.com/alfa-laboratory/core-components/commit/9c1fba07c233206eab0defe6e4341fdb0c8b3664))
+* **core-components-input:** add ref tests ([9ed193c](https://github.com/alfa-laboratory/core-components/commit/9ed193c1f5f0f4a22a276877893e6d5de4c4a2a0))
+* **core-components-input:** update type ([9ab3733](https://github.com/alfa-laboratory/core-components/commit/9ab373369c5b692bd3632d43ef1afda7d9ffc63e))
+* **core-components-phone-input:** add phone-input ([#192](https://github.com/alfa-laboratory/core-components/issues/192)) ([42cedbf](https://github.com/alfa-laboratory/core-components/commit/42cedbf9583f1c836cb0825789b0d4b47fbbdddd))
+* **core-components-phone-input:** remove optional chaining ([#222](https://github.com/alfa-laboratory/core-components/issues/222)) ([d8a9ca2](https://github.com/alfa-laboratory/core-components/commit/d8a9ca2f004bb8bd1df31a5499ead7d7c28e0d80))
+* **core-components-radio:** add radio component ([#183](https://github.com/alfa-laboratory/core-components/issues/183)) ([858c81b](https://github.com/alfa-laboratory/core-components/commit/858c81b7b3e6bef27b39e719bbecfe1d32f92d19))
+* **core-components-tabs:** add tabs ([#149](https://github.com/alfa-laboratory/core-components/issues/149)) ([b08b668](https://github.com/alfa-laboratory/core-components/commit/b08b66861fd7c068a1db7e32d3d697ad13acbd6f)), closes [#175](https://github.com/alfa-laboratory/core-components/issues/175) [#200](https://github.com/alfa-laboratory/core-components/issues/200)
+* **core-components-vars:** add new typography styles ([#211](https://github.com/alfa-laboratory/core-components/issues/211)) ([7df831f](https://github.com/alfa-laboratory/core-components/commit/7df831f396525bec0c57264606a44abd2417a78c))
+
+
+### Bug Fixes
+
+* **core-components-tooltip:** change tooltip timer to ref ([#207](https://github.com/alfa-laboratory/core-components/issues/207)) ([139f0a7](https://github.com/alfa-laboratory/core-components/commit/139f0a74d414f3c1dde11b46ecf96a984b599359))
+
+## [1.11.0](https://github.com/alfa-laboratory/core-components/compare/v1.10.0...v1.11.0) (2020-07-22)
+
+
+### Features
+
+* **storybook:** add theme switcher to storybook ([#199](https://github.com/alfa-laboratory/core-components/issues/199)) ([7794f80](https://github.com/alfa-laboratory/core-components/commit/7794f80dc83cba171ffe7282e54d5ce0f4bd8245))
+
+
+### Bug Fixes
+
+* **core-components-progress-bar:** use theme ([#201](https://github.com/alfa-laboratory/core-components/issues/201)) ([a9ab773](https://github.com/alfa-laboratory/core-components/commit/a9ab773d75f4fcbc68ad648b378cfb3c2b9c0c19))
+
+## [1.10.0](https://github.com/alfa-laboratory/core-components/compare/v1.9.0...v1.10.0) (2020-07-17)
+
+
+### Features
+
+* **core-components-progress-bar:** add progress bar component ([39ee713](https://github.com/alfa-laboratory/core-components/commit/39ee713522f67f2744fc2f6b4fcb2ac861a55f41))
+
+
+### Bug Fixes
+
+* **core-components-progress-bar:** refactor, snapshot tests fix ([7b0b553](https://github.com/alfa-laboratory/core-components/commit/7b0b553eafce92307bec53d0d35f847969bf8904))
+
+## [1.9.0](https://github.com/alfa-laboratory/core-components/compare/v1.8.0...v1.9.0) (2020-07-13)
+
+
+### Bug Fixes
+
+* **tag:** add height in ie (fix bug with flex and align-items) ([9fd2abd](https://github.com/alfa-laboratory/core-components/commit/9fd2abd401d92e01e853ce5a3f497645d74b8e04))
+
+## [1.8.0](https://github.com/alfa-laboratory/core-components/compare/v1.7.3...v1.8.0) (2020-06-30)
+
+
+### Features
+
+* **core-components-amount:** add boilerplate for amount ([5614885](https://github.com/alfa-laboratory/core-components/commit/5614885237a9a4843fb312c22c6b5810a3509e63))
+* **core-components-amount:** add click theme ([b4b0699](https://github.com/alfa-laboratory/core-components/commit/b4b0699dcffd2f505935489d66fd0d48b633ecf7))
+* **core-components-amount:** allow withZeroMinorPart formatting ([e86529d](https://github.com/alfa-laboratory/core-components/commit/e86529d72e28e8cde8bffbfd4b4d263129ec4d78))
+* **core-components-amount:** export CurrencyCodes ([1a6155a](https://github.com/alfa-laboratory/core-components/commit/1a6155a63655084895831094127404cdbcb0ef54))
+* **core-components-amount:** feat, change api, add PureAmount ([f946776](https://github.com/alfa-laboratory/core-components/commit/f94677645a8244dedf6f003f901290d5a2c6c16d))
+* **core-components-amount:** implemented amount, add demo ([1e78129](https://github.com/alfa-laboratory/core-components/commit/1e781295de03ff4aac5f5a7ec761f22b529716bd))
+* **core-components-popover:** add classname for tooltip popover ([c837199](https://github.com/alfa-laboratory/core-components/commit/c837199eda8890806388f87a32d61cc88a4165dd))
+
+
+### Bug Fixes
+
+* 🐛 use mixinsDir to import mixins ([#182](https://github.com/alfa-laboratory/core-components/issues/182)) ([06a6f2d](https://github.com/alfa-laboratory/core-components/commit/06a6f2dde49db07681d09a5afb94e91ab1c9da04)), closes [#181](https://github.com/alfa-laboratory/core-components/issues/181)
+
+### [1.7.3](https://github.com/alfa-laboratory/core-components/compare/v1.7.2...v1.7.3) (2020-06-23)
+
+
+### Bug Fixes
+
+* **core-components-button:** background in loading state ([2064e59](https://github.com/alfa-laboratory/core-components/commit/2064e593914354258cd47a4da9ca65cf26585542))
+* **core-components-button:** disabled styles are back ([bf81264](https://github.com/alfa-laboratory/core-components/commit/bf81264bb922ea98752adb9b2a6b09c946d48ed9))
+
+### [1.7.2](https://github.com/alfa-laboratory/core-components/compare/v1.7.1...v1.7.2) (2020-06-22)
+
+
+### Bug Fixes
+
+* **core-components-money-input:** fix default placeholder ([2efbcbd](https://github.com/alfa-laboratory/core-components/commit/2efbcbd49fbc2c02a6644867bfa25c96b3943223))
+
+### [1.7.1](https://github.com/alfa-laboratory/core-components/compare/v1.7.0...v1.7.1) (2020-06-19)
+
+
+### Bug Fixes
+
+* fix import replacement ([5354d06](https://github.com/alfa-laboratory/core-components/commit/5354d0604125d9d21c2939987cecd10d428a509f)), closes [#170](https://github.com/alfa-laboratory/core-components/issues/170)
+
+## [1.7.0](https://github.com/alfa-laboratory/core-components/compare/v1.6.1...v1.7.0) (2020-06-19)
+
+
+### Features
+
+* **core-components-money-input:** add money-input, story, base test ([aab595a](https://github.com/alfa-laboratory/core-components/commit/aab595a0e3d705335b7abe7539364206f20806fc))
+* **core-components-money-input:** added smart default placeholder ([dff6e63](https://github.com/alfa-laboratory/core-components/commit/dff6e63bd1ed72a1fab9c50a3f3d982da49e531b))
+* **core-components-money-input:** change minority color ([e35b06a](https://github.com/alfa-laboratory/core-components/commit/e35b06a74bb43663a8b44fe7d3486b7a7d81af2d))
+* **core-components-money-input:** fix demo according PR comments ([15f339d](https://github.com/alfa-laboratory/core-components/commit/15f339d83d8606c82b3a6cc4deeba350bab9f785))
+* **core-components-money-input:** fixes according review comments ([3ba9e0b](https://github.com/alfa-laboratory/core-components/commit/3ba9e0b5a653e58898e9f5a72b37a3eaea2fa2da))
+* **core-components-money-input:** fixes according review comments ([0b0c285](https://github.com/alfa-laboratory/core-components/commit/0b0c285b40df3e80cf28167c410ddc25b2f405c9))
+* **core-components-money-input:** remove composed props from MoneyInput ([3d3f5b8](https://github.com/alfa-laboratory/core-components/commit/3d3f5b83b25990ab56826c5c39e74aa346672f44))
+* **core-components-money-input:** tune to latest requirements ([62fcaf4](https://github.com/alfa-laboratory/core-components/commit/62fcaf4038d866271178289e6338e8bc1c01c50e))
+
+
+### Bug Fixes
+
+* **core-components-money-input:** add todo ([612c88c](https://github.com/alfa-laboratory/core-components/commit/612c88c87197e3c42332291f81dd1a918599f637))
+* **core-components-money-input:** fix bold ([4625eee](https://github.com/alfa-laboratory/core-components/commit/4625eee240f1024e3934e205b4a20845f8da1542))
+* **core-components-money-input:** fix build ([c68fa08](https://github.com/alfa-laboratory/core-components/commit/c68fa0890965a5415b1acc7fab144eaaabbb9676))
+* **core-components-money-input:** fix demo ([2b22f2d](https://github.com/alfa-laboratory/core-components/commit/2b22f2db919ff0e9bd1c393234154234b3675582))
+* **core-components-money-input:** fix dependency ([1ea92b7](https://github.com/alfa-laboratory/core-components/commit/1ea92b78aacaf5421ddaa867c795ecf4ed4d9318))
+* **core-components-money-input:** fix zindex ([0688bd9](https://github.com/alfa-laboratory/core-components/commit/0688bd925a52a3b0d1ce28779b75e626a961627d))
+* **core-components-money-input:** remove temp wrapper ([fc6e904](https://github.com/alfa-laboratory/core-components/commit/fc6e904aeb2df1b05b172c59d4897418e67c7993))
+* **core-components-money-input:** type for currency according comments ([078069d](https://github.com/alfa-laboratory/core-components/commit/078069d523c545b8d7b3d7edb2f8676a2aa4a522))
+
+### [1.6.1](https://github.com/alfa-laboratory/core-components/compare/v1.6.0...v1.6.1) (2020-06-19)
+
+## [1.6.0](https://github.com/alfa-laboratory/core-components/compare/v1.5.2...v1.6.0) (2020-06-19)
+
+
+### Features
+
+* **core-components-form-control:** allow to hide error icon in theme ([c19a73c](https://github.com/alfa-laboratory/core-components/commit/c19a73c676e359f2ecba8b21a53f671b725ec032))
+
+
+### Bug Fixes
+
+* **core-components-button:** fix button loading state ([eac3c3c](https://github.com/alfa-laboratory/core-components/commit/eac3c3ca888ee0092a1693b9a39843c1dd9a75f1))
+
 ### [1.5.2](https://github.com/alfa-laboratory/core-components/compare/v1.5.1...v1.5.2) (2020-06-18)
 
 
