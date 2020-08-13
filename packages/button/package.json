@@ -17,6 +17,7 @@
         "react": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/core-components-loader": "^1.0.0"
+        "@alfalab/core-components-loader": "^1.0.0",
+        "@alfalab/hooks": "^0.8.0"
     }
 }
