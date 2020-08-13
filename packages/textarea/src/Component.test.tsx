@@ -7,7 +7,9 @@ import { Textarea } from './index';
 describe('Textarea', () => {
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
-            expect(render(<Textarea value='value' onChange={jest.fn()} />)).toMatchSnapshot();
+            const { container } = render(<Textarea value='value' />);
+
+            expect(container).toMatchSnapshot();
         });
     });
 

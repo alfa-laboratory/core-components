@@ -89,7 +89,7 @@ export type TextareaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 's
     maxHeight?: number;
 
     /**
-     * Управление возможностью изменения размеров компонента
+     * Управление возможностью изменения размеров компонента (не работает вместе c autosize)
      */
     resize?: 'vertical' | 'none';
 
