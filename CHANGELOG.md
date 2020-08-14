@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.15.1](https://github.com/alfa-laboratory/core-components/compare/v1.15.0...v1.15.1) (2020-08-14)
+
+
+### Features
+
+* **core-components-themes:** add theming example ([aba4c8a](https://github.com/alfa-laboratory/core-components/commit/aba4c8a98a3f577dd89b5e8cf3a2ccfc54b2f16e))
+* **tag:** remove pointer-events none style ([#224](https://github.com/alfa-laboratory/core-components/issues/224)) ([dcaec57](https://github.com/alfa-laboratory/core-components/commit/dcaec5712f31cc094f4cacda0a3146e0564d86b3))
+
+
+### Bug Fixes
+
+* use correct vars ([171c45d](https://github.com/alfa-laboratory/core-components/commit/171c45da81d6e8df6b76a8333068d7ccbe68466c))
+
 ## [1.15.0](https://github.com/alfa-laboratory/core-components/compare/v1.14.0...v1.15.0) (2020-08-13)
 
 ## [1.14.0](https://github.com/alfa-laboratory/core-components/compare/v1.13.0...v1.14.0) (2020-08-12)
