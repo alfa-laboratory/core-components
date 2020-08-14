@@ -334,6 +334,9 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
     },
 );
 
+/**
+ * Для отображения в сторибуке
+ */
 Confirmation.defaultProps = {
     countdownDuration: 60000,
     errorTitle: 'Превышено количество попыток ввода кода',
