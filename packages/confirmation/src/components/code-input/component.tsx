@@ -54,7 +54,7 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
             }
         };
 
-        const renderInput = (_, index: number) => {
+        const renderInput = (_: string, index: number) => {
             const onChange = (event: ChangeEvent<HTMLInputElement>) => {
                 const { value: targetValue } = event.target;
 

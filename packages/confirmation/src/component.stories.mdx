@@ -23,7 +23,7 @@ import { Confirmation } from '@alfalab/core-components-confirmation';
 
 <Story name='Песочница'>
     {React.createElement(() => {
-        const [variant, setVariant] = useState({ value: 'success', text: 'Успешный кейс'});
+        const [variant, setVariant] = useState({ value: 'success', text: 'Успешний сценарий'});
         const [value, setValue] = useState({'success': '', 'error': '', 'fatal': ''});
         const [codeChecking, setCodeChecking] = useState({'success': false, 'error': false, 'fatal': false});
         const [codeSending, setCodeSending] = useState({'success': false, 'error': false, 'fatal': false});
@@ -56,9 +56,9 @@ import { Confirmation } from '@alfalab/core-components-confirmation';
             <div>
                 <Select
                     options={[
-                        { value: 'success', text: 'Успешный кейс'},
-                        { value: 'error', text: 'Кейс с ошибкой'},
-                        { value: 'fatal', text: 'Кейс с критичной ошибкой'}
+                        { value: 'success', text: 'Успешний сценарий'},
+                        { value: 'error', text: 'Сценарий с ошибкой'},
+                        { value: 'fatal', text: 'Сценарий с критичной ошибкой'}
                     ]}
                     onChange={(_, { selected }) => {
                         setVariant(selected)
