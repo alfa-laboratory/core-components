@@ -1,7 +1,7 @@
 {
     "name": "@alfalab/core-components-confirmation",
     "version": "1.0.0",
-    "description": "Sms countdown component",
+    "description": "Sms confirmation component",
     "keywords": [],
     "license": "ISC",
     "main": "dist/index.js",
