@@ -5,6 +5,7 @@ import { Design } from 'storybook/blocks/design';
 
 import { Confirmation } from './component';
 import { name, version } from '../package.json';
+import { Select } from '../../select/src/Component';
 
 <Meta title='Компоненты|Confirmation' component={Confirmation} />
 
@@ -22,80 +23,100 @@ import { Confirmation } from '@alfalab/core-components-confirmation';
 
 <Story name='Песочница'>
     {React.createElement(() => {
-        const [value, setValue] = useState({'0': '', '1': '', '2': ''});
-        const [codeChecking, setCodeChecking] = useState({'0': false, '1': false, '2': false});
-        const [codeSending, setCodeSending] = useState({'0': false, '1': false, '2': false});
-        const [error, setError] = useState({'0': '', '1': '', '2': ''});
-        const setCode = (index, code) => {
-            setValue({...value, [index]: code});
-            setError({...error, [index]: ''});
+        const [variant, setVariant] = useState({ value: 'success', text: 'Успешный кейс'});
+        const [value, setValue] = useState({'success': '', 'error': '', 'fatal': ''});
+        const [codeChecking, setCodeChecking] = useState({'success': false, 'error': false, 'fatal': false});
+        const [codeSending, setCodeSending] = useState({'success': false, 'error': false, 'fatal': false});
+        const [error, setError] = useState({'success': '', 'error': '', 'fatal': ''});
+        const setCode = (variant, code) => {
+            setValue({...value, [variant]: code});
+            setError({...error, [variant]: ''});
         }
-        const handleSubmit = (index) => {
-            setCodeChecking({...codeChecking, [index]: true});
-            setError({...error, [index]: ''});
+        const handleSubmit = (variant) => {
+            setCodeChecking({...codeChecking, [variant]: true});
+            setError({...error, [variant]: ''});
             setTimeout(() => {
-                setCodeChecking({...codeChecking, [index]: false});
-                if (index === '1') {
-                    setError({...error, '1': 'Неправильный код'});
-                } else if (index === '2') {
-                    setError({...error, '2': 'Срок подписания кодом истёк. Пожалуйста, выполните операцию заново'});
+                setCodeChecking({...codeChecking, [variant]: false});
+                if (variant === 'error') {
+                    setError({...error, 'error': 'Неправильный код'});
+                } else if (variant === 'fatal') {
+                    setError({...error, 'fatal': 'Срок подписания кодом истёк. Пожалуйста, выполните операцию заново'});
                 }
             }, 1500);
         }
-        const handleSmsRetryClick = (index) => {
-            setCodeSending({...codeSending, [index]: true});
-            setError({...error, [index]: ''});
-            setCode(index, '')
+        const handleSmsRetryClick = (variant) => {
+            setCodeSending({...codeSending, [variant]: true});
+            setError({...error, [variant]: ''});
+            setCode(variant, '')
             setTimeout(() => {
-                setCodeSending({...codeSending, [index]: false});
+                setCodeSending({...codeSending, [variant]: false});
             }, 1500);
         }
         return (
-            <div style={{display: 'flex'}}>
-                <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
-                    <Confirmation
-                        signTitle="Введите код из смс (успешный кейс)"
-                        phone='+7 000 000 00 42'
-                        onInputFinished={() => handleSubmit('0')}
-                        onSmsRetryClick={() => handleSmsRetryClick('0')}
-                        codeSending={codeSending['0']}
-                        codeChecking={codeChecking['0']}
-                        countdownDuration={10000}
-                        value={value['0']}
-                        onInputChange={(code) => setCode('0', code)}
-                        alignContent={select('alignContent', ['center', 'left'], 'left')}
-                    />
-                </div>
-                <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
-                    <Confirmation
-                        signTitle="Введите код из смс (кейс с ошибкой)"
-                        phone='+7 000 000 00 42'
-                        onInputFinished={() => handleSubmit('1')}
-                        onSmsRetryClick={() => handleSmsRetryClick('1')}
-                        codeSending={codeSending['1']}
-                        codeChecking={codeChecking['1']}
-                        error={error['1']}
-                        countdownDuration={10000}
-                        value={value['1']}
-                        onInputChange={(code) => setCode('1', code)}
-                        alignContent={select('alignContent', ['center', 'left'], 'left')}
-                    />
-                </div>
-                <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
-                    <Confirmation
-                        signTitle="Введите код из смс (кейс с критичной ошибкой)"
-                        phone='+7 000 000 00 42'
-                        onInputFinished={() => handleSubmit('2')}
-                        onSmsRetryClick={() => handleSmsRetryClick('2')}
-                        codeSending={codeSending['2']}
-                        codeChecking={codeChecking['2']}
-                        error={error['2']}
-                        errorIsFatal={true}
-                        countdownDuration={10000}
-                        value={value['2']}
-                        onInputChange={(code) => setCode('2', code)}
-                        alignContent={select('alignContent', ['center', 'left'], 'left')}
-                    />
+            <div>
+                <Select
+                    options={[
+                        { value: 'success', text: 'Успешный кейс'},
+                        { value: 'error', text: 'Кейс с ошибкой'},
+                        { value: 'fatal', text: 'Кейс с критичной ошибкой'}
+                    ]}
+                    onChange={(_, { selected }) => {
+                        setVariant(selected)
+                    }}
+                    selected={variant}
+                />
+                <div style={{display: 'flex'}}>
+                    {variant.value === 'success' &&
+                        <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
+                            <Confirmation
+                                signTitle="Введите код из смс"
+                                phone='+7 000 000 00 42'
+                                onInputFinished={() => handleSubmit('success')}
+                                onSmsRetryClick={() => handleSmsRetryClick('success')}
+                                codeSending={codeSending['success']}
+                                codeChecking={codeChecking['success']}
+                                countdownDuration={10000}
+                                value={value['success']}
+                                onInputChange={(code) => setCode('success', code)}
+                                alignContent={select('alignContent', ['center', 'left'], 'left')}
+                            />
+                        </div>
+                    }
+                    {variant.value === 'error' &&
+                        <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
+                            <Confirmation
+                                signTitle="Введите код из смс"
+                                phone='+7 000 000 00 42'
+                                onInputFinished={( ) => handleSubmit('error')}
+                                onSmsRetryClick={() => handleSmsRetryClick('error')}
+                                codeSending={codeSending['error']}
+                                codeChecking={codeChecking['error']}
+                                error={error['error']}
+                                countdownDuration={10000}
+                                value={value['error']}
+                                onInputChange={(code) => setCode('error', code)}
+                                alignContent={select('alignContent', ['center', 'left'], 'left')}
+                            />
+                        </div>
+                    }
+                    {variant.value === 'fatal' &&
+                        <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
+                            <Confirmation
+                                signTitle="Введите код из смс"
+                                phone='+7 000 000 00 42'
+                                onInputFinished={() => handleSubmit('fatal')}
+                                onSmsRetryClick={() => handleSmsRetryClick('fatal')}
+                                codeSending={codeSending['fatal']}
+                                codeChecking={codeChecking['fatal']}
+                                error={error['fatal']}
+                                errorIsFatal={true}
+                                countdownDuration={10000}
+                                value={value['fatal']}
+                                onInputChange={(code) => setCode('fatal', code)}
+                                alignContent={select('alignContent', ['center', 'left'], 'left')}
+                            />
+                        </div>
+                    }
                 </div>
             </div>
         );
