@@ -1,5 +1,6 @@
 import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
 import { text, boolean, select } from '@storybook/addon-knobs';
+import { Status } from 'storybook/blocks/status';
 import { Design } from 'storybook/blocks/design';
 
 import { CheckboxGroup } from './Component';
@@ -13,6 +14,10 @@ import { Tag } from '../../tag/src';
 <Title>
     CheckboxGroup ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ```tsx
 import { CheckboxGroup } from '@alfalab/core-components-checkbox-group';

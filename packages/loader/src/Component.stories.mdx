@@ -1,4 +1,5 @@
 import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
+import { Status } from 'storybook/blocks/status';
 
 import { Loader } from './Component';
 import { name, version } from '../package.json';
@@ -8,6 +9,10 @@ import { name, version } from '../package.json';
 <Title>
     Loader ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ```tsx
 import { Loader } from '@alfalab/core-components-loader';

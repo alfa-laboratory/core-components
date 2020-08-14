@@ -5,9 +5,8 @@ import styles from './Design.css';
 
 type DesignProps = {
     children?: ReactNode;
-    className?: string;
 };
 
-export const Design: React.FC<DesignProps> = ({ className, children }) => (
-    <div className={cn(styles.design, className)}>{children}</div>
+export const Design: React.FC<DesignProps> = ({ children }) => (
+    <div className={cn(styles.design)}>{children}</div>
 );

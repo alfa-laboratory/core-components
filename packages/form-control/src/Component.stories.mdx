@@ -1,5 +1,6 @@
 import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
+import { Status } from 'storybook/blocks/status';
 import { Design } from 'storybook/blocks/design';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
@@ -16,6 +17,10 @@ import { name, version } from '../package.json';
 <Title>
     FormControl ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ```tsx
 import { FormControl } from '@alfalab/core-components-form-control';

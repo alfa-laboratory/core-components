@@ -1,0 +1,58 @@
+@import '../../../vars/src/typography.css';
+
+.component {
+    margin: 0;
+    padding: 0;
+}
+
+.styrene-xlarge {
+    @mixin headline_xlarge;
+}
+
+.styrene-large {
+    @mixin headline_large;
+}
+
+.styrene-normal {
+    @mixin headline_normal;
+}
+
+.styrene-small {
+    @mixin headline_small;
+}
+
+.styrene-xsmall {
+    @mixin headline_xsmall;
+}
+
+.system-xlarge {
+    @mixin headline-system_xlarge;
+}
+
+.system-large {
+    @mixin headline-system_large;
+}
+
+.system-normal {
+    @mixin headline-system_normal;
+}
+
+.system-small {
+    @mixin headline-system_small;
+}
+
+.system-xsmall {
+    @mixin headline-system_xsmall;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.medium {
+    font-weight: 500;
+}
+
+.regular {
+    font-weight: normal;
+}

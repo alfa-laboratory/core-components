@@ -2,6 +2,7 @@ import Icon from '@alfalab/icons-glyph/StarMIcon';
 import { Meta, Props, Title } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
+import { Status } from 'storybook/blocks/status';
 
 import { PhoneInput } from './Component';
 import { name, version } from '../package.json';
@@ -12,6 +13,10 @@ import { name, version } from '../package.json';
 <Title>
     PhoneInput ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ```tsx
 import { PhoneInput } from '@alfalab/core-components-phone-input';

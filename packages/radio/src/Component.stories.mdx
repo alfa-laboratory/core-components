@@ -1,5 +1,6 @@
 import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
 import { text, boolean } from '@storybook/addon-knobs';
+import { Status } from 'storybook/blocks/status';
 
 import { Radio } from './Component';
 import { name, version } from '../package.json';
@@ -10,6 +11,10 @@ import { name, version } from '../package.json';
 <Title>
     Radio ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ```tsx
 import { Radio } from '@alfalab/core-components-radio';
