@@ -1,5 +1,6 @@
 import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
 import { text, boolean, select, number } from '@storybook/addon-knobs';
+import { Status } from 'storybook/blocks/status';
 import { Design } from 'storybook/blocks/design';
 
 import { Typography } from './Component';
@@ -11,6 +12,10 @@ import { colors } from './colors';
 <Title>
     Typography ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ```tsx
 import { Typography } from '@alfalab/core-components-tooltip/typography';

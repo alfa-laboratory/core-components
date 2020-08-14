@@ -1,0 +1,21 @@
+@import '../../../packages/vars/src/colors-indigo.css';
+@import '../../../packages/vars/src/colors-addons.css';
+
+.status {
+    margin: 0 0 var(--gap-xl);
+}
+
+.link {
+    display: inline-block;
+    padding: var(--gap-xs) var(--gap-m);
+    @mixin paragraph_caps;
+    font-family: var(--font-family);
+    color: var(--color-light-text-primary-inverted);
+    text-decoration: none;
+
+    /* TODO */
+    /* background-color: var(--color-static-graphic-sand); */
+    background-color: #007AFF;
+
+    border-radius: 99px;
+}

@@ -1,5 +1,6 @@
 import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
 import { boolean, select } from '@storybook/addon-knobs';
+import { Status } from 'storybook/blocks/status';
 
 import {
     TabsDesktop,
@@ -22,6 +23,10 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
 <Title>
     Tabs ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ## Описание
 

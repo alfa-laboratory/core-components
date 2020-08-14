@@ -1,5 +1,6 @@
 import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
 import { text, boolean } from '@storybook/addon-knobs';
+import { Status } from 'storybook/blocks/status';
 import { Design } from 'storybook/blocks/design';
 import { Button } from '../../button/src';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
@@ -13,6 +14,10 @@ import { name, version } from '../package.json';
 <Title>
     Switch ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ```tsx
 import { Switch } from '@alfalab/core-components-switch';
