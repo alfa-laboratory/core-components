@@ -154,7 +154,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
             dataTestId,
             errorIsFatal,
             errorTitle = 'Превышено количество попыток ввода кода',
-            error = 'Выполните операцию с\xa0самого начала',
+            error,
             hasPhoneMask = true,
             hasSmsCountdown = true,
             phone,
@@ -337,7 +337,6 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
 Confirmation.defaultProps = {
     countdownDuration: 60000,
     errorTitle: 'Превышено количество попыток ввода кода',
-    error: 'Выполните операцию с\xa0самого начала',
     hasPhoneMask: true,
     hasSmsCountdown: true,
     requiredCharAmount: 5,
