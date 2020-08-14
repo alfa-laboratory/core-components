@@ -6,8 +6,7 @@
 
     display: flex;
     flex-direction: column;
-    font-family: var(--font-family);
-    color: var(--color-light-text-secondary);
+    color: var(--confirmation-text-color);
 }
 
 .info {

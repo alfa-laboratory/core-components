@@ -6,7 +6,7 @@ import { Button } from '@alfalab/core-components-button';
 import styles from './index.module.css';
 
 /**
- * TODO: Вынести это в utils?
+ * TODO: Вынести это в utils
  * Маскирует номер телефона.
  *
  * @param {String} number Номер телефона
@@ -20,7 +20,7 @@ export function formatMaskedPhone(number: string) {
 }
 
 /**
- * TODO: Вынести это в utils?
+ * TODO: Вынести это в utils
  * Форматирование миллисекунд в mm:ss.
  *
  * @param {Number} ms миллисекунды

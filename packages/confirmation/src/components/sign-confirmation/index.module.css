@@ -4,14 +4,13 @@
 .component {
     display: flex;
     flex-direction: column;
-    font-family: var(--font-family);
 }
 
 .header {
     @mixin headline_small;
 
     margin-bottom: var(--gap-2xl);
-    color: var(--color-light-text-primary);
+    color: var(--confirmation-title-color);
 }
 
 .inputContainer {
@@ -36,7 +35,7 @@
     @mixin paragraph_primary_normal;
 
     margin-top: var(--gap-s);
-    color: var(--color-light-text-negative);
+    color: var(--confirmation-error-color);
 }
 
 .loaderWrap {
@@ -48,7 +47,7 @@
     @mixin paragraph_primary_normal;
 
     margin-left: var(--gap-s);
-    color: var(--color-light-text-secondary);
+    color: var(--confirmation-text-color);
 }
 
 .center {
