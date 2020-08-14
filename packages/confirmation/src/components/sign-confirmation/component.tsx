@@ -6,6 +6,7 @@ import { Loader } from '@alfalab/core-components-loader';
 
 import { Countdown } from '../countdown';
 import { CodeInput } from '../code-input';
+import { ContentAlign } from '../../component';
 
 import styles from './index.module.css';
 
@@ -25,6 +26,7 @@ export type SignConfirmationProps = {
     codeSendingText: string;
     hasSmsCountdown: boolean;
     inputRef: MutableRefObject<HTMLInputElement | null>;
+    alignContent: ContentAlign;
     onInputFinished: (value: string) => void;
     onInputChange: (value: string) => void;
     onSmsRetryClick: (event: React.MouseEvent) => void;
@@ -48,6 +50,7 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
     inputRef,
     codeCheckingText,
     codeSendingText,
+    alignContent,
     onInputFinished,
     onInputChange,
     onSmsRetryClick,
@@ -79,7 +82,7 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
     );
 
     return (
-        <div className={styles.component}>
+        <div className={cn(styles.component, styles[alignContent])}>
             <span className={styles.header}>{title}</span>
 
             <div className={styles.inputContainer}>
@@ -97,6 +100,7 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
                     handleInputKeyDown={handleInputKeyDown}
                     ref={inputRef}
                     slotsCount={requiredCharAmount}
+                    className={styles.codeInput}
                 />
 
                 {displayedError && <div className={styles.error}>{displayedError}</div>}

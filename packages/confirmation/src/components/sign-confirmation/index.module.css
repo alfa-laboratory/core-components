@@ -50,3 +50,10 @@
     margin-left: var(--gap-s);
     color: var(--color-light-text-secondary);
 }
+
+.center {
+    & .codeInput,
+    & .loaderWrap {
+        justify-content: center;
+    }
+}

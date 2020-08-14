@@ -58,3 +58,7 @@
 .phoneDescription {
     color: var(--color-light-text-secondary);
 }
+
+.component.center {
+    text-align: center;
+}

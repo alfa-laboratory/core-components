@@ -18,12 +18,16 @@ type CodeInputProps = {
     value: string;
     slotsCount: number;
     error?: string;
+    className?: string;
     handleChange: (code: string) => void;
     handleInputKeyDown: (event: KeyboardEvent) => void;
 };
 
 export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
-    ({ processing, value = '', slotsCount, error, handleInputKeyDown, handleChange }, ref) => {
+    (
+        { processing, value = '', slotsCount, error, handleInputKeyDown, handleChange, className },
+        ref,
+    ) => {
         const splittedValue = value.split('');
 
         const inputs = useRef<HTMLInputElement[]>([]);
@@ -145,7 +149,7 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
         }, [focus, error, slotsCount, value.length, prevValue.length, processing]);
 
         return (
-            <div className={styles.component}>
+            <div className={cn(styles.component, className)}>
                 {new Array(slotsCount).fill('').map(renderInput)}
             </div>
         );

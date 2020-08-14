@@ -7,6 +7,8 @@ import { SignConfirmation } from './components';
 
 import styles from './index.module.css';
 
+export type ContentAlign = 'left' | 'center';
+
 export type ConfirmationProps = {
     /**
      * Значение поля ввода
@@ -35,7 +37,7 @@ export type ConfirmationProps = {
 
     /**
      * Флаг критичности ошибки подписания.
-     * Если true - ошибка подписания рисуется на экране без поля ввода, но с кнопкой "запросить код еще раз"
+     * Если true - ошибка подписания рисуется на экране без поля ввода, но с кнопкой "Запросить код"
      * Если false - ошибка подписания рисуется под полем ввода кода
      */
     errorIsFatal?: boolean;
@@ -63,7 +65,7 @@ export type ConfirmationProps = {
     requiredCharAmount?: number;
 
     /**
-     * Управление отображением таймера с кнопкой "Запросить код повторно'"
+     * Управление отображением таймера с кнопкой "Запросить код"
      */
     hasSmsCountdown?: boolean;
 
@@ -103,9 +105,14 @@ export type ConfirmationProps = {
     buttonErrorText?: string;
 
     /**
-     * Текст кнопки 'Запросить код'
+     * Текст кнопки "Запросить код"
      */
     buttonRetryText?: string;
+
+    /**
+     * Позиционирование контента
+     */
+    alignContent?: ContentAlign;
 
     /**
      * Обработчик события завершения ввода кода подписания
@@ -118,7 +125,7 @@ export type ConfirmationProps = {
     onInputChange: (value?: string) => void;
 
     /**
-     * Обработчик события нажатия на кнопку "запросить код повторно"
+     * Обработчик события нажатия на кнопку "Запросить код"
      */
     onSmsRetryClick: () => void;
 
@@ -160,6 +167,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
             codeSendingText = 'Отправляем код',
             buttonErrorText = 'Понятно',
             buttonRetryText = 'Запросить код повторно',
+            alignContent = 'left',
             onInputFinished,
             onSmsRetryClick,
             onActionWithFatalError,
@@ -231,7 +239,11 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
         }, []);
 
         return (
-            <div className={cn(styles.component, className)} ref={ref} data-test-id={dataTestId}>
+            <div
+                className={cn(styles.component, styles[alignContent], className)}
+                ref={ref}
+                data-test-id={dataTestId}
+            >
                 {shouldShowSignComponent && (
                     <SignConfirmation
                         codeChecking={codeChecking}
@@ -249,6 +261,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                         inputRef={inputRef}
                         codeCheckingText={codeCheckingText}
                         codeSendingText={codeSendingText}
+                        alignContent={alignContent}
                         onInputFinished={onInputFinished}
                         onInputChange={onInputChange}
                         onSmsRetryClick={handleSmsRetryClick}
@@ -335,4 +348,5 @@ Confirmation.defaultProps = {
     codeSendingText: 'Отправляем код',
     buttonErrorText: 'Понятно',
     buttonRetryText: 'Запросить код повторно',
+    alignContent: 'left',
 };
