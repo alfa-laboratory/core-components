@@ -2,6 +2,7 @@ import { Meta, Story, Preview, Props, Description, Title } from '@storybook/addo
 import { action } from '@storybook/addon-actions';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { Container, Row, Col } from 'storybook/blocks/grid';
+import { Status } from 'storybook/blocks/status';
 import { Design } from 'storybook/blocks/design';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
@@ -21,6 +22,10 @@ export const SIZES = ['xs', 's', 'm', 'l'];
 <Title>
     Button ({name}@{version})
 </Title>
+
+<Status>
+  Proposed Recommendation
+</Status>
 
 ```tsx
 import { Button } from '@alfalab/core-components-button';

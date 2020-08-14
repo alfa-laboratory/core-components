@@ -1,5 +1,6 @@
 import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
 import { text, select, number } from '@storybook/addon-knobs';
+import { Status } from 'storybook/blocks/status';
 
 import { name, version } from '../package.json';
 import { ProgressBar } from './Component';
@@ -9,6 +10,10 @@ import { ProgressBar } from './Component';
 <Title>
     ProgressBar ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ```tsx
 import { ProgressBar } from 'newclick-components/progress-bar';

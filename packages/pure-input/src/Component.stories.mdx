@@ -1,5 +1,6 @@
 import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
+import { Status } from 'storybook/blocks/status';
 import { Design } from 'storybook/blocks/design';
 
 import { PureInput } from './Component';
@@ -15,6 +16,10 @@ import { name, version } from '../package.json';
 <Title>
     PureInput ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ```tsx
 import { PureInput } from '@alfalab/core-components-pure-input';

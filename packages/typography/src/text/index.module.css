@@ -1,0 +1,46 @@
+@import '../../../vars/src/typography.css';
+
+:root {
+    --text-paragraph-margin-bottom: 0 0 var(--gap-m);
+}
+
+.paragraph {
+    margin: var(--text-paragraph-margin-bottom);
+    padding: 0;
+}
+
+.primary-large {
+    @mixin paragraph_primary_large;
+}
+
+.primary-normal {
+    @mixin paragraph_primary_normal;
+}
+
+.primary-small {
+    @mixin paragraph_primary_small;
+}
+
+.secondary-large {
+    @mixin paragraph_secondary_large;
+}
+
+.secondary-normal {
+    @mixin paragraph_secondary_normal;
+}
+
+.secondary-small {
+    @mixin paragraph_secondary_small;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.medium {
+    font-weight: 500;
+}
+
+.regular {
+    font-weight: normal;
+}
