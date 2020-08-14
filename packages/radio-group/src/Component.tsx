@@ -92,7 +92,7 @@ export const RadioGroup: FC<RadioGroupProps> = ({
     name,
     value,
 }) => {
-    const [stateValue, setStateValue] = useState<string | undefined>('');
+    const [stateValue, setStateValue] = useState<string>('');
 
     const renderChild = (child: ReactElement) => {
         const { className: childClassName } = child.props;
