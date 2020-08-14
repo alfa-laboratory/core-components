@@ -1,6 +1,8 @@
 @import '../../themes/src/default.css';
 
 :root {
+    --radio-hint-color: var(--color-dark-indigo);
+    --radio-label-color: var(--color-dark-indigo-60-flat);
     --radio-bg-color: var(--color-dark-indigo-05-flat);
     --radio-border-color: var(--color-dark-indigo-60-flat);
 
@@ -30,9 +32,10 @@
 
     &:not(.checked):not(.disabled) {
         &:active .circle {
-            background: var(--color-dark-indigo-30-flat);
+            background: var(--radio-hover-bg-color);
             border: 1px solid var(--radio-active-border-color);
         }
+
         & .circle {
             background: var(--radio-bg-color);
             border: 1px solid var(--radio-border-color);
@@ -118,11 +121,11 @@
 }
 .label {
     @mixin system_16-24_regular;
-    color: var(--switch-label-color);
+    color: var(--radio-label-color);
 }
 
 .hint {
     @mixin system_14-18_regular;
     margin-top: var(--gap-2xs);
-    color: var(--switch-hint-color);
+    color: var(--radio-hint-color);
 }
