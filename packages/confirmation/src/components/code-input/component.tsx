@@ -6,7 +6,6 @@ import React, {
     useImperativeHandle,
     useEffect,
     useCallback,
-    MutableRefObject,
 } from 'react';
 import cn from 'classnames';
 
@@ -24,24 +23,18 @@ type CodeInputProps = {
     handleInputKeyDown: (event: KeyboardEvent) => void;
 };
 
-type UpdateValue = (params: {
-    newValues: string[];
-    actionType: 'add' | 'delete';
-    index: number;
-}) => void;
-
 type SetInputRef = (params: { node: HTMLInputElement; index: number }) => void;
 
 type InputProps = {
     index: number;
     value: string;
     slotsCount: number;
-    inputs: MutableRefObject<HTMLInputElement[]>;
     error?: string;
     processing: boolean;
+    focus: (inputIndex: number) => void;
     handleInputKeyDown: (event: KeyboardEvent) => void;
     setRef: SetInputRef;
-    updateValue: UpdateValue;
+    handleChange: (code: string) => void;
 };
 
 type InputRef = HTMLInputElement | null;
@@ -49,13 +42,13 @@ type InputRef = HTMLInputElement | null;
 const Input = ({
     index,
     slotsCount,
-    inputs,
     error,
     processing,
     value,
-    updateValue,
+    handleChange,
     handleInputKeyDown,
     setRef,
+    focus,
 }: InputProps) => {
     const splittedValue = value.split('');
 
@@ -74,7 +67,7 @@ const Input = ({
 
             newValues[index] = targetValue;
 
-            updateValue({ newValues, actionType: 'add', index });
+            handleChange(newValues.join(''));
         } else if (/^\d\d$/.test(targetValue) && index !== slotsCount - 1) {
             /*
              * если пользователь хочет ввести вторую цифру в инпут,
@@ -86,7 +79,7 @@ const Input = ({
             // eslint-disable-next-line prefer-destructuring
             newValues[index + 1] = targetValue[1];
 
-            updateValue({ newValues, actionType: 'add', index });
+            handleChange(newValues.join(''));
         }
     };
 
@@ -102,11 +95,11 @@ const Input = ({
 
             newValues[index] = '';
 
-            updateValue({ newValues, actionType: 'delete', index });
+            handleChange(newValues.join(''));
         } else if (key === 'ArrowRight' && index !== slotsCount - 1) {
-            inputs.current[index + 1].focus();
+            focus(index + 1);
         } else if (key === 'ArrowLeft' && index !== 0) {
-            inputs.current[index - 1].focus();
+            focus(index - 1);
         }
 
         handleInputKeyDown(event);
@@ -146,19 +139,6 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
 
         const prevValue = usePrevious(value) || '';
 
-        const updateValue: UpdateValue = useCallback(
-            ({ newValues, actionType, index }) => {
-                handleChange(newValues.join(''));
-
-                if (actionType === 'add' && index !== slotsCount - 1) {
-                    inputs.current[index + 1].focus();
-                } else if (index !== 0) {
-                    inputs.current[index - 1].focus();
-                }
-            },
-            [slotsCount, handleChange],
-        );
-
         const focus = useCallback((index: number) => {
             const input = inputs.current[index];
 
@@ -187,6 +167,24 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
             }
         }, [focus, error, slotsCount, value.length, prevValue.length, processing]);
 
+        useEffect(() => {
+            if (value.length > prevValue.length && value.length < slotsCount) {
+                /**
+                 * Если value.length увеличился - ставим фокус на следующем инпуте
+                 */
+                const nextInputIndex = value.length;
+
+                focus(nextInputIndex);
+            } else if (value.length > 0) {
+                /**
+                 * Если value.length уменьшился - ставим фокус на предыдущем инпуте
+                 */
+                const nextInputIndex = value.length - 1;
+
+                focus(nextInputIndex);
+            }
+        }, [value.length, prevValue.length, slotsCount, focus]);
+
         return (
             <div className={cn(styles.component, className)}>
                 {new Array(slotsCount).fill('').map((_, index) => (
@@ -196,10 +194,10 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
                         error={error}
                         processing={processing}
                         slotsCount={slotsCount}
-                        inputs={inputs}
-                        updateValue={updateValue}
+                        handleChange={handleChange}
                         handleInputKeyDown={handleInputKeyDown}
                         setRef={setRef}
+                        focus={focus}
                         // eslint-disable-next-line react/no-array-index-key
                         key={index}
                     />
