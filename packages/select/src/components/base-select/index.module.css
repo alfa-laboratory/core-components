@@ -9,6 +9,7 @@
 
 .fieldWrapper {
     position: relative;
+    outline: none;
 }
 
 .popover {
@@ -37,4 +38,9 @@
     height: 100%;
     cursor: pointer;
     z-index: 1;
+}
+
+.block {
+    width: 100%;
+    min-width: auto;
 }
