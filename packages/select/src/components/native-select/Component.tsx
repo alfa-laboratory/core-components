@@ -14,9 +14,9 @@ export type NativeSelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
     value: string | string[];
 };
 
-const Option = ({ value, text, nativeText, disabled }: OptionShape) => (
+const Option = ({ value, text, disabled }: OptionShape) => (
     <option value={value} disabled={disabled}>
-        {nativeText || text || value}
+        {text || value}
     </option>
 );
 

@@ -23,6 +23,6 @@ export const Option = ({
             [styles.disabled]: disabled,
         })}
     >
-        {children || option.text}
+        {children || option.content || option.text || option.value}
     </div>
 );

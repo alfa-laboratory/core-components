@@ -19,7 +19,7 @@ Object {
           tabindex="0"
         >
           <div
-            class="component m hasRightAddons component m"
+            class="component s hasRightAddons component s"
           >
             <div
               class="inner"
@@ -88,7 +88,7 @@ Object {
         tabindex="0"
       >
         <div
-          class="component m hasRightAddons component m"
+          class="component s hasRightAddons component s"
         >
           <div
             class="inner"

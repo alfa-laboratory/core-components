@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`joinOptions should match snapshots 1`] = `
+Array [
+  "Neptunium",
+  ", ",
+  "Plutonium",
+  ", ",
+  "Americium",
+  ", ",
+  "Curium",
+]
+`;
+
+exports[`joinOptions should match snapshots 2`] = `
+Array [
+  <b>
+    Neptunium
+  </b>,
+  ", ",
+  <b>
+    Plutonium
+  </b>,
+  ", ",
+  <b>
+    Americium
+  </b>,
+  ", ",
+  <b>
+    Curium
+  </b>,
+]
+`;
