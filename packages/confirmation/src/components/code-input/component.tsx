@@ -10,7 +10,7 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 
-import { usePrevious, useFocus } from '@alfalab/hooks';
+import { usePrevious } from '@alfalab/hooks';
 
 import styles from './index.module.css';
 
@@ -118,13 +118,13 @@ const Input = ({
         setRef({ node, index });
     };
 
-    const [focused] = useFocus('keyboard', inputRef);
+    // const [focused] = useFocus('keyboard', inputRef);
 
     return (
         <input
             className={cn(styles.input, {
                 [styles.hasError]: Boolean(error),
-                [styles.focused]: focused,
+                // [styles.focused]: focused,
             })}
             disabled={processing}
             value={splittedValue[index] || ''}
@@ -148,15 +148,18 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
 
         const prevValue = usePrevious(value) || '';
 
-        const updateValue: UpdateValue = ({ newValues, actionType, index }) => {
-            handleChange(newValues.join(''));
+        const updateValue: UpdateValue = useCallback(
+            ({ newValues, actionType, index }) => {
+                handleChange(newValues.join(''));
 
-            if (actionType === 'add' && index !== slotsCount - 1) {
-                inputs.current[index + 1].focus();
-            } else if (index !== 0) {
-                inputs.current[index - 1].focus();
-            }
-        };
+                if (actionType === 'add' && index !== slotsCount - 1) {
+                    inputs.current[index + 1].focus();
+                } else if (index !== 0) {
+                    inputs.current[index - 1].focus();
+                }
+            },
+            [slotsCount, handleChange],
+        );
 
         const focus = useCallback((index: number) => {
             const input = inputs.current[index];
@@ -167,9 +170,9 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
             }
         }, []);
 
-        const setRef: SetInputRef = ({ node, index }) => {
+        const setRef: SetInputRef = useCallback(({ node, index }) => {
             inputs.current[index] = node;
-        };
+        }, []);
 
         /**
          * Устанавливаем фокус на инпуте:

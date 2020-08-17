@@ -81,6 +81,17 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
         [onInputFinished, inputRef],
     );
 
+    const handleInputChange = useCallback(
+        (code: string) => {
+            if (code.length === requiredCharAmount) {
+                handleInputFinished(code);
+            }
+
+            onInputChange(code);
+        },
+        [handleInputFinished, onInputChange, requiredCharAmount],
+    );
+
     return (
         <div className={cn(styles.component, styles[alignContent])}>
             <span className={styles.header}>{title}</span>
@@ -90,17 +101,11 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
                     processing={processing}
                     error={displayedError}
                     value={inputValue}
-                    handleChange={code => {
-                        if (code.length === requiredCharAmount) {
-                            handleInputFinished(code);
-                        }
-
-                        onInputChange(code);
-                    }}
-                    handleInputKeyDown={handleInputKeyDown}
                     ref={inputRef}
                     slotsCount={requiredCharAmount}
                     className={styles.codeInput}
+                    handleChange={handleInputChange}
+                    handleInputKeyDown={handleInputKeyDown}
                 />
 
                 {displayedError && <div className={styles.error}>{displayedError}</div>}
