@@ -289,10 +289,10 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
 
                 {shouldShowHint && (
                     <div className={styles.phoneHintWrap}>
-                        <span className={styles.errorHeader}>Не приходит сообщение?</span>
+                        <span className={styles.errorHeader}>Не&nbsp;приходит сообщение?</span>
 
                         <span className={styles.phoneHintText}>
-                            Если у вас сменился номер телефона, пожалуйста, обратитесь в любое
+                            Если у&nbsp;вас сменился номер телефона, пожалуйста, обратитесь в&nbsp;любое
                             отделение банка.
                         </span>
 
@@ -304,7 +304,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
 
                                 <span className={styles.phoneDescription}>
                                     {' '}
-                                    — для звонков по России
+                                    &mdash;&nbsp;для звонков по&nbsp;России
                                 </span>
                             </div>
 
@@ -315,7 +315,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
 
                                 <span className={styles.phoneDescription}>
                                     {' '}
-                                    — в Москве и за границей
+                                    &mdash;&nbsp;в&nbsp;Москве и&nbsp;за&nbsp;границей
                                 </span>
                             </div>
                         </div>
