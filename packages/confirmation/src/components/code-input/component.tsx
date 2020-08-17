@@ -175,7 +175,7 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
                 const nextInputIndex = value.length;
 
                 focus(nextInputIndex);
-            } else if (value.length > 0) {
+            } else if (value.length <= prevValue.length && value.length > 0) {
                 /**
                  * Если value.length уменьшился - ставим фокус на предыдущем инпуте
                  */
