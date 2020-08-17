@@ -30,3 +30,7 @@
         caret-color: var(--confirmation-input-text-color);
     }
 }
+
+.focused {
+    @mixin focus-outline;
+}
