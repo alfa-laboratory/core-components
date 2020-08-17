@@ -73,24 +73,6 @@ describe('Textarea', () => {
             expect(getByTestId(dataTestId)).toHaveAttribute('disabled');
         });
 
-        it('should render with `off` autocomplete attribute', () => {
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(
-                <Textarea autocomplete={false} dataTestId={dataTestId} />,
-            );
-
-            expect(getByTestId(dataTestId).getAttribute('autoComplete')).toEqual('off');
-        });
-
-        it('should render with `on` autocomplete attribute', () => {
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(
-                <Textarea autocomplete={true} dataTestId={dataTestId} />,
-            );
-
-            expect(getByTestId(dataTestId).getAttribute('autoComplete')).toEqual('on');
-        });
-
         it('should set `maxHeight` style with autosize on', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(

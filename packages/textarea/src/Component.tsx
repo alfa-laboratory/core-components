@@ -69,11 +69,6 @@ export type TextareaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 's
     autosize?: boolean;
 
     /**
-     * Управление автозаполнением компонента
-     */
-    autocomplete?: boolean;
-
-    /**
      * Максимальное количество отображаемых строк (работает только вместе с autosize)
      */
     maxRows?: number;
@@ -107,7 +102,7 @@ export type TextareaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 's
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     (
         {
-            autocomplete = true,
+            autoComplete = 'on',
             autosize = true,
             size = 's',
             block = false,
@@ -174,7 +169,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         const handleTextareaChange = useCallback(
             (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-                setFilled(e.target.value !== '');
+                setFilled(!!e.target.value);
 
                 if (onChange) {
                     onChange(e);
@@ -195,7 +190,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
                 },
                 textareaClassName,
             ),
-            autoComplete: autocomplete === false ? 'off' : 'on',
+            autoComplete,
             disabled,
             onBlur: handleTextareaBlur,
             onFocus: handleTextareaFocus,
@@ -241,7 +236,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
  * Для отображения в сторибуке
  */
 Textarea.defaultProps = {
-    autocomplete: true,
+    autoComplete: 'on',
     autosize: true,
     size: 's',
     block: false,
