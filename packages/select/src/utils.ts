@@ -9,7 +9,7 @@ export const joinOptions = (options: OptionShape[]) =>
         if (isValidElement(option.content)) {
             acc.push(cloneElement(option.content, { key: option.value }));
         } else {
-            acc.push(option.text || option.value);
+            acc.push(option.text);
         }
 
         if (index < options.length - 1) acc.push(', ');
