@@ -200,7 +200,9 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             onBlur: handleTextareaBlur,
             onFocus: handleTextareaFocus,
             onChange: handleTextareaChange,
+            value,
             rows,
+            ref: textareaRef,
             'data-test-id': dataTestId,
         };
 
@@ -226,16 +228,9 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
                         maxRows={maxRows}
                         minRows={minRows}
                         onHeightChange={onHeightChange}
-                        value={value}
-                        ref={textareaRef}
                     />
                 ) : (
-                    <textarea
-                        {...textareaProps}
-                        style={{ maxHeight }}
-                        value={value}
-                        ref={textareaRef}
-                    />
+                    <textarea {...textareaProps} style={{ maxHeight }} />
                 )}
             </FormControl>
         );
