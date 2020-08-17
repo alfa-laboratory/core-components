@@ -94,11 +94,22 @@ export const matchOption = (option, inputValue) =>
             const handleChange = (event, payload) => {
                 setValue(payload.selected ? payload.selected.text : '');
             };
+            const handleClear = () => {
+                setValue('');
+            };
+            const handleClearKeyDown = (event) => {
+                event.stopPropagation();
+            }
             const renderAddons = () => (
                 value.length > 0 && (
-                    <div role='button' onClick={() => setValue('')} style={{ display: 'flex' }}>
+                    <button
+                        type='button'
+                        onKeyDown={handleClearKeyDown}
+                        onClick={handleClear}
+                        style={{ display: 'flex', border: 'none', background: 'none' }}
+                    >
                         <CloseSBlackIcon />
-                    </div>
+                    </button>
                 )
             );
             const renderInput = (props) => (
@@ -193,6 +204,42 @@ export const matchOption = (option, inputValue) =>
                     onChange={handleChange}
                     onInput={handleInput}
                     Input={renderInput}
+                />
+            );
+        })}
+    </div>
+</Preview>
+
+
+### Multiple
+
+<Preview>
+    <div style={{ height: 180 }}>
+        {React.createElement(() => {
+            const [value, setValue] = React.useState('');
+            const handleInput = event => {
+                setValue(event.target.value);
+            };
+            const handleChange = (event, payload) => {
+                setValue(payload.selected.map(option => option.text).join(', '));
+            };
+            const inputValues = value.split(',').map(v => v.trim()).filter(v => v);
+            const selected = options.filter(option => inputValues.includes(option.text.trim()));
+            const filteredOptions = inputValues.length === selected.length ?
+                options :
+                options.filter(option => matchOption(option, value));
+            return (
+                <Autocomplete
+                    options={filteredOptions}
+                    selected={selected}
+                    label='Элемент'
+                    closeOnSelect={false}
+                    multiple={true}
+                    onChange={handleChange}
+                    onInput={handleInput}
+                    allowUnselect={true}
+                    value={value}
+                    Arrow={Arrow}
                 />
             );
         })}
