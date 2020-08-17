@@ -1,4 +1,5 @@
 import { Meta, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { Status } from 'storybook/blocks/status';
 import { Button } from '../../button/src';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
@@ -11,6 +12,10 @@ import { name, version } from '../package.json';
 <Title>
     Portal ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ```tsx
 import { Portal } from '@alfalab/core-components-portal';

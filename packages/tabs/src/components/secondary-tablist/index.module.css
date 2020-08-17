@@ -1,0 +1,15 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    position: relative;
+}
+
+.container {
+    display: flex;
+    overflow: hidden;
+}
+
+.title {
+    white-space: nowrap;
+}
