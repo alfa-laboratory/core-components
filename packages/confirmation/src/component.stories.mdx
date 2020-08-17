@@ -76,9 +76,10 @@ import { Confirmation } from '@alfalab/core-components-confirmation';
                                 codeSending={codeSending['success']}
                                 codeChecking={codeChecking['success']}
                                 countdownDuration={10000}
-                                value={value['success']}
+                                code={value['success']}
                                 onInputChange={(code) => setCode('success', code)}
                                 alignContent={select('alignContent', ['center', 'left'], 'left')}
+                                requiredCharAmount={number('requiredCharAmount', 5)}
                             />
                         </div>
                     }
@@ -93,9 +94,10 @@ import { Confirmation } from '@alfalab/core-components-confirmation';
                                 codeChecking={codeChecking['error']}
                                 error={error['error']}
                                 countdownDuration={10000}
-                                value={value['error']}
+                                code={value['error']}
                                 onInputChange={(code) => setCode('error', code)}
                                 alignContent={select('alignContent', ['center', 'left'], 'left')}
+                                requiredCharAmount={number('requiredCharAmount', 5)}
                             />
                         </div>
                     }
@@ -111,9 +113,10 @@ import { Confirmation } from '@alfalab/core-components-confirmation';
                                 error={error['fatal']}
                                 errorIsFatal={true}
                                 countdownDuration={10000}
-                                value={value['fatal']}
+                                code={value['fatal']}
                                 onInputChange={(code) => setCode('fatal', code)}
                                 alignContent={select('alignContent', ['center', 'left'], 'left')}
+                                requiredCharAmount={number('requiredCharAmount', 5)}
                             />
                         </div>
                     }

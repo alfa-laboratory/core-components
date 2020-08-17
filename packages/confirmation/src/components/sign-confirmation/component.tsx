@@ -19,7 +19,7 @@ export type SignConfirmationProps = {
     additionalContent: React.ReactNode;
     hasPhoneMask: boolean;
     phone?: string;
-    value: string;
+    code: string;
     error: string;
     title: string;
     codeCheckingText: string;
@@ -43,7 +43,7 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
     additionalContent,
     hasPhoneMask,
     phone,
-    value: inputValue,
+    code: inputValue,
     error = '',
     title,
     hasSmsCountdown,

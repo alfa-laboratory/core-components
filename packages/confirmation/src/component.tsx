@@ -13,7 +13,7 @@ export type ConfirmationProps = {
     /**
      * Значение поля ввода
      */
-    value: string;
+    code: string;
 
     /**
      * Флаг состояния обработки введенного кода.
@@ -160,7 +160,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
             phone,
             requiredCharAmount = 5,
             signTitle = 'Введите код из\xa0смс',
-            value,
+            code,
             codeSending = false,
             codeChecking = false,
             codeCheckingText = 'Проверка кода',
@@ -183,11 +183,11 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
 
         const [countdownFinished, setCountdownFinished] = useState(false);
 
-        const shouldShowErrorComponent = errorIsFatal && !!error;
+        const shouldShowError = errorIsFatal && !!error;
 
-        const shouldShowSignComponent = !showHint && !shouldShowErrorComponent;
+        const shouldShowSignComponent = !showHint && !shouldShowError;
 
-        const shouldShowHintComponent = showHint && !shouldShowErrorComponent;
+        const shouldShowHint = showHint && !shouldShowError;
 
         const nonFatalError = errorIsFatal ? '' : error;
 
@@ -254,7 +254,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                         hasSmsCountdown={hasSmsCountdown}
                         countdownDuration={countdownDuration}
                         phone={phone}
-                        value={value}
+                        code={code}
                         hasPhoneMask={hasPhoneMask}
                         error={nonFatalError || ''}
                         title={signTitle}
@@ -270,7 +270,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                     />
                 )}
 
-                {shouldShowErrorComponent && (
+                {shouldShowError && (
                     <div className={styles.error}>
                         <span className={styles.errorHeader}>{errorTitle}</span>
 
@@ -287,7 +287,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                     </div>
                 )}
 
-                {shouldShowHintComponent && (
+                {shouldShowHint && (
                     <div className={styles.phoneHintWrap}>
                         <span className={styles.errorHeader}>Не приходит сообщение?</span>
 
@@ -299,20 +299,22 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                         <div className={styles.phonesWrap}>
                             <div className={styles.phoneWrap}>
                                 <Link className={styles.phoneLink} href='tel:+78002000000'>
-                                    8 800 200 00 00{' '}
+                                    8 800 200-00-00
                                 </Link>
 
                                 <span className={styles.phoneDescription}>
+                                    {' '}
                                     — для звонков по России
                                 </span>
                             </div>
 
                             <div className={styles.phoneWrap}>
                                 <Link className={styles.phoneLink} href='tel:+74957888878'>
-                                    +7 495 788 88 78{' '}
+                                    +7 495 788-88-78
                                 </Link>
 
                                 <span className={styles.phoneDescription}>
+                                    {' '}
                                     — в Москве и за границей
                                 </span>
                             </div>

@@ -72,7 +72,7 @@ const Input = ({
              * и устанавливаем фокус на следующем инпуте
              */
 
-            newValues[index] = event.target.value;
+            newValues[index] = targetValue;
 
             updateValue({ newValues, actionType: 'add', index });
         } else if (/^\d\d$/.test(targetValue) && index !== slotsCount - 1) {
@@ -82,9 +82,9 @@ const Input = ({
              */
 
             // eslint-disable-next-line prefer-destructuring
-            newValues[index] = event.target.value[0];
+            newValues[index] = targetValue[0];
             // eslint-disable-next-line prefer-destructuring
-            newValues[index + 1] = event.target.value[1];
+            newValues[index + 1] = targetValue[1];
 
             updateValue({ newValues, actionType: 'add', index });
         }
@@ -131,8 +131,6 @@ const Input = ({
             onChange={onChange}
             onKeyDown={onInputKeyDown}
             ref={handleRef}
-            // eslint-disable-next-line react/no-array-index-key
-            key={index}
         />
     );
 };
@@ -202,6 +200,8 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
                         updateValue={updateValue}
                         handleInputKeyDown={handleInputKeyDown}
                         setRef={setRef}
+                        // eslint-disable-next-line react/no-array-index-key
+                        key={index}
                     />
                 ))}
             </div>

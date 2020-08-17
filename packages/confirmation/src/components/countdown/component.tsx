@@ -63,12 +63,12 @@ export const Countdown: FC<CountdownProps> = ({
 
     const [repeatSmsButtonShow, setRepeatSmsButtonShow] = useState(false);
 
-    const timerID = useRef<number>(0);
+    const timerId = useRef<number>(0);
 
     const stopTimer = () => {
-        if (timerID.current) {
-            clearTimeout(timerID.current);
-            timerID.current = 0;
+        if (timerId.current) {
+            clearTimeout(timerId.current);
+            timerId.current = 0;
         }
     };
 
@@ -85,14 +85,14 @@ export const Countdown: FC<CountdownProps> = ({
         } else {
             setTimer(prevTimer => prevTimer - TIMER_ITERATION_VALUE);
 
-            timerID.current = window.setTimeout(tic, TIMER_ITERATION_VALUE);
+            timerId.current = window.setTimeout(tic, TIMER_ITERATION_VALUE);
         }
     }, [onCountdownFinished, timer]);
 
     const startTimer = useCallback(() => {
         stopTimer();
 
-        timerID.current = window.setTimeout(tic, TIMER_ITERATION_VALUE);
+        timerId.current = window.setTimeout(tic, TIMER_ITERATION_VALUE);
     }, [tic]);
 
     const startSmsCountdown = useCallback(() => {
@@ -122,7 +122,7 @@ export const Countdown: FC<CountdownProps> = ({
     }, [startTimer]);
 
     useEffect(() => {
-        if (!repeatSmsButtonShow && !timerID.current) {
+        if (!repeatSmsButtonShow && !timerId.current) {
             // если компонент переключился в активное состояние, а таймер еще не запущен, то стартуем его
             startTimer();
         }
@@ -144,9 +144,9 @@ export const Countdown: FC<CountdownProps> = ({
                         </div>
                     )}
 
-                    <div className={styles.info}>Запросить повторно можно через</div>
-
-                    {formatMsAsMinutes(timer)}
+                    <div className={styles.info}>
+                        Запросить повторно можно через {formatMsAsMinutes(timer)}
+                    </div>
                 </div>
             )}
         </div>
