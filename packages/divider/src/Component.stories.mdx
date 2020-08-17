@@ -1,4 +1,5 @@
 import { Preview, Props, Title } from '@storybook/addon-docs/blocks';
+import { Status } from 'storybook/blocks/status';
 
 import { Divider } from './Component';
 import { name, version } from '../package.json';
@@ -9,6 +10,10 @@ import { name, version } from '../package.json';
 <Title>
     Divider ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ```tsx
 import { Divider } from '@alfalab/core-components-divider';

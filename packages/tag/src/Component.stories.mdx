@@ -1,5 +1,6 @@
 import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
 import { text, select } from '@storybook/addon-knobs';
+import { Status } from 'storybook/blocks/status';
 import { Design } from 'storybook/blocks/design';
 import Icon from '@alfalab/icons-glyph/CopyMIcon';
 
@@ -14,6 +15,10 @@ export const SIZES = ['xs', 's', 'm', 'l'];
 <Title>
     Tag ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ```tsx
 import { Tag } from '@alfalab/core-components-tag';

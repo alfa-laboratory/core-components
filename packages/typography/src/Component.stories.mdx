@@ -1,5 +1,6 @@
 import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
 import { text, boolean, select, number } from '@storybook/addon-knobs';
+import { Status } from 'storybook/blocks/status';
 import { Design } from 'storybook/blocks/design';
 
 import { Typography } from './Component';
@@ -11,6 +12,10 @@ import { colors } from './colors';
 <Title>
     Typography ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ```tsx
 import { Typography } from '@alfalab/core-components-tooltip/typography';
@@ -31,9 +36,7 @@ import { Typography } from '@alfalab/core-components-tooltip/typography';
 ## Typography.Title
 
 <Typography.Title>Стандартный заголовок для шрифта styrene</Typography.Title>
-<div style={{fontFamily: 'var(--font-family-system)'}}>
-    <Typography.Title font='system'>Стандартный заголовок для шрифта system</Typography.Title>
-</div>
+<Typography.Title font='system'>Стандартный заголовок для шрифта system</Typography.Title>
 
 <Story name='Typography.Title'>
     {React.createElement(() => {
@@ -47,16 +50,11 @@ import { Typography } from '@alfalab/core-components-tooltip/typography';
         const color = select('color', colors, '');
         const weight = select('weight', ['regular', 'medium', 'bold'], 'medium');
         const font = select('font', ['styrene', 'system'], 'styrene');
-        const containerStyle = font === 'system' ? {fontFamily: 'var(--font-family-system)'} : {};
-        return (
-            <div style={containerStyle}>
-                {VIEW_TYPES.map(view => (
-                    <Typography.Title view={view} color={color} weight={weight} font={font} key={view}>
-                        view='{view}'
-                    </Typography.Title>
-                ))}
-            </div>
-        );
+        return VIEW_TYPES.map(view => (
+            <Typography.Title view={view} color={color} weight={weight} font={font} key={view}>
+                view='{view}'
+            </Typography.Title>
+        ))
     })}
 </Story>
 
@@ -83,7 +81,7 @@ import { Typography } from '@alfalab/core-components-tooltip/typography';
         const weight = select('weight', ['regular', 'medium', 'bold'], 'regular');
         const className = text('className', '');
         return (
-            <div style={{ fontFamily: 'var(--font-family-system)' }}>
+            <div>
                 <Typography.Text view={view} color={color} tag={tag} weight={weight} className={className}>
                     Космологи́ческая сингуля́рность — состояния Вселенной в определённый момент времени в прошлом,
                     когда плотность энергии (материи) и кривизна пространства-времени были очень велики — порядка
