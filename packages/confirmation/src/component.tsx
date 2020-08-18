@@ -48,7 +48,7 @@ export type ConfirmationProps = {
     className?: string;
 
     /**
-     * Номер телефона, на который отправляется смс.
+     * Номер телефона, на который отправляется сообщение.
      * Пробрасывается в компонент обратного отсчета as is и форматируется там же.
      * Должен быть в формате '+7 000 000 00 00'
      */
@@ -70,7 +70,7 @@ export type ConfirmationProps = {
     hasSmsCountdown?: boolean;
 
     /**
-     * Длительность обратного отсчета на кнопке повторного запроса смс, в милисекундах
+     * Длительность обратного отсчета на кнопке повторного запроса сообщения, в милисекундах
      */
     countdownDuration?: number;
 
@@ -130,12 +130,12 @@ export type ConfirmationProps = {
     onSmsRetryClick: () => void;
 
     /**
-     * Обработчик события завершения обратного отсчета для повторного запроса смс
+     * Обработчик события завершения обратного отсчета для повторного запроса сообщения
      */
     onCountdownFinished?: () => void;
 
     /**
-     * Обработчик события нажатия на ссылку "не приходит смс?"
+     * Обработчик события нажатия на ссылку "не приходит сообщение?"
      */
     onSmsHintLinkClick?: () => void;
 
@@ -159,7 +159,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
             hasSmsCountdown = true,
             phone,
             requiredCharAmount = 5,
-            signTitle = 'Введите код из\xa0смс',
+            signTitle = 'Введите код из\xa0сообщения',
             code,
             codeSending = false,
             codeChecking = false,
@@ -292,8 +292,8 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                         <span className={styles.errorHeader}>Не&nbsp;приходит сообщение?</span>
 
                         <span className={styles.phoneHintText}>
-                            Если у&nbsp;вас сменился номер телефона, пожалуйста, обратитесь в&nbsp;любое
-                            отделение банка.
+                            Если у&nbsp;вас сменился номер телефона, пожалуйста, обратитесь
+                            в&nbsp;любое отделение банка.
                         </span>
 
                         <div className={styles.phonesWrap}>
@@ -345,7 +345,7 @@ Confirmation.defaultProps = {
     hasPhoneMask: true,
     hasSmsCountdown: true,
     requiredCharAmount: 5,
-    signTitle: 'Введите код из\xa0смс',
+    signTitle: 'Введите код из\xa0сообщения',
     codeSending: false,
     codeChecking: false,
     codeCheckingText: 'Проверка кода',

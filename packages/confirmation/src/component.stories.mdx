@@ -69,7 +69,6 @@ import { Confirmation } from '@alfalab/core-components-confirmation';
                     {variant.value === 'success' &&
                         <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
                             <Confirmation
-                                signTitle="Введите код из смс"
                                 phone='+7 000 000 00 42'
                                 onInputFinished={() => handleSubmit('success')}
                                 onSmsRetryClick={() => handleSmsRetryClick('success')}
@@ -86,7 +85,6 @@ import { Confirmation } from '@alfalab/core-components-confirmation';
                     {variant.value === 'error' &&
                         <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
                             <Confirmation
-                                signTitle="Введите код из смс"
                                 phone='+7 000 000 00 42'
                                 onInputFinished={( ) => handleSubmit('error')}
                                 onSmsRetryClick={() => handleSmsRetryClick('error')}
@@ -104,7 +102,6 @@ import { Confirmation } from '@alfalab/core-components-confirmation';
                     {variant.value === 'fatal' &&
                         <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
                             <Confirmation
-                                signTitle="Введите код из смс"
                                 phone='+7 000 000 00 42'
                                 onInputFinished={() => handleSubmit('fatal')}
                                 onSmsRetryClick={() => handleSmsRetryClick('fatal')}
