@@ -1,5 +1,12 @@
-import React, { AnchorHTMLAttributes, forwardRef, ReactNode } from 'react';
+import React, {
+    AnchorHTMLAttributes,
+    forwardRef,
+    ReactNode,
+    useRef,
+    useImperativeHandle,
+} from 'react';
 import cn from 'classnames';
+import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
 
@@ -44,12 +51,20 @@ export type LinkProps = NativeProps & {
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     ({ view = 'primary', pseudo = false, className, dataTestId, children, ...restProps }, ref) => {
+        const linkRef = useRef<HTMLAnchorElement>(null);
+
+        // Оставляет возможность прокинуть реф извне
+        useImperativeHandle(ref, () => linkRef.current as HTMLAnchorElement);
+
+        const [focused] = useFocus('keyboard', linkRef);
+
         const componentProps = {
             className: cn(
                 styles.component,
                 styles[view],
                 {
                     [styles.pseudo]: pseudo,
+                    [styles.focused]: focused,
                 },
                 className,
             ),
@@ -57,7 +72,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
         };
 
         return (
-            <a {...componentProps} {...restProps} ref={ref}>
+            <a {...componentProps} {...restProps} ref={linkRef}>
                 {children}
             </a>
         );
