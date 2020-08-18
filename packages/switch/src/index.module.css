@@ -103,6 +103,7 @@
 }
 
 /* Disabled state */
+
 .disabled {
     cursor: initial;
 }
@@ -121,4 +122,8 @@
     border-color: var(--switch-disabled-checked-border-color);
 }
 
-/* TODO focus state */
+/* Focused state */
+
+.focused .switch {
+    @mixin focus-outline;
+}
