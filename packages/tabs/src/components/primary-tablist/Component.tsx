@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
+import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
 import { useTabs } from '../../useTabs';
 import { ScrollableContainer } from '../scrollable-container';
 import { TabListProps, Styles } from '../../typings';
@@ -32,18 +33,22 @@ export const PrimaryTabList = ({
     const renderContent = () => (
         <React.Fragment>
             {titles.map((item, index) => (
-                <button
-                    {...getTabListItemProps(index)}
-                    type='button'
-                    key={item.id}
-                    className={cn(styles.title, {
-                        [styles.selected]: item.id === selectedId,
-                    })}
-                >
-                    <span tabIndex={-1} className={styles.titleWrapper}>
-                        {item.title}
-                    </span>
-                </button>
+                <KeyboardFocusable key={item.id}>
+                    {(ref, focused) => (
+                        <button
+                            {...getTabListItemProps(index, ref)}
+                            type='button'
+                            className={cn(styles.title, {
+                                [styles.selected]: item.id === selectedId,
+                                [styles.focused]: focused,
+                            })}
+                        >
+                            <span tabIndex={-1} className={styles.titleWrapper}>
+                                {item.title}
+                            </span>
+                        </button>
+                    )}
+                </KeyboardFocusable>
             ))}
 
             <div className={styles.line} style={lineStyles} />
