@@ -1,5 +1,13 @@
-import React, { InputHTMLAttributes, forwardRef, ReactNode, ChangeEvent } from 'react';
+import React, {
+    InputHTMLAttributes,
+    forwardRef,
+    ReactNode,
+    ChangeEvent,
+    useRef,
+    useImperativeHandle,
+} from 'react';
 import cn from 'classnames';
+import { useFocus } from '@alfalab/hooks';
 
 import CheckedIcon from '@alfalab/icons-classic/TickXsWhiteIcon';
 import IndeterminateIcon from '@alfalab/icons-classic/CheckIndeterminateSWhiteIcon';
@@ -62,6 +70,13 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
         },
         ref,
     ) => {
+        const labelRef = useRef<HTMLLabelElement>(null);
+
+        // Оставляет возможность прокинуть реф извне
+        useImperativeHandle(ref, () => labelRef.current as HTMLLabelElement);
+
+        const [focused] = useFocus('keyboard', labelRef);
+
         const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
             if (onChange) {
                 onChange(event, { checked: event.target.checked, name });
@@ -75,8 +90,9 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                     [styles.disabled]: disabled,
                     [styles.checked]: checked,
                     [styles.indeterminate]: indeterminate,
+                    [styles.focused]: focused,
                 })}
-                ref={ref}
+                ref={labelRef}
             >
                 <span className={styles.box}>
                     <input
