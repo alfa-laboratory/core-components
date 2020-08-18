@@ -17,6 +17,7 @@
         "react-dom": "^16.9.0"
     },
     "dependencies": {
+        "@alfalab/hooks": "^0.8.0",
         "@alfalab/icons-classic": "^1.7.0"
     }
 }
