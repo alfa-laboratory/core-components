@@ -1,5 +1,13 @@
-import React, { InputHTMLAttributes, forwardRef, ChangeEvent, ReactNode } from 'react';
+import React, {
+    InputHTMLAttributes,
+    forwardRef,
+    ChangeEvent,
+    ReactNode,
+    useRef,
+    useImperativeHandle,
+} from 'react';
 import cn from 'classnames';
+import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
 
@@ -61,6 +69,13 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
         { onChange, className, name, disabled, dataTestId, label, checked, hint, ...restProps },
         ref,
     ) => {
+        const labelRef = useRef<HTMLLabelElement>(null);
+
+        // Оставляет возможность прокинуть реф извне
+        useImperativeHandle(ref, () => labelRef.current as HTMLLabelElement);
+
+        const [focused] = useFocus('keyboard', labelRef);
+
         const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
             if (onChange) {
                 onChange(event, { checked: event.target.checked, name });
@@ -73,8 +88,9 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
                 className={cn(styles.container, className, {
                     [styles.disabled]: disabled,
                     [styles.checked]: checked,
+                    [styles.focused]: focused,
                 })}
-                ref={ref}
+                ref={labelRef}
             >
                 <input
                     type='radio'

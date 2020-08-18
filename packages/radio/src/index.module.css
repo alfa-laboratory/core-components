@@ -77,6 +77,10 @@
         }
     }
 
+    &.focused .circle {
+        @mixin focus-outline;
+    }
+
     &.disabled.checked .circle {
         background-color: var(--radio-checked-disabled-bg-color);
         border: none;
