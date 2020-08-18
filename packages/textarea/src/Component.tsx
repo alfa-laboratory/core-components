@@ -146,33 +146,33 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         }, [textareaRef, autosize, maxHeight]);
 
         const handleTextareaFocus = useCallback(
-            (e: React.FocusEvent<HTMLTextAreaElement>) => {
+            (event: React.FocusEvent<HTMLTextAreaElement>) => {
                 setFocused(true);
 
                 if (onFocus) {
-                    onFocus(e);
+                    onFocus(event);
                 }
             },
             [onFocus],
         );
 
         const handleTextareaBlur = useCallback(
-            (e: React.FocusEvent<HTMLTextAreaElement>) => {
+            (event: React.FocusEvent<HTMLTextAreaElement>) => {
                 setFocused(false);
 
                 if (onBlur) {
-                    onBlur(e);
+                    onBlur(event);
                 }
             },
             [onBlur],
         );
 
         const handleTextareaChange = useCallback(
-            (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-                setFilled(!!e.target.value);
+            (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+                setFilled(!!event.target.value);
 
                 if (onChange) {
-                    onChange(e);
+                    onChange(event);
                 }
             },
             [onChange],
