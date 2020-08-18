@@ -60,11 +60,6 @@ const Input = ({
         const newValues = [...splittedValue];
 
         if (/^\d$/.test(targetValue)) {
-            /*
-             * если введена цифра, то обновляем значение
-             * и устанавливаем фокус на следующем инпуте
-             */
-
             newValues[index] = targetValue;
 
             handleChange(newValues.join(''));
@@ -86,20 +81,30 @@ const Input = ({
     const onInputKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
         const { key } = event;
 
-        /*
-         * если пользователь хочет удалить цифру в инпуте,
-         * то удаляем ее и устанавливаем фокус на предыдущем инпуте
-         */
-        if (key === 'Backspace' || key === 'Delete') {
-            const newValues = [...splittedValue];
+        const newValues = [...splittedValue];
 
-            newValues[index] = '';
-
-            handleChange(newValues.join(''));
-        } else if (key === 'ArrowRight' && index !== slotsCount - 1) {
-            focus(index + 1);
-        } else if (key === 'ArrowLeft' && index !== 0) {
-            focus(index - 1);
+        switch (key) {
+            case 'Backspace':
+            case 'Delete':
+                newValues[index] = '';
+                handleChange(newValues.join(''));
+                break;
+            case 'ArrowRight':
+                if (index !== slotsCount - 1) {
+                    focus(index + 1);
+                }
+                break;
+            case 'ArrowLeft':
+                if (index !== 0) {
+                    focus(index - 1);
+                }
+                break;
+            case 'Home':
+                focus(0);
+                break;
+            case 'End':
+                focus(slotsCount - 1);
+                break;
         }
 
         handleInputKeyDown(event);
