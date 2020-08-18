@@ -28,10 +28,14 @@
     --form-control-error-shadow: inset 0 -1px var(--form-control-error-color);
     --form-control-error-border-bottom: 1px solid var(--form-control-error-color);
     --form-control-error-icon-display: flex;
+
+    /* font */
+    --form-control-font-family: var(--font-family);
 }
 
 .component {
     display: inline-block;
+    font-family: var(--form-control-font-family);
 }
 
 .inner {
@@ -64,6 +68,7 @@
 
 .input > * {
     padding: var(--form-control-paddings);
+    font-family: var(--form-control-font-family);
 }
 
 .label {
@@ -128,12 +133,20 @@
     padding: var(--form-control-labeled-s-paddings);
 }
 
+.s .errorIcon {
+    height: 47px;
+}
+
 .m .inner {
     min-height: 56px;
 }
 
 .m.hasLabel .input > * {
     padding: var(--form-control-labeled-m-paddings);
+}
+
+.m .errorIcon {
+    height: 55px;
 }
 
 .l .inner {
@@ -159,6 +172,10 @@
 .l .rightAddons,
 .l .errorIcon {
     padding-right: var(--gap-m);
+}
+
+.l .errorIcon {
+    height: 67px;
 }
 
 .l.hasLeftAddons .label {

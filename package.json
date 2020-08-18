@@ -56,8 +56,10 @@
     "compute-scroll-into-view": "^1.0.13",
     "downshift": "5.4.7",
     "lodash.debounce": "^4.0.8",
+    "react-merge-refs": "^1.1.0",
     "react-node-resolver": "^2.0.1",
     "react-popper": "^2.2.2",
+    "react-textarea-autosize": "^8.2.0",
     "react-transition-group": "^4.3.0",
     "react-virtual": "^2.2.0",
     "text-mask-core": "^5.1.2"
