@@ -12,6 +12,7 @@ import { OptionsList } from './components/options-list';
 import { VirtualOptionsList } from './components/virtual-options-list';
 import { Optgroup } from './components/optgroup';
 import { Option } from './components/option';
+import { joinOptions } from './utils';
 import { name, version } from '../package.json';
 
 import Icon from '@alfalab/icons-classic/BankAlfaSBlackIcon';
@@ -70,8 +71,7 @@ export const groups = [
 export const optionsWithHtml = options.map(option => {
     return {
         ...option,
-        text: (<span style={{ fontWeight: 'bold' }}>{option.text}</span>),
-        nativeText: option.text
+        content: (<span style={{ fontWeight: 'bold' }}>{option.text}</span>),
     };
 });
 
@@ -116,7 +116,7 @@ import { Select } from '@alfalab/core-components-select';
         multiple={boolean('multiple', false)}
         allowUnselect={boolean('allowUnselect', true)}
         closeOnSelect={boolean('closeOnSelect', true)}
-        Arrow={boolean('Arrow', true) ? Arrow : null}
+        Arrow={boolean('Arrow', true) ? Arrow : () => null}
         circularNavigation={boolean('circularNavigation', false)}
         nativeSelect={boolean('nativeSelect', false)}
         placeholder={text('placeholder', 'Выберите элемент')}
@@ -126,26 +126,15 @@ import { Select } from '@alfalab/core-components-select';
     />
 </Story>
 
+---
 
-## Select Props
-
-<Props of={Select} />
-
-## Field Props
-
-<Props of={Field} />
-
-## OptionsList Props
-
-<Props of={OptionsList} />
-
-## Optgroup Props
-
-<Props of={Optgroup} />
-
-## Option Props
-
-<Props of={Option} />
+<Props components={{
+    Select,
+    Field,
+    OptionsList,
+    Optgroup,
+    Option
+}} />
 
 ## Использование
 
@@ -236,7 +225,7 @@ import { Select } from '@alfalab/core-components-select';
 
 ## Настройка рендера
 
-Помимо текста, компонент позволяет использовать html в качестве поля `text` у вариантов выбора
+Помимо текста, компонент позволяет использовать html в качестве поля `content` у вариантов выбора
 
 <Preview>
     <div style={{ height: 180, width: 200 }}>
@@ -253,7 +242,38 @@ import { Select } from '@alfalab/core-components-select';
     </div>
 </Preview>
 
-Стандартные компоненты **Field** и **Option** позволяют управлять рендером с помощью `valueRenderer` и `optionRenderer`
+Стандартный компонент **Field** позволяет управлять рендером выбранных пунктов с помощью `valueRenderer`
+
+<Preview>
+    <div style={{ height: 180 }}>
+        {React.createElement(() => {
+            const OptionWithIcon = ({ text, value }) => (
+                <span style={{ display: 'flex' }} key={value}>
+                    <Icon />
+                    {text}
+                </span>
+            );
+            const renderOption = (props) => (
+                <Option {...props}>
+                    <OptionWithIcon key={props.option.value} {...props.option} />
+                </Option>
+            );
+            const renderField = (props) => (
+                <Field {...props} valueRenderer={(options) => options.map(OptionWithIcon)} />
+            );
+            return (
+                <Select
+                    options={options}
+                    label='С иконкой'
+                    Field={renderField}
+                    Option={renderOption}
+                />
+            );
+        })}
+    </div>
+</Preview>
+
+Селект позволяет заменять или кастомизировать компоненты **Field**, **Option**, **OptionsList**, **Optgroup**, **Arrow**
 
 <Preview>
     <div style={{ height: 180 }}>
@@ -261,74 +281,39 @@ import { Select } from '@alfalab/core-components-select';
             <Row align="middle">
                 <Col>
                     {React.createElement(() => {
-                        const renderFieldValue = (options) => options.map(option => option && option.text.toUpperCase());
-                        const optionRenderer = (option) => (<b>{option.text}</b>);
+                        const renderBoldOption = (props) => (<Option {...props}><b>{props.option.text}</b></Option>);
                         return (
                             <Select
                                 options={options}
-                                label='Uppercased'
-                                placeholder='bold'
-                                valueRenderer={renderFieldValue}
-                                optionRenderer={optionRenderer}
+                                label='Bold options'
+                                Option={renderBoldOption}
                                 allowUnselect={true}
                             />
                         );
                     })}
                 </Col>
                 <Col>
-                    {React.createElement(() => {
-                        const OptionWithIcon = ({ text }) => (
-                            <span style={{ display: 'flex' }}>
-                                <Icon />
-                                {text}
-                            </span>
-                        );
-                        const renderOption = (option) => <OptionWithIcon key={option.value} {...option} />;
-                        const renderFieldValue = (options) => options.map(renderOption);
-                        return (
-                            <Select
-                                options={options}
-                                label='С иконкой'
-                                valueRenderer={renderFieldValue}
-                                optionRenderer={renderOption}
-                            />
-                        );
-                    })}
+                    <Select
+                        options={options}
+                        label='With addons'
+                        allowUnselect={true}
+                        Field={(props) => <Field {...props} leftAddons={props.selected.length > 0 && <Icon/>} />}
+                    />
                 </Col>
-            </Row>
-        </Container>
-    </div>
-</Preview>
-
-Селект позволяет настраивать отображение дочерних компонентов **Field** и **Option** и др.
-
-<Preview>
-    <div style={{ height: 180 }}>
-        <Select
-            options={options}
-            label='With addons'
-            Field={(props) => <Field {...props} leftAddons={props.value.length > 0 && <Icon/>} />}
-        />
-    </div>
-</Preview>
-
-Для более сложных кейсов — **Field**, **OptionsList**, **Optgroup** и **Option** можно заменить на собственные компоненты.
-
-<Preview>
-    <div style={{ height: 180 }}>
-        <Container>
-            <Row align="middle">
                 <Col>
                     {React.createElement(() => {
-                        const CustomField = ({ value }) => (
-                            <span style={{ border: '1px solid #ff4784', display: 'block' }}>
-                                {value.length === 0 ? 'Custom field.' : ' Selected: '}
-                                {value.map(option => option.text.toUpperCase()).join(', ')}
-                            </span>
-                        );
+                        const CustomField = ({ selected }) => {
+                            return (
+                                <span style={{ border: '1px solid #ff4784', display: 'block' }}>
+                                    {selected.length === 0 ? 'Custom field.' : ' Selected: '}
+                                    {joinOptions(selected)}
+                                </span>
+                            );
+                        };
                         return (
                             <Select
                                 options={options}
+                                multiple={true}
                                 label='CustomField'
                                 Field={CustomField}
                             />

@@ -6,14 +6,15 @@ Object {
   "baseElement": <body>
     <div>
       <div
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="downshift-1-menu"
         class="component"
+        role="combobox"
       >
         <div
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-labelledby="downshift-0-label downshift-0-toggle-button"
           class="fieldWrapper"
-          id="downshift-0-toggle-button"
+          id="downshift-1-toggle-button"
           role="button"
           tabindex="0"
         >
@@ -64,25 +65,25 @@ Object {
           </div>
         </div>
         <div
-          aria-labelledby="downshift-0-label"
+          aria-labelledby="downshift-1-label"
           class="listWrapper"
-          id="downshift-0-menu"
+          id="downshift-1-menu"
           role="listbox"
-          tabindex="-1"
         />
       </div>
     </div>
   </body>,
   "container": <div>
     <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="downshift-1-menu"
       class="component"
+      role="combobox"
     >
       <div
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-labelledby="downshift-0-label downshift-0-toggle-button"
         class="fieldWrapper"
-        id="downshift-0-toggle-button"
+        id="downshift-1-toggle-button"
         role="button"
         tabindex="0"
       >
@@ -133,11 +134,10 @@ Object {
         </div>
       </div>
       <div
-        aria-labelledby="downshift-0-label"
+        aria-labelledby="downshift-1-label"
         class="listWrapper"
-        id="downshift-0-menu"
+        id="downshift-1-menu"
         role="listbox"
-        tabindex="-1"
       />
     </div>
   </div>,

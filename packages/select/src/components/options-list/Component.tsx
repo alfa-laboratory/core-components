@@ -6,12 +6,7 @@ import { Optgroup as DefaultOptgroup } from '../optgroup';
 import styles from './index.module.css';
 import { isGroup } from '../../utils';
 
-export type OptionsListProps = BaseOptionsListProps & {
-    /**
-     * Размер компонента
-     */
-    size?: 's' | 'm' | 'l';
-};
+export type OptionsListProps = BaseOptionsListProps;
 
 const createCounter = () => {
     let count = 0;
@@ -22,7 +17,7 @@ const createCounter = () => {
 export const OptionsList = ({
     size = 's',
     children,
-    options,
+    options = [],
     Optgroup = DefaultOptgroup,
 }: OptionsListProps) => {
     const counter = createCounter();
@@ -38,11 +33,11 @@ export const OptionsList = ({
         [children, counter],
     );
 
-    return (
+    return options.length > 0 ? (
         <div className={cn(styles.optionsList, styles[size])}>
             {options.map(option =>
                 isGroup(option) ? renderGroup(option) : children({ option, index: counter() }),
             )}
         </div>
-    );
+    ) : null;
 };
