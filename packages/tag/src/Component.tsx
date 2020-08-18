@@ -1,5 +1,6 @@
-import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef, useRef, useImperativeHandle } from 'react';
 import cn from 'classnames';
+import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
 
@@ -59,8 +60,23 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
         },
         ref,
     ) => {
+        const tagRef = useRef<HTMLButtonElement>(null);
+
+        // Оставляет возможность прокинуть реф извне
+        useImperativeHandle(ref, () => tagRef.current as HTMLButtonElement);
+
+        const [focused] = useFocus('keyboard', tagRef);
+
         const tagProps = {
-            className: cn(styles.component, styles[size], { [styles.checked]: checked }, className),
+            className: cn(
+                styles.component,
+                styles[size],
+                {
+                    [styles.checked]: checked,
+                    [styles.focused]: focused,
+                },
+                className,
+            ),
             'data-test-id': dataTestId,
         };
 
@@ -71,7 +87,7 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
         };
 
         return (
-            <button ref={ref} type='button' onClick={handleClick} {...tagProps} {...restProps}>
+            <button ref={tagRef} type='button' onClick={handleClick} {...tagProps} {...restProps}>
                 {leftAddons ? <span className={cn(styles.addons)}>{leftAddons}</span> : null}
                 <span>{children}</span>
                 {rightAddons ? <span className={cn(styles.addons)}>{rightAddons}</span> : null}
