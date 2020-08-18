@@ -166,7 +166,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
             codeCheckingText = 'Проверка кода',
             codeSendingText = 'Отправляем код',
             buttonErrorText = 'Понятно',
-            buttonRetryText = 'Запросить код повторно',
+            buttonRetryText = 'Попробовать заново',
             alignContent = 'left',
             onInputFinished,
             onSmsRetryClick,
@@ -351,6 +351,6 @@ Confirmation.defaultProps = {
     codeCheckingText: 'Проверка кода',
     codeSendingText: 'Отправляем код',
     buttonErrorText: 'Понятно',
-    buttonRetryText: 'Запросить код повторно',
+    buttonRetryText: 'Попробовать заново',
     alignContent: 'left',
 };
