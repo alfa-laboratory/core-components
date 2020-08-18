@@ -1,11 +1,6 @@
-import React, {
-    AnchorHTMLAttributes,
-    forwardRef,
-    ReactNode,
-    useRef,
-    useImperativeHandle,
-} from 'react';
+import React, { AnchorHTMLAttributes, forwardRef, ReactNode, useRef } from 'react';
 import cn from 'classnames';
+import mergeRefs from 'react-merge-refs';
 import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
@@ -53,9 +48,6 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     ({ view = 'primary', pseudo = false, className, dataTestId, children, ...restProps }, ref) => {
         const linkRef = useRef<HTMLAnchorElement>(null);
 
-        // Оставляет возможность прокинуть реф извне
-        useImperativeHandle(ref, () => linkRef.current as HTMLAnchorElement);
-
         const [focused] = useFocus('keyboard', linkRef);
 
         const componentProps = {
@@ -72,7 +64,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
         };
 
         return (
-            <a {...componentProps} {...restProps} ref={linkRef}>
+            <a {...componentProps} {...restProps} ref={mergeRefs([linkRef, ref])}>
                 {children}
             </a>
         );

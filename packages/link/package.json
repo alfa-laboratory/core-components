@@ -17,6 +17,7 @@
         "react-dom": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/hooks": "^0.8.0"
+        "@alfalab/hooks": "^0.8.0",
+        "react-merge-refs": "^1.1.0"
     }
 }

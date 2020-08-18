@@ -1,5 +1,6 @@
-import React, { ButtonHTMLAttributes, forwardRef, useRef, useImperativeHandle } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef, useRef } from 'react';
 import cn from 'classnames';
+import mergeRefs from 'react-merge-refs';
 import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
@@ -62,9 +63,6 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
     ) => {
         const tagRef = useRef<HTMLButtonElement>(null);
 
-        // Оставляет возможность прокинуть реф извне
-        useImperativeHandle(ref, () => tagRef.current as HTMLButtonElement);
-
         const [focused] = useFocus('keyboard', tagRef);
 
         const tagProps = {
@@ -87,7 +85,13 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
         };
 
         return (
-            <button ref={tagRef} type='button' onClick={handleClick} {...tagProps} {...restProps}>
+            <button
+                ref={mergeRefs([tagRef, ref])}
+                type='button'
+                onClick={handleClick}
+                {...tagProps}
+                {...restProps}
+            >
                 {leftAddons ? <span className={cn(styles.addons)}>{leftAddons}</span> : null}
                 <span>{children}</span>
                 {rightAddons ? <span className={cn(styles.addons)}>{rightAddons}</span> : null}
