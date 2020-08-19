@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.15.2](https://github.com/alfa-laboratory/core-components/compare/v1.15.1...v1.15.2) (2020-08-19)
+
+
+### Features
+
+* **core-components-keyboard-focusable:** add component and hook ([#215](https://github.com/alfa-laboratory/core-components/issues/215)) ([f777f72](https://github.com/alfa-laboratory/core-components/commit/f777f729e9c880d15b79f58ae9a8f1d5fa6662b1))
+* **core-components-textarea:** add Textarea component ([#221](https://github.com/alfa-laboratory/core-components/issues/221)) ([a23b731](https://github.com/alfa-laboratory/core-components/commit/a23b73192a7ad3601ea3745f8ac2fdbfaf34346b)), closes [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217)
+* set system font by default in storybook ([c40ab25](https://github.com/alfa-laboratory/core-components/commit/c40ab256af022f4688d079c62e895cb4b8a6e69f))
+
+
+### Bug Fixes
+
+* add new colors, fix typography ([e50365e](https://github.com/alfa-laboratory/core-components/commit/e50365e7e7c6d17422aff61c266b3a1b55a0ecf3))
+
 ### [1.15.1](https://github.com/alfa-laboratory/core-components/compare/v1.15.0...v1.15.1) (2020-08-14)
 
 
