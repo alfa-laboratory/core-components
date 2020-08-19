@@ -63,7 +63,7 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
     ) => {
         const tagRef = useRef<HTMLButtonElement>(null);
 
-        const [focused] = useFocus('keyboard', tagRef);
+        const [focused] = useFocus(tagRef, 'keyboard');
 
         const tagProps = {
             className: cn(

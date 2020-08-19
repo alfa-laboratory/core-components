@@ -48,7 +48,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     ({ view = 'primary', pseudo = false, className, dataTestId, children, ...restProps }, ref) => {
         const linkRef = useRef<HTMLAnchorElement>(null);
 
-        const [focused] = useFocus('keyboard', linkRef);
+        const [focused] = useFocus(linkRef, 'keyboard');
 
         const componentProps = {
             className: cn(

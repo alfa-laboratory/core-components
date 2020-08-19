@@ -7,10 +7,10 @@
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-0.1.0.tgz#5bf404de0b31ec5e15a774000edea0cc38b8b0db"
   integrity sha512-aVnY4+V2Z1g70fiHo5iA6W8z0+LpqnTjeT5NNKN87GI6Jfjm/XIaJhD3hjCRlapz2DiogHGtpRPHoF+W96NsJg==
 
-"@alfalab/hooks@^0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-0.8.0.tgz#20169871563b8f0d6eb290849bf1aaefcccee4e2"
-  integrity sha512-pdGJra1F8vb4vfwt+eT0xT3MZwspCIirURzP+o+aimhlxVJtLy3MqGB5iZllSqlmJ4fChsG2m95HiQ4B9bCZug==
+"@alfalab/hooks@^0.8.1":
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-0.8.1.tgz#773a3f844162e7e4d2958fa7bb9b9bffaa059991"
+  integrity sha512-c21x6gXeZIt26eZXB20e9iuT/KnxnGBgub/NcpNBD8pEufxbyFJ+LsX9+vpGHdx1ooB87P+SEF8Q+rc15SQ7gA==
 
 "@alfalab/icons-classic@^1.7.0":
   version "1.7.0"

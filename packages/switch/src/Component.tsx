@@ -72,7 +72,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
     ) => {
         const labelRef = useRef<HTMLLabelElement>(null);
 
-        const [focused] = useFocus('keyboard', labelRef);
+        const [focused] = useFocus(labelRef, 'keyboard');
 
         const handleChange = useCallback(
             (e: ChangeEvent<HTMLInputElement>) => {

@@ -65,7 +65,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
     ) => {
         const labelRef = useRef<HTMLLabelElement>(null);
 
-        const [focused] = useFocus('keyboard', labelRef);
+        const [focused] = useFocus(labelRef, 'keyboard');
 
         const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
             if (onChange) {
