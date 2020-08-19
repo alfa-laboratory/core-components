@@ -88,6 +88,8 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
         const [files, setFiles] = useState(value || []);
 
         const inputRef = useRef<HTMLInputElement>(null);
+        const labelRef = useRef<HTMLLabelElement>(null);
+        const buttonRef = useRef<HTMLButtonElement>(null);
 
         const handleInputChange = useCallback(
             (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -100,6 +102,22 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
                 }
             },
             [onChange],
+        );
+
+        const handleButtonClick = useCallback(
+            event => {
+                if (labelRef.current) {
+                    labelRef.current.click();
+                }
+                if (buttonRef.current) {
+                    buttonRef.current.focus();
+                }
+
+                if (buttonProps?.onClick) {
+                    buttonProps.onClick(event);
+                }
+            },
+            [buttonProps],
         );
 
         const handleClearClick = useCallback(() => {
@@ -144,25 +162,26 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
                             <Icon className={cn(styles.icon)} />
                         )
                     }
+                    onClick={handleButtonClick}
+                    ref={buttonRef}
                 >
                     <span>{buttonContent}</span>
-
-                    <label className={cn(styles.label)} htmlFor={id}>
-                        <input
-                            {...restProps}
-                            className={cn(styles.control)}
-                            accept={accept}
-                            disabled={disabled}
-                            id={id}
-                            multiple={multiple}
-                            tabIndex={-1}
-                            type='file'
-                            onChange={handleInputChange}
-                            ref={mergeRefs([ref, inputRef])}
-                            data-test-id={dataTestId}
-                        />
-                    </label>
                 </Button>
+                <label className={cn(styles.label)} htmlFor={id} ref={labelRef}>
+                    <input
+                        {...restProps}
+                        className={cn(styles.control)}
+                        accept={accept}
+                        disabled={disabled}
+                        id={id}
+                        multiple={multiple}
+                        tabIndex={-1}
+                        type='file'
+                        onChange={handleInputChange}
+                        ref={mergeRefs([ref, inputRef])}
+                        data-test-id={dataTestId}
+                    />
+                </label>
                 {files && files.length > 0 ? (
                     <div className={cn(styles.file)}>
                         <span>{statusTextContent}</span>

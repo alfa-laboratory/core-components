@@ -39,17 +39,17 @@ exports[`Attach Snapshots tests should match snapshot 1`] = `
         <span>
           Выберите файл
         </span>
-        <label
-          class="label"
-        >
-          <input
-            class="control"
-            tabindex="-1"
-            type="file"
-          />
-        </label>
       </span>
     </button>
+    <label
+      class="label"
+    >
+      <input
+        class="control"
+        tabindex="-1"
+        type="file"
+      />
+    </label>
     <div
       class="noFile"
     >
