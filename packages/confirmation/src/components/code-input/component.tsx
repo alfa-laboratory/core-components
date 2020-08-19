@@ -11,6 +11,8 @@ import cn from 'classnames';
 
 import { usePrevious } from '@alfalab/hooks';
 
+import { mergeArrays } from './utils';
+
 import styles from './index.module.css';
 
 type CodeInputProps = {
@@ -57,22 +59,24 @@ const Input = ({
     const onChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { value: targetValue } = event.target;
 
-        const newValues = [...splittedValue];
-
         if (/^\d$/.test(targetValue)) {
+            const newValues = [...splittedValue];
+
             newValues[index] = targetValue;
 
             handleChange(newValues.join(''));
-        } else if (/^\d\d$/.test(targetValue) && index !== slotsCount - 1) {
+        } else if (/^\d{1,}$/.test(targetValue) && index !== slotsCount - 1) {
             /*
-             * если пользователь хочет ввести вторую цифру в инпут,
-             * то переносим ее в следующий инпут
+             * если пользователь хочет ввести более 1 цифры в инпут,
+             * то предполагаем, что это вставка кода (например, из смс)
              */
 
-            // eslint-disable-next-line prefer-destructuring
-            newValues[index] = targetValue[0];
-            // eslint-disable-next-line prefer-destructuring
-            newValues[index + 1] = targetValue[1];
+            const newValues = mergeArrays({
+                sourceArray: splittedValue,
+                targetArray: targetValue.split(''),
+                startIndex: index,
+                resultArrayLength: slotsCount,
+            });
 
             handleChange(newValues.join(''));
         }
@@ -126,6 +130,8 @@ const Input = ({
             })}
             disabled={processing}
             value={splittedValue[index] || ''}
+            autoComplete={index === 0 ? 'one-time-code' : ''}
+            inputMode='numeric'
             onChange={onChange}
             onKeyDown={onInputKeyDown}
             ref={handleRef}
