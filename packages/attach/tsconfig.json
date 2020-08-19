@@ -1,0 +1,14 @@
+{
+    "include": ["src", "../../typings"],
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "dist",
+        "rootDirs": ["src"],
+        "baseUrl": ".",
+        "paths": {
+            "@alfalab/core-components-button": ["../button/src"],
+            "@alfalab/core-components-progress-bar": ["../progress-bar/src"]
+        }
+    },
+    "references": [{ "path": "../button" }, { "path": "../progress-bar" }]
+}
