@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-textarea",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "",
     "keywords": [],
     "license": "ISC",
@@ -18,6 +18,6 @@
         "react-textarea-autosize": "^8.2.0"
     },
     "dependencies": {
-        "@alfalab/core-components-form-control": "^1.1.1"
+        "@alfalab/core-components-form-control": "^1.2.1"
     }
 }
