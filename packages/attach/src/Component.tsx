@@ -176,7 +176,7 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
                             <ProgressBar
                                 className={cn(styles.progressBar)}
                                 value={progressBarPercent}
-                                view='negative'
+                                view='positive'
                             />
                         )}
                     </div>
