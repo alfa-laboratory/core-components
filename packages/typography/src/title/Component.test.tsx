@@ -32,7 +32,7 @@ describe('Title', () => {
             const views: Array<TitleProps['view']> = [
                 'xlarge',
                 'large',
-                'normal',
+                'medium',
                 'small',
                 'xsmall',
             ];

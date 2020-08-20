@@ -14,10 +14,10 @@ describe('Text', () => {
             expect(container.firstElementChild).toHaveClass(className);
         });
 
-        it('should set class `primary-normal` as default view', () => {
+        it('should set class `primary-medium` as default view', () => {
             const { container } = render(<Text />);
 
-            expect(container.firstElementChild).toHaveClass('primary-normal');
+            expect(container.firstElementChild).toHaveClass('primary-medium');
         });
 
         it('should set class `regular` as default weight', () => {
@@ -29,10 +29,10 @@ describe('Text', () => {
         it('should set `view` class', () => {
             const views: Array<TextProps['view']> = [
                 'primary-large',
-                'primary-normal',
+                'primary-medium',
                 'primary-small',
                 'secondary-large',
-                'secondary-normal',
+                'secondary-medium',
                 'secondary-small',
             ];
 

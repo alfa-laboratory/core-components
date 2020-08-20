@@ -43,7 +43,7 @@ import { Typography } from '@alfalab/core-components-tooltip/typography';
         const VIEW_TYPES = [
             'xlarge',
             'large',
-            'normal',
+            'medium',
             'small',
             'xsmall',
         ];
@@ -69,13 +69,13 @@ import { Typography } from '@alfalab/core-components-tooltip/typography';
     {React.createElement(() => {
         const VIEW_TYPES = [
             'primary-large',
-            'primary-normal',
+            'primary-medium',
             'primary-small',
             'secondary-large',
-            'secondary-normal',
+            'secondary-medium',
             'secondary-small',
         ];
-        const view = select('view', VIEW_TYPES, 'primary-normal');
+        const view = select('view', VIEW_TYPES, 'primary-medium');
         const color = select('color', colors, '');
         const tag = select('tag', ['div', 'p', 'span'], 'p');
         const weight = select('weight', ['regular', 'medium', 'bold'], 'regular');

@@ -14,7 +14,7 @@ export type TitleProps = {
     /**
      * Вариант начертания
      */
-    view?: 'xlarge' | 'large' | 'normal' | 'small' | 'xsmall';
+    view?: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
 
     /**
      * Цвет текста

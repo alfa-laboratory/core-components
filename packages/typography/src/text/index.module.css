@@ -13,8 +13,8 @@
     @mixin paragraph_primary_large;
 }
 
-.primary-normal {
-    @mixin paragraph_primary_normal;
+.primary-medium {
+    @mixin paragraph_primary_medium;
 }
 
 .primary-small {
@@ -25,8 +25,8 @@
     @mixin paragraph_secondary_large;
 }
 
-.secondary-normal {
-    @mixin paragraph_secondary_normal;
+.secondary-medium {
+    @mixin paragraph_secondary_medium;
 }
 
 .secondary-small {

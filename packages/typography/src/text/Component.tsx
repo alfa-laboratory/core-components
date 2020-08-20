@@ -11,10 +11,10 @@ export type TextProps = {
      */
     view?:
         | 'primary-large'
-        | 'primary-normal'
+        | 'primary-medium'
         | 'primary-small'
         | 'secondary-large'
-        | 'secondary-normal'
+        | 'secondary-medium'
         | 'secondary-small';
 
     /**
@@ -49,7 +49,7 @@ export type TextProps = {
 };
 
 export const Text: React.FC<TextProps> = ({
-    view = 'primary-normal',
+    view = 'primary-medium',
     tag: Component = 'span',
     weight = 'regular',
     color,
