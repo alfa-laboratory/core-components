@@ -37,6 +37,7 @@
 }
 
 .component {
+    position: relative;
     display: inline-flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -71,6 +72,10 @@
 
 .loader {
     position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Size */
