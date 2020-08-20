@@ -1,4 +1,5 @@
 import { Meta, Props, Title } from '@storybook/addon-docs/blocks';
+import { Status } from 'storybook/blocks/status';
 
 import { MaskedInput } from './Component';
 import { name, version } from '../package.json';
@@ -24,6 +25,10 @@ export const placeholders = {
 <Title>
     MaskedInput ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ```tsx
 import { MaskedInput } from '@alfalab/core-components-masked-input';

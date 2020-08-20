@@ -1,6 +1,8 @@
 @import '../../themes/src/default.css';
 
 :root {
+    --checkbox-hint-color: var(--color-dark-indigo);
+    --checkbox-label-color: var(--color-dark-indigo-60-flat);
     --checkbox-bg-color: var(--color-dark-indigo-05-flat);
     --checkbox-border-color: var(--color-dark-indigo-60-flat);
 
@@ -108,7 +110,7 @@
 .label {
     @mixin system_16-24_regular;
     display: block;
-    color: var(--switch-label-color);
+    color: var(--checkbox-label-color);
 }
 
 .label:not(:only-child) {
@@ -118,7 +120,7 @@
 .hint {
     @mixin system_14-18_regular;
     display: block;
-    color: var(--switch-hint-color);
+    color: var(--checkbox-hint-color);
 }
 
 .indeterminateIcon {

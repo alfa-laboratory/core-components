@@ -67,10 +67,6 @@
     &:hover:not(:disabled) {
         border: var(--tag-border-width) var(--tag-border-style) var(--tag-border-color-hover);
     }
-
-    &:disabled {
-        pointer-events: none;
-    }
 }
 
 .checked {
