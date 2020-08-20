@@ -48,7 +48,7 @@ export type TitleProps = {
 };
 
 export const Title: React.FC<TitleProps> = ({
-    tag: Component,
+    tag: Component = 'div',
     view = 'medium',
     font = 'styrene',
     weight = font === 'styrene' ? 'medium' : 'bold',
