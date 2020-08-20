@@ -14,10 +14,10 @@ describe('Title', () => {
             expect(container.firstElementChild).toHaveClass(className);
         });
 
-        it('should set class `styrene-large` as default view', () => {
+        it('should set class `styrene-medium` as default view', () => {
             const { container } = render(<Title tag='h1' />);
 
-            expect(container.firstElementChild).toHaveClass('styrene-large');
+            expect(container.firstElementChild).toHaveClass('styrene-medium');
         });
 
         it('should set class `medium` as default weight', () => {

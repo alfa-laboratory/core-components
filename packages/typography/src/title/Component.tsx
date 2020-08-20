@@ -49,7 +49,7 @@ export type TitleProps = {
 
 export const Title: React.FC<TitleProps> = ({
     tag: Component,
-    view = 'large',
+    view = 'medium',
     font = 'styrene',
     weight = font === 'styrene' ? 'medium' : 'bold',
     color,
