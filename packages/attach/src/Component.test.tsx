@@ -28,6 +28,13 @@ describe('Attach', () => {
         expect(getByTestId(dataTestId).tagName).toBe('INPUT');
     });
 
+    it('should set `noFileText`', () => {
+        const noFileText = 'empty attach';
+        const { container } = render(<Attach noFileText={noFileText} />);
+
+        expect(container.textContent).toContain(noFileText);
+    });
+
     describe('Classes tests', () => {
         it('should set `className` class', () => {
             const className = 'test-class';
