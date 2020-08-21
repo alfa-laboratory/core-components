@@ -53,18 +53,17 @@
 
 .focused .label,
 .filled .label {
-    font-size: 12px;
+    font-size: 16px;
+    transform: translateY(-16px) scale(0.75);
 }
 
 .input {
+    @mixin promo_xsmall;
+
     color: var(--color-black);
 
     /* Костылёк. TODO: обсудить с дизайнером, почему инпут не соответствует дизайн-системе, либо уменьшить каскад в form-control */
     padding-left: 0 !important;
-
-    /* Переопределение, т.к. в либе нет такого стиля */
-    font-size: 20px;
-    line-height: 24px;
 
     @media (max-width: 360px) {
         font-size: 16px;
