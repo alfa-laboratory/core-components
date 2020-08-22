@@ -1,82 +1,93 @@
-import React, { useCallback, FC } from 'react';
+import React, { FC, ChangeEvent } from 'react';
+import mergeRefs from 'react-merge-refs';
 import { Input as DefaultInput, InputProps } from '@alfalab/core-components-input';
 import { OptionsList as DefaultOptionsList } from '../options-list';
 import { Option as DefaultOption } from '../option';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 import { BaseSelect } from '../base-select';
-import { BaseSelectProps } from '../../typings';
-import { FieldProps } from '../field';
+import { SelectProps, FieldProps } from '../../typings';
 
-export type AutocompleteProps = Omit<BaseSelectProps, 'Field' | 'nativeSelect'> & {
+export type AutocompleteProps = Omit<SelectProps, 'Field' | 'nativeSelect'> & {
     /**
      * Компонент ввода значения
      */
     Input?: FC<InputProps>;
 
     /**
-     * Обработчик ввода
+     * Пропсы, которые будут прокинуты в инпут
      */
-    onInput?: (event?: React.ChangeEvent) => void;
+    inputProps?: Record<string, unknown>;
 
     /**
      * Значение поля ввода
      */
     value?: string;
+
+    /**
+     * Обработчик ввода
+     */
+    onInput?: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
+const AutocompleteField = ({
+    disabled,
+    open,
+    label,
+    placeholder,
+    Arrow,
+    size,
+    Input = DefaultInput,
+    value,
+    onInput,
+    inputProps = {},
+    innerProps,
+}: FieldProps & {
+    Input?: AutocompleteProps['Input'];
+    value?: AutocompleteProps['value'];
+    onInput?: AutocompleteProps['onInput'];
+    inputProps?: Record<string, unknown>;
+}) => (
+    <Input
+        block={true}
+        label={label}
+        placeholder={placeholder}
+        size={size}
+        value={value}
+        onChange={onInput}
+        rightAddons={Arrow}
+        focused={!disabled && open}
+        {...innerProps}
+        {...inputProps}
+        ref={mergeRefs([innerProps.ref, inputProps.ref])}
+    />
+);
+
 export const Autocomplete = ({
-    Input = props => <DefaultInput {...props} />,
+    Input = DefaultInput,
     OptionsList = DefaultOptionsList,
     Optgroup = DefaultOptgroup,
     Option = DefaultOption,
     closeOnSelect = false,
+    inputProps = {},
     onInput,
     value,
     options,
     ...restProps
-}: AutocompleteProps) => {
-    const renderField = useCallback(
-        ({
-            filled,
-            focused,
-            selected,
-            disabled,
-            Arrow,
-            open,
-            toggleMenu,
-            ...props
-        }: FieldProps) => {
-            const handleInput = (event?: React.ChangeEvent) => {
-                if (!open) toggleMenu();
-
-                if (onInput) {
-                    onInput(event);
-                }
-            };
-
-            return Input({
-                ...props,
-                block: true,
-                onChange: handleInput,
-                rightAddons: Arrow,
-                disabled,
-                value,
-                focused: !disabled && open,
-            });
-        },
-        [Input, onInput, value],
-    );
-
-    return (
-        <BaseSelect
-            autocomplete={true}
-            options={options}
-            closeOnSelect={closeOnSelect}
-            Option={Option}
-            Field={renderField}
-            Optgroup={Optgroup}
-            OptionsList={OptionsList}
-            {...restProps}
-        />
-    );
-};
+}: AutocompleteProps) => (
+    <BaseSelect
+        autocomplete={true}
+        options={options}
+        closeOnSelect={closeOnSelect}
+        Option={Option}
+        Field={AutocompleteField}
+        fieldProps={{
+            Input,
+            onInput,
+            value,
+            inputProps,
+        }}
+        Optgroup={Optgroup}
+        OptionsList={OptionsList}
+        {...restProps}
+    />
+);

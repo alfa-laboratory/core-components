@@ -1,10 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
-import { BaseOptionProps } from '../../typings';
+import { OptionProps } from '../../typings';
 
 import styles from './index.module.css';
-
-export type OptionProps = BaseOptionProps;
 
 export const Option = ({
     size = 's',

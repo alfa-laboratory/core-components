@@ -3,13 +3,13 @@
 import React, { useRef, useEffect, useMemo } from 'react';
 import cn from 'classnames';
 import { useVirtual } from 'react-virtual';
-import { BaseOptionsListProps, GroupShape, OptionShape } from '../../typings';
+import { OptionsListProps, GroupShape, OptionShape } from '../../typings';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 import { isGroup, lastIndexOf, usePrevious } from '../../utils';
 
 import styles from './index.module.css';
 
-export type VirtualOptionsList = BaseOptionsListProps & {
+export type VirtualOptionsList = OptionsListProps & {
     /**
      * Число отрисованных пунктов до\после видимого окна
      */
@@ -20,7 +20,7 @@ export const VirtualOptionsList = ({
     size = 's',
     flatOptions = [],
     highlightedIndex = -1,
-    children,
+    Option,
     open,
     options = [],
     overscan = 10,
@@ -97,7 +97,7 @@ export const VirtualOptionsList = ({
                         }}
                     >
                         {group && <Optgroup label={group.label} />}
-                        {!isGroup(option) && children({ option, index: virtualRow.index })}
+                        {!isGroup(option) && <Option option={option} index={virtualRow.index} />}
                     </div>
                 );
             })}

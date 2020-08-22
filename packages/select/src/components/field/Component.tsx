@@ -1,33 +1,48 @@
-import React, { ReactNode } from 'react';
+import React, { useState, useCallback } from 'react';
 import cn from 'classnames';
-import { FormControl, FormControlProps } from '@alfalab/core-components-form-control';
-import { BaseFieldProps, OptionShape } from '../../typings';
+import { FormControl } from '@alfalab/core-components-form-control';
+import { FieldProps } from '../../typings';
 import { joinOptions } from '../../utils';
 
 import styles from './index.module.css';
-
-export type FieldProps = BaseFieldProps &
-    Pick<FormControlProps, 'leftAddons' | 'rightAddons'> & {
-        /**
-         * Кастомный рендер выбранного пункта
-         */
-        valueRenderer?: (options: OptionShape[]) => ReactNode;
-    };
 
 export const Field = ({
     size = 'm',
     open,
     disabled,
-    filled,
-    focused,
     label,
     placeholder,
-    selected,
-    leftAddons,
+    selectedItems,
     rightAddons,
     valueRenderer = joinOptions,
     Arrow,
+    innerProps,
+    ...restProps
 }: FieldProps) => {
+    const [focused, setFocused] = useState(false);
+
+    const filled = selectedItems.length > 0;
+
+    const { onBlur, onFocus } = innerProps;
+
+    const handleFocus = useCallback(
+        event => {
+            setFocused(true);
+
+            if (onFocus) onFocus(event);
+        },
+        [onFocus],
+    );
+
+    const handleBlur = useCallback(
+        event => {
+            setFocused(false);
+
+            if (onBlur) onBlur(event);
+        },
+        [onBlur],
+    );
+
     return (
         <FormControl
             className={cn(styles.component, styles[size], {
@@ -45,13 +60,16 @@ export const Field = ({
                     {Arrow}
                 </React.Fragment>
             }
-            leftAddons={leftAddons}
+            onBlur={handleBlur}
+            onFocus={handleFocus}
+            {...innerProps}
+            {...restProps}
         >
             <div className={styles.contentWrapper}>
                 {placeholder && !filled && (
                     <span className={styles.placeholder}>{placeholder}</span>
                 )}
-                {filled && <span className={styles.value}>{valueRenderer(selected)}</span>}
+                {filled && <span className={styles.value}>{valueRenderer(selectedItems)}</span>}
             </div>
         </FormControl>
     );

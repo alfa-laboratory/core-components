@@ -1,12 +1,10 @@
 import React, { useCallback } from 'react';
 import cn from 'classnames';
-import { BaseOptionsListProps, GroupShape } from '../../typings';
+import { OptionsListProps, GroupShape } from '../../typings';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 
 import styles from './index.module.css';
 import { isGroup } from '../../utils';
-
-export type OptionsListProps = BaseOptionsListProps;
 
 const createCounter = () => {
     let count = 0;
@@ -16,7 +14,7 @@ const createCounter = () => {
 
 export const OptionsList = ({
     size = 's',
-    children,
+    Option,
     options = [],
     Optgroup = DefaultOptgroup,
 }: OptionsListProps) => {
@@ -25,18 +23,22 @@ export const OptionsList = ({
     const renderGroup = useCallback(
         (group: GroupShape) => (
             <Optgroup label={group.label} key={group.label}>
-                {group.options.map(option => {
-                    return children({ option, index: counter() });
-                })}
+                {group.options.map(option => (
+                    <Option option={option} key={option.value} index={counter()} />
+                ))}
             </Optgroup>
         ),
-        [children, counter],
+        [counter],
     );
 
     return options.length > 0 ? (
         <div className={cn(styles.optionsList, styles[size])}>
             {options.map(option =>
-                isGroup(option) ? renderGroup(option) : children({ option, index: counter() }),
+                isGroup(option) ? (
+                    renderGroup(option)
+                ) : (
+                    <Option option={option} key={option.value} index={counter()} />
+                ),
             )}
         </div>
     ) : null;

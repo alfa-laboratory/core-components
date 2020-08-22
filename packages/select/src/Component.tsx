@@ -5,9 +5,7 @@ import { OptionsList as DefaultOptionsList } from './components/options-list';
 import { Option as DefaultOption } from './components/option';
 import { Optgroup as DefaultOptgroup } from './components/optgroup';
 import { BaseSelect } from './components/base-select';
-import { BaseSelectProps } from './typings';
-
-export type SelectProps = BaseSelectProps;
+import { SelectProps } from './typings';
 
 export const Select = ({
     Arrow = DefaultArrow,
@@ -16,15 +14,13 @@ export const Select = ({
     Optgroup = DefaultOptgroup,
     Option = DefaultOption,
     ...restProps
-}: SelectProps) => {
-    return (
-        <BaseSelect
-            Option={Option}
-            Field={Field}
-            Optgroup={Optgroup}
-            OptionsList={OptionsList}
-            Arrow={Arrow}
-            {...restProps}
-        />
-    );
-};
+}: SelectProps) => (
+    <BaseSelect
+        Option={Option}
+        Field={Field}
+        Optgroup={Optgroup}
+        OptionsList={OptionsList}
+        Arrow={Arrow}
+        {...restProps}
+    />
+);
