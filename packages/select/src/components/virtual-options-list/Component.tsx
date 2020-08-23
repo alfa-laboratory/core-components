@@ -44,6 +44,8 @@ export const VirtualOptionsList = ({
 
     // Скролл к пункту, которого нет на экране
     useEffect(() => {
+        if (highlightedIndex === -1) return;
+
         if (!rowVirtualizer.virtualItems.some(option => option.index === highlightedIndex)) {
             rowVirtualizer.scrollToIndex(highlightedIndex, { align: 'end' });
         }
