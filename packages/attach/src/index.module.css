@@ -88,3 +88,7 @@
 .disabled .clear {
     display: none;
 }
+
+.focused {
+    @mixin focus-outline;
+}

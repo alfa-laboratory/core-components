@@ -10,6 +10,7 @@ import mergeRefs from 'react-merge-refs';
 import { Button, ButtonProps } from '@alfalab/core-components-button';
 import { ProgressBar } from '@alfalab/core-components-progress-bar';
 import { AttachmentSBlackIcon, AttachmentMBlackIcon } from '@alfalab/icons-classic';
+import { useFocus } from '@alfalab/hooks';
 import { pluralize } from '@alfalab/utils';
 import { truncateFilename } from './utils';
 
@@ -90,6 +91,9 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
         const inputRef = useRef<HTMLInputElement>(null);
         const labelRef = useRef<HTMLLabelElement>(null);
         const buttonRef = useRef<HTMLButtonElement>(null);
+        const clearButtonRef = useRef<HTMLButtonElement>(null);
+
+        const [focused] = useFocus('keyboard', clearButtonRef);
 
         const handleInputChange = useCallback(
             (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -187,9 +191,13 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
                         <span>{statusTextContent}</span>
                         {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                         <button
+                            aria-label='очистить'
                             type='button'
-                            className={cn(styles.clear)}
+                            className={cn(styles.clear, {
+                                [styles.focused]: focused,
+                            })}
                             onClick={handleClearClick}
+                            ref={clearButtonRef}
                         />
                         {progressBarPercent && (
                             <ProgressBar
