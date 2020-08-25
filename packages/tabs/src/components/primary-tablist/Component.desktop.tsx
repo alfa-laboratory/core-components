@@ -6,6 +6,7 @@ import { TabListProps, Gaps } from '../../typings';
 import desktopStyles from './desktop.module.css';
 import commonStyles from './index.module.css';
 
+// TODO: возможно, для объединения стилей есть способ лучше, т.к. из-за этого ломаются снэпшоты
 const styles = {
     ...commonStyles,
     ...desktopStyles,
