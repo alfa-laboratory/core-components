@@ -4,7 +4,13 @@ import { PrimaryTabList } from './Component';
 import { TabListProps, Gaps } from '../../typings';
 import { useWindowWidth } from '../../utils';
 
-import styles from './responsive.module.css';
+import responsiveStyles from './responsive.module.css';
+import commonStyles from './index.module.css';
+
+const styles = {
+    ...commonStyles,
+    ...responsiveStyles,
+};
 
 export const PrimaryTabListResponsive = ({
     gaps = 'default',
