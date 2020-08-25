@@ -2,6 +2,7 @@ import { Meta, Story, Preview, Props, Description, Title } from '@storybook/addo
 import { action } from '@storybook/addon-actions';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { Container, Row, Col } from 'storybook/blocks/grid';
+import { Status } from 'storybook/blocks/status';
 import { Design } from 'storybook/blocks/design';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
@@ -16,6 +17,10 @@ export const VIEWS = ['primary', 'secondary', 'default'];
 <Title>
     Link ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ```tsx
 import { Link } from '@alfalab/core-components-link';

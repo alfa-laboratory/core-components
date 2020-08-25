@@ -3,6 +3,7 @@ import { Meta, Props, Title } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { Container, Row, Col } from 'storybook/blocks/grid';
+import { Status } from 'storybook/blocks/status';
 import { Design } from 'storybook/blocks/design';
 
 import { AmountInput } from './Component';
@@ -20,6 +21,10 @@ import { name, version } from '../package.json';
 <Title>
     AmountInput ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ```tsx
 import { AmountInput } from '@alfalab/core-components-amount-input';

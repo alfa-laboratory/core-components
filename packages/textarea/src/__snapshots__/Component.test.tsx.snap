@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Textarea Snapshots tests should match snapshot 1`] = `
+<div>
+  <div
+    class="component s filled"
+  >
+    <div
+      class="inner"
+    >
+      <div
+        class="inputWrapper"
+      >
+        <div
+          class="input"
+        >
+          <textarea
+            autocomplete="on"
+            class="textarea s filled"
+            rows="1"
+          >
+            value
+          </textarea>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+`;

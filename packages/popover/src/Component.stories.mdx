@@ -1,5 +1,6 @@
 import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
 import { text, boolean, select, number } from '@storybook/addon-knobs';
+import { Status } from 'storybook/blocks/status';
 
 import {Button} from '../../button/src';
 import { Popover } from './Component';
@@ -11,6 +12,10 @@ import { name, version } from '../package.json';
 <Title>
     Popover ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ```tsx
 import { Popover } from '@alfalab/core-components-popover';

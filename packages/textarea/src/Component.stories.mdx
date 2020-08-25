@@ -1,0 +1,53 @@
+import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { Design } from 'storybook/blocks/design';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+
+import { Textarea } from './Component';
+import { name, version } from '../package.json';
+
+<Meta
+    title='Компоненты|Textarea'
+    component={Textarea}
+    parameters={{ 'theme-switcher': { enabled: true } }}
+/>
+
+<Title>
+    Textarea ({name}@{version})
+</Title>
+
+```tsx
+import { Textarea } from '@alfalab/core-components-textarea';
+```
+
+<Design>
+    <a href='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=49%3A0'>
+        Figma
+    </a>
+</Design>
+
+## Описание
+
+Компонент текстового поля ввода.
+
+<Story name='Песочница'>
+    <Textarea
+        autosize={boolean('autosize', true)}
+        block={boolean('block', false)}
+        size={select('size', ['s', 'm', 'l'], 's')}
+        disabled={boolean('disabled', false)}
+        placeholder={text('placeholder', '')}
+        resize={select('resize', ['none', 'vertical'], 'none')}
+        minRows={number('minRows', undefined)}
+        maxRows={number('maxRows', undefined)}
+        maxHeight={number('maxHeight', undefined)}
+        label={text('label', '')}
+        hint={text('hint', '')}
+        error={text('error', '')}
+        rightAddons={boolean('rightAddons', false) && !text('error') && <Icon />}
+        leftAddons={boolean('leftAddons', false) && <Icon />}
+        bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
+    />
+</Story>
+
+<Props of={Textarea} />

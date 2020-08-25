@@ -11,12 +11,19 @@ describe('Input', () => {
         });
     });
 
-    it('should forward ref to input', () => {
+    it('should forward ref to html input', () => {
         const inputRef = jest.fn();
         const dataTestId = 'test-id';
         const { getByTestId } = render(<Input ref={inputRef} dataTestId={dataTestId} />);
 
         expect(inputRef.mock.calls).toEqual([[getByTestId(dataTestId)]]);
+    });
+
+    it('should forward ref to input wrapper', () => {
+        const ref = (React.createRef() as unknown) as React.MutableRefObject<HTMLDivElement>;
+        render(<Input wrapperRef={ref} className='wrapperClassName' />);
+
+        expect(ref.current.classList.contains('wrapperClassName'));
     });
 
     it('should set `data-test-id` atribute to input', () => {

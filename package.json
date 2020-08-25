@@ -1,6 +1,6 @@
 {
   "name": "@alfalab/core-components",
-  "version": "1.11.0",
+  "version": "1.15.2",
   "private": true,
   "workspaces": [
     "packages/*"
@@ -19,7 +19,7 @@
     "start": "start-storybook -p 9009 -c .storybook",
     "start:quick": "RDTL=off yarn start",
     "build-storybook": "build-storybook -o build",
-    "update-colors": "node ./tools/update-colors.js",
+    "update-colors": "node ./tools/update-colors.js && yarn lint:css --fix",
     "update-typography": "node ./tools/update-typography.js",
     "lint": "yarn lint:css && yarn lint:js",
     "lint:css": "stylelint ./packages/**/*.css",
@@ -49,14 +49,19 @@
     ]
   },
   "dependencies": {
+    "@alfalab/hooks": "^0.8.0",
     "@alfalab/icons-classic": "^1.7.0",
     "@alfalab/icons-glyph": "^1.26.0",
     "@alfalab/icons-logotype": "^1.4.0",
     "@popperjs/core": "^2.3.3",
-    "alfa-ui-primitives": "^2.29.0",
-    "downshift": "5.2.7",
+    "alfa-ui-primitives": "^2.31.0",
+    "compute-scroll-into-view": "^1.0.13",
+    "downshift": "5.4.7",
+    "lodash.debounce": "^4.0.8",
+    "react-merge-refs": "^1.1.0",
     "react-node-resolver": "^2.0.1",
     "react-popper": "^2.2.2",
+    "react-textarea-autosize": "^8.2.0",
     "react-transition-group": "^4.3.0",
     "react-virtual": "^2.2.0",
     "text-mask-core": "^5.1.2"
@@ -80,6 +85,7 @@
     "@testing-library/user-event": "^12.0.2",
     "@types/classnames": "^2.2.9",
     "@types/jest": "^25.1.2",
+    "@types/lodash.debounce": "^4.0.6",
     "@types/node": "^13.5.0",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
@@ -133,6 +139,7 @@
     "shelljs": "^0.8.3",
     "standard-version": "^8.0.0",
     "string-hash": "^1.1.3",
+    "style-loader": "^1.0.0",
     "stylelint": "^12.0.0",
     "stylelint-config-standard": "^20.0.0",
     "ts-jest": "^25.4.0",

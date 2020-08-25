@@ -1,6 +1,7 @@
 import { Meta, Story, Props, Title, Preview } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { Container, Row, Col } from 'storybook/blocks/grid';
+import { Status } from 'storybook/blocks/status';
 
 import { Amount } from '.';
 import { getAllCurrencyCodes } from '@alfalab/utils';
@@ -15,6 +16,10 @@ import { name, version } from '../package.json';
 <Title>
     Amount ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ```tsx
 import { Amount } from '@alfalab/core-components-amount';

@@ -11,11 +11,6 @@ import styles from './index.module.css';
 
 export type VirtualOptionsList = BaseOptionsListProps & {
     /**
-     * Размер компонента
-     */
-    size?: 's' | 'm' | 'l';
-
-    /**
      * Число отрисованных пунктов до\после видимого окна
      */
     overscan?: number;
@@ -23,11 +18,11 @@ export type VirtualOptionsList = BaseOptionsListProps & {
 
 export const VirtualOptionsList = ({
     size = 's',
-    flatOptions,
-    highlightedIndex,
+    flatOptions = [],
+    highlightedIndex = -1,
     children,
     open,
-    options,
+    options = [],
     overscan = 10,
     Optgroup = DefaultOptgroup,
 }: VirtualOptionsList) => {
