@@ -1,7 +1,0 @@
-@import '../../themes/src/default.css';
-@import './vars.css';
-
-.block {
-    width: 100%;
-    min-width: auto;
-}
