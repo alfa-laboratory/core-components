@@ -12,6 +12,7 @@
 
     /* hover */
     --form-control-hover-bg-color: transparent;
+    --form-control-font-family: var(--font-family-styrene);
 
     position: relative;
     max-width: 343px;
