@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.15.3](https://github.com/alfa-laboratory/core-components/compare/v1.15.2...v1.15.3) (2020-08-25)
+
+
+### Features
+
+* add styrene font-face ([9dfc8da](https://github.com/alfa-laboratory/core-components/commit/9dfc8da61e322e4f7fe915bc63614270cf5f6dd4))
+
+
+### Bug Fixes
+
+* **core-components-button:** fix loader position ([#236](https://github.com/alfa-laboratory/core-components/issues/236)) ([697c44a](https://github.com/alfa-laboratory/core-components/commit/697c44a0559515f593541909fabc7145a66ee7e1))
+* **core-components-select:** fix typings, unused css ([c223dbb](https://github.com/alfa-laboratory/core-components/commit/c223dbb9245f7cc6113a76077f458c4bdcd75462))
+* **core-components-tabs:** fix css-modules build ([#239](https://github.com/alfa-laboratory/core-components/issues/239)) ([0e9d8d0](https://github.com/alfa-laboratory/core-components/commit/0e9d8d073dc000484816c8d10beddff12e0c463e))
+* fix import example ([#237](https://github.com/alfa-laboratory/core-components/issues/237)) ([0ea47b5](https://github.com/alfa-laboratory/core-components/commit/0ea47b59138690cb294314883da7298e7b5d0195))
+* fix radio & checkbox colors ([56a0a16](https://github.com/alfa-laboratory/core-components/commit/56a0a16d1259f05b51b06ba81035003eadc1f2b3))
+
+### [1.15.2](https://github.com/alfa-laboratory/core-components/compare/v1.15.1...v1.15.2) (2020-08-19)
+
+
+### Features
+
+* **core-components-keyboard-focusable:** add component and hook ([#215](https://github.com/alfa-laboratory/core-components/issues/215)) ([f777f72](https://github.com/alfa-laboratory/core-components/commit/f777f729e9c880d15b79f58ae9a8f1d5fa6662b1))
+* **core-components-textarea:** add Textarea component ([#221](https://github.com/alfa-laboratory/core-components/issues/221)) ([a23b731](https://github.com/alfa-laboratory/core-components/commit/a23b73192a7ad3601ea3745f8ac2fdbfaf34346b)), closes [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217) [#217](https://github.com/alfa-laboratory/core-components/issues/217)
+* set system font by default in storybook ([c40ab25](https://github.com/alfa-laboratory/core-components/commit/c40ab256af022f4688d079c62e895cb4b8a6e69f))
+
+
+### Bug Fixes
+
+* add new colors, fix typography ([e50365e](https://github.com/alfa-laboratory/core-components/commit/e50365e7e7c6d17422aff61c266b3a1b55a0ecf3))
+
 ### [1.15.1](https://github.com/alfa-laboratory/core-components/compare/v1.15.0...v1.15.1) (2020-08-14)
 
 

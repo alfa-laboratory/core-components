@@ -1,6 +1,6 @@
 {
   "name": "@alfalab/core-components",
-  "version": "1.15.1",
+  "version": "1.15.3",
   "private": true,
   "workspaces": [
     "packages/*"
@@ -19,7 +19,7 @@
     "start": "start-storybook -p 9009 -c .storybook",
     "start:quick": "RDTL=off yarn start",
     "build-storybook": "build-storybook -o build",
-    "update-colors": "node ./tools/update-colors.js",
+    "update-colors": "node ./tools/update-colors.js && yarn lint:css --fix",
     "update-typography": "node ./tools/update-typography.js",
     "lint": "yarn lint:css && yarn lint:js",
     "lint:css": "stylelint ./packages/**/*.css",
