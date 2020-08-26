@@ -1,4 +1,4 @@
-import { ReactNode, FC, HTMLAttributes } from 'react';
+import { ReactNode, FC, HTMLProps } from 'react';
 
 export type OptionShape = {
     /**
@@ -219,7 +219,7 @@ export type FieldProps = {
     /**
      * Внутренние свойства, которые должны быть установлены компоненту.
      */
-    innerProps: HTMLAttributes;
+    innerProps: HTMLProps<HTMLElement>;
 };
 
 export type ArrowProps = {
