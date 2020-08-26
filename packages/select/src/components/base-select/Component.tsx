@@ -164,16 +164,18 @@ export const BaseSelect = ({
             }
         },
         onKeyDown: (event: KeyboardEvent<HTMLDivElement>) => {
-            inputProps.onKeyDown(event);
+            if (!disabled) {
+                inputProps.onKeyDown(event);
 
-            if (autocomplete && !open && event.key.length === 1) {
-                // Для автокомплита - открываем меню при начале ввода
-                openMenu();
-            }
+                if (autocomplete && !open && event.key.length === 1) {
+                    // Для автокомплита - открываем меню при начале ввода
+                    openMenu();
+                }
 
-            if ([' ', 'Enter'].includes(event.key) && !autocomplete && !nativeSelect) {
-                // Открываем\закрываем меню по нажатию enter или пробела
-                if (!open || highlightedIndex === -1) toggleMenu();
+                if ([' ', 'Enter'].includes(event.key) && !autocomplete && !nativeSelect) {
+                    // Открываем\закрываем меню по нажатию enter или пробела
+                    if (!open || highlightedIndex === -1) toggleMenu();
+                }
             }
         },
         onMouseDown: (event: MouseEvent<HTMLDivElement>) => {
@@ -264,8 +266,6 @@ export const BaseSelect = ({
                     label={label && <span {...getLabelProps()}>{label}</span>}
                     Arrow={Arrow && <Arrow open={open} />}
                     innerProps={{
-                        disabled,
-                        name,
                         tabIndex: nativeSelect ? -1 : 0,
                         ref: inputProps.ref,
                         id: inputProps.id,
