@@ -4,12 +4,8 @@ import { Input as DefaultInput } from '@alfalab/core-components-input';
 import { FieldProps } from '../../typings';
 import { AutocompleteProps } from '../autocomplete/Component';
 
-export type AutocompleteFieldProps = FieldProps & {
-    Input?: AutocompleteProps['Input'];
-    value?: AutocompleteProps['value'];
-    onInput?: AutocompleteProps['onInput'];
-    inputProps?: Record<string, unknown>;
-};
+export type AutocompleteFieldProps = FieldProps &
+    Pick<AutocompleteProps, 'Input' | 'inputProps' | 'value' | 'onInput'>;
 
 export const AutocompleteField = ({
     disabled,
@@ -18,23 +14,26 @@ export const AutocompleteField = ({
     placeholder,
     Arrow,
     size,
-    Input = DefaultInput,
+    Input,
     value,
     onInput,
     inputProps = {},
-    innerProps,
-}: AutocompleteFieldProps) => (
-    <Input
-        block={true}
-        label={label}
-        placeholder={placeholder}
-        size={size}
-        value={value}
-        onChange={onInput}
-        rightAddons={Arrow}
-        focused={!disabled && open}
-        {...innerProps}
-        {...inputProps}
-        ref={mergeRefs([innerProps.ref, inputProps.ref])}
-    />
-);
+    innerProps = {},
+}: AutocompleteFieldProps) => {
+    const InputComponent = Input || DefaultInput;
+    return (
+        <InputComponent
+            block={true}
+            label={label}
+            placeholder={placeholder}
+            size={size}
+            rightAddons={Arrow}
+            focused={!disabled && open}
+            {...innerProps}
+            {...inputProps}
+            onChange={onInput}
+            value={value}
+            ref={mergeRefs([innerProps.ref || null, inputProps.ref || null])}
+        />
+    );
+};

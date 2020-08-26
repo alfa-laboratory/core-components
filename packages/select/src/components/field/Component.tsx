@@ -12,11 +12,11 @@ export const Field = ({
     disabled,
     label,
     placeholder,
-    selectedItems,
+    selectedItems = [],
     rightAddons,
     valueRenderer = joinOptions,
     Arrow,
-    innerProps,
+    innerProps = {},
     ...restProps
 }: FieldProps) => {
     const [focused, setFocused] = useState(false);

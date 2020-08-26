@@ -153,39 +153,41 @@ export const BaseSelect = ({
     const inputProps = getInputProps(getDropdownProps({ ref: fieldRef }));
     const toggleButtonProps = getToggleButtonProps();
 
+    const handleFieldWrapperFocus = () => {
+        if (autocomplete && !open) {
+            openMenu();
+        }
+    };
+
+    const handleFieldWrapperKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+        inputProps.onKeyDown(event);
+
+        if (autocomplete && !open && event.key.length === 1) {
+            // Для автокомплита - открываем меню при начале ввода
+            openMenu();
+        }
+
+        if ([' ', 'Enter'].includes(event.key) && !autocomplete && !nativeSelect) {
+            // Открываем\закрываем меню по нажатию enter или пробела
+            if (!open || highlightedIndex === -1) toggleMenu();
+        }
+    };
+
+    const handleFieldWrapperMouseDown = (event: MouseEvent<HTMLDivElement>) => {
+        if (!nativeSelect) event.preventDefault();
+
+        toggleMenu();
+        if (fieldRef.current) fieldRef.current.focus();
+    };
+
     const fieldWrapperProps = {
         className: styles.fieldWrapper,
         role: 'button',
         ref: toggleButtonProps.ref,
         onBlur: inputProps.onBlur,
-        onFocus: () => {
-            if (autocomplete && !open) {
-                openMenu();
-            }
-        },
-        onKeyDown: (event: KeyboardEvent<HTMLDivElement>) => {
-            if (!disabled) {
-                inputProps.onKeyDown(event);
-
-                if (autocomplete && !open && event.key.length === 1) {
-                    // Для автокомплита - открываем меню при начале ввода
-                    openMenu();
-                }
-
-                if ([' ', 'Enter'].includes(event.key) && !autocomplete && !nativeSelect) {
-                    // Открываем\закрываем меню по нажатию enter или пробела
-                    if (!open || highlightedIndex === -1) toggleMenu();
-                }
-            }
-        },
-        onMouseDown: (event: MouseEvent<HTMLDivElement>) => {
-            if (!nativeSelect) event.preventDefault();
-
-            if (!disabled) {
-                toggleMenu();
-                if (fieldRef.current) fieldRef.current.focus();
-            }
-        },
+        onFocus: disabled ? undefined : handleFieldWrapperFocus,
+        onKeyDown: disabled ? undefined : handleFieldWrapperKeyDown,
+        onMouseDown: disabled ? undefined : handleFieldWrapperMouseDown,
     };
 
     const handleNativeSelectChange = useCallback(
@@ -274,7 +276,6 @@ export const BaseSelect = ({
                         'aria-autocomplete': autocomplete
                             ? inputProps['aria-autocomplete']
                             : undefined,
-                        autoComplete: autocomplete ? inputProps.autoComplete : undefined,
                     }}
                     {...fieldProps}
                 />

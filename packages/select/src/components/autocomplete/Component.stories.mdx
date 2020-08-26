@@ -109,15 +109,12 @@ export const matchOption = (option, inputValue) =>
                 }
                 setValue('');
             };
-            const handleClearKeyDown = (event) => {
-                event.stopPropagation();
-            };
             const renderAddons = () => (
                 value.length > 0 ? (
                     <button
                         type='button'
-                        onKeyDown={handleClearKeyDown}
                         onClick={handleClear}
+                        onKeyDown={handleClear}
                         style={{ display: 'flex', border: 'none', background: 'none', padding: 0 }}
                     >
                         <CloseMBlackIcon />

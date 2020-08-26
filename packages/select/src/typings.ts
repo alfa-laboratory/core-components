@@ -1,4 +1,4 @@
-import { ReactNode, FC, HTMLProps } from 'react';
+import { ReactNode, FC, HTMLAttributes, RefAttributes } from 'react';
 
 export type OptionShape = {
     /**
@@ -169,7 +169,7 @@ export type FieldProps = {
     /**
      * Список выбранных пунктов
      */
-    selectedItems: OptionShape[];
+    selectedItems?: OptionShape[];
 
     /**
      * Флаг, можно ли выбрать несколько значений
@@ -219,7 +219,8 @@ export type FieldProps = {
     /**
      * Внутренние свойства, которые должны быть установлены компоненту.
      */
-    innerProps: HTMLProps<HTMLElement>;
+    innerProps?: HTMLAttributes<HTMLDivElement | HTMLInputElement> &
+        RefAttributes<HTMLDivElement | HTMLInputElement>;
 };
 
 export type ArrowProps = {

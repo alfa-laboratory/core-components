@@ -1,6 +1,6 @@
-import React, { FC, ChangeEvent } from 'react';
-import { Input as DefaultInput, InputProps } from '@alfalab/core-components-input';
+import React, { FC, ChangeEvent, RefAttributes } from 'react';
 import { SelectProps } from 'src/typings';
+import { InputProps } from '@alfalab/core-components-input';
 import { OptionsList as DefaultOptionsList } from '../options-list';
 import { Option as DefaultOption } from '../option';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
@@ -11,12 +11,12 @@ export type AutocompleteProps = Omit<SelectProps, 'Field' | 'nativeSelect'> & {
     /**
      * Компонент ввода значения
      */
-    Input?: FC<InputProps>;
+    Input?: FC<Omit<InputProps, 'value'> & { value?: string } & Record<string, unknown>>;
 
     /**
      * Пропсы, которые будут прокинуты в инпут
      */
-    inputProps?: Record<string, unknown>;
+    inputProps?: InputProps & RefAttributes<HTMLElement> & Record<string, unknown>;
 
     /**
      * Значение поля ввода
@@ -30,14 +30,14 @@ export type AutocompleteProps = Omit<SelectProps, 'Field' | 'nativeSelect'> & {
 };
 
 export const Autocomplete = ({
-    Input = DefaultInput,
     OptionsList = DefaultOptionsList,
     Optgroup = DefaultOptgroup,
     Option = DefaultOption,
-    closeOnSelect = false,
+    Input,
     inputProps = {},
     onInput,
     value,
+    closeOnSelect = false,
     options,
     ...restProps
 }: AutocompleteProps) => (
