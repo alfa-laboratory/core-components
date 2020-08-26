@@ -17,7 +17,7 @@ glob(path.join(colorsDir, 'colors*.json'), {}, (err, files) => {
                 return;
             }
             const formatedName = name.replace(UNDERSCORE_RE, DASH);
-            let value = token.a === 1 ? token.hex : token.rgba;
+            let value = token.a === 1 || token.hex.length <= 7 ? token.hex : token.rgba;
             css += `    --color-${formatedName}: ${value};\n`;
         });
 

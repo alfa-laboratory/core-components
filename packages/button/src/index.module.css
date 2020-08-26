@@ -37,6 +37,7 @@
 }
 
 .component {
+    position: relative;
     display: inline-flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -274,6 +275,6 @@
 /* Block */
 
 .block {
-    display: block;
+    display: flex;
     width: 100%;
 }
