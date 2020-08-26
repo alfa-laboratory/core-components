@@ -1,5 +1,4 @@
 import React, {
-    FC,
     ReactNode,
     Children,
     cloneElement,
@@ -8,6 +7,7 @@ import React, {
     MouseEvent,
     isValidElement,
     useState,
+    forwardRef,
 } from 'react';
 import cn from 'classnames';
 
@@ -79,32 +79,35 @@ export type RadioGroupProps = {
     value?: string;
 };
 
-export const RadioGroup: FC<RadioGroupProps> = ({
-    children,
-    className,
-    direction = 'vertical',
-    label,
-    error,
-    onChange,
-    type = 'radio',
-    dataTestId,
-    disabled = false,
-    name,
-    value,
-}) => {
-    const [stateValue, setStateValue] = useState<string>('');
+export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
+    (
+        {
+            children,
+            className,
+            direction = 'vertical',
+            label,
+            error,
+            onChange,
+            type = 'radio',
+            dataTestId,
+            disabled = false,
+            name,
+            value,
+        },
+        ref,
+    ) => {
+        const [stateValue, setStateValue] = useState<string>('');
 
-    const renderChild = (child: ReactElement) => {
-        const { className: childClassName } = child.props;
-        const checked = (value || stateValue) === child.props.value;
-        const handleChange = (event: ChangeEvent | MouseEvent) => {
-            setStateValue(child.props.value);
-            if (onChange) {
-                onChange(event, { name, value: child.props.value });
-            }
-        };
+        const renderRadio = (child: ReactElement) => {
+            const { className: childClassName } = child.props;
+            const checked = (value || stateValue) === child.props.value;
+            const handleChange = (event: ChangeEvent) => {
+                setStateValue(child.props.value);
+                if (onChange) {
+                    onChange(event, { name, value: child.props.value });
+                }
+            };
 
-        if (type === 'radio') {
             return cloneElement(child, {
                 onChange: handleChange,
                 disabled,
@@ -113,59 +116,77 @@ export const RadioGroup: FC<RadioGroupProps> = ({
                 name,
                 className: cn(childClassName, styles.radio),
             });
-        }
+        };
 
-        const clone = cloneElement(child, {
-            onClick: handleChange,
-            disabled,
-            ...child.props,
-            checked,
-            name,
-        });
+        const renderTag = (child: ReactElement) => {
+            const checked = (value || stateValue) === child.props.value;
+            const handleChange = (event: ChangeEvent | MouseEvent) => {
+                setStateValue(child.props.value);
+                if (onChange) {
+                    onChange(event, { name, value: child.props.value });
+                }
+            };
+
+            const clone = cloneElement(child, {
+                onClick: handleChange,
+                disabled,
+                ...child.props,
+                checked,
+                name,
+            });
+
+            return (
+                // eslint-disable-next-line jsx-a11y/label-has-associated-control
+                <label className={cn(styles.radio, styles.tagLabel)}>
+                    {clone}
+                    <input
+                        type='radio'
+                        autoComplete='off'
+                        onChange={handleChange}
+                        disabled={disabled || child.props.disabled}
+                        name={name}
+                        checked={checked}
+                        className={styles.hiddenInput}
+                    />
+                </label>
+            );
+        };
 
         return (
-            // eslint-disable-next-line jsx-a11y/label-has-associated-control
-            <label className={cn(styles.radio, styles.tagLabel)}>
-                {clone}
-                <input
-                    type='radio'
-                    autoComplete='off'
-                    onChange={handleChange}
-                    disabled={disabled || child.props.disabled}
-                    name={name}
-                    checked={checked}
-                    className={styles.hiddenInput}
-                />
-            </label>
+            <div
+                className={cn(
+                    styles.component,
+                    styles[type],
+                    styles[direction],
+                    { [styles.error]: error },
+                    className,
+                )}
+                data-test-id={dataTestId}
+                ref={ref}
+            >
+                {label ? <span className={styles.label}>{label}</span> : null}
+
+                {children ? (
+                    <div className={cn(styles.radioList)}>
+                        {Children.map(children, child => {
+                            if (isValidElement(child)) {
+                                return type === 'radio' ? renderRadio(child) : renderTag(child);
+                            }
+
+                            return null;
+                        })}
+                    </div>
+                ) : null}
+
+                {error && <span className={styles.errorMessage}>{error}</span>}
+            </div>
         );
-    };
+    },
+);
 
-    return (
-        <div
-            className={cn(
-                styles.component,
-                styles[type],
-                styles[direction],
-                { [styles.error]: error },
-                className,
-            )}
-            data-test-id={dataTestId}
-        >
-            {label ? <span className={styles.label}>{label}</span> : null}
-
-            {children ? (
-                <div className={cn(styles.radioList)}>
-                    {Children.map(children, child =>
-                        isValidElement(child) ? renderChild(child) : null,
-                    )}
-                </div>
-            ) : null}
-
-            {error && <span className={styles.errorMessage}>{error}</span>}
-        </div>
-    );
-};
-
+/**
+ * Для отображения в сторибуке
+ */
 RadioGroup.defaultProps = {
     direction: 'vertical',
     type: 'radio',
