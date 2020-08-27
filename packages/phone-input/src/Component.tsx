@@ -38,7 +38,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
             /*
              * код ниже нужен для фикса следующих багов библиотеки text-mask:
              * 1) так как код страны указан в маске жестко как "+7",
-             * то при удалении цифры перед ним каретку устанавливается перед кодом страны
+             * то при удалении цифры перед ним каретка устанавливается перед кодом страны
              * 2) в номере телефона есть пробелы и дефисы,
              * при редактировании цифр рядом с этими символами каретка перескакивает через них,
              * а не остается на том же месте, на котором была до редактирования
@@ -47,15 +47,16 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                 ? deleteFormatting(previousConformedValue)
                 : '';
             const currentValueWithoutFormatting = deleteFormatting(conformedValue) || '';
+
             if (
-                (previousConformedValue &&
+                previousConformedValue &&
+                (([3, 6, 11].includes(currentCaretPosition) &&
                     Math.abs(
                         previousValueWithoutFormatting.length -
                             currentValueWithoutFormatting.length,
-                    ) === 1 &&
-                    [3, 6, 11].includes(currentCaretPosition)) ||
-                ([7, 10, 13].includes(currentCaretPosition) &&
-                    previousConformedValue.length > currentCaretPosition)
+                    ) === 1) ||
+                    ([7, 10, 13].includes(currentCaretPosition) &&
+                        previousConformedValue.length > currentCaretPosition))
             ) {
                 const caret = currentCaretPosition;
                 window.requestAnimationFrame(() => {
