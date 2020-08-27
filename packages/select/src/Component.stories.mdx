@@ -166,9 +166,9 @@ import { Select } from '@alfalab/core-components-select';
 <Preview>
     <div style={{ height: 180, width: 300 }}>
         {React.createElement(() => {
-            const [selected, setSelected] = React.useState([options[8], options[9]]);
-            const handleChange = (payload) => {
-                setSelected(payload.selected);
+            const [selected, setSelected] = React.useState([options[8].value, options[9].value]);
+            const handleChange = ({ selected }) => {
+                setSelected(selected);
             };
             return (
                 <Select
@@ -366,7 +366,7 @@ const groups = [{
                                 Math.round(Math.random() * 10),
                             );
                             return {
-                                value: index,
+                                value: index.toString(),
                                 text: `${index}. ${variableSizeText}`,
                             };
                         });

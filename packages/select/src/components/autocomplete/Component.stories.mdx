@@ -57,12 +57,8 @@ export const matchOption = (option, inputValue) =>
             const handleInput = event => {
                 setValue(event.target.value);
             };
-            const handleChange = (payload) => {
-                if (boolean('multiple')) {
-                    setValue(payload.selected.map(option => option.text).join(', '));
-                } else {
-                    setValue(payload.selected ? payload.selected.text : '');
-                }
+            const handleChange = ({ selectedOptions }) => {
+                setValue(selectedOptions.map(option => option.text).join(', '));
             };
             const filteredOptions = options.filter(option => matchOption(option, value));
             return (
@@ -99,8 +95,8 @@ export const matchOption = (option, inputValue) =>
             const handleInput = event => {
                 setValue(event.target.value);
             };
-            const handleChange = (payload) => {
-                setValue(payload.selected ? payload.selected.text : '');
+            const handleChange = ({ selectedOptions }) => {
+                setValue(selectedOptions.map(option => option.text).join(', '));
             };
             const handleClear = (event) => {
                 event.stopPropagation();
@@ -153,12 +149,11 @@ export const matchOption = (option, inputValue) =>
             const handleInput = event => {
                 setValue(event.target.value);
             };
-            const handleChange = (payload) => {
+            const handleChange = ({ selectedOptions }) => {
                 setValue('');
-                if (payload.selected) {
-                    if (!selected.includes(payload.selected.text)) {
-                        setSelected(selected.concat([payload.selected.text]));
-                    }
+                const selectedText = selectedOptions.length ? selectedOptions[0].text : '';
+                if (selectedText && !selected.includes(selectedText)) {
+                    setSelected(selected.concat([selectedText]));
                 }
             };
             const renderTags = () => selected.length > 0 ?
@@ -202,8 +197,8 @@ export const matchOption = (option, inputValue) =>
                 if (!dirty) setDirty(true);
                 setValue(event.target.value);
             };
-            const handleChange = (payload) => {
-                setValue(payload.selected ? payload.selected.text : '');
+            const handleChange = ({ selectedOptions }) => {
+                setValue(selectedOptions.length ? selectedOptions[0].text : '');
             };
             const filteredOptions = options.filter(option => matchOption(option, value));
             return (
@@ -270,10 +265,8 @@ export const matchOption = (option, inputValue) =>
             const handleInput = (event) => {
                 setValue(event.target.value);
             };
-            const handleChange = ({ selected }) => {
-                if (!Array.isArray(selected)) {
-                    setValue(selected ? selected.text : '');
-                }
+            const handleChange = ({ selectedOptions }) => {
+                setValue(selectedOptions.length ? selectedOptions[0].text : '');
             };
             const filteredOptions = cards.filter(option => matchOption(option, value));
             return (
@@ -304,18 +297,20 @@ export const matchOption = (option, inputValue) =>
             const handleInput = event => {
                 setValue(event.target.value);
             };
-            const handleChange = (payload) => {
-                const value = payload.selected.length
-                    ? payload.selected.map(option => option.text).join(', ') + ', '
+            const handleChange = ({ selectedOptions }) => {
+                const value = selectedOptions.length
+                    ? selectedOptions.map(option => option.text).join(', ') + ', '
                     : '';
                 setValue(value);
             };
             const inputValues = value.split(',').map(v => v.trim()).filter(v => v);
-            const selected = options.filter(option => inputValues.includes(option.text.trim()));
+            const selectedOptions = options
+                .filter(option => inputValues.includes(option.text.trim()));
+            const selected = selectedOptions.map(option => option.value);
             const filteredOptions = inputValues.length === selected.length ?
                 options :
                 options.filter(option => {
-                    return selected.includes(option) || matchOption(option, inputValues[inputValues.length - 1])
+                    return selectedOptions.includes(option) || matchOption(option, inputValues[inputValues.length - 1])
                 });
             return (
                 <Autocomplete

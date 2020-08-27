@@ -57,18 +57,11 @@ export const BaseSelect = ({
         itemToString,
         onSelectedItemsChange: changes => {
             if (onChange) {
-                const { selectedItems } = changes;
-
-                let value;
-                if (selectedItems) {
-                    value = selectedItems.map(item => item.value);
-                    // eslint-disable-next-line prefer-destructuring
-                    if (!multiple) value = value[0];
-                }
+                const { selectedItems = [] } = changes;
 
                 onChange({
-                    selected: multiple ? selectedItems : (selectedItems || [])[0],
-                    value,
+                    selectedOptions: selectedItems,
+                    selected: selectedItems.map(item => item.value),
                     name,
                 });
             }
@@ -76,7 +69,9 @@ export const BaseSelect = ({
     };
 
     if (selected) {
-        useMultipleSelectionProps.selectedItems = Array.isArray(selected) ? selected : [selected];
+        useMultipleSelectionProps.selectedItems = flatOptions.filter(option =>
+            selected.includes(option.value),
+        );
     }
 
     const {
