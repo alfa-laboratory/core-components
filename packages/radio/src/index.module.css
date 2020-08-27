@@ -1,8 +1,8 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --radio-hint-color: var(--color-dark-indigo);
-    --radio-label-color: var(--color-dark-indigo-60-flat);
+    --radio-hint-color: var(--color-dark-indigo-60-flat);
+    --radio-label-color: var(--color-dark-indigo);
     --radio-bg-color: var(--color-dark-indigo-05-flat);
     --radio-border-color: var(--color-dark-indigo-60-flat);
 
