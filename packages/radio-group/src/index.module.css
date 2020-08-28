@@ -1,0 +1,71 @@
+@import '../../themes/src/default.css';
+
+.component {
+    display: flex;
+    flex-direction: column;
+}
+
+.error {
+    padding-left: var(--gap-m);
+    border-left: 1px solid var(--color-red-brand-85-flat);
+}
+
+.radioList {
+    display: flex;
+}
+
+.vertical .radioList {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.vertical .radio {
+    margin-bottom: var(--gap-m);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.horizontal .radioList {
+    flex-wrap: wrap;
+    margin-right: var(--gap-xl-neg);
+    margin-bottom: var(--gap-xs-neg);
+}
+
+.tag.horizontal .radioList {
+    margin-right: var(--gap-xs-neg);
+}
+
+.horizontal .radio {
+    margin-right: var(--gap-xl);
+    margin-bottom: var(--gap-xs);
+}
+
+.horizontal .tagLabel {
+    margin-right: var(--gap-xs);
+}
+
+.label {
+    @mixin system_14-18_regular;
+    margin-bottom: var(--gap-m);
+    color: var(--color-dark-indigo-60-flat);
+}
+
+.errorMessage {
+    @mixin system_14-18_regular;
+    margin-top: var(--gap-m);
+    color: var(--color-red-brand-85-flat);
+}
+
+.hiddenInput {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.tagLabel {
+    position: relative;
+}
