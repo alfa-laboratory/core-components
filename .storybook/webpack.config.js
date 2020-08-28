@@ -2,6 +2,9 @@ const path = require('path');
 const componentsResolver = require('./utils/componentsResolver');
 const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
 /**
  * Добавляет генерацию интерфейсов в зависимости от флага RDTL.
  * @param mode
@@ -26,7 +29,7 @@ const getBabelRules = ({ mode, withRDTL }) => {
                             },
                         ],
                         '@babel/preset-env',
-                    ]
+                    ],
                 },
             },
         ],
@@ -67,6 +70,20 @@ module.exports = ({ config }) => ({
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
 
+    plugins: [
+        ...config.plugins,
+        new MiniCssExtractPlugin(),
+        new OptimizeCSSAssetsPlugin({
+            cssProcessor: require('cssnano'),
+            cssProcessorOptions: {
+                map: {
+                    inline: false,
+                    annotation: true,
+                },
+            },
+        }),
+    ],
+
     module: {
         rules: [
             {
@@ -81,9 +98,7 @@ module.exports = ({ config }) => ({
                         // may or may not need this line depending on your app's setup
                         options: {
                             plugins: ['@babel/plugin-transform-react-jsx'],
-                            presets: [
-                                '@babel/preset-env',
-                            ]
+                            presets: ['@babel/preset-env'],
                         },
                     },
                     {
@@ -110,19 +125,20 @@ module.exports = ({ config }) => ({
                     {
                         loader: 'babel-loader',
                         options: {
-                            presets: [
-                                '@babel/preset-env',
-                            ]
+                            presets: ['@babel/preset-env'],
                         },
                     },
                 ],
-                exclude: [/node_modules\/core-js/]
+                exclude: [/node_modules\/core-js/],
             },
             {
                 test: /\.css$/,
                 use: [
                     {
-                        loader: 'style-loader',
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            hmr: true,
+                        },
                     },
                     {
                         loader: 'css-loader',
