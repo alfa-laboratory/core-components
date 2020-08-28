@@ -49,7 +49,7 @@
     ]
   },
   "dependencies": {
-    "@alfalab/hooks": "^0.8.0",
+    "@alfalab/hooks": "^0.8.1",
     "@alfalab/icons-classic": "^1.7.0",
     "@alfalab/utils": "^0.3.0",
     "@popperjs/core": "^2.3.3",

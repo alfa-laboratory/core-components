@@ -1,5 +1,14 @@
-import React, { InputHTMLAttributes, useCallback, ChangeEvent, ReactNode } from 'react';
+import React, {
+    InputHTMLAttributes,
+    useCallback,
+    ChangeEvent,
+    ReactNode,
+    useRef,
+    forwardRef,
+} from 'react';
 import cn from 'classnames';
+import mergeRefs from 'react-merge-refs';
+import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
 
@@ -44,56 +53,67 @@ export type SwitchProps = Omit<
     dataTestId?: string;
 };
 
-export const Switch = ({
-    reversed = false,
-    checked = false,
-    disabled,
-    label,
-    hint,
-    name,
-    value,
-    className,
-    onChange,
-    dataTestId,
-    ...restProps
-}: SwitchProps) => {
-    const handleChange = useCallback(
-        (e: ChangeEvent<HTMLInputElement>) => {
-            if (onChange) {
-                onChange(e, { checked: e.target.checked, name });
-            }
+export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
+    (
+        {
+            reversed = false,
+            checked = false,
+            disabled,
+            label,
+            hint,
+            name,
+            value,
+            className,
+            onChange,
+            dataTestId,
+            ...restProps
         },
-        [onChange, name],
-    );
+        ref,
+    ) => {
+        const labelRef = useRef<HTMLLabelElement>(null);
 
-    return (
-        // eslint-disable-next-line jsx-a11y/label-has-associated-control
-        <label
-            className={cn(styles.component, className, {
-                [styles.disabled]: disabled,
-                [styles.checked]: checked,
-                [styles.reversed]: reversed,
-            })}
-        >
-            <input
-                type='checkbox'
-                onChange={handleChange}
-                disabled={disabled}
-                checked={checked}
-                name={name}
-                value={value}
-                data-test-id={dataTestId}
-                {...restProps}
-            />
+        const [focused] = useFocus(labelRef, 'keyboard');
 
-            <span className={styles.switch} />
+        const handleChange = useCallback(
+            (e: ChangeEvent<HTMLInputElement>) => {
+                if (onChange) {
+                    onChange(e, { checked: e.target.checked, name });
+                }
+            },
+            [onChange, name],
+        );
 
-            {(label || hint) && (
-                <span className={styles.content}>
-                    {label && <span className={styles.label}>{label}</span>}
-                    {hint && <span className={styles.hint}>{hint}</span>}
-                </span>
-            )}
-        </label>
-    );
-};
+        return (
+            // eslint-disable-next-line jsx-a11y/label-has-associated-control
+            <label
+                className={cn(styles.component, className, {
+                    [styles.disabled]: disabled,
+                    [styles.checked]: checked,
+                    [styles.reversed]: reversed,
+                    [styles.focused]: focused,
+                })}
+                ref={mergeRefs([labelRef, ref])}
+            >
+                <input
+                    type='checkbox'
+                    onChange={handleChange}
+                    disabled={disabled}
+                    checked={checked}
+                    name={name}
+                    value={value}
+                    data-test-id={dataTestId}
+                    {...restProps}
+                />
+
+                <span className={styles.switch} />
+
+                {(label || hint) && (
+                    <span className={styles.content}>
+                        {label && <span className={styles.label}>{label}</span>}
+                        {hint && <span className={styles.hint}>{hint}</span>}
+                    </span>
+                )}
+            </label>
+        );
+    },
+);
