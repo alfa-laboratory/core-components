@@ -71,7 +71,7 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
             size = 's',
             accept,
             buttonContent = 'Выберите файл',
-            buttonProps,
+            buttonProps = {},
             className,
             disabled,
             dataTestId,
@@ -114,7 +114,7 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
                     buttonRef.current.focus();
                 }
 
-                if (buttonProps?.onClick) {
+                if (buttonProps.onClick) {
                     buttonProps.onClick(event);
                 }
             },

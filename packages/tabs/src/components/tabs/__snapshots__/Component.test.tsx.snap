@@ -23,7 +23,7 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
         </button>
         <button
           aria-selected="true"
-          class="undefined"
+          class=""
           role="tab"
           tabindex="0"
           type="button"
@@ -193,7 +193,7 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
           </button>
           <button
             aria-selected="true"
-            class="undefined"
+            class=""
             role="tab"
             tabindex="0"
             type="button"
@@ -365,7 +365,7 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
         </button>
         <button
           aria-selected="true"
-          class="undefined"
+          class=""
           role="tab"
           tabindex="0"
           type="button"
