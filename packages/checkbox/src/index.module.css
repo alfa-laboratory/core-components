@@ -1,8 +1,8 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --checkbox-hint-color: var(--color-dark-indigo);
-    --checkbox-label-color: var(--color-dark-indigo-60-flat);
+    --checkbox-hint-color: var(--color-dark-indigo-60-flat);
+    --checkbox-label-color: var(--color-dark-indigo);
     --checkbox-bg-color: var(--color-dark-indigo-05-flat);
     --checkbox-border-color: var(--color-dark-indigo-60-flat);
 
