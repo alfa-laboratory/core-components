@@ -52,7 +52,7 @@ import { Typography } from '@alfalab/core-components-tooltip/typography';
         const font = select('font', ['styrene', 'system'], 'styrene');
         return VIEW_TYPES.map(view => (
             <Typography.Title view={view} color={color} weight={weight} font={font} key={view}>
-                view='{view}'
+                заголовок view='{view}'
             </Typography.Title>
         ))
     })}
@@ -77,27 +77,16 @@ import { Typography } from '@alfalab/core-components-tooltip/typography';
             'component',
             'caps',
         ];
-        const view = select('view', VIEW_TYPES, 'primary-medium');
         const color = select('color', colors, '');
         const tag = select('tag', ['div', 'p', 'span'], 'p');
         const weight = select('weight', ['regular', 'medium', 'bold'], 'regular');
         const className = text('className', '');
-        return (
-            <div>
-                <Typography.Text view={view} color={color} tag={tag} weight={weight} className={className}>
-                    Космологи́ческая сингуля́рность — состояния Вселенной в определённый момент времени в прошлом,
-                    когда плотность энергии (материи) и кривизна пространства-времени были очень велики — порядка
-                    планковских значений. Это состояние, вместе с последующим этапом эволюции Вселенной,
-                    пока плотность энергии (материи) оставалась высокой, называют также Большим взрывом.
-                    Космологическая сингулярность является одним из примеров гравитационных сингулярностей,
-                    предсказываемых общей теорией относительности (ОТО) и некоторыми другими теориями гравитации.
-                </Typography.Text>
-                <Typography.Text view={view} color={color} tag={tag} weight={weight} className={className}>
-                    Проблема существования космологической сингулярности является одной из наиболее серьёзных
-                    проблем физической космологии. Дело в том, что никакие наши сведения о том, что произошло
-                    после Большого взрыва, не могут дать нам никакой информации о том, что происходило до этого.
-                </Typography.Text>
-            </div>
-        );
+        return VIEW_TYPES.map(view => (
+            <Typography.Text view={view} color={color} tag={tag} weight={weight} className={className} key={view}>
+                {view}. Космологи́ческая сингуля́рность — состояния Вселенной в определённый момент времени в прошлом,
+                когда плотность энергии (материи) и кривизна пространства-времени были очень велики — порядка
+                планковских значений.
+            </Typography.Text>
+        ));
     })}
 </Story>
