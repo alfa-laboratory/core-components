@@ -15,7 +15,9 @@ export type TextProps = {
         | 'primary-small'
         | 'secondary-large'
         | 'secondary-medium'
-        | 'secondary-small';
+        | 'secondary-small'
+        | 'component'
+        | 'caps';
 
     /**
      * Цвет текста

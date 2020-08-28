@@ -34,6 +34,8 @@ describe('Text', () => {
                 'secondary-large',
                 'secondary-medium',
                 'secondary-small',
+                'component',
+                'caps',
             ];
 
             views.forEach(view => {

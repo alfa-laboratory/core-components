@@ -33,6 +33,14 @@
     @mixin paragraph_secondary_small;
 }
 
+.component {
+    @mixin paragraph_component;
+}
+
+.caps {
+    @mixin paragraph_caps;
+}
+
 .bold {
     font-weight: bold;
 }
