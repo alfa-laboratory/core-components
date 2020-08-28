@@ -160,11 +160,11 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         const handleTextareaChange = useCallback(
             (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-                setFilled(!!event.target.value);
-
                 if (onChange) {
                     onChange(event);
                 }
+
+                setFilled(!!event.target.value);
             },
             [onChange],
         );
