@@ -136,11 +136,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
         const handleInputChange = useCallback(
             (e: React.ChangeEvent<HTMLInputElement>) => {
-                setFilled(e.target.value !== '');
-
                 if (onChange) {
                     onChange(e, { value: e.target.value });
                 }
+
+                setFilled(e.target.value !== '');
             },
             [onChange],
         );
