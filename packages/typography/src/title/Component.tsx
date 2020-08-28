@@ -9,12 +9,12 @@ export type TitleProps = {
     /**
      * HTML тег
      */
-    tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
+    tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
 
     /**
      * Вариант начертания
      */
-    view?: 'xlarge' | 'large' | 'normal' | 'small' | 'xsmall';
+    view?: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
 
     /**
      * Цвет текста
@@ -48,8 +48,8 @@ export type TitleProps = {
 };
 
 export const Title: React.FC<TitleProps> = ({
-    tag: Component = 'h2',
-    view = 'large',
+    tag: Component = 'div',
+    view = 'medium',
     font = 'styrene',
     weight = font === 'styrene' ? 'medium' : 'bold',
     color,
