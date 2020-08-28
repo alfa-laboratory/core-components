@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import cn from 'classnames';
 import { useTabs } from '../../useTabs';
 import { ScrollableContainer } from '../scrollable-container';
@@ -13,21 +13,20 @@ export const PrimaryTabList = ({
     onChange,
     dataTestId,
 }: TabListProps & Styles) => {
+    const lineRef = useRef<HTMLDivElement>(null);
+
     const { selectedTab, focusedTab, getTabListItemProps } = useTabs({
         titles,
         selectedId,
         onChange,
     });
-    const [lineStyles, setLineStyles] = useState<{ width?: number; transform?: string }>();
 
     useEffect(() => {
-        if (selectedTab) {
-            setLineStyles({
-                width: selectedTab.offsetWidth,
-                transform: `translateX(${selectedTab.offsetLeft}px)`,
-            });
+        if (selectedTab && lineRef.current) {
+            lineRef.current.style.width = `${selectedTab.offsetWidth}px`;
+            lineRef.current.style.transform = `translateX(${selectedTab.offsetLeft}px)`;
         }
-    }, [selectedTab]);
+    });
 
     const renderContent = () => (
         <React.Fragment>
@@ -46,7 +45,7 @@ export const PrimaryTabList = ({
                 </button>
             ))}
 
-            <div className={styles.line} style={lineStyles} />
+            <div className={styles.line} ref={lineRef} />
         </React.Fragment>
     );
 
