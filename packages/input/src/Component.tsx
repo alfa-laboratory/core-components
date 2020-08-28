@@ -1,10 +1,18 @@
-import React, { useState, InputHTMLAttributes, useCallback } from 'react';
+import React, { useState, InputHTMLAttributes, useCallback, ChangeEvent } from 'react';
 import cn from 'classnames';
 import { FormControl } from '@alfalab/core-components-form-control';
 
 import styles from './index.module.css';
 
-export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type'> & {
+export type InputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'size' | 'type' | 'value' | 'onChange'
+> & {
+    /**
+     * Значение поля ввода
+     */
+    value?: string;
+
     /**
      * Растягивает компонент на ширину контейнера
      */
@@ -66,6 +74,11 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 't
     inputClassName?: string;
 
     /**
+     * Обработчик поля ввода
+     */
+    onChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: string }) => void;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -124,7 +137,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         const handleInputChange = useCallback(
             (e: React.ChangeEvent<HTMLInputElement>) => {
                 if (onChange) {
-                    onChange(e);
+                    onChange(e, { value: e.target.value });
                 }
 
                 setFilled(e.target.value !== '');
