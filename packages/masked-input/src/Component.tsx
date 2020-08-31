@@ -1,6 +1,10 @@
-import React, { useEffect, useRef, useCallback, useImperativeHandle, ChangeEvent } from 'react';
+import React, { useEffect, useRef, useCallback, ChangeEvent, useState } from 'react';
+import cn from 'classnames';
+import mergeRefs from 'react-merge-refs';
 import { createTextMaskInputElement, TextMaskConfig, TextMaskInputElement } from 'text-mask-core';
 import { Input, InputProps } from '@alfalab/core-components-input';
+
+import styles from './index.module.css';
 
 export type MaskedInputProps = InputProps & {
     /**
@@ -19,19 +23,31 @@ export type MaskedInputProps = InputProps & {
 export const PLACEHOLDER_CHAR = '\u2000';
 
 export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
-    ({ mask, value, onBeforeDisplay, onChange, ...restProps }, ref) => {
+    ({ mask, value, defaultValue, className, onBeforeDisplay, onChange, ...restProps }, ref) => {
         const inputRef = useRef<HTMLInputElement>(null);
         const textMask = useRef<TextMaskInputElement | null>(null);
 
-        // Оставляет возможность прокинуть реф извне
-        useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
+        const [inputValue, setInputValue] = useState(value || defaultValue || '');
+        const [textHidden, setTextHidden] = useState(true);
+
+        const update = useCallback((newValue = '') => {
+            if (textMask.current && inputRef.current) {
+                textMask.current.update(newValue);
+                setInputValue(inputRef.current.value);
+            }
+        }, []);
 
         const handleInputChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
-                if (textMask.current) textMask.current.update();
-                if (onChange) onChange(event, { value: event.target.value });
+                update(event.target.value);
+
+                if (onChange) {
+                    onChange(event, {
+                        value: event.target.value,
+                    });
+                }
             },
-            [onChange, textMask],
+            [onChange, update],
         );
 
         useEffect(() => {
@@ -52,11 +68,21 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
         }, [onBeforeDisplay, mask]);
 
         useEffect(() => {
-            if (textMask.current) {
-                textMask.current.update(value);
-            }
-        }, [textMask, value]);
+            update(value || defaultValue);
+        }, [value, update, defaultValue]);
 
-        return <Input {...restProps} value={value} onChange={handleInputChange} ref={inputRef} />;
+        useEffect(() => {
+            setTextHidden(false);
+        }, []);
+
+        return (
+            <Input
+                {...restProps}
+                className={cn(className, { [styles.textHidden]: textHidden })}
+                value={inputValue}
+                onChange={handleInputChange}
+                ref={mergeRefs([ref, inputRef])}
+            />
+        );
     },
 );

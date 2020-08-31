@@ -51,10 +51,57 @@ describe('Input', () => {
             expect(getByTestId(dataTestId)).toHaveClass(className);
         });
 
-        it('should set `filled` class', () => {
-            const { container } = render(<Input value='some value' readOnly={true} />);
+        describe('when component is controlled', () => {
+            it('should set `filled` class when value passed', () => {
+                const { container } = render(<Input value='some value' />);
 
-            expect(container.firstElementChild).toHaveClass('filled');
+                expect(container.firstElementChild).toHaveClass('filled');
+            });
+
+            it('should not set `filled` class if the value is empty', () => {
+                const { container } = render(<Input value='' />);
+
+                expect(container.firstElementChild).not.toHaveClass('filled');
+            });
+
+            it('should unset `filled` class if the value becomes empty', () => {
+                const { container, rerender } = render(<Input value='some value' />);
+
+                rerender(<Input value='' />);
+
+                expect(container.firstElementChild).not.toHaveClass('filled');
+            });
+        });
+
+        describe('when component is uncontrolled', () => {
+            it('should set `filled` class when defaultValue passed', () => {
+                const { container } = render(<Input defaultValue='some value' />);
+
+                expect(container.firstElementChild).toHaveClass('filled');
+            });
+
+            it('should not set `filled` class if the value is empty', () => {
+                const { container } = render(<Input />);
+
+                expect(container.firstElementChild).not.toHaveClass('filled');
+            });
+
+            it('should unset `filled` class if value becomes empty', async () => {
+                const dataTestId = 'test-id';
+                const { getByTestId } = render(
+                    <Input defaultValue='some value' dataTestId={dataTestId} />,
+                );
+
+                const input = getByTestId(dataTestId) as HTMLInputElement;
+
+                input.setSelectionRange(0, input.value.length);
+                await userEvent.type(input, '{backspace}');
+
+                input.blur();
+
+                expect(input.value).toBe('');
+                expect(input).not.toHaveClass('filled');
+            });
         });
 
         it('should set `hasLabel` class', () => {

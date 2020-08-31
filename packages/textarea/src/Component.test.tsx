@@ -46,10 +46,57 @@ describe('Textarea', () => {
             expect(getByTestId(dataTestId)).toHaveClass(className);
         });
 
-        it('should set `filled` class', () => {
-            const { container } = render(<Textarea value='some value' readOnly={true} />);
+        describe('when component is controlled', () => {
+            it('should set `filled` class when value passed', () => {
+                const { container } = render(<Textarea value='some value' />);
 
-            expect(container.firstElementChild).toHaveClass('filled');
+                expect(container.firstElementChild).toHaveClass('filled');
+            });
+
+            it('should not set `filled` class if the value is empty', () => {
+                const { container } = render(<Textarea value='' />);
+
+                expect(container.firstElementChild).not.toHaveClass('filled');
+            });
+
+            it('should unset `filled` class if the value becomes empty', () => {
+                const { container, rerender } = render(<Textarea value='some value' />);
+
+                rerender(<Textarea value='' />);
+
+                expect(container.firstElementChild).not.toHaveClass('filled');
+            });
+        });
+
+        describe('when component is uncontrolled', () => {
+            it('should set `filled` class when defaultValue passed', () => {
+                const { container } = render(<Textarea defaultValue='some value' />);
+
+                expect(container.firstElementChild).toHaveClass('filled');
+            });
+
+            it('should not set `filled` class if the value is empty', () => {
+                const { container } = render(<Textarea />);
+
+                expect(container.firstElementChild).not.toHaveClass('filled');
+            });
+
+            it('should unset `filled` class if value becomes empty', async () => {
+                const dataTestId = 'test-id';
+                const { getByTestId } = render(
+                    <Textarea defaultValue='some value' dataTestId={dataTestId} />,
+                );
+
+                const textarea = getByTestId(dataTestId) as HTMLInputElement;
+
+                textarea.setSelectionRange(0, textarea.value.length);
+                await userEvent.type(textarea, '{backspace}');
+
+                textarea.blur();
+
+                expect(textarea.value).toBe('');
+                expect(textarea).not.toHaveClass('filled');
+            });
         });
 
         it('should set `hasLabel` class', () => {
