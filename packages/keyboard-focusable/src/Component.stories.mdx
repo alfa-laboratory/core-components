@@ -77,7 +77,7 @@ import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
 
 ```tsx
 const ref = useRef<HTMLButtonElement>(null);
-const { focused } = useFocus('keyboard', ref);
+const { focused } = useFocus(ref, 'keyboard');
 
 return (
     <button ref={ref} className={cn({ [styles.focused]: focused })}>focus me</button>

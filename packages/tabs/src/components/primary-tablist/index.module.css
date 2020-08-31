@@ -18,7 +18,6 @@
 .container {
     position: relative;
     display: flex;
-    overflow: hidden;
 }
 
 .title {
@@ -45,9 +44,8 @@
     outline: none;
 }
 
-.title:focus .titleWrapper {
-    /* TODO: проработать стиль для фокуса с клавиатуры */
-    color: var(--focus-color);
+.focused {
+    @mixin focus-outline;
 }
 
 .selected {

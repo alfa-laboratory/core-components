@@ -11,11 +11,13 @@ export type TextProps = {
      */
     view?:
         | 'primary-large'
-        | 'primary-normal'
+        | 'primary-medium'
         | 'primary-small'
         | 'secondary-large'
-        | 'secondary-normal'
-        | 'secondary-small';
+        | 'secondary-medium'
+        | 'secondary-small'
+        | 'component'
+        | 'caps';
 
     /**
      * Цвет текста
@@ -49,7 +51,7 @@ export type TextProps = {
 };
 
 export const Text: React.FC<TextProps> = ({
-    view = 'primary-normal',
+    view = 'primary-medium',
     tag: Component = 'span',
     weight = 'regular',
     color,

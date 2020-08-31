@@ -24,11 +24,16 @@
     font-family: var(--font-family);
     transition: border 0.1s ease-out;
     cursor: pointer;
+    outline: none;
 
     &:hover,
     &:active {
         border-bottom-color: rgba(0, 0, 0, 0);
     }
+}
+
+.focused {
+    @mixin focus-outline;
 }
 
 .primary {

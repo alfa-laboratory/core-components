@@ -1,11 +1,6 @@
-import React, {
-    AnchorHTMLAttributes,
-    ButtonHTMLAttributes,
-    Ref,
-    useImperativeHandle,
-    useRef,
-} from 'react';
+import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, useRef } from 'react';
 import cn from 'classnames';
+import mergeRefs from 'react-merge-refs';
 
 import { useFocus } from '@alfalab/hooks';
 import { Loader } from '@alfalab/core-components-loader';
@@ -61,7 +56,7 @@ export type ComponentProps = {
 
 type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
 type NativeButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
-type ButtonProps = Partial<AnchorButtonProps | NativeButtonProps>;
+export type ButtonProps = Partial<AnchorButtonProps | NativeButtonProps>;
 
 export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
     (
@@ -82,10 +77,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
     ) => {
         const buttonRef = useRef<HTMLElement>(null);
 
-        // Оставляет возможность прокинуть реф извне
-        useImperativeHandle(ref, () => buttonRef.current as HTMLButtonElement | HTMLAnchorElement);
-
-        const [focused] = useFocus('keyboard', buttonRef);
+        const [focused] = useFocus(buttonRef, 'keyboard');
 
         const componentProps = {
             className: cn(
@@ -118,7 +110,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                     {...componentProps}
                     {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
                     href={href}
-                    ref={buttonRef as Ref<HTMLAnchorElement>}
+                    ref={mergeRefs([buttonRef, ref])}
                 >
                     {buttonChildren}
                 </a>
@@ -135,7 +127,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                 {...componentProps}
                 {...restButtonProps}
                 disabled={disabled || loading}
-                ref={buttonRef as Ref<HTMLButtonElement>}
+                ref={mergeRefs([buttonRef, ref])}
             >
                 {buttonChildren}
             </button>
