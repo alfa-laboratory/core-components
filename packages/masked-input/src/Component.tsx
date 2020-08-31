@@ -28,6 +28,7 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
         const textMask = useRef<TextMaskInputElement | null>(null);
 
         const [inputValue, setInputValue] = useState(value || defaultValue || '');
+        // Не показываем сырое значение до применения маски
         const [textHidden, setTextHidden] = useState(true);
 
         const update = useCallback((newValue = '') => {
