@@ -111,7 +111,7 @@ import { Select } from '@alfalab/core-components-select';
         block={boolean('block', false)}
         size={select('size', ['s', 'm', 'l'], 's')}
         disabled={boolean('disabled', false)}
-        className={text('className', '')}
+        error={text('error', '')}
         options={options}
         multiple={boolean('multiple', false)}
         allowUnselect={boolean('allowUnselect', true)}
@@ -144,6 +144,8 @@ import { Select } from '@alfalab/core-components-select';
 Компонент `Select` является преднастроенной оберткой над `BaseSelect`
 
 ---
+
+### Управление закрытием
 
 По умолчанию - селект `multiple=false` закрывается после выбора, а при `multiple=true` - остается открытым.
 Изменить это поведение можно с помощью `closeOnSelect`.

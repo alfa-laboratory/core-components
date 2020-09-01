@@ -34,7 +34,7 @@ export type GroupShape = {
     options: OptionShape[];
 };
 
-export type SelectProps = {
+export type BaseSelectProps = {
     /**
      * Дополнительный класс
      */
@@ -79,6 +79,11 @@ export type SelectProps = {
      * Плейсхолдер поля
      */
     placeholder?: string;
+
+    /**
+     * Отображение ошибки
+     */
+    error?: string | boolean;
 
     /**
      * Возможность использовать селект как input-autocomplete
@@ -128,7 +133,7 @@ export type SelectProps = {
     /**
      * Пропсы, которые будут прокинуты в компонент поля
      */
-    fieldProps?: Record<string, unknown>;
+    fieldProps?: unknown;
 
     /**
      * Компонент выпадающего меню
@@ -197,9 +202,9 @@ export type FieldProps = {
     placeholder?: string;
 
     /**
-     * Атрибут name
+     * Отображение ошибки
      */
-    name?: string;
+    error?: string | boolean;
 
     /**
      * Компонент стрелки
@@ -212,15 +217,9 @@ export type FieldProps = {
     valueRenderer?: (options: OptionShape[]) => ReactNode;
 
     /**
-     * Слот справа (иконка)
-     */
-    rightAddons?: ReactNode;
-
-    /**
      * Внутренние свойства, которые должны быть установлены компоненту.
      */
-    innerProps?: HTMLAttributes<HTMLDivElement | HTMLInputElement> &
-        RefAttributes<HTMLDivElement | HTMLInputElement>;
+    innerProps?: HTMLAttributes<HTMLElement> & RefAttributes<HTMLDivElement | HTMLInputElement>;
 };
 
 export type ArrowProps = {
@@ -264,7 +263,7 @@ export type OptionsListProps = {
     /**
      * Компонент группы
      */
-    Optgroup?: SelectProps['Optgroup'];
+    Optgroup?: BaseSelectProps['Optgroup'];
 };
 
 export type OptgroupProps = {

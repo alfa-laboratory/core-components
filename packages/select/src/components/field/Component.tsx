@@ -1,10 +1,12 @@
 import React, { useState, useCallback } from 'react';
 import cn from 'classnames';
-import { FormControl } from '@alfalab/core-components-form-control';
-import { FieldProps } from '../../typings';
+import { FormControl, FormControlProps } from '@alfalab/core-components-form-control';
+import { FieldProps as BaseFieldProps } from '../../typings';
 import { joinOptions } from '../../utils';
 
 import styles from './index.module.css';
+
+export type FieldProps = BaseFieldProps & FormControlProps;
 
 export const Field = ({
     size = 'm',
@@ -14,16 +16,15 @@ export const Field = ({
     placeholder,
     selectedItems = [],
     rightAddons,
+    error,
     valueRenderer = joinOptions,
     Arrow,
     innerProps = {},
     ...restProps
 }: FieldProps) => {
     const [focused, setFocused] = useState(false);
-
-    const filled = selectedItems.length > 0;
-
     const { onBlur, onFocus } = innerProps;
+    const filled = selectedItems.length > 0;
 
     const handleFocus = useCallback(
         event => {
@@ -48,16 +49,18 @@ export const Field = ({
             className={cn(styles.component, styles[size], {
                 [styles.open]: open,
                 [styles.hasLabel]: label,
+                [styles.disabled]: disabled,
             })}
             size={size}
             focused={open || focused}
             disabled={disabled}
             filled={filled || !!placeholder}
             label={label}
+            error={Boolean(error)}
             rightAddons={
                 <React.Fragment>
                     {rightAddons}
-                    {Arrow}
+                    {!error && Arrow}
                 </React.Fragment>
             }
             onBlur={handleBlur}

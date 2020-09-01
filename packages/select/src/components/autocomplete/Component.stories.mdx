@@ -45,11 +45,6 @@ export const matchOption = (option, inputValue) =>
 
 Компонент поля для ввода с автокомплитом.
 
-
-## Описание
-
-Компонент поля для ввода с автокомплитом.
-
 <Story name='Песочница'>
     <div style={{ height: 180, width: 300 }}>
         {React.createElement(() => {
@@ -68,6 +63,7 @@ export const matchOption = (option, inputValue) =>
                     block={boolean('block', false)}
                     size={select('size', ['s', 'm', 'l'], 's')}
                     disabled={boolean('disabled', false)}
+                    error={text('error', '')}
                     allowUnselect={boolean('allowUnselect', true)}
                     closeOnSelect={boolean('closeOnSelect', false)}
                     Arrow={boolean('Arrow', true) ? Arrow : undefined}
@@ -100,6 +96,7 @@ export const matchOption = (option, inputValue) =>
             };
             const handleClear = (event) => {
                 event.stopPropagation();
+                event.preventDefault();
                 if (inputRef.current) {
                     inputRef.current.focus();
                 }
@@ -128,10 +125,10 @@ export const matchOption = (option, inputValue) =>
                     onChange={handleChange}
                     onInput={handleInput}
                     value={value}
-                    Arrow={Arrow}
+                    Arrow={value.length === 0 ? Arrow : null}
+                    ref={inputRef}
                     inputProps={{
                         rightAddons: renderAddons(),
-                        ref: inputRef,
                     }}
                 />
             );
@@ -209,9 +206,7 @@ export const matchOption = (option, inputValue) =>
                     value={value}
                     onChange={handleChange}
                     onInput={handleInput}
-                    inputProps={{
-                        error: dirty && !value
-                    }}
+                    error={dirty && !value}
                 />
             );
         })}

@@ -23,3 +23,7 @@
     text-overflow: ellipsis;
     text-align: left;
 }
+
+.disabled {
+    cursor: default;
+}
