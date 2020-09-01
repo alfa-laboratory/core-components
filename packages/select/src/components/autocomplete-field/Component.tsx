@@ -8,8 +8,6 @@ export type AutocompleteFieldProps = FieldProps &
     Pick<AutocompleteProps, 'Input' | 'inputProps' | 'value' | 'onInput'>;
 
 export const AutocompleteField = ({
-    disabled,
-    open,
     label,
     placeholder,
     Arrow,
@@ -28,7 +26,6 @@ export const AutocompleteField = ({
             placeholder={placeholder}
             size={size}
             rightAddons={Arrow}
-            focused={!disabled && open}
             {...innerProps}
             {...inputProps}
             onChange={onInput}

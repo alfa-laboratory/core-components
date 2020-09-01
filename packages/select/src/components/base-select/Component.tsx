@@ -201,8 +201,13 @@ export const BaseSelect = ({
     const WrappedOption = useCallback(
         ({ option, index, ...rest }: Pick<OptionProps, 'option' | 'index'>) => (
             <div
-                {...getItemProps({ index, item: option, disabled: option.disabled })}
-                key={option.value}
+                {...getItemProps({
+                    index,
+                    item: option,
+                    key: option.value,
+                    disabled: option.disabled,
+                    onMouseDown: e => e.preventDefault(),
+                })}
             >
                 <Option
                     {...rest}
