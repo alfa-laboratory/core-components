@@ -4,7 +4,7 @@ export type OptionShape = {
     /**
      * Значение выбранного пункта (например, для отправки на сервер)
      */
-    value: string;
+    value: string | number;
 
     /**
      * Текстовое представление пункта
@@ -101,9 +101,9 @@ export type SelectProps = {
     circularNavigation?: boolean;
 
     /**
-     * Список выбранных пунктов (controlled-селект)
+     * Список value выбранных пунктов (controlled-селект)
      */
-    selected?: OptionShape | OptionShape[];
+    selected?: Array<OptionShape['value']>;
 
     /**
      * Рендерит нативный селект вместо выпадающего меню. (на десктопе использовать только с multiple=false)
@@ -149,8 +149,8 @@ export type SelectProps = {
      * Обработчик выбора
      */
     onChange?: (payload: {
-        selected?: OptionShape | OptionShape[];
-        value?: string | number | Array<string | number>;
+        selected?: Array<OptionShape['value']>;
+        selectedOptions?: OptionShape[];
         name?: string;
     }) => void;
 
