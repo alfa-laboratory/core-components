@@ -103,6 +103,10 @@
     border-color: var(--checkbox-active-border-color);
 }
 
+.focused .box {
+    @mixin focus-outline;
+}
+
 .content {
     flex-grow: 1;
 }

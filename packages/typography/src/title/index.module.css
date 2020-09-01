@@ -13,8 +13,8 @@
     @mixin headline_large;
 }
 
-.styrene-normal {
-    @mixin headline_normal;
+.styrene-medium {
+    @mixin headline_medium;
 }
 
 .styrene-small {
@@ -33,8 +33,8 @@
     @mixin headline-system_large;
 }
 
-.system-normal {
-    @mixin headline-system_normal;
+.system-medium {
+    @mixin headline-system_medium;
 }
 
 .system-small {

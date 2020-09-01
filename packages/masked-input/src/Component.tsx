@@ -1,13 +1,8 @@
-import React, { useEffect, useRef, useCallback, useImperativeHandle } from 'react';
+import React, { useEffect, useRef, useCallback, useImperativeHandle, ChangeEvent } from 'react';
 import { createTextMaskInputElement, TextMaskConfig, TextMaskInputElement } from 'text-mask-core';
 import { Input, InputProps } from '@alfalab/core-components-input';
 
-export type MaskedInputProps = Omit<InputProps, 'value'> & {
-    /**
-     * Значение поля
-     */
-    value?: string;
-
+export type MaskedInputProps = InputProps & {
     /**
      * Маска для поля ввода
      * https://github.com/text-mask/text-mask/blob/master/componentDocumentation.md#mask-array
@@ -32,9 +27,9 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
         useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
 
         const handleInputChange = useCallback(
-            event => {
+            (event: ChangeEvent<HTMLInputElement>) => {
                 if (textMask.current) textMask.current.update();
-                if (onChange) onChange(event);
+                if (onChange) onChange(event, { value: event.target.value });
             },
             [onChange, textMask],
         );

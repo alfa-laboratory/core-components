@@ -15,7 +15,7 @@ type KeyboardFocusableProps = {
 export const KeyboardFocusable = ({ children }: KeyboardFocusableProps) => {
     const targetRef = useRef<HTMLElement | null>(null);
 
-    const [focused] = useFocus('keyboard', targetRef);
+    const [focused] = useFocus(targetRef, 'keyboard');
 
     return children(targetRef, focused);
 };

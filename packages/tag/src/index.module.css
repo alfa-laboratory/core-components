@@ -40,6 +40,10 @@
     outline: none;
 }
 
+.focused {
+    @mixin focus-outline;
+}
+
 .addons {
     display: flex;
     flex-shrink: 0;

@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, MouseEvent, KeyboardEvent } from 'react';
+import { useState, useCallback, useRef, MouseEvent, KeyboardEvent, MutableRefObject } from 'react';
 import { UseTabsProps } from './typings';
 
 export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
@@ -86,14 +86,18 @@ export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
         [focusTab],
     );
 
-    const getTabListItemProps = (index: number) => {
+    const getTabListItemProps = (index: number, outerRef?: MutableRefObject<HTMLElement>) => {
         const item = titles[index];
         const itemSelected = item.id === selectedId;
         return {
             role: 'tab',
             tabIndex: itemSelected ? 0 : -1,
             'aria-selected': itemSelected,
-            ref: (node: HTMLButtonElement) => handleItemRef(node, item, index),
+            ref: (node: HTMLButtonElement) => {
+                // eslint-disable-next-line no-param-reassign
+                if (outerRef) outerRef.current = node;
+                handleItemRef(node, item, index);
+            },
             onKeyDown: handleKeyDown,
             onClick: (event?: MouseEvent) => handleItemClick(event, item),
         };

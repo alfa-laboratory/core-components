@@ -1,0 +1,94 @@
+@import '../../themes/src/default.css';
+
+.component {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+
+    &,
+    * {
+        box-sizing: border-box;
+    }
+}
+
+.label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 2;
+    cursor: inherit;
+    width: 0;
+    height: 0;
+}
+
+.control {
+    opacity: 0;
+    cursor: inherit;
+
+    &::-webkit-file-upload-button {
+        cursor: inherit;
+    }
+}
+
+/* TODO обновить типографику на новую, когда ее зарелизят */
+.xs .file,
+.xs .noFile {
+    @mixin system_14-18_regular;
+}
+
+.s .file,
+.s .noFile {
+    @mixin system_16-20_regular;
+}
+
+.m .file,
+.m .noFile {
+    @mixin system_16-20_regular;
+}
+
+.l .file,
+.l .noFile {
+    @mixin system_18-22_regular;
+}
+
+.file,
+.noFile {
+    display: inline-block;
+    margin-left: 0.5em;
+    text-align: center;
+}
+
+.clear {
+    margin: 0 0 0 5px;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+    color: inherit;
+    font: inherit;
+    background: none;
+    border: none;
+
+    &:before {
+        content: '×';
+    }
+}
+
+.progressBar {
+    margin-top: var(--gap-2xs);
+}
+
+.disabled .noFile,
+.disabled .file,
+.disabled .icon {
+    opacity: 0.3;
+}
+
+.disabled .clear {
+    display: none;
+}
+
+.focused {
+    @mixin focus-outline;
+}

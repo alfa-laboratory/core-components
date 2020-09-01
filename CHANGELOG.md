@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.16.0](https://github.com/alfa-laboratory/core-components/compare/v1.15.3...v1.16.0) (2020-08-28)
+
+
+### Features
+
+* **core-components-attach:** add Attach component ([#235](https://github.com/alfa-laboratory/core-components/issues/235)) ([71aa41c](https://github.com/alfa-laboratory/core-components/commit/71aa41c9383c09ae227a1df84585f5f760de350e)), closes [#227](https://github.com/alfa-laboratory/core-components/issues/227) [#227](https://github.com/alfa-laboratory/core-components/issues/227) [#227](https://github.com/alfa-laboratory/core-components/issues/227)
+
+
+### Bug Fixes
+
+* build issues ([cdacf43](https://github.com/alfa-laboratory/core-components/commit/cdacf43a0b8f24a4b2b6ca97d0c008b30692c841))
+* **core-components-phone-input:** fix controlled value bug ([#248](https://github.com/alfa-laboratory/core-components/issues/248)) ([62c3cd2](https://github.com/alfa-laboratory/core-components/commit/62c3cd25ccf3657e70fb5ebafa5e0ac2e9a8c1da)), closes [#253](https://github.com/alfa-laboratory/core-components/issues/253)
+
 ### [1.15.3](https://github.com/alfa-laboratory/core-components/compare/v1.15.2...v1.15.3) (2020-08-25)
 
 
