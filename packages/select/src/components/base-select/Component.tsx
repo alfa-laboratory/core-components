@@ -41,7 +41,8 @@ export const BaseSelect = ({
 
     const getPopoverOffset = useMemo((): [number, number] => [0, popoverOffset], [popoverOffset]);
 
-    const itemToString = (option: OptionShape) => (option ? option.text || option.value : '');
+    const itemToString = (option: OptionShape) =>
+        option ? option.text || option.value.toString() : '';
 
     const flatOptions = useMemo(
         () =>

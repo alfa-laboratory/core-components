@@ -4,7 +4,7 @@ export type OptionShape = {
     /**
      * Значение выбранного пункта (например, для отправки на сервер)
      */
-    value: string;
+    value: string | number;
 
     /**
      * Текстовое представление пункта
@@ -149,7 +149,7 @@ export type SelectProps = {
      * Обработчик выбора
      */
     onChange?: (payload: {
-        selected?: string[];
+        selected?: Array<OptionShape['value']>;
         selectedOptions?: OptionShape[];
         name?: string;
     }) => void;
