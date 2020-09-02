@@ -1,4 +1,11 @@
-import React, { useState, useCallback, useEffect, useRef, TextareaHTMLAttributes } from 'react';
+import React, {
+    useState,
+    useCallback,
+    useEffect,
+    useRef,
+    TextareaHTMLAttributes,
+    ChangeEvent,
+} from 'react';
 import cn from 'classnames';
 import TextareaAutosize from 'react-textarea-autosize';
 import mergeRefs from 'react-merge-refs';
@@ -6,7 +13,20 @@ import { FormControl } from '@alfalab/core-components-form-control';
 
 import styles from './index.module.css';
 
-export type TextareaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size' | 'style'> & {
+export type TextareaProps = Omit<
+    TextareaHTMLAttributes<HTMLTextAreaElement>,
+    'size' | 'style' | 'value' | 'defaultValue' | 'onChange'
+> & {
+    /**
+     * Значение поля ввода
+     */
+    value?: string;
+
+    /**
+     * Начальное значение поля
+     */
+    defaultValue?: string;
+
     /**
      * Растягивает компонент на ширину контейнера
      */
@@ -83,6 +103,11 @@ export type TextareaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 's
     resize?: 'vertical' | 'none';
 
     /**
+     * Обработчик ввода
+     */
+    onChange?: (event: ChangeEvent<HTMLTextAreaElement>, payload: { value: string }) => void;
+
+    /**
      * Обработчик события изменения высоты компонента (работает только вместе c autosize)
      */
     onHeightChange?: (height?: number) => void;
@@ -119,13 +144,18 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             maxHeight,
             resize = 'none',
             value,
+            defaultValue,
             rows = autosize ? 1 : 3,
             ...restProps
         },
         ref,
     ) => {
+        const uncontrolled = value === undefined;
+
         const [focused, setFocused] = useState(false);
-        const [filled, setFilled] = useState(value !== undefined && value !== '');
+        const [stateValue, setStateValue] = useState(defaultValue || '');
+
+        const filled = Boolean(uncontrolled ? stateValue : value);
 
         const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -161,12 +191,14 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         const handleTextareaChange = useCallback(
             (event: React.ChangeEvent<HTMLTextAreaElement>) => {
                 if (onChange) {
-                    onChange(event);
+                    onChange(event, { value: event.target.value });
                 }
 
-                setFilled(!!event.target.value);
+                if (uncontrolled) {
+                    setStateValue(event.target.value);
+                }
             },
-            [onChange],
+            [onChange, uncontrolled],
         );
 
         const textareaProps = {
@@ -186,6 +218,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             onBlur: handleTextareaBlur,
             onFocus: handleTextareaFocus,
             onChange: handleTextareaChange,
+            defaultValue,
             value,
             rows,
             ref: mergeRefs([ref, textareaRef]),
@@ -198,7 +231,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
                 size={size}
                 block={block}
                 disabled={disabled}
-                filled={filled || focused || !!value}
+                filled={filled || focused}
                 focused={focused}
                 error={error}
                 label={label}

@@ -6,12 +6,17 @@ import styles from './index.module.css';
 
 export type InputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'size' | 'type' | 'value' | 'onChange'
+    'size' | 'type' | 'value' | 'defaultValue' | 'onChange'
 > & {
     /**
      * Значение поля ввода
      */
     value?: string;
+
+    /**
+     * Начальное значение поля
+     */
+    defaultValue?: string;
 
     /**
      * Растягивает компонент на ширину контейнера
@@ -110,13 +115,18 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             onChange,
             rightAddons,
             value,
+            defaultValue,
             wrapperRef,
             ...restProps
         },
         ref,
     ) => {
+        const uncontrolled = value === undefined;
+
         const [focused, setFocused] = useState(false);
-        const [filled, setFilled] = useState(value !== undefined && value !== '');
+        const [stateValue, setStateValue] = useState(defaultValue || '');
+
+        const filled = Boolean(uncontrolled ? stateValue : value);
 
         const handleInputFocus = useCallback(
             (e: React.FocusEvent<HTMLInputElement>) => {
@@ -146,9 +156,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     onChange(e, { value: e.target.value });
                 }
 
-                setFilled(e.target.value !== '');
+                if (uncontrolled) {
+                    setStateValue(e.target.value);
+                }
             },
-            [onChange],
+            [onChange, uncontrolled],
         );
 
         return (
@@ -159,7 +171,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 size={size}
                 block={block}
                 disabled={disabled}
-                filled={filled || focused || !!value}
+                filled={filled || focused}
                 focused={focused}
                 error={error}
                 label={label}
@@ -184,6 +196,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     ref={ref}
                     type={type}
                     value={value}
+                    defaultValue={defaultValue}
                     data-test-id={dataTestId}
                 />
             </FormControl>

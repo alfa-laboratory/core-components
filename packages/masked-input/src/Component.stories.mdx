@@ -1,4 +1,4 @@
-import { Meta, Props, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Props, Title, Preview } from '@storybook/addon-docs/blocks';
 import { Status } from 'storybook/blocks/status';
 
 import { MaskedInput } from './Component';
@@ -43,6 +43,45 @@ import { MaskedInput } from '@alfalab/core-components-masked-input';
     <br/>
     <br/>
     <MaskedInput mask={masks.card} placeholder={placeholders.card} block={true} />
+    <br/>
 </div>
 
 <Props of={MaskedInput} />
+
+### Uncontrolled-way
+
+Можно ничего не передавать в компонент и реагировать на `onChange`
+
+<div style={{ width: '240px' }}>
+    <MaskedInput
+        defaultValue="5555111122224444"
+        mask={masks.card}
+        placeholder={placeholders.card}
+        block={true}
+    />
+</div>
+
+### Controlled-way
+
+Компонент может быть использован как controlled с помощью `onChange` и `value`
+
+<Preview>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('');
+        const handleChange = React.useCallback((event) => {
+            setValue(event.target.value);
+        }, []);
+        return (
+            <div style={{ width: '240px' }}>
+                <MaskedInput
+                    value={value}
+                    onChange={handleChange}
+                    mask={masks.card}
+                    placeholder={placeholders.card}
+                    block={true}
+                />
+                <button type="button" onClick={() => setValue('5555111122224444')}>Установить неотформатированный номер</button>
+            </div>
+        );
+    })}
+</Preview>
