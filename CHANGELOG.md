@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.17.0](https://github.com/alfa-laboratory/core-components/compare/v1.16.0...v1.17.0) (2020-09-02)
+
+
+### Features
+
+* **core-components-bank-card:** add component draft ([#208](https://github.com/alfa-laboratory/core-components/issues/208)) ([93943b7](https://github.com/alfa-laboratory/core-components/commit/93943b7861d8c95ca365bc7545a87d493a793f1e))
+* **core-components-input:** add labelClassName ([8494b21](https://github.com/alfa-laboratory/core-components/commit/8494b21f3f2027a1439823c4e1237cb9add5cab9))
+* **core-components-select:** add dataTestId ([83c5dd5](https://github.com/alfa-laboratory/core-components/commit/83c5dd5cf8b551a6dcc6c319a6ae69d32113ab34))
+
+
+### Bug Fixes
+
+* **core-components-bank-card:** fix test ([77c72db](https://github.com/alfa-laboratory/core-components/commit/77c72db21f3bef02f07295015331d55da9c27621))
+* **core-components-select:** fix typings, add id ([341d79d](https://github.com/alfa-laboratory/core-components/commit/341d79dad610fce77b28cff31382e38152b02d3b))
+* **core-components-tabs:** recalc line styles on render ([#250](https://github.com/alfa-laboratory/core-components/issues/250)) ([b9fd710](https://github.com/alfa-laboratory/core-components/commit/b9fd7105c19809fc682f60fca275bd645e082c85))
+
 ## [1.16.0](https://github.com/alfa-laboratory/core-components/compare/v1.15.3...v1.16.0) (2020-08-28)
 
 
