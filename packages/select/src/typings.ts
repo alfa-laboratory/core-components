@@ -36,6 +36,11 @@ export type GroupShape = {
 
 export type BaseSelectProps = {
     /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
+
+    /**
      * Дополнительный класс
      */
     className?: string;

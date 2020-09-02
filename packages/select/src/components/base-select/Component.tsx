@@ -12,6 +12,7 @@ import { isGroup } from '../../utils';
 export const BaseSelect = forwardRef(
     (
         {
+            dataTestId,
             className,
             options,
             autocomplete = false,
@@ -265,6 +266,7 @@ export const BaseSelect = forwardRef(
                 {...getComboboxProps({
                     className: cn(styles.component, { [styles.block]: block }, className),
                 })}
+                data-test-id={dataTestId}
             >
                 <div {...fieldWrapperProps}>
                     {nativeSelect && renderNativeSelect()}
