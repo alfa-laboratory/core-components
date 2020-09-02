@@ -8,8 +8,9 @@
         "paths": {
             "@alfalab/core-components-form-control": ["../form-control/src"],
             "@alfalab/core-components-popover": ["../popover/src"],
-            "@alfalab/core-components-portal": ["../portal/src"]
+            "@alfalab/core-components-portal": ["../portal/src"],
+            "@alfalab/core-components-input": ["../input/src"]
         }
     },
-    "references": [{ "path": "../form-control" }, { "path": "../popover" }]
+    "references": [{ "path": "../form-control" }, { "path": "../popover" }, { "path": "../input" }]
 }
