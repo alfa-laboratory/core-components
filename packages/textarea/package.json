@@ -13,11 +13,11 @@
     },
     "peerDependencies": {
         "classnames": "^2.2.6",
-        "react": "^16.9.0",
-        "react-merge-refs": "^1.1.0",
-        "react-textarea-autosize": "^8.2.0"
+        "react": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/core-components-form-control": "^1.2.1"
+        "@alfalab/core-components-form-control": "^1.2.1",
+        "react-merge-refs": "^1.1.0",
+        "react-textarea-autosize": "^8.2.0"
     }
 }
