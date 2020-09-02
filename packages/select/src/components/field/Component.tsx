@@ -23,7 +23,7 @@ export const Field = ({
     ...restProps
 }: FieldProps) => {
     const [focused, setFocused] = useState(false);
-    const { onBlur, onFocus } = innerProps;
+    const { onBlur, onFocus } = restProps;
     const filled = selectedItems.length > 0;
 
     const handleFocus = useCallback(

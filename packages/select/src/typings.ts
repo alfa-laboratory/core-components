@@ -1,4 +1,4 @@
-import { ReactNode, FC, HTMLAttributes, RefAttributes } from 'react';
+import { ReactNode, FC, HTMLAttributes, RefAttributes, AriaAttributes } from 'react';
 
 export type OptionShape = {
     /**
@@ -49,6 +49,11 @@ export type BaseSelectProps = {
      * Список вариантов выбора
      */
     options: Array<OptionShape | GroupShape>;
+
+    /**
+     * Атрибут id
+     */
+    id?: string;
 
     /**
      * Атрибут name
@@ -224,7 +229,9 @@ export type FieldProps = {
     /**
      * Внутренние свойства, которые должны быть установлены компоненту.
      */
-    innerProps?: HTMLAttributes<HTMLElement> & RefAttributes<HTMLDivElement | HTMLInputElement>;
+    innerProps?: Pick<HTMLAttributes<HTMLElement>, 'tabIndex' | 'id'> &
+        RefAttributes<HTMLDivElement | HTMLInputElement> &
+        AriaAttributes;
 };
 
 export type ArrowProps = {

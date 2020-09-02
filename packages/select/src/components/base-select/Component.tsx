@@ -24,6 +24,7 @@ export const BaseSelect = forwardRef(
             nativeSelect = false,
             popoverOffset = 4,
             name,
+            id,
             selected,
             size = 's',
             error,
@@ -104,6 +105,7 @@ export const BaseSelect = forwardRef(
             toggleMenu,
             openMenu,
         } = useCombobox<OptionShape>({
+            id,
             circularNavigation,
             items: flatOptions,
             itemToString,
