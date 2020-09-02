@@ -111,7 +111,7 @@ import { Select } from '@alfalab/core-components-select';
         block={boolean('block', false)}
         size={select('size', ['s', 'm', 'l'], 's')}
         disabled={boolean('disabled', false)}
-        className={text('className', '')}
+        error={text('error', '')}
         options={options}
         multiple={boolean('multiple', false)}
         allowUnselect={boolean('allowUnselect', true)}
@@ -145,6 +145,8 @@ import { Select } from '@alfalab/core-components-select';
 
 ---
 
+### Управление закрытием
+
 По умолчанию - селект `multiple=false` закрывается после выбора, а при `multiple=true` - остается открытым.
 Изменить это поведение можно с помощью `closeOnSelect`.
 
@@ -166,9 +168,9 @@ import { Select } from '@alfalab/core-components-select';
 <Preview>
     <div style={{ height: 180, width: 300 }}>
         {React.createElement(() => {
-            const [selected, setSelected] = React.useState([options[8], options[9]]);
-            const handleChange = (event, payload) => {
-                setSelected(payload.selected);
+            const [selected, setSelected] = React.useState([options[8].value, options[9].value]);
+            const handleChange = ({ selected }) => {
+                setSelected(selected);
             };
             return (
                 <Select
@@ -258,14 +260,14 @@ import { Select } from '@alfalab/core-components-select';
                     <OptionWithIcon key={props.option.value} {...props.option} />
                 </Option>
             );
-            const renderField = (props) => (
-                <Field {...props} valueRenderer={(options) => options.map(OptionWithIcon)} />
-            );
+            const valueRenderer = (options) => options.map(OptionWithIcon);
             return (
                 <Select
                     options={options}
                     label='С иконкой'
-                    Field={renderField}
+                    fieldProps={{
+                        valueRenderer
+                    }}
                     Option={renderOption}
                 />
             );
@@ -281,13 +283,12 @@ import { Select } from '@alfalab/core-components-select';
             <Row align="middle">
                 <Col>
                     {React.createElement(() => {
-                        const renderBoldOption = (props) => (<Option {...props}><b>{props.option.text}</b></Option>);
+                        const BoldOption = (props) => (<Option {...props}><b>{props.option.text}</b></Option>);
                         return (
                             <Select
                                 options={options}
                                 label='Bold options'
-                                Option={renderBoldOption}
-                                allowUnselect={true}
+                                Option={BoldOption}
                             />
                         );
                     })}
@@ -296,29 +297,8 @@ import { Select } from '@alfalab/core-components-select';
                     <Select
                         options={options}
                         label='With addons'
-                        allowUnselect={true}
-                        Field={(props) => <Field {...props} leftAddons={props.selected.length > 0 && <Icon/>} />}
+                        Field={(props) => <Field {...props} leftAddons={props.selectedItems.length > 0 && <Icon/>} />}
                     />
-                </Col>
-                <Col>
-                    {React.createElement(() => {
-                        const CustomField = ({ selected }) => {
-                            return (
-                                <span style={{ border: '1px solid #ff4784', display: 'block' }}>
-                                    {selected.length === 0 ? 'Custom field.' : ' Selected: '}
-                                    {joinOptions(selected)}
-                                </span>
-                            );
-                        };
-                        return (
-                            <Select
-                                options={options}
-                                multiple={true}
-                                label='CustomField'
-                                Field={CustomField}
-                            />
-                        );
-                    })}
                 </Col>
             </Row>
         </Container>
@@ -358,7 +338,7 @@ const groups = [{
 
 ## Нативный селект
 
-Рендерит нативный селект вместо выпадающего меню. (на десктопе использовать только с multiple=false)
+Рендерит нативный селект вместо выпадающего меню. (стоит использовать только для мобильных устройств)
 
 <Preview>
     <Select

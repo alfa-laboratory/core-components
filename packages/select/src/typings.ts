@@ -1,10 +1,10 @@
-import { ReactNode, ChangeEvent, FC } from 'react';
+import { ReactNode, FC, HTMLAttributes, RefAttributes } from 'react';
 
 export type OptionShape = {
     /**
      * Значение выбранного пункта (например, для отправки на сервер)
      */
-    value: string;
+    value: string | number;
 
     /**
      * Текстовое представление пункта
@@ -81,6 +81,11 @@ export type BaseSelectProps = {
     placeholder?: string;
 
     /**
+     * Отображение ошибки
+     */
+    error?: string | boolean;
+
+    /**
      * Возможность использовать селект как input-autocomplete
      */
     autocomplete?: boolean;
@@ -101,9 +106,9 @@ export type BaseSelectProps = {
     circularNavigation?: boolean;
 
     /**
-     * Список выбранных пунктов (controlled-селект)
+     * Список value выбранных пунктов (controlled-селект)
      */
-    selected?: OptionShape | OptionShape[];
+    selected?: Array<OptionShape['value']>;
 
     /**
      * Рендерит нативный селект вместо выпадающего меню. (на десктопе использовать только с multiple=false)
@@ -118,47 +123,49 @@ export type BaseSelectProps = {
     /**
      * Компонент стрелки
      */
-    Arrow?: FC<BaseArrowProps>;
+    Arrow?: FC<ArrowProps>;
 
     /**
      * Компонент поля
      */
-    Field?: FC<BaseFieldProps>;
+    Field?: FC<FieldProps>;
+
+    /**
+     * Пропсы, которые будут прокинуты в компонент поля
+     */
+    fieldProps?: unknown;
 
     /**
      * Компонент выпадающего меню
      */
-    OptionsList?: FC<BaseOptionsListProps>;
+    OptionsList?: FC<OptionsListProps>;
 
     /**
      * Компонент группы
      */
-    Optgroup?: FC<BaseOptgroupProps>;
+    Optgroup?: FC<OptgroupProps>;
 
     /**
      * Компонент пункта меню
      */
-    Option?: FC<BaseOptionProps>;
+    Option?: FC<OptionProps>;
 
     /**
      * Обработчик выбора
      */
-    onChange?: (
-        event?: ChangeEvent,
-        payload?: {
-            selected?: OptionShape | OptionShape[];
-            value?: string | number | Array<string | number>;
-            name?: string;
-        },
-    ) => void;
+    onChange?: (payload: {
+        selected?: Array<OptionShape['value']>;
+        selectedOptions?: OptionShape[];
+        name?: string;
+    }) => void;
 
     /**
      * Обработчик открытия\закрытия селекта
      */
-    onOpen?: (payload?: { open?: boolean; name?: string }) => void;
+    onOpen?: (payload: { open?: boolean; name?: string }) => void;
 };
 
-export type BaseFieldProps = {
+export type FieldProps = {
     /**
      * Размер компонента
      */
@@ -167,7 +174,7 @@ export type BaseFieldProps = {
     /**
      * Список выбранных пунктов
      */
-    selected: OptionShape[];
+    selectedItems?: OptionShape[];
 
     /**
      * Флаг, можно ли выбрать несколько значений
@@ -185,16 +192,6 @@ export type BaseFieldProps = {
     disabled?: boolean;
 
     /**
-     * Флаг, есть ли выбранные пункты
-     */
-    filled?: boolean;
-
-    /**
-     * Флаг, поле находится в фокусе
-     */
-    focused?: boolean;
-
-    /**
      * Лейбл поля
      */
     label?: ReactNode;
@@ -205,19 +202,34 @@ export type BaseFieldProps = {
     placeholder?: string;
 
     /**
+     * Отображение ошибки
+     */
+    error?: string | boolean;
+
+    /**
      * Компонент стрелки
      */
-    Arrow?: BaseSelectProps['Arrow'];
+    Arrow?: ReactNode;
+
+    /**
+     * Кастомный рендер выбранного пункта
+     */
+    valueRenderer?: (options: OptionShape[]) => ReactNode;
+
+    /**
+     * Внутренние свойства, которые должны быть установлены компоненту.
+     */
+    innerProps?: HTMLAttributes<HTMLElement> & RefAttributes<HTMLDivElement | HTMLInputElement>;
 };
 
-export type BaseArrowProps = {
+export type ArrowProps = {
     /**
      * Флаг, открыто ли меню
      */
     open?: boolean;
 };
 
-export type BaseOptionsListProps = {
+export type OptionsListProps = {
     /**
      * Размер компонента
      */
@@ -226,7 +238,7 @@ export type BaseOptionsListProps = {
     /**
      * Компонент пункта меню
      */
-    children: (props: Pick<BaseOptionProps, 'option' | 'index'>) => ReactNode;
+    Option: (props: Pick<OptionProps, 'option' | 'index'>) => JSX.Element;
 
     /**
      * Список вариантов выбора
@@ -254,7 +266,7 @@ export type BaseOptionsListProps = {
     Optgroup?: BaseSelectProps['Optgroup'];
 };
 
-export type BaseOptgroupProps = {
+export type OptgroupProps = {
     /**
      * Заголовок группы
      */
@@ -266,7 +278,7 @@ export type BaseOptgroupProps = {
     children?: ReactNode;
 };
 
-export type BaseOptionProps = {
+export type OptionProps = {
     /**
      * Размер компонента
      */
