@@ -1,6 +1,7 @@
 import React, { useCallback, MouseEvent, ReactNode, useState, ChangeEvent } from 'react';
 import cn from 'classnames';
 import { MaskedInput } from '@alfalab/core-components-masked-input';
+// Дождаться иконку альфы в icons-logotype
 import { BankAlfaLColorIcon } from '@alfalab/icons-classic';
 
 import { CameraMIcon } from '@alfalab/icons-glyph';
@@ -67,14 +68,6 @@ const getBrandIcon = (value = '') => {
     }
     return null;
 };
-
-/**
- * TODO:
- * 1. Иконки фото нет в наборах
- * 2. Инпут отличается от дизайн-системы (проблематично убрать отступы по бокам)
- * 3. ховер\нажатие кнопки?
- * 4. размеры\адаптивность?
- */
 
 export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
     (
