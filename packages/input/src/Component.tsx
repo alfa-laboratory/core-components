@@ -79,7 +79,12 @@ export type InputProps = Omit<
     inputClassName?: string;
 
     /**
-     * Обработчик ввода
+     * Дополнительный класс для лейбла
+     */
+    labelClassName?: string;
+
+    /**
+     * Обработчик поля ввода
      */
     onChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: string }) => void;
 
@@ -102,6 +107,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             error,
             hint,
             inputClassName,
+            labelClassName,
             label,
             leftAddons,
             onFocus,
@@ -161,6 +167,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             <FormControl
                 ref={wrapperRef}
                 className={className}
+                labelClassName={labelClassName}
                 size={size}
                 block={block}
                 disabled={disabled}

@@ -44,3 +44,11 @@
     width: 100%;
     min-width: auto;
 }
+
+.error {
+    @mixin system_14-18_regular;
+
+    display: block;
+    margin-top: var(--gap-2xs);
+    color: var(--select-error-color);
+}

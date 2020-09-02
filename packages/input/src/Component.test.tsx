@@ -51,6 +51,13 @@ describe('Input', () => {
             expect(getByTestId(dataTestId)).toHaveClass(className);
         });
 
+        it('should set `labelClassName` class to label', () => {
+            const className = 'test-class';
+            const { container } = render(<Input labelClassName={className} />);
+
+            expect(container.getElementsByClassName(className)).toBeTruthy();
+        });
+
         describe('when component is controlled', () => {
             it('should set `filled` class when value passed', () => {
                 const { container } = render(<Input value='some value' />);
