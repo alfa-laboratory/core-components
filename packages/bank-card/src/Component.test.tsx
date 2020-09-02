@@ -19,9 +19,10 @@ describe('BankCard', () => {
     it('should forward ref to input', () => {
         const inputRef = jest.fn();
         const dataTestId = 'test-id';
-        const { getByTestId } = render(<BankCard ref={inputRef} dataTestId={dataTestId} />);
 
-        expect(inputRef.mock.calls).toEqual([[getByTestId(dataTestId)]]);
+        render(<BankCard ref={inputRef} dataTestId={dataTestId} />);
+
+        expect(inputRef.mock.calls[0][0].tagName).toBe('INPUT');
     });
 
     it('should set `data-test-id` atribute to input', () => {
