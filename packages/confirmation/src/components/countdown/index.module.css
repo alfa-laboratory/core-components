@@ -1,8 +1,7 @@
 @import '../../../../themes/src/default.css';
-@import '../../../../vars/src/colors-indigo.css';
 
 .component {
-    @mixin paragraph_primary_normal;
+    @mixin paragraph_primary_medium;
 
     display: flex;
     flex-direction: column;

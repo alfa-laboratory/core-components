@@ -1,5 +1,4 @@
 @import '../../themes/src/default.css';
-@import '../../vars/src/colors-indigo.css';
 
 :root {
     --confirmation-title-color: var(--color-light-text-primary);
@@ -32,7 +31,7 @@
 }
 
 .errorText {
-    @mixin paragraph_primary_normal;
+    @mixin paragraph_primary_medium;
 
     margin-bottom: var(--gap-2xl);
     color: var(--confirmation-text-color);
@@ -44,14 +43,14 @@
 }
 
 .phoneHintText {
-    @mixin paragraph_primary_normal;
+    @mixin paragraph_primary_medium;
 
     margin-bottom: var(--gap-2xl);
     color: var(--confirmation-text-color);
 }
 
 .phonesWrap {
-    @mixin paragraph_primary_normal;
+    @mixin paragraph_primary_medium;
 
     display: flex;
     flex-direction: column;

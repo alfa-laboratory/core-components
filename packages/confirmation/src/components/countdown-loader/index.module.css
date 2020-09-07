@@ -1,0 +1,5 @@
+@import '../../../../themes/src/default.css';
+
+.circle {
+    fill: var(--color-light-graphic-tertiary);
+}

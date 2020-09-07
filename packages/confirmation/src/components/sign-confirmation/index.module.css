@@ -1,5 +1,4 @@
 @import '../../../../themes/src/default.css';
-@import '../../../../vars/src/colors-indigo.css';
 
 .component {
     display: flex;
@@ -32,7 +31,7 @@
 }
 
 .error {
-    @mixin paragraph_primary_normal;
+    @mixin paragraph_primary_medium;
 
     margin-top: var(--gap-s);
     color: var(--confirmation-error-color);
@@ -44,7 +43,7 @@
 }
 
 .loaderText {
-    @mixin paragraph_primary_normal;
+    @mixin paragraph_primary_medium;
 
     margin-left: var(--gap-s);
     color: var(--confirmation-text-color);

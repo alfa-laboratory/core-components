@@ -1,5 +1,7 @@
 import React, { FC, useState, useRef, useCallback, useEffect } from 'react';
 
+import styles from './index.module.css';
+
 type Props = {
     duration: number;
     className: string;
@@ -54,7 +56,7 @@ export const CountdownLoader: FC<Props> = ({ duration, className }) => {
                 </mask>
             </defs>
 
-            <circle cx={RADIUS} cy={RADIUS} r={RADIUS} fill='#B6BCC3' mask='url(#cut)' />
+            <circle cx={RADIUS} cy={RADIUS} r={RADIUS} mask='url(#cut)' className={styles.circle} />
         </svg>
     );
 };
