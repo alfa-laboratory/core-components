@@ -20,7 +20,7 @@ export const CountdownLoader: FC<Props> = ({ duration, className }) => {
     const updateProgress = useCallback(() => {
         const progress = (Date.now() - start.current) / duration;
 
-        const newAngle = progress <= 1 ? progress * FULL_TURN : FULL_TURN;
+        const newAngle = progress < 1 ? progress * FULL_TURN : FULL_TURN;
 
         setAngle(newAngle);
 
@@ -45,7 +45,7 @@ export const CountdownLoader: FC<Props> = ({ duration, className }) => {
             <defs>
                 <mask id='cut'>
                     <rect width='100%' height='100%' fill='white' />
-                    <circle r='6' cx={RADIUS} cy={RADIUS} fill='black' />
+                    <circle r={RADIUS * 0.75} cx={RADIUS} cy={RADIUS} fill='black' />
                     <path
                         d={`M${RADIUS} 0 V${RADIUS} L${x} ${y} ${
                             angle <= Math.PI ? 'H0' : `H${SIZE} V${SIZE} H0`

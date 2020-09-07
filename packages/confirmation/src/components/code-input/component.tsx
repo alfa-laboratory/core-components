@@ -120,14 +120,9 @@ const Input = ({
         setRef({ node, index });
     };
 
-    // const [focused] = useFocus('keyboard', inputRef);
-
     return (
         <input
-            className={cn(styles.input, {
-                [styles.hasError]: Boolean(error),
-                // [styles.focused]: focused,
-            })}
+            className={cn(styles.input, { [styles.hasError]: Boolean(error) })}
             disabled={processing}
             value={splittedValue[index] || ''}
             autoComplete={index === 0 ? 'one-time-code' : ''}
