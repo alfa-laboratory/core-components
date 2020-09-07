@@ -4,21 +4,18 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
 <div>
   <div>
     <div
-      class="component default"
+      class=""
       role="tablist"
     >
-      <div
-        class="container"
-      >
+      <div>
         <button
           aria-selected="false"
-          class="title"
+          class=""
           role="tab"
           tabindex="-1"
           type="button"
         >
           <span
-            class="titleWrapper"
             tabindex="-1"
           >
             Таб 1
@@ -26,13 +23,12 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
         </button>
         <button
           aria-selected="true"
-          class="title selected"
+          class=""
           role="tab"
           tabindex="0"
           type="button"
         >
           <span
-            class="titleWrapper"
             tabindex="-1"
           >
             Таб 2
@@ -40,13 +36,12 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
         </button>
         <button
           aria-selected="false"
-          class="title"
+          class=""
           role="tab"
           tabindex="-1"
           type="button"
         >
           <span
-            class="titleWrapper"
             tabindex="-1"
           >
             Таб 3
@@ -54,13 +49,12 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
         </button>
         <button
           aria-selected="false"
-          class="title"
+          class=""
           role="tab"
           tabindex="-1"
           type="button"
         >
           <span
-            class="titleWrapper"
             tabindex="-1"
           >
             Таб 4
@@ -68,20 +62,18 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
         </button>
         <button
           aria-selected="false"
-          class="title"
+          class=""
           role="tab"
           tabindex="-1"
           type="button"
         >
           <span
-            class="titleWrapper"
             tabindex="-1"
           >
             Таб 5
           </span>
         </button>
         <div
-          class="line"
           style="width: 0px; transform: translateX(0px);"
         />
       </div>
@@ -101,15 +93,13 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
 <div>
   <div>
     <div
-      class="component default"
+      class=""
       role="tablist"
     >
-      <div
-        class="container"
-      >
+      <div>
         <button
           aria-selected="false"
-          class="component s title"
+          class="component s"
           role="tab"
           tabindex="-1"
           type="button"
@@ -120,7 +110,7 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
         </button>
         <button
           aria-selected="true"
-          class="component s checked title"
+          class="component s checked"
           role="tab"
           tabindex="0"
           type="button"
@@ -131,7 +121,7 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
         </button>
         <button
           aria-selected="false"
-          class="component s title"
+          class="component s"
           role="tab"
           tabindex="-1"
           type="button"
@@ -142,7 +132,7 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
         </button>
         <button
           aria-selected="false"
-          class="component s title"
+          class="component s"
           role="tab"
           tabindex="-1"
           type="button"
@@ -153,7 +143,7 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
         </button>
         <button
           aria-selected="false"
-          class="component s title"
+          class="component s"
           role="tab"
           tabindex="-1"
           type="button"
@@ -179,7 +169,7 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
 <div>
   <div>
     <div
-      class="component scrollable"
+      class="undefined"
       role="tablist"
     >
       <div
@@ -190,13 +180,12 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
         >
           <button
             aria-selected="false"
-            class="title"
+            class=""
             role="tab"
             tabindex="-1"
             type="button"
           >
             <span
-              class="titleWrapper"
               tabindex="-1"
             >
               Таб 1
@@ -204,13 +193,12 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
           </button>
           <button
             aria-selected="true"
-            class="title selected"
+            class=""
             role="tab"
             tabindex="0"
             type="button"
           >
             <span
-              class="titleWrapper"
               tabindex="-1"
             >
               Таб 2
@@ -218,13 +206,12 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
           </button>
           <button
             aria-selected="false"
-            class="title"
+            class=""
             role="tab"
             tabindex="-1"
             type="button"
           >
             <span
-              class="titleWrapper"
               tabindex="-1"
             >
               Таб 3
@@ -232,13 +219,12 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
           </button>
           <button
             aria-selected="false"
-            class="title"
+            class=""
             role="tab"
             tabindex="-1"
             type="button"
           >
             <span
-              class="titleWrapper"
               tabindex="-1"
             >
               Таб 4
@@ -246,20 +232,18 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
           </button>
           <button
             aria-selected="false"
-            class="title"
+            class=""
             role="tab"
             tabindex="-1"
             type="button"
           >
             <span
-              class="titleWrapper"
               tabindex="-1"
             >
               Таб 5
             </span>
           </button>
           <div
-            class="line"
             style="width: 0px; transform: translateX(0px);"
           />
         </div>
@@ -280,7 +264,7 @@ exports[`Tabs Snapshots tests should match snapshot 4`] = `
 <div>
   <div>
     <div
-      class="component scrollable"
+      class="undefined"
       role="tablist"
     >
       <div
@@ -291,7 +275,7 @@ exports[`Tabs Snapshots tests should match snapshot 4`] = `
         >
           <button
             aria-selected="false"
-            class="component xs title"
+            class="component xs"
             role="tab"
             tabindex="-1"
             type="button"
@@ -302,7 +286,7 @@ exports[`Tabs Snapshots tests should match snapshot 4`] = `
           </button>
           <button
             aria-selected="true"
-            class="component xs checked title"
+            class="component xs checked"
             role="tab"
             tabindex="0"
             type="button"
@@ -313,7 +297,7 @@ exports[`Tabs Snapshots tests should match snapshot 4`] = `
           </button>
           <button
             aria-selected="false"
-            class="component xs title"
+            class="component xs"
             role="tab"
             tabindex="-1"
             type="button"
@@ -324,7 +308,7 @@ exports[`Tabs Snapshots tests should match snapshot 4`] = `
           </button>
           <button
             aria-selected="false"
-            class="component xs title"
+            class="component xs"
             role="tab"
             tabindex="-1"
             type="button"
@@ -335,7 +319,7 @@ exports[`Tabs Snapshots tests should match snapshot 4`] = `
           </button>
           <button
             aria-selected="false"
-            class="component xs title"
+            class="component xs"
             role="tab"
             tabindex="-1"
             type="button"
@@ -362,21 +346,18 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
 <div>
   <div>
     <div
-      class="component default"
+      class=""
       role="tablist"
     >
-      <div
-        class="container"
-      >
+      <div>
         <button
           aria-selected="false"
-          class="title"
+          class=""
           role="tab"
           tabindex="-1"
           type="button"
         >
           <span
-            class="titleWrapper"
             tabindex="-1"
           >
             Таб 1
@@ -384,13 +365,12 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
         </button>
         <button
           aria-selected="true"
-          class="title selected"
+          class=""
           role="tab"
           tabindex="0"
           type="button"
         >
           <span
-            class="titleWrapper"
             tabindex="-1"
           >
             Таб 2
@@ -398,13 +378,12 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
         </button>
         <button
           aria-selected="false"
-          class="title"
+          class=""
           role="tab"
           tabindex="-1"
           type="button"
         >
           <span
-            class="titleWrapper"
             tabindex="-1"
           >
             Таб 3
@@ -412,13 +391,12 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
         </button>
         <button
           aria-selected="false"
-          class="title"
+          class=""
           role="tab"
           tabindex="-1"
           type="button"
         >
           <span
-            class="titleWrapper"
             tabindex="-1"
           >
             Таб 4
@@ -426,20 +404,18 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
         </button>
         <button
           aria-selected="false"
-          class="title"
+          class=""
           role="tab"
           tabindex="-1"
           type="button"
         >
           <span
-            class="titleWrapper"
             tabindex="-1"
           >
             Таб 5
           </span>
         </button>
         <div
-          class="line"
           style="width: 0px; transform: translateX(0px);"
         />
       </div>
@@ -459,15 +435,13 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
 <div>
   <div>
     <div
-      class="component default"
+      class=""
       role="tablist"
     >
-      <div
-        class="container"
-      >
+      <div>
         <button
           aria-selected="false"
-          class="component s title"
+          class="component s"
           role="tab"
           tabindex="-1"
           type="button"
@@ -478,7 +452,7 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
         </button>
         <button
           aria-selected="true"
-          class="component s checked title"
+          class="component s checked"
           role="tab"
           tabindex="0"
           type="button"
@@ -489,7 +463,7 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
         </button>
         <button
           aria-selected="false"
-          class="component s title"
+          class="component s"
           role="tab"
           tabindex="-1"
           type="button"
@@ -500,7 +474,7 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
         </button>
         <button
           aria-selected="false"
-          class="component s title"
+          class="component s"
           role="tab"
           tabindex="-1"
           type="button"
@@ -511,7 +485,7 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
         </button>
         <button
           aria-selected="false"
-          class="component s title"
+          class="component s"
           role="tab"
           tabindex="-1"
           type="button"

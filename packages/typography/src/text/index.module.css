@@ -1,7 +1,7 @@
-@import '../../../vars/src/typography.css';
+@import '../../../themes/src/default.css';
 
 :root {
-    --text-paragraph-margin-bottom: 0 0 var(--gap-m);
+    --text-paragraph-margin-bottom: 0 0 var(--gap-s);
 }
 
 .paragraph {
@@ -13,8 +13,8 @@
     @mixin paragraph_primary_large;
 }
 
-.primary-normal {
-    @mixin paragraph_primary_normal;
+.primary-medium {
+    @mixin paragraph_primary_medium;
 }
 
 .primary-small {
@@ -25,12 +25,20 @@
     @mixin paragraph_secondary_large;
 }
 
-.secondary-normal {
-    @mixin paragraph_secondary_normal;
+.secondary-medium {
+    @mixin paragraph_secondary_medium;
 }
 
 .secondary-small {
     @mixin paragraph_secondary_small;
+}
+
+.component {
+    @mixin paragraph_component;
+}
+
+.caps {
+    @mixin paragraph_caps;
 }
 
 .bold {

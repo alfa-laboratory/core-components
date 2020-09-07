@@ -21,7 +21,7 @@
     font-family: var(--font-family-styrene);
 }
 
-@define-mixin headline_normal {
+@define-mixin headline_medium {
     font-size: 32px;
     line-height: 40px;
     font-weight: 500;
@@ -49,31 +49,27 @@
     font-size: 18px;
     line-height: 24px;
     font-weight: 400;
-    letter-spacing: -0.45px;
 }
 
-@define-mixin paragraph_primary_normal {
+@define-mixin paragraph_primary_medium {
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
-    letter-spacing: -0.32px;
 }
 
 @define-mixin paragraph_primary_small {
     font-size: 14px;
     line-height: 20px;
     font-weight: 400;
-    letter-spacing: -0.15px;
 }
 
 @define-mixin paragraph_secondary_large {
     font-size: 13px;
     line-height: 16px;
     font-weight: 400;
-    letter-spacing: -0.08px;
 }
 
-@define-mixin paragraph_secondary_normal {
+@define-mixin paragraph_secondary_medium {
     font-size: 12px;
     line-height: 16px;
     font-weight: 400;
@@ -83,14 +79,12 @@
     font-size: 11px;
     line-height: 16px;
     font-weight: 400;
-    letter-spacing: 0.07px;
 }
 
 @define-mixin paragraph_component {
     font-size: 16px;
     line-height: 20px;
     font-weight: 400;
-    letter-spacing: -0.32px;
 }
 
 @define-mixin paragraph_caps {
@@ -105,31 +99,27 @@
     font-size: 18px;
     line-height: 24px;
     font-weight: 700;
-    letter-spacing: -0.45px;
 }
 
-@define-mixin accent_primary_normal {
+@define-mixin accent_primary_medium {
     font-size: 16px;
     line-height: 24px;
     font-weight: 700;
-    letter-spacing: -0.32px;
 }
 
 @define-mixin accent_primary_small {
     font-size: 14px;
     line-height: 20px;
     font-weight: 700;
-    letter-spacing: -0.15px;
 }
 
 @define-mixin accent_secondary_large {
     font-size: 13px;
     line-height: 16px;
     font-weight: 700;
-    letter-spacing: -0.08px;
 }
 
-@define-mixin accent_secondary_normal {
+@define-mixin accent_secondary_medium {
     font-size: 12px;
     line-height: 16px;
     font-weight: 700;
@@ -139,14 +129,12 @@
     font-size: 11px;
     line-height: 16px;
     font-weight: 700;
-    letter-spacing: 0.07px;
 }
 
 @define-mixin accent_component {
     font-size: 16px;
     line-height: 20px;
     font-weight: 700;
-    letter-spacing: -0.32px;
 }
 
 @define-mixin accent_caps {
@@ -167,59 +155,51 @@
     font-size: 40px;
     line-height: 48px;
     font-weight: 700;
-    letter-spacing: 0.25px;
 }
 
-@define-mixin headline-system_normal {
+@define-mixin headline-system_medium {
     font-size: 30px;
     line-height: 36px;
     font-weight: 700;
-    letter-spacing: 0.25px;
 }
 
 @define-mixin headline-system_small {
     font-size: 22px;
     line-height: 26px;
     font-weight: 700;
-    letter-spacing: 0.25px;
 }
 
 @define-mixin headline-system_xsmall {
     font-size: 18px;
     line-height: 22px;
     font-weight: 700;
-    letter-spacing: 0.25px;
 }
 
 @define-mixin action_primary_large {
     font-size: 18px;
     line-height: 24px;
     font-weight: 500;
-    letter-spacing: -0.45px;
 }
 
-@define-mixin action_primary_normal {
+@define-mixin action_primary_medium {
     font-size: 16px;
     line-height: 24px;
     font-weight: 500;
-    letter-spacing: -0.32px;
 }
 
 @define-mixin action_primary_small {
     font-size: 14px;
     line-height: 20px;
     font-weight: 500;
-    letter-spacing: -0.15px;
 }
 
 @define-mixin action_secondary_large {
     font-size: 13px;
     line-height: 16px;
     font-weight: 500;
-    letter-spacing: -0.08px;
 }
 
-@define-mixin action_secondary_normal {
+@define-mixin action_secondary_medium {
     font-size: 12px;
     line-height: 16px;
     font-weight: 500;
@@ -229,7 +209,20 @@
     font-size: 11px;
     line-height: 16px;
     font-weight: 500;
-    letter-spacing: 0.07px;
+}
+
+@define-mixin action_component {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+@define-mixin action_caps {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 700;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
 }
 
 @define-mixin promo_xlarge {
@@ -248,7 +241,7 @@
     font-family: var(--font-family-styrene);
 }
 
-@define-mixin promo_normal {
+@define-mixin promo_medium {
     font-size: 32px;
     line-height: 40px;
     font-weight: 400;
@@ -268,7 +261,6 @@
     font-size: 20px;
     line-height: 24px;
     font-weight: 400;
-    letter-spacing: 0.25px;
     font-feature-settings: 'ss01';
     font-family: var(--font-family-styrene);
 }
@@ -289,7 +281,7 @@
     font-family: var(--font-family-styrene);
 }
 
-@define-mixin key_normal {
+@define-mixin key_medium {
     font-size: 96px;
     line-height: 120px;
     font-weight: 500;
@@ -313,7 +305,7 @@
     font-family: var(--font-family-styrene);
 }
 
-@define-mixin legacy_styrene_normal {
+@define-mixin legacy_styrene_medium {
     font-size: 28px;
     line-height: 34px;
     font-weight: 500;
@@ -325,7 +317,6 @@
     font-size: 14px;
     line-height: 18px;
     font-weight: 400;
-    letter-spacing: -0.15px;
 }
 
 @define-mixin system_48-52_bold {

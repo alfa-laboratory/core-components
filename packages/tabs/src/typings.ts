@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import { TagProps } from '@alfalab/core-components-tag';
 
 export type SelectedId = string | number;

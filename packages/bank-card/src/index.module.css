@@ -1,0 +1,117 @@
+@import '../../themes/src/default.css';
+
+.component {
+    /* TODO: как это будет собираться и работать в webView */
+    --form-control-border-radius: 0;
+    --form-control-border-bottom: 1px solid var(--color-black-60);
+    --form-control-bg-color: transparent;
+
+    /* focus */
+    --form-control-focus-shadow: none;
+    --form-control-focus-border-bottom: 1px solid var(--color-black);
+
+    /* hover */
+    --form-control-hover-bg-color: transparent;
+    --form-control-font-family: var(--font-family-styrene);
+
+    position: relative;
+    max-width: 343px;
+
+    font-family: var(--font-family-styrene);
+
+    &:not(.focused):not(.filled) .label {
+        color: var(--color-black-60);
+        transform: translateY(12px);
+    }
+}
+
+.aspectRatioContainer {
+    /* Эталонный размер 343x215 */
+    padding-bottom: 62.6%;
+}
+
+.content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.label {
+    color: var(--color-black);
+    left: 0;
+    top: -4px;
+}
+
+.focused .label,
+.filled .label {
+    font-size: 16px;
+    transform: translateY(-16px) scale(0.75);
+}
+
+.input {
+    @mixin promo_xsmall;
+
+    color: var(--color-black);
+
+    /* TODO: обсудить с дизайнером, почему инпут не соответствует дизайн-системе, либо уменьшить каскад в form-control */
+    padding-left: 0 !important;
+
+    @media (max-width: 360px) {
+        font-size: 16px;
+    }
+}
+
+.bankLogo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    & svg {
+        display: block;
+
+        & g {
+            fill: var(--color-black);
+        }
+    }
+}
+
+.brandLogo {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+    & svg {
+        display: block;
+        fill: var(--color-black);
+    }
+}
+
+.usePhoto {
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+    user-select: none;
+    cursor: pointer;
+    outline: none;
+    margin-bottom: 4px;
+    align-self: flex-end;
+
+    /* В макете иконка прилегает к правому краю поля, а по дизайн-системе там должен быть отступ */
+    margin-right: calc(var(--gap-s) * -1);
+
+    & svg {
+        display: block;
+    }
+}

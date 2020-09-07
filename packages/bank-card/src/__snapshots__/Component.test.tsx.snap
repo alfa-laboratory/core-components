@@ -1,0 +1,412 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BankCard Snapshots tests should match snapshots 1`] = `
+<div>
+  <div
+    class="component filled"
+  >
+    <div
+      class="aspectRatioContainer"
+    >
+      <div
+        class="content"
+        style="background-color: rgb(239, 49, 36);"
+      >
+        <div
+          class="bankLogo"
+        >
+          <svg
+            focusable="false"
+            height="30"
+            viewBox="0 0 30 30"
+            width="30"
+          >
+            <g
+              fill="#ef3124"
+            >
+              <path
+                d="M5 29h20v-4H5zM12.29 13.62l2.69-8h.09l2.54 8zm6.21-9.46c-.5-1.62-1.17-2.91-3.33-2.91s-2.82 1.28-3.4 2.91L5.85 21h3.93l1.37-4h7.55l1.3 4h4.18z"
+              />
+            </g>
+          </svg>
+        </div>
+        <div
+          class="component s filled hasLabel block hasRightAddons"
+        >
+          <div
+            class="inner"
+          >
+            <div
+              class="inputWrapper"
+            >
+              <div
+                class="label label"
+              >
+                <span
+                  class="labelInner"
+                >
+                  Номер карты или счёта
+                </span>
+              </div>
+              <div
+                class="input"
+              >
+                <input
+                  class="input hasLabel input"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  type="text"
+                  value="4111 1111 1111 1111"
+                />
+              </div>
+            </div>
+            <div
+              class="addons rightAddons"
+            >
+              <button
+                class="usePhoto"
+                type="button"
+              >
+                <svg
+                  fill="currentColor"
+                  focusable="false"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M7.772 4.684A1 1 0 018.721 4h6.558a1 1 0 01.949.684L17 7h3a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1h3l.772-2.316zM12 16a3 3 0 100-6 3 3 0 000 6z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          
+        </div>
+        <div
+          class="brandLogo"
+        >
+          <svg
+            fill="currentColor"
+            focusable="false"
+            height="18"
+            viewBox="0 0 48 18"
+            width="48"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M19.015 2.001L13.148 16H9.32L6.433 4.828c-.175-.689-.328-.94-.86-1.23-.87-.472-2.308-.915-3.573-1.19L2.087 2h6.16c.786 0 1.492.523 1.67 1.427l1.526 8.1L15.211 2h3.804zm14.998 9.428c.016-3.695-5.109-3.898-5.073-5.549.01-.502.489-1.036 1.535-1.173.52-.067 1.949-.12 3.571.627l.635-2.968a9.709 9.709 0 00-3.387-.621c-3.579 0-6.098 1.903-6.12 4.628-.022 2.015 1.799 3.139 3.171 3.809 1.41.686 1.885 1.125 1.879 1.739-.01.94-1.126 1.354-2.167 1.37-1.82.029-2.877-.491-3.72-.884l-.656 3.067c.846.389 2.408.726 4.028.744 3.803 0 6.292-1.88 6.304-4.79zm9.45 4.57h3.35L43.89 2h-3.092a1.65 1.65 0 00-1.54 1.027l-5.433 12.97h3.802l.755-2.09h4.645l.437 2.09zm-4.04-4.96l1.907-5.256 1.097 5.256h-3.004zM24.19 2.001L21.194 16h-3.62l2.994-14h3.621z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BankCard Snapshots tests should match snapshots 2`] = `
+<div>
+  <div
+    class="component filled"
+  >
+    <div
+      class="aspectRatioContainer"
+    >
+      <div
+        class="content"
+        style="background-color: rgb(239, 49, 36);"
+      >
+        <div
+          class="bankLogo"
+        >
+          <svg
+            focusable="false"
+            height="30"
+            viewBox="0 0 30 30"
+            width="30"
+          >
+            <g
+              fill="#ef3124"
+            >
+              <path
+                d="M5 29h20v-4H5zM12.29 13.62l2.69-8h.09l2.54 8zm6.21-9.46c-.5-1.62-1.17-2.91-3.33-2.91s-2.82 1.28-3.4 2.91L5.85 21h3.93l1.37-4h7.55l1.3 4h4.18z"
+              />
+            </g>
+          </svg>
+        </div>
+        <div
+          class="component s filled hasLabel block hasRightAddons"
+        >
+          <div
+            class="inner"
+          >
+            <div
+              class="inputWrapper"
+            >
+              <div
+                class="label label"
+              >
+                <span
+                  class="labelInner"
+                >
+                  Номер карты или счёта
+                </span>
+              </div>
+              <div
+                class="input"
+              >
+                <input
+                  class="input hasLabel input"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  type="text"
+                  value="5500 0000 0000 0004"
+                />
+              </div>
+            </div>
+            <div
+              class="addons rightAddons"
+            >
+              <button
+                class="usePhoto"
+                type="button"
+              >
+                <svg
+                  fill="currentColor"
+                  focusable="false"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M7.772 4.684A1 1 0 018.721 4h6.558a1 1 0 01.949.684L17 7h3a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1h3l.772-2.316zM12 16a3 3 0 100-6 3 3 0 000 6z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          
+        </div>
+        <div
+          class="brandLogo"
+        >
+          <svg
+            fill="currentColor"
+            focusable="false"
+            height="18"
+            viewBox="0 0 30 18"
+            width="30"
+          >
+            <path
+              d="M28.695 14.578v-.29h.117v-.06h-.297v.06h.117v.29h.063zm.578 0v-.35h-.09l-.105.24-.105-.24h-.093v.35h.065v-.263l.098.228h.067l.098-.228v.265h.065v-.002zm-15.078 1.737c.07.06.145.12.217.18a9 9 0 110-14.99c-.072.06-.147.118-.217.18A9.696 9.696 0 0010.857 9a9.696 9.696 0 003.338 7.315zM20.555 0a8.962 8.962 0 00-4.982 1.505c.072.06.147.118.217.18A9.694 9.694 0 0119.125 9a9.694 9.694 0 01-3.335 7.315c-.07.06-.145.12-.217.18A9 9 0 1020.555 0zm-5.563 1.927c-.115.093-.23.185-.34.283A8.974 8.974 0 0011.556 9a8.974 8.974 0 003.438 7.073c.114-.093.23-.186.34-.283A8.974 8.974 0 0018.43 9a8.973 8.973 0 00-3.438-7.072z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BankCard Snapshots tests should match snapshots 3`] = `
+<div>
+  <div
+    class="component filled"
+  >
+    <div
+      class="aspectRatioContainer"
+    >
+      <div
+        class="content"
+        style="background-color: rgb(239, 49, 36);"
+      >
+        <div
+          class="bankLogo"
+        >
+          <svg
+            focusable="false"
+            height="30"
+            viewBox="0 0 30 30"
+            width="30"
+          >
+            <g
+              fill="#ef3124"
+            >
+              <path
+                d="M5 29h20v-4H5zM12.29 13.62l2.69-8h.09l2.54 8zm6.21-9.46c-.5-1.62-1.17-2.91-3.33-2.91s-2.82 1.28-3.4 2.91L5.85 21h3.93l1.37-4h7.55l1.3 4h4.18z"
+              />
+            </g>
+          </svg>
+        </div>
+        <div
+          class="component s filled hasLabel block hasRightAddons"
+        >
+          <div
+            class="inner"
+          >
+            <div
+              class="inputWrapper"
+            >
+              <div
+                class="label label"
+              >
+                <span
+                  class="labelInner"
+                >
+                  Номер карты или счёта
+                </span>
+              </div>
+              <div
+                class="input"
+              >
+                <input
+                  class="input hasLabel input"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  type="text"
+                  value="2201 3820 0000 0013"
+                />
+              </div>
+            </div>
+            <div
+              class="addons rightAddons"
+            >
+              <button
+                class="usePhoto"
+                type="button"
+              >
+                <svg
+                  fill="currentColor"
+                  focusable="false"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M7.772 4.684A1 1 0 018.721 4h6.558a1 1 0 01.949.684L17 7h3a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1h3l.772-2.316zM12 16a3 3 0 100-6 3 3 0 000 6z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          
+        </div>
+        <div
+          class="brandLogo"
+        >
+          <svg
+            fill="currentColor"
+            focusable="false"
+            height="18"
+            viewBox="0 0 48 18"
+            width="48"
+          >
+            <path
+              d="M32.88 2.4h-4.195a1.47 1.47 0 00-1.332.826l-3.33 6.984c-.142.3-.604.201-.604-.129V2.528a.13.13 0 00-.133-.128h-4.064v13.203h4.339a1.47 1.47 0 001.322-.808l3.45-6.98c.085-.173.352-.113.352.077v7.711h4.196V2.4zm-15.8 0h-4.847a1.43 1.43 0 00-1.374 1.025L8.837 10.32c-.086.295-.507.295-.594 0L6.221 3.425A1.43 1.43 0 004.847 2.4H0v13.203h4.1V7.988c0-.206.29-.25.351-.052l2.381 7.667h3.416l2.38-7.667c.061-.197.352-.154.352.052v7.615h4.1V2.4zm30.645 6.17h-13.4v7.033h4.197v-4.215h4.911a4.628 4.628 0 004.292-2.818zm-7.131-.776c-3.07 0-6.956-2.414-6.956-5.394h9.732C45.927 2.4 48 4.411 48 6.894c0 .302-.032.604-.095.9h-7.31z"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BankCard Snapshots tests should match snapshots 4`] = `
+<div>
+  <div
+    class="component filled"
+  >
+    <div
+      class="aspectRatioContainer"
+    >
+      <div
+        class="content"
+        style="background-color: rgb(239, 49, 36);"
+      >
+        <div
+          class="bankLogo"
+        >
+          <svg
+            focusable="false"
+            height="30"
+            viewBox="0 0 30 30"
+            width="30"
+          >
+            <g
+              fill="#ef3124"
+            >
+              <path
+                d="M5 29h20v-4H5zM12.29 13.62l2.69-8h.09l2.54 8zm6.21-9.46c-.5-1.62-1.17-2.91-3.33-2.91s-2.82 1.28-3.4 2.91L5.85 21h3.93l1.37-4h7.55l1.3 4h4.18z"
+              />
+            </g>
+          </svg>
+        </div>
+        <div
+          class="component s filled hasLabel block hasRightAddons"
+        >
+          <div
+            class="inner"
+          >
+            <div
+              class="inputWrapper"
+            >
+              <div
+                class="label label"
+              >
+                <span
+                  class="labelInner"
+                >
+                  Номер карты или счёта
+                </span>
+              </div>
+              <div
+                class="input"
+              >
+                <input
+                  class="input hasLabel input"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  type="text"
+                  value="1234 1234 1234 1234 1234"
+                />
+              </div>
+            </div>
+            <div
+              class="addons rightAddons"
+            >
+              <button
+                class="usePhoto"
+                type="button"
+              >
+                <svg
+                  fill="currentColor"
+                  focusable="false"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M7.772 4.684A1 1 0 018.721 4h6.558a1 1 0 01.949.684L17 7h3a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V8a1 1 0 011-1h3l.772-2.316zM12 16a3 3 0 100-6 3 3 0 000 6z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

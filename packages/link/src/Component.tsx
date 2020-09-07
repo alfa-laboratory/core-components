@@ -1,5 +1,7 @@
-import React, { AnchorHTMLAttributes, forwardRef, ReactNode } from 'react';
+import React, { AnchorHTMLAttributes, forwardRef, ReactNode, useRef } from 'react';
 import cn from 'classnames';
+import mergeRefs from 'react-merge-refs';
+import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
 
@@ -44,12 +46,17 @@ export type LinkProps = NativeProps & {
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
     ({ view = 'primary', pseudo = false, className, dataTestId, children, ...restProps }, ref) => {
+        const linkRef = useRef<HTMLAnchorElement>(null);
+
+        const [focused] = useFocus(linkRef, 'keyboard');
+
         const componentProps = {
             className: cn(
                 styles.component,
                 styles[view],
                 {
                     [styles.pseudo]: pseudo,
+                    [styles.focused]: focused,
                 },
                 className,
             ),
@@ -57,7 +64,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
         };
 
         return (
-            <a {...componentProps} {...restProps} ref={ref}>
+            <a {...componentProps} {...restProps} ref={mergeRefs([linkRef, ref])}>
                 {children}
             </a>
         );
