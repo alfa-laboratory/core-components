@@ -40,7 +40,7 @@ import { Confirmation } from '@alfalab/core-components-confirmation';
                 if (variant === 'error') {
                     setError({...error, 'error': 'Неправильный код'});
                 } else if (variant === 'fatal') {
-                    setError({...error, 'fatal': 'Срок подписания кодом истёк. Пожалуйста, выполните операцию заново'});
+                    setError({...error, 'fatal': 'Выполните операцию с самого начала'});
                 }
             }, 1500);
         }
