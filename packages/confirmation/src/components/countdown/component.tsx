@@ -3,6 +3,8 @@ import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
 
+import { CountdownLoader } from '../countdown-loader';
+
 import styles from './index.module.css';
 
 /**
@@ -144,8 +146,15 @@ export const Countdown: FC<CountdownProps> = ({
                         </div>
                     )}
 
-                    <div className={styles.info}>
-                        Запросить повторно можно через {formatMsAsMinutes(timer)}
+                    <div className={styles.info}>Запросить повторно можно через</div>
+
+                    <div className={styles.loaderWrap}>
+                        <CountdownLoader
+                            duration={duration + TIMER_ITERATION_VALUE}
+                            className={styles.loader}
+                        />
+
+                        {formatMsAsMinutes(timer)}
                     </div>
                 </div>
             )}
