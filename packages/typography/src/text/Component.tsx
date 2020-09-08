@@ -8,6 +8,8 @@ import colors from '../colors.module.css';
 export type TextProps = {
     /**
      * Вариант начертания
+     *
+     * [Ссылка](/some)
      */
     view?:
         | 'primary-large'

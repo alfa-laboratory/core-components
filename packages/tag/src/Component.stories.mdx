@@ -10,7 +10,7 @@ import { name, version } from '../package.json';
 export const SIZES = ['xs', 's', 'm', 'l'];
 
 
-<Meta title='Компоненты|Tag' component={Tag} />
+<Meta title='Компоненты' component={Tag} />
 
 <Title>
     Tag ({name}@{version})
@@ -32,7 +32,7 @@ import { Tag } from '@alfalab/core-components-tag';
 
 Компонент тэг(чипсы).
 
-<Story name='Песочница'>
+<Story name='Tag'>
     {React.createElement(() => {
         const [checked, setChecked] = React.useState(false);
         const handleClick = () => setChecked(!checked);

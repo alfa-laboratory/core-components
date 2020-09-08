@@ -13,6 +13,8 @@ export type TitleProps = {
 
     /**
      * Вариант начертания
+     *
+     * [Ссылка](/some)
      */
     view?: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
 

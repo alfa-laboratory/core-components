@@ -1,5 +1,6 @@
 import { Meta, Story, Preview, Props, Title } from '@storybook/addon-docs/blocks';
-import { text, select, boolean } from '@storybook/addon-knobs';
+import { text, boolean } from '@storybook/addon-knobs';
+import { select as selectKnob } from '@storybook/addon-knobs'; // name conflict
 import { action } from '@storybook/addon-actions';
 import { Container, Row, Col } from 'storybook/blocks/grid';
 import { Status } from 'storybook/blocks/status';
@@ -81,7 +82,8 @@ export const renderUppercased = (options) => {
 
 
 <Meta
-    title='Компоненты|Select'
+    title='Компоненты'
+    id='components/select'
     component={Select}
     parameters={{ 'theme-switcher': { enabled: true } }}
 />
@@ -106,10 +108,10 @@ import { Select } from '@alfalab/core-components-select';
 
 Компонент выпадающего списка.
 
-<Story name='Песочница'>
+<Story name='Select'>
     <Select
         block={boolean('block', false)}
-        size={select('size', ['s', 'm', 'l'], 's')}
+        size={selectKnob('size', ['s', 'm', 'l'], 's')}
         disabled={boolean('disabled', false)}
         error={text('error', '')}
         options={options}

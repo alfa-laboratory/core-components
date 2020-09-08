@@ -9,7 +9,7 @@ import { Switch } from './Component';
 import { name, version } from '../package.json';
 
 
-<Meta title='Компоненты|Switch' component={Switch} />
+<Meta title='Компоненты' component={Switch} />
 
 <Title>
     Switch ({name}@{version})
@@ -31,7 +31,7 @@ import { Switch } from '@alfalab/core-components-switch';
 
 Компонент переключателя.
 
-<Story name='Песочница'>
+<Story name='Switch'>
     {React.createElement(() => {
         const [checked, setChecked] = React.useState(false);
         const handleChange = () => setChecked(!checked);

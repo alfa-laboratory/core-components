@@ -1,6 +1,6 @@
 import { Description } from '@storybook/addon-docs/blocks';
 
-<Meta title='Принципы|FAQ' />
+<Meta title='Гайдлайны|FAQ' />
 
 ## 🔨 Разработка
 
@@ -37,18 +37,17 @@ onChange?: (
 
 // Good
 
-const handleArrowClick = () => {}
+const handleArrowClick = () => {};
 
-const handleArrowClick = useCallback(() => {}, [])
+const handleArrowClick = useCallback(() => {}, []);
 
 // Bad
 
 function onArrowClick() {}
 
-const onArrowClick = function() {}
+const onArrowClick = function() {};
 
-const onArrowClick = () => {}
-
+const onArrowClick = () => {};
 ```
 
 ## 📚 Документация
@@ -63,14 +62,13 @@ type InputProps = {
      * Размер компонента
      */
     size?: 's' | 'm' | 'l' | 'xl';
-}
+};
 
 // Bad
 
 type InputProps = {
     size?: 's' | 'm' | 'l' | 'xl';
-}
-
+};
 ```
 
 ## 🧙‍♀️ Сторибук
@@ -102,7 +100,7 @@ export const SIZES = ['xs', 's', 'm', 'l'];
     >
         {text('label', 'Оплатить')}
     </Button>
-</Story>
+</Story>;
 ```
 
 ### Создание переменных и функций
@@ -126,9 +124,7 @@ export const SIZES = ['xs', 's', 'm', 'l'];
         const [show, setShow] = React.useState(false);
         const handleClick = () => setShow(!show);
 
-        return (
-            <Button onClick={handleClick}>{show ? 'hide' : 'show'}</Button>
-        );
+        return <Button onClick={handleClick}>{show ? 'hide' : 'show'}</Button>;
     })}
 </Preview>
 ```

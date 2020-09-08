@@ -1,0 +1,43 @@
+import { Description } from '@storybook/addon-docs/blocks';
+
+<Meta title='Гайдлайны|Типографика' />
+
+## Типографика
+
+Ссылка на миксины
+https://github.com/alfa-laboratory/core-components/blob/master/packages/vars/src/typography.css
+
+Styrene
+@font-face {
+font-family: 'Styrene UI';
+src: url('https://alfabank.st/media/fonts/styrene-ui/styrene-ui_regular.woff2')
+format('woff2'),
+url('https://alfabank.st/media/fonts/styrene-ui/styrene-ui_regular.woff')
+format('woff');
+font-weight: 400;
+font-style: normal;
+}
+@font-face {
+font-family: 'Styrene UI';
+src: url('https://alfabank.st/media/fonts/styrene-ui/styrene-ui_medium.woff2')
+format('woff2'),
+url('https://alfabank.st/media/fonts/styrene-ui/styrene-ui_medium.woff')
+format('woff');
+font-weight: 500;
+font-style: normal;
+}
+@font-face {
+font-family: 'Styrene UI';
+src: url('https://alfabank.st/media/fonts/styrene-ui/styrene-ui_bold.woff2')
+format('woff2'),
+url('https://alfabank.st/media/fonts/styrene-ui/styrene-ui_bold.woff')
+format('woff');
+font-weight: 700;
+font-style: normal;
+}
+
+3 варианта использования типографики: миксин, Text color, Text + css
+
+color-mod(var(--color) blenda(black 30%))
+color-mod(var(--color) blenda(white 30%))
+color-mod(var(--color) alpha(30%))

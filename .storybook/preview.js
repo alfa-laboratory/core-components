@@ -3,6 +3,8 @@ import { addDecorator } from '@storybook/react';
 
 import withThemeSwitcher from './addons/theme-switcher/index';
 
+import '!style-loader!css-loader!postcss-loader!./theme.css';
+
 addDecorator(withThemeSwitcher);
 
 configure(

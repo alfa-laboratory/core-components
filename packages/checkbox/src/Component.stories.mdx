@@ -7,7 +7,7 @@ import { Checkbox } from './Component';
 import { name, version } from '../package.json';
 
 
-<Meta title='Компоненты|Checkbox' component={Checkbox} />
+<Meta title='Компоненты' component={Checkbox} />
 
 <Title>
     Checkbox ({name}@{version})
@@ -29,7 +29,7 @@ import { Checkbox } from '@alfalab/core-components-checkbox';
 
 Компонент чекбокса.
 
-<Story name='Песочница'>
+<Story name='Checkbox'>
     {React.createElement(() => {
         const [checked, setChecked] = React.useState(false);
         const handleChange = () => setChecked(!checked);

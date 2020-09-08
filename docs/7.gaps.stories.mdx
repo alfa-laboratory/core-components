@@ -1,0 +1,38 @@
+import { Description } from '@storybook/addon-docs/blocks';
+
+<Meta title='Гайдлайны|Отступы' />
+
+## Система отступов
+
+Система отступов используется для того, чтобы задать расстояния между элементами.
+Переменные отступов не используются для задания размеров или позиционирования на странице.
+
+Значения отступов
+
+Переменные хранятся в файле gaps.css
+
+| Название  | Значение |
+| --------- | -------- |
+| --gap-2xs | 4px      |
+| --gap-xs  | 8px      |
+| --gap-s   | 12px     |
+| --gap-m   | 16px     |
+| --gap-l   | 20px     |
+| --gap-xl  | 24px     |
+| --gap-2xl | 32px     |
+| --gap-3xl | 40px     |
+| --gap-4xl | 48px     |
+| --gap-5xl | 64px     |
+| --gap-6xl | 72px     |
+| --gap-7xl | 96px     |
+| --gap-8xl | 128px    |
+
+Пример использования
+
+```css
+@import '@alfalab/core-components/vars/gaps.css';
+
+.item {
+    margin-bottom: var(--gap-xl);
+}
+```

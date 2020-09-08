@@ -1,16 +1,25 @@
-<img width="914" alt="Библиотека React компонентов для создания веб-интерфейсов" src="https://user-images.githubusercontent.com/109410/78970104-3873e000-7b11-11ea-945d-02f86cad62e0.png"/>
+<div class="github-doc">
+
+<p><img width="914" alt="Библиотека React компонентов для создания веб-интерфейсов" src="https://user-images.githubusercontent.com/109410/78970104-3873e000-7b11-11ea-945d-02f86cad62e0.png"/></p>
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-## ✨ Возможности
+</div>
 
-- Набор готовых к использованию и протестированных React компонентов, которые реализуют [дизайн-систему Альфа-банка](https://digital.alfabank.ru/principles)
+## Возможности
+
+- Набор готовых к использованию и протестированных React компонентов, которые реализуют [дизайн-систему Альфа-Банка](https://digital.alfabank.ru/principles)
 - Все компоненты написаны на TypeScript и типизированы.
-- Удобный [сторибук](https://alfa-laboratory.github.io/core-components/) с песочницей.
 - Компоненты открыты к темизации через css-переменные.
+<li class="github-doc><a href="https://alfa-laboratory.github.io/core-components/">Cторибук</a> с документацией и песочницей.</li>
 
-## 🖥 Поддерживаемые браузеры
+<div class="github-doc">
 
+[Cторибук](https://alfa-laboratory.github.io/core-components/) с документацией и песочницей.
+
+</div>
+
+## Поддерживаемые браузеры
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/yandex/yandex_48x48.png" alt="Yandex Browser" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Yandex Browser |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

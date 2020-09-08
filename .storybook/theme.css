@@ -1,0 +1,15 @@
+.sb-show-main {
+    /* background-color: #000; */
+}
+
+.github-doc {
+    display: none;
+}
+
+.sidebar-header > div:first-child {
+    padding: 0;
+}
+
+svg.sidebar-svg-icon {
+    display: none;
+}

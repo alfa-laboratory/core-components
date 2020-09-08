@@ -8,7 +8,7 @@ import { getAllCurrencyCodes } from '@alfalab/utils';
 import { name, version } from '../package.json';
 
 <Meta
-    title='Компоненты|Amount'
+    title='Компоненты'
     component={Amount}
     parameters={{ 'theme-switcher': { enabled: true } }}
 />
@@ -30,7 +30,7 @@ import { Amount } from '@alfalab/core-components-amount';
  Компонент для отображения суммы, согласно следующему гайдлайну:
  https://design.alfabank.ru/patterns/amount
 
-<Story name='Песочница'>
+<Story name='Amount'>
     {React.createElement(() => {
         const currencyCodes = getAllCurrencyCodes();
         const value = number('value', 12300);

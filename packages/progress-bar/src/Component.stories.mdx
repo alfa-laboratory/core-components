@@ -5,7 +5,7 @@ import { Status } from 'storybook/blocks/status';
 import { name, version } from '../package.json';
 import { ProgressBar } from './Component';
 
-<Meta title='Компоненты|ProgressBar' component={ProgressBar} />
+<Meta title='Компоненты' component={ProgressBar} />
 
 <Title>
     ProgressBar ({name}@{version})
@@ -23,7 +23,7 @@ import { ProgressBar } from 'newclick-components/progress-bar';
 
 Отображает линейный индикатор прогресса (0-100%)
 
-<Story name='Песочница'>
+<Story name='ProgressBar'>
     <ProgressBar
         value={number('value', 40)}
         view={select('view', ['positive', 'negative'])}

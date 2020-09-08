@@ -12,7 +12,7 @@ import { name, version } from '../package.json';
 export const VIEWS = ['primary', 'secondary', 'default'];
 
 
-<Meta title='Компоненты|Link' component={Link} />
+<Meta title='Компоненты' component={Link} />
 
 <Title>
     Link ({name}@{version})
@@ -35,7 +35,7 @@ import { Link } from '@alfalab/core-components-link';
 Ссылка — элемент навигации, который обозначает возможность перехода на другую страницу
 или вызова нового информационного слоя.
 
-<Story name='Песочница'>
+<Story name='Link'>
     <Link
         view={select('view', VIEWS, 'primary')}
         pseudo={boolean('pseudo', false)}

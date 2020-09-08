@@ -6,7 +6,7 @@ import { Radio } from './Component';
 import { name, version } from '../package.json';
 
 
-<Meta title='Компоненты|Radio' component={Radio} />
+<Meta title='Компоненты' component={Radio} />
 
 <Title>
     Radio ({name}@{version})
@@ -24,7 +24,7 @@ import { Radio } from '@alfalab/core-components-radio';
 
 Компонент радио.
 
-<Story name='Песочница'>
+<Story name='Radio'>
     {React.createElement(() => {
         const [checked, setChecked] = React.useState(false);
         const handleChange = () => setChecked(!checked);
