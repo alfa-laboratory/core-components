@@ -4,6 +4,7 @@ import { TabsProps } from '../../typings';
 export const Tabs = ({
     TabList,
     className,
+    size,
     children,
     selectedId,
     scrollable,
@@ -19,13 +20,14 @@ export const Tabs = ({
 
     return (
         <div className={className}>
-            {cloneElement(TabList, {
-                titles,
-                selectedId,
-                scrollable,
-                onChange,
-                dataTestId,
-            })}
+            <TabList
+                size={size}
+                titles={titles}
+                selectedId={selectedId}
+                scrollable={scrollable}
+                onChange={onChange}
+                dataTestId={dataTestId}
+            />
 
             {tabs.map(tab => cloneElement(tab, { hidden: tab.props.id !== selectedId }))}
         </div>

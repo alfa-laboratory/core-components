@@ -8,10 +8,11 @@ import { useTabs } from '../../useTabs';
 export const SecondaryTabList = ({
     styles = {},
     className,
+    size,
     titles = [],
     selectedId = titles.length ? titles[0].id : undefined,
     scrollable = true,
-    tagSize,
+    tagSize = 'xs',
     onChange,
     dataTestId,
 }: SecondaryTabListProps & Styles) => {
@@ -38,7 +39,7 @@ export const SecondaryTabList = ({
         <div
             role='tablist'
             data-test-id={dataTestId}
-            className={cn(styles.component, className, {
+            className={cn(styles.component, className, size && styles[size], {
                 [styles.scrollable]: scrollable,
             })}
         >

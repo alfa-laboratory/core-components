@@ -1,26 +1,16 @@
+@import '../../vars.css';
 @import './index.module.css';
 
-.component {
-    composes: component from './index.module.css';
+.mobile {
+    height: 48px;
 
-    margin-bottom: var(--gap-xl);
-    margin-top: var(--gap-xl);
-}
-
-.title {
-    composes: title from './index.module.css';
-
-    @mixin system_16-20_regular;
-    font-weight: 300;
-    margin-right: var(--gap-xl);
-
-    &:last-child {
-        margin-right: 0;
+    & .title {
+        font-size: var(--primary-tablist-mobile-font-size);
+        font-weight: var(--primary-tablist-mobile-font-weight);
+        font-family: var(--primary-tablist-mobile-font-family);
     }
-}
 
-.titleWrapper {
-    composes: titleWrapper from './index.module.css';
-
-    padding-bottom: var(--gap-s);
+    & .title + .title {
+        margin-left: var(--primary-tablist-mobile-gaps);
+    }
 }

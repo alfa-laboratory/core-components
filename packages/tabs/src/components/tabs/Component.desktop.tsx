@@ -1,5 +1,5 @@
 import React from 'react';
-import { TabsProps, Gaps } from '../../typings';
+import { TabsProps } from '../../typings';
 import { PrimaryTabListDesktop } from '../primary-tablist';
 import { SecondaryTabListDesktop } from '../secondary-tablist';
 import { Tabs } from './Component';
@@ -9,15 +9,13 @@ const views = {
     secondary: SecondaryTabListDesktop,
 };
 
-export type TabsDesktopProps = Omit<TabsProps, 'TabList'> & Gaps;
+export type TabsDesktopProps = Omit<TabsProps, 'TabList'>;
 
 export const TabsDesktop = ({
     view = 'primary',
     scrollable = false,
-    gaps = 'default',
+    size = 'm',
     ...restProps
-}: TabsDesktopProps) => {
-    const TabList = views[view];
-
-    return <Tabs TabList={<TabList gaps={gaps} />} scrollable={scrollable} {...restProps} />;
-};
+}: TabsDesktopProps) => (
+    <Tabs TabList={views[view]} scrollable={scrollable} size={size} {...restProps} />
+);

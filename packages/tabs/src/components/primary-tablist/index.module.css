@@ -18,9 +18,13 @@
 .container {
     position: relative;
     display: flex;
+    height: 100%;
 }
 
 .title {
+    display: flex;
+    align-items: center;
+    height: 100%;
     padding: 0;
     cursor: pointer;
     color: var(--primary-tablist-color);
@@ -36,12 +40,6 @@
     &:hover {
         color: var(--primary-tablist-hover-color);
     }
-}
-
-.titleWrapper {
-    display: block;
-    position: relative;
-    outline: none;
 }
 
 .focused {
@@ -64,4 +62,48 @@
 
 .scrollable .line {
     bottom: var(--tablist-hidden-scrollbar-height);
+}
+
+/* sizes */
+
+.s {
+    height: 48px;
+
+    & .title {
+        font-size: var(--primary-tablist-s-font-size);
+        font-weight: var(--primary-tablist-s-font-weight);
+        font-family: var(--primary-tablist-s-font-family);
+    }
+
+    & .title + .title {
+        margin-left: var(--primary-tablist-s-gaps);
+    }
+}
+
+.m {
+    height: 56px;
+
+    & .title {
+        font-size: var(--primary-tablist-m-font-size);
+        font-weight: var(--primary-tablist-m-font-weight);
+        font-family: var(--primary-tablist-m-font-family);
+    }
+
+    & .title + .title {
+        margin-left: var(--primary-tablist-m-gaps);
+    }
+}
+
+.l {
+    height: 72px;
+
+    & .title {
+        font-size: var(--primary-tablist-l-font-size);
+        font-weight: var(--primary-tablist-l-font-weight);
+        font-family: var(--primary-tablist-l-font-family);
+    }
+
+    & .title + .title {
+        margin-left: var(--primary-tablist-l-gaps);
+    }
 }
