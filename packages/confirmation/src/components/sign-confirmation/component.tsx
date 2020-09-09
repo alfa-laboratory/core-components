@@ -128,6 +128,7 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
                         phone={phone}
                         hasPhoneMask={hasPhoneMask}
                         className={styles.countdown}
+                        alignContent={alignContent}
                         onRepeatSms={onSmsRetryClick}
                         onCountdownFinished={onCountdownFinished}
                     />

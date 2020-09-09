@@ -20,3 +20,9 @@
 .loader {
     margin-right: var(--gap-xs);
 }
+
+.center {
+    & .loaderWrap {
+        justify-content: center;
+    }
+}

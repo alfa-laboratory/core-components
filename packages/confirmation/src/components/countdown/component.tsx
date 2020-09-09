@@ -49,6 +49,7 @@ export type CountdownProps = {
     hasPhoneMask: boolean;
     phone?: string;
     className?: string;
+    alignContent: string;
     onCountdownFinished?: () => void;
     onRepeatSms: (event: MouseEvent) => void;
 };
@@ -57,6 +58,7 @@ export const Countdown: FC<CountdownProps> = ({
     duration = 5000,
     phone,
     hasPhoneMask = true,
+    alignContent,
     onRepeatSms,
     onCountdownFinished,
     className,
@@ -131,7 +133,7 @@ export const Countdown: FC<CountdownProps> = ({
     }, [repeatSmsButtonShow, startTimer]);
 
     return (
-        <div className={cn(styles.component, className)}>
+        <div className={cn(styles.component, styles[alignContent], className)}>
             {repeatSmsButtonShow ? (
                 <Button size='s' view='secondary' block={true} onClick={handleRepeatSmsButtonClick}>
                     Запросить код повторно
