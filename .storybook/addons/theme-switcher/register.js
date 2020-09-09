@@ -7,7 +7,7 @@ import { Form } from '@storybook/components';
 import './index.css';
 
 export const ADDON_ID = 'theme-switcher';
-export const THEMES = ['default', 'click'];
+export const THEMES = ['default', 'click', 'site', 'corp', 'mobile'];
 
 const Addon = () => {
     const [theme, setTheme] = useState('default');
