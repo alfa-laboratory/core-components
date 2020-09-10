@@ -27,8 +27,8 @@ export type SignConfirmationProps = {
     hasSmsCountdown: boolean;
     inputRef: MutableRefObject<HTMLInputElement | null>;
     alignContent: ContentAlign;
-    onInputFinished: (value: string) => void;
-    onInputChange: (value: string) => void;
+    onInputFinished: ({ code }: { code: string }) => void;
+    onInputChange: ({ code }: { code: string }) => void;
     onSmsRetryClick: (event: React.MouseEvent) => void;
     onCountdownFinished: () => void;
     onSmsHintLinkClick: (event: React.MouseEvent) => void;
@@ -64,15 +64,15 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
     const handleInputKeyDown = useCallback(
         (event: KeyboardEvent) => {
             if (event.key === 'Enter') {
-                onInputFinished((event.target as HTMLInputElement).value);
+                onInputFinished({ code: (event.target as HTMLInputElement).value });
             }
         },
         [onInputFinished],
     );
 
     const handleInputFinished = useCallback(
-        (value: string) => {
-            onInputFinished(value);
+        (code: string) => {
+            onInputFinished({ code });
 
             if (inputRef.current) {
                 inputRef.current.blur();
@@ -87,7 +87,7 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
                 handleInputFinished(code);
             }
 
-            onInputChange(code);
+            onInputChange({ code });
         },
         [handleInputFinished, onInputChange, requiredCharAmount],
     );

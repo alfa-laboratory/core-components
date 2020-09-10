@@ -117,12 +117,12 @@ export type ConfirmationProps = {
     /**
      * Обработчик события завершения ввода кода подписания
      */
-    onInputFinished: (code?: string) => void;
+    onInputFinished: ({ code }: { code: string }) => void;
 
     /**
      * Обработчик события изменения значения поля ввода кода подписания
      */
-    onInputChange: (code?: string) => void;
+    onInputChange: ({ code }: { code: string }) => void;
 
     /**
      * Обработчик события нажатия на кнопку "Запросить код"

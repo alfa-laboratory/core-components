@@ -76,7 +76,7 @@ import { Confirmation } from '@alfalab/core-components-confirmation';
                                 codeChecking={codeChecking['success']}
                                 countdownDuration={10000}
                                 code={value['success']}
-                                onInputChange={(code) => setCode('success', code)}
+                                onInputChange={({ code }) => setCode('success', code)}
                                 alignContent={select('alignContent', ['center', 'left'], 'left')}
                                 requiredCharAmount={number('requiredCharAmount', 5)}
                             />
@@ -93,7 +93,7 @@ import { Confirmation } from '@alfalab/core-components-confirmation';
                                 error={error['error']}
                                 countdownDuration={10000}
                                 code={value['error']}
-                                onInputChange={(code) => setCode('error', code)}
+                                onInputChange={({ code }) => setCode('error', code)}
                                 alignContent={select('alignContent', ['center', 'left'], 'left')}
                                 requiredCharAmount={number('requiredCharAmount', 5)}
                             />
@@ -111,7 +111,7 @@ import { Confirmation } from '@alfalab/core-components-confirmation';
                                 errorIsFatal={true}
                                 countdownDuration={10000}
                                 code={value['fatal']}
-                                onInputChange={(code) => setCode('fatal', code)}
+                                onInputChange={({ code }) => setCode('fatal', code)}
                                 alignContent={select('alignContent', ['center', 'left'], 'left')}
                                 requiredCharAmount={number('requiredCharAmount', 5)}
                             />
