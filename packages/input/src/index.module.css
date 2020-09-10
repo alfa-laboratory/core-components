@@ -1,5 +1,11 @@
 @import '../../themes/src/default.css';
 
+:root {
+    --input-clear-button-fill: var(--color-light-graphic-tertiary);
+    --input-clear-button-fill-hover: var(--color-light-graphic-secondary);
+    --input-clear-button-fill-active: var(--color-light-graphic-primary);
+}
+
 .input {
     @mixin system_16-20_regular;
 
@@ -30,6 +36,31 @@
 
 .block {
     width: 100%;
+}
+
+.formControl:not(.disabled) {
+    cursor: text;
+}
+
+.clearButton {
+    visibility: hidden;
+
+    & svg {
+        transition: fill 0.2s ease;
+        fill: var(--input-clear-button-fill);
+
+        &:hover {
+            fill: var(--input-clear-button-fill-hover);
+        }
+
+        &:active {
+            fill: var(--input-clear-button-fill-active);
+        }
+    }
+}
+
+.clearButtonVisible {
+    visibility: visible;
 }
 
 /* DISABLED STATE */
