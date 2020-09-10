@@ -1,0 +1,4 @@
+@define-mixin tabs-site {
+    --primary-tablist-m-gaps: var(--gap-3xl);
+    --primary-tablist-l-gaps: var(--gap-3xl);
+}

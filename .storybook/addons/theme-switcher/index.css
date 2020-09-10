@@ -1,4 +1,5 @@
 @import '../../../packages/themes/src/mixins/click.css';
+@import '../../../packages/themes/src/mixins/site.css';
 
 .tool {
     margin-top: auto;
@@ -11,4 +12,8 @@
 
 .click {
     @mixin theme-click;
+}
+
+.site {
+    @mixin theme-site;
 }

@@ -18,7 +18,10 @@ import { name, version } from '../package.json';
 export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`, id: i + 1 }));
 
 
-<Meta title='Компоненты|Tabs' />
+<Meta
+    title='Компоненты|Tabs'
+    parameters={{ 'theme-switcher': { themes: ['site'] } }}
+/>
 
 <Title>
     Tabs ({name}@{version})
