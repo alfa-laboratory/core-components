@@ -44,18 +44,18 @@
 
 .clearButton {
     visibility: hidden;
+    color: var(--input-clear-button-fill);
+
+    &:hover {
+        color: var(--input-clear-button-fill-hover);
+    }
+
+    &:active {
+        color: var(--input-clear-button-fill-active);
+    }
 
     & svg {
         transition: fill 0.2s ease;
-        fill: var(--input-clear-button-fill);
-
-        &:hover {
-            fill: var(--input-clear-button-fill-hover);
-        }
-
-        &:active {
-            fill: var(--input-clear-button-fill-active);
-        }
     }
 }
 
