@@ -209,30 +209,34 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     onClear(event);
                 }
 
-                if (inputRef.current) {
+                if (inputRef.current && !focused) {
                     inputRef.current.focus();
                 }
             },
-            [clearButtonVisible, onClear, uncontrolled],
+            [clearButtonVisible, focused, onClear, uncontrolled],
         );
 
-        const handleFormControlClear = useCallback((event: MouseEvent<HTMLDivElement>) => {
-            /**
-             * Инпут занимает не весь контрол, из-за этого появляются некликабельные области.
-             * Переводим фокус на инпут, если клик был совершен по неинтерактивному элементу.
-             */
-            const target = event.target as HTMLDivElement;
+        const handleFormControlMouseDown = useCallback(
+            (event: MouseEvent<HTMLElement>) => {
+                if (!inputRef.current) return;
 
-            if (target.tabIndex < 0 && inputRef.current) {
-                inputRef.current.focus();
-            }
-        }, []);
+                // Инпут занимает не весь контрол, из-за этого появляются некликабельные области или теряется фокус.
+                if (event.target !== inputRef.current) {
+                    event.preventDefault();
+                    if (!focused) {
+                        inputRef.current.focus();
+                    }
+                }
+            },
+            [focused],
+        );
 
         const renderRightAddons = () =>
             (clear || rightAddons) && (
                 <Fragment>
                     {clear && (
                         <Button
+                            type='button'
                             view='ghost'
                             onClick={handleClear}
                             leftAddons={clearIcon}
@@ -263,7 +267,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 leftAddons={leftAddons}
                 rightAddons={renderRightAddons()}
                 bottomAddons={bottomAddons}
-                onClick={handleFormControlClear}
+                onMouseDown={handleFormControlMouseDown}
             >
                 <input
                     {...restProps}
