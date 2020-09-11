@@ -25,7 +25,7 @@ const Addon = () => {
         themes.length > 0 && (
             <div className='tool'>
                 <Form.Select size={1} onChange={handleChange} className='select'>
-                    {['default'].concat(...themes).map(themeName => (
+                    {['default'].concat(themes).map(themeName => (
                         <option value={themeName} key={themeName}>
                             Тема: {themeName}
                         </option>
