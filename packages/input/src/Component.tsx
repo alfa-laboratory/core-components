@@ -198,7 +198,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         );
 
         const handleClear = useCallback(
-            event => {
+            (event: MouseEvent<HTMLButtonElement>) => {
                 if (!clearButtonVisible) return;
 
                 if (uncontrolled) {
