@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.18.0](https://github.com/alfa-laboratory/core-components/compare/v1.17.1...v1.18.0) (2020-09-11)
+
+
+### Features
+
+* **core-components-confirmation:** add confirmation ([#230](https://github.com/alfa-laboratory/core-components/issues/230)) ([7a494ba](https://github.com/alfa-laboratory/core-components/commit/7a494bafb18af572babb18e7a4fa9a15c2fe6a30))
+
 ### [1.17.1](https://github.com/alfa-laboratory/core-components/compare/v1.17.0...v1.17.1) (2020-09-02)
 
 
