@@ -37,7 +37,7 @@ Object {
           
         </div>
         <div
-          class="component s component"
+          class="component s formControl component"
         >
           <div
             class="inner"
@@ -95,7 +95,7 @@ Object {
         
       </div>
       <div
-        class="component s component"
+        class="component s formControl component"
       >
         <div
           class="inner"
@@ -210,7 +210,7 @@ Object {
           
         </div>
         <div
-          class="component s component"
+          class="component s formControl component"
         >
           <div
             class="inner"
@@ -270,7 +270,7 @@ Object {
           
         </div>
         <div
-          class="component s filled component"
+          class="component s filled formControl component"
         >
           <div
             class="inner"
@@ -331,7 +331,7 @@ Object {
         
       </div>
       <div
-        class="component s filled component"
+        class="component s filled formControl component"
       >
         <div
           class="inner"

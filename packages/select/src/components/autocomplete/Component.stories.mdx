@@ -86,7 +86,6 @@ export const matchOption = (option, inputValue) =>
 <Preview>
     <div style={{ height: 180 }}>
         {React.createElement(() => {
-            const inputRef = React.useRef(null);
             const [value, setValue] = React.useState('');
             const handleInput = event => {
                 setValue(event.target.value);
@@ -95,25 +94,8 @@ export const matchOption = (option, inputValue) =>
                 setValue(selectedOptions.map(option => option.text).join(', '));
             };
             const handleClear = (event) => {
-                event.stopPropagation();
-                event.preventDefault();
-                if (inputRef.current) {
-                    inputRef.current.focus();
-                }
                 setValue('');
             };
-            const renderAddons = () => (
-                value.length > 0 ? (
-                    <button
-                        type='button'
-                        onClick={handleClear}
-                        onKeyDown={handleClear}
-                        style={{ display: 'flex', border: 'none', background: 'none', padding: 0 }}
-                    >
-                        <CloseMBlackIcon />
-                    </button>
-                ) : null
-            );
             const filteredOptions = options.filter(option => matchOption(option, value));
             return (
                 <Autocomplete
@@ -125,10 +107,9 @@ export const matchOption = (option, inputValue) =>
                     onChange={handleChange}
                     onInput={handleInput}
                     value={value}
-                    Arrow={value.length === 0 ? Arrow : null}
-                    ref={inputRef}
                     inputProps={{
-                        rightAddons: renderAddons(),
+                        clear: true,
+                        onClear: handleClear
                     }}
                 />
             );

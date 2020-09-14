@@ -1,0 +1,32 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    display: flex;
+}
+
+.input {
+    @mixin promo_small;
+
+    flex-shrink: 0;
+    width: 32px;
+    height: 48px;
+    margin-right: var(--gap-xs);
+    padding: 0;
+    background-color: var(--confirmation-input-bg-color);
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+    color: var(--confirmation-input-text-color);
+    text-align: center;
+
+    &:last-child {
+        margin-right: var(--gap-xs);
+    }
+
+    &.hasError {
+        color: var(--confirmation-error-color);
+        caret-color: var(--confirmation-input-text-color);
+    }
+}
