@@ -1,5 +1,16 @@
-import React, { useState, InputHTMLAttributes, useCallback, ChangeEvent } from 'react';
+import React, {
+    useState,
+    InputHTMLAttributes,
+    useCallback,
+    ChangeEvent,
+    Fragment,
+    MouseEvent,
+    useRef,
+    ReactNode,
+} from 'react';
 import cn from 'classnames';
+import mergeRefs from 'react-merge-refs';
+import { Button } from '@alfalab/core-components-button';
 import { FormControl } from '@alfalab/core-components-form-control';
 
 import styles from './index.module.css';
@@ -22,6 +33,11 @@ export type InputProps = Omit<
      * Растягивает компонент на ширину контейнера
      */
     block?: boolean;
+
+    /**
+     * Крестик для очистки поля
+     */
+    clear?: boolean;
 
     /**
      * Размер компонента
@@ -89,6 +105,11 @@ export type InputProps = Omit<
     onChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: string }) => void;
 
     /**
+     * Обработчик нажатия на кнопку очистки
+     */
+    onClear?: (event: MouseEvent<HTMLButtonElement>) => void;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -103,6 +124,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             bottomAddons,
             className,
             dataTestId,
+            clear = false,
             disabled,
             error,
             hint,
@@ -113,6 +135,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             onFocus,
             onBlur,
             onChange,
+            onClear,
             rightAddons,
             value,
             defaultValue,
@@ -123,50 +146,109 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ) => {
         const uncontrolled = value === undefined;
 
+        const inputRef = useRef<HTMLInputElement>(null);
+
         const [focused, setFocused] = useState(false);
         const [stateValue, setStateValue] = useState(defaultValue || '');
 
         const filled = Boolean(uncontrolled ? stateValue : value);
+        // отображаем крестик только для заполненного и активного инпута
+        const clearButtonVisible = Boolean(value || (uncontrolled && stateValue)) && !disabled;
 
         const handleInputFocus = useCallback(
-            (e: React.FocusEvent<HTMLInputElement>) => {
+            (event: React.FocusEvent<HTMLInputElement>) => {
                 setFocused(true);
 
                 if (onFocus) {
-                    onFocus(e);
+                    onFocus(event);
                 }
             },
             [onFocus],
         );
 
         const handleInputBlur = useCallback(
-            (e: React.FocusEvent<HTMLInputElement>) => {
+            (event: React.FocusEvent<HTMLInputElement>) => {
                 setFocused(false);
 
                 if (onBlur) {
-                    onBlur(e);
+                    onBlur(event);
                 }
             },
             [onBlur],
         );
 
         const handleInputChange = useCallback(
-            (e: React.ChangeEvent<HTMLInputElement>) => {
+            (event: React.ChangeEvent<HTMLInputElement>) => {
                 if (onChange) {
-                    onChange(e, { value: e.target.value });
+                    onChange(event, { value: event.target.value });
                 }
 
                 if (uncontrolled) {
-                    setStateValue(e.target.value);
+                    setStateValue(event.target.value);
                 }
             },
             [onChange, uncontrolled],
         );
 
+        const handleClear = useCallback(
+            (event: MouseEvent<HTMLButtonElement>) => {
+                if (!clearButtonVisible) return;
+
+                if (uncontrolled) {
+                    setStateValue('');
+                }
+
+                if (onClear) {
+                    onClear(event);
+                }
+
+                if (inputRef.current && !focused) {
+                    inputRef.current.focus();
+                }
+            },
+            [clearButtonVisible, focused, onClear, uncontrolled],
+        );
+
+        const handleFormControlMouseDown = useCallback(
+            (event: MouseEvent<HTMLElement>) => {
+                if (!inputRef.current) return;
+
+                // Инпут занимает не весь контрол, из-за этого появляются некликабельные области или теряется фокус.
+                if (event.target !== inputRef.current) {
+                    event.preventDefault();
+                    if (!focused) {
+                        inputRef.current.focus();
+                    }
+                }
+            },
+            [focused],
+        );
+
+        const renderRightAddons = () =>
+            (clear || rightAddons) && (
+                <Fragment>
+                    {clear && (
+                        <Button
+                            type='button'
+                            view='ghost'
+                            onClick={handleClear}
+                            disabled={disabled}
+                            aria-label='Очистить'
+                            className={cn(styles.clearButton, {
+                                [styles.clearButtonVisible]: clearButtonVisible,
+                            })}
+                        >
+                            <span className={cn(styles.clearIcon)} />
+                        </Button>
+                    )}
+                    {rightAddons}
+                </Fragment>
+            );
+
         return (
             <FormControl
                 ref={wrapperRef}
-                className={className}
+                className={cn(styles.formControl, className, { [styles.disabled]: disabled })}
                 labelClassName={labelClassName}
                 size={size}
                 block={block}
@@ -177,8 +259,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 label={label}
                 hint={hint}
                 leftAddons={leftAddons}
-                rightAddons={rightAddons}
+                rightAddons={renderRightAddons()}
                 bottomAddons={bottomAddons}
+                onMouseDown={handleFormControlMouseDown}
             >
                 <input
                     {...restProps}
@@ -193,9 +276,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     onBlur={handleInputBlur}
                     onFocus={handleInputFocus}
                     onChange={handleInputChange}
-                    ref={ref}
+                    ref={mergeRefs([ref, inputRef])}
                     type={type}
-                    value={value}
+                    value={uncontrolled ? stateValue : value}
                     defaultValue={defaultValue}
                     data-test-id={dataTestId}
                 />

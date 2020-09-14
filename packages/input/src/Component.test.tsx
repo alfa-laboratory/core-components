@@ -33,6 +33,13 @@ describe('Input', () => {
         expect(getByTestId(dataTestId).tagName).toBe('INPUT');
     });
 
+    it('should set `disabled` atribute', () => {
+        const dataTestId = 'test-id';
+        const { getByTestId } = render(<Input disabled={true} dataTestId={dataTestId} />);
+
+        expect(getByTestId(dataTestId)).toHaveAttribute('disabled');
+    });
+
     describe('Classes tests', () => {
         it('should set `className` class to root', () => {
             const className = 'test-class';
@@ -58,71 +65,125 @@ describe('Input', () => {
             expect(container.getElementsByClassName(className)).toBeTruthy();
         });
 
-        describe('when component is controlled', () => {
-            it('should set `filled` class when value passed', () => {
-                const { container } = render(<Input value='some value' />);
-
-                expect(container.firstElementChild).toHaveClass('filled');
-            });
-
-            it('should not set `filled` class if the value is empty', () => {
-                const { container } = render(<Input value='' />);
-
-                expect(container.firstElementChild).not.toHaveClass('filled');
-            });
-
-            it('should unset `filled` class if the value becomes empty', () => {
-                const { container, rerender } = render(<Input value='some value' />);
-
-                rerender(<Input value='' />);
-
-                expect(container.firstElementChild).not.toHaveClass('filled');
-            });
-        });
-
-        describe('when component is uncontrolled', () => {
-            it('should set `filled` class when defaultValue passed', () => {
-                const { container } = render(<Input defaultValue='some value' />);
-
-                expect(container.firstElementChild).toHaveClass('filled');
-            });
-
-            it('should not set `filled` class if the value is empty', () => {
-                const { container } = render(<Input />);
-
-                expect(container.firstElementChild).not.toHaveClass('filled');
-            });
-
-            it('should unset `filled` class if value becomes empty', async () => {
-                const dataTestId = 'test-id';
-                const { getByTestId } = render(
-                    <Input defaultValue='some value' dataTestId={dataTestId} />,
-                );
-
-                const input = getByTestId(dataTestId) as HTMLInputElement;
-
-                input.setSelectionRange(0, input.value.length);
-                await userEvent.type(input, '{backspace}');
-
-                input.blur();
-
-                expect(input.value).toBe('');
-                expect(input).not.toHaveClass('filled');
-            });
-        });
-
         it('should set `hasLabel` class', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(<Input label='label' dataTestId={dataTestId} />);
 
             expect(getByTestId(dataTestId)).toHaveClass('hasLabel');
         });
+    });
 
-        it('should set `disabled` atribute', () => {
+    describe('when component is controlled', () => {
+        it('should set `filled` class when value passed', () => {
+            const { container } = render(<Input value='some value' />);
+
+            expect(container.firstElementChild).toHaveClass('filled');
+        });
+
+        it('should not set `filled` class if the value is empty', () => {
+            const { container } = render(<Input value='' />);
+
+            expect(container.firstElementChild).not.toHaveClass('filled');
+        });
+
+        it('should unset `filled` class if the value becomes empty', () => {
+            const { container, rerender } = render(<Input value='some value' />);
+
+            rerender(<Input value='' />);
+
+            expect(container.firstElementChild).not.toHaveClass('filled');
+        });
+
+        it('should show clear button only if input has value', () => {
+            const cb = jest.fn();
+            const label = 'Очистить';
+            // toBeVisible не работает
+            const visibleClass = 'clearButtonVisible';
+            const { getByLabelText, rerender } = render(<Input onClear={cb} clear={true} />);
+
+            expect(getByLabelText(label)).not.toHaveClass(visibleClass);
+
+            rerender(<Input onClear={cb} clear={true} value='123' />);
+
+            expect(getByLabelText(label)).toHaveClass(visibleClass);
+        });
+
+        it('should not actually clear input when clear button clicked', () => {
             const dataTestId = 'test-id';
-            const { getByTestId } = render(<Input disabled={true} dataTestId={dataTestId} />);
+            const value = '123';
+            const { getByTestId, getByLabelText } = render(
+                <Input clear={true} value={value} dataTestId={dataTestId} />,
+            );
 
-            expect(getByTestId(dataTestId)).toHaveAttribute('disabled');
+            userEvent.click(getByLabelText('Очистить'));
+
+            expect(getByTestId(dataTestId)).toHaveValue(value);
+        });
+    });
+
+    describe('when component is uncontrolled', () => {
+        it('should set `filled` class when defaultValue passed', () => {
+            const { container } = render(<Input defaultValue='some value' />);
+
+            expect(container.firstElementChild).toHaveClass('filled');
+        });
+
+        it('should not set `filled` class if the value is empty', () => {
+            const { container } = render(<Input />);
+
+            expect(container.firstElementChild).not.toHaveClass('filled');
+        });
+
+        it('should unset `filled` class if value becomes empty', async () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <Input defaultValue='some value' dataTestId={dataTestId} />,
+            );
+
+            const input = getByTestId(dataTestId) as HTMLInputElement;
+
+            input.setSelectionRange(0, input.value.length);
+            await userEvent.type(input, '{backspace}');
+
+            input.blur();
+
+            expect(input.value).toBe('');
+            expect(input).not.toHaveClass('filled');
+        });
+
+        it('should show clear button only if input has value', async () => {
+            const cb = jest.fn();
+            const dataTestId = 'test-id';
+            const label = 'Очистить';
+            // toBeVisible не работает
+            const visibleClass = 'clearButtonVisible';
+
+            const { getByLabelText, getByTestId } = render(
+                <Input onClear={cb} clear={true} dataTestId={dataTestId} />,
+            );
+
+            const input = getByTestId(dataTestId) as HTMLInputElement;
+
+            expect(getByLabelText(label)).not.toHaveClass(visibleClass);
+
+            await userEvent.type(input, '123');
+
+            expect(getByLabelText(label)).toHaveClass(visibleClass);
+        });
+
+        it('should clear input when clear button clicked', async () => {
+            const dataTestId = 'test-id';
+            const { getByTestId, getByLabelText } = render(
+                <Input clear={true} dataTestId={dataTestId} />,
+            );
+
+            const input = getByTestId(dataTestId) as HTMLInputElement;
+
+            await userEvent.type(input, '123');
+
+            userEvent.click(getByLabelText('Очистить'));
+
+            expect(input).toHaveValue('');
         });
     });
 
@@ -173,6 +234,15 @@ describe('Input', () => {
             await userEvent.type(input, '123');
 
             expect(cb).not.toBeCalled();
+        });
+
+        it('should call `onClear` prop when clear button clicked', () => {
+            const cb = jest.fn();
+            const { getByLabelText } = render(<Input onClear={cb} clear={true} value='123' />);
+
+            userEvent.click(getByLabelText('Очистить'));
+
+            expect(cb).toBeCalledTimes(1);
         });
     });
 

@@ -49,10 +49,6 @@
     box-sizing: border-box;
 }
 
-.component:not(.disabled) .inner {
-    cursor: pointer;
-}
-
 .inputWrapper {
     flex-grow: 1;
     position: relative;
