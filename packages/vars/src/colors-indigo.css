@@ -1,5 +1,14 @@
 :root {
+    --color-light-border-secondary-inverted: #b6bcc3;
+    --color-light-border-key-inverted: #fff;
+    --color-light-border-tertiary-inverted: #6d7986;
     --color-light-bg-overlay: rgba(0, 0, 0, 0.6);
+    --color-light-specialbg-tertiary-grouped: #f3f4f5;
+    --color-light-specialbg-primary-grouped: #f3f4f5;
+    --color-light-specialbg-nulled: rgba(255, 255, 255, 0);
+    --color-light-bg-secondary: #f3f4f5;
+    --color-light-bg-tertiary: #e7e9eb;
+    --color-light-bg-neutral: #dbdee1;
     --color-light-graphic-attention: #e58933;
     --color-light-text-tertiary: #b6bcc3;
     --color-light-border-primary: #dbdee1;
@@ -10,15 +19,14 @@
     --color-light-bg-secondary-inverted: #233549;
     --color-light-bg-positive-muted: #ebf9f1;
     --color-light-graphic-neutral: #dbdee1;
-    --color-light-bg-tertiary: #e7e9eb;
     --color-light-text-disabled: #dbdee1;
     --color-light-border-key: #0b1f35;
     --color-light-specialbg-secondary-grouped: #fff;
     --color-light-text-accent: #ef3124;
     --color-light-text-tertiary-inverted-transparent: rgba(255, 255, 255, 0.4);
     --color-light-graphic-positive: #2fc26e;
-    --color-light-specialbg-primary-grouped: #f3f4f5;
     --color-light-text-primary: #0b1f35;
+    --color-light-specialbg-component: #eeeff1;
     --color-light-text-secondary-transparent: rgba(11, 31, 53, 0.6);
     --color-light-text-secondary-inverted-transparent: rgba(255, 255, 255, 0.7);
     --color-light-graphic-negative: #f15045;
@@ -32,15 +40,11 @@
     --color-light-text-tertiary-inverted: #6d7986;
     --color-light-text-tertiary-transparent: rgba(11, 31, 53, 0.3);
     --color-light-bg-opaque: rgba(255, 255, 255, 0.6);
-    --color-light-bg-neutral: #dbdee1;
     --color-light-bg-tertiary-inverted: #3c4c5d;
-    --color-light-specialbg-tertiary-grouped: #f3f4f5;
     --color-light-text-primary-inverted: #fff;
     --color-light-text-secondary-inverted: #b6bcc3;
     --color-light-bg-accent: #ef3124;
-    --color-light-specialbg-nulled: rgba(255, 255, 255, 0);
     --color-light-border-secondary: #e7e9eb;
-    --color-light-bg-secondary: #f3f4f5;
     --color-light-text-link: #007aff;
     --color-light-text-negative: #d91d0b;
     --color-light-graphic-primary: #0b1f35;
@@ -48,6 +52,9 @@
     --color-light-bg-primary-inverted: #0b1f35;
     --color-light-bg-negative-muted: #feebea;
     --color-light-graphic-primary-inverted: #f3f4f5;
+    --color-dark-border-secondary-inverted: #6d7986;
+    --color-dark-border-tertiary-inverted: #b6bcc3;
+    --color-dark-border-key-inverted: #0b1f35;
     --color-dark-bg-opaque: rgba(11, 31, 53, 0.6);
     --color-dark-bg-overlay: rgba(0, 0, 0, 0.6);
     --color-dark-graphic-link: #007aff;
@@ -76,6 +83,7 @@
     --color-dark-bg-accent: #ef3124;
     --color-dark-bg-attention-muted: #432000;
     --color-dark-text-accent: #ef3124;
+    --color-dark-specialbg-component: #485767;
     --color-dark-border-primary: #485767;
     --color-dark-text-tertiary-inverted: #b6bcc3;
     --color-dark-text-secondary-inverted: #6d7986;
