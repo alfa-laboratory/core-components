@@ -35,6 +35,7 @@ export const AutocompleteField = ({
             </React.Fragment>
         }
         onChange={onInput}
+        autoComplete='off'
         value={value}
     />
 );
