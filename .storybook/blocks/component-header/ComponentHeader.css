@@ -1,0 +1,16 @@
+.component {
+    position: relative;
+    margin: 0 0 24px;
+}
+
+.component h1 {
+    display: inline-block;
+}
+
+.version {
+    display: inline-block;
+    margin-left: 8px;
+    color: rgba(11, 31, 53, 0.6);
+    font-size: 16px;
+    line-height: 1.2;
+}

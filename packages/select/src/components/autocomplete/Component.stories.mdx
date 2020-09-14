@@ -36,7 +36,7 @@ export const matchOption = (option, inputValue) =>
     option.text.toLowerCase().includes(inputValue.toLowerCase());
 
 <Meta
-    title='Компоненты|Autocomplete'
+    title='Компоненты'
     parameters={{ 'theme-switcher': { enabled: true } }}
     component={Autocomplete}
 />
@@ -45,7 +45,7 @@ export const matchOption = (option, inputValue) =>
 
 Компонент поля для ввода с автокомплитом.
 
-<Story name='Песочница'>
+<Story name='Autocomplete'>
     <div style={{ height: 180, width: 300 }}>
         {React.createElement(() => {
             const [value, setValue] = React.useState('');

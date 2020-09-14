@@ -2,6 +2,7 @@ import { Meta, Story, Preview, Props, Description, Title } from '@storybook/addo
 import { action } from '@storybook/addon-actions';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { Design } from 'storybook/blocks/design';
+import { Status } from 'storybook/blocks/status';
 
 import { useFocus } from '@alfalab/hooks';
 
@@ -18,6 +19,10 @@ export const focusOutlineStyles = {
 <Title>
     KeyboardFocusable ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ```tsx
 import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';

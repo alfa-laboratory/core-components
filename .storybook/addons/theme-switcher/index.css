@@ -5,6 +5,12 @@
     margin-bottom: auto;
 }
 
+.label {
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 13px;
+}
+
 .click {
     @mixin theme-click;
 }

@@ -2,50 +2,18 @@ import { create } from '@storybook/theming/create';
 
 export default create({
     base: 'light',
-
-    /*
-     *   colorPrimary: 'hotpink',
-     *   colorSecondary: 'deepskyblue',
-     */
-
-    /*
-     * UI
-     *   appBg: 'white',
-     *   appContentBg: 'silver',
-     *   appBorderColor: 'grey',
-     *   appBorderRadius: 4,
-     */
-
-    /*
-     * Typography
-     *   fontBase: '"Open Sans", sans-serif',
-     *   fontCode: 'monospace',
-     */
-
-    /*
-     * Text colors
-     *   textColor: 'black',
-     *   textInverseColor: 'rgba(255,255,255,0.9)',
-     */
-
-    /*
-     * Toolbar default and active colors
-     *   barTextColor: 'silver',
-     */
-    barSelectedColor: '#ef3124',
-    //   barBg: 'hotpink',
-
-    /*
-     * Form colors
-     *   inputBg: 'white',
-     *   inputBorder: 'silver',
-     *   inputTextColor: 'black',
-     *   inputBorderRadius: 4,
-     */
-
-    /*
-     *   brandTitle: 'My custom storybook',
-     *   brandUrl: 'https://example.com',
-     */
+    colorPrimary: '#0B1F35',
+    // colorSecondary: '#B6BCC3',
+    appContentBg: '#fff',
+    appBorderColor: 'rgba(11, 31, 53, 0.1)',
+    fontBase: 'system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Helvetica, sans-serif',
+    fontCode: 'Consolas, Liberation Mono, Menlo, monospace',
+    textColor: '#0B1F35',
+    barTextColor: '#6D7986',
+    barSelectedColor: '#EF3124',
+    inputBg: '#fff',
+    inputBorder: '#DBDEE1',
+    inputTextColor: '#0B1F35',
+    brandTitle: 'Core Components',
     brandImage: 'https://alfabank.ru/api/files/mail_designer/mailz/core-components.svg',
 });

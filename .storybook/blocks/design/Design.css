@@ -1,5 +1,15 @@
 .design {
-    margin: -32px 0 40px;
-    padding: 0 0 0 24px;
+    position: absolute;
+    right: 0;
+    top: 20px;
+    font-size: 16px;
+    line-height: 16px;
+    padding: 0 0 0 20px;
     background: url(https://static.figma.com/app/icon/1/favicon.svg) no-repeat 0 50%;
+}
+
+.design a {
+    color: #0f62fe;
+    border-bottom: 1px solid color-mod(#0f62fe alpha(30%));
+    text-decoration: none;
 }

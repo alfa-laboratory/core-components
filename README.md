@@ -11,7 +11,7 @@
 - Набор готовых к использованию и протестированных React компонентов, которые реализуют [дизайн-систему Альфа-Банка](https://digital.alfabank.ru/principles)
 - Все компоненты написаны на TypeScript и типизированы.
 - Компоненты открыты к темизации через css-переменные.
-<li class="github-doc><a href="https://alfa-laboratory.github.io/core-components/">Cторибук</a> с документацией и песочницей.</li>
+- [Cторибук](https://alfa-laboratory.github.io/core-components/) с документацией и песочницей.
 
 <div class="github-doc">
 

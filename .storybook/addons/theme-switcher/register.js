@@ -25,10 +25,11 @@ const Addon = () => {
     return (
         enabled && (
             <div className='tool'>
+                <span className='label'>Theme:</span>
                 <Form.Select size={1} onChange={handleChange} className='select'>
                     {THEMES.map(themeName => (
                         <option value={themeName} key={themeName}>
-                            Тема: {themeName}
+                            {themeName}
                         </option>
                     ))}
                 </Form.Select>

@@ -2,7 +2,10 @@
 @import '../../../packages/vars/src/colors-addons.css';
 
 .status {
-    margin: 0 0 var(--gap-xl);
+    /* position: absolute;
+    right: 0;
+    top: 8px; */
+    margin: 4px 0 0;
 }
 
 .link {

@@ -4,6 +4,7 @@ import { text, select, boolean } from '@storybook/addon-knobs';
 import { Container, Row, Col } from 'storybook/blocks/grid';
 import { Status } from 'storybook/blocks/status';
 import { Design } from 'storybook/blocks/design';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
 import { Button } from './Component';
@@ -18,26 +19,6 @@ export const SIZES = ['xs', 's', 'm', 'l'];
     component={Button}
     parameters={{ 'theme-switcher': { enabled: true } }}
 />
-
-<Title>
-    Button ({name}@{version})
-</Title>
-
-<Status>
-  Proposed Recommendation
-</Status>
-
-```tsx
-import { Button } from '@alfalab/core-components-button';
-```
-
-<Design>
-  <a href="https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=1%3A2">Figma</a>
-</Design>
-
-## Описание
-
-Кнопка используется как триггер для выполнения определённого действия.
 
 <Story name='Button'>
     <Button
@@ -55,6 +36,26 @@ import { Button } from '@alfalab/core-components-button';
         {text('label', 'Оплатить')}
     </Button>
 </Story>
+
+
+<ComponentHeader
+    name='Button'
+    version={version}
+    package='@alfalab/core-components-button'
+    stage={3}
+    status='Proposed Recommendation'
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=1%3A2'
+/>
+
+```tsx
+import { Button } from '@alfalab/core-components-button';
+```
+
+## Описание
+
+Кнопка используется как триггер для выполнения определённого действия.
+
+<Button view='primary'>Оплатить</Button>
 
 <Props of={Button} />
 
@@ -128,7 +129,7 @@ import { Button } from '@alfalab/core-components-button';
 </Preview>
 
 
-- `view="ghost"`: прозрачная кнопка без отступов. Use-кейсы такие же загадочные, как и название типа.
+- `view="ghost"`: прозрачная кнопка без отступов.
 
 <Preview>
     <Container>

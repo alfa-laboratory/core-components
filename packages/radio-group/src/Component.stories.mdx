@@ -1,16 +1,21 @@
 import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
 import { text, boolean, select } from '@storybook/addon-knobs';
+import { Status } from 'storybook/blocks/status';
 
 import { RadioGroup } from './Component';
 import { name, version } from '../package.json';
 import { Radio } from '../../radio/src';
 import { Tag } from '../../tag/src';
 
-<Meta title='Компоненты|RadioGroup' component={RadioGroup} />
+<Meta title='Компоненты' component={RadioGroup} />
 
 <Title>
     RadioGroup ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ```tsx
 import { RadioGroup } from '@alfalab/core-components-radio-group';
@@ -20,7 +25,7 @@ import { RadioGroup } from '@alfalab/core-components-radio-group';
 
 Компонент группы радио.
 
-<Story name='Песочница'>
+<Story name='RadioGroup'>
     {React.createElement(() => {
         const [value, setValue] = React.useState({ one: false, two: false, three: false });
         const onChange = (_, payload) => {

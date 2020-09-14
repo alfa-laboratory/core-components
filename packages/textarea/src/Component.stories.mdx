@@ -1,13 +1,14 @@
 import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { Design } from 'storybook/blocks/design';
+import { Status } from 'storybook/blocks/status';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
 import { Textarea } from './Component';
 import { name, version } from '../package.json';
 
 <Meta
-    title='Компоненты|Textarea'
+    title='Компоненты'
     component={Textarea}
     parameters={{ 'theme-switcher': { enabled: true } }}
 />
@@ -15,6 +16,10 @@ import { name, version } from '../package.json';
 <Title>
     Textarea ({name}@{version})
 </Title>
+
+<Status>
+  Candidate Recommendation
+</Status>
 
 ```tsx
 import { Textarea } from '@alfalab/core-components-textarea';
@@ -30,7 +35,7 @@ import { Textarea } from '@alfalab/core-components-textarea';
 
 Компонент текстового поля ввода.
 
-<Story name='Песочница'>
+<Story name='Textarea'>
     <Textarea
         autosize={boolean('autosize', true)}
         block={boolean('block', false)}
