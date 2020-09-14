@@ -96,7 +96,7 @@ describe('Input', () => {
 
         it('should show clear button only if input has value', () => {
             const cb = jest.fn();
-            const label = 'очистить';
+            const label = 'Очистить';
             // toBeVisible не работает
             const visibleClass = 'clearButtonVisible';
             const { getByLabelText, rerender } = render(<Input onClear={cb} clear={true} />);
@@ -115,7 +115,7 @@ describe('Input', () => {
                 <Input clear={true} value={value} dataTestId={dataTestId} />,
             );
 
-            userEvent.click(getByLabelText('очистить'));
+            userEvent.click(getByLabelText('Очистить'));
 
             expect(getByTestId(dataTestId)).toHaveValue(value);
         });
@@ -154,7 +154,7 @@ describe('Input', () => {
         it('should show clear button only if input has value', async () => {
             const cb = jest.fn();
             const dataTestId = 'test-id';
-            const label = 'очистить';
+            const label = 'Очистить';
             // toBeVisible не работает
             const visibleClass = 'clearButtonVisible';
 
@@ -181,7 +181,7 @@ describe('Input', () => {
 
             await userEvent.type(input, '123');
 
-            userEvent.click(getByLabelText('очистить'));
+            userEvent.click(getByLabelText('Очистить'));
 
             expect(input).toHaveValue('');
         });
@@ -240,7 +240,7 @@ describe('Input', () => {
             const cb = jest.fn();
             const { getByLabelText } = render(<Input onClear={cb} clear={true} value='123' />);
 
-            userEvent.click(getByLabelText('очистить'));
+            userEvent.click(getByLabelText('Очистить'));
 
             expect(cb).toBeCalledTimes(1);
         });

@@ -12,7 +12,6 @@ import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
 import { Button } from '@alfalab/core-components-button';
 import { FormControl } from '@alfalab/core-components-form-control';
-import { CrossCircleMIcon } from '@alfalab/icons-glyph';
 
 import styles from './index.module.css';
 
@@ -39,11 +38,6 @@ export type InputProps = Omit<
      * Крестик для очистки поля
      */
     clear?: boolean;
-
-    /**
-     * Иконка кнопки очистки
-     */
-    clearIcon?: ReactNode;
 
     /**
      * Размер компонента
@@ -131,7 +125,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             className,
             dataTestId,
             clear = false,
-            clearIcon = <CrossCircleMIcon />,
             disabled,
             error,
             hint,
@@ -239,13 +232,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                             type='button'
                             view='ghost'
                             onClick={handleClear}
-                            leftAddons={clearIcon}
                             disabled={disabled}
-                            aria-label='очистить'
+                            aria-label='Очистить'
                             className={cn(styles.clearButton, {
                                 [styles.clearButtonVisible]: clearButtonVisible,
                             })}
-                        />
+                        >
+                            <span className={cn(styles.clearIcon)} />
+                        </Button>
                     )}
                     {rightAddons}
                 </Fragment>

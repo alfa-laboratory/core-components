@@ -1,9 +1,7 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --input-clear-button-fill: var(--color-light-graphic-tertiary);
-    --input-clear-button-fill-hover: var(--color-light-graphic-secondary);
-    --input-clear-button-fill-active: var(--color-light-graphic-primary);
+    --input-clear-icon: url('https://alfabank.st/icons/glyph_cross-circle_m.svg');
 }
 
 .input {
@@ -44,18 +42,24 @@
 
 .clearButton {
     visibility: hidden;
-    color: var(--input-clear-button-fill);
+}
+
+.clearIcon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: var(--input-clear-icon);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    opacity: 0.3;
+    transition: opacity 0.2s ease;
 
     &:hover {
-        color: var(--input-clear-button-fill-hover);
+        opacity: 0.6;
     }
 
     &:active {
-        color: var(--input-clear-button-fill-active);
-    }
-
-    & svg {
-        transition: fill 0.2s ease;
+        opacity: 1;
     }
 }
 
