@@ -96,6 +96,7 @@
 }
 
 .xs {
+    min-width: 60px;
     min-height: 32px;
     padding: 4px 16px;
     border-radius: 32px;
@@ -111,6 +112,7 @@
 }
 
 .s {
+    min-width: 80px;
     min-height: 48px;
     padding: 4px 16px;
     border-radius: 48px;
@@ -126,6 +128,7 @@
 }
 
 .m {
+    min-width: 96px;
     min-height: 56px;
     padding: 4px 24px;
     border-radius: 56px;
@@ -141,6 +144,7 @@
 }
 
 .l {
+    min-width: 120px;
     min-height: 68px;
     padding: 4px 32px;
     border-radius: 68px;
