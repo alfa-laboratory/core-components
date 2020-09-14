@@ -1,25 +1,19 @@
 import React from 'react';
-import cn from 'classnames';
 import { SecondaryTabList } from './Component';
-import { TabListProps, Gaps } from '../../typings';
+import { SecondaryTabListProps } from '../../typings';
 
-import desktopStyles from './desktop.module.css';
 import commonStyles from './index.module.css';
 
-const styles = {
-    ...commonStyles,
-    ...desktopStyles,
-};
+export type SecondaryTabListDesktopProps = Omit<SecondaryTabListProps, 'tagSize'>;
 
 export const SecondaryTabListDesktop = ({
-    gaps = 'default',
-    className,
+    size = 'm',
     ...restProps
-}: TabListProps & Gaps) => (
+}: SecondaryTabListDesktopProps) => (
     <SecondaryTabList
         {...restProps}
-        styles={styles}
-        className={cn(className, styles[gaps])}
-        tagSize='s'
+        size={size}
+        styles={commonStyles}
+        tagSize={size === 's' ? 'xs' : 's'}
     />
 );

@@ -1,30 +1,12 @@
 import React from 'react';
-import cn from 'classnames';
-import { SecondaryTabList } from './Component';
-import { TabListProps, Gaps } from '../../typings';
+import { SecondaryTabListDesktop, SecondaryTabListMobile } from './index';
+import { SecondaryTabListProps } from '../../typings';
 import { useWindowWidth } from '../../utils';
 
-import responsiveStyles from './responsive.module.css';
-import commonStyles from './index.module.css';
-
-const styles = {
-    ...commonStyles,
-    ...responsiveStyles,
-};
-
-export const SecondaryTabListResponsive = ({
-    gaps = 'default',
-    className,
-    ...restProps
-}: TabListProps & Gaps) => {
-    const width = useWindowWidth();
-
-    return (
-        <SecondaryTabList
-            {...restProps}
-            styles={styles}
-            className={cn(className, styles[gaps])}
-            tagSize={width >= 768 ? 's' : 'xs'}
-        />
+export const SecondaryTabListResponsive = ({ size, ...restProps }: SecondaryTabListProps) => {
+    return useWindowWidth() >= 768 ? (
+        <SecondaryTabListDesktop size={size} {...restProps} />
+    ) : (
+        <SecondaryTabListMobile {...restProps} />
     );
 };
