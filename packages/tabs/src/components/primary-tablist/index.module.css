@@ -28,6 +28,7 @@
     padding: 0;
     cursor: pointer;
     color: var(--primary-tablist-color);
+    font-feature-settings: 'ss01';
     transition: color 0.2s ease;
     border: 0;
     background: none;
