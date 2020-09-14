@@ -150,7 +150,7 @@
 }
 
 .l .inner {
-    min-height: 68px;
+    min-height: 72px;
 }
 
 .l .label {
@@ -175,7 +175,7 @@
 }
 
 .l .errorIcon {
-    height: 67px;
+    height: 71px;
 }
 
 .l.hasLeftAddons .label {
