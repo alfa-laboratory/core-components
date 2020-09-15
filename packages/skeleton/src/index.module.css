@@ -1,0 +1,62 @@
+@import '../../vars/src/colors-indigo.css';
+
+:root {
+    --skeleton-wrapper-background-filter: none;
+    --skeleton-wrapper-default-color: var(--color-light-graphic-tertiary);
+}
+
+.component {
+    position: relative;
+    display: inline-block;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.component > * {
+    visibility: hidden;
+}
+
+.component:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--skeleton-wrapper-default-color);
+    backdrop-filter: var(--skeleton-wrapper-background-filter);
+}
+
+.animate:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500%;
+    height: 100%;
+    transform: translateX(-80%);
+    animation-name: animation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    background: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 0.025) 50%,
+        rgba(0, 0, 0, 0) 60%,
+        rgba(0, 0, 0, 0)
+    );
+}
+
+@keyframes animation {
+    0% {
+        transform: translateX(-80%);
+    }
+    67% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

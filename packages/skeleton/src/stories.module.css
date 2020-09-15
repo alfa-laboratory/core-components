@@ -1,0 +1,58 @@
+.example-1 {
+    border-radius: 60px;
+    margin-top: 16px;
+}
+
+.example-1:first-child {
+    margin-top: 0;
+}
+
+.wrapper {
+    height: 92px;
+    width: 440px;
+}
+
+@define-mixin common {
+    position: absolute;
+    border-radius: 60px;
+}
+
+.example-2 {
+    @mixin common;
+    width: 48px;
+    height: 48px;
+    left: 10px;
+    top: 10px;
+}
+
+.example-3 {
+    @mixin common;
+    width: 200px;
+    height: 24px;
+    left: 82px;
+    top: 10px;
+}
+
+.example-4 {
+    @mixin common;
+    width: 124px;
+    height: 16px;
+    left: 82px;
+    top: 54px;
+}
+
+.example-5 {
+    @mixin common;
+    width: 228px;
+    height: 16px;
+    left: 222px;
+    top: 54px;
+}
+
+.example-6 {
+    @mixin common;
+    width: 260px;
+    height: 16px;
+    left: 82px;
+    top: 86px;
+}
