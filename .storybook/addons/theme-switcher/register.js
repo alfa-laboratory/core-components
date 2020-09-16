@@ -7,11 +7,10 @@ import { Form } from '@storybook/components';
 import './index.css';
 
 export const ADDON_ID = 'theme-switcher';
-export const THEMES = ['default', 'click'];
 
 const Addon = () => {
     const [theme, setTheme] = useState('default');
-    const { enabled } = useParameter(ADDON_ID, { enabled: false });
+    const { themes } = useParameter(ADDON_ID, { themes: [] });
 
     const emit = useChannel({
         [STORY_RENDERED]: () => emit(`${ADDON_ID}/theme`, theme),
@@ -23,11 +22,11 @@ const Addon = () => {
     }, []);
 
     return (
-        enabled && (
+        themes.length > 0 && (
             <div className='tool'>
                 <span className='label'>Theme:</span>
                 <Form.Select size={1} onChange={handleChange} className='select'>
-                    {THEMES.map(themeName => (
+                    {['default'].concat(themes).map(themeName => (
                         <option value={themeName} key={themeName}>
                             {themeName}
                         </option>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback, ChangeEvent, useState } from 'react';
+import React, { useEffect, useRef, useCallback, ChangeEvent, useState, MouseEvent } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
 import { createTextMaskInputElement, TextMaskConfig, TextMaskInputElement } from 'text-mask-core';
@@ -23,7 +23,10 @@ export type MaskedInputProps = InputProps & {
 export const PLACEHOLDER_CHAR = '\u2000';
 
 export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
-    ({ mask, value, defaultValue, className, onBeforeDisplay, onChange, ...restProps }, ref) => {
+    (
+        { mask, value, defaultValue, className, onBeforeDisplay, onChange, onClear, ...restProps },
+        ref,
+    ) => {
         const inputRef = useRef<HTMLInputElement>(null);
         const textMask = useRef<TextMaskInputElement | null>(null);
 
@@ -49,6 +52,14 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
                 }
             },
             [onChange, update],
+        );
+
+        const handleClear = useCallback(
+            (event: MouseEvent<HTMLButtonElement>) => {
+                update('');
+                if (onClear) onClear(event);
+            },
+            [onClear, update],
         );
 
         useEffect(() => {
@@ -82,6 +93,7 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
                 className={cn(className, { [styles.textHidden]: textHidden })}
                 value={inputValue}
                 onChange={handleInputChange}
+                onClear={handleClear}
                 ref={mergeRefs([ref, inputRef])}
             />
         );

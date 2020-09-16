@@ -1,0 +1,64 @@
+@import '../../themes/src/default.css';
+@import './vars.css';
+
+.component {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-family: var(--confirmation-font-family);
+}
+
+.error {
+    display: flex;
+    flex-direction: column;
+}
+
+.errorHeader {
+    @mixin headline_small;
+
+    margin-bottom: var(--gap-2xl);
+    color: var(--confirmation-title-color);
+}
+
+.errorText {
+    @mixin paragraph_primary_medium;
+
+    margin-bottom: var(--gap-2xl);
+    color: var(--confirmation-text-color);
+}
+
+.phoneHintWrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.phoneHintText {
+    @mixin paragraph_primary_medium;
+
+    margin-bottom: var(--gap-2xl);
+    color: var(--confirmation-text-color);
+}
+
+.phonesWrap {
+    @mixin paragraph_primary_medium;
+
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--gap-2xl);
+}
+
+.phoneWrap {
+    margin-bottom: var(--gap-xs);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.phoneDescription {
+    color: var(--confirmation-text-color);
+}
+
+.component.center {
+    text-align: center;
+}

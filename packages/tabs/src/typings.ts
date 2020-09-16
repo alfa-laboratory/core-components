@@ -1,14 +1,7 @@
-import { ReactElement, ReactNode } from 'react';
+import { ReactElement, ReactNode, FC } from 'react';
 import { TagProps } from '@alfalab/core-components-tag';
 
 export type SelectedId = string | number;
-
-export type Gaps = {
-    /**
-     * Управление размером отступов между заголовками (desktop only)
-     */
-    gaps?: 'default' | 'wide';
-};
 
 export type TabsProps = {
     /**
@@ -32,6 +25,16 @@ export type TabsProps = {
     view?: 'primary' | 'secondary';
 
     /**
+     * Высота заголовков табов
+     */
+    size?: 's' | 'm' | 'l';
+
+    /**
+     * Мобильный вид
+     */
+    mobile?: boolean;
+
+    /**
      * Рендерить заголовки табов в контейнере со скроллом
      */
     scrollable?: boolean;
@@ -44,7 +47,7 @@ export type TabsProps = {
     /**
      * Компонент заголовков табов
      */
-    TabList: ReactElement<TabListProps>;
+    TabList: FC<TabListProps>;
 
     /**
      * Обработчик переключения табов
@@ -91,7 +94,7 @@ export type TabProps = {
 
 export type TabListProps = Pick<
     TabsProps,
-    'className' | 'selectedId' | 'scrollable' | 'onChange' | 'dataTestId'
+    'className' | 'size' | 'selectedId' | 'scrollable' | 'onChange' | 'dataTestId'
 > & {
     /**
      * Заголовки табов

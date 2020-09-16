@@ -31,7 +31,7 @@ exports[`BankCard Snapshots tests should match snapshots 1`] = `
           </svg>
         </div>
         <div
-          class="component s filled hasLabel block hasRightAddons"
+          class="component s filled hasLabel block hasRightAddons formControl"
         >
           <div
             class="inner"
@@ -139,7 +139,7 @@ exports[`BankCard Snapshots tests should match snapshots 2`] = `
           </svg>
         </div>
         <div
-          class="component s filled hasLabel block hasRightAddons"
+          class="component s filled hasLabel block hasRightAddons formControl"
         >
           <div
             class="inner"
@@ -245,7 +245,7 @@ exports[`BankCard Snapshots tests should match snapshots 3`] = `
           </svg>
         </div>
         <div
-          class="component s filled hasLabel block hasRightAddons"
+          class="component s filled hasLabel block hasRightAddons formControl"
         >
           <div
             class="inner"
@@ -351,7 +351,7 @@ exports[`BankCard Snapshots tests should match snapshots 4`] = `
           </svg>
         </div>
         <div
-          class="component s filled hasLabel block hasRightAddons"
+          class="component s filled hasLabel block hasRightAddons formControl"
         >
           <div
             class="inner"

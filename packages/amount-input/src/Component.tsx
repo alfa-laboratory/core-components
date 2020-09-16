@@ -63,6 +63,7 @@ export const AmountInput: React.FC<AmountInputProps> = ({
     onChange,
     onBlur,
     onFocus,
+    onClear,
     ...restProps
 }: AmountInputProps) => {
     const [focused, setFocused] = useState(false);
@@ -151,25 +152,36 @@ export const AmountInput: React.FC<AmountInputProps> = ({
     };
 
     const handleInputFocus = useCallback(
-        (e: React.FocusEvent<HTMLInputElement>) => {
+        (event: React.FocusEvent<HTMLInputElement>) => {
             setFocused(true);
 
             if (onFocus) {
-                onFocus(e);
+                onFocus(event);
             }
         },
         [onFocus],
     );
 
     const handleInputBlur = useCallback(
-        (e: React.FocusEvent<HTMLInputElement>) => {
+        (event: React.FocusEvent<HTMLInputElement>) => {
             setFocused(false);
 
             if (onBlur) {
-                onBlur(e);
+                onBlur(event);
             }
         },
         [onBlur],
+    );
+
+    const handleClear = useCallback(
+        (event: React.MouseEvent<HTMLButtonElement>) => {
+            setInputValue('');
+
+            if (onClear) {
+                onClear(event);
+            }
+        },
+        [onClear],
     );
 
     const [majorPart, minorPart] = inputValue.split(',');
@@ -208,6 +220,7 @@ export const AmountInput: React.FC<AmountInputProps> = ({
                 onChange={handleChange}
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
+                onClear={handleClear}
                 dataTestId={dataTestId}
             />
         </div>

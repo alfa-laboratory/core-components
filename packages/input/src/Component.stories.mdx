@@ -11,7 +11,7 @@ import { name, version } from '../package.json';
 <Meta
     title='Компоненты'
     component={Input}
-    parameters={{ 'theme-switcher': { enabled: true } }}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
 <Title>
@@ -42,6 +42,7 @@ import { Input } from '@alfalab/core-components-input';
             'text',
         )}
         block={boolean('block', false)}
+        clear={boolean('clear', false)}
         size={select('size', ['s', 'm', 'l'], 's')}
         disabled={boolean('disabled', false)}
         placeholder={text('placeholder', '')}

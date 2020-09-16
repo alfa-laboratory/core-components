@@ -12,7 +12,7 @@ const matches = glob.sync('dist/**/*.css', { ignore: 'dist/+(themes|vars|bank-ca
  * https://github.com/FullHuman/purgecss/issues/303
  * После того, как баг будет исправлен, можно будет это удалить, а пока добавляем сюда все такие селекторы.
  */
-const whitelistPatternsChildren = [/component/, /filled/, /focused/];
+const whitelistPatternsChildren = [/component/, /filled/, /focused/, /svg/];
 
 matches.forEach(match => {
     const purge = new PurgeCSS();

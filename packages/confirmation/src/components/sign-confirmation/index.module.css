@@ -1,0 +1,58 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    @mixin headline_small;
+
+    margin-bottom: var(--gap-2xl);
+    color: var(--confirmation-title-color);
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--gap-2xl);
+}
+
+.hidden {
+    display: none;
+}
+
+.smsComeLinkWrap {
+    margin-top: var(--gap-2xl);
+}
+
+.smsComeLink {
+    @mixin paragraph_primary_small;
+}
+
+.error {
+    @mixin paragraph_primary_medium;
+
+    margin-top: var(--gap-s);
+    color: var(--confirmation-error-color);
+}
+
+.loaderWrap {
+    display: flex;
+    align-items: center;
+}
+
+.loaderText {
+    @mixin paragraph_primary_medium;
+
+    margin-left: var(--gap-s);
+    color: var(--confirmation-text-color);
+}
+
+.center {
+    & .codeInput,
+    & .loaderWrap {
+        justify-content: center;
+    }
+}

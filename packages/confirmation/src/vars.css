@@ -1,0 +1,10 @@
+:root {
+    --confirmation-title-color: var(--color-light-text-primary);
+    --confirmation-text-color: var(--color-light-text-secondary);
+    --confirmation-error-color: var(--color-light-text-negative);
+    --confirmation-font-family: var(--font-family);
+
+    /* input */
+    --confirmation-input-bg-color: var(--color-light-bg-secondary);
+    --confirmation-input-text-color: var(--color-light-text-primary);
+}
