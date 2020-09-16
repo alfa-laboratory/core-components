@@ -60,6 +60,7 @@ export const AmountInput: React.FC<AmountInputProps> = ({
     bold = true,
     className,
     dataTestId,
+    clear = false,
     onChange,
     onBlur,
     onFocus,
@@ -213,6 +214,7 @@ export const AmountInput: React.FC<AmountInputProps> = ({
 
             <Input
                 {...restProps}
+                clear={clear}
                 placeholder={placeholder}
                 value={inputValue}
                 className={cn(styles.component, className)}
