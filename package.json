@@ -118,7 +118,7 @@
     "glob": "^7.1.6",
     "globby": "^11.0.1",
     "handlebars": "^4.7.3",
-    "husky": "^4.2.1",
+    "husky": "^4.3.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.0.1",
     "jest-environment-jsdom-sixteen": "^1.0.3",
