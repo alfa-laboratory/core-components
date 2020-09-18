@@ -2,10 +2,12 @@ import { ScriptTarget } from 'typescript';
 import path from 'path';
 import multiInput from 'rollup-plugin-multi-input';
 import postcss, { addCssImports } from '@alfalab/rollup-plugin-postcss';
-import coreComponentsResolver from './tools/core-components-resolver';
+import coreComponentsResolver from './tools/rollup/core-components-resolver';
+import ignoreCss from './tools/rollup/ignore-css';
 import typescript from 'rollup-plugin-ts';
 import stringHash from 'string-hash';
 import copy from 'rollup-plugin-copy';
+import transformCss from './tools/rollup/transform-css';
 
 const currentPackageDir = process.cwd();
 const currentPkg = path.join(currentPackageDir, 'package.json');
@@ -15,7 +17,12 @@ const pkg = require(currentPkg);
 const currentComponentName = pkg.name.replace('@alfalab/core-components-', '');
 
 const baseConfig = {
-    input: ['src/**/*.{ts,tsx}', '!src/**/*.{test,stories}.{ts,tsx}', '!src/**/*.mdx', '!src/**/*.d.ts'],
+    input: [
+        'src/**/*.{ts,tsx}',
+        '!src/**/*.{test,stories}.{ts,tsx}',
+        '!src/**/*.mdx',
+        '!src/**/*.d.ts',
+    ],
     external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
 };
 
@@ -83,6 +90,28 @@ const modern = {
     ],
 };
 
+const cssm = {
+    ...baseConfig,
+    output: [
+        {
+            dir: 'dist/cssm',
+            format: 'cjs',
+        },
+    ],
+    plugins: [
+        multiInputPlugin,
+        ignoreCss(),
+        typescript({
+            outDir: 'dist/cssm',
+            tsconfig: resolvedConfig => ({
+                ...resolvedConfig,
+                tsBuildInfoFile: 'tsconfig.tsbuildinfo',
+            }),
+        }),
+        transformCss(),
+    ],
+};
+
 const root = {
     input: ['dist/**/*.js'],
     external: baseConfig.external,
@@ -105,4 +134,4 @@ const root = {
     ],
 };
 
-export default [es5, modern, root];
+export default [es5, modern, cssm, root];
