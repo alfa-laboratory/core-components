@@ -3,8 +3,7 @@ import { text, boolean } from '@storybook/addon-knobs';
 import { select as selectKnob } from '@storybook/addon-knobs'; // name conflict
 import { action } from '@storybook/addon-actions';
 import { Container, Row, Col } from 'storybook/blocks/grid';
-import { Status } from 'storybook/blocks/status';
-import { Design } from 'storybook/blocks/design';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { Select } from './Component';
 import { Field } from './components/field';
@@ -88,23 +87,17 @@ export const renderUppercased = (options) => {
     parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
-<Title>
-    Select ({name}@{version})
-</Title>
-
-<Status>
-  Candidate Recommendation
-</Status>
+<ComponentHeader
+    name='Select'
+    version={version}
+    package='@alfalab/core-components-select'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=719%3A0'
+/>
 
 ```tsx
 import { Select } from '@alfalab/core-components-select';
 ```
-
-<Design>
-  <a href="https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=719%3A0">Figma</a>
-</Design>
-
-## Описание
 
 Компонент выпадающего списка.
 

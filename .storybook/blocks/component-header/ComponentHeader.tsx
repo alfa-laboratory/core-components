@@ -8,26 +8,28 @@ import styles from './ComponentHeader.css';
 
 type ComponentHeaderProps = {
     name: string;
-    version: string;
-    stage?: number;
+    version?: string;
+    stage: number;
     status?: string;
     design?: string;
     children?: ReactNode;
 };
 
-export const ComponentHeader: React.FC<ComponentHeaderProps> = ({ name, version, stage, status, design, children }) => (
+export const ComponentHeader: React.FC<ComponentHeaderProps> = ({
+    name,
+    version,
+    stage,
+    design,
+    children,
+}) => (
     <div className={cn(styles.component)}>
-        <Title>
-            {name}
-        </Title>
-        <div className={cn(styles.version)}>
-            {version}
-        </div>
-        <Status>
-            {status}
-        </Status>
-        <Design>
-            <a href={design}>Figma</a>
-        </Design>
+        <Title>{name}</Title>
+        <div className={cn(styles.version)}>{version}</div>
+        {stage && <Status stage={stage} />}
+        {design && (
+            <Design>
+                <a href={design}>Figma</a>
+            </Design>
+        )}
     </div>
 );

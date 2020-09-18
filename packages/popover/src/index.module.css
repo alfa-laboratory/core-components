@@ -2,7 +2,7 @@
 
 :root {
     --popover-border-color: var(--color-dark-indigo-15-flat);
-    --popover-z-index: 1;
+    --popover-z-index: 2;
 }
 
 .component {

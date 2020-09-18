@@ -1,8 +1,6 @@
 import { configure } from '@storybook/react';
 import { addDecorator } from '@storybook/react';
 
-import './theme.css';
-
 import withThemeSwitcher from './addons/theme-switcher/index';
 
 addDecorator(withThemeSwitcher);

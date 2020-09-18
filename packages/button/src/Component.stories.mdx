@@ -1,9 +1,7 @@
-import { Meta, Story, Preview, Props, Description, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { Container, Row, Col } from 'storybook/blocks/grid';
-import { Status } from 'storybook/blocks/status';
-import { Design } from 'storybook/blocks/design';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
@@ -19,6 +17,9 @@ export const SIZES = ['xs', 's', 'm', 'l'];
     component={Button}
     parameters={{ 'theme-switcher': { themes: ['click', 'corp', 'mobile'] } }}
 />
+
+
+<!-- Canvas -->
 
 <Story name='Button'>
     <Button
@@ -38,12 +39,13 @@ export const SIZES = ['xs', 's', 'm', 'l'];
 </Story>
 
 
+<!-- Docs -->
+
 <ComponentHeader
     name='Button'
     version={version}
     package='@alfalab/core-components-button'
     stage={3}
-    status='Proposed Recommendation'
     design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=1%3A2'
 />
 
@@ -51,16 +53,15 @@ export const SIZES = ['xs', 's', 'm', 'l'];
 import { Button } from '@alfalab/core-components-button';
 ```
 
-## Описание
-
 Кнопка используется как триггер для выполнения определённого действия.
 
-<Button view='primary'>Оплатить</Button>
+<Button view='primary' href='https://alfabank.ru/get-money/credit-cards/100-days/'>Заказать карту</Button>
+
 
 <Props of={Button} />
 
+
 ## Виды кнопок
-<br/>
 
 ### В библиотеке доступно несколько типов кнопок:
 

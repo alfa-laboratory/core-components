@@ -1,7 +1,6 @@
-import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import { Status } from 'storybook/blocks/status';
-import { Design } from 'storybook/blocks/design';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
 import { Input } from './Component';
@@ -14,25 +13,8 @@ import { name, version } from '../package.json';
     parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
-<Title>
-    Input ({name}@{version})
-</Title>
 
-<Status>
-  Candidate Recommendation
-</Status>
-
-```tsx
-import { Input } from '@alfalab/core-components-input';
-```
-
-<Design>
-  <a href="https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=49%3A0">Figma</a>
-</Design>
-
-## Описание
-
-Компонент текстового поля ввода.
+<!-- Canvas -->
 
 <Story name='Input'>
     <Input
@@ -54,5 +36,25 @@ import { Input } from '@alfalab/core-components-input';
         bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
     />
 </Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Input'
+    version={version}
+    package='@alfalab/core-components-input'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=49%3A0'
+/>
+
+```tsx
+import { Input } from '@alfalab/core-components-input';
+```
+
+Компонент текстового поля ввода.
+
+<Input placeholder='Placeholder' label='Label' hint='Hint' />
+
 
 <Props of={Input} />

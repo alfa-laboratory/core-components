@@ -1,7 +1,6 @@
-import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import { text, boolean } from '@storybook/addon-knobs';
-import { Status } from 'storybook/blocks/status';
-import { Design } from 'storybook/blocks/design';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { Checkbox } from './Component';
 import { name, version } from '../package.json';
@@ -9,25 +8,8 @@ import { name, version } from '../package.json';
 
 <Meta title='Компоненты' component={Checkbox} />
 
-<Title>
-    Checkbox ({name}@{version})
-</Title>
 
-<Status>
-  Candidate Recommendation
-</Status>
-
-```tsx
-import { Checkbox } from '@alfalab/core-components-checkbox';
-```
-
-<Design>
-  <a href="https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=83%3A306">Figma</a>
-</Design>
-
-## Описание
-
-Компонент чекбокса.
+<!-- Canvas -->
 
 <Story name='Checkbox'>
     {React.createElement(() => {
@@ -50,7 +32,41 @@ import { Checkbox } from '@alfalab/core-components-checkbox';
     })}
 </Story>
 
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Checkbox'
+    version={version}
+    package='@alfalab/core-components-checkbox'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=83%3A306'
+/>
+
+```tsx
+import { Checkbox } from '@alfalab/core-components-checkbox';
+```
+
+Компонент чекбокса.
+
+<Preview>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleChange = () => setChecked(!checked);
+        return (
+            <Checkbox
+                onChange={handleChange}
+                checked={checked}
+                label='Согласен с условиями'
+                hint='Соглашайтесь, будьте любезны'
+            />
+        );
+    })}
+</Preview>
+
+
 <Props of={Checkbox} />
+
 
 ### Чекбокс c неопределенным (indeterminate) состоянием
 

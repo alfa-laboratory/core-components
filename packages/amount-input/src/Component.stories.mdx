@@ -1,16 +1,13 @@
 import Icon from '@alfalab/icons-glyph/StarMIcon';
-import { Meta, Props, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { Container, Row, Col } from 'storybook/blocks/grid';
-import { Status } from 'storybook/blocks/status';
-import { Design } from 'storybook/blocks/design';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { AmountInput } from './Component';
 import { name, version } from '../package.json';
 
-
-<!-- prettier-ignore -->
 
 <Meta
     title='Компоненты'
@@ -18,25 +15,8 @@ import { name, version } from '../package.json';
     parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
-<Title>
-    AmountInput ({name}@{version})
-</Title>
 
-<Status>
-  Candidate Recommendation
-</Status>
-
-```tsx
-import { AmountInput } from '@alfalab/core-components-amount-input';
-```
-
-<Design>
-  <a href="https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=532%3A544">Figma</a>
-</Design>
-
-## Описание
-
-Компонент текстового поля для ввода денежных значений
+<!-- Canvas -->
 
 <Story name='AmountInput'>
     <AmountInput
@@ -57,7 +37,28 @@ import { AmountInput } from '@alfalab/core-components-amount-input';
     />
 </Story>
 
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='AmountInput'
+    version={version}
+    package='@alfalab/core-components-amount-input'
+    stage={2}
+    design='https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=532%3A544'
+/>
+
+```tsx
+import { AmountInput } from '@alfalab/core-components-amount-input';
+```
+
+Компонент текстового поля для ввода денежных значений.
+
+<AmountInput bold={false} />
+
+
 <Props of={AmountInput} />
+
 
 ### Uncontrolled-way
 

@@ -1,7 +1,6 @@
-import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import { text, boolean, select } from '@storybook/addon-knobs';
-import { Status } from 'storybook/blocks/status';
-import { Design } from 'storybook/blocks/design';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { CheckboxGroup } from './Component';
 import { name, version } from '../package.json';
@@ -11,25 +10,8 @@ import { Tag } from '../../tag/src';
 
 <Meta title='Компоненты' component={CheckboxGroup} />
 
-<Title>
-    CheckboxGroup ({name}@{version})
-</Title>
 
-<Status>
-  Candidate Recommendation
-</Status>
-
-```tsx
-import { CheckboxGroup } from '@alfalab/core-components-checkbox-group';
-```
-
-<Design>
-  <a href="https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=83%3A306">Figma</a>
-</Design>
-
-## Описание
-
-Компонент группы чекбоксов.
+<!-- Canvas -->
 
 <Story name='CheckboxGroup'>
     {React.createElement(() => {
@@ -57,7 +39,45 @@ import { CheckboxGroup } from '@alfalab/core-components-checkbox-group';
     })}
 </Story>
 
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='CheckboxGroup'
+    version={version}
+    package='@alfalab/core-components-checkbox-group'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=83%3A306'
+/>
+
+```tsx
+import { CheckboxGroup } from '@alfalab/core-components-checkbox-group';
+```
+
+Компонент группы чекбоксов.
+
+<Preview>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState({ one: false, two: false, three: false });
+        const onChange = (_, payload) => {
+            setValue({ ...value, [payload.name]: payload.checked });
+        };
+        return (
+            <CheckboxGroup
+                label='Заголовок группы'
+                onChange={onChange}
+            >
+                <Checkbox label='Первый вариант' name='one' checked={value.one} />
+                <Checkbox label='Второй вариант' name='two' checked={value.two} />
+                <Checkbox label='Третий вариант' name='three' checked={value.three} />
+            </CheckboxGroup>
+        );
+    })}
+</Preview>
+
+
 <Props of={CheckboxGroup} />
+
 
 ### Группа чекбоксов, использующая компонент `Tag`
 
