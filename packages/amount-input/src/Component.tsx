@@ -62,6 +62,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             bold = true,
             className,
             dataTestId,
+            clear = false,
             onChange,
             onBlur,
             onFocus,
@@ -217,6 +218,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
 
                 <Input
                     {...restProps}
+                    clear={clear}
                     placeholder={placeholder}
                     value={inputValue}
                     className={cn(styles.component, className)}
