@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/alfa-laboratory/core-components/compare/v2.0.0...v2.1.0) (2020-09-18)
+
+
+### Features
+
+* **core-components-amount-input:** add forward ref ([5471887](https://github.com/alfa-laboratory/core-components/commit/5471887361dcb1383ae695f69cc13c201d713607))
+
+
+### Bug Fixes
+
+* **core-components-amount-input:** fix console error ([461d435](https://github.com/alfa-laboratory/core-components/commit/461d435643d6b5908344fadfe66927dd48ed014c))
+* **core-components-themes:** temp fix for color-mod ([94a79a0](https://github.com/alfa-laboratory/core-components/commit/94a79a08d53266963d3d96bf3c5c41321629d360))
+
 ## [2.0.0](https://github.com/alfa-laboratory/core-components/compare/v1.18.0...v2.0.0) (2020-09-14)
 
 
