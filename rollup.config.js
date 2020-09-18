@@ -2,12 +2,13 @@ import { ScriptTarget } from 'typescript';
 import path from 'path';
 import multiInput from 'rollup-plugin-multi-input';
 import postcss, { addCssImports } from '@alfalab/rollup-plugin-postcss';
-import coreComponentsResolver from './tools/rollup/core-components-resolver';
-import ignoreCss from './tools/rollup/ignore-css';
 import typescript from 'rollup-plugin-ts';
 import stringHash from 'string-hash';
 import copy from 'rollup-plugin-copy';
-import transformCss from './tools/rollup/transform-css';
+
+import coreComponentsResolver from './tools/rollup/core-components-resolver';
+import ignoreCss from './tools/rollup/ignore-css';
+import processCss from './tools/rollup/process-css';
 
 const currentPackageDir = process.cwd();
 const currentPkg = path.join(currentPackageDir, 'package.json');
@@ -108,7 +109,7 @@ const cssm = {
                 tsBuildInfoFile: 'tsconfig.tsbuildinfo',
             }),
         }),
-        transformCss(),
+        processCss(),
     ],
 };
 

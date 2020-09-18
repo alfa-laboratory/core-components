@@ -17,9 +17,14 @@ const coreComponentsResolver = ({ currentPackageDir }) => ({
             let matches;
             while ((matches = requireRegExp.exec(code))) {
                 const componentName = matches[2];
-                const componentDir = bundleName.includes('modern')
-                    ? path.join(componentName, 'modern')
-                    : componentName;
+
+                let componentDir = componentName;
+
+                if (bundleName.includes('modern')) {
+                    componentDir = path.join(componentDir, 'modern');
+                } else if (bundleName.includes('cssm')) {
+                    componentDir = path.join(componentDir, 'cssm');
+                }
 
                 const distDir = path.resolve(currentPackageDir, 'dist');
                 const bundleAbsPath = path.join(distDir, bundleName);
