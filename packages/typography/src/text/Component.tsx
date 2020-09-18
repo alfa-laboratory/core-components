@@ -32,7 +32,7 @@ export type TextProps = {
     /**
      * HTML тег
      */
-    tag?: 'p' | 'span' | 'div';
+    tag?: 'p' | 'div';
 
     /**
      * Css-класс для стилизации
