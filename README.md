@@ -103,6 +103,21 @@ $ yarn pub:minor # соберет и выпустит minor-версию
 $ yarn pub:major # соберет и выпустит major-версию
 ```
 
+### Как выпустить бета-версию:
+1) собираем пакет
+```bash
+$ yarn build
+```
+2) переходим в папку с собранным пакетом и обновляем версию
+```bash
+$ cd dist
+$ npm version 2.0.0-beta.0 // подставить нужную версию
+```
+3) публикуем пакет
+```bash
+npm publish --tag beta
+```
+
 ## Коммиты
 На проекте подключен `commitlint` для линтинга коммитов. На основании коммитов формируется `CHANGELOG.MD`.
 Мы придерживаемся [AngularJS commit conventions.](https://gist.github.com/stephenparish/9941e89d80e2bc58a153)
