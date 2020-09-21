@@ -6,8 +6,7 @@
         "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-tag": ["../tag/src"],
-            "@alfalab/core-components-keyboard-focusable": ["../keyboard-focusable/src"]
+            "@alfalab/core-components-*": ["../*/src"]
         }
     },
     "references": [{ "path": "../tag" }, { "path": "../keyboard-focusable" }]
