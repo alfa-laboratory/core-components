@@ -1,196 +1,196 @@
 {
-    "name": "@alfalab/core-components",
-    "version": "2.0.0",
-    "private": true,
-    "workspaces": [
-        "packages/*"
+  "name": "@alfalab/core-components",
+  "version": "2.1.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alfa-laboratory/core-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alfa-laboratory/core-components/issues"
+  },
+  "homepage": "https://github.com/alfa-laboratory/core-components#readme",
+  "scripts": {
+    "build": "./bin/build.sh",
+    "start": "start-storybook -p 9009 -c .storybook",
+    "start:quick": "RDTL=off yarn start",
+    "build-storybook": "build-storybook -o build",
+    "update-colors": "node ./tools/update-colors.js && yarn lint:css --fix",
+    "update-typography": "node ./tools/update-typography.js",
+    "lint": "yarn lint:css && yarn lint:js",
+    "lint:css": "stylelint ./packages/**/*.css",
+    "lint:js": "eslint ./packages --ext .ts,.tsx,.js,.jsx",
+    "test": "jest --watchAll=false --env=jsdom-sixteen",
+    "format": "prettier --write \"./{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
+    "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist} && rimraf {dist,build}",
+    "cm": "git-cz",
+    "pub:patch": "RELEASE_TYPE=\"patch\" ./bin/publish.sh",
+    "pub:minor": "RELEASE_TYPE=\"minor\" ./bin/publish.sh",
+    "pub:major": "RELEASE_TYPE=\"major\" ./bin/publish.sh",
+    "release": "standard-version --no-verify --releaseCommitMessageFormat \"chore: release\"",
+    "postbuild": "yarn purgecss",
+    "purgecss": "./bin/purgecss.sh"
+  },
+  "browserslist": {
+    "production": [
+      "last 2 versions",
+      "ie >= 11",
+      "Android >= 4",
+      "iOS >= 9"
     ],
-    "license": "ISC",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/alfa-laboratory/core-components.git"
-    },
-    "bugs": {
-        "url": "https://github.com/alfa-laboratory/core-components/issues"
-    },
-    "homepage": "https://github.com/alfa-laboratory/core-components#readme",
-    "scripts": {
-        "build": "./bin/build.sh",
-        "start": "start-storybook -p 9009 -c .storybook -s ./.storybook/public",
-        "start:quick": "RDTL=off yarn start",
-        "build-storybook": "build-storybook -o build",
-        "update-colors": "node ./tools/update-colors.js && yarn lint:css --fix",
-        "update-typography": "node ./tools/update-typography.js",
-        "lint": "yarn lint:css && yarn lint:js",
-        "lint:css": "stylelint ./packages/**/*.css",
-        "lint:js": "eslint ./packages --ext .ts,.tsx,.js,.jsx",
-        "test": "jest --watchAll=false --env=jsdom-sixteen",
-        "format": "prettier --write \"./{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
-        "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist} && rimraf {dist,build}",
-        "cm": "git-cz",
-        "pub:patch": "RELEASE_TYPE=\"patch\" ./bin/publish.sh",
-        "pub:minor": "RELEASE_TYPE=\"minor\" ./bin/publish.sh",
-        "pub:major": "RELEASE_TYPE=\"major\" ./bin/publish.sh",
-        "release": "standard-version --no-verify --releaseCommitMessageFormat \"chore: release\"",
-        "postbuild": "yarn purgecss",
-        "purgecss": "./bin/purgecss.sh"
-    },
-    "browserslist": {
-        "production": [
-            "last 2 versions",
-            "ie >= 11",
-            "Android >= 4",
-            "iOS >= 9"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "dependencies": {
-        "@alfalab/hooks": "^0.8.1",
-        "@alfalab/icons-classic": "^1.7.0",
-        "@alfalab/icons-glyph": "^1.26.0",
-        "@alfalab/icons-logotype": "^1.4.0",
-        "@alfalab/utils": "^0.3.0",
-        "@popperjs/core": "^2.3.3",
-        "alfa-ui-primitives": "^2.58.0",
-        "compute-scroll-into-view": "^1.0.13",
-        "downshift": "5.4.7",
-        "lodash.debounce": "^4.0.8",
-        "react-merge-refs": "^1.1.0",
-        "react-node-resolver": "^2.0.1",
-        "react-popper": "^2.2.2",
-        "react-textarea-autosize": "^8.2.0",
-        "react-transition-group": "^4.3.0",
-        "react-virtual": "^2.2.0",
-        "text-mask-core": "^5.1.2"
-    },
-    "devDependencies": {
-        "@alfalab/rollup-plugin-postcss": "^3.2.0",
-        "@babel/plugin-proposal-nullish-coalescing-operator": "^7.8.3",
-        "@babel/plugin-proposal-optional-chaining": "^7.9.0",
-        "@babel/preset-typescript": "^7.9.0",
-        "@commitlint/config-conventional": "^8.3.4",
-        "@commitlint/config-lerna-scopes": "^8.3.4",
-        "@storybook/addon-actions": "^5.3.8",
-        "@storybook/addon-docs": "^5.3.17",
-        "@storybook/addon-knobs": "^5.3.8",
-        "@storybook/addons": "^5.3.8",
-        "@storybook/preset-create-react-app": "^2.1.1",
-        "@storybook/preset-typescript": "^1.2.0",
-        "@storybook/react": "^5.3.8",
-        "@testing-library/dom": "^7.22.2",
-        "@testing-library/jest-dom": "^5.10.1",
-        "@testing-library/react": "^10.2.1",
-        "@testing-library/user-event": "^12.0.2",
-        "@types/classnames": "^2.2.9",
-        "@types/jest": "^25.1.2",
-        "@types/lodash.debounce": "^4.0.6",
-        "@types/node": "^13.5.0",
-        "@types/react": "^16.9.19",
-        "@types/react-dom": "^16.9.5",
-        "@typescript-eslint/eslint-plugin": "^2.23.0",
-        "@typescript-eslint/parser": "^2.23.0",
-        "arui-presets-lint": "4.1.1",
-        "arui-presets-ts": "^5.0.0",
-        "babel-jest": "^25.3.0",
-        "babel-loader": "^8.0.6",
-        "commitizen": "^4.1.2",
-        "copyfiles": "^2.2.0",
-        "css-loader": "^4.2.2",
-        "cz-conventional-changelog": "3.2.0",
-        "eslint": "^6.8.0",
-        "eslint-config-airbnb": "^18.0.1",
-        "eslint-config-airbnb-typescript": "^7.0.0",
-        "eslint-config-prettier": "^6.10.0",
-        "eslint-import-resolver-typescript": "^2.0.0",
-        "eslint-plugin-chai-friendly": "^0.5.0",
-        "eslint-plugin-cypress": "2.10.3",
-        "eslint-plugin-import": "^2.20.1",
-        "eslint-plugin-jsx-a11y": "^6.2.3",
-        "eslint-plugin-react": "^7.19.0",
-        "eslint-plugin-react-hooks": "^2.5.0",
-        "eslint-plugin-sort-class-members": "^1.6.0",
-        "fork-ts-checker-webpack-plugin": "^4.0.2",
-        "git-url-parse": "^11.1.2",
-        "glob": "^7.1.6",
-        "handlebars": "^4.7.3",
-        "husky": "^4.2.1",
-        "identity-obj-proxy": "^3.0.0",
-        "jest": "^26.0.1",
-        "jest-environment-jsdom-sixteen": "^1.0.3",
-        "json": "^9.0.6",
-        "lerna": "^3.20.2",
-        "lint-staged": "^10.0.8",
-        "mini-css-extract-plugin": "^0.11.0",
-        "optimize-css-assets-webpack-plugin": "^5.0.4",
-        "postcss-cli": "^7.1.0",
-        "postcss-import": "^12.0.1",
-        "postcss-mixins": "^6.2.3",
-        "postcss-preset-env": "^6.7.0",
-        "prettier": "^1.19.1",
-        "purgecss": "^2.2.1",
-        "raw-loader": "^4.0.1",
-        "react-docgen-typescript-loader": "^3.6.0",
-        "react-scripts": "^3.3.1",
-        "replace-in-file": "^5.0.2",
-        "rimraf": "^3.0.2",
-        "rollup": "^2.10.2",
-        "rollup-plugin-copy": "^3.3.0",
-        "rollup-plugin-multi-input": "^1.1.1",
-        "rollup-plugin-ts": "^1.2.24",
-        "shelljs": "^0.8.3",
-        "standard-version": "^8.0.0",
-        "string-hash": "^1.1.3",
-        "stylelint": "^12.0.0",
-        "stylelint-config-standard": "^20.0.0",
-        "ts-jest": "^25.4.0",
-        "ts-loader": "^6.2.1",
-        "tslib": "^2.0.0",
-        "typescript": "~3.8.3"
-    },
-    "peerDependencies": {
-        "classnames": "^2.2.6",
-        "react": ">=16.12.0",
-        "react-dom": ">=16.12.0"
-    },
-    "publishConfig": {
-        "access": "public"
-    },
-    "prettier": "arui-presets-lint/prettier",
-    "eslintConfig": {
-        "extends": "./node_modules/arui-presets-lint/eslint/index.js"
-    },
-    "stylelint": {
-        "extends": "arui-presets-lint/stylelint",
-        "rules": {
-            "arui-cssvars/use-variables": false
-        }
-    },
-    "lint-staged": {
-        "{packages,bin}/**/*.{js,jsx,ts,tsx}": [
-            "prettier --write",
-            "eslint"
-        ],
-        "*.css": [
-            "prettier --write",
-            "stylelint"
-        ]
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "yarn lint-staged && yarn test",
-            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-        }
-    },
-    "jest": {
-        "testEnvironment": "jest-environment-jsdom-sixteen"
-    },
-    "config": {
-        "commitizen": {
-            "path": "./node_modules/cz-conventional-changelog"
-        }
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@alfalab/hooks": "^0.8.1",
+    "@alfalab/icons-classic": "^1.7.0",
+    "@alfalab/icons-glyph": "^1.26.0",
+    "@alfalab/icons-logotype": "^1.4.0",
+    "@alfalab/utils": "^0.3.0",
+    "@popperjs/core": "^2.3.3",
+    "alfa-ui-primitives": "^2.58.0",
+    "compute-scroll-into-view": "^1.0.13",
+    "downshift": "5.4.7",
+    "lodash.debounce": "^4.0.8",
+    "react-merge-refs": "^1.1.0",
+    "react-node-resolver": "^2.0.1",
+    "react-popper": "^2.2.2",
+    "react-textarea-autosize": "^8.2.0",
+    "react-transition-group": "^4.3.0",
+    "react-virtual": "^2.2.0",
+    "text-mask-core": "^5.1.2"
+  },
+  "devDependencies": {
+    "@alfalab/rollup-plugin-postcss": "^3.2.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.8.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@commitlint/config-lerna-scopes": "^8.3.4",
+    "@storybook/addon-actions": "^5.3.8",
+    "@storybook/addon-docs": "^5.3.17",
+    "@storybook/addon-knobs": "^5.3.8",
+    "@storybook/addons": "^5.3.8",
+    "@storybook/preset-create-react-app": "^2.1.1",
+    "@storybook/preset-typescript": "^1.2.0",
+    "@storybook/react": "^5.3.8",
+    "@testing-library/dom": "^7.22.2",
+    "@testing-library/jest-dom": "^5.10.1",
+    "@testing-library/react": "^10.2.1",
+    "@testing-library/user-event": "^12.0.2",
+    "@types/classnames": "^2.2.9",
+    "@types/jest": "^25.1.2",
+    "@types/lodash.debounce": "^4.0.6",
+    "@types/node": "^13.5.0",
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
+    "@typescript-eslint/eslint-plugin": "^2.23.0",
+    "@typescript-eslint/parser": "^2.23.0",
+    "arui-presets-lint": "4.1.1",
+    "arui-presets-ts": "^5.0.0",
+    "babel-jest": "^25.3.0",
+    "babel-loader": "^8.0.6",
+    "commitizen": "^4.1.2",
+    "copyfiles": "^2.2.0",
+    "css-loader": "^4.2.2",
+    "cz-conventional-changelog": "3.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-airbnb-typescript": "^7.0.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-chai-friendly": "^0.5.0",
+    "eslint-plugin-cypress": "2.10.3",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.0",
+    "eslint-plugin-sort-class-members": "^1.6.0",
+    "fork-ts-checker-webpack-plugin": "^4.0.2",
+    "git-url-parse": "^11.1.2",
+    "glob": "^7.1.6",
+    "handlebars": "^4.7.3",
+    "husky": "^4.2.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.0.1",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
+    "json": "^9.0.6",
+    "lerna": "^3.20.2",
+    "lint-staged": "^10.0.8",
+    "mini-css-extract-plugin": "^0.11.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "postcss-cli": "^7.1.0",
+    "postcss-import": "^12.0.1",
+    "postcss-mixins": "^6.2.3",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^1.19.1",
+    "purgecss": "^2.2.1",
+    "raw-loader": "^4.0.1",
+    "react-docgen-typescript-loader": "^3.6.0",
+    "react-scripts": "^3.3.1",
+    "replace-in-file": "^5.0.2",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.10.2",
+    "rollup-plugin-copy": "^3.3.0",
+    "rollup-plugin-multi-input": "^1.1.1",
+    "rollup-plugin-ts": "^1.2.24",
+    "shelljs": "^0.8.3",
+    "standard-version": "^8.0.0",
+    "string-hash": "^1.1.3",
+    "stylelint": "^12.0.0",
+    "stylelint-config-standard": "^20.0.0",
+    "ts-jest": "^25.4.0",
+    "ts-loader": "^6.2.1",
+    "tslib": "^2.0.0",
+    "typescript": "~3.8.3"
+  },
+  "peerDependencies": {
+    "classnames": "^2.2.6",
+    "react": ">=16.12.0",
+    "react-dom": ">=16.12.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "prettier": "arui-presets-lint/prettier",
+  "eslintConfig": {
+    "extends": "./node_modules/arui-presets-lint/eslint/index.js"
+  },
+  "stylelint": {
+    "extends": "arui-presets-lint/stylelint",
+    "rules": {
+      "arui-cssvars/use-variables": false
     }
+  },
+  "lint-staged": {
+    "{packages,bin}/**/*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint"
+    ],
+    "*.css": [
+      "prettier --write",
+      "stylelint"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint-staged && yarn test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "jest": {
+    "testEnvironment": "jest-environment-jsdom-sixteen"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }

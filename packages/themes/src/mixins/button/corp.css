@@ -7,11 +7,16 @@
 
     /* secondary */
     --button-secondary-base-bg-color: transparent;
-    --button-secondary-base-border-color: color-mod(var(--color-light-border-key) alpha(60%));
+    --button-secondary-base-border-color: rgba(11, 31, 53, 0.6);
+    --button-secondary-hover-bg-color: #dddee0;
+    --button-secondary-active-bg-color: #cacbcd;
+    --button-secondary-disabled-bg-color: transparent;
+    --button-secondary-disabled-border-color: rgba(11, 31, 53, 0.1);
+
+    /* --button-secondary-base-border-color: color-mod(var(--color-light-border-key) alpha(60%));
     --button-secondary-hover-bg-color: color-mod(var(--color-light-specialbg-component) shade(7%));
     --button-secondary-active-bg-color: color-mod(
         var(--color-light-specialbg-component) shade(15%)
     );
-    --button-secondary-disabled-bg-color: transparent;
-    --button-secondary-disabled-border-color: color-mod(var(--color-light-border-key) alpha(10%));
+    --button-secondary-disabled-border-color: color-mod(var(--color-light-border-key) alpha(10%)); */
 }
