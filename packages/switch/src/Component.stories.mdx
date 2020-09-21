@@ -1,7 +1,7 @@
-import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import { text, boolean } from '@storybook/addon-knobs';
-import { Status } from 'storybook/blocks/status';
-import { Design } from 'storybook/blocks/design';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
 import { Button } from '../../button/src';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
@@ -11,23 +11,8 @@ import { name, version } from '../package.json';
 
 <Meta title='Компоненты' component={Switch} />
 
-<Title>
-    Switch ({name}@{version})
-</Title>
 
-<Status>
-  Candidate Recommendation
-</Status>
-
-```tsx
-import { Switch } from '@alfalab/core-components-switch';
-```
-
-<Design>
-  <a href="https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=83%3A306">Figma</a>
-</Design>
-
-Компонент переключателя.
+<!-- Canvas -->
 
 <Story name='Switch'>
     {React.createElement(() => {
@@ -48,7 +33,45 @@ import { Switch } from '@alfalab/core-components-switch';
     })}
 </Story>
 
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Switch'
+    version={version}
+    package='@alfalab/core-components-switch'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=83%3A306'
+/>
+
+```tsx
+import { Switch } from '@alfalab/core-components-switch';
+```
+
+Компонент переключателя.
+
+<Preview>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleChange = () => setChecked(!checked);
+        return (
+            <Switch
+                checked={checked}
+                disabled={boolean('disabled', false)}
+                reversed={boolean('reversed', false)}
+                className={text('className', '')}
+                dataTestId={text('dataTestId', '')}
+                label={text('label', 'Условие тоггла')}
+                hint={text('hint', 'Описание пункта')}
+                onChange={handleChange}
+            />
+        );
+    })}
+</Preview>
+
+
 <Props of={Switch} />
+
 
 ### Переключатель без текста
 

@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Title } from '@storybook/addon-docs/blocks';
 import { Status } from 'storybook/blocks/status';
-import { Design } from 'storybook/blocks/design';
 import cn from 'classnames';
 
 import styles from './ComponentHeader.css';
@@ -27,9 +26,9 @@ export const ComponentHeader: React.FC<ComponentHeaderProps> = ({
         <div className={cn(styles.version)}>{version}</div>
         {stage && <Status stage={stage} />}
         {design && (
-            <Design>
+            <div className={cn(styles.design)}>
                 <a href={design}>Figma</a>
-            </Design>
+            </div>
         )}
     </div>
 );

@@ -1,7 +1,6 @@
-import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import { Status } from 'storybook/blocks/status';
-import { Design } from 'storybook/blocks/design';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 import Icon from '@alfalab/icons-glyph/CopyMIcon';
 
 import { Tag } from './Component';
@@ -16,23 +15,8 @@ export const SIZES = ['xs', 's', 'm', 'l'];
     parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
-<Title>
-    Tag ({name}@{version})
-</Title>
 
-<Status>
-  Candidate Recommendation
-</Status>
-
-```tsx
-import { Tag } from '@alfalab/core-components-tag';
-```
-
-<Design>
-  <a href="https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=214%3A1873">Figma</a>
-</Design>
-
-Компонент тэг(чипсы).
+<!-- Canvas -->
 
 <Story name='Tag'>
     {React.createElement(() => {
@@ -51,7 +35,43 @@ import { Tag } from '@alfalab/core-components-tag';
     })}
 </Story>
 
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Tag'
+    version={version}
+    package='@alfalab/core-components-tag'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=214%3A1873'
+/>
+
+```tsx
+import { Tag } from '@alfalab/core-components-tag';
+```
+
+Компонент тэг (чипсы).
+
+<Preview>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleClick = () => setChecked(!checked);
+        return (
+            <Tag
+                size={select('size', SIZES, 'm')}
+                disabled={boolean('disabled', false)}
+                checked={checked || boolean('checked', false)}
+                onClick={handleClick}
+            >
+                {text('label', 'Оплатить')}
+            </Tag>
+        );
+    })}
+</Preview>
+
+
 <Props of={Tag} />
+
 
 ### Тэг с иконкой
 

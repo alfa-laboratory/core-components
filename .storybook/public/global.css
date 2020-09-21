@@ -171,15 +171,33 @@ div.benefits {
     align-content: stretch;
     align-items: flex-start;
     margin: 0 -8px 32px;
+    counter-reset: item;
 }
 
 div.benefits-item {
+    position: relative;
     flex: 1 1 auto;
     height: 200px;
     margin: 0 8px;
     padding: 16px;
     background-color: rgba(11, 31, 53, 0.05);
+    /* border: 1px solid rgba(11, 31, 53, 0.05); */
+    border-radius: 4px;
     box-sizing: border-box;
+}
+
+div.benefits-item:before {
+    display: block;
+    position: absolute;
+    left: 8px;
+    top: 4px;
+    color: rgba(11, 31, 53, 0.05);
+    font-size: 32px;
+    line-height: 1;
+    font-weight: 900;
+    /* font-family: var(--font-family-styrene); */
+    counter-increment: item;
+    content: counter(item);
 }
 
 h1.sbdocs-h1 {
@@ -318,4 +336,9 @@ div.docblock-source span.token.punctuation {
 
 div.docblock-source span.token.string {
     color: rgba(11, 31, 53, 1);
+}
+
+button.tabbutton-active {
+    color: #ef3124;
+    border-bottom-color: #ef3124;
 }

@@ -1,28 +1,17 @@
 import Icon from '@alfalab/icons-glyph/StarMIcon';
-import { Meta, Props, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Props, Story, Title } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { Status } from 'storybook/blocks/status';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { PhoneInput } from './Component';
 import { name, version } from '../package.json';
 
-<!-- prettier-ignore -->
+
 <Meta title='Компоненты' component={PhoneInput} />
 
-<Title>
-    PhoneInput ({name}@{version})
-</Title>
 
-<Status>
-  Candidate Recommendation
-</Status>
-
-```tsx
-import { PhoneInput } from '@alfalab/core-components-phone-input';
-```
-
-Компонент текстового поля для ввода российского номера телефона
+<!-- Canvas -->
 
 <Story name='PhoneInput'>
     <PhoneInput
@@ -37,5 +26,24 @@ import { PhoneInput } from '@alfalab/core-components-phone-input';
         onChange={action('change')}
     />
 </Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='PhoneInput'
+    version={version}
+    package='@alfalab/core-components-phone-input'
+    stage={2}
+/>
+
+```tsx
+import { PhoneInput } from '@alfalab/core-components-phone-input';
+```
+
+Компонент текстового поля для ввода российского номера телефона.
+
+<PhoneInput />
+
 
 <Props of={PhoneInput} />

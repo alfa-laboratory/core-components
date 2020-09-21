@@ -1,6 +1,6 @@
-import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import { text, boolean, select, number } from '@storybook/addon-knobs';
-import { Status } from 'storybook/blocks/status';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import {Button} from '../../button/src';
 import { Popover } from './Component';
@@ -9,19 +9,8 @@ import { name, version } from '../package.json';
 
 <Meta title='Компоненты' component={Popover} />
 
-<Title>
-    Popover ({name}@{version})
-</Title>
 
-<Status>
-  Candidate Recommendation
-</Status>
-
-```tsx
-import { Popover } from '@alfalab/core-components-popover';
-```
-
-Компонент `Popover`. Под капотом использует `popper.js` и `react-transition-group`.
+<!-- Canvas -->
 
 <Story name='Popover'>
     {React.createElement(() => {
@@ -76,5 +65,76 @@ import { Popover } from '@alfalab/core-components-popover';
         );
     })}
 </Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Popover'
+    version={version}
+    package='@alfalab/core-components-popover'
+    stage={2}
+/>
+
+```tsx
+import { Popover } from '@alfalab/core-components-popover';
+```
+
+Компонент `Popover`. Под капотом использует `popper.js` и `react-transition-group`.
+
+<Preview>
+    {React.createElement(() => {
+        const POSITION_OPTIONS = [
+            'top',
+            'top-start',
+            'top-end',
+            'bottom',
+            'bottom-start',
+            'bottom-end',
+            'right',
+            'right-start',
+            'right-end',
+            'left',
+            'left-start',
+            'left-end',
+        ];
+        const [open, setOpen] = React.useState(false);
+        const [buttonElement, setButtonElement] = React.useState(null);
+        const toggle = () => {
+            setOpen(!open);
+        };
+        const handleButtonRef = node => {
+            setButtonElement(node);
+        };
+        const transitionTimeout = number('transition.timeout (ms)', 0);
+        return (
+            <div
+                style={{
+                    width: '700px',
+                    height: '300px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
+            >
+                <Popover
+                    anchorElement={buttonElement}
+                    position={select('position', POSITION_OPTIONS, 'bottom')}
+                    open={open}
+                    transition={{ timeout: transitionTimeout }}
+                    offset={[number('offset[0]', 0), number('offset[1]', 0)]}
+                    withArrow={boolean('withArrow', false)}
+                    withTransition={boolean('withTransition', true)}
+                >
+                    <div style={{ padding: '15px', width: '156px' }}>I am popover</div>
+                </Popover>
+                <Button ref={handleButtonRef} onClick={toggle}>
+                    Show/Hide popover
+                </Button>
+            </div>
+        );
+    })}
+</Preview>
+
 
 <Props of={Popover} />

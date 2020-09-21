@@ -1,4 +1,4 @@
-import { Meta, Story, Preview, Props, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { text, boolean } from '@storybook/addon-knobs';
 import { select as selectKnob } from '@storybook/addon-knobs'; // name conflict
 import { action } from '@storybook/addon-actions';
@@ -87,19 +87,8 @@ export const renderUppercased = (options) => {
     parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
-<ComponentHeader
-    name='Select'
-    version={version}
-    package='@alfalab/core-components-select'
-    stage={2}
-    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=719%3A0'
-/>
 
-```tsx
-import { Select } from '@alfalab/core-components-select';
-```
-
-Компонент выпадающего списка.
+<!-- Canvas -->
 
 <Story name='Select'>
     <Select
@@ -121,7 +110,28 @@ import { Select } from '@alfalab/core-components-select';
     />
 </Story>
 
----
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Select'
+    version={version}
+    package='@alfalab/core-components-select'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=719%3A0'
+/>
+
+```tsx
+import { Select } from '@alfalab/core-components-select';
+```
+
+Компонент выпадающего списка.
+
+<Select options={options} />
+
+<!-- Spacer -->
+<div style={{height: 32}} />
+
 
 <Props components={{
     Select,
@@ -130,6 +140,7 @@ import { Select } from '@alfalab/core-components-select';
     Optgroup,
     Option
 }} />
+
 
 ## Использование
 

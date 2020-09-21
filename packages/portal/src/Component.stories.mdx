@@ -1,5 +1,5 @@
-import { Meta, Props, Preview, Title } from '@storybook/addon-docs/blocks';
-import { Status } from 'storybook/blocks/status';
+import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Button } from '../../button/src';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
@@ -9,13 +9,15 @@ import { name, version } from '../package.json';
 
 <Meta title='Компоненты|Portal' component={Portal} />
 
-<Title>
-    Portal ({name}@{version})
-</Title>
 
-<Status>
-  Candidate Recommendation
-</Status>
+<!-- Docs -->
+
+<ComponentHeader
+    name='Portal'
+    version={version}
+    package='@alfalab/core-components-portal'
+    stage={2}
+/>
 
 ```tsx
 import { Portal } from '@alfalab/core-components-portal';
@@ -45,5 +47,6 @@ import { Portal } from '@alfalab/core-components-portal';
         );
     })}
 </Preview>
+
 
 <Props of={Portal} />
