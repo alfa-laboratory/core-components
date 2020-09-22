@@ -4,8 +4,8 @@ import path from 'path';
  * Заменяет все импорты кор-компонентов на относительные пути.
  * Используется для сборки агрегирующего пакета.
  */
-const coreComponentsResolver = ({ currentPackageDir }) => ({
-    name: 'core-components-resolver',
+export const coreComponentsRootPackageResolver = ({ currentPackageDir }) => ({
+    name: 'core-components-root-package-resolver',
     generateBundle: (_, bundles) => {
         Object.keys(bundles).forEach(bundleName => {
             let code = bundles[bundleName].code;
@@ -18,18 +18,10 @@ const coreComponentsResolver = ({ currentPackageDir }) => ({
             while ((matches = requireRegExp.exec(code))) {
                 const componentName = matches[2];
 
-                let componentDir = componentName;
-
-                if (bundleName.includes('modern')) {
-                    componentDir = path.join(componentDir, 'modern');
-                } else if (bundleName.includes('cssm')) {
-                    componentDir = path.join(componentDir, 'cssm');
-                }
-
                 const distDir = path.resolve(currentPackageDir, 'dist');
                 const bundleAbsPath = path.join(distDir, bundleName);
                 const bundleDir = path.dirname(bundleAbsPath);
-                const componentRelativePath = path.relative(bundleDir, componentDir);
+                const componentRelativePath = path.relative(bundleDir, componentName);
 
                 code = code.replace(requireRegExp, `$1${componentRelativePath}$3`);
             }
@@ -41,4 +33,26 @@ const coreComponentsResolver = ({ currentPackageDir }) => ({
     },
 });
 
-export default coreComponentsResolver;
+/**
+ * Заменяет импорты компонентов для сборки modern и cssm
+ */
+export const coreComponentsResolver = ({ importFrom }) => ({
+    name: 'core-components-resolver',
+    generateBundle: (_, bundles) => {
+        Object.keys(bundles).forEach(bundleName => {
+            let code = bundles[bundleName].code;
+
+            const requireRegExp = new RegExp(
+                /(\b(?:require\(|import |from )['"])(@alfalab\/core-components-[^\/\n]+)(['"])/,
+            );
+
+            while (requireRegExp.exec(code)) {
+                code = code.replace(requireRegExp, `$1$2/${importFrom}$3`);
+            }
+
+            bundles[bundleName].code = code;
+        });
+
+        return bundles;
+    },
+});

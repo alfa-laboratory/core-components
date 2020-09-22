@@ -6,7 +6,10 @@ import typescript from 'rollup-plugin-ts';
 import stringHash from 'string-hash';
 import copy from 'rollup-plugin-copy';
 
-import coreComponentsResolver from './tools/rollup/core-components-resolver';
+import {
+    coreComponentsRootPackageResolver,
+    coreComponentsResolver,
+} from './tools/rollup/core-components-resolver';
 import ignoreCss from './tools/rollup/ignore-css';
 import processCss from './tools/rollup/process-css';
 
@@ -74,7 +77,10 @@ const modern = {
         {
             dir: 'dist/modern',
             format: 'esm',
-            plugins: [addCssImports({ currentPackageDir })],
+            plugins: [
+                addCssImports({ currentPackageDir }),
+                coreComponentsResolver({ importFrom: 'modern' }),
+            ],
         },
     ],
     plugins: [
@@ -97,6 +103,7 @@ const cssm = {
         {
             dir: 'dist/cssm',
             format: 'cjs',
+            plugins: [coreComponentsResolver({ importFrom: 'cssm' })],
         },
     ],
     plugins: [
@@ -126,7 +133,7 @@ const root = {
                 { src: ['dist/**/*', '!**/*.js'], dest: `../../dist/${currentComponentName}` },
             ],
         }),
-        coreComponentsResolver({ currentPackageDir }),
+        coreComponentsRootPackageResolver({ currentPackageDir }),
     ],
     output: [
         {
