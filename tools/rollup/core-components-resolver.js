@@ -21,7 +21,9 @@ export const coreComponentsRootPackageResolver = ({ currentPackageDir }) => ({
                 const distDir = path.resolve(currentPackageDir, 'dist');
                 const bundleAbsPath = path.join(distDir, bundleName);
                 const bundleDir = path.dirname(bundleAbsPath);
-                const componentRelativePath = path.relative(bundleDir, componentName);
+                const componentRelativePath = path
+                    .relative(bundleDir, componentName)
+                    .replace('/dist', ''); // удаляем dist из пути, так как в рут-пакете его нет
 
                 code = code.replace(requireRegExp, `$1${componentRelativePath}$3`);
             }

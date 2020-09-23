@@ -79,7 +79,7 @@ const modern = {
             format: 'esm',
             plugins: [
                 addCssImports({ currentPackageDir }),
-                coreComponentsResolver({ importFrom: 'modern' }),
+                coreComponentsResolver({ importFrom: 'dist/modern' }),
             ],
         },
     ],
@@ -103,7 +103,7 @@ const cssm = {
         {
             dir: 'dist/cssm',
             format: 'cjs',
-            plugins: [coreComponentsResolver({ importFrom: 'cssm' })],
+            plugins: [coreComponentsResolver({ importFrom: 'dist/cssm' })],
         },
     ],
     plugins: [
