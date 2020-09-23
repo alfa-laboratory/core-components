@@ -1,14 +1,14 @@
 @import '../../vars/src/colors-indigo.css';
 
 :root {
-    --skeleton-wrapper-background-filter: none;
-    --skeleton-wrapper-default-color: var(--color-light-graphic-tertiary);
+    --skeleton-background-filter: none;
+    --skeleton-default-color: var(--color-light-graphic-tertiary);
 }
 
 .component {
     position: relative;
     display: inline-block;
-    border-radius: 8px;
+    border-radius: 32px;
     overflow: hidden;
 }
 
@@ -23,8 +23,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--skeleton-wrapper-default-color);
-    backdrop-filter: var(--skeleton-wrapper-background-filter);
+    background: var(--skeleton-default-color);
+    backdrop-filter: var(--skeleton-background-filter);
 }
 
 .animate:after {

@@ -1,5 +1,4 @@
 .example-1 {
-    border-radius: 60px;
     margin-top: 16px;
 }
 
@@ -12,13 +11,8 @@
     width: 440px;
 }
 
-@define-mixin common {
-    position: absolute;
-    border-radius: 60px;
-}
-
 .example-2 {
-    @mixin common;
+    position: absolute;
     width: 48px;
     height: 48px;
     left: 10px;
@@ -26,7 +20,7 @@
 }
 
 .example-3 {
-    @mixin common;
+    position: absolute;
     width: 200px;
     height: 24px;
     left: 82px;
@@ -34,7 +28,7 @@
 }
 
 .example-4 {
-    @mixin common;
+    position: absolute;
     width: 124px;
     height: 16px;
     left: 82px;
@@ -42,7 +36,7 @@
 }
 
 .example-5 {
-    @mixin common;
+    position: absolute;
     width: 228px;
     height: 16px;
     left: 222px;
@@ -50,7 +44,7 @@
 }
 
 .example-6 {
-    @mixin common;
+    position: absolute;
     width: 260px;
     height: 16px;
     left: 82px;
