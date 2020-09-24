@@ -39,7 +39,7 @@
     "production": [
       "last 2 versions",
       "ie >= 11",
-      "Android >= 4",
+      "Android >= 5",
       "iOS >= 9"
     ],
     "development": [

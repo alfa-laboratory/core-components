@@ -4,57 +4,38 @@
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-</div>
-
-## Возможности
-
--   Набор готовых к использованию и протестированных React компонентов, которые реализуют [дизайн-систему Альфа-Банка](https://digital.alfabank.ru/principles)
--   Все компоненты написаны на TypeScript и типизированы.
--   Компоненты открыты к темизации через css-переменные.
--   [Cторибук](https://alfa-laboratory.github.io/core-components/) с документацией и песочницей.
-
-<div class="github-doc">
-
 [Cторибук](https://alfa-laboratory.github.io/core-components/) с документацией и песочницей.
 
 </div>
 
-## Поддерживаемые браузеры
+## Установка
 
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/yandex/yandex_48x48.png" alt="Yandex Browser" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Yandex Browser |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <p align="center">IE11, Edge</p>                                                                                                                                                                                | <p align="center">последние 2 версии</p>                                                                                                                                                                          | <p align="center">последние 2 версии</p>                                                                                                                                                                      | <p align="center">последние 2 версии</p>                                                                                                                                                                      | <p align="center">последние 2 версии</p>                                                                                                                                                                  | <p align="center">последние 2 версии</p>                                                                                                                                                                                      |
-
-## 📦 Установка
-
-### Установка всех компонентов
+Установка всех компонентов:
 
 ```bash
 yarn add @alfa-labaratory/core-components
 ```
 
-### Установка определенного компонента
-
-Каждый компонент публикуется отдельным пакетом, поэтому вы можете подключить только нужный, не устанавливая библиотеку целиком.
+Каждый компонент публикуется отдельным пакетом, поэтому вы можете подключить только нужный, не устанавливая библиотеку целиком:
 
 ```bash
 yarn add @alfa-labaratory/core-components-button
 ```
 
-## 🔨 Использование
+## Использование
 
 ```jsx
 import { Button } from '@alfalab/core-components/button';
 import { Button } from '@alfalab/core-components-button';
 ```
 
-## 💅 Темизация
+## Темизация
 
-1.  Создайте у себя на проекте css файл с темой, например theme.css:
+1.  Создайте у себя на проекте css файл с темой, например, theme.css:
 
     ```
     :root {
-        --border-radius: 100px;
+        --border-radius: 12px;
     }
     ```
 
@@ -72,11 +53,25 @@ import { Button } from '@alfalab/core-components-button';
 
 -   В другом случае - используйте [alfa-laboratory/postcss-custom-properties](https://github.com/alfa-laboratory/postcss-custom-properties), указав в `importFrom` путь к файлу с темой.
 
-## 🔗 Ссылки
+## Поддерживаемые браузеры
 
-[Alfa-Bank UI Icons](https://github.com/alfa-laboratory/icons)
+Мы поддерживаем две последние стабильные версии всех популярных браузеров. Исключение — IE11+ и Android 5+ (Mobile Chrome).
 
-## ⌨️ Разработка
+#### Desktop
+
+* Chrome
+* Yandex
+* Firefox
+* Edge
+* IE 11+
+* Safari
+
+#### Mobile
+
+* Android 5+
+* iOS
+
+## Разработка
 
 ```bash
 $ git clone git@github.com:alfa-laboratory/core-components.git
@@ -111,12 +106,33 @@ $ yarn start
 
 ## Релизы
 
-### Как публиковать пакеты:
+Для выпуска новых версий используйте следущие команды:
 
 ```bash
 $ yarn pub:patch # соберет и выпустит patch-версию
 $ yarn pub:minor # соберет и выпустит minor-версию
 $ yarn pub:major # соберет и выпустит major-версию
+```
+
+### Как выпустить бета-версию:
+
+1. Собираем пакет
+
+```bash
+$ yarn build
+```
+
+2. Переходим в папку с собранным пакетом и обновляем версию
+
+```bash
+$ cd dist
+$ npm version 2.0.0-beta.0 // подставить нужную версию
+```
+
+3. Публикуем пакет
+
+```bash
+npm publish --tag beta
 ```
 
 ## Коммиты
@@ -131,13 +147,19 @@ $ yarn cm # запустит утилиту commitizen для создания �
 $ git push
 ```
 
-## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+## Правила контрибьютинга
 
 Мы открыты к любым предложениям по развитию библиотеки.
 Отправляйте свои идеи и вопросы через [pull requests](https://github.com/alfa-laboratory/core-components/pulls) или [issues](https://github.com/alfa-laboratory/core-components/issues).
-Пожалуйста, сначала прочтите наш [contributing guide](https://github.com/alfa-laboratory/core-components/blob/master/.github/CONTRIBUTING.md) и [правила разработки](https://github.com/alfa-laboratory/core-components/wiki/Development).
 
-## 👨🏻‍💻 Мейнтейнеры
+- Уважаем тех, кто видит проблему и кидает PR.
+- Не знаете что делать – можно брать любую задачу без Assignee, назначив её на себя.
+- Знаете что делать и есть возможность – кидайте PR.
+- Знаете что делать, но нет времени – добавьте задачу (issue).
+
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
+## Мейнтейнеры
 
 -   [Евгений Сергеев](https://github.com/SiebenSieben)
 -   [Александр Яценко](https://github.com/reme3d2y)

@@ -42,6 +42,11 @@ div.sidebar-header > div:first-child {
     padding-right: 6px;
 }
 
+div.sidebar-header img {
+    max-height: 32px;
+}
+
+
 nav.sidebar-container form {
     margin-left: 10px;
     margin-right: 10px;
@@ -169,32 +174,57 @@ div.benefits {
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: stretch;
-    align-items: flex-start;
-    margin: 0 -8px 32px;
+    align-items: stretch;
+    margin: 0 0 32px;
     counter-reset: item;
 }
 
 div.benefits-item {
     position: relative;
-    flex: 1 1 auto;
-    height: 200px;
-    margin: 0 8px;
-    padding: 16px;
+    flex: 0 0 32%;
+    min-height: 96px;
+    margin: 0 0 20px;
+    padding: 24px 32px;
+    color: rgba(11, 31, 53, 1);
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
     background-color: rgba(11, 31, 53, 0.05);
-    /* border: 1px solid rgba(11, 31, 53, 0.05); */
+    /* box-shadow: 0 0 8px rgba(11, 31, 53, 0.04), 0 4px 8px rgba(11, 31, 53, 0.08); */
     border-radius: 4px;
     box-sizing: border-box;
+    overflow: hidden;
+}
+
+div.benefits-item span {
+    white-space: nowrap;
+}
+
+@media (max-width: 999px) {
+    div.benefits-item {
+        flex: 0 0 49%;
+    }
+}
+
+@media (max-width: 767px) {
+    div.benefits-item {
+        flex: 0 0 100%;
+        min-height: 0;
+    }
 }
 
 div.benefits-item:before {
     display: block;
     position: absolute;
-    left: 8px;
+    left: 0;
     top: 4px;
-    color: rgba(11, 31, 53, 0.05);
-    font-size: 32px;
+    width: 32px;
+    color: rgba(11, 31, 53, 0.1);
+    /* color: #fff; */
+    font-size: 24px;
     line-height: 1;
     font-weight: 900;
+    text-align: center;
     /* font-family: var(--font-family-styrene); */
     counter-increment: item;
     content: counter(item);
@@ -204,14 +234,14 @@ h1.sbdocs-h1 {
     margin: 0 0 32px;
     color: #ef3124;
     font-size: 48px;
-    line-height: 1.2;
+    line-height: 1;
     font-weight: 900;
     font-family: var(--font-family);
 }
 
 p.sbdocs-p.lead {
     display: block;
-    margin: -32px 0 40px;
+    margin: -24px 0 40px;
     color: rgba(11, 31, 53, 0.6);
     font-size: 16px;
     line-height: 1.2;
@@ -245,6 +275,15 @@ h3.sbdocs-h3 {
     color: #0b1f35;
     font-size: 20px;
     line-height: 1.2;
+    font-weight: 700;
+    font-family: var(--font-family);
+}
+
+h4.sbdocs-h4 {
+    margin: 0 0 16px;
+    color: #0b1f35;
+    font-size: 16px;
+    line-height: 1.4;
     font-weight: 700;
     font-family: var(--font-family);
 }
@@ -320,8 +359,9 @@ div.sbdocs-preview > div > div > div {
     transform: none;
 }
 
-div.docblock-source {
-    box-shadow: 0 0 4px rgba(11, 31, 53, 0.02), 0 2px 4px rgba(11, 31, 53, 0.04);
+div.docblock-source, div.sbdocs-preview {
+    /* box-shadow: 0 0 4px rgba(11, 31, 53, 0.02), 0 2px 4px rgba(11, 31, 53, 0.04); */
+    box-shadow: none;
 }
 
 div.docblock-source span.token {
@@ -341,4 +381,54 @@ div.docblock-source span.token.string {
 button.tabbutton-active {
     color: #ef3124;
     border-bottom-color: #ef3124;
+}
+
+div.sbdocs table.docblock-propstable {
+    margin: 40px 0;
+}
+
+table.docblock-propstable thead.docblock-propstable-head th {
+    padding: 0 0 8px;
+    color: rgba(11, 31, 53, 0.3);
+    font-size: 12px;
+    line-height: 1.2;
+    font-weight: normal;
+    border-bottom: 2px solid rgba(11, 31, 53, 0.1);
+}
+
+table.docblock-propstable thead.docblock-propstable-head th:first-child {
+    padding: 0;
+}
+
+table.docblock-propstable tbody.docblock-propstable-body {
+    box-shadow: none;
+}
+
+table.docblock-propstable tbody.docblock-propstable-body tr {
+    border: 0;
+}
+
+table.docblock-propstable tbody.docblock-propstable-body td {
+    padding: 8px 0 10px;
+    border-bottom: 1px solid rgba(11, 31, 53, 0.1);
+}
+
+table.docblock-propstable tbody.docblock-propstable-body td:first-child {
+    padding: 8px 0 10px;
+}
+
+table.docblock-propstable tbody.docblock-propstable-body span[class] {
+    color: rgba(11, 31, 53, 0.6);
+    font-size: 14px;
+    font-family: Consolas, Liberation Mono, Menlo, monospace;
+}
+
+table.docblock-propstable tbody.docblock-propstable-body td:first-child span[class] {
+    /* color: rgba(11, 31, 53, 1); */
+    color: #13A463;
+    font-weight: normal;
+}
+
+blockquote.sbdocs-blockquote {
+    border-left-color: rgba(11, 31, 53, 0.1);
 }

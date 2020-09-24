@@ -4,7 +4,7 @@ import alfaTheme from './theme';
 import { STORY_RENDERED } from '@storybook/core-events';
 
 addons.register('TitleAddon', api => {
-    const customTitle = 'Core Components';
+    const libName = 'Core Components';
     let interval = null;
     const setTitle = () => {
         clearTimeout(interval);
@@ -14,15 +14,18 @@ addons.register('TitleAddon', api => {
         } catch (e) {}
         let title;
         if (!storyData) {
-            title = customTitle;
+            title = libName;
         } else {
-            let kind, name;
+            let kind = storyData.kind;
+            kind = kind.replace('Компоненты', '');
+            kind = kind.includes('|') ? kind.match(/\|(.*)/)[1] : kind;
+            
+            let name = storyData.name;
+            name = name === 'Page' ? '' : name;
 
-            kind = storyData.kind.replace('|', ' – ');
-            name = storyData.name;
-            name = name === 'Page' ? '' : ` – ${name}`;
+            let storyTitle = kind || name;
 
-            title = `${kind}${name} ⋅ ${customTitle}`;
+            title = `${storyTitle} ⋅ ${libName}`;
         }
         if (document.title !== title) {
             document.title = title;
