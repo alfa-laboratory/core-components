@@ -432,6 +432,14 @@ table.docblock-propstable tbody.docblock-propstable-body td:first-child span[cla
     font-weight: normal;
 }
 
+table.docblock-propstable tbody.docblock-propstable-body a {
+    color: #0f62fe;
+    font-size: 16px;
+    line-height: 1.5;
+    border-bottom: 1px solid #b7d0ff;
+    text-decoration: none;
+}
+
 table.sbdocs-table {
     margin: 24px 0;
 }
