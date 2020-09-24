@@ -1,0 +1,112 @@
+import { Description } from '@storybook/addon-docs/blocks';
+
+import clock from './images/clock.jpg';
+import dog from './images/dog.jpg';
+import phone from './images/phone.png';
+import gradient from './images/gradient.png';
+import starFull from './images/star-full.png';
+import starEmpty from './images/star-empty.png';
+
+
+<Meta title='Принципы|Доступность / Изображения' />
+
+# Изображения
+
+Чтобы слепые или слабовидящие пользователи могли понять, что изображено на картинке — добавьте альтернативное описание.<br/>
+Описание изображения зависит от его типа — информативное, декоративное или группа изображений.
+
+## Информативные
+
+Информативные изображения передают краткую информацию к тексту, дополняют или обозначают его.<br/>
+У всех таких изображений должны быть установлены подписи с помощью атрибута `alt`
+
+### Картинка дает краткую информацию
+
+<div style={{ maxWidth: '600px', display: 'flex', marginTop: '20px' }}>
+    <img src={clock} style={{ maxWidth: '200px', marginRight: '20px' }} />
+    Ввинчивайте спираль в пробку, два рычага поднимаются вверх.
+    После этого остается только опустить рычаги — и пробка выйдет из бутылки.
+</div>
+
+```html
+❌ Плохо
+<img src="clock.png" />
+Ввинчивайте спираль в пробку, два рычага поднимаются вверх.
+После этого остается только опустить рычаги — и пробка выйдет из бутылки.
+
+✅ Хорошо
+<img src="clock.png" alt="Как отпустить рычаги, чтобы пробка вышла из бутылки" />
+Ввинчивайте спираль в пробку, два рычага поднимаются вверх.
+После этого остается только опустить рычаги — и пробка выйдет из бутылки.
+```
+
+### Картинка дополняет текст
+
+<div style={{ maxWidth: '600px', display: 'flex', marginTop: '20px' }}>
+    <img src={dog} style={{ maxWidth: '200px', marginRight: '20px' }} />
+    Собаки-проводники часто носят на шее колокольчик, чтобы владелец точно знал, где находится собака.
+</div>
+
+```html
+❌ Плохо
+<img src="dog.png" />
+Собаки-проводники часто носят на шее колокольчик, чтобы владелец точно знал, где находится собака.
+
+✅ Хорошо
+<img src="dog.png" alt="Собака-проводник с колокольчиком на шее" />
+Собаки-проводники часто носят на шее колокольчик, чтобы владелец точно знал, где находится собака.
+```
+
+### Изображение обозначает объект, который описывает текст
+
+<div style={{ maxWidth: '600px', display: 'flex', marginTop: '20px' }}>
+    <img src={phone} style={{ maxWidth: '24px' }} />
+    +7 (988) 775 57 56
+</div>
+
+```html
+❌ Плохо
+<img src="phone-icon.png" />
++7 (988) 775 57 56
+
+✅ Хорошо
+<img src="phone-icon.png" alt="Телефон:" />
++7 (988) 775 57 56
+```
+
+## Декоративные
+
+Если изображения служат только для декораций и нужно чтобы скринридеры их игнорировали, то можно добавлять их с помощью свойства CSS `background-image`. Либо следует использовать атрибуты `role="presentation"` и `aria-hidden="true"`.
+
+<div style={{ maxWidth: '600px', marginTop: '20px' }}>
+    <img src={gradient} />
+</div>
+
+```html
+❌ Плохо
+<img src="gradient.png" />
+
+✅ Хорошо
+<img src="gradient.png" aria-hidden="true" alt="">
+<div style="background-image: url(gradient.png)"></div>
+```
+
+## Группы изображений
+
+Для групп изображений, которые представляют одну и ту же информацию, например, звездочки рейтинга, добавьте описание в alt только к первому изображению:
+
+<div style={{ maxWidth: '600px', display: 'flex', marginTop: '20px' }}>
+    <img src={starFull} width="24" alt="Рейтинг фильма 4 из 5" />
+    <img src={starFull} width="24" alt="" />
+    <img src={starFull} width="24" alt="" />
+    <img src={starFull} width="24" alt="" />
+    <img src={starEmpty} width="24" alt="" />
+</div>
+
+```html
+<img src="star-full.png" alt="Рейтинг фильма 4 из 5" />
+<img src="star-full.png" alt="" />
+<img src="star-full.png" alt="" />
+<img src="star-full.png" alt="" />
+<img src="star-empty.png" alt="" />
+```

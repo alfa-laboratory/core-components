@@ -120,6 +120,10 @@ module.exports = ({ config }) => ({
                 withRDTL: process.env.RDTL !== 'off',
             }),
             {
+                test: /\.(jpg|png)$/,
+                use: 'file-loader'
+            },
+            {
                 test: /\.js$/,
                 use: [
                     {
