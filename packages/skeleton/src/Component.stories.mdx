@@ -1,26 +1,20 @@
 import { text, boolean } from '@storybook/addon-knobs';
-import { Meta, Story, Preview, Props, Description, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { Skeleton } from '.';
 import { name, version } from '../package.json';
 import { Typography } from '../../typography/src';
 import styles from './stories.module.css';
 
-<Meta title='Компоненты|Skeleton' component={Skeleton} />
 
-<Title>
-    Skeleton ({name}@{version})
-</Title>
+<Meta title='Компоненты' component={Skeleton} />
 
-```tsx
-import { Skeleton } from '@alfalab/core-components-skeleton';
-```
-## Описание
 
-Компонент Skeleton.
+<!-- Canvas -->
 
-<Story name='Песочница'>
+<Story name='Skeleton'>
     {React.createElement(() => {
         return (
             <Skeleton
@@ -32,7 +26,7 @@ import { Skeleton } from '@alfalab/core-components-skeleton';
                 <img
                     width={ 150 }
                     height={ 150 }
-                    alt="фижур"
+                    alt="Фижер"
                     src="https://rawgit.com/alfa-laboratory/arui-feather/master/logo.svg"
                 />
             </Skeleton>
@@ -40,11 +34,29 @@ import { Skeleton } from '@alfalab/core-components-skeleton';
     })}
 </Story>
 
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Skeleton'
+    version={version}
+    package='@alfalab/core-components-skeleton'
+    stage={2}
+/>
+
+```tsx
+import { Skeleton } from '@alfalab/core-components-skeleton';
+```
+
+Компонент скелетной загрузки.
+
+
 <Props of={Skeleton} />
 
+
 ## Использование
-<br/>
-- с контентом
+
+С контентом:
 
 <Preview>
     <Container>
@@ -72,8 +84,7 @@ import { Skeleton } from '@alfalab/core-components-skeleton';
     </Container>
 </Preview>
 
-<br/>
-- с заданными размерами
+С заданными размерами:
 
 <Preview>
     <Container>
