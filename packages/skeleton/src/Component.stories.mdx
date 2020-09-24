@@ -1,0 +1,88 @@
+import { text, boolean } from '@storybook/addon-knobs';
+import { Meta, Story, Preview, Props, Description, Title } from '@storybook/addon-docs/blocks';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+
+import { Skeleton } from '.';
+import { name, version } from '../package.json';
+import { Typography } from '../../typography/src';
+import styles from './stories.module.css';
+
+<Meta title='Компоненты|Skeleton' component={Skeleton} />
+
+<Title>
+    Skeleton ({name}@{version})
+</Title>
+
+```tsx
+import { Skeleton } from '@alfalab/core-components-skeleton';
+```
+## Описание
+
+Компонент Skeleton.
+
+<Story name='Песочница'>
+    {React.createElement(() => {
+        return (
+            <Skeleton
+                visible={ boolean('visible', true) }
+                className={ text('className', '') }
+                dataTestId={ text('dataTestId', '') }
+                animate={ boolean('animate', true) }
+            >
+                <img
+                    width={ 150 }
+                    height={ 150 }
+                    alt="фижур"
+                    src="https://rawgit.com/alfa-laboratory/arui-feather/master/logo.svg"
+                />
+            </Skeleton>
+        );
+    })}
+</Story>
+
+<Props of={Skeleton} />
+
+## Использование
+<br/>
+- с контентом
+
+<Preview>
+    <Container>
+        <Skeleton
+            visible={true}
+            animate={true}
+            className={styles['example-1']}
+        >
+            Заголовок
+        </Skeleton>
+        <Skeleton
+            visible={true}
+            animate={true}
+            className={styles['example-1']}
+        >
+            Какой-то текст
+        </Skeleton>
+        <Skeleton
+            visible={true}
+            animate={true}
+            className={styles['example-1']}
+        >
+            <Typography.Text view='primary-large' tag='tag'>Какой-то текст</Typography.Text>
+        </Skeleton>
+    </Container>
+</Preview>
+
+<br/>
+- с заданными размерами
+
+<Preview>
+    <Container>
+        <div className={styles.wrapper}>
+            <Skeleton className={styles['example-2']} visible={true} />
+            <Skeleton className={styles['example-3']} visible={true} />
+            <Skeleton className={styles['example-4']} visible={true} />
+            <Skeleton className={styles['example-5']} visible={true} />
+            <Skeleton className={styles['example-6']} visible={true} />
+        </div>
+    </Container>
+</Preview>
