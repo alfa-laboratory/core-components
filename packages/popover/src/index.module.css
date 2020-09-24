@@ -1,13 +1,13 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --popover-border-color: var(--color-dark-indigo-15-flat);
+    --popover-border-color: transparent;
     --popover-z-index: 2;
 }
 
 .component {
     background-color: #fff;
-    box-shadow: 0 3px 12px rgba(11, 31, 53, 0.08);
+    box-shadow: var(--shadow-l);
     border: 1px solid var(--popover-border-color);
     z-index: var(--popover-z-index);
     transition-property: opacity;

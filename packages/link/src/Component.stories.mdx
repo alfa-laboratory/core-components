@@ -11,7 +11,11 @@ import { name, version } from '../package.json';
 export const VIEWS = ['primary', 'secondary', 'default'];
 
 
-<Meta title='Компоненты' component={Link} />
+<Meta
+    title='Компоненты'
+    component={Link}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
 
 
 <!-- Canvas -->
