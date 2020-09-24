@@ -1,15 +1,18 @@
-.themeExample {
-    font-family: var(--font-family);
+div.themeExample {
+    margin: 0 0 24px;
 }
 
-.cssExample {
-    margin: 10px 0 20px;
-    color: var(--color-light-text-secondary);
+div.container {
+    margin: 24px 0 0;
+    padding: 20px 24px 24px;
 }
 
-.container {
-    padding: 15px 30px;
-    margin: 20px 0;
+div.title {
+    margin: 0 0 12px;
+}
+
+pre.cssExample {
+    opacity: 0.6;
 }
 
 @define-mixin theme-dark {
@@ -60,7 +63,7 @@
 .dark {
     @mixin theme-dark;
 
-    background-color: var(--color-dark-bg-primary);
+    background-color: var(--color-dark-bg-secondary);
     color: var(--color-dark-text-primary);
 }
 

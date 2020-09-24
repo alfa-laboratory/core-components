@@ -46,7 +46,6 @@ div.sidebar-header img {
     max-height: 32px;
 }
 
-
 nav.sidebar-container form {
     margin-left: 10px;
     margin-right: 10px;
@@ -190,7 +189,6 @@ div.benefits-item {
     line-height: 24px;
     font-weight: 500;
     background-color: rgba(11, 31, 53, 0.05);
-    /* box-shadow: 0 0 8px rgba(11, 31, 53, 0.04), 0 4px 8px rgba(11, 31, 53, 0.08); */
     border-radius: 4px;
     box-sizing: border-box;
     overflow: hidden;
@@ -220,12 +218,10 @@ div.benefits-item:before {
     top: 4px;
     width: 32px;
     color: rgba(11, 31, 53, 0.1);
-    /* color: #fff; */
     font-size: 24px;
     line-height: 1;
     font-weight: 900;
     text-align: center;
-    /* font-family: var(--font-family-styrene); */
     counter-increment: item;
     content: counter(item);
 }
@@ -259,7 +255,8 @@ h1.sbdocs-title {
     font-family: var(--font-family);
 }
 
-h2.sbdocs-h2 {
+h2.sbdocs-h2,
+h2.sbdocs-h2:first-of-type {
     margin: 40px 0 16px;
     padding: 0 0 4px;
     color: rgba(11, 31, 53, 1);
@@ -270,7 +267,8 @@ h2.sbdocs-h2 {
     border-bottom: 1px solid rgba(11, 31, 53, 0.1);
 }
 
-h3.sbdocs-h3 {
+h3.sbdocs-h3,
+h3.sbdocs-h3:first-of-type {
     margin: 32px 0 16px;
     color: #0b1f35;
     font-size: 20px;
@@ -359,7 +357,12 @@ div.sbdocs-preview > div > div > div {
     transform: none;
 }
 
-div.docblock-source, div.sbdocs-preview {
+div.docblock-source {
+    margin: 24px 0;
+}
+
+div.docblock-source,
+div.sbdocs-preview {
     /* box-shadow: 0 0 4px rgba(11, 31, 53, 0.02), 0 2px 4px rgba(11, 31, 53, 0.04); */
     box-shadow: none;
 }
@@ -409,12 +412,12 @@ table.docblock-propstable tbody.docblock-propstable-body tr {
 }
 
 table.docblock-propstable tbody.docblock-propstable-body td {
-    padding: 8px 0 10px;
+    padding: 8px 0;
     border-bottom: 1px solid rgba(11, 31, 53, 0.1);
 }
 
 table.docblock-propstable tbody.docblock-propstable-body td:first-child {
-    padding: 8px 0 10px;
+    padding: 8px 0;
 }
 
 table.docblock-propstable tbody.docblock-propstable-body span[class] {
@@ -425,10 +428,38 @@ table.docblock-propstable tbody.docblock-propstable-body span[class] {
 
 table.docblock-propstable tbody.docblock-propstable-body td:first-child span[class] {
     /* color: rgba(11, 31, 53, 1); */
-    color: #13A463;
+    color: #13a463;
     font-weight: normal;
+}
+
+table.sbdocs-table {
+    margin: 24px 0;
+}
+
+table.sbdocs-table th,
+table.sbdocs-table td {
+    padding: 8px 12px;
+}
+
+table.sbdocs-table th,
+table.sbdocs-table td,
+table.sbdocs-table a.sbdocs-a {
+    font-size: 14px;
+    line-height: 20px;
 }
 
 blockquote.sbdocs-blockquote {
     border-left-color: rgba(11, 31, 53, 0.1);
+}
+
+blockquote.sbdocs-blockquote p.sbdocs-p {
+    color: rgba(11, 31, 53, 0.6);
+}
+
+img.sbdocs-img {
+    margin: 0 0 16px;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid rgba(11, 31, 53, 0.1);
+    border-radius: 4px;
 }

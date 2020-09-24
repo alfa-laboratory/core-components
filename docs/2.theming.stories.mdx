@@ -20,21 +20,23 @@ import styles from './2.theming.stories.css';
 @alfalab/core-components-themes
 ├── component1
 |  └── click.css
-|  └── theme2.css
+|  └── corp.css
 ├── component2
 |  └── click.css
-|  └── theme2.css
+|  └── site.css
 ├── mixins
 |  ├── component1
 |  |  └── click.css
-|  |  └── theme2.css
+|  |  └── corp.css
 |  ├── component2
 |  |  └── click.css
-|  |  └── theme2.css
+|  |  └── site.css
 |  ├── click.css
-|  └── theme2.css
+|  └── corp.css
+|  └── site.css
 ├── click.css
-├── theme2.css
+├── corp.css
+├── site.css
 └── package.json
 ```
 
@@ -46,6 +48,7 @@ import styles from './2.theming.stories.css';
 
 ```css
 /* @alfalab/core-components-themes/click.css */
+
 :root {
     /**
      * === button ===
@@ -61,13 +64,12 @@ import styles from './2.theming.stories.css';
 
 ```css
 /* @alfalab/core-components-themes/mixins/click.css */
+
 @import './input/click.css';
-@import './pure-input/click.css';
 @import './button/click.css';
 
 @define-mixin theme-click {
     @mixin input-click;
-    @mixin pure-input-click;
     @mixin button-click;
     ...;
 }
@@ -93,17 +95,17 @@ yarn add @alfalab/core-components-themes
 
 Использовать темы можно несколькими способами, в зависимости от требований и особенностей сборки проекта:
 
-#### Использование нативных css-переменных
+#### 1. Использование нативных css-переменных
 
 В этом случае, вам доступны все возможности темизации.
 
 - **pure-css**:
 
 ```css
-/* глобально применяем тему клика */
+/* Глобально применяем тему */
 @import '~@alfalab/core-components-themes/click.css';
 
-/* применяем тему клика только для инпута */
+/* Применяем тему только для инпута */
 @import '~@alfalab/core-components-themes/input/click.css';
 ```
 
@@ -118,7 +120,7 @@ import '@alfalab/core-components-themes/input/click.css';
 @import '~@alfalab/core-components-themes/mixins/dark.css';
 
 .dark-block {
-    /* применяем темную тему к конкретному блоку */
+    /* Применяем тему к конкретному блоку */
     @mixin theme-dark;
 }
 ```
@@ -127,20 +129,21 @@ import '@alfalab/core-components-themes/input/click.css';
 @import '~@alfalab/core-components-themes/mixins/input/dark.css';
 
 .dark-input {
-    /* темизируем определенный инпут */
+    /* Темизируем определенный инпут */
     @mixin input-dark;
 }
 ```
 
-- Для поддержки IE11 - используйте данный [полифилл](https://github.com/nuxodin/ie11CustomProperties)
+- Для поддержки IE11 — используйте данный [полифил](https://github.com/nuxodin/ie11CustomProperties)
 
-- Для поддержки миксинов - используйте [postcss-mixins](https://github.com/postcss/postcss-mixins)
+- Для поддержки миксинов — используйте [postcss-mixins](https://github.com/postcss/postcss-mixins)
 
 - Если вы используете [arui-scripts](https://github.com/alfa-laboratory/arui-scripts), то вам нужно отключить транспайлинг переменных (preserve = true):
 
 ```js
 // arui-scripts.overrides.js в корне проекта
 // https://github.com/alfa-laboratory/arui-scripts#тонкая-настройка
+
 const {
     createPostcssConfig, // функция для создания конфигурационного файла postcss
     postcssPlugins, // список плагинов
@@ -161,26 +164,26 @@ module.exports = {
 };
 ```
 
-#### Транспайлинг переменных при сборке
+#### 2. Транспайлинг переменных при сборке
 
 В этом случае доступно использование только pure-css тем.
 
-- Если вы используете [arui-scripts](https://github.com/alfa-laboratory/arui-scripts) - подключите нужную тему в `package.json`:
+- Если вы используете [arui-scripts](https://github.com/alfa-laboratory/arui-scripts) — подключите нужную тему в `package.json`:
 
-  ```json
-  "aruiScripts": {
-      "сomponentsTheme": "./node_modules/@alfalab/core-components-themes/click.css"
-  }
-  ```
+```json
+"aruiScripts": {
+    "сomponentsTheme": "./node_modules/@alfalab/core-components-themes/click.css"
+}
+```
 
 * Иначе, используйте [alfa-laboratory/postcss-custom-properties](https://github.com/alfa-laboratory/postcss-custom-properties), указав в `importFrom` путь к файлу с темой.
 
-  ```js
-  postcssCustomProperties({
-      preserve: true,
-      importFrom: './node_modules/@alfalab/core-components-themes/click.css',
-  });
-  ```
+```js
+postcssCustomProperties({
+    preserve: true,
+    importFrom: './node_modules/@alfalab/core-components-themes/click.css',
+});
+```
 
 ## Примеры
 
@@ -197,17 +200,20 @@ export const cssMixin = `@define-mixin theme-dark {
 
 <div className={styles.themeExample}>
     <div className={cn(styles.dark, styles.container)}>
-        <Typography.Title view='small'>Dark block</Typography.Title>
+        <Typography.Title view='small' className={styles.title}>Dark block</Typography.Title>
         <Typography.Text tag='p'>
-            Рекомендуемый способ темизации - переопределение нужных переменных по классу:
+            Рекомендуемый способ темизации — переопределение нужных переменных по классу:
+        </Typography.Text>
+        <Typography.Text tag='p'>
             <pre className={styles.cssExample}>{css}</pre>
         </Typography.Text>
         <Typography.Text tag='p'>
-            Это позволяет как перекрасить все компоненты на странице, так и применять тему только к
-            выбранному блоку.
+            Это позволяет как перекрасить все компоненты на странице, так и применять тему только к выбранному блоку.
         </Typography.Text>
         <Typography.Text tag='p'>
-            Для удобства, переопределения переменных можно оформить в виде миксина:
+            Для удобства, переопределения переменных можно оформить в виде миксина:
+        </Typography.Text>
+        <Typography.Text tag='p'>
             <pre className={styles.cssExample}>{cssMixin}</pre>
         </Typography.Text>
         <Row>
@@ -217,7 +223,7 @@ export const cssMixin = `@define-mixin theme-dark {
             <Radio label='Радио-кнопка на темном фоне' checked />
         </Row>
         <div className={cn(styles.light, styles.container)}>
-            <Typography.Title view='small'>Light block</Typography.Title>
+            <Typography.Title view='small' className={styles.title}>Light block</Typography.Title>
             <Row>
                 <Checkbox label='Чекбокс на светлом фоне' checked />
             </Row>
@@ -226,7 +232,7 @@ export const cssMixin = `@define-mixin theme-dark {
             </Row>
         </div>
         <div className={cn(styles.redEye, styles.container)}>
-            <Typography.Title view='small'>Custom block</Typography.Title>
+            <Typography.Title view='small' className={styles.title}>Custom block</Typography.Title>
             <Row>
                 <Checkbox label='Чекбокс' />
             </Row>
@@ -243,4 +249,4 @@ export const cssMixin = `@define-mixin theme-dark {
     </div>
 </div>
 
-_Если остались какие-либо вопросы или документация не кажется понятной - пожалуйста, свяжитесь с мейнтейнерами проекта или создайте issue._
+Если остались какие-либо вопросы или документация не кажется понятной — пожалуйста, свяжитесь с мейнтейнерами проекта или создайте issue.

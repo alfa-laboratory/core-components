@@ -53,6 +53,8 @@ import { Button } from '@alfalab/core-components-button';
 
 -   В другом случае - используйте [alfa-laboratory/postcss-custom-properties](https://github.com/alfa-laboratory/postcss-custom-properties), указав в `importFrom` путь к файлу с темой.
 
+[Подробнее о темизации](https://alfa-laboratory.github.io/core-components/master/?path=/docs/гайдлайны-темизация--page)
+
 ## Поддерживаемые браузеры
 
 Мы поддерживаем две последние стабильные версии всех популярных браузеров. Исключение — IE11+ и Android 5+ (Mobile Chrome).

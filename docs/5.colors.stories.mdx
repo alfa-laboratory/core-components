@@ -4,11 +4,44 @@ import { Description } from '@storybook/addon-docs/blocks';
 
 ## Цвета
 
-Ссылки на цвета
-https://github.com/alfa-laboratory/core-components/blob/master/packages/vars/src/colors-indigo.css
-https://github.com/alfa-laboratory/core-components/blob/master/packages/vars/src/colors-addons.css
+Полный актуальный набор цветов доступен в виде переменных и хранится в [core-components/vars/colors-indigo.css](https://github.com/alfa-laboratory/core-components/blob/master/packages/vars/src/colors-indigo.css).
 
-color-mod()
-color-mod(var(--color) blenda(black 30%))
-color-mod(var(--color) blenda(white 30%))
-color-mod(var(--color) alpha(30%))
+Дополнительные цвета хранятся в [core-components/vars/colors-addons.css](https://github.com/alfa-laboratory/core-components/blob/master/packages/vars/src/colors-addons.css).
+
+### Использование цветов
+
+При выделении любого элемента в Figma, в правом сайдбаре можно увидеть название цвета: 
+<img src='/images/colors_figma-element.png' width={319} alt='Пример цвета в Figma' />
+
+Названию цвета `light/text/primary` соответствует переменная `var(--color-light-text-primary)`.
+
+```css
+@import '@alfalab/core-components/vars/colors-indigo.css';
+
+.item {
+    color: var(--color-light-text-primary);
+}
+```
+
+> Если в Figma не видно название цвета или для него не оказалось переменной, спросите у дизайнера почему :)
+
+### Модификации цветов
+
+Для состояний (hover, active) могут использоваться модификации цветов: затемнение, осветление или изменение прозрачности.
+
+Рекомендуем использовать [color-mod()](https://github.com/jonathantneal/postcss-color-mod-function) (в arui-scripts уже подключен).
+
+Примеры использования:
+
+- затемнение → `color-mod(var(--color) shade(30%))` или `color-mod(var(--color) blenda(black 30%))`
+- осветление → `color-mod(var(--color) tint(30%))` или `color-mod(var(--color) blenda(white 30%))`
+- прозрачность → `color-mod(var(--color) alpha(30%))`
+
+### Тени
+
+Для теней предусмотрены отдельные переменные: [core-components/vars/shadows-indigo.css](https://github.com/alfa-laboratory/core-components/blob/master/packages/vars/src/shadows-indigo.css).
+
+Названия видны в Figma аналогично цветам, смотрите размер:
+
+- XL → `var(--shadow-xl)`)
+- XL Hard → `var(--shadow-xl-hard)` (hard — тени для тёмных плашек)
