@@ -18,7 +18,7 @@
     "build": "./bin/build.sh",
     "start": "start-storybook -p 9009 -c .storybook -s ./.storybook/public",
     "start:quick": "RDTL=off yarn start",
-    "build-storybook": "build-storybook -o build",
+    "build-storybook": "build-storybook -o build -s ./.storybook/public",
     "update-colors": "node ./tools/update-colors.js && yarn lint:css --fix",
     "update-typography": "node ./tools/update-typography.js",
     "lint": "yarn lint:css && yarn lint:js",
