@@ -193,7 +193,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
 
         return (
             <div
-                className={cn({
+                className={cn(styles.container, {
                     [styles.bold]: bold,
                     [styles.focused]: focused,
                     [styles.filled]: filled,

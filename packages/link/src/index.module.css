@@ -2,19 +2,19 @@
 
 :root {
     /* primary */
-    --link-primary-color: var(--text-primary-color);
-    --link-primary-hover-color: color-mod(var(--link-primary-color) blenda(black 20%));
-    --link-primary-active-color: color-mod(var(--link-primary-color) blenda(black 40%));
+    --link-primary-color: var(--color-light-text-primary);
+    --link-primary-hover-color: color-mod(var(--link-primary-color) shade(20%));
+    --link-primary-active-color: color-mod(var(--link-primary-color) shade(40%));
 
     /* secondary */
-    --link-secondary-color: var(--text-secondary-color);
-    --link-secondary-hover-color: color-mod(var(--link-secondary-color) blenda(black 20%));
-    --link-secondary-active-color: color-mod(var(--link-secondary-color) blenda(black 40%));
+    --link-secondary-color: var(--color-light-text-secondary);
+    --link-secondary-hover-color: color-mod(var(--link-secondary-color) shade(20%));
+    --link-secondary-active-color: color-mod(var(--link-secondary-color) shade(40%));
 
     /* default */
-    --link-default-color: var(--color-blue-link-web);
-    --link-default-hover-color: color-mod(var(--link-default-color) blenda(black 20%));
-    --link-default-active-color: color-mod(var(--link-default-color) blenda(black 40%));
+    --link-default-color: var(--color-light-text-link);
+    --link-default-hover-color: color-mod(var(--link-default-color) shade(20%));
+    --link-default-active-color: color-mod(var(--link-default-color) shade(40%));
 }
 
 .component {
@@ -22,7 +22,7 @@
     text-decoration: none;
     border-bottom: 1px solid;
     font-family: var(--font-family);
-    transition: border 0.1s ease-out;
+    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
     cursor: pointer;
     outline: none;
 

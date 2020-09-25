@@ -6,10 +6,7 @@
         "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-button": ["../button/src"],
-            "@alfalab/core-components-loader": ["../loader/src"],
-            "@alfalab/core-components-progress-bar": ["../progress-bar/src"],
-            "@alfalab/core-components-keyboard-focusable": ["../keyboard-focusable/src"]
+            "@alfalab/core-components-*": ["../*/src"]
         }
     },
     "references": [
