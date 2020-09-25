@@ -14,13 +14,13 @@ import { Description } from '@storybook/addon-docs/blocks';
 При выделении любого текстового элемента в Figma, в правом сайдбаре можно увидеть название стиля:
 <img src='./images/typography_figma-element.png' width={388} alt='Пример текстового элемента в Figma' />
 
-В скобках указан пример использования компонента `Typography.Title view='small'`.
+В скобках указан соответствующий компонент `Typography.Title view='small'`.
 
 ```jsx
 <Typography.Title view='small'>Заголовок</Title>
 ```
 
-Названию стиля `Headline / 24-32 Small` соответствует миксин `headline_small`.
+При необходимости используйте миксин:
 
 ```css
 @import '@alfalab/core-components/vars/typography.css';
