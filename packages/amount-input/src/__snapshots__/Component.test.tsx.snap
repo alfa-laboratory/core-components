@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="bold"
+        class="container bold"
       >
         <div
           class="component s fakeValueWithCurrencyContainer"
@@ -64,7 +64,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="bold"
+      class="container bold"
     >
       <div
         class="component s fakeValueWithCurrencyContainer"
@@ -179,7 +179,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="bold"
+        class="container bold"
       >
         <div
           class="component s fakeValueWithCurrencyContainer"
@@ -236,7 +236,7 @@ Object {
     </div>
     <div>
       <div
-        class="bold filled"
+        class="container bold filled"
       >
         <div
           class="component s filled fakeValueWithCurrencyContainer"
@@ -297,7 +297,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="bold filled"
+      class="container bold filled"
     >
       <div
         class="component s filled fakeValueWithCurrencyContainer"
