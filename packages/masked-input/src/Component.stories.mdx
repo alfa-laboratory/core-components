@@ -1,9 +1,8 @@
-import { Meta, Props, Title, Preview } from '@storybook/addon-docs/blocks';
-import { Status } from 'storybook/blocks/status';
+import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { MaskedInput } from './Component';
 import { name, version } from '../package.json';
-
 
 <!-- prettier-ignore -->
 export const masks = {
@@ -16,25 +15,26 @@ export const placeholders = {
     card: '0000 0000 0000 0000',
 };
 
+
 <Meta
     title='Компоненты|MaskedInput'
     component={MaskedInput}
-    parameters={{ 'theme-switcher': { enabled: true } }}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
-<Title>
-    MaskedInput ({name}@{version})
-</Title>
 
-<Status>
-  Candidate Recommendation
-</Status>
+<!-- Docs -->
+
+<ComponentHeader
+    name='MaskedInput'
+    version={version}
+    package='@alfalab/core-components-masked-input'
+    stage={2}
+/>
 
 ```tsx
 import { MaskedInput } from '@alfalab/core-components-masked-input';
 ```
-
-## Описание
 
 Компонент текстового поля для ввода текста по указанной маске.
 
@@ -43,10 +43,11 @@ import { MaskedInput } from '@alfalab/core-components-masked-input';
     <br/>
     <br/>
     <MaskedInput mask={masks.card} placeholder={placeholders.card} block={true} />
-    <br/>
 </div>
 
+
 <Props of={MaskedInput} />
+
 
 ### Uncontrolled-way
 

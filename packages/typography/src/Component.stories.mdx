@@ -1,42 +1,16 @@
-import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import { text, boolean, select, number } from '@storybook/addon-knobs';
-import { Status } from 'storybook/blocks/status';
-import { Design } from 'storybook/blocks/design';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { Typography } from './Component';
 import { name, version } from '../package.json';
 import { colors } from './colors';
 
+
 <Meta title='Компоненты|Typography' component={Typography} />
 
-<Title>
-    Typography ({name}@{version})
-</Title>
 
-<Status>
-  Candidate Recommendation
-</Status>
-
-```tsx
-import { Typography } from '@alfalab/core-components-typography';
-```
-
-<Design>
-  <a href="https://www.figma.com/file/FWya6P55TnXkiVGaM2qBio/2020-Web-Hybrid-Typography?node-id=593%3A0">Figma</a>
-</Design>
-
-## Описание
-
-Набор компонентов для оформления текста, реализующий [гибридную систему типографики](https://www.figma.com/file/FWya6P55TnXkiVGaM2qBio/2020-Web-Hybrid-Typography?node-id=593%3A0)
-
-> **_NOTE:_** Компоненты не устанавливают свойство `font-family`, кроме случаев, когда используется шрифт 'Styrene UI'. Подразумевается, что шрифт будет установлен у родителя.
-
-<Props components={Typography} />
-
-## Typography.Title
-
-<Typography.Title>Стандартный заголовок для шрифта styrene</Typography.Title>
-<Typography.Title font='system'>Стандартный заголовок для шрифта system</Typography.Title>
+<!-- Canvas -->
 
 <Story name='Typography.Title'>
     {React.createElement(() => {
@@ -57,13 +31,6 @@ import { Typography } from '@alfalab/core-components-typography';
         ))
     })}
 </Story>
-
-<br />
-<br />
-
-## Typography.Text
-
-Компонент для оформления текста. Позволяет задать внешний вид, тэг и цвет текста.
 
 <Story name='Typography.Text'>
     {React.createElement(() => {
@@ -90,3 +57,83 @@ import { Typography } from '@alfalab/core-components-typography';
         ));
     })}
 </Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Typography'
+    version={version}
+    package='@alfalab/core-components-typography'
+    stage={2}
+    design='https://www.figma.com/file/FWya6P55TnXkiVGaM2qBio/2020-Web-Hybrid-Typography?node-id=593%3A0'
+/>
+
+```tsx
+import { Typography } from '@alfalab/core-components-typography';
+```
+
+Набор компонентов для оформления текста, реализующий [гибридную систему типографики](https://www.figma.com/file/FWya6P55TnXkiVGaM2qBio/2020-Web-Hybrid-Typography?node-id=593%3A0).
+
+> **_NOTE:_** Компоненты не устанавливают свойство `font-family`, кроме случаев, когда используется шрифт 'Styrene UI'. Подразумевается, что шрифт будет установлен у родителя.
+
+[Подробнее про использование типографики](https://alfa-laboratory.github.io/core-components/master/?path=/docs/гайдлайны-типографика--page)
+
+
+<Props components={Typography} />
+
+
+## Typography.Title
+
+<Typography.Title>Стандартный заголовок для шрифта styrene</Typography.Title>
+<Typography.Title font='system'>Стандартный заголовок для шрифта system</Typography.Title>
+
+<Preview>
+    {React.createElement(() => {
+        const VIEW_TYPES = [
+            'xlarge',
+            'large',
+            'medium',
+            'small',
+            'xsmall',
+        ];
+        const color = select('color', colors, '');
+        const weight = select('weight', ['regular', 'medium', 'bold'], 'medium');
+        const font = select('font', ['styrene', 'system'], 'styrene');
+        return VIEW_TYPES.map(view => (
+            <Typography.Title view={view} color={color} weight={weight} font={font} key={view}>
+                заголовок view='{view}'
+            </Typography.Title>
+        ))
+    })}
+</Preview>
+
+## Typography.Text
+
+Компонент для оформления текста. Позволяет задать внешний вид, тэг и цвет текста.
+
+<Preview>
+    {React.createElement(() => {
+        const VIEW_TYPES = [
+            'primary-large',
+            'primary-medium',
+            'primary-small',
+            'secondary-large',
+            'secondary-medium',
+            'secondary-small',
+            'component',
+            'caps',
+        ];
+        const color = select('color', colors, '');
+        const tag = select('tag', ['div', 'p', 'span'], 'p');
+        const weight = select('weight', ['regular', 'medium', 'bold'], 'regular');
+        const className = text('className', '');
+        return VIEW_TYPES.map(view => (
+            <Typography.Text view={view} color={color} tag={tag} weight={weight} className={className} key={view}>
+                {view}. Космологи́ческая сингуля́рность — состояния Вселенной в определённый момент времени в прошлом,
+                когда плотность энергии (материи) и кривизна пространства-времени были очень велики — порядка
+                планковских значений.
+            </Typography.Text>
+        ));
+    })}
+</Preview>

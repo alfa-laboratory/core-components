@@ -1,27 +1,19 @@
 import { useState } from 'react';
-import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import { text, select, number, boolean } from '@storybook/addon-knobs';
-import { Design } from 'storybook/blocks/design';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { Confirmation } from './component';
 import { name, version } from '../package.json';
 import { Select } from '../../select/src/Component';
 
-<Meta title='Компоненты|Confirmation' component={Confirmation} />
 
-<Title>
-    Confirmation ({name}@{version})
-</Title>
+<Meta title='Компоненты' component={Confirmation} />
 
-```tsx
-import { Confirmation } from '@alfalab/core-components-confirmation';
-```
 
-## Описание
+<!-- Canvas -->
 
-Компонент подтверждения операции по коду.
-
-<Story name='Песочница'>
+<Story name='Confirmation'>
     {React.createElement(() => {
         const [variant, setVariant] = useState([{ value: 'success', text: 'Успешный сценарий'}]);
         const [value, setValue] = useState({'success': '', 'error': '', 'fatal': ''});
@@ -67,7 +59,17 @@ import { Confirmation } from '@alfalab/core-components-confirmation';
                 />
                 <div style={{display: 'flex'}}>
                     {variant[0].value === 'success' &&
-                        <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
+                        <div
+                            style={{
+                                display: 'flex',
+                                width: '100%',
+                                maxWidth: '375px',
+                                margin: '16px 0 0',
+                                padding: '16px',
+                                border: '1px solid #eeeff1',
+                                boxSizing: 'border-box'
+                            }}
+                        >
                             <Confirmation
                                 phone='+7 000 000 00 42'
                                 onInputFinished={() => handleSubmit('success')}
@@ -77,7 +79,7 @@ import { Confirmation } from '@alfalab/core-components-confirmation';
                                 countdownDuration={10000}
                                 code={value['success']}
                                 onInputChange={({ code }) => setCode('success', code)}
-                                alignContent={select('alignContent', ['center', 'left'], 'left')}
+                                alignContent={select('alignContent', ['center', 'left'], 'center')}
                                 requiredCharAmount={number('requiredCharAmount', 5)}
                             />
                         </div>
@@ -122,5 +124,23 @@ import { Confirmation } from '@alfalab/core-components-confirmation';
         );
     })}
 </Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Confirmation'
+    version={version}
+    package='@alfalab/core-components-confirmation'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=8558%3A22'
+/>
+
+```tsx
+import { Confirmation } from '@alfalab/core-components-confirmation';
+```
+
+Компонент подтверждения операции по коду.
+
 
 <Props of={Confirmation} />

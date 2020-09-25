@@ -1,7 +1,6 @@
-import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import { Status } from 'storybook/blocks/status';
-import { Design } from 'storybook/blocks/design';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
 import { FormControl } from './Component';
@@ -9,32 +8,15 @@ import { name, version } from '../package.json';
 
 
 <Meta
-    title='Компоненты|FormControl'
+    title='Компоненты'
     component={FormControl}
-    parameters={{ 'theme-switcher': { enabled: true } }}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
-<Title>
-    FormControl ({name}@{version})
-</Title>
 
-<Status>
-  Candidate Recommendation
-</Status>
+<!-- Canvas -->
 
-```tsx
-import { FormControl } from '@alfalab/core-components-form-control';
-```
-
-<Design>
-  <a href="https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=49%3A0">Figma</a>
-</Design>
-
-## Описание
-
-Базовый компонент для построения полей ввода - input, textarea, select и др.
-
-<Story name='Песочница'>
+<Story name='FormControl'>
     <FormControl
         block={boolean('block', true)}
         size={select('size', ['s', 'm', 'l'], 's')}
@@ -49,5 +31,25 @@ import { FormControl } from '@alfalab/core-components-form-control';
         bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
     />
 </Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='FormControl'
+    version={version}
+    package='@alfalab/core-components-form-control'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=49%3A0'
+/>
+
+```tsx
+import { FormControl } from '@alfalab/core-components-form-control';
+```
+
+Базовый компонент для построения полей ввода — input, textarea, select и др.
+
+<FormControl block={true} label='Label' hint='Hint' />
+
 
 <Props of={FormControl} />

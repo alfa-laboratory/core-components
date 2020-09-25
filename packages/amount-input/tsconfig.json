@@ -7,7 +7,9 @@
         "baseUrl": ".",
         "paths": {
             "@alfalab/core-components-input": ["../input/src"],
-            "@alfalab/core-components-form-control": ["../form-control/src"]
+            "@alfalab/core-components-form-control": ["../form-control/src"],
+            "@alfalab/core-components-button": ["../button/src"],
+            "@alfalab/core-components-loader": ["../loader/src"]
         }
     },
     "references": [{ "path": "../input" }, { "path": "../form-control" }]

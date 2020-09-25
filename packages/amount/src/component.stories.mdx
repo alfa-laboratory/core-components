@@ -1,36 +1,24 @@
-import { Meta, Story, Props, Title, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { Container, Row, Col } from 'storybook/blocks/grid';
-import { Status } from 'storybook/blocks/status';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { Amount } from '.';
+import { Typography } from '../../typography/src/Component';
 import { getAllCurrencyCodes } from '@alfalab/utils';
 import { name, version } from '../package.json';
 
+
 <Meta
-    title='Компоненты|Amount'
+    title='Компоненты'
     component={Amount}
-    parameters={{ 'theme-switcher': { enabled: true } }}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
-<Title>
-    Amount ({name}@{version})
-</Title>
 
-<Status>
-  Candidate Recommendation
-</Status>
+<!-- Canvas -->
 
-```tsx
-import { Amount } from '@alfalab/core-components-amount';
-```
-
-## Описание
-
- Компонент для отображения суммы, согласно следующему гайдлайну:
- https://design.alfabank.ru/patterns/amount
-
-<Story name='Песочница'>
+<Story name='Amount'>
     {React.createElement(() => {
         const currencyCodes = getAllCurrencyCodes();
         const value = number('value', 12300);
@@ -72,13 +60,35 @@ import { Amount } from '@alfalab/core-components-amount';
     })}
 </Story>
 
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Amount'
+    version={version}
+    package='@alfalab/core-components-amount'
+    stage={2}
+/>
+
+```tsx
+import { Amount } from '@alfalab/core-components-amount';
+```
+
+Компонент для отображения суммы, согласно гайдлайну:
+https://design.alfabank.ru/patterns/amount
+
+<Typography.Title font='system'><Amount value={100000000} minority={100} view='withZeroMinorPart' /></Typography.Title>
+
+
 <Props of={Amount} />
 
-## Контекст использования
-<br/>
 
-- `view="withZeroMinorPart"`: не показывает минорную часть, если её значение равно 0.
-TODO: siebian хотели красивую таблицу которая показывает разницу
+## Контекст использования
+
+<!-- TODO: хотели таблицу которая показывает разницу -->
+
+- `view="withZeroMinorPart"`: не показывает минорную часть, если её значение равно 0
+
 <Preview>
     <Container>
         <Row>
@@ -100,18 +110,9 @@ TODO: siebian хотели красивую таблицу которая пок
 
 <Preview>
     <Container>
-        <h1>
-            <Amount value={1234500} currency='RUR' minority={100} />
-        </h1>
-        <h2>
-            <Amount value={1234500} currency='RUR' minority={100} />
-        </h2>
         <h3>
             <Amount value={1234500} currency='RUR' minority={100} />
         </h3>
-        <h4>
-            <Amount value={1234500} currency='RUR' minority={100} />
-        </h4>
     </Container>
 </Preview>
 

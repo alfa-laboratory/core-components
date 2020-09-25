@@ -12,7 +12,7 @@ export type TitleProps = {
     tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
 
     /**
-     * Вариант начертания
+     * [Вариант начертания](https://alfa-laboratory.github.io/core-components/master/?path=/docs/гайдлайны-типографика--page)
      */
     view?: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
 

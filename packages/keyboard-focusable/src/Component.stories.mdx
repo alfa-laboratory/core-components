@@ -1,7 +1,7 @@
-import { Meta, Story, Preview, Props, Description, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import { Design } from 'storybook/blocks/design';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { useFocus } from '@alfalab/hooks';
 
@@ -13,23 +13,23 @@ export const focusOutlineStyles = {
     outlineOffset: '2px',
 };
 
+
 <Meta title='Компоненты|KeyboardFocusable' component={KeyboardFocusable} />
 
-<Title>
-    KeyboardFocusable ({name}@{version})
-</Title>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='KeyboardFocusable'
+    version={version}
+    package='@alfalab/core-components-keyboard-focusable'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=4165%3A8950'
+/>
 
 ```tsx
 import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
 ```
-
-<Design>
-    <a href='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=4165%3A8950'>
-        Figma
-    </a>
-</Design>
-
-## Описание
 
 В соответствии с дизайн-системой все интерактивные элементы должны иметь определенную обводку при фокусе, но только при переключении с клавиатуры.
 При клике мышки обводки быть не должно.

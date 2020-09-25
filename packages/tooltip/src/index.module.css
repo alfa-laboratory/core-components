@@ -1,12 +1,12 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --tooltip-border-color: var(--color-dark-indigo-15-flat);
+    --tooltip-border-color: var(--color-light-border-primary);
     --tooltip-z-index: 1;
 }
 
 .component {
-    @mixin system_14-18_regular;
+    @mixin paragraph_primary_small;
     padding: var(--gap-s) var(--gap-m);
 }
 

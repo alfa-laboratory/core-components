@@ -1,30 +1,17 @@
-import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import { text, boolean } from '@storybook/addon-knobs';
-import { Status } from 'storybook/blocks/status';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { Radio } from './Component';
 import { name, version } from '../package.json';
 
 
-<Meta title='Компоненты|Radio' component={Radio} />
+<Meta title='Компоненты' component={Radio} />
 
-<Title>
-    Radio ({name}@{version})
-</Title>
 
-<Status>
-  Candidate Recommendation
-</Status>
+<!-- Canvas -->
 
-```tsx
-import { Radio } from '@alfalab/core-components-radio';
-```
-
-## Описание
-
-Компонент радио.
-
-<Story name='Песочница'>
+<Story name='Radio'>
     {React.createElement(() => {
         const [checked, setChecked] = React.useState(false);
         const handleChange = () => setChecked(!checked);
@@ -43,7 +30,44 @@ import { Radio } from '@alfalab/core-components-radio';
     })}
 </Story>
 
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Radio'
+    version={version}
+    package='@alfalab/core-components-radio'
+    stage={2}
+/>
+
+```tsx
+import { Radio } from '@alfalab/core-components-radio';
+```
+
+Компонент радио.
+
+<Preview>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleChange = () => setChecked(!checked);
+        const disabled = boolean('disabled', false);
+        const label = text('label', 'Text label')
+        const hint = text('hint', 'Hint');
+        return (
+            <Radio
+                disabled={disabled}
+                onChange={handleChange}
+                checked={checked}
+                hint={hint}
+                label={label}
+            />
+        );
+    })}
+</Preview>
+
+
 <Props of={Radio} />
+
 
 ### Компонент Radio
 

@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/alfa-laboratory/core-components/compare/v2.0.0...v2.1.0) (2020-09-18)
+
+
+### Features
+
+* **core-components-amount-input:** add forward ref ([5471887](https://github.com/alfa-laboratory/core-components/commit/5471887361dcb1383ae695f69cc13c201d713607))
+
+
+### Bug Fixes
+
+* **core-components-amount-input:** fix console error ([461d435](https://github.com/alfa-laboratory/core-components/commit/461d435643d6b5908344fadfe66927dd48ed014c))
+* **core-components-themes:** temp fix for color-mod ([94a79a0](https://github.com/alfa-laboratory/core-components/commit/94a79a08d53266963d3d96bf3c5c41321629d360))
+
+## [2.0.0](https://github.com/alfa-laboratory/core-components/compare/v1.18.0...v2.0.0) (2020-09-14)
+
+
+### Features
+
+* **core-components-button:** button themes (click, corp, mobile), change l-size height ([cf658c3](https://github.com/alfa-laboratory/core-components/commit/cf658c388bb0cbf06517b04b4c24f8e5715d8cbe))
+* **core-components-form-control:** change l-size height ([c87f908](https://github.com/alfa-laboratory/core-components/commit/c87f908fe8174e9d0e976153daac1e46e3a252bd))
+* **core-components-input:** add clear button ([4f9a453](https://github.com/alfa-laboratory/core-components/commit/4f9a4537db28404281415c4354408386bc4c4021))
+* **core-components-input:** add css-var for clear button icon ([637286c](https://github.com/alfa-laboratory/core-components/commit/637286ca68bf9b25653298b4315c97bb145a2089))
+* **core-components-pure-input:** change l-size height ([5287559](https://github.com/alfa-laboratory/core-components/commit/5287559cbc7a3beac54047884174b26c21cdf453))
+* **core-components-tabs:** remove gaps, add sizes ([da7d435](https://github.com/alfa-laboratory/core-components/commit/da7d4350b9fb46e8765ec65cf483c7aadab134c3))
+* **core-components-tag:** add click theme ([eeb2400](https://github.com/alfa-laboratory/core-components/commit/eeb24000b0f75d48a4780fe069a4698867006b8b))
+* **core-components-tag:** min-width for tags ([fce5ce3](https://github.com/alfa-laboratory/core-components/commit/fce5ce382e9b25190504ff3de3a5479527024afa))
+* **core-components-textarea:** change l-size height ([f314bf6](https://github.com/alfa-laboratory/core-components/commit/f314bf63b9d1f5d539c53e310ede11c2a8cdd8c7))
+* **core-components-themes:** add tabs click theme ([0ffbc3f](https://github.com/alfa-laboratory/core-components/commit/0ffbc3f9d1edbdb13549957a7174871e365e0f40))
+* **core-components-themes:** add tabs site theme ([da5d9ec](https://github.com/alfa-laboratory/core-components/commit/da5d9ec07f16b328c15ebebbb55498e25ff866b1))
+
+
+### Bug Fixes
+
+* **core-components-input:** fix clear button, fix focus issues ([24fc3c6](https://github.com/alfa-laboratory/core-components/commit/24fc3c603e92418e8589c09bed2ca5d8bdf57f5a))
+* **core-components-select:** remove default autocomplete ([a223433](https://github.com/alfa-laboratory/core-components/commit/a2234334eaf145582a39bc045b84d61a97a7660c))
+
 ## [1.18.0](https://github.com/alfa-laboratory/core-components/compare/v1.17.1...v1.18.0) (2020-09-11)
 
 

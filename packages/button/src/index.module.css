@@ -3,37 +3,30 @@
 :root {
     /* primary */
     --button-primary-base-bg-color: var(--color-red-brand-85);
-    --button-primary-hover-bg-color: color-mod(
-        var(--button-primary-base-bg-color) blenda(black 7%)
-    );
-    --button-primary-active-bg-color: color-mod(
-        var(--button-primary-base-bg-color) blenda(black 15%)
-    );
+    --button-primary-hover-bg-color: color-mod(var(--button-primary-base-bg-color) shade(7%));
+    --button-primary-active-bg-color: color-mod(var(--button-primary-base-bg-color) shade(15%));
     --button-primary-disabled-bg-color: var(--color-red-brand-30);
 
     /* secondary */
-    --button-secondary-base-bg-color: var(--color-dark-indigo-07);
-    --button-secondary-hover-bg-color: color-mod(
-        var(--button-secondary-base-bg-color) blenda(black 7%)
-    );
-    --button-secondary-active-bg-color: color-mod(
-        var(--button-secondary-base-bg-color) blenda(black 15%)
-    );
-    --button-secondary-disabled-bg-color: var(--color-dark-indigo-07);
+    --button-secondary-base-bg-color: var(--color-light-specialbg-component);
+    --button-secondary-base-border-color: transparent;
+    --button-secondary-hover-bg-color: color-mod(var(--button-secondary-base-bg-color) shade(7%));
+    --button-secondary-active-bg-color: color-mod(var(--button-secondary-base-bg-color) shade(15%));
+    --button-secondary-disabled-bg-color: var(--color-light-specialbg-component);
+    --button-secondary-disabled-border-color: transparent;
 
     /* ghost */
-    --button-ghost-base-color: var(--color-dark-indigo);
-    --button-ghost-hover-color: var(--color-dark-indigo);
-    --button-ghost-active-color: var(--color-dark-indigo);
-    --button-ghost-disabled-color: var(--color-dark-indigo-30);
+    --button-ghost-base-color: var(--color-light-text-primary);
+    --button-ghost-hover-color: color-mod(var(--button-ghost-base-color) tint(30%));
+    --button-ghost-active-color: color-mod(var(--button-ghost-base-color) tint(50%));
+    --button-ghost-disabled-color: color-mod(var(--button-ghost-base-color) alpha(30%));
 
     /* font */
     --button-font-weight: 500;
     --button-font-family: var(--font-family);
 
-    /* focus */
-    --button-outline: 2px solid var(--focus-color);
-    --button-outline-offset: 2px;
+    /* radius */
+    --button-border-radius: var(--border-radius);
 }
 
 .component {
@@ -52,7 +45,7 @@
     text-decoration: none;
     background-color: transparent;
     border: 0;
-    border-radius: var(--border-radius);
+    border-radius: var(--button-border-radius);
     outline: none;
     box-shadow: none;
     user-select: none;
@@ -109,19 +102,19 @@
 
 .l {
     min-width: 160px;
-    min-height: 68px;
+    min-height: 72px;
     padding: 0 32px;
     font-size: 18px;
 
     &.iconOnly {
-        min-width: 68px;
+        min-width: 72px;
     }
 }
 
 /* Type */
 
 .primary {
-    color: var(--color-white);
+    color: var(--color-light-text-primary-inverted);
     background-color: var(--button-primary-base-bg-color);
 
     &:hover {
@@ -134,8 +127,9 @@
 }
 
 .secondary {
-    color: var(--color-dark-indigo);
+    color: var(--color-light-text-primary);
     background-color: var(--button-secondary-base-bg-color);
+    border: 1px solid var(--button-secondary-base-border-color);
 
     &:hover {
         background-color: var(--button-secondary-hover-bg-color);
@@ -147,30 +141,43 @@
 }
 
 .outlined {
-    color: var(--color-dark-indigo);
+    color: var(--color-light-text-primary);
     background-color: transparent;
-    border: 1px solid var(--color-dark-indigo-60);
+    border: 1px solid color-mod(var(--color-light-border-key) alpha(60%));
 
     &:hover {
-        background-color: var(--color-dark-indigo-07);
+        background-color: var(--color-light-specialbg-component);
     }
 
     &:active {
-        background-color: color-mod(var(--color-dark-indigo-07) blenda(black 7%));
+        background-color: color-mod(var(--color-light-specialbg-component) shade(7%));
+    }
+}
+
+.filled {
+    color: var(--color-light-text-primary);
+    background-color: var(--color-light-specialbg-component);
+
+    &:hover {
+        background-color: color-mod(var(--color-light-specialbg-component) shade(7%));
+    }
+
+    &:active {
+        background-color: color-mod(var(--color-light-specialbg-component) shade(15%));
     }
 }
 
 .link {
     min-width: 0;
-    color: var(--color-dark-indigo);
+    color: var(--color-light-text-primary);
     background-color: transparent;
 
     &:hover {
-        background-color: var(--color-dark-indigo-07);
+        background-color: var(--color-light-specialbg-component);
     }
 
     &:active {
-        background-color: color-mod(var(--color-dark-indigo-07) blenda(black 7%));
+        background-color: color-mod(var(--color-light-specialbg-component) shade(7%));
     }
 }
 
@@ -210,32 +217,44 @@
     }
 
     &.secondary {
-        color: var(--color-dark-indigo-30);
+        color: color-mod(var(--color-light-text-primary) alpha(30%));
         background-color: var(--button-secondary-disabled-bg-color);
+        border-color: var(--button-secondary-disabled-border-color);
 
         &.loading {
-            color: var(--color-dark-indigo);
+            color: var(--color-light-text-primary);
             background-color: var(--button-secondary-base-bg-color);
+            border-color: var(--button-secondary-base-border-color);
         }
     }
 
     &.outlined {
-        color: var(--color-dark-indigo-30);
+        color: color-mod(var(--color-light-text-primary) alpha(30%));
         background-color: transparent;
-        border-color: var(--color-dark-indigo-10);
+        border-color: color-mod(var(--color-light-border-key) alpha(10%));
 
         &.loading {
-            color: var(--color-dark-indigo);
-            border-color: var(--color-dark-indigo-60);
+            color: var(--color-light-text-primary);
+            border-color: color-mod(var(--color-light-border-key) alpha(60%));
+        }
+    }
+
+    &.filled {
+        color: color-mod(var(--color-light-text-primary) alpha(30%));
+        background-color: var(--color-light-specialbg-component);
+
+        &.loading {
+            color: var(--color-light-text-primary);
+            background-color: var(--color-light-specialbg-component);
         }
     }
 
     &.link {
-        color: var(--color-dark-indigo-30);
+        color: color-mod(var(--color-light-text-primary) alpha(30%));
         background-color: transparent;
 
         &.loading {
-            color: var(--color-dark-indigo);
+            color: var(--color-light-text-primary);
         }
     }
 

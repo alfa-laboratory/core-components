@@ -6,6 +6,7 @@ import { ScrollableContainer } from '../scrollable-container';
 import { TabListProps, Styles } from '../../typings';
 
 export const PrimaryTabList = ({
+    size,
     styles = {},
     className,
     titles = [],
@@ -39,12 +40,9 @@ export const PrimaryTabList = ({
                             type='button'
                             className={cn(styles.title, {
                                 [styles.selected]: item.id === selectedId,
-                                [styles.focused]: focused,
                             })}
                         >
-                            <span tabIndex={-1} className={styles.titleWrapper}>
-                                {item.title}
-                            </span>
+                            <span className={cn(focused && styles.focused)}>{item.title}</span>
                         </button>
                     )}
                 </KeyboardFocusable>
@@ -58,7 +56,7 @@ export const PrimaryTabList = ({
         <div
             role='tablist'
             data-test-id={dataTestId}
-            className={cn(styles.component, className, {
+            className={cn(styles.component, className, size && styles[size], {
                 [styles.scrollable]: scrollable,
             })}
         >

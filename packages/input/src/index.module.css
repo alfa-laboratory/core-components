@@ -1,5 +1,9 @@
 @import '../../themes/src/default.css';
 
+:root {
+    --input-clear-icon: url('https://alfabank.st/icons/glyph_cross-circle_m.svg');
+}
+
 .input {
     @mixin system_16-20_regular;
 
@@ -30,6 +34,37 @@
 
 .block {
     width: 100%;
+}
+
+.formControl:not(.disabled) {
+    cursor: text;
+}
+
+.clearButton {
+    visibility: hidden;
+}
+
+.clearIcon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: var(--input-clear-icon);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    opacity: 0.3;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+        opacity: 0.6;
+    }
+
+    &:active {
+        opacity: 1;
+    }
+}
+
+.clearButtonVisible {
+    visibility: visible;
 }
 
 /* DISABLED STATE */

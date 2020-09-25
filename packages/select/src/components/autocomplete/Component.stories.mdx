@@ -1,7 +1,8 @@
-import { Meta, Story, Preview, Props, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import mergeRefs from 'react-merge-refs';
 
@@ -35,292 +36,299 @@ export const options = [
 export const matchOption = (option, inputValue) =>
     option.text.toLowerCase().includes(inputValue.toLowerCase());
 
+
 <Meta
-    title='Компоненты|Autocomplete'
-    parameters={{ 'theme-switcher': { enabled: true } }}
+    title='Компоненты'
     component={Autocomplete}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
-## Описание
 
-Компонент поля для ввода с автокомплитом.
+<!-- Canvas -->
 
-<Story name='Песочница'>
-    <div style={{ height: 180, width: 300 }}>
-        {React.createElement(() => {
-            const [value, setValue] = React.useState('');
-            const handleInput = event => {
-                setValue(event.target.value);
-            };
-            const handleChange = ({ selectedOptions }) => {
-                setValue(selectedOptions.map(option => option.text).join(', '));
-            };
-            const filteredOptions = options.filter(option => matchOption(option, value));
-            return (
-                <Autocomplete
-                    options={filteredOptions}
-                    selected={boolean('prevent select', true) ? [] : undefined}
-                    block={boolean('block', false)}
-                    size={select('size', ['s', 'm', 'l'], 's')}
-                    disabled={boolean('disabled', false)}
-                    error={text('error', '')}
-                    allowUnselect={boolean('allowUnselect', true)}
-                    closeOnSelect={boolean('closeOnSelect', false)}
-                    Arrow={boolean('Arrow', true) ? Arrow : undefined}
-                    circularNavigation={boolean('circularNavigation', false)}
-                    placeholder={text('placeholder', 'Введите элемент')}
-                    label={text('label', 'Элемент')}
-                    onOpen={action('open')}
-                    onChange={handleChange}
-                    onInput={handleInput}
-                    value={value}
-                />
-            );
-        })}
-    </div>
+<Story name='Autocomplete'>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('');
+        const handleInput = event => {
+            setValue(event.target.value);
+        };
+        const handleChange = ({ selectedOptions }) => {
+            setValue(selectedOptions.map(option => option.text).join(', '));
+        };
+        const filteredOptions = options.filter(option => matchOption(option, value));
+        return (
+            <Autocomplete
+                options={filteredOptions}
+                selected={boolean('prevent select', true) ? [] : undefined}
+                block={boolean('block', false)}
+                size={select('size', ['s', 'm', 'l'], 's')}
+                disabled={boolean('disabled', false)}
+                error={text('error', '')}
+                allowUnselect={boolean('allowUnselect', true)}
+                closeOnSelect={boolean('closeOnSelect', false)}
+                Arrow={boolean('Arrow', true) ? Arrow : undefined}
+                circularNavigation={boolean('circularNavigation', false)}
+                placeholder={text('placeholder', 'Введите элемент')}
+                label={text('label', 'Элемент')}
+                onOpen={action('open')}
+                onChange={handleChange}
+                onInput={handleInput}
+                value={value}
+            />
+        );
+    })}
 </Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Autocomplete'
+    stage={1}
+/>
+
+Компонент поля для ввода с автокомплитом. Будет переименован в InputAutocomplete.
+
+<Preview>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('');
+        const handleInput = event => {
+            setValue(event.target.value);
+        };
+        const handleChange = ({ selectedOptions }) => {
+            setValue(selectedOptions.map(option => option.text).join(', '));
+        };
+        const filteredOptions = options.filter(option => matchOption(option, value));
+        return (
+            <Autocomplete
+                options={filteredOptions}
+                placeholder='Введите элемент'
+                label='Элемент'
+                onChange={handleChange}
+                onInput={handleInput}
+                value={value}
+            />
+        );
+    })}
+</Preview>
+
 
 <Props of={Autocomplete} />
 
+
 ### Кейс с очисткой поля
+
 <Preview>
-    <div style={{ height: 180 }}>
-        {React.createElement(() => {
-            const inputRef = React.useRef(null);
-            const [value, setValue] = React.useState('');
-            const handleInput = event => {
-                setValue(event.target.value);
-            };
-            const handleChange = ({ selectedOptions }) => {
-                setValue(selectedOptions.map(option => option.text).join(', '));
-            };
-            const handleClear = (event) => {
-                event.stopPropagation();
-                event.preventDefault();
-                if (inputRef.current) {
-                    inputRef.current.focus();
-                }
-                setValue('');
-            };
-            const renderAddons = () => (
-                value.length > 0 ? (
-                    <button
-                        type='button'
-                        onClick={handleClear}
-                        onKeyDown={handleClear}
-                        style={{ display: 'flex', border: 'none', background: 'none', padding: 0 }}
-                    >
-                        <CloseMBlackIcon />
-                    </button>
-                ) : null
-            );
-            const filteredOptions = options.filter(option => matchOption(option, value));
-            return (
-                <Autocomplete
-                    options={filteredOptions}
-                    selected={[]}
-                    closeOnSelect={false}
-                    label='Элемент'
-                    placeholder='Введите элемент'
-                    onChange={handleChange}
-                    onInput={handleInput}
-                    value={value}
-                    Arrow={value.length === 0 ? Arrow : null}
-                    ref={inputRef}
-                    inputProps={{
-                        rightAddons: renderAddons(),
-                    }}
-                />
-            );
-        })}
-    </div>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('');
+        const handleInput = event => {
+            setValue(event.target.value);
+        };
+        const handleChange = ({ selectedOptions }) => {
+            setValue(selectedOptions.map(option => option.text).join(', '));
+        };
+        const handleClear = (event) => {
+            setValue('');
+        };
+        const filteredOptions = options.filter(option => matchOption(option, value));
+        return (
+            <Autocomplete
+                options={filteredOptions}
+                selected={[]}
+                closeOnSelect={false}
+                label='Элемент'
+                placeholder='Введите элемент'
+                onChange={handleChange}
+                onInput={handleInput}
+                value={value}
+                inputProps={{
+                    clear: true,
+                    onClear: handleClear
+                }}
+            />
+        );
+    })}
 </Preview>
+
 
 ### Автокомплит с тэгами
 
 <Preview>
-    <div style={{ height: 180 }}>
-        {React.createElement(() => {
-            const [value, setValue] = React.useState('');
-            const [selected, setSelected] = React.useState([]);
-            const handleInput = event => {
-                setValue(event.target.value);
-            };
-            const handleChange = ({ selectedOptions }) => {
-                setValue('');
-                const selectedText = selectedOptions.length ? selectedOptions[0].text : '';
-                if (selectedText && !selected.includes(selectedText)) {
-                    setSelected(selected.concat([selectedText]));
-                }
-            };
-            const renderTags = () => selected.length > 0 ?
-                selected.map(item => <Tag key={item} size='xs'>{item}</Tag>) :
-                null;
-            const filteredOptions = options
-                .filter(option => !selected.includes(option.text))
-                .filter(option => matchOption(option, value));
-            if (filteredOptions.length === 0 && value) {
-                filteredOptions.push({ text: value, value });
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('');
+        const [selected, setSelected] = React.useState([]);
+        const handleInput = event => {
+            setValue(event.target.value);
+        };
+        const handleChange = ({ selectedOptions }) => {
+            setValue('');
+            const selectedText = selectedOptions.length ? selectedOptions[0].text : '';
+            if (selectedText && !selected.includes(selectedText)) {
+                setSelected(selected.concat([selectedText]));
             }
-            return (
-                <React.Fragment>
-                    <Autocomplete
-                        options={filteredOptions}
-                        selected={[]}
-                        closeOnSelect={true}
-                        label='Элемент'
-                        onChange={handleChange}
-                        onInput={handleInput}
-                        value={value}
-                    />
-                    <div style={ { marginTop: '5px' } }>
-                        {renderTags()}
-                    </div>
-                </React.Fragment>
-            );
-        })}
-    </div>
+        };
+        const renderTags = () => selected.length > 0 ?
+            selected.map(item => <Tag key={item} size='xs'>{item}</Tag>) :
+            null;
+        const filteredOptions = options
+            .filter(option => !selected.includes(option.text))
+            .filter(option => matchOption(option, value));
+        if (filteredOptions.length === 0 && value) {
+            filteredOptions.push({ text: value, value });
+        }
+        return (
+            <React.Fragment>
+                <Autocomplete
+                    options={filteredOptions}
+                    selected={[]}
+                    closeOnSelect={true}
+                    label='Элемент'
+                    onChange={handleChange}
+                    onInput={handleInput}
+                    value={value}
+                />
+                <div style={ { marginTop: '4px' } }>
+                    {renderTags()}
+                </div>
+            </React.Fragment>
+        );
+    })}
 </Preview>
 
 
 ### Ошибка при пустом значении
 
 <Preview>
-    <div style={{ height: 180 }}>
-        {React.createElement(() => {
-            const [dirty, setDirty] = React.useState(false);
-            const [value, setValue] = React.useState('');
-            const handleInput = event => {
-                if (!dirty) setDirty(true);
-                setValue(event.target.value);
-            };
-            const handleChange = ({ selectedOptions }) => {
-                setValue(selectedOptions.length ? selectedOptions[0].text : '');
-            };
-            const filteredOptions = options.filter(option => matchOption(option, value));
-            return (
-                <Autocomplete
-                    options={filteredOptions}
-                    selected={[]}
-                    label='Элемент'
-                    value={value}
-                    onChange={handleChange}
-                    onInput={handleInput}
-                    error={dirty && !value}
-                />
-            );
-        })}
-    </div>
+    {React.createElement(() => {
+        const [dirty, setDirty] = React.useState(false);
+        const [value, setValue] = React.useState('');
+        const handleInput = event => {
+            if (!dirty) setDirty(true);
+            setValue(event.target.value);
+        };
+        const handleChange = ({ selectedOptions }) => {
+            setValue(selectedOptions.length ? selectedOptions[0].text : '');
+        };
+        const filteredOptions = options.filter(option => matchOption(option, value));
+        return (
+            <Autocomplete
+                options={filteredOptions}
+                selected={[]}
+                label='Элемент'
+                value={value}
+                onChange={handleChange}
+                onInput={handleInput}
+                error={dirty && !value}
+            />
+        );
+    })}
 </Preview>
 
 
 ### Поле с маской
 
 <Preview>
-    <div style={{ height: 180 }}>
-        {React.createElement(() => {
-            const mask = [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/];
-            const cards = [
-                {
-                    text: '4035 5010 0000 0008',
-                    name: 'Карта 1',
-                    value: '4035 5010 0000 0008',
-                },
-                {
-                    text: '4360 0000 0100 0005',
-                    name: 'Карта 2',
-                    value: '4360 0000 0100 0005',
-                },
-                {
-                    text: '8171 9999 2766 0000',
-                    name: 'Карта 3',
-                    value: '8171 9999 2766 0000',
-                },
-                {
-                    text: '5204 2477 5000 1471',
-                    name: 'Карта 4',
-                    value: '5204 2477 5000 1471',
-                },
-                {
-                    text: '4111 1111 1111 1111',
-                    name: 'Карта 5',
-                    value: '4111 1111 1111 1111',
-                },
-            ];
-            const CardOption = (props) => (
-                <Option {...props}>
-                    <div>
-                        {props.option.name}
-                        <br />
-                        <sub>{props.option.text}</sub>
-                    </div>
-                </Option>
-            );
-            const [value, setValue] = React.useState('');
-            const handleInput = (event) => {
-                setValue(event.target.value);
-            };
-            const handleChange = ({ selectedOptions }) => {
-                setValue(selectedOptions.length ? selectedOptions[0].text : '');
-            };
-            const filteredOptions = cards.filter(option => matchOption(option, value));
-            return (
-                <Autocomplete
-                    options={filteredOptions}
-                    selected={[]}
-                    label='Номер карты'
-                    onInput={handleInput}
-                    onChange={handleChange}
-                    value={value}
-                    Option={CardOption}
-                    Input={MaskedInput}
-                    inputProps={{
-                        mask,
-                    }}
-                />
-            );
-        })}
-    </div>
+    {React.createElement(() => {
+        const mask = [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/];
+        const cards = [
+            {
+                text: '4035 5010 0000 0008',
+                name: 'Карта 1',
+                value: '4035 5010 0000 0008',
+            },
+            {
+                text: '4360 0000 0100 0005',
+                name: 'Карта 2',
+                value: '4360 0000 0100 0005',
+            },
+            {
+                text: '8171 9999 2766 0000',
+                name: 'Карта 3',
+                value: '8171 9999 2766 0000',
+            },
+            {
+                text: '5204 2477 5000 1471',
+                name: 'Карта 4',
+                value: '5204 2477 5000 1471',
+            },
+            {
+                text: '4111 1111 1111 1111',
+                name: 'Карта 5',
+                value: '4111 1111 1111 1111',
+            },
+        ];
+        const CardOption = (props) => (
+            <Option {...props}>
+                <div>
+                    {props.option.name}
+                    <br />
+                    <sub>{props.option.text}</sub>
+                </div>
+            </Option>
+        );
+        const [value, setValue] = React.useState('');
+        const handleInput = (event) => {
+            setValue(event.target.value);
+        };
+        const handleChange = ({ selectedOptions }) => {
+            setValue(selectedOptions.length ? selectedOptions[0].text : '');
+        };
+        const filteredOptions = cards.filter(option => matchOption(option, value));
+        return (
+            <Autocomplete
+                options={filteredOptions}
+                selected={[]}
+                label='Номер карты'
+                onInput={handleInput}
+                onChange={handleChange}
+                value={value}
+                Option={CardOption}
+                Input={MaskedInput}
+                inputProps={{
+                    mask,
+                }}
+            />
+        );
+    })}
 </Preview>
+
 
 ### Multiple
 
 <Preview>
-    <div style={{ height: 180 }}>
-        {React.createElement(() => {
-            const [value, setValue] = React.useState('');
-            const handleInput = event => {
-                setValue(event.target.value);
-            };
-            const handleChange = ({ selectedOptions }) => {
-                const value = selectedOptions.length
-                    ? selectedOptions.map(option => option.text).join(', ') + ', '
-                    : '';
-                setValue(value);
-            };
-            const inputValues = value.split(',').map(v => v.trim()).filter(v => v);
-            const selectedOptions = options
-                .filter(option => inputValues.includes(option.text.trim()));
-            const selected = selectedOptions.map(option => option.value);
-            const filteredOptions = inputValues.length === selected.length ?
-                options :
-                options.filter(option => {
-                    return selectedOptions.includes(option) || matchOption(option, inputValues[inputValues.length - 1])
-                });
-            return (
-                <Autocomplete
-                    options={filteredOptions}
-                    selected={selected}
-                    label='Элемент'
-                    closeOnSelect={false}
-                    multiple={true}
-                    onChange={handleChange}
-                    onInput={handleInput}
-                    allowUnselect={true}
-                    value={value}
-                    Arrow={Arrow}
-                />
-            );
-        })}
-    </div>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('');
+        const handleInput = event => {
+            setValue(event.target.value);
+        };
+        const handleChange = ({ selectedOptions }) => {
+            const value = selectedOptions.length
+                ? selectedOptions.map(option => option.text).join(', ') + ', '
+                : '';
+            setValue(value);
+        };
+        const inputValues = value.split(',').map(v => v.trim()).filter(v => v);
+        const selectedOptions = options
+            .filter(option => inputValues.includes(option.text.trim()));
+        const selected = selectedOptions.map(option => option.value);
+        const filteredOptions = inputValues.length === selected.length ?
+            options :
+            options.filter(option => {
+                return selectedOptions.includes(option) || matchOption(option, inputValues[inputValues.length - 1])
+            });
+        return (
+            <Autocomplete
+                options={filteredOptions}
+                selected={selected}
+                label='Элемент'
+                closeOnSelect={false}
+                multiple={true}
+                onChange={handleChange}
+                onInput={handleInput}
+                allowUnselect={true}
+                value={value}
+                Arrow={Arrow}
+            />
+        );
+    })}
 </Preview>

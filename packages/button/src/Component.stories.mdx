@@ -1,45 +1,27 @@
-import { Meta, Story, Preview, Props, Description, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { Container, Row, Col } from 'storybook/blocks/grid';
-import { Status } from 'storybook/blocks/status';
-import { Design } from 'storybook/blocks/design';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
 import { Button } from './Component';
 import { name, version } from '../package.json';
 
-export const VIEWS = ['primary', 'secondary', 'outlined', 'link', 'ghost'];
+export const VIEWS = ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'];
 export const SIZES = ['xs', 's', 'm', 'l'];
 
 
 <Meta
-    title='Компоненты|Button'
+    title='Компоненты'
     component={Button}
-    parameters={{ 'theme-switcher': { enabled: true } }}
+    parameters={{ 'theme-switcher': { themes: ['click', 'corp', 'mobile'] } }}
 />
 
-<Title>
-    Button ({name}@{version})
-</Title>
 
-<Status>
-  Proposed Recommendation
-</Status>
+<!-- Canvas -->
 
-```tsx
-import { Button } from '@alfalab/core-components-button';
-```
-
-<Design>
-  <a href="https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=1%3A2">Figma</a>
-</Design>
-
-## Описание
-
-Кнопка используется как триггер для выполнения определённого действия.
-
-<Story name='Песочница'>
+<Story name='Button'>
     <Button
         view={select('view', VIEWS, 'primary')}
         size={select('size', SIZES, 'm')}
@@ -56,10 +38,30 @@ import { Button } from '@alfalab/core-components-button';
     </Button>
 </Story>
 
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Button'
+    version={version}
+    package='@alfalab/core-components-button'
+    stage={3}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=1%3A2'
+/>
+
+```tsx
+import { Button } from '@alfalab/core-components-button';
+```
+
+Кнопка используется как триггер для выполнения определённого действия.
+
+<Button view='primary' href='https://alfabank.ru/get-money/credit-cards/100-days/'>Заказать карту</Button>
+
+
 <Props of={Button} />
 
+
 ## Виды кнопок
-<br/>
 
 ### В библиотеке доступно несколько типов кнопок:
 
@@ -128,7 +130,7 @@ import { Button } from '@alfalab/core-components-button';
 </Preview>
 
 
-- `view="ghost"`: прозрачная кнопка без отступов. Use-кейсы такие же загадочные, как и название типа.
+- `view="ghost"`: прозрачная кнопка без отступов.
 
 <Preview>
     <Container>

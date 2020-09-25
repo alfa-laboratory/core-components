@@ -1,9 +1,9 @@
-import { Meta, Story, Preview, Props, Title } from '@storybook/addon-docs/blocks';
-import { text, select, boolean } from '@storybook/addon-knobs';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { text, boolean } from '@storybook/addon-knobs';
+import { select as selectKnob } from '@storybook/addon-knobs'; // name conflict
 import { action } from '@storybook/addon-actions';
 import { Container, Row, Col } from 'storybook/blocks/grid';
-import { Status } from 'storybook/blocks/status';
-import { Design } from 'storybook/blocks/design';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { Select } from './Component';
 import { Field } from './components/field';
@@ -81,35 +81,19 @@ export const renderUppercased = (options) => {
 
 
 <Meta
-    title='Компоненты|Select'
+    title='Компоненты'
+    id='components/select'
     component={Select}
-    parameters={{ 'theme-switcher': { enabled: true } }}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
-<Title>
-    Select ({name}@{version})
-</Title>
 
-<Status>
-  Candidate Recommendation
-</Status>
+<!-- Canvas -->
 
-```tsx
-import { Select } from '@alfalab/core-components-select';
-```
-
-<Design>
-  <a href="https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=719%3A0">Figma</a>
-</Design>
-
-## Описание
-
-Компонент выпадающего списка.
-
-<Story name='Песочница'>
+<Story name='Select'>
     <Select
         block={boolean('block', false)}
-        size={select('size', ['s', 'm', 'l'], 's')}
+        size={selectKnob('size', ['s', 'm', 'l'], 's')}
         disabled={boolean('disabled', false)}
         error={text('error', '')}
         options={options}
@@ -126,7 +110,28 @@ import { Select } from '@alfalab/core-components-select';
     />
 </Story>
 
----
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Select'
+    version={version}
+    package='@alfalab/core-components-select'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=719%3A0'
+/>
+
+```tsx
+import { Select } from '@alfalab/core-components-select';
+```
+
+Компонент выпадающего списка.
+
+<Select options={options} />
+
+<!-- Spacer -->
+<div style={{height: 32}} />
+
 
 <Props components={{
     Select,
@@ -135,6 +140,7 @@ import { Select } from '@alfalab/core-components-select';
     Optgroup,
     Option
 }} />
+
 
 ## Использование
 

@@ -11,7 +11,7 @@ export type ComponentProps = {
     /**
      * Тип кнопки
      */
-    view?: 'primary' | 'secondary' | 'outlined' | 'link' | 'ghost';
+    view?: 'primary' | 'secondary' | 'outlined' | 'filled' | 'link' | 'ghost';
 
     /**
      * Слот слева

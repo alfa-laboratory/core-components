@@ -1,6 +1,6 @@
-import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import { boolean, select } from '@storybook/addon-knobs';
-import { Status } from 'storybook/blocks/status';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import {
     TabsDesktop,
@@ -18,21 +18,13 @@ import { name, version } from '../package.json';
 export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`, id: i + 1 }));
 
 
-<Meta title='Компоненты|Tabs' />
+<Meta
+    title='Компоненты|Tabs'
+    parameters={{ 'theme-switcher': { themes: ['click', 'site'] } }}
+/>
 
-<Title>
-    Tabs ({name}@{version})
-</Title>
 
-<Status>
-  Candidate Recommendation
-</Status>
-
-## Описание
-
-Компоненты для построения табов.
-
-### TabsDesktop
+<!-- Canvas -->
 
 <Story name='TabsDesktop'>
     {React.createElement(() => {
@@ -45,7 +37,7 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
                 keepMounted={boolean('keepMounted')}
                 onChange={handleChange}
                 scrollable={boolean('scrollable', false)}
-                gaps={select('gaps', ['default', 'wide'], 'default')}
+                size={select('size', ['s', 'm', 'l'], 'm')}
             >
                 <Tab title='Таб 1' id='tab-1'>
                     Таб 1
@@ -66,8 +58,6 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
         );
     })}
 </Story>
-
-### TabsMobile
 
 <Story name='TabsMobile'>
     {React.createElement(() => {
@@ -101,10 +91,6 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
     })}
 </Story>
 
-### TabsResponsive
-
-Адаптивная версия табов, перестраивается при 768px
-
 <Story name='TabsResponsive'>
     {React.createElement(() => {
         const [selectedId, setSelectedId] = React.useState('tab-1');
@@ -112,6 +98,7 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
         return (
             <TabsResponsive
                 view={select('view', ['primary', 'secondary'], 'primary')}
+                size={select('size', ['s', 'm', 'l'], 'm')}
                 selectedId={selectedId}
                 keepMounted={boolean('keepMounted')}
                 onChange={handleChange}
@@ -137,7 +124,131 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
     })}
 </Story>
 
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Tabs'
+    version={version}
+    package='@alfalab/core-components-link'
+    stage={2}
+/>
+
+```tsx
+import { Link } from '@alfalab/core-components-tabs';
+```
+
+Компоненты для построения табов.
+
+### TabsDesktop
+
+<Preview>
+    {React.createElement(() => {
+        const [selectedId, setSelectedId] = React.useState('tab-1');
+        const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
+        return (
+            <TabsDesktop
+                view={select('view', ['primary', 'secondary'], 'primary')}
+                selectedId={selectedId}
+                keepMounted={boolean('keepMounted')}
+                onChange={handleChange}
+                scrollable={boolean('scrollable', false)}
+                size={select('size', ['s', 'm', 'l'], 'm')}
+            >
+                <Tab title='Таб 1' id='tab-1'>
+                    Таб 1
+                </Tab>
+                <Tab title='Таб 2' id='tab-2'>
+                    Таб 2
+                </Tab>
+                <Tab title='Таб 3' id='tab-3'>
+                    Таб 3
+                </Tab>
+                <Tab title='Таб 4' id='tab-4'>
+                    Таб 4
+                </Tab>
+                <Tab title='Таб 5' id='tab-5'>
+                    Таб 5
+                </Tab>
+            </TabsDesktop>
+        );
+    })}
+</Preview>
+
+### TabsMobile
+
+<Preview>
+    {React.createElement(() => {
+        const [selectedId, setSelectedId] = React.useState('tab-1');
+        const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
+        return (
+            <TabsMobile
+                view={select('view', ['primary', 'secondary'], 'primary')}
+                selectedId={selectedId}
+                keepMounted={boolean('keepMounted')}
+                onChange={handleChange}
+                scrollable={boolean('scrollable', false)}
+            >
+                <Tab title='Таб 1' id='tab-1'>
+                    Таб 1
+                </Tab>
+                <Tab title='Таб 2' id='tab-2'>
+                    Таб 2
+                </Tab>
+                <Tab title='Таб 3' id='tab-3'>
+                    Таб 3
+                </Tab>
+                <Tab title='Таб 4' id='tab-4'>
+                    Таб 4
+                </Tab>
+                <Tab title='Таб 5' id='tab-5'>
+                    Таб 5
+                </Tab>
+            </TabsMobile>
+        );
+    })}
+</Preview>
+
+### TabsResponsive
+
+Адаптивная версия табов, перестраивается при 768px
+
+<Preview>
+    {React.createElement(() => {
+        const [selectedId, setSelectedId] = React.useState('tab-1');
+        const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
+        return (
+            <TabsResponsive
+                view={select('view', ['primary', 'secondary'], 'primary')}
+                size={select('size', ['s', 'm', 'l'], 'm')}
+                selectedId={selectedId}
+                keepMounted={boolean('keepMounted')}
+                onChange={handleChange}
+                scrollable={boolean('scrollable', false)}
+            >
+                <Tab title='Таб 1' id='tab-1'>
+                    Таб 1
+                </Tab>
+                <Tab title='Таб 2' id='tab-2'>
+                    Таб 2
+                </Tab>
+                <Tab title='Таб 3' id='tab-3'>
+                    Таб 3
+                </Tab>
+                <Tab title='Таб 4' id='tab-4'>
+                    Таб 4
+                </Tab>
+                <Tab title='Таб 5' id='tab-5'>
+                    Таб 5
+                </Tab>
+            </TabsResponsive>
+        );
+    })}
+</Preview>
+
+
 <Props components={{
     TabsDesktop,
-    TabsMobile
+    TabsMobile,
+    TabsResponsive
 }} />

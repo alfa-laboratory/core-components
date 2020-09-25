@@ -1,9 +1,27 @@
+@import '../../../../vars/src/colors-indigo.css';
+
 @define-mixin button-click {
     /* core vars */
-    --color-red-brand: #ef3124;
-    --color-red-dark: #d91d0b;
+    --color-light-bg-accent: #ef3124;
+    --color-light-bg-neutral: #dbdee1;
 
-    /* ghost */
-    --button-ghost-hover-color: var(--color-red-brand);
-    --button-ghost-active-color: var(--color-red-dark);
+    /* primary */
+    --button-primary-base-bg-color: var(--color-light-bg-accent);
+    --button-primary-hover-bg-color: #d72c20;
+    --button-primary-active-bg-color: #a72219;
+    --button-primary-disabled-bg-color: rgba(239, 49, 36, 0.3);
+
+    /* --button-primary-hover-bg-color: color-mod(var(--color-light-bg-accent) shade(10%));
+    --button-primary-active-bg-color: color-mod(var(--color-light-bg-accent) shade(30%));
+    --button-primary-disabled-bg-color: color-mod(var(--color-light-bg-accent) alpha(30%)); */
+
+    /* secondary */
+    --button-secondary-base-bg-color: var(--color-light-bg-neutral);
+    --button-secondary-hover-bg-color: #c5c8cb;
+    --button-secondary-active-bg-color: #999b9d;
+    --button-secondary-disabled-bg-color: rgba(219, 222, 225, 0.3);
+
+    /* --button-secondary-hover-bg-color: color-mod(var(--color-light-bg-neutral) shade(10%));
+    --button-secondary-active-bg-color: color-mod(var(--color-light-bg-neutral) shade(30%));
+    --button-secondary-disabled-bg-color: color-mod(var(--color-light-bg-neutral) alpha(30%)); */
 }

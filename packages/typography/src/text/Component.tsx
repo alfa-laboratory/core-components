@@ -7,7 +7,7 @@ import colors from '../colors.module.css';
 
 export type TextProps = {
     /**
-     * Вариант начертания
+     * [Вариант начертания](https://alfa-laboratory.github.io/core-components/master/?path=/docs/гайдлайны-типографика--page)
      */
     view?:
         | 'primary-large'

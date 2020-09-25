@@ -11,6 +11,7 @@
 
     /* background-color */
     --tag-background-color: transparent;
+    --tag-background-color-hover: transparent;
     --tag-background-color-active: var(--color-dark-indigo-07);
     --tag-background-color-checked: var(--color-dark-indigo);
     --tag-background-color-checked-disabled: var(--color-dark-indigo-30-flat);
@@ -18,6 +19,7 @@
     /* text color */
     --tag-text-color: var(--color-dark-indigo);
     --tag-text-color-checked: var(--color-white);
+    --tag-text-color-checked-hover: var(--color-white);
     --tag-text-color-checked-disabled: var(--color-white);
 }
 
@@ -38,6 +40,10 @@
     user-select: none;
     cursor: pointer;
     outline: none;
+
+    &:disabled {
+        cursor: default;
+    }
 }
 
 .focused {
@@ -63,13 +69,14 @@
 }
 
 .component {
+    &:hover:not(:disabled) {
+        border: var(--tag-border-width) var(--tag-border-style) var(--tag-border-color-hover);
+        background-color: var(--tag-background-color-hover);
+    }
+
     &:active:not(:disabled) {
         background-color: var(--tag-background-color-active);
         color: var(--tag-text-color);
-    }
-
-    &:hover:not(:disabled) {
-        border: var(--tag-border-width) var(--tag-border-style) var(--tag-border-color-hover);
     }
 }
 
@@ -81,9 +88,15 @@
         background-color: var(--tag-background-color-checked-disabled);
         border: var(--tag-border-width) var(--tag-border-style) var(--tag-border-color-disabled);
     }
+
+    &:hover:not(:disabled):not(:active) {
+        background-color: var(--tag-background-color-checked);
+        color: var(--tag-text-color-checked-hover);
+    }
 }
 
 .xs {
+    min-width: 60px;
     min-height: 32px;
     padding: 4px 16px;
     border-radius: 32px;
@@ -99,6 +112,7 @@
 }
 
 .s {
+    min-width: 80px;
     min-height: 48px;
     padding: 4px 16px;
     border-radius: 48px;
@@ -114,6 +128,7 @@
 }
 
 .m {
+    min-width: 96px;
     min-height: 56px;
     padding: 4px 24px;
     border-radius: 56px;
@@ -129,6 +144,7 @@
 }
 
 .l {
+    min-width: 120px;
     min-height: 68px;
     padding: 4px 32px;
     border-radius: 68px;

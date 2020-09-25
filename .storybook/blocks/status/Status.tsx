@@ -3,14 +3,21 @@ import cn from 'classnames';
 
 import styles from './Status.css';
 
-type StatusProps = {
-    children?: ReactNode;
+const STATUS = {
+    1: 'Draft',
+    2: 'Candidate Recommendation',
+    3: 'Proposed Recommendation',
+    4: 'Recommendation'
 };
 
-export const Status: React.FC<StatusProps> = ({ children }) => (
+type StatusProps = {
+    stage: number;
+};
+
+export const Status: React.FC<StatusProps> = ({ stage }) => (
     <div className={cn(styles.status)}>
-        <a className={cn(styles.link)} href="/?path=/docs/принципы-статусы--page">
-            {children}
+        <a className={cn(styles.link, styles[`stage${stage}`])} href="/?path=/docs/гайдлайны-статусы--page">
+            {STATUS[stage]}
         </a>
     </div>
 );

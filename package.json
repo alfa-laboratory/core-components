@@ -1,6 +1,6 @@
 {
   "name": "@alfalab/core-components",
-  "version": "1.18.0",
+  "version": "2.1.0",
   "private": true,
   "workspaces": [
     "packages/*"
@@ -16,9 +16,9 @@
   "homepage": "https://github.com/alfa-laboratory/core-components#readme",
   "scripts": {
     "build": "./bin/build.sh",
-    "start": "start-storybook -p 9009 -c .storybook",
+    "start": "start-storybook -p 9009 -c .storybook -s ./.storybook/public",
     "start:quick": "RDTL=off yarn start",
-    "build-storybook": "build-storybook -o build",
+    "build-storybook": "build-storybook -o build -s ./.storybook/public",
     "update-colors": "node ./tools/update-colors.js && yarn lint:css --fix",
     "update-typography": "node ./tools/update-typography.js",
     "lint": "yarn lint:css && yarn lint:js",
@@ -39,7 +39,7 @@
     "production": [
       "last 2 versions",
       "ie >= 11",
-      "Android >= 4",
+      "Android >= 5",
       "iOS >= 9"
     ],
     "development": [
@@ -55,7 +55,7 @@
     "@alfalab/icons-logotype": "^1.4.0",
     "@alfalab/utils": "^0.3.0",
     "@popperjs/core": "^2.3.3",
-    "alfa-ui-primitives": "^2.47.0",
+    "alfa-ui-primitives": "^2.58.0",
     "compute-scroll-into-view": "^1.0.13",
     "downshift": "5.4.7",
     "lodash.debounce": "^4.0.8",

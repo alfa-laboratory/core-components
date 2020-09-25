@@ -137,6 +137,7 @@ module.exports = ({ config }) => ({
             },
             {
                 test: /\.css$/,
+                exclude: /global/,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,

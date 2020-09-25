@@ -1,36 +1,21 @@
-import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
-import { Design } from 'storybook/blocks/design';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
 import { Textarea } from './Component';
 import { name, version } from '../package.json';
 
 <Meta
-    title='Компоненты|Textarea'
+    title='Компоненты'
     component={Textarea}
-    parameters={{ 'theme-switcher': { enabled: true } }}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
-<Title>
-    Textarea ({name}@{version})
-</Title>
 
-```tsx
-import { Textarea } from '@alfalab/core-components-textarea';
-```
+<!-- Canvas -->
 
-<Design>
-    <a href='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=49%3A0'>
-        Figma
-    </a>
-</Design>
-
-## Описание
-
-Компонент текстового поля ввода.
-
-<Story name='Песочница'>
+<Story name='Textarea'>
     <Textarea
         autosize={boolean('autosize', true)}
         block={boolean('block', false)}
@@ -49,5 +34,25 @@ import { Textarea } from '@alfalab/core-components-textarea';
         bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
     />
 </Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Textarea'
+    version={version}
+    package='@alfalab/core-components-textarea'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=49%3A0'
+/>
+
+```tsx
+import { Textarea } from '@alfalab/core-components-textarea';
+```
+
+Компонент текстового поля ввода.
+
+<Textarea />
+
 
 <Props of={Textarea} />

@@ -1,34 +1,21 @@
-import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
-import { Status } from 'storybook/blocks/status';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { Attach } from './Component';
 import { name, version } from '../package.json';
 
 
 <Meta
-    title='Компоненты|Attach'
+    title='Компоненты'
     component={Attach}
-    parameters={{ 'theme-switcher': { enabled: true } }}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
-<Title>
-    Attach ({name}@{version})
-</Title>
 
-<Status>
-  Candidate Recommendation
-</Status>
+<!-- Canvas -->
 
-```tsx
-import { Attach } from '@alfalab/core-components-attach';
-```
-
-## Описание
-
-Компонент прикрепления файлов.
-
-<Story name='Песочница'>
+<Story name='Attach'>
     <Attach
         size={select('size', ['xs', 's', 'm', 'l'], 's')}
         buttonContent={text('buttonContent', undefined)}
@@ -39,5 +26,24 @@ import { Attach } from '@alfalab/core-components-attach';
         progressBarPercent={number('progressBarPercent', undefined)}
     />
 </Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Attach'
+    version={version}
+    package='@alfalab/core-components-attach'
+    stage={2}
+/>
+
+```tsx
+import { Attach } from '@alfalab/core-components-attach';
+```
+
+Компонент прикрепления файлов.
+
+<Attach />
+
 
 <Props of={Attach} />

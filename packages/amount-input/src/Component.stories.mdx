@@ -1,44 +1,24 @@
 import Icon from '@alfalab/icons-glyph/StarMIcon';
-import { Meta, Props, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { Container, Row, Col } from 'storybook/blocks/grid';
-import { Status } from 'storybook/blocks/status';
-import { Design } from 'storybook/blocks/design';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { AmountInput } from './Component';
 import { name, version } from '../package.json';
 
 
-<!-- prettier-ignore -->
-
 <Meta
-    title='Компоненты|AmountInput'
+    title='Компоненты'
     component={AmountInput}
-    parameters={{ 'theme-switcher': { enabled: true } }}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
-<Title>
-    AmountInput ({name}@{version})
-</Title>
 
-<Status>
-  Candidate Recommendation
-</Status>
+<!-- Canvas -->
 
-```tsx
-import { AmountInput } from '@alfalab/core-components-amount-input';
-```
-
-<Design>
-  <a href="https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=532%3A544">Figma</a>
-</Design>
-
-## Описание
-
-Компонент текстового поля для ввода денежных значений
-
-<Story name='Песочница'>
+<Story name='AmountInput'>
     <AmountInput
         value={number('value', null)}
         currency={text('currency', 'RUR')}
@@ -54,10 +34,32 @@ import { AmountInput } from '@alfalab/core-components-amount-input';
         leftAddons={boolean('leftAddons', false) && <Icon />}
         bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
         onChange={action('change')}
+        clear={boolean('clear', false)}
     />
 </Story>
 
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='AmountInput'
+    version={version}
+    package='@alfalab/core-components-amount-input'
+    stage={2}
+    design='https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=532%3A544'
+/>
+
+```tsx
+import { AmountInput } from '@alfalab/core-components-amount-input';
+```
+
+Компонент текстового поля для ввода денежных значений.
+
+<AmountInput bold={false} />
+
+
 <Props of={AmountInput} />
+
 
 ### Uncontrolled-way
 
