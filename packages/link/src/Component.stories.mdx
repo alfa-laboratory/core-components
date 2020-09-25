@@ -12,7 +12,11 @@ import { name, version } from '../package.json';
 export const VIEWS = ['primary', 'secondary', 'default'];
 
 
-<Meta title='Компоненты|Link' component={Link} />
+<Meta
+    title='Компоненты|Link'
+    component={Link}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
 
 <Title>
     Link ({name}@{version})
