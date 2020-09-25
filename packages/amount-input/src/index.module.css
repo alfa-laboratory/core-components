@@ -24,6 +24,10 @@
     z-index: 1; /* Не понимаю почему в проекте без этого не работает. Женя помоги */
 }
 
+.container {
+    position: relative;
+}
+
 .majorPart {
     visibility: visible;
 }

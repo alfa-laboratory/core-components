@@ -27,3 +27,6 @@ storybook-static
 
 # IDE
 .idea
+
+.yalc/
+yalc.lock

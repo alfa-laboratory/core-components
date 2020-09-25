@@ -16,7 +16,9 @@
         "react": "^16.9.0"
     },
     "dependencies": {
+        "@alfalab/data": "0.1.0",
         "@alfalab/core-components-form-control": "^1.3.0",
-        "@alfalab/core-components-input": "^1.8.0"
+        "@alfalab/core-components-input": "^1.8.0",
+        "@alfalab/utils": "0.4.1"
     }
 }
