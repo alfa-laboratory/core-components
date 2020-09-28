@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/alfa-laboratory/core-components/compare/v2.1.0...v2.2.0) (2020-09-25)
+
+
+### Features
+
+* update theming docs ([2ceba6d](https://github.com/alfa-laboratory/core-components/commit/2ceba6d577857ef0821ea01ee3dd0ec9ddd98fda))
+* **core-components-link:** updated colors and click theme ([573c785](https://github.com/alfa-laboratory/core-components/commit/573c78516a41194c9c802eb3ecfdbe7653730311))
+* **core-components-skeleton:** adds a new component ([11e6ce9](https://github.com/alfa-laboratory/core-components/commit/11e6ce94c8bca6f5b91a9c04c2f750ec232aea23))
+* **core-components-skeleton:** changes styles ([379a8d9](https://github.com/alfa-laboratory/core-components/commit/379a8d971ce074242de47972382a78697038864d))
+* **core-components-tooltip:** updated font size and popover shadow ([e0d54b1](https://github.com/alfa-laboratory/core-components/commit/e0d54b18ffaa632e52750f30bc6b2b3d710011ca))
+* **core-components-vars:** introducing shadows vars ([defc486](https://github.com/alfa-laboratory/core-components/commit/defc486204d46ed5b431555b1fe8226dee2046c4))
+* **core-components-vars:** introducing shadows vars ([8ff8aba](https://github.com/alfa-laboratory/core-components/commit/8ff8aba0301a20ac652078f9df3f85f79a121ef6))
+
+
+### Bug Fixes
+
+* storybook build with assets ([0d2e819](https://github.com/alfa-laboratory/core-components/commit/0d2e819ae27900e9022bae53dac5a381336871a0))
+* **core-components-amount-input:** resolve [#281](https://github.com/alfa-laboratory/core-components/issues/281) ([7e91e9e](https://github.com/alfa-laboratory/core-components/commit/7e91e9ed5c4902be979e7dde8818698d71017e68))
+* **core-components-popover:** add missing styles ([578f1cb](https://github.com/alfa-laboratory/core-components/commit/578f1cb20cad08fec606b6da11c961552ca990d1))
+* **core-components-skeleton:** fix styles ([0aac24f](https://github.com/alfa-laboratory/core-components/commit/0aac24f3e7ed536fef560abec9627daf42a688df))
+
 ## [2.1.0](https://github.com/alfa-laboratory/core-components/compare/v2.0.0...v2.1.0) (2020-09-18)
 
 
