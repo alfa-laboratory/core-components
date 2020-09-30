@@ -9,14 +9,14 @@ describe('SliderInput', () => {
         expect(container).toMatchSnapshot();
     });
 
-    it('should set `data-test-id` atribute', () => {
+    it('should set `data-test-id` attribute', () => {
         const dataTestId = 'test-id';
         const { getByTestId } = render(<SliderInput dataTestId={dataTestId} />);
 
         expect(getByTestId(dataTestId)).toBeTruthy();
     });
 
-    it('should forward ref to input elemenent', () => {
+    it('should forward ref to input element', () => {
         const ref = jest.fn();
         const dataTestId = 'test-id';
 
@@ -93,6 +93,24 @@ describe('SliderInput', () => {
         });
     });
 
+    it('should call `onChange` prop', () => {
+        const cb = jest.fn();
+        const dataTestId = 'test-id';
+        const value = 10;
+        const { getByRole } = render(<SliderInput onChange={cb} dataTestId={dataTestId} />);
+
+        const input = getByRole('textbox') as HTMLInputElement;
+        const slider = getByRole('slider') as HTMLInputElement;
+
+        fireEvent.change(input, { target: { value } });
+
+        expect(cb).toBeCalledTimes(1);
+
+        fireEvent.change(slider, { target: { value } });
+
+        expect(cb).toBeCalledTimes(2);
+    });
+
     it('should call `onInputChange` prop', () => {
         const cb = jest.fn();
         const dataTestId = 'test-id';
@@ -112,9 +130,9 @@ describe('SliderInput', () => {
         const value = 10;
         const { getByRole } = render(<SliderInput onSliderChange={cb} dataTestId={dataTestId} />);
 
-        const input = getByRole('slider') as HTMLInputElement;
+        const slider = getByRole('slider') as HTMLInputElement;
 
-        fireEvent.change(input, { target: { value } });
+        fireEvent.change(slider, { target: { value } });
 
         expect(cb).toBeCalledTimes(1);
     });

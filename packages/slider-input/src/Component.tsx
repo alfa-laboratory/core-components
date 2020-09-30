@@ -60,6 +60,11 @@ export type SliderInputProps = Omit<
     sliderClassName?: string;
 
     /**
+     * Обработчик изменения значения через слайдер или поле ввода
+     */
+    onChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: string }) => void;
+
+    /**
      * Обработчик ввода
      */
     onInputChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: string }) => void;
@@ -90,8 +95,9 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             steps = [],
             size = 's',
             disabled,
+            onChange,
             onInputChange,
-            onSliderChange = onInputChange,
+            onSliderChange,
             Input = DefaultInput,
             customInputProps = {},
             dataTestId,
@@ -101,20 +107,19 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
     ) => {
         const handleSliderChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
-                if (onSliderChange) {
-                    onSliderChange(event, { value: event.target.value });
-                }
+                const payload = { value: event.target.value };
+                if (onChange) onChange(event, payload);
+                if (onSliderChange) onSliderChange(event, payload);
             },
-            [onSliderChange],
+            [onChange, onSliderChange],
         );
 
         const handleInputChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>, payload) => {
-                if (onInputChange) {
-                    onInputChange(event, payload);
-                }
+                if (onChange) onChange(event, payload);
+                if (onInputChange) onInputChange(event, payload);
             },
-            [onInputChange],
+            [onChange, onInputChange],
         );
 
         const handleSliderMouseDown = useCallback((event: MouseEvent<HTMLInputElement>) => {

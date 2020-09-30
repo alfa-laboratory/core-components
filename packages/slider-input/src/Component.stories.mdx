@@ -25,7 +25,7 @@ import { name, version } from '../package.json';
     return (
         <SliderInput
             value={value}
-            onInputChange={handleChange}
+            onChange={handleChange}
             min={number('min', 0)}
             max={number('max', 100)}
             step={number('step', 1)}
@@ -87,7 +87,7 @@ export const normalizeValue = (value, min, max) => {
             clear={true}
             onClear={() => setValue('')}
             onBlur={handleBlur}
-            onInputChange={handleChange}
+            onChange={handleChange}
             block={true}
             label='Оставшийся срок по кредиту'
             steps={['36 мес', '180 мес', '360 мес']}
@@ -117,7 +117,7 @@ export const normalizeValue = (value, min, max) => {
             max={max}
             step={step}
             onBlur={handleBlur}
-            onInputChange={handleChange}
+            onChange={handleChange}
             block={true}
             label='Срок кредита'
             steps={[
