@@ -152,13 +152,13 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                     )}
                 </div>
 
+                {bottomAddons}
+
                 {errorMessage && (
                     <span className={cn(styles.sub, styles.error)}>{errorMessage}</span>
                 )}
 
                 {hint && !errorMessage && <span className={styles.sub}>{hint}</span>}
-
-                {bottomAddons}
             </div>
         );
     },
