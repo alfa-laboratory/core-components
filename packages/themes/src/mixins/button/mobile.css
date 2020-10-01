@@ -1,4 +1,4 @@
-@import '../../../../vars/src/colors-indigo.css';
+@import '../../../../vars/src/index.css';
 
 @define-mixin button-mobile {
     /* core vars */

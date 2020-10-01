@@ -1,3 +1,5 @@
+@import '../../../../vars/src/index.css';
+
 @define-mixin pure-input-click {
     /* core vars */
     --color-light-specialbg-component: #eeeff1;

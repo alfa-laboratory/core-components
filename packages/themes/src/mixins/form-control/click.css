@@ -1,3 +1,5 @@
+@import '../../../../vars/src/index.css';
+
 @define-mixin form-control-click {
     /* core vars */
     --color-light-specialbg-component: #eeeff1;

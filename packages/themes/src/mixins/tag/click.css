@@ -1,5 +1,4 @@
-@import '../../../../vars/src/colors.css';
-@import '../../../../vars/src/colors-indigo.css';
+@import '../../../../vars/src/index.css';
 
 @define-mixin tag-click {
     /* core vars */
