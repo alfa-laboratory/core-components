@@ -1,0 +1,26 @@
+name: CI
+
+on:
+    push:
+      branches:
+        - feat/add-build-di
+
+jobs:
+  build:
+    name: run tests and build packages
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: yarn
+
+    - name: Run lint
+      run: yarn lint
+
+    - name: Run test
+      run: yarn test
+
+    - name: Run build
+      run: yarn build
