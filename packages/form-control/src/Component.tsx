@@ -107,7 +107,6 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
 
         return (
             <div
-                ref={ref}
                 data-test-id={dataTestId}
                 className={cn(
                     styles.component,
@@ -126,7 +125,7 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                 )}
                 {...restProps}
             >
-                <div className={styles.inner}>
+                <div className={styles.inner} ref={ref}>
                     {leftAddons && (
                         <div className={cn(styles.addons, styles.leftAddons)}>{leftAddons}</div>
                     )}

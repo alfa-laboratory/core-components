@@ -1,12 +1,4 @@
-import React, {
-    forwardRef,
-    useCallback,
-    ChangeEvent,
-    FC,
-    ReactNode,
-    MouseEvent,
-    Fragment,
-} from 'react';
+import React, { forwardRef, useCallback, ChangeEvent, FC, ReactNode, Fragment } from 'react';
 import cn from 'classnames';
 import { Slider } from '@alfalab/core-components-slider';
 import { Input as DefaultInput, InputProps } from '@alfalab/core-components-input';
@@ -138,10 +130,6 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             [onChange, onInputChange],
         );
 
-        const handleSliderMouseDown = useCallback((event: MouseEvent<HTMLInputElement>) => {
-            event.stopPropagation();
-        }, []);
-
         return (
             <div
                 className={cn(
@@ -178,7 +166,6 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                             value={Number.isNaN(+sliderValue) ? undefined : sliderValue}
                             disabled={disabled}
                             className={cn(styles.slider, sliderClassName)}
-                            onMouseDown={handleSliderMouseDown}
                         />
                     }
                     rightAddons={

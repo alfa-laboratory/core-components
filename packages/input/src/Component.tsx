@@ -159,6 +159,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         const uncontrolled = value === undefined;
 
         const inputRef = useRef<HTMLInputElement>(null);
+        const controlRef = useRef<HTMLDivElement>(null);
 
         const [focused, setFocused] = useState(false);
         const [stateValue, setStateValue] = useState(defaultValue || '');
@@ -222,11 +223,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         );
 
         const handleFormControlMouseDown = useCallback(
-            (event: MouseEvent<HTMLElement>) => {
-                if (!inputRef.current) return;
+            (event: MouseEvent<HTMLDivElement>) => {
+                if (!inputRef.current || !controlRef.current) return;
 
                 // Инпут занимает не весь контрол, из-за этого появляются некликабельные области или теряется фокус.
-                if (event.target !== inputRef.current) {
+                if (
+                    event.target !== inputRef.current &&
+                    controlRef.current.contains(event.target as HTMLDivElement)
+                ) {
                     event.preventDefault();
                     if (!focused) {
                         inputRef.current.focus();
@@ -259,7 +263,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
         return (
             <FormControl
-                ref={wrapperRef}
+                ref={mergeRefs([controlRef, wrapperRef || null])}
                 className={cn(
                     styles.formControl,
                     className,
