@@ -91,6 +91,13 @@ describe('SliderInput', () => {
 
             steps.map(step => expect(queryByText(step)).toBeInTheDocument());
         });
+
+        it('should render info', () => {
+            const info = 'test-info';
+            const { getByText } = render(<SliderInput info={info} />);
+
+            expect(getByText(info)).toBeInTheDocument();
+        });
     });
 
     it('should call `onChange` prop', () => {

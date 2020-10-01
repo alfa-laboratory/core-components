@@ -1,4 +1,12 @@
-import React, { forwardRef, useCallback, ChangeEvent, FC, ReactNode, MouseEvent } from 'react';
+import React, {
+    forwardRef,
+    useCallback,
+    ChangeEvent,
+    FC,
+    ReactNode,
+    MouseEvent,
+    Fragment,
+} from 'react';
 import cn from 'classnames';
 import { Slider } from '@alfalab/core-components-slider';
 import { Input as DefaultInput, InputProps } from '@alfalab/core-components-input';
@@ -38,6 +46,11 @@ export type SliderInputProps = Omit<
      * Значение слайдера
      */
     sliderValue?: number | string;
+
+    /**
+     * Дополнительная информация в правой части поля
+     */
+    info?: ReactNode;
 
     /**
      * Компонент поля ввода
@@ -94,10 +107,13 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             sliderValue = value,
             steps = [],
             size = 's',
+            label,
+            info,
             disabled,
             onChange,
             onInputChange,
             onSliderChange,
+            rightAddons,
             Input = DefaultInput,
             customInputProps = {},
             dataTestId,
@@ -132,6 +148,8 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                     styles.component,
                     {
                         [styles.block]: block,
+                        [styles.filled]: Boolean(value),
+                        [styles.hasLabel]: label,
                     },
                     styles[size],
                     className,
@@ -146,8 +164,10 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                     onChange={handleInputChange}
                     block={true}
                     size={size}
+                    label={label}
                     disabled={disabled}
                     className={inputClassName}
+                    focusedClassName={styles.focused}
                     bottomAddons={
                         <Slider
                             min={min}
@@ -160,6 +180,14 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                             className={cn(styles.slider, sliderClassName)}
                             onMouseDown={handleSliderMouseDown}
                         />
+                    }
+                    rightAddons={
+                        (info || rightAddons) && (
+                            <Fragment>
+                                {info && <span className={styles.info}>{info}</span>}
+                                {rightAddons}
+                            </Fragment>
+                        )
                     }
                 />
 

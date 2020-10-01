@@ -36,6 +36,7 @@ import { name, version } from '../package.json';
             placeholder={text('placeholder', '')}
             label={text('label', '')}
             hint={text('hint', '')}
+            info={text('info', '')}
             error={text('error', '')}
             rightAddons={boolean('rightAddons', false) && !text('error') && <Icon />}
             leftAddons={boolean('leftAddons', false) && <Icon />}
@@ -62,7 +63,7 @@ import { SliderInput } from '@alfalab/core-components-slider-input';
 Поле ввода, совмещенное со слайдером
 
 export const normalizeValue = (value, min, max) => {
-    return Math.max(min, Math.min(max, +value.replace(/[^\d-]/g, '')));
+    return Math.max(min, Math.min(max, value.toString().replace(/[^\d-]/g, '')));
 }
 
 <Preview>
@@ -84,8 +85,6 @@ export const normalizeValue = (value, min, max) => {
             min={min}
             max={max}
             step={step}
-            clear={true}
-            onClear={() => setValue('')}
             onBlur={handleBlur}
             onChange={handleChange}
             block={true}
