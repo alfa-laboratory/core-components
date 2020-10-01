@@ -2,25 +2,37 @@ name: BUILD
 
 on:
     push:
-      branches:
-        - feat/add-build-di
+        branches:
+            - feat/add-build-di
 
 jobs:
-  build:
-    name: run tests and build packages
+    test:
+        name: run tests
 
-    runs-on: ubuntu-latest
+        runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Install dependencies
-      run: yarn
+        steps:
+            - uses: actions/checkout@v2
 
-    - name: Run lint
-      run: yarn lint
+            - name: Install dependencies
+              run: yarn
 
-    - name: Run test
-      run: yarn test
+            - name: Run lint
+              run: yarn lint
 
-    - name: Run build
-      run: yarn build
+            - name: Run test
+              run: yarn test
+    
+    build:
+        name: build packages
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Install dependencies
+              run: yarn
+            
+            - name: Run build
+              run: yarn build
