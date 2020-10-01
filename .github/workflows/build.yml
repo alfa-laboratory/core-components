@@ -1,9 +1,6 @@
 name: BUILD
 
-on:
-    push:
-        branches:
-            - feat/add-build-di
+on: [push]
 
 jobs:
     test:
