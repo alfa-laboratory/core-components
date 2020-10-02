@@ -3,9 +3,11 @@ import React, {
     useCallback,
     ChangeEvent,
     FC,
+    Fragment,
     ReactNode,
     MouseEvent,
-    Fragment,
+    isValidElement,
+    cloneElement,
 } from 'react';
 import cn from 'classnames';
 import { Slider } from '@alfalab/core-components-slider';
@@ -45,7 +47,7 @@ export type SliderInputProps = Omit<
     /**
      * Значение слайдера
      */
-    sliderValue?: number | string;
+    sliderValue?: number;
 
     /**
      * Дополнительная информация в правой части поля
@@ -73,19 +75,27 @@ export type SliderInputProps = Omit<
     sliderClassName?: string;
 
     /**
+     * Класс для шагов
+     */
+    stepsClassName?: string;
+
+    /**
      * Обработчик изменения значения через слайдер или поле ввода
      */
-    onChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: string }) => void;
+    onChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: string | number }) => void;
 
     /**
      * Обработчик ввода
      */
-    onInputChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: string }) => void;
+    onInputChange?: (
+        event: ChangeEvent<HTMLInputElement>,
+        payload: { value: string | number },
+    ) => void;
 
     /**
      * Обработчик изменения слайдера
      */
-    onSliderChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: string }) => void;
+    onSliderChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: number }) => void;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -99,12 +109,13 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             className,
             inputClassName,
             sliderClassName,
+            stepsClassName,
             value = '',
             min = 0,
             max = 100,
             step = 1,
             block,
-            sliderValue = value,
+            sliderValue = +value,
             steps = [],
             size = 's',
             label,
@@ -123,7 +134,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
     ) => {
         const handleSliderChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
-                const payload = { value: event.target.value };
+                const payload = { value: +event.target.value };
                 if (onChange) onChange(event, payload);
                 if (onSliderChange) onSliderChange(event, payload);
             },
@@ -175,7 +186,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                             step={step}
                             onChange={handleSliderChange}
                             ref={ref}
-                            value={Number.isNaN(+sliderValue) ? undefined : sliderValue}
+                            value={Number.isNaN(sliderValue) ? 0 : sliderValue}
                             disabled={disabled}
                             className={cn(styles.slider, sliderClassName)}
                             onMouseDown={handleSliderMouseDown}
@@ -192,11 +203,15 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                 />
 
                 {steps.length > 0 && (
-                    <div className={styles.steps}>
-                        {steps.map((stepLabel, i) => (
-                            // eslint-disable-next-line react/no-array-index-key
-                            <span key={i}>{stepLabel}</span>
-                        ))}
+                    <div className={cn(styles.steps, stepsClassName)}>
+                        {steps.map((stepLabel, i) =>
+                            isValidElement(stepLabel) ? (
+                                cloneElement(stepLabel, { key: i })
+                            ) : (
+                                // eslint-disable-next-line react/no-array-index-key
+                                <span key={i}>{stepLabel}</span>
+                            ),
+                        )}
                     </div>
                 )}
             </div>
