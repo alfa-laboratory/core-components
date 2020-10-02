@@ -29,12 +29,12 @@ export type SliderProps = NativeProps & {
     /**
      * Значение инпута
      */
-    value?: number | string;
+    value?: number;
 
     /**
      * Обработчик поля ввода
      */
-    onChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: string }) => void;
+    onChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: number }) => void;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -51,27 +51,29 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
 
         const [focused] = useFocus(inputRef, 'keyboard');
 
-        const dividedWithoutRemainder = (max - min) % step === 0;
+        const range = max - min;
+        const dividedWithoutRemainder = range % step === 0;
+        const validValue = Math.max(min, Math.min(value, max));
 
         const rangeProps = {
             className: cn(styles.range, { [styles.focused]: focused }),
             type: 'range',
             min,
             max,
-            value: Math.max(min, Math.min(+value, max)),
+            value: validValue,
             step: dividedWithoutRemainder ? step : undefined,
         };
 
         const progressProps = {
             className: styles.progress,
-            max: max - min,
-            value: +value - min,
+            max: range,
+            value: validValue - min,
         };
 
         const handleInputChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 if (onChange) {
-                    onChange(event, { value: event.target.value });
+                    onChange(event, { value: +event.target.value });
                 }
             },
             [onChange],
