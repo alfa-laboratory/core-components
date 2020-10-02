@@ -2,9 +2,11 @@
 
 @define-mixin tag-click {
     /* core vars */
+    --color-light-specialbg-component: #eeeff1;
+    --color-light-text-primary-inverted: #fff;
 
     /* theme */
-    --tag-background-color: var(--color-dark-indigo-07-flat);
+    --tag-background-color: var(--color-light-specialbg-component);
     --tag-background-color-hover: #d6d7d9;
     --tag-background-color-active: #a7a7a9;
     --tag-text-color-checked-hover: #b3b3b3;
@@ -13,7 +15,7 @@
     --tag-border-color-active: transparent;
     --tag-border-color-disabled: transparent;
 
-    /* --tag-background-color-hover: color-mod(var(--color-dark-indigo-07-flat) blenda(black 10%));
-    --tag-background-color-active: color-mod(var(--color-dark-indigo-07-flat) blenda(black 30%));
-    --tag-text-color-checked-hover: color-mod(var(--color-white) blenda(black 30%)); */
+    /* --tag-background-color-hover: color-mod(var(--color-light-specialbg-component) blenda(black 10%));
+    --tag-background-color-active: color-mod(var(--color-light-specialbg-component) blenda(black 30%));
+    --tag-text-color-checked-hover: color-mod(var(--color-light-text-primary-inverted) blenda(black 30%)); */
 }

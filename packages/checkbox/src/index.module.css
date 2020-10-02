@@ -1,31 +1,31 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --checkbox-hint-color: var(--color-dark-indigo-60-flat);
-    --checkbox-label-color: var(--color-dark-indigo);
-    --checkbox-bg-color: var(--color-dark-indigo-05-flat);
-    --checkbox-border-color: var(--color-dark-indigo-60-flat);
+    --checkbox-hint-color: var(--color-light-text-secondary);
+    --checkbox-label-color: var(--color-light-text-primary);
+    --checkbox-bg-color: var(--color-light-bg-secondary);
+    --checkbox-border-color: var(--color-light-border-tertiary-inverted);
 
     /* checked */
-    --checkbox-checked-bg-color: var(--color-red-brand-85-flat);
-    --checkbox-checked-border-color: var(--color-red-dark);
+    --checkbox-checked-bg-color: var(--color-light-graphic-negative); /* wrong */
+    --checkbox-checked-border-color: var(--color-light-text-negative); /* wrong */
 
     /* disabled */
-    --checkbox-disabled-bg-color: var(--color-dark-indigo-15-flat);
-    --checkbox-disabled-border-color: var(--color-dark-indigo-15-flat);
+    --checkbox-disabled-bg-color: var(--color-light-bg-neutral);
+    --checkbox-disabled-border-color: var(--color-light-border-primary);
 
     /* disabled and checked */
     --checkbox-checked-disabled-bg-color: var(--color-red-brand-30-flat);
     --checkbox-checked-disabled-border-color: var(--color-red-brand-30-flat);
 
     /* hover */
-    --checkbox-hover-bg-color: var(--color-dark-indigo-30-flat);
-    --checkbox-hover-border-color: var(--color-dark-indigo-60-flat);
-    --checkbox-checked-hover-border-color: var(--color-red-dark);
-    --checkbox-checked-hover-bg-color: var(--color-red-brand);
+    --checkbox-hover-bg-color: var(--color-light-graphic-tertiary);
+    --checkbox-hover-border-color: var(--color-light-border-tertiary-inverted);
+    --checkbox-checked-hover-border-color: var(--color-light-text-negative); /* wrong */
+    --checkbox-checked-hover-bg-color: var(--color-light-bg-accent);
 
     /* active */
-    --checkbox-active-border-color: var(--color-dark-indigo);
+    --checkbox-active-border-color: var(--color-light-border-key);
 }
 
 .component {

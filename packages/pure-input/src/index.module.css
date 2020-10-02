@@ -2,7 +2,7 @@
 
 :root {
     --pure-input-border-radius: 4px 4px 0 0;
-    --pure-input-border-bottom: 1px solid var(--color-dark-indigo-30-flat);
+    --pure-input-border-bottom: 1px solid var(--color-light-border-secondary-inverted);
     --pure-input-bg-color: var(--color-dark-indigo-07);
 
     /* paddings */
@@ -10,15 +10,15 @@
     --pure-input-l-paddings: 1px var(--gap-m) 0;
 
     /* disabled */
-    --pure-input-disabled-bg-color: var(--color-dark-indigo-15);
-    --pure-input-disabled-border-bottom: 1px dashed var(--color-dark-indigo-30-flat);
+    --pure-input-disabled-bg-color: var(--color-light-text-disabled-transparent); /* wrong */
+    --pure-input-disabled-border-bottom: 1px dashed var(--color-light-border-secondary-inverted);
 
     /* focus */
-    --pure-input-focus-shadow: inset 0 -1px var(--color-dark-indigo);
-    --pure-input-focus-border-bottom: 1px solid var(--color-dark-indigo);
+    --pure-input-focus-shadow: inset 0 -1px var(--color-light-border-key);
+    --pure-input-focus-border-bottom: 1px solid var(--color-light-border-key);
 
     /* hover */
-    --pure-input-hover-bg-color: var(--color-dark-indigo-15);
+    --pure-input-hover-bg-color: var(--color-light-text-disabled-transparent); /* wrong */
 }
 
 .component {
@@ -26,7 +26,7 @@
 
     display: inline-flex;
     box-sizing: border-box;
-    color: var(--color-dark-indigo);
+    color: var(--color-light-text-primary);
     background-color: var(--pure-input-bg-color);
     border-radius: var(--pure-input-border-radius);
     transition: background 0.2s ease, box-shadow 0.2s ease, border 0.2s ease, color 0.2s ease;
@@ -42,7 +42,7 @@
 
 .component::placeholder {
     text-overflow: ellipsis;
-    color: var(--color-dark-indigo-60-flat);
+    color: var(--color-light-text-secondary);
     transition: color 0.2s ease;
 }
 
@@ -68,7 +68,7 @@
 /* DISABLED STATE */
 
 .component:disabled {
-    color: var(--color-dark-indigo-60-flat);
+    color: var(--color-light-text-secondary);
     border-bottom: var(--pure-input-disabled-border-bottom);
     background-color: var(--pure-input-disabled-bg-color);
 }
@@ -80,7 +80,7 @@
     box-shadow: var(--pure-input-focus-shadow);
 
     &::placeholder {
-        color: var(--color-dark-indigo-30-flat);
+        color: var(--color-light-text-tertiary);
     }
 }
 

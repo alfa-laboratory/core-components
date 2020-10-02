@@ -1,9 +1,9 @@
 :root {
     --tablist-hidden-scrollbar-height: 20px;
-    --primary-tablist-color: var(--color-dark-indigo-60-flat);
-    --primary-tablist-hover-color: var(--color-dark-indigo);
-    --primary-tablist-selected-color: var(--color-dark-indigo);
-    --primary-tablist-bottom-border-color: var(--color-dark-indigo-30);
+    --primary-tablist-color: var(--color-light-text-secondary);
+    --primary-tablist-hover-color: var(--color-light-text-primary);
+    --primary-tablist-selected-color: var(--color-light-text-primary);
+    --primary-tablist-bottom-border-color: var(--color-light-text-tertiary-transparent); /* wrong */
     --primary-tablist-line-color: var(--color-red-brand);
 
     /* mobile */

@@ -1,14 +1,14 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --switch-label-color: var(--color-dark-indigo);
-    --switch-hint-color: var(--color-dark-indigo-60-flat);
-    --switch-bg-color: var(--color-dark-indigo-30-flat);
-    --switch-border-color: var(--color-dark-indigo-30-flat);
-    --switch-checked-color: var(--color-red-brand-85-flat);
-    --switch-checked-border-color: var(--color-red-brand-85-flat);
-    --switch-disabled-color: var(--color-dark-indigo-15-flat);
-    --switch-disabled-border-color: var(--color-dark-indigo-15-flat);
+    --switch-label-color: var(--color-light-text-primary);
+    --switch-hint-color: var(--color-light-text-secondary);
+    --switch-bg-color: var(--color-light-graphic-tertiary);
+    --switch-border-color: var(--color-light-border-secondary-inverted);
+    --switch-checked-color: var(--color-light-graphic-negative); /* wrong */
+    --switch-checked-border-color: var(--color-light-graphic-negative); /* wrong */
+    --switch-disabled-color: var(--color-light-text-disabled);
+    --switch-disabled-border-color: var(--color-light-border-primary);
     --switch-disabled-checked-color: var(--color-red-brand-30-flat);
     --switch-disabled-checked-border-color: var(--color-red-brand-30-flat);
 }
@@ -53,7 +53,7 @@
     border-radius: 50%;
     background-color: #fff;
     border: 0.5px solid var(--color-dark-indigo-05);
-    box-shadow: 0 2px 4px var(--color-dark-indigo-30);
+    box-shadow: 0 2px 4px var(--color-light-text-tertiary-transparent); /* wrong */
     box-sizing: border-box;
     transition: transform 0.2s ease;
 }

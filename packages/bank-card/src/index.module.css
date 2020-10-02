@@ -3,7 +3,7 @@
 .component {
     /* TODO: как это будет собираться и работать в webView */
     --form-control-border-radius: 0;
-    --form-control-border-bottom: 1px solid var(--color-black-60);
+    --form-control-border-bottom: 1px solid var(--color-light-bg-overlay); /* wrong */
     --form-control-bg-color: transparent;
 
     /* focus */
@@ -20,7 +20,7 @@
     font-family: var(--font-family-styrene);
 
     &:not(.focused):not(.filled) .label {
-        color: var(--color-black-60);
+        color: var(--color-light-bg-overlay); /* wrong */
         transform: translateY(12px);
     }
 }

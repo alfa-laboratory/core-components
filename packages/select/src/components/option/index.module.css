@@ -8,7 +8,7 @@
     align-items: center;
     padding: var(--gap-xs) var(--gap-s);
     transition: background-color 0.2s ease;
-    background-color: var(--color-white);
+    background-color: var(--color-light-bg-primary);
     box-sizing: border-box;
     position: relative;
 }
@@ -53,6 +53,6 @@
 
 .disabled {
     cursor: default;
-    background-color: var(--color-white);
-    color: var(--color-dark-indigo-60-flat);
+    background-color: var(--color-light-bg-primary);
+    color: var(--color-light-text-secondary);
 }
