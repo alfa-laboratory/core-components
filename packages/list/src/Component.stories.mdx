@@ -1,0 +1,70 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { Typography } from '@alfalab/core-components-typography';
+
+import { List } from './Component';
+import { name, version } from '../package.json';
+
+export const TAG = ['ul', 'ol'];
+
+<Meta
+    title='Компоненты'
+    component={List}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+<Story name='List'>
+    <List
+        tag={select('tag', TAG, 'ul')}
+        marker={text('marker', '')}
+        className={text('className', '')}
+        dataTestId={text('dataTestId', '')}
+    >
+        <Typography.Text tag='span' view='primary-medium' color='primary'>
+            Список — перечень чего-либо.
+        </Typography.Text>
+        <Typography.Text tag='span' view='primary-medium' color='primary'>
+            Список — в информатике и программировании — последовательность элементов данных.
+        </Typography.Text>
+        <Typography.Text tag='span' view='primary-medium' color='primary'>
+            Список — в типографике способ оформления перечней в тексте.
+        </Typography.Text>
+        <Typography.Text tag='span' view='primary-medium' color='primary'>
+            Список — в текстологии документ, созданный в результате воспроизведения рукописи (например, список в летописании) или машинописного текста первоначального документа (протографа данного списка); в отличие от копии, точное воспроизведение оригинала не является целью.
+        </Typography.Text>
+        <Typography.Text tag='span' view='primary-medium' color='primary'>
+            Список — в иконописи икона, представляющая собой воспроизведение почитаемой иконы (протографа данного списка); в отличие от копии, не воспроизводит оригинал в точности.
+        </Typography.Text>
+    </List>
+</Story>
+
+<ComponentHeader
+    name='List'
+    version={version}
+    package='@alfalab/core-components-list'
+/>
+
+```tsx
+import { List } from '@alfalab/core-components-list';
+```
+
+
+<Preview>
+    <List
+        tag={select('tag', TAG, 'ul')}
+        marker={text('marker', '')}
+        className={text('className', '')}
+        dataTestId={text('dataTestId', '')}
+    >
+        <Typography.Text tag='span' view='primary-medium'>1 item</Typography.Text>
+        <Typography.Text tag='span' view='primary-medium'>2 item</Typography.Text>
+        <Typography.Text tag='span' view='primary-medium'>3 item</Typography.Text>
+        <Typography.Text tag='span' view='primary-medium'>4 item</Typography.Text>
+    </List>
+</Preview>
+
+<Props of={List} />

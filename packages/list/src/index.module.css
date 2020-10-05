@@ -1,0 +1,43 @@
+@import '../../vars/src';
+
+:root {
+    --list-marker-color: var(--color-light-text-primary);
+}
+
+.list {
+    margin: 0;
+    padding: 0;
+    color: var(--list-marker-color);
+
+    @mixin paragraph_primary_medium;
+}
+
+.orderedList {
+    padding-inline-start: var(--gap-l);
+}
+
+.lowerAlpha {
+    list-style-type: lower-alpha;
+}
+
+.decimal {
+    list-style-type: decimal;
+}
+
+.item {
+    padding-top: var(--gap-m);
+
+    &:first-child {
+        padding-top: 0;
+    }
+}
+
+.unorderedItem {
+    display: grid;
+    gap: var(--gap-xs);
+    grid-template-columns: auto 1fr;
+}
+
+.orderedItem {
+    padding-left: var(--gap-2xs);
+}
