@@ -9,14 +9,14 @@ describe('Slider', () => {
         expect(container).toMatchSnapshot();
     });
 
-    it('should set `data-test-id` atribute', () => {
+    it('should set `data-test-id` attribute', () => {
         const dataTestId = 'test-id';
         const { getByTestId } = render(<Slider dataTestId={dataTestId} />);
 
         expect(getByTestId(dataTestId)).toBeTruthy();
     });
 
-    it('should forward ref to input elemenent', () => {
+    it('should forward ref to input element', () => {
         const ref = jest.fn();
         const dataTestId = 'test-id';
 
@@ -46,7 +46,7 @@ describe('Slider', () => {
         expect(progress.max).toBe(max - min);
     });
 
-    it('should not set step if (max - min) % step !== 0', () => {
+    it('should set step = 1 if (max - min) % step !== 0', () => {
         const dataTestId = 'test-id';
         const step = 3;
         const { getByRole } = render(
@@ -69,6 +69,26 @@ describe('Slider', () => {
 
         expect((getByRole('slider') as HTMLInputElement).value).toBe(value.toString());
         expect((getByRole('progressbar') as HTMLProgressElement).value).toBe(value - min);
+    });
+
+    it('should set out of bounds value in range [min, max]', () => {
+        const dataTestId = 'test-id';
+        const min = 5;
+        const max = 55;
+        const valueBelowMinimum = 4;
+        const valueAboveMaximum = 56;
+
+        const { getByRole, rerender } = render(
+            <Slider value={valueBelowMinimum} min={min} max={max} dataTestId={dataTestId} />,
+        );
+
+        expect((getByRole('slider') as HTMLInputElement).value).toBe(min.toString());
+        expect((getByRole('progressbar') as HTMLProgressElement).value).toBe(0);
+
+        rerender(<Slider value={valueAboveMaximum} min={min} max={max} dataTestId={dataTestId} />);
+
+        expect((getByRole('slider') as HTMLInputElement).value).toBe(max.toString());
+        expect((getByRole('progressbar') as HTMLProgressElement).value).toBe(max - min);
     });
 
     it('should call `onChange` prop', () => {

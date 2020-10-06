@@ -81,7 +81,7 @@ export const normalizeValue = (value, min, max) => {
     return (
         <SliderInput
             value={value}
-            sliderValue={value}
+            sliderValue={+value}
             min={min}
             max={max}
             step={step}
@@ -111,7 +111,6 @@ export const normalizeValue = (value, min, max) => {
     return (
         <SliderInput
             value={value}
-            sliderValue={value}
             min={min}
             max={max}
             step={step}
@@ -125,6 +124,40 @@ export const normalizeValue = (value, min, max) => {
                 '3 года',
                 '4 года',
                 '5 лет',
+            ]}
+        />
+    );
+})}
+</Preview>
+
+<Preview>
+{React.createElement(() => {
+    const min = 1;
+    const max = 5;
+    const step = 1;
+    const [value, setValue] = React.useState('');
+    const handleChange = (event, { value }) => setValue(value);
+    const handleBlur = () => {
+        if (value !== '') {
+            setValue(normalizeValue(value, min, max));
+        }
+    }
+    return (
+        <SliderInput
+            value={value}
+            min={min}
+            max={max}
+            step={step}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            block={true}
+            label='Срок кредита'
+            steps={[
+                <span style={{flexBasis: '10%'}}>1 год</span>,
+                <span style={{flexBasis: '20%'}}>2 года</span>,
+                <span style={{flexBasis: '30%'}}>3 года</span>,
+                <span style={{flexBasis: '40%'}}>4 года</span>,
+                <span style={{flexBasis: '10%'}}>5 лет</span>,
             ]}
         />
     );

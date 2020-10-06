@@ -46,6 +46,15 @@ describe('SliderInput', () => {
 
             expect(container.getElementsByClassName(className).length).toBe(1);
         });
+
+        it('should set `stepsClassName` class to input', () => {
+            const className = 'test-class';
+            const { container } = render(
+                <SliderInput stepsClassName={className} steps={['1', '2']} />,
+            );
+
+            expect(container.getElementsByClassName(className).length).toBe(1);
+        });
     });
 
     describe('Attributes tests', () => {
