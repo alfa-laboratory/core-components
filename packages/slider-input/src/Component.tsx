@@ -5,7 +5,6 @@ import React, {
     FC,
     Fragment,
     ReactNode,
-    MouseEvent,
     isValidElement,
     cloneElement,
 } from 'react';
@@ -149,10 +148,6 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             [onChange, onInputChange],
         );
 
-        const handleSliderMouseDown = useCallback((event: MouseEvent<HTMLInputElement>) => {
-            event.stopPropagation();
-        }, []);
-
         return (
             <div
                 className={cn(
@@ -189,7 +184,6 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                             value={Number.isNaN(sliderValue) ? 0 : sliderValue}
                             disabled={disabled}
                             className={cn(styles.slider, sliderClassName)}
-                            onMouseDown={handleSliderMouseDown}
                         />
                     }
                     rightAddons={
