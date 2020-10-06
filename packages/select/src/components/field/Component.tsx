@@ -72,7 +72,7 @@ export const Field = ({
                 {placeholder && !filled && (
                     <span className={styles.placeholder}>{placeholder}</span>
                 )}
-                {filled && <span className={styles.value}>{valueRenderer(selectedItems)}</span>}
+                {filled && <div className={styles.value}>{valueRenderer(selectedItems)}</div>}
             </div>
         </FormControl>
     );
