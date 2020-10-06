@@ -1,7 +1,14 @@
 @import '../../../../themes/src/default.css';
 
+/* TODO: при ховере стрелка меняет цвет */
+
 .arrow {
     display: block;
+    width: 24px;
+    height: 24px;
+
+    background: var(--select-arrow-background);
+    background-size: cover;
 }
 
 .open {

@@ -2,27 +2,40 @@
 @import '../../vars.css';
 
 .option {
-    @mixin system_14-18_regular;
+    @mixin system_16-20_regular;
 
     display: flex;
     align-items: center;
-    padding: var(--gap-xs) var(--gap-s);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: var(--select-option-left-padding);
+    padding-right: var(--select-option-right-padding);
     transition: background-color 0.2s ease;
-    background-color: var(--color-white);
+    background: var(--select-option-background);
+    color: var(--select-option-color);
     box-sizing: border-box;
     position: relative;
-}
+    cursor: pointer;
 
-.option:before {
-    opacity: 0;
-    content: '';
-    display: block;
-    width: 6px;
-    height: 6px;
-    flex-shrink: 0;
-    background-color: rgba(11, 31, 53, 0.95);
-    border-radius: 50%;
-    margin-right: var(--gap-xs);
+    &:not(.disabled):active {
+        background: var(--select-option-active-background);
+        color: var(--select-option-active-color);
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: var(--select-option-left-padding);
+        right: var(--select-option-right-padding);
+        top: 0;
+        height: 1px;
+        background: var(--select-option-divider-background);
+        display: var(--select-option-divider-display);
+    }
+
+    &:first-child:before {
+        display: none;
+    }
 }
 
 .s {
@@ -34,25 +47,35 @@
 }
 
 .l {
-    min-height: 68px;
-    padding: var(--gap-xs) var(--gap-m);
+    min-height: 72px;
+
+    padding-left: var(--select-option-l-left-padding);
+    padding-right: var(--select-option-l-right-padding);
+
+    &:before {
+        left: var(--select-option-l-left-padding);
+        right: var(--select-option-l-right-padding);
+    }
 }
 
-.l:before {
-    margin-right: var(--gap-s);
+.selected {
+    background: var(--select-option-selected-background);
+    color: var(--select-option-selected-color);
+    cursor: default;
 }
 
 .highlighted {
-    background-color: var(--select-option-hover-bg-color);
-    cursor: pointer;
-}
+    background: var(--select-option-hover-background);
+    color: var(--select-option-hover-color);
 
-.selected:before {
-    opacity: 1;
+    &:before,
+    & + .option:before {
+        display: none;
+    }
 }
 
 .disabled {
     cursor: default;
-    background-color: var(--color-white);
-    color: var(--color-dark-indigo-60-flat);
+    background: var(--select-option-disabled-background);
+    color: var(--select-option-disabled-color);
 }

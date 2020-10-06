@@ -1,0 +1,21 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.checkmark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: var(--select-checkmark-unselected-opacity);
+    flex-shrink: 0;
+    background: var(--select-checkmark-background);
+    background-size: cover;
+    border-radius: var(--select-checkmark-border-radius);
+    margin: var(--select-checkmark-margin);
+    order: var(--select-checkmark-order);
+    width: var(--select-checkmark-size);
+    height: var(--select-checkmark-size);
+}
+
+.selected {
+    opacity: 1;
+}

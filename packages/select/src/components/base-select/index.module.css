@@ -18,6 +18,8 @@
     box-shadow: var(--select-popover-box-shadow);
     border-radius: var(--select-popover-border-radius);
     overflow: hidden;
+    margin-top: var(--select-popover-offset);
+    margin-bottom: var(--select-popover-offset);
 }
 
 .listWrapper {
@@ -45,6 +47,7 @@
     min-width: auto;
 }
 
+/* TODO: использовать error и hint из FormControl */
 .error {
     @mixin system_14-18_regular;
 

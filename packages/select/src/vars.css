@@ -1,6 +1,52 @@
 :root {
-    --select-option-hover-bg-color: var(--color-dark-indigo-07-flat);
-    --select-popover-border-radius: 8px;
-    --select-popover-box-shadow: 0 1px 2px rgba(11, 31, 53, 0.16), 0 4px 12px rgba(11, 31, 53, 0.08);
+    --select-popover-border-radius: 0 0 4px 4px;
+    --select-popover-box-shadow: 0 0 16px rgba(11, 31, 53, 0.08), 0 8px 16px rgba(11, 31, 53, 0.16);
+    --select-popover-offset: 0;
     --select-error-color: var(--color-red-brand-85-flat);
+    --select-arrow-background: url('http://alfabank.st/icons/icon_arrow-down_m_black.svg');
+
+    /* options list */
+
+    --select-options-list-top-padding: 0;
+    --select-options-list-bottom-padding: 0;
+    --select-options-list-s-height: 264px;
+    --select-options-list-m-height: 308px;
+    --select-options-list-l-height: 396px;
+    --select-option-divider-display: none;
+    --select-option-divider-background: var(--color-light-border-primary);
+
+    /* option */
+
+    --select-option-left-padding: var(--gap-s);
+    --select-option-right-padding: var(--gap-s);
+    --select-option-l-left-padding: var(--gap-m);
+    --select-option-l-right-padding: var(--gap-m);
+    --select-option-background: var(--color-white);
+    --select-option-selected-background: var(--color-white);
+    --select-option-hover-background: var(--color-light-bg-secondary);
+    --select-option-active-background: var(--color-light-bg-tertiary);
+    --select-option-disabled-background: var(--color-white);
+    --select-option-color: var(--color-light-text-primary);
+    --select-option-selected-color: var(--color-light-text-primary);
+    --select-option-hover-color: var(--color-light-text-primary);
+    --select-option-active-color: var(--color-light-text-primary);
+    --select-option-disabled-color: var(--color-light-text-secondary);
+
+    /* checkmark */
+
+    --select-checkmark-margin: 0 var(--gap-xs) 0 0;
+    --select-checkmark-size: 6px;
+    --select-checkmark-order: 0;
+    --select-checkmark-unselected-opacity: 0;
+    --select-checkmark-background: rgba(11, 31, 53, 0.95);
+    --select-checkmark-border-radius: 50%;
+
+    /* optgroup */
+
+    --select-optgroup-color: var(--color-light-text-tertiary);
+    --select-optgroup-background: var(--color-white);
+    --select-optgroup-left-padding: var(--gap-m);
+    --select-optgroup-right-padding: var(--gap-m);
+    --select-optgroup-l-left-padding: var(--gap-l);
+    --select-optgroup-l-right-padding: var(--gap-l);
 }
