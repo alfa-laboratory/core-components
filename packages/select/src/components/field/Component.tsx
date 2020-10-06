@@ -58,7 +58,7 @@ export const Field = ({
             rightAddons={
                 <React.Fragment>
                     {rightAddons}
-                    {!error && Arrow}
+                    {Arrow}
                 </React.Fragment>
             }
             onBlur={handleBlur}
