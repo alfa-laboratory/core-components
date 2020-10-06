@@ -6,8 +6,6 @@ import { joinOptions } from '../../utils';
 
 import styles from './index.module.css';
 
-export type FieldProps = BaseFieldProps & FormControlProps;
-
 export const Field = ({
     size = 'm',
     open,
@@ -21,7 +19,7 @@ export const Field = ({
     Arrow,
     innerProps = {},
     ...restProps
-}: FieldProps) => {
+}: BaseFieldProps & FormControlProps) => {
     const [focused, setFocused] = useState(false);
     const { onBlur, onFocus } = restProps;
     const filled = selectedItems.length > 0;
