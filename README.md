@@ -149,6 +149,40 @@ $ yarn cm # запустит утилиту commitizen для создания �
 $ git push
 ```
 
+## Сборка компонентов
+
+Компоненты поставляются в трех видах:
+
+1. `ES5`
+
+2. `ES5 с css-модулями`
+
+3. `ES2020`
+
+Импорт `ES5`:
+
+```tsx
+import { Button } from '@alfalab/core-components-button';
+// или
+import { Button } from '@alfalab/core-components/button';
+```
+
+Импорт `ES5` с css-модулями:
+
+```tsx
+import { Button } from '@alfalab/core-components-button/dist/cssm';
+// или
+import { Button } from '@alfalab/core-components/button/cssm';
+```
+
+Импорт `ES2020`:
+
+```tsx
+import { Button } from '@alfalab/core-components-button/dist/modern';
+// или
+import { Button } from '@alfalab/core-components/button/modern';
+```
+
 ## Правила контрибьютинга
 
 Мы открыты к любым предложениям по развитию библиотеки.
