@@ -14,7 +14,7 @@
 }
 
 .orderedList {
-    padding-inline-start: var(--gap-l);
+    padding-left: var(--gap-l);
 }
 
 .lowerAlpha {
