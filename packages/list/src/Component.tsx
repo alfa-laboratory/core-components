@@ -15,9 +15,15 @@ export type ListProps = {
      * @default '—' for ul and 'decimal' for ol
      */
     marker?: 'lower-alpha' | 'decimal' | string | React.ReactNode;
-    /** Css-класс для стилизации */
+
+    /**
+     * Css-класс для стилизации
+     */
     className?: string;
-    /** Id компоента для тестов */
+
+    /**
+     * Id компонента для тестов
+     */
     dataTestId?: string;
     /** Дочерние элементы */
     children?: React.ReactNode;
