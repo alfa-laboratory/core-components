@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React, { forwardRef, useRef, Children } from 'react';
+import React, { forwardRef, Children } from 'react';
 import mergeRefs from 'react-merge-refs';
 
 import styles from './index.module.css';
@@ -25,8 +25,7 @@ export type ListProps = {
 
 export const List = forwardRef<HTMLOListElement | HTMLUListElement, ListProps>(
     ({ tag: Component = 'ul', marker, className, dataTestId, children, ...props }, ref) => {
-        const listRef = useRef<HTMLElement>(null);
-        const markerType = Component === 'ul' ? marker || '—' : marker || 'decimal';
+        const markerType = marker || (Component === 'ul' ? '—' : 'decimal');
         const listClassNames = cn(
             styles.list,
             {
@@ -43,14 +42,14 @@ export const List = forwardRef<HTMLOListElement | HTMLUListElement, ListProps>(
 
         return (
             <Component
-                ref={mergeRefs([listRef, ref])}
+                ref={mergeRefs([ref])}
                 className={listClassNames}
                 data-test-id={dataTestId}
                 {...props}
             >
                 {Children.map(children, child => (
                     <li className={itemClassNames}>
-                        {Component !== 'ol' && <div>{markerType}</div>}
+                        {Component !== 'ol' && <div className={styles.slot}>{markerType}</div>}
                         {child}
                     </li>
                 ))}

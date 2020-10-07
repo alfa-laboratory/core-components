@@ -2,6 +2,7 @@
 
 :root {
     --list-marker-color: var(--color-light-text-primary);
+    --list-item-margin: var(--gap-s);
 }
 
 .list {
@@ -25,19 +26,21 @@
 }
 
 .item {
-    padding-top: var(--gap-m);
+    margin-top: var(--list-item-margin);
 
     &:first-child {
-        padding-top: 0;
+        margin-top: 0;
     }
 }
 
 .unorderedItem {
-    display: grid;
-    gap: var(--gap-xs);
-    grid-template-columns: auto 1fr;
+    display: flex;
 }
 
 .orderedItem {
     padding-left: var(--gap-2xs);
+}
+
+.slot {
+    margin-right: var(--gap-xs);
 }
