@@ -1,0 +1,61 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+
+import { Slider } from './Component';
+import { name, version } from '../package.json';
+
+
+<Meta
+    title='Компоненты'
+    component={Slider}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='Slider'>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState(50);
+        const handleChange = (event, { value }) => setValue(value);
+        return (
+            <Slider
+                value={value}
+                onChange={handleChange}
+                min={number('min', 0)}
+                max={number('max', 100)}
+                step={number('step', 1)}
+            />
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Slider'
+    version={version}
+    package='@alfalab/core-components-slider'
+    stage={0}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=11780%3A5392'
+/>
+
+```tsx
+import { Slider } from '@alfalab/core-components-slider';
+```
+
+<Preview>
+{React.createElement(() => {
+    const [value, setValue] = React.useState(50);
+    const handleChange = (event, { value }) => setValue(value);
+    return (
+        <Slider value={value} onChange={handleChange} />
+    );
+})}
+</Preview>
+
+<Props of={Slider} />
