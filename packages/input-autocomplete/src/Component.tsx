@@ -1,13 +1,16 @@
 import React, { FC, ChangeEvent, forwardRef } from 'react';
 import { InputProps } from '@alfalab/core-components-input';
-import { BaseSelectProps } from '../../typings';
-import { OptionsList as DefaultOptionsList } from '../options-list';
-import { Option as DefaultOption } from '../option';
-import { Optgroup as DefaultOptgroup } from '../optgroup';
-import { BaseSelect } from '../base-select';
-import { AutocompleteField } from '../autocomplete-field/Component';
+import {
+    BaseSelectProps,
+    OptionsList as DefaultOptionsList,
+    Option as DefaultOption,
+    Optgroup as DefaultOptgroup,
+    BaseSelect,
+} from '@alfalab/core-components-select';
 
-export type AutocompleteProps = Omit<BaseSelectProps, 'Field' | 'nativeSelect'> & {
+import { AutocompleteField } from './autocomplete-field';
+
+export type InputAutocompleteProps = Omit<BaseSelectProps, 'Field' | 'nativeSelect'> & {
     /**
      * Компонент ввода значения
      */
@@ -29,7 +32,7 @@ export type AutocompleteProps = Omit<BaseSelectProps, 'Field' | 'nativeSelect'> 
     onInput?: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
-export const Autocomplete = forwardRef<HTMLInputElement, AutocompleteProps>(
+export const InputAutocomplete = forwardRef<HTMLInputElement, InputAutocompleteProps>(
     (
         {
             OptionsList = DefaultOptionsList,
