@@ -10,6 +10,7 @@ export type ListProps = {
      * @default 'ul'
      */
     tag?: 'ul' | 'ol';
+
     /**
      * Маркер
      * @default '—' for ul and 'decimal' for ol
@@ -25,7 +26,10 @@ export type ListProps = {
      * Id компонента для тестов
      */
     dataTestId?: string;
-    /** Дочерние элементы */
+
+    /**
+     * Дочерние элементы
+     */
     children?: React.ReactNode;
 };
 
