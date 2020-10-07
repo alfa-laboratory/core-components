@@ -20,7 +20,10 @@ export type ListProps = {
      * Css-класс для стилизации
      */
     className?: string;
-    /** Id компоента для тестов */
+
+    /**
+     * Id компонента для тестов
+     */
     dataTestId?: string;
     /** Дочерние элементы */
     children?: React.ReactNode;
