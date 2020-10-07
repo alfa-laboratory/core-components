@@ -1,4 +1,6 @@
 .suffixContainer {
+    @mixin system_16-20_regular;
+
     position: absolute;
     left: 0;
     top: 0;
