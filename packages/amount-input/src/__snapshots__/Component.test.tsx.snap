@@ -9,35 +9,7 @@ Object {
         class="container bold"
       >
         <div
-          class="component s fakeValueWithCurrencyContainer"
-        >
-          <div
-            class="inner"
-          >
-            <div
-              class="inputWrapper"
-            >
-              <div
-                class="input"
-              >
-                <div>
-                  <span
-                    class="majorPart"
-                  />
-                  <span
-                    class="minorPartAndCurrency"
-                  >
-                     
-                    ₽
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-        <div
-          class="component s formControl component"
+          class="component s formControl component hasSuffix"
         >
           <div
             class="inner"
@@ -54,6 +26,24 @@ Object {
                   type="text"
                   value=""
                 />
+                <div
+                  class="suffixContainer suffixContainer"
+                >
+                  <span
+                    class="spacer"
+                  />
+                  <div
+                    class="suffix"
+                  >
+                    
+                    <span
+                      class="minorPartAndCurrency"
+                    >
+                       
+                      ₽
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -67,35 +57,7 @@ Object {
       class="container bold"
     >
       <div
-        class="component s fakeValueWithCurrencyContainer"
-      >
-        <div
-          class="inner"
-        >
-          <div
-            class="inputWrapper"
-          >
-            <div
-              class="input"
-            >
-              <div>
-                <span
-                  class="majorPart"
-                />
-                <span
-                  class="minorPartAndCurrency"
-                >
-                   
-                  ₽
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-      <div
-        class="component s formControl component"
+        class="component s formControl component hasSuffix"
       >
         <div
           class="inner"
@@ -112,6 +74,24 @@ Object {
                 type="text"
                 value=""
               />
+              <div
+                class="suffixContainer suffixContainer"
+              >
+                <span
+                  class="spacer"
+                />
+                <div
+                  class="suffix"
+                >
+                  
+                  <span
+                    class="minorPartAndCurrency"
+                  >
+                     
+                    ₽
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -182,35 +162,7 @@ Object {
         class="container bold"
       >
         <div
-          class="component s fakeValueWithCurrencyContainer"
-        >
-          <div
-            class="inner"
-          >
-            <div
-              class="inputWrapper"
-            >
-              <div
-                class="input"
-              >
-                <div>
-                  <span
-                    class="majorPart"
-                  />
-                  <span
-                    class="minorPartAndCurrency"
-                  >
-                     
-                    ₽
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-        <div
-          class="component s formControl component"
+          class="component s formControl component hasSuffix"
         >
           <div
             class="inner"
@@ -227,6 +179,24 @@ Object {
                   type="text"
                   value=""
                 />
+                <div
+                  class="suffixContainer suffixContainer"
+                >
+                  <span
+                    class="spacer"
+                  />
+                  <div
+                    class="suffix"
+                  >
+                    
+                    <span
+                      class="minorPartAndCurrency"
+                    >
+                       
+                      ₽
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -236,41 +206,10 @@ Object {
     </div>
     <div>
       <div
-        class="container bold filled"
+        class="container bold"
       >
         <div
-          class="component s filled fakeValueWithCurrencyContainer"
-        >
-          <div
-            class="inner"
-          >
-            <div
-              class="inputWrapper"
-            >
-              <div
-                class="input"
-              >
-                <div>
-                  <span
-                    class="majorPart"
-                  >
-                    12 345
-                  </span>
-                  <span
-                    class="minorPartAndCurrency"
-                  >
-                    ,67
-                     
-                    $
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-        <div
-          class="component s filled formControl component"
+          class="component s filled formControl component suffixVisible hasSuffix"
         >
           <div
             class="inner"
@@ -287,6 +226,27 @@ Object {
                   type="text"
                   value="12 345,67"
                 />
+                <div
+                  class="suffixContainer suffixContainer"
+                >
+                  <span
+                    class="spacer"
+                  >
+                    12 345,67
+                  </span>
+                  <div
+                    class="suffix"
+                  >
+                    12 345
+                    <span
+                      class="minorPartAndCurrency"
+                    >
+                      ,67
+                       
+                      $
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -297,41 +257,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="container bold filled"
+      class="container bold"
     >
       <div
-        class="component s filled fakeValueWithCurrencyContainer"
-      >
-        <div
-          class="inner"
-        >
-          <div
-            class="inputWrapper"
-          >
-            <div
-              class="input"
-            >
-              <div>
-                <span
-                  class="majorPart"
-                >
-                  12 345
-                </span>
-                <span
-                  class="minorPartAndCurrency"
-                >
-                  ,67
-                   
-                  $
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-      <div
-        class="component s filled formControl component"
+        class="component s filled formControl component suffixVisible hasSuffix"
       >
         <div
           class="inner"
@@ -348,6 +277,27 @@ Object {
                 type="text"
                 value="12 345,67"
               />
+              <div
+                class="suffixContainer suffixContainer"
+              >
+                <span
+                  class="spacer"
+                >
+                  12 345,67
+                </span>
+                <div
+                  class="suffix"
+                >
+                  12 345
+                  <span
+                    class="minorPartAndCurrency"
+                  >
+                    ,67
+                     
+                    $
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
