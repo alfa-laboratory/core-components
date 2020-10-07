@@ -1,0 +1,34 @@
+.suffixContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    align-items: center;
+    display: none;
+    pointer-events: none;
+}
+
+input:focus + .suffixContainer,
+.suffixVisible .suffixContainer {
+    display: inline-flex;
+}
+
+.hasSuffix input:focus::placeholder {
+    color: transparent;
+    transition: none;
+}
+
+.spacer {
+    visibility: hidden;
+    flex-shrink: 0;
+    white-space: pre;
+}
+
+.suffix {
+    white-space: pre;
+}
+
+.disabled {
+    /* TODO: заменить на --input-disabled-color */
+    color: var(--color-dark-indigo-60-flat);
+}
