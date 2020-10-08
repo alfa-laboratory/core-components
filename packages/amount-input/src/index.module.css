@@ -38,5 +38,5 @@
 .filled .input,
 .input:focus {
     -webkit-text-fill-color: transparent; /* Для IE текст будет черным */
-    caret-color: black; /* Для IE каретка будет черной */
+    caret-color: currentColor;
 }
