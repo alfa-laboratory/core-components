@@ -31,7 +31,7 @@ export const AutocompleteField = ({
         rightAddons={
             <React.Fragment>
                 {inputProps.rightAddons}
-                {!error && Arrow}
+                {Arrow}
             </React.Fragment>
         }
         onChange={onInput}
