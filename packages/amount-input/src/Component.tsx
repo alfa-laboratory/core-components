@@ -176,6 +176,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             <div
                 className={cn(styles.container, {
                     [styles.bold]: bold,
+                    [styles.filled]: Boolean(inputValue),
                 })}
             >
                 <SuffixInput

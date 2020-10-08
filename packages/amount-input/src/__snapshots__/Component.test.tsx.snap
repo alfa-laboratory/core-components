@@ -206,7 +206,7 @@ Object {
     </div>
     <div>
       <div
-        class="container bold"
+        class="container bold filled"
       >
         <div
           class="component s filled formControl component suffixVisible hasSuffix"
@@ -257,7 +257,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="container bold"
+      class="container bold filled"
     >
       <div
         class="component s filled formControl component suffixVisible hasSuffix"
