@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "./main.css",
-    "main.js": "./main.3fddd7095a72620ef78a.bundle.js",
-    "main.js.map": "./main.3fddd7095a72620ef78a.bundle.js.map",
-    "runtime~main.js": "./runtime~main.3fddd7095a72620ef78a.bundle.js",
-    "runtime~main.js.map": "./runtime~main.3fddd7095a72620ef78a.bundle.js.map",
-    "vendors~main.js": "./vendors~main.3fddd7095a72620ef78a.bundle.js",
-    "vendors~main.js.map": "./vendors~main.3fddd7095a72620ef78a.bundle.js.map",
+    "main.js": "./main.95ff1215ced0ca0fe8da.bundle.js",
+    "main.js.map": "./main.95ff1215ced0ca0fe8da.bundle.js.map",
+    "runtime~main.js": "./runtime~main.95ff1215ced0ca0fe8da.bundle.js",
+    "runtime~main.js.map": "./runtime~main.95ff1215ced0ca0fe8da.bundle.js.map",
+    "vendors~main.js": "./vendors~main.95ff1215ced0ca0fe8da.bundle.js",
+    "vendors~main.js.map": "./vendors~main.95ff1215ced0ca0fe8da.bundle.js.map",
     "iframe.html": "./iframe.html",
     "main.css.map": "./main.css.map",
-    "precache-manifest.895f1d59a5af3fd35ceddcfd396629c1.js": "./precache-manifest.895f1d59a5af3fd35ceddcfd396629c1.js",
+    "precache-manifest.592f3a1dd431b241cd976fbd4c839445.js": "./precache-manifest.592f3a1dd431b241cd976fbd4c839445.js",
     "service-worker.js": "./service-worker.js",
-    "static/css/main.0efc21fb.chunk.css.map": "./static/css/main.0efc21fb.chunk.css.map",
-    "vendors~main.3fddd7095a72620ef78a.bundle.js.LICENSE.txt": "./vendors~main.3fddd7095a72620ef78a.bundle.js.LICENSE.txt"
+    "static/css/main.d8ccbd0f.chunk.css.map": "./static/css/main.d8ccbd0f.chunk.css.map",
+    "vendors~main.95ff1215ced0ca0fe8da.bundle.js.LICENSE.txt": "./vendors~main.95ff1215ced0ca0fe8da.bundle.js.LICENSE.txt"
   },
   "entrypoints": [
-    "runtime~main.3fddd7095a72620ef78a.bundle.js",
-    "vendors~main.3fddd7095a72620ef78a.bundle.js",
-    "static/css/main.0efc21fb.chunk.css",
+    "runtime~main.95ff1215ced0ca0fe8da.bundle.js",
+    "vendors~main.95ff1215ced0ca0fe8da.bundle.js",
+    "static/css/main.d8ccbd0f.chunk.css",
     "main.css",
-    "main.3fddd7095a72620ef78a.bundle.js"
+    "main.95ff1215ced0ca0fe8da.bundle.js"
   ]
 }
