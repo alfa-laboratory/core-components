@@ -33,3 +33,5 @@ jobs:
             
             - name: Run build
               run: yarn build
+              env:
+                BUILD_CONCURRENCY: 5
