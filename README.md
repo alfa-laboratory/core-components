@@ -61,17 +61,17 @@ import { Button } from '@alfalab/core-components-button';
 
 #### Desktop
 
-* Chrome
-* Yandex
-* Firefox
-* Edge
-* IE 11+
-* Safari
+-   Chrome
+-   Yandex
+-   Firefox
+-   Edge
+-   IE 11+
+-   Safari
 
 #### Mobile
 
-* Android 5+
-* iOS
+-   Android 5+
+-   iOS
 
 ## Разработка
 
@@ -188,12 +188,12 @@ import { Button } from '@alfalab/core-components/button/modern';
 Мы открыты к любым предложениям по развитию библиотеки.
 Отправляйте свои идеи и вопросы через [pull requests](https://github.com/alfa-laboratory/core-components/pulls) или [issues](https://github.com/alfa-laboratory/core-components/issues).
 
-- Уважаем тех, кто видит проблему и кидает PR.
-- Не знаете что делать – можно брать любую задачу без Assignee, назначив её на себя.
-- Знаете что делать и есть возможность – кидайте PR.
-- Знаете что делать, но нет времени – добавьте задачу (issue).
+-   Уважаем тех, кто видит проблему и кидает PR.
+-   Не знаете что делать – можно брать любую задачу без Assignee, назначив её на себя.
+-   Знаете что делать и есть возможность – кидайте PR.
+-   Знаете что делать, но нет времени – добавьте задачу (issue).
 
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
 
 ## Мейнтейнеры
 
