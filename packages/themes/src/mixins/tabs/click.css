@@ -1,4 +1,11 @@
+@import '../../../../vars/src/index.css';
+
 @define-mixin tabs-click {
+    /* core vars */
+    --font-family-styrene: 'Styrene UI', system-ui, -apple-system, 'Segoe UI', Roboto,
+        'Helvetica Neue', Helvetica, sans-serif;
+
+    /* theme */
     --primary-tablist-s-font-size: 20px;
     --primary-tablist-s-font-weight: 500;
     --primary-tablist-s-font-family: var(--font-family-styrene);

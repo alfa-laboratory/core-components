@@ -1,10 +1,10 @@
 import React from 'react';
 import { Input as DefaultInput } from '@alfalab/core-components-input';
-import { FieldProps } from '../../typings';
-import { AutocompleteProps } from '../autocomplete/Component';
+import { FieldProps } from '@alfalab/core-components-select';
+import { InputAutocompleteProps } from '../Component';
 
 export type AutocompleteFieldProps = FieldProps &
-    Pick<AutocompleteProps, 'Input' | 'inputProps' | 'value' | 'onInput'>;
+    Pick<InputAutocompleteProps, 'Input' | 'inputProps' | 'value' | 'onInput'>;
 
 export const AutocompleteField = ({
     label,
@@ -31,7 +31,7 @@ export const AutocompleteField = ({
         rightAddons={
             <React.Fragment>
                 {inputProps.rightAddons}
-                {!error && Arrow}
+                {Arrow}
             </React.Fragment>
         }
         onChange={onInput}

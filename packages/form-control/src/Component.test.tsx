@@ -70,7 +70,7 @@ describe('FormControl', () => {
             const className = 'test-class';
             const { container } = render(<FormControl labelClassName={className} label='label' />);
 
-            expect(container.getElementsByClassName(className)).toBeTruthy();
+            expect(container.getElementsByClassName(className).length).toBe(1);
         });
 
         it('should set `size` class', () => {

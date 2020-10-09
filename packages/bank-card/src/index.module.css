@@ -60,6 +60,7 @@
     @mixin promo_xsmall;
 
     color: var(--color-black);
+    caret-color: var(--color-black);
 
     /* TODO: обсудить с дизайнером, почему инпут не соответствует дизайн-системе, либо уменьшить каскад в form-control */
     padding-left: 0 !important;
