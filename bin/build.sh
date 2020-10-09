@@ -5,8 +5,13 @@ set -e
 # удаляю билды
 yarn clean
 
+# устанавливаем ограничение на количество параллельных процессов при сборке (default - 10)
+CONCURRENCY=${BUILD_CONCURRENCY:=10}
+
+echo "start build on $CONCURRENCY parallel process"
+
 # собираю все подпакеты, за исключением css-пакетов (vars, themes)
-lerna exec --parallel \
+lerna exec --concurrency $CONCURRENCY \
     --ignore @alfalab/core-components-vars \
     --ignore @alfalab/core-components-themes \
     -- $(pwd)/bin/rollup.sh
