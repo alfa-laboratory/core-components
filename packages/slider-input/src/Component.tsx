@@ -56,7 +56,7 @@ export type SliderInputProps = Omit<
     /**
      * Компонент поля ввода
      */
-    Input?: FC<InputProps>;
+    Input?: FC<Omit<InputProps, 'onChange' | 'value'>>;
 
     /**
      * Кастомные пропсы для поля ввода
@@ -81,15 +81,12 @@ export type SliderInputProps = Omit<
     /**
      * Обработчик изменения значения через слайдер или поле ввода
      */
-    onChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: string | number }) => void;
+    onChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: number | '' }) => void;
 
     /**
      * Обработчик ввода
      */
-    onInputChange?: (
-        event: ChangeEvent<HTMLInputElement>,
-        payload: { value: string | number },
-    ) => void;
+    onInputChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: number | '' }) => void;
 
     /**
      * Обработчик изменения слайдера
@@ -131,9 +128,13 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
         },
         ref,
     ) => {
+        const getValidInputValue = useCallback((inputValue: string) => {
+            const number = parseInt(inputValue, 10);
+            return inputValue === '' || Number.isNaN(number) ? '' : Math.abs(number);
+        }, []);
+
         const handleSliderChange = useCallback(
-            (event: ChangeEvent<HTMLInputElement>) => {
-                const payload = { value: +event.target.value };
+            (event: ChangeEvent<HTMLInputElement>, payload) => {
                 if (onChange) onChange(event, payload);
                 if (onSliderChange) onSliderChange(event, payload);
             },
@@ -142,10 +143,11 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
 
         const handleInputChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>, payload) => {
-                if (onChange) onChange(event, payload);
-                if (onInputChange) onInputChange(event, payload);
+                if (onChange) onChange(event, { value: getValidInputValue(payload.value) });
+                if (onInputChange)
+                    onInputChange(event, { value: getValidInputValue(payload.value) });
             },
-            [onChange, onInputChange],
+            [getValidInputValue, onChange, onInputChange],
         );
 
         return (

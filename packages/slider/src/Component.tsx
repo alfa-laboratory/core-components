@@ -7,7 +7,7 @@ import styles from './index.module.css';
 
 type NativeProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'min' | 'max' | 'step' | 'value' | 'type'
+    'min' | 'max' | 'step' | 'value' | 'type' | 'onChange'
 >;
 
 export type SliderProps = NativeProps & {
