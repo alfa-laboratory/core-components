@@ -42,6 +42,7 @@
     line-height: 1.2;
     font-weight: var(--button-font-weight);
     font-family: var(--font-family);
+    text-align: center;
     text-decoration: none;
     background-color: transparent;
     border: 0;
