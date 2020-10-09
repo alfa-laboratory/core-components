@@ -53,31 +53,8 @@ export type BankCardProps = {
     dataTestId?: string;
 };
 
-/*
- * TODO: другие форматы карт?
- * prettier-ignore
- */
-const cardMask = [
-    /\d/,
-    /\d/,
-    /\d/,
-    /\d/,
-    ' ',
-    /\d/,
-    /\d/,
-    /\d/,
-    /\d/,
-    ' ',
-    /\d/,
-    /\d/,
-    /\d/,
-    /\d/,
-    ' ',
-    /\d/,
-    /\d/,
-    /\d/,
-    /\d/,
-];
+// prettier-ignore
+const cardMask = [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/];
 // prettier-ignore
 const accountNumberMask = [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/];
 
