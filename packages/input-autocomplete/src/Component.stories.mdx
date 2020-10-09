@@ -4,16 +4,12 @@ import { action } from '@storybook/addon-actions';
 import { Container, Row, Col } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 
-import mergeRefs from 'react-merge-refs';
-
 import { Tag } from '@alfalab/core-components-tag';
 import { Input } from '@alfalab/core-components-input';
 import { MaskedInput } from '@alfalab/core-components-masked-input';
-import { Autocomplete } from './Component';
-import { Arrow } from '../arrow';
-import { Option } from '../option';
+import { Arrow, Option } from '@alfalab/core-components-select';
 
-import { CloseMBlackIcon } from '@alfalab/icons-classic';
+import { InputAutocomplete } from './Component';
 
 export const options = [
     { value: '1', text: 'Neptunium'},
@@ -39,14 +35,14 @@ export const matchOption = (option, inputValue) =>
 
 <Meta
     title='Компоненты'
-    component={Autocomplete}
+    component={InputAutocomplete}
     parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
 
 <!-- Canvas -->
 
-<Story name='Autocomplete'>
+<Story name='InputAutocomplete'>
     {React.createElement(() => {
         const [value, setValue] = React.useState('');
         const handleInput = event => {
@@ -57,7 +53,7 @@ export const matchOption = (option, inputValue) =>
         };
         const filteredOptions = options.filter(option => matchOption(option, value));
         return (
-            <Autocomplete
+            <InputAutocomplete
                 options={filteredOptions}
                 selected={boolean('prevent select', true) ? [] : undefined}
                 block={boolean('block', false)}
@@ -83,11 +79,11 @@ export const matchOption = (option, inputValue) =>
 <!-- Docs -->
 
 <ComponentHeader
-    name='Autocomplete'
+    name='InputAutocomplete'
     stage={1}
 />
 
-Компонент поля для ввода с автокомплитом. Будет переименован в InputAutocomplete.
+Компонент поля для ввода с автокомплитом
 
 <Preview>
     {React.createElement(() => {
@@ -100,7 +96,7 @@ export const matchOption = (option, inputValue) =>
         };
         const filteredOptions = options.filter(option => matchOption(option, value));
         return (
-            <Autocomplete
+            <InputAutocomplete
                 options={filteredOptions}
                 placeholder='Введите элемент'
                 label='Элемент'
@@ -113,7 +109,7 @@ export const matchOption = (option, inputValue) =>
 </Preview>
 
 
-<Props of={Autocomplete} />
+<Props of={InputAutocomplete} />
 
 
 ### Кейс с очисткой поля
@@ -132,7 +128,7 @@ export const matchOption = (option, inputValue) =>
         };
         const filteredOptions = options.filter(option => matchOption(option, value));
         return (
-            <Autocomplete
+            <InputAutocomplete
                 options={filteredOptions}
                 selected={[]}
                 closeOnSelect={false}
@@ -178,7 +174,7 @@ export const matchOption = (option, inputValue) =>
         }
         return (
             <React.Fragment>
-                <Autocomplete
+                <InputAutocomplete
                     options={filteredOptions}
                     selected={[]}
                     closeOnSelect={true}
@@ -211,7 +207,7 @@ export const matchOption = (option, inputValue) =>
         };
         const filteredOptions = options.filter(option => matchOption(option, value));
         return (
-            <Autocomplete
+            <InputAutocomplete
                 options={filteredOptions}
                 selected={[]}
                 label='Элемент'
@@ -275,7 +271,7 @@ export const matchOption = (option, inputValue) =>
         };
         const filteredOptions = cards.filter(option => matchOption(option, value));
         return (
-            <Autocomplete
+            <InputAutocomplete
                 options={filteredOptions}
                 selected={[]}
                 label='Номер карты'
@@ -317,7 +313,7 @@ export const matchOption = (option, inputValue) =>
                 return selectedOptions.includes(option) || matchOption(option, inputValues[inputValues.length - 1])
             });
         return (
-            <Autocomplete
+            <InputAutocomplete
                 options={filteredOptions}
                 selected={selected}
                 label='Элемент'
