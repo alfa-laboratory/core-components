@@ -2,9 +2,10 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 
-import { TabsDesktop, TabsMobile } from './index';
-import { Tab } from '../tab';
+import { TabsDesktop } from './Component.desktop';
+import { TabsMobile } from './Component.mobile';
 import { TabsResponsive } from './Component.responsive';
+import { Tab } from '../tab';
 import { TabsProps } from '../../typings';
 
 const tabVariants: Array<[

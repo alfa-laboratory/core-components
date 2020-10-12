@@ -1,7 +1,7 @@
 import React from 'react';
 import { TabsProps } from '../../typings';
-import { PrimaryTabListDesktop } from '../primary-tablist';
-import { SecondaryTabListDesktop } from '../secondary-tablist';
+import { PrimaryTabListDesktop } from '../primary-tablist/Component.desktop';
+import { SecondaryTabListDesktop } from '../secondary-tablist/Component.desktop';
 import { Tabs } from './Component';
 
 const views = {
