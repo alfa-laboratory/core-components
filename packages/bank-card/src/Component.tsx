@@ -88,8 +88,11 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
 
         const [brandIcon, setBrandIcon] = useState<ReactNode>(getBrandIcon(value));
 
-        const getMask = (newValue: string) =>
-            newValue.length <= cardMask.length ? cardMask : accountNumberMask;
+        const getMask = useCallback(
+            (newValue: string) =>
+                newValue.length <= cardMask.length ? cardMask : accountNumberMask,
+            [],
+        );
 
         const handleInputChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
