@@ -27,6 +27,7 @@ export const BaseSelect = forwardRef(
             selected,
             size = 's',
             error,
+            hint,
             block,
             label,
             placeholder,
@@ -279,6 +280,7 @@ export const BaseSelect = forwardRef(
                         label={label && <span {...getLabelProps()}>{label}</span>}
                         Arrow={Arrow && <Arrow open={open} />}
                         error={error}
+                        hint={hint}
                         innerProps={{
                             tabIndex: nativeSelect ? -1 : 0,
                             ref: inputProps.ref,
@@ -292,8 +294,6 @@ export const BaseSelect = forwardRef(
                         {...fieldProps}
                     />
                 </div>
-
-                {error && <div className={cn(styles.error)}>{error}</div>}
 
                 {name && !nativeSelect && renderValue()}
 

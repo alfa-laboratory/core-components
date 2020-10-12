@@ -96,6 +96,11 @@ export type BaseSelectProps = {
     error?: string | boolean;
 
     /**
+     * Подсказка под полем
+     */
+    hint?: string;
+
+    /**
      * Возможность использовать селект как input-autocomplete
      */
     autocomplete?: boolean;
@@ -215,6 +220,11 @@ export type FieldProps = {
      * Отображение ошибки
      */
     error?: string | boolean;
+
+    /**
+     * Подсказка под полем
+     */
+    hint?: string;
 
     /**
      * Компонент стрелки

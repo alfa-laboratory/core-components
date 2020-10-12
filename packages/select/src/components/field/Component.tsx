@@ -14,7 +14,6 @@ export const Field = ({
     placeholder,
     selectedItems = [],
     rightAddons,
-    error,
     valueRenderer = joinOptions,
     Arrow,
     innerProps = {},
@@ -54,7 +53,6 @@ export const Field = ({
             disabled={disabled}
             filled={filled || !!placeholder}
             label={label}
-            error={Boolean(error)}
             rightAddons={
                 <React.Fragment>
                     {rightAddons}
