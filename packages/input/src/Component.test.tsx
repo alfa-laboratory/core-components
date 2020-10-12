@@ -280,6 +280,34 @@ describe('Input', () => {
         });
     });
 
+    it.only('should keep focus when clicking inside control', () => {
+        const dataTestId = 'test-id';
+        const { getByTestId, getByText } = render(
+            <Input
+                dataTestId={dataTestId}
+                rightAddons='right'
+                leftAddons='left'
+                bottomAddons='bottom'
+            />,
+        );
+
+        userEvent.click(getByTestId(dataTestId));
+
+        expect(document.activeElement && document.activeElement.tagName).toBe('INPUT');
+
+        userEvent.click(getByText('left'));
+
+        expect(document.activeElement && document.activeElement.tagName).toBe('INPUT');
+
+        userEvent.click(getByText('right'));
+
+        expect(document.activeElement && document.activeElement.tagName).toBe('INPUT');
+
+        userEvent.click(getByText('bottom'));
+
+        expect(document.activeElement && document.activeElement.tagName).not.toBe('INPUT');
+    });
+
     it('should unmount without errors', () => {
         const { unmount } = render(<Input value='value' onChange={jest.fn()} />);
 

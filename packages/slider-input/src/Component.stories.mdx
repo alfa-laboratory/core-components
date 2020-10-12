@@ -1,0 +1,228 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+
+import { SliderInput } from './Component';
+import { AmountInput } from '../../amount-input/src';
+import { name, version } from '../package.json';
+
+
+<Meta
+    title='Компоненты'
+    component={SliderInput}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='SliderInput'>
+{React.createElement(() => {
+    const [value, setValue] = React.useState('');
+    const handleChange = (event, { value }) => setValue(value);
+    return (
+        <SliderInput
+            value={value}
+            onChange={handleChange}
+            min={number('min', 0)}
+            max={number('max', 100)}
+            step={number('step', 1)}
+            steps={boolean('steps', false) && ['36 мес', '180 мес', '360 мес']}
+            block={boolean('block', false)}
+            size={select('size', ['s', 'm', 'l'], 's')}
+            disabled={boolean('disabled', false)}
+            placeholder={text('placeholder', '')}
+            label={text('label', '')}
+            hint={text('hint', '')}
+            info={text('info', '')}
+            error={text('error', '')}
+            rightAddons={boolean('rightAddons', false) && !text('error') && <Icon />}
+            leftAddons={boolean('leftAddons', false) && <Icon />}
+        />
+    );
+})}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='SliderInput'
+    version={version}
+    package='@alfalab/core-components-slider-input'
+    stage={1}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=719%3A1'
+/>
+
+```tsx
+import { SliderInput } from '@alfalab/core-components-slider-input';
+```
+
+Поле ввода, совмещенное со слайдером
+
+export const normalizeValue = (value, min, max) => {
+    return value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
+}
+
+<Preview>
+{React.createElement(() => {
+    const min = 36;
+    const max = 360;
+    const step = 1;
+    const [value, setValue] = React.useState('');
+    const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
+    return (
+        <SliderInput
+            value={value}
+            sliderValue={+value}
+            min={min}
+            max={max}
+            step={step}
+            onChange={handleChange}
+            block={true}
+            label='Оставшийся срок по кредиту'
+            steps={['36 мес', '180 мес', '360 мес']}
+        />
+    );
+})}
+</Preview>
+
+
+<Preview>
+{React.createElement(() => {
+    const min = 1;
+    const max = 5;
+    const step = 1;
+    const [value, setValue] = React.useState('');
+    const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
+    return (
+        <SliderInput
+            value={value}
+            min={min}
+            max={max}
+            step={step}
+            onChange={handleChange}
+            block={true}
+            label='Срок кредита'
+            steps={[
+                '1 год',
+                '2 года',
+                '3 года',
+                '4 года',
+                '5 лет',
+            ]}
+        />
+    );
+})}
+</Preview>
+
+<Preview>
+{React.createElement(() => {
+    const min = 1;
+    const max = 5;
+    const step = 1;
+    const [value, setValue] = React.useState('');
+    const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
+    return (
+        <SliderInput
+            value={value}
+            min={min}
+            max={max}
+            step={step}
+            onChange={handleChange}
+            block={true}
+            label='Срок кредита'
+            steps={[
+                <span style={{flexBasis: '10%'}}>1 год</span>,
+                <span style={{flexBasis: '20%'}}>2 года</span>,
+                <span style={{flexBasis: '30%'}}>3 года</span>,
+                <span style={{flexBasis: '40%'}}>4 года</span>,
+                <span style={{flexBasis: '10%'}}>5 лет</span>,
+            ]}
+        />
+    );
+})}
+</Preview>
+
+## AmountSliderInput
+
+<Preview>
+    {React.createElement(() => {
+        const min = 100000;
+        const max = 600000;
+        const step = 1000;
+        const [value, setValue] = React.useState('');
+        const handleInputChange = (event, { value }) => {
+            setValue(Math.round(+value / 100));
+        };
+        const handleSliderChange = (event, { value }) => {
+            setValue(value);
+        };
+        const handleBlur = () => {
+            if (value !== '') {
+                setValue(Math.max(min, Math.min(max, +value)));
+            }
+        }
+        return (
+            <SliderInput
+                value={value !== '' ? value * 100 : ''}
+                sliderValue={value}
+                onInputChange={handleInputChange}
+                onSliderChange={handleSliderChange}
+                onBlur={handleBlur}
+                min={min}
+                max={max}
+                step={step}
+                Input={AmountInput}
+                steps={['100 тыс.', '600 тыс.']}
+                label={'Сумма кредита'}
+            />
+        );
+    })}
+</Preview>
+
+
+<Preview>
+{React.createElement(() => {
+    const min = 100000;
+    const max = 22000000;
+    const step = 1000;
+    const [value, setValue] = React.useState('');
+    const handleInputChange = (event, { value }) => {
+        setValue(Math.round(+value / 100));
+    };
+    const handleSliderChange = (event, { value }) => {
+        setValue(value);
+    };
+    const handleBlur = () => {
+        if (value !== '') {
+            setValue(Math.max(min, Math.min(max, +value)));
+        }
+    }
+    return (
+        <SliderInput
+            value={value !== '' ? value * 100 : ''}
+            sliderValue={value}
+            onInputChange={handleInputChange}
+            onSliderChange={handleSliderChange}
+            onBlur={handleBlur}
+            min={min}
+            max={max}
+            step={step}
+            label='Первоначальный взнос'
+            Input={AmountInput}
+            size='l'
+            hint={
+                <span style={{ color: '#6D7986', fontSize: '14px', lineHeight: '18px' }}>
+                    Снизьте ставку 8,49% ➝ 6,19%, увеличив первоначальный взнос до 22 млн ₽
+                </span>
+            }
+        />
+    );
+})}
+</Preview>
+
+
+<Props of={SliderInput} />

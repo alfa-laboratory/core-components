@@ -5,6 +5,11 @@ import { LogoAlfabankMColorIcon } from '@alfalab/icons-classic';
 import { BankCard } from './index';
 
 describe('BankCard', () => {
+    const VISA_VALID_NUMBER = '4111111111111111';
+    const MC_VALID_NUMBER = '5500000000000004';
+    const MIR_VALID_NUMBER = '2201382000000013';
+    const MAESTRO_VALID_NUMBER = '6759649826438453';
+
     describe('Snapshots tests', () => {
         it('should match snapshots', () => {
             expect(render(<BankCard value='4111 1111 1111 1111' />).container).toMatchSnapshot();
@@ -25,7 +30,7 @@ describe('BankCard', () => {
         expect(inputRef.mock.calls[0][0].tagName).toBe('INPUT');
     });
 
-    it('should set `data-test-id` atribute to input', () => {
+    it('should set `data-test-id` attribute to input', () => {
         const dataTestId = 'test-id';
         const { getByTestId } = render(<BankCard dataTestId={dataTestId} />);
 
@@ -80,6 +85,46 @@ describe('BankCard', () => {
         const { getByTestId } = render(<BankCard bankLogo={logo} />);
 
         expect(getByTestId(dataTestId)).toBeTruthy();
+    });
+
+    it('should set correct brand logo when uncontrolled', () => {
+        const dataTestId = 'test-id';
+        const { getByTestId, container } = render(<BankCard dataTestId={dataTestId} />);
+
+        const input = getByTestId(dataTestId) as HTMLInputElement;
+
+        const updateValue = (value: string) => fireEvent.change(input, { target: { value } });
+        const brandLogoVisible = () => container.getElementsByClassName('brandLogo').length === 1;
+
+        expect(brandLogoVisible()).toBeFalsy();
+
+        [VISA_VALID_NUMBER, MC_VALID_NUMBER, MIR_VALID_NUMBER, MAESTRO_VALID_NUMBER].forEach(
+            (number: string) => {
+                updateValue(number);
+                expect(brandLogoVisible()).toBeTruthy();
+
+                updateValue('');
+                expect(brandLogoVisible()).toBeFalsy();
+            },
+        );
+    });
+
+    it('should set correct brand logo when controlled', () => {
+        const { container, rerender } = render(<BankCard />);
+
+        const brandLogoVisible = () => container.getElementsByClassName('brandLogo').length === 1;
+
+        expect(brandLogoVisible()).toBeFalsy();
+
+        [VISA_VALID_NUMBER, MC_VALID_NUMBER, MIR_VALID_NUMBER, MAESTRO_VALID_NUMBER].forEach(
+            (number: string) => {
+                rerender(<BankCard value={number} />);
+                expect(brandLogoVisible()).toBeTruthy();
+
+                rerender(<BankCard value='' />);
+                expect(brandLogoVisible()).toBeFalsy();
+            },
+        );
     });
 
     describe('Callbacks tests', () => {
