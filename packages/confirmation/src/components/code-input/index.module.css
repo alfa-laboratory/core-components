@@ -1,4 +1,3 @@
-@import '../../../../themes/src/default.css';
 @import '../../vars.css';
 
 .component {
@@ -6,10 +5,8 @@
 }
 
 .input {
-    @mixin promo_small;
-
     flex-shrink: 0;
-    width: 32px;
+    width: 36px;
     height: 48px;
     margin-right: var(--gap-xs);
     padding: 0;
@@ -20,6 +17,9 @@
     outline: none;
     color: var(--confirmation-input-text-color);
     text-align: center;
+    font-size: var(--confirmation-input-font-size);
+    font-weight: var(--confirmation-input-font-weight);
+    font-family: var(--confirmation-input-font-family);
 
     &:last-child {
         margin-right: var(--gap-xs);
@@ -28,5 +28,6 @@
     &.hasError {
         color: var(--confirmation-error-color);
         caret-color: var(--confirmation-input-text-color);
+        background-color: var(--confirmation-input-error-bg-color);
     }
 }

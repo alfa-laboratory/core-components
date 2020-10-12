@@ -1,8 +1,7 @@
-@import '../../../../themes/src/default.css';
 @import '../../vars.css';
 
 .component {
-    @mixin paragraph_primary_medium;
+    @mixin text;
 
     display: flex;
     flex-direction: column;
