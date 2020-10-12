@@ -120,6 +120,10 @@
     color: var(--textarea-focused-placeholder-color);
 }
 
+.focusVisible {
+    @mixin focus-outline;
+}
+
 /* FILLED STATE */
 
 .textarea.filled.hasLabel {
