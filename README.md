@@ -61,17 +61,17 @@ import { Button } from '@alfalab/core-components-button';
 
 #### Desktop
 
-* Chrome
-* Yandex
-* Firefox
-* Edge
-* IE 11+
-* Safari
+-   Chrome
+-   Yandex
+-   Firefox
+-   Edge
+-   IE 11+
+-   Safari
 
 #### Mobile
 
-* Android 5+
-* iOS
+-   Android 5+
+-   iOS
 
 ## Разработка
 
@@ -149,17 +149,51 @@ $ yarn cm # запустит утилиту commitizen для создания �
 $ git push
 ```
 
+## Сборка компонентов
+
+Компоненты поставляются в трех видах:
+
+1. `ES5`
+
+2. `ES5 с css-модулями`
+
+3. `ES2020`
+
+Импорт `ES5`:
+
+```tsx
+import { Button } from '@alfalab/core-components-button';
+// или
+import { Button } from '@alfalab/core-components/button';
+```
+
+Импорт `ES5` с css-модулями:
+
+```tsx
+import { Button } from '@alfalab/core-components-button/dist/cssm';
+// или
+import { Button } from '@alfalab/core-components/button/cssm';
+```
+
+Импорт `ES2020`:
+
+```tsx
+import { Button } from '@alfalab/core-components-button/dist/modern';
+// или
+import { Button } from '@alfalab/core-components/button/modern';
+```
+
 ## Правила контрибьютинга
 
 Мы открыты к любым предложениям по развитию библиотеки.
 Отправляйте свои идеи и вопросы через [pull requests](https://github.com/alfa-laboratory/core-components/pulls) или [issues](https://github.com/alfa-laboratory/core-components/issues).
 
-- Уважаем тех, кто видит проблему и кидает PR.
-- Не знаете что делать – можно брать любую задачу без Assignee, назначив её на себя.
-- Знаете что делать и есть возможность – кидайте PR.
-- Знаете что делать, но нет времени – добавьте задачу (issue).
+-   Уважаем тех, кто видит проблему и кидает PR.
+-   Не знаете что делать – можно брать любую задачу без Assignee, назначив её на себя.
+-   Знаете что делать и есть возможность – кидайте PR.
+-   Знаете что делать, но нет времени – добавьте задачу (issue).
 
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
 
 ## Мейнтейнеры
 

@@ -9,12 +9,11 @@ describe('FormControl', () => {
             expect(render(<FormControl />)).toMatchSnapshot();
         });
 
-        it('should forward ref to FormControl', () => {
+        it('should forward ref to control wrapper', () => {
             const ref = jest.fn();
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(<FormControl ref={ref} dataTestId={dataTestId} />);
+            render(<FormControl ref={ref} />);
 
-            expect(ref.mock.calls).toEqual([[getByTestId(dataTestId)]]);
+            expect(ref.mock.calls[0][0].className).toBe('inner');
         });
 
         it('should render label', () => {
@@ -70,7 +69,7 @@ describe('FormControl', () => {
             const className = 'test-class';
             const { container } = render(<FormControl labelClassName={className} label='label' />);
 
-            expect(container.getElementsByClassName(className)).toBeTruthy();
+            expect(container.getElementsByClassName(className).length).toBe(1);
         });
 
         it('should set `size` class', () => {
