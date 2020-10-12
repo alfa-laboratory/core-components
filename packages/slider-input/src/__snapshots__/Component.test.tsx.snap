@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SliderInput should match snapshot 1`] = `
+<div>
+  <div
+    class="component s"
+  >
+    <div
+      class="component s block formControl"
+    >
+      <div
+        class="inner"
+      >
+        <div
+          class="inputWrapper"
+        >
+          <div
+            class="input"
+          >
+            <input
+              class="input"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="component slider"
+      >
+        <div
+          class="rangeWrapper"
+        >
+          <input
+            class="range"
+            max="100"
+            min="0"
+            step="1"
+            type="range"
+            value="0"
+          />
+        </div>
+        <progress
+          class="progress"
+          max="100"
+          value="0"
+        />
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
