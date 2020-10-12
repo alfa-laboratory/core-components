@@ -1,7 +1,5 @@
 @import '../../../../themes/src/default.css';
 
-/* TODO: при ховере стрелка меняет цвет */
-
 .arrow {
     display: block;
     width: 24px;
@@ -9,6 +7,11 @@
 
     background: var(--select-arrow-background);
     background-size: cover;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+        opacity: var(--select-arrow-hover-opacity);
+    }
 }
 
 .open {
