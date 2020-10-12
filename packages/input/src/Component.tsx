@@ -100,6 +100,16 @@ export type InputProps = Omit<
     labelClassName?: string;
 
     /**
+     * Класс, который будет установлен при фокусе
+     */
+    focusedClassName?: string;
+
+    /**
+     * Класс, который будет установлен, если в поле есть значение
+     */
+    filledClassName?: string;
+
+    /**
      * Обработчик поля ввода
      */
     onChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: string }) => void;
@@ -130,6 +140,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             hint,
             inputClassName,
             labelClassName,
+            focusedClassName,
+            filledClassName,
             label,
             leftAddons,
             onFocus,
@@ -248,7 +260,15 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         return (
             <FormControl
                 ref={wrapperRef}
-                className={cn(styles.formControl, className, { [styles.disabled]: disabled })}
+                className={cn(
+                    styles.formControl,
+                    className,
+                    focused && focusedClassName,
+                    filled && filledClassName,
+                    {
+                        [styles.disabled]: disabled,
+                    },
+                )}
                 labelClassName={labelClassName}
                 size={size}
                 block={block}

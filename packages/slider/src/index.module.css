@@ -1,0 +1,143 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --slider-thumb-color: var(--color-red-brand);
+    --slider-progress-color: var(--color-red-dark);
+    --slider-thumb-size: 18px;
+    --slider-progress-height: 2px;
+    --slider-progress-background: transparent;
+}
+
+/* Не работают префиксные селекторы через запятую - пришлось вынести в миксины */
+@define-mixin _slider-range {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    margin: 0;
+    display: block;
+    width: 100%;
+    height: var(--slider-thumb-size);
+    box-sizing: border-box;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+@define-mixin _slider-thumb {
+    width: var(--slider-thumb-size);
+    height: var(--slider-thumb-size);
+    border: 0;
+    appearance: none;
+    background: var(--slider-thumb-color);
+    border-radius: 50%;
+    box-shadow: 0 2px 10px color-mod(var(--slider-thumb-color) alpha(30%));
+    cursor: grab;
+}
+
+.component {
+    position: relative;
+    width: 100%;
+    height: var(--slider-thumb-size);
+    box-sizing: border-box;
+}
+
+.progress {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    transform: translateY(-50%);
+    display: block;
+    width: 100%;
+    height: var(--slider-progress-height);
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: var(--slider-progress-background);
+}
+
+.progress::-moz-progress-bar {
+    background: var(--slider-progress-color);
+}
+
+.progress::-ms-fill {
+    background: var(--slider-progress-color);
+}
+
+.progress::-webkit-progress-value {
+    background: var(--slider-progress-color);
+}
+
+.progress::-webkit-progress-bar {
+    background: transparent;
+}
+
+.rangeWrapper {
+    position: absolute;
+    top: 0;
+    right: calc(var(--slider-thumb-size) / 2 * -1);
+    left: calc(var(--slider-thumb-size) / 2 * -1);
+}
+
+.range,
+.range:focus {
+    @mixin _slider-range;
+}
+
+.range::-ms-track {
+    @mixin _slider-range;
+}
+
+.range:disabled {
+    cursor: default;
+}
+
+.range::-moz-focus-outer {
+    border: 0;
+}
+
+.range::-webkit-slider-runnable-track,
+.range::-moz-range-track {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.range::-ms-tooltip {
+    display: none;
+}
+
+.range:focus {
+    outline: none;
+}
+
+.range::-webkit-slider-thumb {
+    @mixin _slider-thumb;
+}
+
+.range::-ms-thumb {
+    @mixin _slider-thumb;
+}
+
+.range::-moz-range-thumb {
+    @mixin _slider-thumb;
+}
+
+.focused::-webkit-slider-thumb {
+    @mixin focus-outline;
+}
+
+.focused::-ms-thumb {
+    @mixin focus-outline;
+}
+
+.range:active::-webkit-slider-thumb {
+    cursor: grabbing;
+}
+
+.range:active::-ms-thumb {
+    cursor: grabbing;
+}
+
+.range:active::-moz-range-thumb {
+    cursor: grabbing;
+}

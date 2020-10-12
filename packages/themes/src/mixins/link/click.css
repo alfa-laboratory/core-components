@@ -1,24 +1,20 @@
-@import '../../../../vars/src/colors-indigo.css';
+@import '../../../../vars/src/index.css';
 
 @define-mixin link-click {
-    /* primary */
-    --link-primary-hover-color: #546272;
-    --link-primary-active-color: #858f9a;
+    /* core vars */
+    --color-light-text-primary: #0b1f35;
+    --color-light-text-secondary: #6d7986;
+    --color-light-text-link: #007aff;
 
-    /* TODO --link-primary-hover-color: color-mod(var(--color-light-text-primary) tint(30%));
-    --link-primary-active-color: color-mod(var(--color-light-text-primary) tint(50%)); */
+    /* primary */
+    --link-primary-hover-color: color-mod(var(--color-light-text-primary) tint(30%));
+    --link-primary-active-color: color-mod(var(--color-light-text-primary) tint(50%));
 
     /* secondary */
-    --link-secondary-hover-color: #99a1aa;
-    --link-secondary-active-color: #b6bcc3;
-
-    /* TODO --link-secondary-hover-color: color-mod(var(--color-light-text-secondary) tint(30%));
-    --link-secondary-active-color: color-mod(var(--color-light-text-secondary) tint(50%)); */
+    --link-secondary-hover-color: color-mod(var(--color-light-text-secondary) tint(30%));
+    --link-secondary-active-color: color-mod(var(--color-light-text-secondary) tint(50%));
 
     /* default */
-    --link-default-hover-color: #4da2ff;
-    --link-default-active-color: #80bdff;
-
-    /* TODO --link-default-hover-color: color-mod(--color-light-text-link) tint(30%));
-    --link-default-active-color: color-mod(--color-light-text-link) tint(50%)); */
+    --link-default-hover-color: color-mod(var(--color-light-text-link) tint(30%));
+    --link-default-active-color: color-mod(var(--color-light-text-link) tint(50%));
 }

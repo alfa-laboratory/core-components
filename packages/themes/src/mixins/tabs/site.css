@@ -1,3 +1,5 @@
+@import '../../../../vars/src/index.css';
+
 @define-mixin tabs-site {
     /* core vars */
     --gap-4xl: 48px;
