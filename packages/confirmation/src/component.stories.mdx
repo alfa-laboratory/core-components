@@ -38,7 +38,7 @@ import { Select } from '../../select/src/Component';
                 } else if (variant === 'fatal') {
                     setError({...error, 'fatal': 'Выполните операцию с самого начала'});
                 }
-            }, 1500);
+            }, 1000);
         }
         const handleSmsRetryClick = (variant) => {
             setCodeSending({...codeSending, [variant]: true});
@@ -46,11 +46,11 @@ import { Select } from '../../select/src/Component';
             setCode(variant, '')
             setTimeout(() => {
                 setCodeSending({...codeSending, [variant]: false});
-            }, 1500);
+            }, 1000);
         }
         const alignContent = select('alignContent', ['center', 'left'], 'center');
         const phone = '+7 000 000 00 42';
-        const countdownDuration = 60000;
+        const countdownDuration = 30000;
         const requiredCharAmount = number('requiredCharAmount', 5);
         return (
             <div>
