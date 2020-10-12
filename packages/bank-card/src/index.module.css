@@ -18,11 +18,6 @@
     max-width: 343px;
 
     font-family: var(--font-family-styrene);
-
-    &:not(.focused):not(.filled) .label {
-        color: var(--color-black-60);
-        transform: translateY(12px);
-    }
 }
 
 .aspectRatioContainer {
@@ -45,13 +40,15 @@
 }
 
 .label {
-    color: var(--color-black);
     left: 0;
     top: -4px;
+    transform: translateY(12px);
+    color: var(--color-black-60);
 }
 
 .focused .label,
 .filled .label {
+    color: var(--color-black);
     font-size: 16px;
     transform: translateY(-16px) scale(0.75);
 }

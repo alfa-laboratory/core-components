@@ -1,4 +1,4 @@
-import React, { useCallback, MouseEvent, ReactNode, useState, ChangeEvent } from 'react';
+import React, { useCallback, MouseEvent, ReactNode, useState, ChangeEvent, useEffect } from 'react';
 import cn from 'classnames';
 import { MaskedInput } from '@alfalab/core-components-masked-input';
 // Дождаться иконку альфы в icons-logotype
@@ -40,7 +40,7 @@ export type BankCardProps = {
     /**
      * Обработчик ввода
      */
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (event: ChangeEvent<HTMLInputElement>, payload: { value: string }) => void;
 
     /**
      * Обработчик вызова камеры
@@ -60,7 +60,7 @@ const accountNumberMask = [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, 
 
 const getBrandIcon = (value = '') => {
     // Показываем логотип только после ввода всех цифр карты
-    if (value.length === cardMask.length && validateCardNumber(value)) {
+    if (value.replace(/\s/g, '').length === 16 && validateCardNumber(value)) {
         if (value.startsWith('2')) return <MirXxlIcon />;
         if (value.startsWith('4')) return <VisaXxlIcon />;
         if (value.startsWith('5')) return <MastercardLIcon />;
@@ -83,8 +83,7 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
         },
         ref,
     ) => {
-        const [focused, setFocused] = useState(false);
-        const [filled, setFilled] = useState(value !== undefined && value !== '');
+        const uncontrolled = value === undefined;
 
         const [brandIcon, setBrandIcon] = useState<ReactNode>(getBrandIcon(value));
 
@@ -95,41 +94,33 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
         );
 
         const handleInputChange = useCallback(
-            (event: ChangeEvent<HTMLInputElement>) => {
-                setFilled(event.target.value !== '');
-
-                setBrandIcon(getBrandIcon(event.target.value));
+            (event: ChangeEvent<HTMLInputElement>, payload) => {
+                if (uncontrolled) {
+                    setBrandIcon(getBrandIcon(event.target.value));
+                }
 
                 if (onChange) {
-                    onChange(event);
+                    onChange(event, payload);
                 }
             },
-            [onChange],
+            [onChange, uncontrolled],
         );
 
-        const handleInputFocus = useCallback(() => {
-            setFocused(true);
-        }, []);
-
-        const handleInputBlur = useCallback(() => {
-            setFocused(false);
-        }, []);
-
-        const renderRightAddons = useCallback(() => {
-            return (
+        const renderRightAddons = useCallback(
+            () => (
                 <button type='button' className={styles.usePhoto} onClick={onUsePhoto}>
                     <CameraMIcon />
                 </button>
-            );
-        }, [onUsePhoto]);
+            ),
+            [onUsePhoto],
+        );
+
+        useEffect(() => {
+            setBrandIcon(getBrandIcon(value));
+        }, [value]);
 
         return (
-            <div
-                className={cn(styles.component, className, {
-                    [styles.focused]: focused,
-                    [styles.filled]: filled,
-                })}
-            >
+            <div className={cn(styles.component, className)}>
                 <div className={styles.aspectRatioContainer}>
                     <div className={styles.content} style={{ backgroundColor }}>
                         <div className={styles.bankLogo}>{bankLogo}</div>
@@ -143,9 +134,9 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
                             rightAddons={renderRightAddons()}
                             inputClassName={styles.input}
                             labelClassName={styles.label}
+                            filledClassName={styles.filled}
+                            focusedClassName={styles.focused}
                             onChange={handleInputChange}
-                            onFocus={handleInputFocus}
-                            onBlur={handleInputBlur}
                             dataTestId={dataTestId}
                             inputMode='numeric'
                             pattern='[0-9]*'
