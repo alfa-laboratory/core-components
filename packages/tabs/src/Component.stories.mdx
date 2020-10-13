@@ -123,12 +123,14 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
 <ComponentHeader
     name='Tabs'
     version={version}
-    package='@alfalab/core-components-link'
+    package='@alfalab/core-components-tabs'
     stage={2}
 />
 
 ```tsx
-import { Link } from '@alfalab/core-components-tabs';
+import { TabsDesktop, Tab } from '@alfalab/core-components-tabs/desktop';
+import { TabsMobile, Tab } from '@alfalab/core-components-tabs/mobile';
+import { TabsResponsive, Tab } from '@alfalab/core-components-tabs/responsive';
 ```
 
 Компоненты для построения табов.
