@@ -129,7 +129,9 @@ export const Countdown: FC<CountdownProps> = ({
                     <div className={styles.loaderWrap}>
                         <CountdownLoader progress={progress} className={styles.loader} />
 
-                        {formatMsAsMinutes(duration - timePassed)}
+                        <div className={styles.timePassed}>
+                            {formatMsAsMinutes(duration - timePassed)}
+                        </div>
                     </div>
                 </div>
             )}

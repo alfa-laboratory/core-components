@@ -26,3 +26,8 @@
         justify-content: center;
     }
 }
+
+.timePassed {
+    display: flex;
+    min-width: 3em;
+}
