@@ -1,0 +1,46 @@
+@import '../../vars/src';
+
+:root {
+    --list-marker-color: var(--color-light-text-primary);
+    --list-item-margin: var(--gap-s);
+}
+
+.list {
+    margin: 0;
+    padding: 0;
+    color: var(--list-marker-color);
+
+    @mixin paragraph_primary_medium;
+}
+
+.orderedList {
+    padding-left: var(--gap-l);
+}
+
+.lowerAlpha {
+    list-style-type: lower-alpha;
+}
+
+.decimal {
+    list-style-type: decimal;
+}
+
+.item {
+    margin-top: var(--list-item-margin);
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+.unorderedItem {
+    display: flex;
+}
+
+.orderedItem {
+    padding-left: var(--gap-2xs);
+}
+
+.slot {
+    margin-right: var(--gap-xs);
+}
