@@ -23,6 +23,7 @@ export const AutocompleteField = ({
     <Input
         {...innerProps}
         {...inputProps}
+        wrapperRef={innerProps.ref}
         disabled={disabled}
         block={true}
         label={label}
