@@ -221,6 +221,7 @@ export const BaseSelect = forwardRef(
                         item: option,
                         disabled: option.disabled,
                     })}
+                    key={option.value}
                     index={index}
                     option={option}
                     size={size}
