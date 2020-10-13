@@ -83,6 +83,6 @@
     color: var(--color-dark-indigo-30-flat);
 }
 
-.focusVisible {
+.focusVisible > div:first-child {
     @mixin focus-outline;
 }
