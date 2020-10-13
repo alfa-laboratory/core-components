@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withSuffix Snapshots tests should match snapshot 1`] = `
+<div>
+  <div
+    class="component s filled formControl suffixVisible hasSuffix"
+  >
+    <div
+      class="inner"
+    >
+      <div
+        class="inputWrapper"
+      >
+        <div
+          class="input"
+        >
+          <input
+            class="input"
+            type="text"
+            value="10"
+          />
+          <div
+            class="suffixContainer"
+          >
+            <span
+              class="spacer"
+            >
+              10
+            </span>
+            <div
+              class="suffix"
+            >
+               лет
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+`;
