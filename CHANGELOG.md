@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/alfa-laboratory/core-components/compare/v2.2.0...v3.0.0) (2020-10-13)
+
+
+### Features
+
+* **core-components-bank-card:** change caret color ([1b69839](https://github.com/alfa-laboratory/core-components/commit/1b698399bbcb3afaea80e81f0cbfa9d3d13074ff))
+* **core-components-confirmation:** fixes ([#311](https://github.com/alfa-laboratory/core-components/issues/311)) ([e56a137](https://github.com/alfa-laboratory/core-components/commit/e56a137a62e78e56ac63f3d701660fc8a7c5658a))
+* **core-components-input:** add filled and focused classNames ([ebaac73](https://github.com/alfa-laboratory/core-components/commit/ebaac73103caf4601e8df7302af14f79f8a096d1))
+* **core-components-input:** updated input click theme ([#315](https://github.com/alfa-laboratory/core-components/issues/315)) ([69e6f81](https://github.com/alfa-laboratory/core-components/commit/69e6f81cc85fac5f5c988e2e409b82ad25ef8a6f))
+* **core-components-list:** adds a new component ([#296](https://github.com/alfa-laboratory/core-components/issues/296)) ([7d5a93d](https://github.com/alfa-laboratory/core-components/commit/7d5a93d8318a71d61da91c0bf1a2f88896242fee))
+* **core-components-select:** show error icon and arrow both ([#299](https://github.com/alfa-laboratory/core-components/issues/299)) ([b563989](https://github.com/alfa-laboratory/core-components/commit/b563989a57bf64a9450915d0d0d73687f5358d06))
+* **core-components-slider:** add component ([#285](https://github.com/alfa-laboratory/core-components/issues/285)) ([57a645e](https://github.com/alfa-laboratory/core-components/commit/57a645e735af3218b77c92ce8a66b7efc64f53ad))
+* **core-components-slider-input:** add component  ([#288](https://github.com/alfa-laboratory/core-components/issues/288)) ([901df73](https://github.com/alfa-laboratory/core-components/commit/901df73692bf019a06db7d6d056f2cb6ee9e5f8d)), closes [#294](https://github.com/alfa-laboratory/core-components/issues/294)
+* **core-components-vars:** update primitives ([#291](https://github.com/alfa-laboratory/core-components/issues/291)) ([d995190](https://github.com/alfa-laboratory/core-components/commit/d9951902b1d9325e7e7a88e302d23eafd2705643))
+* **core-components-vars:** updated colors addons ([5206618](https://github.com/alfa-laboratory/core-components/commit/5206618ffa8ad9a441120b871e8950196ed6540f))
+* **core-components-with-suffix:** add hoc ([7055c98](https://github.com/alfa-laboratory/core-components/commit/7055c98ca5c1c6dda33323522c5168bc6657850b))
+* **core-components-with-suffix:** add hoc ([#301](https://github.com/alfa-laboratory/core-components/issues/301)) ([df9b797](https://github.com/alfa-laboratory/core-components/commit/df9b79781d3f831360a71dbc0816f795b95e288f))
+
+
+### Bug Fixes
+
+* **core-components-bank-card:** deleting issue, add useCallback ([#309](https://github.com/alfa-laboratory/core-components/issues/309)) ([5f768bd](https://github.com/alfa-laboratory/core-components/commit/5f768bd3b0242d4f0adae25c33b8c38575bfedef))
+* **core-components-button:** add text align ([#306](https://github.com/alfa-laboratory/core-components/issues/306)) ([a60a4dc](https://github.com/alfa-laboratory/core-components/commit/a60a4dcb7f7280c6c4e4628deb48456fde3c6171))
+* **core-components-button:** fixed primary button background color ([874e203](https://github.com/alfa-laboratory/core-components/commit/874e20336bea6500c75b207bf2cc14262bb878ff))
+* **core-components-tabs:** fix styles build ([#310](https://github.com/alfa-laboratory/core-components/issues/310)) ([d05a0ef](https://github.com/alfa-laboratory/core-components/commit/d05a0ef86880903e3e33703ef245655cf11e66e7)), closes [#314](https://github.com/alfa-laboratory/core-components/issues/314)
+* **core-components-themes:** add all vars import ([6d50c3e](https://github.com/alfa-laboratory/core-components/commit/6d50c3e089f0e31721adaaf0b56b741b8dec6a7a))
+* **core-components-themes:** process color-mod, fix vars ([5d77f9b](https://github.com/alfa-laboratory/core-components/commit/5d77f9be7766f13ac100130a2ff95f6735fe05d9))
+* **core-components-with-suffix:** add text styles ([b4dbabe](https://github.com/alfa-laboratory/core-components/commit/b4dbabe06b4af072b9cb8e05d54861a587c3f41a))
+* **core-components-with-suffix:** fix stories ([6226300](https://github.com/alfa-laboratory/core-components/commit/6226300716354fef9f01d2fa40dbf294d47aa5ba))
+
 ## [2.2.0](https://github.com/alfa-laboratory/core-components/compare/v2.1.0...v2.2.0) (2020-09-25)
 
 
