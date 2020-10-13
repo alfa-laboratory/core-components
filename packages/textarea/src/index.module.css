@@ -120,7 +120,7 @@
     color: var(--textarea-focused-placeholder-color);
 }
 
-.focusVisible {
+.focusVisible > div:first-child {
     @mixin focus-outline;
 }
 
