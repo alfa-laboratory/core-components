@@ -9,5 +9,5 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../input" }, { "path": "../with-suffix" }]
+    "references": [{ "path": "../slider" }, { "path": "../input" }]
 }

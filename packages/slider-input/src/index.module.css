@@ -1,0 +1,62 @@
+@import '../../themes/src/default.css';
+
+.component {
+    position: relative;
+    display: inline-block;
+}
+
+.block {
+    display: block;
+}
+
+.slider {
+    margin-top: calc(var(--slider-thumb-size) / 2 * -1 - 1px);
+    position: absolute;
+
+    & + * {
+        margin-top: var(--gap-xs);
+    }
+}
+
+.steps {
+    @mixin system_14-18_regular;
+
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--gap-xs);
+    color: var(--color-light-text-secondary);
+}
+
+.info {
+    @mixin system_16-20_regular;
+
+    color: var(--color-light-text-secondary);
+    box-sizing: border-box;
+    opacity: 0;
+    transition: 0.2s ease;
+    visibility: hidden;
+}
+
+.s.hasLabel .info {
+    padding: var(--form-control-labeled-s-paddings);
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.m.hasLabel .info {
+    padding: var(--form-control-labeled-m-paddings);
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.l.hasLabel .info {
+    padding: var(--form-control-labeled-l-paddings);
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.focused .info,
+.filled .info {
+    visibility: visible;
+    opacity: 1;
+}
