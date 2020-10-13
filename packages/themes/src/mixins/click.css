@@ -5,6 +5,7 @@
 @import './tabs/click.css';
 @import './tag/click.css';
 @import './link/click.css';
+@import './select/click.css';
 @import './confirmation/click.css';
 
 @define-mixin theme-click {
@@ -15,5 +16,6 @@
     @mixin tabs-click;
     @mixin tag-click;
     @mixin link-click;
+    @mixin select-click;
     @mixin confirmation-click;
 }

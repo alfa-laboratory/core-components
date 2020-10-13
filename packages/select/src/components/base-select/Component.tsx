@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { Popover } from '@alfalab/core-components-popover';
 import { useMultipleSelection, useCombobox, UseMultipleSelectionProps } from 'downshift';
 import { NativeSelect } from '../native-select';
-import { BaseSelectProps, OptionProps, OptionShape } from '../../typings';
+import { BaseSelectProps, OptionShape } from '../../typings';
 
 import styles from './index.module.css';
 import { isGroup } from '../../utils';
@@ -22,12 +22,12 @@ export const BaseSelect = forwardRef(
             closeOnSelect = !multiple,
             circularNavigation = false,
             nativeSelect = false,
-            popoverOffset = 4,
             name,
             id,
             selected,
             size = 's',
             error,
+            hint,
             block,
             label,
             placeholder,
@@ -46,10 +46,6 @@ export const BaseSelect = forwardRef(
         const fieldRef = useRef<HTMLInputElement>(null);
 
         const getPortalContainer = () => optionsListRef.current as HTMLDivElement;
-
-        const getPopoverOffset = useMemo((): [number, number] => [0, popoverOffset], [
-            popoverOffset,
-        ]);
 
         const itemToString = (option: OptionShape) =>
             option ? option.text || option.value.toString() : '';
@@ -103,6 +99,7 @@ export const BaseSelect = forwardRef(
             getLabelProps,
             highlightedIndex,
             toggleMenu,
+            closeMenu,
             openMenu,
         } = useCombobox<OptionShape>({
             id,
@@ -177,15 +174,19 @@ export const BaseSelect = forwardRef(
 
             if ([' ', 'Enter'].includes(event.key) && !autocomplete && !nativeSelect) {
                 // Открываем\закрываем меню по нажатию enter или пробела
+                event.preventDefault();
                 if (!open || highlightedIndex === -1) toggleMenu();
             }
         };
 
-        const handleFieldWrapperMouseDown = (event: MouseEvent<HTMLDivElement>) => {
-            if (!nativeSelect) event.preventDefault();
+        const handleFieldWrapperMouseDown = () => {
+            if (open) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
 
-            toggleMenu();
-            if (fieldRef.current) fieldRef.current.focus();
+            if (!autocomplete && fieldRef.current) fieldRef.current.focus();
         };
 
         const fieldWrapperProps = {
@@ -212,26 +213,23 @@ export const BaseSelect = forwardRef(
         );
 
         const WrappedOption = useCallback(
-            ({ option, index, ...rest }: Pick<OptionProps, 'option' | 'index'>) => (
-                <div
+            ({ option, index, ...rest }: { option: OptionShape; index: number }) => (
+                <Option
+                    {...rest}
                     {...getItemProps({
                         index,
                         item: option,
-                        key: option.value,
                         disabled: option.disabled,
-                        onMouseDown: e => e.preventDefault(),
                     })}
-                >
-                    <Option
-                        {...rest}
-                        option={option}
-                        index={index}
-                        size={size}
-                        disabled={option.disabled}
-                        highlighted={index === highlightedIndex}
-                        selected={selectedItems.includes(option)}
-                    />
-                </div>
+                    key={option.value}
+                    index={index}
+                    option={option}
+                    size={size}
+                    disabled={option.disabled}
+                    highlighted={index === highlightedIndex}
+                    selected={selectedItems.includes(option)}
+                    onMouseDown={(event: MouseEvent) => event.preventDefault()}
+                />
             ),
             [getItemProps, highlightedIndex, selectedItems, size],
         );
@@ -283,6 +281,7 @@ export const BaseSelect = forwardRef(
                         label={label && <span {...getLabelProps()}>{label}</span>}
                         Arrow={Arrow && <Arrow open={open} />}
                         error={error}
+                        hint={hint}
                         innerProps={{
                             tabIndex: nativeSelect ? -1 : 0,
                             ref: inputProps.ref,
@@ -297,8 +296,6 @@ export const BaseSelect = forwardRef(
                     />
                 </div>
 
-                {error && <div className={cn(styles.error)}>{error}</div>}
-
                 {name && !nativeSelect && renderValue()}
 
                 {!nativeSelect && (
@@ -310,12 +307,12 @@ export const BaseSelect = forwardRef(
                             position='bottom-start'
                             getPortalContainer={getPortalContainer}
                             popperClassName={styles.popover}
-                            offset={getPopoverOffset}
                         >
                             <OptionsList
                                 flatOptions={flatOptions}
                                 highlightedIndex={highlightedIndex}
                                 open={open}
+                                size={size}
                                 options={options}
                                 Optgroup={Optgroup}
                                 Option={WrappedOption}

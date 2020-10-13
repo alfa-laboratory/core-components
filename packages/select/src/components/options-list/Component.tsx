@@ -22,23 +22,17 @@ export const OptionsList = ({
 
     const renderGroup = useCallback(
         (group: GroupShape) => (
-            <Optgroup label={group.label} key={group.label}>
-                {group.options.map(option => (
-                    <Option option={option} key={option.value} index={counter()} />
-                ))}
+            <Optgroup label={group.label} key={group.label} size={size}>
+                {group.options.map(option => Option({ option, index: counter() }))}
             </Optgroup>
         ),
-        [counter],
+        [Option, counter, size],
     );
 
     return options.length > 0 ? (
         <div className={cn(styles.optionsList, styles[size])}>
             {options.map(option =>
-                isGroup(option) ? (
-                    renderGroup(option)
-                ) : (
-                    <Option option={option} key={option.value} index={counter()} />
-                ),
+                isGroup(option) ? renderGroup(option) : Option({ option, index: counter() }),
             )}
         </div>
     ) : null;

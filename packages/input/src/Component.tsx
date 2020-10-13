@@ -68,7 +68,7 @@ export type InputProps = Omit<
     /**
      * Ref для обертки input
      */
-    wrapperRef?: React.MutableRefObject<HTMLDivElement | null>;
+    wrapperRef?: React.Ref<HTMLDivElement | null>;
 
     /**
      * Слот слева
