@@ -1,9 +1,9 @@
 import cn from 'classnames';
-import React, { useState, useEffect, useCallback, forwardRef } from 'react';
+import React, { useState, useEffect, useCallback, forwardRef, Fragment } from 'react';
 import { Input, InputProps } from '@alfalab/core-components-input';
-import { FormControl } from '@alfalab/core-components-form-control';
 import { THINSP, formatAmount, getCurrencySymbol } from '@alfalab/utils';
 import { CurrencyCodes } from '@alfalab/data';
+import { withSuffix } from '@alfalab/core-components-with-suffix';
 import { getFormatedValue, getAmountValueFromStr } from './utils';
 
 import styles from './index.module.css';
@@ -50,6 +50,11 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
 };
 
 /**
+ * Инпут, позволяющий закрепить значок валюты
+ */
+const SuffixInput = withSuffix(Input);
+
+/**
  * Компонент для ввода денежных значений
  */
 export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
@@ -72,7 +77,6 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         },
         ref,
     ) => {
-        const [focused, setFocused] = useState(false);
         const [inputValue, setInputValue] = useState<string>(
             formatAmount({
                 // TODO: поддержать nullable в utils
@@ -81,7 +85,6 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                 minority,
             }).formated,
         );
-        const filled = Boolean(inputValue || focused);
 
         const currencySymbol = getCurrencySymbol(currency);
 
@@ -157,28 +160,6 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             }
         };
 
-        const handleInputFocus = useCallback(
-            (event: React.FocusEvent<HTMLInputElement>) => {
-                setFocused(true);
-
-                if (onFocus) {
-                    onFocus(event);
-                }
-            },
-            [onFocus],
-        );
-
-        const handleInputBlur = useCallback(
-            (event: React.FocusEvent<HTMLInputElement>) => {
-                setFocused(false);
-
-                if (onBlur) {
-                    onBlur(event);
-                }
-            },
-            [onBlur],
-        );
-
         const handleClear = useCallback(
             (event: React.MouseEvent<HTMLButtonElement>) => {
                 setInputValue('');
@@ -196,29 +177,23 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             <div
                 className={cn(styles.container, {
                     [styles.bold]: bold,
-                    [styles.focused]: focused,
-                    [styles.filled]: filled,
+                    [styles.filled]: Boolean(inputValue),
                 })}
             >
-                <FormControl
+                <SuffixInput
                     {...restProps}
-                    className={cn(styles.fakeValueWithCurrencyContainer)}
-                    focused={focused}
-                    filled={filled}
-                >
-                    <div>
-                        <span className={styles.majorPart}>{majorPart}</span>
+                    suffix={
+                        <Fragment>
+                            {majorPart}
 
-                        <span className={styles.minorPartAndCurrency}>
-                            {minorPart !== undefined && `,${minorPart}`}
-                            {THINSP}
-                            {currencySymbol}
-                        </span>
-                    </div>
-                </FormControl>
-
-                <Input
-                    {...restProps}
+                            <span className={styles.minorPartAndCurrency}>
+                                {minorPart !== undefined && `,${minorPart}`}
+                                {THINSP}
+                                {currencySymbol}
+                            </span>
+                        </Fragment>
+                    }
+                    suffixContainerClassName={styles.suffixContainer}
                     clear={clear}
                     placeholder={placeholder}
                     value={inputValue}
@@ -226,8 +201,6 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     focusedClassName={focusedClassName}
                     inputClassName={styles.input}
                     onChange={handleChange}
-                    onFocus={handleInputFocus}
-                    onBlur={handleInputBlur}
                     onClear={handleClear}
                     dataTestId={dataTestId}
                     ref={ref}
