@@ -33,3 +33,7 @@
 .disabled {
     cursor: default;
 }
+
+.focusVisible > div:first-child {
+    @mixin focus-outline;
+}
