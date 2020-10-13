@@ -31,3 +31,25 @@
         background-color: var(--confirmation-input-error-bg-color);
     }
 }
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-2px);
+    }
+
+    75% {
+        transform: translateX(2px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.shake {
+    animation: shake 0.15s linear 0s 3;
+}

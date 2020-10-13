@@ -192,7 +192,11 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
         }, [value.length, prevValue.length, slotsCount, focus]);
 
         return (
-            <div className={cn(styles.component, className)}>
+            <div
+                className={cn(styles.component, className, {
+                    [styles.shake]: Boolean(error),
+                })}
+            >
                 {new Array(slotsCount).fill('').map((_, index) => (
                     <Input
                         value={value}
