@@ -6,7 +6,7 @@
 }
 
 .header {
-    @mixin title;
+    @mixin _confirmation-title;
 
     margin-bottom: var(--gap-2xl);
     color: var(--confirmation-title-color);
@@ -27,11 +27,11 @@
 }
 
 .smsComeLink {
-    @mixin text;
+    @mixin _confirmation-text;
 }
 
 .error {
-    @mixin text;
+    @mixin _confirmation-text;
 
     margin-top: var(--gap-s);
     color: var(--confirmation-error-color);
@@ -43,7 +43,7 @@
 }
 
 .loaderText {
-    @mixin text;
+    @mixin _confirmation-text;
 
     margin-left: var(--gap-s);
     color: var(--confirmation-text-color);

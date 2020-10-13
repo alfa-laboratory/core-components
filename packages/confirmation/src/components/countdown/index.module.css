@@ -1,7 +1,7 @@
 @import '../../vars.css';
 
 .component {
-    @mixin text;
+    @mixin _confirmation-text;
 
     display: flex;
     flex-direction: column;

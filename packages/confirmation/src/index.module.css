@@ -13,14 +13,14 @@
 }
 
 .errorHeader {
-    @mixin title;
+    @mixin _confirmation-title;
 
     margin-bottom: var(--gap-2xl);
     color: var(--confirmation-title-color);
 }
 
 .errorText {
-    @mixin text;
+    @mixin _confirmation-text;
 
     margin-bottom: var(--gap-2xl);
     color: var(--confirmation-text-color);
@@ -32,14 +32,14 @@
 }
 
 .phoneHintText {
-    @mixin text;
+    @mixin _confirmation-text;
 
     margin-bottom: var(--gap-2xl);
     color: var(--confirmation-text-color);
 }
 
 .phonesWrap {
-    @mixin text;
+    @mixin _confirmation-text;
 
     display: flex;
     flex-direction: column;

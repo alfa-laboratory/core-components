@@ -25,7 +25,7 @@
     --confirmation-input-error-bg-color: var(--color-light-bg-negative-muted);
 }
 
-@define-mixin title {
+@define-mixin _confirmation-title {
     font-size: var(--confirmation-title-font-size);
     line-height: 1.2;
     font-weight: var(--confirmation-title-font-weight);
@@ -33,7 +33,7 @@
     color: var(--confirmation-title-color);
 }
 
-@define-mixin text {
+@define-mixin _confirmation-text {
     font-size: var(--confirmation-text-font-size);
     line-height: 1.2;
     font-weight: var(--confirmation-text-font-weight);
