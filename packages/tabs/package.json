@@ -4,7 +4,7 @@
     "description": "Tabs components",
     "keywords": [],
     "license": "ISC",
-    "main": "dist/desktop.js",
+    "main": "dist/index.js",
     "types": "dist/typings.d.ts",
     "files": [
         "dist"

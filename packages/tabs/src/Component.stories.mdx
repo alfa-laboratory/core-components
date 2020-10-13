@@ -128,9 +128,13 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
 />
 
 ```tsx
-import { TabsDesktop, Tab } from '@alfalab/core-components-tabs/desktop';
-import { TabsMobile, Tab } from '@alfalab/core-components-tabs/mobile';
+// Импорт адаптивных табов
+import { TabsResponsive, Tab } from '@alfalab/core-components-tabs';
 import { TabsResponsive, Tab } from '@alfalab/core-components-tabs/responsive';
+// Импорт только десктопных табов
+import { TabsDesktop, Tab } from '@alfalab/core-components-tabs/desktop';
+// Импорт только мобильных табов
+import { TabsMobile, Tab } from '@alfalab/core-components-tabs/mobile';
 ```
 
 Компоненты для построения табов.
