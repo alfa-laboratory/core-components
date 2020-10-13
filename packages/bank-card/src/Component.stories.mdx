@@ -34,5 +34,24 @@ import { BankCard } from '@alfalab/core-components-bank-card';
 
 <BankCard />
 
-
 <Props of={BankCard} />
+
+
+### Controlled-way
+
+Компонент может быть использован как controlled с помощью `onChange` и `value`:
+
+<Preview>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('');
+        const handleChange = (event, payload) => setValue(payload.value);
+        return (
+            <div>
+                <BankCard value={value} onChange={handleChange} />
+                <button type="button" onClick={() => setValue('4111111111111111')}>Вставить номер карты</button>
+                <button type="button" onClick={() => setValue('')}>Очистить</button>
+            </div>
+        );
+    })}
+</Preview>
+

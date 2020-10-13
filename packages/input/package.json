@@ -19,6 +19,7 @@
         "@alfalab/core-components-button": "^1.6.0",
         "@alfalab/core-components-form-control": "^1.4.0",
         "@alfalab/icons-glyph": "^1.26.0",
+        "@alfalab/hooks": "^0.9.0",
         "react-merge-refs": "^1.1.0"
     }
 }

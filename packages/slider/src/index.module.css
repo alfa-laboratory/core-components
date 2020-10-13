@@ -88,10 +88,6 @@
     @mixin _slider-range;
 }
 
-.range:disabled {
-    cursor: default;
-}
-
 .range::-moz-focus-outer {
     border: 0;
 }
@@ -140,4 +136,20 @@
 
 .range:active::-moz-range-thumb {
     cursor: grabbing;
+}
+
+.range:disabled {
+    cursor: default;
+}
+
+.range:disabled::-webkit-slider-thumb {
+    cursor: default;
+}
+
+.range:disabled::-ms-thumb {
+    cursor: default;
+}
+
+.range:disabled::-moz-range-thumb {
+    cursor: default;
 }
