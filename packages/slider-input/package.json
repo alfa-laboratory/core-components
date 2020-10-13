@@ -17,7 +17,7 @@
         "react-dom": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^1.9.0",
+        "@alfalab/core-components-input": "^2.0.0",
         "@alfalab/core-components-slider": "^1.0.0",
         "react-merge-refs": "^1.1.0"
     }
