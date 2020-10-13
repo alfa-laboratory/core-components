@@ -51,7 +51,7 @@ import { Button } from '@alfalab/core-components-button';
     }
     ```
 
--   В другом случае - используйте [alfa-laboratory/postcss-custom-properties](https://github.com/alfa-laboratory/postcss-custom-properties), указав в `importFrom` путь к файлу с темой.
+-   В другом случае - используйте [postcss-custom-properties](https://github.com/postcss/postcss-custom-properties), указав в `importFrom` путь к файлу с темой.
 
 [Подробнее о темизации](https://alfa-laboratory.github.io/core-components/master/?path=/docs/гайдлайны-темизация--page)
 
