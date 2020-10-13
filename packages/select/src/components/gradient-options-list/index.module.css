@@ -1,0 +1,48 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    position: relative;
+}
+
+.component:before,
+.component:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    pointer-events: none;
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+.component:before {
+    top: 0;
+    background: linear-gradient(
+        to top,
+        color-mod(#fff a(0)) 0%,
+        color-mod(#fff a(0.4)) 40%,
+        color-mod(#fff a(0.9)) 75%,
+        color-mod(#fff a(1)) 100%
+    );
+}
+
+.component:after {
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        color-mod(#fff a(0)) 0%,
+        color-mod(#fff a(0.4)) 40%,
+        color-mod(#fff a(0.9)) 75%,
+        color-mod(#fff a(1)) 100%
+    );
+}
+
+.topReached:before {
+    transform: translateY(-100%);
+}
+
+.bottomReached:after {
+    transform: translateY(100%);
+}

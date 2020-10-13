@@ -1,0 +1,244 @@
+import cn from 'classnames'
+import { Story, Meta, Subheading } from '@storybook/addon-docs/blocks';
+import { Select } from './Component';
+import { GradientOptionsList } from './components/gradient-options-list';
+
+import styles from './test.module.css';
+
+<Meta title='Компоненты' id='components/select' />
+
+<Story name='Select styles test' />
+
+export const options = [
+    { value: 'Москва', text: 'Москва' },
+    { value: 'Санкт-Петербург', text: 'Санкт-Петербург' },
+    { value: 'Новосибирск', text: 'Новосибирск' },
+    { value: 'Екатеринбург', text: 'Екатеринбург' },
+    { value: 'Казань', text: 'Казань' },
+    { value: 'Нижний Новгород', text: 'Нижний Новгород' },
+    { value: 'Челябинск', text: 'Челябинск' },
+    { value: 'Самара', text: 'Самара' },
+    { value: 'Омск', text: 'Омск' },
+    { value: 'Ростов-на-Дону', text: 'Ростов-на-Дону' },
+    { value: 'Уфа', text: 'Уфа' },
+    { value: 'Красноярск', text: 'Красноярск' },
+    { value: 'Воронеж', text: 'Воронеж' },
+    { value: 'Пермь', text: 'Пермь' },
+    { value: 'Волгоград', text: 'Волгоград' },
+    { value: 'Краснодар', text: 'Краснодар' },
+    { value: 'Саратов', text: 'Саратов' },
+    { value: 'Тюмень', text: 'Тюмень' },
+    { value: 'Тольятти', text: 'Тольятти' },
+    { value: 'Ижевск', text: 'Ижевск' },
+    { value: 'Барнаул', text: 'Барнаул' },
+    { value: 'Ульяновск', text: 'Ульяновск' },
+    { value: 'Иркутск', text: 'Иркутск' },
+    { value: 'Хабаровск', text: 'Хабаровск' },
+    { value: 'Ярославль', text: 'Ярославль' },
+    { value: 'Владивосток', text: 'Владивосток' },
+    { value: 'Махачкала', text: 'Махачкала' },
+    { value: 'Томск', text: 'Томск' },
+    { value: 'Оренбург', text: 'Оренбург' },
+    { value: 'Кемерово', text: 'Кемерово' },
+    { value: 'Новокузнецк', text: 'Новокузнецк' },
+    { value: 'Рязань', text: 'Рязань' },
+    { value: 'Набережные Челны', text: 'Набережные Челны' },
+    { value: 'Астрахань', text: 'Астрахань' },
+    { value: 'Пенза', text: 'Пенза' },
+    { value: 'Киров', text: 'Киров' },
+    { value: 'Липецк', text: 'Липецк' },
+    { value: 'Балашиха', text: 'Балашиха' },
+    { value: 'Чебоксары', text: 'Чебоксары' },
+    { value: 'Калининград', text: 'Калининград' },
+    { value: 'Тула', text: 'Тула' },
+    { value: 'Курск', text: 'Курск' },
+    { value: 'Ставрополь', text: 'Ставрополь' },
+    { value: 'Севастополь', text: 'Севастополь' },
+    { value: 'Сочи', text: 'Сочи' },
+    { value: 'Улан-Удэ', text: 'Улан-Удэ' },
+    { value: 'Тверь', text: 'Тверь' },
+    { value: 'Магнитогорск', text: 'Магнитогорск' },
+    { value: 'Иваново', text: 'Иваново' },
+    { value: 'Брянск', text: 'Брянск' },
+    { value: 'Белгород', text: 'Белгород' },
+    { value: 'Сургут', text: 'Сургут' },
+    { value: 'Владимир', text: 'Владимир' },
+    { value: 'Чита', text: 'Чита' },
+    { value: 'Нижний Тагил', text: 'Нижний Тагил' },
+    { value: 'Архангельск', text: 'Архангельск' },
+    { value: 'Симферополь', text: 'Симферополь' },
+    { value: 'Калуга', text: 'Калуга' },
+    { value: 'Смоленск', text: 'Смоленск' },
+    { value: 'Волжский', text: 'Волжский' },
+    { value: 'Якутск', text: 'Якутск' },
+    { value: 'Саранск', text: 'Саранск' },
+    { value: 'Череповец', text: 'Череповец' },
+    { value: 'Курган', text: 'Курган' },
+    { value: 'Вологда', text: 'Вологда' },
+    { value: 'Орёл', text: 'Орёл' },
+    { value: 'Подольск', text: 'Подольск' },
+    { value: 'Грозный', text: 'Грозный' },
+    { value: 'Владикавказ', text: 'Владикавказ' },
+    { value: 'Тамбов', text: 'Тамбов' },
+    { value: 'Мурманск', text: 'Мурманск' },
+    { value: 'Петрозаводск', text: 'Петрозаводск' },
+    { value: 'Нижневартовск', text: 'Нижневартовск' },
+    { value: 'Кострома', text: 'Кострома' },
+    { value: 'Стерлитамак', text: 'Стерлитамак' },
+    { value: 'Новороссийск', text: 'Новороссийск' },
+    { value: 'Йошкар-Ола', text: 'Йошкар-Ола' },
+    { value: 'Химки', text: 'Химки' },
+    { value: 'Таганрог', text: 'Таганрог' },
+    { value: 'Комсомольск-на-Амуре', text: 'Комсомольск-на-Амуре' },
+    { value: 'Сыктывкар', text: 'Сыктывкар' },
+    { value: 'Нижнекамск', text: 'Нижнекамск' },
+    { value: 'Нальчик', text: 'Нальчик' },
+    { value: 'Мытищи', text: 'Мытищи' },
+    { value: 'Шахты', text: 'Шахты' },
+    { value: 'Дзержинск', text: 'Дзержинск' },
+    { value: 'Энгельс', text: 'Энгельс' },
+    { value: 'Орск', text: 'Орск' },
+    { value: 'Благовещенск', text: 'Благовещенск' },
+    { value: 'Братск', text: 'Братск' },
+    { value: 'Королёв', text: 'Королёв' },
+    { value: 'Великий Новгород', text: 'Великий Новгород' },
+    { value: 'Ангарск', text: 'Ангарск' },
+    { value: 'Старый Оскол', text: 'Старый Оскол' },
+    { value: 'Псков', text: 'Псков' },
+    { value: 'Люберцы', text: 'Люберцы' },
+    { value: 'Южно-Сахалинск', text: 'Южно-Сахалинск' },
+    { value: 'Бийск', text: 'Бийск' },
+    { value: 'Армавир', text: 'Армавир' },
+    { value: 'Прокопьевск', text: 'Прокопьевск' },
+    { value: 'Балаково', text: 'Балаково' },
+    { value: 'Абакан', text: 'Абакан' },
+    { value: 'Рыбинск', text: 'Рыбинск' },
+    { value: 'Северодвинск', text: 'Северодвинск' },
+    { value: 'Норильск', text: 'Норильск' },
+    { value: 'Петропавловск-Камчатский', text: 'Петропавловск-Камчатский' },
+    { value: 'Красногорск', text: 'Красногорск' },
+    { value: 'Уссурийск', text: 'Уссурийск' },
+    { value: 'Волгодонск', text: 'Волгодонск' },
+    { value: 'Новочеркасск', text: 'Новочеркасск' },
+    { value: 'Сызрань', text: 'Сызрань' },
+    { value: 'Каменск-Уральский', text: 'Каменск-Уральский' },
+    { value: 'Златоуст', text: 'Златоуст' },
+    { value: 'Альметьевск', text: 'Альметьевск' },
+    { value: 'Электросталь', text: 'Электросталь' },
+    { value: 'Керчь', text: 'Керчь' },
+    { value: 'Миасс', text: 'Миасс' },
+    { value: 'Салават', text: 'Салават' },
+    { value: 'Пятигорск', text: 'Пятигорск' },
+    { value: 'Копейск', text: 'Копейск' },
+    { value: 'Находка', text: 'Находка' },
+    { value: 'Хасавюрт', text: 'Хасавюрт' },
+    { value: 'Рубцовск', text: 'Рубцовск' },
+    { value: 'Майкоп', text: 'Майкоп' },
+    { value: 'Коломна', text: 'Коломна' },
+    { value: 'Березники', text: 'Березники' },
+    { value: 'Домодедово', text: 'Домодедово' },
+    { value: 'Ковров', text: 'Ковров' },
+    { value: 'Одинцово', text: 'Одинцово' },
+    { value: 'Нефтекамск', text: 'Нефтекамск' },
+    { value: 'Кисловодск', text: 'Кисловодск' },
+    { value: 'Батайск', text: 'Батайск' },
+    { value: 'Нефтеюганск', text: 'Нефтеюганск' },
+    { value: 'Новочебоксарск', text: 'Новочебоксарск' },
+    { value: 'Серпухов', text: 'Серпухов' },
+    { value: 'Щёлково', text: 'Щёлково' },
+    { value: 'Дербент', text: 'Дербент' },
+    { value: 'Каспийск', text: 'Каспийск' },
+    { value: 'Черкесск', text: 'Черкесск' },
+    { value: 'Новомосковск', text: 'Новомосковск' },
+    { value: 'Назрань', text: 'Назрань' },
+    { value: 'Раменское', text: 'Раменское' },
+    { value: 'Первоуральск', text: 'Первоуральск' },
+    { value: 'Кызыл', text: 'Кызыл' },
+    { value: 'Орехово-Зуево', text: 'Орехово-Зуево' },
+    { value: 'Новый Уренгой', text: 'Новый Уренгой' },
+    { value: 'Обнинск', text: 'Обнинск' },
+    { value: 'Невинномысск', text: 'Невинномысск' },
+    { value: 'Долгопрудный', text: 'Долгопрудный' },
+    { value: 'Октябрьский', text: 'Октябрьский' },
+    { value: 'Димитровград', text: 'Димитровград' },
+    { value: 'Ессентуки', text: 'Ессентуки' },
+    { value: 'Камышин', text: 'Камышин' },
+    { value: 'Евпатория', text: 'Евпатория' },
+    { value: 'Реутов', text: 'Реутов' },
+    { value: 'Жуковский', text: 'Жуковский' },
+    { value: 'Пушкино', text: 'Пушкино' },
+    { value: 'Муром', text: 'Муром' },
+    { value: 'Ноябрьск', text: 'Ноябрьск' },
+    { value: 'Новошахтинск', text: 'Новошахтинск' },
+    { value: 'Северск', text: 'Северск' },
+    { value: 'Артём', text: 'Артём' },
+    { value: 'Ачинск', text: 'Ачинск' },
+    { value: 'Бердск', text: 'Бердск' },
+    { value: 'Ногинск', text: 'Ногинск' },
+    { value: 'Арзамас', text: 'Арзамас' },
+    { value: 'Элиста', text: 'Элиста' },
+    { value: 'Елец', text: 'Елец' },
+    { value: 'Ханты-Мансийск', text: 'Ханты-Мансийск' },
+    { value: 'Новокуйбышевск', text: 'Новокуйбышевск' },
+    { value: 'Железногорск', text: 'Железногорск' },
+    { value: 'Сергиев Посад', text: 'Сергиев Посад' },
+    { value: 'Зеленодольск', text: 'Зеленодольск' },
+];
+
+<div className={styles.container}>
+    <div class={styles.wrapper}>
+        <Subheading>Градиент при скролле</Subheading>
+        {React.createElement(() => {
+            return (
+                <Select
+                    options={options}
+                    OptionsList={GradientOptionsList}
+                    block={true}
+                    label='Города России с населением более 100 тысяч'
+                />
+            );
+        })}
+    </div>
+    <div class={styles.wrapper}>
+        <Subheading>Без градиента</Subheading>
+        {React.createElement(() => {
+            return (
+                <Select
+                    options={options}
+                    block={true}
+                    label='Города России с населением более 100 тысяч'
+                />
+            );
+        })}
+    </div>
+</div>
+
+<div className={styles.container}>
+    <div class={styles.wrapper}>
+        <Subheading>Градиент и кастомный скролл</Subheading>
+        {React.createElement(() => {
+            return (
+                <Select
+                    options={options}
+                    OptionsList={GradientOptionsList}
+                    className={cn(styles.selectWithCustomScroll)}
+                    block={true}
+                    label='Города России с населением более 100 тысяч'
+                />
+            );
+        })}
+    </div>
+    <div class={styles.wrapper}>
+        <Subheading>Кастомный скролл</Subheading>
+        {React.createElement(() => {
+            return (
+                <Select
+                    options={options}
+                    className={cn(styles.selectWithCustomScroll)}
+                    block={true}
+                    label='Города России с населением более 100 тысяч'
+                />
+            );
+        })}
+    </div>
+</div>

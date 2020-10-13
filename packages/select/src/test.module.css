@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+}
+
+.wrapper {
+    width: 420px;
+
+    & + .wrapper {
+        margin-left: 20px;
+    }
+}
+
+.selectWithCustomScroll {
+    & *[class^='optionsList']::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    & *[class^='optionsList']::-webkit-scrollbar-track {
+        background: transparent;
+        transition: background 0.2s ease;
+    }
+
+    & *[class^='optionsList']::-webkit-scrollbar-track:hover {
+        background: var(--color-light-bg-secondary);
+    }
+
+    /* Handle */
+    & *[class^='optionsList']::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        background: var(--color-light-bg-neutral);
+        transition: background 0.2s ease;
+    }
+
+    /* Handle on hover */
+    & *[class^='optionsList']::-webkit-scrollbar-thumb:hover {
+        background: var(--color-light-bg-overlay);
+    }
+}

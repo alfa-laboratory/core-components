@@ -253,6 +253,11 @@ export type ArrowProps = {
 
 export type OptionsListProps = {
     /**
+     * Дополнительный класс
+     */
+    className?: string;
+
+    /**
      * Размер компонента
      */
     size?: 's' | 'm' | 'l';
