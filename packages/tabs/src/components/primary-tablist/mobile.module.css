@@ -1,16 +1,15 @@
 @import '../../vars.css';
-@import './index.module.css';
 
-.mobile {
-    height: 48px;
+.title {
+    composes: title from 'index.module.css';
 
-    & .title {
-        font-size: var(--primary-tablist-mobile-font-size);
-        font-weight: var(--primary-tablist-mobile-font-weight);
-        font-family: var(--primary-tablist-mobile-font-family);
-    }
+    padding: var(--primary-tablist-mobile-padding);
+    font-size: var(--primary-tablist-mobile-font-size);
+    font-weight: var(--primary-tablist-mobile-font-weight);
+    font-family: var(--primary-tablist-mobile-font-family);
+    line-height: 24px;
 
-    & .title + .title {
+    & + .title {
         margin-left: var(--primary-tablist-mobile-gaps);
     }
 }

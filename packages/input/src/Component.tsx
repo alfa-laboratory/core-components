@@ -10,6 +10,7 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
+import { useFocus } from '@alfalab/hooks';
 import { Button } from '@alfalab/core-components-button';
 import { FormControl } from '@alfalab/core-components-form-control';
 
@@ -161,6 +162,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         const inputRef = useRef<HTMLInputElement>(null);
         const controlRef = useRef<HTMLDivElement>(null);
 
+        const [focusVisible] = useFocus(inputRef, 'keyboard');
+
         const [focused, setFocused] = useState(false);
         const [stateValue, setStateValue] = useState(defaultValue || '');
 
@@ -271,6 +274,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     filled && filledClassName,
                     {
                         [styles.disabled]: disabled,
+                        [styles.focusVisible]: focusVisible,
                     },
                 )}
                 labelClassName={labelClassName}

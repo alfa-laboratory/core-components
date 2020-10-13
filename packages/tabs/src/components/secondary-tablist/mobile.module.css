@@ -1,10 +1,13 @@
 @import '../../vars.css';
-@import './index.module.css';
+
+.title {
+    composes: title from 'index.module.css';
+
+    & + .title {
+        margin-left: var(--secondary-tablist-mobile-gaps);
+    }
+}
 
 .mobile {
     height: 48px;
-
-    & .title + .title {
-        margin-left: var(--secondary-tablist-mobile-gaps);
-    }
 }
