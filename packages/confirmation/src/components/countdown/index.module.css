@@ -1,8 +1,7 @@
-@import '../../../../themes/src/default.css';
 @import '../../vars.css';
 
 .component {
-    @mixin paragraph_primary_medium;
+    @mixin _confirmation-text;
 
     display: flex;
     flex-direction: column;
@@ -26,4 +25,9 @@
     & .loaderWrap {
         justify-content: center;
     }
+}
+
+.timePassed {
+    display: flex;
+    min-width: 3em;
 }

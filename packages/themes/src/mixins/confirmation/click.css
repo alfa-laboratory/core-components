@@ -1,0 +1,12 @@
+@import '../../../../vars/src/index.css';
+
+@define-mixin confirmation-click {
+    --confirmation-title-font-size: 24px;
+    --confirmation-title-font-weight: 500;
+    --confirmation-title-font-family: var(--font-family-styrene);
+    --confirmation-text-font-size: 16px;
+    --confirmation-input-font-size: 24px;
+    --confirmation-input-font-weight: 400;
+    --confirmation-input-font-family: var(--font-family-styrene);
+    --confirmation-input-error-bg-color: var(--color-light-bg-secondary);
+}
