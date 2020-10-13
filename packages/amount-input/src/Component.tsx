@@ -66,6 +66,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             placeholder = `0\u2009${getCurrencySymbol(currency) || ''}`,
             bold = true,
             className,
+            focusedClassName,
             dataTestId,
             clear = false,
             onChange,
@@ -197,6 +198,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     placeholder={placeholder}
                     value={inputValue}
                     className={cn(styles.component, className)}
+                    focusedClassName={focusedClassName}
                     inputClassName={styles.input}
                     onChange={handleChange}
                     onClear={handleClear}

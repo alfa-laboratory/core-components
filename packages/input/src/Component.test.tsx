@@ -60,9 +60,9 @@ describe('Input', () => {
 
         it('should set `labelClassName` class to label', () => {
             const className = 'test-class';
-            const { container } = render(<Input labelClassName={className} />);
+            const { container } = render(<Input labelClassName={className} label='label' />);
 
-            expect(container.getElementsByClassName(className)).toBeTruthy();
+            expect(container.getElementsByClassName(className).length).toBe(1);
         });
 
         it('should set `hasLabel` class', () => {
@@ -71,27 +71,49 @@ describe('Input', () => {
 
             expect(getByTestId(dataTestId)).toHaveClass('hasLabel');
         });
+
+        it('should set `focusedClassName` when input focused', () => {
+            const className = 'test-class';
+            const dataTestId = 'test-id';
+            const { container, getByTestId } = render(
+                <Input focusedClassName={className} dataTestId={dataTestId} />,
+            );
+
+            fireEvent.focus(getByTestId(dataTestId));
+
+            expect(container.getElementsByClassName(className).length).toBe(1);
+        });
     });
 
     describe('when component is controlled', () => {
-        it('should set `filled` class when value passed', () => {
-            const { container } = render(<Input value='some value' />);
+        it('should set `filled` and filledClassName classes when value passed', () => {
+            const filledClassName = 'custom-filled-class';
+            const { container } = render(
+                <Input value='some value' filledClassName={filledClassName} />,
+            );
 
             expect(container.firstElementChild).toHaveClass('filled');
+            expect(container.firstElementChild).toHaveClass(filledClassName);
         });
 
-        it('should not set `filled` class if the value is empty', () => {
-            const { container } = render(<Input value='' />);
+        it('should not set `filled` and filledClassName classes if the value is empty', () => {
+            const filledClassName = 'custom-filled-class';
+            const { container } = render(<Input value='' filledClassName={filledClassName} />);
 
             expect(container.firstElementChild).not.toHaveClass('filled');
+            expect(container.firstElementChild).not.toHaveClass(filledClassName);
         });
 
-        it('should unset `filled` class if the value becomes empty', () => {
-            const { container, rerender } = render(<Input value='some value' />);
+        it('should unset `filled` and filledClassName classes if the value becomes empty', () => {
+            const filledClassName = 'custom-filled-class';
+            const { container, rerender } = render(
+                <Input value='some value' filledClassName={filledClassName} />,
+            );
 
-            rerender(<Input value='' />);
+            rerender(<Input value='' filledClassName={filledClassName} />);
 
             expect(container.firstElementChild).not.toHaveClass('filled');
+            expect(container.firstElementChild).not.toHaveClass(filledClassName);
         });
 
         it('should show clear button only if input has value', () => {
@@ -122,22 +144,33 @@ describe('Input', () => {
     });
 
     describe('when component is uncontrolled', () => {
-        it('should set `filled` class when defaultValue passed', () => {
-            const { container } = render(<Input defaultValue='some value' />);
+        it('should set `filled` and filledClassName classes when defaultValue passed', () => {
+            const filledClassName = 'custom-filled-class';
+            const { container } = render(
+                <Input defaultValue='some value' filledClassName={filledClassName} />,
+            );
 
             expect(container.firstElementChild).toHaveClass('filled');
+            expect(container.firstElementChild).toHaveClass(filledClassName);
         });
 
-        it('should not set `filled` class if the value is empty', () => {
-            const { container } = render(<Input />);
+        it('should not set `filled` and filledClassName classes if the value is empty', () => {
+            const filledClassName = 'custom-filled-class';
+            const { container } = render(<Input filledClassName={filledClassName} />);
 
             expect(container.firstElementChild).not.toHaveClass('filled');
+            expect(container.firstElementChild).not.toHaveClass(filledClassName);
         });
 
-        it('should unset `filled` class if value becomes empty', async () => {
+        it('should unset `filled` and filledClassName classes if value becomes empty', async () => {
             const dataTestId = 'test-id';
+            const filledClassName = 'custom-filled-class';
             const { getByTestId } = render(
-                <Input defaultValue='some value' dataTestId={dataTestId} />,
+                <Input
+                    defaultValue='some value'
+                    dataTestId={dataTestId}
+                    filledClassName={filledClassName}
+                />,
             );
 
             const input = getByTestId(dataTestId) as HTMLInputElement;
@@ -149,6 +182,7 @@ describe('Input', () => {
 
             expect(input.value).toBe('');
             expect(input).not.toHaveClass('filled');
+            expect(input).not.toHaveClass(filledClassName);
         });
 
         it('should show clear button only if input has value', async () => {
@@ -244,6 +278,34 @@ describe('Input', () => {
 
             expect(cb).toBeCalledTimes(1);
         });
+    });
+
+    it.only('should keep focus when clicking inside control', () => {
+        const dataTestId = 'test-id';
+        const { getByTestId, getByText } = render(
+            <Input
+                dataTestId={dataTestId}
+                rightAddons='right'
+                leftAddons='left'
+                bottomAddons='bottom'
+            />,
+        );
+
+        userEvent.click(getByTestId(dataTestId));
+
+        expect(document.activeElement && document.activeElement.tagName).toBe('INPUT');
+
+        userEvent.click(getByText('left'));
+
+        expect(document.activeElement && document.activeElement.tagName).toBe('INPUT');
+
+        userEvent.click(getByText('right'));
+
+        expect(document.activeElement && document.activeElement.tagName).toBe('INPUT');
+
+        userEvent.click(getByText('bottom'));
+
+        expect(document.activeElement && document.activeElement.tagName).not.toBe('INPUT');
     });
 
     it('should unmount without errors', () => {
