@@ -1,5 +1,5 @@
 .component {
     display: flex;
-    flex-direction: column;
     min-width: initial;
+    height: 100%;
 }

@@ -18,7 +18,9 @@
     "dependencies": {
         "@alfalab/core-components-input": "^2.0.0",
         "@alfalab/core-components-select": "^3.0.0",
+        "@alfalab/hooks": "^0.9.0",
         "@alfalab/icons-flag": "^1.3.0",
-        "libphonenumber-js": "^1.7.56"
+        "libphonenumber-js": "^1.7.56",
+        "react-merge-refs": "^1.1.0"
     }
 }

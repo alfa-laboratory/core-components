@@ -1,5 +1,18 @@
+@import '../../../../vars/src/index.css';
+
 .component {
+    height: 100%;
+    cursor: pointer;
+    outline: none;
+}
+
+.inner {
     display: flex;
     align-items: center;
-    cursor: pointer;
+    height: 100%;
+    outline: none;
+}
+
+.focusVisible {
+    @mixin focus-outline;
 }

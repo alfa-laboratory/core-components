@@ -132,6 +132,7 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
                 type='tel'
                 ref={inputRef}
                 className={className}
+                size={size}
                 leftAddons={
                     <CountrySelect
                         disabled={disabled}

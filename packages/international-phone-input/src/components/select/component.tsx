@@ -38,9 +38,9 @@ const Option: FC<OptionShape> = ({ value }) => {
     );
 };
 
-export const CountrySelect: FC<Props> = ({ disabled, size, countriesMap, selected, onChange }) => {
-    const valueRenderer = (options: OptionShape[]) => options.map(Option);
+const valueRenderer = (options: OptionShape[]) => options.map(Option);
 
+export const CountrySelect: FC<Props> = ({ disabled, size, countriesMap, selected, onChange }) => {
     return (
         <Select
             disabled={disabled}
