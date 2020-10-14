@@ -1,4 +1,3 @@
-@import '../../themes/src/default.css';
 @import './vars.css';
 
 .component {
@@ -14,14 +13,14 @@
 }
 
 .errorHeader {
-    @mixin headline_small;
+    @mixin _confirmation-title;
 
     margin-bottom: var(--gap-2xl);
     color: var(--confirmation-title-color);
 }
 
 .errorText {
-    @mixin paragraph_primary_medium;
+    @mixin _confirmation-text;
 
     margin-bottom: var(--gap-2xl);
     color: var(--confirmation-text-color);
@@ -33,14 +32,14 @@
 }
 
 .phoneHintText {
-    @mixin paragraph_primary_medium;
+    @mixin _confirmation-text;
 
     margin-bottom: var(--gap-2xl);
     color: var(--confirmation-text-color);
 }
 
 .phonesWrap {
-    @mixin paragraph_primary_medium;
+    @mixin _confirmation-text;
 
     display: flex;
     flex-direction: column;

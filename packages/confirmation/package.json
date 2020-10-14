@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-confirmation",
-    "version": "1.2.0",
+    "version": "2.0.0",
     "description": "Sms confirmation component",
     "keywords": [],
     "license": "ISC",
@@ -12,7 +12,7 @@
         "access": "public"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^1.6.0",
+        "@alfalab/core-components-button": "^1.6.1",
         "@alfalab/core-components-link": "^1.2.0",
         "@alfalab/core-components-loader": "^1.0.0",
         "@alfalab/hooks": "^0.9.0"

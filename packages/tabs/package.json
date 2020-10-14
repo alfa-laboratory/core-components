@@ -1,11 +1,10 @@
 {
     "name": "@alfalab/core-components-tabs",
-    "version": "2.1.0",
+    "version": "3.0.1",
     "description": "Tabs components",
     "keywords": [],
     "license": "ISC",
     "main": "dist/index.js",
-    "types": "dist/typings.d.ts",
     "files": [
         "dist"
     ],

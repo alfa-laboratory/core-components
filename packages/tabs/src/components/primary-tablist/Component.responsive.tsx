@@ -1,5 +1,6 @@
 import React from 'react';
-import { PrimaryTabListDesktop, PrimaryTabListMobile } from './index';
+import { PrimaryTabListDesktop } from './Component.desktop';
+import { PrimaryTabListMobile } from './Component.mobile';
 import { TabListProps } from '../../typings';
 import { useWindowWidth } from '../../utils';
 

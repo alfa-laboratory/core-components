@@ -1,5 +1,6 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import cn from 'classnames';
+import { useFocus } from '@alfalab/hooks';
 import { FormControl, FormControlProps } from '@alfalab/core-components-form-control';
 import { FieldProps as BaseFieldProps } from '../../typings';
 import { joinOptions } from '../../utils';
@@ -14,64 +15,54 @@ export const Field = ({
     placeholder,
     selectedItems = [],
     rightAddons,
-    error,
     valueRenderer = joinOptions,
     Arrow,
     innerProps = {},
     ...restProps
 }: BaseFieldProps & FormControlProps) => {
     const [focused, setFocused] = useState(false);
-    const { onBlur, onFocus } = restProps;
+
+    const wrapperRef = useRef<HTMLDivElement>(null);
+
+    const [focusVisible] = useFocus(wrapperRef, 'keyboard');
+
     const filled = selectedItems.length > 0;
 
-    const handleFocus = useCallback(
-        event => {
-            setFocused(true);
-
-            if (onFocus) onFocus(event);
-        },
-        [onFocus],
-    );
-
-    const handleBlur = useCallback(
-        event => {
-            setFocused(false);
-
-            if (onBlur) onBlur(event);
-        },
-        [onBlur],
-    );
+    const handleFocus = useCallback(() => setFocused(true), []);
+    const handleBlur = useCallback(() => setFocused(false), []);
 
     return (
-        <FormControl
-            className={cn(styles.component, styles[size], {
-                [styles.open]: open,
-                [styles.hasLabel]: label,
-                [styles.disabled]: disabled,
-            })}
-            size={size}
-            focused={open || focused}
-            disabled={disabled}
-            filled={filled || !!placeholder}
-            label={label}
-            error={Boolean(error)}
-            rightAddons={
-                <React.Fragment>
-                    {rightAddons}
-                    {Arrow}
-                </React.Fragment>
-            }
-            onBlur={handleBlur}
-            onFocus={handleFocus}
-            {...innerProps}
-            {...restProps}
-        >
-            <div className={styles.contentWrapper}>
-                {placeholder && !filled && (
-                    <span className={styles.placeholder}>{placeholder}</span>
-                )}
-                {filled && <span className={styles.value}>{valueRenderer(selectedItems)}</span>}
-            </div>
-        </FormControl>
+        <div ref={wrapperRef} onFocus={handleFocus} onBlur={handleBlur}>
+            <FormControl
+                className={cn(styles.component, styles[size], {
+                    [styles.open]: open,
+                    [styles.hasLabel]: label,
+                    [styles.disabled]: disabled,
+                    [styles.focusVisible]: focusVisible,
+                })}
+                size={size}
+                focused={open || focused}
+                disabled={disabled}
+                filled={filled || !!placeholder}
+                label={label}
+                rightAddons={
+                    <React.Fragment>
+                        {rightAddons}
+                        {Arrow}
+                    </React.Fragment>
+                }
+                onBlur={handleBlur}
+                onFocus={handleFocus}
+                {...innerProps}
+                {...restProps}
+            >
+                <div className={styles.contentWrapper}>
+                    {placeholder && !filled && (
+                        <span className={styles.placeholder}>{placeholder}</span>
+                    )}
+                    {filled && <div className={styles.value}>{valueRenderer(selectedItems)}</div>}
+                </div>
+            </FormControl>
+        </div>
     );
 };

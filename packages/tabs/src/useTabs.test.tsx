@@ -3,7 +3,7 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { TabsDesktop } from './components';
+import { TabsDesktop } from './desktop';
 import { Tab } from './components/tab';
 
 const renderTabs = (props = { selectedId: 'tab-1' }) => {

@@ -255,10 +255,10 @@ Object {
             />
           </div>
         </div>
-        
         <div>
           Bottom addons
         </div>
+        
       </div>
     </div>
   </body>,
@@ -277,10 +277,10 @@ Object {
           />
         </div>
       </div>
-      
       <div>
         Bottom addons
       </div>
+      
     </div>
   </div>,
   "debug": [Function],

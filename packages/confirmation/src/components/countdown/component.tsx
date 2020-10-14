@@ -42,8 +42,6 @@ export function formatMsAsMinutes(ms: number) {
     return `${paddedMinutes}:${paddedSeconds}`;
 }
 
-const TIMER_ITERATION_VALUE = 1000;
-
 export type CountdownProps = {
     duration: number;
     hasPhoneMask: boolean;
@@ -63,74 +61,52 @@ export const Countdown: FC<CountdownProps> = ({
     onCountdownFinished,
     className,
 }) => {
-    const [timer, setTimer] = useState(duration);
+    const requestId = useRef(0);
+
+    const start = useRef(0);
 
     const [repeatSmsButtonShow, setRepeatSmsButtonShow] = useState(false);
 
-    const timerId = useRef<number>(0);
-
-    const stopTimer = () => {
-        if (timerId.current) {
-            clearTimeout(timerId.current);
-            timerId.current = 0;
-        }
-    };
-
-    const tic = useCallback(() => {
-        if (timer <= 0) {
-            stopTimer();
-
-            setTimer(0);
-            setRepeatSmsButtonShow(true);
-
-            if (onCountdownFinished) {
-                onCountdownFinished();
-            }
-        } else {
-            setTimer(prevTimer => prevTimer - TIMER_ITERATION_VALUE);
-
-            timerId.current = window.setTimeout(tic, TIMER_ITERATION_VALUE);
-        }
-    }, [onCountdownFinished, timer]);
-
-    const startTimer = useCallback(() => {
-        stopTimer();
-
-        timerId.current = window.setTimeout(tic, TIMER_ITERATION_VALUE);
-    }, [tic]);
-
-    const startSmsCountdown = useCallback(() => {
-        setTimer(duration);
-        setRepeatSmsButtonShow(false);
-
-        startTimer();
-    }, [duration, startTimer]);
+    const [timePassed, setTimePassed] = useState(0);
 
     const handleRepeatSmsButtonClick = useCallback(
         (event: MouseEvent) => {
-            startSmsCountdown();
+            setRepeatSmsButtonShow(false);
 
             if (onRepeatSms) {
                 onRepeatSms(event);
             }
         },
-        [onRepeatSms, startSmsCountdown],
+        [onRepeatSms],
     );
 
+    const updateProgress = useCallback(() => {
+        const passed = Date.now() - start.current;
+
+        setTimePassed(passed);
+
+        if (passed < duration) {
+            requestId.current = window.requestAnimationFrame(updateProgress);
+        } else {
+            setRepeatSmsButtonShow(true);
+
+            if (onCountdownFinished) {
+                onCountdownFinished();
+            }
+        }
+    }, [duration, onCountdownFinished]);
+
     useEffect(() => {
-        startTimer();
+        start.current = Date.now();
+
+        requestId.current = window.requestAnimationFrame(updateProgress);
 
         return () => {
-            stopTimer();
+            window.cancelAnimationFrame(requestId.current);
         };
-    }, [startTimer]);
+    }, [updateProgress, repeatSmsButtonShow]);
 
-    useEffect(() => {
-        if (!repeatSmsButtonShow && !timerId.current) {
-            // если компонент переключился в активное состояние, а таймер еще не запущен, то стартуем его
-            startTimer();
-        }
-    }, [repeatSmsButtonShow, startTimer]);
+    const progress = timePassed / duration;
 
     return (
         <div className={cn(styles.component, styles[alignContent], className)}>
@@ -151,12 +127,11 @@ export const Countdown: FC<CountdownProps> = ({
                     <div className={styles.info}>Запросить повторно можно через</div>
 
                     <div className={styles.loaderWrap}>
-                        <CountdownLoader
-                            duration={duration + TIMER_ITERATION_VALUE}
-                            className={styles.loader}
-                        />
+                        <CountdownLoader progress={progress} className={styles.loader} />
 
-                        {formatMsAsMinutes(timer)}
+                        <div className={styles.timePassed}>
+                            {formatMsAsMinutes(duration - timePassed)}
+                        </div>
                     </div>
                 </div>
             )}

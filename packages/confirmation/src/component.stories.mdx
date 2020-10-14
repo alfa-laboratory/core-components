@@ -8,7 +8,11 @@ import { name, version } from '../package.json';
 import { Select } from '../../select/src/Component';
 
 
-<Meta title='Компоненты' component={Confirmation} />
+<Meta
+    title='Компоненты'
+    component={Confirmation}
+    parameters={{ 'theme-switcher': { themes: ['click', 'mobile'] } }}
+/>
 
 
 <!-- Canvas -->
@@ -34,7 +38,7 @@ import { Select } from '../../select/src/Component';
                 } else if (variant === 'fatal') {
                     setError({...error, 'fatal': 'Выполните операцию с самого начала'});
                 }
-            }, 1500);
+            }, 1000);
         }
         const handleSmsRetryClick = (variant) => {
             setCodeSending({...codeSending, [variant]: true});
@@ -42,8 +46,12 @@ import { Select } from '../../select/src/Component';
             setCode(variant, '')
             setTimeout(() => {
                 setCodeSending({...codeSending, [variant]: false});
-            }, 1500);
+            }, 1000);
         }
+        const alignContent = select('alignContent', ['center', 'left'], 'center');
+        const phone = '+7 000 000 00 42';
+        const countdownDuration = 10000;
+        const requiredCharAmount = number('requiredCharAmount', 5);
         return (
             <div>
                 <Select
@@ -71,51 +79,51 @@ import { Select } from '../../select/src/Component';
                             }}
                         >
                             <Confirmation
-                                phone='+7 000 000 00 42'
+                                phone={phone}
                                 onInputFinished={() => handleSubmit('success')}
                                 onSmsRetryClick={() => handleSmsRetryClick('success')}
                                 codeSending={codeSending['success']}
                                 codeChecking={codeChecking['success']}
-                                countdownDuration={10000}
+                                countdownDuration={countdownDuration}
                                 code={value['success']}
                                 onInputChange={({ code }) => setCode('success', code)}
-                                alignContent={select('alignContent', ['center', 'left'], 'center')}
-                                requiredCharAmount={number('requiredCharAmount', 5)}
+                                alignContent={alignContent}
+                                requiredCharAmount={requiredCharAmount}
                             />
                         </div>
                     }
                     {variant[0].value === 'error' &&
                         <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
                             <Confirmation
-                                phone='+7 000 000 00 42'
+                                phone={phone}
                                 onInputFinished={( ) => handleSubmit('error')}
                                 onSmsRetryClick={() => handleSmsRetryClick('error')}
                                 codeSending={codeSending['error']}
                                 codeChecking={codeChecking['error']}
                                 error={error['error']}
-                                countdownDuration={10000}
+                                countdownDuration={countdownDuration}
                                 code={value['error']}
                                 onInputChange={({ code }) => setCode('error', code)}
-                                alignContent={select('alignContent', ['center', 'left'], 'left')}
-                                requiredCharAmount={number('requiredCharAmount', 5)}
+                                alignContent={alignContent}
+                                requiredCharAmount={requiredCharAmount}
                             />
                         </div>
                     }
                     {variant[0].value === 'fatal' &&
                         <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
                             <Confirmation
-                                phone='+7 000 000 00 42'
+                                phone={phone}
                                 onInputFinished={() => handleSubmit('fatal')}
                                 onSmsRetryClick={() => handleSmsRetryClick('fatal')}
                                 codeSending={codeSending['fatal']}
                                 codeChecking={codeChecking['fatal']}
                                 error={error['fatal']}
                                 errorIsFatal={true}
-                                countdownDuration={10000}
+                                countdownDuration={countdownDuration}
                                 code={value['fatal']}
                                 onInputChange={({ code }) => setCode('fatal', code)}
-                                alignContent={select('alignContent', ['center', 'left'], 'left')}
-                                requiredCharAmount={number('requiredCharAmount', 5)}
+                                alignContent={alignContent}
+                                requiredCharAmount={requiredCharAmount}
                             />
                         </div>
                     }

@@ -9,6 +9,7 @@ import React, {
 import cn from 'classnames';
 import TextareaAutosize from 'react-textarea-autosize';
 import mergeRefs from 'react-merge-refs';
+import { useFocus } from '@alfalab/hooks';
 import { FormControl } from '@alfalab/core-components-form-control';
 
 import styles from './index.module.css';
@@ -152,12 +153,14 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     ) => {
         const uncontrolled = value === undefined;
 
+        const textareaRef = useRef<HTMLTextAreaElement>(null);
+
         const [focused, setFocused] = useState(false);
         const [stateValue, setStateValue] = useState(defaultValue || '');
 
-        const filled = Boolean(uncontrolled ? stateValue : value);
+        const [focusVisible] = useFocus(textareaRef, 'keyboard');
 
-        const textareaRef = useRef<HTMLTextAreaElement>(null);
+        const filled = Boolean(uncontrolled ? stateValue : value);
 
         // Хак, так как react-textarea-autosize перестал поддерживать maxHeight
         useEffect(() => {
@@ -227,7 +230,9 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         return (
             <FormControl
-                className={className}
+                className={cn(className, {
+                    [styles.focusVisible]: focusVisible,
+                })}
                 size={size}
                 block={block}
                 disabled={disabled}

@@ -96,6 +96,7 @@ export const renderUppercased = (options) => {
         size={selectKnob('size', ['s', 'm', 'l'], 's')}
         disabled={boolean('disabled', false)}
         error={text('error', '')}
+        hint={text('hint', '')}
         options={options}
         multiple={boolean('multiple', false)}
         allowUnselect={boolean('allowUnselect', true)}
@@ -222,7 +223,7 @@ import { Select } from '@alfalab/core-components-select';
                             name='select'
                             multiple={true}
                         />
-                        <button type="submit">Отправить</button>
+                        <button type='submit'>Отправить</button>
                     </form>
                     <div>serialized: {serialized}</div>
                 </div>
@@ -236,14 +237,36 @@ import { Select } from '@alfalab/core-components-select';
 Помимо текста, компонент позволяет использовать html в качестве поля `content` у вариантов выбора
 
 <Preview>
-    <div style={{ height: 180, width: 200 }}>
+    <div style={{ height: 180, width: 480 }}>
         {React.createElement(() => {
+            const [selected, setSelected] = React.useState([]);
+            const handleChange = ({ selected }) => {
+                setSelected(selected);
+            };
+            const Card = ({ name, balance }) => (
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <div style={{ width: '76px', height: '48px', marginRight: '16px', background: '#E7E9EB' }} />
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <span style={{ fontSize: '14px' }}>{name}</span>
+                        <span style={{ fontSize: '16px' }}>{balance}</span>
+                    </div>
+                </div>
+            );
             return (
                 <Select
                     block={true}
-                    options={optionsWithHtml}
-                    label='html'
-                    multiple={true}
+                    selected={selected}
+                    onChange={handleChange}
+                    size='l'
+                    options={[
+                        { value: '1', text: 'Account1', content: <Card name='Account1 Name ··0000' balance='100 000,00 ₽' /> },
+                        { value: '2', text: 'Account2', content: <Card name='Account2 Name ··0000' balance='150 000,00 ₽' /> },
+                        { value: '3', text: 'Account3', content: <Card name='Account3 Name ··0000' balance='230 000,00 ₽' /> },
+                        { value: '4', text: 'Account4', content: <Card name='Account4 Name ··0000' balance='12 000,00 ₽' /> },
+                    ]}
+                    multiple={false}
+                    placeholder='Выберите карту'
+                    allowUnselect={true}
                 />
             );
         })}
@@ -261,11 +284,11 @@ import { Select } from '@alfalab/core-components-select';
                     {text}
                 </span>
             );
-            const renderOption = (props) => (
-                <Option {...props}>
+            const renderOption = React.forwardRef((props, ref) => (
+                <Option {...props} ref={ref}>
                     <OptionWithIcon key={props.option.value} {...props.option} />
                 </Option>
-            );
+            ));
             const valueRenderer = (options) => options.map(OptionWithIcon);
             return (
                 <Select
@@ -286,10 +309,12 @@ import { Select } from '@alfalab/core-components-select';
 <Preview>
     <div style={{ height: 180 }}>
         <Container>
-            <Row align="middle">
+            <Row align='middle'>
                 <Col>
                     {React.createElement(() => {
-                        const BoldOption = (props) => (<Option {...props}><b>{props.option.text}</b></Option>);
+                        const BoldOption = React.forwardRef((props, ref) => (
+                            <Option {...props} ref={ref}><b>{props.option.text}</b></Option>
+                        ));
                         return (
                             <Select
                                 options={options}

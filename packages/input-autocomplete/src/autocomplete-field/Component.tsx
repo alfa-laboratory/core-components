@@ -14,6 +14,7 @@ export const AutocompleteField = ({
     Input = DefaultInput,
     value,
     error,
+    hint,
     disabled,
     onInput,
     inputProps = {},
@@ -22,12 +23,14 @@ export const AutocompleteField = ({
     <Input
         {...innerProps}
         {...inputProps}
+        wrapperRef={innerProps.ref}
         disabled={disabled}
         block={true}
         label={label}
         placeholder={placeholder}
         size={size}
-        error={Boolean(error)}
+        error={error}
+        hint={hint}
         rightAddons={
             <React.Fragment>
                 {inputProps.rightAddons}

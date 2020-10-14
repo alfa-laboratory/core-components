@@ -84,6 +84,10 @@
     }
 }
 
+.focusVisible {
+    @mixin focus-outline;
+}
+
 /* HOVER STATE */
 
 .component:not(:disabled):hover {

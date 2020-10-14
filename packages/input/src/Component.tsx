@@ -10,6 +10,7 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
+import { useFocus } from '@alfalab/hooks';
 import { Button } from '@alfalab/core-components-button';
 import { FormControl } from '@alfalab/core-components-form-control';
 
@@ -67,7 +68,7 @@ export type InputProps = Omit<
     /**
      * Ref для обертки input
      */
-    wrapperRef?: React.MutableRefObject<HTMLDivElement | null>;
+    wrapperRef?: React.Ref<HTMLDivElement | null>;
 
     /**
      * Слот слева
@@ -159,6 +160,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         const uncontrolled = value === undefined;
 
         const inputRef = useRef<HTMLInputElement>(null);
+        const controlRef = useRef<HTMLDivElement>(null);
+
+        const [focusVisible] = useFocus(inputRef, 'keyboard');
 
         const [focused, setFocused] = useState(false);
         const [stateValue, setStateValue] = useState(defaultValue || '');
@@ -222,11 +226,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         );
 
         const handleFormControlMouseDown = useCallback(
-            (event: MouseEvent<HTMLElement>) => {
-                if (!inputRef.current) return;
+            (event: MouseEvent<HTMLDivElement>) => {
+                if (!inputRef.current || !controlRef.current) return;
 
                 // Инпут занимает не весь контрол, из-за этого появляются некликабельные области или теряется фокус.
-                if (event.target !== inputRef.current) {
+                if (
+                    event.target !== inputRef.current &&
+                    controlRef.current.contains(event.target as HTMLDivElement)
+                ) {
                     event.preventDefault();
                     if (!focused) {
                         inputRef.current.focus();
@@ -259,7 +266,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
         return (
             <FormControl
-                ref={wrapperRef}
+                ref={mergeRefs([controlRef, wrapperRef || null])}
                 className={cn(
                     styles.formControl,
                     className,
@@ -267,6 +274,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     filled && filledClassName,
                     {
                         [styles.disabled]: disabled,
+                        [styles.focusVisible]: focusVisible,
                     },
                 )}
                 labelClassName={labelClassName}

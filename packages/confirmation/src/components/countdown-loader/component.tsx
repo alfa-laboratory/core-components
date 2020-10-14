@@ -1,9 +1,9 @@
-import React, { FC, useState, useRef, useCallback, useEffect } from 'react';
+import React, { FC } from 'react';
 
 import styles from './index.module.css';
 
 type Props = {
-    duration: number;
+    progress: number; // 0-1
     className: string;
 };
 
@@ -13,31 +13,8 @@ const RADIUS = SIZE / 2;
 
 const FULL_TURN = Math.PI * 2;
 
-export const CountdownLoader: FC<Props> = ({ duration, className }) => {
-    const [angle, setAngle] = useState(0);
-
-    const start = useRef(Date.now());
-    const requestId = useRef(0);
-
-    const updateProgress = useCallback(() => {
-        const progress = (Date.now() - start.current) / duration;
-
-        const newAngle = progress < 1 ? progress * FULL_TURN : FULL_TURN;
-
-        setAngle(newAngle);
-
-        if (progress < 1) {
-            requestId.current = window.requestAnimationFrame(updateProgress);
-        }
-    }, [duration]);
-
-    useEffect(() => {
-        requestId.current = window.requestAnimationFrame(updateProgress);
-
-        return () => {
-            window.cancelAnimationFrame(requestId.current);
-        };
-    }, [updateProgress]);
+export const CountdownLoader: FC<Props> = ({ progress, className }) => {
+    const angle = progress < 1 ? progress * FULL_TURN : FULL_TURN;
 
     const x = RADIUS - RADIUS * Math.sin(angle);
     const y = RADIUS - RADIUS * Math.cos(angle);

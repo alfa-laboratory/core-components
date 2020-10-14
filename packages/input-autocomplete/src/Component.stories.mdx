@@ -60,6 +60,7 @@ export const matchOption = (option, inputValue) =>
                 size={select('size', ['s', 'm', 'l'], 's')}
                 disabled={boolean('disabled', false)}
                 error={text('error', '')}
+                hint={text('hint', '')}
                 allowUnselect={boolean('allowUnselect', true)}
                 closeOnSelect={boolean('closeOnSelect', false)}
                 Arrow={boolean('Arrow', true) ? Arrow : undefined}
@@ -253,15 +254,15 @@ export const matchOption = (option, inputValue) =>
                 value: '4111 1111 1111 1111',
             },
         ];
-        const CardOption = (props) => (
-            <Option {...props}>
+        const CardOption = React.forwardRef((props, ref) => (
+            <Option {...props} ref={ref}>
                 <div>
                     {props.option.name}
                     <br />
                     <sub>{props.option.text}</sub>
                 </div>
             </Option>
-        );
+        ));
         const [value, setValue] = React.useState('');
         const handleInput = (event) => {
             setValue(event.target.value);

@@ -96,6 +96,11 @@ export type BaseSelectProps = {
     error?: string | boolean;
 
     /**
+     * Подсказка под полем
+     */
+    hint?: string;
+
+    /**
      * Возможность использовать селект как input-autocomplete
      */
     autocomplete?: boolean;
@@ -217,6 +222,11 @@ export type FieldProps = {
     error?: string | boolean;
 
     /**
+     * Подсказка под полем
+     */
+    hint?: string;
+
+    /**
      * Компонент стрелки
      */
     Arrow?: ReactNode;
@@ -250,7 +260,7 @@ export type OptionsListProps = {
     /**
      * Компонент пункта меню
      */
-    Option: (props: Pick<OptionProps, 'option' | 'index'>) => JSX.Element;
+    Option: (props: { option: OptionShape; index: number }) => JSX.Element;
 
     /**
      * Список вариантов выбора
@@ -280,6 +290,11 @@ export type OptionsListProps = {
 
 export type OptgroupProps = {
     /**
+     * Размер компонента
+     */
+    size?: 's' | 'm' | 'l';
+
+    /**
      * Заголовок группы
      */
     label?: string;
@@ -291,6 +306,11 @@ export type OptgroupProps = {
 };
 
 export type OptionProps = {
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
+
     /**
      * Размер компонента
      */
@@ -325,4 +345,16 @@ export type OptionProps = {
      * Флаг, заблокирован ли данный пункт
      */
     disabled?: boolean;
+
+    /**
+     * Компонент пункта меню
+     */
+    Checkmark?: FC<CheckmarkProps>;
+};
+
+export type CheckmarkProps = {
+    /**
+     * Флаг, данный пункт выбран
+     */
+    selected?: boolean;
 };
