@@ -1,0 +1,41 @@
+/* @import '@alfalab/core-components/vars'; */
+
+/* @import '../../vars/src/colors-indigo.css'; */
+
+:root {
+    /* --circular-progress-font-weight: var(--font-weight-bold); */
+    --circular-progress-circle-color: blue;
+    --circular-progress-bg-circle-color: green;
+}
+
+.component {
+    position: relative;
+    width: 75px;
+    height: 75px;
+}
+
+.label {
+    /* font-weight: var(--circular-progress-font-weight); */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.background-circle,
+.progress-circle {
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+}
+
+.progress-circle {
+    stroke: var(--circular-progress-circle-color);
+    stroke-width: 7;
+    transition: stroke-dasharray 1s linear;
+}
+
+.background-circle {
+    stroke: var(--circular-progress-bg-circle-color);
+    stroke-width: 3.5;
+}
