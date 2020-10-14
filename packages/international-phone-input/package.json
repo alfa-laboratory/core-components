@@ -16,9 +16,9 @@
         "react": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^1.4.1",
-        "@alfalab/core-components-select": "^1.1.1",
-        "@alfalab/icons-flag": "^1.2.0",
+        "@alfalab/core-components-input": "^2.0.0",
+        "@alfalab/core-components-select": "^3.0.0",
+        "@alfalab/icons-flag": "^1.3.0",
         "libphonenumber-js": "^1.7.56"
     }
 }

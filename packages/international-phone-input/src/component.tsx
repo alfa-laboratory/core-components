@@ -6,64 +6,31 @@ import React, {
     ChangeEvent,
     useRef,
     useImperativeHandle,
-    SVGProps,
 } from 'react';
-import cn from 'classnames';
+import { Input, InputProps } from '@alfalab/core-components-input';
 
 // TODO: dynamic import
 import { AsYouType, CountryCode } from 'libphonenumber-js';
 
-import { InputProps, Input } from '@alfalab/core-components-input';
-import { Select, FieldProps } from '@alfalab/core-components-select';
-
-import * as icons from '@alfalab/icons-flag';
-
-import styles from './index.module.css';
-
 import { getCountries, getCountriesMap } from './countries';
+import { CountrySelect } from './components';
 
 export type InternationalPhoneInputProps = Omit<InputProps, 'value' | 'onChange'> & {
     value: string;
     onChange: (value: string) => void;
 };
 
-const SelectField = ({ value, rightAddons }: FieldProps) => {
-    const displayValue = value && value[0] ? value[0].text : '';
-
-    return (
-        <div className={styles.selectField}>
-            {displayValue}
-            {rightAddons}
-        </div>
-    );
-};
-
-type IconProps = SVGProps<SVGSVGElement>;
-
-type CountryFlags = {
-    [iso2: string]: (props: IconProps) => JSX.Element;
-};
-
-// TODO: dynamic import
-const countriesFlags: CountryFlags = {
-    ru: props => <icons.RussiaMColorIcon {...props} />,
-    az: props => <icons.AzerbaijanMColorIcon {...props} />,
-};
-
-const countries = getCountries();
-const countriesMap = getCountriesMap();
-
-// TODO: сделать настраиваемым?
 const DEFAULT_COUNTRY_ISO_2 = 'ru';
 const DEFAULT_VALUE = '+7';
 
 const MAX_DIAL_CODE_LENGTH = 4;
 
+const countries = getCountries();
+const countriesMap = getCountriesMap();
+
 export const InternationalPhoneInput = forwardRef<HTMLInputElement, InternationalPhoneInputProps>(
     (props, ref) => {
-        const { disabled, size = 'm', className, value = DEFAULT_VALUE, onChange } = props;
-
-        const [selectOpen, setSelectOpen] = useState(false);
+        const { disabled = false, size = 'm', className, value = DEFAULT_VALUE, onChange } = props;
 
         const [countryIso2, setCountryIso2] = useState(DEFAULT_COUNTRY_ISO_2);
 
@@ -72,12 +39,6 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
         const inputRef = useRef<HTMLInputElement>(null);
 
         useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
-
-        const handleSelectOpen = useCallback((payload?: { open?: boolean }) => {
-            const { open = false } = payload || {};
-
-            setSelectOpen(open);
-        }, []);
 
         const setValue = useCallback(
             (iso2, inputValue) => {
@@ -148,8 +109,8 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
         );
 
         const handleSelectChange = useCallback(
-            (_, payload) => {
-                const country = setCountryByIso2(payload.value);
+            payload => {
+                const country = setCountryByIso2(payload.selected[0]);
                 const inputValue = `+${country.dialCode}`;
 
                 // Wait for select blur, then focus on input
@@ -163,8 +124,6 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
             [setCountryByIso2],
         );
 
-        const SelectedCountryFlag = countriesFlags[countryIso2];
-
         return (
             <Input
                 {...props}
@@ -172,43 +131,13 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
                 value={value}
                 type='tel'
                 ref={inputRef}
-                className={cn(className, styles[size])}
+                className={className}
                 leftAddons={
-                    <Select
+                    <CountrySelect
                         disabled={disabled}
                         size={size}
-                        options={[
-                            {
-                                value: 'ru',
-                                text: (
-                                    <div>
-                                        <span>{countriesMap.ru.name}</span>
-                                        <span>+7</span>
-                                        <countriesFlags.ru />
-                                    </div>
-                                ),
-                            },
-                            {
-                                value: 'az',
-                                text: (
-                                    <div>
-                                        <span>{countriesMap.az.name}</span>
-                                        <span>+994</span>
-                                        <countriesFlags.az />
-                                    </div>
-                                ),
-                            },
-                        ]}
-                        selected={{ value: countryIso2 }}
-                        Field={fieldProps => (
-                            <SelectField
-                                {...fieldProps}
-                                open={selectOpen}
-                                value={[{ value: countryIso2, text: <SelectedCountryFlag /> }]}
-                            />
-                        )}
-                        className={styles.select}
-                        onOpen={handleSelectOpen}
+                        selected={countryIso2}
+                        countriesMap={countriesMap}
                         onChange={handleSelectChange}
                     />
                 }

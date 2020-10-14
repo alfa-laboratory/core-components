@@ -22,6 +22,11 @@
   resolved "https://registry.yarnpkg.com/@alfalab/icons-classic/-/icons-classic-1.7.0.tgz#e597f19ee604d8ba863c34f0fde6839d459ac801"
   integrity sha512-FHQ8c6aIf4/aiW202IBE9IJG8muea9Wgkf5PiG9dLkYdLmbclem4ITicajCFG5WDaBSryn0uJ0ThuPMvWuLqag==
 
+"@alfalab/icons-flag@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-flag/-/icons-flag-1.3.0.tgz#edd1b82a92954ed5339d51083d83ec41f7ff77fb"
+  integrity sha512-kvVrwjKw6TZfbr9xaK7/e/QtkOAT5HzsWTI2rtvrIp0tzwnkQzp1cCHsiX/mt6h+YOixWfDGYbYEL2RKHFrBaw==
+
 "@alfalab/icons-glyph@^1.26.0":
   version "1.26.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.26.0.tgz#eed52dd778440f6ef59b3fd524dc2eaadd5c86e6"

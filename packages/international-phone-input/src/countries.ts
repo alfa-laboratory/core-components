@@ -71,7 +71,7 @@ export type Country = {
     areaCodes: string[] | null;
 };
 
-type CountriesMap = { [iso2: string]: Country };
+export type CountriesMap = { [iso2: string]: Country };
 
 const defaultCountriesData: CountryData[] = [
     ['Afghanistan', 'Афганистан', 'af', '93'],

@@ -5,7 +5,7 @@ import { text, select, boolean } from '@storybook/addon-knobs';
 import { InternationalPhoneInput } from './component';
 import { name, version } from '../package.json';
 
-<Meta title='Компоненты|InternationalPhoneInput' component={InternationalPhoneInput} />
+<Meta title='Компоненты' component={InternationalPhoneInput} />
 
 <Title>
     InternationalPhoneInput ({name}@{version})
@@ -19,7 +19,7 @@ import { InternationalPhoneInput } from '@alfalab/core-components-international-
 
 Компонент текстового поля для ввода международных номеров телефонов
 
-<Story name='Песочница'>
+<Story name='InternationalPhoneInput'>
     {React.createElement(() => {
             const [value, setValue] = React.useState('');
             const handleChange = React.useCallback((newValue) => {
