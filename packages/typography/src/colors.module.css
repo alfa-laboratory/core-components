@@ -1,0 +1,51 @@
+@import '../../themes/src/default.css';
+
+/* colors */
+
+.tertiary {
+    color: var(--color-light-text-tertiary);
+}
+
+.disabled {
+    color: var(--color-light-text-disabled);
+}
+
+.accent {
+    color: var(--color-light-text-accent);
+}
+
+.primary {
+    color: var(--color-light-text-primary);
+}
+
+.attention {
+    color: var(--color-light-text-attention);
+}
+
+.positive {
+    color: var(--color-light-text-positive);
+}
+
+.secondary {
+    color: var(--color-light-text-secondary);
+}
+
+.tertiary-inverted {
+    color: var(--color-light-text-tertiary-inverted);
+}
+
+.primary-inverted {
+    color: var(--color-light-text-primary-inverted);
+}
+
+.secondary-inverted {
+    color: var(--color-light-text-secondary-inverted);
+}
+
+.link {
+    color: var(--color-light-text-link);
+}
+
+.negative {
+    color: var(--color-light-text-negative);
+}

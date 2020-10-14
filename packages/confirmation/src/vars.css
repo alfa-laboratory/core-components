@@ -1,0 +1,42 @@
+@import '../../vars/src/index.css';
+
+:root {
+    /* title */
+    --confirmation-title-font-size: 18px;
+    --confirmation-title-font-weight: 700;
+    --confirmation-title-font-family: var(--font-family-system);
+    --confirmation-title-color: var(--color-light-text-primary);
+
+    /* text */
+    --confirmation-text-font-size: 14px;
+    --confirmation-text-font-weight: 400;
+    --confirmation-text-font-family: var(--font-family-system);
+    --confirmation-text-color: var(--color-light-text-secondary);
+
+    /* error */
+    --confirmation-error-color: var(--color-light-text-negative);
+
+    /* input */
+    --confirmation-input-font-size: 30px;
+    --confirmation-input-font-weight: 700;
+    --confirmation-input-font-family: var(--font-family-system);
+    --confirmation-input-text-color: var(--color-light-text-primary);
+    --confirmation-input-bg-color: var(--color-light-bg-secondary);
+    --confirmation-input-error-bg-color: var(--color-light-bg-negative-muted);
+}
+
+@define-mixin _confirmation-title {
+    font-size: var(--confirmation-title-font-size);
+    line-height: 1.2;
+    font-weight: var(--confirmation-title-font-weight);
+    font-family: var(--confirmation-title-font-family);
+    color: var(--confirmation-title-color);
+}
+
+@define-mixin _confirmation-text {
+    font-size: var(--confirmation-text-font-size);
+    line-height: 1.2;
+    font-weight: var(--confirmation-text-font-weight);
+    font-family: var(--confirmation-text-font-family);
+    color: var(--confirmation-text-color);
+}

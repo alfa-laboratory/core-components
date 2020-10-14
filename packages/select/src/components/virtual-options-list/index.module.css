@@ -1,23 +1,25 @@
 @import '../../../../themes/src/default.css';
 
 .virtualOptionsList {
-    position: relative;
     overflow: auto;
     width: 100%;
     outline: none;
-    padding: var(--gap-xs) 0;
+    padding-top: var(--select-options-list-top-padding);
+    padding-bottom: var(--select-options-list-bottom-padding);
+    box-sizing: border-box;
+    position: relative;
 }
 
 .s {
-    height: 240px;
+    height: var(--select-options-list-s-height);
 }
 
 .m {
-    height: 280px;
+    height: var(--select-options-list-m-height);
 }
 
 .l {
-    height: 340px;
+    height: var(--select-options-list-l-height);
 }
 
 .virtualRow {

@@ -1,8 +1,8 @@
-import { Meta, Props, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { MaskedInput } from './Component';
 import { name, version } from '../package.json';
-
 
 <!-- prettier-ignore -->
 export const masks = {
@@ -15,21 +15,26 @@ export const placeholders = {
     card: '0000 0000 0000 0000',
 };
 
+
 <Meta
     title='Компоненты|MaskedInput'
     component={MaskedInput}
-    parameters={{ 'theme-switcher': { enabled: true } }}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
-<Title>
-    MaskedInput ({name}@{version})
-</Title>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='MaskedInput'
+    version={version}
+    package='@alfalab/core-components-masked-input'
+    stage={2}
+/>
 
 ```tsx
 import { MaskedInput } from '@alfalab/core-components-masked-input';
 ```
-
-## Описание
 
 Компонент текстового поля для ввода текста по указанной маске.
 
@@ -40,4 +45,44 @@ import { MaskedInput } from '@alfalab/core-components-masked-input';
     <MaskedInput mask={masks.card} placeholder={placeholders.card} block={true} />
 </div>
 
+
 <Props of={MaskedInput} />
+
+
+### Uncontrolled-way
+
+Можно ничего не передавать в компонент и реагировать на `onChange`
+
+<div style={{ width: '240px' }}>
+    <MaskedInput
+        defaultValue="5555111122224444"
+        mask={masks.card}
+        placeholder={placeholders.card}
+        block={true}
+    />
+</div>
+
+### Controlled-way
+
+Компонент может быть использован как controlled с помощью `onChange` и `value`
+
+<Preview>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('');
+        const handleChange = React.useCallback((event) => {
+            setValue(event.target.value);
+        }, []);
+        return (
+            <div style={{ width: '240px' }}>
+                <MaskedInput
+                    value={value}
+                    onChange={handleChange}
+                    mask={masks.card}
+                    placeholder={placeholders.card}
+                    block={true}
+                />
+                <button type="button" onClick={() => setValue('5555111122224444')}>Установить неотформатированный номер</button>
+            </div>
+        );
+    })}
+</Preview>

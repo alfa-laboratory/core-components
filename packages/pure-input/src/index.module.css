@@ -61,7 +61,7 @@
 }
 
 .l {
-    height: 68px;
+    height: 72px;
     padding: var(--pure-input-l-paddings);
 }
 
@@ -82,6 +82,10 @@
     &::placeholder {
         color: var(--color-dark-indigo-30-flat);
     }
+}
+
+.focusVisible {
+    @mixin focus-outline;
 }
 
 /* HOVER STATE */

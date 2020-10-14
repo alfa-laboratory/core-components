@@ -1,0 +1,32 @@
+@import '../../../packages/vars/src/colors-indigo.css';
+@import '../../../packages/vars/src/colors-addons.css';
+
+.status {
+    margin: 8px 0 0;
+}
+
+.link {
+    display: inline-block;
+    padding: var(--gap-xs) var(--gap-m);
+    @mixin paragraph_caps;
+    font-family: var(--font-family);
+    color: var(--color-light-text-primary-inverted);
+    text-decoration: none;
+    border-radius: 99px;
+}
+
+.stage1 {
+    background-color: #b6bcc3;
+}
+
+.stage2 {
+    background-color: #007aff;
+}
+
+.stage3 {
+    background: linear-gradient(to right, #007aff 0%, #13a463 100%);
+}
+
+.stage4 {
+    background-color: #13a463;
+}

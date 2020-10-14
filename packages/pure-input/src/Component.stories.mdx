@@ -1,34 +1,21 @@
-import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import { Design } from 'storybook/blocks/design';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { PureInput } from './Component';
 import { name, version } from '../package.json';
 
 
 <Meta
-    title='Компоненты|PureInput'
+    title='Компоненты'
     component={PureInput}
-    parameters={{ 'theme-switcher': { enabled: true } }}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
-<Title>
-    PureInput ({name}@{version})
-</Title>
 
-```tsx
-import { PureInput } from '@alfalab/core-components-pure-input';
-```
+<!-- Canvas -->
 
-<Design>
-  <a href="https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=49%3A0">Figma</a>
-</Design>
-
-## Описание
-
-Компонент, представляющий из себя стилизованный нативный `input`
-
-<Story name='Песочница'>
+<Story name='PureInput'>
     <PureInput
         size={select('size', ['s', 'm', 'l'], 's')}
         type={select(
@@ -41,5 +28,25 @@ import { PureInput } from '@alfalab/core-components-pure-input';
         placeholder={text('placeholder', '')}
     />
 </Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='PureInput'
+    version={version}
+    package='@alfalab/core-components-pure-input'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=49%3A0'
+/>
+
+```tsx
+import { PureInput } from '@alfalab/core-components-pure-input';
+```
+
+Компонент, представляющий из себя стилизованный нативный `input`.
+
+<PureInput />
+
 
 <Props of={PureInput} />

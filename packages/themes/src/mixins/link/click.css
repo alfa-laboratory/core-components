@@ -1,0 +1,20 @@
+@import '../../../../vars/src/index.css';
+
+@define-mixin link-click {
+    /* core vars */
+    --color-light-text-primary: #0b1f35;
+    --color-light-text-secondary: #6d7986;
+    --color-light-text-link: #007aff;
+
+    /* primary */
+    --link-primary-hover-color: color-mod(var(--color-light-text-primary) tint(30%));
+    --link-primary-active-color: color-mod(var(--color-light-text-primary) tint(50%));
+
+    /* secondary */
+    --link-secondary-hover-color: color-mod(var(--color-light-text-secondary) tint(30%));
+    --link-secondary-active-color: color-mod(var(--color-light-text-secondary) tint(50%));
+
+    /* default */
+    --link-default-hover-color: color-mod(var(--color-light-text-link) tint(30%));
+    --link-default-active-color: color-mod(var(--color-light-text-link) tint(50%));
+}

@@ -2,12 +2,33 @@
 
 .optgroup {
     position: relative;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    box-sizing: border-box;
+    padding-left: var(--select-optgroup-left-padding);
+    padding-right: var(--select-optgroup-right-padding);
+    background: var(--select-optgroup-background);
 }
 
 .label {
-    @mixin system_14-18_regular;
+    @mixin system_12-16_medium_caps;
 
     display: block;
-    color: var(--color-dark-indigo-60-flat);
-    padding: 4px var(--gap-s);
+    color: var(--select-optgroup-color);
+}
+
+.s {
+    min-height: 40px;
+}
+
+.m {
+    min-height: 48px;
+}
+
+.l {
+    min-height: 56px;
+
+    padding-left: var(--select-optgroup-l-left-padding);
+    padding-right: var(--select-optgroup-l-right-padding);
 }

@@ -1,0 +1,23 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    overflow: hidden;
+    height: 100%;
+
+    &:after {
+        content: '';
+        display: block;
+        margin-bottom: calc(var(--tablist-hidden-scrollbar-height) * -1);
+    }
+}
+
+.container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: var(--tablist-hidden-scrollbar-height);
+}

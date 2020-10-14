@@ -1,0 +1,28 @@
+import { Description } from '@storybook/addon-docs/blocks';
+
+<Meta title='Гайдлайны|Доступность / Аудио и видео' />
+
+## Аудио и видео
+
+Чтобы помочь пользователям с нарушениями зрения воспринять аудио или видео контент — следует добавлять описание. Это поможет таким пользователям узнать, о чем говорится в ролике или в аудио. Если у видео есть визуальная информация, которая не озвучена, добавьте аудиоописание.
+
+- Для медиаконтента с длинным описанием можно использовать атрибуты `aria-describedby`, `longdesc` или невидимый для обычного пользователя блок с информацией.
+
+- Для аудиозаписей или видео со звуком добавьте альтернативное текстовое описание в атрибуты `aria-describedby`, `longdesc` или ссылку на страницу с альтернативным описанием. Если в аудиозаписи есть диалог, укажите, кто именно говорит.
+
+- Для видео без звука к самому файлу добавьте краткое описание, отдельно добавьте длинное описание с помощью атрибутов `aria-describedby`, `longdesc`.
+
+### Пример: Реклама карты World of Warships
+
+<iframe aria-describedby="video-description" src="//coub.com/embed/vdmae?muted=false&autostart=false&originalSize=false&startWithHD=false" frameborder="0" width="640" height="360" allow="autoplay"></iframe>
+<br/>
+<br/>
+<p id="video-description">Видео-реклама банковской карты World of Warships от Альфа-Банк.</p>
+
+```tsx
+<h3>Реклама карты World of Warships</h3>
+
+<iframe aria-describedby="video-description" src="//coub.com/embed/vdmae?muted=false&autostart=false&originalSize=false&startWithHD=false" frameborder="0" width="640" height="360" allow="autoplay"></iframe>
+
+<p id="video-description">Видео-реклама банковской карты World of Warships от Альфа-Банк.</p>
+```

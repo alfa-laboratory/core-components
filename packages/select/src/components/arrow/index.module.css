@@ -2,6 +2,16 @@
 
 .arrow {
     display: block;
+    width: 24px;
+    height: 24px;
+
+    background: var(--select-arrow-background);
+    background-size: cover;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+        opacity: var(--select-arrow-hover-opacity);
+    }
 }
 
 .open {

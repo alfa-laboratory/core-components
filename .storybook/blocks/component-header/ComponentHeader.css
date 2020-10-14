@@ -1,0 +1,32 @@
+.component {
+    position: relative;
+    margin: 0 0 24px;
+}
+
+.component h1 {
+    display: inline-block;
+}
+
+.version {
+    display: inline-block;
+    margin-left: 8px;
+    color: rgba(11, 31, 53, 0.6);
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+.design {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    font-size: 16px;
+    line-height: 16px;
+    padding: 0 0 0 20px;
+    background: url(https://static.figma.com/app/icon/1/favicon.svg) no-repeat 0 50%;
+}
+
+.design a {
+    color: #0f62fe;
+    border-bottom: 1px solid color-mod(#0f62fe alpha(30%));
+    text-decoration: none;
+}

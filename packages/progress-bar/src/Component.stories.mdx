@@ -1,28 +1,40 @@
-import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import { text, select, number } from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { name, version } from '../package.json';
 import { ProgressBar } from './Component';
 
-<Meta title='Компоненты|ProgressBar' component={ProgressBar} />
 
-<Title>
-    ProgressBar ({name}@{version})
-</Title>
+<Meta title='Компоненты' component={ProgressBar} />
 
-```tsx
-import { ProgressBar } from 'newclick-components/progress-bar';
-```
 
-## Описание
+<!-- Canvas -->
 
-Отображает линейный индикатор прогресса (0-100%)
-
-<Story name='Песочница'>
+<Story name='ProgressBar'>
     <ProgressBar
         value={number('value', 40)}
         view={select('view', ['positive', 'negative'])}
     />
 </Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='ProgressBar'
+    version={version}
+    package='@alfalab/core-components-progress-bar'
+    stage={2}
+/>
+
+```tsx
+import { ProgressBar } from '@alfalab/core-components-progress-bar';
+```
+
+Отображает линейный индикатор прогресса (0-100%).
+
+<ProgressBar value={40} />
+
 
 <Props of={ProgressBar} />

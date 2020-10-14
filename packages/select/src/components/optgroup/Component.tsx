@@ -1,15 +1,14 @@
 import React from 'react';
-import { BaseOptgroupProps } from '../../typings';
+import cn from 'classnames';
+import { OptgroupProps } from '../../typings';
 
 import styles from './index.module.css';
 
-export const Optgroup = ({ children, label }: BaseOptgroupProps) => {
-    return (
-        <React.Fragment>
-            <div className={styles.optgroup}>
-                <span className={styles.label}>{label}</span>
-            </div>
-            {children}
-        </React.Fragment>
-    );
-};
+export const Optgroup = ({ children, label, size = 's' }: OptgroupProps) => (
+    <React.Fragment>
+        <div className={cn(styles.optgroup, styles[size])}>
+            <span className={styles.label}>{label}</span>
+        </div>
+        {children}
+    </React.Fragment>
+);

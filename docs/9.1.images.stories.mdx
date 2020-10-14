@@ -1,0 +1,87 @@
+import { Description } from '@storybook/addon-docs/blocks';
+
+<Meta title='Гайдлайны|Доступность / Изображения' />
+
+## Изображения
+
+Чтобы слепые или слабовидящие пользователи могли понять, что изображено на картинке — добавьте альтернативное описание.<br/>
+Описание изображения зависит от его типа — информативное, декоративное или группа изображений.
+
+### Информативные
+
+Информативные изображения передают краткую информацию к тексту, дополняют или обозначают его.<br/>
+У всех таких изображений должны быть установлены подписи с помощью атрибута `alt`
+
+#### Картинка дает краткую информацию
+
+<div style={{ maxWidth: '600px', display: 'flex', marginTop: '20px' }}>
+    <img src="./images/docs_cat.jpg" style={{ maxWidth: '128px', marginRight: '20px' }} />
+    Персидский кот во время выставки покорил сердце судьи своим внешним видом.
+    Питомец привлёк внимание двуногих шерстью, ведь он по праву может считаться самым пушистым котёнком в мире.
+</div>
+
+```html
+❌ Плохо
+<img src="cat.png" />
+Персидский кот во время выставки покорил сердце судьи своим внешним видом.
+Питомец привлёк внимание двуногих шерстью, ведь он по праву может считаться самым пушистым котёнком в мире.
+
+✅ Хорошо
+<img src="cat.png" alt="Как отпустить рычаги, чтобы пробка вышла из бутылки" />
+Персидский кот во время выставки покорил сердце судьи своим внешним видом.
+Питомец привлёк внимание двуногих шерстью, ведь он по праву может считаться самым пушистым котёнком в мире.
+```
+
+#### Изображение обозначает объект, который описывает текст
+
+<div style={{ maxWidth: '600px', display: 'flex', marginTop: '20px' }}>
+    <img src="./images/docs_phone.png" style={{ maxWidth: '24px', border: 'none' }} />
+    +7 (999) 000 00 00
+</div>
+
+```html
+❌ Плохо
+<img src="phone-icon.png" />
++7 (999) 000 00 00
+
+✅ Хорошо
+<img src="phone-icon.png" alt="Телефон:" />
++7 (999) 000 00 00
+```
+
+### Декоративные
+
+Если изображения служат только для декораций и нужно чтобы скринридеры их игнорировали, то можно добавлять их с помощью свойства CSS `background-image`. Либо следует использовать атрибуты `role="presentation"` и `aria-hidden="true"`.
+
+<div style={{ maxWidth: '600px', marginTop: '20px' }}>
+    <img src="./images/docs_gradient.png" />
+</div>
+
+```html
+❌ Плохо
+<img src="gradient.png" />
+
+✅ Хорошо
+<img src="gradient.png" aria-hidden="true" alt="">
+<div style="background-image: url(./images/gradient.png)"></div>
+```
+
+### Группы изображений
+
+Для групп изображений, которые представляют одну и ту же информацию, например, звездочки рейтинга, добавьте описание в alt только к первому изображению:
+
+<div style={{ maxWidth: '600px', display: 'flex', marginTop: '20px' }}>
+    <img src="./images/docs_star-full.png" width="24" alt="Рейтинг фильма 4 из 5" />
+    <img src="./images/docs_star-full.png" width="24" alt="" />
+    <img src="./images/docs_star-full.png" width="24" alt="" />
+    <img src="./images/docs_star-full.png" width="24" alt="" />
+    <img src="./images/docs_star-empty.png" width="24" alt="" />
+</div>
+
+```html
+<img src="star-full.png" alt="Рейтинг фильма 4 из 5" />
+<img src="star-full.png" alt="" />
+<img src="star-full.png" alt="" />
+<img src="star-full.png" alt="" />
+<img src="star-empty.png" alt="" />
+```

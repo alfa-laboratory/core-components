@@ -1,0 +1,87 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { text, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { Radio } from './Component';
+import { name, version } from '../package.json';
+
+
+<Meta title='Компоненты' component={Radio} />
+
+
+<!-- Canvas -->
+
+<Story name='Radio'>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleChange = () => setChecked(!checked);
+        const disabled = boolean('disabled', false);
+        const label = text('label', 'Text label')
+        const hint = text('hint', 'Hint');
+        return (
+            <Radio
+                disabled={disabled}
+                onChange={handleChange}
+                checked={checked}
+                hint={hint}
+                label={label}
+            />
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Radio'
+    version={version}
+    package='@alfalab/core-components-radio'
+    stage={2}
+/>
+
+```tsx
+import { Radio } from '@alfalab/core-components-radio';
+```
+
+Компонент радио.
+
+<Preview>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleChange = () => setChecked(!checked);
+        const disabled = boolean('disabled', false);
+        const label = text('label', 'Text label')
+        const hint = text('hint', 'Hint');
+        return (
+            <Radio
+                disabled={disabled}
+                onChange={handleChange}
+                checked={checked}
+                hint={hint}
+                label={label}
+            />
+        );
+    })}
+</Preview>
+
+
+<Props of={Radio} />
+
+
+### Компонент Radio
+
+<Preview>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleChange = () => setChecked(!checked);
+        return (
+            <Radio
+                onChange={handleChange}
+                checked={checked}
+                label="Some label"
+                hint="Some description"
+            />
+        );
+    })}
+</Preview>

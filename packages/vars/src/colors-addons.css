@@ -1,9 +1,21 @@
 :root {
-    --color-static-graphic-amethyst: rgba(164, 137, 170, 1);
-    --color-static-graphic-lavender: rgba(136, 136, 173, 1);
-    --color-static-graphic-blue-moody: rgba(120, 121, 207, 1);
-    --color-static-graphic-persimmon: rgba(255, 92, 92, 1);
-    --color-static-graphic-green-jungle: rgba(47, 194, 110, 1);
-    --color-static-graphic-sand: rgba(246, 191, 101, 1);
-    --color-static-graphic-blue-maya: rgba(126, 179, 255, 1);
+    --color-static-graphic-amethyst: #a489aa;
+    --color-static-graphic-blue-maya: #7eb3ff;
+    --color-static-graphic-blue-moody: #7879cf;
+    --color-static-graphic-botticelli: #cee5e5;
+    --color-static-graphic-gallery: #eee;
+    --color-static-graphic-green-jungle: #2fc26e;
+    --color-static-graphic-lavender: #8888ad;
+    --color-static-graphic-persimmon: #ff5c5c;
+    --color-static-graphic-salomie: #fee984;
+    --color-static-graphic-sand: #f6bf65;
+    --color-static-graphic-soft-peach: #f3eaeb;
+    --color-static-graphic-solitude: #e8f2fe;
+    --color-static-status-blue: #007aff;
+    --color-static-status-green: #13a463;
+    --color-static-status-grey: #6d7986;
+    --color-static-status-orange: #de6a00;
+    --color-static-status-purple: #673ab7;
+    --color-static-status-red: #d91d0b;
+    --color-static-status-teal: #219187;
 }

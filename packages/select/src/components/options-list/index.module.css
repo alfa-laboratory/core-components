@@ -4,17 +4,19 @@
     overflow: auto;
     width: 100%;
     outline: none;
-    padding: var(--gap-xs) 0;
+    padding-top: var(--select-options-list-top-padding);
+    padding-bottom: var(--select-options-list-bottom-padding);
+    box-sizing: border-box;
 }
 
 .s {
-    max-height: 240px;
+    max-height: var(--select-options-list-s-height);
 }
 
 .m {
-    max-height: 280px;
+    max-height: var(--select-options-list-m-height);
 }
 
 .l {
-    max-height: 340px;
+    max-height: var(--select-options-list-l-height);
 }

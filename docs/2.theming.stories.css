@@ -1,0 +1,82 @@
+div.themeExample {
+    margin: 0 0 24px;
+}
+
+div.container {
+    margin: 24px 0 0;
+    padding: 20px 24px 24px;
+}
+
+div.title {
+    margin: 0 0 12px;
+}
+
+pre.cssExample {
+    opacity: 0.6;
+}
+
+@define-mixin theme-dark {
+    --checkbox-label-color: var(--color-dark-text-primary);
+    --checkbox-bg-color: var(--color-dark-bg-secondary);
+    --checkbox-border-color: var(--color-dark-border-secondary-inverted);
+    --checkbox-hover-bg-color: var(--color-dark-border-secondary-inverted);
+    --checkbox-hover-border-color: var(--color-dark-border-tertiary-inverted);
+    --checkbox-active-border-color: var(--color-dark-border-key);
+    --radio-label-color: var(--color-dark-text-primary);
+    --radio-bg-color: var(--color-dark-bg-secondary);
+    --radio-border-color: var(--color-dark-border-secondary-inverted);
+    --radio-hover-bg-color: var(--color-dark-border-secondary-inverted);
+    --radio-hover-border-color: var(--color-dark-border-tertiary-inverted);
+    --radio-active-border-color: var(--color-dark-border-key);
+}
+
+@define-mixin theme-light {
+    --checkbox-label-color: var(--color-light-text-primary);
+    --checkbox-bg-color: var(--color-light-bg-secondary);
+    --checkbox-border-color: var(--color-light-border-secondary-inverted);
+    --checkbox-hover-bg-color: var(--color-light-border-secondary-inverted);
+    --checkbox-hover-border-color: var(--color-light-border-tertiary-inverted);
+    --checkbox-active-border-color: var(--color-light-border-key);
+    --radio-label-color: var(--color-light-text-primary);
+    --radio-bg-color: var(--color-light-bg-secondary);
+    --radio-border-color: var(--color-light-border-secondary-inverted);
+    --radio-hover-bg-color: var(--color-light-border-secondary-inverted);
+    --radio-hover-border-color: var(--color-light-border-tertiary-inverted);
+    --radio-active-border-color: var(--color-light-border-key);
+}
+
+@define-mixin theme-red-eye {
+    --checkbox-label-color: var(--color-dark-text-accent);
+    --checkbox-bg-color: transparent;
+    --checkbox-border-color: var(--color-dark-border-accent);
+    --checkbox-hover-bg-color: var(--color-dark-bg-negative-muted);
+    --checkbox-hover-border-color: var(--color-dark-border-accent);
+    --checkbox-active-border-color: var(--color-dark-border-key);
+    --radio-label-color: var(--color-dark-text-accent);
+    --radio-bg-color: transparent;
+    --radio-border-color: var(--color-dark-border-accent);
+    --radio-hover-bg-color: var(--color-dark-bg-negative-muted);
+    --radio-hover-border-color: var(--color-dark-border-accent);
+    --radio-active-border-color: var(--color-dark-border-key);
+}
+
+.dark {
+    @mixin theme-dark;
+
+    background-color: var(--color-dark-bg-secondary);
+    color: var(--color-dark-text-primary);
+}
+
+.light {
+    @mixin theme-light;
+
+    background-color: var(--color-light-bg-primary);
+    color: var(--color-light-text-primary);
+}
+
+.redEye {
+    @mixin theme-red-eye;
+
+    background-color: var(--color-static-bg-dark);
+    color: var(--color-dark-text-accent);
+}

@@ -1,0 +1,55 @@
+@import '../../vars.css';
+
+.component {
+    display: flex;
+}
+
+.input {
+    flex-shrink: 0;
+    width: 36px;
+    height: 48px;
+    margin-right: var(--gap-xs);
+    padding: 0;
+    background-color: var(--confirmation-input-bg-color);
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+    color: var(--confirmation-input-text-color);
+    text-align: center;
+    font-size: var(--confirmation-input-font-size);
+    font-weight: var(--confirmation-input-font-weight);
+    font-family: var(--confirmation-input-font-family);
+
+    &:last-child {
+        margin-right: var(--gap-xs);
+    }
+
+    &.hasError {
+        color: var(--confirmation-error-color);
+        caret-color: var(--confirmation-input-text-color);
+        background-color: var(--confirmation-input-error-bg-color);
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-2px);
+    }
+
+    75% {
+        transform: translateX(2px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.shake {
+    animation: shake 0.15s linear 0s 3;
+}

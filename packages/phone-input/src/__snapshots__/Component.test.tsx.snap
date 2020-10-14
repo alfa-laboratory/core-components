@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component s"
+        class="component s formControl"
       >
         <div
           class="inner"
@@ -31,7 +31,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component s"
+      class="component s formControl"
     >
       <div
         class="inner"

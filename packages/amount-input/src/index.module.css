@@ -16,37 +16,27 @@
 * Делаем скрытый текст где держим то же значение, добавляем символ валюты
 * Важно расположить этот текст ровно на месте инпута и чтобы он имел те же параметры что и текст в инпуте
 */
-.fakeValueWithCurrencyContainer {
-    @mixin system_16-20_regular;
-    position: absolute;
-    pointer-events: none;
-    visibility: hidden;
-    z-index: 1; /* Не понимаю почему в проекте без этого не работает. Женя помоги */
-}
 
-.majorPart {
-    visibility: visible;
+.container {
+    position: relative;
 }
 
 .minorPartAndCurrency {
     color: var(--amount-input-minor-part-and-currency-color);
 }
 
-.bold .fakeValueWithCurrencyContainer,
-.bold .input {
+.bold .input,
+.bold .suffixContainer {
     font-weight: bold;
 }
 
-.filled .minorPartAndCurrency {
-    visibility: visible;
+/* суффикс = текст в поле. Скрываем спейсер, чтобы суффикс выглядел как введенное в поле значение */
+.suffixContainer > *:first-child {
+    display: none;
 }
 
-.filled .input {
+.filled .input,
+.input:focus {
     -webkit-text-fill-color: transparent; /* Для IE текст будет черным */
-    caret-color: black; /* Для IE каретка будет черной */
-}
-
-.focused .input::placeholder {
-    color: transparent;
-    transition: none;
+    caret-color: currentColor;
 }

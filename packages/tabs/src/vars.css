@@ -1,0 +1,48 @@
+:root {
+    --tablist-hidden-scrollbar-height: 20px;
+    --primary-tablist-color: var(--color-dark-indigo-60-flat);
+    --primary-tablist-hover-color: var(--color-dark-indigo);
+    --primary-tablist-selected-color: var(--color-dark-indigo);
+    --primary-tablist-bottom-border-color: var(--color-dark-indigo-30);
+    --primary-tablist-line-color: var(--color-red-brand);
+
+    /* mobile */
+    --primary-tablist-mobile-gaps: var(--gap-xl);
+    --primary-tablist-mobile-font-size: 16px;
+    --primary-tablist-mobile-font-weight: 400;
+    --primary-tablist-mobile-font-family: var(--font-family-system);
+    --primary-tablist-mobile-padding: 0 0 var(--gap-s);
+
+    /* size s */
+    --primary-tablist-s-gaps: var(--gap-2xl);
+    --primary-tablist-s-font-size: 18px;
+    --primary-tablist-s-font-weight: 400;
+    --primary-tablist-s-font-family: var(--font-family-system);
+    --primary-tablist-s-padding: 0 0 var(--gap-s);
+
+    /* size m */
+    --primary-tablist-m-gaps: var(--gap-2xl);
+    --primary-tablist-m-font-size: 18px;
+    --primary-tablist-m-font-weight: 400;
+    --primary-tablist-m-font-family: var(--font-family-system);
+    --primary-tablist-m-padding: 0 0 var(--gap-m);
+
+    /* size l */
+    --primary-tablist-l-gaps: var(--gap-2xl);
+    --primary-tablist-l-font-size: 18px;
+    --primary-tablist-l-font-weight: 400;
+    --primary-tablist-l-font-family: var(--font-family-system);
+    --primary-tablist-l-padding: 0 0 var(--gap-l);
+
+    /* mobile */
+    --secondary-tablist-mobile-gaps: var(--gap-xs);
+
+    /* size s */
+    --secondary-tablist-s-gaps: var(--gap-s);
+
+    /* size m */
+    --secondary-tablist-m-gaps: var(--gap-s);
+
+    /* size l */
+    --secondary-tablist-l-gaps: var(--gap-s);
+}

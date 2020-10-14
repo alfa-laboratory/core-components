@@ -1,0 +1,5 @@
+@import '../../vars.css';
+
+.circle {
+    fill: var(--color-light-graphic-tertiary);
+}

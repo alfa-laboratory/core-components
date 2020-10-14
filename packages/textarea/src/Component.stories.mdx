@@ -1,0 +1,58 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+
+import { Textarea } from './Component';
+import { name, version } from '../package.json';
+
+<Meta
+    title='Компоненты'
+    component={Textarea}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='Textarea'>
+    <Textarea
+        autosize={boolean('autosize', true)}
+        block={boolean('block', false)}
+        size={select('size', ['s', 'm', 'l'], 's')}
+        disabled={boolean('disabled', false)}
+        placeholder={text('placeholder', '')}
+        resize={select('resize', ['none', 'vertical'], 'none')}
+        minRows={number('minRows', undefined)}
+        maxRows={number('maxRows', undefined)}
+        maxHeight={number('maxHeight', undefined)}
+        label={text('label', '')}
+        hint={text('hint', '')}
+        error={text('error', '')}
+        rightAddons={boolean('rightAddons', false) && !text('error') && <Icon />}
+        leftAddons={boolean('leftAddons', false) && <Icon />}
+        bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
+    />
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Textarea'
+    version={version}
+    package='@alfalab/core-components-textarea'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=49%3A0'
+/>
+
+```tsx
+import { Textarea } from '@alfalab/core-components-textarea';
+```
+
+Компонент текстового поля ввода.
+
+<Textarea />
+
+
+<Props of={Textarea} />

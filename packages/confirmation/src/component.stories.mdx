@@ -1,0 +1,154 @@
+import { useState } from 'react';
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { text, select, number, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { Confirmation } from './component';
+import { name, version } from '../package.json';
+import { Select } from '../../select/src/Component';
+
+
+<Meta
+    title='Компоненты'
+    component={Confirmation}
+    parameters={{ 'theme-switcher': { themes: ['click', 'mobile'] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='Confirmation'>
+    {React.createElement(() => {
+        const [variant, setVariant] = useState([{ value: 'success', text: 'Успешный сценарий'}]);
+        const [value, setValue] = useState({'success': '', 'error': '', 'fatal': ''});
+        const [codeChecking, setCodeChecking] = useState({'success': false, 'error': false, 'fatal': false});
+        const [codeSending, setCodeSending] = useState({'success': false, 'error': false, 'fatal': false});
+        const [error, setError] = useState({'success': '', 'error': '', 'fatal': ''});
+        const setCode = (variant, code) => {
+            setValue({...value, [variant]: code});
+            setError({...error, [variant]: ''});
+        }
+        const handleSubmit = (variant) => {
+            setCodeChecking({...codeChecking, [variant]: true});
+            setError({...error, [variant]: ''});
+            setTimeout(() => {
+                setCodeChecking({...codeChecking, [variant]: false});
+                if (variant === 'error') {
+                    setError({...error, 'error': 'Неправильный код'});
+                } else if (variant === 'fatal') {
+                    setError({...error, 'fatal': 'Выполните операцию с самого начала'});
+                }
+            }, 1000);
+        }
+        const handleSmsRetryClick = (variant) => {
+            setCodeSending({...codeSending, [variant]: true});
+            setError({...error, [variant]: ''});
+            setCode(variant, '')
+            setTimeout(() => {
+                setCodeSending({...codeSending, [variant]: false});
+            }, 1000);
+        }
+        const alignContent = select('alignContent', ['center', 'left'], 'center');
+        const phone = '+7 000 000 00 42';
+        const countdownDuration = 10000;
+        const requiredCharAmount = number('requiredCharAmount', 5);
+        return (
+            <div>
+                <Select
+                    options={[
+                        { value: 'success', text: 'Успешный сценарий'},
+                        { value: 'error', text: 'Сценарий с ошибкой'},
+                        { value: 'fatal', text: 'Сценарий с критичной ошибкой'}
+                    ]}
+                    onChange={({ selectedOptions }) => {
+                        setVariant(selectedOptions)
+                    }}
+                    selected={[variant[0].value]}
+                />
+                <div style={{display: 'flex'}}>
+                    {variant[0].value === 'success' &&
+                        <div
+                            style={{
+                                display: 'flex',
+                                width: '100%',
+                                maxWidth: '375px',
+                                margin: '16px 0 0',
+                                padding: '16px',
+                                border: '1px solid #eeeff1',
+                                boxSizing: 'border-box'
+                            }}
+                        >
+                            <Confirmation
+                                phone={phone}
+                                onInputFinished={() => handleSubmit('success')}
+                                onSmsRetryClick={() => handleSmsRetryClick('success')}
+                                codeSending={codeSending['success']}
+                                codeChecking={codeChecking['success']}
+                                countdownDuration={countdownDuration}
+                                code={value['success']}
+                                onInputChange={({ code }) => setCode('success', code)}
+                                alignContent={alignContent}
+                                requiredCharAmount={requiredCharAmount}
+                            />
+                        </div>
+                    }
+                    {variant[0].value === 'error' &&
+                        <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
+                            <Confirmation
+                                phone={phone}
+                                onInputFinished={( ) => handleSubmit('error')}
+                                onSmsRetryClick={() => handleSmsRetryClick('error')}
+                                codeSending={codeSending['error']}
+                                codeChecking={codeChecking['error']}
+                                error={error['error']}
+                                countdownDuration={countdownDuration}
+                                code={value['error']}
+                                onInputChange={({ code }) => setCode('error', code)}
+                                alignContent={alignContent}
+                                requiredCharAmount={requiredCharAmount}
+                            />
+                        </div>
+                    }
+                    {variant[0].value === 'fatal' &&
+                        <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
+                            <Confirmation
+                                phone={phone}
+                                onInputFinished={() => handleSubmit('fatal')}
+                                onSmsRetryClick={() => handleSmsRetryClick('fatal')}
+                                codeSending={codeSending['fatal']}
+                                codeChecking={codeChecking['fatal']}
+                                error={error['fatal']}
+                                errorIsFatal={true}
+                                countdownDuration={countdownDuration}
+                                code={value['fatal']}
+                                onInputChange={({ code }) => setCode('fatal', code)}
+                                alignContent={alignContent}
+                                requiredCharAmount={requiredCharAmount}
+                            />
+                        </div>
+                    }
+                </div>
+            </div>
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Confirmation'
+    version={version}
+    package='@alfalab/core-components-confirmation'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=8558%3A22'
+/>
+
+```tsx
+import { Confirmation } from '@alfalab/core-components-confirmation';
+```
+
+Компонент подтверждения операции по коду.
+
+
+<Props of={Confirmation} />

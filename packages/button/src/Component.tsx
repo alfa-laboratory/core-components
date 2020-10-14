@@ -1,6 +1,8 @@
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, Ref } from 'react';
+import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, useRef } from 'react';
 import cn from 'classnames';
+import mergeRefs from 'react-merge-refs';
 
+import { useFocus } from '@alfalab/hooks';
 import { Loader } from '@alfalab/core-components-loader';
 
 import styles from './index.module.css';
@@ -9,7 +11,7 @@ export type ComponentProps = {
     /**
      * Тип кнопки
      */
-    view?: 'primary' | 'secondary' | 'outlined' | 'link' | 'ghost';
+    view?: 'primary' | 'secondary' | 'outlined' | 'filled' | 'link' | 'ghost';
 
     /**
      * Слот слева
@@ -54,7 +56,7 @@ export type ComponentProps = {
 
 type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
 type NativeButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
-type ButtonProps = Partial<AnchorButtonProps | NativeButtonProps>;
+export type ButtonProps = Partial<AnchorButtonProps | NativeButtonProps>;
 
 export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
     (
@@ -73,11 +75,20 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
         },
         ref,
     ) => {
+        const buttonRef = useRef<HTMLElement>(null);
+
+        const [focused] = useFocus(buttonRef, 'keyboard');
+
         const componentProps = {
             className: cn(
                 styles.component,
+                styles[view],
+                styles[size],
                 {
+                    [styles.focused]: focused,
                     [styles.block]: block,
+                    [styles.iconOnly]: !children,
+                    [styles.loading]: loading && !href,
                 },
                 className,
             ),
@@ -85,19 +96,12 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
         };
 
         const buttonChildren = (
-            // https://www.kizu.ru/keyboard-only-focus/
-            <span
-                className={cn(styles.wrapper, styles[view], styles[size], {
-                    [styles.iconOnly]: !children,
-                    [styles.loading]: loading && !href,
-                })}
-                tabIndex={-1}
-            >
+            <React.Fragment>
                 {leftAddons && <span className={cn(styles.addons)}>{leftAddons}</span>}
                 {children && <span className={cn(styles.text)}>{children}</span>}
                 {loading && !href && <Loader className={cn(styles.loader)} />}
                 {rightAddons && <span className={cn(styles.addons)}>{rightAddons}</span>}
-            </span>
+            </React.Fragment>
         );
 
         if (href) {
@@ -106,8 +110,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                     {...componentProps}
                     {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
                     href={href}
-                    ref={ref as Ref<HTMLAnchorElement>}
-                    tabIndex={0}
+                    ref={mergeRefs([buttonRef, ref])}
                 >
                     {buttonChildren}
                 </a>
@@ -124,8 +127,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                 {...componentProps}
                 {...restButtonProps}
                 disabled={disabled || loading}
-                ref={ref as Ref<HTMLButtonElement>}
-                tabIndex={0}
+                ref={mergeRefs([buttonRef, ref])}
             >
                 {buttonChildren}
             </button>

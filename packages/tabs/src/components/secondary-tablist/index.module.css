@@ -1,0 +1,42 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    position: relative;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    white-space: nowrap;
+}
+
+/* sizes */
+
+.s {
+    height: 48px;
+
+    & .title + .title {
+        margin-left: var(--secondary-tablist-s-gaps);
+    }
+}
+
+.m {
+    height: 56px;
+
+    & .title + .title {
+        margin-left: var(--secondary-tablist-m-gaps);
+    }
+}
+
+.l {
+    height: 72px;
+
+    & .title + .title {
+        margin-left: var(--secondary-tablist-l-gaps);
+    }
+}

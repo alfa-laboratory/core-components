@@ -1,0 +1,110 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    position: relative;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 1px;
+        height: 1px;
+        width: 100%;
+        background-color: var(--primary-tablist-bottom-border-color);
+    }
+}
+
+.container {
+    position: relative;
+    display: flex;
+    height: 100%;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+    cursor: pointer;
+    color: var(--primary-tablist-color);
+    font-feature-settings: 'ss01';
+    transition: color 0.2s ease;
+    border: 0;
+    background: none;
+    white-space: nowrap;
+    box-shadow: none;
+    user-select: none;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+        color: var(--primary-tablist-hover-color);
+    }
+}
+
+.focused {
+    @mixin focus-outline;
+}
+
+.selected {
+    cursor: default;
+    color: var(--primary-tablist-selected-color);
+}
+
+.line {
+    position: absolute;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-tablist-line-color);
+    transition: transform 0.2s ease, width 0.2s ease;
+}
+
+.scrollable .line {
+    bottom: var(--tablist-hidden-scrollbar-height);
+}
+
+/* sizes */
+
+.s {
+    & .title {
+        padding: var(--primary-tablist-s-padding);
+        font-size: var(--primary-tablist-s-font-size);
+        font-weight: var(--primary-tablist-s-font-weight);
+        font-family: var(--primary-tablist-s-font-family);
+        line-height: 24px;
+    }
+
+    & .title + .title {
+        margin-left: var(--primary-tablist-s-gaps);
+    }
+}
+
+.m {
+    & .title {
+        padding: var(--primary-tablist-m-padding);
+        font-size: var(--primary-tablist-m-font-size);
+        font-weight: var(--primary-tablist-m-font-weight);
+        font-family: var(--primary-tablist-m-font-family);
+        line-height: 24px;
+    }
+
+    & .title + .title {
+        margin-left: var(--primary-tablist-m-gaps);
+    }
+}
+
+.l {
+    & .title {
+        padding: var(--primary-tablist-l-padding);
+        font-size: var(--primary-tablist-l-font-size);
+        font-weight: var(--primary-tablist-l-font-weight);
+        font-family: var(--primary-tablist-l-font-family);
+        line-height: 32px;
+    }
+
+    & .title + .title {
+        margin-left: var(--primary-tablist-l-gaps);
+    }
+}

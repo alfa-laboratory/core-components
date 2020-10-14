@@ -3,16 +3,22 @@
 .component {
     width: 100%;
     outline: none;
+    cursor: pointer;
 }
 
+/* TODO: Заюзать переменные из инпута */
 .placeholder {
-    color: var(--color-dark-indigo-30-flat);
+    color: var(--color-light-text-secondary);
+}
+
+.hasLabel .placeholder {
+    color: var(--color-light-text-tertiary);
 }
 
 .contentWrapper {
     @mixin system_16-20_regular;
 
-    color: var(--color-dark-indigo);
+    color: var(--color-light-text-primary);
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -22,4 +28,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: left;
+}
+
+.disabled {
+    cursor: default;
+}
+
+.focusVisible > div:first-child {
+    @mixin focus-outline;
 }

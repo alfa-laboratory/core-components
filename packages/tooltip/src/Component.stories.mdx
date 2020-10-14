@@ -1,31 +1,18 @@
-import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import { text, boolean, select, number } from '@storybook/addon-knobs';
-import { Design } from 'storybook/blocks/design';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import {Button} from '../../button/src';
 import { Tooltip } from './Component';
 import { name, version } from '../package.json';
 
 
-<Meta title='Компоненты|Tooltip' component={Tooltip} />
+<Meta title='Компоненты' component={Tooltip} />
 
-<Title>
-    Tooltip ({name}@{version})
-</Title>
 
-```tsx
-import { Tooltip } from '@alfalab/core-components-tooltip';
-```
+<!-- Canvas -->
 
-<Design>
-  <a href="https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=719%3A3">Figma</a>
-</Design>
-
-## Описание
-
-Компонент `Tooltip`.
-
-<Story name='Песочница'>
+<Story name='Tooltip'>
     {React.createElement(() => {
         const POSITION_OPTIONS = [
             'top',
@@ -78,5 +65,77 @@ import { Tooltip } from '@alfalab/core-components-tooltip';
         );
     })}
 </Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Tooltip'
+    version={version}
+    package='@alfalab/core-components-tooltip'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=719%3A3'
+/>
+
+```tsx
+import { Tooltip } from '@alfalab/core-components-tooltip';
+```
+
+Компонент `Tooltip`.
+
+<Preview>
+    {React.createElement(() => {
+        const POSITION_OPTIONS = [
+            'top',
+            'top-start',
+            'top-end',
+            'bottom',
+            'bottom-start',
+            'bottom-end',
+            'right',
+            'right-start',
+            'right-end',
+            'left',
+            'left-start',
+            'left-end',
+        ];
+        const openSelectValue = select('open', ['true', 'false', 'undefined'], 'undefined');
+        const open =
+            openSelectValue === 'false' ? false : openSelectValue === 'true' ? true : undefined;
+        const trigger = select('trigger', ['hover', 'click'], 'hover');
+        return (
+            <div
+            style={{
+                width: '700px',
+                height: '300px',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}
+        >
+            <Tooltip
+                content={
+                    <div style={{ width: '215px' }}>
+                        Теперь вам можно снимать наличные в кассе и банкоматах, если ваш тариф это
+                        позволяет
+                    </div>
+                }
+                open={open}
+                trigger={trigger}
+                offset={[number('offset[0]', 0), number('offset[1]', 10)]}
+                position={select('position', POSITION_OPTIONS, 'left')}
+                onCloseDelay={number('onCloseDelay (in ms)', 300)}
+                onOpenDelay={number('onOpenDelay (in ms)', 300)}
+                dataTestId='test-id'
+            >
+                <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
+                    {trigger === 'hover' ? 'Hover me' : 'Click me'}
+                </div>
+            </Tooltip>
+        </div>
+        );
+    })}
+</Preview>
+
 
 <Props of={Tooltip} />

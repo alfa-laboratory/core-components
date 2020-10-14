@@ -1,8 +1,8 @@
-import { Meta, Story, Preview, Props, Description, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { Container, Row, Col } from 'storybook/blocks/grid';
-import { Design } from 'storybook/blocks/design';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
 import { Link } from './Component';
@@ -11,26 +11,16 @@ import { name, version } from '../package.json';
 export const VIEWS = ['primary', 'secondary', 'default'];
 
 
-<Meta title='Компоненты|Link' component={Link} />
+<Meta
+    title='Компоненты'
+    component={Link}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
 
-<Title>
-    Link ({name}@{version})
-</Title>
 
-```tsx
-import { Link } from '@alfalab/core-components-link';
-```
+<!-- Canvas -->
 
-<Design>
-  <a href="https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=719%3A1">Figma</a>
-</Design>
-
-## Описание
-
-Ссылка — элемент навигации, который обозначает возможность перехода на другую страницу
-или вызова нового информационного слоя.
-
-<Story name='Песочница'>
+<Story name='Link'>
     <Link
         view={select('view', VIEWS, 'primary')}
         pseudo={boolean('pseudo', false)}
@@ -40,10 +30,33 @@ import { Link } from '@alfalab/core-components-link';
     </Link>
 </Story>
 
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Link'
+    version={version}
+    package='@alfalab/core-components-link'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=719%3A1'
+/>
+
+```tsx
+import { Link } from '@alfalab/core-components-link';
+```
+
+Ссылка — элемент навигации, который обозначает возможность перехода на другую страницу
+или вызова нового информационного слоя.
+
+<Link view='default' href='https://alfabank.ru/get-money/credit-cards/100-days/'>
+    Заказать карту
+</Link>
+
+
 <Props of={Link} />
 
+
 ## Виды ссылок
-<br />
 
 ### Обычная ссылка
 Нестареющая классика. Ссылка может вести как на страницу внутри системы, так и на внешний ресурс.

@@ -1,13 +1,15 @@
+@import '../../../../vars/src/index.css';
+
 @define-mixin pure-input-click {
     /* core vars */
-    --color-dark-indigo-07-flat: #eeeff1;
+    --color-light-bg-tertiary: #e7e9eb;
     --gap-s: 12px;
     --gap-m: 16px;
 
-    /* base */
+    /* theme */
     --pure-input-border-radius: 4px;
     --pure-input-border-bottom: 0;
-    --pure-input-bg-color: var(--color-dark-indigo-07-flat);
+    --pure-input-bg-color: var(--color-light-bg-tertiary);
 
     /* paddings */
     --pure-input-paddings: 0 var(--gap-s);
@@ -15,10 +17,10 @@
 
     /* disabled */
     --pure-input-disabled-border-bottom: 0;
-    --pure-input-disabled-bg-color: var(--color-dark-indigo-07-flat);
+    --pure-input-disabled-bg-color: var(--color-light-bg-tertiary);
 
     /* focus */
     --pure-input-focus-shadow: none;
     --pure-input-focus-border-bottom: 0;
-    --pure-input-hover-bg-color: var(--color-dark-indigo-07-flat);
+    --pure-input-hover-bg-color: var(--color-light-bg-tertiary);
 }

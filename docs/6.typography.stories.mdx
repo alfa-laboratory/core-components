@@ -1,0 +1,70 @@
+import { Description } from '@storybook/addon-docs/blocks';
+
+<Meta title='Гайдлайны|Типографика' />
+
+## Типографика
+
+Актуальный набор текстовых стилей доступен в двух вариантах:
+
+- Компоненты [Typography.Title](https://alfa-laboratory.github.io/core-components/master/?path=/docs/компоненты-typography--typography-title) и [Typography.Text](https://alfa-laboratory.github.io/core-components/master/?path=/docs/компоненты-typography--typography-text)
+- Миксины в [core-components/vars/typography.css](https://github.com/alfa-laboratory/core-components/blob/master/packages/vars/src/typography.css)
+
+### Использование типографики
+
+При выделении любого текстового элемента в Figma, в правом сайдбаре можно увидеть название стиля:
+<img src='./images/typography_figma-element.png' width={388} alt='Пример текстового элемента в Figma' />
+
+В скобках указан соответствующий компонент `Typography.Title view='small'`.
+
+```jsx
+<Typography.Title view='small'>Заголовок</Title>
+```
+
+При необходимости используйте миксин:
+
+```css
+@import '@alfalab/core-components/vars/typography.css';
+
+.item {
+    @mixin headline_small;
+}
+```
+
+> Если в Figma не видно название стиля или для него не оказалось компонента или миксина, спросите у дизайнера почему :)
+
+### Шрифты
+
+Стандартный набор шрифтовых гарнитур для всех компонентов:
+
+`--font-family-system: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, sans-serif;`
+
+### Styrene
+
+Если в вашем продукте используется шрифт Styrene, его необходимо подключить:
+
+```css
+@font-face {
+    font-family: 'Styrene UI';
+    src: url('https://alfabank.st/media/fonts/styrene-ui/styrene-ui_regular.woff2') format('woff2'),
+         url('https://alfabank.st/media/fonts/styrene-ui/styrene-ui_regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Styrene UI';
+    src: url('https://alfabank.st/media/fonts/styrene-ui/styrene-ui_medium.woff2') format('woff2'),
+         url('https://alfabank.st/media/fonts/styrene-ui/styrene-ui_medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Styrene UI';
+    src: url('https://alfabank.st/media/fonts/styrene-ui/styrene-ui_bold.woff2') format('woff2'),
+         url('https://alfabank.st/media/fonts/styrene-ui/styrene-ui_bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+```
+
+Для всех Styrene-элементов должна быть включена настройка `font-feature-settings: 'ss01';`, и рекомендуем не забыть про сглаживание
+`-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;`.

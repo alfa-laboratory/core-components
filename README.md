@@ -1,69 +1,79 @@
-<img width="914" alt="Библиотека React компонентов для создания веб-интерфейсов" src="https://user-images.githubusercontent.com/109410/78970104-3873e000-7b11-11ea-945d-02f86cad62e0.png"/>
+<div class="github-doc">
+
+<p><img width="914" alt="Библиотека React компонентов для создания веб-интерфейсов" src="https://user-images.githubusercontent.com/109410/78970104-3873e000-7b11-11ea-945d-02f86cad62e0.png"/></p>
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-## ✨ Возможности
+[Cторибук](https://alfa-laboratory.github.io/core-components/) с документацией и песочницей.
 
-- Набор готовых к использованию и протестированных React компонентов, которые реализуют [дизайн-систему Альфа-банка](https://digital.alfabank.ru/principles)
-- Все компоненты написаны на TypeScript и типизированы.
-- Удобный [сторибук](https://alfa-laboratory.github.io/core-components/) с песочницей.
-- Компоненты открыты к темизации через css-переменные.
+</div>
 
-## 🖥 Поддерживаемые браузеры
+## Установка
 
+Установка всех компонентов:
 
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/yandex/yandex_48x48.png" alt="Yandex Browser" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Yandex Browser |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <p align="center">IE11, Edge</p>                                                                                                                                                                                            | <p align="center">последние 2 версии</p>                                                                                                                                                                                                  | <p align="center">последние 2 версии</p>                                                                                                                                                                                                | <p align="center">последние 2 версии</p>                                                                                                                                                                                                | <p align="center">последние 2 версии</p>                                                                                                                                                                                            | <p align="center">последние 2 версии</p>                                                                                                                                                                                                        |
-
-## 📦 Установка
-
-
-### Установка всех компонентов
 ```bash
 yarn add @alfa-labaratory/core-components
 ```
 
-### Установка определенного компонента
-
-Каждый компонент публикуется отдельным пакетом, поэтому вы можете подключить только нужный, не устанавливая библиотеку целиком.
+Каждый компонент публикуется отдельным пакетом, поэтому вы можете подключить только нужный, не устанавливая библиотеку целиком:
 
 ```bash
 yarn add @alfa-labaratory/core-components-button
 ```
 
-## 🔨 Использование
+## Использование
 
 ```jsx
 import { Button } from '@alfalab/core-components/button';
 import { Button } from '@alfalab/core-components-button';
 ```
 
-## 💅 Темизация
+## Темизация
 
-1. Создайте у себя на проекте css файл с темой, например theme.css:
-```
-:root {
-    --border-radius: 100px;
-}
-```
+1.  Создайте у себя на проекте css файл с темой, например, theme.css:
 
-2. Подключите файл с темой:
-- Если вы используете нативные css-переменные, то просто подключите файл к проекту.
+    ```
+    :root {
+        --border-radius: 12px;
+    }
+    ```
 
-- Если вы используете [arui-scripts](https://github.com/alfa-laboratory/arui-scripts), то добавьте в `package.json`:
-   ```
-   "aruiScripts": {
+2.  Подключите файл с темой:
+
+-   Если вы используете нативные css-переменные, то просто подключите файл к проекту.
+
+-   Если вы используете [arui-scripts](https://github.com/alfa-laboratory/arui-scripts), то добавьте в `package.json`:
+
+    ```
+    "aruiScripts": {
         "сomponentsTheme": "./node_modules/@alfalab/core-components-themes/click.css"
     }
-   ```
-- В другом случае - используйте [alfa-laboratory/postcss-custom-properties](https://github.com/alfa-laboratory/postcss-custom-properties), указав в `importFrom` путь к файлу с темой.
+    ```
 
-## 🔗 Ссылки
+-   В другом случае - используйте [postcss-custom-properties](https://github.com/postcss/postcss-custom-properties), указав в `importFrom` путь к файлу с темой.
 
-[Alfa-Bank UI Icons](https://github.com/alfa-laboratory/icons)
+[Подробнее о темизации](https://alfa-laboratory.github.io/core-components/master/?path=/docs/гайдлайны-темизация--page)
 
-## ⌨️ Разработка
+## Поддерживаемые браузеры
+
+Мы поддерживаем две последние стабильные версии всех популярных браузеров. Исключение — IE11+ и Android 5+ (Mobile Chrome).
+
+#### Desktop
+
+-   Chrome
+-   Yandex
+-   Firefox
+-   Edge
+-   IE 11+
+-   Safari
+
+#### Mobile
+
+-   Android 5+
+-   iOS
+
+## Разработка
 
 ```bash
 $ git clone git@github.com:alfa-laboratory/core-components.git
@@ -84,6 +94,7 @@ $ yarn start
 ### Импорт компонентов внутри компонентов
 
 Так как у нас монорепозиторий, то все пакеты должны быть независимы. Если при разработке компонента вам потребовался другой компонент, то его нужно добавить как зависимость. Пример можно посмотреть в [Тултипе](https://github.com/alfa-laboratory/core-components/tree/master/packages/tooltip). Также нужно добавить пару опций в `tsconfig.json`:
+
 ```json
 {
     "compilerOptions": {
@@ -96,32 +107,96 @@ $ yarn start
 ```
 
 ## Релизы
-### Как публиковать пакеты:
+
+Для выпуска новых версий используйте следущие команды:
+
 ```bash
 $ yarn pub:patch # соберет и выпустит patch-версию
 $ yarn pub:minor # соберет и выпустит minor-версию
 $ yarn pub:major # соберет и выпустит major-версию
 ```
 
+### Как выпустить бета-версию:
+
+1. Собираем пакет
+
+```bash
+$ yarn build
+```
+
+2. Переходим в папку с собранным пакетом и обновляем версию
+
+```bash
+$ cd dist
+$ npm version 2.0.0-beta.0 // подставить нужную версию
+```
+
+3. Публикуем пакет
+
+```bash
+npm publish --tag beta
+```
+
 ## Коммиты
+
 На проекте подключен `commitlint` для линтинга коммитов. На основании коммитов формируется `CHANGELOG.MD`.
 Мы придерживаемся [AngularJS commit conventions.](https://gist.github.com/stephenparish/9941e89d80e2bc58a153)
 Коммиты можно делать с помощью утилиты `commitizen`:
+
 ```bash
 $ git add .
 $ yarn cm # запустит утилиту commitizen для создания коммита
 $ git push
 ```
 
-## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+## Сборка компонентов
+
+Компоненты поставляются в трех видах:
+
+1. `ES5`
+
+2. `ES5 с css-модулями`
+
+3. `ES2020`
+
+Импорт `ES5`:
+
+```tsx
+import { Button } from '@alfalab/core-components-button';
+// или
+import { Button } from '@alfalab/core-components/button';
+```
+
+Импорт `ES5` с css-модулями:
+
+```tsx
+import { Button } from '@alfalab/core-components-button/dist/cssm';
+// или
+import { Button } from '@alfalab/core-components/button/cssm';
+```
+
+Импорт `ES2020`:
+
+```tsx
+import { Button } from '@alfalab/core-components-button/dist/modern';
+// или
+import { Button } from '@alfalab/core-components/button/modern';
+```
+
+## Правила контрибьютинга
 
 Мы открыты к любым предложениям по развитию библиотеки.
 Отправляйте свои идеи и вопросы через [pull requests](https://github.com/alfa-laboratory/core-components/pulls) или [issues](https://github.com/alfa-laboratory/core-components/issues).
-Пожалуйста, сначала прочтите наш [contributing guide](https://github.com/alfa-laboratory/core-components/blob/master/.github/CONTRIBUTING.md) и [правила разработки](https://github.com/alfa-laboratory/core-components/wiki/Development).
 
-## 👨🏻‍💻 Мейнтейнеры
+-   Уважаем тех, кто видит проблему и кидает PR.
+-   Не знаете что делать – можно брать любую задачу без Assignee, назначив её на себя.
+-   Знаете что делать и есть возможность – кидайте PR.
+-   Знаете что делать, но нет времени – добавьте задачу (issue).
 
-* [Евгений Сергеев](https://github.com/SiebenSieben)
-* [Александр Яценко](https://github.com/reme3d2y)
-* [Дмитрий Савкин](https://github.com/dmitrsavk)
-* [Евгений Тройнов](https://github.com/etroynov)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
+
+## Мейнтейнеры
+
+-   [Евгений Сергеев](https://github.com/SiebenSieben)
+-   [Александр Яценко](https://github.com/reme3d2y)
+-   [Дмитрий Савкин](https://github.com/dmitrsavk)

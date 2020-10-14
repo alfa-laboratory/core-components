@@ -1,0 +1,22 @@
+:root {
+    --color-dynamic-primary-dark: rgba(0, 0, 0, 0.8);
+    --color-dynamic-primary-light: rgba(255, 255, 255, 0.8);
+    --color-dynamic-quaternary-dark: rgba(0, 0, 0, 0.32);
+    --color-dynamic-quaternary-light: rgba(255, 255, 255, 0.32);
+    --color-dynamic-quinary-dark: rgba(0, 0, 0, 0.16);
+    --color-dynamic-quinary-light: rgba(255, 255, 255, 0.16);
+    --color-dynamic-secondary-dark: rgba(0, 0, 0, 0.64);
+    --color-dynamic-secondary-light: rgba(255, 255, 255, 0.64);
+    --color-dynamic-tertiary-dark: rgba(0, 0, 0, 0.48);
+    --color-dynamic-tertiary-light: rgba(255, 255, 255, 0.48);
+    --color-static-primary-dark: rgba(0, 0, 0, 0.8);
+    --color-static-primary-light: rgba(255, 255, 255, 0.8);
+    --color-static-quaternary-dark: rgba(0, 0, 0, 0.32);
+    --color-static-quaternary-light: rgba(255, 255, 255, 0.32);
+    --color-static-quinary-dark: rgba(0, 0, 0, 0.16);
+    --color-static-quinary-light: rgba(255, 255, 255, 0.16);
+    --color-static-secondary-dark: rgba(0, 0, 0, 0.64);
+    --color-static-secondary-light: rgba(255, 255, 255, 0.64);
+    --color-static-tertiary-dark: rgba(0, 0, 0, 0.48);
+    --color-static-tertiary-light: rgba(255, 255, 255, 0.48);
+}

@@ -1,14 +1,31 @@
 @import '../../../packages/themes/src/mixins/click.css';
+@import '../../../packages/themes/src/mixins/site.css';
+@import '../../../packages/themes/src/mixins/corp.css';
+@import '../../../packages/themes/src/mixins/mobile.css';
 
 .tool {
     margin-top: auto;
     margin-bottom: auto;
 }
 
-.select {
-    background: red;
+.label {
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 13px;
 }
 
 .click {
     @mixin theme-click;
+}
+
+.site {
+    @mixin theme-site;
+}
+
+.corp {
+    @mixin theme-corp;
+}
+
+.mobile {
+    @mixin theme-mobile;
 }

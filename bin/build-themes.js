@@ -2,6 +2,8 @@ const shell = require('shelljs');
 const glob = require('glob');
 const path = require('path');
 const fs = require('fs');
+const postcss = require('postcss');
+const postcssColorMod = require('postcss-color-mod-function');
 
 // Записывает правила в :root
 const toRoot = rules => `:root {${rules}}\n`;
@@ -17,40 +19,60 @@ const extractContentFromMixins = css => {
     if (match) return match[1];
 };
 
-// Удаляем файл с дефолтной темой, его публиковать не нужно
-shell.rm('dist/default.css');
+// Прогоняет контент через postcss, применяя postcss-color-mod-function
+const filesWithVars = glob.sync(path.resolve(__dirname, '../packages/vars/src/*.css'));
 
-// Переходим в папку с мисинами и парсим темы
-shell.cd('dist/mixins');
+const processPostCss = async (content, cssFile) =>
+    postcss([
+        postcssColorMod({
+            unresolved: 'throw',
+            importFrom: filesWithVars,
+        }),
+    ])
+        .process(content, { from: cssFile, to: cssFile })
+        .then(result => result.css);
 
-const themes = glob.sync('./*.css', {}).map(cssPath => {
-    return path.basename(cssPath).replace('.css', '');
-});
+(async () => {
+    // Удаляем файл с дефолтной темой, его публиковать не нужно
+    shell.rm('dist/default.css');
 
-themes.forEach(theme => {
-    let allVars = '';
+    // Переходим в папку с мисинами и парсим темы
+    shell.cd('dist/mixins');
 
-    // Извлекаем переменные из файлов с миксинами и генерируем css-файлы, записывая переменные в :root
-    glob.sync(`./?*/${theme}.css`, {}).forEach(cssFile => {
-        const component = path.basename(path.dirname(cssFile));
-        const content = fs.readFileSync(cssFile, 'utf-8');
-        const vars = extractContentFromMixins(content);
+    const themes = glob
+        .sync('./*.css', {})
+        .map(cssPath => path.basename(cssPath).replace('.css', ''));
 
-        if (vars) {
-            shell.mkdir('-p', `../css/${component}`);
-            fs.writeFileSync(`../css/${component}/${theme}.css`, toRoot(vars));
+    for (const theme of themes) {
+        let allVars = '';
 
-            // Собираем переменные компонентов в один файл
-            allVars += `\n    /**\n     * === ${component} ===\n     */\n${vars}`;
+        // Извлекаем переменные из файлов с миксинами и генерируем css-файлы, записывая переменные в :root
+        const cssFiles = glob.sync(`./?*/${theme}.css`, { absolute: true });
+
+        for (let cssFile of cssFiles) {
+            const component = path.basename(path.dirname(cssFile));
+            // В сборке тем не должно быть color-mod - прогоняем через color-mod-function
+            const content = await processPostCss(fs.readFileSync(cssFile, 'utf-8'), cssFile);
+            fs.writeFileSync(cssFile, content);
+
+            const vars = extractContentFromMixins(content);
+
+            if (vars) {
+                shell.mkdir('-p', `../css/${component}`);
+                fs.writeFileSync(`../css/${component}/${theme}.css`, toRoot(vars));
+
+                // Собираем переменные компонентов в один файл
+                allVars += `\n    /**\n     * === ${component} ===\n     */\n${vars}`;
+            }
         }
-    });
 
-    if (allVars.length) {
-        fs.writeFileSync(`../css/${theme}.css`, toRoot(allVars));
+        if (allVars.length) {
+            fs.writeFileSync(`../css/${theme}.css`, toRoot(allVars));
+        }
     }
-});
 
-// Переносим сгенерированные css-файлы в /dist
-shell.cd('../');
-shell.cp('-R', './css/.', './');
-shell.rm('-rf', './css');
+    // Переносим сгенерированные css-файлы в /dist
+    shell.cd('../');
+    shell.cp('-R', './css/.', './');
+    shell.rm('-rf', './css');
+})();

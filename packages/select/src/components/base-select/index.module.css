@@ -9,6 +9,7 @@
 
 .fieldWrapper {
     position: relative;
+    outline: none;
 }
 
 .popover {
@@ -17,6 +18,8 @@
     box-shadow: var(--select-popover-box-shadow);
     border-radius: var(--select-popover-border-radius);
     overflow: hidden;
+    margin-top: var(--select-popover-offset);
+    margin-bottom: var(--select-popover-offset);
 }
 
 .listWrapper {
@@ -37,4 +40,9 @@
     height: 100%;
     cursor: pointer;
     z-index: 1;
+}
+
+.block {
+    width: 100%;
+    min-width: auto;
 }

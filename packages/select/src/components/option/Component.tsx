@@ -1,38 +1,38 @@
-import React, { ReactNode } from 'react';
+import React, { forwardRef } from 'react';
 import cn from 'classnames';
-import { BaseOptionProps, OptionShape } from '../../typings';
+import { Checkmark as DefaultCheckMark } from '../checkmark';
+import { OptionProps } from '../../typings';
 
 import styles from './index.module.css';
 
-export type OptionProps = BaseOptionProps & {
-    /**
-     * Размер компонента
-     */
-    size?: 's' | 'm' | 'l';
-
-    /**
-     * Кастомный рендер пункта меню
-     */
-    optionRenderer?: (option: OptionShape) => ReactNode;
-};
-
-export const Option = ({
-    size = 's',
-    option,
-    selected,
-    highlighted,
-    disabled,
-    optionRenderer,
-    ...rest
-}: OptionProps) => (
-    <div
-        {...rest}
-        className={cn(styles.option, styles[size], {
-            [styles.highlighted]: highlighted,
-            [styles.selected]: selected,
-            [styles.disabled]: disabled,
-        })}
-    >
-        {optionRenderer ? optionRenderer(option) : option.text}
-    </div>
+export const Option = forwardRef<HTMLDivElement, OptionProps>(
+    (
+        {
+            size = 's',
+            className,
+            option,
+            children,
+            selected,
+            highlighted,
+            disabled,
+            Checkmark = DefaultCheckMark,
+            ...rest
+        },
+        ref,
+    ) => (
+        <div
+            {...rest}
+            ref={ref}
+            className={cn(styles.option, styles[size], className, {
+                [styles.highlighted]: highlighted,
+                [styles.selected]: selected,
+                [styles.disabled]: disabled,
+            })}
+        >
+            {Checkmark && <Checkmark selected={selected} />}
+            <div className={styles.content}>
+                {children || option.content || option.text || option.value}
+            </div>
+        </div>
+    ),
 );

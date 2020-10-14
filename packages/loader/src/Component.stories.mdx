@@ -1,28 +1,39 @@
-import { Meta, Story, Props, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { Loader } from './Component';
 import { name, version } from '../package.json';
 
-<Meta title='Компоненты|Loader' component={Loader} />
+<Meta title='Компоненты' component={Loader} />
 
-<Title>
-    Loader ({name}@{version})
-</Title>
 
-```tsx
-import { Loader } from '@alfalab/core-components-loader';
-```
+<!-- Canvas -->
 
-## Описание
-
-Компонент Loader.
-
-<Story name='Песочница'>
+<Story name='Loader'>
     {React.createElement(() => {
         return (
             <Loader />
         );
     })}
 </Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Loader'
+    version={version}
+    package='@alfalab/core-components-loader'
+    stage={2}
+/>
+
+```tsx
+import { Loader } from '@alfalab/core-components-loader';
+```
+
+Компонент Loader.
+
+<Loader />
+
 
 <Props of={Loader} />
