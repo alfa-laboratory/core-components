@@ -5,7 +5,6 @@
     "keywords": [],
     "license": "ISC",
     "main": "dist/index.js",
-    "types": "dist/typings.d.ts",
     "files": [
         "dist"
     ],
