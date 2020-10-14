@@ -61,7 +61,7 @@
  * ]
  */
 
-type CountryData = [string, string, string, string, number?, string[]?];
+type CountryRaw = [string, string, string, string, number?, string[]?];
 
 export type Country = {
     name: string;
@@ -73,7 +73,7 @@ export type Country = {
 
 export type CountriesMap = { [iso2: string]: Country };
 
-const defaultCountriesData: CountryData[] = [
+export const defaultCountriesData: CountryRaw[] = [
     ['Afghanistan', 'Афганистан', 'af', '93'],
     ['Albania', 'Албания', 'al', '355'],
     ['Algeria', 'Алжир', 'dz', '213'],
@@ -369,7 +369,7 @@ const defaultCountriesData: CountryData[] = [
     ['Åland Islands', 'Аландские Острова', 'ax', '358', 1],
 ];
 
-const formatCountry = (country: CountryData): Country => ({
+const formatCountry = (country: CountryRaw): Country => ({
     name: country[1],
     iso2: country[2],
     dialCode: country[3],
@@ -377,7 +377,7 @@ const formatCountry = (country: CountryData): Country => ({
     areaCodes: country[5] || null,
 });
 
-const formatCountriesData = (countriesData: CountryData[]) =>
+const formatCountriesData = (countriesData: CountryRaw[]) =>
     countriesData.map(formatCountry).sort((a, b) => a.name.localeCompare(b.name));
 
 export const getCountries = (countries = defaultCountriesData) => formatCountriesData(countries);
@@ -390,5 +390,3 @@ export const getCountriesMap = (countries = defaultCountriesData) =>
 
         return acc;
     }, {});
-
-// TODO: сделать мапу по dialCode и iso2

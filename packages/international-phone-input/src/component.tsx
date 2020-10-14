@@ -8,6 +8,7 @@ import React, {
     useImperativeHandle,
 } from 'react';
 import { Input, InputProps } from '@alfalab/core-components-input';
+import { SelectProps } from '@alfalab/core-components-select';
 
 // TODO: dynamic import
 import { AsYouType, CountryCode } from 'libphonenumber-js';
@@ -34,19 +35,15 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
 
         const [countryIso2, setCountryIso2] = useState(DEFAULT_COUNTRY_ISO_2);
 
-        const timerRef = useRef(0);
-
         const inputRef = useRef<HTMLInputElement>(null);
 
         useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
 
         const setValue = useCallback(
-            (iso2, inputValue) => {
+            inputValue => {
                 const asYouType = new AsYouType(countryIso2.toUpperCase() as CountryCode);
 
                 const newValue = asYouType ? asYouType.input(inputValue) : inputValue;
-
-                setCountryIso2(iso2);
 
                 onChange(newValue);
             },
@@ -75,16 +72,19 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
                     if (new RegExp(`^\\+${country.dialCode}`).test(inputValue)) {
                         // Handle countries with priority field
                         if (country.priority === undefined) {
-                            setValue(country.iso2, inputValue);
+                            setValue(inputValue);
+                            setCountryIso2(country.iso2);
                             break;
                         }
 
                         if (countryIso2 === country.iso2) {
-                            setValue(country.iso2, inputValue);
+                            setValue(inputValue);
+                            setCountryIso2(country.iso2);
                             break;
                             // If not equal — set highest by priority
                         } else if (country.priority === 0) {
-                            setValue(country.iso2, inputValue);
+                            setValue(inputValue);
+                            setCountryIso2(country.iso2);
                             break;
                         }
                     }
@@ -99,27 +99,37 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
 
         const handleInputChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
-                if (event.target.value.length < MAX_DIAL_CODE_LENGTH) {
-                    setCountryByDialCode(event.target.value);
-                } else {
-                    setValue(countryIso2, event.target.value);
+                const {
+                    target: { value: targetValue },
+                } = event;
+
+                const newValue =
+                    targetValue.length === 1 && targetValue !== '+'
+                        ? `+${targetValue}`
+                        : targetValue;
+
+                setValue(newValue);
+
+                if (value.length < MAX_DIAL_CODE_LENGTH) {
+                    setCountryByDialCode(newValue);
                 }
             },
-            [setCountryByDialCode, setValue, countryIso2],
+            [setValue, value.length, setCountryByDialCode],
         );
 
-        const handleSelectChange = useCallback(
+        const handleSelectChange = useCallback<Required<SelectProps>['onChange']>(
             payload => {
-                const country = setCountryByIso2(payload.selected[0]);
-                const inputValue = `+${country.dialCode}`;
+                const selected = payload.selected && payload.selected[0];
 
-                // Wait for select blur, then focus on input
-                timerRef.current = window.setTimeout(() => {
+                if (selected) {
+                    const country = setCountryByIso2(selected as string);
+                    const inputValue = `+${country.dialCode}`;
+
                     if (inputRef.current) {
                         inputRef.current.focus();
                         inputRef.current.setSelectionRange(inputValue.length, inputValue.length);
                     }
-                }, 0);
+                }
             },
             [setCountryByIso2],
         );
