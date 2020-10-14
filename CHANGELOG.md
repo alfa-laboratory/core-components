@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.1](https://github.com/alfa-laboratory/core-components/compare/v3.0.0...v3.0.1) (2020-10-14)
+
+
+### Bug Fixes
+
+* typings issue ([dd17a7b](https://github.com/alfa-laboratory/core-components/commit/dd17a7b0c04413dce337c2eecd8bc197e580e067))
+
 ## [3.0.0](https://github.com/alfa-laboratory/core-components/compare/v2.2.0...v3.0.0) (2020-10-13)
 
 
