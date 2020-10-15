@@ -175,7 +175,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
         const filled = Boolean(uncontrolled ? stateValue : value);
         // отображаем крестик только для заполненного и активного инпута
-        const clearButtonVisible = Boolean(value || (uncontrolled && stateValue)) && !disabled;
+        const clearButtonVisible =
+            clear && Boolean(value || (uncontrolled && stateValue)) && !disabled;
 
         const handleInputFocus = useCallback(
             (event: React.FocusEvent<HTMLInputElement>) => {
@@ -231,37 +232,17 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             [clearButtonVisible, focused, onClear, uncontrolled],
         );
 
-        const handleFormControlMouseDown = useCallback(
-            (event: MouseEvent<HTMLDivElement>) => {
-                if (!inputRef.current || !controlRef.current) return;
-
-                // Инпут занимает не весь контрол, из-за этого появляются некликабельные области или теряется фокус.
-                if (
-                    event.target !== inputRef.current &&
-                    controlRef.current.contains(event.target as HTMLDivElement)
-                ) {
-                    event.preventDefault();
-                    if (!focused) {
-                        inputRef.current.focus();
-                    }
-                }
-            },
-            [focused],
-        );
-
         const renderRightAddons = () =>
-            (clear || rightAddons) && (
+            (clearButtonVisible || rightAddons) && (
                 <Fragment>
-                    {clear && (
+                    {clearButtonVisible && (
                         <Button
                             type='button'
                             view='ghost'
-                            onClick={handleClear}
                             disabled={disabled}
                             aria-label='Очистить'
-                            className={cn(styles.clearButton, {
-                                [styles.clearButtonVisible]: clearButtonVisible,
-                            })}
+                            className={styles.clearButton}
+                            onClick={handleClear}
                         >
                             <span className={cn(styles.clearIcon)} />
                         </Button>
@@ -296,7 +277,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 leftAddons={leftAddons}
                 rightAddons={renderRightAddons()}
                 bottomAddons={bottomAddons}
-                onMouseDown={handleFormControlMouseDown}
             >
                 <input
                     {...restProps}
