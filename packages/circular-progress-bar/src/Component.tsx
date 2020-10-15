@@ -1,11 +1,8 @@
 import cn from 'classnames';
-import React from 'react';
+import React, { useCallback } from 'react';
+import { Typography } from '@alfalab/core-components-typography';
 
 import styles from './index.module.css';
-
-const RADIUS = 29;
-const MAX_PROGRESS = 100;
-const MIN_PROGRESS = 0;
 
 export type CircularProgressBarProps = {
     /**
@@ -14,14 +11,29 @@ export type CircularProgressBarProps = {
     value: number;
 
     /**
-     * Значение внутри прогресс бара от 0 до 100
-     */
-    label?: string;
-
-    /**
      * Дополнительный класс
      */
     className?: string;
+
+    /**
+     * Основной текст
+     */
+    headLine?: string;
+
+    /**
+     * Дополнительный текст
+     */
+    caption?: string;
+
+    /**
+     * Цвет заполнения
+     */
+    view?: 'positive' | 'negative';
+
+    /**
+     * Размер
+     */
+    size?: 'l' | 's';
 
     /**
      * Id компонента для тестов
@@ -34,38 +46,75 @@ export type CircularProgressBarProps = {
  */
 export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     value,
-    label,
+    view = 'positive',
+    size = 's',
     className,
     dataTestId,
+    headLine,
+    caption,
+    children,
 }) => {
-    const getPercentage = () => {
-        const diameter = RADIUS * 2;
+    const strokeWidth = 8;
+    const maxProgress = 100;
+    const minProgress = 0;
+    const width = size === 'l' ? 140 : 116;
+    const height = size === 'l' ? 140 : 116;
+    const center = width / 2;
+    const radius = center - strokeWidth / 2;
+
+    const getPercentage = useCallback(() => {
+        const diameter = radius * 2;
         const circlePerimeter = diameter * Math.PI;
-        const progress = Math.min(Math.max(value, MIN_PROGRESS), MAX_PROGRESS);
+        const progress = Math.min(Math.max(value, minProgress), maxProgress);
 
         return (circlePerimeter * progress) / 100;
-    };
+    }, [value, radius]);
 
     return (
-        <div className={cn(styles.component, className)} data-test-id={dataTestId}>
-            <svg xmlns='http://www.w3.org/2000/svg'>
+        <div className={cn(styles.component, styles[size], className)} data-test-id={dataTestId}>
+            <svg
+                viewBox={`0 0 ${width} ${height}`}
+                className={styles.svg}
+                xmlns='http://www.w3.org/2000/svg'
+            >
                 <circle
                     className={styles.backgroundCircle}
-                    cx='163'
-                    cy='37'
-                    r={RADIUS}
-                    transform='rotate(-90 100 100)'
+                    cx={center}
+                    cy={center}
+                    r={radius}
+                    transform={`rotate(${-90} ${center} ${center})`}
                 />
                 <circle
-                    className={styles.progressCircle}
-                    cx='163'
-                    cy='37'
-                    r={RADIUS}
+                    className={cn(styles.progressCircle, styles[view])}
+                    cx={center}
+                    cy={center}
+                    r={radius}
                     strokeDasharray={`${getPercentage()}, 1000`}
-                    transform='rotate(-90 100 100)'
+                    transform={`rotate(${-90} ${center} ${center})`}
                 />
             </svg>
-            {Boolean(label) && <span className={styles.label}>{label}</span>}
+            <div className={styles.label}>
+                {children || (
+                    <React.Fragment>
+                        <Typography.Title
+                            className={styles.headLine}
+                            color='secondary'
+                            tag='div'
+                            view={size === 'l' ? 'medium' : 'xsmall'}
+                        >
+                            {headLine}
+                        </Typography.Title>
+                        <Typography.Text
+                            tag='div'
+                            className={styles.caption}
+                            color='primary'
+                            view='primary-small'
+                        >
+                            {caption}
+                        </Typography.Text>
+                    </React.Fragment>
+                )}
+            </div>
         </div>
     );
 };

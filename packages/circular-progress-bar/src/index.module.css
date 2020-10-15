@@ -1,41 +1,93 @@
-/* @import '@alfalab/core-components/vars'; */
-
-/* @import '../../vars/src/colors-indigo.css'; */
+@import '../../vars/src/colors-indigo.css';
 
 :root {
-    /* --circular-progress-font-weight: var(--font-weight-bold); */
-    --circular-progress-circle-color: blue;
-    --circular-progress-bg-circle-color: green;
+    /* bg */
+    --circular-progress-bar-bg-color: var(--color-light-bg-tertiary);
+
+    /* positive */
+    --circular-progress-bar-positive-color: var(--color-light-graphic-positive);
+
+    /* negative */
+    --circular-progress-bar-negative-color: var(--color-light-graphic-negative);
 }
 
 .component {
     position: relative;
-    width: 75px;
-    height: 75px;
+}
+
+.svg {
+    display: block;
+    width: 100%;
+}
+
+.headLine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.caption {
+    min-height: 20px;
+    max-height: 40px;
+    overflow: hidden;
+}
+
+.l {
+    width: 140px;
+    height: 140px;
+
+    & .label {
+        max-width: 116px;
+    }
+
+    & .headLine {
+        height: 40px;
+    }
+}
+
+.s {
+    width: 116px;
+    height: 116px;
+
+    & .label {
+        max-width: 92px;
+    }
+
+    & .headLine {
+        height: 32px;
+    }
 }
 
 .label {
-    /* font-weight: var(--circular-progress-font-weight); */
+    text-align: center;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.background-circle,
-.progress-circle {
+.backgroundCircle,
+.progressCircle {
     width: 100%;
     height: 100%;
     fill: transparent;
 }
 
-.progress-circle {
-    stroke: var(--circular-progress-circle-color);
-    stroke-width: 7;
-    transition: stroke-dasharray 1s linear;
+.progressCircle {
+    stroke-width: 8;
+    stroke-linecap: round;
 }
 
-.background-circle {
-    stroke: var(--circular-progress-bg-circle-color);
-    stroke-width: 3.5;
+.positive {
+    stroke: var(--circular-progress-bar-positive-color);
+}
+
+.negative {
+    stroke: var(--circular-progress-bar-negative-color);
+}
+
+.backgroundCircle {
+    stroke: var(--circular-progress-bar-bg-color);
+    stroke-width: 8;
 }

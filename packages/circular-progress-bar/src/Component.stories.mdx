@@ -12,10 +12,19 @@ import { CircularProgressBar } from './Component';
 <!-- Canvas -->
 
 <Story name='CircularProgressBar'>
-    <CircularProgressBar
-        value={number('value', 40)}
-        view={select('view', ['positive', 'negative'])}
-    />
+    {React.createElement(() => {
+        const value = number('value', 50);
+        return (
+            <CircularProgressBar
+                value={value}
+                view={select('view', ['positive', 'negative'])}
+                headLine={value}
+                caption={text('caption', 'Caption')}
+                size={select('size', ['s', 'l'])}
+            >
+            </CircularProgressBar>
+        )
+    })}
 </Story>
 
 
@@ -25,7 +34,7 @@ import { CircularProgressBar } from './Component';
     name='CircularProgressBar'
     version={version}
     package='@alfalab/core-components-circular-progress-bar'
-    stage={2}
+    stage={0}
 />
 
 ```tsx

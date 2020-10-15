@@ -11,6 +11,9 @@
     "publishConfig": {
         "access": "public"
     },
+    "dependencies": {
+        "@alfalab/core-components-typography": "1.2.0"
+    },
     "peerDependencies": {
         "classnames": "^2.2.6",
         "react": "^16.9.0"
