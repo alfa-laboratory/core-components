@@ -119,15 +119,14 @@ describe('Input', () => {
         it('should show clear button only if input has value', () => {
             const cb = jest.fn();
             const label = 'Очистить';
-            // toBeVisible не работает
-            const visibleClass = 'clearButtonVisible';
-            const { getByLabelText, rerender } = render(<Input onClear={cb} clear={true} />);
 
-            expect(getByLabelText(label)).not.toHaveClass(visibleClass);
+            const { queryByLabelText, rerender } = render(<Input onClear={cb} clear={true} />);
+
+            expect(queryByLabelText(label)).not.toBeInTheDocument();
 
             rerender(<Input onClear={cb} clear={true} value='123' />);
 
-            expect(getByLabelText(label)).toHaveClass(visibleClass);
+            expect(queryByLabelText(label)).toBeInTheDocument();
         });
 
         it('should not actually clear input when clear button clicked', () => {
@@ -189,20 +188,18 @@ describe('Input', () => {
             const cb = jest.fn();
             const dataTestId = 'test-id';
             const label = 'Очистить';
-            // toBeVisible не работает
-            const visibleClass = 'clearButtonVisible';
 
-            const { getByLabelText, getByTestId } = render(
+            const { queryByLabelText, getByTestId } = render(
                 <Input onClear={cb} clear={true} dataTestId={dataTestId} />,
             );
 
             const input = getByTestId(dataTestId) as HTMLInputElement;
 
-            expect(getByLabelText(label)).not.toHaveClass(visibleClass);
+            expect(queryByLabelText(label)).not.toBeInTheDocument();
 
             await userEvent.type(input, '123');
 
-            expect(getByLabelText(label)).toHaveClass(visibleClass);
+            expect(queryByLabelText(label)).toBeInTheDocument();
         });
 
         it('should clear input when clear button clicked', async () => {
@@ -278,34 +275,6 @@ describe('Input', () => {
 
             expect(cb).toBeCalledTimes(1);
         });
-    });
-
-    it.only('should keep focus when clicking inside control', () => {
-        const dataTestId = 'test-id';
-        const { getByTestId, getByText } = render(
-            <Input
-                dataTestId={dataTestId}
-                rightAddons='right'
-                leftAddons='left'
-                bottomAddons='bottom'
-            />,
-        );
-
-        userEvent.click(getByTestId(dataTestId));
-
-        expect(document.activeElement && document.activeElement.tagName).toBe('INPUT');
-
-        userEvent.click(getByText('left'));
-
-        expect(document.activeElement && document.activeElement.tagName).toBe('INPUT');
-
-        userEvent.click(getByText('right'));
-
-        expect(document.activeElement && document.activeElement.tagName).toBe('INPUT');
-
-        userEvent.click(getByText('bottom'));
-
-        expect(document.activeElement && document.activeElement.tagName).not.toBe('INPUT');
     });
 
     it('should unmount without errors', () => {

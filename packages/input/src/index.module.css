@@ -36,14 +36,6 @@
     width: 100%;
 }
 
-.formControl:not(.disabled) {
-    cursor: text;
-}
-
-.clearButton {
-    visibility: hidden;
-}
-
 .clearIcon {
     display: block;
     width: 24px;
@@ -61,10 +53,6 @@
     &:active {
         opacity: 1;
     }
-}
-
-.clearButtonVisible {
-    visibility: visible;
 }
 
 /* DISABLED STATE */
