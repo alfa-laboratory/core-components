@@ -68,7 +68,7 @@ export type InputProps = Omit<
     /**
      * Ref для обертки input
      */
-    wrapperRef?: React.Ref<HTMLDivElement | null>;
+    wrapperRef?: React.Ref<HTMLDivElement>;
 
     /**
      * Слот слева
@@ -166,7 +166,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         const uncontrolled = value === undefined;
 
         const inputRef = useRef<HTMLInputElement>(null);
-        const controlRef = useRef<HTMLDivElement>(null);
 
         const [focusVisible] = useFocus(inputRef, 'keyboard');
 
@@ -253,7 +252,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
         return (
             <FormControl
-                ref={mergeRefs([controlRef, wrapperRef || null])}
+                ref={wrapperRef}
                 className={cn(
                     styles.formControl,
                     className,
