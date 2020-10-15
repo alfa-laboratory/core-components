@@ -101,6 +101,11 @@ export type InputProps = Omit<
     labelClassName?: string;
 
     /**
+     * Дополнительный класс для аддонов
+     */
+    addonsClassName?: string;
+
+    /**
      * Класс, который будет установлен при фокусе
      */
     focusedClassName?: string;
@@ -141,6 +146,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             hint,
             inputClassName,
             labelClassName,
+            addonsClassName,
             focusedClassName,
             filledClassName,
             label,
@@ -278,6 +284,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     },
                 )}
                 labelClassName={labelClassName}
+                addonsClassName={addonsClassName}
                 size={size}
                 block={block}
                 disabled={disabled}
