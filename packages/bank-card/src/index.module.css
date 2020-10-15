@@ -44,13 +44,24 @@
     top: -4px;
     transform: translateY(12px);
     color: var(--color-black-60);
+    font-size: 20px;
+    line-height: 24px;
+
+    @media (max-width: 360px) {
+        font-size: 16px;
+    }
 }
 
 .focused .label,
 .filled .label {
     color: var(--color-black);
-    font-size: 16px;
-    transform: translateY(-16px) scale(0.75);
+    font-size: 20px;
+    transform: translateY(-20px) scale(0.6);
+
+    @media (max-width: 360px) {
+        font-size: 16px;
+        transform: translateY(-14px) scale(0.75);
+    }
 }
 
 .input {
