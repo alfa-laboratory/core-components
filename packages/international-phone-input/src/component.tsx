@@ -1,16 +1,8 @@
-import React, {
-    forwardRef,
-    useState,
-    useEffect,
-    useCallback,
-    ChangeEvent,
-    useRef,
-    useImperativeHandle,
-} from 'react';
+import React, { forwardRef, useState, useEffect, useCallback, ChangeEvent, useRef } from 'react';
 import { Input, InputProps } from '@alfalab/core-components-input';
 import { SelectProps } from '@alfalab/core-components-select';
+import mergeRefs from 'react-merge-refs';
 
-// TODO: dynamic import
 import { AsYouType, CountryCode } from 'libphonenumber-js';
 
 import { getCountries, getCountriesMap } from './countries';
@@ -18,6 +10,7 @@ import { CountrySelect } from './components';
 
 export type InternationalPhoneInputProps = Omit<InputProps, 'value' | 'onChange'> & {
     value: string;
+    // TODO: поменять сигнануру
     onChange: (value: string) => void;
 };
 
@@ -37,13 +30,18 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
 
         const inputRef = useRef<HTMLInputElement>(null);
 
-        useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
+        const phoneLibUtils = useRef<typeof AsYouType>();
 
         const setValue = useCallback(
             inputValue => {
-                const asYouType = new AsYouType(countryIso2.toUpperCase() as CountryCode);
+                let newValue = inputValue;
 
-                const newValue = asYouType ? asYouType.input(inputValue) : inputValue;
+                if (phoneLibUtils.current) {
+                    const Utils = phoneLibUtils.current;
+                    const utils = new Utils(countryIso2.toUpperCase() as CountryCode);
+
+                    newValue = utils.input(inputValue);
+                }
 
                 onChange(newValue);
             },
@@ -93,9 +91,27 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
             [countryIso2, setValue],
         );
 
+        const loadPhoneUtils = useCallback(() => {
+            return import(
+                /* webpackChunkName: "libphonenumber" */ 'libphonenumber-js/bundle/libphonenumber-js.min'
+            )
+                .then(utils => {
+                    phoneLibUtils.current = utils.AsYouType;
+                })
+                .catch(error => `An error occurred while loading libphonenumber-js:\n${error}`);
+        }, []);
+
         useEffect(() => {
             setCountryByIso2(DEFAULT_COUNTRY_ISO_2);
         }, [setCountryByIso2]);
+
+        useEffect(() => {
+            if (!phoneLibUtils.current) {
+                loadPhoneUtils().then(() => {
+                    setValue(value);
+                });
+            }
+        }, [loadPhoneUtils, setValue, value]);
 
         const handleInputChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
@@ -140,7 +156,7 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
                 onChange={handleInputChange}
                 value={value}
                 type='tel'
-                ref={inputRef}
+                ref={mergeRefs([inputRef, ref])}
                 className={className}
                 size={size}
                 leftAddons={
