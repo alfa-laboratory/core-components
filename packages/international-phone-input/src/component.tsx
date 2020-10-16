@@ -1,16 +1,23 @@
 import React, { forwardRef, useState, useEffect, useCallback, ChangeEvent, useRef } from 'react';
-import { Input, InputProps } from '@alfalab/core-components-input';
-import { SelectProps } from '@alfalab/core-components-select';
 import mergeRefs from 'react-merge-refs';
-
+import { Input, InputProps } from '@alfalab/core-components-input';
+import { Select, SelectProps } from '@alfalab/core-components-select';
 import { AsYouType, CountryCode } from 'libphonenumber-js';
 
+import { countriesFlags, SelectField } from './components';
 import { getCountries, getCountriesMap } from './countries';
-import { CountrySelect } from './components';
+
+import styles from './index.module.css';
 
 export type InternationalPhoneInputProps = Omit<InputProps, 'value' | 'onChange'> & {
+    /**
+     * Значение
+     */
     value: string;
-    // TODO: поменять сигнануру
+
+    /**
+     * Обработчик события изменения значения
+     */
     onChange: (value: string) => void;
 };
 
@@ -160,12 +167,37 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
                 className={className}
                 size={size}
                 leftAddons={
-                    <CountrySelect
+                    <Select
                         disabled={disabled}
                         size={size}
-                        selected={countryIso2}
-                        countriesMap={countriesMap}
+                        options={[
+                            {
+                                value: 'ru',
+                                text: '',
+                                content: (
+                                    <div>
+                                        <span>{countriesMap.ru.name}</span>
+                                        <span>+7</span>
+                                        <countriesFlags.ru />
+                                    </div>
+                                ),
+                            },
+                            {
+                                value: 'az',
+                                text: '',
+                                content: (
+                                    <div>
+                                        <span>{countriesMap.az.name}</span>
+                                        <span>+994</span>
+                                        <countriesFlags.az />
+                                    </div>
+                                ),
+                            },
+                        ]}
+                        selected={[countryIso2]}
                         onChange={handleSelectChange}
+                        Field={SelectField}
+                        className={styles.select}
                     />
                 }
             />

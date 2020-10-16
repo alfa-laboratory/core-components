@@ -1,13 +1,23 @@
-import React, { FC, useRef } from 'react';
-import cn from 'classnames';
+import React, { useRef, FC } from 'react';
 import mergeRefs from 'react-merge-refs';
-import { FieldProps } from '@alfalab/core-components-select';
+import cn from 'classnames';
+import { FieldProps, OptionShape } from '@alfalab/core-components-select';
 import { useFocus } from '@alfalab/hooks';
 
+import { countriesFlags } from '../flags';
 import styles from './index.module.css';
 
-export const Field: FC<FieldProps> = ({
-    valueRenderer,
+const Option: FC<OptionShape> = ({ value }) => {
+    const IconFlag = countriesFlags[value];
+
+    return (
+        <span key={value}>
+            <IconFlag />
+        </span>
+    );
+};
+
+export const SelectField: FC<FieldProps> = ({
     selectedItems = [],
     Arrow,
     innerProps = {},
@@ -27,7 +37,7 @@ export const Field: FC<FieldProps> = ({
             })}
         >
             <div {...innerProps} {...restProps} className={styles.inner}>
-                {valueRenderer ? valueRenderer(selectedItems) : null}
+                {selectedItems.map(Option)}
                 {Arrow}
             </div>
         </div>
