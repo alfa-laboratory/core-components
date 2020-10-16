@@ -3,7 +3,10 @@
 .component {
     width: 100%;
     outline: none;
-    cursor: pointer;
+
+    & > div:first-child {
+        cursor: pointer;
+    }
 }
 
 /* TODO: Заюзать переменные из инпута */
@@ -30,7 +33,7 @@
     text-align: left;
 }
 
-.disabled {
+.disabled > div:first-child {
     cursor: default;
 }
 

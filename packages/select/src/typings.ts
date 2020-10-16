@@ -1,4 +1,12 @@
-import { ReactNode, FC, HTMLAttributes, RefAttributes, AriaAttributes } from 'react';
+import {
+    ReactNode,
+    FC,
+    RefAttributes,
+    AriaAttributes,
+    FocusEvent,
+    KeyboardEvent,
+    MouseEvent,
+} from 'react';
 
 export type OptionShape = {
     /**
@@ -239,8 +247,14 @@ export type FieldProps = {
     /**
      * Внутренние свойства, которые должны быть установлены компоненту.
      */
-    innerProps?: Pick<HTMLAttributes<HTMLElement>, 'tabIndex' | 'id'> &
-        RefAttributes<HTMLDivElement | HTMLInputElement> &
+    innerProps: {
+        onBlur?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
+        onFocus?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
+        onKeyDown?: (event: KeyboardEvent<HTMLDivElement | HTMLInputElement>) => void;
+        onClick?: (event: MouseEvent<HTMLDivElement | HTMLInputElement>) => void;
+        tabIndex: number;
+        id: string;
+    } & RefAttributes<HTMLDivElement | HTMLInputElement> &
         AriaAttributes;
 };
 

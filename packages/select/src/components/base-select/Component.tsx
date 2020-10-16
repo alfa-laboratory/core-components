@@ -1,4 +1,4 @@
-import React, { useRef, useMemo, useCallback, KeyboardEvent, MouseEvent, forwardRef } from 'react';
+import React, { useRef, useMemo, useCallback, MouseEvent, forwardRef, KeyboardEvent } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import { Popover } from '@alfalab/core-components-popover';
@@ -91,7 +91,6 @@ export const BaseSelect = forwardRef(
 
         const {
             isOpen: open,
-            getToggleButtonProps,
             getMenuProps,
             getInputProps,
             getItemProps,
@@ -99,7 +98,6 @@ export const BaseSelect = forwardRef(
             getLabelProps,
             highlightedIndex,
             toggleMenu,
-            closeMenu,
             openMenu,
         } = useCombobox<OptionShape>({
             id,
@@ -156,15 +154,14 @@ export const BaseSelect = forwardRef(
 
         const menuProps = getMenuProps(nativeSelect ? {} : { ref: optionsListRef });
         const inputProps = getInputProps(getDropdownProps({ ref: mergeRefs([ref, fieldRef]) }));
-        const toggleButtonProps = getToggleButtonProps();
 
-        const handleFieldWrapperFocus = () => {
+        const handleFieldFocus = () => {
             if (autocomplete && !open) {
                 openMenu();
             }
         };
 
-        const handleFieldWrapperKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+        const handleFieldKeyDown = (event: KeyboardEvent<HTMLDivElement | HTMLInputElement>) => {
             inputProps.onKeyDown(event);
 
             if (autocomplete && !open && event.key.length === 1) {
@@ -179,24 +176,8 @@ export const BaseSelect = forwardRef(
             }
         };
 
-        const handleFieldWrapperMouseDown = () => {
-            if (open) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-
-            if (!autocomplete && fieldRef.current) fieldRef.current.focus();
-        };
-
-        const fieldWrapperProps = {
-            className: styles.fieldWrapper,
-            role: 'button',
-            ref: toggleButtonProps.ref,
-            onBlur: inputProps.onBlur,
-            onFocus: disabled ? undefined : handleFieldWrapperFocus,
-            onKeyDown: disabled ? undefined : handleFieldWrapperKeyDown,
-            onMouseDown: disabled ? undefined : handleFieldWrapperMouseDown,
+        const handleFieldClick = () => {
+            toggleMenu();
         };
 
         const handleNativeSelectChange = useCallback(
@@ -268,33 +249,35 @@ export const BaseSelect = forwardRef(
                 })}
                 data-test-id={dataTestId}
             >
-                <div {...fieldWrapperProps}>
-                    {nativeSelect && renderNativeSelect()}
+                {nativeSelect && renderNativeSelect()}
 
-                    <Field
-                        selectedItems={selectedItems}
-                        multiple={multiple}
-                        open={open}
-                        disabled={disabled}
-                        size={size}
-                        placeholder={placeholder}
-                        label={label && <span {...getLabelProps()}>{label}</span>}
-                        Arrow={Arrow && <Arrow open={open} />}
-                        error={error}
-                        hint={hint}
-                        innerProps={{
-                            tabIndex: nativeSelect ? -1 : 0,
-                            ref: inputProps.ref,
-                            id: inputProps.id,
-                            'aria-labelledby': inputProps['aria-labelledby'],
-                            'aria-controls': inputProps['aria-controls'],
-                            'aria-autocomplete': autocomplete
-                                ? inputProps['aria-autocomplete']
-                                : undefined,
-                        }}
-                        {...fieldProps}
-                    />
-                </div>
+                <Field
+                    selectedItems={selectedItems}
+                    multiple={multiple}
+                    open={open}
+                    disabled={disabled}
+                    size={size}
+                    placeholder={placeholder}
+                    label={label && <span {...getLabelProps()}>{label}</span>}
+                    Arrow={Arrow && <Arrow open={open} />}
+                    error={error}
+                    hint={hint}
+                    innerProps={{
+                        onBlur: inputProps.onBlur,
+                        onFocus: disabled ? undefined : handleFieldFocus,
+                        onKeyDown: disabled ? undefined : handleFieldKeyDown,
+                        onClick: disabled ? undefined : handleFieldClick,
+                        tabIndex: nativeSelect ? -1 : 0,
+                        ref: mergeRefs([inputProps.ref]),
+                        id: inputProps.id,
+                        'aria-labelledby': inputProps['aria-labelledby'],
+                        'aria-controls': inputProps['aria-controls'],
+                        'aria-autocomplete': autocomplete
+                            ? inputProps['aria-autocomplete']
+                            : undefined,
+                    }}
+                    {...fieldProps}
+                />
 
                 {name && !nativeSelect && renderValue()}
 

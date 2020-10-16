@@ -10,6 +10,9 @@ import styles from './index.module.css';
 export const Field = ({
     size = 'm',
     open,
+    multiple,
+    error,
+    hint,
     disabled,
     label,
     placeholder,
@@ -17,7 +20,7 @@ export const Field = ({
     rightAddons,
     valueRenderer = joinOptions,
     Arrow,
-    innerProps = {},
+    innerProps,
     ...restProps
 }: BaseFieldProps & FormControlProps) => {
     const [focused, setFocused] = useState(false);
@@ -45,14 +48,14 @@ export const Field = ({
                 disabled={disabled}
                 filled={filled || !!placeholder}
                 label={label}
+                error={error}
+                hint={hint}
                 rightAddons={
                     <React.Fragment>
                         {rightAddons}
                         {Arrow}
                     </React.Fragment>
                 }
-                onBlur={handleBlur}
-                onFocus={handleFocus}
                 {...innerProps}
                 {...restProps}
             >

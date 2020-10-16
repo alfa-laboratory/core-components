@@ -7,11 +7,6 @@
     position: relative;
 }
 
-.fieldWrapper {
-    position: relative;
-    outline: none;
-}
-
 .popover {
     min-width: 100%;
     border: none;
