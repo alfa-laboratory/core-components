@@ -2,7 +2,7 @@ import { ScriptTarget } from 'typescript';
 import path from 'path';
 import multiInput from 'rollup-plugin-multi-input';
 import postcss, { addCssImports } from '@alfalab/rollup-plugin-postcss';
-import typescript from 'rollup-plugin-ts';
+import typescript from '@wessberg/rollup-plugin-ts';
 import stringHash from 'string-hash';
 import copy from 'rollup-plugin-copy';
 
