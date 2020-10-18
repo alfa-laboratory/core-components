@@ -18,7 +18,7 @@ import { CircularProgressBar } from './Component';
             <CircularProgressBar
                 value={value}
                 view={select('view', ['positive', 'negative'])}
-                headLine={value}
+                headline={text('headline', 'Headline')}
                 caption={text('caption', 'Caption')}
                 size={select('size', ['s', 'l'])}
             >
@@ -34,7 +34,7 @@ import { CircularProgressBar } from './Component';
     name='CircularProgressBar'
     version={version}
     package='@alfalab/core-components-circular-progress-bar'
-    stage={0}
+    stage={1}
 />
 
 ```tsx

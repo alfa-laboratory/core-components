@@ -15,14 +15,14 @@ exports[`ProgressBar Snapshots tests should match snapshot 1`] = `
         cx="58"
         cy="58"
         r="54"
-        transform="rotate(-90 58 58)"
       />
       <circle
         class="progressCircle positive"
         cx="58"
         cy="58"
         r="54"
-        stroke-dasharray="67.85840131753953, 1000"
+        stroke-dasharray="339.292"
+        stroke-dashoffset="271.434"
         transform="rotate(-90 58 58)"
       />
     </svg>
@@ -30,7 +30,7 @@ exports[`ProgressBar Snapshots tests should match snapshot 1`] = `
       class="label"
     >
       <div
-        class="component headLine styrene-xsmall medium secondary"
+        class="component headline styrene-xsmall medium secondary"
       />
       <div
         class="caption primary primary-small regular"
@@ -55,14 +55,14 @@ exports[`ProgressBar Snapshots tests should match with view snapshot 1`] = `
         cx="58"
         cy="58"
         r="54"
-        transform="rotate(-90 58 58)"
       />
       <circle
         class="progressCircle negative"
         cx="58"
         cy="58"
         r="54"
-        stroke-dasharray="67.85840131753953, 1000"
+        stroke-dasharray="339.292"
+        stroke-dashoffset="271.434"
         transform="rotate(-90 58 58)"
       />
     </svg>
@@ -70,7 +70,7 @@ exports[`ProgressBar Snapshots tests should match with view snapshot 1`] = `
       class="label"
     >
       <div
-        class="component headLine styrene-xsmall medium secondary"
+        class="component headline styrene-xsmall medium secondary"
       />
       <div
         class="caption primary primary-small regular"

@@ -20,7 +20,7 @@
     width: 100%;
 }
 
-.headLine {
+.headline {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,7 +41,7 @@
         max-width: 116px;
     }
 
-    & .headLine {
+    & .headline {
         height: 40px;
     }
 }
@@ -54,7 +54,7 @@
         max-width: 92px;
     }
 
-    & .headLine {
+    & .headline {
         height: 32px;
     }
 }

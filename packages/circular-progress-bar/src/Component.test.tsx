@@ -21,23 +21,23 @@ describe('ProgressBar', () => {
             const testId = 'test-id';
             const { getByTestId } = render(<CircularProgressBar value={20} dataTestId={testId} />);
 
-            expect(getByTestId(testId)).toHaveAttribute('data-test-id', testId);
+            expect(getByTestId(testId)).toBeInTheDocument();
         });
 
         it('should use passed `value`', () => {
             const { container } = render(<CircularProgressBar value={72} />);
 
             expect(container.querySelector('.progressCircle')).toHaveAttribute(
-                'stroke-dasharray',
-                '244.29024474314232, 1000',
+                'stroke-dashoffset',
+                '95.002',
             );
         });
 
-        it('should use passed `headLine`', () => {
+        it('should use passed `headline`', () => {
             const text = 'test-text';
-            const { container } = render(<CircularProgressBar value={72} headLine={text} />);
+            const { container } = render(<CircularProgressBar value={72} headline={text} />);
 
-            expect(container.querySelector('.headLine')).toHaveTextContent(text);
+            expect(container.querySelector('.headline')).toHaveTextContent(text);
         });
 
         it('should use passed `caption`', () => {
@@ -57,7 +57,7 @@ describe('ProgressBar', () => {
             );
 
             expect(container.querySelector('.label')).toHaveTextContent(text);
-            expect(container.querySelector('.caption')).toBe(null);
+            expect(container.querySelector('.caption')).not.toBeInTheDocument();
         });
     });
 
