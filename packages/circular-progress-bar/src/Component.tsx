@@ -50,7 +50,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     size = 's',
     className,
     dataTestId,
-    headline,
+    headline = value,
     caption,
     children,
 }) => {

@@ -31,7 +31,9 @@ exports[`ProgressBar Snapshots tests should match snapshot 1`] = `
     >
       <div
         class="component headline styrene-xsmall medium secondary"
-      />
+      >
+        20
+      </div>
       <div
         class="caption primary primary-small regular"
       />
@@ -71,7 +73,9 @@ exports[`ProgressBar Snapshots tests should match with view snapshot 1`] = `
     >
       <div
         class="component headline styrene-xsmall medium secondary"
-      />
+      >
+        20
+      </div>
       <div
         class="caption primary primary-small regular"
       />

@@ -15,14 +15,24 @@ import { CircularProgressBar } from './Component';
     {React.createElement(() => {
         const value = number('value', 50);
         return (
-            <CircularProgressBar
-                value={value}
-                view={select('view', ['positive', 'negative'])}
-                headline={text('headline', 'Headline')}
-                caption={text('caption', 'Caption')}
-                size={select('size', ['s', 'l'])}
-            >
-            </CircularProgressBar>
+            <React.Fragment>
+                <CircularProgressBar
+                    value={value}
+                    view={select('view', ['positive', 'negative'])}
+                    headline={text('headline', 'Headline')}
+                    caption={text('caption', 'Caption')}
+                    size={select('size', ['s', 'l'])}
+                >
+                </CircularProgressBar>
+                <p>Без атрибута headline значение для headline берётся из value</p>
+                <CircularProgressBar
+                    value={value}
+                    view={select('view', ['positive', 'negative'])}
+                    caption={text('caption', 'Caption')}
+                    size={select('size', ['s', 'l'])}
+                >
+                </CircularProgressBar>
+            </React.Fragment>
         )
     })}
 </Story>

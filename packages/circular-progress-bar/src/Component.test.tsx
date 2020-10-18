@@ -40,6 +40,13 @@ describe('ProgressBar', () => {
             expect(container.querySelector('.headline')).toHaveTextContent(text);
         });
 
+        it('should `headline = value` if `headline = undefined`', () => {
+            const value = 72;
+            const { container } = render(<CircularProgressBar value={value} />);
+
+            expect(container.querySelector('.headline')).toHaveTextContent(`${value}`);
+        });
+
         it('should use passed `caption`', () => {
             const text = 'test-text';
             const { container } = render(<CircularProgressBar value={72} caption={text} />);
