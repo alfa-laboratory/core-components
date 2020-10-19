@@ -12,6 +12,7 @@ import { OptionsList } from './components/options-list';
 import { VirtualOptionsList } from './components/virtual-options-list';
 import { Optgroup } from './components/optgroup';
 import { Option } from './components/option';
+import { Button } from '../../button/src';
 import { joinOptions } from './utils';
 import { name, version } from '../package.json';
 
@@ -329,6 +330,19 @@ import { Select } from '@alfalab/core-components-select';
                         options={options}
                         label='With addons'
                         Field={(props) => <Field {...props} leftAddons={props.selectedItems.length > 0 && <Icon/>} />}
+                    />
+                </Col>
+                <Col>
+                    <Select
+                        options={options}
+                        allowUnselect={true}
+                        Field={(props) => {
+                            return (
+                                <Button {...props.innerProps}>
+                                    {props.selectedItems.length ? props.selectedItems[0].text : 'Pick'}
+                                </Button>
+                            );
+                        }}
                     />
                 </Col>
             </Row>
