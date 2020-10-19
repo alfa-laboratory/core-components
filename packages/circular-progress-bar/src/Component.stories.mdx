@@ -14,23 +14,34 @@ import { CircularProgressBar } from './Component';
 <Story name='CircularProgressBar'>
     {React.createElement(() => {
         const value = number('value', 50);
+        const view = select('view', ['positive', 'negative']);
+        const title = text('title', 'Headline');
+        const subTitle = text('subTitle', 'Caption');
         return (
             <React.Fragment>
                 <CircularProgressBar
                     value={value}
-                    view={select('view', ['positive', 'negative'])}
-                    headline={text('headline', 'Headline')}
-                    caption={text('caption', 'Caption')}
-                    size={select('size', ['s', 'l'])}
-                >
-                </CircularProgressBar>
+                    view={view}
+                    title={title}
+                    subTitle={subTitle}
+                    size={select('size', ['m', 'l'])}
+                />
                 <p>Без атрибута headline значение для headline берётся из value</p>
                 <CircularProgressBar
                     value={value}
-                    view={select('view', ['positive', 'negative'])}
-                    caption={text('caption', 'Caption')}
-                    size={select('size', ['s', 'l'])}
+                    view={view}
+                    subTitle={subTitle}
+                    size='l'
+                />
+                <p>Если есть children, то они подставляются в центр, а title и subTitle игнорируются</p>
+                <CircularProgressBar
+                    value={value}
+                    view={view}
+                    title={title}
+                    subTitle={subTitle}
+                    size='l'
                 >
+                    <p>Hello</p>
                 </CircularProgressBar>
             </React.Fragment>
         )

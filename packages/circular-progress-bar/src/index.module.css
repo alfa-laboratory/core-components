@@ -13,6 +13,9 @@
 
 .component {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .svg {
@@ -20,51 +23,44 @@
     width: 100%;
 }
 
-.headline {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.title, .subTitle {
     overflow: hidden;
+    word-break: break-word;
 }
 
-.caption {
-    min-height: 20px;
+.subTitle {
     max-height: 40px;
-    overflow: hidden;
 }
 
 .l {
-    width: 140px;
-    height: 140px;
+    width: 144px;
+    height: 144px;
 
     & .label {
-        max-width: 116px;
+        max-width: 120px;
     }
 
-    & .headline {
-        height: 40px;
+    & .title {
+        max-height: 40px;
     }
 }
 
-.s {
-    width: 116px;
-    height: 116px;
+.m {
+    width: 120px;
+    height: 120px;
 
     & .label {
-        max-width: 92px;
+        max-width: 96px;
     }
 
-    & .headline {
-        height: 32px;
+    & .title {
+        max-height: 24px;
     }
 }
 
 .label {
     text-align: center;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .backgroundCircle,
@@ -72,11 +68,7 @@
     width: 100%;
     height: 100%;
     fill: transparent;
-}
-
-.progressCircle {
     stroke-width: 8;
-    stroke-linecap: round;
 }
 
 .positive {
@@ -89,5 +81,4 @@
 
 .backgroundCircle {
     stroke: var(--circular-progress-bar-bg-color);
-    stroke-width: 8;
 }

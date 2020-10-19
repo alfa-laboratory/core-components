@@ -29,42 +29,42 @@ describe('ProgressBar', () => {
 
             expect(container.querySelector('.progressCircle')).toHaveAttribute(
                 'stroke-dashoffset',
-                '95.002',
+                '98.520',
             );
         });
 
-        it('should use passed `headline`', () => {
+        it('should use passed `title`', () => {
             const text = 'test-text';
-            const { container } = render(<CircularProgressBar value={72} headline={text} />);
+            const { container } = render(<CircularProgressBar value={72} title={text} />);
 
-            expect(container.querySelector('.headline')).toHaveTextContent(text);
+            expect(container.querySelector('.title')).toHaveTextContent(text);
         });
 
-        it('should `headline = value` if `headline = undefined`', () => {
+        it('should `title = value` if `title = undefined`', () => {
             const value = 72;
             const { container } = render(<CircularProgressBar value={value} />);
 
-            expect(container.querySelector('.headline')).toHaveTextContent(`${value}`);
+            expect(container.querySelector('.title')).toHaveTextContent(`${value}`);
         });
 
-        it('should use passed `caption`', () => {
+        it('should use passed `subTitle`', () => {
             const text = 'test-text';
-            const { container } = render(<CircularProgressBar value={72} caption={text} />);
+            const { container } = render(<CircularProgressBar value={72} subTitle={text} />);
 
-            expect(container.querySelector('.caption')).toHaveTextContent(text);
+            expect(container.querySelector('.subTitle')).toHaveTextContent(text);
         });
 
         it('should use only passed `children`', () => {
-            const caption = 'test-caption';
+            const subTitle = 'test-subTitle';
             const text = 'test-text';
             const { container } = render(
-                <CircularProgressBar value={72} caption={caption}>
+                <CircularProgressBar value={72} subTitle={subTitle}>
                     {text}
                 </CircularProgressBar>,
             );
 
             expect(container.querySelector('.label')).toHaveTextContent(text);
-            expect(container.querySelector('.caption')).not.toBeInTheDocument();
+            expect(container.querySelector('.subTitle')).not.toBeInTheDocument();
         });
     });
 
@@ -72,7 +72,7 @@ describe('ProgressBar', () => {
         it('should use default `size`', () => {
             const { container } = render(<CircularProgressBar value={20} />);
 
-            expect(container.firstElementChild).toHaveClass('s');
+            expect(container.firstElementChild).toHaveClass('m');
         });
 
         it('should use passed `size`', () => {

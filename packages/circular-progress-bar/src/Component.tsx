@@ -6,7 +6,7 @@ import styles from './index.module.css';
 
 export type CircularProgressBarProps = {
     /**
-     * Уровень прогресса
+     * Уровень прогресса, %
      */
     value: number;
 
@@ -18,12 +18,12 @@ export type CircularProgressBarProps = {
     /**
      * Основной текст
      */
-    headline?: string;
+    title?: string;
 
     /**
      * Дополнительный текст
      */
-    caption?: string;
+    subTitle?: string;
 
     /**
      * Цвет заполнения
@@ -31,9 +31,9 @@ export type CircularProgressBarProps = {
     view?: 'positive' | 'negative';
 
     /**
-     * Размер
+     * Размер (l - 144x144px, m - 120x120px)
      */
-    size?: 'l' | 's';
+    size?: 'l' | 'm';
 
     /**
      * Id компонента для тестов
@@ -47,19 +47,19 @@ export type CircularProgressBarProps = {
 export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     value,
     view = 'positive',
-    size = 's',
+    size = 'm',
     className,
     dataTestId,
-    headline = value,
-    caption,
+    title = value,
+    subTitle,
     children,
 }) => {
     const memorized = useMemo(() => {
         const strokeWidth = 8;
         const maxProgress = 100;
         const minProgress = 0;
-        const width = size === 'l' ? 140 : 116;
-        const height = size === 'l' ? 140 : 116;
+        const width = size === 'l' ? 144 : 120;
+        const height = size === 'l' ? 144 : 120;
         const center = width / 2;
         const radius = center - strokeWidth / 2;
         const circumference = Math.PI * radius * 2;
@@ -103,22 +103,26 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
             <div className={styles.label}>
                 {children || (
                     <React.Fragment>
-                        <Typography.Title
-                            className={styles.headline}
-                            color='secondary'
-                            tag='div'
-                            view={size === 'l' ? 'medium' : 'xsmall'}
-                        >
-                            {headline}
-                        </Typography.Title>
-                        <Typography.Text
-                            tag='div'
-                            className={styles.caption}
-                            color='primary'
-                            view='primary-small'
-                        >
-                            {caption}
-                        </Typography.Text>
+                        {title && (
+                            <Typography.Title
+                                className={styles.title}
+                                color='secondary'
+                                tag='div'
+                                view={size === 'l' ? 'medium' : 'xsmall'}
+                            >
+                                {title}
+                            </Typography.Title>
+                        )}
+                        {subTitle && (
+                            <Typography.Text
+                                tag='div'
+                                className={styles.subTitle}
+                                color='primary'
+                                view='primary-small'
+                            >
+                                {subTitle}
+                            </Typography.Text>
+                        )}
                     </React.Fragment>
                 )}
             </div>

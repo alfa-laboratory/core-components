@@ -3,40 +3,37 @@
 exports[`ProgressBar Snapshots tests should match snapshot 1`] = `
 <div>
   <div
-    class="component s"
+    class="component m"
   >
     <svg
       class="svg"
-      viewBox="0 0 116 116"
+      viewBox="0 0 120 120"
       xmlns="http://www.w3.org/2000/svg"
     >
       <circle
         class="backgroundCircle"
-        cx="58"
-        cy="58"
-        r="54"
+        cx="60"
+        cy="60"
+        r="56"
       />
       <circle
         class="progressCircle positive"
-        cx="58"
-        cy="58"
-        r="54"
-        stroke-dasharray="339.292"
-        stroke-dashoffset="271.434"
-        transform="rotate(-90 58 58)"
+        cx="60"
+        cy="60"
+        r="56"
+        stroke-dasharray="351.858"
+        stroke-dashoffset="281.487"
+        transform="rotate(-90 60 60)"
       />
     </svg>
     <div
       class="label"
     >
       <div
-        class="component headline styrene-xsmall medium secondary"
+        class="component title styrene-xsmall medium secondary"
       >
         20
       </div>
-      <div
-        class="caption primary primary-small regular"
-      />
     </div>
   </div>
 </div>
@@ -45,40 +42,37 @@ exports[`ProgressBar Snapshots tests should match snapshot 1`] = `
 exports[`ProgressBar Snapshots tests should match with view snapshot 1`] = `
 <div>
   <div
-    class="component s"
+    class="component m"
   >
     <svg
       class="svg"
-      viewBox="0 0 116 116"
+      viewBox="0 0 120 120"
       xmlns="http://www.w3.org/2000/svg"
     >
       <circle
         class="backgroundCircle"
-        cx="58"
-        cy="58"
-        r="54"
+        cx="60"
+        cy="60"
+        r="56"
       />
       <circle
         class="progressCircle negative"
-        cx="58"
-        cy="58"
-        r="54"
-        stroke-dasharray="339.292"
-        stroke-dashoffset="271.434"
-        transform="rotate(-90 58 58)"
+        cx="60"
+        cy="60"
+        r="56"
+        stroke-dasharray="351.858"
+        stroke-dashoffset="281.487"
+        transform="rotate(-90 60 60)"
       />
     </svg>
     <div
       class="label"
     >
       <div
-        class="component headline styrene-xsmall medium secondary"
+        class="component title styrene-xsmall medium secondary"
       >
         20
       </div>
-      <div
-        class="caption primary primary-small regular"
-      />
     </div>
   </div>
 </div>
