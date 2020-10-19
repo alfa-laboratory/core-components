@@ -23,7 +23,8 @@
     width: 100%;
 }
 
-.title, .subTitle {
+.title,
+.subTitle {
     overflow: hidden;
     word-break: break-word;
 }
