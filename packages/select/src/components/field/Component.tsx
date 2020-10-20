@@ -16,7 +16,8 @@ export const Field = ({
     disabled,
     label,
     placeholder,
-    selectedItems = [],
+    selectedMultiple = [],
+    selected,
     rightAddons,
     valueRenderer = joinOptions,
     Arrow,
@@ -29,7 +30,7 @@ export const Field = ({
 
     const [focusVisible] = useFocus(wrapperRef, 'keyboard');
 
-    const filled = selectedItems.length > 0;
+    const filled = selectedMultiple.length > 0;
 
     const handleFocus = useCallback(() => setFocused(true), []);
     const handleBlur = useCallback(() => setFocused(false), []);
@@ -63,7 +64,11 @@ export const Field = ({
                     {placeholder && !filled && (
                         <span className={styles.placeholder}>{placeholder}</span>
                     )}
-                    {filled && <div className={styles.value}>{valueRenderer(selectedItems)}</div>}
+                    {filled && (
+                        <div className={styles.value}>
+                            {valueRenderer({ selected, selectedMultiple })}
+                        </div>
+                    )}
                 </div>
             </FormControl>
         </div>

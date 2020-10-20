@@ -47,8 +47,7 @@ export const BaseSelect = forwardRef(
 
         const getPortalContainer = () => optionsListRef.current as HTMLDivElement;
 
-        const itemToString = (option: OptionShape) =>
-            option ? option.text || option.value.toString() : '';
+        const itemToString = (option: OptionShape) => (option ? option.key : '');
 
         const flatOptions = useMemo(
             () =>
@@ -67,17 +66,17 @@ export const BaseSelect = forwardRef(
                     const { selectedItems = [] } = changes;
 
                     onChange({
-                        selectedOptions: selectedItems,
-                        selected: selectedItems.map(item => item.value),
+                        selectedMultiple: selectedItems,
+                        selected: selectedItems.length ? selectedItems[0] : null,
                         name,
                     });
                 }
             },
         };
 
-        if (selected) {
+        if (selected !== undefined) {
             useMultipleSelectionProps.selectedItems = flatOptions.filter(option =>
-                selected.includes(option.value),
+                Array.isArray(selected) ? selected.includes(option.key) : selected === option.key,
             );
         }
 
@@ -202,7 +201,7 @@ export const BaseSelect = forwardRef(
                         item: option,
                         disabled: option.disabled,
                     })}
-                    key={option.value}
+                    key={option.key}
                     index={index}
                     option={option}
                     size={size}
@@ -218,15 +217,15 @@ export const BaseSelect = forwardRef(
         const renderValue = useCallback(
             () =>
                 selectedItems.map(option => (
-                    <input type='hidden' name={name} value={option.value} key={option.value} />
+                    <input type='hidden' name={name} value={option.key} key={option.key} />
                 )),
             [selectedItems, name],
         );
 
         const renderNativeSelect = useCallback(() => {
             const value = multiple
-                ? selectedItems.map(option => option.value)
-                : (selectedItems[0] || {}).value;
+                ? selectedItems.map(option => option.key)
+                : (selectedItems[0] || {}).key;
 
             return (
                 <NativeSelect
@@ -252,7 +251,8 @@ export const BaseSelect = forwardRef(
                 {nativeSelect && renderNativeSelect()}
 
                 <Field
-                    selectedItems={selectedItems}
+                    selectedMultiple={selectedItems}
+                    selected={selectedItems[0]}
                     multiple={multiple}
                     open={open}
                     disabled={disabled}

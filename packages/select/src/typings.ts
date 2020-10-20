@@ -10,17 +10,12 @@ import {
 
 export type OptionShape = {
     /**
-     * Значение выбранного пункта (например, для отправки на сервер)
-     */
-    value: string | number;
-
-    /**
      * Текстовое представление пункта
      */
-    text: string;
+    key: string;
 
     /**
-     * Контент, который будет отрендерен в выпадающем списке и в поле при выборе
+     * Контент, который будет отрисован в выпадающем списке и в поле при выборе
      */
     content?: ReactNode;
 
@@ -28,6 +23,11 @@ export type OptionShape = {
      * Блокирует данный пункт для выбора
      */
     disabled?: boolean;
+
+    /**
+     * Дополнительные данные
+     */
+    value?: unknown;
 };
 
 export type GroupShape = {
@@ -131,7 +131,7 @@ export type BaseSelectProps = {
     /**
      * Список value выбранных пунктов (controlled-селект)
      */
-    selected?: Array<OptionShape['value']>;
+    selected?: string[] | string | null;
 
     /**
      * Рендерит нативный селект вместо выпадающего меню. (на десктопе использовать только с multiple=false)
@@ -177,8 +177,8 @@ export type BaseSelectProps = {
      * Обработчик выбора
      */
     onChange?: (payload: {
-        selected?: Array<OptionShape['value']>;
-        selectedOptions?: OptionShape[];
+        selected: OptionShape | null;
+        selectedMultiple: OptionShape[];
         name?: string;
     }) => void;
 
@@ -195,9 +195,14 @@ export type FieldProps = {
     size?: 's' | 'm' | 'l';
 
     /**
+     * Выбранный пункт
+     */
+    selected?: OptionShape;
+
+    /**
      * Список выбранных пунктов
      */
-    selectedItems?: OptionShape[];
+    selectedMultiple?: OptionShape[];
 
     /**
      * Флаг, можно ли выбрать несколько значений
@@ -242,7 +247,13 @@ export type FieldProps = {
     /**
      * Кастомный рендер выбранного пункта
      */
-    valueRenderer?: (options: OptionShape[]) => ReactNode;
+    valueRenderer?: ({
+        selected,
+        selectedMultiple,
+    }: {
+        selected?: OptionShape;
+        selectedMultiple: OptionShape[];
+    }) => ReactNode;
 
     /**
      * Внутренние свойства, которые должны быть установлены компоненту.
