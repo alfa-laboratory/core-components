@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProgressBar Snapshots tests should match snapshot 1`] = `
+<div>
+  <div
+    class="component m"
+  >
+    <svg
+      class="svg"
+      viewBox="0 0 120 120"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        class="backgroundCircle"
+        cx="60"
+        cy="60"
+        r="56"
+      />
+      <circle
+        class="progressCircle positive"
+        cx="60"
+        cy="60"
+        r="56"
+        stroke-dasharray="351.858"
+        stroke-dashoffset="281.487"
+        transform="rotate(-90 60 60)"
+      />
+    </svg>
+    <div
+      class="label"
+    >
+      <div
+        class="component title styrene-xsmall medium secondary"
+      >
+        20
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ProgressBar Snapshots tests should match with view snapshot 1`] = `
+<div>
+  <div
+    class="component m"
+  >
+    <svg
+      class="svg"
+      viewBox="0 0 120 120"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        class="backgroundCircle"
+        cx="60"
+        cy="60"
+        r="56"
+      />
+      <circle
+        class="progressCircle negative"
+        cx="60"
+        cy="60"
+        r="56"
+        stroke-dasharray="351.858"
+        stroke-dashoffset="281.487"
+        transform="rotate(-90 60 60)"
+      />
+    </svg>
+    <div
+      class="label"
+    >
+      <div
+        class="component title styrene-xsmall medium secondary"
+      >
+        20
+      </div>
+    </div>
+  </div>
+</div>
+`;
