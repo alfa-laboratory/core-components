@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-with-suffix",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "",
     "keywords": [],
     "license": "ISC",
@@ -16,7 +16,7 @@
         "react": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^2.0.0",
+        "@alfalab/core-components-input": "^2.0.1",
         "@alfalab/core-components-portal": "^1.3.0",
         "react-merge-refs": "^1.1.0"
     }
