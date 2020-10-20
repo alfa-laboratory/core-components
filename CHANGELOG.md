@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/alfa-laboratory/core-components/compare/v3.0.1...v3.1.0) (2020-10-20)
+
+
+### Features
+
+* **core-components-form-control:** add addons classname ([707cd54](https://github.com/alfa-laboratory/core-components/commit/707cd547b2b695cb7585c996efcb8c070b789038))
+* **core-components-input:** add addons classname ([9f40cdc](https://github.com/alfa-laboratory/core-components/commit/9f40cdc2a79feea9b5b3d5cdb411676f0ff05f35))
+
+
+### Bug Fixes
+
+* **core-components-bank-card:** label styles ([#316](https://github.com/alfa-laboratory/core-components/issues/316)) ([31ea1ce](https://github.com/alfa-laboratory/core-components/commit/31ea1cec588cacd425b35b3e71d4a18925b71a5a))
+* **core-components-form-control:** fix hover state ([#317](https://github.com/alfa-laboratory/core-components/issues/317)) ([41b2d51](https://github.com/alfa-laboratory/core-components/commit/41b2d51fdbf2fc729a1180d6a515ee56b521c555))
+
 ### [3.0.1](https://github.com/alfa-laboratory/core-components/compare/v3.0.0...v3.0.1) (2020-10-14)
 
 
