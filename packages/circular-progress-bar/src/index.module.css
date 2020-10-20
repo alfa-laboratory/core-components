@@ -24,12 +24,12 @@
 }
 
 .title,
-.subTitle {
+.subtitle {
     overflow: hidden;
     word-break: break-word;
 }
 
-.subTitle {
+.subtitle {
     max-height: 40px;
 }
 

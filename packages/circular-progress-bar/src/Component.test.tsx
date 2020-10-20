@@ -47,24 +47,24 @@ describe('ProgressBar', () => {
             expect(container.querySelector('.title')).toHaveTextContent(`${value}`);
         });
 
-        it('should use passed `subTitle`', () => {
+        it('should use passed `subtitle`', () => {
             const text = 'test-text';
-            const { container } = render(<CircularProgressBar value={72} subTitle={text} />);
+            const { container } = render(<CircularProgressBar value={72} subtitle={text} />);
 
-            expect(container.querySelector('.subTitle')).toHaveTextContent(text);
+            expect(container.querySelector('.subtitle')).toHaveTextContent(text);
         });
 
         it('should use only passed `children`', () => {
-            const subTitle = 'test-subTitle';
+            const subtitle = 'test-subtitle';
             const text = 'test-text';
             const { container } = render(
-                <CircularProgressBar value={72} subTitle={subTitle}>
+                <CircularProgressBar value={72} subtitle={subtitle}>
                     {text}
                 </CircularProgressBar>,
             );
 
             expect(container.querySelector('.label')).toHaveTextContent(text);
-            expect(container.querySelector('.subTitle')).not.toBeInTheDocument();
+            expect(container.querySelector('.subtitle')).not.toBeInTheDocument();
         });
     });
 

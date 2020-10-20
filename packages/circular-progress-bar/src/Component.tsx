@@ -23,7 +23,7 @@ export type CircularProgressBarProps = {
     /**
      * Дополнительный текст
      */
-    subTitle?: string;
+    subtitle?: string;
 
     /**
      * Цвет заполнения
@@ -51,7 +51,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     className,
     dataTestId,
     title = value,
-    subTitle,
+    subtitle,
     children,
 }) => {
     const memorized = useMemo(() => {
@@ -113,14 +113,14 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                                 {title}
                             </Typography.Title>
                         )}
-                        {subTitle && (
+                        {subtitle && (
                             <Typography.Text
                                 tag='div'
-                                className={styles.subTitle}
+                                className={styles.subtitle}
                                 color='primary'
                                 view='primary-small'
                             >
-                                {subTitle}
+                                {subtitle}
                             </Typography.Text>
                         )}
                     </React.Fragment>
