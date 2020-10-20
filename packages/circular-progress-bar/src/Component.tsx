@@ -108,7 +108,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                                 className={styles.title}
                                 color='secondary'
                                 tag='div'
-                                view={size === 'l' ? 'medium' : 'xsmall'}
+                                view={size === 'l' ? 'small' : 'xsmall'}
                             >
                                 {title}
                             </Typography.Title>
