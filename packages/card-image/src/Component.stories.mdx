@@ -1,0 +1,69 @@
+import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { text, boolean, number } from '@storybook/addon-knobs';
+import { Design } from 'storybook/blocks/design';
+
+import { CardImage } from './Component';
+import { name, version } from '../package.json';
+
+
+<Meta title='Компоненты|CardImage' component={CardImage} />
+
+<Title>
+    CardImage ({name}@{version})
+</Title>
+
+```tsx
+import { CardImage } from '@alfalab/core-components-card-image';
+```
+
+## Описание
+
+Компонент изображения карты.
+Показывает серый прелоадер пока картинка не загрузится (переопределяется через переменную --card-image-background)
+Можно выбрать id нужной карты и список слоев которые нужно показать
+
+<Story name='Песочница'>
+    {React.createElement(() => {
+        const cardId = text('cardId', 'GQ');
+        const layers = text('layers', 'BACKGROUND,CARDNUMBER,CARDHOLDER,PAYPASS,CHIP,LOGO,PAYMENTSYSTEM,RESERVED1,RESERVED2,VALID_DATE');
+        const width = number('width', 280);
+        const rounded = boolean('rounded', false);
+        const baseUrl = text('baseUrl', 'https://online.alfabank.ru/cards-images/cards/');
+        const className = text('className', '');
+        const id = text('id', '');
+        const dataTestId = text('dataTestId', '');
+        return (
+            <CardImage
+                cardId={cardId}
+                width={width}
+                rounded={rounded}
+                baseUrl={baseUrl}
+                className={className}
+                id={id}
+                dataTestId={dataTestId}
+            />
+        );
+    })}
+</Story>
+
+<Props of={CardImage} />
+
+### Компонент изображения карты
+
+<Preview>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleChange = () => setChecked(!checked);
+        return (
+            <CardImage
+                cardId='EG'
+                width={500}
+                rounded={false}
+                baseUrl='https://online.alfabank.ru/cards-images/cards/'
+                className='some name'
+                id='some id'
+                dataTestId='test id'
+            />
+        );
+    })}
+</Preview>
