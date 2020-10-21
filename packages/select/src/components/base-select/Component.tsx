@@ -103,6 +103,7 @@ export const BaseSelect = forwardRef(
             circularNavigation,
             items: flatOptions,
             itemToString,
+            defaultHighlightedIndex: selectedItems.length === 0 ? 0 : undefined,
             onIsOpenChange: changes => {
                 if (onOpen) {
                     onOpen({
