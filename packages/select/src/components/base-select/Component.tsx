@@ -268,7 +268,7 @@ export const BaseSelect = forwardRef(
                         onFocus: disabled ? undefined : handleFieldFocus,
                         onKeyDown: disabled ? undefined : handleFieldKeyDown,
                         onClick: disabled ? undefined : handleFieldClick,
-                        tabIndex: nativeSelect ? -1 : 0,
+                        tabIndex: nativeSelect || disabled ? -1 : 0,
                         ref: mergeRefs([inputProps.ref]),
                         id: inputProps.id,
                         'aria-labelledby': inputProps['aria-labelledby'],
