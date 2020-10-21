@@ -214,6 +214,10 @@ import { Select } from '@alfalab/core-components-select';
                 const formData = new FormData(form);
                 setSerialized(new URLSearchParams(formData).toString());
             };
+            const [selected, setSelected] = React.useState([]);
+            const handleChange = ({ selectedMultiple }) => {
+                setSelected(selectedMultiple.map(option => option.key));
+            };
             return (
                 <div>
                     <form onSubmit={onSubmit}>
@@ -223,6 +227,8 @@ import { Select } from '@alfalab/core-components-select';
                             placeholder='Выберите элемент'
                             name='select'
                             multiple={true}
+                            onChange={handleChange}
+                            selected={selected}
                         />
                         <button type='submit'>Отправить</button>
                     </form>
