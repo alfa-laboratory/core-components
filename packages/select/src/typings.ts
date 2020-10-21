@@ -27,7 +27,8 @@ export type OptionShape = {
     /**
      * Дополнительные данные
      */
-    value?: unknown;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    value?: any;
 };
 
 export type GroupShape = {
