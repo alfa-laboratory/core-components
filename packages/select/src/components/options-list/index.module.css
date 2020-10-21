@@ -8,6 +8,7 @@
     padding-bottom: var(--select-options-list-bottom-padding);
     box-shadow: var(--select-popover-box-shadow);
     border-radius: var(--select-popover-border-radius);
+    background: var(--select-option-background);
     box-sizing: border-box;
 }
 
