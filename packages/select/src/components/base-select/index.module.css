@@ -9,12 +9,11 @@
 
 .popover {
     min-width: 100%;
+    padding-top: var(--select-popover-offset);
+    padding-bottom: var(--select-popover-offset);
+    box-shadow: none;
     border: none;
-    box-shadow: var(--select-popover-box-shadow);
-    border-radius: var(--select-popover-border-radius);
-    overflow: hidden;
-    margin-top: var(--select-popover-offset);
-    margin-bottom: var(--select-popover-offset);
+    border-radius: 0;
 }
 
 .listWrapper {
