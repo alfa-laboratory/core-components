@@ -13,13 +13,13 @@
 Установка всех компонентов:
 
 ```bash
-yarn add @alfa-labaratory/core-components
+yarn add @alfalab/core-components
 ```
 
 Каждый компонент публикуется отдельным пакетом, поэтому вы можете подключить только нужный, не устанавливая библиотеку целиком:
 
 ```bash
-yarn add @alfa-labaratory/core-components-button
+yarn add @alfalab/core-components-button
 ```
 
 ## Использование
