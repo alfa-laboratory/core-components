@@ -22,6 +22,7 @@ export const Field = ({
     valueRenderer = joinOptions,
     Arrow,
     innerProps,
+    className,
     ...restProps
 }: BaseFieldProps & FormControlProps) => {
     const [focused, setFocused] = useState(false);
@@ -38,7 +39,7 @@ export const Field = ({
     return (
         <div ref={wrapperRef} onFocus={handleFocus} onBlur={handleBlur}>
             <FormControl
-                className={cn(styles.component, styles[size], {
+                className={cn(styles.component, className, styles[size], {
                     [styles.open]: open,
                     [styles.hasLabel]: label,
                     [styles.disabled]: disabled,
