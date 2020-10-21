@@ -471,3 +471,7 @@ img.sbdocs-img {
     border: 1px solid rgba(11, 31, 53, 0.1);
     border-radius: 4px;
 }
+
+div.github {
+    margin: -32px 0 32px;
+}
