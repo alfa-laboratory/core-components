@@ -53,10 +53,12 @@ export const Field = ({
                 error={error}
                 hint={hint}
                 rightAddons={
-                    <React.Fragment>
-                        {rightAddons}
-                        {Arrow}
-                    </React.Fragment>
+                    (Arrow || rightAddons) && (
+                        <React.Fragment>
+                            {rightAddons}
+                            {Arrow}
+                        </React.Fragment>
+                    )
                 }
                 {...innerProps}
                 {...restProps}
