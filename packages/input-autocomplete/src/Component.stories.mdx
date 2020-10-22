@@ -63,7 +63,7 @@ export const matchOption = (option, inputValue) =>
                 hint={text('hint', '')}
                 allowUnselect={boolean('allowUnselect', true)}
                 closeOnSelect={boolean('closeOnSelect', false)}
-                Arrow={boolean('Arrow', true) ? Arrow : undefined}
+                Arrow={boolean('Arrow', false) ? Arrow : undefined}
                 circularNavigation={boolean('circularNavigation', false)}
                 placeholder={text('placeholder', 'Введите элемент')}
                 label={text('label', 'Элемент')}
@@ -83,6 +83,10 @@ export const matchOption = (option, inputValue) =>
     name='InputAutocomplete'
     stage={1}
 />
+
+```tsx
+import { InputAutocomplete } from '@alfalab/core-components-input-autocomplete';
+```
 
 Компонент поля для ввода с автокомплитом
 
@@ -318,8 +322,15 @@ export const matchOption = (option, inputValue) =>
                 onInput={handleInput}
                 allowUnselect={true}
                 value={value}
-                Arrow={Arrow}
             />
         );
     })}
 </Preview>
+
+### Автокомплит со стрелкой
+
+```tsx
+import { Arrow } from '@alfalab/core-components/select';
+
+<InputAutocomplete Arrow={Arrow} />
+```
