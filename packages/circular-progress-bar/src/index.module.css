@@ -1,0 +1,85 @@
+@import '../../vars/src/colors-indigo.css';
+
+:root {
+    /* bg */
+    --circular-progress-bar-bg-color: var(--color-light-bg-tertiary);
+
+    /* positive */
+    --circular-progress-bar-positive-color: var(--color-light-graphic-positive);
+
+    /* negative */
+    --circular-progress-bar-negative-color: var(--color-light-graphic-negative);
+}
+
+.component {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.svg {
+    display: block;
+    width: 100%;
+}
+
+.title,
+.subtitle {
+    overflow: hidden;
+    word-break: break-word;
+}
+
+.subtitle {
+    max-height: 40px;
+}
+
+.l {
+    width: 144px;
+    height: 144px;
+
+    & .label {
+        max-width: 120px;
+    }
+
+    & .title {
+        max-height: 40px;
+    }
+}
+
+.m {
+    width: 120px;
+    height: 120px;
+
+    & .label {
+        max-width: 96px;
+    }
+
+    & .title {
+        max-height: 24px;
+    }
+}
+
+.label {
+    text-align: center;
+    position: absolute;
+}
+
+.backgroundCircle,
+.progressCircle {
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    stroke-width: 8;
+}
+
+.positive {
+    stroke: var(--circular-progress-bar-positive-color);
+}
+
+.negative {
+    stroke: var(--circular-progress-bar-negative-color);
+}
+
+.backgroundCircle {
+    stroke: var(--circular-progress-bar-bg-color);
+}
