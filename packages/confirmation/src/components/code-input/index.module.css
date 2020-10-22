@@ -8,7 +8,7 @@
     flex-shrink: 0;
     width: 36px;
     height: 48px;
-    margin-right: var(--gap-xs);
+    margin: 0 var(--gap-2xs);
     padding: 0;
     background-color: var(--confirmation-input-bg-color);
     border: none;
@@ -20,10 +20,6 @@
     font-size: var(--confirmation-input-font-size);
     font-weight: var(--confirmation-input-font-weight);
     font-family: var(--confirmation-input-font-family);
-
-    &:last-child {
-        margin-right: var(--gap-xs);
-    }
 
     &.hasError {
         color: var(--confirmation-error-color);

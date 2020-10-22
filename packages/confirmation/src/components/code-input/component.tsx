@@ -19,7 +19,7 @@ type CodeInputProps = {
     processing: boolean;
     value: string;
     slotsCount: number;
-    error?: string;
+    error: boolean;
     className?: string;
     handleChange: (code: string) => void;
     handleInputKeyDown: (event: KeyboardEvent) => void;
@@ -31,7 +31,7 @@ type InputProps = {
     index: number;
     value: string;
     slotsCount: number;
-    error?: string;
+    error: boolean;
     processing: boolean;
     focus: (inputIndex: number) => void;
     handleInputKeyDown: (event: KeyboardEvent) => void;
@@ -122,7 +122,7 @@ const Input = ({
 
     return (
         <input
-            className={cn(styles.input, { [styles.hasError]: Boolean(error) })}
+            className={cn(styles.input, { [styles.hasError]: error })}
             disabled={processing}
             value={splittedValue[index] || ''}
             autoComplete={index === 0 ? 'one-time-code' : ''}
