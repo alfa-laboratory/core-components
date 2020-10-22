@@ -53,10 +53,12 @@ export const AutocompleteField = ({
             error={error}
             hint={hint}
             rightAddons={
-                <React.Fragment>
-                    {inputProps.rightAddons}
-                    {Arrow}
-                </React.Fragment>
+                (Arrow || inputProps.rightAddons) && (
+                    <React.Fragment>
+                        {inputProps.rightAddons}
+                        {Arrow}
+                    </React.Fragment>
+                )
             }
             onChange={onInput}
             onMouseDown={handleMouseDown}
