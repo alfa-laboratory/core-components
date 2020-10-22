@@ -1,0 +1,84 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { select, number } from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph'
+
+import { Badge } from './Component';
+import { name, version } from '../package.json';
+
+
+<Meta
+    title='Компоненты'
+    component={Badge}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='Badge'>
+    <Badge
+        size={select('size', ['s', 'm'], 'm')}
+        content={number('content', 1)}
+        view='count'
+    />
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Badge'
+    version={version}
+    package='@alfalab/core-components-badge'
+    stage={2}
+/>
+
+```tsx
+import { Badge } from '@alfalab/core-components-attach';
+```
+
+Компонент бейдж.
+
+<Badge view='count' content={1} />
+
+## Виды бейджей
+### Бейдж
+
+- `view="count"`: cчётчик действий, уведомлений или сообщений. Если `content` не передан, то отображается точка.
+Если `content` больше 99, то отображается 99+
+
+<Preview>
+    <Container>
+        <Row>
+            <Col>
+                <Badge view='count' />
+            </Col>
+            <Col>
+                <Badge view='count' content={1} />
+            </Col>
+            <Col>
+                <Badge view='count' content={100} />
+            </Col>
+        </Row>
+    </Container>
+</Preview>
+
+### Стикер
+
+- `view="icon"`: Отражает статус компонента или тип уведомления. Внутри стикера используется двухцветная иконка.
+Для управления цветом иконки используется проп `iconColor`, для управления цветом подложки используется css-переменная
+`--badge-icon-background-color`
+
+<Preview>
+    <Container>
+        <Row>
+            <Col>
+                <Badge view='icon' iconColor='positive' content={<CheckmarkCircleMIcon/>} />
+            </Col>
+        </Row>
+    </Container>
+</Preview>
+
+<Props of={Badge} />

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge Snapshots tests should match snapshot 1`] = `
+<div>
+  <div
+    class="component m count"
+  >
+    99+
+  </div>
+</div>
+`;
