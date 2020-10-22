@@ -390,3 +390,6 @@ export const getCountriesMap = (countries = defaultCountriesData) =>
 
         return acc;
     }, {});
+
+export const countries = getCountries();
+export const countriesMap = getCountriesMap();

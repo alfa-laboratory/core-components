@@ -4,15 +4,14 @@ import cn from 'classnames';
 import { FieldProps, OptionShape } from '@alfalab/core-components-select';
 import { useFocus } from '@alfalab/hooks';
 
-import { countriesFlags } from '../flags';
+import { FlagIcon } from '../flag-icon';
+
 import styles from './index.module.css';
 
 const Option: FC<OptionShape> = ({ value }) => {
-    const IconFlag = countriesFlags[value];
-
     return (
         <span key={value}>
-            <IconFlag />
+            <FlagIcon country={value as string} />
         </span>
     );
 };

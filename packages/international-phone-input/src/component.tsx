@@ -5,10 +5,7 @@ import { SelectProps } from '@alfalab/core-components-select';
 import { AsYouType, CountryCode } from 'libphonenumber-js';
 
 import { CountriesSelect } from './components';
-import { getCountries, getCountriesMap } from './countries';
-
-const countries = getCountries();
-const countriesMap = getCountriesMap();
+import { countriesMap, countries } from './countries';
 
 export type InternationalPhoneInputProps = Omit<InputProps, 'value' | 'onChange'> & {
     /**
@@ -37,22 +34,6 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
 
         const phoneLibUtils = useRef<typeof AsYouType>();
 
-        const setValue = useCallback(
-            inputValue => {
-                let newValue = inputValue;
-
-                if (phoneLibUtils.current) {
-                    const Utils = phoneLibUtils.current;
-                    const utils = new Utils(countryIso2.toUpperCase() as CountryCode);
-
-                    newValue = utils.input(inputValue);
-                }
-
-                onChange(newValue);
-            },
-            [onChange, countryIso2],
-        );
-
         const setCountryByIso2 = useCallback(
             (iso2: string) => {
                 const country = countriesMap[iso2];
@@ -65,6 +46,26 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
                 return country;
             },
             [onChange],
+        );
+
+        const setValue = useCallback(
+            inputValue => {
+                let newValue = inputValue;
+
+                if (phoneLibUtils.current) {
+                    const Utils = phoneLibUtils.current;
+                    const utils = new Utils(countryIso2.toUpperCase() as CountryCode);
+
+                    if (utils.country && countryIso2 !== utils.country.toLowerCase()) {
+                        setCountryByIso2(utils.country.toLowerCase());
+                    }
+
+                    newValue = utils.input(inputValue);
+                }
+
+                onChange(newValue);
+            },
+            [onChange, countryIso2, setCountryByIso2],
         );
 
         const setCountryByDialCode = useCallback(
@@ -106,18 +107,6 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
                 .catch(error => `An error occurred while loading libphonenumber-js:\n${error}`);
         }, []);
 
-        useEffect(() => {
-            setCountryByIso2(DEFAULT_COUNTRY_ISO_2);
-        }, [setCountryByIso2]);
-
-        useEffect(() => {
-            if (!phoneLibUtils.current) {
-                loadPhoneUtils().then(() => {
-                    setValue(value);
-                });
-            }
-        }, [loadPhoneUtils, setValue, value]);
-
         const handleInputChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 const {
@@ -154,6 +143,14 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
             },
             [setCountryByIso2],
         );
+
+        useEffect(() => {
+            if (!phoneLibUtils.current) {
+                loadPhoneUtils().then(() => {
+                    setCountryByDialCode(value);
+                });
+            }
+        }, [loadPhoneUtils, setCountryByDialCode, value]);
 
         return (
             <Input

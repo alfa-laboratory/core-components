@@ -1,3 +1,3 @@
 export * from './select-field';
-export * from './flags';
+export * from './flag-icon';
 export * from './select';

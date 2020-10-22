@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { Select, SelectProps } from '@alfalab/core-components-select';
-import { countriesFlags, SelectField } from '../index';
-import { getCountriesMap } from '../../countries';
+
+import { SelectField } from '../select-field';
+import { FlagIcon } from '../flag-icon';
+import { countries } from '../../countries';
 
 import styles from './index.module.css';
-
-const countriesMap = getCountriesMap();
 
 type Props = {
     disabled: boolean;
@@ -19,30 +19,19 @@ export const CountriesSelect: FC<Props> = ({ disabled, size, selected, onChange 
         <Select
             disabled={disabled}
             size={size}
-            options={[
-                {
-                    value: 'ru',
+            options={countries.map(({ iso2, dialCode, name }) => {
+                return {
+                    value: iso2,
                     text: '',
                     content: (
                         <div>
-                            <span>{countriesMap.ru.name}</span>
-                            <span>+7</span>
-                            <countriesFlags.ru />
+                            <span>{name}</span>
+                            <span>{dialCode}</span>
+                            <FlagIcon country={iso2} />
                         </div>
                     ),
-                },
-                {
-                    value: 'az',
-                    text: '',
-                    content: (
-                        <div>
-                            <span>{countriesMap.az.name}</span>
-                            <span>+994</span>
-                            <countriesFlags.az />
-                        </div>
-                    ),
-                },
-            ]}
+                };
+            })}
             selected={[selected]}
             onChange={onChange}
             Field={SelectField}

@@ -21,7 +21,7 @@ import { InternationalPhoneInput } from '@alfalab/core-components-international-
 
 <Story name='InternationalPhoneInput'>
     {React.createElement(() => {
-            const [value, setValue] = React.useState('');
+            const [value, setValue] = React.useState('+79132213123');
             const handleChange = React.useCallback((newValue) => {
                 setValue(newValue);
             }, [setValue]);
