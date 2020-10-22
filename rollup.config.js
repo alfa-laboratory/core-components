@@ -68,6 +68,10 @@ const es5 = {
             }),
         }),
         postcssPlugin,
+        copy({
+            flatten: false,
+            targets: [{ src: 'src/**/*.{png,svg,jpg,jpeg}', dest: `dist` }],
+        }),
     ],
 };
 
@@ -94,6 +98,10 @@ const modern = {
             }),
         }),
         postcssPlugin,
+        copy({
+            flatten: false,
+            targets: [{ src: 'src/**/*.{png,svg,jpg,jpeg}', dest: `dist/modern` }],
+        }),
     ],
 };
 
@@ -117,6 +125,10 @@ const cssm = {
             }),
         }),
         processCss(),
+        copy({
+            flatten: false,
+            targets: [{ src: 'src/**/*.{png,svg,jpg,jpeg}', dest: `dist/cssm` }],
+        }),
     ],
 };
 
