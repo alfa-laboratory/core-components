@@ -5,7 +5,7 @@ const content = `{
 
 /**
  * Создает контент файла package.json, в котором указывается путь до es-модулей.
- * Это нужно для корректной работы динамического импорта и three-shaking'а.
+ * Это нужно для корректной работы динамического импорта и tree-shaking'а.
  */
 export default function createPackageJson(path) {
     return content.replace('%path%', path);
