@@ -44,15 +44,9 @@ export const Badge = ({
     dataTestId,
 }: BadgeProps) => {
     const isCountView = view === 'count';
+
     const isHidden = isCountView && typeof content === 'number' && content <= 0;
-
-    let componentContent: BadgeProps['content'] | string = content;
-
-    if (content && isCountView) {
-        if (content >= 100) {
-            componentContent = '99+';
-        }
-    }
+    const componentContent = isCountView && content && content >= 100 ? '99+' : content;
 
     return (
         <div
