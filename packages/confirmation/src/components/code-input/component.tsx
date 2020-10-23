@@ -11,6 +11,7 @@ import cn from 'classnames';
 
 import { usePrevious } from '@alfalab/hooks';
 
+import { ContentAlign } from '../../component';
 import { mergeArrays } from './utils';
 
 import styles from './index.module.css';
@@ -21,6 +22,7 @@ type CodeInputProps = {
     slotsCount: number;
     error: boolean;
     className?: string;
+    alignContent: ContentAlign;
     handleChange: (code: string) => void;
     handleInputKeyDown: (event: KeyboardEvent) => void;
 };
@@ -33,6 +35,7 @@ type InputProps = {
     slotsCount: number;
     error: boolean;
     processing: boolean;
+    alignContent: ContentAlign;
     focus: (inputIndex: number) => void;
     handleInputKeyDown: (event: KeyboardEvent) => void;
     setRef: SetInputRef;
@@ -47,6 +50,7 @@ const Input = ({
     error,
     processing,
     value,
+    alignContent,
     handleChange,
     handleInputKeyDown,
     setRef,
@@ -122,7 +126,7 @@ const Input = ({
 
     return (
         <input
-            className={cn(styles.input, { [styles.hasError]: error })}
+            className={cn(styles.input, styles[alignContent], { [styles.hasError]: error })}
             disabled={processing}
             value={splittedValue[index] || ''}
             autoComplete={index === 0 ? 'one-time-code' : ''}
@@ -136,7 +140,16 @@ const Input = ({
 
 export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
     (
-        { processing, value = '', slotsCount, error, handleInputKeyDown, handleChange, className },
+        {
+            processing,
+            value = '',
+            slotsCount,
+            error,
+            handleInputKeyDown,
+            handleChange,
+            className,
+            alignContent,
+        },
         ref,
     ) => {
         const inputs = useRef<HTMLInputElement[]>([]);
@@ -204,6 +217,7 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
                         error={error}
                         processing={processing}
                         slotsCount={slotsCount}
+                        alignContent={alignContent}
                         handleChange={handleChange}
                         handleInputKeyDown={handleInputKeyDown}
                         setRef={setRef}

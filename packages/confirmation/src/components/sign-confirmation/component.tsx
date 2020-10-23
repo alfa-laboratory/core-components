@@ -106,6 +106,7 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
                     ref={inputRef}
                     slotsCount={requiredCharAmount}
                     className={styles.codeInput}
+                    alignContent={alignContent}
                     handleChange={handleInputChange}
                     handleInputKeyDown={handleInputKeyDown}
                 />

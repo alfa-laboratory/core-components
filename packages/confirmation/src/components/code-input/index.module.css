@@ -8,7 +8,7 @@
     flex-shrink: 0;
     width: 36px;
     height: 48px;
-    margin: 0 var(--gap-2xs);
+    margin-right: var(--gap-xs);
     padding: 0;
     background-color: var(--confirmation-input-bg-color);
     border: none;
@@ -25,6 +25,10 @@
         color: var(--confirmation-error-color);
         caret-color: var(--confirmation-input-text-color);
         background-color: var(--confirmation-input-error-bg-color);
+    }
+
+    &.center {
+        margin: 0 var(--gap-2xs);
     }
 }
 
