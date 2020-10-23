@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph';
 
 import { Badge } from './index';
 
@@ -10,14 +11,12 @@ describe('Badge', () => {
 
             expect(container).toMatchSnapshot();
         });
-    });
 
-    it('should forward ref', () => {
-        const ref = jest.fn();
-        const dataTestId = 'test-id';
-        const { getByTestId } = render(<Badge view='count' ref={ref} dataTestId={dataTestId} />);
+        it('should match snapshot with icon view', () => {
+            const { container } = render(<Badge view='icon' content={<CheckmarkCircleMIcon />} />);
 
-        expect(ref.mock.calls).toEqual([[getByTestId(dataTestId)]]);
+            expect(container).toMatchSnapshot();
+        });
     });
 
     it('should set `data-test-id` attribute', () => {
@@ -28,6 +27,13 @@ describe('Badge', () => {
     });
 
     describe('Classes tests', () => {
+        it('should set `className` class', () => {
+            const className = 'test-class';
+            const { container } = render(<Badge view='count' className={className} />);
+
+            expect(container.firstElementChild).toHaveClass(className);
+        });
+
         it('should set `size` class', () => {
             const size = 's';
             const { container } = render(<Badge view='count' size={size} />);

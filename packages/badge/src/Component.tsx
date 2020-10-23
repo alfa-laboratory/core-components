@@ -1,9 +1,14 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import cn from 'classnames';
 
 import styles from './index.module.css';
 
 export type BadgeProps = {
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
+
     /**
      * Размер компонента
      */
@@ -30,45 +35,41 @@ export type BadgeProps = {
     dataTestId?: string;
 };
 
-export const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
-    ({ size = 'm', view, content, iconColor, dataTestId }, ref) => {
-        const isCountView = view === 'count';
-        const isHidden = isCountView && typeof content === 'number' && content <= 0;
+export const Badge = ({
+    className,
+    size = 'm',
+    view,
+    content,
+    iconColor,
+    dataTestId,
+}: BadgeProps) => {
+    const isCountView = view === 'count';
+    const isHidden = isCountView && typeof content === 'number' && content <= 0;
 
-        const componentContent = useMemo(() => {
-            if (content && isCountView) {
-                if (content >= 100) {
-                    return '99+';
-                }
-            }
+    let componentContent: BadgeProps['content'] | string = content;
 
-            return content;
-        }, [content, isCountView]);
+    if (content && isCountView) {
+        if (content >= 100) {
+            componentContent = '99+';
+        }
+    }
 
-        return (
-            <div
-                className={cn(
-                    styles.component,
-                    styles[size],
-                    styles[view],
-                    iconColor && styles[iconColor],
-                    {
-                        [styles.isHidden]: isHidden,
-                        [styles.dot]: !content,
-                    },
-                )}
-                data-test-id={dataTestId}
-                ref={ref}
-            >
-                {componentContent}
-            </div>
-        );
-    },
-);
-
-/**
- * Для отображения в сторибуке
- */
-Badge.defaultProps = {
-    size: 'm',
+    return (
+        <div
+            className={cn(
+                styles.component,
+                styles[size],
+                styles[view],
+                iconColor && styles[iconColor],
+                {
+                    [styles.isHidden]: isHidden,
+                    [styles.dot]: !content,
+                },
+                className,
+            )}
+            data-test-id={dataTestId}
+        >
+            {componentContent}
+        </div>
+    );
 };
