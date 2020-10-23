@@ -19,7 +19,7 @@ import { name, version } from '../package.json';
 
 <Story name='Badge'>
     <Badge
-        size={select('size', ['s', 'm'], 'm')}
+        size={select('size', ['s', 'm', 'l'], 'm')}
         content={number('content', 1)}
         view='count'
     />
@@ -69,7 +69,7 @@ import { Badge } from '@alfalab/core-components-attach';
 
 - `view="icon"`: Отражает статус компонента или тип уведомления. Внутри стикера используется двухцветная иконка.
 Для управления цветом иконки используется проп `iconColor`, для управления цветом подложки используется css-переменная
-`--badge-icon-background-color`
+`--badge-icon-bg-color`
 
 <Preview>
     <Container>
