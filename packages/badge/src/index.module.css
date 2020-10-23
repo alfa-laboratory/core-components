@@ -1,7 +1,7 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --badge-icon-bg-color: var(--color-light-text-primary-inverted);
+    --badge-icon-bg-color: var(--color-white);
 }
 
 .component {
