@@ -12,7 +12,7 @@ export type BadgeProps = {
     /**
      * Размер компонента
      */
-    size?: 's' | 'm';
+    size?: 's' | 'm' | 'l';
 
     /**
      *  Вид компонента
@@ -27,7 +27,7 @@ export type BadgeProps = {
     /**
      * Цветовое оформление иконки
      */
-    iconColor?: 'positive' | 'attention' | 'negative' | 'hold' | 'repeat';
+    iconColor?: 'positive' | 'attention' | 'negative' | 'tertiary' | 'primary';
 
     /**
      * Идентификатор для систем автоматизированного тестирования

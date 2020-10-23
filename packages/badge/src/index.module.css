@@ -56,11 +56,11 @@
         color: var(--color-light-graphic-negative);
     }
 
-    &.hold {
+    &.tertiary {
         color: var(--color-light-graphic-tertiary);
     }
 
-    &.repeat {
+    &.primary {
         color: var(--color-light-graphic-primary);
     }
 }
