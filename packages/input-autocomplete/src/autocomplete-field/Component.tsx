@@ -41,8 +41,8 @@ export const AutocompleteField = ({
 
     return (
         <Input
-            {...innerProps}
             {...inputProps}
+            {...innerProps}
             wrapperRef={innerProps.ref}
             ref={inputRef}
             disabled={disabled}

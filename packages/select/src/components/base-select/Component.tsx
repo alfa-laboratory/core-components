@@ -1,4 +1,12 @@
-import React, { useRef, useMemo, useCallback, MouseEvent, forwardRef, KeyboardEvent } from 'react';
+import React, {
+    useRef,
+    useMemo,
+    useCallback,
+    MouseEvent,
+    forwardRef,
+    KeyboardEvent,
+    FocusEvent,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import { Popover } from '@alfalab/core-components-popover';
@@ -34,6 +42,8 @@ export const BaseSelect = forwardRef(
             fieldProps = {},
             onChange,
             onOpen,
+            onFocus,
+            onBlur,
             Arrow,
             Field = () => null,
             OptionsList = () => null,
@@ -155,10 +165,18 @@ export const BaseSelect = forwardRef(
         const menuProps = getMenuProps(nativeSelect ? {} : { ref: optionsListRef });
         const inputProps = getInputProps(getDropdownProps({ ref: mergeRefs([ref, fieldRef]) }));
 
-        const handleFieldFocus = () => {
+        const handleFieldFocus = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
+            if (onFocus) onFocus(event);
+
             if (autocomplete && !open) {
                 openMenu();
             }
+        };
+
+        const handleFieldBlur = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
+            if (onBlur) onBlur(event);
+
+            inputProps.onBlur(event);
         };
 
         const handleFieldKeyDown = (event: KeyboardEvent<HTMLDivElement | HTMLInputElement>) => {
@@ -264,7 +282,7 @@ export const BaseSelect = forwardRef(
                     error={error}
                     hint={hint}
                     innerProps={{
-                        onBlur: inputProps.onBlur,
+                        onBlur: handleFieldBlur,
                         onFocus: disabled ? undefined : handleFieldFocus,
                         onKeyDown: disabled ? undefined : handleFieldKeyDown,
                         onClick: disabled ? undefined : handleFieldClick,

@@ -187,6 +187,16 @@ export type BaseSelectProps = {
      * Обработчик открытия\закрытия селекта
      */
     onOpen?: (payload: { open?: boolean; name?: string }) => void;
+
+    /**
+     * Обработчик фокуса поля
+     */
+    onBlur?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
+
+    /**
+     * Обработчик блюра поля
+     */
+    onFocus?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
 };
 
 export type FieldProps = {

@@ -60,8 +60,8 @@ export const Field = ({
                         </React.Fragment>
                     )
                 }
-                {...innerProps}
                 {...restProps}
+                {...innerProps}
             >
                 <div className={styles.contentWrapper}>
                     {placeholder && !filled && (
