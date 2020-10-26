@@ -147,7 +147,7 @@ export type BaseSelectProps = {
     /**
      * Компонент стрелки
      */
-    Arrow?: FC<ArrowProps>;
+    Arrow?: FC<ArrowProps> | null | false;
 
     /**
      * Компонент поля
