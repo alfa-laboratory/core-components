@@ -30,7 +30,7 @@ export const options = [
 ];
 
 export const matchOption = (option, inputValue) =>
-    option.content.toLowerCase().includes(inputValue.toLowerCase());
+    option.content.toLowerCase().includes((inputValue || '').toLowerCase());
 
 
 <Meta
@@ -49,7 +49,7 @@ export const matchOption = (option, inputValue) =>
             setValue(event.target.value);
         };
         const handleChange = ({ selected }) => {
-            setValue(selected ? selected.key : null);
+            setValue(selected ? selected.key : '');
         };
         const filteredOptions = options.filter(option => matchOption(option, value));
         return (
@@ -97,7 +97,7 @@ import { InputAutocomplete } from '@alfalab/core-components-input-autocomplete';
             setValue(event.target.value);
         };
         const handleChange = ({ selected }) => {
-            setValue(selected ? selected.key : null);
+            setValue(selected ? selected.key : '');
         };
         const filteredOptions = options.filter(option => matchOption(option, value));
         return (
@@ -126,7 +126,7 @@ import { InputAutocomplete } from '@alfalab/core-components-input-autocomplete';
             setValue(event.target.value);
         };
         const handleChange = ({ selected }) => {
-            setValue(selected ? selected.key : null);
+            setValue(selected ? selected.key : '');
         };
         const handleClear = (event) => {
             setValue('');
@@ -207,7 +207,7 @@ import { InputAutocomplete } from '@alfalab/core-components-input-autocomplete';
             setValue(event.target.value);
         };
         const handleChange = ({ selected }) => {
-            setValue(selected ? selected.key : null);
+            setValue(selected ? selected.key : '');
         };
         const filteredOptions = options.filter(option => matchOption(option, value));
         return (
