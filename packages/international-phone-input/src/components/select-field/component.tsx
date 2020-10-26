@@ -8,10 +8,14 @@ import { FlagIcon } from '../flag-icon';
 
 import styles from './index.module.css';
 
-const Option: FC<OptionShape> = ({ value }) => {
+type OptionProps = OptionShape & {
+    size?: FieldProps['size'];
+};
+
+const Option: FC<OptionProps> = ({ value, size }) => {
     return (
         <span key={value}>
-            <FlagIcon country={value as string} />
+            <FlagIcon country={value as string} size={size} />
         </span>
     );
 };
@@ -28,6 +32,8 @@ export const SelectField: FC<FieldProps> = ({
 
     const ref = innerProps.ref ? mergeRefs([innerProps.ref, wrapperRef]) : wrapperRef;
 
+    const { size } = restProps;
+
     return (
         <div
             ref={ref}
@@ -36,7 +42,9 @@ export const SelectField: FC<FieldProps> = ({
             })}
         >
             <div {...innerProps} {...restProps} className={styles.inner}>
-                {selectedItems.map(Option)}
+                {selectedItems.map((props: OptionProps) => (
+                    <Option {...props} size={size} />
+                ))}
                 {Arrow}
             </div>
         </div>

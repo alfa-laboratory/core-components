@@ -2,17 +2,6 @@ import React, { forwardRef } from 'react';
 import cn from 'classnames';
 
 import styles from './flag-icon.module.css';
-import stylesSizeS from './flag-icon_size_s.sprite.module.css';
-import stylesSizeM from './flag-icon_size_m.sprite.module.css';
-import stylesSizeL from './flag-icon_size_l.sprite.module.css';
-import stylesSizeXL from './flag-icon_size_xl.sprite.module.css';
-
-const stylesMap = {
-    s: stylesSizeS,
-    m: stylesSizeM,
-    l: stylesSizeL,
-    xl: stylesSizeXL,
-};
 
 export type FlagIconProps = {
     /**
@@ -41,15 +30,13 @@ export type FlagIconProps = {
  */
 export const FlagIcon = forwardRef<HTMLSpanElement, FlagIconProps>(
     ({ flat = false, size = 'm', country = '', className }, ref) => {
-        const flagStyles = stylesMap[size];
-
         return (
             <span
                 ref={ref}
                 className={cn(
                     styles.flagIcon,
                     styles[size],
-                    flagStyles[country],
+                    styles[country],
                     {
                         [styles.flat]: flat,
                     },

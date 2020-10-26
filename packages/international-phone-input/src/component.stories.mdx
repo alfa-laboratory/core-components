@@ -25,8 +25,9 @@ import { InternationalPhoneInput } from '@alfalab/core-components-international-
             const handleChange = React.useCallback((newValue) => {
                 setValue(newValue);
             }, [setValue]);
+            const size = select('size', ['s', 'm', 'l'], 'm')
             return (
-                <InternationalPhoneInput value={value} onChange={handleChange} size="m" />
+                <InternationalPhoneInput value={value} onChange={handleChange} size={size} />
             );
         })}
 </Story>

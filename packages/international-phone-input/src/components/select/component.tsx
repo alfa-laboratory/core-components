@@ -27,7 +27,7 @@ export const CountriesSelect: FC<Props> = ({ disabled, size, selected, onChange 
                         <div>
                             <span>{name}</span>
                             <span>{dialCode}</span>
-                            <FlagIcon country={iso2} />
+                            <FlagIcon country={iso2} size={size} />
                         </div>
                     ),
                 };
