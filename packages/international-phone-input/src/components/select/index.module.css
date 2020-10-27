@@ -2,4 +2,5 @@
     display: flex;
     min-width: initial;
     height: 100%;
+    position: static;
 }

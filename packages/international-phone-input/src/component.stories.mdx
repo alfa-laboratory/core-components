@@ -5,7 +5,11 @@ import { text, select, boolean } from '@storybook/addon-knobs';
 import { InternationalPhoneInput } from './component';
 import { name, version } from '../package.json';
 
-<Meta title='Компоненты' component={InternationalPhoneInput} />
+<Meta
+    title='Компоненты'
+    component={InternationalPhoneInput}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
 
 <Title>
     InternationalPhoneInput ({name}@{version})

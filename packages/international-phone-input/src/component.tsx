@@ -1,4 +1,5 @@
 import React, { forwardRef, useState, useEffect, useCallback, ChangeEvent, useRef } from 'react';
+import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
 import { Input, InputProps } from '@alfalab/core-components-input';
 import { SelectProps } from '@alfalab/core-components-select';
@@ -6,6 +7,8 @@ import { AsYouType, CountryCode } from 'libphonenumber-js';
 
 import { CountriesSelect } from './components';
 import { countriesMap, countries } from './countries';
+
+import styles from './index.module.css';
 
 export type InternationalPhoneInputProps = Omit<
     InputProps,
@@ -43,6 +46,7 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
         const [countryIso2, setCountryIso2] = useState(defaultCountryIso2);
 
         const inputRef = useRef<HTMLInputElement>(null);
+        const wrapperRef = useRef<HTMLDivElement>(null);
 
         const phoneLibUtils = useRef<typeof AsYouType>();
 
@@ -110,9 +114,8 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
         );
 
         const loadPhoneUtils = useCallback(() => {
-            return import(
-                /* webpackChunkName: "libphonenumber" */ 'libphonenumber-js/bundle/libphonenumber-js.min'
-            )
+            // prettier-ignore
+            return import(/* webpackChunkName: "libphonenumber" */ 'libphonenumber-js/bundle/libphonenumber-js.min')
                 .then(utils => {
                     phoneLibUtils.current = utils.AsYouType;
                 })
@@ -140,11 +143,9 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
         );
 
         const handleSelectChange = useCallback<Required<SelectProps>['onChange']>(
-            payload => {
-                const selected = payload.selected && payload.selected[0];
-
+            ({ selected }) => {
                 if (selected) {
-                    const country = setCountryByIso2(selected as string);
+                    const country = setCountryByIso2(selected.value);
                     const inputValue = `+${country.dialCode}`;
 
                     if (inputRef.current) {
@@ -171,7 +172,9 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
                 value={value}
                 type='tel'
                 ref={mergeRefs([inputRef, ref])}
-                className={className}
+                wrapperRef={wrapperRef}
+                className={cn(className, styles[size])}
+                addonsClassName={styles.addons}
                 size={size}
                 leftAddons={
                     <CountriesSelect

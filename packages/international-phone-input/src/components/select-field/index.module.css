@@ -2,6 +2,8 @@
     height: 100%;
     cursor: pointer;
     outline: none;
+    position: relative;
+    bottom: -1px;
 }
 
 .inner {
@@ -9,6 +11,14 @@
     align-items: center;
     height: 100%;
     outline: none;
+    position: relative;
+    bottom: 1px;
+
+    padding-left: var(--gap-s);
+}
+
+.l .inner {
+    padding-left: var(--gap-m);
 }
 
 .focusVisible {
