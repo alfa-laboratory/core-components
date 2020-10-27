@@ -26,9 +26,14 @@ export type ConfirmationProps = {
     codeSending?: boolean;
 
     /**
+     * Состояние ошибки подписания
+     */
+    error?: boolean;
+
+    /**
      * Текст ошибки подписания
      */
-    error?: string;
+    errorText?: string;
 
     /**
      * Дополнительный контент
@@ -154,7 +159,8 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
             dataTestId,
             errorIsFatal,
             errorTitle = 'Превышено количество попыток ввода кода',
-            error,
+            error = false,
+            errorText,
             hasPhoneMask = true,
             hasSmsCountdown = true,
             phone,
@@ -183,13 +189,13 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
 
         const [countdownFinished, setCountdownFinished] = useState(false);
 
-        const shouldShowError = errorIsFatal && !!error;
+        const shouldShowError = errorIsFatal && Boolean(errorText);
 
         const shouldShowSignComponent = !showHint && !shouldShowError;
 
         const shouldShowHint = showHint && !shouldShowError;
 
-        const nonFatalError = errorIsFatal ? '' : error;
+        const nonFatalError = errorIsFatal ? '' : errorText;
 
         const shouldShowHintLink = countdownFinished && !codeChecking && retries > 0;
 
@@ -256,7 +262,8 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                         phone={phone}
                         code={code}
                         hasPhoneMask={hasPhoneMask}
-                        error={nonFatalError || ''}
+                        errorText={nonFatalError || ''}
+                        error={error}
                         title={signTitle}
                         inputRef={inputRef}
                         codeCheckingText={codeCheckingText}
@@ -274,7 +281,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                     <div className={styles.error}>
                         <span className={styles.errorHeader}>{errorTitle}</span>
 
-                        <span className={styles.errorText}>{error}</span>
+                        <span className={styles.errorText}>{errorText}</span>
 
                         <Button
                             size='s'

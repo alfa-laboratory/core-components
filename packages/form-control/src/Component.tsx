@@ -129,9 +129,8 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                     },
                     className,
                 )}
-                {...restProps}
             >
-                <div className={styles.inner} ref={ref}>
+                <div {...restProps} className={styles.inner} ref={ref}>
                     {leftAddons && (
                         <div className={cn(styles.addons, styles.leftAddons, addonsClassName)}>
                             {leftAddons}
