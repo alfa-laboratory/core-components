@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent, forwardRef } from 'react';
+import React, { FC, ChangeEvent, forwardRef, RefAttributes } from 'react';
 import { InputProps } from '@alfalab/core-components-input';
 import {
     BaseSelectProps,
@@ -14,7 +14,7 @@ export type InputAutocompleteProps = Omit<BaseSelectProps, 'Field' | 'nativeSele
     /**
      * Компонент ввода значения
      */
-    Input?: FC<InputProps>;
+    Input?: FC<InputProps & RefAttributes<HTMLInputElement>>;
 
     /**
      * Пропсы, которые будут прокинуты в инпут

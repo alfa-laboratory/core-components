@@ -18,7 +18,7 @@ import styles from './index.module.css';
 
 export type InputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'size' | 'type' | 'value' | 'defaultValue' | 'onChange'
+    'size' | 'type' | 'value' | 'defaultValue' | 'onChange' | 'onClick' | 'onMouseDown'
 > & {
     /**
      * Значение поля ввода
@@ -126,6 +126,21 @@ export type InputProps = Omit<
     onClear?: (event: MouseEvent<HTMLButtonElement>) => void;
 
     /**
+     * Обработчик клика по полю
+     */
+    onClick?: (event: MouseEvent<HTMLDivElement>) => void;
+
+    /**
+     * Обработчик MouseDown по полю
+     */
+    onMouseDown?: (event: MouseEvent<HTMLDivElement>) => void;
+
+    /**
+     * Обработчик MouseUp по полю
+     */
+    onMouseUp?: (event: MouseEvent<HTMLDivElement>) => void;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -155,6 +170,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             onBlur,
             onChange,
             onClear,
+            onClick,
+            onMouseDown,
+            onMouseUp,
             rightAddons,
             value,
             defaultValue,
@@ -276,6 +294,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 leftAddons={leftAddons}
                 rightAddons={renderRightAddons()}
                 bottomAddons={bottomAddons}
+                onClick={onClick}
+                onMouseDown={onMouseDown}
+                onMouseUp={onMouseUp}
             >
                 <input
                     {...restProps}

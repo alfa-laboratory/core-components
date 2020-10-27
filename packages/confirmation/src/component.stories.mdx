@@ -100,7 +100,8 @@ import { Select } from '../../select/src/Component';
                                 onSmsRetryClick={() => handleSmsRetryClick('error')}
                                 codeSending={codeSending['error']}
                                 codeChecking={codeChecking['error']}
-                                error={error['error']}
+                                error={!!error['error']}
+                                errorText={error['error']}
                                 countdownDuration={countdownDuration}
                                 code={value['error']}
                                 onInputChange={({ code }) => setCode('error', code)}
@@ -117,7 +118,8 @@ import { Select } from '../../select/src/Component';
                                 onSmsRetryClick={() => handleSmsRetryClick('fatal')}
                                 codeSending={codeSending['fatal']}
                                 codeChecking={codeChecking['fatal']}
-                                error={error['fatal']}
+                                error={!!error['fatal']}
+                                errorText={error['fatal']}
                                 errorIsFatal={true}
                                 countdownDuration={countdownDuration}
                                 code={value['fatal']}
