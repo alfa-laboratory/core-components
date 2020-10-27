@@ -217,7 +217,7 @@
 
 /* HOVER STATE */
 
-.component:not(.disabled):hover .inner {
+.component:not(.disabled) .inner:hover {
     background-color: var(--form-control-hover-bg-color);
 }
 

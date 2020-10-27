@@ -71,6 +71,11 @@ export type FormControlProps = HTMLAttributes<HTMLDivElement> & {
     labelClassName?: string;
 
     /**
+     * Дополнительный класс для аддонов
+     */
+    addonsClassName?: string;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -88,6 +93,7 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
             size = 's',
             className,
             labelClassName,
+            addonsClassName,
             disabled,
             focused,
             filled,
@@ -127,7 +133,9 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
             >
                 <div className={styles.inner} ref={ref}>
                     {leftAddons && (
-                        <div className={cn(styles.addons, styles.leftAddons)}>{leftAddons}</div>
+                        <div className={cn(styles.addons, styles.leftAddons, addonsClassName)}>
+                            {leftAddons}
+                        </div>
                     )}
 
                     <div className={styles.inputWrapper}>
@@ -141,7 +149,9 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                     </div>
 
                     {rightAddons && (
-                        <div className={cn(styles.addons, styles.rightAddons)}>{rightAddons}</div>
+                        <div className={cn(styles.addons, styles.rightAddons, addonsClassName)}>
+                            {rightAddons}
+                        </div>
                     )}
 
                     {error && (

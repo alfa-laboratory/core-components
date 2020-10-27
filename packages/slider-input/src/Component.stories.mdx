@@ -7,6 +7,8 @@ import Icon from '@alfalab/icons-glyph/StarMIcon';
 
 import { SliderInput } from './Component';
 import { AmountInput } from '../../amount-input/src';
+import { Input } from '../../input/src';
+import { withSuffix } from '../../with-suffix/src';
 import { name, version } from '../package.json';
 
 
@@ -68,6 +70,30 @@ export const normalizeValue = (value, min, max) => {
 
 <Preview>
 {React.createElement(() => {
+    const min = 0;
+    const max = 10;
+    const step = 1;
+    const [value, setValue] = React.useState('');
+    const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
+    return (
+        <SliderInput
+            value={value}
+            min={min}
+            max={max}
+            step={step}
+            onChange={handleChange}
+            block={true}
+            steps={['0', '5', '10']}
+        />
+    );
+})}
+</Preview>
+
+<Preview>
+{React.createElement(() => {
+    // import { withSuffix } from '@alfalab/core-components-with-suffix';
+    // import { Input } from '@alfalab/core-components-input';
+    const SuffixInput = React.useMemo(() => withSuffix(Input), []);
     const min = 36;
     const max = 360;
     const step = 1;
@@ -84,6 +110,10 @@ export const normalizeValue = (value, min, max) => {
             block={true}
             label='Оставшийся срок по кредиту'
             steps={['36 мес', '180 мес', '360 мес']}
+            Input={SuffixInput}
+            customInputProps={{
+                suffix: ' мес'
+            }}
         />
     );
 })}
@@ -92,10 +122,19 @@ export const normalizeValue = (value, min, max) => {
 
 <Preview>
 {React.createElement(() => {
+    // import { withSuffix } from '@alfalab/core-components-with-suffix';
+    // import { Input } from '@alfalab/core-components-input';
+    const SuffixInput = React.useMemo(() => withSuffix(Input), []);
     const min = 1;
     const max = 5;
     const step = 1;
     const [value, setValue] = React.useState('');
+    const getSuffix = (years) => {
+        if (years <= 0) return '';
+        if (years === 1) return ' год';
+        if (years > 1 && years < 5) return ' года';
+        if (years >= 5) return ' лет';
+    }
     const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
     return (
         <SliderInput
@@ -113,6 +152,10 @@ export const normalizeValue = (value, min, max) => {
                 '4 года',
                 '5 лет',
             ]}
+            Input={SuffixInput}
+            customInputProps={{
+                suffix: getSuffix(value),
+            }}
         />
     );
 })}
@@ -120,8 +163,11 @@ export const normalizeValue = (value, min, max) => {
 
 <Preview>
 {React.createElement(() => {
-    const min = 1;
-    const max = 5;
+    // import { withSuffix } from '@alfalab/core-components-with-suffix';
+    // import { Input } from '@alfalab/core-components-input';
+    const SuffixInput = React.useMemo(() => withSuffix(Input), []);
+    const min = 0;
+    const max = 100;
     const step = 1;
     const [value, setValue] = React.useState('');
     const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
@@ -133,14 +179,17 @@ export const normalizeValue = (value, min, max) => {
             step={step}
             onChange={handleChange}
             block={true}
-            label='Срок кредита'
+            label='Процент по кредиту'
             steps={[
-                <span style={{flexBasis: '10%'}}>1 год</span>,
-                <span style={{flexBasis: '20%'}}>2 года</span>,
-                <span style={{flexBasis: '30%'}}>3 года</span>,
-                <span style={{flexBasis: '40%'}}>4 года</span>,
-                <span style={{flexBasis: '10%'}}>5 лет</span>,
+                <span style={{flexBasis: '19%'}}>0%</span>,
+                <span style={{flexBasis: '62%'}}>20%</span>,
+                <span style={{flexBasis: '18%'}}>80%</span>,
+                <span style={{}}>100%</span>,
             ]}
+            Input={SuffixInput}
+            customInputProps={{
+                suffix: ' %'
+            }}
         />
     );
 })}

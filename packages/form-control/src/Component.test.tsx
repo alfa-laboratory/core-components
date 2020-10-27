@@ -72,6 +72,19 @@ describe('FormControl', () => {
             expect(container.getElementsByClassName(className).length).toBe(1);
         });
 
+        it('should set `addonsClassName` class to addons', () => {
+            const className = 'test-class';
+            const { container } = render(
+                <FormControl
+                    addonsClassName={className}
+                    leftAddons={<div>Left addons</div>}
+                    rightAddons={<div>Right addons</div>}
+                />,
+            );
+
+            expect(container.getElementsByClassName(className).length).toBe(2);
+        });
+
         it('should set `size` class', () => {
             const size = 'm';
             const { container } = render(<FormControl size={size} />);
