@@ -153,6 +153,18 @@ describe('Input', () => {
 
             expect(getByTestId(dataTestId)).toHaveValue(value);
         });
+
+        it('should not show clear button if input is readonly', () => {
+            const label = 'Очистить';
+
+            const { queryByLabelText, rerender } = render(<Input clear={true} readOnly={true} />);
+
+            expect(queryByLabelText(label)).not.toBeInTheDocument();
+
+            rerender(<Input clear={true} value='123' readOnly={true} />);
+
+            expect(queryByLabelText(label)).not.toBeInTheDocument();
+        });
     });
 
     describe('when component is uncontrolled', () => {
@@ -228,6 +240,17 @@ describe('Input', () => {
             userEvent.click(getByLabelText('Очистить'));
 
             expect(input).toHaveValue('');
+        });
+
+        it('should not show clear button if input is readonly', async () => {
+            const dataTestId = 'test-id';
+            const label = 'Очистить';
+
+            const { queryByLabelText } = render(
+                <Input clear={true} dataTestId={dataTestId} defaultValue='123' readOnly={true} />,
+            );
+
+            expect(queryByLabelText(label)).not.toBeInTheDocument();
         });
     });
 
