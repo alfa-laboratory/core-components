@@ -13,6 +13,8 @@ export const joinOptions = ({
 }) => {
     const options = selectedMultiple || (selected ? [selected] : []);
 
+    if (!options.length) return null;
+
     return options.reduce((acc: Array<ReactNode | string>, option: OptionShape, index: number) => {
         if (isValidElement(option.content)) {
             acc.push(cloneElement(option.content, { key: option.key }));
