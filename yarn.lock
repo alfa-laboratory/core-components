@@ -7,6 +7,11 @@
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-0.1.0.tgz#5bf404de0b31ec5e15a774000edea0cc38b8b0db"
   integrity sha512-aVnY4+V2Z1g70fiHo5iA6W8z0+LpqnTjeT5NNKN87GI6Jfjm/XIaJhD3hjCRlapz2DiogHGtpRPHoF+W96NsJg==
 
+"@alfalab/data@0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-0.2.0.tgz#4956618252d0eb754652ec20554ff71292578add"
+  integrity sha512-so5/YttRoIvaulQincuwpensE4zmC9nSRdD2ikCgo6nhyZs6vPB4o7VNhvBcMddrvPOiXRYLerCU+J98GPe22Q==
+
 "@alfalab/hooks@^0.8.1":
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-0.8.1.tgz#773a3f844162e7e4d2958fa7bb9b9bffaa059991"
