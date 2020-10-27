@@ -177,6 +177,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             value,
             defaultValue,
             wrapperRef,
+            readOnly,
             ...restProps
         },
         ref,
@@ -192,8 +193,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
         const filled = Boolean(uncontrolled ? stateValue : value);
         // отображаем крестик только для заполненного и активного инпута
-        const clearButtonVisible =
-            clear && Boolean(value || (uncontrolled && stateValue)) && !disabled;
+        const clearButtonVisible = clear && filled && !disabled && !readOnly;
 
         const handleInputFocus = useCallback(
             (event: React.FocusEvent<HTMLInputElement>) => {
@@ -315,6 +315,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     type={type}
                     value={uncontrolled ? stateValue : value}
                     defaultValue={defaultValue}
+                    readOnly={readOnly}
                     data-test-id={dataTestId}
                 />
             </FormControl>
