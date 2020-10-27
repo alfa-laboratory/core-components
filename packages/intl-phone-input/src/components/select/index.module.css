@@ -12,11 +12,6 @@
     align-items: center;
 }
 
-.optionTextWrap {
-    display: flex;
-    align-items: center;
-}
-
 .flag {
     flex-shrink: 0;
     margin-right: var(--gap-xs);
