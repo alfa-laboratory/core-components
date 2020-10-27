@@ -20,7 +20,8 @@ export type SignConfirmationProps = {
     hasPhoneMask: boolean;
     phone?: string;
     code: string;
-    error: string;
+    errorText: string;
+    error: boolean;
     title: string;
     codeCheckingText: string;
     codeSendingText: string;
@@ -44,7 +45,8 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
     hasPhoneMask,
     phone,
     code: inputValue,
-    error = '',
+    error,
+    errorText,
     title,
     hasSmsCountdown,
     inputRef,
@@ -59,7 +61,7 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
 }) => {
     const processing = codeChecking || codeSending;
 
-    const displayedError = processing ? '' : error;
+    const displayedError = processing ? '' : errorText;
 
     const handleInputKeyDown = useCallback(
         (event: KeyboardEvent) => {
@@ -99,11 +101,12 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
             <div className={styles.inputContainer}>
                 <CodeInput
                     processing={processing}
-                    error={displayedError}
+                    error={error}
                     value={inputValue}
                     ref={inputRef}
                     slotsCount={requiredCharAmount}
                     className={styles.codeInput}
+                    alignContent={alignContent}
                     handleChange={handleInputChange}
                     handleInputKeyDown={handleInputKeyDown}
                 />
