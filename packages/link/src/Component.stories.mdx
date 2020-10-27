@@ -1,7 +1,6 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { action } from '@storybook/addon-actions';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import { Container, Row, Col } from 'storybook/blocks/grid';
+import { Container, Row } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
@@ -99,6 +98,32 @@ import { Link } from '@alfalab/core-components-link';
          <Row>
             <Link view="default" pseudo={true}>
                 Default
+            </Link>
+        </Row>
+    </Container>
+</Preview>
+
+### Слоты для кастомизации
+Добавляет слоты `leftSlot` и `rightSlot` для кастомизации ссылок.
+Переданный контент будет отрисован слева или справа от текста ссылки.
+
+<Preview>
+    <Container>
+        <Row>
+            <Link
+                view="primary"
+                leftSlot={<Icon />}
+            >
+                Ссылка с иконкой слева
+            </Link>
+        </Row>
+        <Row>
+            <Link
+                view="secondary"
+                pseudo={true}
+                rightSlot={<Icon />}
+            >
+                Ссылка с иконкой справа
             </Link>
         </Row>
     </Container>

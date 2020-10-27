@@ -24,6 +24,16 @@ export type LinkProps = NativeProps & {
     pseudo?: boolean;
 
     /**
+     * Слот слева
+     */
+    leftSlot?: React.ReactNode;
+
+    /**
+     * Слот справа
+     */
+    rightSlot?: React.ReactNode;
+
+    /**
      * Дополнительный класс (native prop)
      */
     className?: string;
@@ -45,7 +55,19 @@ export type LinkProps = NativeProps & {
 };
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
-    ({ view = 'primary', pseudo = false, className, dataTestId, children, ...restProps }, ref) => {
+    (
+        {
+            view = 'primary',
+            pseudo = false,
+            leftSlot,
+            rightSlot,
+            className,
+            dataTestId,
+            children,
+            ...restProps
+        },
+        ref,
+    ) => {
         const linkRef = useRef<HTMLAnchorElement>(null);
 
         const [focused] = useFocus(linkRef, 'keyboard');
@@ -63,9 +85,17 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             'data-test-id': dataTestId,
         };
 
+        const linkChildren = (
+            <React.Fragment>
+                {leftSlot && <span className={cn(styles.slots)}>{leftSlot}</span>}
+                {children && <span className={cn(styles.link)}>{children}</span>}
+                {rightSlot && <span className={cn(styles.slots)}>{rightSlot}</span>}
+            </React.Fragment>
+        );
+
         return (
             <a {...componentProps} {...restProps} ref={mergeRefs([linkRef, ref])}>
-                {children}
+                {linkChildren}
             </a>
         );
     },

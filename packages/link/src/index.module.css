@@ -19,17 +19,27 @@
 
 .component {
     box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
     text-decoration: none;
-    border-bottom: 1px solid;
     font-family: var(--font-family);
-    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
     cursor: pointer;
     outline: none;
 
-    &:hover,
-    &:active {
+    &:hover .link,
+    &:active .link {
         border-bottom-color: rgba(0, 0, 0, 0);
     }
+}
+
+.link {
+    padding-bottom: 1px;
+    border-bottom: 1px solid;
+    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
 }
 
 .focused {
@@ -75,6 +85,21 @@
     }
 }
 
-.pseudo {
+.pseudo .link {
     border-bottom-style: dashed;
+}
+
+.slots {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.slots:first-child {
+    margin-right: var(--gap-xs);
+}
+
+.slots:last-child {
+    margin-left: var(--gap-xs);
 }
