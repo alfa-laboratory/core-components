@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-circular-progress-bar",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "",
     "keywords": [],
     "license": "ISC",
@@ -13,7 +13,7 @@
         "access": "public"
     },
     "dependencies": {
-        "@alfalab/core-components-typography": "1.2.0"
+        "@alfalab/core-components-typography": "^1.2.1"
     },
     "peerDependencies": {
         "classnames": "^2.2.6",
