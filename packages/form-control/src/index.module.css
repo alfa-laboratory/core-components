@@ -48,6 +48,7 @@
     border-bottom: var(--form-control-border-bottom);
     transition: background 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
     box-sizing: border-box;
+    outline: none;
 }
 
 .inputWrapper {
