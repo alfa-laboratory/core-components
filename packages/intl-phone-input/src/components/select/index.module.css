@@ -1,6 +1,31 @@
+@import '../../../../themes/src/default.css';
+
 .component {
     position: static;
     display: flex;
     min-width: initial;
     height: 100%;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+}
+
+.optionTextWrap {
+    display: flex;
+    align-items: center;
+}
+
+.flag {
+    flex-shrink: 0;
+    margin-right: var(--gap-xs);
+}
+
+.countryName {
+    margin-right: var(--gap-xs);
+}
+
+.dialCode {
+    color: var(--text-secondary-color);
 }

@@ -1,3 +1,5 @@
+@import '../../../../themes/src/default.css';
+
 .component {
     height: 100%;
     cursor: pointer;
@@ -8,13 +10,12 @@
 
 .inner {
     position: relative;
+    bottom: 1px;
     display: flex;
     align-items: center;
     height: 100%;
-    outline: none;
-    bottom: 1px;
-
     padding-left: var(--gap-s);
+    outline: none;
 }
 
 .l .inner {

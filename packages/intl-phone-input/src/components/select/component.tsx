@@ -21,11 +21,14 @@ export const CountriesSelect: FC<Props> = ({ disabled, size, selected, onChange 
                 key: iso2,
                 value: iso2,
                 content: (
-                    <div>
-                        <span>{name}</span>
-                        <span>{dialCode}</span>
-                        <FlagIcon country={iso2} size={size} />
-                    </div>
+                    <span className={styles.option}>
+                        <FlagIcon country={iso2} size={size} className={styles.flag} />
+
+                        <span className={styles.optionTextWrap}>
+                            <span className={styles.countryName}>{name}</span>
+                            <span className={styles.dialCode}>+{dialCode}</span>
+                        </span>
+                    </span>
                 ),
             })),
         [size],
