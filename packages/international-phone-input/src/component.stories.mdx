@@ -21,13 +21,21 @@ import { InternationalPhoneInput } from '@alfalab/core-components-international-
 
 <Story name='InternationalPhoneInput'>
     {React.createElement(() => {
-            const [value, setValue] = React.useState('+79132213123');
+            const [value, setValue] = React.useState('+79647820725');
             const handleChange = React.useCallback((newValue) => {
                 setValue(newValue);
             }, [setValue]);
-            const size = select('size', ['s', 'm', 'l'], 'm')
+            const size = select('size', ['s', 'm', 'l'], 'm');
+            const block = boolean('block', false);
+            const label = text('label', 'Номер телефона');
             return (
-                <InternationalPhoneInput value={value} onChange={handleChange} size={size} />
+                <InternationalPhoneInput
+                    value={value}
+                    onChange={handleChange}
+                    size={size}
+                    block={block}
+                    label={label}
+                />
             );
         })}
 </Story>

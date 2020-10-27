@@ -7,7 +7,10 @@ import { AsYouType, CountryCode } from 'libphonenumber-js';
 import { CountriesSelect } from './components';
 import { countriesMap, countries } from './countries';
 
-export type InternationalPhoneInputProps = Omit<InputProps, 'value' | 'onChange'> & {
+export type InternationalPhoneInputProps = Omit<
+    InputProps,
+    'value' | 'onChange' | 'type' | 'defaultValue'
+> & {
     /**
      * Значение
      */
@@ -17,18 +20,27 @@ export type InternationalPhoneInputProps = Omit<InputProps, 'value' | 'onChange'
      * Обработчик события изменения значения
      */
     onChange: (value: string) => void;
-};
 
-const DEFAULT_COUNTRY_ISO_2 = 'ru';
-const DEFAULT_VALUE = '+7';
+    /**
+     * Дефолтный код страны
+     */
+    defaultCountryIso2?: string;
+};
 
 const MAX_DIAL_CODE_LENGTH = 4;
 
 export const InternationalPhoneInput = forwardRef<HTMLInputElement, InternationalPhoneInputProps>(
     (props, ref) => {
-        const { disabled = false, size = 'm', className, value = DEFAULT_VALUE, onChange } = props;
+        const {
+            disabled = false,
+            size = 'm',
+            className,
+            value,
+            onChange,
+            defaultCountryIso2 = 'ru',
+        } = props;
 
-        const [countryIso2, setCountryIso2] = useState(DEFAULT_COUNTRY_ISO_2);
+        const [countryIso2, setCountryIso2] = useState(defaultCountryIso2);
 
         const inputRef = useRef<HTMLInputElement>(null);
 
@@ -176,5 +188,5 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
 
 InternationalPhoneInput.defaultProps = {
     size: 'm',
-    value: DEFAULT_VALUE,
+    defaultCountryIso2: 'ru',
 };
