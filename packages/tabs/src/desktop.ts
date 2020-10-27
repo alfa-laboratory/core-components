@@ -4,3 +4,4 @@ export * from './components/secondary-tablist/Component.desktop';
 export * from './components/tab';
 export * from './components/tabs/Component.desktop';
 export * from './useTabs';
+export * from './typings';
