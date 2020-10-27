@@ -1,0 +1,9 @@
+.addons {
+    padding-left: 0;
+}
+
+.l {
+    & .addons {
+        padding-left: 0;
+    }
+}
