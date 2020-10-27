@@ -2,24 +2,24 @@ import { Meta, Story, Preview, Props, Description, Title } from '@storybook/addo
 import { action } from '@storybook/addon-actions';
 import { text, select, boolean } from '@storybook/addon-knobs';
 
-import { InternationalPhoneInput } from './component';
+import { IntlPhoneInput } from './component';
 import { name, version } from '../package.json';
 
-<Meta title='Компоненты' component={InternationalPhoneInput} />
+<Meta title='Компоненты' component={IntlPhoneInput} />
 
 <Title>
-    InternationalPhoneInput ({name}@{version})
+    IntlPhoneInput ({name}@{version})
 </Title>
 
 ```tsx
-import { InternationalPhoneInput } from '@alfalab/core-components-international-phone-input';
+import { IntlPhoneInput } from '@alfalab/core-components-intl-phone-input';
 ```
 
 ## Описание
 
 Компонент текстового поля для ввода международных номеров телефонов
 
-<Story name='InternationalPhoneInput'>
+<Story name='IntlPhoneInput'>
     {React.createElement(() => {
             const [value, setValue] = React.useState('+79647820725');
             const handleChange = React.useCallback((newValue) => {
@@ -29,7 +29,7 @@ import { InternationalPhoneInput } from '@alfalab/core-components-international-
             const block = boolean('block', false);
             const label = text('label', 'Номер телефона');
             return (
-                <InternationalPhoneInput
+                <IntlPhoneInput
                     value={value}
                     onChange={handleChange}
                     size={size}
@@ -40,4 +40,4 @@ import { InternationalPhoneInput } from '@alfalab/core-components-international-
         })}
 </Story>
 
-<Props of={InternationalPhoneInput} />
+<Props of={IntlPhoneInput} />
