@@ -14,16 +14,16 @@ export type NativeSelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
     value: string | string[];
 };
 
-const Option = ({ value, text, disabled }: OptionShape) => (
-    <option value={value} disabled={disabled}>
-        {text || value}
+const Option = ({ option }: { option: OptionShape }) => (
+    <option value={option.key} disabled={option.disabled}>
+        {typeof option.content === 'string' ? option.content : option.key}
     </option>
 );
 
 const Group = ({ label, options }: GroupShape) => (
     <optgroup label={label}>
         {options.map(option => (
-            <Option {...option} key={option.value} />
+            <Option option={option} key={option.key} />
         ))}
     </optgroup>
 );
@@ -50,7 +50,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                     isGroup(option) ? (
                         <Group {...option} key={option.label} />
                     ) : (
-                        <Option {...option} key={option.value} />
+                        <Option option={option} key={option.key} />
                     ),
                 )}
             </select>

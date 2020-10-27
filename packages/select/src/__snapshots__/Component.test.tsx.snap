@@ -12,75 +12,16 @@ Object {
         class="component"
         role="combobox"
       >
-        <div
-          class="fieldWrapper"
-          role="button"
-        >
-          <div>
+        <div>
+          <div
+            class="component s hasRightAddons component s"
+          >
             <div
               aria-controls="downshift-1-menu"
               aria-labelledby="downshift-1-label"
-              class="component s hasRightAddons component s"
+              class="inner"
               id="downshift-0-input"
               tabindex="0"
-            >
-              <div
-                class="inner"
-              >
-                <div
-                  class="inputWrapper"
-                >
-                  <div
-                    class="input"
-                  >
-                    <div
-                      class="contentWrapper"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="addons rightAddons"
-                >
-                  <span
-                    class="arrow"
-                  />
-                </div>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-        <div
-          aria-labelledby="downshift-1-label"
-          class="listWrapper"
-          id="downshift-1-menu"
-          role="listbox"
-        />
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      aria-expanded="false"
-      aria-haspopup="listbox"
-      aria-owns="downshift-1-menu"
-      class="component"
-      role="combobox"
-    >
-      <div
-        class="fieldWrapper"
-        role="button"
-      >
-        <div>
-          <div
-            aria-controls="downshift-1-menu"
-            aria-labelledby="downshift-1-label"
-            class="component s hasRightAddons component s"
-            id="downshift-0-input"
-            tabindex="0"
-          >
-            <div
-              class="inner"
             >
               <div
                 class="inputWrapper"
@@ -103,6 +44,55 @@ Object {
             </div>
             
           </div>
+        </div>
+        <div
+          aria-labelledby="downshift-1-label"
+          class="listWrapper"
+          id="downshift-1-menu"
+          role="listbox"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="downshift-1-menu"
+      class="component"
+      role="combobox"
+    >
+      <div>
+        <div
+          class="component s hasRightAddons component s"
+        >
+          <div
+            aria-controls="downshift-1-menu"
+            aria-labelledby="downshift-1-label"
+            class="inner"
+            id="downshift-0-input"
+            tabindex="0"
+          >
+            <div
+              class="inputWrapper"
+            >
+              <div
+                class="input"
+              >
+                <div
+                  class="contentWrapper"
+                />
+              </div>
+            </div>
+            <div
+              class="addons rightAddons"
+            >
+              <span
+                class="arrow"
+              />
+            </div>
+          </div>
+          
         </div>
       </div>
       <div

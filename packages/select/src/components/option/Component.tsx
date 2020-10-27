@@ -30,9 +30,7 @@ export const Option = forwardRef<HTMLDivElement, OptionProps>(
             })}
         >
             {Checkmark && <Checkmark selected={selected} />}
-            <div className={styles.content}>
-                {children || option.content || option.text || option.value}
-            </div>
+            <div className={styles.content}>{children || option.content || option.key}</div>
         </div>
     ),
 );

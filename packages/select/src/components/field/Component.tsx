@@ -10,14 +10,19 @@ import styles from './index.module.css';
 export const Field = ({
     size = 'm',
     open,
+    multiple,
+    error,
+    hint,
     disabled,
     label,
     placeholder,
-    selectedItems = [],
+    selectedMultiple = [],
+    selected,
     rightAddons,
     valueRenderer = joinOptions,
     Arrow,
-    innerProps = {},
+    innerProps,
+    className,
     ...restProps
 }: BaseFieldProps & FormControlProps) => {
     const [focused, setFocused] = useState(false);
@@ -26,7 +31,7 @@ export const Field = ({
 
     const [focusVisible] = useFocus(wrapperRef, 'keyboard');
 
-    const filled = selectedItems.length > 0;
+    const filled = selectedMultiple.length > 0;
 
     const handleFocus = useCallback(() => setFocused(true), []);
     const handleBlur = useCallback(() => setFocused(false), []);
@@ -34,7 +39,7 @@ export const Field = ({
     return (
         <div ref={wrapperRef} onFocus={handleFocus} onBlur={handleBlur}>
             <FormControl
-                className={cn(styles.component, styles[size], {
+                className={cn(styles.component, className, styles[size], {
                     [styles.open]: open,
                     [styles.hasLabel]: label,
                     [styles.disabled]: disabled,
@@ -45,22 +50,28 @@ export const Field = ({
                 disabled={disabled}
                 filled={filled || !!placeholder}
                 label={label}
+                error={error}
+                hint={hint}
                 rightAddons={
-                    <React.Fragment>
-                        {rightAddons}
-                        {Arrow}
-                    </React.Fragment>
+                    (Arrow || rightAddons) && (
+                        <React.Fragment>
+                            {rightAddons}
+                            {Arrow}
+                        </React.Fragment>
+                    )
                 }
-                onBlur={handleBlur}
-                onFocus={handleFocus}
-                {...innerProps}
                 {...restProps}
+                {...innerProps}
             >
                 <div className={styles.contentWrapper}>
                     {placeholder && !filled && (
                         <span className={styles.placeholder}>{placeholder}</span>
                     )}
-                    {filled && <div className={styles.value}>{valueRenderer(selectedItems)}</div>}
+                    {filled && (
+                        <div className={styles.value}>
+                            {valueRenderer({ selected, selectedMultiple })}
+                        </div>
+                    )}
                 </div>
             </FormControl>
         </div>

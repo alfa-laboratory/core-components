@@ -1,18 +1,21 @@
-import { ReactNode, FC, HTMLAttributes, RefAttributes, AriaAttributes } from 'react';
+import {
+    ReactNode,
+    FC,
+    RefAttributes,
+    AriaAttributes,
+    FocusEvent,
+    KeyboardEvent,
+    MouseEvent,
+} from 'react';
 
 export type OptionShape = {
     /**
-     * Значение выбранного пункта (например, для отправки на сервер)
-     */
-    value: string | number;
-
-    /**
      * Текстовое представление пункта
      */
-    text: string;
+    key: string;
 
     /**
-     * Контент, который будет отрендерен в выпадающем списке и в поле при выборе
+     * Контент, который будет отрисован в выпадающем списке и в поле при выборе
      */
     content?: ReactNode;
 
@@ -20,6 +23,12 @@ export type OptionShape = {
      * Блокирует данный пункт для выбора
      */
     disabled?: boolean;
+
+    /**
+     * Дополнительные данные
+     */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    value?: any;
 };
 
 export type GroupShape = {
@@ -123,7 +132,7 @@ export type BaseSelectProps = {
     /**
      * Список value выбранных пунктов (controlled-селект)
      */
-    selected?: Array<OptionShape['value']>;
+    selected?: string[] | string | null;
 
     /**
      * Рендерит нативный селект вместо выпадающего меню. (на десктопе использовать только с multiple=false)
@@ -138,7 +147,7 @@ export type BaseSelectProps = {
     /**
      * Компонент стрелки
      */
-    Arrow?: FC<ArrowProps>;
+    Arrow?: FC<ArrowProps> | null | false;
 
     /**
      * Компонент поля
@@ -169,8 +178,8 @@ export type BaseSelectProps = {
      * Обработчик выбора
      */
     onChange?: (payload: {
-        selected?: Array<OptionShape['value']>;
-        selectedOptions?: OptionShape[];
+        selected: OptionShape | null;
+        selectedMultiple: OptionShape[];
         name?: string;
     }) => void;
 
@@ -178,6 +187,16 @@ export type BaseSelectProps = {
      * Обработчик открытия\закрытия селекта
      */
     onOpen?: (payload: { open?: boolean; name?: string }) => void;
+
+    /**
+     * Обработчик фокуса поля
+     */
+    onBlur?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
+
+    /**
+     * Обработчик блюра поля
+     */
+    onFocus?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
 };
 
 export type FieldProps = {
@@ -187,9 +206,14 @@ export type FieldProps = {
     size?: 's' | 'm' | 'l';
 
     /**
+     * Выбранный пункт
+     */
+    selected?: OptionShape;
+
+    /**
      * Список выбранных пунктов
      */
-    selectedItems?: OptionShape[];
+    selectedMultiple?: OptionShape[];
 
     /**
      * Флаг, можно ли выбрать несколько значений
@@ -234,13 +258,25 @@ export type FieldProps = {
     /**
      * Кастомный рендер выбранного пункта
      */
-    valueRenderer?: (options: OptionShape[]) => ReactNode;
+    valueRenderer?: ({
+        selected,
+        selectedMultiple,
+    }: {
+        selected?: OptionShape;
+        selectedMultiple: OptionShape[];
+    }) => ReactNode;
 
     /**
      * Внутренние свойства, которые должны быть установлены компоненту.
      */
-    innerProps?: Pick<HTMLAttributes<HTMLElement>, 'tabIndex' | 'id'> &
-        RefAttributes<HTMLDivElement | HTMLInputElement> &
+    innerProps: {
+        onBlur?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
+        onFocus?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
+        onKeyDown?: (event: KeyboardEvent<HTMLDivElement | HTMLInputElement>) => void;
+        onClick?: (event: MouseEvent<HTMLDivElement | HTMLInputElement>) => void;
+        tabIndex: number;
+        id: string;
+    } & RefAttributes<HTMLDivElement | HTMLInputElement> &
         AriaAttributes;
 };
 
