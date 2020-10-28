@@ -4,17 +4,28 @@ import { OptionShape, GroupShape } from './typings';
 export const isGroup = (item: OptionShape | GroupShape): item is GroupShape =>
     Object.prototype.hasOwnProperty.call(item, 'options');
 
-export const joinOptions = (options: OptionShape[]) =>
-    options.reduce((acc: Array<ReactNode | string>, option: OptionShape, index: number) => {
+export const joinOptions = ({
+    selected,
+    selectedMultiple,
+}: {
+    selected?: OptionShape;
+    selectedMultiple?: OptionShape[];
+}) => {
+    const options = selectedMultiple || (selected ? [selected] : []);
+
+    if (!options.length) return null;
+
+    return options.reduce((acc: Array<ReactNode | string>, option: OptionShape, index: number) => {
         if (isValidElement(option.content)) {
-            acc.push(cloneElement(option.content, { key: option.value }));
+            acc.push(cloneElement(option.content, { key: option.key }));
         } else {
-            acc.push(option.text);
+            acc.push(option.content);
         }
 
         if (index < options.length - 1) acc.push(', ');
         return acc;
     }, []);
+};
 
 // TODO: перенести
 export function usePrevious<T>(value: T) {

@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.1](https://github.com/alfa-laboratory/core-components/compare/v4.0.0...v4.0.1) (2020-10-28)
+
+
+### Features
+
+* **core-components-select:** add missing changes ([053b512](https://github.com/alfa-laboratory/core-components/commit/053b512382028863c1bb2aa7c6c1e8296cbc29c4))
+
+## [4.0.0](https://github.com/alfa-laboratory/core-components/compare/v3.1.0...v4.0.0) (2020-10-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* **core-components-confirmation:** separate error and error text
+
+* feat(core-components-confirmation): fix margins
+
+### Features
+
+* **core-components-badge:** add component ([#330](https://github.com/alfa-laboratory/core-components/issues/330)) ([eb1c617](https://github.com/alfa-laboratory/core-components/commit/eb1c617ed03366060f7a60a9bd13396159cfce72)), closes [#327](https://github.com/alfa-laboratory/core-components/issues/327)
+* **core-components-confirmation:** separate error and error text ([#329](https://github.com/alfa-laboratory/core-components/issues/329)) ([03fc4fb](https://github.com/alfa-laboratory/core-components/commit/03fc4fb85fd9f5636493fdf6d79440227c8a0be0))
+* **core-components-input:** hide clear if input is readonly ([#328](https://github.com/alfa-laboratory/core-components/issues/328)) ([93f7ba4](https://github.com/alfa-laboratory/core-components/commit/93f7ba429fb8e8f430d3dfadefe8375d6ea2e642))
+* **core-components-select:** inputs & types ([#323](https://github.com/alfa-laboratory/core-components/issues/323)) ([0f4d547](https://github.com/alfa-laboratory/core-components/commit/0f4d547c3a5792e095de2011db2c6c1e9dbfb386))
+* **core-components-slider-input:** update stories ([d6a2937](https://github.com/alfa-laboratory/core-components/commit/d6a29370739d15427c961b58c553d22c9df87799))
+
 ## [3.1.0](https://github.com/alfa-laboratory/core-components/compare/v3.0.1...v3.1.0) (2020-10-20)
 
 

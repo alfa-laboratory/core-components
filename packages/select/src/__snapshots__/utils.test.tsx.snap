@@ -31,3 +31,21 @@ Array [
   </b>,
 ]
 `;
+
+exports[`joinOptions should match snapshots 3`] = `
+Array [
+  "Neptunium",
+]
+`;
+
+exports[`joinOptions should match snapshots 4`] = `
+Array [
+  <b>
+    Neptunium
+  </b>,
+]
+`;
+
+exports[`joinOptions should match snapshots 5`] = `null`;
+
+exports[`joinOptions should match snapshots 6`] = `null`;
