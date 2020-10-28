@@ -104,7 +104,7 @@ import { Link } from '@alfalab/core-components-link';
 </Preview>
 
 ### Слоты для кастомизации
-Добавляет слоты `leftSlot` и `rightSlot` для кастомизации ссылок.
+Добавляет слоты `leftAddons` и `rightAddons` для кастомизации ссылок.
 Переданный контент будет отрисован слева или справа от текста ссылки.
 
 <Preview>
@@ -112,7 +112,7 @@ import { Link } from '@alfalab/core-components-link';
         <Row>
             <Link
                 view="primary"
-                leftSlot={<Icon />}
+                leftAddons={<Icon />}
             >
                 Ссылка с иконкой слева
             </Link>
@@ -121,7 +121,7 @@ import { Link } from '@alfalab/core-components-link';
             <Link
                 view="secondary"
                 pseudo={true}
-                rightSlot={<Icon />}
+                rightAddons={<Icon />}
             >
                 Ссылка с иконкой справа
             </Link>

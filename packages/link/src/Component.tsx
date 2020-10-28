@@ -85,17 +85,11 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             'data-test-id': dataTestId,
         };
 
-        const linkChildren = (
-            <React.Fragment>
+        return (
+            <a {...componentProps} {...restProps} ref={mergeRefs([linkRef, ref])}>
                 {leftAddons && <span className={cn(styles.addons)}>{leftAddons}</span>}
                 {children && <span className={cn(styles.link)}>{children}</span>}
                 {rightAddons && <span className={cn(styles.addons)}>{rightAddons}</span>}
-            </React.Fragment>
-        );
-
-        return (
-            <a {...componentProps} {...restProps} ref={mergeRefs([linkRef, ref])}>
-                {linkChildren}
             </a>
         );
     },
