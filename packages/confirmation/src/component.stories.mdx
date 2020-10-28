@@ -19,7 +19,7 @@ import { Select } from '../../select/src/Component';
 
 <Story name='Confirmation'>
     {React.createElement(() => {
-        const [variant, setVariant] = useState([{ value: 'success', text: 'Успешный сценарий'}]);
+        const [variant, setVariant] = useState({ key: 'success', content: 'Успешный сценарий'});
         const [value, setValue] = useState({'success': '', 'error': '', 'fatal': ''});
         const [codeChecking, setCodeChecking] = useState({'success': false, 'error': false, 'fatal': false});
         const [codeSending, setCodeSending] = useState({'success': false, 'error': false, 'fatal': false});
@@ -56,17 +56,17 @@ import { Select } from '../../select/src/Component';
             <div>
                 <Select
                     options={[
-                        { value: 'success', text: 'Успешный сценарий'},
-                        { value: 'error', text: 'Сценарий с ошибкой'},
-                        { value: 'fatal', text: 'Сценарий с критичной ошибкой'}
+                        { key: 'success', content: 'Успешный сценарий'},
+                        { key: 'error', content: 'Сценарий с ошибкой'},
+                        { key: 'fatal', content: 'Сценарий с критичной ошибкой'}
                     ]}
-                    onChange={({ selectedOptions }) => {
-                        setVariant(selectedOptions)
+                    onChange={({ selected }) => {
+                        setVariant(selected)
                     }}
-                    selected={[variant[0].value]}
+                    selected={variant.key}
                 />
                 <div style={{display: 'flex'}}>
-                    {variant[0].value === 'success' &&
+                    {variant.key === 'success' &&
                         <div
                             style={{
                                 display: 'flex',
@@ -92,7 +92,7 @@ import { Select } from '../../select/src/Component';
                             />
                         </div>
                     }
-                    {variant[0].value === 'error' &&
+                    {variant.key === 'error' &&
                         <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
                             <Confirmation
                                 phone={phone}
@@ -110,7 +110,7 @@ import { Select } from '../../select/src/Component';
                             />
                         </div>
                     }
-                    {variant[0].value === 'fatal' &&
+                    {variant.key === 'fatal' &&
                         <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
                             <Confirmation
                                 phone={phone}
