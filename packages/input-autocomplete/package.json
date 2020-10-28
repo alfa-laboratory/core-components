@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-input-autocomplete",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "description": "",
     "keywords": [],
     "license": "ISC",
@@ -18,6 +18,6 @@
     },
     "dependencies": {
         "@alfalab/core-components-input": "^3.0.0",
-        "@alfalab/core-components-select": "^4.0.0"
+        "@alfalab/core-components-select": "^4.0.1"
     }
 }
