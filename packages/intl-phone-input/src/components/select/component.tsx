@@ -22,7 +22,7 @@ export const CountriesSelect: FC<Props> = ({ disabled, size, selected, onChange 
                 value: iso2,
                 content: (
                     <span className={styles.option}>
-                        <FlagIcon country={iso2} size={size} className={styles.flag} />
+                        <FlagIcon country={iso2} className={styles.flag} />
 
                         <span className={styles.optionTextWrap}>
                             <span className={styles.countryName}>{name}</span>
@@ -31,7 +31,7 @@ export const CountriesSelect: FC<Props> = ({ disabled, size, selected, onChange 
                     </span>
                 ),
             })),
-        [size],
+        [],
     );
 
     return (
