@@ -49,7 +49,6 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         const [countryIso2, setCountryIso2] = useState(defaultCountryIso2);
 
         const inputRef = useRef<HTMLInputElement>(null);
-        const wrapperRef = useRef<HTMLDivElement>(null);
 
         const phoneLibUtils = useRef<typeof AsYouType>();
 
@@ -175,7 +174,6 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 value={value}
                 type='tel'
                 ref={mergeRefs([inputRef, ref])}
-                wrapperRef={wrapperRef}
                 className={cn(className, styles[size])}
                 addonsClassName={styles.addons}
                 size={size}
