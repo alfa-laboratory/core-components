@@ -89,17 +89,17 @@
     border-bottom-style: dashed;
 }
 
-.slots {
+.addons {
     display: flex;
     flex-shrink: 0;
     align-items: center;
     transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
 }
 
-.slots:first-child {
+.addons:first-child {
     margin-right: var(--gap-xs);
 }
 
-.slots:last-child {
+.addons:last-child {
     margin-left: var(--gap-xs);
 }

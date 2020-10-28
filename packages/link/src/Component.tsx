@@ -26,12 +26,12 @@ export type LinkProps = NativeProps & {
     /**
      * Слот слева
      */
-    leftSlot?: React.ReactNode;
+    leftAddons?: React.ReactNode;
 
     /**
      * Слот справа
      */
-    rightSlot?: React.ReactNode;
+    rightAddons?: React.ReactNode;
 
     /**
      * Дополнительный класс (native prop)
@@ -59,8 +59,8 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
         {
             view = 'primary',
             pseudo = false,
-            leftSlot,
-            rightSlot,
+            leftAddons,
+            rightAddons,
             className,
             dataTestId,
             children,
@@ -87,9 +87,9 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 
         const linkChildren = (
             <React.Fragment>
-                {leftSlot && <span className={cn(styles.slots)}>{leftSlot}</span>}
+                {leftAddons && <span className={cn(styles.addons)}>{leftAddons}</span>}
                 {children && <span className={cn(styles.link)}>{children}</span>}
-                {rightSlot && <span className={cn(styles.slots)}>{rightSlot}</span>}
+                {rightAddons && <span className={cn(styles.addons)}>{rightAddons}</span>}
             </React.Fragment>
         );
 

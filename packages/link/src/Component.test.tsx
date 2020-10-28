@@ -12,7 +12,7 @@ describe('Snapshots tests', () => {
     it('should render left slot', () => {
         expect(
             render(
-                <Link href='' leftSlot={<Icon />}>
+                <Link href='' leftAddons={<Icon />}>
                     Link
                 </Link>,
             ),
@@ -22,7 +22,7 @@ describe('Snapshots tests', () => {
     it('should render right slot', () => {
         expect(
             render(
-                <Link href='' rightSlot={<Icon />}>
+                <Link href='' rightAddons={<Icon />}>
                     Link
                 </Link>,
             ),

@@ -93,7 +93,7 @@ Object {
         href=""
       >
         <span
-          class="slots"
+          class="addons"
         >
           <svg
             fill="currentColor"
@@ -121,7 +121,7 @@ Object {
       href=""
     >
       <span
-        class="slots"
+        class="addons"
       >
         <svg
           fill="currentColor"
@@ -211,7 +211,7 @@ Object {
           Link
         </span>
         <span
-          class="slots"
+          class="addons"
         >
           <svg
             fill="currentColor"
@@ -239,7 +239,7 @@ Object {
         Link
       </span>
       <span
-        class="slots"
+        class="addons"
       >
         <svg
           fill="currentColor"
