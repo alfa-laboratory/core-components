@@ -1,5 +1,5 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { text, select, boolean } from '@storybook/addon-knobs';
+import {text, select, boolean} from '@storybook/addon-knobs';
 import { Container, Row } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
@@ -24,6 +24,8 @@ export const VIEWS = ['primary', 'secondary', 'default'];
         view={select('view', VIEWS, 'primary')}
         pseudo={boolean('pseudo', false)}
         href={text('href', '')}
+        leftAddons={boolean('leftAddons', false) && <Icon />}
+        rightAddons={boolean('rightAddons', false) && <Icon />}
     >
         Вернуться в интернет-банк
     </Link>
