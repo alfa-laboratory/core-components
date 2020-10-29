@@ -127,17 +127,19 @@ export const Plate = forwardRef<HTMLInputElement, PlateProps>(
                 {leftAddons && <div className={cn(styles.leftAddons)}>{leftAddons}</div>}
                 <div>
                     {title && <div className={cn(styles.title)}>{title}</div>}
-                    <div
-                        className={cn(
-                            styles.content,
-                            {
-                                [styles.isFolded]: foldable && isFolded,
-                            },
-                            className,
-                        )}
-                    >
-                        <div className={cn(styles.contentInner)}>{children}</div>
-                    </div>
+                    {children && (
+                        <div
+                            className={cn(
+                                styles.content,
+                                {
+                                    [styles.isFolded]: foldable && isFolded,
+                                },
+                                className,
+                            )}
+                        >
+                            <div className={cn(styles.contentInner)}>{children}</div>
+                        </div>
+                    )}
                 </div>
                 {(foldable || hasCloser) && (
                     <div className={cn(styles.additional)}>
