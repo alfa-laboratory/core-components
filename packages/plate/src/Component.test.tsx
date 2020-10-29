@@ -1,6 +1,6 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
-import { CheckmarkCircleMColorIcon } from '@alfalab/icons-glyph';
+import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph';
 
 import { Plate } from './index';
 
@@ -8,7 +8,7 @@ describe('Plate', () => {
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
             const { container } = render(
-                <Plate view='positive' title='title' leftAddons={<CheckmarkCircleMColorIcon />}>
+                <Plate view='positive' title='title' leftAddons={<CheckmarkCircleMIcon />}>
                     text
                 </Plate>,
             );
