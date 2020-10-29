@@ -22,9 +22,6 @@
     display: inline-flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
     text-decoration: none;
     font-family: var(--font-family);
     cursor: pointer;
@@ -36,8 +33,8 @@
     }
 }
 
-.link {
-    padding-bottom: 1px;
+.text {
+    vertical-align: middle;
     border-bottom: 1px solid;
     transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
 }
@@ -85,13 +82,12 @@
     }
 }
 
-.pseudo .link {
+.pseudo .text {
     border-bottom-style: dashed;
 }
 
 .addons {
     display: flex;
-    flex-shrink: 0;
     align-items: center;
     transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
 }
