@@ -54,7 +54,11 @@ describe('Plate', () => {
         });
 
         it('should set `foldable` class', () => {
-            const { container } = render(<Plate foldable={true} />);
+            const { container } = render(
+                <Plate foldable={true} title='title'>
+                    text
+                </Plate>,
+            );
 
             expect(container.firstElementChild).toHaveClass('foldable');
         });

@@ -81,9 +81,11 @@ export const Plate = forwardRef<HTMLInputElement, PlateProps>(
         const [isHidden, setIsHidden] = useState(false);
         const [isFolded, setIsFolded] = useState(defaultFolded);
 
+        const isFoldable = !!title && !!children && foldable;
+
         const handleClick = useCallback(
             event => {
-                if (foldable) {
+                if (isFoldable) {
                     setIsFolded(!isFolded);
                 }
 
@@ -91,7 +93,7 @@ export const Plate = forwardRef<HTMLInputElement, PlateProps>(
                     onClick(event);
                 }
             },
-            [foldable, isFolded, onClick],
+            [isFoldable, isFolded, onClick],
         );
 
         const handleClose = useCallback(
@@ -114,7 +116,7 @@ export const Plate = forwardRef<HTMLInputElement, PlateProps>(
                     {
                         [styles.isHidden]: hasCloser && isHidden,
                         [styles.hasCloser]: hasCloser,
-                        [styles.foldable]: foldable,
+                        [styles.foldable]: isFoldable,
                     },
                     className,
                 )}
@@ -132,7 +134,7 @@ export const Plate = forwardRef<HTMLInputElement, PlateProps>(
                             className={cn(
                                 styles.content,
                                 {
-                                    [styles.isFolded]: foldable && isFolded,
+                                    [styles.isFolded]: isFoldable && isFolded,
                                 },
                                 className,
                             )}
@@ -143,14 +145,14 @@ export const Plate = forwardRef<HTMLInputElement, PlateProps>(
                 </div>
                 {(foldable || hasCloser) && (
                     <div className={cn(styles.additional)}>
-                        {foldable && (
+                        {isFoldable && (
                             <div
                                 className={cn(styles.folder, {
-                                    [styles.isFolded]: foldable && isFolded,
+                                    [styles.isFolded]: isFolded,
                                 })}
                             />
                         )}
-                        {foldable ||
+                        {isFoldable ||
                             (hasCloser && (
                                 <Button
                                     className={cn(styles.closer)}
