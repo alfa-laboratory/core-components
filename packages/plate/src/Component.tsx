@@ -18,7 +18,7 @@ export type PlateProps = {
     /**
      * Начальное состояние контента при foldable={ true }
      */
-    folded?: boolean;
+    defaultFolded?: boolean;
 
     /**
      * Слот слева
@@ -66,7 +66,7 @@ export const Plate = forwardRef<HTMLInputElement, PlateProps>(
         {
             hasCloser,
             foldable = false,
-            folded = true,
+            defaultFolded = true,
             leftAddons,
             children,
             title,
@@ -79,7 +79,7 @@ export const Plate = forwardRef<HTMLInputElement, PlateProps>(
         ref,
     ) => {
         const [isHidden, setIsHidden] = useState(false);
-        const [isFolded, setIsFolded] = useState(folded);
+        const [isFolded, setIsFolded] = useState(defaultFolded);
 
         const handleClick = useCallback(
             event => {
@@ -170,6 +170,6 @@ export const Plate = forwardRef<HTMLInputElement, PlateProps>(
  */
 Plate.defaultProps = {
     foldable: false,
-    folded: true,
+    defaultFolded: true,
     view: 'common',
 };
