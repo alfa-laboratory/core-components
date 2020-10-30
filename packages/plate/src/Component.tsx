@@ -127,7 +127,11 @@ export const Plate = forwardRef<HTMLInputElement, PlateProps>(
                 data-test-id={dataTestId}
             >
                 {leftAddons && <div className={cn(styles.leftAddons)}>{leftAddons}</div>}
-                <div className={cn(styles.contentContainer)}>
+                <div
+                    className={cn(styles.contentContainer, {
+                        [styles.withoutTitle]: !title,
+                    })}
+                >
                     {title && <div className={cn(styles.title)}>{title}</div>}
                     {children && (
                         <div

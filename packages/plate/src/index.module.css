@@ -66,14 +66,7 @@
     font-weight: bold;
 }
 
-.contentContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
 .content {
-    max-width: 100%;
     max-height: 100vh;
     overflow: hidden;
     transition: max-height 1s ease-in-out;
@@ -84,8 +77,10 @@
     }
 }
 
-.title {
-    max-width: 100%;
+.contentContainer {
+    &.withoutTitle {
+        padding-top: 2px;
+    }
 }
 
 .title + .content .contentInner {
