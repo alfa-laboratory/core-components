@@ -499,7 +499,7 @@ Object {
         </div>
         
         <span
-          class="sub"
+          class="sub hint"
         >
           This is hint
         </span>
@@ -523,7 +523,7 @@ Object {
       </div>
       
       <span
-        class="sub"
+        class="sub hint"
       >
         This is hint
       </span>

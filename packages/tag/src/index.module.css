@@ -4,23 +4,23 @@
     /* border */
     --tag-border-width: 1px;
     --tag-border-style: solid;
-    --tag-border-color: var(--color-dark-indigo-30);
-    --tag-border-color-hover: var(--color-dark-indigo);
-    --tag-border-color-active: var(--color-dark-indigo);
-    --tag-border-color-disabled: var(--color-dark-indigo-30-flat);
+    --tag-border-color: color-mod(var(--color-light-border-key) alpha(30%));
+    --tag-border-color-hover: var(--color-light-border-key);
+    --tag-border-color-active: var(--color-light-border-key);
+    --tag-border-color-disabled: var(--color-light-border-secondary-inverted);
 
     /* background-color */
     --tag-background-color: transparent;
     --tag-background-color-hover: transparent;
-    --tag-background-color-active: var(--color-dark-indigo-07);
-    --tag-background-color-checked: var(--color-dark-indigo);
+    --tag-background-color-active: color-mod(var(--color-light-bg-primary-inverted) alpha(7%));
+    --tag-background-color-checked: var(--color-light-bg-primary-inverted);
     --tag-background-color-checked-disabled: var(--color-dark-indigo-30-flat);
 
     /* text color */
-    --tag-text-color: var(--color-dark-indigo);
-    --tag-text-color-checked: var(--color-white);
-    --tag-text-color-checked-hover: var(--color-white);
-    --tag-text-color-checked-disabled: var(--color-white);
+    --tag-text-color: var(--color-light-text-primary);
+    --tag-text-color-checked: var(--color-light-text-primary-inverted);
+    --tag-text-color-checked-hover: var(--color-light-text-primary-inverted);
+    --tag-text-color-checked-disabled: var(--color-light-text-primary-inverted);
 }
 
 .component {

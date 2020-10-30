@@ -1,10 +1,12 @@
+@import '../../themes/src/default.css';
+
 :root {
     --tablist-hidden-scrollbar-height: 20px;
-    --primary-tablist-color: var(--color-dark-indigo-60-flat);
-    --primary-tablist-hover-color: var(--color-dark-indigo);
-    --primary-tablist-selected-color: var(--color-dark-indigo);
-    --primary-tablist-bottom-border-color: var(--color-dark-indigo-30);
-    --primary-tablist-line-color: var(--color-red-brand);
+    --primary-tablist-color: var(--color-light-text-secondary);
+    --primary-tablist-hover-color: var(--color-light-text-primary);
+    --primary-tablist-selected-color: var(--color-light-text-primary);
+    --primary-tablist-bottom-border-color: color-mod(var(--color-light-border-key) alpha(30%));
+    --primary-tablist-line-color: var(--color-light-border-accent);
 
     /* mobile */
     --primary-tablist-mobile-gaps: var(--gap-xl);

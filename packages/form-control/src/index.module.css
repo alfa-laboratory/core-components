@@ -2,8 +2,10 @@
 
 :root {
     --form-control-border-radius: 4px 4px 0 0;
-    --form-control-border-bottom: 1px solid var(--color-dark-indigo-30-flat);
-    --form-control-bg-color: var(--color-dark-indigo-07);
+    --form-control-border-bottom: 1px solid var(--color-light-border-secondary-inverted);
+    --form-control-bg-color: color-mod(var(--color-light-bg-primary-inverted) alpha(7%));
+    --form-control-label-color: var(--color-light-text-secondary);
+    --form-control-hint-color: var(--color-light-text-secondary);
 
     /* paddings */
     --form-control-paddings: 1px var(--gap-s) 0;
@@ -13,15 +15,15 @@
     --form-control-labeled-l-paddings: 34px var(--gap-m) 13px;
 
     /* disabled */
-    --form-control-disabled-bg-color: var(--color-dark-indigo-15);
-    --form-control-disabled-border-bottom: 1px dashed var(--color-dark-indigo-30-flat);
+    --form-control-disabled-bg-color: color-mod(var(--color-light-bg-primary-inverted) alpha(15%));
+    --form-control-disabled-border-bottom: 1px dashed var(--color-light-border-secondary-inverted);
 
     /* focus */
-    --form-control-focus-shadow: inset 0 -1px var(--color-dark-indigo);
-    --form-control-focus-border-bottom: 1px solid var(--color-dark-indigo);
+    --form-control-focus-shadow: inset 0 -1px var(--color-light-border-key);
+    --form-control-focus-border-bottom: 1px solid var(--color-light-border-key);
 
     /* hover */
-    --form-control-hover-bg-color: var(--color-dark-indigo-15);
+    --form-control-hover-bg-color: color-mod(var(--color-light-bg-primary-inverted) alpha(15%));
 
     /* error */
     --form-control-error-color: var(--color-light-text-negative);
@@ -78,7 +80,7 @@
     min-height: 100%;
     left: var(--gap-s);
     right: 0;
-    color: var(--color-light-text-secondary);
+    color: var(--form-control-label-color);
     transform: translateY(0);
     transform-origin: 0 100%;
     transition-duration: 200ms;
@@ -114,7 +116,10 @@
 
     display: block;
     margin-top: var(--gap-2xs);
-    color: var(--color-dark-indigo-60-flat);
+}
+
+.hint {
+    color: var(--form-control-hint-color);
 }
 
 .block {
@@ -200,7 +205,7 @@
 }
 
 .disabled .label {
-    color: var(--color-dark-indigo-60-flat);
+    color: var(--form-control-label-color);
 }
 
 /* FOCUS STATE */
