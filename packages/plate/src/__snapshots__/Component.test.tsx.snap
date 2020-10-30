@@ -23,7 +23,9 @@ exports[`Plate Snapshots tests should match snapshot 1`] = `
         />
       </svg>
     </div>
-    <div>
+    <div
+      class="contentContainer"
+    >
       <div
         class="title"
       >

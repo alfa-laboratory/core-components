@@ -13,6 +13,7 @@
     border: 1px solid;
     color: var(--color-light-text-primary);
     width: 100%;
+    min-height: 56px;
     padding: var(--gap-m);
 
     &.hasCloser,
@@ -65,7 +66,14 @@
     font-weight: bold;
 }
 
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .content {
+    max-width: 100%;
     max-height: 100vh;
     overflow: hidden;
     transition: max-height 1s ease-in-out;
@@ -74,6 +82,10 @@
         max-height: 0;
         transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
     }
+}
+
+.title {
+    max-width: 100%;
 }
 
 .title + .content .contentInner {
