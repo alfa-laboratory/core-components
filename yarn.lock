@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@alfalab/data@0.1.0", "@alfalab/data@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-0.1.0.tgz#5bf404de0b31ec5e15a774000edea0cc38b8b0db"
-  integrity sha512-aVnY4+V2Z1g70fiHo5iA6W8z0+LpqnTjeT5NNKN87GI6Jfjm/XIaJhD3hjCRlapz2DiogHGtpRPHoF+W96NsJg==
+"@alfalab/data@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-0.2.0.tgz#4956618252d0eb754652ec20554ff71292578add"
+  integrity sha512-so5/YttRoIvaulQincuwpensE4zmC9nSRdD2ikCgo6nhyZs6vPB4o7VNhvBcMddrvPOiXRYLerCU+J98GPe22Q==
 
 "@alfalab/hooks@^0.8.1":
   version "0.8.1"
@@ -16,6 +16,11 @@
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-0.9.0.tgz#cc1258698011e1d929d9154e87cba573689babad"
   integrity sha512-2YGUfBpZ8omADxvn5oXA0zwDMLINg5AvCx1nCrJNSLbiekpP/jk8F2rcVjN0OKgY9OKUOgMaGZZ3keDtsvVCIA==
+
+"@alfalab/hooks@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.0.0.tgz#b1ca13dcba6092fd628fa657866b314b29c4efa8"
+  integrity sha512-kpRxkgA0tbCMeWi5u955LVM8Imu+5XXwWQjkoDTm9DIbOZU2edWuc3eW6TKWeo2NJvIi8Owt50cc7qcGZHXBLg==
 
 "@alfalab/icons-classic@^1.7.0":
   version "1.7.0"
@@ -52,20 +57,10 @@
     safe-identifier "^0.4.1"
     style-inject "^0.3.0"
 
-"@alfalab/utils@0.4.1":
+"@alfalab/utils@^0.4.1":
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-0.4.1.tgz#b914e45591b98dcaf59c553d48cb1c92f640aa62"
   integrity sha512-yu0xPluUa1zbv4UlNCReNHZCNLrevTqRQ7rUW8hkpiKw/pL3Wn9JgFwgZPFS0VkiReTaL9D7eP7xHcjjzCMj+Q==
-
-"@alfalab/utils@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-0.1.0.tgz#b65271123edd28d5f5586db304528b2a304d0524"
-  integrity sha512-2+OqWiCzSuIxXVexYQiDleFzOI5ZBHOKlaf2Zb6afXRI+IFdTvC3ZICux8g8eKT1LoHciE6Dc6xnxjJu7ixzAg==
-
-"@alfalab/utils@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-0.3.0.tgz#484393981e8a238402348b306df3a0eeaa090651"
-  integrity sha512-RbLYrKT66oQsLx3RLqcQu1PchmW/xNmw0XGgHS89Yu2IZ1dyj1SlBtTR9Rq4NFbVugREW5ED7Ip2jyRwX39wSA==
 
 "@babel/code-frame@7.5.5":
   version "7.5.5"
