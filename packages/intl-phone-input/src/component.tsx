@@ -31,8 +31,6 @@ export type IntlPhoneInputProps = Omit<
     defaultCountryIso2?: string;
 };
 
-const MAX_DIAL_CODE_LENGTH = 4;
-
 export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
     (
         {
@@ -138,11 +136,9 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
                 setValue(newValue);
 
-                if (value.length < MAX_DIAL_CODE_LENGTH) {
-                    setCountryByDialCode(newValue);
-                }
+                setCountryByDialCode(newValue);
             },
-            [setValue, value.length, setCountryByDialCode],
+            [setValue, setCountryByDialCode],
         );
 
         const handleSelectChange = useCallback<Required<SelectProps>['onChange']>(
