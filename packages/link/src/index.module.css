@@ -27,8 +27,8 @@
     cursor: pointer;
     outline: none;
 
-    &:hover .link,
-    &:active .link {
+    &:hover .text,
+    &:active .text {
         border-bottom-color: rgba(0, 0, 0, 0);
     }
 }
@@ -36,7 +36,7 @@
 .text {
     vertical-align: middle;
     border-bottom: 1px solid;
-    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    transition: border 0.2s ease, color 0.2s ease;
 }
 
 .focused {
@@ -89,7 +89,7 @@
 .addons {
     display: flex;
     align-items: center;
-    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    transition: color 0.2s ease;
 }
 
 .addons:first-child {
@@ -98,4 +98,9 @@
 
 .addons:last-child {
     margin-left: var(--gap-xs);
+}
+
+.addons:only-child {
+    margin-right: 0;
+    margin-left: 0;
 }
