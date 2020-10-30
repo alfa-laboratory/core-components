@@ -7,14 +7,19 @@ import { countries } from '../../countries';
 
 import styles from './index.module.css';
 
-type Props = {
+type CountriesSelectProps = {
     disabled: boolean;
     size: SelectProps['size'];
     selected: string;
     onChange: SelectProps['onChange'];
 };
 
-export const CountriesSelect: FC<Props> = ({ disabled, size, selected, onChange }) => {
+export const CountriesSelect: FC<CountriesSelectProps> = ({
+    disabled,
+    size,
+    selected,
+    onChange,
+}) => {
     const options = useMemo(
         () =>
             countries.map(({ iso2, dialCode, name }) => ({

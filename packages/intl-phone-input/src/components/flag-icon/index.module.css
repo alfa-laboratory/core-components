@@ -5,10 +5,6 @@
     box-shadow: 0 0 2px 0 rgba(11, 31, 53, 0.25);
 }
 
-.flat {
-    box-shadow: none;
-}
-
 .s {
     background-image: url('./images/sprites/flag-icon_size_s@1x.png');
     background-size: 195px 189px;

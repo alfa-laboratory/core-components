@@ -92,18 +92,19 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     const country = countries[i];
 
                     if (new RegExp(`^\\+${country.dialCode}`).test(inputValue)) {
-                        // Handle countries with priority field
+                        // Сначала проверяем, если приоритет не указан
                         if (country.priority === undefined) {
                             setValue(inputValue);
                             setCountryIso2(country.iso2);
                             break;
                         }
 
+                        // Если страна уже была выставлена через селект, и коды совпадают
                         if (countryIso2 === country.iso2) {
                             setValue(inputValue);
                             setCountryIso2(country.iso2);
                             break;
-                            // If not equal — set highest by priority
+                            // Если не совпадают - выбираем по приоритету
                         } else if (country.priority === 0) {
                             setValue(inputValue);
                             setCountryIso2(country.iso2);
