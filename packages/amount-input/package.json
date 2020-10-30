@@ -19,7 +19,7 @@
     "dependencies": {
         "@alfalab/core-components-input": "^3.0.0",
         "@alfalab/core-components-with-suffix": "^1.0.2",
-        "@alfalab/data": "0.1.0",
-        "@alfalab/utils": "0.4.1"
+        "@alfalab/data": "^0.2.0",
+        "@alfalab/utils": "^0.4.1"
     }
 }

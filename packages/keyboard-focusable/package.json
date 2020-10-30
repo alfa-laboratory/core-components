@@ -17,7 +17,7 @@
         "react": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/hooks": "^0.9.0",
+        "@alfalab/hooks": "^1.0.0",
         "react-node-resolver": "^2.0.1"
     }
 }

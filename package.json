@@ -49,11 +49,12 @@
     ]
   },
   "dependencies": {
-    "@alfalab/hooks": "^0.8.1",
+    "@alfalab/data": "^0.2.0",
+    "@alfalab/hooks": "^1.0.0",
     "@alfalab/icons-classic": "^1.7.0",
     "@alfalab/icons-glyph": "^1.26.0",
     "@alfalab/icons-logotype": "^1.4.0",
-    "@alfalab/utils": "^0.3.0",
+    "@alfalab/utils": "^0.4.1",
     "@popperjs/core": "^2.3.3",
     "alfa-ui-primitives": "^2.78.0",
     "compute-scroll-into-view": "^1.0.13",
