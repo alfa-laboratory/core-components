@@ -22,5 +22,7 @@ describe('joinOptions', () => {
         expect(joinOptions({ selectedMultiple: htmlOptions })).toMatchSnapshot();
         expect(joinOptions({ selected: textOptions[0] })).toMatchSnapshot();
         expect(joinOptions({ selected: htmlOptions[0] })).toMatchSnapshot();
+        expect(joinOptions({ selectedMultiple: [] })).toMatchSnapshot();
+        expect(joinOptions({ selected: undefined })).toMatchSnapshot();
     });
 });

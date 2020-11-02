@@ -131,6 +131,7 @@ const Input = ({
             value={splittedValue[index] || ''}
             autoComplete={index === 0 ? 'one-time-code' : ''}
             inputMode='numeric'
+            pattern='[0-9]*'
             onChange={onChange}
             onKeyDown={onInputKeyDown}
             ref={handleRef}

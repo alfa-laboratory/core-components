@@ -291,14 +291,12 @@ import { Select } from '@alfalab/core-components-select';
                     {content.toUpperCase()}
                 </span>
             );
-            const valueRenderer = ({ selected }) => <OptionWithIcon {...selected}/>;
+            const valueRenderer = ({ selected }) => selected ? <OptionWithIcon {...selected} /> : null;
             return (
                 <Select
                     options={options}
                     label='С иконкой'
-                    fieldProps={{
-                        valueRenderer
-                    }}
+                    valueRenderer={valueRenderer}
                 />
             );
         })}

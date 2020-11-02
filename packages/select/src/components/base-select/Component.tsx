@@ -40,6 +40,7 @@ export const BaseSelect = forwardRef(
             label,
             placeholder,
             fieldProps = {},
+            valueRenderer,
             onChange,
             onOpen,
             onFocus,
@@ -281,6 +282,7 @@ export const BaseSelect = forwardRef(
                     Arrow={Arrow && <Arrow open={open} />}
                     error={error}
                     hint={hint}
+                    valueRenderer={valueRenderer}
                     innerProps={{
                         onBlur: handleFieldBlur,
                         onFocus: disabled ? undefined : handleFieldFocus,

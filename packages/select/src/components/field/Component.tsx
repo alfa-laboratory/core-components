@@ -31,10 +31,12 @@ export const Field = ({
 
     const [focusVisible] = useFocus(wrapperRef, 'keyboard');
 
-    const filled = selectedMultiple.length > 0;
-
     const handleFocus = useCallback(() => setFocused(true), []);
     const handleBlur = useCallback(() => setFocused(false), []);
+
+    const value = valueRenderer({ selected, selectedMultiple });
+
+    const filled = Boolean(value);
 
     return (
         <div ref={wrapperRef} onFocus={handleFocus} onBlur={handleBlur}>
@@ -67,11 +69,7 @@ export const Field = ({
                     {placeholder && !filled && (
                         <span className={styles.placeholder}>{placeholder}</span>
                     )}
-                    {filled && (
-                        <div className={styles.value}>
-                            {valueRenderer({ selected, selectedMultiple })}
-                        </div>
-                    )}
+                    {filled && <div className={styles.value}>{value}</div>}
                 </div>
             </FormControl>
         </div>

@@ -140,9 +140,15 @@ export type BaseSelectProps = {
     nativeSelect?: boolean;
 
     /**
-     * Смещение выпадающего меню по вертикали
+     * Кастомный рендер выбранного пункта
      */
-    popoverOffset?: number;
+    valueRenderer?: ({
+        selected,
+        selectedMultiple,
+    }: {
+        selected?: OptionShape;
+        selectedMultiple: OptionShape[];
+    }) => ReactNode;
 
     /**
      * Компонент стрелки
@@ -258,13 +264,7 @@ export type FieldProps = {
     /**
      * Кастомный рендер выбранного пункта
      */
-    valueRenderer?: ({
-        selected,
-        selectedMultiple,
-    }: {
-        selected?: OptionShape;
-        selectedMultiple: OptionShape[];
-    }) => ReactNode;
+    valueRenderer?: BaseSelectProps['valueRenderer'];
 
     /**
      * Внутренние свойства, которые должны быть установлены компоненту.

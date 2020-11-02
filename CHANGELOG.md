@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.3](https://github.com/alfa-laboratory/core-components/compare/v4.0.2...v4.0.3) (2020-10-30)
+
+### [4.0.2](https://github.com/alfa-laboratory/core-components/compare/v4.0.1...v4.0.2) (2020-10-29)
+
+
+### Bug Fixes
+
+* **core-components-confirmation:** fix showed keyboard on old devices ([#341](https://github.com/alfa-laboratory/core-components/issues/341)) ([7165ed1](https://github.com/alfa-laboratory/core-components/commit/7165ed1846910ffcef685cb35f8ec9afd802116f))
+
+### [4.0.1](https://github.com/alfa-laboratory/core-components/compare/v4.0.0...v4.0.1) (2020-10-28)
+
+
+### Features
+
+* **core-components-select:** add missing changes ([053b512](https://github.com/alfa-laboratory/core-components/commit/053b512382028863c1bb2aa7c6c1e8296cbc29c4))
+
 ## [4.0.0](https://github.com/alfa-laboratory/core-components/compare/v3.1.0...v4.0.0) (2020-10-27)
 
 
