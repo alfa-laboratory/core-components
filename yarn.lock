@@ -7,7 +7,7 @@
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-0.1.0.tgz#5bf404de0b31ec5e15a774000edea0cc38b8b0db"
   integrity sha512-aVnY4+V2Z1g70fiHo5iA6W8z0+LpqnTjeT5NNKN87GI6Jfjm/XIaJhD3hjCRlapz2DiogHGtpRPHoF+W96NsJg==
 
-"@alfalab/data@0.2.0":
+"@alfalab/data@^0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-0.2.0.tgz#4956618252d0eb754652ec20554ff71292578add"
   integrity sha512-so5/YttRoIvaulQincuwpensE4zmC9nSRdD2ikCgo6nhyZs6vPB4o7VNhvBcMddrvPOiXRYLerCU+J98GPe22Q==
@@ -76,6 +76,11 @@
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-0.3.0.tgz#484393981e8a238402348b306df3a0eeaa090651"
   integrity sha512-RbLYrKT66oQsLx3RLqcQu1PchmW/xNmw0XGgHS89Yu2IZ1dyj1SlBtTR9Rq4NFbVugREW5ED7Ip2jyRwX39wSA==
+
+"@alfalab/utils@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-0.5.0.tgz#92c2dfbe5f5c301da243699dd92ec4b40ab682f5"
+  integrity sha512-KXuiGgHeDkXoYu8WdNPCkr9hKkz2ybQNVA7VCyilzuUpsepQcctvMPQv0oG98cI/ipFK0mDxo2gAhtVXLfCOoA==
 
 "@babel/code-frame@7.5.5":
   version "7.5.5"

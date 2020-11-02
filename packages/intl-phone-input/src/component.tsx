@@ -2,14 +2,20 @@ import React, { forwardRef, useState, useEffect, useCallback, ChangeEvent, useRe
 import cn from 'classnames';
 
 import mergeRefs from 'react-merge-refs';
-import { Input, InputProps } from '@alfalab/core-components-input';
-import { SelectProps } from '@alfalab/core-components-select';
 import { AsYouType, CountryCode } from 'libphonenumber-js';
 
+import { Input, InputProps } from '@alfalab/core-components-input';
+import { SelectProps } from '@alfalab/core-components-select';
+import { getCountries, getCountriesHash } from '@alfalab/utils';
+
 import { CountriesSelect } from './components';
-import { countriesMap, countries } from './countries';
 
 import styles from './index.module.css';
+
+const countries = getCountries();
+const countriesHash = getCountriesHash();
+
+const MAX_DIAL_CODE_LENGTH = 4;
 
 export type IntlPhoneInputProps = Omit<
     InputProps,
@@ -52,7 +58,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
         const setCountryByIso2 = useCallback(
             (iso2: string) => {
-                const country = countriesMap[iso2];
+                const country = countriesHash[iso2];
 
                 const inputValue = `+${country.dialCode}`;
 
@@ -136,9 +142,11 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
                 setValue(newValue);
 
-                setCountryByDialCode(newValue);
+                if (value.length < MAX_DIAL_CODE_LENGTH) {
+                    setCountryByDialCode(newValue);
+                }
             },
-            [setValue, setCountryByDialCode],
+            [setValue, setCountryByDialCode, value.length],
         );
 
         const handleSelectChange = useCallback<Required<SelectProps>['onChange']>(
@@ -179,6 +187,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                         disabled={disabled}
                         size={size}
                         selected={countryIso2}
+                        countries={countries}
                         onChange={handleSelectChange}
                     />
                 }

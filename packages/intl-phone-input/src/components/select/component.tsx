@@ -1,9 +1,10 @@
 import React, { FC, useMemo } from 'react';
+
 import { Select, SelectProps } from '@alfalab/core-components-select';
+import { Country } from '@alfalab/utils';
 
 import { SelectField } from '../select-field';
 import { FlagIcon } from '../flag-icon';
-import { countries } from '../../countries';
 
 import styles from './index.module.css';
 
@@ -11,6 +12,7 @@ type CountriesSelectProps = {
     disabled: boolean;
     size: SelectProps['size'];
     selected: string;
+    countries: Country[];
     onChange: SelectProps['onChange'];
 };
 
@@ -18,6 +20,7 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
     disabled,
     size,
     selected,
+    countries,
     onChange,
 }) => {
     const options = useMemo(
@@ -36,7 +39,7 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
                     </span>
                 ),
             })),
-        [],
+        [countries],
     );
 
     return (
