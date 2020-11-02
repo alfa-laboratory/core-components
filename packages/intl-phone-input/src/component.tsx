@@ -78,16 +78,12 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     const Utils = phoneLibUtils.current;
                     const utils = new Utils(countryIso2.toUpperCase() as CountryCode);
 
-                    if (utils.country && countryIso2 !== utils.country.toLowerCase()) {
-                        setCountryByIso2(utils.country.toLowerCase());
-                    }
-
                     newValue = utils.input(inputValue);
                 }
 
                 onChange(newValue);
             },
-            [onChange, countryIso2, setCountryByIso2],
+            [onChange, countryIso2],
         );
 
         const setCountryByDialCode = useCallback(
