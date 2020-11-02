@@ -1,4 +1,6 @@
 import React, { forwardRef, useState, useEffect, useCallback, ChangeEvent, useRef } from 'react';
+import cn from 'classnames';
+
 import mergeRefs from 'react-merge-refs';
 import { Input, InputProps } from '@alfalab/core-components-input';
 import { SelectProps } from '@alfalab/core-components-select';
@@ -7,7 +9,12 @@ import { AsYouType, CountryCode } from 'libphonenumber-js';
 import { CountriesSelect } from './components';
 import { countriesMap, countries } from './countries';
 
-export type InternationalPhoneInputProps = Omit<InputProps, 'value' | 'onChange'> & {
+import styles from './index.module.css';
+
+export type IntlPhoneInputProps = Omit<
+    InputProps,
+    'value' | 'onChange' | 'type' | 'defaultValue'
+> & {
     /**
      * Значение
      */
@@ -17,18 +24,27 @@ export type InternationalPhoneInputProps = Omit<InputProps, 'value' | 'onChange'
      * Обработчик события изменения значения
      */
     onChange: (value: string) => void;
+
+    /**
+     * Дефолтный код страны
+     */
+    defaultCountryIso2?: string;
 };
 
-const DEFAULT_COUNTRY_ISO_2 = 'ru';
-const DEFAULT_VALUE = '+7';
-
-const MAX_DIAL_CODE_LENGTH = 4;
-
-export const InternationalPhoneInput = forwardRef<HTMLInputElement, InternationalPhoneInputProps>(
-    (props, ref) => {
-        const { disabled = false, size = 'm', className, value = DEFAULT_VALUE, onChange } = props;
-
-        const [countryIso2, setCountryIso2] = useState(DEFAULT_COUNTRY_ISO_2);
+export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
+    (
+        {
+            disabled = false,
+            size = 'm',
+            className,
+            value,
+            onChange,
+            defaultCountryIso2 = 'ru',
+            ...restProps
+        },
+        ref,
+    ) => {
+        const [countryIso2, setCountryIso2] = useState(defaultCountryIso2);
 
         const inputRef = useRef<HTMLInputElement>(null);
 
@@ -74,18 +90,19 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
                     const country = countries[i];
 
                     if (new RegExp(`^\\+${country.dialCode}`).test(inputValue)) {
-                        // Handle countries with priority field
+                        // Сначала проверяем, если приоритет не указан
                         if (country.priority === undefined) {
                             setValue(inputValue);
                             setCountryIso2(country.iso2);
                             break;
                         }
 
+                        // Если страна уже была выставлена через селект, и коды совпадают
                         if (countryIso2 === country.iso2) {
                             setValue(inputValue);
                             setCountryIso2(country.iso2);
                             break;
-                            // If not equal — set highest by priority
+                            // Если не совпадают - выбираем по приоритету
                         } else if (country.priority === 0) {
                             setValue(inputValue);
                             setCountryIso2(country.iso2);
@@ -98,9 +115,8 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
         );
 
         const loadPhoneUtils = useCallback(() => {
-            return import(
-                /* webpackChunkName: "libphonenumber" */ 'libphonenumber-js/bundle/libphonenumber-js.min'
-            )
+            // prettier-ignore
+            return import(/* webpackChunkName: "libphonenumber" */ 'libphonenumber-js/bundle/libphonenumber-js.min')
                 .then(utils => {
                     phoneLibUtils.current = utils.AsYouType;
                 })
@@ -120,19 +136,15 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
 
                 setValue(newValue);
 
-                if (value.length < MAX_DIAL_CODE_LENGTH) {
-                    setCountryByDialCode(newValue);
-                }
+                setCountryByDialCode(newValue);
             },
-            [setValue, value.length, setCountryByDialCode],
+            [setValue, setCountryByDialCode],
         );
 
         const handleSelectChange = useCallback<Required<SelectProps>['onChange']>(
-            payload => {
-                const selected = payload.selected && payload.selected[0];
-
+            ({ selected }) => {
                 if (selected) {
-                    const country = setCountryByIso2(selected as string);
+                    const country = setCountryByIso2(selected.value);
                     const inputValue = `+${country.dialCode}`;
 
                     if (inputRef.current) {
@@ -154,12 +166,13 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
 
         return (
             <Input
-                {...props}
+                {...restProps}
                 onChange={handleInputChange}
                 value={value}
                 type='tel'
                 ref={mergeRefs([inputRef, ref])}
-                className={className}
+                className={cn(className, styles[size])}
+                addonsClassName={styles.addons}
                 size={size}
                 leftAddons={
                     <CountriesSelect
@@ -174,7 +187,7 @@ export const InternationalPhoneInput = forwardRef<HTMLInputElement, Internationa
     },
 );
 
-InternationalPhoneInput.defaultProps = {
+IntlPhoneInput.defaultProps = {
     size: 'm',
-    value: DEFAULT_VALUE,
+    defaultCountryIso2: 'ru',
 };

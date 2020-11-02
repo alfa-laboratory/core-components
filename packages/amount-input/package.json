@@ -1,10 +1,11 @@
 {
     "name": "@alfalab/core-components-amount-input",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "",
     "keywords": [],
     "license": "ISC",
     "main": "dist/index.js",
+    "module": "./dist/modern/index.js",
     "files": [
         "dist"
     ],
@@ -16,8 +17,8 @@
         "react": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^2.0.1",
-        "@alfalab/core-components-with-suffix": "^1.0.1",
+        "@alfalab/core-components-input": "^3.0.0",
+        "@alfalab/core-components-with-suffix": "^1.0.2",
         "@alfalab/data": "0.1.0",
         "@alfalab/utils": "0.4.1"
     }

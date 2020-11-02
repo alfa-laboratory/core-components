@@ -13,6 +13,7 @@ import {
 import ignoreCss from './tools/rollup/ignore-css';
 import processCss from './tools/rollup/process-css';
 import coreComponentsTypingsResolver from './tools/rollup/core-components-typings-resolver';
+import createPackageJson from './tools/rollup/create-package-json';
 
 const currentPackageDir = process.cwd();
 const currentPkg = path.join(currentPackageDir, 'package.json');
@@ -145,9 +146,16 @@ const root = {
         copy({
             flatten: false,
             targets: [
+                { src: ['dist/**/*', '!**/*.js'], dest: rootDir },
                 {
-                    src: ['dist/**/*', '!**/*.js'],
-                    dest: rootDir,
+                    src: 'package.json',
+                    dest: `../../dist/${currentComponentName}`,
+                    transform: () => createPackageJson('./modern/index.js'),
+                },
+                {
+                    src: 'package.json',
+                    dest: `../../dist/${currentComponentName}/cssm`,
+                    transform: () => createPackageJson('../modern/index.js'),
                 },
             ],
         }),

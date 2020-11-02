@@ -1,9 +1,13 @@
 @import '../../../../themes/src/default.css';
+@import '../../vars.css';
 
 .component {
     width: 100%;
     outline: none;
-    cursor: pointer;
+
+    & > div:first-child {
+        cursor: pointer;
+    }
 }
 
 /* TODO: Заюзать переменные из инпута */
@@ -22,6 +26,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    width: 100%;
 }
 
 .value {
@@ -30,7 +35,7 @@
     text-align: left;
 }
 
-.disabled {
+.disabled > div:first-child {
     cursor: default;
 }
 
