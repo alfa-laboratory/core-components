@@ -75,7 +75,7 @@
     position: absolute;
     display: flex;
     align-items: center;
-    min-height: 100%;
+    height: 100%;
     left: var(--gap-s);
     right: 0;
     color: var(--color-light-text-secondary);
@@ -239,4 +239,12 @@
 
 .errorIcon {
     display: var(--form-control-error-icon-display);
+}
+
+/* IE min-height fix */
+
+.inner:after {
+    min-height: inherit;
+    font-size: 0;
+    content: '';
 }
