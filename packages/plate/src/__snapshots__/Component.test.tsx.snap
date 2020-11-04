@@ -5,6 +5,7 @@ exports[`Plate Snapshots tests should match snapshot 1`] = `
   <div
     class="component positive"
     role="alert"
+    tabindex="-1"
   >
     <div
       class="leftAddons"

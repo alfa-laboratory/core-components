@@ -15,6 +15,7 @@
     width: 100%;
     min-height: 56px;
     padding: var(--gap-m);
+    outline: none;
 
     &.hasCloser,
     &.foldable {
@@ -28,6 +29,10 @@
 
 .component * {
     box-sizing: border-box;
+}
+
+.focused {
+    @mixin focus-outline;
 }
 
 .common {

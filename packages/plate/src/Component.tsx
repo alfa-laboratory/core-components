@@ -1,5 +1,7 @@
-import React, { forwardRef, useCallback, useState, ReactNode, MouseEvent } from 'react';
+import React, { forwardRef, useCallback, useState, ReactNode, MouseEvent, useRef } from 'react';
 import cn from 'classnames';
+import mergeRefs from 'react-merge-refs';
+import { useFocus } from '@alfalab/hooks';
 import { Button } from '@alfalab/core-components-button';
 
 import styles from './index.module.css';
@@ -78,6 +80,10 @@ export const Plate = forwardRef<HTMLInputElement, PlateProps>(
         },
         ref,
     ) => {
+        const plateRef = useRef<HTMLDivElement>(null);
+
+        const [focused] = useFocus(plateRef, 'keyboard');
+
         const [isHidden, setIsHidden] = useState(false);
         const [isFolded, setIsFolded] = useState(defaultFolded);
 
@@ -114,6 +120,7 @@ export const Plate = forwardRef<HTMLInputElement, PlateProps>(
                     styles.component,
                     styles[view],
                     {
+                        [styles.focused]: focused,
                         [styles.isHidden]: hasCloser && isHidden,
                         [styles.hasCloser]: hasCloser,
                         [styles.foldable]: isFoldable,
@@ -123,7 +130,9 @@ export const Plate = forwardRef<HTMLInputElement, PlateProps>(
                 onClick={handleClick}
                 onKeyDown={handleClick}
                 role='alert'
-                ref={ref}
+                ref={mergeRefs([plateRef, ref])}
+                /* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */
+                tabIndex={isFoldable ? 0 : -1}
                 data-test-id={dataTestId}
             >
                 {leftAddons && <div className={cn(styles.leftAddons)}>{leftAddons}</div>}
