@@ -98,17 +98,25 @@
     right: var(--gap-s);
 }
 
-.closer {
-    background: var(--plate-closer-icon) center no-repeat;
+.closer,
+.folder {
     height: 32px;
     width: 32px;
+    opacity: 0.6;
+    transition: opacity 0.1s ease-out;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.closer {
+    background: var(--plate-closer-icon) center no-repeat;
 }
 
 .folder {
     background: var(--plate-arrow-icon) center no-repeat;
-    height: 32px;
-    width: 32px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.1s ease-out;
 
     &.isFolded {
         transform: rotateX(180deg);
