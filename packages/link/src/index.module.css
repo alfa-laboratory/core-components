@@ -19,17 +19,24 @@
 
 .component {
     box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     text-decoration: none;
-    border-bottom: 1px solid;
     font-family: var(--font-family);
-    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
     cursor: pointer;
     outline: none;
 
-    &:hover,
-    &:active {
+    &:hover .text,
+    &:active .text {
         border-bottom-color: rgba(0, 0, 0, 0);
     }
+}
+
+.text {
+    vertical-align: middle;
+    border-bottom: 1px solid;
+    transition: border 0.2s ease, color 0.2s ease;
 }
 
 .focused {
@@ -75,6 +82,25 @@
     }
 }
 
-.pseudo {
+.pseudo .text {
     border-bottom-style: dashed;
+}
+
+.addons {
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease;
+}
+
+.addons:first-child {
+    margin-right: var(--gap-xs);
+}
+
+.addons:last-child {
+    margin-left: var(--gap-xs);
+}
+
+.addons:only-child {
+    margin-right: 0;
+    margin-left: 0;
 }

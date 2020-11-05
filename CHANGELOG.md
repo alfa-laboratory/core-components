@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.4](https://github.com/alfa-laboratory/core-components/compare/v4.0.3...v4.0.4) (2020-11-03)
+
+
+### Bug Fixes
+
+* **core-components-amount-input:** missing handlers ([be512d5](https://github.com/alfa-laboratory/core-components/commit/be512d51fae847f2dd7a4e939adbbd93aadcff67))
+
 ### [4.0.3](https://github.com/alfa-laboratory/core-components/compare/v4.0.2...v4.0.3) (2020-10-30)
 
 ### [4.0.2](https://github.com/alfa-laboratory/core-components/compare/v4.0.1...v4.0.2) (2020-10-29)
