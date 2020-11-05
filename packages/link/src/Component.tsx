@@ -24,6 +24,16 @@ export type LinkProps = NativeProps & {
     pseudo?: boolean;
 
     /**
+     * Слот слева
+     */
+    leftAddons?: React.ReactNode;
+
+    /**
+     * Слот справа
+     */
+    rightAddons?: React.ReactNode;
+
+    /**
      * Дополнительный класс (native prop)
      */
     className?: string;
@@ -45,7 +55,19 @@ export type LinkProps = NativeProps & {
 };
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
-    ({ view = 'primary', pseudo = false, className, dataTestId, children, ...restProps }, ref) => {
+    (
+        {
+            view = 'primary',
+            pseudo = false,
+            leftAddons,
+            rightAddons,
+            className,
+            dataTestId,
+            children,
+            ...restProps
+        },
+        ref,
+    ) => {
         const linkRef = useRef<HTMLAnchorElement>(null);
 
         const [focused] = useFocus(linkRef, 'keyboard');
@@ -65,7 +87,13 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 
         return (
             <a {...componentProps} {...restProps} ref={mergeRefs([linkRef, ref])}>
-                {children}
+                {leftAddons && <span className={cn(styles.addons)}>{leftAddons}</span>}
+                {children && (
+                    <span>
+                        <span className={cn(styles.text)}>{children}</span>
+                    </span>
+                )}
+                {rightAddons && <span className={cn(styles.addons)}>{rightAddons}</span>}
             </a>
         );
     },

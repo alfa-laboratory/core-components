@@ -36,6 +36,14 @@
     &:first-child:before {
         display: none;
     }
+
+    /* IE min-height fix */
+
+    &:after {
+        min-height: inherit;
+        font-size: 0;
+        content: '';
+    }
 }
 
 .s {

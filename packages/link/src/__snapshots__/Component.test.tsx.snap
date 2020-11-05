@@ -9,7 +9,13 @@ Object {
         class="component primary"
         href=""
       >
-        Link
+        <span>
+          <span
+            class="text"
+          >
+            Link
+          </span>
+        </span>
       </a>
     </div>
   </body>,
@@ -18,7 +24,247 @@ Object {
       class="component primary"
       href=""
     >
-      Link
+      <span>
+        <span
+          class="text"
+        >
+          Link
+        </span>
+      </span>
+    </a>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Snapshots tests should render left slot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <a
+        class="component primary"
+        href=""
+      >
+        <span
+          class="addons"
+        >
+          <svg
+            fill="currentColor"
+            focusable="false"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path
+              d="M9.259 8.131L12 1v16l-7 4 2.32-7.12.094-.275-.243-.18L1 8.5l7.88-.097h.287l.092-.272zm5.482 0L12 1v16l7 4-2.32-7.12-.094-.275.243-.18L23 8.5l-7.88-.097h-.287l-.092-.272z"
+            />
+          </svg>
+        </span>
+        <span>
+          <span
+            class="text"
+          >
+            Link
+          </span>
+        </span>
+      </a>
+    </div>
+  </body>,
+  "container": <div>
+    <a
+      class="component primary"
+      href=""
+    >
+      <span
+        class="addons"
+      >
+        <svg
+          fill="currentColor"
+          focusable="false"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <path
+            d="M9.259 8.131L12 1v16l-7 4 2.32-7.12.094-.275-.243-.18L1 8.5l7.88-.097h.287l.092-.272zm5.482 0L12 1v16l7 4-2.32-7.12-.094-.275.243-.18L23 8.5l-7.88-.097h-.287l-.092-.272z"
+          />
+        </svg>
+      </span>
+      <span>
+        <span
+          class="text"
+        >
+          Link
+        </span>
+      </span>
+    </a>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Snapshots tests should render right slot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <a
+        class="component primary"
+        href=""
+      >
+        <span>
+          <span
+            class="text"
+          >
+            Link
+          </span>
+        </span>
+        <span
+          class="addons"
+        >
+          <svg
+            fill="currentColor"
+            focusable="false"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path
+              d="M9.259 8.131L12 1v16l-7 4 2.32-7.12.094-.275-.243-.18L1 8.5l7.88-.097h.287l.092-.272zm5.482 0L12 1v16l7 4-2.32-7.12-.094-.275.243-.18L23 8.5l-7.88-.097h-.287l-.092-.272z"
+            />
+          </svg>
+        </span>
+      </a>
+    </div>
+  </body>,
+  "container": <div>
+    <a
+      class="component primary"
+      href=""
+    >
+      <span>
+        <span
+          class="text"
+        >
+          Link
+        </span>
+      </span>
+      <span
+        class="addons"
+      >
+        <svg
+          fill="currentColor"
+          focusable="false"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <path
+            d="M9.259 8.131L12 1v16l-7 4 2.32-7.12.094-.275-.243-.18L1 8.5l7.88-.097h.287l.092-.272zm5.482 0L12 1v16l7 4-2.32-7.12-.094-.275.243-.18L23 8.5l-7.88-.097h-.287l-.092-.272z"
+          />
+        </svg>
+      </span>
     </a>
   </div>,
   "debug": [Function],

@@ -70,8 +70,6 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             dataTestId,
             clear = false,
             onChange,
-            onBlur,
-            onFocus,
             onClear,
             ...restProps
         },
