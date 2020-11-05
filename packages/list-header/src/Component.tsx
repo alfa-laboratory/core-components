@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import cn from 'classnames';
 import { Typography } from '@alfalab/core-components-typography';
 
@@ -8,12 +8,12 @@ export type ListHeaderProps = {
     /**
      * Заголовок
      */
-    title: ReactNode;
+    title: string;
 
     /**
      * Дополнительное описание
      */
-    description?: ReactNode;
+    description?: string;
 
     /**
      * Наличие фоновой подложки
@@ -37,26 +37,16 @@ export const ListHeader: React.FC<ListHeaderProps> = ({
     filled = true,
     className,
     dataTestId,
-}) => {
-    const componentProps = {
-        className: cn(
-            styles.component,
-            {
-                [styles.filled]: filled,
-            },
-            className,
-        ),
-        'data-test-id': dataTestId || null,
-    };
-
-    return (
-        <div {...componentProps}>
-            <Typography.Text view='secondary-large'>{title}</Typography.Text>
-            {description && (
-                <Typography.Text view='secondary-large' className={cn(styles.description)}>
-                    {`, ${description}`}
-                </Typography.Text>
-            )}
-        </div>
-    );
-};
+}) => (
+    <div
+        data-test-id={dataTestId}
+        className={cn(styles.component, { [styles.filled]: filled }, className)}
+    >
+        <Typography.Text view='secondary-large'>{title}</Typography.Text>
+        {description && (
+            <Typography.Text view='secondary-large' className={cn(styles.description)}>
+                {`, ${description}`}
+            </Typography.Text>
+        )}
+    </div>
+);
