@@ -124,6 +124,7 @@ export const Plate = forwardRef<HTMLInputElement, PlateProps>(
                         [styles.isHidden]: hasCloser && isHidden,
                         [styles.hasCloser]: hasCloser,
                         [styles.foldable]: isFoldable,
+                        [styles.isFolded]: isFoldable && isFolded,
                     },
                     className,
                 )}

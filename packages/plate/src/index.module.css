@@ -21,6 +21,10 @@
     &.foldable {
         padding-right: var(--gap-4xl);
     }
+
+    &.isFolded {
+        cursor: pointer;
+    }
 }
 
 .component * {
@@ -62,9 +66,7 @@
 }
 
 .title {
-    @mixin paragraph_component;
-    line-height: 24px;
-    font-weight: bold;
+    @mixin accent_primary_large;
 }
 
 .content {
