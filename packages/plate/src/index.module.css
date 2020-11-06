@@ -21,10 +21,6 @@
     &.foldable {
         padding-right: var(--gap-4xl);
     }
-
-    &.foldable {
-        cursor: pointer;
-    }
 }
 
 .component * {
@@ -67,18 +63,18 @@
 
 .title {
     @mixin paragraph_component;
-    padding-top: 2px;
+    line-height: 24px;
     font-weight: bold;
 }
 
 .content {
-    max-height: 100vh;
+    max-height: 300vh;
     overflow: hidden;
-    transition: max-height 1s ease-in-out;
+    transition: max-height 3s ease-in-out;
 
     &.isFolded {
         max-height: 0;
-        transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+        transition: max-height 1.5s cubic-bezier(0, 1, 0, 1);
     }
 }
 
@@ -104,6 +100,7 @@
     width: 32px;
     opacity: 0.6;
     transition: opacity 0.1s ease-out;
+    cursor: pointer;
 
     &:hover {
         opacity: 1;
