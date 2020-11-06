@@ -19,6 +19,7 @@
     --form-control-labeled-l-paddings: 34px var(--gap-m) 14px;
 
     /* disabled */
+    --form-control-disabled-opacity: 0.5;
     --form-control-disabled-border-bottom: 0;
     --form-control-disabled-bg-color: var(--color-light-bg-tertiary);
 

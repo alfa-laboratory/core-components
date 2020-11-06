@@ -15,6 +15,7 @@
     /* disabled */
     --form-control-disabled-bg-color: var(--color-dark-indigo-15);
     --form-control-disabled-border-bottom: 1px dashed var(--color-dark-indigo-30-flat);
+    --form-control-disabled-opacity: 1;
 
     /* focus */
     --form-control-focus-shadow: inset 0 -1px var(--color-dark-indigo);
@@ -195,6 +196,7 @@
 /* DISABLED STATE */
 
 .disabled .inner {
+    opacity: var(--form-control-disabled-opacity);
     border-bottom: var(--form-control-disabled-border-bottom);
     background-color: var(--form-control-disabled-bg-color);
 }
