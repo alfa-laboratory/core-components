@@ -1,0 +1,27 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    height: 100%;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    bottom: -1px;
+}
+
+.inner {
+    position: relative;
+    bottom: 1px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-left: var(--gap-s);
+    outline: none;
+}
+
+.l .inner {
+    padding-left: var(--gap-m);
+}
+
+.focusVisible {
+    @mixin focus-outline;
+}

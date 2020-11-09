@@ -298,3 +298,11 @@
     display: flex;
     width: 100%;
 }
+
+/* IE min-height fix */
+
+.component:after {
+    min-height: inherit;
+    font-size: 0;
+    content: '';
+}

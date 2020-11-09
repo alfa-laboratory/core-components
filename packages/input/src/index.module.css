@@ -81,3 +81,11 @@
 .focusVisible > div:first-child {
     @mixin focus-outline;
 }
+
+/* IE hide clear */
+
+.input::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}

@@ -72,3 +72,11 @@
 .component:not(:disabled):hover {
     background-color: var(--form-control-hover-bg-color);
 }
+
+/* IE hide clear */
+
+.component::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}

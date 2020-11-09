@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IntlPhoneInput should match snapshot 1`] = `
+<div>
+  <div
+    class="component m filled hasLeftAddons formControl m"
+  >
+    <div
+      class="inner"
+    >
+      <div
+        class="addons leftAddons addons"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="downshift-1-menu"
+          class="component component"
+          role="combobox"
+        >
+          <div
+            class="component m"
+          >
+            <div
+              aria-controls="downshift-1-menu"
+              aria-labelledby="downshift-1-label"
+              class="inner"
+              id="downshift-0-input"
+              tabindex="0"
+            >
+              <span>
+                <span
+                  class="flagIcon m ru"
+                />
+              </span>
+              <span
+                class="arrow"
+              />
+            </div>
+          </div>
+          <div
+            aria-labelledby="downshift-1-label"
+            class="listWrapper"
+            id="downshift-1-menu"
+            role="listbox"
+          />
+        </div>
+      </div>
+      <div
+        class="inputWrapper"
+      >
+        <div
+          class="input"
+        >
+          <input
+            class="input"
+            type="tel"
+            value="+7 111 111 11 11"
+          />
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+`;
