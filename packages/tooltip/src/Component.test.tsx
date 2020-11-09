@@ -4,7 +4,6 @@ import {
     fireEvent,
     act,
     RenderResult,
-    waitForElement,
     waitForElementToBeRemoved,
 } from '@testing-library/react';
 
@@ -117,7 +116,7 @@ describe('Click event tests', () => {
         const onClose = jest.fn();
         const onOpen = jest.fn();
 
-        const { getByText } = await renderTooltip({
+        const { getByText, findByText } = await renderTooltip({
             children: <div>{childrenText}</div>,
             content: <div>{contentText}</div>,
             trigger: 'click',
@@ -129,7 +128,7 @@ describe('Click event tests', () => {
 
         fireEvent.click(children);
 
-        const content = await waitForElement(() => getByText(contentText));
+        const content = await findByText(contentText);
 
         expect(content).toBeInTheDocument();
 
@@ -145,7 +144,7 @@ describe('Click event tests', () => {
         const childrenText = 'Click me';
         const contentText = 'I am tooltip';
 
-        const { getByText } = await renderTooltip({
+        const { getByText, findByText } = await renderTooltip({
             children: <div>{childrenText}</div>,
             content: <div>{contentText}</div>,
             trigger: 'click',
@@ -155,7 +154,7 @@ describe('Click event tests', () => {
 
         fireEvent.click(children);
 
-        const content = await waitForElement(() => getByText(contentText));
+        const content = await findByText(contentText);
 
         expect(content).toBeInTheDocument();
 
@@ -218,7 +217,7 @@ describe('Hover event tests', () => {
         const onClose = jest.fn();
         const onOpen = jest.fn();
 
-        const { getByText } = await renderTooltip({
+        const { getByText, findByText } = await renderTooltip({
             children: <div>{childrenText}</div>,
             content: <div id='content'>{contentText}</div>,
             onClose,
@@ -229,7 +228,7 @@ describe('Hover event tests', () => {
 
         fireEvent.mouseOver(children);
 
-        const content = await waitForElement(() => getByText(contentText));
+        const content = await findByText(contentText);
 
         expect(content).toBeInTheDocument();
 
