@@ -17,8 +17,8 @@
         "react": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^1.6.2",
+        "@alfalab/core-components-button": "^1.6.4",
         "@alfalab/hooks": "^1.0.0",
         "react-merge-refs": "^1.1.0"
     }
-  }
+}
