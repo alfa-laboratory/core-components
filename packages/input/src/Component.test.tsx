@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { Input } from './index';
@@ -237,7 +237,9 @@ describe('Input', () => {
 
             await userEvent.type(input, '123');
 
-            userEvent.click(getByLabelText('Очистить'));
+            await act(async () => {
+                userEvent.click(getByLabelText('Очистить'));
+            });
 
             expect(input).toHaveValue('');
         });

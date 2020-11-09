@@ -314,7 +314,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     ref={mergeRefs([ref, inputRef])}
                     type={type}
                     value={uncontrolled ? stateValue : value}
-                    defaultValue={defaultValue}
                     readOnly={readOnly}
                     data-test-id={dataTestId}
                 />
