@@ -7,21 +7,21 @@
     --checkbox-border-color: var(--color-light-border-tertiary-inverted);
 
     /* checked */
-    --checkbox-checked-bg-color: var(--color-red-brand-85-flat);
-    --checkbox-checked-border-color: var(--color-red-dark);
+    --checkbox-checked-bg-color: var(--color-red-brand-85-flat); /* TODO */
+    --checkbox-checked-border-color: var(--color-red-dark); /* TODO */
 
     /* disabled */
     --checkbox-disabled-bg-color: var(--color-light-bg-neutral);
     --checkbox-disabled-border-color: var(--color-light-border-primary);
 
     /* disabled and checked */
-    --checkbox-checked-disabled-bg-color: var(--color-red-brand-30-flat);
-    --checkbox-checked-disabled-border-color: var(--color-red-brand-30-flat);
+    --checkbox-checked-disabled-bg-color: var(--color-red-brand-30-flat); /* TODO */
+    --checkbox-checked-disabled-border-color: var(--color-red-brand-30-flat); /* TODO */
 
     /* hover */
     --checkbox-hover-bg-color: var(--color-light-graphic-tertiary);
     --checkbox-hover-border-color: var(--color-light-border-tertiary-inverted);
-    --checkbox-checked-hover-border-color: var(--color-red-dark);
+    --checkbox-checked-hover-border-color: var(--color-red-dark); /* TODO */
     --checkbox-checked-hover-bg-color: var(--color-light-bg-accent);
 
     /* active */

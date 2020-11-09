@@ -2,7 +2,7 @@
 
 :root {
     --slider-thumb-color: var(--color-light-graphic-accent);
-    --slider-progress-color: var(--color-red-dark);
+    --slider-progress-color: var(--color-red-dark); /* TODO */
     --slider-thumb-size: 18px;
     --slider-progress-height: 2px;
     --slider-progress-background: transparent;

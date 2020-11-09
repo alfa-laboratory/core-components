@@ -7,8 +7,8 @@
     --radio-border-color: var(--color-light-border-tertiary-inverted);
 
     /* checked */
-    --radio-checked-bg-color: var(--color-light-graphic-negative);
-    --radio-checked-border-color: var(--color-red-dark);
+    --radio-checked-bg-color: var(--color-red-brand-85-flat); /* TODO */
+    --radio-checked-border-color: var(--color-red-dark); /* TODO */
 
     /* disabled */
     --radio-disabled-bg-color: var(--color-light-graphic-neutral);

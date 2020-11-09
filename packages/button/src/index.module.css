@@ -2,10 +2,10 @@
 
 :root {
     /* primary */
-    --button-primary-base-bg-color: var(--color-red-brand-85-flat);
+    --button-primary-base-bg-color: var(--color-red-brand-85-flat); /* TODO */
     --button-primary-hover-bg-color: color-mod(var(--button-primary-base-bg-color) shade(7%));
     --button-primary-active-bg-color: color-mod(var(--button-primary-base-bg-color) shade(15%));
-    --button-primary-disabled-bg-color: var(--color-red-brand-30);
+    --button-primary-disabled-bg-color: color-mod(var(--button-primary-base-bg-color) alpha(30%));
 
     /* secondary */
     --button-secondary-base-bg-color: var(--color-light-specialbg-component);

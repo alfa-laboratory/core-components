@@ -9,8 +9,8 @@
     --switch-checked-border-color: var(--color-light-graphic-negative);
     --switch-disabled-bg-color: var(--color-light-graphic-neutral);
     --switch-disabled-border-color: var(--color-light-graphic-neutral);
-    --switch-disabled-checked-bg-color: var(--color-red-brand-30-flat);
-    --switch-disabled-checked-border-color: var(--color-red-brand-30-flat);
+    --switch-disabled-checked-bg-color: var(--color-red-brand-30-flat); /* TODO */
+    --switch-disabled-checked-border-color: var(--color-red-brand-30-flat); /* TODO */
 }
 
 .component {

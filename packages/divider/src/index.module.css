@@ -1,7 +1,7 @@
 @import '../../vars/src/colors.css';
 
 :root {
-    --divider-color: var(--color-dark-indigo-15);
+    --divider-color: var(--color-light-border-primary);
 }
 
 .component {
