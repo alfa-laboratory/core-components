@@ -7,7 +7,7 @@
 
 .error {
     padding-left: var(--gap-m);
-    border-left: 1px solid var(--color-red-brand-85-flat);
+    border-left: 1px solid var(--color-light-text-negative);
 }
 
 .checkboxList {
@@ -49,13 +49,13 @@
 .label {
     @mixin system_14-18_regular;
     margin-bottom: var(--gap-m);
-    color: var(--color-dark-indigo-60-flat);
+    color: var(--color-light-text-secondary);
 }
 
 .errorMessage {
     @mixin system_14-18_regular;
     margin-top: var(--gap-m);
-    color: var(--color-red-brand-85-flat);
+    color: var(--color-light-text-negative);
 }
 
 .hiddenInput {

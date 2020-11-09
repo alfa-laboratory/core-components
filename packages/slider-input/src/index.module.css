@@ -1,5 +1,10 @@
 @import '../../themes/src/default.css';
 
+:root {
+    --slider-input-steps-color: var(--color-light-text-secondary);
+    --slider-input-info-color: var(--color-light-text-secondary);
+}
+
 .component {
     position: relative;
     display: inline-block;
@@ -30,13 +35,13 @@
     display: flex;
     justify-content: space-between;
     margin-top: var(--gap-xs);
-    color: var(--color-light-text-secondary);
+    color: var(--slider-input-steps-color);
 }
 
 .info {
     @mixin system_16-20_regular;
 
-    color: var(--color-light-text-secondary);
+    color: var(--slider-input-info-color);
     box-sizing: border-box;
     opacity: 0;
     transition: 0.2s ease;

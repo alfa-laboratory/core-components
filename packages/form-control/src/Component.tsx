@@ -166,7 +166,9 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                     <span className={cn(styles.sub, styles.error)}>{errorMessage}</span>
                 )}
 
-                {hint && !errorMessage && <span className={styles.sub}>{hint}</span>}
+                {hint && !errorMessage && (
+                    <span className={cn(styles.sub, styles.hint)}>{hint}</span>
+                )}
             </div>
         );
     },

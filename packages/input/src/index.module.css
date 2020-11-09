@@ -2,6 +2,13 @@
 
 :root {
     --input-clear-icon: url('https://alfabank.st/icons/glyph_cross-circle_m.svg');
+    --input-color: var(--color-light-text-primary);
+    --input-placeholder-color: var(--color-light-text-secondary);
+    --input-focus-placeholder-color: var(--color-light-text-tertiary);
+    --input-with-label-placeholder-color: var(--color-light-text-tertiary);
+
+    /* disabled */
+    --input-disabled-color: var(--color-light-text-secondary);
 }
 
 .input {
@@ -11,7 +18,7 @@
     display: block;
     width: 100%;
     height: 100%;
-    color: var(--color-dark-indigo);
+    color: var(--input-color);
     background: none;
     border: none;
     margin: 0;
@@ -24,12 +31,12 @@
 
 .input::placeholder {
     transition: opacity 0.2s ease, color 0.2s ease;
-    color: var(--color-dark-indigo-60-flat);
+    color: var(--input-placeholder-color);
 }
 
 .hasLabel::placeholder {
     opacity: 0;
-    color: var(--color-dark-indigo-30-flat);
+    color: var(--input-with-label-placeholder-color);
 }
 
 .block {
@@ -58,7 +65,7 @@
 /* DISABLED STATE */
 
 .input:disabled {
-    color: var(--color-dark-indigo-60-flat);
+    color: var(--input-disabled-color);
 }
 
 /* FOCUS STATE */
@@ -68,7 +75,7 @@
 }
 
 .input:focus::placeholder {
-    color: var(--color-dark-indigo-30-flat);
+    color: var(--input-focus-placeholder-color);
 }
 
 .focusVisible > div:first-child {
