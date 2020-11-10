@@ -13,7 +13,6 @@
         "access": "public"
     },
     "peerDependencies": {
-        "classnames": "^2.2.6",
         "react": "^16.9.0",
         "react-dom": "^16.9.0"
     },
@@ -21,6 +20,7 @@
         "@alfalab/core-components-masked-input": "^2.0.4",
         "@alfalab/icons-classic": "^1.7.0",
         "@alfalab/icons-glyph": "^1.26.0",
-        "@alfalab/icons-logotype": "^1.4.0"
+        "@alfalab/icons-logotype": "^1.4.0",
+        "classnames": "^2.2.6"
     }
 }

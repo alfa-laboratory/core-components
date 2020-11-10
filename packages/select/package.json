@@ -13,15 +13,15 @@
         "access": "public"
     },
     "peerDependencies": {
-        "classnames": "^2.2.6",
-        "react": "^16.12.0",
-        "react-dom": "^16.12.0"
+        "react": "^16.9.0",
+        "react-dom": "^16.9.0"
     },
     "dependencies": {
         "@alfalab/core-components-form-control": "^3.0.1",
         "@alfalab/core-components-input": "^3.0.2",
         "@alfalab/core-components-popover": "^1.2.2",
         "@alfalab/hooks": "^1.0.0",
+        "classnames": "^2.2.6",
         "downshift": "5.4.7",
         "react-merge-refs": "^1.1.0",
         "react-virtual": "^2.2.0"

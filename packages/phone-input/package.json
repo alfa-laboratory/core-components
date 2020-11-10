@@ -13,11 +13,11 @@
         "access": "public"
     },
     "peerDependencies": {
-        "classnames": "^2.2.6",
         "react": "^16.9.0"
     },
     "dependencies": {
         "@alfalab/core-components-masked-input": "^2.0.4",
+        "classnames": "^2.2.6",
         "text-mask-core": "^5.1.2"
     }
 }

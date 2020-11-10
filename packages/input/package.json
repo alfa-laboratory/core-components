@@ -13,7 +13,6 @@
         "access": "public"
     },
     "peerDependencies": {
-        "classnames": "^2.2.6",
         "react": "^16.9.0"
     },
     "dependencies": {
@@ -21,6 +20,7 @@
         "@alfalab/core-components-form-control": "^3.0.1",
         "@alfalab/hooks": "^1.0.0",
         "@alfalab/icons-glyph": "^1.26.0",
+        "classnames": "^2.2.6",
         "react-merge-refs": "^1.1.0"
     }
 }

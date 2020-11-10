@@ -13,12 +13,12 @@
         "access": "public"
     },
     "peerDependencies": {
-        "classnames": "^2.2.6",
         "react": "^16.9.0",
         "react-dom": "^16.9.0"
     },
     "dependencies": {
         "@alfalab/core-components-popover": "^1.2.2",
+        "classnames": "^2.2.6",
         "react-node-resolver": "^2.0.1"
     }
 }

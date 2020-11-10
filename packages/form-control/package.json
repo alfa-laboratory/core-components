@@ -13,11 +13,11 @@
         "access": "public"
     },
     "peerDependencies": {
-        "classnames": "^2.2.6",
         "react": "^16.9.0",
         "react-dom": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/icons-classic": "^1.7.0"
+        "@alfalab/icons-classic": "^1.7.0",
+        "classnames": "^2.2.6"
     }
 }
