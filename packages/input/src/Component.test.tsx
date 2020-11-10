@@ -40,6 +40,24 @@ describe('Input', () => {
         expect(getByTestId(dataTestId)).toHaveAttribute('disabled');
     });
 
+    it('should render error icon', () => {
+        const { container } = render(<Input error={true} />);
+
+        expect(container.getElementsByClassName('errorIcon').length).toBe(1);
+    });
+
+    it('should render success icon', () => {
+        const { container } = render(<Input success={true} />);
+
+        expect(container.getElementsByClassName('successIcon').length).toBe(1);
+    });
+
+    it('should not render success icon if has error', () => {
+        const { container } = render(<Input success={true} error={true} />);
+
+        expect(container.getElementsByClassName('successIcon').length).toBe(0);
+    });
+
     describe('Classes tests', () => {
         it('should set `className` class to root', () => {
             const className = 'test-class';

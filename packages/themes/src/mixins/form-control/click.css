@@ -32,5 +32,4 @@
     --form-control-error-label-color: var(--form-control-error-color);
     --form-control-error-shadow: inset 0 0 0 1px var(--form-control-error-color);
     --form-control-error-border-bottom: 0;
-    --form-control-error-icon-display: none;
 }
