@@ -1,0 +1,52 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import {select, text, boolean} from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph'
+import { Plate } from './Component';
+import { name, version } from '../package.json';
+
+
+<Meta
+    title='Компоненты'
+    component={Plate}
+/>
+
+<!-- Canvas -->
+
+<Story name='Plate'>
+    <Plate
+        view={select('view', ['common', 'negative', 'positive', 'attention'], 'positive')}
+        title={text('title', 'Поздравляем, полный успех')}
+        foldable={boolean('foldable', false)}
+        hasCloser={boolean('hasCloser', false)}
+    >
+        {text('children', 'Вам одобрено. Согласитесь на предложение')}
+    </Plate>
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Plate'
+    version={version}
+    package='@alfalab/core-components-plate'
+    stage={2}
+/>
+
+```tsx
+import { Plate } from '@alfalab/core-components-plate';
+```
+
+Компонент плашки.
+
+<Plate
+    view='positive'
+    title='Компонент плашки'
+    leftAddons={
+        <CheckmarkCircleMIcon/>
+    }
+>
+    Самая обыкновенная плашка
+</Plate>
+
+<Props of={Plate} />

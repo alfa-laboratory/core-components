@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-slider",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "description": "Slider component",
     "keywords": [],
     "license": "ISC",
@@ -18,7 +18,7 @@
         "react-dom": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/hooks": "^0.9.0",
+        "@alfalab/hooks": "^1.0.0",
         "react-merge-refs": "^1.1.0"
     }
 }

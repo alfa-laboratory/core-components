@@ -31,6 +31,5 @@ input:focus + .suffixContainer,
 }
 
 .disabled {
-    /* TODO: заменить на --input-disabled-color */
-    color: var(--color-dark-indigo-60-flat);
+    color: var(--input-disabled-color);
 }

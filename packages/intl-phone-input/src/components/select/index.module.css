@@ -1,0 +1,27 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    position: static;
+    display: flex;
+    min-width: initial;
+    height: 100%;
+}
+
+.option {
+    display: flex;
+    align-items: flex-start;
+}
+
+.flag {
+    flex-shrink: 0;
+    margin-top: var(--gap-2xs);
+    margin-right: var(--gap-xs);
+}
+
+.countryName {
+    margin-right: var(--gap-xs);
+}
+
+.dialCode {
+    color: var(--text-secondary-color);
+}

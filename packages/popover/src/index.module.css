@@ -6,7 +6,7 @@
 }
 
 .component {
-    background-color: #fff;
+    background-color: var(--color-light-bg-primary);
     box-shadow: var(--shadow-l);
     border: 1px solid var(--popover-border-color);
     z-index: var(--popover-z-index);
@@ -21,7 +21,7 @@
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: #fff;
+    background-color: var(--color-light-bg-primary);
     border: 1px solid var(--popover-border-color);
     transform: rotate(45deg);
 }

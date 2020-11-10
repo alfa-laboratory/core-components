@@ -1,28 +1,29 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --radio-hint-color: var(--color-dark-indigo-60-flat);
-    --radio-label-color: var(--color-dark-indigo);
-    --radio-bg-color: var(--color-dark-indigo-05-flat);
-    --radio-border-color: var(--color-dark-indigo-60-flat);
+    --radio-hint-color: var(--color-light-text-secondary);
+    --radio-label-color: var(--color-light-text-primary);
+    --radio-bg-color: var(--color-light-bg-secondary);
+    --radio-border-color: var(--color-light-border-tertiary-inverted);
 
     /* checked */
-    --radio-checked-bg-color: var(--color-red-brand-85-flat);
-    --radio-checked-border-color: var(--color-red-dark);
+    --radio-checked-bg-color: var(--color-red-brand-85-flat); /* TODO */
+    --radio-checked-border-color: var(--color-red-dark); /* TODO */
 
     /* disabled */
-    --radio-disabled-bg-color: var(--color-dark-indigo-15-flat);
+    --radio-disabled-bg-color: var(--color-light-graphic-neutral);
 
     /* disabled and checked */
     --radio-checked-disabled-bg-color: var(--color-red-brand-30-flat);
 
     /* hover */
-    --radio-hover-bg-color: var(--color-dark-indigo-30-flat);
-    --radio-hover-border-color: var(--color-dark-indigo-60-flat);
-    --radio-checked-hover-bg-color: var(--color-red-brand);
+    --radio-hover-bg-color: var(--color-light-graphic-tertiary);
+    --radio-hover-border-color: var(--color-light-graphic-secondary);
+    --radio-checked-hover-bg-color: var(--color-light-graphic-accent);
 
     /* active */
-    --radio-active-border-color: var(--color-dark-indigo);
+    --radio-active-bg-color: var(--color-light-graphic-accent);
+    --radio-active-border-color: var(--color-light-graphic-primary);
 }
 
 .container {
@@ -63,8 +64,8 @@
 
     &.checked {
         &:active .circle {
-            background: var(--color-red-brand);
             border: 1px solid var(--radio-active-border-color);
+            background: var(--radio-active-bg-color);
         }
 
         & .circle {

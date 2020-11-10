@@ -1,0 +1,123 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --plate-closer-icon: url('https://alfabank.st/icons/glyph_cross_m.svg');
+    --plate-arrow-icon: url('https://alfabank.st/icons/glyph_chevron-down_m.svg');
+}
+
+.component {
+    position: relative;
+    display: inline-flex;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid;
+    color: var(--color-light-text-primary);
+    width: 100%;
+    min-height: 56px;
+    padding: var(--gap-m);
+    outline: none;
+
+    &.hasCloser,
+    &.foldable {
+        padding-right: var(--gap-4xl);
+    }
+
+    &.isFolded {
+        cursor: pointer;
+    }
+}
+
+.component * {
+    box-sizing: border-box;
+}
+
+.focused {
+    @mixin focus-outline;
+}
+
+.common {
+    background-color: var(--color-light-bg-secondary);
+    border-color: var(--color-static-status-grey);
+}
+
+.negative {
+    background-color: var(--color-light-bg-negative-muted);
+    border-color: var(--color-static-status-red);
+}
+
+.positive {
+    background-color: var(--color-light-bg-positive-muted);
+    border-color: var(--color-static-status-green);
+}
+
+.attention {
+    background-color: var(--color-light-bg-attention-muted);
+    border-color: var(--color-static-status-orange);
+}
+
+.isHidden {
+    display: none;
+}
+
+.leftAddons {
+    flex-shrink: 0;
+    min-width: 24px;
+    margin-right: var(--gap-xs);
+}
+
+.title {
+    @mixin accent_primary_large;
+}
+
+.content {
+    max-height: 300vh;
+    overflow: hidden;
+    transition: max-height 3s ease-in-out;
+
+    &.isFolded {
+        max-height: 0;
+        transition: max-height 1.5s cubic-bezier(0, 1, 0, 1);
+    }
+}
+
+.contentContainer {
+    &.withoutTitle {
+        padding-top: 2px;
+    }
+}
+
+.title + .content .contentInner {
+    padding-top: var(--gap-xs);
+}
+
+.additional {
+    position: absolute;
+    top: var(--gap-s);
+    right: var(--gap-s);
+}
+
+.closer,
+.folder {
+    height: 32px;
+    width: 32px;
+    opacity: 0.6;
+    transition: opacity 0.1s ease-out;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.closer {
+    background: var(--plate-closer-icon) center no-repeat;
+}
+
+.folder {
+    background: var(--plate-arrow-icon) center no-repeat;
+    transition: transform 0.3s ease, opacity 0.1s ease-out;
+
+    &.isFolded {
+        transform: rotateX(180deg);
+    }
+}

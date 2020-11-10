@@ -4,20 +4,9 @@ import fs from 'fs';
 import postcss from 'postcss';
 import path from 'path';
 
+import { checkOrCreateDir, readFile, writeFile } from './common';
+
 const postcssConfig = require(path.join(process.env.LERNA_ROOT_PATH, 'postcss.config'));
-
-const readFile = promisify(fs.readFile);
-const writeFile = promisify(fs.writeFile);
-const readDir = promisify(fs.readdir);
-const mkDir = promisify(fs.mkdir);
-
-async function checkOrCreateDir(dir) {
-    try {
-        await readDir(dir, 'utf-8');
-    } catch (error) {
-        await mkDir(dir, { recursive: true });
-    }
-}
 
 async function generateCssFile(source) {
     const content = await readFile(source, 'utf-8');

@@ -47,7 +47,7 @@ import { Button } from '@alfalab/core-components-button';
 
     ```
     "aruiScripts": {
-        "сomponentsTheme": "./node_modules/@alfalab/core-components-themes/click.css"
+        "componentsTheme": "./node_modules/@alfalab/core-components-themes/click.css"
     }
     ```
 

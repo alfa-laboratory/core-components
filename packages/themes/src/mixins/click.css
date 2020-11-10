@@ -1,6 +1,5 @@
 @import './amount/click.css';
 @import './form-control/click.css';
-@import './pure-input/click.css';
 @import './button/click.css';
 @import './tabs/click.css';
 @import './tag/click.css';
@@ -11,7 +10,6 @@
 @define-mixin theme-click {
     @mixin amount-click;
     @mixin form-control-click;
-    @mixin pure-input-click;
     @mixin button-click;
     @mixin tabs-click;
     @mixin tag-click;

@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/alfa-laboratory/core-components/compare/v4.0.4...v4.1.0) (2020-11-09)
+
+
+### Features
+
+* **core-components-form-control:** set opactiy in disabled state ([#342](https://github.com/alfa-laboratory/core-components/issues/342)) ([586a8d1](https://github.com/alfa-laboratory/core-components/commit/586a8d15f1be9fe6ceea62ac2231c7ecb1125b7e))
+* **core-components-intl-phone-input:** add component ([#333](https://github.com/alfa-laboratory/core-components/issues/333)) ([4d7c71d](https://github.com/alfa-laboratory/core-components/commit/4d7c71d3ace0d44ba1045ab4d2774575e1db65f9)), closes [#336](https://github.com/alfa-laboratory/core-components/issues/336) [#334](https://github.com/alfa-laboratory/core-components/issues/334)
+* **core-components-link:** add slots ([#337](https://github.com/alfa-laboratory/core-components/issues/337)) ([86f0886](https://github.com/alfa-laboratory/core-components/commit/86f0886129f9119a74a5a054232726f871c1634e))
+* **core-components-list-header:** add component ([#344](https://github.com/alfa-laboratory/core-components/issues/344)) ([cce69f3](https://github.com/alfa-laboratory/core-components/commit/cce69f30d1671d4344e0a85f62516e1f7a1f9266))
+* **core-components-plate:** add component ([62e18bf](https://github.com/alfa-laboratory/core-components/commit/62e18bf581651bca66a74c0d02b945522b452b4a)), closes [#340](https://github.com/alfa-laboratory/core-components/issues/340)
+
+### [4.0.4](https://github.com/alfa-laboratory/core-components/compare/v4.0.3...v4.0.4) (2020-11-03)
+
+
+### Bug Fixes
+
+* **core-components-amount-input:** missing handlers ([be512d5](https://github.com/alfa-laboratory/core-components/commit/be512d51fae847f2dd7a4e939adbbd93aadcff67))
+
+### [4.0.3](https://github.com/alfa-laboratory/core-components/compare/v4.0.2...v4.0.3) (2020-10-30)
+
 ### [4.0.2](https://github.com/alfa-laboratory/core-components/compare/v4.0.1...v4.0.2) (2020-10-29)
 
 
