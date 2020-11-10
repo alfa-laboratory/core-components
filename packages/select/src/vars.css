@@ -5,6 +5,7 @@
     --select-error-color: var(--color-red-brand-85-flat);
     --select-arrow-background: url('http://alfabank.st/icons/icon_arrow-down_m_black.svg');
     --select-arrow-hover-opacity: 0.7;
+    --select-cursor-disabled: default;
 
     /* options list */
 

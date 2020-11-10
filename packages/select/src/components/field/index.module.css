@@ -36,7 +36,7 @@
 }
 
 .disabled > div:first-child {
-    cursor: default;
+    cursor: var(--select-cursor-disabled);
 }
 
 .focusVisible > div:first-child {

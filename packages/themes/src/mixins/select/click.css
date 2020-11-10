@@ -8,6 +8,7 @@
     --select-popover-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
     --select-popover-offset: 8px;
     --select-arrow-background: url('http://alfabank.st/icons/glyph_chevron-down_m.svg');
+    --select-cursor-disabled: not-allowed;
 
     /* options list */
 
