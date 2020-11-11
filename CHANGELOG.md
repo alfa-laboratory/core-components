@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.2.0](https://github.com/alfa-laboratory/core-components/compare/v4.1.0...v4.2.0) (2020-11-11)
+
+
+### Features
+
+* icons & arrow ([#356](https://github.com/alfa-laboratory/core-components/issues/356)) ([e263356](https://github.com/alfa-laboratory/core-components/commit/e263356b7fd1537ae5c434ddc9c5cb074a2e7ab8))
+
 ## [4.1.0](https://github.com/alfa-laboratory/core-components/compare/v4.0.4...v4.1.0) (2020-11-09)
 
 
