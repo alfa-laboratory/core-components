@@ -14,13 +14,8 @@
     display: block;
 }
 
-.input {
-    display: block;
-}
-
 .slider {
     position: absolute;
-    top: 100%;
     margin-top: -1px;
     transform: translateY(-50%);
 

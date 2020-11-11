@@ -101,10 +101,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component s hasError hasRightAddons"
+        class="component s hasRightAddons"
       >
         <div
-          class="inner"
+          class="inner hasError"
         >
           <div
             class="inputWrapper"
@@ -124,10 +124,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component s hasError hasRightAddons"
+      class="component s hasRightAddons"
     >
       <div
-        class="inner"
+        class="inner hasError"
       >
         <div
           class="inputWrapper"
@@ -305,10 +305,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component s hasError hasRightAddons"
+        class="component s hasRightAddons"
       >
         <div
-          class="inner"
+          class="inner hasError"
         >
           <div
             class="inputWrapper"
@@ -328,10 +328,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component s hasError hasRightAddons"
+      class="component s hasRightAddons"
     >
       <div
-        class="inner"
+        class="inner hasError"
       >
         <div
           class="inputWrapper"
@@ -513,10 +513,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component s hasLabel"
+        class="component s"
       >
         <div
-          class="inner"
+          class="inner hasLabel"
         >
           <div
             class="inputWrapper"
@@ -543,10 +543,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component s hasLabel"
+      class="component s"
     >
       <div
-        class="inner"
+        class="inner hasLabel"
       >
         <div
           class="inputWrapper"

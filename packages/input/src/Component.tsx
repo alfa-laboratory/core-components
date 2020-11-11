@@ -290,7 +290,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     focused && focusedClassName,
                     filled && filledClassName,
                     {
-                        [styles.disabled]: disabled,
                         [styles.focusVisible]: focusVisible,
                     },
                 )}

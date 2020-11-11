@@ -3,10 +3,10 @@
 exports[`IntlPhoneInput should match snapshot 1`] = `
 <div>
   <div
-    class="component m filled hasLeftAddons formControl m"
+    class="component m hasLeftAddons"
   >
     <div
-      class="inner"
+      class="formControl m inner filled"
     >
       <div
         class="addons leftAddons addons"

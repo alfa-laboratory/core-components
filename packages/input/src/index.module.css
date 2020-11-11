@@ -101,7 +101,7 @@
     color: var(--input-focus-placeholder-color);
 }
 
-.focusVisible > div:first-child {
+.focusVisible {
     @mixin focus-outline;
 }
 
