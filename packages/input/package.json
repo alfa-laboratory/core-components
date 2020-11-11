@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-input",
-    "version": "3.0.2",
+    "version": "3.1.0",
     "description": "",
     "keywords": [],
     "license": "ISC",
@@ -18,7 +18,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-button": "^1.6.4",
-        "@alfalab/core-components-form-control": "^3.0.1",
+        "@alfalab/core-components-form-control": "^3.1.0",
         "@alfalab/hooks": "^1.0.0",
         "@alfalab/icons-glyph": "^1.26.0",
         "react-merge-refs": "^1.1.0"

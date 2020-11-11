@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-slider-input",
-    "version": "1.0.4",
+    "version": "1.1.0",
     "description": "Slider input component",
     "keywords": [],
     "license": "ISC",
@@ -18,7 +18,7 @@
         "react-dom": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^3.0.2",
+        "@alfalab/core-components-input": "^3.1.0",
         "@alfalab/core-components-slider": "^1.0.3",
         "react-merge-refs": "^1.1.0"
     }
