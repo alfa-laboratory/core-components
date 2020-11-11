@@ -18,6 +18,7 @@
     --form-control-disabled-bg-color: color-mod(var(--color-light-bg-primary-inverted) alpha(15%));
     --form-control-disabled-border-bottom: 1px dashed var(--color-light-border-secondary-inverted);
     --form-control-disabled-opacity: 1;
+    --form-control-disabled-color: var(--color-light-text-secondary);
 
     /* focus */
     --form-control-focus-shadow: inset 0 -1px var(--color-light-border-key);
@@ -31,7 +32,6 @@
     --form-control-error-label-color: var(--color-light-text-secondary);
     --form-control-error-shadow: inset 0 -1px var(--form-control-error-color);
     --form-control-error-border-bottom: 1px solid var(--form-control-error-color);
-    --form-control-error-icon-display: flex;
 
     /* font */
     --form-control-font-family: var(--font-family);
@@ -96,8 +96,7 @@
     white-space: nowrap;
 }
 
-.addons,
-.errorIcon {
+.addons {
     display: flex;
     flex-shrink: 0;
     align-items: center;
@@ -107,8 +106,7 @@
     padding-left: var(--gap-s);
 }
 
-.rightAddons,
-.errorIcon {
+.rightAddons {
     padding-right: var(--gap-s);
 }
 
@@ -133,24 +131,16 @@
     min-height: 48px;
 }
 
-.s.hasLabel .input > * {
+.s .hasLabel .input > * {
     padding: var(--form-control-labeled-s-paddings);
-}
-
-.s .errorIcon {
-    height: 47px;
 }
 
 .m .inner {
     min-height: 56px;
 }
 
-.m.hasLabel .input > * {
+.m .hasLabel .input > * {
     padding: var(--form-control-labeled-m-paddings);
-}
-
-.m .errorIcon {
-    height: 55px;
 }
 
 .l .inner {
@@ -165,7 +155,7 @@
     padding: var(--form-control-l-paddings);
 }
 
-.l.hasLabel .input > * {
+.l .hasLabel .input > * {
     padding: var(--form-control-labeled-l-paddings);
 }
 
@@ -173,13 +163,8 @@
     padding-left: var(--gap-m);
 }
 
-.l .rightAddons,
-.l .errorIcon {
+.l .rightAddons {
     padding-right: var(--gap-m);
-}
-
-.l .errorIcon {
-    height: 71px;
 }
 
 .l.hasLeftAddons .label {
@@ -200,19 +185,16 @@
 
 /* DISABLED STATE */
 
-.disabled .inner {
+.disabled {
     opacity: var(--form-control-disabled-opacity);
     border-bottom: var(--form-control-disabled-border-bottom);
     background-color: var(--form-control-disabled-bg-color);
-}
-
-.disabled .label {
-    color: var(--form-control-label-color);
+    color: var(--form-control-disabled-color);
 }
 
 /* FOCUS STATE */
 
-.focused:not(.disabled):not(.hasError) .inner {
+.focused:not(.disabled):not(.hasError) {
     border-bottom: var(--form-control-focus-border-bottom);
     box-shadow: var(--form-control-focus-shadow);
 }
@@ -225,7 +207,7 @@
 
 /* HOVER STATE */
 
-.component:not(.disabled) .inner:hover {
+.inner:not(.disabled):hover {
     background-color: var(--form-control-hover-bg-color);
 }
 
@@ -239,13 +221,9 @@
     color: var(--form-control-error-label-color);
 }
 
-.hasError .inner {
+.hasError {
     box-shadow: var(--form-control-error-shadow);
     border-bottom: var(--form-control-error-border-bottom);
-}
-
-.errorIcon {
-    display: var(--form-control-error-icon-display);
 }
 
 /* IE min-height fix */

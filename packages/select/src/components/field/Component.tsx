@@ -39,14 +39,19 @@ export const Field = ({
     const filled = Boolean(value);
 
     return (
-        <div ref={wrapperRef} onFocus={handleFocus} onBlur={handleBlur}>
+        <div
+            className={styles.component}
+            ref={wrapperRef}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+        >
             <FormControl
-                className={cn(styles.component, className, styles[size], {
-                    [styles.open]: open,
+                className={cn(className, styles.field, {
                     [styles.hasLabel]: label,
                     [styles.disabled]: disabled,
                     [styles.focusVisible]: focusVisible,
                 })}
+                block={true}
                 size={size}
                 focused={open || focused}
                 disabled={disabled}
@@ -58,7 +63,7 @@ export const Field = ({
                     (Arrow || rightAddons) && (
                         <React.Fragment>
                             {rightAddons}
-                            {Arrow}
+                            {Arrow ? <span className={styles.arrow}>{Arrow}</span> : null}
                         </React.Fragment>
                     )
                 }

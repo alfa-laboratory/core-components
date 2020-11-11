@@ -17,7 +17,6 @@
         "react-dom": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/icons-classic": "^1.7.0",
         "classnames": "^2.2.6"
     }
 }

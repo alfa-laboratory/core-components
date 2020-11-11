@@ -27,6 +27,11 @@ export type InputAutocompleteProps = Omit<BaseSelectProps, 'Field' | 'nativeSele
     value?: string;
 
     /**
+     * Отображение иконки успеха
+     */
+    success?: boolean;
+
+    /**
      * Обработчик ввода
      */
     onInput?: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -42,6 +47,7 @@ export const InputAutocomplete = forwardRef<HTMLInputElement, InputAutocompleteP
             inputProps = {},
             onInput,
             value,
+            success,
             closeOnSelect = false,
             options,
             ...restProps
@@ -60,6 +66,7 @@ export const InputAutocomplete = forwardRef<HTMLInputElement, InputAutocompleteP
                 onInput,
                 value,
                 inputProps,
+                success,
             }}
             Optgroup={Optgroup}
             OptionsList={OptionsList}

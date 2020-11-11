@@ -205,6 +205,7 @@ export type BaseSelectProps = {
     onFocus?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
 };
 
+// TODO: использовать InputProps
 export type FieldProps = {
     /**
      * Размер компонента
@@ -250,6 +251,11 @@ export type FieldProps = {
      * Отображение ошибки
      */
     error?: string | boolean;
+
+    /**
+     * Отображение иконки успеха
+     */
+    success?: boolean;
 
     /**
      * Подсказка под полем

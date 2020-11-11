@@ -174,7 +174,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                     size={size}
                     label={label}
                     disabled={disabled}
-                    className={cn(inputClassName, styles.input)}
+                    className={inputClassName}
                     focusedClassName={styles.focused}
                     bottomAddons={
                         <Slider

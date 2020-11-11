@@ -6,9 +6,20 @@
     --input-placeholder-color: var(--color-light-text-secondary);
     --input-focus-placeholder-color: var(--color-light-text-tertiary);
     --input-with-label-placeholder-color: var(--color-light-text-tertiary);
+    --input-error-icon-display: flex;
+    --input-success-icon-display: flex;
+    --input-error-icon: url('http://alfabank.st/icons/icon_error_s_color.svg');
+    --input-success-icon: url('http://alfabank.st/icons/icon_ok_s_color.svg');
 
     /* disabled */
     --input-disabled-color: var(--color-light-text-secondary);
+}
+
+@define-mixin _input-icon {
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
 }
 
 .input {
@@ -44,12 +55,10 @@
 }
 
 .clearIcon {
+    @mixin _input-icon;
+
     display: block;
-    width: 24px;
-    height: 24px;
     background-image: var(--input-clear-icon);
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
     opacity: 0.3;
     transition: opacity 0.2s ease;
 
@@ -60,6 +69,20 @@
     &:active {
         opacity: 1;
     }
+}
+
+.errorIcon {
+    @mixin _input-icon;
+
+    display: var(--input-error-icon-display);
+    background-image: url('http://alfabank.st/icons/icon_error_s_color.svg');
+}
+
+.successIcon {
+    @mixin _input-icon;
+
+    display: var(--input-success-icon-display);
+    background-image: url('http://alfabank.st/icons/icon_ok_s_color.svg');
 }
 
 /* DISABLED STATE */
@@ -78,7 +101,7 @@
     color: var(--input-focus-placeholder-color);
 }
 
-.focusVisible > div:first-child {
+.focusVisible {
     @mixin focus-outline;
 }
 
