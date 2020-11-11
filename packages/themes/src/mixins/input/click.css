@@ -1,0 +1,6 @@
+@import '../../../../vars/src/index.css';
+
+@define-mixin input-click {
+    --input-error-icon-display: none;
+    --input-success-icon-display: none;
+}

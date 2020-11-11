@@ -7,7 +7,7 @@ import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tag } from '@alfalab/core-components-tag';
 import { Input } from '@alfalab/core-components-input';
 import { MaskedInput } from '@alfalab/core-components-masked-input';
-import { Arrow, Option } from '@alfalab/core-components-select';
+import { Option } from '@alfalab/core-components-select';
 
 import { InputAutocomplete } from './Component';
 
@@ -60,10 +60,10 @@ export const matchOption = (option, inputValue) =>
                 size={select('size', ['s', 'm', 'l'], 's')}
                 disabled={boolean('disabled', false)}
                 error={text('error', '')}
+                success={boolean('success', false)}
                 hint={text('hint', '')}
                 allowUnselect={boolean('allowUnselect', true)}
                 closeOnSelect={boolean('closeOnSelect', false)}
-                Arrow={boolean('Arrow', false) ? Arrow : undefined}
                 circularNavigation={boolean('circularNavigation', false)}
                 placeholder={text('placeholder', 'Введите элемент')}
                 label={text('label', 'Элемент')}
@@ -326,11 +326,3 @@ import { InputAutocomplete } from '@alfalab/core-components-input-autocomplete';
         );
     })}
 </Preview>
-
-### Автокомплит со стрелкой
-
-```tsx
-import { Arrow } from '@alfalab/core-components/select';
-
-<InputAutocomplete Arrow={Arrow} />
-```

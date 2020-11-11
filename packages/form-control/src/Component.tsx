@@ -1,6 +1,5 @@
 import React, { ReactNode, HTMLAttributes } from 'react';
 import cn from 'classnames';
-import ErrorIcon from '@alfalab/icons-classic/ErrorMColorIcon';
 
 import styles from './index.module.css';
 
@@ -150,12 +149,6 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                     {rightAddons && (
                         <div className={cn(styles.addons, styles.rightAddons, addonsClassName)}>
                             {rightAddons}
-                        </div>
-                    )}
-
-                    {error && (
-                        <div className={styles.errorIcon}>
-                            <ErrorIcon />
                         </div>
                     )}
                 </div>

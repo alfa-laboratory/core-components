@@ -9,11 +9,11 @@ export type AutocompleteFieldProps = FieldProps &
 export const AutocompleteField = ({
     label,
     placeholder,
-    Arrow,
     size,
     Input = DefaultInput,
     value,
     error,
+    success,
     hint,
     disabled,
     onInput,
@@ -51,15 +51,8 @@ export const AutocompleteField = ({
             placeholder={placeholder}
             size={size}
             error={error}
+            success={success}
             hint={hint}
-            rightAddons={
-                (Arrow || inputProps.rightAddons) && (
-                    <React.Fragment>
-                        {inputProps.rightAddons}
-                        {Arrow}
-                    </React.Fragment>
-                )
-            }
             onChange={onInput}
             onMouseDown={handleMouseDown}
             onClick={handleClick}
