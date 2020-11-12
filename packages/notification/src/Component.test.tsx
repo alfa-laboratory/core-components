@@ -147,7 +147,7 @@ describe('Notification', () => {
 
         it('should call `onClickOutside` prop', async () => {
             const cb = jest.fn();
-            const dataTestId = 'test-id';
+            const dataTestId = 'btn-test-id';
             const { getByTestId } = render(
                 <div>
                     <Button dataTestId={dataTestId}>btn</Button>
