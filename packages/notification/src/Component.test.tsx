@@ -4,6 +4,8 @@ import { Button } from '@alfalab/core-components-button';
 
 import { Notification } from './index';
 
+jest.useFakeTimers();
+
 describe('Notification', () => {
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
@@ -112,9 +114,9 @@ describe('Notification', () => {
             fireEvent.mouseEnter(el);
             fireEvent.mouseLeave(el);
 
-            setTimeout(() => {
-                expect(cb).toBeCalledTimes(1);
-            }, 100);
+            jest.advanceTimersByTime(100);
+
+            expect(cb).toBeCalledTimes(1);
         });
 
         it('should call `onMouseEnter` prop', async () => {
