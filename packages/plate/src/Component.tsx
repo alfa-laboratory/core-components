@@ -63,7 +63,7 @@ export type PlateProps = {
     dataTestId?: string;
 };
 
-export const Plate = forwardRef<HTMLInputElement, PlateProps>(
+export const Plate = forwardRef<HTMLDivElement, PlateProps>(
     (
         {
             hasCloser,

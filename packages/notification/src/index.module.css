@@ -1,0 +1,110 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --notification-width: 350px;
+    --notification-bg-color: var(--color-light-bg-primary-inverted);
+}
+
+.component {
+    visibility: hidden;
+    position: fixed;
+    right: var(--gap-s);
+    transform: translate(0, -500px);
+    display: inline-flex;
+    box-sizing: border-box;
+    border-radius: 8px;
+    color: var(--color-light-text-primary-inverted);
+    width: calc(100% - var(--gap-xl));
+    max-width: calc(100vw - var(--gap-xl));
+    min-height: 56px;
+    padding: var(--gap-m);
+    background-color: var(--notification-bg-color);
+    box-shadow: var(--shadow-s);
+    user-select: none;
+    z-index: 9999;
+    transition: transform 0.2s ease-out;
+
+    @media screen and (min-width: 600px) {
+        right: var(--gap-4xl);
+        width: var(--notification-width);
+        transform: translate(var(--notification-width), 0);
+    }
+
+    &.isVisible {
+        visibility: visible;
+        transform: translate(0, 0);
+    }
+
+    &.hasCloser {
+        padding-right: var(--gap-4xl);
+    }
+}
+
+.component * {
+    box-sizing: border-box;
+}
+
+.leftAddons {
+    display: flex;
+    flex-shrink: 0;
+    min-width: 24px;
+    margin-right: var(--gap-m);
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+
+    &.positive {
+        background: var(--color-light-graphic-positive);
+    }
+
+    &.warning {
+        background: var(--color-light-graphic-attention);
+    }
+
+    &.negative {
+        background: var(--color-light-graphic-accent);
+    }
+}
+
+.icon svg {
+    height: 18px;
+}
+
+.title {
+    @mixin accent_primary_medium;
+}
+
+.content {
+    @mixin paragraph_primary_small;
+}
+
+.title + .content {
+    margin-top: var(--gap-2xs);
+}
+
+.closer {
+    position: absolute;
+    top: var(--gap-s);
+    right: var(--gap-s);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+    line-height: 1;
+    color: var(--color-dark-graphic-primary);
+    opacity: 0.6;
+    transition: opacity 0.2s ease-out;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--color-dark-graphic-primary);
+        opacity: 1;
+    }
+}

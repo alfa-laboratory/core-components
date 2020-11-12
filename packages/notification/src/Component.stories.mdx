@@ -1,0 +1,66 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { select, text, boolean, number } from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Button } from "@alfalab/core-components-button/src";
+import { Notification } from './Component';
+import { name, version } from '../package.json';
+
+
+<Meta
+    title='Компоненты'
+    component={Notification}
+/>
+
+<!-- Canvas -->
+
+<Story name='Notification'>
+    <Notification
+        icon={select('icon', ['negative', 'positive', 'warning', undefined], 'positive')}
+        title={text('title', 'Поздравляем, полный успех')}
+        visible={boolean('visible', true)}
+        hasCloser={boolean('hasCloser', true)}
+        offset={number('offset', 48)}
+    >
+        {text('children', 'Вам одобрено. Согласитесь на предложение')}
+    </Notification>
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Notification'
+    version={version}
+    package='@alfalab/core-components-notification'
+    stage={2}
+/>
+
+```tsx
+import { Notification } from '@alfalab/core-components-notification';
+```
+
+Компонент нотификации.
+
+<Preview>
+    {React.createElement(() => {
+        const [isVisible, setIsVisible] = React.useState(false);
+        const toggleVisiblity = React.useCallback(() => setIsVisible(prev => !prev), []);
+        const hideNotification = React.useCallback(() => setIsVisible(false), []);
+        return (
+            <div>
+                <Notification
+                    icon='positive'
+                    title='Компонент нотификации'
+                    visible={isVisible}
+                    onClickOutside={hideNotification}
+                    onClose={hideNotification}
+                    onCloseTimeout={hideNotification}
+                >
+                    Самая обыкновенная нотификации
+                </Notification>
+                <Button onClick={toggleVisiblity}>Тогглер</Button>
+            </div>)
+    })}
+</Preview>
+
+<Props of={Notification} />
+
