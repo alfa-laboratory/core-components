@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { useMedia } from './useMedia';
+import { useMatchMedia } from './useMatchMedia';
 import { getMatchMedia } from './utils';
 
 jest.mock('./utils');
@@ -13,7 +13,7 @@ function mockGetMatchMedia(matches: boolean) {
     });
 }
 
-describe('useMedia', () => {
+describe('useMatchMedia', () => {
     beforeEach(() => {
         jest.clearAllMocks();
         jest.spyOn(React, 'useEffect');
@@ -23,7 +23,7 @@ describe('useMedia', () => {
         mockGetMatchMedia(false);
 
         const Example = () => {
-            const [matches] = useMedia('--small-only');
+            const [matches] = useMatchMedia('--small-only');
             return <div>{JSON.stringify(matches)}</div>;
         };
 
@@ -43,7 +43,7 @@ describe('useMedia', () => {
         mockGetMatchMedia(false);
 
         const Example = ({ query }: { query: string }) => {
-            const [matches] = useMedia(query);
+            const [matches] = useMatchMedia(query);
             return <div>{JSON.stringify(matches)}</div>;
         };
 

@@ -1,2 +1,2 @@
 export * from './Component';
-export * from './useMedia';
+export * from './useMatchMedia';

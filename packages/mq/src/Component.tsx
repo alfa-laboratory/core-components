@@ -1,5 +1,5 @@
 import React, { FC, Fragment, useEffect } from 'react';
-import { useMedia } from './useMedia';
+import { useMatchMedia } from './useMatchMedia';
 import { isPointerEventsSupported, isTouchSupported } from './utils';
 
 const IS_BROWSER = typeof window !== 'undefined';
@@ -23,7 +23,7 @@ export type MqProps = {
 };
 
 export const Mq: FC<MqProps> = ({ children, query = '', touch, onMatchChange }) => {
-    const [queryMatches] = useMedia(query);
+    const [queryMatches] = useMatchMedia(query);
 
     const touchPass = touch === undefined ? true : touch === SUPPORTS_TOUCH;
 
