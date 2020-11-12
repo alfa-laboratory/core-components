@@ -31,6 +31,7 @@ import { name, version } from '../package.json';
         label={text('label', '')}
         hint={text('hint', '')}
         error={text('error', '')}
+        success={boolean('success', false)}
         rightAddons={boolean('rightAddons', false) && !text('error') && <Icon />}
         leftAddons={boolean('leftAddons', false) && <Icon />}
         bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}

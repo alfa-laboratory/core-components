@@ -1,12 +1,12 @@
 /* eslint-disable multiline-comment-style */
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { TabsDesktop } from './desktop';
 import { Tab } from './components/tab';
 
-const renderTabs = (props = { selectedId: 'tab-1' }) => {
+const renderTabs = async (props = { selectedId: 'tab-1' }) => {
     const renderResult = render(
         <TabsDesktop {...props}>
             <Tab title='Таб 1' id='tab-1'>
@@ -28,7 +28,9 @@ const renderTabs = (props = { selectedId: 'tab-1' }) => {
     );
 
     if (renderResult.container.firstElementChild) {
-        userEvent.tab();
+        await act(async () => {
+            userEvent.tab();
+        });
     }
 
     return renderResult;
@@ -36,18 +38,20 @@ const renderTabs = (props = { selectedId: 'tab-1' }) => {
 
 describe('useTabs', () => {
     describe('when Tab pressed', () => {
-        it('should focus active tab element when focus moves into the tab list', () => {
+        it('should focus active tab element when focus moves into the tab list', async () => {
             const selectedId = 'tab-2';
-            const { getByRole } = renderTabs({ selectedId });
+            const { getByRole } = await renderTabs({ selectedId });
             const selected = getByRole('tab', { selected: true });
 
             expect(document.activeElement).toBe(selected);
         });
 
-        it('should focus active tabpanel when the tab list contains the focus', () => {
-            const { getByRole } = renderTabs();
+        it('should focus active tabpanel when the tab list contains the focus', async () => {
+            const { getByRole } = await renderTabs();
 
-            userEvent.tab();
+            await act(async () => {
+                userEvent.tab();
+            });
 
             const tabpanel = getByRole('tabpanel');
 
@@ -56,9 +60,9 @@ describe('useTabs', () => {
     });
 
     describe('when Left Arrow pressed', () => {
-        it('should focus prev tab', () => {
+        it('should focus prev tab', async () => {
             const selectedId = 'tab-3';
-            renderTabs({ selectedId });
+            await renderTabs({ selectedId });
 
             if (document.activeElement) {
                 fireEvent.keyDown(document.activeElement, { key: 'ArrowLeft', keyCode: 37 });
@@ -67,9 +71,9 @@ describe('useTabs', () => {
             expect(document.activeElement).toHaveTextContent('Таб 2');
         });
 
-        it('should focus last tab when first tab focused', () => {
+        it('should focus last tab when first tab focused', async () => {
             const selectedId = 'tab-1';
-            renderTabs({ selectedId });
+            await renderTabs({ selectedId });
 
             if (document.activeElement) {
                 fireEvent.keyDown(document.activeElement, { key: 'ArrowLeft', keyCode: 37 });
@@ -80,9 +84,9 @@ describe('useTabs', () => {
     });
 
     describe('when Right Arrow pressed', () => {
-        it('should focus next tab', () => {
+        it('should focus next tab', async () => {
             const selectedId = 'tab-1';
-            renderTabs({ selectedId });
+            await renderTabs({ selectedId });
 
             if (document.activeElement) {
                 fireEvent.keyDown(document.activeElement, { key: 'ArrowRight', keyCode: 39 });
@@ -91,9 +95,9 @@ describe('useTabs', () => {
             expect(document.activeElement).toHaveTextContent('Таб 2');
         });
 
-        it('should focus first tab when last tab focused', () => {
+        it('should focus first tab when last tab focused', async () => {
             const selectedId = 'tab-5';
-            renderTabs({ selectedId });
+            await renderTabs({ selectedId });
 
             if (document.activeElement) {
                 fireEvent.keyDown(document.activeElement, { key: 'ArrowRight', keyCode: 39 });
@@ -104,9 +108,9 @@ describe('useTabs', () => {
     });
 
     describe('when Home pressed', () => {
-        it('should focus first tab', () => {
+        it('should focus first tab', async () => {
             const selectedId = 'tab-3';
-            renderTabs({ selectedId });
+            await renderTabs({ selectedId });
 
             if (document.activeElement) {
                 fireEvent.keyDown(document.activeElement, { key: 'Home', keyCode: 36 });
@@ -117,9 +121,9 @@ describe('useTabs', () => {
     });
 
     describe('when End pressed', () => {
-        it('should focus last tab', () => {
+        it('should focus last tab', async () => {
             const selectedId = 'tab-3';
-            renderTabs({ selectedId });
+            await renderTabs({ selectedId });
 
             if (document.activeElement) {
                 fireEvent.keyDown(document.activeElement, { key: 'End', keyCode: 35 });

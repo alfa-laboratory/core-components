@@ -3,10 +3,10 @@
 exports[`withSuffix Snapshots tests should match snapshot 1`] = `
 <div>
   <div
-    class="component s filled formControl suffixVisible hasSuffix"
+    class="component s"
   >
     <div
-      class="inner"
+      class="formControl suffixVisible hasSuffix inner filled"
     >
       <div
         class="inputWrapper"

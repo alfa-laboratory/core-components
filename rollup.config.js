@@ -2,7 +2,7 @@ import { ScriptTarget } from 'typescript';
 import path from 'path';
 import multiInput from 'rollup-plugin-multi-input';
 import postcss, { addCssImports } from '@alfalab/rollup-plugin-postcss';
-import typescript from 'rollup-plugin-ts';
+import typescript from '@wessberg/rollup-plugin-ts';
 import stringHash from 'string-hash';
 import copy from 'rollup-plugin-copy';
 import json from '@rollup/plugin-json';
@@ -13,6 +13,7 @@ import {
 } from './tools/rollup/core-components-resolver';
 import ignoreCss from './tools/rollup/ignore-css';
 import processCss from './tools/rollup/process-css';
+import coreComponentsTypingsResolver from './tools/rollup/core-components-typings-resolver';
 import createPackageJson from './tools/rollup/create-package-json';
 
 const currentPackageDir = process.cwd();
@@ -71,6 +72,10 @@ const es5 = {
         }),
         json(),
         postcssPlugin,
+        copy({
+            flatten: false,
+            targets: [{ src: 'src/**/*.{png,svg,jpg,jpeg}', dest: `dist` }],
+        }),
     ],
 };
 
@@ -98,6 +103,10 @@ const modern = {
         }),
         json(),
         postcssPlugin,
+        copy({
+            flatten: false,
+            targets: [{ src: 'src/**/*.{png,svg,jpg,jpeg}', dest: `dist/modern` }],
+        }),
     ],
 };
 
@@ -122,8 +131,14 @@ const cssm = {
         }),
         json(),
         processCss(),
+        copy({
+            flatten: false,
+            targets: [{ src: 'src/**/*.{png,svg,jpg,jpeg}', dest: `dist/cssm` }],
+        }),
     ],
 };
+
+const rootDir = `../../dist/${currentComponentName}`;
 
 const root = {
     input: ['dist/**/*.js'],
@@ -135,7 +150,7 @@ const root = {
         copy({
             flatten: false,
             targets: [
-                { src: ['dist/**/*', '!**/*.js'], dest: `../../dist/${currentComponentName}` },
+                { src: ['dist/**/*', '!**/*.js'], dest: rootDir },
                 {
                     src: 'package.json',
                     dest: `../../dist/${currentComponentName}`,
@@ -152,7 +167,8 @@ const root = {
     ],
     output: [
         {
-            dir: `../../dist/${currentComponentName}`,
+            dir: rootDir,
+            plugins: [coreComponentsTypingsResolver({ rootDir })],
         },
     ],
 };

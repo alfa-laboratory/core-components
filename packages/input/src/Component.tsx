@@ -51,6 +51,11 @@ export type InputProps = Omit<
     error?: string | boolean;
 
     /**
+     * Отображение иконки успеха
+     */
+    success?: boolean;
+
+    /**
      * Текст подсказки
      */
     hint?: string;
@@ -158,6 +163,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             clear = false,
             disabled,
             error,
+            success,
             hint,
             inputClassName,
             labelClassName,
@@ -249,24 +255,31 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             [clearButtonVisible, focused, onClear, uncontrolled],
         );
 
-        const renderRightAddons = () =>
-            (clearButtonVisible || rightAddons) && (
-                <Fragment>
-                    {clearButtonVisible && (
-                        <Button
-                            type='button'
-                            view='ghost'
-                            disabled={disabled}
-                            aria-label='Очистить'
-                            className={styles.clearButton}
-                            onClick={handleClear}
-                        >
-                            <span className={cn(styles.clearIcon)} />
-                        </Button>
-                    )}
-                    {rightAddons}
-                </Fragment>
+        const renderRightAddons = () => {
+            const addonsVisible = clearButtonVisible || rightAddons || error || success;
+
+            return (
+                addonsVisible && (
+                    <Fragment>
+                        {clearButtonVisible && (
+                            <Button
+                                type='button'
+                                view='ghost'
+                                disabled={disabled}
+                                aria-label='Очистить'
+                                className={styles.clearButton}
+                                onClick={handleClear}
+                            >
+                                <span className={cn(styles.clearIcon)} />
+                            </Button>
+                        )}
+                        {error && <span className={styles.errorIcon} />}
+                        {success && !error && <span className={styles.successIcon} />}
+                        {rightAddons}
+                    </Fragment>
+                )
             );
+        };
 
         return (
             <FormControl
@@ -277,7 +290,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     focused && focusedClassName,
                     filled && filledClassName,
                     {
-                        [styles.disabled]: disabled,
                         [styles.focusVisible]: focusVisible,
                     },
                 )}
@@ -314,7 +326,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     ref={mergeRefs([ref, inputRef])}
                     type={type}
                     value={uncontrolled ? stateValue : value}
-                    defaultValue={defaultValue}
                     readOnly={readOnly}
                     data-test-id={dataTestId}
                 />

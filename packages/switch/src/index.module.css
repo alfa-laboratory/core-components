@@ -1,16 +1,16 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --switch-label-color: var(--color-dark-indigo);
-    --switch-hint-color: var(--color-dark-indigo-60-flat);
-    --switch-bg-color: var(--color-dark-indigo-30-flat);
-    --switch-border-color: var(--color-dark-indigo-30-flat);
-    --switch-checked-color: var(--color-red-brand-85-flat);
-    --switch-checked-border-color: var(--color-red-brand-85-flat);
-    --switch-disabled-color: var(--color-dark-indigo-15-flat);
-    --switch-disabled-border-color: var(--color-dark-indigo-15-flat);
-    --switch-disabled-checked-color: var(--color-red-brand-30-flat);
-    --switch-disabled-checked-border-color: var(--color-red-brand-30-flat);
+    --switch-label-color: var(--color-light-text-primary);
+    --switch-hint-color: var(--color-light-text-secondary);
+    --switch-bg-color: var(--color-light-graphic-tertiary);
+    --switch-border-color: var(--color-light-graphic-tertiary);
+    --switch-checked-bg-color: var(--color-light-graphic-negative);
+    --switch-checked-border-color: var(--color-light-graphic-negative);
+    --switch-disabled-bg-color: var(--color-light-graphic-neutral);
+    --switch-disabled-border-color: var(--color-light-graphic-neutral);
+    --switch-disabled-checked-bg-color: var(--color-red-brand-30-flat); /* TODO */
+    --switch-disabled-checked-border-color: var(--color-red-brand-30-flat); /* TODO */
 }
 
 .component {
@@ -21,9 +21,6 @@
     border: 0;
     cursor: pointer;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
-    /* TODO default outline and themeable focus styles */
-    outline: none;
 }
 
 .component input {
@@ -52,8 +49,8 @@
     height: 20px;
     border-radius: 50%;
     background-color: #fff;
-    border: 0.5px solid var(--color-dark-indigo-05);
-    box-shadow: 0 2px 4px var(--color-dark-indigo-30);
+    border: 0.5px solid color-mod(var(--color-light-border-key) alpha(5%));
+    box-shadow: 0 2px 4px color-mod(var(--color-light-border-key) alpha(30%));
     box-sizing: border-box;
     transition: transform 0.2s ease;
 }
@@ -93,7 +90,7 @@
 /* Checked state */
 
 .checked .switch {
-    background-color: var(--switch-checked-color);
+    background-color: var(--switch-checked-bg-color);
     border-color: var(--switch-checked-border-color);
 }
 
@@ -109,7 +106,7 @@
 }
 
 .disabled .switch {
-    background-color: var(--switch-disabled-color);
+    background-color: var(--switch-disabled-bg-color);
     border-color: var(--switch-disabled-border-color);
 }
 
@@ -118,7 +115,7 @@
 }
 
 .disabled.checked .switch {
-    background-color: var(--switch-disabled-checked-color);
+    background-color: var(--switch-disabled-checked-bg-color);
     border-color: var(--switch-disabled-checked-border-color);
 }
 

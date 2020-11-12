@@ -2,9 +2,8 @@
     --select-popover-border-radius: 0 0 4px 4px;
     --select-popover-box-shadow: var(--shadow-m);
     --select-popover-offset: 0;
-    --select-error-color: var(--color-red-brand-85-flat);
+    --select-error-color: var(--color-light-text-negative);
     --select-arrow-background: url('http://alfabank.st/icons/icon_arrow-down_m_black.svg');
-    --select-arrow-hover-opacity: 0.7;
 
     /* options list */
 
@@ -22,11 +21,11 @@
     --select-option-right-padding: var(--gap-s);
     --select-option-l-left-padding: var(--gap-m);
     --select-option-l-right-padding: var(--gap-m);
-    --select-option-background: var(--color-white);
-    --select-option-selected-background: var(--color-white);
+    --select-option-background: var(--color-light-bg-primary);
+    --select-option-selected-background: var(--color-light-bg-primary);
     --select-option-hover-background: var(--color-light-bg-secondary);
     --select-option-active-background: var(--color-light-bg-tertiary);
-    --select-option-disabled-background: var(--color-white);
+    --select-option-disabled-background: var(--color-light-bg-primary);
     --select-option-color: var(--color-light-text-primary);
     --select-option-selected-color: var(--color-light-text-primary);
     --select-option-hover-color: var(--color-light-text-primary);
@@ -39,13 +38,13 @@
     --select-checkmark-size: 4px;
     --select-checkmark-order: 0;
     --select-checkmark-unselected-opacity: 0;
-    --select-checkmark-background: rgba(11, 31, 53, 0.95);
+    --select-checkmark-background: var(--color-light-graphic-primary);
     --select-checkmark-border-radius: 50%;
 
     /* optgroup */
 
     --select-optgroup-color: var(--color-light-text-tertiary);
-    --select-optgroup-background: var(--color-white);
+    --select-optgroup-background: var(--color-light-bg-primary);
     --select-optgroup-left-padding: var(--gap-m);
     --select-optgroup-right-padding: var(--gap-m);
     --select-optgroup-l-left-padding: var(--gap-l);

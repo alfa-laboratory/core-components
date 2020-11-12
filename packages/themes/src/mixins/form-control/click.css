@@ -19,6 +19,7 @@
     --form-control-labeled-l-paddings: 34px var(--gap-m) 14px;
 
     /* disabled */
+    --form-control-disabled-opacity: 0.5;
     --form-control-disabled-border-bottom: 0;
     --form-control-disabled-bg-color: var(--color-light-bg-tertiary);
 
@@ -31,5 +32,4 @@
     --form-control-error-label-color: var(--form-control-error-color);
     --form-control-error-shadow: inset 0 0 0 1px var(--form-control-error-color);
     --form-control-error-border-bottom: 0;
-    --form-control-error-icon-display: none;
 }

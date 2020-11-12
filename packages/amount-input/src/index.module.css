@@ -1,7 +1,7 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --amount-input-minor-part-and-currency-color: var(--color-dark-indigo-60-flat);
+    --amount-input-minor-part-and-currency-color: var(--color-light-text-secondary);
 }
 
 /*

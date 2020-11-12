@@ -4,9 +4,15 @@
 .component {
     width: 100%;
     outline: none;
+}
 
-    & > div:first-child {
-        cursor: pointer;
+.field:not(.disabled) {
+    cursor: pointer;
+
+    &:hover {
+        & .arrow {
+            opacity: 0.7;
+        }
     }
 }
 
@@ -22,7 +28,6 @@
 .contentWrapper {
     @mixin system_16-20_regular;
 
-    color: var(--color-light-text-primary);
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -35,10 +40,10 @@
     text-align: left;
 }
 
-.disabled > div:first-child {
-    cursor: default;
+.focusVisible {
+    @mixin focus-outline;
 }
 
-.focusVisible > div:first-child {
-    @mixin focus-outline;
+.arrow {
+    transition: opacity 0.2s ease;
 }

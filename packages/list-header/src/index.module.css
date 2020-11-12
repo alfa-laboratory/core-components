@@ -1,0 +1,18 @@
+@import '../../vars/src';
+
+:root {
+    --list-header-description-opacity: 0.6;
+}
+
+.component {
+    margin: var(--gap-xl) var(--gap-s-neg) var(--gap-m);
+    padding: var(--gap-xs) var(--gap-s);
+}
+
+.description {
+    opacity: var(--list-header-description-opacity);
+}
+
+.filled {
+    background-color: var(--color-light-specialbg-component);
+}
