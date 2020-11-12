@@ -93,7 +93,9 @@ export const VirtualOptionsList = ({
                     <div
                         key={virtualRow.index}
                         ref={virtualRow.measureRef}
-                        className={styles.virtualRow}
+                        className={cn(styles.virtualRow, {
+                            [styles.highlighted]: highlightedIndex === virtualRow.index,
+                        })}
                         style={{
                             transform: `translateY(${virtualRow.start}px)`,
                         }}
