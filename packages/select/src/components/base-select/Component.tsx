@@ -6,6 +6,7 @@ import React, {
     forwardRef,
     KeyboardEvent,
     FocusEvent,
+    useEffect,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
@@ -30,6 +31,7 @@ export const BaseSelect = forwardRef(
             closeOnSelect = !multiple,
             circularNavigation = false,
             nativeSelect = false,
+            defaultOpen = false,
             name,
             id,
             selected,
@@ -233,6 +235,10 @@ export const BaseSelect = forwardRef(
             ),
             [getItemProps, highlightedIndex, selectedItems, size],
         );
+
+        useEffect(() => {
+            if (defaultOpen) openMenu();
+        }, [defaultOpen, openMenu]);
 
         const renderValue = useCallback(
             () =>

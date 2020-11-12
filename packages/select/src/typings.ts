@@ -75,6 +75,11 @@ export type BaseSelectProps = {
     disabled?: boolean;
 
     /**
+     * Начальное состояние селекта
+     */
+    defaultOpen?: boolean;
+
+    /**
      * Возможность выбрать несколько значений
      */
     multiple?: boolean;
