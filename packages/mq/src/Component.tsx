@@ -7,7 +7,7 @@ const SUPPORTS_TOUCH = IS_BROWSER && (isPointerEventsSupported() || isTouchSuppo
 
 export type MqProps = {
     /**
-     * Media выражение или кастомный запрос из `mq.json`, например `--small`.
+     * Media выражение или кастомный запрос из `mq.json`, например `--mobile`.
      */
     query?: string;
 

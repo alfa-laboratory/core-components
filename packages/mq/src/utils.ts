@@ -13,7 +13,7 @@ const refCounters: Counters = {};
 /**
  * Возвращает MediaQueryList для заданного media-выражения.
  *
- * @param queryProp media выражение или кастомный запрос из `mq.json`, например `--small`.
+ * @param queryProp media выражение или кастомный запрос из `mq.json`, например `--mobile`.
  */
 export function getMatchMedia(queryProp: string): MediaQueryList {
     const query = MqList[queryProp as AvailableMediaQueries] || queryProp;
@@ -31,7 +31,7 @@ export function getMatchMedia(queryProp: string): MediaQueryList {
 /**
  * Удаляет MediaQueryList.
  *
- * @param queryProp media выражение или кастомный запрос из `mq.json`, например `--small`.
+ * @param queryProp media выражение или кастомный запрос из `mq.json`, например `--mobile`.
  */
 export function releaseMatchMedia(queryProp: string): void {
     const query = MqList[queryProp as AvailableMediaQueries] || queryProp;

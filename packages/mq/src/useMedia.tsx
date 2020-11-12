@@ -3,7 +3,7 @@ import { getMatchMedia, releaseMatchMedia } from './utils';
 
 /**
  * Хук для медиа запросов.
- * @param query media выражение или кастомный запрос из `mq.json`, например `--small`.
+ * @param query media выражение или кастомный запрос из `mq.json`, например `--mobile`.
  */
 export const useMedia = (query: string) => {
     const [matches, setMatches] = useState(false);
