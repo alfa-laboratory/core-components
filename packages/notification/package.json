@@ -13,12 +13,12 @@
         "access": "public"
     },
     "peerDependencies": {
-        "classnames": "^2.2.6",
         "react": "^16.9.0"
     },
     "dependencies": {
         "@alfalab/core-components-button": "^1.6.4",
         "react-merge-refs": "^1.1.0",
-        "react-swipeable": "^6.0.0"
+        "react-swipeable": "^6.0.0",
+        "classnames": "^2.2.6"
     }
 }
