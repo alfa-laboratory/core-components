@@ -14,10 +14,10 @@
     },
     "dependencies": {
         "@alfalab/data": "^0.2.0",
-        "@alfalab/utils": "^0.4.1"
+        "@alfalab/utils": "^0.4.1",
+        "classnames": "^2.2.6"
     },
     "peerDependencies": {
-        "classnames": "^2.2.6",
         "react": "^16.9.0"
     }
 }

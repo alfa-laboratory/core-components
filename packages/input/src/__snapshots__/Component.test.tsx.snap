@@ -6,10 +6,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component s filled formControl"
+        class="component s"
       >
         <div
-          class="inner"
+          class="formControl inner filled"
         >
           <div
             class="inputWrapper"
@@ -31,10 +31,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component s filled formControl"
+      class="component s"
     >
       <div
-        class="inner"
+        class="formControl inner filled"
       >
         <div
           class="inputWrapper"

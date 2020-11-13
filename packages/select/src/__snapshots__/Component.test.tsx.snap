@@ -12,14 +12,16 @@ Object {
         class="component"
         role="combobox"
       >
-        <div>
+        <div
+          class="component"
+        >
           <div
-            class="component s hasRightAddons component s"
+            class="component s block hasRightAddons"
           >
             <div
               aria-controls="downshift-1-menu"
               aria-labelledby="downshift-1-label"
-              class="inner"
+              class="field inner"
               id="downshift-0-input"
               tabindex="0"
             >
@@ -39,7 +41,11 @@ Object {
               >
                 <span
                   class="arrow"
-                />
+                >
+                  <span
+                    class="arrow"
+                  />
+                </span>
               </div>
             </div>
             
@@ -62,14 +68,16 @@ Object {
       class="component"
       role="combobox"
     >
-      <div>
+      <div
+        class="component"
+      >
         <div
-          class="component s hasRightAddons component s"
+          class="component s block hasRightAddons"
         >
           <div
             aria-controls="downshift-1-menu"
             aria-labelledby="downshift-1-label"
-            class="inner"
+            class="field inner"
             id="downshift-0-input"
             tabindex="0"
           >
@@ -89,7 +97,11 @@ Object {
             >
               <span
                 class="arrow"
-              />
+              >
+                <span
+                  class="arrow"
+                />
+              </span>
             </div>
           </div>
           

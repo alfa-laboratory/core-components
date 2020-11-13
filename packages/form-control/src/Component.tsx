@@ -1,6 +1,5 @@
 import React, { ReactNode, HTMLAttributes } from 'react';
 import cn from 'classnames';
-import ErrorIcon from '@alfalab/icons-classic/ErrorMColorIcon';
 
 import styles from './index.module.css';
 
@@ -114,23 +113,23 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
         return (
             <div
                 data-test-id={dataTestId}
-                className={cn(
-                    styles.component,
-                    styles[size],
-                    {
+                className={cn(styles.component, styles[size], {
+                    [styles.block]: block,
+                    [styles.hasLeftAddons]: leftAddons,
+                    [styles.hasRightAddons]: rightAddons || error,
+                })}
+            >
+                <div
+                    {...restProps}
+                    className={cn(className, styles.inner, {
                         [styles.focused]: focused,
                         [styles.disabled]: disabled,
                         [styles.filled]: filled,
                         [styles.hasError]: error,
                         [styles.hasLabel]: label,
-                        [styles.block]: block,
-                        [styles.hasLeftAddons]: leftAddons,
-                        [styles.hasRightAddons]: rightAddons || error,
-                    },
-                    className,
-                )}
-            >
-                <div {...restProps} className={styles.inner} ref={ref}>
+                    })}
+                    ref={ref}
+                >
                     {leftAddons && (
                         <div className={cn(styles.addons, styles.leftAddons, addonsClassName)}>
                             {leftAddons}
@@ -150,12 +149,6 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                     {rightAddons && (
                         <div className={cn(styles.addons, styles.rightAddons, addonsClassName)}>
                             {rightAddons}
-                        </div>
-                    )}
-
-                    {error && (
-                        <div className={styles.errorIcon}>
-                            <ErrorIcon />
                         </div>
                     )}
                 </div>

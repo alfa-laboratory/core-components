@@ -13,10 +13,10 @@
         "access": "public"
     },
     "dependencies": {
-        "@alfalab/core-components-typography": "^1.2.1"
+        "@alfalab/core-components-typography": "^1.2.1",
+        "classnames": "^2.2.6"
     },
     "peerDependencies": {
-        "classnames": "^2.2.6",
         "react": "^16.9.0"
     }
 }
