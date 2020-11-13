@@ -6,6 +6,7 @@ import {
     FocusEvent,
     KeyboardEvent,
     MouseEvent,
+    ReactElement,
 } from 'react';
 
 export type OptionShape = {
@@ -270,7 +271,7 @@ export type FieldProps = {
     /**
      * Компонент стрелки
      */
-    Arrow?: ReactNode;
+    Arrow?: ReactElement | false | null;
 
     /**
      * Кастомный рендер выбранного пункта
@@ -292,6 +293,11 @@ export type FieldProps = {
 };
 
 export type ArrowProps = {
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
+
     /**
      * Флаг, открыто ли меню
      */
