@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "4.1.0",
+    "version": "4.2.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -79,6 +79,7 @@
         "@babel/preset-typescript": "^7.9.0",
         "@commitlint/config-conventional": "^8.3.4",
         "@commitlint/config-lerna-scopes": "^8.3.4",
+        "@rollup/plugin-json": "^4.1.0",
         "@storybook/addon-actions": "^5.3.8",
         "@storybook/addon-docs": "^5.3.17",
         "@storybook/addon-knobs": "^5.3.8",
