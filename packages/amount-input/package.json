@@ -13,13 +13,13 @@
         "access": "public"
     },
     "peerDependencies": {
-        "classnames": "^2.2.6",
         "react": "^16.9.0"
     },
     "dependencies": {
         "@alfalab/core-components-input": "^3.1.0",
         "@alfalab/core-components-with-suffix": "^1.0.5",
         "@alfalab/data": "^0.2.0",
-        "@alfalab/utils": "^0.4.1"
+        "@alfalab/utils": "^0.4.1",
+        "classnames": "^2.2.6"
     }
 }
