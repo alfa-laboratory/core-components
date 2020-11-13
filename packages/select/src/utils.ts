@@ -1,5 +1,5 @@
 import { useRef, useEffect, ReactNode, isValidElement, cloneElement } from 'react';
-import { OptionShape, GroupShape } from './typings';
+import { OptionShape, GroupShape, BaseSelectProps } from './typings';
 
 export const isGroup = (item: OptionShape | GroupShape): item is GroupShape =>
     Object.prototype.hasOwnProperty.call(item, 'options');
@@ -26,6 +26,38 @@ export const joinOptions = ({
         return acc;
     }, []);
 };
+
+// За один проход делает список пунктов меню плоским и находит выбранные пункты по ключу
+export function processOptions(
+    options: BaseSelectProps['options'],
+    selectedKeys: BaseSelectProps['selected'] = [],
+) {
+    const flatOptions: OptionShape[] = [];
+    const selectedOptions: OptionShape[] = [];
+
+    const selected = (option: OptionShape) =>
+        Array.isArray(selectedKeys)
+            ? selectedKeys.includes(option.key)
+            : selectedKeys === option.key;
+
+    const process = (option: OptionShape) => {
+        flatOptions.push(option);
+
+        if (selected(option)) {
+            selectedOptions.push(option);
+        }
+    };
+
+    options.forEach(option => {
+        if (isGroup(option)) {
+            option.options.forEach(process);
+        } else {
+            process(option);
+        }
+    });
+
+    return { flatOptions, selectedOptions };
+}
 
 // TODO: перенести
 export function usePrevious<T>(value: T) {

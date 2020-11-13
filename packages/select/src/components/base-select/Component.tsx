@@ -14,9 +14,9 @@ import { Popover } from '@alfalab/core-components-popover';
 import { useMultipleSelection, useCombobox, UseMultipleSelectionProps } from 'downshift';
 import { NativeSelect } from '../native-select';
 import { BaseSelectProps, OptionShape } from '../../typings';
+import { processOptions } from '../../utils';
 
 import styles from './index.module.css';
-import { isGroup } from '../../utils';
 
 export const BaseSelect = forwardRef(
     (
@@ -62,15 +62,10 @@ export const BaseSelect = forwardRef(
 
         const itemToString = (option: OptionShape) => (option ? option.key : '');
 
-        const flatOptions = useMemo(
-            () =>
-                options.reduce(
-                    (acc: OptionShape[], option) =>
-                        acc.concat(isGroup(option) ? option.options : option),
-                    [],
-                ),
-            [options],
-        );
+        const { flatOptions, selectedOptions } = useMemo(() => processOptions(options, selected), [
+            options,
+            selected,
+        ]);
 
         const useMultipleSelectionProps: UseMultipleSelectionProps<OptionShape> = {
             itemToString,
@@ -88,9 +83,7 @@ export const BaseSelect = forwardRef(
         };
 
         if (selected !== undefined) {
-            useMultipleSelectionProps.selectedItems = flatOptions.filter(option =>
-                Array.isArray(selected) ? selected.includes(option.key) : selected === option.key,
-            );
+            useMultipleSelectionProps.selectedItems = selectedOptions;
         }
 
         const {
