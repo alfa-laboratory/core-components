@@ -311,17 +311,19 @@ export const BaseSelect = forwardRef(
                             getPortalContainer={getPortalContainer}
                             popperClassName={styles.popover}
                         >
-                            <div className={styles.optionsList}>
-                                <OptionsList
-                                    flatOptions={flatOptions}
-                                    highlightedIndex={highlightedIndex}
-                                    open={open}
-                                    size={size}
-                                    options={options}
-                                    Optgroup={Optgroup}
-                                    Option={WrappedOption}
-                                />
-                            </div>
+                            {flatOptions.length > 0 && (
+                                <div className={styles.optionsList}>
+                                    <OptionsList
+                                        flatOptions={flatOptions}
+                                        highlightedIndex={highlightedIndex}
+                                        open={open}
+                                        size={size}
+                                        options={options}
+                                        Optgroup={Optgroup}
+                                        Option={WrappedOption}
+                                    />
+                                </div>
+                            )}
                         </Popover>
                     </div>
                 )}
