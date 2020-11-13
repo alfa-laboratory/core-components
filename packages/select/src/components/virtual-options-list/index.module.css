@@ -9,6 +9,11 @@
     position: relative;
 }
 
+.inner {
+    position: relative;
+    width: 100%;
+}
+
 .s {
     height: var(--select-options-list-s-height);
 }

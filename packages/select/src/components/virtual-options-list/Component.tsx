@@ -85,26 +85,35 @@ export const VirtualOptionsList = ({
 
     return (
         <div className={cn(styles.virtualOptionsList, styles[size])} ref={parentRef}>
-            {rowVirtualizer.virtualItems.map(virtualRow => {
-                const option = flatOptions[virtualRow.index];
-                const group = options[groupStartIndexes[virtualRow.index]] as GroupShape;
+            <div
+                className={styles.inner}
+                style={{
+                    height: `${rowVirtualizer.totalSize}px`,
+                }}
+            >
+                {rowVirtualizer.virtualItems.map(virtualRow => {
+                    const option = flatOptions[virtualRow.index];
+                    const group = options[groupStartIndexes[virtualRow.index]] as GroupShape;
 
-                return (
-                    <div
-                        key={virtualRow.index}
-                        ref={virtualRow.measureRef}
-                        className={cn(styles.virtualRow, {
-                            [styles.highlighted]: highlightedIndex === virtualRow.index,
-                        })}
-                        style={{
-                            transform: `translateY(${virtualRow.start}px)`,
-                        }}
-                    >
-                        {group && <Optgroup label={group.label} />}
-                        {!isGroup(option) && <Option option={option} index={virtualRow.index} />}
-                    </div>
-                );
-            })}
+                    return (
+                        <div
+                            key={virtualRow.index}
+                            ref={virtualRow.measureRef}
+                            className={cn(styles.virtualRow, {
+                                [styles.highlighted]: highlightedIndex === virtualRow.index,
+                            })}
+                            style={{
+                                transform: `translateY(${virtualRow.start}px)`,
+                            }}
+                        >
+                            {group && <Optgroup label={group.label} />}
+                            {!isGroup(option) && (
+                                <Option option={option} index={virtualRow.index} />
+                            )}
+                        </div>
+                    );
+                })}
+            </div>
         </div>
     );
 };
