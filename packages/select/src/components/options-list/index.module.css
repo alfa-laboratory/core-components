@@ -5,11 +5,6 @@
     overflow: auto;
     width: 100%;
     outline: none;
-    padding-top: var(--select-options-list-top-padding);
-    padding-bottom: var(--select-options-list-bottom-padding);
-    box-shadow: var(--select-popover-box-shadow);
-    border-radius: var(--select-popover-border-radius);
-    background: var(--select-option-background);
     box-sizing: border-box;
 }
 

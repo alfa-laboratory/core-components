@@ -346,6 +346,27 @@ import { Select } from '@alfalab/core-components-select';
     </div>
 </Preview>
 
+
+## Селект с заголовком меню
+
+<Preview>
+    {React.createElement(() => {
+        const renderList = (props) => (
+            <div>
+                <b>Header</b>
+                <OptionsList {...props} />
+            </div>
+        );
+        return (
+            <Select
+                label='With header'
+                options={options}
+                OptionsList={renderList}
+            />
+        );
+    })}
+</Preview>
+
 ## Группы
 
 Группированный селект
