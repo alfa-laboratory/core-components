@@ -5,13 +5,13 @@
     overflow: auto;
     width: 100%;
     outline: none;
-    padding-top: var(--select-options-list-top-padding);
-    padding-bottom: var(--select-options-list-bottom-padding);
-    box-shadow: var(--select-popover-box-shadow);
-    border-radius: var(--select-popover-border-radius);
-    background: var(--select-option-background);
     box-sizing: border-box;
     position: relative;
+}
+
+.inner {
+    position: relative;
+    width: 100%;
 }
 
 .s {
@@ -31,4 +31,27 @@
     top: 0;
     left: 0;
     width: 100%;
+
+    &:before {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        left: var(--select-option-left-padding);
+        right: var(--select-option-right-padding);
+        top: 0;
+        height: 1px;
+        background: var(--select-option-divider-background);
+        display: var(--select-option-divider-display);
+    }
+
+    &:first-child:before {
+        display: none;
+    }
+}
+
+.highlighted {
+    &:before,
+    & + .virtualRow:before {
+        display: none;
+    }
 }

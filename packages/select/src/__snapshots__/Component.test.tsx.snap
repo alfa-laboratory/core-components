@@ -40,12 +40,8 @@ Object {
                 class="addons rightAddons"
               >
                 <span
-                  class="arrow"
-                >
-                  <span
-                    class="arrow"
-                  />
-                </span>
+                  class="arrow arrow"
+                />
               </div>
             </div>
             
@@ -96,12 +92,8 @@ Object {
               class="addons rightAddons"
             >
               <span
-                class="arrow"
-              >
-                <span
-                  class="arrow"
-                />
-              </span>
+                class="arrow arrow"
+              />
             </div>
           </div>
           

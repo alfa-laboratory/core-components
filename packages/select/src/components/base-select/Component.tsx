@@ -6,16 +6,22 @@ import React, {
     forwardRef,
     KeyboardEvent,
     FocusEvent,
+    useEffect,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import { Popover } from '@alfalab/core-components-popover';
-import { useMultipleSelection, useCombobox, UseMultipleSelectionProps } from 'downshift';
+import {
+    useMultipleSelection,
+    useCombobox,
+    UseMultipleSelectionProps,
+    UseMultipleSelectionState,
+} from 'downshift';
 import { NativeSelect } from '../native-select';
 import { BaseSelectProps, OptionShape } from '../../typings';
+import { processOptions } from '../../utils';
 
 import styles from './index.module.css';
-import { isGroup } from '../../utils';
 
 export const BaseSelect = forwardRef(
     (
@@ -30,6 +36,7 @@ export const BaseSelect = forwardRef(
             closeOnSelect = !multiple,
             circularNavigation = false,
             nativeSelect = false,
+            defaultOpen = false,
             name,
             id,
             selected,
@@ -60,15 +67,10 @@ export const BaseSelect = forwardRef(
 
         const itemToString = (option: OptionShape) => (option ? option.key : '');
 
-        const flatOptions = useMemo(
-            () =>
-                options.reduce(
-                    (acc: OptionShape[], option) =>
-                        acc.concat(isGroup(option) ? option.options : option),
-                    [],
-                ),
-            [options],
-        );
+        const { flatOptions, selectedOptions } = useMemo(() => processOptions(options, selected), [
+            options,
+            selected,
+        ]);
 
         const useMultipleSelectionProps: UseMultipleSelectionProps<OptionShape> = {
             itemToString,
@@ -83,12 +85,22 @@ export const BaseSelect = forwardRef(
                     });
                 }
             },
+            stateReducer: (state, actionAndChanges) => {
+                const { type, changes } = actionAndChanges;
+
+                if (
+                    !allowUnselect &&
+                    type === useMultipleSelection.stateChangeTypes.DropdownKeyDownBackspace
+                ) {
+                    return state;
+                }
+
+                return changes as UseMultipleSelectionState<OptionShape>;
+            },
         };
 
         if (selected !== undefined) {
-            useMultipleSelectionProps.selectedItems = flatOptions.filter(option =>
-                Array.isArray(selected) ? selected.includes(option.key) : selected === option.key,
-            );
+            useMultipleSelectionProps.selectedItems = selectedOptions;
         }
 
         const {
@@ -201,13 +213,13 @@ export const BaseSelect = forwardRef(
 
         const handleNativeSelectChange = useCallback(
             event => {
-                const selectedOptions = [...event.target.options].reduce(
-                    (acc, option, index) =>
-                        option.selected ? acc.concat(flatOptions[index]) : acc,
-                    [],
+                setSelectedItems(
+                    [...event.target.options].reduce(
+                        (acc, option, index) =>
+                            option.selected ? acc.concat(flatOptions[index]) : acc,
+                        [],
+                    ),
                 );
-
-                setSelectedItems(selectedOptions);
             },
             [flatOptions, setSelectedItems],
         );
@@ -233,6 +245,10 @@ export const BaseSelect = forwardRef(
             ),
             [getItemProps, highlightedIndex, selectedItems, size],
         );
+
+        useEffect(() => {
+            if (defaultOpen) openMenu();
+        }, [defaultOpen, openMenu]);
 
         const renderValue = useCallback(
             () =>
@@ -312,15 +328,19 @@ export const BaseSelect = forwardRef(
                             getPortalContainer={getPortalContainer}
                             popperClassName={styles.popover}
                         >
-                            <OptionsList
-                                flatOptions={flatOptions}
-                                highlightedIndex={highlightedIndex}
-                                open={open}
-                                size={size}
-                                options={options}
-                                Optgroup={Optgroup}
-                                Option={WrappedOption}
-                            />
+                            {flatOptions.length > 0 && (
+                                <div className={styles.optionsList}>
+                                    <OptionsList
+                                        flatOptions={flatOptions}
+                                        highlightedIndex={highlightedIndex}
+                                        open={open}
+                                        size={size}
+                                        options={options}
+                                        Optgroup={Optgroup}
+                                        Option={WrappedOption}
+                                    />
+                                </div>
+                            )}
                         </Popover>
                     </div>
                 )}

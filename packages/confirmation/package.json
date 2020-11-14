@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-confirmation",
-    "version": "3.0.3",
+    "version": "3.0.4",
     "description": "Sms confirmation component",
     "keywords": [],
     "license": "ISC",
@@ -13,9 +13,9 @@
         "access": "public"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^1.6.4",
-        "@alfalab/core-components-link": "^1.3.0",
-        "@alfalab/core-components-loader": "^1.0.1",
+        "@alfalab/core-components-button": "^1.6.5",
+        "@alfalab/core-components-link": "^1.4.0",
+        "@alfalab/core-components-loader": "^1.0.2",
         "@alfalab/hooks": "^1.0.0",
         "classnames": "^2.2.6"
     },

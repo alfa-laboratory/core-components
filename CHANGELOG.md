@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.3.0](https://github.com/alfa-laboratory/core-components/compare/v4.2.0...v4.3.0) (2020-11-14)
+
+
+### Features
+
+* **core-components-mq:** add component and hook ([#350](https://github.com/alfa-laboratory/core-components/issues/350)) ([6dbd11f](https://github.com/alfa-laboratory/core-components/commit/6dbd11f4e3dc369dd645638f46f49b4e0e6c13e6))
+
 ## [4.2.0](https://github.com/alfa-laboratory/core-components/compare/v4.1.0...v4.2.0) (2020-11-11)
 
 
