@@ -213,13 +213,13 @@ export const BaseSelect = forwardRef(
 
         const handleNativeSelectChange = useCallback(
             event => {
-                const selectedOptions = [...event.target.options].reduce(
-                    (acc, option, index) =>
-                        option.selected ? acc.concat(flatOptions[index]) : acc,
-                    [],
+                setSelectedItems(
+                    [...event.target.options].reduce(
+                        (acc, option, index) =>
+                            option.selected ? acc.concat(flatOptions[index]) : acc,
+                        [],
+                    ),
                 );
-
-                setSelectedItems(selectedOptions);
             },
             [flatOptions, setSelectedItems],
         );
