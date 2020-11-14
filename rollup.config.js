@@ -5,6 +5,7 @@ import postcss, { addCssImports } from '@alfalab/rollup-plugin-postcss';
 import typescript from '@wessberg/rollup-plugin-ts';
 import stringHash from 'string-hash';
 import copy from 'rollup-plugin-copy';
+import json from '@rollup/plugin-json';
 
 import {
     coreComponentsRootPackageResolver,
@@ -69,6 +70,7 @@ const es5 = {
                 tsBuildInfoFile: 'tsconfig.tsbuildinfo',
             }),
         }),
+        json(),
         postcssPlugin,
         copy({
             flatten: false,
@@ -99,6 +101,7 @@ const modern = {
                 tsBuildInfoFile: 'tsconfig.tsbuildinfo',
             }),
         }),
+        json(),
         postcssPlugin,
         copy({
             flatten: false,
@@ -126,6 +129,7 @@ const cssm = {
                 tsBuildInfoFile: 'tsconfig.tsbuildinfo',
             }),
         }),
+        json(),
         processCss(),
         copy({
             flatten: false,

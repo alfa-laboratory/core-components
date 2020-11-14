@@ -13,8 +13,10 @@
         "access": "public"
     },
     "peerDependencies": {
-        "classnames": "^2.2.6",
         "react": "^16.9.0",
         "react-dom": "^16.9.0"
+    },
+    "dependencies": {
+        "classnames": "^2.2.6"
     }
 }
