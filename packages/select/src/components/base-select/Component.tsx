@@ -11,7 +11,12 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import { Popover } from '@alfalab/core-components-popover';
-import { useMultipleSelection, useCombobox, UseMultipleSelectionProps } from 'downshift';
+import {
+    useMultipleSelection,
+    useCombobox,
+    UseMultipleSelectionProps,
+    UseMultipleSelectionState,
+} from 'downshift';
 import { NativeSelect } from '../native-select';
 import { BaseSelectProps, OptionShape } from '../../typings';
 import { processOptions } from '../../utils';
@@ -79,6 +84,18 @@ export const BaseSelect = forwardRef(
                         name,
                     });
                 }
+            },
+            stateReducer: (state, actionAndChanges) => {
+                const { type, changes } = actionAndChanges;
+
+                if (
+                    !allowUnselect &&
+                    type === useMultipleSelection.stateChangeTypes.DropdownKeyDownBackspace
+                ) {
+                    return state;
+                }
+
+                return changes as UseMultipleSelectionState<OptionShape>;
             },
         };
 
