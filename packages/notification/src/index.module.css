@@ -92,13 +92,13 @@
 
 .closer {
     position: absolute;
-    top: var(--gap-xs);
+    top: var(--gap-s);
     right: var(--gap-xs);
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 35px;
-    width: 35px;
+    height: 34px;
+    width: 34px;
     line-height: 1;
     color: var(--color-dark-graphic-primary);
     opacity: 0.6;
