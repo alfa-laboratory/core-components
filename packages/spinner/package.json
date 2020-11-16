@@ -1,0 +1,23 @@
+{
+    "name": "@alfalab/core-components-spinner",
+    "version": "1.0.0",
+    "description": "Spinner component",
+    "keywords": [],
+    "license": "ISC",
+    "main": "dist/index.js",
+    "module": "./dist/modern/index.js",
+    "files": [
+        "dist"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "peerDependencies": {
+        "react": "^16.9.0",
+        "react-dom": "^16.9.0",
+        "classnames": "^2.2.6"
+    },
+    "dependencies": {
+        "classnames": "^2.2.6"
+    }
+}

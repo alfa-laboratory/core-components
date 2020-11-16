@@ -1,0 +1,80 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { text, boolean, select } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { Button } from '../../button/src';
+import { Spinner } from './Component';
+import { name, version } from '../package.json';
+
+<Meta
+    title='Компоненты'
+    id='components/spinner'
+    component={Spinner}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='Spinner'>
+    <Spinner size={ select('size', ['s', 'm']) } visible={ boolean('visible', true) } className={ text('className') } dataTestId={ text('dataTestId') } />
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Spinner'
+    version={version}
+    package='@alfalab/core-components-spinner'
+    stage={0}
+/>
+
+```tsx
+import { Spinner } from '@alfalab/core-components-spinner';
+```
+
+Компонент спиннера.
+
+<Spinner visible={ true } size='s' />
+
+<!-- Spacer -->
+<div style={{height: 32}} />
+
+
+## Кастомизация
+Для указания размера следует задать класс с указанием одинаковых width, height.
+
+Переменные для кастомизации:
+
+* --spinner-display-visible
+* --spinner-animation-duration
+* --spinner-animation-timing-function
+
+## Примеры
+Spinner `size=s`:
+<Spinner size='s' visible={ true }/>
+<div style={{height: 32}} />
+
+Spinner `size=m`:
+<Spinner size='m' visible={ true }/>
+<div style={{height: 32}} />
+
+Spinner `size=s` in button:
+
+<Button
+    leftAddons={
+        <Spinner
+            visible={ true }
+        />
+    }
+    size={ 's' }
+>
+    Документы загружаются...
+</Button>
+
+
+
+<Props of={Spinner} />

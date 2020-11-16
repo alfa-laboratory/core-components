@@ -1,0 +1,38 @@
+:root {
+    --spinner-display-visible: inline-block;
+    --spinner-animation-duration: 0.8s;
+    --spinner-animation-timing-function: linear;
+}
+
+.spinner {
+    display: none;
+    animation: spin_animation var(--spinner-animation-duration) infinite
+        var(--spinner-animation-timing-function);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-image: url('spinner.svg');
+}
+
+.visible {
+    display: var(--spinner-display-visible);
+    vertical-align: middle;
+}
+.size-s {
+    width: 24px;
+    height: 24px;
+}
+
+.size-m {
+    width: 48px;
+    height: 48px;
+}
+
+@keyframes spin_animation {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
