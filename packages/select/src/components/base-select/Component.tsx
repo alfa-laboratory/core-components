@@ -226,24 +226,25 @@ export const BaseSelect = forwardRef(
 
         const WrappedOption = useCallback(
             ({ option, index, ...rest }: { option: OptionShape; index: number }) => (
-                <Option
-                    {...rest}
-                    {...getItemProps({
+                <React.Fragment key={option.key}>
+                    {Option({
+                        ...rest,
+                        innerProps: getItemProps({
+                            index,
+                            item: option,
+                            disabled: option.disabled,
+                            onMouseDown: (event: MouseEvent) => event.preventDefault(),
+                        }),
                         index,
-                        item: option,
+                        option,
+                        size,
                         disabled: option.disabled,
+                        highlighted: index === highlightedIndex,
+                        selected: selectedItems.includes(option),
                     })}
-                    key={option.key}
-                    index={index}
-                    option={option}
-                    size={size}
-                    disabled={option.disabled}
-                    highlighted={index === highlightedIndex}
-                    selected={selectedItems.includes(option)}
-                    onMouseDown={(event: MouseEvent) => event.preventDefault()}
-                />
+                </React.Fragment>
             ),
-            [getItemProps, highlightedIndex, selectedItems, size],
+            [Option, getItemProps, highlightedIndex, selectedItems, size],
         );
 
         useEffect(() => {
@@ -282,6 +283,8 @@ export const BaseSelect = forwardRef(
                 {...getComboboxProps({
                     className: cn(styles.component, { [styles.block]: block }, className),
                 })}
+                onKeyDown={disabled ? undefined : handleFieldKeyDown}
+                tabIndex={-1}
                 data-test-id={dataTestId}
             >
                 {nativeSelect && renderNativeSelect()}
@@ -302,7 +305,6 @@ export const BaseSelect = forwardRef(
                     innerProps={{
                         onBlur: handleFieldBlur,
                         onFocus: disabled ? undefined : handleFieldFocus,
-                        onKeyDown: disabled ? undefined : handleFieldKeyDown,
                         onClick: disabled ? undefined : handleFieldClick,
                         tabIndex: nativeSelect || disabled ? -1 : 0,
                         ref: mergeRefs([inputProps.ref]),

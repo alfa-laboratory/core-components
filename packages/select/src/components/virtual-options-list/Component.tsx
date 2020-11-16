@@ -107,9 +107,7 @@ export const VirtualOptionsList = ({
                             }}
                         >
                             {group && <Optgroup label={group.label} />}
-                            {!isGroup(option) && (
-                                <Option option={option} index={virtualRow.index} />
-                            )}
+                            {!isGroup(option) && Option({ option, index: virtualRow.index })}
                         </div>
                     );
                 })}

@@ -4,7 +4,6 @@ import {
     RefAttributes,
     AriaAttributes,
     FocusEvent,
-    KeyboardEvent,
     MouseEvent,
     ReactElement,
 } from 'react';
@@ -284,7 +283,6 @@ export type FieldProps = {
     innerProps: {
         onBlur?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
         onFocus?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
-        onKeyDown?: (event: KeyboardEvent<HTMLDivElement | HTMLInputElement>) => void;
         onClick?: (event: MouseEvent<HTMLDivElement | HTMLInputElement>) => void;
         tabIndex: number;
         id: string;
@@ -313,7 +311,7 @@ export type OptionsListProps = {
     /**
      * Компонент пункта меню
      */
-    Option: (props: { option: OptionShape; index: number }) => JSX.Element;
+    Option: (props: { option: OptionShape; index: number }) => JSX.Element | null;
 
     /**
      * Список вариантов выбора
@@ -403,6 +401,18 @@ export type OptionProps = {
      * Компонент пункта меню
      */
     Checkmark?: FC<CheckmarkProps>;
+
+    /**
+     * Внутренние свойства, которые должны быть установлены компоненту.
+     */
+    innerProps: {
+        id: string;
+        onClick: (event: MouseEvent<HTMLDivElement>) => void;
+        onMouseDown: (event: MouseEvent<HTMLDivElement>) => void;
+        onMouseMove: (event: MouseEvent<HTMLDivElement>) => void;
+        role: string;
+    } & RefAttributes<HTMLDivElement> &
+        AriaAttributes;
 };
 
 export type CheckmarkProps = {

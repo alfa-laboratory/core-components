@@ -311,9 +311,9 @@ import { Select } from '@alfalab/core-components-select';
             <Row align='middle'>
                 <Col>
                     {React.createElement(() => {
-                        const BoldOption = React.forwardRef((props, ref) => (
-                            <Option {...props} ref={ref}><b>{props.option.content}</b></Option>
-                        ));
+                        const BoldOption = (props) => (
+                            <Option {...props}><b>{props.option.content}</b></Option>
+                        );
                         return (
                             <Select
                                 options={options}

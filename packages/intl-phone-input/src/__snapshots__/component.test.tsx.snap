@@ -17,6 +17,7 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
           aria-owns="downshift-1-menu"
           class="component component"
           role="combobox"
+          tabindex="-1"
         >
           <div
             class="component m"
