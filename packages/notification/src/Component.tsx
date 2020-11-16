@@ -95,9 +95,9 @@ export type NotificationProps = HTMLAttributes<HTMLDivElement> & {
 };
 
 const iconComponent = {
-    negative: <CrossMIcon />,
-    positive: <CheckmarkMIcon />,
-    warning: <ExclamationMIcon />,
+    negative: <CrossMIcon className={cn(styles.iconSvg)} />,
+    positive: <CheckmarkMIcon className={cn(styles.iconSvg)} />,
+    warning: <ExclamationMIcon className={cn(styles.iconSvg)} />,
 };
 
 export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
@@ -136,7 +136,6 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
 
         const stopCloseTimer = useCallback(() => {
             clearTimeout(closeTimeoutRef.current as NodeJS.Timeout);
-            closeTimeoutRef.current = null;
         }, []);
 
         useEffect(() => {
@@ -185,7 +184,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
 
         const swipableHandlers = useSwipeable({
             onSwiped: ({ dir }) => {
-                if (onClose && (dir === LEFT || dir === RIGHT || dir === UP)) {
+                if (onClose && [LEFT, RIGHT, UP].includes(dir)) {
                     onClose();
                 }
             },
@@ -228,7 +227,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                         {title && <div className={cn(styles.title)}>{title}</div>}
                         {children && <div className={cn(styles.content)}>{children}</div>}
                     </div>
-                    {hasCloser && (
+                    {hasCloser && onClose && (
                         <Button className={cn(styles.closer)} view='ghost' onClick={onClose}>
                             <CloseSWhiteIcon />
                         </Button>

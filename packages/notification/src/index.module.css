@@ -1,8 +1,10 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --notification-width: 350px;
+    --notification-desktop-width: 350px;
     --notification-bg-color: var(--color-light-bg-primary-inverted);
+    --notification-color: var(--color-light-text-primary-inverted);
+    --notification-border-radius: 8px;
 }
 
 .component {
@@ -12,8 +14,8 @@
     transform: translate(0, -500px);
     display: inline-flex;
     box-sizing: border-box;
-    border-radius: 8px;
-    color: var(--color-light-text-primary-inverted);
+    border-radius: var(--notification-border-radius);
+    color: var(--notification-color);
     width: calc(100% - var(--gap-xl));
     max-width: calc(100vw - var(--gap-xl));
     min-height: 56px;
@@ -26,8 +28,8 @@
 
     @media screen and (min-width: 600px) {
         right: var(--gap-4xl);
-        width: var(--notification-width);
-        transform: translate(var(--notification-width), 0);
+        width: var(--notification-desktop-width);
+        transform: translate(var(--notification-desktop-width), 0);
     }
 
     &.isVisible {
@@ -60,19 +62,19 @@
     border-radius: 50%;
 
     &.positive {
-        background: var(--color-light-graphic-positive);
+        background-color: var(--color-light-graphic-positive);
     }
 
     &.warning {
-        background: var(--color-light-graphic-attention);
+        background-color: var(--color-light-graphic-attention);
     }
 
     &.negative {
-        background: var(--color-light-graphic-accent);
+        background-color: var(--color-light-graphic-accent);
     }
 }
 
-.icon svg {
+.iconSvg {
     height: 18px;
 }
 
