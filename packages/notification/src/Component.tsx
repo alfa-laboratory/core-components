@@ -124,10 +124,10 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         ref,
     ) => {
         const notificationRef = useRef<HTMLDivElement>(null);
-        const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+        const closeTimeoutRef = useRef(0);
 
         const startCloseTimer = useCallback(() => {
-            closeTimeoutRef.current = setTimeout(() => {
+            closeTimeoutRef.current = window.setTimeout(() => {
                 if (onCloseTimeout) {
                     onCloseTimeout();
                 }
@@ -135,7 +135,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         }, [autoCloseDelay, onCloseTimeout]);
 
         const stopCloseTimer = useCallback(() => {
-            clearTimeout(closeTimeoutRef.current as NodeJS.Timeout);
+            clearTimeout(closeTimeoutRef.current);
         }, []);
 
         useEffect(() => {
