@@ -11,7 +11,7 @@
 
     &:hover {
         & .arrow {
-            opacity: 0.7;
+            opacity: var(--select-arrow-hover-opacity);
         }
     }
 }
@@ -42,8 +42,4 @@
 
 .focusVisible {
     @mixin focus-outline;
-}
-
-.arrow {
-    transition: opacity 0.2s ease;
 }

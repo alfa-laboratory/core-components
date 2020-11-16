@@ -1,12 +1,13 @@
 :root {
-    --select-popover-border-radius: 0 0 4px 4px;
-    --select-popover-box-shadow: var(--shadow-m);
-    --select-popover-offset: 0;
     --select-error-color: var(--color-light-text-negative);
     --select-arrow-background: url('http://alfabank.st/icons/icon_arrow-down_m_black.svg');
+    --select-arrow-hover-opacity: 0.7;
 
     /* options list */
 
+    --select-options-list-border-radius: 0 0 4px 4px;
+    --select-options-list-box-shadow: var(--shadow-m);
+    --select-options-list-offset: 0;
     --select-options-list-top-padding: 0;
     --select-options-list-bottom-padding: 0;
     --select-options-list-s-height: 264px;
