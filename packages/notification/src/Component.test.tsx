@@ -8,9 +8,11 @@ jest.useFakeTimers();
 
 describe('Notification', () => {
     describe('Snapshots tests', () => {
+        const onClose = jest.fn();
+
         it('should match snapshot', () => {
             const { container } = render(
-                <Notification icon='positive' title='title'>
+                <Notification icon='positive' title='title' onClose={onClose}>
                     text
                 </Notification>,
             );
@@ -19,7 +21,9 @@ describe('Notification', () => {
         });
 
         it('should match snapshot with leftAddons', () => {
-            const { container } = render(<Notification leftAddons={<div>leftAddons</div>} />);
+            const { container } = render(
+                <Notification leftAddons={<div>leftAddons</div>} onClose={onClose} />,
+            );
 
             expect(container).toMatchSnapshot();
         });

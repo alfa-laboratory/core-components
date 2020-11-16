@@ -20,6 +20,7 @@ import { name, version } from '../package.json';
         visible={boolean('visible', true)}
         hasCloser={boolean('hasCloser', true)}
         offset={number('offset', 48)}
+        onClose={() => {}}
     >
         {text('children', 'Вам одобрено. Согласитесь на предложение')}
     </Notification>
