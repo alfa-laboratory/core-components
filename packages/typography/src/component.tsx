@@ -1,10 +1,15 @@
+import { FC } from 'react';
+
 import { Title, TitleProps } from './title';
 import { Text, TextProps } from './text';
+import { TitleResponsive } from './title-responsive';
 
 export const Typography: {
-    Title: React.FC<TitleProps>;
-    Text: React.FC<TextProps>;
+    Title: FC<TitleProps>;
+    Text: FC<TextProps>;
+    TitleResponsive: FC<TitleProps>;
 } = {
     Title,
     Text,
+    TitleResponsive,
 };

@@ -32,6 +32,26 @@ import { colors } from './colors';
     })}
 </Story>
 
+<Story name='Typography.TitleResponsive'>
+    {React.createElement(() => {
+        const VIEW_TYPES = [
+            'xlarge',
+            'large',
+            'medium',
+            'small',
+            'xsmall',
+        ];
+        const color = select('color', colors, '');
+        const weight = select('weight', ['regular', 'medium', 'bold'], 'medium');
+        const font = select('font', ['styrene', 'system'], 'styrene');
+        return VIEW_TYPES.map(view => (
+            <Typography.TitleResponsive view={view} color={color} weight={weight} font={font} key={view}>
+                заголовок view='{view}'
+            </Typography.TitleResponsive>
+        ))
+    })}
+</Story>
+
 <Story name='Typography.Text'>
     {React.createElement(() => {
         const VIEW_TYPES = [
@@ -106,6 +126,31 @@ import { Typography } from '@alfalab/core-components-typography';
             <Typography.Title view={view} color={color} weight={weight} font={font} key={view}>
                 заголовок view='{view}'
             </Typography.Title>
+        ))
+    })}
+</Preview>
+
+## Typography.TitleResponsive
+
+<Typography.TitleResponsive>Адаптивный заголовок для шрифта styrene</Typography.TitleResponsive>
+<Typography.TitleResponsive font='system'>Адаптивный заголовок для шрифта system</Typography.TitleResponsive>
+
+<Preview>
+    {React.createElement(() => {
+        const VIEW_TYPES = [
+            'xlarge',
+            'large',
+            'medium',
+            'small',
+            'xsmall',
+        ];
+        const color = select('color', colors, '');
+        const weight = select('weight', ['regular', 'medium', 'bold'], 'medium');
+        const font = select('font', ['styrene', 'system'], 'styrene');
+        return VIEW_TYPES.map(view => (
+            <Typography.TitleResponsive view={view} color={color} weight={weight} font={font} key={view}>
+                заголовок view='{view}'
+            </Typography.TitleResponsive>
         ))
     })}
 </Preview>

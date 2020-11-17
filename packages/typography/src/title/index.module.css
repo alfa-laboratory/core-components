@@ -1,10 +1,5 @@
 @import '../../../themes/src/default.css';
 
-.component {
-    margin: 0;
-    padding: 0;
-}
-
 .styrene-xlarge {
     @mixin headline_xlarge;
 }
@@ -43,16 +38,4 @@
 
 .system-xsmall {
     @mixin headline-system_xsmall;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.medium {
-    font-weight: 500;
-}
-
-.regular {
-    font-weight: normal;
 }
