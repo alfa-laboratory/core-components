@@ -9,6 +9,7 @@ export const PrimaryTabList = ({
     size,
     styles = {},
     className,
+    containerClassName,
     titles = [],
     selectedId = titles.length ? titles[0].id : undefined,
     scrollable = true,
@@ -43,6 +44,9 @@ export const PrimaryTabList = ({
                             })}
                         >
                             <span className={cn(focused && styles.focused)}>{item.title}</span>
+                            {item.rightAddons && (
+                                <span className={styles.rightAddons}>{item.rightAddons}</span>
+                            )}
                         </button>
                     )}
                 </KeyboardFocusable>
@@ -61,11 +65,14 @@ export const PrimaryTabList = ({
             })}
         >
             {scrollable ? (
-                <ScrollableContainer activeChild={focusedTab || selectedTab}>
+                <ScrollableContainer
+                    activeChild={focusedTab || selectedTab}
+                    containerClassName={containerClassName}
+                >
                     {renderContent()}
                 </ScrollableContainer>
             ) : (
-                <div className={styles.container}>{renderContent()}</div>
+                <div className={cn(styles.container, containerClassName)}>{renderContent()}</div>
             )}
         </div>
     );

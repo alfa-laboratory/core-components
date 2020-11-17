@@ -5,6 +5,7 @@
     display: inline-block;
     min-width: 240px;
     position: relative;
+    outline: 0;
 }
 
 .popover {
