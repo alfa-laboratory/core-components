@@ -4,6 +4,7 @@ import { TabsProps } from '../../typings';
 export const Tabs = ({
     TabList,
     className,
+    containerClassName,
     size,
     children,
     selectedId,
@@ -21,6 +22,7 @@ export const Tabs = ({
     return (
         <div className={className}>
             <TabList
+                containerClassName={containerClassName}
                 size={size}
                 titles={titles}
                 selectedId={selectedId}

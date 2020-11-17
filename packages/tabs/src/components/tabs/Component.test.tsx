@@ -59,6 +59,13 @@ describe('Tabs', () => {
 
             expect(container.firstElementChild).toHaveClass(className);
         });
+
+        it.each(tabVariants)('should set custom container class', (Component, view) => {
+            const containerClassName = 'custom-container-class';
+            const { container } = renderTabs(Component, { view, containerClassName });
+
+            expect(container.querySelector('.container')).toHaveClass(containerClassName);
+        });
     });
 
     describe('Attributes tests', () => {

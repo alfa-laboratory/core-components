@@ -10,6 +10,11 @@ export type TabsProps = {
     className?: string;
 
     /**
+     * Дополнительный класс контейнера
+     */
+    containerClassName?: string;
+
+    /**
      * Id активного таба
      */
     selectedId?: SelectedId;
@@ -94,7 +99,13 @@ export type TabProps = {
 
 export type TabListProps = Pick<
     TabsProps,
-    'className' | 'size' | 'selectedId' | 'scrollable' | 'onChange' | 'dataTestId'
+    | 'className'
+    | 'containerClassName'
+    | 'size'
+    | 'selectedId'
+    | 'scrollable'
+    | 'onChange'
+    | 'dataTestId'
 > & {
     /**
      * Заголовки табов

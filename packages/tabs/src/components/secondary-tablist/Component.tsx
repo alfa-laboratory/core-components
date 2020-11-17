@@ -8,6 +8,7 @@ import { useTabs } from '../../useTabs';
 export const SecondaryTabList = ({
     styles = {},
     className,
+    containerClassName,
     size,
     titles = [],
     selectedId = titles.length ? titles[0].id : undefined,
@@ -44,11 +45,14 @@ export const SecondaryTabList = ({
             })}
         >
             {scrollable ? (
-                <ScrollableContainer activeChild={focusedTab || selectedTab}>
+                <ScrollableContainer
+                    activeChild={focusedTab || selectedTab}
+                    containerClassName={containerClassName}
+                >
                     {renderContent()}
                 </ScrollableContainer>
             ) : (
-                <div className={styles.container}>{renderContent()}</div>
+                <div className={cn(styles.container, containerClassName)}>{renderContent()}</div>
             )}
         </div>
     );
