@@ -6,6 +6,7 @@ import React, {
     useRef,
     HTMLAttributes,
     useEffect,
+    useState,
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
@@ -124,51 +125,61 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         ref,
     ) => {
         const notificationRef = useRef<HTMLDivElement>(null);
+        const autoCloseTimeoutRef = useRef(0);
         const closeTimeoutRef = useRef(0);
 
-        const startCloseTimer = useCallback(() => {
-            closeTimeoutRef.current = window.setTimeout(() => {
+        const [isClosing, setIsClosing] = useState(false);
+
+        const startAutoCloseTimer = useCallback(() => {
+            autoCloseTimeoutRef.current = window.setTimeout(() => {
                 if (onCloseTimeout) {
                     onCloseTimeout();
                 }
             }, autoCloseDelay);
         }, [autoCloseDelay, onCloseTimeout]);
 
-        const stopCloseTimer = useCallback(() => {
-            clearTimeout(closeTimeoutRef.current);
+        const stopAutoCloseTimer = useCallback(() => {
+            clearTimeout(autoCloseTimeoutRef.current);
         }, []);
+
+        useEffect(
+            () => () => {
+                clearTimeout(closeTimeoutRef.current);
+            },
+            [],
+        );
 
         useEffect(() => {
             if (visible) {
-                startCloseTimer();
+                startAutoCloseTimer();
             }
 
             return () => {
-                stopCloseTimer();
+                stopAutoCloseTimer();
             };
-        }, [startCloseTimer, stopCloseTimer, visible]);
+        }, [startAutoCloseTimer, stopAutoCloseTimer, visible]);
 
         const handleMouseEnter = useCallback(
             event => {
-                stopCloseTimer();
+                stopAutoCloseTimer();
 
                 if (onMouseEnter) {
                     onMouseEnter(event);
                 }
             },
-            [onMouseEnter, stopCloseTimer],
+            [onMouseEnter, stopAutoCloseTimer],
         );
 
         const handleMouseLeave = useCallback(
             event => {
-                stopCloseTimer();
-                startCloseTimer();
+                stopAutoCloseTimer();
+                startAutoCloseTimer();
 
                 if (onMouseLeave) {
                     onMouseLeave(event);
                 }
             },
-            [onMouseLeave, startCloseTimer, stopCloseTimer],
+            [onMouseLeave, startAutoCloseTimer, stopAutoCloseTimer],
         );
 
         const handleOutsideClick = useCallback(
@@ -185,7 +196,12 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         const swipeableHandlers = useSwipeable({
             onSwiped: ({ dir }) => {
                 if (onClose && [LEFT, RIGHT, UP].includes(dir)) {
-                    onClose();
+                    setIsClosing(true);
+
+                    closeTimeoutRef.current = window.setTimeout(() => {
+                        setIsClosing(false);
+                        onClose();
+                    }, 100);
                 }
             },
             delta: 100,
@@ -200,6 +216,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                         {
                             [styles.isVisible]: visible,
                             [styles.hasCloser]: hasCloser,
+                            [styles.isClosing]: isClosing,
                         },
                         className,
                     )}

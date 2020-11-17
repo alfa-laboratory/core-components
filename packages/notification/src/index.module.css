@@ -37,6 +37,15 @@
         transform: translate(0, 0);
     }
 
+    &.isClosing {
+        transition: transform 0.1s ease-out;
+        transform: translate(100vw, 0);
+
+        @media screen and (min-width: 600px) {
+            transform: translate(calc(var(--notification-desktop-width) + var(--gap-4xl)), 0);
+        }
+    }
+
     &.hasCloser {
         padding-right: var(--gap-4xl);
     }
