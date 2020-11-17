@@ -63,7 +63,8 @@ export const Field = ({
                     (Arrow || rightAddons) && (
                         <React.Fragment>
                             {rightAddons}
-                            {Arrow ? <span className={styles.arrow}>{Arrow}</span> : null}
+                            {/* TODO: стоит переделать, но это будет мажорка */}
+                            {Arrow ? React.cloneElement(Arrow, { className: styles.arrow }) : null}
                         </React.Fragment>
                     )
                 }
