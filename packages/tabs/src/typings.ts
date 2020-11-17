@@ -95,6 +95,11 @@ export type TabProps = {
      * Контент таба
      */
     children: ReactNode;
+
+    /**
+     * Слот справа
+     */
+    rightAddons?: ReactNode;
 };
 
 export type TabListProps = Pick<
@@ -113,6 +118,7 @@ export type TabListProps = Pick<
     titles?: Array<{
         title: string;
         id: SelectedId;
+        rightAddons?: ReactNode;
     }>;
 };
 

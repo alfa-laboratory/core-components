@@ -31,6 +31,7 @@ export const SecondaryTabList = ({
                 className={styles.title}
                 checked={item.id === selectedId}
                 size={tagSize}
+                rightAddons={item.rightAddons}
             >
                 {item.title}
             </Tag>

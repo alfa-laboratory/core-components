@@ -44,6 +44,9 @@ export const PrimaryTabList = ({
                             })}
                         >
                             <span className={cn(focused && styles.focused)}>{item.title}</span>
+                            {item.rightAddons && (
+                                <span className={styles.rightAddons}>{item.rightAddons}</span>
+                            )}
                         </button>
                     )}
                 </KeyboardFocusable>

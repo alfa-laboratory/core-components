@@ -26,7 +26,7 @@ const renderTabs = (
 ) =>
     render(
         <Component selectedId='tab-2' {...props}>
-            <Tab title='Таб 1' id='tab-1'>
+            <Tab title='Таб 1' id='tab-1' rightAddons='addon'>
                 Таб 1
             </Tab>
             <Tab title='Таб 2' id='tab-2'>
