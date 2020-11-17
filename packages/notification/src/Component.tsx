@@ -182,7 +182,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
 
         useClickOutside(notificationRef, handleOutsideClick);
 
-        const swipableHandlers = useSwipeable({
+        const swipeableHandlers = useSwipeable({
             onSwiped: ({ dir }) => {
                 if (onClose && [LEFT, RIGHT, UP].includes(dir)) {
                     onClose();
@@ -193,7 +193,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         });
 
         return (
-            <div {...swipableHandlers}>
+            <div {...swipeableHandlers}>
                 <div
                     className={cn(
                         styles.component,
@@ -210,6 +210,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     ref={mergeRefs([ref, notificationRef])}
+                    role={visible ? 'alert' : undefined}
                     data-test-id={dataTestId}
                     {...restProps}
                 >
@@ -228,7 +229,12 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                         {children && <div className={cn(styles.content)}>{children}</div>}
                     </div>
                     {hasCloser && onClose && (
-                        <Button className={cn(styles.closer)} view='ghost' onClick={onClose}>
+                        <Button
+                            className={cn(styles.closer)}
+                            view='ghost'
+                            onClick={onClose}
+                            aria-label='закрыть'
+                        >
                             <CloseSWhiteIcon />
                         </Button>
                     )}

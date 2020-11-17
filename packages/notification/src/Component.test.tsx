@@ -27,6 +27,23 @@ describe('Notification', () => {
 
             expect(container).toMatchSnapshot();
         });
+
+        it('should match snapshot without icon', () => {
+            const { container } = render(
+                <Notification title='title' onClose={onClose}>
+                    text
+                </Notification>,
+            );
+
+            expect(container).toMatchSnapshot();
+        });
+    });
+
+    it('should set `data-test-id` attribute', () => {
+        const dataTestId = 'test-id';
+        const { getByTestId } = render(<Notification dataTestId={dataTestId} />);
+
+        expect(getByTestId(dataTestId).tagName).toBe('DIV');
     });
 
     it('should forward ref', () => {
@@ -35,13 +52,6 @@ describe('Notification', () => {
         const { getByTestId } = render(<Notification ref={ref} dataTestId={dataTestId} />);
 
         expect(ref.mock.calls).toEqual([[getByTestId(dataTestId)]]);
-    });
-
-    it('should set `data-test-id` attribute', () => {
-        const dataTestId = 'test-id';
-        const { getByTestId } = render(<Notification dataTestId={dataTestId} />);
-
-        expect(getByTestId(dataTestId).tagName).toBe('DIV');
     });
 
     describe('Classes tests', () => {
@@ -83,6 +93,20 @@ describe('Notification', () => {
 
             expect(container.querySelector('.icon')).toHaveClass(icon);
         });
+
+        it('should set `negative` class if `icon` prop is `negative`', () => {
+            const icon = 'negative';
+            const { container } = render(<Notification icon={icon} />);
+
+            expect(container.querySelector('.icon')).toHaveClass(icon);
+        });
+
+        it('should set `warning` class if `icon` prop is `warning`', () => {
+            const icon = 'warning';
+            const { container } = render(<Notification icon={icon} />);
+
+            expect(container.querySelector('.icon')).toHaveClass(icon);
+        });
     });
 
     describe('Callbacks tests', () => {
@@ -94,7 +118,7 @@ describe('Notification', () => {
             );
 
             const el = getByTestId(dataTestId);
-            const closeEl = el.querySelector('.closer') as Element;
+            const closeEl = el.querySelector('[aria-label="закрыть"]') as Element;
 
             fireEvent.click(closeEl);
 
