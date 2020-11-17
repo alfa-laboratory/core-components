@@ -1,5 +1,7 @@
 @import '../../../themes/src/default.css';
 
+/* TODO: поменять медиа-запросы на миксины */
+
 .styrene-xlarge {
     @mixin headline_medium;
 }
