@@ -1,9 +1,15 @@
 import React, { ReactNode, useEffect } from 'react';
+import cn from 'classnames';
 import computeScrollIntoView from 'compute-scroll-into-view';
 
 import styles from './index.module.css';
 
 export type ScrollableContainerProps = {
+    /**
+     * Дополнительный класс контейнера
+     */
+    containerClassName?: string;
+
     /**
      * Дочерние компоненты
      */
@@ -15,7 +21,11 @@ export type ScrollableContainerProps = {
     activeChild: HTMLElement | null;
 };
 
-export const ScrollableContainer = ({ children, activeChild }: ScrollableContainerProps) => {
+export const ScrollableContainer = ({
+    containerClassName,
+    children,
+    activeChild,
+}: ScrollableContainerProps) => {
     useEffect(() => {
         if (activeChild) {
             const actions = computeScrollIntoView(activeChild, {
@@ -34,7 +44,7 @@ export const ScrollableContainer = ({ children, activeChild }: ScrollableContain
 
     return (
         <div className={styles.component}>
-            <div className={styles.container}>{children}</div>
+            <div className={cn(styles.container, containerClassName)}>{children}</div>
         </div>
     );
 };

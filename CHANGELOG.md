@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.4.0](https://github.com/alfa-laboratory/core-components/compare/v4.3.1...v4.4.0) (2020-11-17)
+
+
+### Features
+
+* **core-components-tabs:** addons and container class name ([#361](https://github.com/alfa-laboratory/core-components/issues/361)) ([68f1322](https://github.com/alfa-laboratory/core-components/commit/68f1322436a5d083a3a98a4405b1d94540e0b8dc))
+* **core-components-vars:** add breakpoints ([#358](https://github.com/alfa-laboratory/core-components/issues/358)) ([9cd5699](https://github.com/alfa-laboratory/core-components/commit/9cd569915b4af8c3d92045aea23b2faa054ba241))
+
 ### [4.3.1](https://github.com/alfa-laboratory/core-components/compare/v4.3.0...v4.3.1) (2020-11-16)
 
 ## [4.3.0](https://github.com/alfa-laboratory/core-components/compare/v4.2.0...v4.3.0) (2020-11-14)
