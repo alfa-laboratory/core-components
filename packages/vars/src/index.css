@@ -3,5 +3,6 @@
 @import './colors-indigo.css';
 @import './shadows-indigo.css';
 @import './gaps.css';
+@import './breakpoints.css';
 @import './typography.css';
 @import './mixins.css';
