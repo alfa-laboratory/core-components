@@ -10,6 +10,11 @@ export type TabsProps = {
     className?: string;
 
     /**
+     * Дополнительный класс контейнера
+     */
+    containerClassName?: string;
+
+    /**
      * Id активного таба
      */
     selectedId?: SelectedId;
@@ -90,11 +95,22 @@ export type TabProps = {
      * Контент таба
      */
     children: ReactNode;
+
+    /**
+     * Слот справа
+     */
+    rightAddons?: ReactNode;
 };
 
 export type TabListProps = Pick<
     TabsProps,
-    'className' | 'size' | 'selectedId' | 'scrollable' | 'onChange' | 'dataTestId'
+    | 'className'
+    | 'containerClassName'
+    | 'size'
+    | 'selectedId'
+    | 'scrollable'
+    | 'onChange'
+    | 'dataTestId'
 > & {
     /**
      * Заголовки табов
@@ -102,6 +118,7 @@ export type TabListProps = Pick<
     titles?: Array<{
         title: string;
         id: SelectedId;
+        rightAddons?: ReactNode;
     }>;
 };
 
