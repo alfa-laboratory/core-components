@@ -8,21 +8,19 @@
     display: none;
     animation: spin_animation var(--spinner-animation-duration) infinite
         var(--spinner-animation-timing-function);
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-image: url('spinner.svg');
 }
 
 .visible {
     display: var(--spinner-display-visible);
     vertical-align: middle;
 }
-.size-s {
+
+.s {
     width: 24px;
     height: 24px;
 }
 
-.size-m {
+.m {
     width: 48px;
     height: 48px;
 }

@@ -7,7 +7,9 @@ const testId = 'spinner';
 
 describe('Snapshots tests', () => {
     it('should display correctly', () => {
-        expect(render(<Spinner />)).toMatchSnapshot();
+        const { container } = render(<Spinner />);
+
+        expect(container).toMatchSnapshot();
     });
 });
 

@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import styles from './Spinner.css';
+
+import { SpinnerIcon } from './spinnerIcon';
+import styles from './index.module.css';
 
 export type SpinnerProps = {
     /**
@@ -32,11 +34,13 @@ export type SpinnerProps = {
 export const Spinner: FC<SpinnerProps> = ({ size = 's', visible, id, className, dataTestId }) => {
     return (
         <span
-            className={cn(className, styles.spinner, styles[`size-${size}`], {
+            className={cn(className, styles.spinner, styles[size], {
                 [styles.visible]: visible,
             })}
             id={id}
             data-test-id={dataTestId}
-        />
+        >
+            <SpinnerIcon />
+        </span>
     );
 };
