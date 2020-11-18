@@ -24,9 +24,6 @@
 }
 
 .stage3 {
-    background: linear-gradient(to right, #007aff 0%, #13a463 100%);
-}
-
-.stage4 {
     background-color: #13a463;
+    /* background: linear-gradient(to right, #007aff 0%, #13a463 100%); */
 }
