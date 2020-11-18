@@ -299,6 +299,12 @@
     width: 100%;
 }
 
+/* Nowrap */
+
+.nowrap {
+    white-space: nowrap;
+}
+
 /* IE min-height fix */
 
 .component:after {
