@@ -1,0 +1,38 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { select, number } from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { Calendar } from './';
+
+import { name, version } from '../package.json';
+
+
+<Meta
+    title='Компоненты'
+    component={Calendar}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='Calendar'>
+    <Calendar value={new Date().setDate(11)} selectedFrom={new Date().setMonth(9)} />
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Calendar'
+    version={version}
+    package='@alfalab/core-components-calendar'
+    stage={1}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=3423%3A6'
+/>
+
+```tsx
+import { Calendar } from '@alfalab/core-components-calendar';
+```
+
+<Props of={Calendar} />

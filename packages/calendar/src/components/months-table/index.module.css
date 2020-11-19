@@ -1,0 +1,4 @@
+.monthsTable {
+    display: flex;
+    flex-wrap: wrap;
+}

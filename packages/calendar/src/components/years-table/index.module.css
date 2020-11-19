@@ -1,0 +1,4 @@
+.yearsTable {
+    display: flex;
+    flex-wrap: wrap;
+}
