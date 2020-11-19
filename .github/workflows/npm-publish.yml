@@ -1,0 +1,38 @@
+name: Create new library packages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    env:
+      CI: true
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build app
+        run: yarn && yarn build
+
+      - name: Set NPM Token Action
+        uses: filipstefansson/set-npm-token-action@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish root package
+        run: |
+          yarn semantic-release
+          sh ${{ github.workspace }}/bin/publish-root-package.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERMISSION_GITHUB_TOKEN }}
+
+      - name: Publish separate packages
+        run: |
+          yarn semantic-release-lerna
+          yarn lerna publish from-package --yes
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERMISSION_GITHUB_TOKEN }}
