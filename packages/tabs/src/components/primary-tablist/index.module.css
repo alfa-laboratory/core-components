@@ -108,3 +108,7 @@
         margin-left: var(--primary-tablist-l-gaps);
     }
 }
+
+.rightAddons {
+    margin-left: var(--gap-xs);
+}

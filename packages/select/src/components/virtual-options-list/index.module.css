@@ -15,15 +15,15 @@
 }
 
 .s {
-    height: var(--select-options-list-s-height);
+    max-height: var(--select-options-list-s-height);
 }
 
 .m {
-    height: var(--select-options-list-m-height);
+    max-height: var(--select-options-list-m-height);
 }
 
 .l {
-    height: var(--select-options-list-l-height);
+    max-height: var(--select-options-list-l-height);
 }
 
 .virtualRow {
