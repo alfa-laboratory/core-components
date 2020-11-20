@@ -294,14 +294,14 @@ Object {
 }
 `;
 
-exports[`Button Snapshots tests should render loader if loading pass 1`] = `
+exports[`Button Snapshots tests should render loader if loading & href pass 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <button
+      <a
         class="component secondary m iconOnly loading"
-        disabled=""
+        href="https://some-url"
       >
         <svg
           class="component loader"
@@ -325,13 +325,13 @@ Object {
             r="2"
           />
         </svg>
-      </button>
+      </a>
     </div>
   </body>,
   "container": <div>
-    <button
+    <a
       class="component secondary m iconOnly loading"
-      disabled=""
+      href="https://some-url"
     >
       <svg
         class="component loader"
@@ -355,7 +355,7 @@ Object {
           r="2"
         />
       </svg>
-    </button>
+    </a>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -411,13 +411,13 @@ Object {
 }
 `;
 
-exports[`Button Snapshots tests should render loader if loading pass and view=link 1`] = `
+exports[`Button Snapshots tests should render loader if loading pass 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <button
-        class="component link m iconOnly loading"
+        class="component secondary m iconOnly loading"
         disabled=""
       >
         <svg
@@ -447,7 +447,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component link m iconOnly loading"
+      class="component secondary m iconOnly loading"
       disabled=""
     >
       <svg

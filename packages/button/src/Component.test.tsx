@@ -29,8 +29,8 @@ describe('Button', () => {
             expect(render(<Button loading={true} />)).toMatchSnapshot();
         });
 
-        it('should render loader if loading pass and view=link', () => {
-            expect(render(<Button loading={true} view='link' />)).toMatchSnapshot();
+        it('should render loader if loading & href pass', () => {
+            expect(render(<Button loading={true} href='https://some-url' />)).toMatchSnapshot();
         });
     });
 
