@@ -88,7 +88,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                     [styles.focused]: focused,
                     [styles.block]: block,
                     [styles.iconOnly]: !children,
-                    [styles.loading]: loading && !href,
+                    [styles.loading]: loading,
                 },
                 className,
             ),
@@ -99,7 +99,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
             <React.Fragment>
                 {leftAddons && <span className={cn(styles.addons)}>{leftAddons}</span>}
                 {children && <span className={cn(styles.text)}>{children}</span>}
-                {loading && !href && <Loader className={cn(styles.loader)} />}
+                {loading && <Loader className={cn(styles.loader)} />}
                 {rightAddons && <span className={cn(styles.addons)}>{rightAddons}</span>}
             </React.Fragment>
         );

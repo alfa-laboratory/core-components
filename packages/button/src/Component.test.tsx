@@ -28,6 +28,10 @@ describe('Button', () => {
         it('should render loader if loading pass', () => {
             expect(render(<Button loading={true} />)).toMatchSnapshot();
         });
+
+        it('should render loader if loading pass and view=link', () => {
+            expect(render(<Button loading={true} view='link' />)).toMatchSnapshot();
+        });
     });
 
     describe('Attributes tests', () => {
