@@ -8434,8 +8434,8 @@ date-fns@^1.27.2:
 
 date-fns@^2.16.1:
   version "2.16.1"
-  resolved "http://binary:80/artifactory/api/npm/npm/date-fns/-/date-fns-2.16.1.tgz#05775792c3f3331da812af253e1a935851d3834b"
-  integrity sha1-BXdXksPzMx2oEq8lPhqTWFHTg0s=
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.16.1.tgz#05775792c3f3331da812af253e1a935851d3834b"
+  integrity sha512-sAJVKx/FqrLYHAQeN7VpJrPhagZc9R4ImZIWYRFZaaohR3KzmuK88touwsSwSVT8Qcbd4zoDsnGfX4GFB4imyQ==
 
 dateformat@^3.0.0:
   version "3.0.3"
