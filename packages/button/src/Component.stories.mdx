@@ -25,15 +25,12 @@ export const SIZES = ['xs', 's', 'm', 'l'];
     <Button
         view={select('view', VIEWS, 'primary')}
         size={select('size', SIZES, 'm')}
-        type={select('type', ['button', 'reset', 'submit'])}
         href={text('href', '')}
+        loading={boolean('loading')}
         disabled={boolean('disabled', false)}
         block={boolean('block', false)}
-        className={text('className', '')}
-        dataTestId={text('dataTestId', '')}
-        onClick={action('click')}
-        loading={boolean('loading')}
         nowrap={boolean('nowrap', false)}
+        onClick={action('click')}
     >
         {text('label', 'Оплатить')}
     </Button>
@@ -54,9 +51,35 @@ export const SIZES = ['xs', 's', 'm', 'l'];
 import { Button } from '@alfalab/core-components-button';
 ```
 
-Кнопка используется как триггер для выполнения определённого действия.
+Кнопка используется как триггер для выполнения определённого действия. Кнопка однозначно сообщает пользователю, что произойдёт после нажатия на неё.
 
-<Button view='primary' href='https://alfabank.ru/get-money/credit-cards/100-days/'>Заказать карту</Button>
+☝️ В зависимости от используемой темы кнопка `secondary` может соответствовать `filled` (по умолчанию) или `outlined`.
+
+<Preview>
+    <Container>
+        <Row align='middle'>
+            <Col>
+                <Button view='primary'>Primary</Button>
+            </Col>
+            <Col>
+                <Button view='secondary'>Secondary</Button>
+            </Col>
+            <Col>
+                <Button view='outlined'>Outlined</Button>
+            </Col>
+            <Col>
+                <Button view='filled'>Filled</Button>
+            </Col>
+            <Col>
+                <Button view='link'>Link</Button>
+            </Col>
+            <Col>
+                <Button view='ghost'>Ghost</Button>
+            </Col>
+        </Row>
+    </Container>
+</Preview>
+
 
 
 <Props of={Button} />
@@ -64,9 +87,9 @@ import { Button } from '@alfalab/core-components-button';
 
 ## Виды кнопок
 
-### В библиотеке доступно несколько типов кнопок:
+В библиотеке доступно несколько видов кнопок (view).
 
-- `view="primary"`: обозначает ключевое действие. Желательно, чтобы на экране была только одна главная кнопка.
+- <b>Primary</b>. Обозначает ключевое действие. На экране может быть только одна главная кнопка.
 
 <Preview>
     <Container>
@@ -74,7 +97,7 @@ import { Button } from '@alfalab/core-components-button';
             {SIZES.map(size => (
                 <Col key={size}>
                     <Button size={size} view="primary">
-                        Оплатить
+                        Кнопка
                     </Button>
                 </Col>
             ))}
@@ -82,7 +105,7 @@ import { Button } from '@alfalab/core-components-button';
     </Container>
 </Preview>
 
-- `view="secondary"`: второстепенная кнопка. Предназначена для менее важных действий.
+- <b>Secondary</b>. Второстепенная кнопка. Может использоваться для любых действий.
 
 <Preview>
     <Container>
@@ -90,7 +113,7 @@ import { Button } from '@alfalab/core-components-button';
             {SIZES.map(size => (
                 <Col key={size}>
                     <Button size={size} view="secondary">
-                        Закрыть
+                        Кнопка
                     </Button>
                 </Col>
             ))}
@@ -98,7 +121,7 @@ import { Button } from '@alfalab/core-components-button';
     </Container>
 </Preview>
 
-- `view="outlined"`: обычная кнопка. Может использоваться для любых действий.
+- <b>Outlined</b>. Дополнительная кнопка.
 
 <Preview>
     <Container>
@@ -106,7 +129,7 @@ import { Button } from '@alfalab/core-components-button';
             {SIZES.map(size => (
                 <Col key={size}>
                     <Button size={size} view="outlined">
-                        Показать
+                        Кнопка
                     </Button>
                 </Col>
             ))}
@@ -114,7 +137,23 @@ import { Button } from '@alfalab/core-components-button';
     </Container>
 </Preview>
 
-- `view="link"`: прозрачная кнопка-ссылка. Для получения ссылки, нужно установить пропс `href`
+- <b>Filled</b>. Дополнительная кнопка.
+
+<Preview>
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <Button size={size} view="filled">
+                        Кнопка
+                    </Button>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+</Preview>
+
+- <b>Link</b>. Прозрачная кнопка-ссылка. Для получения ссылки, нужно установить пропс `href`.
 
 <Preview>
     <Container>
@@ -122,7 +161,7 @@ import { Button } from '@alfalab/core-components-button';
             {SIZES.map(size => (
                 <Col key={size}>
                     <Button size={size} view="link">
-                        Открыть
+                        Кнопка
                     </Button>
                 </Col>
             ))}
@@ -130,8 +169,7 @@ import { Button } from '@alfalab/core-components-button';
     </Container>
 </Preview>
 
-
-- `view="ghost"`: прозрачная кнопка без отступов.
+- <b>Ghost</b>. Прозрачная кнопка без отступов.
 
 <Preview>
     <Container>
@@ -148,46 +186,49 @@ import { Button } from '@alfalab/core-components-button';
 </Preview>
 
 ## Ссылка
-Любую кнопку можно превратить в ссылку, передав компоненту пропс `href`.
+
+Любую кнопку можно превратить в ссылку, передав компоненту пропс `href`.
+
 <Preview>
     <Container>
         <Row align="middle">
-            {VIEWS.map(view => (
-                <Col key={view}>
-                    <Button view={view} href="https://github.com" target="_blank" >
-                        Открыть
-                    </Button>
-                </Col>
-            ))}
+            <Col>
+                <Button href="https://alfabank.ru" target="_blank" >
+                    Ссылка
+                </Button>
+            </Col>
+            <Col>
+                <Button view="outlined" href="https://alfabank.ru" target="_blank" >
+                    Ссылка
+                </Button>
+            </Col>
         </Row>
     </Container>
 </Preview>
 
 ## Ширина кнопки
 
-С помощью пропса `block` можно заставить кнопку занимать всю ширину родителя
+С помощью свойства `block` можно заставить кнопку занимать всю ширину контейнера.
+
 <Preview>
-    <Button view="primary" block={true} size="s" >
-        Открыть
+    <Button block={true} size="s" >
+        Кнопка
     </Button>
 </Preview>
 
 ## Слоты для кастомизации
-С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать кнопку - например, отобразить иконку.
 
-Переданный контент будет отрисован слева или справа от текста кнопки. Если текста нет - будет отрисована квадратная кнопка.
+С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать кнопку. Например, добавить иконку.
 
+Переданный контент будет отрисован слева или справа от текста кнопки. Если текста нет — будет отрисована квадратная кнопка.
 
 <Preview>
     <Container>
         <Row align="middle">
             <Col>
-                <Button rightAddons={<Icon/>} view="primary">
-                    Like
+                <Button leftAddons={<Icon/>} rightAddons={<Icon/>}>
+                    Кнопка
                 </Button>
-            </Col>
-            <Col>
-                <Button leftAddons={<Icon/>} />
             </Col>
             <Col>
                 <Button rightAddons={<Icon/>} view="outlined"/>
@@ -197,7 +238,8 @@ import { Button } from '@alfalab/core-components-button';
 </Preview>
 
 ## Состояние загрузки
-С помощью свойства `loading` можно отрисовать состояние загрузки.
+
+С помощью свойства `loading` можно отобразить состояние загрузки.
 
 <Preview>
     {React.createElement(() => {
@@ -218,27 +260,12 @@ import { Button } from '@alfalab/core-components-button';
             <Container>
                 <Row align="middle">
                     <Col>
-                        <Button view="primary" loading={loading.primary} onClick={() => handleClick('primary')} rightAddons={<Icon/>} leftAddons={<Icon/>}>
+                        <Button view="primary" loading={loading.primary} onClick={() => handleClick('primary')}>
                             Отправить запрос
                         </Button>
                     </Col>
                     <Col>
                         <Button view="secondary" loading={loading.secondary} onClick={() => handleClick('secondary')}>
-                            Отправить запрос
-                        </Button>
-                    </Col>
-                    <Col>
-                        <Button view="outlined" loading={loading.outlined} onClick={() => handleClick('outlined')}>
-                            Отправить запрос
-                        </Button>
-                    </Col>
-                    <Col>
-                        <Button view="link" loading={loading.link} onClick={() => handleClick('link')}>
-                            Отправить запрос
-                        </Button>
-                    </Col>
-                    <Col>
-                        <Button view="ghost" loading={loading.ghost} onClick={() => handleClick('ghost')}>
                             Отправить запрос
                         </Button>
                     </Col>
