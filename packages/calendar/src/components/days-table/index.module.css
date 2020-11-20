@@ -1,5 +1,95 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
 .daysTable {
     border-collapse: separate;
     border-spacing: 0;
-    width: 100%;
+
+    & th {
+        padding: 0;
+    }
+
+    & td {
+        padding: 0 0 3px;
+    }
+
+    & tr:last-child td {
+        padding-bottom: 0;
+    }
+}
+
+.dayName {
+    @mixin paragraph_primary_small;
+
+    height: 40px;
+    color: var(--color-light-text-secondary);
+}
+
+.day {
+    @mixin paragraph_primary_medium;
+
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: var(--calendar-day-border-radius);
+    color: var(--color-light-text-primary);
+
+    &.event {
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 2px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--calendar-marker-background);
+        }
+    }
+
+    &.today {
+        font-weight: bold;
+
+        & span:after {
+            content: '';
+            border: 1px solid var(--calendar-today-border-color);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: var(--calendar-day-border-radius);
+            box-sizing: border-box;
+        }
+    }
+
+    &.highlighted {
+        color: var(--calendar-highlighted-color);
+        background: var(--calendar-highlighted-background);
+    }
+
+    &.disabled {
+        pointer-events: none;
+        color: var(--calendar-disabled-color);
+
+        background: var(--calendar-disabled-background);
+        cursor: default;
+    }
+
+    &.range {
+        color: var(--calendar-range-color);
+        background: var(--calendar-range-background);
+        border-radius: 0;
+    }
+
+    &.selected {
+        color: var(--calendar-selected-color);
+        background: var(--calendar-selected-background);
+        cursor: default;
+    }
 }

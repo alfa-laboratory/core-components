@@ -1,3 +1,21 @@
 .component {
     width: 344px;
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: var(--gap-m);
+    box-sizing: border-box;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.sixWeeks {
+    height: 379px;
 }

@@ -1,0 +1,5 @@
+@import '../../../../vars/src/index.css';
+
+@define-mixin calendar-click {
+    --calendar-arrow-background: url('https://alfabank.st/icons/glyph_chevron-back_m.svg');
+}

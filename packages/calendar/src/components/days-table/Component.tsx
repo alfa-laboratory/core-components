@@ -1,7 +1,9 @@
 import React, { FC, useCallback } from 'react';
+import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
+import { isEqual, isToday } from 'date-fns';
+import { WEEKDAYS, inSelection, getSelectionRange } from '../../utils';
 import { Day } from '../../typings';
-import { WEEKDAYS, isSameDay, isBetween } from '../../utils';
 
 import styles from './index.module.css';
 
@@ -13,13 +15,22 @@ export type DaysTableProps = {
     selectedFrom?: Date | number;
 
     selectedTo?: Date | number;
+
+    highlighted?: Date | number;
+
+    getDayProps: (day: Day) => Record<string, unknown>;
+
+    mode?: 'single' | 'selection';
 };
 
 export const DaysTable: FC<DaysTableProps> = ({
     weeks = [],
+    mode,
+    highlighted,
     selected,
-    selectedFrom = selected,
-    selectedTo = selected,
+    selectedFrom,
+    selectedTo,
+    getDayProps,
 }) => {
     const renderHeader = useCallback(
         () =>
@@ -31,29 +42,40 @@ export const DaysTable: FC<DaysTableProps> = ({
         [],
     );
 
-    const renderDay = useCallback(
-        (day: Day, i: number) => {
-            return (
-                <td key={i}>
-                    {day && (
-                        <Button size='xs' disabled={day.disabled}>
-                            {day.date.getDate()}
-                            {selected && isSameDay(day.date, selected) && 'selected'}
-                            {isBetween(day.date, selectedFrom, selectedTo) && '*'}
-                            {day.today && 'today'}
-                            {day.event && 'event'}
-                            {day.off && 'off'}
-                        </Button>
-                    )}
-                </td>
-            );
-        },
-        [selected, selectedFrom, selectedTo],
-    );
+    const selection = getSelectionRange(selectedFrom, selectedTo, selected, highlighted);
 
-    const renderWeek = useCallback(
-        (week: Day[], i: number) => <tr key={i}>{week.map(renderDay)}</tr>,
-        [renderDay],
+    const renderDay = (day: Day) => {
+        const inRange =
+            !day.selected && mode === 'selection' && inSelection(day.date, ...selection);
+
+        return (
+            <Button
+                {...getDayProps(day)}
+                type='button'
+                view='ghost'
+                size='xs'
+                disabled={day.disabled}
+                className={cn(styles.day, {
+                    [styles.selected]: day.selected,
+                    [styles.range]: inRange,
+                    [styles.today]: isToday(day.date),
+                    [styles.event]: day.event,
+                    [styles.disabled]: day.disabled,
+                    [styles.highlighted]: highlighted && isEqual(day.date, highlighted),
+                })}
+            >
+                {day.date.getDate()}
+            </Button>
+        );
+    };
+
+    const renderWeek = (week: Day[], weekIdx: number) => (
+        <tr key={weekIdx}>
+            {week.map((day: Day, dayIdx: number) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <td key={dayIdx}>{day && renderDay(day)}</td>
+            ))}
+        </tr>
     );
 
     return (

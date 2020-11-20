@@ -1,13 +1,14 @@
 import React, { FC, useCallback, useState } from 'react';
 import cn from 'classnames';
+import { setYear } from 'date-fns';
 import { Header } from './components/header';
 import { DaysTable } from './components/days-table';
 import { MonthsTable } from './components/months-table';
 import { YearsTable } from './components/years-table';
 import { useCalendar } from './useCalendar';
+import { monthName, useDidUpdateEffect } from './utils';
 
 import styles from './index.module.css';
-import { monthName, setYear, startOfDay } from './utils';
 
 type View = 'years' | 'months' | 'days';
 
@@ -16,32 +17,40 @@ export type CalendarProps = {
 
     defaultView?: View;
 
-    value?: Date | number;
+    value?: number;
 
-    selectedFrom?: Date | number;
+    minDate?: number;
 
-    selectedTo?: Date | number;
+    maxDate?: number;
+
+    selectedFrom?: number;
+
+    selectedTo?: number;
+
+    events?: Array<Date | number>;
+
+    offDays?: Array<Date | number>;
+
+    mode?: 'single' | 'selection';
+
+    onChange?: (date: number) => void;
 };
-
-const minDate = startOfDay(new Date());
-minDate.setFullYear(2019);
-minDate.setMonth(8);
-
-const maxDate = startOfDay(new Date());
-maxDate.setMonth(11);
-
-const events = [new Date().setDate(4), new Date().setDate(10), new Date().setDate(15)];
-
-const offDays = [new Date().setDate(1), new Date().setDate(7), new Date().setDate(28)];
 
 export const Calendar: FC<CalendarProps> = ({
     className,
     defaultView = 'days',
+    mode = 'single',
     value,
+    minDate,
+    maxDate,
     selectedFrom,
     selectedTo,
+    offDays,
+    events,
+    onChange,
 }) => {
     const [view, setView] = useState<View>(defaultView);
+    const [scrolled, setScrolled] = useState(false);
 
     const {
         month,
@@ -53,11 +62,15 @@ export const Calendar: FC<CalendarProps> = ({
         setPrevMonth,
         setNextMonth,
         setMonthByDate,
+        getDayProps,
+        highlighted,
     } = useCalendar({
-        minDate,
-        maxDate,
-        events,
+        minDate: minDate ? new Date(minDate) : undefined,
+        maxDate: maxDate ? new Date(maxDate) : undefined,
+        selected: value ? new Date(value) : undefined,
         offDays,
+        events,
+        onChange,
     });
 
     const toggleView = useCallback(
@@ -67,15 +80,17 @@ export const Calendar: FC<CalendarProps> = ({
         [view],
     );
 
+    const handleScroll = useCallback(event => {
+        setScrolled(event.target.scrollTop > 0);
+    }, []);
+
     const handlePrevArrowClick = useCallback(() => {
         // TODO: Что должны делать стрелки при view !== days?
         setPrevMonth();
-        setView('days');
     }, [setPrevMonth]);
 
     const handleNextArrowClick = useCallback(() => {
         setNextMonth();
-        setView('days');
     }, [setNextMonth]);
 
     const handleMonthClick = useCallback(() => {
@@ -89,7 +104,6 @@ export const Calendar: FC<CalendarProps> = ({
     const handleMonthSelect = useCallback(
         (newMonth: Date) => {
             setMonthByDate(newMonth);
-            setView('days');
         },
         [setMonthByDate],
     );
@@ -97,13 +111,24 @@ export const Calendar: FC<CalendarProps> = ({
     const handleYearSelect = useCallback(
         (newYear: Date) => {
             setMonthByDate(setYear(month, newYear.getFullYear()));
-            setView('days');
         },
         [month, setMonthByDate],
     );
 
+    useDidUpdateEffect(() => {
+        setView('days');
+    }, [month]);
+
+    useDidUpdateEffect(() => {
+        setScrolled(false);
+    }, [view]);
+
     return (
-        <div className={cn(styles.component, className)}>
+        <div
+            className={cn(styles.component, className, {
+                [styles.sixWeeks]: weeks.length === 6,
+            })}
+        >
             <Header
                 month={monthName(month)}
                 year={month.getFullYear().toString()}
@@ -114,17 +139,39 @@ export const Calendar: FC<CalendarProps> = ({
                 onMonthClick={handleMonthClick}
                 onYearClick={handleYearClick}
                 view={years.length > 1 ? 'full' : 'month-only'}
+                withShadow={scrolled}
             />
-            {view === 'days' && (
-                <DaysTable
-                    weeks={weeks}
-                    selected={value}
-                    selectedFrom={selectedFrom}
-                    selectedTo={selectedTo}
-                />
-            )}
-            {view === 'months' && <MonthsTable months={months} onMonthClick={handleMonthSelect} />}
-            {view === 'years' && <YearsTable years={years} onYearClick={handleYearSelect} />}
+
+            <div className={styles.container}>
+                {view === 'days' && (
+                    <DaysTable
+                        weeks={weeks}
+                        selected={value}
+                        selectedFrom={selectedFrom}
+                        selectedTo={selectedTo}
+                        getDayProps={getDayProps}
+                        highlighted={highlighted}
+                        mode={mode}
+                    />
+                )}
+
+                {view === 'months' && (
+                    <MonthsTable
+                        selectedMonth={month}
+                        months={months}
+                        onMonthClick={handleMonthSelect}
+                    />
+                )}
+
+                {view === 'years' && (
+                    <YearsTable
+                        selectedYear={month}
+                        years={years}
+                        onYearClick={handleYearSelect}
+                        onScroll={handleScroll}
+                    />
+                )}
+            </div>
         </div>
     );
 };

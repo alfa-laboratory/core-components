@@ -3,6 +3,7 @@ import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
 
 import styles from './index.module.css';
+import { SelectButton } from '../select-button';
 
 export type HeaderProps = {
     month?: string;
@@ -10,6 +11,8 @@ export type HeaderProps = {
     year?: string;
 
     view?: 'month-only' | 'full';
+
+    withShadow?: boolean;
 
     prevArrowVisible?: boolean;
     nextArrowVisible?: boolean;
@@ -25,37 +28,65 @@ export const Header: FC<HeaderProps> = ({
     month,
     year,
     view = 'full',
+    withShadow,
     prevArrowVisible = true,
     nextArrowVisible = true,
     onPrevArrowClick,
     onNextArrowClick,
-
     onMonthClick,
     onYearClick,
 }) => {
     return (
-        <div className={cn(styles.header)}>
-            {prevArrowVisible && (
-                <Button view='ghost' onClick={onPrevArrowClick}>
-                    Prev
-                </Button>
-            )}
+        <div
+            className={cn(styles.header, {
+                [styles.monthOnly]: view === 'month-only',
+                [styles.withShadow]: withShadow,
+            })}
+        >
+            <div className={styles.inner}>
+                {prevArrowVisible && (
+                    <Button view='ghost' className={styles.arrow} onClick={onPrevArrowClick} />
+                )}
 
-            <Button size='xs' onClick={onMonthClick}>
-                {month}
-            </Button>
+                {view === 'full' ? (
+                    <React.Fragment>
+                        <SelectButton
+                            view='filled'
+                            className={cn(styles.button, styles.month)}
+                            onClick={onMonthClick}
+                        >
+                            <span className={styles.buttonContent}>
+                                {month}
+                                <span className={styles.upDownIcon} />
+                            </span>
+                        </SelectButton>
+                        <SelectButton
+                            view='filled'
+                            className={cn(styles.button, styles.year)}
+                            onClick={onYearClick}
+                        >
+                            <span className={styles.buttonContent}>
+                                {year}
+                                <span className={styles.upDownIcon} />
+                            </span>
+                        </SelectButton>
+                    </React.Fragment>
+                ) : (
+                    <Button
+                        size='xs'
+                        view='ghost'
+                        className={cn(styles.button, styles.month)}
+                        onClick={onMonthClick}
+                        disabled={!prevArrowVisible && !nextArrowVisible}
+                    >
+                        {month}
+                    </Button>
+                )}
 
-            {view === 'full' && (
-                <Button size='xs' onClick={onYearClick}>
-                    {year}
-                </Button>
-            )}
-
-            {nextArrowVisible && (
-                <Button view='ghost' onClick={onNextArrowClick}>
-                    Next
-                </Button>
-            )}
+                {nextArrowVisible && (
+                    <Button view='ghost' className={styles.arrow} onClick={onNextArrowClick} />
+                )}
+            </div>
         </div>
     );
 };

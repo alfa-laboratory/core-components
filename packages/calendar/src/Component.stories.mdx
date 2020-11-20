@@ -3,6 +3,8 @@ import { select, number } from '@storybook/addon-knobs';
 import { Container, Row, Col } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 
+import startOfDay from 'date-fns/startOfDay';
+
 import { Calendar } from './';
 
 import { name, version } from '../package.json';
@@ -11,13 +13,30 @@ import { name, version } from '../package.json';
 <Meta
     title='Компоненты'
     component={Calendar}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
+
+export const Box = ({ children }) => (
+    <div style={{
+        boxSizing: 'border-box',
+        boxShadow: '0px 8px 24px rgba(0, 0, 0, 0.16)',
+        borderRadius: '8px',
+        display: 'inline-block'
+    }}>
+        {children}
+    </div>
+);
 
 <!-- Canvas -->
 
 <Story name='Calendar'>
-    <Calendar value={new Date().setDate(11)} selectedFrom={new Date().setMonth(9)} />
+    {React.createElement(() => {
+        const [value, setValue] = React.useState();
+        return (
+            <Calendar value={value} onChange={setValue} />
+        );
+    })}
 </Story>
 
 
@@ -36,3 +55,147 @@ import { Calendar } from '@alfalab/core-components-calendar';
 ```
 
 <Props of={Calendar} />
+
+
+## Выбор даты из ограниченного интервала
+
+Календарь с заданными левой и правой границей.
+
+Позволяет выбрать дату из заданного диапазона.
+Например, дату встречи с банком для заключения кредитного договора.
+
+Задать границы можно с помощью свойств `minDate` и `maxDate`
+
+<Preview>
+      {React.createElement(() => {
+        const [value, setValue] = React.useState();
+        const minDate = startOfDay(new Date());
+        minDate.setDate(minDate.getDate() - 3);
+        const maxDate = startOfDay(new Date());
+        maxDate.setDate(maxDate.getDate() + 5);
+        return (
+            <Box>
+                <Calendar
+                    value={value}
+                    onChange={setValue}
+                    minDate={minDate.getTime()}
+                    maxDate={maxDate.getTime()}
+                />
+            </Box>
+        );
+    })}
+</Preview>
+
+
+## Недоступные даты
+
+Случается, что некоторые даты нельзя выбрать. Например, выходные или праздники.
+
+Задать недоступные даты можно, передав массив дат в свойство `offDays`
+
+<Preview>
+      {React.createElement(() => {
+        const [value, setValue] = React.useState();
+        const offDays = [new Date().setDate(1), new Date().setDate(7), new Date().setDate(28)];
+        return (
+            <Box>
+                <Calendar
+                    value={value}
+                    onChange={setValue}
+                    offDays={offDays}
+                />
+            </Box>
+        );
+    })}
+</Preview>
+
+
+## Отметка о событии
+
+К календарю могут быть привязаны события или мероприятия: запланированные платежи, даты сдачи отчётности в налоговую и т.д.
+
+Задать события можно, передав массив дат в свойство `events`
+
+<Preview>
+      {React.createElement(() => {
+        const [value, setValue] = React.useState();
+        const events = [
+            new Date().setDate(3),
+            new Date().setDate(15),
+            new Date().setDate(17),
+            new Date().setDate(21)
+        ];
+        return (
+            <Box>
+                <Calendar
+                    value={value}
+                    onChange={setValue}
+                    events={events}
+                />
+            </Box>
+        );
+    })}
+</Preview>
+
+
+## Режим Selection
+
+Режим, позволяющий подсвечивать определенный период дат на календаре.
+
+По умолчанию посвечивает период между выбранной датой и датой под курсором.
+
+<Preview>
+      {React.createElement(() => {
+        const [value, setValue] = React.useState();
+        return (
+            <Box>
+                <Calendar
+                    value={value}
+                    onChange={setValue}
+                    mode='selection'
+                />
+            </Box>
+        );
+    })}
+</Preview>
+
+С помощью свойств `selectedFrom` и `selectedTo` можно указать конкретный период для подстветки.
+
+<Preview>
+      {React.createElement(() => {
+        const [value, setValue] = React.useState();
+        const firstDay = new Date(new Date().setDate(5));
+        const lastDay = new Date(new Date().setDate(15));
+        console.log(firstDay, lastDay);
+        return (
+            <Box>
+                <Calendar
+                    value={value}
+                    onChange={setValue}
+                    mode='selection'
+                    selectedFrom={firstDay}
+                    selectedTo={lastDay}
+                />
+            </Box>
+        );
+    })}
+</Preview>
+
+Если одно из свойств не установлено, то вместо него будет использоваться выбранная дата или дата под курсором.
+
+<Preview>
+      {React.createElement(() => {
+        const [value, setValue] = React.useState();
+        const prevMonth = new Date().setMonth(new Date().getMonth() - 1);
+        return (
+            <Box>
+                <Calendar
+                    value={value}
+                    onChange={setValue}
+                    mode='selection'
+                    selectedFrom={prevMonth}
+                />
+            </Box>
+        );
+    })}
+</Preview>

@@ -1,43 +1,41 @@
-import eachDayOfInterval from 'date-fns/eachDayOfInterval';
-import eachMonthOfInterval from 'date-fns/eachMonthOfInterval';
-import eachYearOfInterval from 'date-fns/eachYearOfInterval';
-import lastDayOfMonth from 'date-fns/lastDayOfMonth';
-import startOfDay from 'date-fns/startOfDay';
-import startOfMonth from 'date-fns/startOfMonth';
-import startOfYear from 'date-fns/startOfYear';
-import endOfYear from 'date-fns/endOfYear';
-import endOfDay from 'date-fns/endOfDay';
-import isEqual from 'date-fns/isEqual';
-import isSameDay from 'date-fns/isSameDay';
-import isBefore from 'date-fns/isBefore';
-import isAfter from 'date-fns/isAfter';
-import isToday from 'date-fns/isToday';
-import setMonth from 'date-fns/setMonth';
-import setYear from 'date-fns/setYear';
-import subYears from 'date-fns/subYears';
-import min from 'date-fns/min';
-import max from 'date-fns/max';
-
-import format from 'date-fns/format';
-import ru from 'date-fns/locale/ru';
+import {
+    eachDayOfInterval,
+    eachMonthOfInterval,
+    eachYearOfInterval,
+    lastDayOfMonth,
+    startOfDay,
+    startOfMonth,
+    startOfYear,
+    endOfYear,
+    endOfDay,
+    isSameDay,
+    isBefore,
+    isAfter,
+    min,
+    max,
+    isEqual,
+} from 'date-fns';
+import { useRef, useEffect } from 'react';
 import { Day, Month, SpecialDays } from './typings';
 
 export const DAYS_IN_WEEK = 7;
 export const SUNDAY_INDEX = 6;
 
 export const WEEKDAYS = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
-
-export {
-    startOfMonth,
-    startOfDay,
-    setMonth,
-    setYear,
-    subYears,
-    isEqual,
-    isBefore,
-    isAfter,
-    isSameDay,
-};
+export const MONTHS = [
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентябрь',
+    'Октябрь',
+    'Ноябрь',
+    'Декабрь',
+];
 
 /**
  * Возвращает «правильный» индекс дня недели, 0 - пн, 1 - вт и так далее.
@@ -61,6 +59,7 @@ export function generateWeeks(
     options: {
         minDate?: Date;
         maxDate?: Date;
+        selected?: Date;
         eventsMap?: SpecialDays;
         offDaysMap?: SpecialDays;
     },
@@ -87,18 +86,18 @@ export function generateWeeks(
 }
 
 /**
- * Возвращает массиов с месяцами для переданного года
+ * Возвращает массив с месяцами для переданного года
  *
  * @param year Дата внутри года
  */
-export function generateMonths(year: Date, options: { minMonth: Date }) {
+export function generateMonths(year: Date, options: { minMonth?: Date; maxMonth?: Date }) {
     return eachMonthOfInterval({ start: startOfYear(year), end: endOfYear(year) }).map(month =>
         buildMonth(month, options),
     );
 }
 
 /**
- * Возвращает массиов лет от текущего года и до minYear
+ * Возвращает массив лет от текущего года и до minYear
  *
  * @param minYear Дата внутри минимального года
  */
@@ -109,54 +108,66 @@ export function generateYears(minYear: Date) {
     }).reverse();
 }
 
+/**
+ * Добавляет метаданные для переданного дня
+ *
+ * @param day дата
+ * @param options набор метаданных
+ */
 export function buildDay(
     day: Date,
     options: {
         minDate?: Date;
         maxDate?: Date;
+        selected?: Date;
         eventsMap?: SpecialDays;
         offDaysMap?: SpecialDays;
     },
 ): Day {
-    const { minDate, maxDate, eventsMap = {}, offDaysMap = {} } = options;
+    const { minDate, maxDate, selected, eventsMap = {}, offDaysMap = {} } = options;
+    const off = offDaysMap[day.getTime()];
+    const disabled = (minDate && isBefore(day, minDate)) || (maxDate && isAfter(day, maxDate));
 
     return {
         date: day,
-        disabled: (minDate && isBefore(day, minDate)) || (maxDate && isAfter(day, maxDate)),
-        today: isToday(day),
+        disabled: disabled || off,
         event: eventsMap[day.getTime()],
-        off: offDaysMap[day.getTime()],
+        selected: selected && isSameDay(day, selected),
     };
 }
 
-export function buildMonth(month: Date, options: { minMonth?: Date }): Month {
-    const { minMonth } = options;
+/**
+ * Добавляет метаданные для переданного месяца
+ *
+ * @param day дата
+ * @param options набор метаданных
+ */
+export function buildMonth(month: Date, options: { minMonth?: Date; maxMonth?: Date }): Month {
+    const { minMonth, maxMonth } = options;
 
     return {
         date: month,
-        disabled: minMonth && isBefore(month, minMonth),
+        disabled: (minMonth && isBefore(month, minMonth)) || (maxMonth && isAfter(month, maxMonth)),
     };
 }
 
 /**
  * Ограничивает дату на отрезке [minDate, maxDate]
- *
- * @param date Дата
- * @param minDate Минимальная дата
- * @param maxDate Максимальная дата
  */
 export function limitDate(date: Date, minDate?: Date, maxDate?: Date) {
     return min([maxDate || date, max([minDate || date, date])]);
 }
 
-function capitalizeFirstLetter(str: string) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
+/**
+ * Возвращает русское название месяца с большой буквы
+ */
 export function monthName(month: Date) {
-    return capitalizeFirstLetter(format(month, 'LLLL', { locale: ru }));
+    return MONTHS[month.getMonth()];
 }
 
+/**
+ * Превращает массив в объект, у которого ключи составляются из элементов массива
+ */
 export function dateArrayToHashTable(arr: Array<Date | number>) {
     return arr.reduce((acc: Record<number, boolean>, v) => {
         acc[startOfDay(v).getTime()] = true;
@@ -164,6 +175,71 @@ export function dateArrayToHashTable(arr: Array<Date | number>) {
     }, {});
 }
 
-export function isBetween(date: Date | number, minDate?: Date | number, maxDate?: Date | number) {
-    return minDate && maxDate && date >= startOfDay(minDate) && date <= endOfDay(maxDate);
+/**
+ * Проверяет, находится ли дата в переданном отрезке
+ */
+export function inSelection(date: Date | number, start?: Date | number, end?: Date | number) {
+    return start && end && date >= startOfDay(start) && date <= endOfDay(end);
+}
+
+/**
+ * Возвращает отрезок дат для выделения. Блять, даже описание сложно придумать :((((((
+ */
+export function getSelectionRange(
+    from?: Date | number,
+    to?: Date | number,
+    selected?: Date | number,
+    highlighted?: Date | number,
+) {
+    // TODO: переписать эту дичь)
+    let start = from;
+    let end = to;
+
+    if (selected) {
+        if (!from && !to) {
+            end = highlighted ? max([selected, highlighted]) : selected;
+            start = highlighted ? min([selected, highlighted]) : selected;
+        }
+
+        if (from && !to) {
+            end = selected;
+        }
+
+        if (to && !from) {
+            start = selected;
+        }
+
+        if (to && from) {
+            end = min([selected, to]);
+        }
+    } else {
+        if (!from) {
+            start = highlighted;
+        }
+
+        if (!to) {
+            end = highlighted;
+        }
+    }
+
+    if (start && end && isEqual(start, end)) {
+        start = undefined;
+        end = undefined;
+    }
+
+    return [start, end];
+}
+
+// TODO: перенести в @alfalab/hooks?
+export function useDidUpdateEffect(fn: () => void, deps: unknown[]) {
+    const didMountRef = useRef(false);
+
+    useEffect(() => {
+        if (didMountRef.current) {
+            fn();
+        } else {
+            didMountRef.current = true;
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, deps);
 }

@@ -7,9 +7,7 @@ export type Day = {
 
     event?: boolean;
 
-    off?: boolean;
-
-    today?: boolean;
+    selected?: boolean;
 };
 
 export type Month = {

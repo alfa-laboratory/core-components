@@ -1,14 +1,14 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { MouseEvent, useCallback, useMemo, useState } from 'react';
+import { startOfMonth, subYears, setMonth } from 'date-fns';
+import { Day } from './typings';
 
 import {
     limitDate,
     generateMonths,
     generateWeeks,
     generateYears,
-    startOfMonth,
-    subYears,
-    setMonth,
     dateArrayToHashTable,
+    useDidUpdateEffect,
 } from './utils';
 
 export type UseCalendarProps = {
@@ -18,35 +18,29 @@ export type UseCalendarProps = {
 
     maxDate?: Date;
 
+    selected?: Date;
+
     events?: Array<Date | number>;
 
     offDays?: Array<Date | number>;
 
-    onMonthChange?: (month: Date) => void;
+    onMonthChange?: (month: number) => void;
+
+    onChange?: (date: number) => void;
 };
-
-export function useDidUpdateEffect(fn: () => void, deps: unknown[]) {
-    const didMountRef = useRef(false);
-
-    useEffect(() => {
-        if (didMountRef.current) {
-            fn();
-        } else {
-            didMountRef.current = true;
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, deps);
-}
 
 export function useCalendar({
     defaultMonth = startOfMonth(new Date()),
     minDate = subYears(defaultMonth, 100),
     maxDate,
+    selected,
     events = [],
     offDays = [],
     onMonthChange,
+    onChange,
 }: UseCalendarProps) {
     const [month, setMonthState] = useState(defaultMonth);
+    const [highlighted, setHighlighted] = useState<Date | number>();
 
     const minMonth = minDate && startOfMonth(minDate);
     const maxMonth = maxDate && startOfMonth(maxDate);
@@ -58,15 +52,16 @@ export function useCalendar({
 
     const offDaysMap = useMemo(() => dateArrayToHashTable(offDays), [offDays]);
 
-    const weeks = useMemo(() => generateWeeks(month, { minDate, maxDate, eventsMap, offDaysMap }), [
-        maxDate,
-        minDate,
-        month,
-        eventsMap,
-        offDaysMap,
-    ]);
+    const weeks = useMemo(
+        () => generateWeeks(month, { minDate, maxDate, selected, eventsMap, offDaysMap }),
+        [maxDate, minDate, selected, month, eventsMap, offDaysMap],
+    );
 
-    const months = useMemo(() => generateMonths(month, { minMonth }), [minMonth, month]);
+    const months = useMemo(() => generateMonths(month, { minMonth, maxMonth }), [
+        minMonth,
+        maxMonth,
+        month,
+    ]);
 
     const years = useMemo(() => generateYears(minDate), [minDate]);
 
@@ -92,9 +87,32 @@ export function useCalendar({
         setMonthByStep(-1);
     }, [setMonthByStep]);
 
+    const getDayProps = useCallback(
+        (day: Day) => {
+            return {
+                'data-date': day.date.getTime(),
+                onMouseEnter: (event: MouseEvent<HTMLButtonElement>) => {
+                    const { date } = (event.currentTarget as HTMLButtonElement).dataset;
+                    setHighlighted(date ? +date : undefined);
+                },
+                onMouseLeave: () => {
+                    setHighlighted(undefined);
+                },
+                onClick: (event: MouseEvent<HTMLButtonElement>) => {
+                    const { date } = (event.currentTarget as HTMLButtonElement).dataset;
+
+                    if (date && onChange) {
+                        onChange(+date);
+                    }
+                },
+            };
+        },
+        [onChange],
+    );
+
     useDidUpdateEffect(() => {
         if (onMonthChange) {
-            onMonthChange(month);
+            onMonthChange(month.getTime());
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [month.getMonth()]);
@@ -106,8 +124,10 @@ export function useCalendar({
         years,
         canSetPrevMonth,
         canSetNextMonth,
+        highlighted,
         setPrevMonth,
         setNextMonth,
         setMonthByDate,
+        getDayProps,
     };
 }
