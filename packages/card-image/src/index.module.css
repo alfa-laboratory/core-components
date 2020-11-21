@@ -1,26 +1,30 @@
-@import './vars.css';
+:root {
+    --card-image-background: #e7e8ea 50% 50% no-repeat 100% 100%;
+    --card-image-border-radius: 8px;
+}
 
 .cardImage {
     position: relative;
     display: inline-block;
     background: var(--card-image-background);
+}
 
-    &.rounded {
-        border-radius: 8px;
-
-        & .image {
-            border-radius: 8px;
-        }
-    }
+.rounded {
+    border-radius: var(--card-image-border-radius);
 
     & .image {
-        display: block;
-        max-width: 100%;
-        height: auto;
-        opacity: 0;
-
-        &.loaded {
-            opacity: var(--opacity-active);
-        }
+        border-radius: var(--card-image-border-radius);
     }
+}
+
+.image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.loaded {
+    opacity: var(--opacity-active);
 }

@@ -57,10 +57,10 @@ export type CardImageProps = {
 
 export const CardImage: FC<CardImageProps> = ({
     cardId,
-    layers,
+    layers = 'BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE',
     width = defaultWidth,
-    baseUrl,
-    rounded,
+    baseUrl = 'https://online.alfabank.ru/cards-images/cards/',
+    rounded = true,
     id,
     dataTestId,
     onLoad,
@@ -102,12 +102,4 @@ export const CardImage: FC<CardImageProps> = ({
             )}
         </div>
     );
-};
-
-CardImage.defaultProps = {
-    layers:
-        'BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE',
-    width: defaultWidth,
-    rounded: true,
-    baseUrl: 'https://online.alfabank.ru/cards-images/cards/',
 };
