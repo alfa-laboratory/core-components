@@ -1,5 +1,5 @@
 :root {
-    --card-image-background: #e7e8ea 50% 50% no-repeat 100% 100%;
+    --card-image-background: #e7e8ea;
     --card-image-border-radius: 8px;
 }
 
@@ -7,6 +7,7 @@
     position: relative;
     display: inline-block;
     background: var(--card-image-background);
+    transition: background 0.2s ease;
 }
 
 .rounded {
@@ -26,5 +27,9 @@
 }
 
 .loaded {
-    opacity: var(--opacity-active);
+    background: transparent;
+
+    & .image {
+        opacity: var(--opacity-active);
+    }
 }

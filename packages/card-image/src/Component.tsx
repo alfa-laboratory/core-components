@@ -3,8 +3,9 @@ import cn from 'classnames';
 
 import styles from './index.module.css';
 
-const ASPECT_RATIO = 0.63;
-const defaultWidth = 280;
+export const ASPECT_RATIO = 0.63;
+export const DEFAULT_WIDTH = 280;
+export const DEFAULT_BASE_URL = 'https://online.alfabank.ru/cards-images/cards/';
 
 export type CardImageProps = {
     /**
@@ -45,6 +46,11 @@ export type CardImageProps = {
     className?: string;
 
     /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    alt?: string;
+
+    /**
      * Уникальный идентификатор блока
      */
     id?: string;
@@ -58,12 +64,14 @@ export type CardImageProps = {
 export const CardImage: FC<CardImageProps> = ({
     cardId,
     layers = 'BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE',
-    width = defaultWidth,
-    baseUrl = 'https://online.alfabank.ru/cards-images/cards/',
+    width = DEFAULT_WIDTH,
+    baseUrl = DEFAULT_BASE_URL,
     rounded = true,
+    alt,
     id,
     dataTestId,
     onLoad,
+    className,
 }) => {
     const [loaded, setLoaded] = useState(false);
     const image = useRef<HTMLImageElement>(null);
@@ -80,7 +88,12 @@ export const CardImage: FC<CardImageProps> = ({
 
     return (
         <div
-            className={cn(styles.cardImage, rounded && styles.rounded)}
+            className={cn(
+                styles.cardImage,
+                rounded && styles.rounded,
+                loaded && styles.loaded,
+                className,
+            )}
             style={{
                 width,
                 height,
@@ -91,12 +104,13 @@ export const CardImage: FC<CardImageProps> = ({
             {cardId && (
                 <img
                     ref={image}
-                    className={cn(styles.image, loaded && styles.loaded)}
+                    className={styles.image}
                     width={width}
                     height={height}
                     src={cardImageUrl}
                     srcSet={`${cardImageUrl2x} 2x`}
-                    alt=''
+                    alt={alt}
+                    role='presentation'
                     onLoad={handleLoadedImage}
                 />
             )}
