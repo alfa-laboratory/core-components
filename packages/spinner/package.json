@@ -1,7 +1,7 @@
 {
-    "name": "@alfalab/core-components-bank-card",
-    "version": "2.1.2",
-    "description": "Bank card component",
+    "name": "@alfalab/core-components-spinner",
+    "version": "1.0.0",
+    "description": "Spinner component",
     "keywords": [],
     "license": "ISC",
     "main": "dist/index.js",
@@ -17,10 +17,6 @@
         "react-dom": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/core-components-masked-input": "^2.1.2",
-        "@alfalab/icons-classic": "^1.7.0",
-        "@alfalab/icons-glyph": "^1.26.0",
-        "@alfalab/icons-logotype": "^1.4.0",
         "classnames": "^2.2.6"
     }
 }

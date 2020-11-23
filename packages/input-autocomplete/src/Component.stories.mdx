@@ -7,7 +7,7 @@ import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tag } from '@alfalab/core-components-tag';
 import { Input } from '@alfalab/core-components-input';
 import { MaskedInput } from '@alfalab/core-components-masked-input';
-import { Option } from '@alfalab/core-components-select';
+import { Arrow, Option } from '@alfalab/core-components-select';
 
 import { InputAutocomplete } from './Component';
 
@@ -64,6 +64,7 @@ export const matchOption = (option, inputValue) =>
                 hint={text('hint', '')}
                 allowUnselect={boolean('allowUnselect', true)}
                 closeOnSelect={boolean('closeOnSelect', false)}
+                Arrow={boolean('Arrow', false) ? Arrow : undefined}
                 circularNavigation={boolean('circularNavigation', false)}
                 placeholder={text('placeholder', 'Введите элемент')}
                 label={text('label', 'Элемент')}
@@ -252,15 +253,15 @@ import { InputAutocomplete } from '@alfalab/core-components-input-autocomplete';
                 content: '4111 1111 1111 1111',
             },
         ];
-        const CardOption = React.forwardRef((props, ref) => (
-            <Option {...props} ref={ref}>
+        const CardOption = (props) => (
+            <Option {...props}>
                 <div>
                     {props.option.key}
                     <br />
                     <sub>{props.option.content}</sub>
                 </div>
             </Option>
-        ));
+        );
         const [value, setValue] = React.useState('');
         const handleInput = (event) => {
             setValue(event.target.value);
@@ -326,3 +327,11 @@ import { InputAutocomplete } from '@alfalab/core-components-input-autocomplete';
         );
     })}
 </Preview>
+
+
+### Автокомплит со стрелкой
+
+```tsx
+import { Arrow } from '@alfalab/core-components/select';
+<InputAutocomplete Arrow={Arrow} />
+```

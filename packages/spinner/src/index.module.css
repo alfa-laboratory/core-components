@@ -1,0 +1,39 @@
+:root {
+    --spinner-display-visible: inline-block;
+    --spinner-animation-duration: 0.8s;
+    --spinner-animation-timing-function: linear;
+}
+
+.spinner {
+    display: none;
+    animation: spin_animation var(--spinner-animation-duration) infinite
+        var(--spinner-animation-timing-function);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAEuElEQVR4Ad3ZA5AdeRdA8YxtM7Zt27Zt27Zt27ZtO/mwtu3d01U3VTf27Ov/VP2C1pvz2t2J3taPV3x2bxRHT8zHcdzHF/gAYYns/mNFoC324Ev8gB/xM37Fb/gbnyLMzqF5sQqf4Wt8g+/wvTHBEpof2yT0c3yJryT4W+jgX2wZLKERmIWP8Ak+legvJPhrCb6C6WiNYkiKELjDyS6xRXELH+BDfIxP1Fo+hg6INeGg1BL/x3t4X6I/kug9yG/7SAn1wHj8T4LflegPcBIVjQiV2GCsx3/wX4l+R/5uBTeTYt2xBndxX0VfQj5jQlXwaNzGHRW9G/EmxjbBTdxS0Yvha4Pf3ellZyiIa7ihorfbJNYZLnB+mevhE7gq0ddxEnGOvlZVrCvc4PSi++1lXJHoy8hlh81Yx8Idbs+bKQcu4hIui0Y2Ou64SKgHPIXLs2ZYgPO4IOFb4WajYCcV6wVveD1t4mw4i3MquoQNzy4u8BY+8IXrkyacgDPiLJbY+JTqJaF+wvvRCYJwHKdwWqKz2zjYFf4iAIFw1hPUxgmcFMsMuHDyk9Ag4alHzsBxcQJ1DQj2RLAIQYAecRBHxTFEGBDsIqGhIgxO1oicOCyOYKVht7ZhCBce1sB6OIhDortBwf6IEJHwtQb2wgGlskHBPohSgqyB07BP7Ec2g4I9EKOEWwOXYq8SaVCwK2JFHKKtgeuwW/E3KNgF8UqsNXArdipuBgU7IYlmDdyCHYppwck0a+BKbFNM26STK0mtgfOxRYkwKNgNKQFI8FhsFpuQybDzcGol3hrYERuVMoZdWqZFGhFtDayGDVgvWhsUHI10Sqg1MDPWibWYalBwamQQ6R9cS3tgJdaI1QgxINYdmURGiXZ+MHIIVomVKG9AcASyILNIrkeWldAVYqQBwWmRDVklPFyPDMBSLMcyLEVam98H50B2ZBNuj07UDUvFEgyycXB65BQ5kOJpR7QlWIxFIqcNY0OQB7mRS/g9beK+EroQCzAKrjaKdUY25EUekf55O/oCzBfzUNJGwbEogPzIJ+EBz5uppYTOxRzMRGobxAahEAqq6FQvMmMgpkjsbMzCOIQ6cKyXhBZBIZEP7i+6gAyYKWZgOvrB00GfW+VBMRSV6MIIftkFlVCx0zAV7eDpYLE5UBLFVXTcqy6woYqdgknohRAHiPVGAZRGKRWd7nWfGHRVsRMxAUOR/F+MDZXIsiijonPB+XUX7ovOKnY8xmIUCsIlgc+zKVBBlFfReeD+JveVOhI7DmMwWqK7IUMCnWNLoQoqoaJEl0MmOL+NDy2sYzESwzEMLZHkLXxmOIqjBqqhKiqr6GQJ8RRhiMSOkNihGIxBaIU88H/Nh2/pUBZ1UEuCq0t0FZRHRELeftVSa3eIBA9Ef/RDH7REaWRBPALgBRfhCX/ESGB+CWqIBqgnwbVRU63lnAl+epTwpGiu1u4ACe4rwb3QA93RFZ3RER3QDm3QCi3RHE3RGI1UcF0JroWiCHOEC4AkqKPWbl/0VsHdXiK4iQQ3RH0JLoRwR7ym9UUuNEBPiwru8pTg1iq4mQQ3RGmkhaedXnMkRW6UQR0Jaom2EtsU9VEZhZEZMW/zHvwfwW498JQ0LD4AAAAASUVORK5CYII=');
+}
+
+.visible {
+    display: var(--spinner-display-visible);
+    vertical-align: middle;
+}
+
+.s {
+    width: 24px;
+    height: 24px;
+}
+
+.m {
+    width: 48px;
+    height: 48px;
+}
+
+@keyframes spin_animation {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

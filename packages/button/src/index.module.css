@@ -64,6 +64,10 @@
     opacity: 0;
 }
 
+a.loading {
+    pointer-events: none;
+}
+
 .loader {
     position: absolute;
 }
@@ -297,6 +301,12 @@
 .block {
     display: flex;
     width: 100%;
+}
+
+/* Nowrap */
+
+.nowrap {
+    white-space: nowrap;
 }
 
 /* IE min-height fix */
