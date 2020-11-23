@@ -28,12 +28,10 @@
         "format": "prettier --write \"./{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
         "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist} && rimraf {dist,build}",
         "cm": "git-cz",
-        "pub:patch": "RELEASE_TYPE=\"patch\" ./bin/publish.sh",
-        "pub:minor": "RELEASE_TYPE=\"minor\" ./bin/publish.sh",
-        "pub:major": "RELEASE_TYPE=\"major\" ./bin/publish.sh",
         "release": "standard-version --no-verify --releaseCommitMessageFormat \"chore: release\"",
         "postbuild": "yarn purgecss",
-        "purgecss": "./bin/purgecss.sh"
+        "purgecss": "./bin/purgecss.sh",
+        "semantic-release-lerna": "lerna exec --concurrency 5 -- yarn semantic-release -e semantic-release-monorepo"
     },
     "browserslist": {
         "production": [
@@ -80,6 +78,12 @@
         "@commitlint/config-conventional": "^8.3.4",
         "@commitlint/config-lerna-scopes": "^8.3.4",
         "@rollup/plugin-json": "^4.1.0",
+        "@semantic-release/changelog": "^5.0.1",
+        "@semantic-release/commit-analyzer": "^8.0.1",
+        "@semantic-release/git": "^9.0.0",
+        "@semantic-release/github": "^7.1.1",
+        "@semantic-release/npm": "^7.0.6",
+        "@semantic-release/release-notes-generator": "^9.0.1",
         "@storybook/addon-actions": "^5.3.8",
         "@storybook/addon-docs": "^5.3.17",
         "@storybook/addon-knobs": "^5.3.8",
@@ -148,6 +152,8 @@
         "rollup": "^2.10.2",
         "rollup-plugin-copy": "^3.3.0",
         "rollup-plugin-multi-input": "^1.1.1",
+        "semantic-release": "^17.2.3",
+        "semantic-release-monorepo": "^7.0.3",
         "shelljs": "^0.8.3",
         "standard-version": "^8.0.0",
         "string-hash": "^1.1.3",
