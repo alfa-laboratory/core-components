@@ -7,7 +7,7 @@
     --notification-border-radius: 8px;
 }
 
-.component {
+.notificationComponent {
     visibility: hidden;
     position: fixed;
     right: var(--gap-s);
@@ -51,7 +51,7 @@
     }
 }
 
-.component * {
+.notificationComponent * {
     box-sizing: border-box;
 }
 

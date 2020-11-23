@@ -10,6 +10,7 @@
         }
     },
     "references": [
-      { "path": "../button" }
+      { "path": "../button" },
+      { "path": "../portal" }
     ]
 }

@@ -13,6 +13,7 @@ import mergeRefs from 'react-merge-refs';
 import { useSwipeable, LEFT, RIGHT, UP } from 'react-swipeable';
 import { CloseSWhiteIcon } from '@alfalab/icons-classic';
 import { CheckmarkMIcon, CrossMIcon, ExclamationMIcon } from '@alfalab/icons-glyph';
+import { Portal } from '@alfalab/core-components-portal';
 import { Button } from '@alfalab/core-components-button';
 import { useClickOutside } from './utils';
 
@@ -94,6 +95,8 @@ export type NotificationProps = HTMLAttributes<HTMLDivElement> & {
      */
     dataTestId?: string;
 };
+
+const notificationClassNameSelector = `.${cn(styles.notificationComponent)}`;
 
 const iconComponent = {
     negative: <CrossMIcon className={cn(styles.iconSvg)} />,
@@ -184,7 +187,9 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
 
         const handleOutsideClick = useCallback(
             event => {
-                if (onClickOutside && visible) {
+                const isTargetNotification = !!event.target.closest(notificationClassNameSelector);
+
+                if (onClickOutside && visible && !isTargetNotification) {
                     onClickOutside(event);
                 }
             },
@@ -209,54 +214,56 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         });
 
         return (
-            <div {...swipeableHandlers}>
-                <div
-                    className={cn(
-                        styles.component,
-                        {
-                            [styles.isVisible]: visible,
-                            [styles.hasCloser]: hasCloser,
-                            [styles.isClosing]: isClosing,
-                        },
-                        className,
-                    )}
-                    style={{
-                        top: offset,
-                        ...style,
-                    }}
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                    ref={mergeRefs([ref, notificationRef])}
-                    role={visible ? 'alert' : undefined}
-                    data-test-id={dataTestId}
-                    {...restProps}
-                >
-                    {(leftAddons || icon) && (
-                        <div className={cn(styles.leftAddons)}>
-                            {leftAddons ||
-                                (icon && (
-                                    <div className={cn(styles.icon, styles[icon])}>
-                                        {iconComponent[icon]}
-                                    </div>
-                                ))}
+            <Portal>
+                <div {...swipeableHandlers}>
+                    <div
+                        className={cn(
+                            styles.notificationComponent,
+                            {
+                                [styles.isVisible]: visible,
+                                [styles.hasCloser]: hasCloser,
+                                [styles.isClosing]: isClosing,
+                            },
+                            className,
+                        )}
+                        style={{
+                            top: offset,
+                            ...style,
+                        }}
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                        ref={mergeRefs([ref, notificationRef])}
+                        role={visible ? 'alert' : undefined}
+                        data-test-id={dataTestId}
+                        {...restProps}
+                    >
+                        {(leftAddons || icon) && (
+                            <div className={cn(styles.leftAddons)}>
+                                {leftAddons ||
+                                    (icon && (
+                                        <div className={cn(styles.icon, styles[icon])}>
+                                            {iconComponent[icon]}
+                                        </div>
+                                    ))}
+                            </div>
+                        )}
+                        <div className={cn(styles.contentContainer)}>
+                            {title && <div className={cn(styles.title)}>{title}</div>}
+                            {children && <div className={cn(styles.content)}>{children}</div>}
                         </div>
-                    )}
-                    <div className={cn(styles.contentContainer)}>
-                        {title && <div className={cn(styles.title)}>{title}</div>}
-                        {children && <div className={cn(styles.content)}>{children}</div>}
+                        {hasCloser && onClose && (
+                            <Button
+                                className={cn(styles.closer)}
+                                view='ghost'
+                                onClick={onClose}
+                                aria-label='закрыть'
+                            >
+                                <CloseSWhiteIcon />
+                            </Button>
+                        )}
                     </div>
-                    {hasCloser && onClose && (
-                        <Button
-                            className={cn(styles.closer)}
-                            view='ghost'
-                            onClick={onClose}
-                            aria-label='закрыть'
-                        >
-                            <CloseSWhiteIcon />
-                        </Button>
-                    )}
                 </div>
-            </div>
+            </Portal>
         );
     },
 );
