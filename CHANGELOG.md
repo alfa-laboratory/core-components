@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [4.4.2](https://github.com/alfa-laboratory/core-components/compare/v4.4.1...v4.4.2) (2020-11-23)
+### [4.5.0](https://github.com/alfa-laboratory/core-components/compare/v4.4.1...v4.5.0) (2020-11-23)
 
 
 ### Features
