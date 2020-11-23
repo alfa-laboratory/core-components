@@ -33,8 +33,19 @@ export const Box = ({ children }) => (
 <Story name='Calendar'>
     {React.createElement(() => {
         const [value, setValue] = React.useState();
+        const minDate = startOfDay(new Date());
+        minDate.setDate(minDate.getDate() - 30);
+        const maxDate = startOfDay(new Date());
+        maxDate.setDate(maxDate.getDate() + 5);
+        const offDays = [new Date().setDate(1), new Date().setDate(8), new Date().setDate(25)];
         return (
-            <Calendar value={value} onChange={setValue} />
+            <Calendar
+                value={value}
+                onChange={setValue}
+                minDate={minDate.getTime()}
+                maxDate={maxDate.getTime()}
+                offDays={offDays}
+            />
         );
     })}
 </Story>

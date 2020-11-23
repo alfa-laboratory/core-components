@@ -14,9 +14,15 @@ import {
     min,
     max,
     isEqual,
+    addDays,
+    addMonths,
+    endOfWeek,
+    startOfWeek,
+    subDays,
+    subMonths,
 } from 'date-fns';
 import { useRef, useEffect } from 'react';
-import { Day, Month, SpecialDays } from './typings';
+import { DateShift, Day, Month, SpecialDays } from './typings';
 
 export const DAYS_IN_WEEK = 7;
 export const SUNDAY_INDEX = 6;
@@ -228,6 +234,52 @@ export function getSelectionRange(
     }
 
     return [start, end];
+}
+
+// Меняет дату одним из способов с учетом границ и выходных дней
+export function modifyDateByShift(
+    shift: DateShift,
+    date: Date,
+    minDate?: Date,
+    maxDate?: Date,
+    offDaysMap: Record<number, boolean> = {},
+) {
+    let newDate = date;
+
+    switch (shift) {
+        case 'prev':
+            newDate = subDays(date, 1);
+            break;
+        case 'prev_week':
+            newDate = subDays(date, 7);
+            break;
+        case 'prev_month':
+            newDate = subMonths(date, 1);
+            break;
+        case 'next':
+            newDate = addDays(date, 1);
+            break;
+        case 'next_week':
+            newDate = addDays(date, 7);
+            break;
+        case 'next_month':
+            newDate = addMonths(date, 1);
+            break;
+        case 'start_of_week':
+            newDate = startOfWeek(date, { weekStartsOn: 1 });
+            break;
+        case 'end_of_week':
+            newDate = startOfDay(endOfWeek(date, { weekStartsOn: 1 }));
+            break;
+    }
+
+    while (offDaysMap[newDate.getTime()]) {
+        // Перескакиваем через выходные дни, кроме случая с концом недели
+        const amount = newDate < date || shift === 'end_of_week' ? -1 : 1;
+        newDate = addDays(newDate, amount);
+    }
+
+    return limitDate(newDate, minDate, maxDate);
 }
 
 // TODO: перенести в @alfalab/hooks?
