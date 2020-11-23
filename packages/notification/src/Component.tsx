@@ -96,7 +96,7 @@ export type NotificationProps = HTMLAttributes<HTMLDivElement> & {
     dataTestId?: string;
 };
 
-const notificationClassNameSelector = `.${cn(styles.notificationComponent)}`;
+const notificationClassNameSelector = `.${styles.notificationComponent}`;
 
 const iconComponent = {
     negative: <CrossMIcon className={cn(styles.iconSvg)} />,
@@ -189,6 +189,10 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
             event => {
                 const isTargetNotification = !!event.target.closest(notificationClassNameSelector);
 
+                /*
+                 *  проверка isTargetNotification нужна для предотвращения срабатывания handleOutsideClick
+                 *  при клике на другие нотификации, если их несколько на странице
+                 */
                 if (onClickOutside && visible && !isTargetNotification) {
                     onClickOutside(event);
                 }
