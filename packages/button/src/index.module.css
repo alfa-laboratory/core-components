@@ -64,6 +64,10 @@
     opacity: 0;
 }
 
+a.loading {
+    pointer-events: none;
+}
+
 .loader {
     position: absolute;
 }
