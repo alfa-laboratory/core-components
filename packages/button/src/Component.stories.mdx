@@ -29,6 +29,7 @@ export const SIZES = ['xs', 's', 'm', 'l'];
         loading={boolean('loading')}
         disabled={boolean('disabled', false)}
         block={boolean('block', false)}
+        nowrap={boolean('nowrap', false)}
         onClick={action('click')}
     >
         {text('label', 'Оплатить')}
@@ -272,4 +273,30 @@ import { Button } from '@alfalab/core-components-button';
             </Container>
         );
     })}
+</Preview>
+
+## Перенос текста
+
+С помощью пропса `nowrap` можно запретить переносить текст кнопки
+<Preview>
+    <div style={{ width: '240px' }}>
+        <Row align="middle">
+            <Col>
+                <Button rightAddons={<Icon/>} view="primary" nowrap={true}>
+                    Кнопка без переноса текста
+                </Button>
+            </Col>
+            <Col>
+                <Button leftAddons={<Icon/>} />
+            </Col>
+            <Col>
+                <Button rightAddons={<Icon/>} view="outlined"/>
+            </Col>
+            <Col>
+                <Button view="ghost">
+                    Кнопка с переносом текста
+                </Button>
+            </Col>
+        </Row>
+    </div>
 </Preview>

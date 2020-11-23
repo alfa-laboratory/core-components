@@ -52,6 +52,11 @@ export type ComponentProps = {
      * Показать лоадер
      */
     loading?: boolean;
+
+    /**
+     * Не переносить текст кнопки на новую строку
+     */
+    nowrap?: boolean;
 };
 
 type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
@@ -71,6 +76,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
             dataTestId,
             href,
             loading = false,
+            nowrap = false,
             ...restProps
         },
         ref,
@@ -88,6 +94,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                     [styles.focused]: focused,
                     [styles.block]: block,
                     [styles.iconOnly]: !children,
+                    [styles.nowrap]: nowrap,
                     [styles.loading]: loading,
                 },
                 className,
@@ -143,4 +150,5 @@ Button.defaultProps = {
     size: 'm',
     block: false,
     loading: false,
+    nowrap: false,
 };

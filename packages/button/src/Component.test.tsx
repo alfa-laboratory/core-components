@@ -76,6 +76,12 @@ describe('Button', () => {
 
             expect(container.firstElementChild).toHaveClass('iconOnly');
         });
+
+        it('should set `nowrap` class', () => {
+            const { container } = render(<Button nowrap={true} />);
+
+            expect(container.firstElementChild).toHaveClass('nowrap');
+        });
     });
 
     describe('Callbacks tests', () => {
