@@ -65,6 +65,7 @@ export const Calendar: FC<CalendarProps> = ({
         getDayProps,
         highlighted,
     } = useCalendar({
+        defaultMonth: value ? new Date(value) : undefined,
         minDate: minDate ? new Date(minDate) : undefined,
         maxDate: maxDate ? new Date(maxDate) : undefined,
         selected: value ? new Date(value) : undefined,
