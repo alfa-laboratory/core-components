@@ -229,7 +229,18 @@
 /* IE min-height fix */
 
 .inner:after {
-    min-height: inherit;
     font-size: 0;
     content: '';
+}
+
+.s .inner:after {
+    min-height: calc(48px - 1px);
+}
+
+.m .inner:after {
+    min-height: calc(56px - 1px);
+}
+
+.l .inner:after {
+    min-height: calc(72px - 1px);
 }
