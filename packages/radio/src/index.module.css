@@ -95,6 +95,7 @@
 }
 
 .circle {
+    flex-shrink: 0;
     width: 16px;
     height: 16px;
     box-sizing: border-box;
