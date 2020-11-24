@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-attach",
-    "version": "1.2.6",
+    "version": "1.2.7",
     "description": "",
     "keywords": [],
     "license": "ISC",
@@ -16,7 +16,7 @@
         "react": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^1.6.6",
+        "@alfalab/core-components-button": "^1.6.7",
         "@alfalab/core-components-keyboard-focusable": "^1.2.2",
         "@alfalab/core-components-progress-bar": "^1.0.4",
         "@alfalab/icons-classic": "^1.7.0",
