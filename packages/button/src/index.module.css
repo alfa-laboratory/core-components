@@ -38,7 +38,7 @@
     align-content: center;
     align-items: center;
     margin: 0;
-    padding: 0 24px;
+    padding: 0 var(--gap-xl);
     line-height: 1.2;
     font-weight: var(--button-font-weight);
     font-family: var(--font-family);
@@ -64,6 +64,10 @@
     opacity: 0;
 }
 
+a.loading {
+    pointer-events: none;
+}
+
 .loader {
     position: absolute;
 }
@@ -73,7 +77,7 @@
 .xs {
     min-width: 80px;
     min-height: 32px;
-    padding: 0 12px;
+    padding: 0 var(--gap-m);
     font-size: 14px;
 
     &.iconOnly {
@@ -104,7 +108,7 @@
 .l {
     min-width: 160px;
     min-height: 72px;
-    padding: 0 32px;
+    padding: 0 var(--gap-2xl);
     font-size: 18px;
 
     &.iconOnly {
@@ -277,11 +281,11 @@
 }
 
 .addons:first-child {
-    margin: 0 12px 0 0;
+    margin: 0 var(--gap-xs) 0 0;
 }
 
 .addons:last-child {
-    margin: 0 0 0 12px;
+    margin: 0 0 0 var(--gap-xs);
 }
 
 .addons:only-child {
@@ -299,10 +303,18 @@
     width: 100%;
 }
 
+/* Nowrap */
+
+.nowrap {
+    white-space: nowrap;
+}
+
 /* IE min-height fix */
 
-.component:after {
-    min-height: inherit;
-    font-size: 0;
-    content: '';
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .component:after {
+        min-height: inherit;
+        font-size: 0;
+        content: '';
+    }
 }

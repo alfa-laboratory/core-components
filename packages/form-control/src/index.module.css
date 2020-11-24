@@ -228,8 +228,10 @@
 
 /* IE min-height fix */
 
-.inner:after {
-    min-height: inherit;
-    font-size: 0;
-    content: '';
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .inner:after {
+        min-height: inherit;
+        font-size: 0;
+        content: '';
+    }
 }

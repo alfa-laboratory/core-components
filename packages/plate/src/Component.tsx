@@ -145,13 +145,9 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                     {title && <div className={cn(styles.title)}>{title}</div>}
                     {children && (
                         <div
-                            className={cn(
-                                styles.content,
-                                {
-                                    [styles.isFolded]: isFoldable && isFolded,
-                                },
-                                className,
-                            )}
+                            className={cn(styles.content, {
+                                [styles.isFolded]: isFoldable && isFolded,
+                            })}
                         >
                             <div className={cn(styles.contentInner)}>{children}</div>
                         </div>

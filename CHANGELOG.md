@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.5.1](https://github.com/alfa-laboratory/core-components/compare/v4.5.0...v4.5.1) (2020-11-24)
+
+
+### Features
+
+* **button:** updated addons margin, use gaps ([514fb86](https://github.com/alfa-laboratory/core-components/commit/514fb863e41956be7f4888e03a886ab7d35029b1))
+* **select:** change arrow icon ([6335973](https://github.com/alfa-laboratory/core-components/commit/63359734754308eeca217526d2f4f652f78fc79d))
+
+
+### Bug Fixes
+
+* **form-control:** fix height ([#380](https://github.com/alfa-laboratory/core-components/issues/380)) ([afc3722](https://github.com/alfa-laboratory/core-components/commit/afc3722dc08eb3f742eaec53be5b0233afad02c3))
+
+### [4.5.0](https://github.com/alfa-laboratory/core-components/compare/v4.4.1...v4.5.0) (2020-11-23)
+
+
+### Features
+
+* **core-components-button:** added nowrap ([#365](https://github.com/alfa-laboratory/core-components/issues/365)) ([99a87eb](https://github.com/alfa-laboratory/core-components/commit/99a87ebd4c97e325b7724b70991b00ca121601da))
+* **core-components-spinner:** add spinner component ([#360](https://github.com/alfa-laboratory/core-components/issues/360)) ([8c6e453](https://github.com/alfa-laboratory/core-components/commit/8c6e45341b0ac6232e2fc89ed6860bb8ccbc371c))
+* **input-autocomplete:** revert arrow ([07f0ef4](https://github.com/alfa-laboratory/core-components/commit/07f0ef45a7cdd27132861932c7fa93ab0c00a024))
+
+
+### Bug Fixes
+
+* **button:** show loader when href is set ([#374](https://github.com/alfa-laboratory/core-components/issues/374)) ([79d6750](https://github.com/alfa-laboratory/core-components/commit/79d675007a86fe1e36e77376ba7a3afa3b8045e8))
+* **plate:** remove redunadant className ([#373](https://github.com/alfa-laboratory/core-components/issues/373)) ([fdd6b3d](https://github.com/alfa-laboratory/core-components/commit/fdd6b3dabb0b5b607d6c84471640c73e65128d0e)), closes [#366](https://github.com/alfa-laboratory/core-components/issues/366)
+* **radio:** fix input width ([#378](https://github.com/alfa-laboratory/core-components/issues/378)) ([369684e](https://github.com/alfa-laboratory/core-components/commit/369684ed2ce7aae07a00941e663accf82f8f2763))
+
 ### [4.4.1](https://github.com/alfa-laboratory/core-components/compare/v4.4.0...v4.4.1) (2020-11-19)
 
 
