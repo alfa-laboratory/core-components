@@ -311,8 +311,10 @@ a.loading {
 
 /* IE min-height fix */
 
-.component:after {
-    min-height: inherit;
-    font-size: 0;
-    content: '';
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .component:after {
+        min-height: inherit;
+        font-size: 0;
+        content: '';
+    }
 }
