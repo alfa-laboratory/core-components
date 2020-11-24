@@ -28,6 +28,10 @@ describe('Button', () => {
         it('should render loader if loading pass', () => {
             expect(render(<Button loading={true} />)).toMatchSnapshot();
         });
+
+        it('should render loader if loading & href pass', () => {
+            expect(render(<Button loading={true} href='https://some-url' />)).toMatchSnapshot();
+        });
     });
 
     describe('Attributes tests', () => {
@@ -71,6 +75,12 @@ describe('Button', () => {
             const { container } = render(<Button />);
 
             expect(container.firstElementChild).toHaveClass('iconOnly');
+        });
+
+        it('should set `nowrap` class', () => {
+            const { container } = render(<Button nowrap={true} />);
+
+            expect(container.firstElementChild).toHaveClass('nowrap');
         });
     });
 

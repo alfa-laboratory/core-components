@@ -10,6 +10,7 @@ export const AutocompleteField = ({
     label,
     placeholder,
     size,
+    Arrow,
     Input = DefaultInput,
     value,
     error,
@@ -58,6 +59,14 @@ export const AutocompleteField = ({
             onClick={handleClick}
             autoComplete='off'
             value={value}
+            rightAddons={
+                (Arrow || inputProps.rightAddons) && (
+                    <React.Fragment>
+                        {inputProps.rightAddons}
+                        {Arrow}
+                    </React.Fragment>
+                )
+            }
         />
     );
 };
