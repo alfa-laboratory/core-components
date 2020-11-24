@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.5.1](https://github.com/alfa-laboratory/core-components/compare/v4.5.0...v4.5.1) (2020-11-24)
+
+
+### Features
+
+* **button:** updated addons margin, use gaps ([514fb86](https://github.com/alfa-laboratory/core-components/commit/514fb863e41956be7f4888e03a886ab7d35029b1))
+* **select:** change arrow icon ([6335973](https://github.com/alfa-laboratory/core-components/commit/63359734754308eeca217526d2f4f652f78fc79d))
+
+
+### Bug Fixes
+
+* **form-control:** fix height ([#380](https://github.com/alfa-laboratory/core-components/issues/380)) ([afc3722](https://github.com/alfa-laboratory/core-components/commit/afc3722dc08eb3f742eaec53be5b0233afad02c3))
+
 ### [4.5.0](https://github.com/alfa-laboratory/core-components/compare/v4.4.1...v4.5.0) (2020-11-23)
 
 
