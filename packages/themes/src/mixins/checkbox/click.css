@@ -1,0 +1,16 @@
+@import '../../../../vars/src/index.css';
+
+@define-mixin checkbox-click {
+    /* core vars */
+    --color-light-graphic-positive: #2fc26e;
+
+    /* theme */
+    --checkbox-checked-bg-color: var(--color-light-graphic-positive);
+    --checkbox-checked-border-color: transparent;
+    --checkbox-checked-hover-bg-color: color-mod(var(--color-light-graphic-positive) shade(10%));
+    --checkbox-checked-hover-border-color: transparent;
+    --checkbox-checked-active-bg-color: color-mod(var(--color-light-graphic-positive) shade(30%));
+    --checkbox-checked-active-border-color: transparent;
+    --checkbox-checked-disabled-bg-color: color-mod(var(--color-light-graphic-positive) alpha(30%));
+    --checkbox-checked-disabled-border-color: transparent;
+}

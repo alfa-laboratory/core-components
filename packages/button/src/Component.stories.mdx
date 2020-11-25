@@ -3,7 +3,8 @@ import { action } from '@storybook/addon-actions';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { Container, Row, Col } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
-import Icon from '@alfalab/icons-glyph/StarMIcon';
+import IconM from '@alfalab/icons-glyph/StarMIcon';
+import IconS from '@alfalab/icons-glyph/FlashCircleSIcon';
 
 import { Button } from './Component';
 import { name, version } from '../package.json';
@@ -224,14 +225,22 @@ import { Button } from '@alfalab/core-components-button';
 
 <Preview>
     <Container>
-        <Row align="middle">
+        <Row>
             <Col>
-                <Button leftAddons={<Icon/>} rightAddons={<Icon/>}>
+                <Button leftAddons={<IconM/>} rightAddons={<IconM/>}>
                     Кнопка
                 </Button>
             </Col>
             <Col>
-                <Button rightAddons={<Icon/>} view="outlined"/>
+                <Button rightAddons={<IconM/>} view="outlined"/>
+            </Col>
+            <Col>
+                <Button size="xs" leftAddons={<IconS/>}>
+                    Кнопка
+                </Button>
+            </Col>
+            <Col>
+                <Button size="xs" rightAddons={<IconS/>} view="outlined"/>
             </Col>
         </Row>
     </Container>
@@ -277,20 +286,14 @@ import { Button } from '@alfalab/core-components-button';
 
 ## Перенос текста
 
-С помощью пропса `nowrap` можно запретить переносить текст кнопки
+С помощью свойства `nowrap` можно запретить перенос строки в кнопке.
 <Preview>
     <div style={{ width: '240px' }}>
         <Row align="middle">
             <Col>
-                <Button rightAddons={<Icon/>} view="primary" nowrap={true}>
+                <Button view="secondary" nowrap={true}>
                     Кнопка без переноса текста
                 </Button>
-            </Col>
-            <Col>
-                <Button leftAddons={<Icon/>} />
-            </Col>
-            <Col>
-                <Button rightAddons={<Icon/>} view="outlined"/>
             </Col>
             <Col>
                 <Button view="ghost">
