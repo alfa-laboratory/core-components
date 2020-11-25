@@ -41,8 +41,8 @@ export const DaysTable: FC<DaysTableProps> = ({
     const renderDay = (day: Day) => {
         const daySelected =
             day.selected ||
-            (selection && isSameDay(day.date, selection.start)) ||
-            (selection && isSameDay(day.date, selection.end));
+            (selectedFrom && isSameDay(day.date, selectedFrom)) ||
+            (selectedTo && isSameDay(day.date, selectedTo));
 
         const inRange = !daySelected && selection && isWithinInterval(day.date, selection);
 
