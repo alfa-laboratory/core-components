@@ -96,4 +96,8 @@
     &.rangeStart {
         cursor: pointer;
     }
+
+    &:focus {
+        z-index: 1;
+    }
 }
