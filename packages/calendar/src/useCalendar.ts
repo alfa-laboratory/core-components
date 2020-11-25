@@ -115,7 +115,8 @@ export function useCalendar({
 
     const focusDay = useCallback(
         (shift: DateShift) => {
-            const focusedNode = dayRefs.current.find(node => document.activeElement === node);
+            const focusedNode = document.activeElement as HTMLButtonElement;
+
             if (!focusedNode || !focusedNode.dataset.date) return;
 
             const focusedDate = new Date(+focusedNode.dataset.date);
@@ -130,7 +131,22 @@ export function useCalendar({
             }
 
             setTimeout(() => {
-                dayRefs.current[newDate.getDate() - 1].focus();
+                const newFocusedNode = dayRefs.current[newDate.getDate() - 1];
+
+                if (window.KeyboardEvent) {
+                    /**
+                     * Если дата была выбрана мышкой — фокусную обводку не видно
+                     * TODO: добавить в useFocus возможность переключать метод ввода программно
+                     */
+                    const event = new window.KeyboardEvent('keydown', {
+                        bubbles: true,
+                        key: 'Tab',
+                    });
+
+                    newFocusedNode.dispatchEvent(event);
+                }
+
+                newFocusedNode.focus();
             }, 0);
         },
         [maxDate, minDate, offDaysMap, setNextMonth, setPrevMonth],
