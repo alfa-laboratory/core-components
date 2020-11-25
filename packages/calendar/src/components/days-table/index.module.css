@@ -11,6 +11,30 @@
 
     & td {
         padding: var(--gap-2xs) 0 0;
+
+        &:first-child .transitLeft {
+            background: linear-gradient(
+                270deg,
+                var(--calendar-range-background) 0%,
+                rgba(255, 255, 255, 0) 100%
+            );
+
+            &:after {
+                display: none;
+            }
+        }
+
+        &:last-child .transitRight {
+            background: linear-gradient(
+                270deg,
+                rgba(255, 255, 255, 0) 0%,
+                var(--calendar-range-background) 100%
+            );
+
+            &:after {
+                display: none;
+            }
+        }
     }
 }
 
