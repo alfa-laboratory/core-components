@@ -3,7 +3,7 @@ name: Create new library packages
 on:
   push:
     branches:
-      - master
+      - test-test
 
 jobs:
   build:
