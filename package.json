@@ -31,7 +31,7 @@
         "release": "standard-version --no-verify --releaseCommitMessageFormat \"chore: release\"",
         "postbuild": "yarn purgecss",
         "purgecss": "./bin/purgecss.sh",
-        "semantic-release-lerna": "lerna exec --concurrency 5 -- yarn semantic-release -e semantic-release-monorepo"
+        "semantic-release-lerna": "lerna exec --concurrency 5 -- yarn semantic-release -e semantic-release-monorepo --tag-format='${LERNA_PACKAGE_NAME}@\\${version}'"
     },
     "browserslist": {
         "production": [
