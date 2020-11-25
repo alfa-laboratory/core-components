@@ -17,6 +17,11 @@
   resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.0.0.tgz#b1ca13dcba6092fd628fa657866b314b29c4efa8"
   integrity sha512-kpRxkgA0tbCMeWi5u955LVM8Imu+5XXwWQjkoDTm9DIbOZU2edWuc3eW6TKWeo2NJvIi8Owt50cc7qcGZHXBLg==
 
+"@alfalab/icons-classic@^1.33.0":
+  version "1.33.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-classic/-/icons-classic-1.33.0.tgz#fe0be776e7327bbd449ef9d988f32fdc50688a67"
+  integrity sha512-HY+p1LaXr0U6s5SQZgmgceFRRpODcLL10iu4aQWYy+Gu/ITx84krWY6FoivP09tTIjB8chR3TJHkF1f0qGM4CQ==
+
 "@alfalab/icons-classic@^1.7.0":
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-classic/-/icons-classic-1.7.0.tgz#e597f19ee604d8ba863c34f0fde6839d459ac801"
@@ -31,6 +36,11 @@
   version "1.26.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.26.0.tgz#eed52dd778440f6ef59b3fd524dc2eaadd5c86e6"
   integrity sha512-dBjvQ8yRiM1UtEHVna7U8Idh+EdyjOkdEms7uMXHgBoZg5Yn198auYHFs3Yu70k0kG0DHxdvtyoG+ES3Gl7idg==
+
+"@alfalab/icons-glyph@^1.70.0":
+  version "1.71.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.71.0.tgz#c1acaddbc3795089b39fac6703449c3e170d00e1"
+  integrity sha512-FA3jw4NzuBYvjoV+aRJfnE7qwl4f6r6FQg427QaRakGNNjcbsGkC6MjuglKGlwghBZDhvNaESmES2XmoNltalA==
 
 "@alfalab/icons-logotype@^1.4.0":
   version "1.4.0"
