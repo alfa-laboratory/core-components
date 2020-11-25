@@ -188,7 +188,7 @@ export function getSelectionRange(
     highlighted?: Date | number,
 ) {
     const end = to || highlighted;
-    if (from && end) {
+    if (from && end && from !== end) {
         return {
             start: min([from, end]),
             end: max([from, end]),

@@ -93,6 +93,49 @@
         cursor: pointer;
     }
 
+    &.firstDay,
+    &.lastDay {
+        &:after {
+            transition: opacity 0.2s ease;
+            content: '';
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    &.firstDay {
+        &:after {
+            right: 100%;
+            background: linear-gradient(
+                270deg,
+                var(--calendar-range-background) 0%,
+                rgba(255, 255, 255, 0) 100%
+            );
+        }
+    }
+
+    &.lastDay {
+        &:after {
+            left: 100%;
+            background: linear-gradient(
+                270deg,
+                rgba(255, 255, 255, 0) 0%,
+                var(--calendar-range-background) 100%
+            );
+        }
+    }
+
+    &.transitLeft,
+    &.transitRight {
+        &:after {
+            opacity: 1;
+        }
+    }
+
     &:focus {
         z-index: 1;
     }
