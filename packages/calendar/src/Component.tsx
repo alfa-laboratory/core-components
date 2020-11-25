@@ -17,6 +17,8 @@ export type CalendarProps = {
 
     defaultView?: View;
 
+    selectorView?: 'month-only' | 'full';
+
     value?: number;
 
     minDate?: number;
@@ -37,6 +39,7 @@ export type CalendarProps = {
 export const Calendar: FC<CalendarProps> = ({
     className,
     defaultView = 'days',
+    selectorView = 'full',
     value,
     minDate,
     maxDate,
@@ -136,7 +139,7 @@ export const Calendar: FC<CalendarProps> = ({
                 onNextArrowClick={handleNextArrowClick}
                 onMonthClick={handleMonthClick}
                 onYearClick={handleYearClick}
-                view={years.length > 1 ? 'full' : 'month-only'}
+                view={selectorView}
                 withShadow={scrolled}
             />
 

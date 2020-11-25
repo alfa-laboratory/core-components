@@ -74,14 +74,15 @@ import { Calendar } from '@alfalab/core-components-calendar';
       {React.createElement(() => {
         const [value, setValue] = React.useState();
         const minDate = startOfDay(new Date());
-        minDate.setDate(minDate.getDate() - 3);
+        minDate.setDate(10);
         const maxDate = startOfDay(new Date());
-        maxDate.setDate(maxDate.getDate() + 5);
+        maxDate.setDate(20);
         return (
             <Box>
                 <Calendar
                     value={value}
                     onChange={setValue}
+                    selectorView="month-only"
                     minDate={minDate.getTime()}
                     maxDate={maxDate.getTime()}
                 />

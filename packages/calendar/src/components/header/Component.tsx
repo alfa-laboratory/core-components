@@ -72,15 +72,7 @@ export const Header: FC<HeaderProps> = ({
                         </SelectButton>
                     </React.Fragment>
                 ) : (
-                    <Button
-                        size='xs'
-                        view='ghost'
-                        className={cn(styles.button, styles.month)}
-                        onClick={onMonthClick}
-                        disabled={!prevArrowVisible && !nextArrowVisible}
-                    >
-                        {month}
-                    </Button>
+                    <span className={cn(styles.button, styles.month)}>{month}</span>
                 )}
 
                 {nextArrowVisible && (

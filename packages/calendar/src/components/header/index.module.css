@@ -41,9 +41,7 @@
     & .month {
         @mixin headline_xsmall;
 
-        &:disabled {
-            color: var(--color-light-text-primary);
-        }
+        width: auto;
     }
 }
 
