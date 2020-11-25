@@ -1,11 +1,10 @@
 {
     "name": "@alfalab/core-components-plate",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "",
     "keywords": [],
     "license": "ISC",
     "main": "dist/index.js",
-    "module": "./dist/modern/index.js",
     "files": [
         "dist"
     ],
@@ -16,7 +15,7 @@
         "react": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^1.6.7",
+        "@alfalab/core-components-button": "^1.7.1",
         "@alfalab/hooks": "^1.0.0",
         "classnames": "^2.2.6",
         "react-merge-refs": "^1.1.0"

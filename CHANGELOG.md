@@ -2,6 +2,51 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.2.0](https://github.com/alfa-laboratory/core-components/compare/v5.1.0...v5.2.0) (2020-11-25)
+
+
+### Features
+
+* **core-components-typography:** add responsive title ([#362](https://github.com/alfa-laboratory/core-components/issues/362)) ([d3af0cd](https://github.com/alfa-laboratory/core-components/commit/d3af0cd52bcdbf92a1716e993104360acafcdc61))
+
+
+### Bug Fixes
+
+* fix ie bundle ([#385](https://github.com/alfa-laboratory/core-components/issues/385)) ([9ca6024](https://github.com/alfa-laboratory/core-components/commit/9ca60245991903600c0308c9cd30955f39bd914f))
+
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/v5.0.0...v5.1.0) (2020-11-25)
+
+
+### Features
+
+* **button:** design review fixes ([e8f5faf](https://github.com/alfa-laboratory/core-components/commit/e8f5faf42b2ea98eff7d5914076a1916008b13b9))
+* **checkbox:** improved theming ([cb1d196](https://github.com/alfa-laboratory/core-components/commit/cb1d196ade34622d5b92fc0ec5c20af5f5e27d3c))
+* **radio:** improved theming ([3dcb532](https://github.com/alfa-laboratory/core-components/commit/3dcb532b8b6d9a4e610a56b557a54f6c68e6ce46))
+* **switch:** improved theming ([b4ecc39](https://github.com/alfa-laboratory/core-components/commit/b4ecc399c706e1de7086e255e57219e3907414e0))
+* **themes:** experimental click theme for checkbox/radio/switch ([f5b2263](https://github.com/alfa-laboratory/core-components/commit/f5b22636af4b68b12b42158737e11af59e714848))
+* **themes:** updated click theme for tabs size m ([56dd5b6](https://github.com/alfa-laboratory/core-components/commit/56dd5b6530085de0a1dc6fc7be6cb78825c438f4))
+
+# [5.0.0](https://github.com/alfa-laboratory/core-components/compare/v4.5.1...v5.0.0) (2020-11-25)
+
+
+### Bug Fixes
+
+* slightly better and safer ie fixes ([0e34b4f](https://github.com/alfa-laboratory/core-components/commit/0e34b4fb9800a435c05dc8f83146ce5617cf99a5))
+
+
+### Features
+
+* remove extra vars, update docs ([#370](https://github.com/alfa-laboratory/core-components/issues/370)) ([af1b133](https://github.com/alfa-laboratory/core-components/commit/af1b1339e768e59a2377409bf164cc8c439bd3bf))
+
+
+### BREAKING CHANGES
+
+* remove packages/vars/src/breakpoints.css
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
 ### [4.5.1](https://github.com/alfa-laboratory/core-components/compare/v4.5.0...v4.5.1) (2020-11-24)
 
 

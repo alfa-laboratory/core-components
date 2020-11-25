@@ -22,7 +22,6 @@
     --button-ghost-disabled-color: color-mod(var(--button-ghost-base-color) alpha(30%));
 
     /* font */
-    --button-font-weight: 500;
     --button-font-family: var(--font-family);
 
     /* radius */
@@ -40,7 +39,7 @@
     margin: 0;
     padding: 0 var(--gap-xl);
     line-height: 1.2;
-    font-weight: var(--button-font-weight);
+    font-weight: 500;
     font-family: var(--font-family);
     text-align: center;
     text-decoration: none;
@@ -79,6 +78,7 @@ a.loading {
     min-height: 32px;
     padding: 0 var(--gap-m);
     font-size: 14px;
+    font-weight: 400;
 
     &.iconOnly {
         min-width: 32px;

@@ -1,11 +1,10 @@
 {
     "name": "@alfalab/core-components-spinner",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Spinner component",
     "keywords": [],
     "license": "ISC",
     "main": "dist/index.js",
-    "module": "./dist/modern/index.js",
     "files": [
         "dist"
     ],

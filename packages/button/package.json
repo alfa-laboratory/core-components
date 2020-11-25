@@ -1,12 +1,11 @@
 {
     "name": "@alfalab/core-components-button",
-    "version": "1.6.7",
+    "version": "1.7.1",
     "description": "",
     "gitHead": "f054fef20200664c65e2501ef1f916c555cdf05d",
     "keywords": [],
     "license": "ISC",
     "main": "dist/index.js",
-    "module": "./dist/modern/index.js",
     "files": [
         "dist"
     ],
@@ -17,7 +16,7 @@
         "react": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/core-components-loader": "^1.0.2",
+        "@alfalab/core-components-loader": "^1.0.3",
         "@alfalab/hooks": "^1.0.0",
         "classnames": "^2.2.6",
         "react-merge-refs": "^1.1.0"
