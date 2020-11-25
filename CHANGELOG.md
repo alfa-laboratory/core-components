@@ -1,3 +1,20 @@
+# [5.0.0](https://github.com/alfa-laboratory/core-components/compare/v4.5.1...v5.0.0) (2020-11-25)
+
+
+### Bug Fixes
+
+* slightly better and safer ie fixes ([0e34b4f](https://github.com/alfa-laboratory/core-components/commit/0e34b4fb9800a435c05dc8f83146ce5617cf99a5))
+
+
+### Features
+
+* remove extra vars, update docs ([#370](https://github.com/alfa-laboratory/core-components/issues/370)) ([af1b133](https://github.com/alfa-laboratory/core-components/commit/af1b1339e768e59a2377409bf164cc8c439bd3bf))
+
+
+### BREAKING CHANGES
+
+* remove packages/vars/src/breakpoints.css
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
