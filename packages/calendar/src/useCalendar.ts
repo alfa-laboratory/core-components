@@ -115,7 +115,9 @@ export function useCalendar({
 
     const focusDay = useCallback(
         (shift: DateShift) => {
-            const focusedNode = document.activeElement as HTMLButtonElement;
+            const focusedNode =
+                dayRefs.current.find(node => document.activeElement === node) ||
+                dayRefs.current.find(node => node && node.tabIndex === 0);
 
             if (!focusedNode || !focusedNode.dataset.date) return;
 
@@ -218,11 +220,17 @@ export function useCalendar({
                 onMouseEnter: handleMouseEnter,
                 onMouseLeave: handleMouseLeave,
                 onClick: handleClick,
-                onKeyDown: handleKeyDown,
             };
         },
         [handleClick, handleItemRef, handleKeyDown, handleMouseEnter, handleMouseLeave, selected],
     );
+
+    const getRootProps = useCallback(() => {
+        return {
+            onKeyDown: handleKeyDown,
+            tabIndex: -1,
+        };
+    }, [handleKeyDown]);
 
     useDidUpdateEffect(() => {
         if (onMonthChange) {
@@ -243,5 +251,6 @@ export function useCalendar({
         setNextMonth,
         setMonthByDate,
         getDayProps,
+        getRootProps,
     };
 }

@@ -62,8 +62,9 @@ export const Calendar: FC<CalendarProps> = ({
         setPrevMonth,
         setNextMonth,
         setMonthByDate,
-        getDayProps,
         highlighted,
+        getDayProps,
+        getRootProps,
     } = useCalendar({
         defaultMonth: value ? new Date(value) : undefined,
         minDate: minDate ? new Date(minDate) : undefined,
@@ -129,6 +130,7 @@ export const Calendar: FC<CalendarProps> = ({
             className={cn(styles.component, className, {
                 [styles.sixWeeks]: weeks.length === 6,
             })}
+            {...getRootProps()}
         >
             <Header
                 month={monthName(month)}
