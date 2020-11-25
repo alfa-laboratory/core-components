@@ -2,7 +2,6 @@ import cn from 'classnames';
 import React from 'react';
 import { Color } from '../colors';
 
-import styles from './index.module.css';
 import colors from '../colors.module.css';
 
 export type TitleProps = {
@@ -47,7 +46,13 @@ export type TitleProps = {
     children?: React.ReactNode;
 };
 
-export const Title: React.FC<TitleProps> = ({
+type Styles = {
+    styles: {
+        [key: string]: string;
+    };
+};
+
+export const Title: React.FC<TitleProps & Styles> = ({
     tag: Component = 'div',
     view = 'medium',
     font = 'styrene',
@@ -56,7 +61,8 @@ export const Title: React.FC<TitleProps> = ({
     className,
     dataTestId,
     children,
-}: TitleProps): React.ReactElement => (
+    styles,
+}) => (
     <Component
         className={cn(
             styles.component,
