@@ -1,3 +1,19 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [5.2.0](https://github.com/alfa-laboratory/core-components/compare/v5.1.0...v5.2.0) (2020-11-25)
+
+
+### Features
+
+* **core-components-typography:** add responsive title ([#362](https://github.com/alfa-laboratory/core-components/issues/362)) ([d3af0cd](https://github.com/alfa-laboratory/core-components/commit/d3af0cd52bcdbf92a1716e993104360acafcdc61))
+
+
+### Bug Fixes
+
+* fix ie bundle ([#385](https://github.com/alfa-laboratory/core-components/issues/385)) ([9ca6024](https://github.com/alfa-laboratory/core-components/commit/9ca60245991903600c0308c9cd30955f39bd914f))
+
 # [5.1.0](https://github.com/alfa-laboratory/core-components/compare/v5.0.0...v5.1.0) (2020-11-25)
 
 
