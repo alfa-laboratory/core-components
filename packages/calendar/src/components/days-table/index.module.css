@@ -10,11 +10,7 @@
     }
 
     & td {
-        padding: 0 0 3px;
-    }
-
-    & tr:last-child td {
-        padding-bottom: 0;
+        padding: var(--gap-2xs) 0 0;
     }
 }
 

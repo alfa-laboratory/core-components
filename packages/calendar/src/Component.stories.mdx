@@ -91,6 +91,23 @@ import { Calendar } from '@alfalab/core-components-calendar';
     })}
 </Preview>
 
+## Скрытие выбора года и месяца
+
+<Preview>
+      {React.createElement(() => {
+        const [value, setValue] = React.useState();
+        return (
+            <Box>
+                <Calendar
+                    value={value}
+                    onChange={setValue}
+                    selectorView="month-only"
+                />
+            </Box>
+        );
+    })}
+</Preview>
+
 
 ## Недоступные даты
 

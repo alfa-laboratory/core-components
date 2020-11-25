@@ -4,7 +4,7 @@
 .header {
     width: 100%;
     box-sizing: border-box;
-    padding: var(--gap-m) var(--gap-m) var(--gap-s);
+    padding: var(--calendar-header-paddings);
     transition: box-shadow 0.2s ease;
 }
 
@@ -27,7 +27,7 @@
 .year {
     width: 105px;
 
-    margin-left: var(--gap-s);
+    margin-left: var(--gap-xs);
 }
 
 .buttonContent {
@@ -38,6 +38,8 @@
 }
 
 .monthOnly {
+    padding: var(--calendar-month-only-header-paddings);
+
     & .month {
         @mixin headline_xsmall;
 
