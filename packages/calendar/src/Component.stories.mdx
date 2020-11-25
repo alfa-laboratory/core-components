@@ -6,6 +6,7 @@ import { ComponentHeader } from 'storybook/blocks/component-header';
 import startOfDay from 'date-fns/startOfDay';
 
 import { Calendar } from './';
+import { usePeriod } from './usePeriod';
 
 import { name, version } from '../package.json';
 
@@ -33,18 +34,10 @@ export const Box = ({ children }) => (
 <Story name='Calendar'>
     {React.createElement(() => {
         const [value, setValue] = React.useState();
-        const minDate = startOfDay(new Date());
-        minDate.setDate(minDate.getDate() - 30);
-        const maxDate = startOfDay(new Date());
-        maxDate.setDate(maxDate.getDate() + 5);
-        const offDays = [new Date().setDate(1), new Date().setDate(8), new Date().setDate(25)];
         return (
             <Calendar
                 value={value}
                 onChange={setValue}
-                minDate={minDate.getTime()}
-                maxDate={maxDate.getTime()}
-                offDays={offDays}
             />
         );
     })}
@@ -149,62 +142,34 @@ import { Calendar } from '@alfalab/core-components-calendar';
 </Preview>
 
 
-## Режим Selection
+## Выделение периода
 
-Режим, позволяющий подсвечивать определенный период дат на календаре.
+С помощью свойств `selectedFrom` и `selectedTo` можно подсвечивать определенный период дат на календаре.
 
-По умолчанию посвечивает период между выбранной датой и датой под курсором.
+Если свойство `selectedTo` не задано, то подсвечивается период между `selectedFrom` и датой под курсором.
+
+Для автоматического управления выделением можно воспользоваться хуком `usePeriod`
 
 <Preview>
-      {React.createElement(() => {
+    {React.createElement(() => {
+        // import { usePeriod } from '@alfalab/core-components/calendar';
         const [value, setValue] = React.useState();
+        const onPeriodChange = (selectedFrom, selectedTo) => {
+            console.log('selected', selectedFrom, selectedTo);
+        }
+        const { selectedFrom, selectedTo, updatePeriod } = usePeriod({ onPeriodChange });
+        const handleChange = (date) => {
+            const newDate = date === selectedFrom ? undefined : date;
+            setValue(newDate);
+            updatePeriod(newDate);
+        }
         return (
             <Box>
                 <Calendar
                     value={value}
-                    onChange={setValue}
-                    mode='selection'
-                />
-            </Box>
-        );
-    })}
-</Preview>
-
-С помощью свойств `selectedFrom` и `selectedTo` можно указать конкретный период для подстветки.
-
-<Preview>
-      {React.createElement(() => {
-        const [value, setValue] = React.useState();
-        const firstDay = new Date(new Date().setDate(5));
-        const lastDay = new Date(new Date().setDate(15));
-        console.log(firstDay, lastDay);
-        return (
-            <Box>
-                <Calendar
-                    value={value}
-                    onChange={setValue}
-                    mode='selection'
-                    selectedFrom={firstDay}
-                    selectedTo={lastDay}
-                />
-            </Box>
-        );
-    })}
-</Preview>
-
-Если одно из свойств не установлено, то вместо него будет использоваться выбранная дата или дата под курсором.
-
-<Preview>
-      {React.createElement(() => {
-        const [value, setValue] = React.useState();
-        const prevMonth = new Date().setMonth(new Date().getMonth() - 1);
-        return (
-            <Box>
-                <Calendar
-                    value={value}
-                    onChange={setValue}
-                    mode='selection'
-                    selectedFrom={prevMonth}
+                    selectedFrom={selectedFrom}
+                    selectedTo={selectedTo}
+                    onChange={handleChange}
                 />
             </Box>
         );

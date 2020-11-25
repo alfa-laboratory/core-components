@@ -7,13 +7,11 @@ import {
     startOfMonth,
     startOfYear,
     endOfYear,
-    endOfDay,
     isSameDay,
     isBefore,
     isAfter,
     min,
     max,
-    isEqual,
     addDays,
     addMonths,
     endOfWeek,
@@ -182,58 +180,22 @@ export function dateArrayToHashTable(arr: Array<Date | number>) {
 }
 
 /**
- * Проверяет, находится ли дата в переданном отрезке
- */
-export function inSelection(date: Date | number, start?: Date | number, end?: Date | number) {
-    return start && end && date >= startOfDay(start) && date <= endOfDay(end);
-}
-
-/**
- * Возвращает отрезок дат для выделения. Блять, даже описание сложно придумать :((((((
+ * Возвращает корректный отрезок дат для выделения
  */
 export function getSelectionRange(
     from?: Date | number,
     to?: Date | number,
-    selected?: Date | number,
     highlighted?: Date | number,
 ) {
-    // TODO: переписать эту дичь)
-    let start = from;
-    let end = to;
-
-    if (selected) {
-        if (!from && !to) {
-            end = highlighted ? max([selected, highlighted]) : selected;
-            start = highlighted ? min([selected, highlighted]) : selected;
-        }
-
-        if (from && !to) {
-            end = selected;
-        }
-
-        if (to && !from) {
-            start = selected;
-        }
-
-        if (to && from) {
-            end = min([selected, to]);
-        }
-    } else {
-        if (!from) {
-            start = highlighted;
-        }
-
-        if (!to) {
-            end = highlighted;
-        }
+    const end = to || highlighted;
+    if (from && end) {
+        return {
+            start: min([from, end]),
+            end: max([from, end]),
+        };
     }
 
-    if (start && end && isEqual(start, end)) {
-        start = undefined;
-        end = undefined;
-    }
-
-    return [start, end];
+    return null;
 }
 
 // Меняет дату одним из способов с учетом границ и выходных дней

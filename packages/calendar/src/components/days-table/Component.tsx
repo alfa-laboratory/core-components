@@ -1,16 +1,14 @@
 import React, { FC, useCallback } from 'react';
 import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
-import { isEqual, isToday } from 'date-fns';
-import { WEEKDAYS, inSelection, getSelectionRange } from '../../utils';
+import { isEqual, isSameDay, isToday, isWithinInterval } from 'date-fns';
+import { WEEKDAYS, getSelectionRange } from '../../utils';
 import { Day } from '../../typings';
 
 import styles from './index.module.css';
 
 export type DaysTableProps = {
     weeks?: Day[][];
-
-    selected?: Date | number;
 
     selectedFrom?: Date | number;
 
@@ -19,15 +17,11 @@ export type DaysTableProps = {
     highlighted?: Date | number;
 
     getDayProps: (day: Day) => Record<string, unknown>;
-
-    mode?: 'single' | 'selection';
 };
 
 export const DaysTable: FC<DaysTableProps> = ({
     weeks = [],
-    mode,
     highlighted,
-    selected,
     selectedFrom,
     selectedTo,
     getDayProps,
@@ -42,11 +36,17 @@ export const DaysTable: FC<DaysTableProps> = ({
         [],
     );
 
-    const selection = getSelectionRange(selectedFrom, selectedTo, selected, highlighted);
+    const selection = getSelectionRange(selectedFrom, selectedTo, highlighted);
 
     const renderDay = (day: Day) => {
-        const inRange =
-            !day.selected && mode === 'selection' && inSelection(day.date, ...selection);
+        const daySelected =
+            day.selected ||
+            (selectedFrom && isSameDay(day.date, selectedFrom)) ||
+            (selectedTo && isSameDay(day.date, selectedTo));
+
+        const inRange = !daySelected && selection && isWithinInterval(day.date, selection);
+
+        const rangeStart = selectedFrom && isSameDay(day.date, selectedFrom);
 
         return (
             <Button
@@ -56,8 +56,9 @@ export const DaysTable: FC<DaysTableProps> = ({
                 size='xs'
                 disabled={day.disabled}
                 className={cn(styles.day, {
-                    [styles.selected]: day.selected,
+                    [styles.selected]: daySelected,
                     [styles.range]: inRange,
+                    [styles.rangeStart]: rangeStart,
                     [styles.today]: isToday(day.date),
                     [styles.event]: day.event,
                     [styles.disabled]: day.disabled,

@@ -92,4 +92,8 @@
         background: var(--calendar-selected-background);
         cursor: default;
     }
+
+    &.rangeStart {
+        cursor: pointer;
+    }
 }

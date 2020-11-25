@@ -31,15 +31,12 @@ export type CalendarProps = {
 
     offDays?: Array<Date | number>;
 
-    mode?: 'single' | 'selection';
-
     onChange?: (date: number) => void;
 };
 
 export const Calendar: FC<CalendarProps> = ({
     className,
     defaultView = 'days',
-    mode = 'single',
     value,
     minDate,
     maxDate,
@@ -147,12 +144,10 @@ export const Calendar: FC<CalendarProps> = ({
                 {view === 'days' && (
                     <DaysTable
                         weeks={weeks}
-                        selected={value}
                         selectedFrom={selectedFrom}
                         selectedTo={selectedTo}
                         getDayProps={getDayProps}
                         highlighted={highlighted}
-                        mode={mode}
                     />
                 )}
 
