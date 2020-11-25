@@ -6,7 +6,6 @@
     "keywords": [],
     "license": "ISC",
     "main": "dist/index.js",
-    "module": "./dist/modern/index.js",
     "files": [
         "dist"
     ],
