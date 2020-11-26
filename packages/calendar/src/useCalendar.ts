@@ -55,6 +55,7 @@ export function useCalendar({
     const [activeMonth, setActiveMonth] = useState(defaultMonth);
     const [highlighted, setHighlighted] = useState<Date | number>();
     const dateRefs = useRef<HTMLButtonElement[]>([]);
+    const rootRef = useRef<HTMLDivElement>();
 
     const minMonth = minDate && startOfMonth(minDate);
     const maxMonth = maxDate && startOfMonth(maxDate);
@@ -102,52 +103,6 @@ export function useCalendar({
     const setPrevMonth = useCallback(() => {
         setMonthByStep(-1);
     }, [setMonthByStep]);
-
-    const handleMonthClick = useCallback(
-        (event: MouseEvent<HTMLButtonElement>) => {
-            const { date } = (event.currentTarget as HTMLButtonElement).dataset;
-
-            if (date) {
-                setMonthByDate(new Date(+date));
-            }
-        },
-        [setMonthByDate],
-    );
-
-    const handleYearClick = useCallback(
-        (event: MouseEvent<HTMLButtonElement>) => {
-            const { date } = (event.currentTarget as HTMLButtonElement).dataset;
-
-            if (date) {
-                setMonthByDate(setYear(activeMonth, new Date(+date).getFullYear()));
-            }
-        },
-        [activeMonth, setMonthByDate],
-    );
-
-    const handleDateRef = useCallback((node, index: number) => {
-        dateRefs.current[index] = node;
-    }, []);
-
-    const handleDayMouseEnter = useCallback((event: MouseEvent<HTMLButtonElement>) => {
-        const { date } = (event.currentTarget as HTMLButtonElement).dataset;
-        setHighlighted(date ? +date : undefined);
-    }, []);
-
-    const handleDayMouseLeave = useCallback(() => {
-        setHighlighted(undefined);
-    }, []);
-
-    const handleDayClick = useCallback(
-        (event: MouseEvent<HTMLButtonElement>) => {
-            const { date } = (event.currentTarget as HTMLButtonElement).dataset;
-
-            if (date && onChange) {
-                onChange(+date);
-            }
-        },
-        [onChange],
-    );
 
     const getFocusedDate = useCallback(
         () => dateRefs.current.find(node => document.activeElement === node),
@@ -241,6 +196,56 @@ export function useCalendar({
         [focusDate, focusFirstAvailableDate, getFocusedDate, years.length],
     );
 
+    const handleMonthClick = useCallback(
+        (event: MouseEvent<HTMLButtonElement>) => {
+            const { date } = (event.currentTarget as HTMLButtonElement).dataset;
+
+            if (date) {
+                setMonthByDate(new Date(+date));
+            }
+
+            if (rootRef.current) rootRef.current.focus();
+        },
+        [setMonthByDate],
+    );
+
+    const handleYearClick = useCallback(
+        (event: MouseEvent<HTMLButtonElement>) => {
+            const { date } = (event.currentTarget as HTMLButtonElement).dataset;
+
+            if (date) {
+                setMonthByDate(setYear(activeMonth, new Date(+date).getFullYear()));
+            }
+
+            if (rootRef.current) rootRef.current.focus();
+        },
+        [activeMonth, setMonthByDate],
+    );
+
+    const handleDateRef = useCallback((node, index: number) => {
+        dateRefs.current[index] = node;
+    }, []);
+
+    const handleDayMouseEnter = useCallback((event: MouseEvent<HTMLButtonElement>) => {
+        const { date } = (event.currentTarget as HTMLButtonElement).dataset;
+        setHighlighted(date ? +date : undefined);
+    }, []);
+
+    const handleDayMouseLeave = useCallback(() => {
+        setHighlighted(undefined);
+    }, []);
+
+    const handleDayClick = useCallback(
+        (event: MouseEvent<HTMLButtonElement>) => {
+            const { date } = (event.currentTarget as HTMLButtonElement).dataset;
+
+            if (date && onChange) {
+                onChange(+date);
+            }
+        },
+        [onChange],
+    );
+
     const daysControls = useMemo(
         (): { [key: string]: () => void } => ({
             ArrowLeft: () => focusDay('prev'),
@@ -301,7 +306,11 @@ export function useCalendar({
             let canFocus = daySelected;
 
             // Если день не выбран, то фокус должен начинаться с первого доступного дня месяца
-            if (!selected && !focusableDayIsSet && !day.disabled) {
+            if (
+                (!selected || !isSameMonth(selected, activeMonth)) &&
+                !focusableDayIsSet &&
+                !day.disabled
+            ) {
                 // eslint-disable-next-line react-hooks/exhaustive-deps
                 focusableDayIsSet = true;
                 canFocus = true;
@@ -366,6 +375,7 @@ export function useCalendar({
     const getRootProps = useCallback(() => {
         return {
             onKeyDown: handleKeyDown,
+            ref: rootRef,
             tabIndex: -1,
         };
     }, [handleKeyDown]);
