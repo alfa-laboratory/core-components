@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, FC } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef } from 'react';
 import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
 
@@ -13,16 +13,11 @@ export type SelectButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     view?: 'default' | 'filled' | 'outlined' | 'selected';
 };
 
-export const SelectButton: FC<SelectButtonProps> = ({
-    className,
-    children,
-    disabled,
-    view = 'default',
-    ...restProps
-}) => {
-    return (
+export const SelectButton = forwardRef<HTMLButtonElement, SelectButtonProps>(
+    ({ className, children, disabled, view = 'default', ...restProps }, ref) => (
         <Button
             {...restProps}
+            ref={ref}
             view='ghost'
             size='xs'
             disabled={disabled}
@@ -32,5 +27,5 @@ export const SelectButton: FC<SelectButtonProps> = ({
         >
             {children}
         </Button>
-    );
-};
+    ),
+);

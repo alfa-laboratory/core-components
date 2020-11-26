@@ -11,17 +11,14 @@ export type MonthsTableProps = {
 
     selectedMonth?: Date;
 
-    onMonthClick?: (month: Date) => void;
+    getMonthProps: (day: Month) => Record<string, unknown>;
 };
 
-export const MonthsTable: FC<MonthsTableProps> = ({ selectedMonth, months = [], onMonthClick }) => {
-    const handleMonthClick = useCallback(
-        (date: Date) => {
-            if (onMonthClick) onMonthClick(date);
-        },
-        [onMonthClick],
-    );
-
+export const MonthsTable: FC<MonthsTableProps> = ({
+    selectedMonth,
+    months = [],
+    getMonthProps,
+}) => {
     const view = useCallback(
         (month: Month): SelectButtonProps['view'] => {
             if (selectedMonth && isSameMonth(selectedMonth, month.date)) return 'selected';
@@ -35,10 +32,9 @@ export const MonthsTable: FC<MonthsTableProps> = ({ selectedMonth, months = [], 
         <div className={styles.monthsTable}>
             {months.map(month => (
                 <SelectButton
+                    {...getMonthProps(month)}
                     key={month.date.getTime()}
-                    onClick={() => handleMonthClick(month.date)}
                     className={styles.button}
-                    disabled={month.disabled}
                     view={view(month)}
                 >
                     {monthName(month.date)}

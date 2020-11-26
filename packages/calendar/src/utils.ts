@@ -188,6 +188,7 @@ export function getSelectionRange(
     highlighted?: Date | number,
 ) {
     const end = to || highlighted;
+
     if (from && end && from !== end) {
         return {
             start: min([from, end]),
@@ -206,42 +207,41 @@ export function modifyDateByShift(
     maxDate?: Date,
     offDaysMap: Record<number, boolean> = {},
 ) {
-    let newDate = date;
+    const modifiers: Record<DateShift, () => Date> = {
+        prev: () => subDays(date, 1),
+        prevWeek: () => subDays(date, 7),
+        prevMonth: () => subMonths(date, 1),
+        next: () => addDays(date, 1),
+        nextWeek: () => addDays(date, 7),
+        nextMonth: () => addMonths(date, 1),
+        startOfWeek: () => startOfWeek(date, { weekStartsOn: 1 }),
+        endOfWeek: () => startOfDay(endOfWeek(date, { weekStartsOn: 1 })),
+    };
 
-    switch (shift) {
-        case 'prev':
-            newDate = subDays(date, 1);
-            break;
-        case 'prev_week':
-            newDate = subDays(date, 7);
-            break;
-        case 'prev_month':
-            newDate = subMonths(date, 1);
-            break;
-        case 'next':
-            newDate = addDays(date, 1);
-            break;
-        case 'next_week':
-            newDate = addDays(date, 7);
-            break;
-        case 'next_month':
-            newDate = addMonths(date, 1);
-            break;
-        case 'start_of_week':
-            newDate = startOfWeek(date, { weekStartsOn: 1 });
-            break;
-        case 'end_of_week':
-            newDate = startOfDay(endOfWeek(date, { weekStartsOn: 1 }));
-            break;
-    }
+    let newDate = modifiers[shift]();
 
     while (offDaysMap[newDate.getTime()]) {
         // Перескакиваем через выходные дни, кроме случая с концом недели
-        const amount = newDate < date || shift === 'end_of_week' ? -1 : 1;
+        const amount = newDate < date || shift === 'endOfWeek' ? -1 : 1;
         newDate = addDays(newDate, amount);
     }
 
     return limitDate(newDate, minDate, maxDate);
+}
+
+/**
+ * Если дата была выбрана мышкой — фокусную обводку не видно
+ * TODO: добавить в useFocus возможность переключать метод ввода программно
+ */
+export function simulateTab(node: HTMLElement) {
+    if (window.KeyboardEvent) {
+        const event = new window.KeyboardEvent('keydown', {
+            bubbles: true,
+            key: 'Tab',
+        });
+
+        node.dispatchEvent(event);
+    }
 }
 
 // TODO: перенести в @alfalab/hooks?

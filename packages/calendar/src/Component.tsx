@@ -1,16 +1,14 @@
 import React, { FC, useCallback, useState } from 'react';
 import cn from 'classnames';
-import { setYear } from 'date-fns';
 import { Header } from './components/header';
 import { DaysTable } from './components/days-table';
 import { MonthsTable } from './components/months-table';
 import { YearsTable } from './components/years-table';
 import { useCalendar } from './useCalendar';
 import { monthName, useDidUpdateEffect } from './utils';
+import { View } from './typings';
 
 import styles from './index.module.css';
-
-type View = 'years' | 'months' | 'days';
 
 export type CalendarProps = {
     className?: string;
@@ -53,7 +51,7 @@ export const Calendar: FC<CalendarProps> = ({
     const [scrolled, setScrolled] = useState(false);
 
     const {
-        month,
+        activeMonth,
         weeks,
         months,
         years,
@@ -61,11 +59,13 @@ export const Calendar: FC<CalendarProps> = ({
         canSetNextMonth,
         setPrevMonth,
         setNextMonth,
-        setMonthByDate,
         highlighted,
         getDayProps,
+        getMonthProps,
+        getYearProps,
         getRootProps,
     } = useCalendar({
+        view,
         defaultMonth: value ? new Date(value) : undefined,
         minDate: minDate ? new Date(minDate) : undefined,
         maxDate: maxDate ? new Date(maxDate) : undefined,
@@ -103,23 +103,9 @@ export const Calendar: FC<CalendarProps> = ({
         toggleView('years');
     }, [toggleView]);
 
-    const handleMonthSelect = useCallback(
-        (newMonth: Date) => {
-            setMonthByDate(newMonth);
-        },
-        [setMonthByDate],
-    );
-
-    const handleYearSelect = useCallback(
-        (newYear: Date) => {
-            setMonthByDate(setYear(month, newYear.getFullYear()));
-        },
-        [month, setMonthByDate],
-    );
-
     useDidUpdateEffect(() => {
         setView('days');
-    }, [month]);
+    }, [activeMonth]);
 
     useDidUpdateEffect(() => {
         setScrolled(false);
@@ -133,8 +119,8 @@ export const Calendar: FC<CalendarProps> = ({
             {...getRootProps()}
         >
             <Header
-                month={monthName(month)}
-                year={month.getFullYear().toString()}
+                month={monthName(activeMonth)}
+                year={activeMonth.getFullYear().toString()}
                 prevArrowVisible={canSetPrevMonth}
                 nextArrowVisible={canSetNextMonth}
                 onPrevArrowClick={handlePrevArrowClick}
@@ -158,17 +144,17 @@ export const Calendar: FC<CalendarProps> = ({
 
                 {view === 'months' && (
                     <MonthsTable
-                        selectedMonth={month}
+                        selectedMonth={activeMonth}
                         months={months}
-                        onMonthClick={handleMonthSelect}
+                        getMonthProps={getMonthProps}
                     />
                 )}
 
                 {view === 'years' && (
                     <YearsTable
-                        selectedYear={month}
+                        selectedYear={activeMonth}
                         years={years}
-                        onYearClick={handleYearSelect}
+                        getYearProps={getYearProps}
                         onScroll={handleScroll}
                     />
                 )}

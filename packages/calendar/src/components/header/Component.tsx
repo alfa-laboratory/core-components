@@ -42,10 +42,16 @@ export const Header: FC<HeaderProps> = ({
                 [styles.monthOnly]: view === 'month-only',
                 [styles.withShadow]: withShadow,
             })}
+            aria-live='polite'
         >
             <div className={styles.inner}>
                 {prevArrowVisible && (
-                    <Button view='ghost' className={styles.arrow} onClick={onPrevArrowClick} />
+                    <Button
+                        view='ghost'
+                        className={styles.arrow}
+                        onClick={onPrevArrowClick}
+                        aria-label='Предыдущий месяц'
+                    />
                 )}
 
                 {view === 'full' ? (
@@ -76,7 +82,12 @@ export const Header: FC<HeaderProps> = ({
                 )}
 
                 {nextArrowVisible && (
-                    <Button view='ghost' className={styles.arrow} onClick={onNextArrowClick} />
+                    <Button
+                        view='ghost'
+                        className={styles.arrow}
+                        onClick={onNextArrowClick}
+                        aria-label='Следующий месяц'
+                    />
                 )}
             </div>
         </div>

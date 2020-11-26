@@ -18,10 +18,14 @@ export type Month = {
 
 export type DateShift =
     | 'prev'
-    | 'prev_week'
-    | 'prev_month'
-    | 'start_of_week'
+    | 'prevWeek'
+    | 'prevMonth'
+    | 'startOfWeek'
     | 'next'
-    | 'next_week'
-    | 'next_month'
-    | 'end_of_week';
+    | 'nextWeek'
+    | 'nextMonth'
+    | 'endOfWeek';
+
+export type View = 'years' | 'months' | 'days';
+
+export type Direction = 'left' | 'right' | 'up' | 'down' | 'start' | 'end';

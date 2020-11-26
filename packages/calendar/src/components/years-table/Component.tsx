@@ -9,7 +9,7 @@ export type YearsTableProps = {
 
     selectedYear?: Date;
 
-    onYearClick?: (year: Date) => void;
+    getYearProps: (year: Date) => Record<string, unknown>;
 
     onScroll?: (event: MouseEvent<HTMLDivElement>) => void;
 };
@@ -17,16 +17,9 @@ export type YearsTableProps = {
 export const YearsTable: FC<YearsTableProps> = ({
     selectedYear,
     years = [],
-    onYearClick,
+    getYearProps,
     onScroll,
 }) => {
-    const handleYearClick = useCallback(
-        (year: Date) => {
-            if (onYearClick) onYearClick(year);
-        },
-        [onYearClick],
-    );
-
     const view = useCallback(
         (year: Date): SelectButtonProps['view'] => {
             if (selectedYear && isSameYear(selectedYear, year)) return 'selected';
@@ -40,10 +33,10 @@ export const YearsTable: FC<YearsTableProps> = ({
         <div className={styles.yearsTable} onScroll={onScroll}>
             {years.map(year => (
                 <SelectButton
+                    {...getYearProps(year)}
                     key={year.getFullYear()}
                     view={view(year)}
                     className={styles.button}
-                    onClick={() => handleYearClick(year)}
                 >
                     {year.getFullYear()}
                 </SelectButton>
