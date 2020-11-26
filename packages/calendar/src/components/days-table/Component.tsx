@@ -98,7 +98,6 @@ export const DaysTable: FC<DaysTableProps> = ({
     const renderWeek = (week: Day[], weekIdx: number) => (
         <tr key={weekIdx}>
             {week.map((day: Day, dayIdx: number) => (
-                // eslint-disable-next-line react/no-array-index-key
                 <td key={day ? day.date.getTime() : dayIdx}>{day && renderDay(day)}</td>
             ))}
         </tr>

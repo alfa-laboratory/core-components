@@ -1,9 +1,9 @@
 import React, { FC, MouseEvent } from 'react';
 import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
+import { SelectButton } from '../select-button';
 
 import styles from './index.module.css';
-import { SelectButton } from '../select-button';
 
 export type HeaderProps = {
     /**
