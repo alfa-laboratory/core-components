@@ -5,12 +5,24 @@ import { SelectButton, SelectButtonProps } from '../select-button';
 import styles from './index.module.css';
 
 export type YearsTableProps = {
+    /**
+     * Массив лет
+     */
     years?: Date[];
 
+    /**
+     * Выбранный год
+     */
     selectedYear?: Date;
 
+    /**
+     * Доп. пропсы для переданного года
+     */
     getYearProps: (year: Date) => Record<string, unknown>;
 
+    /**
+     * Обработчик скролла
+     */
     onScroll?: (event: MouseEvent<HTMLDivElement>) => void;
 };
 

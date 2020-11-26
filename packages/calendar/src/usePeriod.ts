@@ -2,6 +2,9 @@ import { useCallback, useState } from 'react';
 import { useDidUpdateEffect } from './utils';
 
 type usePeriodProps = {
+    /**
+     * Обработчик изменения выделенного периода
+     */
     onPeriodChange?: (selectedFrom?: number, selectedTo?: number) => void;
 };
 

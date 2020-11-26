@@ -8,8 +8,6 @@ import {
     isSameYear,
     setYear,
 } from 'date-fns';
-import { DateShift, Day, Month, View } from './typings';
-
 import {
     limitDate,
     generateMonths,
@@ -19,25 +17,54 @@ import {
     useDidUpdateEffect,
     modifyDateByShift,
     simulateTab,
+    MONTHS_IN_YEAR,
 } from './utils';
+import { DateShift, Day, Month, View } from './typings';
 
 export type UseCalendarProps = {
+    /**
+     * Начальный месяц
+     */
     defaultMonth?: Date;
 
+    /**
+     * Активный вид (выбор дней, месяцев, лет)
+     */
     view?: View;
 
+    /**
+     * Минимальная дата, доступная для выбора
+     */
     minDate?: Date;
 
+    /**
+     * Максимальная дата, доступная для выбора
+     */
     maxDate?: Date;
 
+    /**
+     * Выбранная дата
+     */
     selected?: Date;
 
+    /**
+     * Список событий
+     */
     events?: Array<Date | number>;
 
+    /**
+     * Список выходных дней
+     */
     offDays?: Array<Date | number>;
 
+    /**
+     * Обработчик изменения месяца (или года)
+     */
     onMonthChange?: (month: number) => void;
 
+    /**
+     * Обработчик выбора даты
+     */
     onChange?: (date: number) => void;
 };
 
@@ -54,8 +81,9 @@ export function useCalendar({
 }: UseCalendarProps) {
     const [activeMonth, setActiveMonth] = useState(defaultMonth);
     const [highlighted, setHighlighted] = useState<Date | number>();
+
     const dateRefs = useRef<HTMLButtonElement[]>([]);
-    const rootRef = useRef<HTMLDivElement>();
+    const rootRef = useRef<HTMLDivElement>(null);
 
     const minMonth = minDate && startOfMonth(minDate);
     const maxMonth = maxDate && startOfMonth(maxDate);
@@ -167,7 +195,7 @@ export function useCalendar({
                 const focusedMonth = new Date(+focusedNode.dataset.date).getMonth();
                 const newFocusedMonth = focusedMonth + offset;
 
-                if (newFocusedMonth >= 0 && newFocusedMonth <= 11) {
+                if (newFocusedMonth >= 0 && newFocusedMonth < MONTHS_IN_YEAR) {
                     focusDate(dateRefs.current[newFocusedMonth]);
                 }
             } else {
@@ -305,7 +333,7 @@ export function useCalendar({
             const daySelected = selected && isSameDay(selected, day.date);
             let canFocus = daySelected;
 
-            // Если день не выбран, то фокус должен начинаться с первого доступного дня месяца
+            // Если день не выбран — фокус должен начинаться с первого доступного дня месяца
             if (
                 (!selected || !isSameMonth(selected, activeMonth)) &&
                 !focusableDayIsSet &&

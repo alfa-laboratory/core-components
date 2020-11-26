@@ -11,26 +11,64 @@ import { View } from './typings';
 import styles from './index.module.css';
 
 export type CalendarProps = {
+    /**
+     * Дополнительный класс
+     */
     className?: string;
 
+    /**
+     * Вид по умолчанию (выбор дней, месяцев, лет)
+     */
     defaultView?: View;
 
+    /**
+     * Вид шапки — месяц и год или только месяц
+     */
     selectorView?: 'month-only' | 'full';
 
+    /**
+     * Выбранная дата
+     */
     value?: number;
 
+    /**
+     * Минимальная дата, доступная для выбора
+     */
     minDate?: number;
 
+    /**
+     * Максимальная дата, доступная для выбора
+     */
     maxDate?: number;
 
+    /**
+     * Начало выделенного периода
+     */
     selectedFrom?: number;
 
+    /**
+     * Конец выделенного периода
+     */
     selectedTo?: number;
 
+    /**
+     * Список событий
+     */
     events?: Array<Date | number>;
 
+    /**
+     * Список выходных
+     */
     offDays?: Array<Date | number>;
 
+    /**
+     * Обработчик изменения месяца (или года)
+     */
+    onMonthChange?: (month: number) => void;
+
+    /**
+     * Обработчик выбора даты
+     */
     onChange?: (date: number) => void;
 };
 
@@ -46,6 +84,7 @@ export const Calendar: FC<CalendarProps> = ({
     offDays,
     events,
     onChange,
+    onMonthChange,
 }) => {
     const [view, setView] = useState<View>(defaultView);
     const [scrolled, setScrolled] = useState(false);
@@ -73,6 +112,7 @@ export const Calendar: FC<CalendarProps> = ({
         offDays,
         events,
         onChange,
+        onMonthChange,
     });
 
     const toggleView = useCallback(

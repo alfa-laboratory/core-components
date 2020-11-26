@@ -27,5 +27,3 @@ export type DateShift =
     | 'endOfWeek';
 
 export type View = 'years' | 'months' | 'days';
-
-export type Direction = 'left' | 'right' | 'up' | 'down' | 'start' | 'end';

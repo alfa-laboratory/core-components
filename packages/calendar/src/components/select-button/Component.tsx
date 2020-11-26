@@ -10,6 +10,9 @@ export type SelectButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
      */
     className?: string;
 
+    /**
+     * Вид кнопки
+     */
     view?: 'default' | 'filled' | 'outlined' | 'selected';
 };
 

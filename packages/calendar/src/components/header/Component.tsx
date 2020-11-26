@@ -6,21 +6,54 @@ import styles from './index.module.css';
 import { SelectButton } from '../select-button';
 
 export type HeaderProps = {
+    /**
+     * Выбранный месяц
+     */
     month?: string;
 
+    /**
+     * Выбранный год
+     */
     year?: string;
 
+    /**
+     * Вид шапки — месяц и год или только месяц
+     */
     view?: 'month-only' | 'full';
 
+    /**
+     * Отображать тень? (нужна при прокрутке)
+     */
     withShadow?: boolean;
 
+    /**
+     * Показывать кнопку переключения на пред. месяц?
+     */
     prevArrowVisible?: boolean;
+
+    /**
+     * Показывать кнопку переключения на след. месяц?
+     */
     nextArrowVisible?: boolean;
 
+    /**
+     * Обработчик нажатия кнопки переключения на пред. месяц
+     */
     onPrevArrowClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+
+    /**
+     * Обработчик нажатия кнопки переключения на след. месяц
+     */
     onNextArrowClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 
+    /**
+     * Обработчик нажатия на кнопку месяца
+     */
     onMonthClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+
+    /**
+     * Обработчик нажатия на кнопку года
+     */
     onYearClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 };
 

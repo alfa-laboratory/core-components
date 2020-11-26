@@ -8,14 +8,29 @@ import { Day } from '../../typings';
 import styles from './index.module.css';
 
 export type DaysTableProps = {
+    /**
+     * Массив-календарь недель
+     */
     weeks?: Day[][];
 
+    /**
+     * Начало выделенного периода
+     */
     selectedFrom?: Date | number;
 
+    /**
+     * Конец выделенного периода
+     */
     selectedTo?: Date | number;
 
+    /**
+     * Подсвеченная дата (ховер)
+     */
     highlighted?: Date | number;
 
+    /**
+     * Доп. пропсы для переданного дня
+     */
     getDayProps: (day: Day) => Record<string, unknown>;
 };
 

@@ -7,10 +7,19 @@ import { Month } from '../../typings';
 import styles from './index.module.css';
 
 export type MonthsTableProps = {
+    /**
+     * Массив месяцев
+     */
     months?: Month[];
 
+    /**
+     * Выбранный месяц
+     */
     selectedMonth?: Date;
 
+    /**
+     * Доп пропсы для переданного месяца
+     */
     getMonthProps: (day: Month) => Record<string, unknown>;
 };
 

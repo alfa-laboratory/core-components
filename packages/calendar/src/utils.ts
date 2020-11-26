@@ -23,6 +23,7 @@ import { useRef, useEffect } from 'react';
 import { DateShift, Day, Month, SpecialDays } from './typings';
 
 export const DAYS_IN_WEEK = 7;
+export const MONTHS_IN_YEAR = 12;
 export const SUNDAY_INDEX = 6;
 
 export const WEEKDAYS = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
@@ -43,8 +44,6 @@ export const MONTHS = [
 
 /**
  * Возвращает «правильный» индекс дня недели, 0 - пн, 1 - вт и так далее.
- *
- * @param date Дата, из которой нужно получить день недели.
  */
 export function russianWeekDay(date: Date): number {
     const sunday = 0;
@@ -55,8 +54,6 @@ export function russianWeekDay(date: Date): number {
 
 /**
  * Возвращает таблицу-календарь с заполненными датами для переданного месяца
- *
- * @param month Дата внутри месяца
  */
 export function generateWeeks(
     month: Date,
@@ -91,8 +88,6 @@ export function generateWeeks(
 
 /**
  * Возвращает массив с месяцами для переданного года
- *
- * @param year Дата внутри года
  */
 export function generateMonths(year: Date, options: { minMonth?: Date; maxMonth?: Date }) {
     return eachMonthOfInterval({ start: startOfYear(year), end: endOfYear(year) }).map(month =>
@@ -102,8 +97,6 @@ export function generateMonths(year: Date, options: { minMonth?: Date; maxMonth?
 
 /**
  * Возвращает массив лет от текущего года и до minYear
- *
- * @param minYear Дата внутри минимального года
  */
 export function generateYears(minYear: Date) {
     return eachYearOfInterval({
@@ -114,9 +107,6 @@ export function generateYears(minYear: Date) {
 
 /**
  * Добавляет метаданные для переданного дня
- *
- * @param day дата
- * @param options набор метаданных
  */
 export function buildDay(
     day: Date,
@@ -142,9 +132,6 @@ export function buildDay(
 
 /**
  * Добавляет метаданные для переданного месяца
- *
- * @param day дата
- * @param options набор метаданных
  */
 export function buildMonth(month: Date, options: { minMonth?: Date; maxMonth?: Date }): Month {
     const { minMonth, maxMonth } = options;
