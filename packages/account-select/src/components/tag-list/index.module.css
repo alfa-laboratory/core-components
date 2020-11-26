@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    flex: 1;
+}
+
+.tag {
+    margin: 0 0 var(--gap-s) var(--gap-xs);
+    padding-right: 6px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    height: 32px;
+    border: none;
+    cursor: default;
+    &:hover:not(:disabled):not(:active),
+    &:hover:not(:disabled) {
+        border: none;
+    }
+    &:active:not(:disabled) {
+        background-color: var(--tag-background-color-checked);
+        color: var(--tag-text-color-checked);
+    }
+    &:first-child {
+        margin-top: var(--gap-s);
+    }
+}
+
+.closeIconButton {
+    padding: var(--gap-2xs) 10px;
+    margin-left: var(--gap-xs-neg);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.moreLessButton {
+    margin-bottom: var(--gap-s);
+    margin-left: var(--gap-m);
+    padding: var(--gap-xs);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--color-dark-indigo-60-flat);
+
+    &:hover {
+        color: var(--color-dark-indigo);
+    }
+}

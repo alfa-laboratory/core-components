@@ -1,0 +1,29 @@
+.container {
+    border-radius: 8px;
+    padding: 4px 0;
+}
+.chooseAll {
+    height: 40px;
+    width: 100%;
+    border: none;
+    text-align: start;
+    color: var(--color-dark-indigo-60-flat);
+    padding-left: 34px;
+    cursor: pointer;
+    background-color: transparent;
+    border-top: 1px solid var(--color-dark-indigo-10-flat);
+
+    &:hover {
+        color: var(--color-dark-indigo);
+        background-color: var(--color-dark-indigo-10-flat);
+    }
+
+    &:focus {
+        outline: none;
+        background-color: var(--color-dark-indigo-10-flat);
+    }
+}
+
+.select__optionsList_1d88s {
+    background-color: red;
+}

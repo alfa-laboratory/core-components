@@ -1,0 +1,48 @@
+.container {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    height: 56px;
+    align-items: center;
+    padding-left: 34px;
+    padding-right: 34px;
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+        background-color: var(--color-dark-indigo-05-flat);
+    }
+
+    &:focus {
+        outline: none;
+        background-color: var(--color-dark-indigo-05-flat);
+    }
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    color: var(--color-dark-indigo-60-flat);
+}
+
+.addon {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    color: var(--color-dark-indigo-60-flat);
+}
+
+.checkmark {
+    top: 10px;
+    position: absolute;
+    left: 10px;
+    opacity: 0;
+    width: 18px;
+    height: 18px;
+}
+
+.selected {
+    opacity: var(--opacity-active);
+}

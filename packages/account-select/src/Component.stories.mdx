@@ -1,0 +1,82 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { Tag } from '@alfalab/core-components-tag';
+import { Input } from '@alfalab/core-components-input';
+import { MaskedInput } from '@alfalab/core-components-masked-input';
+import { Option } from '@alfalab/core-components-select';
+
+import { AccountSelect } from './Component';
+
+<Meta
+    title='Компоненты'
+    component={AccountSelect}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+
+<!-- Canvas -->
+
+export const options = [
+    { key: '1', value: { balance: '123 494,23', currency: '₽', number: '40702810826010000002', openDate: '17.09.2019' } },
+    { key: '2', value: { balance: '494,20', currency: '₽', number: '40702810826010000003', openDate: '18.09.2019' } },
+    { key: '3', value: { balance: '108 385,00', currency: '₽', number: '40702810826010000004', openDate: '19.09.2019' } },
+    { key: '4', value: { balance: '0,00', currency: '₽', number: '40702 810 8 2601 0000005', openDate: '29.09.2019' } },
+    { key: '5', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000006', openDate: '21.09.2019' } },
+    { key: '6', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000007', openDate: '22.09.2020' } },
+    { key: '7', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000008', openDate: '23.09.2020' } },
+    { key: '8', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000009', openDate: '17.09.2019' } },
+    { key: '9', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000010', openDate: '17.09.2019' } },
+    { key: '10', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000011', openDate: '17.09.2019' } },
+    { key: '11', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000012', openDate: '17.09.2019' } },
+    { key: '12', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000013', openDate: '17.09.2019' } },
+    { key: '13', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000014', openDate: '17.09.2019' } },
+    { key: '14', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000015', openDate: '17.09.2019' } },
+    { key: '15', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000016', openDate: '17.09.2019' } },
+];
+
+export const matchOption = (option, inputValue) =>
+    option.value.number.toLowerCase().includes((inputValue || '').toLowerCase());
+
+<Story name='AccountSelect'>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('');
+        const [selectedOptions, setSelectedOptions] = React.useState([]);
+        const handleInput = event => {
+            setValue(event.target.value);
+        };
+        const filteredOptions = React.useMemo(() => {
+            return options.filter(option => matchOption(option, value));
+        }, [value]);
+        const handleChange = ({ selectedMultiple }) => {
+            setSelectedOptions(selectedMultiple);
+        };
+        const handleSelectAllAccounts = React.useCallback(() => {
+            setSelectedOptions(options);
+        }, [options]);
+        const handleDeleteTag = React.useCallback((tag) => {
+            setSelectedOptions(selectedOptions.filter(selectedOption => selectedOption.value.number !== tag));
+        }, [selectedOptions]);
+        return (
+            <AccountSelect
+                size="m"
+                block={true}
+                value={value}
+                multiple={true}
+                closeOnSelect={false}
+                allowUnselect={true}
+                label={"Номер счёта справки"}
+                placeholder={"Введите номер счёта справки"}
+                onInput={handleInput}
+                onChange={handleChange}
+                options={filteredOptions}
+                selected={selectedOptions}
+                onDeleteTag={handleDeleteTag}
+                onSelectAll={handleSelectAllAccounts}
+            />
+        );
+    })}
+</Story>
