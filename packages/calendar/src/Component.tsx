@@ -71,6 +71,11 @@ export type CalendarProps = {
      * Обработчик выбора даты
      */
     onChange?: (date: number) => void;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
 };
 
 export const Calendar: FC<CalendarProps> = ({
@@ -86,6 +91,7 @@ export const Calendar: FC<CalendarProps> = ({
     events,
     onChange,
     onMonthChange,
+    dataTestId,
 }) => {
     const [view, setView] = useState<View>(defaultView);
     const [scrolled, setScrolled] = useState(false);
@@ -172,6 +178,7 @@ export const Calendar: FC<CalendarProps> = ({
                 [styles.sixWeeks]: weeks.length === 6,
             })}
             {...getRootProps()}
+            data-test-id={dataTestId}
         >
             <Header
                 month={monthName(activeMonth)}
