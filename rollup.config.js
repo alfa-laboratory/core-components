@@ -151,16 +151,17 @@ const root = {
             flatten: false,
             targets: [
                 { src: ['dist/**/*', '!**/*.js'], dest: rootDir },
-                {
-                    src: 'package.json',
-                    dest: `../../dist/${currentComponentName}`,
-                    transform: () => createPackageJson('./modern/index.js'),
-                },
-                {
-                    src: 'package.json',
-                    dest: `../../dist/${currentComponentName}/cssm`,
-                    transform: () => createPackageJson('../modern/index.js'),
-                },
+                // TODO: вернуть, когда добавим еще одну сборку с es5 + esmodules
+                // {
+                //     src: 'package.json',
+                //     dest: `../../dist/${currentComponentName}`,
+                //     transform: () => createPackageJson('./modern/index.js'),
+                // },
+                // {
+                //     src: 'package.json',
+                //     dest: `../../dist/${currentComponentName}/cssm`,
+                //     transform: () => createPackageJson('../modern/index.js'),
+                // },
             ],
         }),
         coreComponentsRootPackageResolver({ currentPackageDir }),

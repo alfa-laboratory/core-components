@@ -1,0 +1,12 @@
+@import '../../../../vars/src/index.css';
+
+@define-mixin switch-click {
+    /* core vars */
+    --color-light-graphic-positive: #2fc26e;
+
+    /* theme */
+    --switch-checked-bg-color: var(--color-light-graphic-positive);
+    --switch-checked-border-color: transparent;
+    --switch-checked-disabled-bg-color: color-mod(var(--color-light-graphic-positive) alpha(30%));
+    --switch-checked-disabled-border-color: transparent;
+}

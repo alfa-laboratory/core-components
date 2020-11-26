@@ -2,6 +2,9 @@
 @import './form-control/click.css';
 @import './input/click.css';
 @import './button/click.css';
+@import './checkbox/click.css';
+@import './radio/click.css';
+@import './switch/click.css';
 @import './tabs/click.css';
 @import './tag/click.css';
 @import './link/click.css';
@@ -14,6 +17,9 @@
     @mixin form-control-click;
     @mixin input-click;
     @mixin button-click;
+    @mixin checkbox-click;
+    @mixin radio-click;
+    @mixin switch-click;
     @mixin tabs-click;
     @mixin tag-click;
     @mixin link-click;

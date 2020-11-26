@@ -2,7 +2,7 @@ import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import { text, boolean, select, number } from '@storybook/addon-knobs';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 
-import { Typography } from './Component';
+import { Typography } from './component';
 import { name, version } from '../package.json';
 import { colors } from './colors';
 
@@ -28,6 +28,26 @@ import { colors } from './colors';
             <Typography.Title view={view} color={color} weight={weight} font={font} key={view}>
                 заголовок view='{view}'
             </Typography.Title>
+        ))
+    })}
+</Story>
+
+<Story name='Typography.TitleResponsive'>
+    {React.createElement(() => {
+        const VIEW_TYPES = [
+            'xlarge',
+            'large',
+            'medium',
+            'small',
+            'xsmall',
+        ];
+        const color = select('color', colors, '');
+        const weight = select('weight', ['regular', 'medium', 'bold'], 'medium');
+        const font = select('font', ['styrene', 'system'], 'styrene');
+        return VIEW_TYPES.map(view => (
+            <Typography.TitleResponsive view={view} color={color} weight={weight} font={font} key={view}>
+                заголовок view='{view}'
+            </Typography.TitleResponsive>
         ))
     })}
 </Story>
@@ -106,6 +126,31 @@ import { Typography } from '@alfalab/core-components-typography';
             <Typography.Title view={view} color={color} weight={weight} font={font} key={view}>
                 заголовок view='{view}'
             </Typography.Title>
+        ))
+    })}
+</Preview>
+
+## Typography.TitleResponsive
+
+<Typography.TitleResponsive>Адаптивный заголовок для шрифта styrene</Typography.TitleResponsive>
+<Typography.TitleResponsive font='system'>Адаптивный заголовок для шрифта system</Typography.TitleResponsive>
+
+<Preview>
+    {React.createElement(() => {
+        const VIEW_TYPES = [
+            'xlarge',
+            'large',
+            'medium',
+            'small',
+            'xsmall',
+        ];
+        const color = select('color', colors, '');
+        const weight = select('weight', ['regular', 'medium', 'bold'], 'medium');
+        const font = select('font', ['styrene', 'system'], 'styrene');
+        return VIEW_TYPES.map(view => (
+            <Typography.TitleResponsive view={view} color={color} weight={weight} font={font} key={view}>
+                заголовок view='{view}'
+            </Typography.TitleResponsive>
         ))
     })}
 </Preview>
