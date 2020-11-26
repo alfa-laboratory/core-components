@@ -1,13 +1,5 @@
 import { KeyboardEvent, MouseEvent, useCallback, useMemo, useRef, useState } from 'react';
-import {
-    startOfMonth,
-    subYears,
-    setMonth,
-    isSameDay,
-    isSameMonth,
-    isSameYear,
-    setYear,
-} from 'date-fns';
+import { startOfMonth, setMonth, isSameDay, isSameMonth, isSameYear, setYear } from 'date-fns';
 import {
     limitDate,
     generateMonths,
@@ -23,19 +15,19 @@ import { DateShift, Day, Month, View } from './typings';
 
 export type UseCalendarProps = {
     /**
-     * Начальный месяц
-     */
-    defaultMonth?: Date;
-
-    /**
      * Активный вид (выбор дней, месяцев, лет)
      */
     view?: View;
 
     /**
+     * Начальный месяц
+     */
+    defaultMonth: Date;
+
+    /**
      * Минимальная дата, доступная для выбора
      */
-    minDate?: Date;
+    minDate: Date;
 
     /**
      * Максимальная дата, доступная для выбора
@@ -69,13 +61,13 @@ export type UseCalendarProps = {
 };
 
 export function useCalendar({
-    defaultMonth = startOfMonth(new Date()),
-    minDate = subYears(defaultMonth, 100),
+    defaultMonth,
+    minDate,
     view = 'days',
     maxDate,
     selected,
-    events = [],
-    offDays = [],
+    events,
+    offDays,
     onMonthChange,
     onChange,
 }: UseCalendarProps) {
@@ -85,15 +77,15 @@ export function useCalendar({
     const dateRefs = useRef<HTMLButtonElement[]>([]);
     const rootRef = useRef<HTMLDivElement>(null);
 
-    const minMonth = minDate && startOfMonth(minDate);
-    const maxMonth = maxDate && startOfMonth(maxDate);
+    const minMonth = useMemo(() => minDate && startOfMonth(minDate), [minDate]);
+    const maxMonth = useMemo(() => maxDate && startOfMonth(maxDate), [maxDate]);
 
     const canSetPrevMonth = minMonth ? activeMonth > minMonth : true;
     const canSetNextMonth = maxMonth ? activeMonth < maxMonth : true;
 
-    const eventsMap = useMemo(() => dateArrayToHashTable(events), [events]);
+    const eventsMap = useMemo(() => dateArrayToHashTable(events || []), [events]);
 
-    const offDaysMap = useMemo(() => dateArrayToHashTable(offDays), [offDays]);
+    const offDaysMap = useMemo(() => dateArrayToHashTable(offDays || []), [offDays]);
 
     const weeks = useMemo(
         () => generateWeeks(activeMonth, { minDate, maxDate, selected, eventsMap, offDaysMap }),

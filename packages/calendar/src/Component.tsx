@@ -1,5 +1,6 @@
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, useCallback, useMemo, useState } from 'react';
 import cn from 'classnames';
+import { startOfMonth, subYears } from 'date-fns';
 import { Header } from './components/header';
 import { DaysTable } from './components/days-table';
 import { MonthsTable } from './components/months-table';
@@ -77,8 +78,8 @@ export const Calendar: FC<CalendarProps> = ({
     defaultView = 'days',
     selectorView = 'full',
     value,
-    minDate,
-    maxDate,
+    minDate: minDateTimestamp,
+    maxDate: maxDateTimestamp,
     selectedFrom,
     selectedTo,
     offDays,
@@ -88,6 +89,20 @@ export const Calendar: FC<CalendarProps> = ({
 }) => {
     const [view, setView] = useState<View>(defaultView);
     const [scrolled, setScrolled] = useState(false);
+
+    const selected = useMemo(() => (value ? new Date(value) : undefined), [value]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const defaultMonth = useMemo(() => startOfMonth(selected || new Date()), []);
+
+    const minDate = useMemo(
+        () => (minDateTimestamp ? new Date(minDateTimestamp) : subYears(defaultMonth, 100)),
+        [minDateTimestamp, defaultMonth],
+    );
+
+    const maxDate = useMemo(() => (maxDateTimestamp ? new Date(maxDateTimestamp) : undefined), [
+        maxDateTimestamp,
+    ]);
 
     const {
         activeMonth,
@@ -104,11 +119,11 @@ export const Calendar: FC<CalendarProps> = ({
         getYearProps,
         getRootProps,
     } = useCalendar({
+        defaultMonth,
         view,
-        defaultMonth: value ? new Date(value) : undefined,
-        minDate: minDate ? new Date(minDate) : undefined,
-        maxDate: maxDate ? new Date(maxDate) : undefined,
-        selected: value ? new Date(value) : undefined,
+        minDate,
+        maxDate,
+        selected,
         offDays,
         events,
         onChange,
