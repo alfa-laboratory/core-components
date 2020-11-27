@@ -1,0 +1,16 @@
+{
+    "include": ["src", "../../typings"],
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "dist",
+        "rootDirs": ["src"],
+        "baseUrl": ".",
+        "paths": {
+            "@alfalab/core-components-*": ["../*/src"]
+        }
+    },
+    "references": [
+      { "path": "../button" },
+      { "path": "../portal" }
+    ]
+}

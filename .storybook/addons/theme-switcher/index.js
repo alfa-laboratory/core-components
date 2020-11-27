@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import addons, { makeDecorator } from '@storybook/addons';
-import { ADDON_ID } from './register';
-
-import styles from './index.css';
+import { ADDON_ID, THEME_DATA_ATTR } from './register';
 
 export default makeDecorator({
     name: 'withThemeSwitcher',
     wrapper: (getStory, context) => {
-        const [theme, setTheme] = useState();
-
         const channel = addons.getChannel();
+
+        const setTheme = useCallback(theme => {
+            document.body.dataset[THEME_DATA_ATTR] = theme;
+        }, []);
 
         useEffect(() => {
             channel.on(`${ADDON_ID}/theme`, setTheme);
@@ -17,8 +17,8 @@ export default makeDecorator({
             return () => {
                 channel.removeListener(`${ADDON_ID}/theme`, setTheme);
             };
-        }, []);
+        }, [channel, setTheme]);
 
-        return <div className={styles[theme]}>{getStory(context)}</div>;
+        return getStory(context);
     },
 });

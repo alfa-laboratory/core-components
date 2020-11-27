@@ -1,0 +1,121 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --notification-desktop-width: 350px;
+    --notification-bg-color: var(--color-light-bg-primary-inverted);
+    --notification-color: var(--color-light-text-primary-inverted);
+    --notification-border-radius: 8px;
+}
+
+.notificationComponent {
+    visibility: hidden;
+    position: fixed;
+    right: var(--gap-s);
+    transform: translate(0, -500px);
+    display: inline-flex;
+    box-sizing: border-box;
+    border-radius: var(--notification-border-radius);
+    color: var(--notification-color);
+    width: calc(100% - var(--gap-xl));
+    max-width: calc(100vw - var(--gap-xl));
+    min-height: 56px;
+    padding: var(--gap-m);
+    background-color: var(--notification-bg-color);
+    box-shadow: var(--shadow-s);
+    user-select: none;
+    z-index: 9999;
+    transition: transform 0.2s ease-out;
+
+    @media screen and (min-width: 600px) {
+        right: var(--gap-4xl);
+        width: var(--notification-desktop-width);
+        transform: translate(var(--notification-desktop-width), 0);
+    }
+
+    &.isVisible {
+        visibility: visible;
+        transform: translate(0, 0);
+    }
+
+    &.isClosing {
+        transition: transform 0.1s ease-out;
+        transform: translate(100vw, 0);
+
+        @media screen and (min-width: 600px) {
+            transform: translate(calc(var(--notification-desktop-width) + var(--gap-4xl)), 0);
+        }
+    }
+
+    &.hasCloser {
+        padding-right: var(--gap-4xl);
+    }
+}
+
+.notificationComponent * {
+    box-sizing: border-box;
+}
+
+.leftAddons {
+    display: flex;
+    flex-shrink: 0;
+    min-width: 24px;
+    margin-right: var(--gap-m);
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+
+    &.positive {
+        background-color: var(--color-light-graphic-positive);
+    }
+
+    &.warning {
+        background-color: var(--color-light-graphic-attention);
+    }
+
+    &.negative {
+        background-color: var(--color-light-graphic-accent);
+    }
+}
+
+.iconSvg {
+    height: 18px;
+}
+
+.title {
+    @mixin accent_primary_medium;
+}
+
+.content {
+    @mixin paragraph_primary_small;
+}
+
+.title + .content {
+    margin-top: var(--gap-2xs);
+}
+
+.closer {
+    position: absolute;
+    top: var(--gap-s);
+    right: var(--gap-xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 34px;
+    width: 34px;
+    line-height: 1;
+    color: var(--color-dark-graphic-primary);
+    opacity: 0.6;
+    transition: opacity 0.2s ease-out;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--color-dark-graphic-primary);
+        opacity: 1;
+    }
+}
