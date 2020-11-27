@@ -7,9 +7,10 @@ import { Form } from '@storybook/components';
 import './index.css';
 
 export const ADDON_ID = 'theme-switcher';
+export const THEME_DATA_ATTR = 'theme';
 
 const Addon = () => {
-    const [theme, setTheme] = useState('default');
+    const [theme, setTheme] = useState(document.body.dataset[THEME_DATA_ATTR] || 'default');
     const { themes } = useParameter(ADDON_ID, { themes: [] });
 
     const emit = useChannel({
@@ -17,8 +18,12 @@ const Addon = () => {
     });
 
     const handleChange = useCallback(event => {
-        setTheme(event.target.value);
-        emit(`${ADDON_ID}/theme`, event.target.value);
+        const newTheme = event.target.value;
+
+        setTheme(newTheme);
+        emit(`${ADDON_ID}/theme`, newTheme);
+
+        document.body.dataset[THEME_DATA_ATTR] = newTheme;
     }, []);
 
     return (
@@ -27,7 +32,11 @@ const Addon = () => {
                 <span className='label'>Theme:</span>
                 <Form.Select size={1} onChange={handleChange} className='select'>
                     {['default'].concat(themes).map(themeName => (
-                        <option value={themeName} key={themeName}>
+                        <option
+                            value={themeName}
+                            key={themeName}
+                            selected={themeName === theme}
+                        >
                             {themeName}
                         </option>
                     ))}

@@ -1,11 +1,32 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
+import Icon from '@alfalab/icons-glyph/StarMIcon';
 import { Link } from './index';
 
 describe('Snapshots tests', () => {
     it('should match snapshot', () => {
         expect(render(<Link href=''>Link</Link>)).toMatchSnapshot();
+    });
+
+    it('should render left slot', () => {
+        expect(
+            render(
+                <Link href='' leftAddons={<Icon />}>
+                    Link
+                </Link>,
+            ),
+        ).toMatchSnapshot();
+    });
+
+    it('should render right slot', () => {
+        expect(
+            render(
+                <Link href='' rightAddons={<Icon />}>
+                    Link
+                </Link>,
+            ),
+        ).toMatchSnapshot();
     });
 });
 

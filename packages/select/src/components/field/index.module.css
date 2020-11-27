@@ -1,9 +1,19 @@
 @import '../../../../themes/src/default.css';
+@import '../../vars.css';
 
 .component {
     width: 100%;
     outline: none;
+}
+
+.field:not(.disabled) {
     cursor: pointer;
+
+    &:hover {
+        & .arrow {
+            opacity: var(--select-arrow-hover-opacity);
+        }
+    }
 }
 
 /* TODO: Заюзать переменные из инпута */
@@ -18,10 +28,10 @@
 .contentWrapper {
     @mixin system_16-20_regular;
 
-    color: var(--color-light-text-primary);
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    width: 100%;
 }
 
 .value {
@@ -30,10 +40,6 @@
     text-align: left;
 }
 
-.disabled {
-    cursor: default;
-}
-
-.focusVisible > div:first-child {
+.focusVisible {
     @mixin focus-outline;
 }

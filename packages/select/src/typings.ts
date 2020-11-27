@@ -1,18 +1,21 @@
-import { ReactNode, FC, HTMLAttributes, RefAttributes, AriaAttributes } from 'react';
+import {
+    ReactNode,
+    FC,
+    RefAttributes,
+    AriaAttributes,
+    FocusEvent,
+    MouseEvent,
+    ReactElement,
+} from 'react';
 
 export type OptionShape = {
     /**
-     * Значение выбранного пункта (например, для отправки на сервер)
-     */
-    value: string | number;
-
-    /**
      * Текстовое представление пункта
      */
-    text: string;
+    key: string;
 
     /**
-     * Контент, который будет отрендерен в выпадающем списке и в поле при выборе
+     * Контент, который будет отрисован в выпадающем списке и в поле при выборе
      */
     content?: ReactNode;
 
@@ -20,6 +23,12 @@ export type OptionShape = {
      * Блокирует данный пункт для выбора
      */
     disabled?: boolean;
+
+    /**
+     * Дополнительные данные
+     */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    value?: any;
 };
 
 export type GroupShape = {
@@ -64,6 +73,11 @@ export type BaseSelectProps = {
      * Управление возможностью выбора значения
      */
     disabled?: boolean;
+
+    /**
+     * Начальное состояние селекта
+     */
+    defaultOpen?: boolean;
 
     /**
      * Возможность выбрать несколько значений
@@ -123,7 +137,7 @@ export type BaseSelectProps = {
     /**
      * Список value выбранных пунктов (controlled-селект)
      */
-    selected?: Array<OptionShape['value']>;
+    selected?: string[] | string | null;
 
     /**
      * Рендерит нативный селект вместо выпадающего меню. (на десктопе использовать только с multiple=false)
@@ -131,14 +145,20 @@ export type BaseSelectProps = {
     nativeSelect?: boolean;
 
     /**
-     * Смещение выпадающего меню по вертикали
+     * Кастомный рендер выбранного пункта
      */
-    popoverOffset?: number;
+    valueRenderer?: ({
+        selected,
+        selectedMultiple,
+    }: {
+        selected?: OptionShape;
+        selectedMultiple: OptionShape[];
+    }) => ReactNode;
 
     /**
      * Компонент стрелки
      */
-    Arrow?: FC<ArrowProps>;
+    Arrow?: FC<ArrowProps> | null | false;
 
     /**
      * Компонент поля
@@ -169,8 +189,8 @@ export type BaseSelectProps = {
      * Обработчик выбора
      */
     onChange?: (payload: {
-        selected?: Array<OptionShape['value']>;
-        selectedOptions?: OptionShape[];
+        selected: OptionShape | null;
+        selectedMultiple: OptionShape[];
         name?: string;
     }) => void;
 
@@ -178,8 +198,19 @@ export type BaseSelectProps = {
      * Обработчик открытия\закрытия селекта
      */
     onOpen?: (payload: { open?: boolean; name?: string }) => void;
+
+    /**
+     * Обработчик фокуса поля
+     */
+    onBlur?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
+
+    /**
+     * Обработчик блюра поля
+     */
+    onFocus?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
 };
 
+// TODO: использовать InputProps
 export type FieldProps = {
     /**
      * Размер компонента
@@ -187,9 +218,14 @@ export type FieldProps = {
     size?: 's' | 'm' | 'l';
 
     /**
+     * Выбранный пункт
+     */
+    selected?: OptionShape;
+
+    /**
      * Список выбранных пунктов
      */
-    selectedItems?: OptionShape[];
+    selectedMultiple?: OptionShape[];
 
     /**
      * Флаг, можно ли выбрать несколько значений
@@ -222,6 +258,11 @@ export type FieldProps = {
     error?: string | boolean;
 
     /**
+     * Отображение иконки успеха
+     */
+    success?: boolean;
+
+    /**
      * Подсказка под полем
      */
     hint?: string;
@@ -229,22 +270,32 @@ export type FieldProps = {
     /**
      * Компонент стрелки
      */
-    Arrow?: ReactNode;
+    Arrow?: ReactElement | false | null;
 
     /**
      * Кастомный рендер выбранного пункта
      */
-    valueRenderer?: (options: OptionShape[]) => ReactNode;
+    valueRenderer?: BaseSelectProps['valueRenderer'];
 
     /**
      * Внутренние свойства, которые должны быть установлены компоненту.
      */
-    innerProps?: Pick<HTMLAttributes<HTMLElement>, 'tabIndex' | 'id'> &
-        RefAttributes<HTMLDivElement | HTMLInputElement> &
+    innerProps: {
+        onBlur?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
+        onFocus?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
+        onClick?: (event: MouseEvent<HTMLDivElement | HTMLInputElement>) => void;
+        tabIndex: number;
+        id: string;
+    } & RefAttributes<HTMLDivElement | HTMLInputElement> &
         AriaAttributes;
 };
 
 export type ArrowProps = {
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
+
     /**
      * Флаг, открыто ли меню
      */
@@ -260,7 +311,7 @@ export type OptionsListProps = {
     /**
      * Компонент пункта меню
      */
-    Option: (props: { option: OptionShape; index: number }) => JSX.Element;
+    Option: (props: { option: OptionShape; index: number }) => JSX.Element | null;
 
     /**
      * Список вариантов выбора
@@ -350,6 +401,18 @@ export type OptionProps = {
      * Компонент пункта меню
      */
     Checkmark?: FC<CheckmarkProps>;
+
+    /**
+     * Внутренние свойства, которые должны быть установлены компоненту.
+     */
+    innerProps: {
+        id: string;
+        onClick: (event: MouseEvent<HTMLDivElement>) => void;
+        onMouseDown: (event: MouseEvent<HTMLDivElement>) => void;
+        onMouseMove: (event: MouseEvent<HTMLDivElement>) => void;
+        role: string;
+    } & RefAttributes<HTMLDivElement> &
+        AriaAttributes;
 };
 
 export type CheckmarkProps = {

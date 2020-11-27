@@ -3,10 +3,10 @@
 exports[`Textarea Snapshots tests should match snapshot 1`] = `
 <div>
   <div
-    class="component s filled"
+    class="component s"
   >
     <div
-      class="inner"
+      class="inner filled"
     >
       <div
         class="inputWrapper"

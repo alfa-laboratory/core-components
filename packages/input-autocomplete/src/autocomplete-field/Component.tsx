@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
 import { Input as DefaultInput } from '@alfalab/core-components-input';
 import { FieldProps } from '@alfalab/core-components-select';
 import { InputAutocompleteProps } from '../Component';
@@ -9,36 +9,64 @@ export type AutocompleteFieldProps = FieldProps &
 export const AutocompleteField = ({
     label,
     placeholder,
-    Arrow,
     size,
+    Arrow,
     Input = DefaultInput,
     value,
     error,
+    success,
     hint,
     disabled,
     onInput,
     inputProps = {},
-    innerProps = {},
-}: AutocompleteFieldProps) => (
-    <Input
-        {...innerProps}
-        {...inputProps}
-        wrapperRef={innerProps.ref}
-        disabled={disabled}
-        block={true}
-        label={label}
-        placeholder={placeholder}
-        size={size}
-        error={error}
-        hint={hint}
-        rightAddons={
-            <React.Fragment>
-                {inputProps.rightAddons}
-                {Arrow}
-            </React.Fragment>
-        }
-        onChange={onInput}
-        autoComplete='off'
-        value={value}
-    />
-);
+    innerProps,
+}: AutocompleteFieldProps) => {
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    const { onClick } = innerProps;
+
+    const handleMouseDown = useCallback(event => {
+        event.preventDefault();
+    }, []);
+
+    const handleClick = useCallback(
+        event => {
+            if (onClick) onClick(event);
+
+            if (inputRef.current) {
+                inputRef.current.focus();
+            }
+        },
+        [onClick],
+    );
+
+    return (
+        <Input
+            {...inputProps}
+            {...innerProps}
+            wrapperRef={innerProps.ref}
+            ref={inputRef}
+            disabled={disabled}
+            block={true}
+            label={label}
+            placeholder={placeholder}
+            size={size}
+            error={error}
+            success={success}
+            hint={hint}
+            onChange={onInput}
+            onMouseDown={handleMouseDown}
+            onClick={handleClick}
+            autoComplete='off'
+            value={value}
+            rightAddons={
+                (Arrow || inputProps.rightAddons) && (
+                    <React.Fragment>
+                        {inputProps.rightAddons}
+                        {Arrow}
+                    </React.Fragment>
+                )
+            }
+        />
+    );
+};

@@ -1,5 +1,7 @@
 import path from 'path';
 
+import { requireRegExp } from './common';
+
 /**
  * Заменяет все импорты кор-компонентов на относительные пути.
  * Используется для сборки агрегирующего пакета.
@@ -9,10 +11,6 @@ export const coreComponentsRootPackageResolver = ({ currentPackageDir }) => ({
     generateBundle: (_, bundles) => {
         Object.keys(bundles).forEach(bundleName => {
             let code = bundles[bundleName].code;
-
-            const requireRegExp = new RegExp(
-                /(\b(?:require\(|import |from )['"])@alfalab\/core-components-(.*?)(['"])/,
-            );
 
             let matches;
             while ((matches = requireRegExp.exec(code))) {

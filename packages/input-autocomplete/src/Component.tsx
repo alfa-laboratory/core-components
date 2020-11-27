@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent, forwardRef } from 'react';
+import React, { FC, ChangeEvent, forwardRef, RefAttributes } from 'react';
 import { InputProps } from '@alfalab/core-components-input';
 import {
     BaseSelectProps,
@@ -14,7 +14,7 @@ export type InputAutocompleteProps = Omit<BaseSelectProps, 'Field' | 'nativeSele
     /**
      * Компонент ввода значения
      */
-    Input?: FC<InputProps>;
+    Input?: FC<InputProps & RefAttributes<HTMLInputElement>>;
 
     /**
      * Пропсы, которые будут прокинуты в инпут
@@ -25,6 +25,11 @@ export type InputAutocompleteProps = Omit<BaseSelectProps, 'Field' | 'nativeSele
      * Значение поля ввода
      */
     value?: string;
+
+    /**
+     * Отображение иконки успеха
+     */
+    success?: boolean;
 
     /**
      * Обработчик ввода
@@ -42,6 +47,7 @@ export const InputAutocomplete = forwardRef<HTMLInputElement, InputAutocompleteP
             inputProps = {},
             onInput,
             value,
+            success,
             closeOnSelect = false,
             options,
             ...restProps
@@ -60,6 +66,7 @@ export const InputAutocomplete = forwardRef<HTMLInputElement, InputAutocompleteP
                 onInput,
                 value,
                 inputProps,
+                success,
             }}
             Optgroup={Optgroup}
             OptionsList={OptionsList}

@@ -10,14 +10,19 @@ import styles from './index.module.css';
 export const Field = ({
     size = 'm',
     open,
+    multiple,
+    error,
+    hint,
     disabled,
     label,
     placeholder,
-    selectedItems = [],
+    selectedMultiple = [],
+    selected,
     rightAddons,
     valueRenderer = joinOptions,
     Arrow,
-    innerProps = {},
+    innerProps,
+    className,
     ...restProps
 }: BaseFieldProps & FormControlProps) => {
     const [focused, setFocused] = useState(false);
@@ -26,41 +31,51 @@ export const Field = ({
 
     const [focusVisible] = useFocus(wrapperRef, 'keyboard');
 
-    const filled = selectedItems.length > 0;
-
     const handleFocus = useCallback(() => setFocused(true), []);
     const handleBlur = useCallback(() => setFocused(false), []);
 
+    const value = valueRenderer({ selected, selectedMultiple });
+
+    const filled = Boolean(value);
+
     return (
-        <div ref={wrapperRef} onFocus={handleFocus} onBlur={handleBlur}>
+        <div
+            className={styles.component}
+            ref={wrapperRef}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+        >
             <FormControl
-                className={cn(styles.component, styles[size], {
-                    [styles.open]: open,
+                className={cn(className, styles.field, {
                     [styles.hasLabel]: label,
                     [styles.disabled]: disabled,
                     [styles.focusVisible]: focusVisible,
                 })}
+                block={true}
                 size={size}
                 focused={open || focused}
                 disabled={disabled}
                 filled={filled || !!placeholder}
                 label={label}
+                error={error}
+                hint={hint}
                 rightAddons={
-                    <React.Fragment>
-                        {rightAddons}
-                        {Arrow}
-                    </React.Fragment>
+                    (Arrow || rightAddons) && (
+                        <React.Fragment>
+                            {rightAddons}
+                            {/* TODO: стоит переделать, но это будет мажорка */}
+                            {Arrow ? React.cloneElement(Arrow, { className: styles.arrow }) : null}
+                        </React.Fragment>
+                    )
                 }
-                onBlur={handleBlur}
-                onFocus={handleFocus}
-                {...innerProps}
                 {...restProps}
+                {...innerProps}
             >
                 <div className={styles.contentWrapper}>
                     {placeholder && !filled && (
                         <span className={styles.placeholder}>{placeholder}</span>
                     )}
-                    {filled && <div className={styles.value}>{valueRenderer(selectedItems)}</div>}
+                    {filled && <div className={styles.value}>{value}</div>}
                 </div>
             </FormControl>
         </div>

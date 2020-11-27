@@ -4,6 +4,7 @@ import { TabsProps } from '../../typings';
 export const Tabs = ({
     TabList,
     className,
+    containerClassName,
     size,
     children,
     selectedId,
@@ -13,7 +14,11 @@ export const Tabs = ({
     onChange,
 }: Omit<TabsProps, 'view'>) => {
     const tabsArray = React.Children.toArray(children) as TabsProps['children'];
-    const titles = tabsArray.map(({ props: { title, id } }) => ({ title, id }));
+    const titles = tabsArray.map(({ props: { title, id, rightAddons } }) => ({
+        title,
+        id,
+        rightAddons,
+    }));
     const tabs = tabsArray.filter(
         tab => tab.props.id === selectedId || tab.props.keepMounted || keepMounted,
     );
@@ -21,6 +26,7 @@ export const Tabs = ({
     return (
         <div className={className}>
             <TabList
+                containerClassName={containerClassName}
                 size={size}
                 titles={titles}
                 selectedId={selectedId}

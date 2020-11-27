@@ -22,6 +22,11 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
           >
             Таб 1
           </span>
+          <span
+            class="rightAddons"
+          >
+            addon
+          </span>
         </button>
         <button
           aria-selected="true"
@@ -112,6 +117,11 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
           <span>
             Таб 1
           </span>
+          <span
+            class="addons"
+          >
+            addon
+          </span>
         </button>
         <button
           aria-selected="true"
@@ -194,6 +204,9 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
               class=""
             >
               Таб 1
+            </span>
+            <span>
+              addon
             </span>
           </button>
           <button
@@ -288,6 +301,11 @@ exports[`Tabs Snapshots tests should match snapshot 4`] = `
             <span>
               Таб 1
             </span>
+            <span
+              class="addons"
+            >
+              addon
+            </span>
           </button>
           <button
             aria-selected="true"
@@ -368,6 +386,11 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
             class=""
           >
             Таб 1
+          </span>
+          <span
+            class="rightAddons"
+          >
+            addon
           </span>
         </button>
         <button
@@ -458,6 +481,11 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
         >
           <span>
             Таб 1
+          </span>
+          <span
+            class="addons"
+          >
+            addon
           </span>
         </button>
         <button

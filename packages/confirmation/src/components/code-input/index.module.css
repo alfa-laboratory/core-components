@@ -21,14 +21,14 @@
     font-weight: var(--confirmation-input-font-weight);
     font-family: var(--confirmation-input-font-family);
 
-    &:last-child {
-        margin-right: var(--gap-xs);
-    }
-
     &.hasError {
         color: var(--confirmation-error-color);
         caret-color: var(--confirmation-input-text-color);
         background-color: var(--confirmation-input-error-bg-color);
+    }
+
+    &.center {
+        margin: 0 var(--gap-2xs);
     }
 }
 

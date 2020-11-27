@@ -58,11 +58,14 @@ describe('FormControl', () => {
     });
 
     describe('Classes tests', () => {
-        it('should set `className` class to root', () => {
+        it('should set `className` class to inner', () => {
             const className = 'test-class';
-            const { container } = render(<FormControl className={className} />);
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <FormControl className={className} dataTestId={dataTestId} />,
+            );
 
-            expect(container.firstElementChild).toHaveClass(className);
+            expect(getByTestId(dataTestId).firstElementChild).toHaveClass(className);
         });
 
         it('should set `labelClassName` class to label', () => {
@@ -99,27 +102,31 @@ describe('FormControl', () => {
         });
 
         it('should set `hasError` class', () => {
-            const { container } = render(<FormControl error='error' />);
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<FormControl error='error' dataTestId={dataTestId} />);
 
-            expect(container.firstElementChild).toHaveClass('hasError');
+            expect(getByTestId(dataTestId).firstElementChild).toHaveClass('hasError');
         });
 
         it('should set `filled` class', () => {
-            const { container } = render(<FormControl filled={true} />);
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<FormControl filled={true} dataTestId={dataTestId} />);
 
-            expect(container.firstElementChild).toHaveClass('filled');
+            expect(getByTestId(dataTestId).firstElementChild).toHaveClass('filled');
         });
 
         it('should set `disabled`', () => {
-            const { container } = render(<FormControl disabled={true} />);
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<FormControl disabled={true} dataTestId={dataTestId} />);
 
-            expect(container.firstElementChild).toHaveClass('disabled');
+            expect(getByTestId(dataTestId).firstElementChild).toHaveClass('disabled');
         });
 
         it('should set `focused`', () => {
-            const { container } = render(<FormControl focused={true} />);
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<FormControl focused={true} dataTestId={dataTestId} />);
 
-            expect(container.firstElementChild).toHaveClass('focused');
+            expect(getByTestId(dataTestId).firstElementChild).toHaveClass('focused');
         });
     });
 

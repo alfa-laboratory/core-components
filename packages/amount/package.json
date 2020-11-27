@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-amount",
-    "version": "1.0.1",
+    "version": "1.0.5",
     "description": "",
     "keywords": [],
     "license": "ISC",
@@ -12,11 +12,11 @@
         "access": "public"
     },
     "dependencies": {
-        "@alfalab/data": "^0.1.0",
-        "@alfalab/utils": "^0.1.0"
+        "@alfalab/data": "^0.2.0",
+        "@alfalab/utils": "^0.4.1",
+        "classnames": "^2.2.6"
     },
     "peerDependencies": {
-        "classnames": "^2.2.6",
         "react": "^16.9.0"
     }
 }

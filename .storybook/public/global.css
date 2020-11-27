@@ -137,6 +137,7 @@ a[href='/?path=/settings/about'] {
     position: relative;
     padding-left: 8px;
     padding-right: 24px;
+    -webkit-appearance: none;
     appearance: none;
     background-image: url(https://alfabank.st/icons/glyph_chevron-down-compact_m.svg);
     background-repeat: no-repeat;
@@ -470,4 +471,8 @@ img.sbdocs-img {
     height: auto;
     border: 1px solid rgba(11, 31, 53, 0.1);
     border-radius: 4px;
+}
+
+div.github {
+    margin: -32px 0 32px;
 }

@@ -12,25 +12,25 @@ import { Arrow, Option } from '@alfalab/core-components-select';
 import { InputAutocomplete } from './Component';
 
 export const options = [
-    { value: '1', text: 'Neptunium'},
-    { value: '2', text: 'Plutonium' },
-    { value: '3', text: 'Americium' },
-    { value: '4', text: 'Curium' },
-    { value: '5', text: 'Berkelium' },
-    { value: '6', text: 'Californium' },
-    { value: '7', text: 'Einsteinium' },
-    { value: '8', text: 'Fermium' },
-    { value: '9', text: 'Mendelevium' },
-    { value: '10', text: 'Nobelium' },
-    { value: '11', text: 'Lawrencium' },
-    { value: '12', text: 'Rutherfordium' },
-    { value: '13', text: 'Dubnium' },
-    { value: '14', text: 'Seaborgium' },
-    { value: '15', text: 'Bohrium' },
+    { key: 'Neptunium', content: 'Neptunium' },
+    { key: 'Plutonium', content: 'Plutonium' },
+    { key: 'Americium', content: 'Americium' },
+    { key: 'Curium', content: 'Curium' },
+    { key: 'Berkelium', content: 'Berkelium' },
+    { key: 'Californium', content: 'Californium' },
+    { key: 'Einsteinium', content: 'Einsteinium' },
+    { key: 'Fermium', content: 'Fermium' },
+    { key: 'Mendelevium', content: 'Mendelevium' },
+    { key: 'Nobelium', content: 'Nobelium' },
+    { key: 'Lawrencium', content: 'Lawrencium' },
+    { key: 'Rutherfordium', content: 'Rutherfordium' },
+    { key: 'Dubnium', content: 'Dubnium' },
+    { key: 'Seaborgium', content: 'Seaborgium' },
+    { key: 'Bohrium', content: 'Bohrium' },
 ];
 
 export const matchOption = (option, inputValue) =>
-    option.text.toLowerCase().includes(inputValue.toLowerCase());
+    option.content.toLowerCase().includes((inputValue || '').toLowerCase());
 
 
 <Meta
@@ -48,8 +48,8 @@ export const matchOption = (option, inputValue) =>
         const handleInput = event => {
             setValue(event.target.value);
         };
-        const handleChange = ({ selectedOptions }) => {
-            setValue(selectedOptions.map(option => option.text).join(', '));
+        const handleChange = ({ selected }) => {
+            setValue(selected ? selected.key : '');
         };
         const filteredOptions = options.filter(option => matchOption(option, value));
         return (
@@ -60,10 +60,11 @@ export const matchOption = (option, inputValue) =>
                 size={select('size', ['s', 'm', 'l'], 's')}
                 disabled={boolean('disabled', false)}
                 error={text('error', '')}
+                success={boolean('success', false)}
                 hint={text('hint', '')}
                 allowUnselect={boolean('allowUnselect', true)}
                 closeOnSelect={boolean('closeOnSelect', false)}
-                Arrow={boolean('Arrow', true) ? Arrow : undefined}
+                Arrow={boolean('Arrow', false) ? Arrow : undefined}
                 circularNavigation={boolean('circularNavigation', false)}
                 placeholder={text('placeholder', 'Введите элемент')}
                 label={text('label', 'Элемент')}
@@ -81,8 +82,12 @@ export const matchOption = (option, inputValue) =>
 
 <ComponentHeader
     name='InputAutocomplete'
-    stage={1}
+    stage={2}
 />
+
+```tsx
+import { InputAutocomplete } from '@alfalab/core-components-input-autocomplete';
+```
 
 Компонент поля для ввода с автокомплитом
 
@@ -92,8 +97,8 @@ export const matchOption = (option, inputValue) =>
         const handleInput = event => {
             setValue(event.target.value);
         };
-        const handleChange = ({ selectedOptions }) => {
-            setValue(selectedOptions.map(option => option.text).join(', '));
+        const handleChange = ({ selected }) => {
+            setValue(selected ? selected.key : '');
         };
         const filteredOptions = options.filter(option => matchOption(option, value));
         return (
@@ -121,8 +126,8 @@ export const matchOption = (option, inputValue) =>
         const handleInput = event => {
             setValue(event.target.value);
         };
-        const handleChange = ({ selectedOptions }) => {
-            setValue(selectedOptions.map(option => option.text).join(', '));
+        const handleChange = ({ selected }) => {
+            setValue(selected ? selected.key : '');
         };
         const handleClear = (event) => {
             setValue('');
@@ -153,25 +158,24 @@ export const matchOption = (option, inputValue) =>
 <Preview>
     {React.createElement(() => {
         const [value, setValue] = React.useState('');
-        const [selected, setSelected] = React.useState([]);
+        const [selectedTags, setSelectedTags] = React.useState([]);
         const handleInput = event => {
             setValue(event.target.value);
         };
-        const handleChange = ({ selectedOptions }) => {
+        const handleChange = ({ selected }) => {
             setValue('');
-            const selectedText = selectedOptions.length ? selectedOptions[0].text : '';
-            if (selectedText && !selected.includes(selectedText)) {
-                setSelected(selected.concat([selectedText]));
+            if (selected && !selectedTags.includes(selected.key)) {
+                setSelectedTags(selectedTags.concat([selected.key]));
             }
         };
-        const renderTags = () => selected.length > 0 ?
-            selected.map(item => <Tag key={item} size='xs'>{item}</Tag>) :
+        const renderTags = () => selectedTags.length > 0 ?
+            selectedTags.map(item => <Tag key={item} size='xs'>{item}</Tag>) :
             null;
         const filteredOptions = options
-            .filter(option => !selected.includes(option.text))
+            .filter(option => !selectedTags.includes(option.content))
             .filter(option => matchOption(option, value));
         if (filteredOptions.length === 0 && value) {
-            filteredOptions.push({ text: value, value });
+            filteredOptions.push({ key: value, content: value });
         }
         return (
             <React.Fragment>
@@ -203,8 +207,8 @@ export const matchOption = (option, inputValue) =>
             if (!dirty) setDirty(true);
             setValue(event.target.value);
         };
-        const handleChange = ({ selectedOptions }) => {
-            setValue(selectedOptions.length ? selectedOptions[0].text : '');
+        const handleChange = ({ selected }) => {
+            setValue(selected ? selected.key : '');
         };
         const filteredOptions = options.filter(option => matchOption(option, value));
         return (
@@ -229,46 +233,41 @@ export const matchOption = (option, inputValue) =>
         const mask = [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/];
         const cards = [
             {
-                text: '4035 5010 0000 0008',
-                name: 'Карта 1',
-                value: '4035 5010 0000 0008',
+                key: 'Карта 1',
+                content: '4035 5010 0000 0008',
             },
             {
-                text: '4360 0000 0100 0005',
-                name: 'Карта 2',
-                value: '4360 0000 0100 0005',
+                key: 'Карта 2',
+                content: '4360 0000 0100 0005',
             },
             {
-                text: '8171 9999 2766 0000',
-                name: 'Карта 3',
-                value: '8171 9999 2766 0000',
+                key: 'Карта 3',
+                content: '8171 9999 2766 0000',
             },
             {
-                text: '5204 2477 5000 1471',
-                name: 'Карта 4',
-                value: '5204 2477 5000 1471',
+                key: 'Карта 4',
+                content: '5204 2477 5000 1471',
             },
             {
-                text: '4111 1111 1111 1111',
-                name: 'Карта 5',
-                value: '4111 1111 1111 1111',
+                key: 'Карта 5',
+                content: '4111 1111 1111 1111',
             },
         ];
-        const CardOption = React.forwardRef((props, ref) => (
-            <Option {...props} ref={ref}>
+        const CardOption = (props) => (
+            <Option {...props}>
                 <div>
-                    {props.option.name}
+                    {props.option.key}
                     <br />
-                    <sub>{props.option.text}</sub>
+                    <sub>{props.option.content}</sub>
                 </div>
             </Option>
-        ));
+        );
         const [value, setValue] = React.useState('');
         const handleInput = (event) => {
             setValue(event.target.value);
         };
-        const handleChange = ({ selectedOptions }) => {
-            setValue(selectedOptions.length ? selectedOptions[0].text : '');
+        const handleChange = ({ selected }) => {
+            setValue(selected ? selected.content : null);
         };
         const filteredOptions = cards.filter(option => matchOption(option, value));
         return (
@@ -298,16 +297,16 @@ export const matchOption = (option, inputValue) =>
         const handleInput = event => {
             setValue(event.target.value);
         };
-        const handleChange = ({ selectedOptions }) => {
-            const value = selectedOptions.length
-                ? selectedOptions.map(option => option.text).join(', ') + ', '
+        const handleChange = ({ selectedMultiple }) => {
+            const value = selectedMultiple.length
+                ? selectedMultiple.map(option => option.key).join(', ') + ', '
                 : '';
             setValue(value);
         };
         const inputValues = value.split(',').map(v => v.trim()).filter(v => v);
         const selectedOptions = options
-            .filter(option => inputValues.includes(option.text.trim()));
-        const selected = selectedOptions.map(option => option.value);
+            .filter(option => inputValues.includes(option.content.trim()));
+        const selected = selectedOptions.map(option => option.key);
         const filteredOptions = inputValues.length === selected.length ?
             options :
             options.filter(option => {
@@ -324,8 +323,15 @@ export const matchOption = (option, inputValue) =>
                 onInput={handleInput}
                 allowUnselect={true}
                 value={value}
-                Arrow={Arrow}
             />
         );
     })}
 </Preview>
+
+
+### Автокомплит со стрелкой
+
+```tsx
+import { Arrow } from '@alfalab/core-components/select';
+<InputAutocomplete Arrow={Arrow} />
+```

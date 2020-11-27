@@ -1,28 +1,32 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --radio-hint-color: var(--color-dark-indigo-60-flat);
-    --radio-label-color: var(--color-dark-indigo);
-    --radio-bg-color: var(--color-dark-indigo-05-flat);
-    --radio-border-color: var(--color-dark-indigo-60-flat);
+    --radio-hint-color: var(--color-light-text-secondary);
+    --radio-label-color: var(--color-light-text-primary);
+
+    /* unchecked */
+    --radio-bg-color: var(--color-light-bg-secondary);
+    --radio-border-color: var(--color-light-border-tertiary-inverted);
+    --radio-hover-bg-color: var(--color-light-graphic-tertiary);
+    --radio-hover-border-color: var(--color-light-border-tertiary-inverted);
+    --radio-active-bg-color: var(--color-light-graphic-tertiary);
+    --radio-active-border-color: var(--color-light-border-key);
 
     /* checked */
-    --radio-checked-bg-color: var(--color-red-brand-85-flat);
-    --radio-checked-border-color: var(--color-red-dark);
+    --radio-checked-bg-color: var(--color-red-brand-85-flat); /* TODO */
+    --radio-checked-border-color: var(--color-red-dark); /* TODO */
+    --radio-checked-hover-bg-color: var(--color-light-bg-accent);
+    --radio-checked-hover-border-color: var(--color-red-dark); /* TODO */
+    --radio-checked-active-bg-color: var(--color-light-bg-accent);
+    --radio-checked-active-border-color: var(--color-light-border-key);
 
     /* disabled */
-    --radio-disabled-bg-color: var(--color-dark-indigo-15-flat);
+    --radio-disabled-bg-color: var(--color-light-bg-neutral);
+    --radio-disabled-border-color: var(--color-light-border-primary);
 
     /* disabled and checked */
-    --radio-checked-disabled-bg-color: var(--color-red-brand-30-flat);
-
-    /* hover */
-    --radio-hover-bg-color: var(--color-dark-indigo-30-flat);
-    --radio-hover-border-color: var(--color-dark-indigo-60-flat);
-    --radio-checked-hover-bg-color: var(--color-red-brand);
-
-    /* active */
-    --radio-active-border-color: var(--color-dark-indigo);
+    --radio-checked-disabled-bg-color: var(--color-red-brand-30-flat); /* TODO */
+    --radio-checked-disabled-border-color: var(--color-red-brand-30-flat); /* TODO */
 }
 
 .container {
@@ -31,19 +35,19 @@
     cursor: pointer;
 
     &:not(.checked):not(.disabled) {
-        &:active .circle {
-            background: var(--radio-hover-bg-color);
-            border: 1px solid var(--radio-active-border-color);
-        }
-
         & .circle {
-            background: var(--radio-bg-color);
+            background-color: var(--radio-bg-color);
             border: 1px solid var(--radio-border-color);
         }
 
         &:hover:not(:active) .circle {
-            background: var(--radio-hover-bg-color);
-            border: 1px solid var(--radio-hover-border-color);
+            background-color: var(--radio-hover-bg-color);
+            border-color: var(--radio-hover-border-color);
+        }
+
+        &:active .circle {
+            background-color: var(--radio-active-bg-color);
+            border-color: var(--radio-active-border-color);
         }
     }
 
@@ -51,8 +55,8 @@
         cursor: default;
 
         & .circle {
-            background: var(--radio-disabled-bg-color);
-            border: none;
+            background-color: var(--radio-disabled-bg-color);
+            border: 1px solid var(--radio-disabled-border-color);
         }
     }
 
@@ -62,18 +66,19 @@
     }
 
     &.checked {
-        &:active .circle {
-            background: var(--color-red-brand);
-            border: 1px solid var(--radio-active-border-color);
-        }
-
         & .circle {
-            border: 1px solid var(--radio-checked-border-color);
             background-color: var(--radio-checked-bg-color);
+            border: 1px solid var(--radio-checked-border-color);
         }
 
         &:hover .circle {
             background-color: var(--radio-checked-hover-bg-color);
+            border-color: var(--radio-checked-hover-border-color);
+        }
+
+        &:active .circle {
+            background-color: var(--radio-checked-active-bg-color);
+            border-color: var(--radio-checked-active-border-color);
         }
     }
 
@@ -83,7 +88,7 @@
 
     &.disabled.checked .circle {
         background-color: var(--radio-checked-disabled-bg-color);
-        border: none;
+        border-color: var(--radio-checked-disabled-border-color);
     }
 
     & input {
@@ -94,6 +99,7 @@
 }
 
 .circle {
+    flex-shrink: 0;
     width: 16px;
     height: 16px;
     box-sizing: border-box;
@@ -124,6 +130,7 @@
     display: flex;
     flex-direction: column;
 }
+
 .label {
     @mixin system_16-24_regular;
     color: var(--radio-label-color);

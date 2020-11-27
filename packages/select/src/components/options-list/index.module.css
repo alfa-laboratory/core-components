@@ -1,11 +1,10 @@
 @import '../../../../themes/src/default.css';
+@import '../../vars.css';
 
 .optionsList {
     overflow: auto;
     width: 100%;
     outline: none;
-    padding-top: var(--select-options-list-top-padding);
-    padding-bottom: var(--select-options-list-bottom-padding);
     box-sizing: border-box;
 }
 

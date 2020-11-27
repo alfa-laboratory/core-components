@@ -1,8 +1,8 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --slider-thumb-color: var(--color-red-brand);
-    --slider-progress-color: var(--color-red-dark);
+    --slider-thumb-color: var(--color-light-graphic-accent);
+    --slider-progress-color: var(--color-red-dark); /* TODO */
     --slider-thumb-size: 18px;
     --slider-progress-height: 2px;
     --slider-progress-background: transparent;
@@ -14,12 +14,15 @@
     z-index: 1;
     top: 0;
     margin: 0;
+    padding: 0;
     display: block;
     width: 100%;
     height: var(--slider-thumb-size);
     box-sizing: border-box;
     appearance: none;
     background: transparent;
+    border-color: transparent;
+    color: transparent;
     cursor: pointer;
 }
 
@@ -86,6 +89,14 @@
 
 .range::-ms-track {
     @mixin _slider-range;
+}
+
+.range::-ms-fill-lower {
+    background: transparent;
+}
+
+.range::-ms-fill-upper {
+    background: transparent;
 }
 
 .range::-moz-focus-outer {

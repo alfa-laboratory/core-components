@@ -2,6 +2,162 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.2.0](https://github.com/alfa-laboratory/core-components/compare/v5.1.0...v5.2.0) (2020-11-25)
+
+
+### Features
+
+* **core-components-typography:** add responsive title ([#362](https://github.com/alfa-laboratory/core-components/issues/362)) ([d3af0cd](https://github.com/alfa-laboratory/core-components/commit/d3af0cd52bcdbf92a1716e993104360acafcdc61))
+
+
+### Bug Fixes
+
+* fix ie bundle ([#385](https://github.com/alfa-laboratory/core-components/issues/385)) ([9ca6024](https://github.com/alfa-laboratory/core-components/commit/9ca60245991903600c0308c9cd30955f39bd914f))
+
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/v5.0.0...v5.1.0) (2020-11-25)
+
+
+### Features
+
+* **button:** design review fixes ([e8f5faf](https://github.com/alfa-laboratory/core-components/commit/e8f5faf42b2ea98eff7d5914076a1916008b13b9))
+* **checkbox:** improved theming ([cb1d196](https://github.com/alfa-laboratory/core-components/commit/cb1d196ade34622d5b92fc0ec5c20af5f5e27d3c))
+* **radio:** improved theming ([3dcb532](https://github.com/alfa-laboratory/core-components/commit/3dcb532b8b6d9a4e610a56b557a54f6c68e6ce46))
+* **switch:** improved theming ([b4ecc39](https://github.com/alfa-laboratory/core-components/commit/b4ecc399c706e1de7086e255e57219e3907414e0))
+* **themes:** experimental click theme for checkbox/radio/switch ([f5b2263](https://github.com/alfa-laboratory/core-components/commit/f5b22636af4b68b12b42158737e11af59e714848))
+* **themes:** updated click theme for tabs size m ([56dd5b6](https://github.com/alfa-laboratory/core-components/commit/56dd5b6530085de0a1dc6fc7be6cb78825c438f4))
+
+# [5.0.0](https://github.com/alfa-laboratory/core-components/compare/v4.5.1...v5.0.0) (2020-11-25)
+
+
+### Bug Fixes
+
+* slightly better and safer ie fixes ([0e34b4f](https://github.com/alfa-laboratory/core-components/commit/0e34b4fb9800a435c05dc8f83146ce5617cf99a5))
+
+
+### Features
+
+* remove extra vars, update docs ([#370](https://github.com/alfa-laboratory/core-components/issues/370)) ([af1b133](https://github.com/alfa-laboratory/core-components/commit/af1b1339e768e59a2377409bf164cc8c439bd3bf))
+
+
+### BREAKING CHANGES
+
+* remove packages/vars/src/breakpoints.css
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [4.5.1](https://github.com/alfa-laboratory/core-components/compare/v4.5.0...v4.5.1) (2020-11-24)
+
+
+### Features
+
+* **button:** updated addons margin, use gaps ([514fb86](https://github.com/alfa-laboratory/core-components/commit/514fb863e41956be7f4888e03a886ab7d35029b1))
+* **select:** change arrow icon ([6335973](https://github.com/alfa-laboratory/core-components/commit/63359734754308eeca217526d2f4f652f78fc79d))
+
+
+### Bug Fixes
+
+* **form-control:** fix height ([#380](https://github.com/alfa-laboratory/core-components/issues/380)) ([afc3722](https://github.com/alfa-laboratory/core-components/commit/afc3722dc08eb3f742eaec53be5b0233afad02c3))
+
+### [4.5.0](https://github.com/alfa-laboratory/core-components/compare/v4.4.1...v4.5.0) (2020-11-23)
+
+
+### Features
+
+* **core-components-button:** added nowrap ([#365](https://github.com/alfa-laboratory/core-components/issues/365)) ([99a87eb](https://github.com/alfa-laboratory/core-components/commit/99a87ebd4c97e325b7724b70991b00ca121601da))
+* **core-components-spinner:** add spinner component ([#360](https://github.com/alfa-laboratory/core-components/issues/360)) ([8c6e453](https://github.com/alfa-laboratory/core-components/commit/8c6e45341b0ac6232e2fc89ed6860bb8ccbc371c))
+* **input-autocomplete:** revert arrow ([07f0ef4](https://github.com/alfa-laboratory/core-components/commit/07f0ef45a7cdd27132861932c7fa93ab0c00a024))
+
+
+### Bug Fixes
+
+* **button:** show loader when href is set ([#374](https://github.com/alfa-laboratory/core-components/issues/374)) ([79d6750](https://github.com/alfa-laboratory/core-components/commit/79d675007a86fe1e36e77376ba7a3afa3b8045e8))
+* **plate:** remove redunadant className ([#373](https://github.com/alfa-laboratory/core-components/issues/373)) ([fdd6b3d](https://github.com/alfa-laboratory/core-components/commit/fdd6b3dabb0b5b607d6c84471640c73e65128d0e)), closes [#366](https://github.com/alfa-laboratory/core-components/issues/366)
+* **radio:** fix input width ([#378](https://github.com/alfa-laboratory/core-components/issues/378)) ([369684e](https://github.com/alfa-laboratory/core-components/commit/369684ed2ce7aae07a00941e663accf82f8f2763))
+
+### [4.4.1](https://github.com/alfa-laboratory/core-components/compare/v4.4.0...v4.4.1) (2020-11-19)
+
+
+### Bug Fixes
+
+* **select:** fix wrong options height ([18f26d9](https://github.com/alfa-laboratory/core-components/commit/18f26d9e6c0d9b99c4396f0b6d86b352014fac0a))
+
+## [4.4.0](https://github.com/alfa-laboratory/core-components/compare/v4.3.1...v4.4.0) (2020-11-17)
+
+
+### Features
+
+* **core-components-tabs:** addons and container class name ([#361](https://github.com/alfa-laboratory/core-components/issues/361)) ([68f1322](https://github.com/alfa-laboratory/core-components/commit/68f1322436a5d083a3a98a4405b1d94540e0b8dc))
+* **core-components-vars:** add breakpoints ([#358](https://github.com/alfa-laboratory/core-components/issues/358)) ([9cd5699](https://github.com/alfa-laboratory/core-components/commit/9cd569915b4af8c3d92045aea23b2faa054ba241))
+
+### [4.3.1](https://github.com/alfa-laboratory/core-components/compare/v4.3.0...v4.3.1) (2020-11-16)
+
+## [4.3.0](https://github.com/alfa-laboratory/core-components/compare/v4.2.0...v4.3.0) (2020-11-14)
+
+
+### Features
+
+* **core-components-mq:** add component and hook ([#350](https://github.com/alfa-laboratory/core-components/issues/350)) ([6dbd11f](https://github.com/alfa-laboratory/core-components/commit/6dbd11f4e3dc369dd645638f46f49b4e0e6c13e6))
+
+## [4.2.0](https://github.com/alfa-laboratory/core-components/compare/v4.1.0...v4.2.0) (2020-11-11)
+
+
+### Features
+
+* icons & arrow ([#356](https://github.com/alfa-laboratory/core-components/issues/356)) ([e263356](https://github.com/alfa-laboratory/core-components/commit/e263356b7fd1537ae5c434ddc9c5cb074a2e7ab8))
+
+## [4.1.0](https://github.com/alfa-laboratory/core-components/compare/v4.0.4...v4.1.0) (2020-11-09)
+
+
+### Features
+
+* **core-components-form-control:** set opactiy in disabled state ([#342](https://github.com/alfa-laboratory/core-components/issues/342)) ([586a8d1](https://github.com/alfa-laboratory/core-components/commit/586a8d15f1be9fe6ceea62ac2231c7ecb1125b7e))
+* **core-components-intl-phone-input:** add component ([#333](https://github.com/alfa-laboratory/core-components/issues/333)) ([4d7c71d](https://github.com/alfa-laboratory/core-components/commit/4d7c71d3ace0d44ba1045ab4d2774575e1db65f9)), closes [#336](https://github.com/alfa-laboratory/core-components/issues/336) [#334](https://github.com/alfa-laboratory/core-components/issues/334)
+* **core-components-link:** add slots ([#337](https://github.com/alfa-laboratory/core-components/issues/337)) ([86f0886](https://github.com/alfa-laboratory/core-components/commit/86f0886129f9119a74a5a054232726f871c1634e))
+* **core-components-list-header:** add component ([#344](https://github.com/alfa-laboratory/core-components/issues/344)) ([cce69f3](https://github.com/alfa-laboratory/core-components/commit/cce69f30d1671d4344e0a85f62516e1f7a1f9266))
+* **core-components-plate:** add component ([62e18bf](https://github.com/alfa-laboratory/core-components/commit/62e18bf581651bca66a74c0d02b945522b452b4a)), closes [#340](https://github.com/alfa-laboratory/core-components/issues/340)
+
+### [4.0.4](https://github.com/alfa-laboratory/core-components/compare/v4.0.3...v4.0.4) (2020-11-03)
+
+
+### Bug Fixes
+
+* **core-components-amount-input:** missing handlers ([be512d5](https://github.com/alfa-laboratory/core-components/commit/be512d51fae847f2dd7a4e939adbbd93aadcff67))
+
+### [4.0.3](https://github.com/alfa-laboratory/core-components/compare/v4.0.2...v4.0.3) (2020-10-30)
+
+### [4.0.2](https://github.com/alfa-laboratory/core-components/compare/v4.0.1...v4.0.2) (2020-10-29)
+
+
+### Bug Fixes
+
+* **core-components-confirmation:** fix showed keyboard on old devices ([#341](https://github.com/alfa-laboratory/core-components/issues/341)) ([7165ed1](https://github.com/alfa-laboratory/core-components/commit/7165ed1846910ffcef685cb35f8ec9afd802116f))
+
+### [4.0.1](https://github.com/alfa-laboratory/core-components/compare/v4.0.0...v4.0.1) (2020-10-28)
+
+
+### Features
+
+* **core-components-select:** add missing changes ([053b512](https://github.com/alfa-laboratory/core-components/commit/053b512382028863c1bb2aa7c6c1e8296cbc29c4))
+
+## [4.0.0](https://github.com/alfa-laboratory/core-components/compare/v3.1.0...v4.0.0) (2020-10-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* **core-components-confirmation:** separate error and error text
+
+* feat(core-components-confirmation): fix margins
+
+### Features
+
+* **core-components-badge:** add component ([#330](https://github.com/alfa-laboratory/core-components/issues/330)) ([eb1c617](https://github.com/alfa-laboratory/core-components/commit/eb1c617ed03366060f7a60a9bd13396159cfce72)), closes [#327](https://github.com/alfa-laboratory/core-components/issues/327)
+* **core-components-confirmation:** separate error and error text ([#329](https://github.com/alfa-laboratory/core-components/issues/329)) ([03fc4fb](https://github.com/alfa-laboratory/core-components/commit/03fc4fb85fd9f5636493fdf6d79440227c8a0be0))
+* **core-components-input:** hide clear if input is readonly ([#328](https://github.com/alfa-laboratory/core-components/issues/328)) ([93f7ba4](https://github.com/alfa-laboratory/core-components/commit/93f7ba429fb8e8f430d3dfadefe8375d6ea2e642))
+* **core-components-select:** inputs & types ([#323](https://github.com/alfa-laboratory/core-components/issues/323)) ([0f4d547](https://github.com/alfa-laboratory/core-components/commit/0f4d547c3a5792e095de2011db2c6c1e9dbfb386))
+* **core-components-slider-input:** update stories ([d6a2937](https://github.com/alfa-laboratory/core-components/commit/d6a29370739d15427c961b58c553d22c9df87799))
+
 ## [3.1.0](https://github.com/alfa-laboratory/core-components/compare/v3.0.1...v3.1.0) (2020-10-20)
 
 

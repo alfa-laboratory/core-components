@@ -31,6 +31,7 @@ import { name, version } from '../package.json';
         label={text('label', '')}
         hint={text('hint', '')}
         error={text('error', '')}
+        success={boolean('success', false)}
         rightAddons={boolean('rightAddons', false) && !text('error') && <Icon />}
         leftAddons={boolean('leftAddons', false) && <Icon />}
         bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
@@ -53,6 +54,8 @@ import { Input } from '@alfalab/core-components-input';
 ```
 
 Компонент текстового поля ввода.
+
+☝️ В приложениях Клика используйте обёртку [newclick-composite-components/input](http://digital/demo/newclick-composite-components/master/?path=/docs/form-input--basic).
 
 <Input placeholder='Placeholder' label='Label' hint='Hint' />
 

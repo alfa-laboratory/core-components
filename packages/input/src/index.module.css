@@ -2,6 +2,24 @@
 
 :root {
     --input-clear-icon: url('https://alfabank.st/icons/glyph_cross-circle_m.svg');
+    --input-color: var(--color-light-text-primary);
+    --input-placeholder-color: var(--color-light-text-secondary);
+    --input-focus-placeholder-color: var(--color-light-text-tertiary);
+    --input-with-label-placeholder-color: var(--color-light-text-tertiary);
+    --input-error-icon-display: flex;
+    --input-success-icon-display: flex;
+    --input-error-icon: url('http://alfabank.st/icons/icon_error_s_color.svg');
+    --input-success-icon: url('http://alfabank.st/icons/icon_ok_s_color.svg');
+
+    /* disabled */
+    --input-disabled-color: var(--color-light-text-secondary);
+}
+
+@define-mixin _input-icon {
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
 }
 
 .input {
@@ -11,7 +29,7 @@
     display: block;
     width: 100%;
     height: 100%;
-    color: var(--color-dark-indigo);
+    color: var(--input-color);
     background: none;
     border: none;
     margin: 0;
@@ -24,12 +42,12 @@
 
 .input::placeholder {
     transition: opacity 0.2s ease, color 0.2s ease;
-    color: var(--color-dark-indigo-60-flat);
+    color: var(--input-placeholder-color);
 }
 
 .hasLabel::placeholder {
     opacity: 0;
-    color: var(--color-dark-indigo-30-flat);
+    color: var(--input-with-label-placeholder-color);
 }
 
 .block {
@@ -37,12 +55,10 @@
 }
 
 .clearIcon {
+    @mixin _input-icon;
+
     display: block;
-    width: 24px;
-    height: 24px;
     background-image: var(--input-clear-icon);
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
     opacity: 0.3;
     transition: opacity 0.2s ease;
 
@@ -55,10 +71,24 @@
     }
 }
 
+.errorIcon {
+    @mixin _input-icon;
+
+    display: var(--input-error-icon-display);
+    background-image: url('http://alfabank.st/icons/icon_error_s_color.svg');
+}
+
+.successIcon {
+    @mixin _input-icon;
+
+    display: var(--input-success-icon-display);
+    background-image: url('http://alfabank.st/icons/icon_ok_s_color.svg');
+}
+
 /* DISABLED STATE */
 
 .input:disabled {
-    color: var(--color-dark-indigo-60-flat);
+    color: var(--input-disabled-color);
 }
 
 /* FOCUS STATE */
@@ -68,9 +98,17 @@
 }
 
 .input:focus::placeholder {
-    color: var(--color-dark-indigo-30-flat);
+    color: var(--input-focus-placeholder-color);
 }
 
-.focusVisible > div:first-child {
+.focusVisible {
     @mixin focus-outline;
+}
+
+/* IE hide clear */
+
+.input::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
 }

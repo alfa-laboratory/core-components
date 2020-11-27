@@ -1,4 +1,5 @@
 @import '../../../../themes/src/default.css';
+@import '../../vars.css';
 
 .arrow {
     display: block;
@@ -8,10 +9,6 @@
     background: var(--select-arrow-background);
     background-size: cover;
     transition: opacity 0.2s ease;
-
-    &:hover {
-        opacity: var(--select-arrow-hover-opacity);
-    }
 }
 
 .open {

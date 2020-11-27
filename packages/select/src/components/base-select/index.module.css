@@ -5,21 +5,25 @@
     display: inline-block;
     min-width: 240px;
     position: relative;
-}
-
-.fieldWrapper {
-    position: relative;
-    outline: none;
+    outline: 0;
 }
 
 .popover {
     min-width: 100%;
+    padding-top: var(--select-options-list-offset);
+    padding-bottom: var(--select-options-list-offset);
+    box-shadow: none;
     border: none;
-    box-shadow: var(--select-popover-box-shadow);
-    border-radius: var(--select-popover-border-radius);
-    overflow: hidden;
-    margin-top: var(--select-popover-offset);
-    margin-bottom: var(--select-popover-offset);
+    background: transparent;
+    border-radius: 0;
+}
+
+.optionsList {
+    padding-top: var(--select-options-list-top-padding);
+    padding-bottom: var(--select-options-list-bottom-padding);
+    box-shadow: var(--select-options-list-box-shadow);
+    border-radius: var(--select-options-list-border-radius);
+    background: var(--select-option-background);
 }
 
 .listWrapper {

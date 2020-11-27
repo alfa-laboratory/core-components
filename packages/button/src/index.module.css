@@ -2,10 +2,10 @@
 
 :root {
     /* primary */
-    --button-primary-base-bg-color: var(--color-red-brand-85-flat);
+    --button-primary-base-bg-color: var(--color-red-brand-85-flat); /* TODO */
     --button-primary-hover-bg-color: color-mod(var(--button-primary-base-bg-color) shade(7%));
     --button-primary-active-bg-color: color-mod(var(--button-primary-base-bg-color) shade(15%));
-    --button-primary-disabled-bg-color: var(--color-red-brand-30);
+    --button-primary-disabled-bg-color: color-mod(var(--button-primary-base-bg-color) alpha(30%));
 
     /* secondary */
     --button-secondary-base-bg-color: var(--color-light-specialbg-component);
@@ -22,7 +22,6 @@
     --button-ghost-disabled-color: color-mod(var(--button-ghost-base-color) alpha(30%));
 
     /* font */
-    --button-font-weight: 500;
     --button-font-family: var(--font-family);
 
     /* radius */
@@ -38,9 +37,9 @@
     align-content: center;
     align-items: center;
     margin: 0;
-    padding: 0 24px;
+    padding: 0 var(--gap-xl);
     line-height: 1.2;
-    font-weight: var(--button-font-weight);
+    font-weight: 500;
     font-family: var(--font-family);
     text-align: center;
     text-decoration: none;
@@ -64,6 +63,10 @@
     opacity: 0;
 }
 
+a.loading {
+    pointer-events: none;
+}
+
 .loader {
     position: absolute;
 }
@@ -73,8 +76,9 @@
 .xs {
     min-width: 80px;
     min-height: 32px;
-    padding: 0 12px;
+    padding: 0 var(--gap-m);
     font-size: 14px;
+    font-weight: 400;
 
     &.iconOnly {
         min-width: 32px;
@@ -104,7 +108,7 @@
 .l {
     min-width: 160px;
     min-height: 72px;
-    padding: 0 32px;
+    padding: 0 var(--gap-2xl);
     font-size: 18px;
 
     &.iconOnly {
@@ -277,11 +281,11 @@
 }
 
 .addons:first-child {
-    margin: 0 12px 0 0;
+    margin: 0 var(--gap-xs) 0 0;
 }
 
 .addons:last-child {
-    margin: 0 0 0 12px;
+    margin: 0 0 0 var(--gap-xs);
 }
 
 .addons:only-child {
@@ -297,4 +301,20 @@
 .block {
     display: flex;
     width: 100%;
+}
+
+/* Nowrap */
+
+.nowrap {
+    white-space: nowrap;
+}
+
+/* IE min-height fix */
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .component:after {
+        min-height: inherit;
+        font-size: 0;
+        content: '';
+    }
 }

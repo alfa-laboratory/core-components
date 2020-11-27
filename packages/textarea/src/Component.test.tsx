@@ -21,7 +21,7 @@ describe('Textarea', () => {
         expect(textareaRef.mock.calls).toEqual([[getByTestId(dataTestId)]]);
     });
 
-    it('should set `data-test-id` atribute to textarea', () => {
+    it('should set `data-test-id` attribute to textarea', () => {
         const dataTestId = 'test-id';
         const { getByTestId } = render(<Textarea block={true} dataTestId={dataTestId} />);
 
@@ -29,11 +29,12 @@ describe('Textarea', () => {
     });
 
     describe('Classes tests', () => {
-        it('should set `className` class to root', () => {
-            const className = 'test-class';
-            const { container } = render(<Textarea className={className} />);
+        it('should set `className` class to form-control inner', () => {
+            const { container } = render(<Textarea className='test-class' />);
 
-            expect(container.firstElementChild).toHaveClass(className);
+            const inner = container.querySelector('.test-class');
+
+            expect(inner).toHaveClass('inner');
         });
 
         it('should set `textareaClassName` class to textarea', () => {
@@ -48,37 +49,48 @@ describe('Textarea', () => {
 
         describe('when component is controlled', () => {
             it('should set `filled` class when value passed', () => {
-                const { container } = render(<Textarea value='some value' />);
+                const dataTestId = 'test-id';
+                const { getByTestId } = render(
+                    <Textarea value='some value' dataTestId={dataTestId} />,
+                );
 
-                expect(container.firstElementChild).toHaveClass('filled');
+                expect(getByTestId(dataTestId)).toHaveClass('filled');
             });
 
             it('should not set `filled` class if the value is empty', () => {
-                const { container } = render(<Textarea value='' />);
+                const dataTestId = 'test-id';
+                const { getByTestId } = render(<Textarea value='' dataTestId={dataTestId} />);
 
-                expect(container.firstElementChild).not.toHaveClass('filled');
+                expect(getByTestId(dataTestId)).not.toHaveClass('filled');
             });
 
             it('should unset `filled` class if the value becomes empty', () => {
-                const { container, rerender } = render(<Textarea value='some value' />);
+                const dataTestId = 'test-id';
+                const { getByTestId, rerender } = render(
+                    <Textarea value='some value' dataTestId={dataTestId} />,
+                );
 
-                rerender(<Textarea value='' />);
+                rerender(<Textarea value='' dataTestId={dataTestId} />);
 
-                expect(container.firstElementChild).not.toHaveClass('filled');
+                expect(getByTestId(dataTestId)).not.toHaveClass('filled');
             });
         });
 
         describe('when component is uncontrolled', () => {
             it('should set `filled` class when defaultValue passed', () => {
-                const { container } = render(<Textarea defaultValue='some value' />);
+                const dataTestId = 'test-id';
+                const { getByTestId } = render(
+                    <Textarea defaultValue='some value' dataTestId={dataTestId} />,
+                );
 
-                expect(container.firstElementChild).toHaveClass('filled');
+                expect(getByTestId(dataTestId)).toHaveClass('filled');
             });
 
             it('should not set `filled` class if the value is empty', () => {
-                const { container } = render(<Textarea />);
+                const dataTestId = 'test-id';
+                const { getByTestId } = render(<Textarea dataTestId={dataTestId} />);
 
-                expect(container.firstElementChild).not.toHaveClass('filled');
+                expect(getByTestId(dataTestId)).not.toHaveClass('filled');
             });
 
             it('should unset `filled` class if value becomes empty', async () => {
@@ -113,7 +125,7 @@ describe('Textarea', () => {
             expect(getByTestId(dataTestId)).toHaveClass('resizeVertical');
         });
 
-        it('should set `disabled` atribute', () => {
+        it('should set `disabled` attribute', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(<Textarea disabled={true} dataTestId={dataTestId} />);
 

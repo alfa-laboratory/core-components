@@ -13,13 +13,13 @@
 Установка всех компонентов:
 
 ```bash
-yarn add @alfa-labaratory/core-components
+yarn add @alfalab/core-components
 ```
 
 Каждый компонент публикуется отдельным пакетом, поэтому вы можете подключить только нужный, не устанавливая библиотеку целиком:
 
 ```bash
-yarn add @alfa-labaratory/core-components-button
+yarn add @alfalab/core-components-button
 ```
 
 ## Использование
@@ -47,7 +47,7 @@ import { Button } from '@alfalab/core-components-button';
 
     ```
     "aruiScripts": {
-        "сomponentsTheme": "./node_modules/@alfalab/core-components-themes/click.css"
+        "componentsTheme": "./node_modules/@alfalab/core-components-themes/click.css"
     }
     ```
 

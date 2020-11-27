@@ -18,7 +18,7 @@ import styles from './index.module.css';
 
 export type InputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'size' | 'type' | 'value' | 'defaultValue' | 'onChange'
+    'size' | 'type' | 'value' | 'defaultValue' | 'onChange' | 'onClick' | 'onMouseDown'
 > & {
     /**
      * Значение поля ввода
@@ -49,6 +49,11 @@ export type InputProps = Omit<
      * Отображение ошибки
      */
     error?: string | boolean;
+
+    /**
+     * Отображение иконки успеха
+     */
+    success?: boolean;
 
     /**
      * Текст подсказки
@@ -126,6 +131,21 @@ export type InputProps = Omit<
     onClear?: (event: MouseEvent<HTMLButtonElement>) => void;
 
     /**
+     * Обработчик клика по полю
+     */
+    onClick?: (event: MouseEvent<HTMLDivElement>) => void;
+
+    /**
+     * Обработчик MouseDown по полю
+     */
+    onMouseDown?: (event: MouseEvent<HTMLDivElement>) => void;
+
+    /**
+     * Обработчик MouseUp по полю
+     */
+    onMouseUp?: (event: MouseEvent<HTMLDivElement>) => void;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -143,6 +163,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             clear = false,
             disabled,
             error,
+            success,
             hint,
             inputClassName,
             labelClassName,
@@ -155,10 +176,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             onBlur,
             onChange,
             onClear,
+            onClick,
+            onMouseDown,
+            onMouseUp,
             rightAddons,
             value,
             defaultValue,
             wrapperRef,
+            readOnly,
             ...restProps
         },
         ref,
@@ -174,8 +199,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
         const filled = Boolean(uncontrolled ? stateValue : value);
         // отображаем крестик только для заполненного и активного инпута
-        const clearButtonVisible =
-            clear && Boolean(value || (uncontrolled && stateValue)) && !disabled;
+        const clearButtonVisible = clear && filled && !disabled && !readOnly;
 
         const handleInputFocus = useCallback(
             (event: React.FocusEvent<HTMLInputElement>) => {
@@ -231,24 +255,31 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             [clearButtonVisible, focused, onClear, uncontrolled],
         );
 
-        const renderRightAddons = () =>
-            (clearButtonVisible || rightAddons) && (
-                <Fragment>
-                    {clearButtonVisible && (
-                        <Button
-                            type='button'
-                            view='ghost'
-                            disabled={disabled}
-                            aria-label='Очистить'
-                            className={styles.clearButton}
-                            onClick={handleClear}
-                        >
-                            <span className={cn(styles.clearIcon)} />
-                        </Button>
-                    )}
-                    {rightAddons}
-                </Fragment>
+        const renderRightAddons = () => {
+            const addonsVisible = clearButtonVisible || rightAddons || error || success;
+
+            return (
+                addonsVisible && (
+                    <Fragment>
+                        {clearButtonVisible && (
+                            <Button
+                                type='button'
+                                view='ghost'
+                                disabled={disabled}
+                                aria-label='Очистить'
+                                className={styles.clearButton}
+                                onClick={handleClear}
+                            >
+                                <span className={cn(styles.clearIcon)} />
+                            </Button>
+                        )}
+                        {error && <span className={styles.errorIcon} />}
+                        {success && !error && <span className={styles.successIcon} />}
+                        {rightAddons}
+                    </Fragment>
+                )
             );
+        };
 
         return (
             <FormControl
@@ -259,7 +290,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     focused && focusedClassName,
                     filled && filledClassName,
                     {
-                        [styles.disabled]: disabled,
                         [styles.focusVisible]: focusVisible,
                     },
                 )}
@@ -276,6 +306,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 leftAddons={leftAddons}
                 rightAddons={renderRightAddons()}
                 bottomAddons={bottomAddons}
+                onClick={onClick}
+                onMouseDown={onMouseDown}
+                onMouseUp={onMouseUp}
             >
                 <input
                     {...restProps}
@@ -293,7 +326,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     ref={mergeRefs([ref, inputRef])}
                     type={type}
                     value={uncontrolled ? stateValue : value}
-                    defaultValue={defaultValue}
+                    readOnly={readOnly}
                     data-test-id={dataTestId}
                 />
             </FormControl>

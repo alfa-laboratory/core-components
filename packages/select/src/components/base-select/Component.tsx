@@ -1,13 +1,27 @@
-import React, { useRef, useMemo, useCallback, KeyboardEvent, MouseEvent, forwardRef } from 'react';
+import React, {
+    useRef,
+    useMemo,
+    useCallback,
+    MouseEvent,
+    forwardRef,
+    KeyboardEvent,
+    FocusEvent,
+    useEffect,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import { Popover } from '@alfalab/core-components-popover';
-import { useMultipleSelection, useCombobox, UseMultipleSelectionProps } from 'downshift';
+import {
+    useMultipleSelection,
+    useCombobox,
+    UseMultipleSelectionProps,
+    UseMultipleSelectionState,
+} from 'downshift';
 import { NativeSelect } from '../native-select';
 import { BaseSelectProps, OptionShape } from '../../typings';
+import { processOptions } from '../../utils';
 
 import styles from './index.module.css';
-import { isGroup } from '../../utils';
 
 export const BaseSelect = forwardRef(
     (
@@ -22,6 +36,7 @@ export const BaseSelect = forwardRef(
             closeOnSelect = !multiple,
             circularNavigation = false,
             nativeSelect = false,
+            defaultOpen = false,
             name,
             id,
             selected,
@@ -32,8 +47,11 @@ export const BaseSelect = forwardRef(
             label,
             placeholder,
             fieldProps = {},
+            valueRenderer,
             onChange,
             onOpen,
+            onFocus,
+            onBlur,
             Arrow,
             Field = () => null,
             OptionsList = () => null,
@@ -47,18 +65,12 @@ export const BaseSelect = forwardRef(
 
         const getPortalContainer = () => optionsListRef.current as HTMLDivElement;
 
-        const itemToString = (option: OptionShape) =>
-            option ? option.text || option.value.toString() : '';
+        const itemToString = (option: OptionShape) => (option ? option.key : '');
 
-        const flatOptions = useMemo(
-            () =>
-                options.reduce(
-                    (acc: OptionShape[], option) =>
-                        acc.concat(isGroup(option) ? option.options : option),
-                    [],
-                ),
-            [options],
-        );
+        const { flatOptions, selectedOptions } = useMemo(() => processOptions(options, selected), [
+            options,
+            selected,
+        ]);
 
         const useMultipleSelectionProps: UseMultipleSelectionProps<OptionShape> = {
             itemToString,
@@ -67,18 +79,28 @@ export const BaseSelect = forwardRef(
                     const { selectedItems = [] } = changes;
 
                     onChange({
-                        selectedOptions: selectedItems,
-                        selected: selectedItems.map(item => item.value),
+                        selectedMultiple: selectedItems,
+                        selected: selectedItems.length ? selectedItems[0] : null,
                         name,
                     });
                 }
             },
+            stateReducer: (state, actionAndChanges) => {
+                const { type, changes } = actionAndChanges;
+
+                if (
+                    !allowUnselect &&
+                    type === useMultipleSelection.stateChangeTypes.DropdownKeyDownBackspace
+                ) {
+                    return state;
+                }
+
+                return changes as UseMultipleSelectionState<OptionShape>;
+            },
         };
 
-        if (selected) {
-            useMultipleSelectionProps.selectedItems = flatOptions.filter(option =>
-                selected.includes(option.value),
-            );
+        if (selected !== undefined) {
+            useMultipleSelectionProps.selectedItems = selectedOptions;
         }
 
         const {
@@ -91,7 +113,6 @@ export const BaseSelect = forwardRef(
 
         const {
             isOpen: open,
-            getToggleButtonProps,
             getMenuProps,
             getInputProps,
             getItemProps,
@@ -99,13 +120,13 @@ export const BaseSelect = forwardRef(
             getLabelProps,
             highlightedIndex,
             toggleMenu,
-            closeMenu,
             openMenu,
         } = useCombobox<OptionShape>({
             id,
             circularNavigation,
             items: flatOptions,
             itemToString,
+            defaultHighlightedIndex: selectedItems.length === 0 ? 0 : undefined,
             onIsOpenChange: changes => {
                 if (onOpen) {
                     onOpen({
@@ -156,15 +177,22 @@ export const BaseSelect = forwardRef(
 
         const menuProps = getMenuProps(nativeSelect ? {} : { ref: optionsListRef });
         const inputProps = getInputProps(getDropdownProps({ ref: mergeRefs([ref, fieldRef]) }));
-        const toggleButtonProps = getToggleButtonProps();
 
-        const handleFieldWrapperFocus = () => {
+        const handleFieldFocus = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
+            if (onFocus) onFocus(event);
+
             if (autocomplete && !open) {
                 openMenu();
             }
         };
 
-        const handleFieldWrapperKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+        const handleFieldBlur = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
+            if (onBlur) onBlur(event);
+
+            inputProps.onBlur(event);
+        };
+
+        const handleFieldKeyDown = (event: KeyboardEvent<HTMLDivElement | HTMLInputElement>) => {
             inputProps.onKeyDown(event);
 
             if (autocomplete && !open && event.key.length === 1) {
@@ -179,73 +207,62 @@ export const BaseSelect = forwardRef(
             }
         };
 
-        const handleFieldWrapperMouseDown = () => {
-            if (open) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-
-            if (!autocomplete && fieldRef.current) fieldRef.current.focus();
-        };
-
-        const fieldWrapperProps = {
-            className: styles.fieldWrapper,
-            role: 'button',
-            ref: toggleButtonProps.ref,
-            onBlur: inputProps.onBlur,
-            onFocus: disabled ? undefined : handleFieldWrapperFocus,
-            onKeyDown: disabled ? undefined : handleFieldWrapperKeyDown,
-            onMouseDown: disabled ? undefined : handleFieldWrapperMouseDown,
+        const handleFieldClick = () => {
+            toggleMenu();
         };
 
         const handleNativeSelectChange = useCallback(
             event => {
-                const selectedOptions = [...event.target.options].reduce(
-                    (acc, option, index) =>
-                        option.selected ? acc.concat(flatOptions[index]) : acc,
-                    [],
+                setSelectedItems(
+                    [...event.target.options].reduce(
+                        (acc, option, index) =>
+                            option.selected ? acc.concat(flatOptions[index]) : acc,
+                        [],
+                    ),
                 );
-
-                setSelectedItems(selectedOptions);
             },
             [flatOptions, setSelectedItems],
         );
 
         const WrappedOption = useCallback(
             ({ option, index, ...rest }: { option: OptionShape; index: number }) => (
-                <Option
-                    {...rest}
-                    {...getItemProps({
+                <React.Fragment key={option.key}>
+                    {Option({
+                        ...rest,
+                        innerProps: getItemProps({
+                            index,
+                            item: option,
+                            disabled: option.disabled,
+                            onMouseDown: (event: MouseEvent) => event.preventDefault(),
+                        }),
                         index,
-                        item: option,
+                        option,
+                        size,
                         disabled: option.disabled,
+                        highlighted: index === highlightedIndex,
+                        selected: selectedItems.includes(option),
                     })}
-                    key={option.value}
-                    index={index}
-                    option={option}
-                    size={size}
-                    disabled={option.disabled}
-                    highlighted={index === highlightedIndex}
-                    selected={selectedItems.includes(option)}
-                    onMouseDown={(event: MouseEvent) => event.preventDefault()}
-                />
+                </React.Fragment>
             ),
-            [getItemProps, highlightedIndex, selectedItems, size],
+            [Option, getItemProps, highlightedIndex, selectedItems, size],
         );
+
+        useEffect(() => {
+            if (defaultOpen) openMenu();
+        }, [defaultOpen, openMenu]);
 
         const renderValue = useCallback(
             () =>
                 selectedItems.map(option => (
-                    <input type='hidden' name={name} value={option.value} key={option.value} />
+                    <input type='hidden' name={name} value={option.key} key={option.key} />
                 )),
             [selectedItems, name],
         );
 
         const renderNativeSelect = useCallback(() => {
             const value = multiple
-                ? selectedItems.map(option => option.value)
-                : (selectedItems[0] || {}).value;
+                ? selectedItems.map(option => option.key)
+                : (selectedItems[0] || {}).key;
 
             return (
                 <NativeSelect
@@ -266,35 +283,40 @@ export const BaseSelect = forwardRef(
                 {...getComboboxProps({
                     className: cn(styles.component, { [styles.block]: block }, className),
                 })}
+                onKeyDown={disabled ? undefined : handleFieldKeyDown}
+                tabIndex={-1}
                 data-test-id={dataTestId}
             >
-                <div {...fieldWrapperProps}>
-                    {nativeSelect && renderNativeSelect()}
+                {nativeSelect && renderNativeSelect()}
 
-                    <Field
-                        selectedItems={selectedItems}
-                        multiple={multiple}
-                        open={open}
-                        disabled={disabled}
-                        size={size}
-                        placeholder={placeholder}
-                        label={label && <span {...getLabelProps()}>{label}</span>}
-                        Arrow={Arrow && <Arrow open={open} />}
-                        error={error}
-                        hint={hint}
-                        innerProps={{
-                            tabIndex: nativeSelect ? -1 : 0,
-                            ref: inputProps.ref,
-                            id: inputProps.id,
-                            'aria-labelledby': inputProps['aria-labelledby'],
-                            'aria-controls': inputProps['aria-controls'],
-                            'aria-autocomplete': autocomplete
-                                ? inputProps['aria-autocomplete']
-                                : undefined,
-                        }}
-                        {...fieldProps}
-                    />
-                </div>
+                <Field
+                    selectedMultiple={selectedItems}
+                    selected={selectedItems[0]}
+                    multiple={multiple}
+                    open={open}
+                    disabled={disabled}
+                    size={size}
+                    placeholder={placeholder}
+                    label={label && <span {...getLabelProps()}>{label}</span>}
+                    Arrow={Arrow && <Arrow open={open} />}
+                    error={error}
+                    hint={hint}
+                    valueRenderer={valueRenderer}
+                    innerProps={{
+                        onBlur: handleFieldBlur,
+                        onFocus: disabled ? undefined : handleFieldFocus,
+                        onClick: disabled ? undefined : handleFieldClick,
+                        tabIndex: nativeSelect || disabled ? -1 : 0,
+                        ref: mergeRefs([inputProps.ref]),
+                        id: inputProps.id,
+                        'aria-labelledby': inputProps['aria-labelledby'],
+                        'aria-controls': inputProps['aria-controls'],
+                        'aria-autocomplete': autocomplete
+                            ? inputProps['aria-autocomplete']
+                            : undefined,
+                    }}
+                    {...fieldProps}
+                />
 
                 {name && !nativeSelect && renderValue()}
 
@@ -308,15 +330,19 @@ export const BaseSelect = forwardRef(
                             getPortalContainer={getPortalContainer}
                             popperClassName={styles.popover}
                         >
-                            <OptionsList
-                                flatOptions={flatOptions}
-                                highlightedIndex={highlightedIndex}
-                                open={open}
-                                size={size}
-                                options={options}
-                                Optgroup={Optgroup}
-                                Option={WrappedOption}
-                            />
+                            {flatOptions.length > 0 && (
+                                <div className={styles.optionsList}>
+                                    <OptionsList
+                                        flatOptions={flatOptions}
+                                        highlightedIndex={highlightedIndex}
+                                        open={open}
+                                        size={size}
+                                        options={options}
+                                        Optgroup={Optgroup}
+                                        Option={WrappedOption}
+                                    />
+                                </div>
+                            )}
                         </Popover>
                     </div>
                 )}

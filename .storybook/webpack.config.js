@@ -87,6 +87,14 @@ module.exports = ({ config }) => ({
     module: {
         rules: [
             {
+                test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/, /\.svg$/],
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: '[name].[hash:8].[ext]',
+                },
+            },
+            {
                 test: /\.md$/,
                 use: ['raw-loader'],
             },

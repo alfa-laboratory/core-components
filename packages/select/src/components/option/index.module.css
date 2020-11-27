@@ -6,8 +6,6 @@
 
     display: flex;
     align-items: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
     padding-left: var(--select-option-left-padding);
     padding-right: var(--select-option-right-padding);
     transition: background-color 0.2s ease;
@@ -78,4 +76,14 @@
     cursor: default;
     background: var(--select-option-disabled-background);
     color: var(--select-option-disabled-color);
+}
+
+/* IE min-height fix */
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .option:after {
+        min-height: inherit;
+        font-size: 0;
+        content: '';
+    }
 }
