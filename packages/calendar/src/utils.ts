@@ -146,7 +146,10 @@ export function buildMonth(month: Date, options: { minMonth?: Date; maxMonth?: D
  * Ограничивает дату на отрезке [minDate, maxDate]
  */
 export function limitDate(date: Date, minDate?: Date, maxDate?: Date) {
-    return min([maxDate || date, max([minDate || date, date])]);
+    let limitedDate = date;
+    if (minDate) limitedDate = max([minDate, limitedDate]);
+    if (maxDate) limitedDate = min([maxDate, limitedDate]);
+    return limitedDate;
 }
 
 /**
