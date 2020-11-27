@@ -95,7 +95,12 @@ const Input = ({
             case 'Backspace':
             case 'Delete':
                 newValues[index] = '';
-                handleChange(newValues.join(''));
+                handleChange(newValues.join('').trim());
+
+                if (index !== 0) {
+                    focus(index - 1);
+                }
+
                 break;
             case 'ArrowRight':
                 if (index !== slotsCount - 1) {
