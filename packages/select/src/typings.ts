@@ -137,7 +137,7 @@ export type BaseSelectProps = {
     /**
      * Список value выбранных пунктов (controlled-селект)
      */
-    selected?: string[] | string | null;
+    selected?: Array<string | OptionShape> | string | OptionShape | null;
 
     /**
      * Рендерит нативный селект вместо выпадающего меню. (на десктопе использовать только с multiple=false)
