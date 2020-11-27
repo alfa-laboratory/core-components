@@ -1,0 +1,46 @@
+.container {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    height: 56px;
+    align-items: center;
+    padding-left: 38px;
+    padding-right: 34px;
+    cursor: pointer;
+    position: relative;
+}
+
+.highlighted {
+    background-color: var(--color-dark-indigo-10-flat);
+}
+
+.single {
+    background-color: var(--color-dark-indigo-07);
+    padding-left: 36px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-feature-settings: 'tnum' on, 'lnum' on;
+    flex: 1;
+    color: var(--color-dark-indigo-60-flat);
+}
+
+.addon {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    color: var(--color-dark-indigo-60-flat);
+}
+
+.checkmark {
+    top: 9px;
+    position: absolute;
+    left: 12px;
+}
+
+.openDate {
+    font-feature-settings: 'tnum' on, 'lnum' on;
+}

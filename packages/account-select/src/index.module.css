@@ -1,0 +1,26 @@
+.input {
+    align-items: center;
+    & div:nth-child(2) {
+        width: 100%;
+    }
+}
+
+.inputFilled {
+    align-items: flex-start;
+    & div:nth-child(2) {
+        width: 100%;
+        margin-top: 18px;
+    }
+    & div:nth-child(3) {
+        margin-top: 16px;
+    }
+}
+
+.addons {
+    &:first-child {
+        max-width: 520px;
+    }
+    &:last-child {
+        max-height: 32px;
+    }
+}
