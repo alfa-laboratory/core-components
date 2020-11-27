@@ -14,18 +14,18 @@
     font-size: 13px;
 }
 
-.click {
+body[data-theme='click'] {
     @mixin theme-click;
 }
 
-.site {
+body[data-theme='site'] {
     @mixin theme-site;
 }
 
-.corp {
+body[data-theme='corp'] {
     @mixin theme-corp;
 }
 
-.mobile {
+body[data-theme='mobile'] {
     @mixin theme-mobile;
 }
