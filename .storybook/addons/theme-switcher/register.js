@@ -30,12 +30,11 @@ const Addon = () => {
         themes.length > 0 && (
             <div className='tool'>
                 <span className='label'>Theme:</span>
-                <Form.Select size={1} onChange={handleChange} className='select'>
+                <Form.Select size={1} onChange={handleChange} className='select' value={theme}>
                     {['default'].concat(themes).map(themeName => (
                         <option
                             value={themeName}
                             key={themeName}
-                            selected={themeName === theme}
                         >
                             {themeName}
                         </option>
