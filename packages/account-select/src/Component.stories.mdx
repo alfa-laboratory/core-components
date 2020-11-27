@@ -1,15 +1,34 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { text, select, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { Container, Row, Col } from 'storybook/blocks/grid';
+import { text, select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader } from 'storybook/blocks/component-header';
-
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { Tag } from '@alfalab/core-components-tag';
 import { Input } from '@alfalab/core-components-input';
-import { MaskedInput } from '@alfalab/core-components-masked-input';
 import { Option } from '@alfalab/core-components-select';
-
+import { MaskedInput } from '@alfalab/core-components-masked-input';
 import { AccountSelect } from './Component';
+
+export const options = [
+    { key: '1', value: { balance: '123 494,23', currency: '₽', number: '4070 2810 8260 1000 0002', openDate: '17.09.2019' } },
+    { key: '2', value: { balance: '494,20', currency: '₽', number: '4070 2810 8260 1000 0003', openDate: '18.09.2019' } },
+    { key: '3', value: { balance: '108 385,00', currency: '₽', number: '4070 2810 8260 1000 0004', openDate: '19.09.2019' } },
+    { key: '4', value: { balance: '0,00', currency: '₽', number: '4070 2810 8260 1000 0005', openDate: '29.09.2019' } },
+    { key: '5', value: { balance: '123 494,23', currency: '₽', number: '4070 2810 8260 1000 0006', openDate: '21.09.2019' } },
+    { key: '6', value: { balance: '123 494,23', currency: '₽', number: '4070 2810 8260 1000 0007', openDate: '22.09.2020' } },
+    { key: '7', value: { balance: '123 494,23', currency: '₽', number: '4070 2810 8260 1000 0008', openDate: '23.09.2020' } },
+    { key: '8', value: { balance: '123 494,23', currency: '₽', number: '4070 2810 8260 1000 0009', openDate: '17.09.2019' } },
+    { key: '9', value: { balance: '123 494,23', currency: '₽', number: '4070 2810 8260 1000 0010', openDate: '17.09.2019' } },
+    { key: '10', value: { balance: '123 494,23', currency: '₽', number: '4070 2810 8260 1000 0011', openDate: '17.09.2019' } },
+    { key: '11', value: { balance: '123 494,23', currency: '₽', number: '4070 2810 8260 1000 0012', openDate: '17.09.2019' } },
+    { key: '12', value: { balance: '123 494,23', currency: '₽', number: '4070 2810 8260 1000 0013', openDate: '17.09.2019' } },
+    { key: '13', value: { balance: '123 494,23', currency: '₽', number: '4070 2810 8260 1000 0014', openDate: '17.09.2019' } },
+    { key: '14', value: { balance: '123 494,23', currency: '₽', number: '4070 2810 8260 1000 0015', openDate: '17.09.2019' } },
+    { key: '15', value: { balance: '123 494,23', currency: '₽', number: '4070 2810 8260 1000 0016', openDate: '17.09.2019' } },
+];
+
+export const matchOption = (option, inputValue) =>
+    option.value.number.toLowerCase().includes((inputValue || '').toLowerCase());
 
 <Meta
     title='Компоненты'
@@ -17,59 +36,46 @@ import { AccountSelect } from './Component';
     parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
-
 <!-- Canvas -->
-
-export const options = [
-    { key: '1', value: { balance: '123 494,23', currency: '₽', number: '40702810826010000002', openDate: '17.09.2019' } },
-    { key: '2', value: { balance: '494,20', currency: '₽', number: '40702810826010000003', openDate: '18.09.2019' } },
-    { key: '3', value: { balance: '108 385,00', currency: '₽', number: '40702810826010000004', openDate: '19.09.2019' } },
-    { key: '4', value: { balance: '0,00', currency: '₽', number: '40702 810 8 2601 0000005', openDate: '29.09.2019' } },
-    { key: '5', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000006', openDate: '21.09.2019' } },
-    { key: '6', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000007', openDate: '22.09.2020' } },
-    { key: '7', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000008', openDate: '23.09.2020' } },
-    { key: '8', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000009', openDate: '17.09.2019' } },
-    { key: '9', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000010', openDate: '17.09.2019' } },
-    { key: '10', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000011', openDate: '17.09.2019' } },
-    { key: '11', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000012', openDate: '17.09.2019' } },
-    { key: '12', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000013', openDate: '17.09.2019' } },
-    { key: '13', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000014', openDate: '17.09.2019' } },
-    { key: '14', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000015', openDate: '17.09.2019' } },
-    { key: '15', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000016', openDate: '17.09.2019' } },
-];
-
-export const matchOption = (option, inputValue) =>
-    option.value.number.toLowerCase().includes((inputValue || '').toLowerCase());
 
 <Story name='AccountSelect'>
     {React.createElement(() => {
         const [value, setValue] = React.useState('');
         const [selectedOptions, setSelectedOptions] = React.useState([]);
-        const handleInput = event => {
+        const handleInput = (event, value) => {
+            action('onInput')(event, value);
             setValue(event.target.value);
         };
         const filteredOptions = React.useMemo(() => {
             return options.filter(option => matchOption(option, value));
         }, [value]);
-        const handleChange = ({ selectedMultiple }) => {
+        const handleChange = (payload) => {
+            const { selectedMultiple } = payload;
+            action('onChange')(payload);
             setSelectedOptions(selectedMultiple);
         };
         const handleSelectAllAccounts = React.useCallback(() => {
+            action('onSelectAll')(options);
             setSelectedOptions(options);
         }, [options]);
         const handleDeleteTag = React.useCallback((tag) => {
+            action('onDeleteTag')(tag);
             setSelectedOptions(selectedOptions.filter(selectedOption => selectedOption.value.number !== tag));
         }, [selectedOptions]);
+        const viewMode = React.useMemo(() => {
+            return options.length === 1 ? 'single' : 'multiple';
+        }, [options]);
         return (
             <AccountSelect
-                size="m"
                 block={true}
                 value={value}
-                multiple={true}
-                closeOnSelect={false}
-                allowUnselect={true}
-                label={"Номер счёта справки"}
-                placeholder={"Введите номер счёта справки"}
+                view={viewMode}
+                multiple={boolean('multiple', true)}
+                size={select('size', ['s', 'm', 'l'], 'm')}
+                label={text('label', 'Номер счёта справки')}
+                allowUnselect={boolean('allowUnselect', true)}
+                closeOnSelect={boolean('closeOnSelect', false)}
+                placeholder={text('placeholder', 'Введите номер счёта справки')}
                 onInput={handleInput}
                 onChange={handleChange}
                 options={filteredOptions}
@@ -80,3 +86,259 @@ export const matchOption = (option, inputValue) =>
         );
     })}
 </Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='AccountSelect'
+    stage={1}
+/>
+
+```tsx
+import { AccountSelect } from '@alfalab/core-components-account-select';
+```
+
+Компонент поля для выбора счёта/счетов с автокомплитом
+
+<Preview>
+    {React.createElement(() => {
+        const options = [
+            { key: '1', value: { balance: '123 494,23', currency: '₽', number: '4070 2810 8260 1000 0002', openDate: '17.09.2019' } },
+            { key: '2', value: { balance: '494,20', currency: '₽', number: '40702810826010000003', openDate: '18.09.2019' } },
+            { key: '3', value: { balance: '108 385,00', currency: '₽', number: '40702810826010000004', openDate: '19.09.2019' } },
+            { key: '4', value: { balance: '0,00', currency: '₽', number: '40702 810 8 2601 0000005', openDate: '29.09.2019' } },
+            { key: '5', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000006', openDate: '21.09.2019' } },
+            { key: '6', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000007', openDate: '22.09.2020' } },
+            { key: '7', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000008', openDate: '23.09.2020' } },
+            { key: '8', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000009', openDate: '17.09.2019' } },
+            { key: '9', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000010', openDate: '17.09.2019' } },
+            { key: '10', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000011', openDate: '17.09.2019' } },
+            { key: '11', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000012', openDate: '17.09.2019' } },
+            { key: '12', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000013', openDate: '17.09.2019' } },
+            { key: '13', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000014', openDate: '17.09.2019' } },
+            { key: '14', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000015', openDate: '17.09.2019' } },
+            { key: '15', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000016', openDate: '17.09.2019' } },
+        ];
+        const [value, setValue] = React.useState('');
+        const [selectedOptions, setSelectedOptions] = React.useState([]);
+        const handleInput = (event, value) => {
+            setValue(event.target.value);
+        };
+        const filteredOptions = React.useMemo(() => {
+            return options.filter(option => matchOption(option, value));
+        }, [value]);
+        const handleChange = (payload) => {
+            const { selectedMultiple } = payload;
+            setSelectedOptions(selectedMultiple);
+        };
+        const handleSelectAllAccounts = React.useCallback(() => {
+            setSelectedOptions(options);
+        }, [options]);
+        const handleDeleteTag = React.useCallback((tag) => {
+            setSelectedOptions(selectedOptions.filter(selectedOption => selectedOption.value.number !== tag));
+        }, [selectedOptions]);
+        const viewMode = React.useMemo(() => {
+            return options.length === 1 ? 'single' : 'multiple';
+        }, [options]);
+        return (
+            <AccountSelect
+                size="m"
+                block={true}
+                value={value}
+                view={viewMode}
+                multiple={true}
+                allowUnselect={true}
+                closeOnSelect={false}
+                label="Номер счёта справки"
+                placeholder="Введите номер счёта справки"
+                onInput={handleInput}
+                onChange={handleChange}
+                options={filteredOptions}
+                selected={selectedOptions}
+                onDeleteTag={handleDeleteTag}
+                onSelectAll={handleSelectAllAccounts}
+            />
+        );
+    })}
+</Preview>
+
+<Props of={AccountSelect} />
+
+### Кейс если всего всего один option
+
+<Preview>
+    {React.createElement(() => {
+        const options = [
+            { key: '1', value: { balance: '123 494,23', currency: '₽', number: '4070 2810 8260 1000 0002', openDate: '17.09.2019' } },
+        ];
+        const [value, setValue] = React.useState('');
+        const [selectedOptions, setSelectedOptions] = React.useState([]);
+        const handleInput = (event, value) => {
+            setValue(event.target.value);
+        };
+        const filteredOptions = React.useMemo(() => {
+            return options.filter(option => matchOption(option, value));
+        }, [value]);
+        const handleChange = (payload) => {
+            const { selectedMultiple } = payload;
+            setSelectedOptions(selectedMultiple);
+        };
+        const handleSelectAllAccounts = React.useCallback(() => {
+            setSelectedOptions(options);
+        }, [options]);
+        const handleDeleteTag = React.useCallback((tag) => {
+            setSelectedOptions(selectedOptions.filter(selectedOption => selectedOption.value.number !== tag));
+        }, [selectedOptions]);
+        const viewMode = React.useMemo(() => {
+            return options.length === 1 ? 'single' : 'multiple';
+        }, [options]);
+        return (
+            <AccountSelect
+                size="m"
+                block={true}
+                value={value}
+                view={viewMode}
+                multiple={true}
+                allowUnselect={true}
+                closeOnSelect={false}
+                label="Номер счёта справки"
+                placeholder="Введите номер счёта справки"
+                onInput={handleInput}
+                onChange={handleChange}
+                options={filteredOptions}
+                selected={selectedOptions}
+                onDeleteTag={handleDeleteTag}
+                onSelectAll={handleSelectAllAccounts}
+            />
+        );
+    })}
+</Preview>
+
+### Multiple
+
+<Preview>
+    {React.createElement(() => {
+        const options = [
+            { key: '1', value: { balance: '123 494,23', currency: '₽', number: '4070 2810 8260 1000 0002', openDate: '17.09.2019' } },
+            { key: '2', value: { balance: '494,20', currency: '₽', number: '40702810826010000003', openDate: '18.09.2019' } },
+            { key: '3', value: { balance: '108 385,00', currency: '₽', number: '40702810826010000004', openDate: '19.09.2019' } },
+            { key: '4', value: { balance: '0,00', currency: '₽', number: '40702 810 8 2601 0000005', openDate: '29.09.2019' } },
+            { key: '5', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000006', openDate: '21.09.2019' } },
+            { key: '6', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000007', openDate: '22.09.2020' } },
+            { key: '7', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000008', openDate: '23.09.2020' } },
+            { key: '8', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000009', openDate: '17.09.2019' } },
+            { key: '9', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000010', openDate: '17.09.2019' } },
+            { key: '10', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000011', openDate: '17.09.2019' } },
+            { key: '11', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000012', openDate: '17.09.2019' } },
+            { key: '12', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000013', openDate: '17.09.2019' } },
+            { key: '13', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000014', openDate: '17.09.2019' } },
+            { key: '14', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000015', openDate: '17.09.2019' } },
+            { key: '15', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000016', openDate: '17.09.2019' } },
+        ];
+        const [value, setValue] = React.useState('');
+        const [selectedOptions, setSelectedOptions] = React.useState([]);
+        const handleInput = (event, value) => {
+            setValue(event.target.value);
+        };
+        const filteredOptions = React.useMemo(() => {
+            return options.filter(option => matchOption(option, value));
+        }, [value]);
+        const handleChange = (payload) => {
+            const { selectedMultiple } = payload;
+            setSelectedOptions(selectedMultiple);
+        };
+        const handleSelectAllAccounts = React.useCallback(() => {
+            setSelectedOptions(options);
+        }, [options]);
+        const handleDeleteTag = React.useCallback((tag) => {
+            setSelectedOptions(selectedOptions.filter(selectedOption => selectedOption.value.number !== tag));
+        }, [selectedOptions]);
+        const viewMode = React.useMemo(() => {
+            return options.length === 1 ? 'single' : 'multiple';
+        }, [options]);
+        return (
+            <AccountSelect
+                size="m"
+                block={true}
+                value={value}
+                view={viewMode}
+                multiple={true}
+                allowUnselect={true}
+                closeOnSelect={false}
+                label="Номер счёта справки"
+                placeholder="Введите номер счёта справки"
+                onInput={handleInput}
+                onChange={handleChange}
+                options={filteredOptions}
+                selected={selectedOptions}
+                onDeleteTag={handleDeleteTag}
+                onSelectAll={handleSelectAllAccounts}
+            />
+        );
+    })}
+</Preview>
+
+
+### Single
+
+<Preview>
+    {React.createElement(() => {
+        const options = [
+            { key: '1', value: { balance: '123 494,23', currency: '₽', number: '4070 2810 8260 1000 0002', openDate: '17.09.2019' } },
+            { key: '2', value: { balance: '494,20', currency: '₽', number: '40702810826010000003', openDate: '18.09.2019' } },
+            { key: '3', value: { balance: '108 385,00', currency: '₽', number: '40702810826010000004', openDate: '19.09.2019' } },
+            { key: '4', value: { balance: '0,00', currency: '₽', number: '40702 810 8 2601 0000005', openDate: '29.09.2019' } },
+            { key: '5', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000006', openDate: '21.09.2019' } },
+            { key: '6', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000007', openDate: '22.09.2020' } },
+            { key: '7', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000008', openDate: '23.09.2020' } },
+            { key: '8', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000009', openDate: '17.09.2019' } },
+            { key: '9', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000010', openDate: '17.09.2019' } },
+            { key: '10', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000011', openDate: '17.09.2019' } },
+            { key: '11', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000012', openDate: '17.09.2019' } },
+            { key: '12', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000013', openDate: '17.09.2019' } },
+            { key: '13', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000014', openDate: '17.09.2019' } },
+            { key: '14', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000015', openDate: '17.09.2019' } },
+            { key: '15', value: { balance: '123 494,23', currency: '₽', number: '40702 810 8 2601 0000016', openDate: '17.09.2019' } },
+        ];
+        const [value, setValue] = React.useState('');
+        const [selectedOptions, setSelectedOptions] = React.useState([]);
+        const handleInput = (event, value) => {
+            setValue(event.target.value);
+        };
+        const filteredOptions = React.useMemo(() => {
+            return options.filter(option => matchOption(option, value));
+        }, [value]);
+        const handleChange = (payload) => {
+            const { selectedMultiple } = payload;
+            setSelectedOptions(selectedMultiple);
+        };
+        const handleSelectAllAccounts = React.useCallback(() => {
+            setSelectedOptions(options);
+        }, [options]);
+        const handleDeleteTag = React.useCallback((tag) => {
+            setSelectedOptions(selectedOptions.filter(selectedOption => selectedOption.value.number !== tag));
+        }, [selectedOptions]);
+        const viewMode = React.useMemo(() => {
+            return options.length === 1 ? 'single' : 'multiple';
+        }, [options]);
+        return (
+            <AccountSelect
+                size="m"
+                block={true}
+                value={value}
+                view={viewMode}
+                multiple={false}
+                allowUnselect={true}
+                closeOnSelect={false}
+                label="Номер счёта справки"
+                placeholder="Введите номер счёта справки"
+                onInput={handleInput}
+                onChange={handleChange}
+                options={filteredOptions}
+                selected={selectedOptions}
+                onDeleteTag={handleDeleteTag}
+                onSelectAll={handleSelectAllAccounts}
+            />
+        );
+    })}
+</Preview>

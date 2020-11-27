@@ -18,7 +18,9 @@ export const OptionList = memo<OptionsListProps>(props => {
             <VirtualOptionsList {...props} Option={props.Option} />
             {multiple && (
                 <button type='button' className={styles.chooseAll} onClick={onSelectAll}>
-                    <Typography.Text>Выбрать все счета</Typography.Text>
+                    <Typography.Text view='primary-medium' color='primary'>
+                        Выбрать все счета
+                    </Typography.Text>
                 </button>
             )}
         </div>

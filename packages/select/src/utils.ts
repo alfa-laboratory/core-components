@@ -30,24 +30,21 @@ export const joinOptions = ({
 // За один проход делает список пунктов меню плоским и находит выбранные пункты по ключу
 export function processOptions(
     options: BaseSelectProps['options'],
-    selectedKeys: BaseSelectProps['selected'] = [],
+    selected: BaseSelectProps['selected'] = [],
 ) {
     const flatOptions: OptionShape[] = [];
-    const selectedOptions: OptionShape[] = [];
-
-    const selected = (option: OptionShape) =>
-        Array.isArray(selectedKeys)
-            ? selectedKeys.includes(option.key)
-            : selectedKeys === option.key;
-
+    const selectedArray = Array.isArray(selected) ? selected : [selected];
+    const selectedKeys = selectedArray.filter(option => typeof option === 'string');
+    const selectedOptions = selectedArray.filter(
+        option => option && typeof option !== 'string',
+    ) as OptionShape[];
+    const isSelected = (option: OptionShape) => selectedKeys.includes(option.key);
     const process = (option: OptionShape) => {
         flatOptions.push(option);
-
-        if (selected(option)) {
+        if (isSelected(option)) {
             selectedOptions.push(option);
         }
     };
-
     options.forEach(option => {
         if (isGroup(option)) {
             option.options.forEach(process);
@@ -55,7 +52,6 @@ export function processOptions(
             process(option);
         }
     });
-
     return { flatOptions, selectedOptions };
 }
 

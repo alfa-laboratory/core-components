@@ -13,6 +13,7 @@
       { "path": "../tag" },
       { "path": "../input" },
       { "path": "../select" },
+      { "path": "../checkbox" },
       { "path": "../typography" },
       { "path": "../input-autocomplete" }
     ]

@@ -18,7 +18,7 @@
 
 .addons {
     &:first-child {
-        max-width: 485px;
+        max-width: 520px;
     }
     &:last-child {
         max-height: 32px;

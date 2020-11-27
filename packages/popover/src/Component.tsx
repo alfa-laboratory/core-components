@@ -125,7 +125,7 @@ export const Popover: React.FC<PopoverProps> = ({
         if (update) {
             update();
         }
-    }, [update, arrowElement]);
+    }, [update, arrowElement, children]);
 
     const renderPortal = (showContent: boolean, className?: string, style?: CSSProperties) => (
         <Portal getPortalContainer={getPortalContainer}>

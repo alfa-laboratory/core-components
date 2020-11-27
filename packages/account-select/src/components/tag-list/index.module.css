@@ -1,15 +1,14 @@
 .container {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-end;
     flex: 1;
+    padding: 7px 0;
 }
 
 .tag {
-    margin: 0 0 var(--gap-s) var(--gap-xs);
+    margin: var(--gap-2xs) 0 var(--gap-2xs) var(--gap-xs);
     padding-right: 6px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    font-feature-settings: 'tnum' on, 'lnum' on;
     height: 32px;
     border: none;
     cursor: default;
@@ -21,9 +20,6 @@
         background-color: var(--tag-background-color-checked);
         color: var(--tag-text-color-checked);
     }
-    &:first-child {
-        margin-top: var(--gap-s);
-    }
 }
 
 .closeIconButton {
@@ -32,10 +28,11 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+    display: flex;
+    opacity: 0.45;
 }
 
 .moreLessButton {
-    margin-bottom: var(--gap-s);
     margin-left: var(--gap-m);
     padding: var(--gap-xs);
     cursor: pointer;

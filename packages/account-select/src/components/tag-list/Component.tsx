@@ -58,13 +58,15 @@ export const TagList = memo<TagListProps>(({ selectedTags, onDeleteTag }) => {
                         className={styles.tag}
                         onClick={handleTagClick}
                         rightAddons={
-                            <button
-                                type='button'
+                            <span
+                                tabIndex={-1}
+                                onKeyDown={() => null}
+                                role='button'
                                 onClick={() => onDeleteTag(tag)}
                                 className={styles.closeIconButton}
                             >
                                 <CloseSWhiteIcon />
-                            </button>
+                            </span>
                         }
                     >
                         {tag}

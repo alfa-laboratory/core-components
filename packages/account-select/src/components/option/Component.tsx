@@ -1,11 +1,16 @@
 import React, { memo, useMemo } from 'react';
-import { CheckChatXsBlackIcon } from '@alfalab/icons-classic';
-import { OptionProps } from '@alfalab/core-components-select';
+import cn from 'classnames';
+import { Checkbox } from '@alfalab/core-components-checkbox';
 import { Typography } from '@alfalab/core-components-typography';
+import { OptionProps as OptionPropsLib } from '@alfalab/core-components-select';
 import styles from './index.module.css';
 
+export type OptionProps = OptionPropsLib & {
+    view?: 'single' | 'multiple';
+};
+
 export const Option = memo<OptionProps>(props => {
-    const { innerProps, option, selected } = props;
+    const { innerProps, option, selected, highlighted, view = 'multiple' } = props;
 
     const {
         value: { balance, currency, number, openDate },
@@ -18,23 +23,31 @@ export const Option = memo<OptionProps>(props => {
     }, [selected]);
 
     return (
-        <div className={styles.container} {...innerProps}>
-            <CheckChatXsBlackIcon
-                className={`${styles.checkmark} ${selected ? styles.selected : ''}`}
-            />
+        <div
+            {...innerProps}
+            className={cn(styles.container, {
+                [styles.highlighted]: highlighted,
+                [styles.single]: view === 'single',
+            })}
+        >
+            {view === 'multiple' && <Checkbox className={styles.checkmark} checked={selected} />}
             <div className={styles.main}>
                 <Typography.Text view='primary-medium' color='primary'>
-                    {balance} {currency}
-                </Typography.Text>
-                <Typography.Text view='secondary-large' color={primaryColor}>
                     {number}
+                </Typography.Text>
+                <Typography.Text view='secondary-large'>
+                    {balance} {currency}
                 </Typography.Text>
             </div>
             <div className={styles.addon}>
                 <Typography.Text view='secondary-large' color={primaryColor}>
                     Открыт
                 </Typography.Text>
-                <Typography.Text view='secondary-large' color={primaryColor}>
+                <Typography.Text
+                    color={primaryColor}
+                    view='secondary-large'
+                    className={styles.openDate}
+                >
                     {openDate}
                 </Typography.Text>
             </div>
