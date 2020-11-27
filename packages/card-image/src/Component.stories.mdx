@@ -6,7 +6,8 @@ import { CardImage } from './Component';
 import { name, version } from '../package.json';
 
 
-<Meta title='Компоненты|CardImage' component={CardImage} />
+<Meta title='Компоненты' component={CardImage} />
+
 
 <!-- Canvas -->
 
@@ -19,6 +20,7 @@ import { name, version } from '../package.json';
         baseUrl={text('baseUrl', 'https://online.alfabank.ru/cards-images/cards/')}
     />
 </Story>
+
 
 <!-- Docs -->
 
@@ -38,8 +40,6 @@ import { CardImage } from '@alfalab/core-components-card-image';
 Компонент изображения карты.
 
 Показывает прелоадер пока картинка не загрузится (переопределяется через переменную --card-image-background)
-
-
 
 <CardImage
     cardId='EG'
