@@ -24,6 +24,14 @@
     }
 }
 
+.input {
+    & input,
+    & input + div {
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+    }
+}
+
 .steps {
     @mixin system_14-18_regular;
 
