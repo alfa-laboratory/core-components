@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.3.0](https://github.com/alfa-laboratory/core-components/compare/v5.2.0...v5.3.0) (2020-11-27)
+
+
+### Features
+
+* **core-components-card-image:** add cardImage component ([#326](https://github.com/alfa-laboratory/core-components/issues/326)) ([06901af](https://github.com/alfa-laboratory/core-components/commit/06901af839f48e5051fc6195446687b756420fc7))
+* **core-components-notification:** add component ([#357](https://github.com/alfa-laboratory/core-components/issues/357)) ([c6644a0](https://github.com/alfa-laboratory/core-components/commit/c6644a018b97dfc68e327bcbcff2edae802921be)), closes [#351](https://github.com/alfa-laboratory/core-components/issues/351)
+* improve theme switcher ([#386](https://github.com/alfa-laboratory/core-components/issues/386)) ([9c5c4ec](https://github.com/alfa-laboratory/core-components/commit/9c5c4ec79e0940f54a76c83bd7017649a0f17093))
+
+
+### Bug Fixes
+
+* **confirmation:** fix symbols deleting ([#392](https://github.com/alfa-laboratory/core-components/issues/392)) ([fee41f1](https://github.com/alfa-laboratory/core-components/commit/fee41f17dfb84f9af2ad40e6150e1026ff07ada9))
+
 ## [5.2.0](https://github.com/alfa-laboratory/core-components/compare/v5.1.0...v5.2.0) (2020-11-25)
 
 
