@@ -24,6 +24,7 @@
     box-shadow: var(--select-options-list-box-shadow);
     border-radius: var(--select-options-list-border-radius);
     background: var(--select-option-background);
+    overflow: hidden;
 }
 
 .listWrapper {
