@@ -150,17 +150,17 @@
 }
 
 .range:disabled {
-    cursor: default;
+    cursor: var(--disabled-cursor);
 }
 
 .range:disabled::-webkit-slider-thumb {
-    cursor: default;
+    cursor: var(--disabled-cursor);
 }
 
 .range:disabled::-ms-thumb {
-    cursor: default;
+    cursor: var(--disabled-cursor);
 }
 
 .range:disabled::-moz-range-thumb {
-    cursor: default;
+    cursor: var(--disabled-cursor);
 }

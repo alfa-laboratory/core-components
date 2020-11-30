@@ -103,6 +103,7 @@
 /* DISABLED STATE */
 
 .textarea:disabled {
+    cursor: var(--disabled-cursor);
     color: var(--input-disabled-color);
 }
 

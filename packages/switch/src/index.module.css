@@ -102,7 +102,7 @@
 /* Disabled state */
 
 .disabled {
-    cursor: initial;
+    cursor: var(--disabled-cursor);
 }
 
 .disabled .switch {

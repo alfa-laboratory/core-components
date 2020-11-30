@@ -211,7 +211,7 @@ a.loading {
 /* Disabled */
 
 .component:disabled {
-    cursor: initial;
+    cursor: var(--disabled-cursor);
 
     &.primary {
         background-color: var(--button-primary-disabled-bg-color);
