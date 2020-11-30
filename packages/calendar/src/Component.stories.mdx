@@ -1,4 +1,5 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
 import { select, number } from '@storybook/addon-knobs';
 import { Container, Row, Col } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
@@ -38,6 +39,9 @@ export const Box = ({ children }) => (
             <Calendar
                 value={value}
                 onChange={setValue}
+                defaultView={select('defaultView', ['days', 'months', 'years'], 'days')}
+                selectorView={select('selectorView', ['full', 'month-only'], 'full')}
+                onMonthChange={action('onMonthChange')}
             />
         );
     })}

@@ -405,7 +405,7 @@ export function useCalendar({
             onMonthChange(activeMonth.getTime());
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [activeMonth.getMonth()]);
+    }, [activeMonth.getTime()]);
 
     return {
         activeMonth,
