@@ -27,3 +27,5 @@ export type DateShift =
     | 'endOfWeek';
 
 export type View = 'years' | 'months' | 'days';
+
+export type SelectorView = 'month-only' | 'full';

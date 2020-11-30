@@ -7,7 +7,7 @@ import { MonthsTable } from './components/months-table';
 import { YearsTable } from './components/years-table';
 import { useCalendar } from './useCalendar';
 import { monthName, useDidUpdateEffect } from './utils';
-import { View } from './typings';
+import { View, SelectorView } from './typings';
 
 import styles from './index.module.css';
 
@@ -25,7 +25,7 @@ export type CalendarProps = {
     /**
      * Вид шапки — месяц и год или только месяц
      */
-    selectorView?: 'month-only' | 'full';
+    selectorView?: SelectorView;
 
     /**
      * Выбранная дата

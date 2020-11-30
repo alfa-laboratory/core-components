@@ -2,6 +2,7 @@ import React, { FC, MouseEvent } from 'react';
 import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
 import { SelectButton } from '../select-button';
+import { SelectorView } from '../../typings';
 
 import styles from './index.module.css';
 
@@ -19,7 +20,7 @@ export type HeaderProps = {
     /**
      * Вид шапки — месяц и год или только месяц
      */
-    view?: 'month-only' | 'full';
+    view?: SelectorView;
 
     /**
      * Отображать тень? (нужна при прокрутке)
