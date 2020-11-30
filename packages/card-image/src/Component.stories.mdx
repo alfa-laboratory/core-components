@@ -1,0 +1,54 @@
+import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { text, boolean, number } from '@storybook/addon-knobs';
+import { Design } from 'storybook/blocks/design';
+
+import { CardImage } from './Component';
+import { name, version } from '../package.json';
+
+
+<Meta title='Компоненты' component={CardImage} />
+
+
+<!-- Canvas -->
+
+<Story name='CardImage'>
+    <CardImage
+        cardId={text('cardId', 'EG')}
+        layers={text('layers', 'BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE')}
+        width={number('width', 280)}
+        rounded={boolean('rounded', false)}
+        baseUrl={text('baseUrl', 'https://online.alfabank.ru/cards-images/cards/')}
+    />
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='CardImage'
+    version={version}
+    package='@alfalab/core-components-card-image'
+    stage={1}
+/>
+
+```tsx
+import { CardImage } from '@alfalab/core-components-card-image';
+```
+
+## Описание
+
+Компонент изображения карты.
+
+Показывает прелоадер пока картинка не загрузится (переопределяется через переменную --card-image-background)
+
+<CardImage
+    cardId='EG'
+    width={500}
+    rounded={false}
+    baseUrl='https://online.alfabank.ru/cards-images/cards/'
+    className='some name'
+    id='some id'
+    dataTestId='test id'
+/>
+
+<Props of={CardImage} />
