@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { subDays, addDays, setDate } from 'date-fns';
+import userEvent from '@testing-library/user-event';
+import { subDays, addDays, setDate, endOfMonth, setMonth } from 'date-fns';
 import { act } from 'react-dom/test-utils';
 import { monthName, MONTHS } from './utils';
 import { View, SelectorView } from './typings';
@@ -8,11 +9,13 @@ import { View, SelectorView } from './typings';
 import { Calendar } from './index';
 
 describe('Calendar', () => {
-    const defaultDate = new Date('November 30, 2020 00:00:00');
+    const defaultDate = new Date('November 30, 2020 00:00:00 GMT+0300');
     const defaultValue = defaultDate.getTime();
     const defaultDateOfMonth = defaultDate.getDate().toString();
     const defaultMonth = monthName(defaultDate).toString();
     const defaultYear = defaultDate.getFullYear().toString();
+
+    const waitForMonthChange = async () => new Promise(res => setTimeout(res, 0));
 
     describe('Display tests', () => {
         it('should match snapshot', () => {
@@ -48,24 +51,32 @@ describe('Calendar', () => {
     });
 
     it('should open current month by default', () => {
-        const { queryByRole } = render(<Calendar />);
+        const { queryByText } = render(<Calendar />);
 
         const now = new Date();
         const currentDate = now.getDate().toString();
         const currentMonth = monthName(now).toString();
         const currentYear = now.getFullYear().toString();
 
-        expect(queryByRole('button', { name: currentYear })).toBeInTheDocument();
-        expect(queryByRole('button', { name: currentMonth })).toBeInTheDocument();
-        expect(queryByRole('button', { name: currentDate })).toBeInTheDocument();
+        expect(queryByText(currentYear)).toBeInTheDocument();
+        expect(queryByText(currentMonth)).toBeInTheDocument();
+        expect(queryByText(currentDate)).toBeInTheDocument();
+    });
+
+    it('should open month passed by defaultMonth', () => {
+        const { queryByText } = render(<Calendar defaultMonth={defaultDate.getTime()} />);
+
+        expect(queryByText(defaultYear)).toBeInTheDocument();
+        expect(queryByText(defaultMonth)).toBeInTheDocument();
+        expect(queryByText(defaultDateOfMonth)).toBeInTheDocument();
     });
 
     it('should open month passed by value', () => {
-        const { queryByRole } = render(<Calendar value={defaultValue} />);
+        const { queryByText } = render(<Calendar value={defaultValue} />);
 
-        expect(queryByRole('button', { name: defaultYear })).toBeInTheDocument();
-        expect(queryByRole('button', { name: defaultMonth })).toBeInTheDocument();
-        expect(queryByRole('button', { name: defaultDateOfMonth })).toBeInTheDocument();
+        expect(queryByText(defaultYear)).toBeInTheDocument();
+        expect(queryByText(defaultMonth)).toBeInTheDocument();
+        expect(queryByText(defaultDateOfMonth)).toBeInTheDocument();
     });
 
     describe('when minDate is set', () => {
@@ -110,11 +121,11 @@ describe('Calendar', () => {
         it('should disable previous months', () => {
             const prevMonthMinDate = subDays(defaultDate, 40).getTime();
 
-            const { getByRole, container } = render(
+            const { getByText, container } = render(
                 <Calendar value={defaultValue} minDate={prevMonthMinDate} />,
             );
 
-            getByRole('button', { name: 'Ноябрь' }).click();
+            getByText('Ноябрь').click();
 
             const months = container.querySelectorAll('button[data-date]');
 
@@ -130,11 +141,11 @@ describe('Calendar', () => {
         it('should not show previous years', () => {
             const prevYearMinDate = subDays(defaultDate, 365).getTime();
 
-            const { getByRole, container } = render(
+            const { getByText, container } = render(
                 <Calendar value={defaultValue} minDate={prevYearMinDate} />,
             );
 
-            getByRole('button', { name: '2020' }).click();
+            getByText('2020').click();
 
             const years = container.querySelectorAll('button[data-date]');
 
@@ -181,18 +192,18 @@ describe('Calendar', () => {
         it('should disable next months', () => {
             const nextYearDate = addDays(defaultDate, 32).getTime();
 
-            const { getByRole, getByLabelText, container } = render(
+            const { getByText, getByLabelText, container } = render(
                 <Calendar value={defaultValue} maxDate={nextYearDate} />,
             );
 
-            getByRole('button', { name: 'Ноябрь' }).click();
+            getByText('Ноябрь').click();
 
             expect(container.querySelectorAll('button[data-date]:disabled')).toHaveLength(0);
 
             getByLabelText('Следующий месяц').click();
             getByLabelText('Следующий месяц').click();
 
-            getByRole('button', { name: 'Январь' }).click();
+            getByText('Январь').click();
 
             expect(container.querySelectorAll('button[data-date]:not(:disabled)')).toHaveLength(1);
         });
@@ -206,7 +217,9 @@ describe('Calendar', () => {
             const selectedFrom = setDate(defaultValue, selectedDay);
             const highlightedDate = setDate(defaultValue, highlightedDay);
 
-            const { container } = render(<Calendar selectedFrom={selectedFrom.getTime()} />);
+            const { container } = render(
+                <Calendar defaultMonth={defaultValue} selectedFrom={selectedFrom.getTime()} />,
+            );
 
             const days = container.querySelectorAll('button[data-date]');
 
@@ -245,7 +258,9 @@ describe('Calendar', () => {
             const selectedFrom = setDate(defaultValue, selectedDay);
             const highlightedDate = setDate(defaultValue, highlightedDay);
 
-            const { container } = render(<Calendar selectedFrom={selectedFrom.getTime()} />);
+            const { container } = render(
+                <Calendar defaultMonth={defaultValue} selectedFrom={selectedFrom.getTime()} />,
+            );
 
             const days = container.querySelectorAll('button[data-date]');
 
@@ -286,7 +301,9 @@ describe('Calendar', () => {
             const selectedTo = setDate(defaultValue, selectedDay);
             const highlightedDate = setDate(defaultValue, highlightedDay);
 
-            const { container } = render(<Calendar selectedTo={selectedTo.getTime()} />);
+            const { container } = render(
+                <Calendar defaultMonth={defaultValue} selectedTo={selectedTo.getTime()} />,
+            );
 
             const days = container.querySelectorAll('button[data-date]');
 
@@ -312,6 +329,7 @@ describe('Calendar', () => {
 
             const { container } = render(
                 <Calendar
+                    defaultMonth={defaultValue}
                     selectedTo={selectedTo.getTime()}
                     selectedFrom={selectedFrom.getTime()}
                 />,
@@ -358,6 +376,7 @@ describe('Calendar', () => {
 
             const { container } = render(
                 <Calendar
+                    defaultMonth={defaultValue}
                     selectedTo={selectedTo.getTime()}
                     selectedFrom={selectedFrom.getTime()}
                 />,
@@ -374,6 +393,7 @@ describe('Calendar', () => {
 
             const { container, getByLabelText } = render(
                 <Calendar
+                    defaultMonth={defaultValue}
                     selectedTo={selectedTo.getTime()}
                     selectedFrom={selectedFrom.getTime()}
                 />,
@@ -429,7 +449,9 @@ describe('Calendar', () => {
 
         it('should call onMonthChange callback', () => {
             const cb = jest.fn();
-            const { getByLabelText, getByRole } = render(<Calendar onMonthChange={cb} />);
+            const { getByLabelText, getByText } = render(
+                <Calendar defaultMonth={defaultDate.getTime()} onMonthChange={cb} />,
+            );
 
             // 1
             getByLabelText('Следующий месяц').click();
@@ -437,18 +459,697 @@ describe('Calendar', () => {
             getByLabelText('Предыдущий месяц').click();
 
             // 3
-            getByRole('button', { name: 'Ноябрь' }).click();
+            getByText('Ноябрь').click();
             act(() => {
-                getByRole('button', { name: 'Октябрь' }).click();
+                getByText('Октябрь').click();
             });
 
             // 4
-            getByRole('button', { name: '2020' }).click();
+            getByText('2020').click();
             act(() => {
-                getByRole('button', { name: '2019' }).click();
+                getByText('2019').click();
             });
 
             expect(cb).toBeCalledTimes(4);
+        });
+    });
+
+    describe('Keyboard control', () => {
+        const keyCodes = {
+            PageUp: 33,
+            PageDown: 34,
+            End: 35,
+            Home: 36,
+            ArrowLeft: 37,
+            ArrowUp: 38,
+            ArrowRight: 39,
+            ArrowDown: 40,
+        };
+
+        const keyDown = (element: Element, key: string) => {
+            fireEvent.keyDown(element, {
+                key,
+                keyCode: keyCodes[key as keyof typeof keyCodes],
+            });
+        };
+
+        const getActiveElement = () => document.activeElement as Element;
+
+        describe('when tab pressed', () => {
+            it('should focus first focusable button', () => {
+                const { container } = render(<Calendar />);
+
+                act(userEvent.tab);
+
+                const activeElement = getActiveElement();
+
+                expect(activeElement).toBeTruthy();
+                expect(container.contains(activeElement)).toBeTruthy();
+                expect(activeElement.tagName).toBe('BUTTON');
+            });
+        });
+
+        describe('DaysTable', () => {
+            it.each(Object.keys(keyCodes))(
+                '%s should focus first non-disabled day of month if there is not focused day',
+                key => {
+                    const { container } = render(
+                        <Calendar
+                            defaultMonth={defaultDate.getTime()}
+                            offDays={[setDate(defaultDate, 1).getTime()]}
+                        />,
+                    );
+
+                    act(userEvent.tab);
+
+                    const dayTable = container.querySelector('table') as Element;
+
+                    expect(dayTable.contains(getActiveElement())).toBeFalsy();
+
+                    keyDown(getActiveElement(), key);
+
+                    expect(dayTable.contains(getActiveElement())).toBeTruthy();
+
+                    expect(getActiveElement().textContent).toBe('2');
+                },
+            );
+
+            it.each(Object.keys(keyCodes))(
+                '%s should focus selected day if there is not focused day',
+                key => {
+                    render(<Calendar value={defaultDate.getTime()} />);
+
+                    act(userEvent.tab);
+
+                    keyDown(getActiveElement(), key);
+
+                    expect(getActiveElement().textContent).toBe(defaultDateOfMonth);
+                },
+            );
+
+            describe('ArrowLeft', () => {
+                it('should move focus to prev day', () => {
+                    const prevDayOfMonth = (+defaultDateOfMonth - 1).toString();
+
+                    render(<Calendar value={defaultValue} />);
+
+                    act(() => {
+                        userEvent.tab();
+                        keyDown(getActiveElement(), 'ArrowLeft');
+                        keyDown(getActiveElement(), 'ArrowLeft');
+                    });
+
+                    expect(getActiveElement().textContent).toBe(prevDayOfMonth);
+                });
+
+                it('should move focus to prev day in another month', async () => {
+                    const firstDateOfMonth = setDate(defaultValue, 1);
+                    const lastDateOfPrevMonth = subDays(firstDateOfMonth, 1);
+
+                    const { getByText } = render(<Calendar value={firstDateOfMonth.getTime()} />);
+
+                    act(() => {
+                        userEvent.tab();
+                        keyDown(getActiveElement(), 'ArrowLeft');
+                        keyDown(getActiveElement(), 'ArrowLeft');
+                    });
+
+                    await waitForMonthChange();
+
+                    expect(firstDateOfMonth.getDate().toString()).toBe('1');
+
+                    expect(lastDateOfPrevMonth.getDate().toString()).toBe('31');
+
+                    expect(getActiveElement().tagName).toBe('BUTTON');
+
+                    expect(getByText('Октябрь')).toBeInTheDocument();
+
+                    expect(getActiveElement().textContent).toBe(
+                        lastDateOfPrevMonth.getDate().toString(),
+                    );
+                });
+
+                it('should jump over disabled days', async () => {
+                    const firstDateOfMonth = setDate(defaultValue, 1);
+                    const lastDateOfPrevMonth = subDays(firstDateOfMonth, 1);
+                    const selectedDate = addDays(firstDateOfMonth, 2);
+                    const targetDate = subDays(lastDateOfPrevMonth, 1);
+
+                    render(
+                        <Calendar
+                            value={selectedDate.getTime()}
+                            offDays={[
+                                lastDateOfPrevMonth,
+                                firstDateOfMonth,
+                                addDays(firstDateOfMonth, 1),
+                            ]}
+                        />,
+                    );
+
+                    act(() => {
+                        userEvent.tab();
+                        keyDown(getActiveElement(), 'ArrowLeft');
+                        keyDown(getActiveElement(), 'ArrowLeft');
+                    });
+
+                    await waitForMonthChange();
+
+                    expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
+                });
+            });
+
+            describe('ArrowRight', () => {
+                it('should move focus to next day', async () => {
+                    const nextDateOfMonth = addDays(defaultDate, 1);
+
+                    render(<Calendar value={defaultValue} />);
+
+                    act(() => {
+                        userEvent.tab();
+                        keyDown(getActiveElement(), 'ArrowRight');
+                        keyDown(getActiveElement(), 'ArrowRight');
+                    });
+
+                    await waitForMonthChange();
+
+                    expect(getActiveElement().textContent).toBe(
+                        nextDateOfMonth.getDate().toString(),
+                    );
+                });
+
+                it('should move focus to next day in another month', async () => {
+                    const lastDateOfMonth = endOfMonth(defaultValue);
+                    const firstDateOfNextMonth = addDays(lastDateOfMonth, 1);
+
+                    const { getByText } = render(<Calendar value={lastDateOfMonth.getTime()} />);
+
+                    act(() => {
+                        userEvent.tab();
+                        keyDown(getActiveElement(), 'ArrowRight');
+                        keyDown(getActiveElement(), 'ArrowRight');
+                    });
+
+                    await waitForMonthChange();
+
+                    expect(lastDateOfMonth.getDate().toString()).toBe('30');
+
+                    expect(firstDateOfNextMonth.getDate().toString()).toBe('1');
+
+                    expect(getActiveElement().tagName).toBe('BUTTON');
+
+                    expect(getByText('Декабрь')).toBeInTheDocument();
+
+                    expect(getActiveElement().textContent).toBe(
+                        firstDateOfNextMonth.getDate().toString(),
+                    );
+                });
+
+                it('should jump over disabled days', async () => {
+                    const lastDateOfMonth = endOfMonth(defaultValue);
+                    const selectedDate = subDays(lastDateOfMonth, 1);
+                    const firstDateOfNextMonth = addDays(lastDateOfMonth, 1);
+                    const targetDate = addDays(firstDateOfNextMonth, 2);
+
+                    render(
+                        <Calendar
+                            value={selectedDate.getTime()}
+                            offDays={[
+                                lastDateOfMonth,
+                                firstDateOfNextMonth,
+                                addDays(firstDateOfNextMonth, 1),
+                            ]}
+                        />,
+                    );
+
+                    act(() => {
+                        userEvent.tab();
+                        keyDown(getActiveElement(), 'ArrowRight');
+                        keyDown(getActiveElement(), 'ArrowRight');
+                    });
+
+                    await waitForMonthChange();
+
+                    expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
+                });
+            });
+
+            describe('ArrowUp', () => {
+                it('should move focus to prev week', () => {
+                    const prevWeekDate = subDays(defaultValue, 7)
+                        .getDate()
+                        .toString();
+
+                    render(<Calendar value={defaultValue} />);
+
+                    act(() => {
+                        userEvent.tab();
+                        keyDown(getActiveElement(), 'ArrowUp');
+                        keyDown(getActiveElement(), 'ArrowUp');
+                    });
+
+                    expect(getActiveElement().textContent).toBe(prevWeekDate);
+                });
+
+                it('should move focus to prev week in another month', async () => {
+                    const firstDateOfMonth = setDate(defaultValue, 1);
+                    const targetDate = subDays(firstDateOfMonth, 7);
+
+                    const { getByText } = render(<Calendar value={firstDateOfMonth.getTime()} />);
+
+                    act(() => {
+                        userEvent.tab();
+                        keyDown(getActiveElement(), 'ArrowUp');
+                        keyDown(getActiveElement(), 'ArrowUp');
+                    });
+
+                    await waitForMonthChange();
+
+                    expect(firstDateOfMonth.getDate().toString()).toBe('1');
+
+                    expect(targetDate.getDate().toString()).toBe('25');
+
+                    expect(getActiveElement().tagName).toBe('BUTTON');
+
+                    expect(getByText('Октябрь')).toBeInTheDocument();
+
+                    expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
+                });
+
+                it('should jump over disabled days', () => {
+                    const targetDate = subDays(defaultValue, 8);
+
+                    render(<Calendar value={defaultValue} offDays={[subDays(defaultValue, 7)]} />);
+
+                    act(() => {
+                        userEvent.tab();
+                        keyDown(getActiveElement(), 'ArrowUp');
+                        keyDown(getActiveElement(), 'ArrowUp');
+                    });
+
+                    expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
+                });
+            });
+
+            describe('ArrowDown', () => {
+                it('should move focus to next week', async () => {
+                    const nextWeekDate = addDays(defaultValue, 7)
+                        .getDate()
+                        .toString();
+
+                    render(<Calendar value={defaultValue} />);
+
+                    act(() => {
+                        userEvent.tab();
+                        keyDown(getActiveElement(), 'ArrowDown');
+                        keyDown(getActiveElement(), 'ArrowDown');
+                    });
+
+                    await waitForMonthChange();
+
+                    expect(getActiveElement().textContent).toBe(nextWeekDate);
+                });
+
+                it('should move focus to next week in another month', async () => {
+                    const lastDateOfMonth = endOfMonth(defaultValue);
+                    const targetDate = addDays(lastDateOfMonth, 7);
+
+                    const { getByText } = render(<Calendar value={lastDateOfMonth.getTime()} />);
+
+                    act(() => {
+                        userEvent.tab();
+                        keyDown(getActiveElement(), 'ArrowDown');
+                        keyDown(getActiveElement(), 'ArrowDown');
+                    });
+
+                    await waitForMonthChange();
+
+                    expect(lastDateOfMonth.getDate().toString()).toBe('30');
+
+                    expect(targetDate.getDate().toString()).toBe('7');
+
+                    expect(getActiveElement().tagName).toBe('BUTTON');
+
+                    expect(getByText('Декабрь')).toBeInTheDocument();
+
+                    expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
+                });
+
+                it('should jump over disabled days', async () => {
+                    const targetDate = addDays(defaultValue, 8);
+
+                    render(<Calendar value={defaultValue} offDays={[addDays(defaultValue, 7)]} />);
+
+                    act(() => {
+                        userEvent.tab();
+                        keyDown(getActiveElement(), 'ArrowDown');
+                        keyDown(getActiveElement(), 'ArrowDown');
+                    });
+
+                    await waitForMonthChange();
+
+                    expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
+                });
+            });
+
+            describe('End', () => {
+                it('should move focus to end of week', async () => {
+                    const targetDate = addDays(defaultValue, 6);
+
+                    const { getByText } = render(<Calendar value={defaultValue} />);
+
+                    act(() => {
+                        userEvent.tab();
+                        keyDown(getActiveElement(), 'End');
+                        keyDown(getActiveElement(), 'End');
+                    });
+
+                    await waitForMonthChange();
+
+                    expect(getActiveElement().tagName).toBe('BUTTON');
+                    expect(getByText('Декабрь')).toBeInTheDocument();
+                    expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
+                });
+
+                it('should focus last non disabled day of week', async () => {
+                    const targetDate = addDays(defaultValue, 5);
+
+                    render(<Calendar value={defaultValue} offDays={[addDays(defaultValue, 6)]} />);
+
+                    act(() => {
+                        userEvent.tab();
+                        keyDown(getActiveElement(), 'End');
+                        keyDown(getActiveElement(), 'End');
+                    });
+
+                    await waitForMonthChange();
+
+                    expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
+                });
+            });
+
+            describe('Home', () => {
+                it('should move focus to start of week', async () => {
+                    const value = setDate(defaultValue, 1);
+                    const targetDate = subDays(value, 6);
+
+                    const { getByText } = render(<Calendar value={value.getTime()} />);
+
+                    act(() => {
+                        userEvent.tab();
+                        keyDown(getActiveElement(), 'Home');
+                        keyDown(getActiveElement(), 'Home');
+                    });
+
+                    await waitForMonthChange();
+
+                    expect(getActiveElement().tagName).toBe('BUTTON');
+                    expect(getByText('Октябрь')).toBeInTheDocument();
+                    expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
+                });
+
+                it('should focus first non disabled day of week', async () => {
+                    const value = setDate(defaultValue, 1);
+                    const targetDate = subDays(value, 6);
+
+                    render(<Calendar value={value.getTime()} offDays={[subDays(value, 7)]} />);
+
+                    act(() => {
+                        userEvent.tab();
+                        keyDown(getActiveElement(), 'Home');
+                        keyDown(getActiveElement(), 'Home');
+                    });
+
+                    await waitForMonthChange();
+
+                    expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
+                });
+            });
+
+            describe('PageUp', () => {
+                it('should move focus to prev month', async () => {
+                    const targetDate = setMonth(defaultValue, defaultDate.getMonth() - 1);
+
+                    const { getByText } = render(<Calendar value={defaultValue} />);
+
+                    act(() => {
+                        userEvent.tab();
+                        keyDown(getActiveElement(), 'PageUp');
+                        keyDown(getActiveElement(), 'PageUp');
+                    });
+
+                    await waitForMonthChange();
+
+                    expect(getActiveElement().tagName).toBe('BUTTON');
+                    expect(getByText('Октябрь')).toBeInTheDocument();
+                    expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
+                });
+
+                it('should jump over disabled days', async () => {
+                    const prevMonthDate = setMonth(defaultValue, defaultDate.getMonth() - 1);
+                    const targetDate = subDays(prevMonthDate, 1);
+
+                    render(<Calendar value={defaultValue} offDays={[prevMonthDate]} />);
+
+                    act(() => {
+                        userEvent.tab();
+                        keyDown(getActiveElement(), 'PageUp');
+                        keyDown(getActiveElement(), 'PageUp');
+                    });
+
+                    await waitForMonthChange();
+
+                    expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
+                });
+            });
+
+            describe('PageDown', () => {
+                it('should move focus to next month', async () => {
+                    const targetDate = setMonth(defaultValue, defaultDate.getMonth() + 1);
+
+                    const { getByText } = render(<Calendar value={defaultValue} />);
+
+                    act(() => {
+                        userEvent.tab();
+                        keyDown(getActiveElement(), 'PageDown');
+                        keyDown(getActiveElement(), 'PageDown');
+                    });
+
+                    await waitForMonthChange();
+
+                    expect(getActiveElement().tagName).toBe('BUTTON');
+                    expect(getByText('Декабрь')).toBeInTheDocument();
+                    expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
+                });
+
+                it('should jump over disabled days', async () => {
+                    const prevMonthDate = setMonth(defaultValue, defaultDate.getMonth() + 1);
+                    const targetDate = addDays(prevMonthDate, 1);
+
+                    render(<Calendar value={defaultValue} offDays={[prevMonthDate]} />);
+
+                    act(() => {
+                        userEvent.tab();
+                        keyDown(getActiveElement(), 'PageDown');
+                        keyDown(getActiveElement(), 'PageDown');
+                    });
+
+                    await waitForMonthChange();
+
+                    expect(getActiveElement().textContent).toBe(targetDate.getDate().toString());
+                });
+            });
+        });
+
+        describe('MonthsTable', () => {
+            it.each(['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'])(
+                '%s should focus selected or current month if there is not focused month',
+                key => {
+                    const { getByText, container } = render(
+                        <Calendar defaultMonth={defaultDate.getTime()} />,
+                    );
+
+                    getByText(defaultMonth).click();
+
+                    act(userEvent.tab);
+
+                    const monthsTable = container.querySelector('.monthsTable') as Element;
+
+                    expect(monthsTable.contains(getActiveElement())).toBeFalsy();
+
+                    keyDown(getActiveElement(), key);
+
+                    expect(monthsTable.contains(getActiveElement())).toBeTruthy();
+
+                    expect(getActiveElement().textContent).toBe('Ноябрь');
+                },
+            );
+
+            describe('ArrowLeft', () => {
+                it('should focus prev month', () => {
+                    const { getByText } = render(<Calendar defaultMonth={defaultDate.getTime()} />);
+
+                    getByText(defaultMonth).click();
+
+                    act(userEvent.tab);
+
+                    keyDown(getActiveElement(), 'ArrowLeft');
+
+                    ['Октябрь', 'Сентябрь'].forEach(month => {
+                        keyDown(getActiveElement(), 'ArrowLeft');
+                        expect(getActiveElement().textContent).toBe(month);
+                    });
+                });
+            });
+
+            describe('ArrowRight', () => {
+                it('should focus next month', () => {
+                    const { getByText } = render(<Calendar defaultMonth={defaultDate.getTime()} />);
+
+                    getByText(defaultMonth).click();
+
+                    act(userEvent.tab);
+
+                    keyDown(getActiveElement(), 'ArrowRight');
+
+                    ['Декабрь', 'Декабрь'].forEach(month => {
+                        keyDown(getActiveElement(), 'ArrowRight');
+                        expect(getActiveElement().textContent).toBe(month);
+                    });
+                });
+            });
+
+            describe('ArrowUp', () => {
+                it('should focus n - 3 month', () => {
+                    const { getByText } = render(<Calendar defaultMonth={defaultDate.getTime()} />);
+
+                    getByText(defaultMonth).click();
+
+                    act(userEvent.tab);
+
+                    keyDown(getActiveElement(), 'ArrowUp');
+
+                    ['Август', 'Май', 'Февраль', 'Февраль'].forEach(month => {
+                        keyDown(getActiveElement(), 'ArrowUp');
+                        expect(getActiveElement().textContent).toBe(month);
+                    });
+                });
+            });
+
+            describe('ArrowDown', () => {
+                it('should focus n + 3 month', () => {
+                    const { getByText } = render(
+                        <Calendar defaultMonth={setMonth(defaultDate, 0).getTime()} />,
+                    );
+
+                    getByText('Январь').click();
+
+                    act(userEvent.tab);
+
+                    keyDown(getActiveElement(), 'ArrowDown');
+
+                    ['Апрель', 'Июль', 'Октябрь', 'Октябрь'].forEach(month => {
+                        keyDown(getActiveElement(), 'ArrowDown');
+                        expect(getActiveElement().textContent).toBe(month);
+                    });
+                });
+            });
+        });
+
+        describe('YearsTable', () => {
+            it.each(['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'])(
+                '%s should focus selected or current year if there is not focused year',
+                key => {
+                    const { getByText, container } = render(
+                        <Calendar defaultMonth={defaultDate.getTime()} />,
+                    );
+
+                    getByText(defaultYear).click();
+
+                    act(userEvent.tab);
+
+                    const yearsTable = container.querySelector('.yearsTable') as Element;
+
+                    expect(yearsTable.contains(getActiveElement())).toBeFalsy();
+
+                    keyDown(getActiveElement(), key);
+
+                    expect(yearsTable.contains(getActiveElement())).toBeTruthy();
+
+                    expect(getActiveElement().textContent).toBe('2020');
+                },
+            );
+
+            describe('ArrowRight', () => {
+                it('should focus prev year', () => {
+                    const { getByText } = render(<Calendar defaultMonth={defaultDate.getTime()} />);
+
+                    getByText(defaultYear).click();
+
+                    act(userEvent.tab);
+
+                    keyDown(getActiveElement(), 'ArrowRight');
+
+                    ['2019', '2018', '2017'].forEach(year => {
+                        keyDown(getActiveElement(), 'ArrowRight');
+                        expect(getActiveElement().textContent).toBe(year);
+                    });
+                });
+            });
+
+            describe('ArrowLeft', () => {
+                it('should focus next year', () => {
+                    const { getByText } = render(<Calendar defaultMonth={defaultDate.getTime()} />);
+
+                    getByText(defaultYear).click();
+
+                    act(userEvent.tab);
+
+                    keyDown(getActiveElement(), 'ArrowRight');
+                    keyDown(getActiveElement(), 'ArrowRight');
+                    keyDown(getActiveElement(), 'ArrowRight');
+
+                    ['2019', '2020'].forEach(year => {
+                        keyDown(getActiveElement(), 'ArrowLeft');
+                        expect(getActiveElement().textContent).toBe(year);
+                    });
+                });
+            });
+
+            describe('ArrowUp', () => {
+                it('should focus n + 3 year', () => {
+                    const { getByText } = render(<Calendar defaultMonth={defaultDate.getTime()} />);
+
+                    getByText(defaultYear).click();
+
+                    act(userEvent.tab);
+
+                    keyDown(getActiveElement(), 'ArrowUp');
+                    keyDown(getActiveElement(), 'ArrowDown');
+                    keyDown(getActiveElement(), 'ArrowDown');
+
+                    ['2017', '2020'].forEach(year => {
+                        keyDown(getActiveElement(), 'ArrowUp');
+                        expect(getActiveElement().textContent).toBe(year);
+                    });
+                });
+            });
+
+            describe('ArrowDown', () => {
+                it('should focus n - 3 month', () => {
+                    const { getByText } = render(<Calendar defaultMonth={defaultDate.getTime()} />);
+
+                    getByText(defaultYear).click();
+
+                    act(userEvent.tab);
+
+                    keyDown(getActiveElement(), 'ArrowDown');
+
+                    ['2017', '2014'].forEach(year => {
+                        keyDown(getActiveElement(), 'ArrowDown');
+                        expect(getActiveElement().textContent).toBe(year);
+                    });
+                });
+            });
         });
     });
 

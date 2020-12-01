@@ -211,8 +211,10 @@ export function modifyDateByShift(
     let newDate = modifiers[shift]();
 
     while (offDaysMap[newDate.getTime()]) {
-        // Перескакиваем через выходные дни, кроме случая с концом недели
-        const amount = newDate < date || shift === 'endOfWeek' ? -1 : 1;
+        // Перескакиваем через выходные дни, кроме случаев с концами недели
+        let amount = newDate < date ? -1 : 1;
+        if (shift === 'endOfWeek') amount = -1;
+        if (shift === 'startOfWeek') amount = 1;
         newDate = addDays(newDate, amount);
     }
 

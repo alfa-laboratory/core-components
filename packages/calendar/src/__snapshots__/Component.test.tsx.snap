@@ -556,7 +556,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             <td>
               <button
                 aria-selected="true"
-                class="component ghost xs day selected today lastDay"
+                class="component ghost xs day selected lastDay"
                 data-date="1606683600000"
                 tabindex="0"
                 type="button"
@@ -777,7 +777,7 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
         </button>
         <button
           aria-selected="false"
-          class="component ghost xs button default button"
+          class="component ghost xs button outlined button"
           data-date="1606770000000"
           tabindex="-1"
         >
@@ -2628,7 +2628,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             <td>
               <button
                 aria-selected="true"
-                class="component ghost xs day selected today lastDay"
+                class="component ghost xs day selected lastDay"
                 data-date="1606683600000"
                 tabindex="0"
                 type="button"
@@ -3183,7 +3183,7 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             <td>
               <button
                 aria-selected="true"
-                class="component ghost xs day selected today lastDay"
+                class="component ghost xs day selected lastDay"
                 data-date="1606683600000"
                 tabindex="0"
                 type="button"
@@ -3765,7 +3765,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             <td>
               <button
                 aria-selected="true"
-                class="component ghost xs day selected today lastDay"
+                class="component ghost xs day selected lastDay"
                 data-date="1606683600000"
                 tabindex="0"
                 type="button"

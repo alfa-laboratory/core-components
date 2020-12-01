@@ -28,27 +28,32 @@ export type CalendarProps = {
     selectorView?: SelectorView;
 
     /**
-     * Выбранная дата
+     * Выбранная дата (timestamp)
      */
     value?: number;
 
     /**
-     * Минимальная дата, доступная для выбора
+     * Месяц, открытый по умолчанию (timestamp)
+     */
+    defaultMonth?: number;
+
+    /**
+     * Минимальная дата, доступная для выбора (timestamp)
      */
     minDate?: number;
 
     /**
-     * Максимальная дата, доступная для выбора
+     * Максимальная дата, доступная для выбора (timestamp)
      */
     maxDate?: number;
 
     /**
-     * Начало выделенного периода
+     * Начало выделенного периода (timestamp)
      */
     selectedFrom?: number;
 
     /**
-     * Конец выделенного периода
+     * Конец выделенного периода (timestamp)
      */
     selectedTo?: number;
 
@@ -83,6 +88,7 @@ export const Calendar: FC<CalendarProps> = ({
     defaultView = 'days',
     selectorView = 'full',
     value,
+    defaultMonth: defaultMonthTimestamp = +new Date(),
     minDate: minDateTimestamp,
     maxDate: maxDateTimestamp,
     selectedFrom,
@@ -99,7 +105,7 @@ export const Calendar: FC<CalendarProps> = ({
     const selected = useMemo(() => (value ? new Date(value) : undefined), [value]);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    const defaultMonth = useMemo(() => startOfMonth(selected || new Date()), []);
+    const defaultMonth = useMemo(() => startOfMonth(selected || defaultMonthTimestamp), []);
 
     const minDate = useMemo(
         () => (minDateTimestamp ? new Date(minDateTimestamp) : subYears(defaultMonth, 100)),

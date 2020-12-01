@@ -154,15 +154,25 @@ export function useCalendar({
                 const focusedDate = new Date(+focusedNode.dataset.date);
                 const newDate = modifyDateByShift(shift, focusedDate, minDate, maxDate, offDaysMap);
 
+                let monthChanged = false;
+
                 if (newDate < focusedDate && newDate.getMonth() !== focusedDate.getMonth()) {
                     setPrevMonth();
+                    monthChanged = true;
                 }
 
                 if (newDate > focusedDate && newDate.getMonth() !== focusedDate.getMonth()) {
                     setNextMonth();
+                    monthChanged = true;
                 }
 
-                setTimeout(() => focusDate(dateRefs.current[newDate.getDate() - 1]), 0);
+                const effect = () => focusDate(dateRefs.current[newDate.getDate() - 1]);
+
+                if (monthChanged) {
+                    setTimeout(effect, 0);
+                } else {
+                    effect();
+                }
             } else {
                 focusFirstAvailableDate();
             }
