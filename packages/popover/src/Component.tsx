@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, CSSProperties } from 'react';
+import React, { useState, useEffect, useCallback, CSSProperties, MutableRefObject } from 'react';
 import cn from 'classnames';
 import { Transition } from 'react-transition-group';
 import { TransitionProps } from 'react-transition-group/Transition';
@@ -76,6 +76,11 @@ export type PopoverProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Хранит функцию, с помощью которой можно обновить положение компонента
+     */
+    update?: MutableRefObject<() => void>;
 };
 
 const TRANSITION_DURATION = 300;
@@ -93,6 +98,7 @@ export const Popover: React.FC<PopoverProps> = ({
     arrowClassName,
     open,
     dataTestId,
+    update,
 }) => {
     const [referenceElement, setReferenceElement] = useState<RefElement>(anchorElement);
     const [popperElement, setPopperElement] = useState<RefElement>(null);
@@ -108,7 +114,7 @@ export const Popover: React.FC<PopoverProps> = ({
         return modifiers;
     }, [withArrow, arrowElement, offset]);
 
-    const { styles: popperStyles, attributes, update } = usePopper(
+    const { styles: popperStyles, attributes, update: updatePopper } = usePopper(
         referenceElement,
         popperElement,
         {
@@ -122,10 +128,17 @@ export const Popover: React.FC<PopoverProps> = ({
     }, [anchorElement]);
 
     useEffect(() => {
-        if (update) {
-            update();
+        if (updatePopper) {
+            updatePopper();
         }
-    }, [update, arrowElement]);
+    }, [updatePopper, arrowElement, children]);
+
+    useEffect(() => {
+        if (update && updatePopper) {
+            // eslint-disable-next-line no-param-reassign
+            update.current = updatePopper;
+        }
+    }, [updatePopper, update]);
 
     const renderPortal = (showContent: boolean, className?: string, style?: CSSProperties) => (
         <Portal getPortalContainer={getPortalContainer}>
