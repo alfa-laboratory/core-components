@@ -7,7 +7,7 @@ import {
     MouseEvent,
     ReactElement,
 } from 'react';
-import { PopoverProps } from '@alfalab/core-components-popover/dist/packages/popover/src';
+import { PopoverProps } from '@alfalab/core-components-popover';
 
 export type OptionShape = {
     /**
