@@ -9,7 +9,7 @@ import { View, SelectorView } from './typings';
 import { Calendar } from './index';
 
 describe('Calendar', () => {
-    const defaultDate = new Date('November 30, 2020 00:00:00 GMT+0300');
+    const defaultDate = new Date('November 30, 2020 00:00:00');
     const defaultValue = defaultDate.getTime();
     const defaultDateOfMonth = defaultDate.getDate().toString();
     const defaultMonth = monthName(defaultDate).toString();
