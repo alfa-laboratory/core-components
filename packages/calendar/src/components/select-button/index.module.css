@@ -28,7 +28,7 @@
 }
 
 .outlined {
-    border: 1px solid var(--color-light-border-key);
+    border: 1px solid var(--calendar-selector-button-outline-border-color);
 }
 
 .selected {

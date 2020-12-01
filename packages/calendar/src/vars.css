@@ -2,6 +2,7 @@
     /* Кнопки выбора месяцев и годов */
     --calendar-selector-button-width: 100px;
     --calendar-selector-button-gap: 3px;
+    --calendar-selector-button-outline-border-color: var(--color-light-border-key);
 
     /* Шапка */
     --calendar-arrow-background: url('https://alfabank.st/icons/icon_arrow-left_m_black.svg');
