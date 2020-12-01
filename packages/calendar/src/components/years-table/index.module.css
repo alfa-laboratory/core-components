@@ -2,16 +2,19 @@
 @import '../../vars.css';
 
 .yearsTable {
+    overflow: auto;
+    overflow-x: hidden;
+    width: 100%;
+    margin-bottom: var(--gap-m-neg);
+}
+
+.inner {
     display: flex;
     flex-wrap: wrap;
-    overflow: auto;
-
-    /* 312px + 3px * 2 */
-    width: 318px;
-    margin: 0 -3px var(--gap-m-neg);
-    padding-top: 6px;
-    padding-bottom: var(--gap-m);
     justify-content: flex-start;
+    position: relative;
+    left: 20px;
+    overflow: hidden;
 }
 
 .button {

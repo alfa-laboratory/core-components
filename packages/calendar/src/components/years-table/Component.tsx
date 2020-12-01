@@ -43,16 +43,18 @@ export const YearsTable: FC<YearsTableProps> = ({
 
     return (
         <div className={styles.yearsTable} onScroll={onScroll}>
-            {years.map(year => (
-                <SelectButton
-                    {...getYearProps(year)}
-                    key={year.getFullYear()}
-                    view={view(year)}
-                    className={styles.button}
-                >
-                    {year.getFullYear()}
-                </SelectButton>
-            ))}
+            <div className={styles.inner}>
+                {years.map(year => (
+                    <SelectButton
+                        {...getYearProps(year)}
+                        key={year.getFullYear()}
+                        view={view(year)}
+                        className={styles.button}
+                    >
+                        {year.getFullYear()}
+                    </SelectButton>
+                ))}
+            </div>
         </div>
     );
 };
