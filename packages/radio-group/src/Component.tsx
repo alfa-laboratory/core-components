@@ -146,7 +146,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
                         disabled={disabled || child.props.disabled}
                         name={name}
                         checked={checked}
-                        className={styles.hiddenInput}
+                        className={cn(styles.hiddenInput)}
                     />
                 </label>
             );
@@ -164,7 +164,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
                 data-test-id={dataTestId}
                 ref={ref}
             >
-                {label ? <span className={styles.label}>{label}</span> : null}
+                {label ? <span className={cn(styles.label)}>{label}</span> : null}
 
                 {children ? (
                     <div className={cn(styles.radioList)}>
@@ -178,7 +178,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
                     </div>
                 ) : null}
 
-                {error && <span className={styles.errorMessage}>{error}</span>}
+                {error && <span className={cn(styles.errorMessage)}>{error}</span>}
             </div>
         );
     },

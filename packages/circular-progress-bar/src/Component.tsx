@@ -81,11 +81,11 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
         <div className={cn(styles.component, styles[size], className)} data-test-id={dataTestId}>
             <svg
                 viewBox={`0 0 ${memorized.width} ${memorized.height}`}
-                className={styles.svg}
+                className={cn(styles.svg)}
                 xmlns='http://www.w3.org/2000/svg'
             >
                 <circle
-                    className={styles.backgroundCircle}
+                    className={cn(styles.backgroundCircle)}
                     cx={memorized.center}
                     cy={memorized.center}
                     r={memorized.radius}
@@ -100,12 +100,12 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                     transform={`rotate(${-90} ${memorized.center} ${memorized.center})`}
                 />
             </svg>
-            <div className={styles.label}>
+            <div className={cn(styles.label)}>
                 {children || (
                     <React.Fragment>
                         {title && (
                             <Typography.Title
-                                className={styles.title}
+                                className={cn(styles.title)}
                                 color='secondary'
                                 tag='div'
                                 view={size === 'l' ? 'small' : 'xsmall'}
@@ -116,7 +116,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                         {subtitle && (
                             <Typography.Text
                                 tag='div'
-                                className={styles.subtitle}
+                                className={cn(styles.subtitle)}
                                 color='primary'
                                 view='primary-small'
                             >

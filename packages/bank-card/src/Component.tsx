@@ -108,7 +108,7 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
 
         const renderRightAddons = useCallback(
             () => (
-                <button type='button' className={styles.usePhoto} onClick={onUsePhoto}>
+                <button type='button' className={cn(styles.usePhoto)} onClick={onUsePhoto}>
                     <CameraMIcon />
                 </button>
             ),
@@ -121,9 +121,9 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
 
         return (
             <div className={cn(styles.component, className)}>
-                <div className={styles.aspectRatioContainer}>
-                    <div className={styles.content} style={{ backgroundColor }}>
-                        <div className={styles.bankLogo}>{bankLogo}</div>
+                <div className={cn(styles.aspectRatioContainer)}>
+                    <div className={cn(styles.content)} style={{ backgroundColor }}>
+                        <div className={cn(styles.bankLogo)}>{bankLogo}</div>
 
                         <MaskedInput
                             ref={ref}
@@ -132,17 +132,17 @@ export const BankCard = React.forwardRef<HTMLInputElement, BankCardProps>(
                             block={true}
                             label={inputLabel}
                             rightAddons={renderRightAddons()}
-                            inputClassName={styles.input}
-                            labelClassName={styles.label}
-                            filledClassName={styles.filled}
-                            focusedClassName={styles.focused}
+                            inputClassName={cn(styles.input)}
+                            labelClassName={cn(styles.label)}
+                            filledClassName={cn(styles.filled)}
+                            focusedClassName={cn(styles.focused)}
                             onChange={handleInputChange}
                             dataTestId={dataTestId}
                             inputMode='numeric'
                             pattern='[0-9]*'
                         />
 
-                        {brandIcon && <div className={styles.brandLogo}>{brandIcon}</div>}
+                        {brandIcon && <div className={cn(styles.brandLogo)}>{brandIcon}</div>}
                     </div>
                 </div>
             </div>

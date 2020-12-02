@@ -136,14 +136,14 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                         </div>
                     )}
 
-                    <div className={styles.inputWrapper}>
+                    <div className={cn(styles.inputWrapper)}>
                         {label && (
                             <div className={cn(styles.label, labelClassName)}>
-                                <span className={styles.labelInner}>{label}</span>
+                                <span className={cn(styles.labelInner)}>{label}</span>
                             </div>
                         )}
 
-                        <div className={styles.input}>{children}</div>
+                        <div className={cn(styles.input)}>{children}</div>
                     </div>
 
                     {rightAddons && (

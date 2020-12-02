@@ -27,7 +27,7 @@ export const Amount: React.FC<AmountProps> = ({
     return (
         <span className={cn(styles.component, className)} data-test-id={dataTestId}>
             {majorPart}
-            <span className={styles.minorPartAndCurrency}>
+            <span className={cn(styles.minorPartAndCurrency)}>
                 {minorPart && AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR}
                 {minorPart}
                 {THINSP}

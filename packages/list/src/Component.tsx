@@ -53,7 +53,7 @@ export const List: React.FC<ListProps> = ({
         <Component className={listClassNames} data-test-id={dataTestId}>
             {Children.map(children, child => (
                 <li className={itemClassNames}>
-                    {Component !== 'ol' && <div className={styles.slot}>{markerType}</div>}
+                    {Component !== 'ol' && <div className={cn(styles.slot)}>{markerType}</div>}
                     {child}
                 </li>
             ))}

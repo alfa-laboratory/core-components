@@ -25,6 +25,6 @@ export const Option: FC<OptionProps> = ({
         })}
     >
         {Checkmark && <Checkmark selected={selected} />}
-        <div className={styles.content}>{children || option.content || option.key}</div>
+        <div className={cn(styles.content)}>{children || option.content || option.key}</div>
     </div>
 );

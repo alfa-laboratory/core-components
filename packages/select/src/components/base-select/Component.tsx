@@ -267,7 +267,7 @@ export const BaseSelect = forwardRef(
             return (
                 <NativeSelect
                     {...menuProps}
-                    className={styles.nativeSelect}
+                    className={cn(styles.nativeSelect)}
                     disabled={disabled}
                     multiple={multiple}
                     name={name}
@@ -321,17 +321,17 @@ export const BaseSelect = forwardRef(
                 {name && !nativeSelect && renderValue()}
 
                 {!nativeSelect && (
-                    <div {...menuProps} className={styles.listWrapper}>
+                    <div {...menuProps} className={cn(styles.listWrapper)}>
                         <Popover
                             open={open}
                             withTransition={false}
                             anchorElement={fieldRef.current as HTMLElement}
                             position='bottom-start'
                             getPortalContainer={getPortalContainer}
-                            popperClassName={styles.popover}
+                            popperClassName={cn(styles.popover)}
                         >
                             {flatOptions.length > 0 && (
-                                <div className={styles.optionsList}>
+                                <div className={cn(styles.optionsList)}>
                                     <OptionsList
                                         flatOptions={flatOptions}
                                         highlightedIndex={highlightedIndex}

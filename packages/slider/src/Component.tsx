@@ -81,7 +81,7 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
 
         return (
             <div className={cn(styles.component, className)} data-test-id={dataTestId}>
-                <div className={styles.rangeWrapper}>
+                <div className={cn(styles.rangeWrapper)}>
                     <input
                         {...rangeProps}
                         {...restProps}

@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import cn from 'classnames';
 
 import styles from './index.module.css';
 
@@ -33,7 +34,13 @@ export const CountdownLoader: FC<Props> = ({ progress, className }) => {
                 </mask>
             </defs>
 
-            <circle cx={RADIUS} cy={RADIUS} r={RADIUS} mask='url(#cut)' className={styles.circle} />
+            <circle
+                cx={RADIUS}
+                cy={RADIUS}
+                r={RADIUS}
+                mask='url(#cut)'
+                className={cn(styles.circle)}
+            />
         </svg>
     );
 };

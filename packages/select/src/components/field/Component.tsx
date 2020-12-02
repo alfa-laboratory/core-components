@@ -40,7 +40,7 @@ export const Field = ({
 
     return (
         <div
-            className={styles.component}
+            className={cn(styles.component)}
             ref={wrapperRef}
             onFocus={handleFocus}
             onBlur={handleBlur}
@@ -71,11 +71,11 @@ export const Field = ({
                 {...restProps}
                 {...innerProps}
             >
-                <div className={styles.contentWrapper}>
+                <div className={cn(styles.contentWrapper)}>
                     {placeholder && !filled && (
-                        <span className={styles.placeholder}>{placeholder}</span>
+                        <span className={cn(styles.placeholder)}>{placeholder}</span>
                     )}
-                    {filled && <div className={styles.value}>{value}</div>}
+                    {filled && <div className={cn(styles.value)}>{value}</div>}
                 </div>
             </FormControl>
         </div>

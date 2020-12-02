@@ -104,7 +104,7 @@ export const CardImage: FC<CardImageProps> = ({
             {cardId && (
                 <img
                     ref={image}
-                    className={styles.image}
+                    className={cn(styles.image)}
                     width={width}
                     height={height}
                     src={cardImageUrl}

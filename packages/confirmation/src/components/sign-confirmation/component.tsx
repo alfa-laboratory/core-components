@@ -96,29 +96,29 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>
-            <span className={styles.header}>{title}</span>
+            <span className={cn(styles.header)}>{title}</span>
 
-            <div className={styles.inputContainer}>
+            <div className={cn(styles.inputContainer)}>
                 <CodeInput
                     processing={processing}
                     error={error}
                     value={inputValue}
                     ref={inputRef}
                     slotsCount={requiredCharAmount}
-                    className={styles.codeInput}
+                    className={cn(styles.codeInput)}
                     alignContent={alignContent}
                     handleChange={handleInputChange}
                     handleInputKeyDown={handleInputKeyDown}
                 />
 
-                {displayedError && <div className={styles.error}>{displayedError}</div>}
+                {displayedError && <div className={cn(styles.error)}>{displayedError}</div>}
             </div>
 
             {processing && (
-                <div className={styles.loaderWrap}>
+                <div className={cn(styles.loaderWrap)}>
                     <Loader />
 
-                    <span className={styles.loaderText}>
+                    <span className={cn(styles.loaderText)}>
                         {codeChecking ? codeCheckingText : codeSendingText}
                     </span>
                 </div>
@@ -130,7 +130,7 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
                         duration={countdownDuration}
                         phone={phone}
                         hasPhoneMask={hasPhoneMask}
-                        className={styles.countdown}
+                        className={cn(styles.countdown)}
                         alignContent={alignContent}
                         onRepeatSms={onSmsRetryClick}
                         onCountdownFinished={onCountdownFinished}
@@ -139,10 +139,10 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
             )}
 
             {smsHintVisible && (
-                <div className={styles.smsComeLinkWrap}>
+                <div className={cn(styles.smsComeLinkWrap)}>
                     <Link
                         onClick={onSmsHintLinkClick}
-                        className={styles.smsComeLink}
+                        className={cn(styles.smsComeLink)}
                         view='secondary'
                     >
                         Не приходит сообщение?

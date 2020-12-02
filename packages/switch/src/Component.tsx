@@ -105,12 +105,12 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                     {...restProps}
                 />
 
-                <span className={styles.switch} />
+                <span className={cn(styles.switch)} />
 
                 {(label || hint) && (
-                    <span className={styles.content}>
-                        {label && <span className={styles.label}>{label}</span>}
-                        {hint && <span className={styles.hint}>{hint}</span>}
+                    <span className={cn(styles.content)}>
+                        {label && <span className={cn(styles.label)}>{label}</span>}
+                        {hint && <span className={cn(styles.hint)}>{hint}</span>}
                     </span>
                 )}
             </label>

@@ -267,14 +267,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                                 view='ghost'
                                 disabled={disabled}
                                 aria-label='Очистить'
-                                className={styles.clearButton}
+                                className={cn(styles.clearButton)}
                                 onClick={handleClear}
                             >
                                 <span className={cn(styles.clearIcon)} />
                             </Button>
                         )}
-                        {error && <span className={styles.errorIcon} />}
-                        {success && !error && <span className={styles.successIcon} />}
+                        {error && <span className={cn(styles.errorIcon)} />}
+                        {success && !error && <span className={cn(styles.successIcon)} />}
                         {rightAddons}
                     </Fragment>
                 )

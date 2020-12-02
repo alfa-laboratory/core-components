@@ -85,7 +85,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                 })}
                 ref={mergeRefs([labelRef, ref])}
             >
-                <span className={styles.box}>
+                <span className={cn(styles.box)}>
                     <input
                         type='checkbox'
                         onChange={handleChange}
@@ -98,14 +98,14 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                     {checked && <CheckedIcon />}
 
                     {indeterminate && !checked && (
-                        <IndeterminateIcon className={styles.indeterminateIcon} />
+                        <IndeterminateIcon className={cn(styles.indeterminateIcon)} />
                     )}
                 </span>
 
                 {(label || hint) && (
-                    <span className={styles.content}>
-                        {label && <span className={styles.label}>{label}</span>}
-                        {hint && <span className={styles.hint}>{hint}</span>}
+                    <span className={cn(styles.content)}>
+                        {label && <span className={cn(styles.label)}>{label}</span>}
+                        {hint && <span className={cn(styles.hint)}>{hint}</span>}
                     </span>
                 )}
             </label>

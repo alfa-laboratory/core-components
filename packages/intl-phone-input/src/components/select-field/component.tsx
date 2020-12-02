@@ -22,7 +22,7 @@ export const SelectField: FC<FieldProps> = ({ selected, Arrow, size, innerProps 
                 [styles.focusVisible]: focusVisible,
             })}
         >
-            <div {...innerProps} className={styles.inner}>
+            <div {...innerProps} className={cn(styles.inner)}>
                 {selected && (
                     <span>
                         <FlagIcon country={selected.value} size={size} />

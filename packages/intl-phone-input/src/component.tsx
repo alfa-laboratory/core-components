@@ -176,7 +176,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 type='tel'
                 ref={mergeRefs([inputRef, ref])}
                 className={cn(className, styles[size])}
-                addonsClassName={styles.addons}
+                addonsClassName={cn(styles.addons)}
                 size={size}
                 leftAddons={
                     <CountriesSelect

@@ -175,7 +175,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                     label={label}
                     disabled={disabled}
                     className={cn(inputClassName, styles.input)}
-                    focusedClassName={styles.focused}
+                    focusedClassName={cn(styles.focused)}
                     bottomAddons={
                         <Slider
                             min={min}
@@ -191,7 +191,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                     rightAddons={
                         (info || rightAddons) && (
                             <Fragment>
-                                {info && <span className={styles.info}>{info}</span>}
+                                {info && <span className={cn(styles.info)}>{info}</span>}
                                 {rightAddons}
                             </Fragment>
                         )

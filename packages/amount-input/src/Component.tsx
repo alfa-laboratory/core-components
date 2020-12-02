@@ -184,20 +184,20 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                         <Fragment>
                             {majorPart}
 
-                            <span className={styles.minorPartAndCurrency}>
+                            <span className={cn(styles.minorPartAndCurrency)}>
                                 {minorPart !== undefined && `,${minorPart}`}
                                 {THINSP}
                                 {currencySymbol}
                             </span>
                         </Fragment>
                     }
-                    suffixContainerClassName={styles.suffixContainer}
+                    suffixContainerClassName={cn(styles.suffixContainer)}
                     clear={clear}
                     placeholder={placeholder}
                     value={inputValue}
                     className={cn(styles.component, className)}
                     focusedClassName={focusedClassName}
-                    inputClassName={styles.input}
+                    inputClassName={cn(styles.input)}
                     onChange={handleChange}
                     onClear={handleClear}
                     dataTestId={dataTestId}

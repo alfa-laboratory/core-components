@@ -1,4 +1,5 @@
 import React, { FC, useMemo } from 'react';
+import cn from 'classnames';
 
 import { Select, SelectProps } from '@alfalab/core-components-select';
 import { Country } from '@alfalab/utils';
@@ -29,12 +30,12 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
                 key: iso2,
                 value: iso2,
                 content: (
-                    <span className={styles.option}>
-                        <FlagIcon country={iso2} className={styles.flag} />
+                    <span className={cn(styles.option)}>
+                        <FlagIcon country={iso2} className={cn(styles.flag)} />
 
-                        <span className={styles.optionTextWrap}>
-                            <span className={styles.countryName}>{name}</span>
-                            <span className={styles.dialCode}>+{dialCode}</span>
+                        <span className={cn(styles.optionTextWrap)}>
+                            <span className={cn(styles.countryName)}>{name}</span>
+                            <span className={cn(styles.dialCode)}>+{dialCode}</span>
                         </span>
                     </span>
                 ),
@@ -50,7 +51,7 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
             selected={selected}
             onChange={onChange}
             Field={SelectField}
-            className={styles.component}
+            className={cn(styles.component)}
         />
     );
 };

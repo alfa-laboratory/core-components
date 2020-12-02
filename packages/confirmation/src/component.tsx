@@ -278,10 +278,10 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                 )}
 
                 {shouldShowError && (
-                    <div className={styles.error}>
-                        <span className={styles.errorHeader}>{errorTitle}</span>
+                    <div className={cn(styles.error)}>
+                        <span className={cn(styles.errorHeader)}>{errorTitle}</span>
 
-                        <span className={styles.errorText}>{errorText}</span>
+                        <span className={cn(styles.errorText)}>{errorText}</span>
 
                         <Button
                             size='s'
@@ -295,32 +295,32 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                 )}
 
                 {shouldShowHint && (
-                    <div className={styles.phoneHintWrap}>
-                        <span className={styles.errorHeader}>Не&nbsp;приходит сообщение?</span>
+                    <div className={cn(styles.phoneHintWrap)}>
+                        <span className={cn(styles.errorHeader)}>Не&nbsp;приходит сообщение?</span>
 
-                        <span className={styles.phoneHintText}>
+                        <span className={cn(styles.phoneHintText)}>
                             Если у&nbsp;вас сменился номер телефона, пожалуйста, обратитесь
                             в&nbsp;любое отделение банка.
                         </span>
 
-                        <div className={styles.phonesWrap}>
-                            <div className={styles.phoneWrap}>
-                                <Link className={styles.phoneLink} href='tel:+78002000000'>
+                        <div className={cn(styles.phonesWrap)}>
+                            <div className={cn(styles.phoneWrap)}>
+                                <Link className={cn(styles.phoneLink)} href='tel:+78002000000'>
                                     8 800 200-00-00
                                 </Link>
 
-                                <span className={styles.phoneDescription}>
+                                <span className={cn(styles.phoneDescription)}>
                                     {' '}
                                     &mdash;&nbsp;для звонков по&nbsp;России
                                 </span>
                             </div>
 
-                            <div className={styles.phoneWrap}>
-                                <Link className={styles.phoneLink} href='tel:+74957888878'>
+                            <div className={cn(styles.phoneWrap)}>
+                                <Link className={cn(styles.phoneLink)} href='tel:+74957888878'>
                                     +7 495 788-88-78
                                 </Link>
 
-                                <span className={styles.phoneDescription}>
+                                <span className={cn(styles.phoneDescription)}>
                                     {' '}
                                     &mdash;&nbsp;в&nbsp;Москве и&nbsp;за&nbsp;границей
                                 </span>
@@ -328,7 +328,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                         </div>
 
                         <Button
-                            className={styles.repeatButton}
+                            className={cn(styles.repeatButton)}
                             size='s'
                             view='secondary'
                             block={true}

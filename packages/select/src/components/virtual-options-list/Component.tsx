@@ -86,7 +86,7 @@ export const VirtualOptionsList = ({
     return (
         <div className={cn(styles.virtualOptionsList, styles[size])} ref={parentRef}>
             <div
-                className={styles.inner}
+                className={cn(styles.inner)}
                 style={{
                     height: `${rowVirtualizer.totalSize}px`,
                 }}

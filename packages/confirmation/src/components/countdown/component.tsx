@@ -124,12 +124,12 @@ export const Countdown: FC<CountdownProps> = ({
                         </div>
                     )}
 
-                    <div className={styles.info}>Запросить повторно можно через</div>
+                    <div className={cn(styles.info)}>Запросить повторно можно через</div>
 
-                    <div className={styles.loaderWrap}>
-                        <CountdownLoader progress={progress} className={styles.loader} />
+                    <div className={cn(styles.loaderWrap)}>
+                        <CountdownLoader progress={progress} className={cn(styles.loader)} />
 
-                        <div className={styles.timePassed}>
+                        <div className={cn(styles.timePassed)}>
                             {formatMsAsMinutes(duration - timePassed)}
                         </div>
                     </div>

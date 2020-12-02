@@ -117,7 +117,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
                     onChange={handleChange}
                     disabled={disabled || child.props.disabled}
                     checked={checked}
-                    className={styles.hiddenInput}
+                    className={cn(styles.hiddenInput)}
                 />
             </label>
         );
@@ -134,7 +134,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
             )}
             data-test-id={dataTestId}
         >
-            {label ? <span className={styles.label}>{label}</span> : null}
+            {label ? <span className={cn(styles.label)}>{label}</span> : null}
 
             {children ? (
                 <div className={cn(styles.checkboxList)}>
@@ -148,7 +148,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
                 </div>
             ) : null}
 
-            {error && <span className={styles.errorMessage}>{error}</span>}
+            {error && <span className={cn(styles.errorMessage)}>{error}</span>}
         </div>
     );
 };
