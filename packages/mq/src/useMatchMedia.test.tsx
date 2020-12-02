@@ -7,8 +7,8 @@ jest.mock('./utils');
 
 function mockGetMatchMedia(matches: boolean) {
     (getMatchMedia as jest.Mock).mockReturnValue({
-        addEventListener: jest.fn,
-        removeEventListener: jest.fn,
+        addListener: jest.fn,
+        removeListener: jest.fn,
         matches,
     });
 }
