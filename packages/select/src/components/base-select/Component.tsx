@@ -328,6 +328,7 @@ export const BaseSelect = forwardRef(
                             withTransition={false}
                             anchorElement={fieldRef.current as HTMLElement}
                             position='bottom-start'
+                            preventFlip={true}
                             getPortalContainer={getPortalContainer}
                             popperClassName={styles.popover}
                             update={updatePopover}

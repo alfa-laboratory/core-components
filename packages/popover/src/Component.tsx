@@ -35,6 +35,12 @@ export type PopoverProps = {
     position?: Position;
 
     /**
+     * Запрещает поповеру менять свою позицию.
+     * Например, если места снизу недостаточно,то он все равно будет показан снизу
+     */
+    preventFlip?: boolean;
+
+    /**
      * Если `true`, будет отрисована стрелочка
      */
     withArrow?: boolean;
@@ -94,6 +100,7 @@ export const Popover: React.FC<PopoverProps> = ({
     withArrow = false,
     withTransition = true,
     position = 'left',
+    preventFlip,
     popperClassName,
     arrowClassName,
     open,
@@ -111,8 +118,12 @@ export const Popover: React.FC<PopoverProps> = ({
             modifiers.push({ name: 'arrow', options: { element: arrowElement } });
         }
 
+        if (preventFlip) {
+            modifiers.push({ name: 'flip', options: { fallbackPlacements: [] } });
+        }
+
         return modifiers;
-    }, [withArrow, arrowElement, offset]);
+    }, [offset, withArrow, preventFlip, arrowElement]);
 
     const { styles: popperStyles, attributes, update: updatePopper } = usePopper(
         referenceElement,

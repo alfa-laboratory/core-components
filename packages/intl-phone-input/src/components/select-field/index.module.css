@@ -8,6 +8,10 @@
     bottom: -1px;
 }
 
+.disabled {
+    cursor: var(--disabled-cursor);
+}
+
 .inner {
     position: relative;
     bottom: 1px;
