@@ -100,7 +100,7 @@ export type TooltipProps = {
     /**
      * Хранит функцию, с помощью которой можно обновить положение компонента
      */
-    update?: PopoverProps['update'];
+    updatePopover?: PopoverProps['update'];
 };
 
 export const Tooltip: FC<TooltipProps> = ({
@@ -119,7 +119,7 @@ export const Tooltip: FC<TooltipProps> = ({
     contentClassName,
     arrowClassName,
     popoverClassName,
-    update,
+    updatePopover,
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
     const [target, setTarget] = useState<RefElement>(null);
@@ -304,7 +304,7 @@ export const Tooltip: FC<TooltipProps> = ({
                     offset={offset}
                     withArrow={true}
                     position={position}
-                    update={update}
+                    update={updatePopover}
                 >
                     {renderContent()}
                 </Popover>
