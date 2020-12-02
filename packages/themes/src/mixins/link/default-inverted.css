@@ -1,0 +1,7 @@
+@import '../../../../vars/src/index.css';
+
+@define-mixin link-default-inverted {
+    --link-primary-color: var(--color-light-text-primary-inverted);
+    --link-primary-hover-color: var(--link-primary-color);
+    --link-primary-active-color: var(--link-primary-color);
+}
