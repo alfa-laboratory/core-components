@@ -35,6 +35,11 @@ export type InputAutocompleteProps = Omit<BaseSelectProps, 'Field' | 'nativeSele
      * Обработчик ввода
      */
     onInput?: (event: ChangeEvent<HTMLInputElement>) => void;
+
+    /**
+     * Хранит функцию, с помощью которой можно обновить положение поповера
+     */
+    updatePopover?: BaseSelectProps['updatePopover'];
 };
 
 export const InputAutocomplete = forwardRef<HTMLInputElement, InputAutocompleteProps>(

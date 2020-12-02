@@ -57,6 +57,7 @@ export const BaseSelect = forwardRef(
             OptionsList = () => null,
             Optgroup = () => null,
             Option = () => null,
+            updatePopover,
         }: BaseSelectProps,
         ref,
     ) => {
@@ -330,6 +331,7 @@ export const BaseSelect = forwardRef(
                             preventFlip={true}
                             getPortalContainer={getPortalContainer}
                             popperClassName={styles.popover}
+                            update={updatePopover}
                         >
                             {flatOptions.length > 0 && (
                                 <div className={styles.optionsList}>
