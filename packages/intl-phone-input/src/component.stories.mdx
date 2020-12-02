@@ -5,7 +5,11 @@ import { text, select, boolean } from '@storybook/addon-knobs';
 import { IntlPhoneInput } from './component';
 import { name, version } from '../package.json';
 
-<Meta title='Компоненты' component={IntlPhoneInput} />
+<Meta
+    title='Компоненты'
+    component={IntlPhoneInput}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
 
 <Title>
     IntlPhoneInput ({name}@{version})
@@ -33,6 +37,7 @@ import { IntlPhoneInput } from '@alfalab/core-components-intl-phone-input';
             }, [setValue]);
             const size = select('size', ['s', 'm', 'l'], 'm');
             const block = boolean('block', false);
+            const disabled = boolean('disabled', false);
             const label = text('label', 'Номер телефона');
             return (
                 <IntlPhoneInput
@@ -41,6 +46,7 @@ import { IntlPhoneInput } from '@alfalab/core-components-intl-phone-input';
                     size={size}
                     block={block}
                     label={label}
+                    disabled={disabled}
                 />
             );
         })}

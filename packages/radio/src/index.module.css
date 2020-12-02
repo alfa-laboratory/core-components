@@ -52,7 +52,7 @@
     }
 
     &.disabled {
-        cursor: default;
+        cursor: var(--disabled-cursor);
 
         & .circle {
             background-color: var(--radio-disabled-bg-color);

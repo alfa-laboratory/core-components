@@ -7,6 +7,7 @@ import {
     MouseEvent,
     ReactElement,
 } from 'react';
+import { PopoverProps } from '@alfalab/core-components-popover';
 
 export type OptionShape = {
     /**
@@ -137,7 +138,7 @@ export type BaseSelectProps = {
     /**
      * Список value выбранных пунктов (controlled-селект)
      */
-    selected?: string[] | string | null;
+    selected?: Array<string | OptionShape> | string | OptionShape | null;
 
     /**
      * Рендерит нативный селект вместо выпадающего меню. (на десктопе использовать только с multiple=false)
@@ -208,6 +209,11 @@ export type BaseSelectProps = {
      * Обработчик блюра поля
      */
     onFocus?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
+
+    /**
+     * Хранит функцию, с помощью которой можно обновить положение поповера
+     */
+    updatePopover?: PopoverProps['update'];
 };
 
 // TODO: использовать InputProps

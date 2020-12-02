@@ -6,8 +6,8 @@ import { Mq } from './Component';
 jest.mock('./utils', () => ({
     isPointerEventsSupported: jest.fn(() => true),
     getMatchMedia: jest.fn(() => ({
-        addEventListener: jest.fn,
-        removeEventListener: jest.fn,
+        addListener: jest.fn,
+        removeListener: jest.fn,
         matches: false,
     })),
     releaseMatchMedia: jest.fn,
@@ -15,8 +15,8 @@ jest.mock('./utils', () => ({
 
 function mockGetMatchMedia(result: boolean) {
     (getMatchMedia as jest.Mock).mockReturnValueOnce({
-        addEventListener: jest.fn,
-        removeEventListener: jest.fn,
+        addListener: jest.fn,
+        removeListener: jest.fn,
         matches: result,
     });
 }

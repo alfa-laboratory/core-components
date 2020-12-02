@@ -8,7 +8,13 @@ import { FlagIcon } from '../flag-icon';
 
 import styles from './index.module.css';
 
-export const SelectField: FC<FieldProps> = ({ selected, Arrow, size, innerProps = {} }) => {
+export const SelectField: FC<FieldProps> = ({
+    selected,
+    Arrow,
+    size,
+    disabled,
+    innerProps = {},
+}) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
 
     const [focusVisible] = useFocus(wrapperRef, 'keyboard');
@@ -20,6 +26,7 @@ export const SelectField: FC<FieldProps> = ({ selected, Arrow, size, innerProps 
             ref={ref}
             className={cn(styles.component, size && styles[size], {
                 [styles.focusVisible]: focusVisible,
+                [styles.disabled]: disabled,
             })}
         >
             <div {...innerProps} className={cn(styles.inner)}>
