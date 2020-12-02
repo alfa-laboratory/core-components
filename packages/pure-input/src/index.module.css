@@ -47,6 +47,7 @@
 /* DISABLED STATE */
 
 .component:disabled {
+    cursor: var(--disabled-cursor);
     color: var(--input-disabled-color);
     border-bottom: var(--form-control-disabled-border-bottom);
     background-color: var(--form-control-disabled-bg-color);

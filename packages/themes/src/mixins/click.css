@@ -12,6 +12,8 @@
 @import './confirmation/click.css';
 
 @define-mixin theme-click {
+    --disabled-cursor: not-allowed;
+
     @mixin amount-click;
     @mixin form-control-click;
     @mixin input-click;
