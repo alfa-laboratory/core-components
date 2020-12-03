@@ -8,12 +8,14 @@
     --button-primary-disabled-bg-color: color-mod(var(--button-primary-base-bg-color) alpha(30%));
 
     /* secondary */
+    --button-secondary-color: var(--color-light-text-primary);
     --button-secondary-base-bg-color: var(--color-light-specialbg-component);
     --button-secondary-base-border-color: transparent;
     --button-secondary-hover-bg-color: color-mod(var(--button-secondary-base-bg-color) shade(7%));
     --button-secondary-active-bg-color: color-mod(var(--button-secondary-base-bg-color) shade(15%));
     --button-secondary-disabled-bg-color: var(--color-light-specialbg-component);
     --button-secondary-disabled-border-color: transparent;
+    --button-secondary-disabled-color: color-mod(var(--color-light-text-primary) alpha(30%));
 
     /* ghost */
     --button-ghost-base-color: var(--color-light-text-primary);
@@ -132,7 +134,7 @@ a.loading {
 }
 
 .secondary {
-    color: var(--color-light-text-primary);
+    color: var(--button-secondary-color);
     background-color: var(--button-secondary-base-bg-color);
     border: 1px solid var(--button-secondary-base-border-color);
 
@@ -222,12 +224,12 @@ a.loading {
     }
 
     &.secondary {
-        color: color-mod(var(--color-light-text-primary) alpha(30%));
+        color: var(--button-secondary-disabled-color);
         background-color: var(--button-secondary-disabled-bg-color);
         border-color: var(--button-secondary-disabled-border-color);
 
         &.loading {
-            color: var(--color-light-text-primary);
+            color: var(--button-secondary-color);
             background-color: var(--button-secondary-base-bg-color);
             border-color: var(--button-secondary-base-border-color);
         }

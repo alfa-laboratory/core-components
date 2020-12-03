@@ -476,3 +476,8 @@ img.sbdocs-img {
 div.github {
     margin: -32px 0 32px;
 }
+
+body[data-theme$='-inverted'] iframe,
+body[data-theme$='-inverted'] .sbdocs-preview {
+    background: var(--color-light-bg-tertiary-inverted);
+}
