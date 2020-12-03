@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.4.0](https://github.com/alfa-laboratory/core-components/compare/v5.3.0...v5.4.0) (2020-12-03)
+
+
+### Features
+
+* add inverted theme for link & button ([#405](https://github.com/alfa-laboratory/core-components/issues/405)) ([a3ccf39](https://github.com/alfa-laboratory/core-components/commit/a3ccf394369af6d5b0f8c8dd5d64a4b18eeb2155))
+* add update popover position prop ([#401](https://github.com/alfa-laboratory/core-components/issues/401)) ([5588870](https://github.com/alfa-laboratory/core-components/commit/5588870b663ba6547bf80853487da4620b2f74d6))
+* use disabled-cursor ([#399](https://github.com/alfa-laboratory/core-components/issues/399)) ([ba5ba74](https://github.com/alfa-laboratory/core-components/commit/ba5ba7492f2daf4974941130466dcffd3976662b))
+* **popover:** prevent flip ([#398](https://github.com/alfa-laboratory/core-components/issues/398)) ([c0c1723](https://github.com/alfa-laboratory/core-components/commit/c0c1723f15af7b8f09330bc5ce3ea549ea30afa1))
+* **select:** allow to use options as selected value ([#393](https://github.com/alfa-laboratory/core-components/issues/393)) ([a16f47a](https://github.com/alfa-laboratory/core-components/commit/a16f47ac6dd8f10c02a6ea38ec09963fab6f3942))
+* **select:** change optionslist shadow styles ([#397](https://github.com/alfa-laboratory/core-components/issues/397)) ([d13c1f8](https://github.com/alfa-laboratory/core-components/commit/d13c1f8eacd7a51152a065b5ed358515a3044c18))
+
+
+### Bug Fixes
+
+* **circular-progress-bar:** fix label width ([#395](https://github.com/alfa-laboratory/core-components/issues/395)) ([1d3cb6b](https://github.com/alfa-laboratory/core-components/commit/1d3cb6b134bc85febd89ad8183f537abbda18482)), closes [#394](https://github.com/alfa-laboratory/core-components/issues/394)
+* **mq:** use addListener and removeListener ([#402](https://github.com/alfa-laboratory/core-components/issues/402)) ([9918383](https://github.com/alfa-laboratory/core-components/commit/9918383c31b07ea2aad253765f2f17a88d00b943))
+* theme-switcher select value ([845de5d](https://github.com/alfa-laboratory/core-components/commit/845de5d5124a2459cad2cf40dd015d6580e68700))
+
 ## [5.3.0](https://github.com/alfa-laboratory/core-components/compare/v5.2.0...v5.3.0) (2020-11-27)
 
 
