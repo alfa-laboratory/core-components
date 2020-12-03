@@ -1,0 +1,28 @@
+@import '../../../themes/src/default.css';
+
+.iconContainer {
+    display: flex;
+    transition: transform 0.2s ease;
+    transform: rotateZ(0deg);
+
+    & svg {
+        height: inherit;
+    }
+}
+
+.icon {
+    width: '100%';
+}
+.xs {
+    width: 18px;
+}
+
+.s,
+.m,
+.l {
+    width: 24px;
+}
+
+.open {
+    transform: rotateZ(180deg);
+}

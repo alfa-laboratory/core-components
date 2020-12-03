@@ -1,0 +1,109 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { text, boolean, select } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { Button } from '../../button/src';
+import { PickerButton } from './Component';
+import { name, version } from '../package.json';
+
+export const options = [
+    { key: '1', content: 'Neptunium'},
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+    { key: '9', content: 'Mendelevium' },
+    { key: '10', content: 'Nobelium' },
+    { key: '11', content: 'Lawrencium' },
+    { key: '12', content: 'Rutherfordium' },
+    { key: '13', content: 'Dubnium' },
+    { key: '14', content: 'Seaborgium' },
+    { key: '15', content: 'Bohrium' },
+];
+
+<Meta
+    title='Компоненты'
+    id='components/picker-button'
+    component={PickerButton}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='Picker button'>
+    <PickerButton
+        options={options}
+        multiple={true}
+        allowUnselect={true}
+        label={text('label', 'some label')}
+        disabled={boolean('disabled', false)}
+        loading={boolean('loading', false)}
+        view={select('view', ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost'], 'primary')}
+        size={select('size', ['xs', 's', 'm'], 'm')}
+    />
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='PickerButton'
+    version={version}
+    package='@alfalab/core-components-picker-button'
+    stage={1}
+/>
+
+```tsx
+import { PickerButton } from '@alfalab/core-components-picker-button';
+```
+
+Компонент PickerButton. Использует селект, но с кнопкой вместо стандартного Field.
+Кнопка содержит несколько команд, объединенных по смыслу. Используется для скрытия редких или одинаковых по контексту действий.
+
+<PickerButton options={options} label='Picker Button' />
+
+## Примеры
+
+PickerButton `size=xs`:
+<PickerButton label='Picker Button' options={options} size='xs' />
+<div style={{height: 32}} />
+
+PickerButton `size=s`:
+<PickerButton label='Picker Button' options={options} size='s' />
+<div style={{height: 32}} />
+
+PickerButton `size=m`:
+<PickerButton label='Picker Button' options={options} size='m' />
+<div style={{height: 32}} />
+
+PickerButton `disaled=tue`:
+<PickerButton label='Picker Button' options={options} disabled={true} />
+<div style={{height: 32}} />
+
+PickerButton `loading=true`:
+<PickerButton label='Picker Button' options={options} loading={true} />
+<div style={{height: 32}} />
+
+PickerButton `view=primary`:
+<PickerButton label='Picker Button' options={options} view='primary' />
+<div style={{height: 32}} />
+
+PickerButton `view=secondary`:
+<PickerButton label='Picker Button' options={options} view='secondary' />
+<div style={{height: 32}} />
+
+PickerButton `view=outlined`:
+<PickerButton label='Picker Button' options={options} view='outlined' />
+<div style={{height: 32}} />
+
+PickerButton `view=ghost`:
+<PickerButton label='Picker Button' options={options} view='ghost' />
+<div style={{height: 32}} />
+
+<Props of={PickerButton} />
