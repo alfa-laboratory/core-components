@@ -33,6 +33,11 @@ export type CalendarProps = {
     value?: number;
 
     /**
+     * Открытый месяц (timestamp)
+     */
+    month?: number;
+
+    /**
      * Месяц, открытый по умолчанию (timestamp)
      */
     defaultMonth?: number;
@@ -88,6 +93,7 @@ export const Calendar: FC<CalendarProps> = ({
     defaultView = 'days',
     selectorView = 'full',
     value,
+    month: monthTimestamp,
     defaultMonth: defaultMonthTimestamp = +new Date(),
     minDate: minDateTimestamp,
     maxDate: maxDateTimestamp,
@@ -106,6 +112,10 @@ export const Calendar: FC<CalendarProps> = ({
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const defaultMonth = useMemo(() => startOfMonth(selected || defaultMonthTimestamp), []);
+
+    const month = useMemo(() => (monthTimestamp ? new Date(monthTimestamp) : undefined), [
+        monthTimestamp,
+    ]);
 
     const minDate = useMemo(
         () => (minDateTimestamp ? new Date(minDateTimestamp) : subYears(defaultMonth, 100)),
@@ -131,6 +141,7 @@ export const Calendar: FC<CalendarProps> = ({
         getYearProps,
         getRootProps,
     } = useCalendar({
+        month,
         defaultMonth,
         view,
         minDate,

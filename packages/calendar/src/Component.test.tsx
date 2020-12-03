@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { subDays, addDays, setDate, endOfMonth, setMonth } from 'date-fns';
+import { subDays, addDays, setDate, endOfMonth, setMonth, addMonths } from 'date-fns';
 import { act } from 'react-dom/test-utils';
 import { monthName, MONTHS } from './utils';
 import { View, SelectorView } from './typings';
@@ -71,12 +71,24 @@ describe('Calendar', () => {
         expect(queryByText(defaultDateOfMonth)).toBeInTheDocument();
     });
 
-    it('should open month passed by value', () => {
+    it('should open month of date passed by value', () => {
         const { queryByText } = render(<Calendar value={defaultValue} />);
 
         expect(queryByText(defaultYear)).toBeInTheDocument();
         expect(queryByText(defaultMonth)).toBeInTheDocument();
         expect(queryByText(defaultDateOfMonth)).toBeInTheDocument();
+    });
+
+    it('should open month passed by month', () => {
+        const { queryByText, rerender } = render(<Calendar month={defaultValue} />);
+
+        expect(queryByText(defaultYear)).toBeInTheDocument();
+        expect(queryByText(defaultMonth)).toBeInTheDocument();
+        expect(queryByText(defaultDateOfMonth)).toBeInTheDocument();
+
+        rerender(<Calendar month={addMonths(defaultValue, 1).getTime()} />);
+
+        expect(queryByText(MONTHS[defaultDate.getMonth() + 1])).toBeInTheDocument();
     });
 
     describe('when minDate is set', () => {

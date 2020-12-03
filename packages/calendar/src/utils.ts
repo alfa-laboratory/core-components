@@ -101,7 +101,7 @@ export function generateMonths(year: Date, options: { minMonth?: Date; maxMonth?
 export function generateYears(minYear: Date) {
     return eachYearOfInterval({
         start: startOfYear(minYear),
-        end: startOfYear(new Date()),
+        end: max([startOfYear(new Date()), startOfYear(minYear)]),
     }).reverse();
 }
 

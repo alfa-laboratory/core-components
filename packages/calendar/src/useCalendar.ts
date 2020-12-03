@@ -1,12 +1,11 @@
 import { KeyboardEvent, MouseEvent, useCallback, useMemo, useRef, useState } from 'react';
-import { startOfMonth, setMonth, isSameDay, isSameMonth, isSameYear, setYear } from 'date-fns';
+import { startOfMonth, isSameDay, isSameMonth, isSameYear, setYear, addMonths } from 'date-fns';
 import {
     limitDate,
     generateMonths,
     generateWeeks,
     generateYears,
     dateArrayToHashTable,
-    useDidUpdateEffect,
     modifyDateByShift,
     simulateTab,
     MONTHS_IN_YEAR,
@@ -18,6 +17,11 @@ export type UseCalendarProps = {
      * Активный вид (выбор дней, месяцев, лет)
      */
     view?: View;
+
+    /**
+     * Выбранный месяц (controlled)
+     */
+    month?: Date;
 
     /**
      * Начальный месяц
@@ -62,6 +66,7 @@ export type UseCalendarProps = {
 
 export function useCalendar({
     defaultMonth,
+    month,
     minDate,
     view = 'days',
     maxDate,
@@ -71,8 +76,12 @@ export function useCalendar({
     onMonthChange,
     onChange,
 }: UseCalendarProps) {
-    const [activeMonth, setActiveMonth] = useState(defaultMonth);
+    const [monthState, setMonthState] = useState(defaultMonth);
     const [highlighted, setHighlighted] = useState<Date | number>();
+
+    const uncontrolled = month === undefined;
+
+    const activeMonth = uncontrolled ? monthState : (month as Date);
 
     const dateRefs = useRef<HTMLButtonElement[]>([]);
     const rootRef = useRef<HTMLDivElement>(null);
@@ -100,20 +109,31 @@ export function useCalendar({
 
     const years = useMemo(() => generateYears(minDate), [minDate]);
 
+    const setMonth = useCallback(
+        (newMonth: Date) => {
+            if (uncontrolled) {
+                setMonthState(newMonth);
+            }
+
+            if (onMonthChange) {
+                onMonthChange(newMonth.getTime());
+            }
+        },
+        [onMonthChange, uncontrolled],
+    );
+
     const setMonthByStep = useCallback(
         (step: number) => {
-            setActiveMonth(
-                limitDate(setMonth(activeMonth, activeMonth.getMonth() + step), minMonth, maxMonth),
-            );
+            setMonth(limitDate(addMonths(activeMonth, step), minMonth, maxMonth));
         },
-        [maxMonth, minMonth, activeMonth],
+        [setMonth, activeMonth, minMonth, maxMonth],
     );
 
     const setMonthByDate = useCallback(
         (newMonth: Date) => {
-            setActiveMonth(limitDate(newMonth, minMonth, maxMonth));
+            setMonth(limitDate(newMonth, minMonth, maxMonth));
         },
-        [maxMonth, minMonth],
+        [maxMonth, minMonth, setMonth],
     );
 
     const setNextMonth = useCallback(() => {
@@ -409,13 +429,6 @@ export function useCalendar({
             tabIndex: -1,
         };
     }, [handleKeyDown]);
-
-    useDidUpdateEffect(() => {
-        if (onMonthChange) {
-            onMonthChange(activeMonth.getTime());
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [activeMonth.getTime()]);
 
     return {
         activeMonth,
