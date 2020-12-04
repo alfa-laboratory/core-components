@@ -1,0 +1,348 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshots tests should display correctly 1`] = `
+<div>
+  <div
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    aria-owns="downshift-1-menu"
+    class="component"
+    role="combobox"
+    tabindex="-1"
+  >
+    <button
+      aria-controls="downshift-1-menu"
+      aria-labelledby="downshift-1-label"
+      class="component secondary s block"
+      id="downshift-0-input"
+      selectedmultiple=""
+      tabindex="0"
+    >
+      <span
+        class="text"
+      >
+        <span
+          for="downshift-0-input"
+          id="downshift-1-label"
+        >
+          some label
+        </span>
+      </span>
+      <span
+        class="addons"
+      >
+        <span
+          class="s iconContainer"
+        >
+          <svg
+            class="icon"
+            fill="currentColor"
+            focusable="false"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path
+              d="M12 15L5.5 8 4 9.5l8 8.5 8-8.5L18.5 8 12 15z"
+            />
+          </svg>
+        </span>
+      </span>
+    </button>
+    <div
+      aria-labelledby="downshift-1-label"
+      class="listWrapper"
+      id="downshift-1-menu"
+      role="listbox"
+    />
+  </div>
+</div>
+`;
+
+exports[`Snapshots tests should display opened correctly 1`] = `
+<div>
+  <div
+    aria-expanded="true"
+    aria-haspopup="listbox"
+    aria-owns="downshift-3-menu"
+    class="component"
+    role="combobox"
+    tabindex="-1"
+  >
+    <button
+      aria-controls="downshift-3-menu"
+      aria-labelledby="downshift-3-label"
+      class="component secondary s block iconOnly"
+      id="downshift-2-input"
+      selectedmultiple=""
+      tabindex="0"
+    >
+      <span
+        class="addons"
+      >
+        <span
+          class="s iconContainer open"
+        >
+          <svg
+            class="icon"
+            fill="currentColor"
+            focusable="false"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path
+              d="M12 15L5.5 8 4 9.5l8 8.5 8-8.5L18.5 8 12 15z"
+            />
+          </svg>
+        </span>
+      </span>
+    </button>
+    <div
+      aria-labelledby="downshift-3-label"
+      class="listWrapper"
+      id="downshift-3-menu"
+      role="listbox"
+    >
+      <div
+        class="component popover"
+        style="position: absolute; left: 0px; top: 0px;"
+      >
+        <div
+          class="optionsList"
+        >
+          <div
+            class="optionsList s"
+          >
+            <div
+              aria-selected="true"
+              class="option s highlighted"
+              id="downshift-3-item-0"
+              role="option"
+            >
+              <span
+                class="checkmark"
+              />
+              <div
+                class="content"
+              >
+                Neptunium
+              </div>
+            </div>
+            <div
+              aria-selected="false"
+              class="option s"
+              id="downshift-3-item-1"
+              role="option"
+            >
+              <span
+                class="checkmark"
+              />
+              <div
+                class="content"
+              >
+                Plutonium
+              </div>
+            </div>
+            <div
+              aria-selected="false"
+              class="option s"
+              id="downshift-3-item-2"
+              role="option"
+            >
+              <span
+                class="checkmark"
+              />
+              <div
+                class="content"
+              >
+                Americium
+              </div>
+            </div>
+            <div
+              aria-selected="false"
+              class="option s"
+              id="downshift-3-item-3"
+              role="option"
+            >
+              <span
+                class="checkmark"
+              />
+              <div
+                class="content"
+              >
+                Curium
+              </div>
+            </div>
+            <div
+              aria-selected="false"
+              class="option s"
+              id="downshift-3-item-4"
+              role="option"
+            >
+              <span
+                class="checkmark"
+              />
+              <div
+                class="content"
+              >
+                Berkelium
+              </div>
+            </div>
+            <div
+              aria-selected="false"
+              class="option s"
+              id="downshift-3-item-5"
+              role="option"
+            >
+              <span
+                class="checkmark"
+              />
+              <div
+                class="content"
+              >
+                Californium
+              </div>
+            </div>
+            <div
+              aria-selected="false"
+              class="option s"
+              id="downshift-3-item-6"
+              role="option"
+            >
+              <span
+                class="checkmark"
+              />
+              <div
+                class="content"
+              >
+                Einsteinium
+              </div>
+            </div>
+            <div
+              aria-selected="false"
+              class="option s"
+              id="downshift-3-item-7"
+              role="option"
+            >
+              <span
+                class="checkmark"
+              />
+              <div
+                class="content"
+              >
+                Fermium
+              </div>
+            </div>
+            <div
+              aria-selected="false"
+              class="option s"
+              id="downshift-3-item-8"
+              role="option"
+            >
+              <span
+                class="checkmark"
+              />
+              <div
+                class="content"
+              >
+                Mendelevium
+              </div>
+            </div>
+            <div
+              aria-selected="false"
+              class="option s"
+              id="downshift-3-item-9"
+              role="option"
+            >
+              <span
+                class="checkmark"
+              />
+              <div
+                class="content"
+              >
+                Nobelium
+              </div>
+            </div>
+            <div
+              aria-selected="false"
+              class="option s"
+              id="downshift-3-item-10"
+              role="option"
+            >
+              <span
+                class="checkmark"
+              />
+              <div
+                class="content"
+              >
+                Lawrencium
+              </div>
+            </div>
+            <div
+              aria-selected="false"
+              class="option s"
+              id="downshift-3-item-11"
+              role="option"
+            >
+              <span
+                class="checkmark"
+              />
+              <div
+                class="content"
+              >
+                Rutherfordium
+              </div>
+            </div>
+            <div
+              aria-selected="false"
+              class="option s"
+              id="downshift-3-item-12"
+              role="option"
+            >
+              <span
+                class="checkmark"
+              />
+              <div
+                class="content"
+              >
+                Dubnium
+              </div>
+            </div>
+            <div
+              aria-selected="false"
+              class="option s"
+              id="downshift-3-item-13"
+              role="option"
+            >
+              <span
+                class="checkmark"
+              />
+              <div
+                class="content"
+              >
+                Seaborgium
+              </div>
+            </div>
+            <div
+              aria-selected="false"
+              class="option s"
+              id="downshift-3-item-14"
+              role="option"
+            >
+              <span
+                class="checkmark"
+              />
+              <div
+                class="content"
+              >
+                Bohrium
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
