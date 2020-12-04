@@ -107,7 +107,7 @@ describe('Render tests', () => {
         expect(button).toHaveClass(size);
     });
 
-    it('should have open class', () => {
+    it('should have open class if opened', () => {
         render(<PickerButton label={label} options={options} />);
 
         const button = document.querySelector('button') as HTMLButtonElement;
@@ -117,5 +117,17 @@ describe('Render tests', () => {
         fireEvent.click(button);
 
         expect(iconContainer).toHaveClass('open');
+    });
+
+    it('should have options if opened', () => {
+        render(<PickerButton label={label} options={options} />);
+
+        const button = document.querySelector('button') as HTMLButtonElement;
+
+        fireEvent.click(button);
+
+        const renderedOptions = document.querySelectorAll('.option');
+
+        expect(renderedOptions).toHaveLength(options.length);
     });
 });
