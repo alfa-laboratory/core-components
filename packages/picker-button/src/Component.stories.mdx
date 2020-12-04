@@ -39,13 +39,13 @@ export const options = [
 <Story name='Picker button'>
     <PickerButton
         options={options}
-        multiple={true}
-        allowUnselect={true}
         label={text('label', 'some label')}
+        size={select('size', ['xs', 's', 'm'], 'm')}
+        view={select('view', ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost'], 'secondary')}
         disabled={boolean('disabled', false)}
         loading={boolean('loading', false)}
-        view={select('view', ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost'], 'primary')}
-        size={select('size', ['xs', 's', 'm'], 'm')}
+        multiple={boolean('multiple', true)}
+        allowUnselect={boolean('allowUnselect', true)}
     />
 </Story>
 

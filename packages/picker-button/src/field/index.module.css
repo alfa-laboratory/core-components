@@ -13,13 +13,13 @@
 .icon {
     width: '100%';
 }
+
 .xs {
     width: 18px;
 }
 
 .s,
-.m,
-.l {
+.m {
     width: 24px;
 }
 
