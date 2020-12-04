@@ -2,6 +2,8 @@ import React, { FC, useCallback } from 'react';
 import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
 import { isEqual, isLastDayOfMonth, isSameDay, isToday, isWithinInterval } from 'date-fns';
+import { usePrevious } from '@alfalab/hooks';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { WEEKDAYS, getSelectionRange } from '../../utils';
 import { Day } from '../../typings';
 
@@ -12,6 +14,11 @@ export type DaysTableProps = {
      * Массив-календарь недель
      */
     weeks?: Day[][];
+
+    /**
+     * Активный месяц
+     */
+    activeMonth?: Date;
 
     /**
      * Начало выделенного периода
@@ -36,11 +43,18 @@ export type DaysTableProps = {
 
 export const DaysTable: FC<DaysTableProps> = ({
     weeks = [],
+    activeMonth = new Date(),
     highlighted,
     selectedFrom,
     selectedTo,
     getDayProps,
 }) => {
+    const prevActiveMonth = usePrevious(activeMonth);
+
+    const direction = prevActiveMonth && (activeMonth < prevActiveMonth ? 'right' : 'left');
+
+    const selection = getSelectionRange(selectedFrom, selectedTo, highlighted);
+
     const renderHeader = useCallback(
         () =>
             WEEKDAYS.map(dayName => (
@@ -50,8 +64,6 @@ export const DaysTable: FC<DaysTableProps> = ({
             )),
         [],
     );
-
-    const selection = getSelectionRange(selectedFrom, selectedTo, highlighted);
 
     const renderDay = (day: Day) => {
         const daySelected =
@@ -104,11 +116,24 @@ export const DaysTable: FC<DaysTableProps> = ({
     );
 
     return (
-        <table className={styles.daysTable}>
+        <table className={cn(styles.daysTable, direction && styles[direction])}>
             <thead>
                 <tr>{renderHeader()}</tr>
             </thead>
-            <tbody>{weeks.map(renderWeek)}</tbody>
+            <TransitionGroup component={null}>
+                <CSSTransition
+                    key={activeMonth.getTime()}
+                    timeout={500}
+                    classNames={{
+                        enter: styles.daysEnter,
+                        enterActive: styles.daysEnterActive,
+                        exit: styles.daysExit,
+                        exitActive: styles.daysExitActive,
+                    }}
+                >
+                    <tbody>{weeks.map(renderWeek)}</tbody>
+                </CSSTransition>
+            </TransitionGroup>
         </table>
     );
 };

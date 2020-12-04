@@ -11,6 +11,7 @@
     --calendar-month-only-header-paddings: var(--gap-m) var(--gap-2xl) var(--gap-s);
 
     /* День */
+    --calendar-day-size: 40px;
     --calendar-day-border-radius: 4px;
 
     /* today */

@@ -214,6 +214,7 @@ export const Calendar: FC<CalendarProps> = ({
                 {view === 'days' && (
                     <DaysTable
                         weeks={weeks}
+                        activeMonth={activeMonth}
                         selectedFrom={selectedFrom}
                         selectedTo={selectedTo}
                         getDayProps={getDayProps}

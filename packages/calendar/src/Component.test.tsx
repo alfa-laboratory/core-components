@@ -15,7 +15,7 @@ describe('Calendar', () => {
     const defaultMonth = monthName(defaultDate).toString();
     const defaultYear = defaultDate.getFullYear().toString();
 
-    const waitForMonthChange = async () => new Promise(res => setTimeout(res, 0));
+    const waitForMonthChange = async () => new Promise(res => setTimeout(res, 1000));
 
     describe('Display tests', () => {
         it('should match snapshot', () => {
@@ -168,7 +168,7 @@ describe('Calendar', () => {
     });
 
     describe('when maxDate is set', () => {
-        it('should disable all days after maxDate', () => {
+        it('should disable all days after maxDate', async () => {
             const maxDate = addDays(defaultDate, 10).getTime();
             const { container, getByLabelText } = render(
                 <Calendar value={defaultValue} maxDate={maxDate} />,
@@ -177,6 +177,8 @@ describe('Calendar', () => {
             expect(container.querySelectorAll('table button:disabled')).toHaveLength(0);
 
             getByLabelText('Следующий месяц').click();
+
+            await waitForMonthChange();
 
             const nonDisabledDays = container.querySelectorAll('table button:not(:disabled)');
             const lastNonDisabledDay = nonDisabledDays[nonDisabledDays.length - 1];
