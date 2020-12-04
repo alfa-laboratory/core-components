@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.4.1](https://github.com/alfa-laboratory/core-components/compare/v5.4.0...v5.4.1) (2020-12-04)
+
+
+### Bug Fixes
+
+* **themes:** remove imports from mixins ([4d878b5](https://github.com/alfa-laboratory/core-components/commit/4d878b59e46c1cfc1799182367421402af6462db))
+
 ## [5.4.0](https://github.com/alfa-laboratory/core-components/compare/v5.3.0...v5.4.0) (2020-12-03)
 
 
