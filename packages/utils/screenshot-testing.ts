@@ -10,8 +10,8 @@ const screenshotOpts = {
 };
 
 export const screenshotTesting = (
-    cases: any,
-    handler: any,
+    cases: any[],
+    it: any,
     beforeAll: any,
     afterAll: any,
     expect: any,
@@ -30,7 +30,7 @@ export const screenshotTesting = (
         await browser.close();
     });
 
-    handler.each(cases)('%s', async (name: string, link: string) => {
+    it.each(cases)('%s', async (name: string, link: string) => {
         await page?.goto(link);
         const image = await page?.screenshot(screenshotOpts);
 
