@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC, RefCallback, useCallback, useRef } from 'react';
 import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
 import { isEqual, isLastDayOfMonth, isSameDay, isToday, isWithinInterval } from 'date-fns';
@@ -38,7 +38,7 @@ export type DaysTableProps = {
     /**
      * Доп. пропсы для переданного дня
      */
-    getDayProps: (day: Day) => Record<string, unknown>;
+    getDayProps: (day: Day) => Record<string, unknown> & { ref: RefCallback<HTMLButtonElement> };
 };
 
 export const DaysTable: FC<DaysTableProps> = ({
@@ -49,6 +49,10 @@ export const DaysTable: FC<DaysTableProps> = ({
     selectedTo,
     getDayProps,
 }) => {
+    const activeMonthRef = useRef(activeMonth);
+
+    activeMonthRef.current = activeMonth;
+
     const prevActiveMonth = usePrevious(activeMonth);
 
     const direction = prevActiveMonth && (activeMonth < prevActiveMonth ? 'right' : 'left');
@@ -81,9 +85,20 @@ export const DaysTable: FC<DaysTableProps> = ({
 
         const rangeStart = selection && isSameDay(day.date, selection.start);
 
+        const dayProps = getDayProps(day);
+
         return (
             <Button
-                {...getDayProps(day)}
+                {...dayProps}
+                ref={node => {
+                    /**
+                     * После анимации реф-коллбэк вызывается еще раз, и в него передается null и старый activeMonth.
+                     * Поэтому приходится хранить актуальный месяц в рефе и сравнивать с ним.
+                     */
+                    if (day.date.getMonth() === activeMonthRef.current.getMonth()) {
+                        dayProps.ref(node as HTMLButtonElement);
+                    }
+                }}
                 type='button'
                 view='ghost'
                 size='xs'
