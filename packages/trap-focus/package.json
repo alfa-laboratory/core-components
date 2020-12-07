@@ -1,0 +1,18 @@
+{
+    "name": "@alfalab/core-components-trap-focus",
+    "version": "1.0.0",
+    "description": "Trap Focus component",
+    "keywords": [],
+    "license": "ISC",
+    "main": "dist/index.js",
+    "module": "./dist/modern/index.js",
+    "files": [
+        "dist"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "peerDependencies": {
+        "react": "^16.9.0"
+    }
+}
