@@ -13,7 +13,7 @@ exports[`Snapshots tests should display correctly 1`] = `
     <button
       aria-controls="downshift-1-menu"
       aria-labelledby="downshift-1-label"
-      class="component secondary s block"
+      class="component secondary m block"
       id="downshift-0-input"
       selectedmultiple=""
       tabindex="0"
@@ -35,6 +35,7 @@ exports[`Snapshots tests should display correctly 1`] = `
           class="iconContainer"
         >
           <svg
+            data-test-id="picker-button-icon"
             focusable="false"
             height="24"
             viewBox="0 0 24 24"
@@ -80,7 +81,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
     <button
       aria-controls="downshift-3-menu"
       aria-labelledby="downshift-3-label"
-      class="component secondary s block iconOnly"
+      class="component secondary m block iconOnly"
       id="downshift-2-input"
       selectedmultiple=""
       tabindex="0"
@@ -92,6 +93,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
           class="iconContainer open"
         >
           <svg
+            data-test-id="picker-button-icon"
             focusable="false"
             height="24"
             viewBox="0 0 24 24"
@@ -128,11 +130,11 @@ exports[`Snapshots tests should display opened correctly 1`] = `
           class="optionsList"
         >
           <div
-            class="optionsList s"
+            class="optionsList m"
           >
             <div
               aria-selected="true"
-              class="option s highlighted"
+              class="option m highlighted"
               id="downshift-3-item-0"
               role="option"
             >
@@ -147,7 +149,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
             </div>
             <div
               aria-selected="false"
-              class="option s"
+              class="option m"
               id="downshift-3-item-1"
               role="option"
             >
@@ -162,7 +164,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
             </div>
             <div
               aria-selected="false"
-              class="option s"
+              class="option m"
               id="downshift-3-item-2"
               role="option"
             >
@@ -177,7 +179,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
             </div>
             <div
               aria-selected="false"
-              class="option s"
+              class="option m"
               id="downshift-3-item-3"
               role="option"
             >
@@ -192,7 +194,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
             </div>
             <div
               aria-selected="false"
-              class="option s"
+              class="option m"
               id="downshift-3-item-4"
               role="option"
             >
@@ -207,7 +209,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
             </div>
             <div
               aria-selected="false"
-              class="option s"
+              class="option m"
               id="downshift-3-item-5"
               role="option"
             >
@@ -222,7 +224,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
             </div>
             <div
               aria-selected="false"
-              class="option s"
+              class="option m"
               id="downshift-3-item-6"
               role="option"
             >
@@ -237,7 +239,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
             </div>
             <div
               aria-selected="false"
-              class="option s"
+              class="option m"
               id="downshift-3-item-7"
               role="option"
             >
@@ -252,7 +254,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
             </div>
             <div
               aria-selected="false"
-              class="option s"
+              class="option m"
               id="downshift-3-item-8"
               role="option"
             >
@@ -267,7 +269,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
             </div>
             <div
               aria-selected="false"
-              class="option s"
+              class="option m"
               id="downshift-3-item-9"
               role="option"
             >
@@ -282,7 +284,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
             </div>
             <div
               aria-selected="false"
-              class="option s"
+              class="option m"
               id="downshift-3-item-10"
               role="option"
             >
@@ -297,7 +299,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
             </div>
             <div
               aria-selected="false"
-              class="option s"
+              class="option m"
               id="downshift-3-item-11"
               role="option"
             >
@@ -312,7 +314,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
             </div>
             <div
               aria-selected="false"
-              class="option s"
+              class="option m"
               id="downshift-3-item-12"
               role="option"
             >
@@ -327,7 +329,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
             </div>
             <div
               aria-selected="false"
-              class="option s"
+              class="option m"
               id="downshift-3-item-13"
               role="option"
             >
@@ -342,7 +344,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
             </div>
             <div
               aria-selected="false"
-              class="option s"
+              class="option m"
               id="downshift-3-item-14"
               role="option"
             >

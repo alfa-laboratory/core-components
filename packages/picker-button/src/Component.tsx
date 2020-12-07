@@ -11,11 +11,18 @@ import {
 
 import { Field as DefaultField } from './field';
 
+export type PickerButtonSize = 'xs' | 's' | 'm';
+
 export type PickerButtonProps = Omit<
     BaseSelectProps,
-    'Field' | 'placeholder' | 'Arrow' | 'autocomplete'
+    'Field' | 'placeholder' | 'Arrow' | 'autocomplete' | 'size'
 > &
-    Pick<ButtonProps, 'view' | 'loading'>;
+    Pick<ButtonProps, 'view' | 'loading'> & {
+        /**
+         * Размер кнопки
+         */
+        size?: PickerButtonSize;
+    };
 
 export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
     (
@@ -26,6 +33,7 @@ export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
             closeOnSelect = false,
             view,
             loading,
+            size = 'm',
             ...restProps
         },
         ref,
@@ -35,9 +43,12 @@ export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
             closeOnSelect={closeOnSelect}
             Option={Option}
             Field={DefaultField}
+            size={size === 'm' ? 'm' : 's'}
             fieldProps={{
                 view,
                 loading,
+                /** size у select, button несовместимы */
+                buttonSize: size,
             }}
             Optgroup={Optgroup}
             OptionsList={OptionsList}

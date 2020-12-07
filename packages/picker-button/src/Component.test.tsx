@@ -76,13 +76,6 @@ describe('Render tests', () => {
         expect(button).toHaveClass('loading');
     });
 
-    it('should have secondary class by default', async () => {
-        render(<PickerButton options={options} />);
-        const button = document.querySelector('button');
-
-        expect(button).toHaveClass('secondary');
-    });
-
     it('should have primary class', async () => {
         const view = 'primary';
         render(<PickerButton options={options} view={view} />);
@@ -91,20 +84,29 @@ describe('Render tests', () => {
         expect(button).toHaveClass(view);
     });
 
-    it('should have s class by default', async () => {
-        const size = 's';
-        render(<PickerButton options={options} />);
+    it('should have m class, icon size = 24, secondary class by default', async () => {
+        const iconSize = '24';
+        const { getByTestId } = render(<PickerButton options={options} />);
         const button = document.querySelector('button');
+        const icon = getByTestId('picker-button-icon');
 
-        expect(button).toHaveClass(size);
+        expect(button).toHaveClass('m');
+        expect(button).toHaveClass('secondary');
+        expect(icon.getAttribute('width')).toBe(iconSize);
+        expect(icon.getAttribute('height')).toBe(iconSize);
     });
 
-    it('should have m class', async () => {
-        const size = 'm';
-        render(<PickerButton options={options} size={size} />);
+    it('should have xs class and small icon', async () => {
+        const size = 'xs';
+        const iconSize = '18';
+
+        const { getByTestId } = render(<PickerButton options={options} size={size} />);
         const button = document.querySelector('button');
+        const icon = getByTestId('picker-button-icon');
 
         expect(button).toHaveClass(size);
+        expect(icon.getAttribute('width')).toBe(iconSize);
+        expect(icon.getAttribute('height')).toBe(iconSize);
     });
 
     it('should have open class if opened', () => {

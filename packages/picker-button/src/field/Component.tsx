@@ -10,11 +10,14 @@ import {
 } from '@alfalab/icons-classic';
 
 import styles from './index.module.css';
+import { PickerButtonSize } from '..';
 
-type FieldProps = Omit<BaseFieldProps, 'size'> & ButtonProps;
+type FieldProps = Omit<BaseFieldProps, 'size'> &
+    ButtonProps & {
+        buttonSize?: PickerButtonSize;
+    };
 
 export const Field = ({
-    size = 'm',
     open,
     multiple,
     error,
@@ -27,13 +30,14 @@ export const Field = ({
     innerProps,
     className,
     view,
+    buttonSize = 'm',
     ...restProps
 }: FieldProps) => {
     let Icon: FC<SVGProps<SVGSVGElement>>;
     if (view === 'primary') {
-        Icon = size === 'xs' ? ArrowDownSWhiteIcon : ArrowDownMWhiteIcon;
+        Icon = buttonSize === 'xs' ? ArrowDownSWhiteIcon : ArrowDownMWhiteIcon;
     } else {
-        Icon = size === 'xs' ? ArrowDownSBlackIcon : ArrowDownMBlackIcon;
+        Icon = buttonSize === 'xs' ? ArrowDownSBlackIcon : ArrowDownMBlackIcon;
     }
 
     return (
@@ -42,14 +46,14 @@ export const Field = ({
         <Button
             rightAddons={
                 <span className={cn(styles.iconContainer, open && styles.open)}>
-                    <Icon />
+                    <Icon data-test-id='picker-button-icon' />
                 </span>
             }
             block={true}
-            size={size}
             view={view}
             {...restProps}
             {...innerProps}
+            size={buttonSize}
         >
             {label}
         </Button>
