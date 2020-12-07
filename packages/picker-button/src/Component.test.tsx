@@ -34,9 +34,9 @@ describe('Snapshots tests', () => {
     it('should display opened correctly', () => {
         const { container } = render(<PickerButton options={options} />);
 
-        const button = document.querySelector('button') as HTMLButtonElement;
+        const button = document.querySelector('button');
 
-        fireEvent.click(button);
+        if (button) fireEvent.click(button);
 
         expect(container).toMatchSnapshot();
     });
@@ -110,11 +110,11 @@ describe('Render tests', () => {
     it('should have open class if opened', () => {
         render(<PickerButton label={label} options={options} />);
 
-        const button = document.querySelector('button') as HTMLButtonElement;
+        const button = document.querySelector('button');
 
         const iconContainer = document.querySelector('.iconContainer');
 
-        fireEvent.click(button);
+        if (button) fireEvent.click(button);
 
         expect(iconContainer).toHaveClass('open');
     });
