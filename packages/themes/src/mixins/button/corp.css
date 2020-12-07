@@ -5,13 +5,19 @@
     --color-light-border-key: #0b1f35;
     --color-light-specialbg-component: #eeeff1;
 
+    /* primary */
+    --button-primary-base-bg-color: var(--color-light-bg-accent);
+    --button-primary-hover-bg-color: color-mod(var(--color-light-bg-accent) shade(7%));
+    --button-primary-active-bg-color: color-mod(var(--color-light-bg-accent) shade(15%));
+    --button-primary-disabled-bg-color: color-mod(var(--color-light-bg-accent) alpha(30%));
+
     /* secondary */
     --button-secondary-base-bg-color: transparent;
-    --button-secondary-base-border-color: color-mod(var(--color-light-border-key) alpha(60%));
-    --button-secondary-hover-bg-color: color-mod(var(--color-light-specialbg-component) shade(7%));
-    --button-secondary-active-bg-color: color-mod(
-        var(--color-light-specialbg-component) shade(15%)
-    );
+    --button-secondary-base-border-color: var(--color-light-border-tertiary-inverted);
+    --button-secondary-hover-bg-color: var(--color-light-specialbg-component);
+    --button-secondary-active-bg-color: color-mod(var(--color-light-specialbg-component) shade(7%));
     --button-secondary-disabled-bg-color: transparent;
-    --button-secondary-disabled-border-color: color-mod(var(--color-light-border-key) alpha(10%));
+    --button-secondary-disabled-border-color: color-mod(
+        var(--color-light-border-tertiary-inverted) alpha(30%)
+    );
 }
