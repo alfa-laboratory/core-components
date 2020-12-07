@@ -7,6 +7,8 @@ import {
     ExitHandler,
 } from 'react-transition-group/Transition';
 
+// TODO: перенести в alfalab/utils
+
 /**
  * Типы для свойств компонентов с анимацией
  */
@@ -110,7 +112,7 @@ export function getContainer(
  * @param funcs
  */
 export function createChainedFunction(
-    ...funcs: Array<((...args: any[]) => void) | undefined | null>
+    ...funcs: Array<((...args: never[]) => void) | undefined | null>
 ) {
     return funcs.reduce(
         (acc, func) => {
@@ -118,14 +120,14 @@ export function createChainedFunction(
                 return acc;
             }
 
-            return function chainedFunction(this: any, ...args) {
-                // eslint-disable-next-line
+            return function chainedFunction(this: unknown, ...args) {
+                // eslint-disable-next-line no-unused-expressions
                 acc?.apply(this, args);
                 func.apply(this, args);
             };
         },
         () => undefined,
-    ) as (...args: any[]) => never;
+    ) as (...args: unknown[]) => never;
 }
 
 /*

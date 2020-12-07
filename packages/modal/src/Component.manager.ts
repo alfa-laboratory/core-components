@@ -182,7 +182,7 @@ export class ModalManager {
         }
     }
 
-    remove(modal: ModalElement) {
+     remove(modal: ModalElement) {
         const modalIndex = this.modals.indexOf(modal);
 
         if (modalIndex === -1) {

@@ -155,7 +155,7 @@ describe('Modal', () => {
         let wrapper: RenderResult;
 
         const modal = (props?: Partial<ModalProps>) => (
-            <Modal open={false} dataTestId={"Modal"} {...props}>
+            <Modal open={false} dataTestId="Modal" {...props}>
                 <div id="container">
                     <h1 id="heading">Hello</h1>
                 </div>

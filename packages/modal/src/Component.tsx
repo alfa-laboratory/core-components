@@ -456,7 +456,8 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
                             onClick={handleBackdropClick}
                             {...backdropProps}
                         />
-                        ) }
+                    ) }
+
                     <TrapFocus
                         disableEnforceFocus={disableEnforceFocus}
                         disableAutoFocus={disableAutoFocus}
@@ -473,8 +474,8 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
                                 })}
                         >
                             <div className={cn(styles['flex-container'], {
-                                [`${styles['flex-container_small']}`]: isSmall})
-                            }>
+                                [`${styles['flex-container_small']}`]: isSmall,
+                            })}>
                                 <div
                                     style={style}
                                     className={cn(styles.content, className, {
