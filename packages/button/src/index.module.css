@@ -65,6 +65,10 @@
     opacity: 0;
 }
 
+.text {
+    flex-grow: 1;
+}
+
 a.loading {
     pointer-events: none;
 }
