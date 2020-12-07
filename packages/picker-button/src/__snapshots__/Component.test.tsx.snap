@@ -32,19 +32,27 @@ exports[`Snapshots tests should display correctly 1`] = `
         class="addons"
       >
         <span
-          class="s iconContainer"
+          class="iconContainer"
         >
           <svg
-            class="icon"
-            fill="currentColor"
             focusable="false"
             height="24"
             viewBox="0 0 24 24"
             width="24"
           >
-            <path
-              d="M12 15L5.5 8 4 9.5l8 8.5 8-8.5L18.5 8 12 15z"
-            />
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <path
+                d="M0 24h24V0H0z"
+              />
+              <path
+                d="M16.074 9.646l.708.708-5.068 5.068-5.068-5.068.708-.708 4.36 4.362z"
+                fill="#000"
+                fill-rule="nonzero"
+              />
+            </g>
           </svg>
         </span>
       </span>
@@ -81,19 +89,27 @@ exports[`Snapshots tests should display opened correctly 1`] = `
         class="addons"
       >
         <span
-          class="s iconContainer open"
+          class="iconContainer open"
         >
           <svg
-            class="icon"
-            fill="currentColor"
             focusable="false"
             height="24"
             viewBox="0 0 24 24"
             width="24"
           >
-            <path
-              d="M12 15L5.5 8 4 9.5l8 8.5 8-8.5L18.5 8 12 15z"
-            />
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <path
+                d="M0 24h24V0H0z"
+              />
+              <path
+                d="M16.074 9.646l.708.708-5.068 5.068-5.068-5.068.708-.708 4.36 4.362z"
+                fill="#000"
+                fill-rule="nonzero"
+              />
+            </g>
           </svg>
         </span>
       </span>

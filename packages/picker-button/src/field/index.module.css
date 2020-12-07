@@ -1,26 +1,13 @@
 @import '../../../themes/src/default.css';
 
+:root {
+    --picker-button-icon-transition: transform 0.2s ease;
+}
+
 .iconContainer {
     display: flex;
-    transition: transform 0.2s ease;
+    transition: var(--picker-button-icon-transition);
     transform: rotateZ(0deg);
-
-    & svg {
-        height: inherit;
-    }
-}
-
-.icon {
-    width: '100%';
-}
-
-.xs {
-    width: 18px;
-}
-
-.s,
-.m {
-    width: 24px;
 }
 
 .open {
