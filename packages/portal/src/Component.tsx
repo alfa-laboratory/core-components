@@ -1,24 +1,64 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef, ReactNode, ReactInstance } from 'react';
 import { createPortal } from 'react-dom';
 
-import { getDefaultPortalContainer } from './portalContainer';
+import { getContainer, useForkRef, setRef } from './utils';
 
 export type PortalProps = {
+    /** Контент */
+    children?: ReactNode;
     /**
-     * Функция, возвращающая контейнер, в который будут рендериться дочерние элементы
+     * Нода, компонент или функция возвращающая их.
+     *
+     * Контейнер, к которому будут добавляться порталы.
+     *
+     * Чаще всего это `document.body`.
      */
-    getPortalContainer?: () => Element;
+    container?: ReactInstance | (() => ReactInstance | null) | null;
+    /**
+     * Отключает поведение портала.
+     *
+     * Дочерние элементы остаются внутри DOM.
+     */
+    disablePortal?: boolean;
 };
 
-export const Portal: React.FC<PortalProps> = ({
-    children,
-    getPortalContainer = getDefaultPortalContainer,
-}) => {
-    const [isMount, setIsMount] = useState(false);
+/**
+ * Порталы предоставляют способ визуализации дочерних элементов в узле DOM,
+ * который существует вне иерархии DOM родительского компонента.
+ */
+export const Portal = forwardRef<Element, PortalProps>(
+    ({ container = null, disablePortal, children }, ref) => {
+        const [mountNode, setMountNode] = useState<Element | null>(null);
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore
+        const handleRef = useForkRef(React.isValidElement(children) ? children?.ref : null, ref);
 
-    useEffect(() => {
-        setIsMount(true);
-    }, []);
+        useEffect(() => {
+            if (!disablePortal) {
+                setMountNode(getContainer(container) || document.body);
+            }
+        }, [container, disablePortal]);
 
-    return isMount ? createPortal(children, getPortalContainer()) : null;
-};
+        useEffect(() => {
+            if (mountNode && !disablePortal) {
+                setRef(ref, mountNode);
+                return () => {
+                    setRef(ref, null);
+                };
+            }
+
+            return () => null;
+        }, [ref, mountNode, disablePortal]);
+
+        if (disablePortal) {
+            if (React.isValidElement(children)) {
+                return React.cloneElement(children, {
+                    ref: handleRef,
+                });
+            }
+            return <React.Fragment>{children}</React.Fragment>;
+        }
+
+        return mountNode ? createPortal(children, mountNode) : mountNode;
+    },
+);
