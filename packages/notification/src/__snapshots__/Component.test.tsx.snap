@@ -3,72 +3,68 @@
 exports[`Notification Snapshots tests should match snapshot 1`] = `
 <body>
   <div />
-  <div
-    alfa-portal-container=""
-  >
-    <div>
+  <div>
+    <div
+      class="notificationComponent hasCloser"
+      style="top: 108px;"
+    >
       <div
-        class="notificationComponent hasCloser"
-        style="top: 108px;"
+        class="leftAddons"
       >
         <div
-          class="leftAddons"
+          class="icon positive"
         >
-          <div
-            class="icon positive"
+          <svg
+            class="iconSvg"
+            fill="currentColor"
+            focusable="false"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
           >
-            <svg
-              class="iconSvg"
-              fill="currentColor"
-              focusable="false"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M20 7.5L10.5 17 4 10.5 5.5 9l5 5 8-8L20 7.5z"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </div>
+            <path
+              clip-rule="evenodd"
+              d="M20 7.5L10.5 17 4 10.5 5.5 9l5 5 8-8L20 7.5z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="contentContainer"
+      >
+        <div
+          class="title"
+        >
+          title
         </div>
         <div
-          class="contentContainer"
+          class="content"
         >
-          <div
-            class="title"
-          >
-            title
-          </div>
-          <div
-            class="content"
-          >
-            text
-          </div>
+          text
         </div>
-        <button
-          aria-label="закрыть"
-          class="component ghost m closer"
-        >
-          <span
-            class="text"
-          >
-            <svg
-              focusable="false"
-              height="18"
-              version="1"
-              viewBox="0 0 18 18"
-              width="18"
-            >
-              <path
-                d="M14.646 2.646L9 8.293 3.354 2.646l-.708.708L8.293 9l-5.647 5.646.708.708L9 9.707l5.646 5.647.708-.708L9.707 9l5.647-5.646z"
-                fill="#FFF"
-              />
-            </svg>
-          </span>
-        </button>
       </div>
+      <button
+        aria-label="закрыть"
+        class="component ghost m closer"
+      >
+        <span
+          class="text"
+        >
+          <svg
+            focusable="false"
+            height="18"
+            version="1"
+            viewBox="0 0 18 18"
+            width="18"
+          >
+            <path
+              d="M14.646 2.646L9 8.293 3.354 2.646l-.708.708L8.293 9l-5.647 5.646.708.708L9 9.707l5.646 5.647.708-.708L9.707 9l5.647-5.646z"
+              fill="#FFF"
+            />
+          </svg>
+        </span>
+      </button>
     </div>
   </div>
 </body>
@@ -76,100 +72,92 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
 
 exports[`Notification Snapshots tests should match snapshot with leftAddons 1`] = `
 <body>
-  <div
-    alfa-portal-container=""
-  >
-    <div>
+  <div />
+  <div>
+    <div
+      class="notificationComponent hasCloser"
+      style="top: 108px;"
+    >
       <div
-        class="notificationComponent hasCloser"
-        style="top: 108px;"
+        class="leftAddons"
       >
-        <div
-          class="leftAddons"
-        >
-          <div>
-            leftAddons
-          </div>
+        <div>
+          leftAddons
         </div>
-        <div
-          class="contentContainer"
-        />
-        <button
-          aria-label="закрыть"
-          class="component ghost m closer"
-        >
-          <span
-            class="text"
-          >
-            <svg
-              focusable="false"
-              height="18"
-              version="1"
-              viewBox="0 0 18 18"
-              width="18"
-            >
-              <path
-                d="M14.646 2.646L9 8.293 3.354 2.646l-.708.708L8.293 9l-5.647 5.646.708.708L9 9.707l5.646 5.647.708-.708L9.707 9l5.647-5.646z"
-                fill="#FFF"
-              />
-            </svg>
-          </span>
-        </button>
       </div>
+      <div
+        class="contentContainer"
+      />
+      <button
+        aria-label="закрыть"
+        class="component ghost m closer"
+      >
+        <span
+          class="text"
+        >
+          <svg
+            focusable="false"
+            height="18"
+            version="1"
+            viewBox="0 0 18 18"
+            width="18"
+          >
+            <path
+              d="M14.646 2.646L9 8.293 3.354 2.646l-.708.708L8.293 9l-5.647 5.646.708.708L9 9.707l5.646 5.647.708-.708L9.707 9l5.647-5.646z"
+              fill="#FFF"
+            />
+          </svg>
+        </span>
+      </button>
     </div>
   </div>
-  <div />
 </body>
 `;
 
 exports[`Notification Snapshots tests should match snapshot without icon 1`] = `
 <body>
-  <div
-    alfa-portal-container=""
-  >
-    <div>
+  <div />
+  <div>
+    <div
+      class="notificationComponent hasCloser"
+      style="top: 108px;"
+    >
       <div
-        class="notificationComponent hasCloser"
-        style="top: 108px;"
+        class="contentContainer"
       >
         <div
-          class="contentContainer"
+          class="title"
         >
-          <div
-            class="title"
-          >
-            title
-          </div>
-          <div
-            class="content"
-          >
-            text
-          </div>
+          title
         </div>
-        <button
-          aria-label="закрыть"
-          class="component ghost m closer"
+        <div
+          class="content"
         >
-          <span
-            class="text"
-          >
-            <svg
-              focusable="false"
-              height="18"
-              version="1"
-              viewBox="0 0 18 18"
-              width="18"
-            >
-              <path
-                d="M14.646 2.646L9 8.293 3.354 2.646l-.708.708L8.293 9l-5.647 5.646.708.708L9 9.707l5.646 5.647.708-.708L9.707 9l5.647-5.646z"
-                fill="#FFF"
-              />
-            </svg>
-          </span>
-        </button>
+          text
+        </div>
       </div>
+      <button
+        aria-label="закрыть"
+        class="component ghost m closer"
+      >
+        <span
+          class="text"
+        >
+          <svg
+            focusable="false"
+            height="18"
+            version="1"
+            viewBox="0 0 18 18"
+            width="18"
+          >
+            <path
+              d="M14.646 2.646L9 8.293 3.354 2.646l-.708.708L8.293 9l-5.647 5.646.708.708L9 9.707l5.646 5.647.708-.708L9.707 9l5.647-5.646z"
+              fill="#FFF"
+            />
+          </svg>
+        </span>
+      </button>
     </div>
   </div>
-  <div />
 </body>
 `;

@@ -6,18 +6,14 @@ Object {
   "baseElement": <body>
     <div />
     <div
-      alfa-portal-container=""
+      class="component entered entered"
+      data-popper-escaped="true"
+      data-popper-placement="left"
+      data-popper-reference-hidden="true"
+      style="position: absolute; left: 0px; top: 0px; transition-duration: 300ms; right: 0px; transform: translate(0px, 0px);"
     >
-      <div
-        class="component entered entered"
-        data-popper-escaped="true"
-        data-popper-placement="left"
-        data-popper-reference-hidden="true"
-        style="position: absolute; left: 0px; top: 0px; transition-duration: 300ms; right: 0px; transform: translate(0px, 0px);"
-      >
-        <div>
-          I am popover
-        </div>
+      <div>
+        I am popover
       </div>
     </div>
   </body>,
@@ -80,22 +76,18 @@ exports[`Render tests should render without Transition of withTransition is fals
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <div />
     <div
-      alfa-portal-container=""
+      class="component"
+      data-popper-escaped="true"
+      data-popper-placement="left"
+      data-popper-reference-hidden="true"
+      style="position: absolute; left: 0px; top: 0px; right: 0px; transform: translate(0px, 0px);"
     >
-      <div
-        class="component"
-        data-popper-escaped="true"
-        data-popper-placement="left"
-        data-popper-reference-hidden="true"
-        style="position: absolute; left: 0px; top: 0px; right: 0px; transform: translate(0px, 0px);"
-      >
-        <div>
-          I am popover
-        </div>
+      <div>
+        I am popover
       </div>
     </div>
-    <div />
   </body>,
   "container": <div />,
   "debug": [Function],
