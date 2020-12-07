@@ -72,11 +72,15 @@ describe('Calendar', () => {
     });
 
     it('should open month of date passed by value', () => {
-        const { queryByText } = render(<Calendar value={defaultValue} />);
+        const { queryByText, rerender } = render(<Calendar value={defaultValue} />);
 
         expect(queryByText(defaultYear)).toBeInTheDocument();
         expect(queryByText(defaultMonth)).toBeInTheDocument();
         expect(queryByText(defaultDateOfMonth)).toBeInTheDocument();
+
+        rerender(<Calendar value={addMonths(defaultValue, 1).getTime()} />);
+
+        expect(queryByText(MONTHS[defaultDate.getMonth() + 1])).toBeInTheDocument();
     });
 
     it('should open month passed by month', () => {

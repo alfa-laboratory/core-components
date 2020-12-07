@@ -133,6 +133,7 @@ export const Calendar: FC<CalendarProps> = ({
         years,
         canSetPrevMonth,
         canSetNextMonth,
+        setMonthByDate,
         setPrevMonth,
         setNextMonth,
         highlighted,
@@ -188,6 +189,13 @@ export const Calendar: FC<CalendarProps> = ({
     useDidUpdateEffect(() => {
         setScrolled(false);
     }, [view]);
+
+    useDidUpdateEffect(() => {
+        const newMonth = value && startOfMonth(value);
+        if (newMonth && newMonth.getTime() !== activeMonth.getTime()) {
+            setMonthByDate(newMonth);
+        }
+    }, [value]);
 
     return (
         <div
