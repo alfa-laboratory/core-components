@@ -1,0 +1,85 @@
+import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
+import {boolean, select} from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { Modal } from './Component';
+import { version } from '../package.json';
+
+<Meta
+    title='Компоненты'
+    component={Modal}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+<!-- Canvas -->
+
+
+<Story name='Modal'>
+    <div>
+        <Modal
+            open={boolean('open', false)}
+            hasCloser={boolean('closer', false)}
+            fullscreen={boolean('fullscreen', false)}
+            size={select('size', ['s', 'm', 'l'], 'm')}
+            hideBackdrop={boolean('hide backdrop', false)}
+            footer={<div>Footer content</div>}
+        >
+            <div>Modal content</div>
+        </Modal>
+    </div>
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Modal'
+    version={version}
+    package='@alfalab/core-components-modal'
+    stage={1}
+/>
+
+```tsx
+import { Modal } from '@alfalab/core-components-modal';
+```
+Компонент `Modal`.
+
+Построен с использованием компонентов `Portal`, `Fade` и `TrapFocus`.
+
+Может быть взят за основу для `Drawer`.
+
+<Props of={Modal} />
+
+export const SimpleModal = () => {
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
+    return (
+        <div>
+            <button type="button" onClick={handleOpen}>
+                Open Modal
+            </button>
+            <Modal open={open} onClose={handleClose} closeAfterTransition={true} footer={
+                <div id="simple-modal-footer">
+                    footer content
+                </div>
+            }>
+                <div>
+                    <p id="simple-modal-title">Text in a modal</p>
+                    <p id="simple-modal-description">
+                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                    </p>
+                    <SimpleModal />
+                </div>
+            </Modal>
+        </div>
+    );
+};
+
+<Preview>
+    <SimpleModal />
+</Preview>
