@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { FC, SVGProps } from 'react';
 import cn from 'classnames';
 import { Button, ButtonProps } from '@alfalab/core-components-button';
 import { FieldProps as BaseFieldProps } from '@alfalab/core-components-select/src/typings';
-import { ArrowDownMBlackIcon, ArrowDownSBlackIcon } from '@alfalab/icons-classic';
+import {
+    ArrowDownMBlackIcon,
+    ArrowDownSBlackIcon,
+    ArrowDownMWhiteIcon,
+    ArrowDownSWhiteIcon,
+} from '@alfalab/icons-classic';
 
 import styles from './index.module.css';
 
@@ -21,9 +26,15 @@ export const Field = ({
     Arrow,
     innerProps,
     className,
+    view,
     ...restProps
 }: FieldProps) => {
-    const Icon = size === 'xs' ? ArrowDownSBlackIcon : ArrowDownMBlackIcon;
+    let Icon: FC<SVGProps<SVGSVGElement>>;
+    if (view === 'primary') {
+        Icon = size === 'xs' ? ArrowDownSWhiteIcon : ArrowDownMWhiteIcon;
+    } else {
+        Icon = size === 'xs' ? ArrowDownSBlackIcon : ArrowDownMBlackIcon;
+    }
 
     return (
         // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
@@ -36,6 +47,7 @@ export const Field = ({
             }
             block={true}
             size={size}
+            view={view}
             {...restProps}
             {...innerProps}
         >
