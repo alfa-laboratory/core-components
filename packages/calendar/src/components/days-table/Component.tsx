@@ -1,7 +1,14 @@
 import React, { FC, RefCallback, useCallback, useRef } from 'react';
 import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
-import { isEqual, isLastDayOfMonth, isSameDay, isToday, isWithinInterval } from 'date-fns';
+import {
+    isEqual,
+    isLastDayOfMonth,
+    isSameDay,
+    isToday,
+    isWithinInterval,
+    startOfMonth,
+} from 'date-fns';
 import { usePrevious } from '@alfalab/hooks';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { WEEKDAYS, getSelectionRange } from '../../utils';
@@ -95,7 +102,7 @@ export const DaysTable: FC<DaysTableProps> = ({
                      * После анимации реф-коллбэк вызывается еще раз, и в него передается null и старый activeMonth.
                      * Поэтому приходится хранить актуальный месяц в рефе и сравнивать с ним.
                      */
-                    if (day.date.getMonth() === activeMonthRef.current.getMonth()) {
+                    if (startOfMonth(day.date).getTime() === activeMonthRef.current.getTime()) {
                         dayProps.ref(node as HTMLButtonElement);
                     }
                 }}
