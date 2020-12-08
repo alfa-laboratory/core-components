@@ -145,7 +145,7 @@ export const DaysTable: FC<DaysTableProps> = ({
             <TransitionGroup component={null}>
                 <CSSTransition
                     key={activeMonth.getTime()}
-                    timeout={500}
+                    timeout={300}
                     classNames={{
                         enter: styles.daysEnter,
                         enterActive: styles.daysEnterActive,

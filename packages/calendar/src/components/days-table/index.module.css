@@ -213,6 +213,7 @@
 }
 
 .daysExit {
+    pointer-events: none;
     opacity: 1;
 }
 
