@@ -59,7 +59,11 @@ export const Fade = forwardRef<Element, FadeProps>((props, ref) => {
     } = props;
 
     const nodeRef = React.useRef(null);
-    const foreignRef = useForkRef((children as { ref: React.Ref<typeof children> }).ref, ref);
+    // TODO: заменить на optional chaining
+    const foreignRef = useForkRef(
+        (children && (children as { ref: React.Ref<typeof children> }).ref) || null,
+        ref,
+    );
     const handleRef = useForkRef(nodeRef, foreignRef);
 
     const handleEnter = (node: HTMLElement, isAppearing: boolean) => {
@@ -103,7 +107,7 @@ export const Fade = forwardRef<Element, FadeProps>((props, ref) => {
             onExit={handleExit}
             onExited={handleExited}
         >
-            { (status: string) => (
+            {(status: string) => (
                 <div
                     className={cn(
                         styles.fade,
@@ -120,7 +124,7 @@ export const Fade = forwardRef<Element, FadeProps>((props, ref) => {
                         : children
                     }
                 </div>
-            ) }
+            )}
         </Transition>
     );
 });

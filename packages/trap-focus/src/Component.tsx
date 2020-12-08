@@ -71,8 +71,9 @@ export const TrapFocus: React.FC<TrapFocusProps> = props => {
         rootRef.current = ReactDOM.findDOMNode(instance) as HTMLElement;
     }, []);
 
+    // TODO: заменить на optional chaining
     const handleRef = useForkRef(
-        (children as { ref: React.Ref<typeof children> }).ref,
+        (children && (children as { ref: React.Ref<typeof children> }).ref) || null,
         handleOwnRef,
     );
 

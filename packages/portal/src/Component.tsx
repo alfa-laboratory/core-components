@@ -29,9 +29,14 @@ export type PortalProps = {
 export const Portal = forwardRef<Element, PortalProps>(
     ({ container = null, disablePortal, children }, ref) => {
         const [mountNode, setMountNode] = useState<Element | null>(null);
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-        // @ts-ignore
-        const handleRef = useForkRef(React.isValidElement(children) ? children.ref : null, ref);
+
+        // TODO: заменить на optional chaining
+        const handleRef = useForkRef(
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore
+            React.isValidElement(children) ? (children && children.ref) || null : null,
+            ref,
+        );
 
         useEffect(() => {
             if (!disablePortal) {
