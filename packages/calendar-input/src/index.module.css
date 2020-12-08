@@ -1,0 +1,23 @@
+@import '../../themes/src/default.css';
+
+.component {
+    width: 344px;
+    outline: none;
+}
+
+.calendarContainer {
+    display: inline-block;
+    box-sizing: border-box;
+    box-shadow: var(--shadow-s);
+    border: 1px solid var(--color-light-border-primary);
+    border-radius: 8px;
+}
+
+.searchIcon {
+    width: 24px;
+    height: 24px;
+    display: block;
+    background: url('https://alfabank.st/icons/icon_search_m_black.svg');
+    background-size: cover;
+    background-position: center;
+}

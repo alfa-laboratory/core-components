@@ -1,0 +1,48 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+
+import { CalendarInput } from './Component';
+import { AmountInput } from '../../amount-input/src';
+import { Input } from '../../input/src';
+import { withSuffix } from '../../with-suffix/src';
+import { name, version } from '../package.json';
+
+<Meta title='Компоненты' component={CalendarInput} />
+
+<!-- Canvas -->
+
+<Story name='CalendarInput'>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('');
+        const handleChange = (event, { value }) => setValue(value);
+        return (
+            <CalendarInput
+                value={value}
+                onChange={handleChange}
+                label='Дата регистрации'
+            />
+        );
+    })}
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='CalendarInput'
+    version={version}
+    package='@alfalab/core-components-calendar-input'
+    stage={1}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=13931%3A20767'
+/>
+
+```tsx
+import { CalendarInput } from '@alfalab/core-components-calendar-input';
+```
+
+Компонент для ввода даты.
+
+<Props of={CalendarInput} />
