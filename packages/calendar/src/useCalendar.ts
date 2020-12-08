@@ -1,5 +1,6 @@
-import { KeyboardEvent, MouseEvent, useCallback, useMemo, useRef, useState } from 'react';
+import { KeyboardEvent, MouseEvent, Ref, useCallback, useMemo, useRef, useState } from 'react';
 import { startOfMonth, isSameDay, isSameMonth, isSameYear, setYear, addMonths } from 'date-fns';
+import mergeRefs from 'react-merge-refs';
 import {
     limitDate,
     generateMonths,
@@ -422,13 +423,16 @@ export function useCalendar({
         [activeMonth, handleDateRef, handleYearClick],
     );
 
-    const getRootProps = useCallback(() => {
-        return {
-            onKeyDown: handleKeyDown,
-            ref: rootRef,
-            tabIndex: -1,
-        };
-    }, [handleKeyDown]);
+    const getRootProps = useCallback(
+        ({ ref = null }: { ref?: Ref<HTMLDivElement> }) => {
+            return {
+                onKeyDown: handleKeyDown,
+                ref: mergeRefs([ref, rootRef]),
+                tabIndex: -1,
+            };
+        },
+        [handleKeyDown],
+    );
 
     return {
         activeMonth,

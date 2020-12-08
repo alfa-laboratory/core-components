@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useMemo, useState } from 'react';
+import React, { forwardRef, useCallback, useMemo, useState } from 'react';
 import cn from 'classnames';
 import { startOfMonth, subYears } from 'date-fns';
 import { Header } from './components/header';
@@ -88,165 +88,170 @@ export type CalendarProps = {
     dataTestId?: string;
 };
 
-export const Calendar: FC<CalendarProps> = ({
-    className,
-    defaultView = 'days',
-    selectorView = 'full',
-    value,
-    month: monthTimestamp,
-    defaultMonth: defaultMonthTimestamp = +new Date(),
-    minDate: minDateTimestamp,
-    maxDate: maxDateTimestamp,
-    selectedFrom,
-    selectedTo,
-    offDays,
-    events,
-    onChange,
-    onMonthChange,
-    dataTestId,
-}) => {
-    const [view, setView] = useState<View>(defaultView);
-    const [scrolled, setScrolled] = useState(false);
-
-    const selected = useMemo(() => (value ? new Date(value) : undefined), [value]);
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const defaultMonth = useMemo(() => startOfMonth(selected || defaultMonthTimestamp), []);
-
-    const month = useMemo(() => (monthTimestamp ? new Date(monthTimestamp) : undefined), [
-        monthTimestamp,
-    ]);
-
-    const minDate = useMemo(
-        () => (minDateTimestamp ? new Date(minDateTimestamp) : subYears(defaultMonth, 100)),
-        [minDateTimestamp, defaultMonth],
-    );
-
-    const maxDate = useMemo(() => (maxDateTimestamp ? new Date(maxDateTimestamp) : undefined), [
-        maxDateTimestamp,
-    ]);
-
-    const {
-        activeMonth,
-        weeks,
-        months,
-        years,
-        canSetPrevMonth,
-        canSetNextMonth,
-        setMonthByDate,
-        setPrevMonth,
-        setNextMonth,
-        highlighted,
-        getDayProps,
-        getMonthProps,
-        getYearProps,
-        getRootProps,
-    } = useCalendar({
-        month,
-        defaultMonth,
-        view,
-        minDate,
-        maxDate,
-        selected,
-        offDays,
-        events,
-        onChange,
-        onMonthChange,
-    });
-
-    const toggleView = useCallback(
-        (newView: View) => {
-            setView(view === newView ? 'days' : newView);
+export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
+    (
+        {
+            className,
+            defaultView = 'days',
+            selectorView = 'full',
+            value,
+            month: monthTimestamp,
+            defaultMonth: defaultMonthTimestamp = +new Date(),
+            minDate: minDateTimestamp,
+            maxDate: maxDateTimestamp,
+            selectedFrom,
+            selectedTo,
+            offDays,
+            events,
+            onChange,
+            onMonthChange,
+            dataTestId,
         },
-        [view],
-    );
+        ref,
+    ) => {
+        const [view, setView] = useState<View>(defaultView);
+        const [scrolled, setScrolled] = useState(false);
 
-    const handleScroll = useCallback(event => {
-        setScrolled(event.target.scrollTop > 0);
-    }, []);
+        const selected = useMemo(() => (value ? new Date(value) : undefined), [value]);
 
-    const handlePrevArrowClick = useCallback(() => {
-        // TODO: Что должны делать стрелки при view !== days?
-        setPrevMonth();
-    }, [setPrevMonth]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        const defaultMonth = useMemo(() => startOfMonth(selected || defaultMonthTimestamp), []);
 
-    const handleNextArrowClick = useCallback(() => {
-        setNextMonth();
-    }, [setNextMonth]);
+        const month = useMemo(() => (monthTimestamp ? new Date(monthTimestamp) : undefined), [
+            monthTimestamp,
+        ]);
 
-    const handleMonthClick = useCallback(() => {
-        toggleView('months');
-    }, [toggleView]);
+        const minDate = useMemo(
+            () => (minDateTimestamp ? new Date(minDateTimestamp) : subYears(defaultMonth, 100)),
+            [minDateTimestamp, defaultMonth],
+        );
 
-    const handleYearClick = useCallback(() => {
-        toggleView('years');
-    }, [toggleView]);
+        const maxDate = useMemo(() => (maxDateTimestamp ? new Date(maxDateTimestamp) : undefined), [
+            maxDateTimestamp,
+        ]);
 
-    useDidUpdateEffect(() => {
-        setView('days');
-    }, [activeMonth]);
+        const {
+            activeMonth,
+            weeks,
+            months,
+            years,
+            canSetPrevMonth,
+            canSetNextMonth,
+            setMonthByDate,
+            setPrevMonth,
+            setNextMonth,
+            highlighted,
+            getDayProps,
+            getMonthProps,
+            getYearProps,
+            getRootProps,
+        } = useCalendar({
+            month,
+            defaultMonth,
+            view,
+            minDate,
+            maxDate,
+            selected,
+            offDays,
+            events,
+            onChange,
+            onMonthChange,
+        });
 
-    useDidUpdateEffect(() => {
-        setScrolled(false);
-    }, [view]);
+        const toggleView = useCallback(
+            (newView: View) => {
+                setView(view === newView ? 'days' : newView);
+            },
+            [view],
+        );
 
-    useDidUpdateEffect(() => {
-        const newMonth = value && startOfMonth(value);
-        if (newMonth && newMonth.getTime() !== activeMonth.getTime()) {
-            setMonthByDate(newMonth);
-        }
-    }, [value]);
+        const handleScroll = useCallback(event => {
+            setScrolled(event.target.scrollTop > 0);
+        }, []);
 
-    return (
-        <div
-            className={cn(styles.component, className, {
-                [styles.sixWeeks]: weeks.length === 6,
-            })}
-            {...getRootProps()}
-            data-test-id={dataTestId}
-        >
-            <Header
-                month={monthName(activeMonth)}
-                year={activeMonth.getFullYear().toString()}
-                prevArrowVisible={canSetPrevMonth}
-                nextArrowVisible={canSetNextMonth}
-                onPrevArrowClick={handlePrevArrowClick}
-                onNextArrowClick={handleNextArrowClick}
-                onMonthClick={handleMonthClick}
-                onYearClick={handleYearClick}
-                view={selectorView}
-                withShadow={scrolled}
-            />
+        const handlePrevArrowClick = useCallback(() => {
+            // TODO: Что должны делать стрелки при view !== days?
+            setPrevMonth();
+        }, [setPrevMonth]);
 
-            <div className={styles.container}>
-                {view === 'days' && (
-                    <DaysTable
-                        weeks={weeks}
-                        activeMonth={activeMonth}
-                        selectedFrom={selectedFrom}
-                        selectedTo={selectedTo}
-                        getDayProps={getDayProps}
-                        highlighted={highlighted}
-                    />
-                )}
+        const handleNextArrowClick = useCallback(() => {
+            setNextMonth();
+        }, [setNextMonth]);
 
-                {view === 'months' && (
-                    <MonthsTable
-                        selectedMonth={activeMonth}
-                        months={months}
-                        getMonthProps={getMonthProps}
-                    />
-                )}
+        const handleMonthClick = useCallback(() => {
+            toggleView('months');
+        }, [toggleView]);
 
-                {view === 'years' && (
-                    <YearsTable
-                        selectedYear={activeMonth}
-                        years={years}
-                        getYearProps={getYearProps}
-                        onScroll={handleScroll}
-                    />
-                )}
+        const handleYearClick = useCallback(() => {
+            toggleView('years');
+        }, [toggleView]);
+
+        useDidUpdateEffect(() => {
+            setView('days');
+        }, [activeMonth]);
+
+        useDidUpdateEffect(() => {
+            setScrolled(false);
+        }, [view]);
+
+        useDidUpdateEffect(() => {
+            const newMonth = value && startOfMonth(value);
+            if (newMonth && newMonth.getTime() !== activeMonth.getTime()) {
+                setMonthByDate(newMonth);
+            }
+        }, [value]);
+
+        return (
+            <div
+                {...getRootProps({ ref })}
+                className={cn(styles.component, className, {
+                    [styles.sixWeeks]: weeks.length === 6,
+                })}
+                data-test-id={dataTestId}
+            >
+                <Header
+                    month={monthName(activeMonth)}
+                    year={activeMonth.getFullYear().toString()}
+                    prevArrowVisible={canSetPrevMonth}
+                    nextArrowVisible={canSetNextMonth}
+                    onPrevArrowClick={handlePrevArrowClick}
+                    onNextArrowClick={handleNextArrowClick}
+                    onMonthClick={handleMonthClick}
+                    onYearClick={handleYearClick}
+                    view={selectorView}
+                    withShadow={scrolled}
+                />
+
+                <div className={styles.container}>
+                    {view === 'days' && (
+                        <DaysTable
+                            weeks={weeks}
+                            activeMonth={activeMonth}
+                            selectedFrom={selectedFrom}
+                            selectedTo={selectedTo}
+                            getDayProps={getDayProps}
+                            highlighted={highlighted}
+                        />
+                    )}
+
+                    {view === 'months' && (
+                        <MonthsTable
+                            selectedMonth={activeMonth}
+                            months={months}
+                            getMonthProps={getMonthProps}
+                        />
+                    )}
+
+                    {view === 'years' && (
+                        <YearsTable
+                            selectedYear={activeMonth}
+                            years={years}
+                            getYearProps={getYearProps}
+                            onScroll={handleScroll}
+                        />
+                    )}
+                </div>
             </div>
-        </div>
-    );
-};
+        );
+    },
+);

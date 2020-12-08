@@ -17,6 +17,7 @@
     "dependencies": {
         "@alfalab/core-components-button": "^1.6.5",
         "classnames": "^2.2.6",
-        "date-fns": "^2.16.1"
+        "date-fns": "^2.16.1",
+        "react-merge-refs": "^1.1.0"
     }
 }
