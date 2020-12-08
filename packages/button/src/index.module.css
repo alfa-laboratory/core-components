@@ -65,7 +65,7 @@
     opacity: 0;
 }
 
-.text {
+.stretchText {
     flex-grow: 1;
 }
 
