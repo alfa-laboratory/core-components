@@ -15,18 +15,28 @@ import { version } from '../package.json';
 
 
 <Story name='Modal'>
-    <div>
-        <Modal
-            open={boolean('open', false)}
-            hasCloser={boolean('closer', false)}
-            fullscreen={boolean('fullscreen', false)}
-            size={select('size', ['s', 'm', 'l'], 'm')}
-            hideBackdrop={boolean('hide backdrop', false)}
-            footer={<div>Footer content</div>}
-        >
-            <div>Modal content</div>
-        </Modal>
-    </div>
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        const handleModalOpen = () => setOpen(!open);
+        const showFooter = boolean('show footer', false);
+        const footerContent = <div>Footer content</div>;
+        return (
+            <React.Fragment>
+                <button onClick={handleModalOpen}>Open Modal</button>
+                <Modal
+                    open={open}
+                    onClose={handleModalOpen}
+                    hasCloser={boolean('closer', false)}
+                    fullscreen={boolean('fullscreen', false)}
+                    size={select('size', ['s', 'm', 'l'], 'm')}
+                    hideBackdrop={boolean('hide backdrop', false)}
+                    footer={showFooter && footerContent}
+                >
+                    <div>Modal content</div>
+                </Modal>
+            </React.Fragment>
+        );
+    })}
 </Story>
 
 
