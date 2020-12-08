@@ -10,9 +10,9 @@
         }
     },
   "references": [
-    { "path": "../portal" },
-    { "path": "../trap-focus" },
     { "path": "../fade" },
-    { "path": "../mq" }
+    { "path": "../mq" },
+    { "path": "../portal" },
+    { "path": "../trap-focus" }
   ]
 }

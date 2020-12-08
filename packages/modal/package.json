@@ -5,7 +5,6 @@
     "keywords": [],
     "license": "ISC",
     "main": "dist/index.js",
-    "module": "./dist/modern/index.js",
     "files": [
         "dist"
     ],
@@ -13,6 +12,7 @@
         "access": "public"
     },
     "dependencies": {
+        "@alfalab/core-components-fade": "1.0.0",
         "@alfalab/core-components-mq": "1.0.0",
         "@alfalab/core-components-portal": "2.0.0",
         "@alfalab/core-components-trap-focus": "^1.0.0",

@@ -31,7 +31,7 @@ export const Portal = forwardRef<Element, PortalProps>(
         const [mountNode, setMountNode] = useState<Element | null>(null);
         // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
         // @ts-ignore
-        const handleRef = useForkRef(React.isValidElement(children) ? children?.ref : null, ref);
+        const handleRef = useForkRef(React.isValidElement(children) ? children.ref : null, ref);
 
         useEffect(() => {
             if (!disablePortal) {

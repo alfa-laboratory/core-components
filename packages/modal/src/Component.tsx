@@ -240,7 +240,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
     const handleRef = useForkRef(modalRef, ref);
     const contentRef = useRef<HTMLDivElement>(null);
     const hasTransition = getHasTransition(children);
-    const height = use100vh() ?? '100vh';
+    const height = use100vh() || '100vh';
     const [isSmall] = useMatchMedia('screen and (max-width: 47.9375em)');
 
     const getDoc = () => ownerDocument(mountNodeRef.current);
@@ -319,8 +319,9 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
     const handleClose = useCallback(() => {
         manager.remove(getModal());
 
-        if (contentRef.current) {
-            return () => contentRef.current?.removeEventListener('scroll', handleModalContentElementScroll);
+        if (contentRef.current !== null) {
+            // TODO: заменить на optional chaining
+            return () => (contentRef.current as HTMLDivElement).removeEventListener('scroll', handleModalContentElementScroll);
         }
 
         return null;

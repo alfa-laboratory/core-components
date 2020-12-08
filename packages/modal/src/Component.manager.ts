@@ -100,7 +100,8 @@ function handleContainer(containerInfo: ContainerInfo, props: ModalHandleProps) 
          */
         const parent = container.parentElement;
         const scrollContainer =
-            parent?.nodeName === 'HTML' && window.getComputedStyle(parent).overflowY === 'scroll'
+            // TODO: заменить на optional chaining
+            parent && parent.nodeName === 'HTML' && window.getComputedStyle(parent).overflowY === 'scroll'
                 ? parent
                 : container;
 

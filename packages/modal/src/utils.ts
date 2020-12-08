@@ -121,8 +121,9 @@ export function createChainedFunction(
             }
 
             return function chainedFunction(this: unknown, ...args) {
+                // TODO: заменить на optional chaining
                 // eslint-disable-next-line no-unused-expressions
-                acc?.apply(this, args);
+                acc && acc.apply(this, args);
                 func.apply(this, args);
             };
         },

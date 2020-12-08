@@ -72,7 +72,7 @@ export const TrapFocus: React.FC<TrapFocusProps> = props => {
     }, []);
 
     const handleRef = useForkRef(
-        (children as { ref: React.Ref<typeof children> })?.ref,
+        (children as { ref: React.Ref<typeof children> }).ref,
         handleOwnRef,
     );
 

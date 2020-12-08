@@ -59,7 +59,7 @@ export const Fade = forwardRef<Element, FadeProps>((props, ref) => {
     } = props;
 
     const nodeRef = React.useRef(null);
-    const foreignRef = useForkRef((children as { ref: React.Ref<typeof children> })?.ref, ref);
+    const foreignRef = useForkRef((children as { ref: React.Ref<typeof children> }).ref, ref);
     const handleRef = useForkRef(nodeRef, foreignRef);
 
     const handleEnter = (node: HTMLElement, isAppearing: boolean) => {
