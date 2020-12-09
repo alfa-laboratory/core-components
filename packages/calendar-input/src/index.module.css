@@ -1,7 +1,7 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --calendar-input-search-icon: url('https://alfabank.st/icons/icon_search_m_black.svg');
+    --calendar-input-calendar-icon: url('https://alfabank.st/icons/icon_calendar_m_black.svg');
 }
 
 .component {
@@ -22,13 +22,17 @@
     border-radius: 8px;
 }
 
-.searchIcon {
+.calendarIcon {
     width: 24px;
     height: 24px;
     display: block;
-    background: var(--calendar-input-search-icon);
+    background: var(--calendar-input-calendar-icon);
     background-size: cover;
     background-position: center;
+
+    &:not(:only-child) {
+        margin-left: var(--gap-2xs);
+    }
 }
 
 .nativeInput {

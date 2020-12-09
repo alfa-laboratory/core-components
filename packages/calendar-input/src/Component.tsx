@@ -278,7 +278,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                     mask={DATE_MASK}
                     rightAddons={
                         <React.Fragment>
-                            <span className={styles.searchIcon} />
+                            <span className={styles.calendarIcon} />
                             {shouldRenderNative && (
                                 <input
                                     type='date'
