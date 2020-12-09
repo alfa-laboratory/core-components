@@ -1,3 +1,4 @@
+/* eslint-disable multiline-comment-style */
 import React, {
     forwardRef,
     useCallback,
@@ -15,13 +16,25 @@ import { Calendar, CalendarProps } from '@alfalab/core-components-calendar';
 import { Popover } from '@alfalab/core-components-popover';
 import { parse, format } from 'date-fns';
 import mergeRefs from 'react-merge-refs';
+import { isInputDateSupported } from './utils';
 
 import styles from './index.module.css';
 
+const DATE_FORMAT = 'dd.MM.yyyy';
+const NATIVE_DATE_FORMAT = 'yyyy-MM-dd';
+const DATE_MASK = [/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/];
+const IS_BROWSER = typeof window !== 'undefined';
+const SUPPORTS_INPUT_TYPE_DATE = IS_BROWSER && isInputDateSupported();
+
 export type CalendarInputProps = Omit<
     MaskedInputProps,
-    'value' | 'onChange' | 'clear' | 'onClear'
+    'mask' | 'value' | 'onChange' | 'clear' | 'onClear' | 'rightAddons' | 'onBeforeDisplay'
 > & {
+    /**
+     * Растягивает компонент на ширину контейнера
+     */
+    block?: boolean;
+
     /**
      * Дополнительный класс
      */
@@ -58,6 +71,17 @@ export type CalendarInputProps = Omit<
     defaultMonth?: number;
 
     /**
+     * Запрещает поповеру менять свою позицию.
+     * Например, если места снизу недостаточно,то он все равно будет показан снизу
+     */
+    preventFlip?: boolean;
+
+    /**
+     * Управление нативным режимом на мобильных устройствах
+     */
+    mobileMode?: 'native' | 'input';
+
+    /**
      * Обработчик изменения значения
      */
     onChange?: (
@@ -81,15 +105,13 @@ export type CalendarInputProps = Omit<
     dataTestId?: string;
 };
 
-const DATE_FORMAT = 'dd.MM.yyyy';
-
-const dateMask = [/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/];
-
-export const parseDateString = (value: string) => parse(value, DATE_FORMAT, new Date());
+export const parseDateString = (value: string, dateFormat = DATE_FORMAT) =>
+    parse(value, dateFormat, new Date());
 
 export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
     (
         {
+            block = false,
             className,
             inputClassName,
             defaultOpen = false,
@@ -98,6 +120,9 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             value,
             dataTestId,
             calendarProps = {},
+            preventFlip,
+            mobileMode,
+            wrapperRef = null,
             onChange,
             onInputChange,
             onCalendarChange,
@@ -106,6 +131,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         ref,
     ) => {
         const uncontrolled = value === undefined;
+        const shouldRenderNative = SUPPORTS_INPUT_TYPE_DATE && mobileMode === 'native';
 
         const [open, setOpen] = useState(false);
 
@@ -114,11 +140,8 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         const inputValue = uncontrolled ? stateValue : value;
 
         const inputRef = useRef<HTMLInputElement>(null);
-
         const inputWrapperRef = useRef<HTMLDivElement>(null);
-
         const componentRef = useRef<HTMLDivElement>(null);
-
         const calendarRef = useRef<HTMLDivElement>(null);
 
         const handleKeyDown = useCallback((event: KeyboardEvent<HTMLDivElement>) => {
@@ -135,10 +158,8 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             (event: FocusEvent<HTMLDivElement>) => {
                 setOpen(true);
 
-                if (!open && event.target.tagName !== 'INPUT') {
-                    if (calendarRef.current) {
-                        calendarRef.current.focus();
-                    }
+                if (!open && event.target.tagName !== 'INPUT' && calendarRef.current) {
+                    calendarRef.current.focus();
                 }
             },
             [open],
@@ -154,55 +175,74 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         }, []);
 
         const handleInputKeyDown = useCallback((event: KeyboardEvent<HTMLInputElement>) => {
-            if (event.key === 'ArrowDown' && calendarRef.current) {
+            if (['ArrowDown', 'ArrowUp'].includes(event.key) && calendarRef.current) {
+                event.preventDefault();
                 calendarRef.current.focus();
             }
         }, []);
+
+        const changeHandler = useCallback(
+            (
+                event: ChangeEvent<HTMLInputElement> | null,
+                newValue: string,
+                newDate: Date,
+                initiator: 'input' | 'calendar' = 'input',
+                shouldCallOnChange = true,
+            ) => {
+                if (uncontrolled) {
+                    setStateValue(newValue);
+                }
+
+                if (initiator === 'input' && event && onInputChange) {
+                    onInputChange(event, { value: newValue });
+                }
+
+                if (initiator === 'calendar' && onCalendarChange) {
+                    onCalendarChange(newDate.getTime());
+                }
+
+                if (onChange && shouldCallOnChange) {
+                    onChange(event, { date: newDate, value: newValue });
+                }
+            },
+            [onCalendarChange, onChange, onInputChange, uncontrolled],
+        );
 
         const handleInputChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 const newValue = event.target.value;
 
-                if (uncontrolled) {
-                    setStateValue(newValue);
-                }
-
-                if (onInputChange) {
-                    onInputChange(event, { value: newValue });
-                }
-
-                if (newValue.length === dateMask.length && onChange) {
-                    onChange(event, { date: parseDateString(newValue), value: newValue });
-                }
+                changeHandler(
+                    event,
+                    newValue,
+                    parseDateString(newValue),
+                    'input',
+                    newValue.length === DATE_MASK.length,
+                );
             },
-            [onChange, onInputChange, uncontrolled],
+            [changeHandler],
+        );
+
+        const handleNativeInputChange = useCallback(
+            (event: ChangeEvent<HTMLInputElement>) => {
+                const newDate = parseDateString(event.target.value, NATIVE_DATE_FORMAT);
+                const newValue = event.target.value === '' ? '' : format(newDate, DATE_FORMAT);
+
+                changeHandler(event, newValue, newDate);
+            },
+            [changeHandler],
         );
 
         const handleCalendarChange = useCallback(
             (date: number) => {
-                const newValue = format(date, DATE_FORMAT);
-
-                if (uncontrolled) {
-                    setStateValue(newValue);
-                }
-
-                if (onCalendarChange) {
-                    onCalendarChange(date);
-                }
-
-                if (onChange) {
-                    onChange(null, {
-                        date: new Date(date),
-                        value: newValue,
-                    });
-                }
+                changeHandler(null, format(date, DATE_FORMAT), new Date(date), 'calendar');
 
                 if (calendarRef.current) {
                     calendarRef.current.focus();
                     calendarRef.current.blur();
                 }
             },
-            [onCalendarChange, onChange, uncontrolled],
+            [changeHandler],
         );
 
         const handleCalendarWrapperMouseDown = useCallback((event: MouseEvent<HTMLDivElement>) => {
@@ -217,50 +257,67 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         return (
             // eslint-disable-next-line jsx-a11y/no-static-element-interactions
             <div
-                className={cn(styles.component, className)}
-                data-test-id={dataTestId}
+                ref={componentRef}
+                className={cn(styles.component, className, {
+                    [styles.block]: block,
+                })}
                 tabIndex={-1}
                 onKeyDown={handleKeyDown}
                 onClick={handleClick}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
-                ref={componentRef}
+                data-test-id={dataTestId}
             >
                 <MaskedInput
                     {...restProps}
-                    className={inputClassName}
                     ref={mergeRefs([ref, inputRef])}
-                    wrapperRef={inputWrapperRef}
+                    wrapperRef={mergeRefs([wrapperRef, inputWrapperRef])}
+                    className={inputClassName}
                     value={inputValue}
                     defaultValue={defaultValue}
-                    mask={dateMask}
-                    rightAddons={<span className={styles.searchIcon} />}
+                    mask={DATE_MASK}
+                    rightAddons={
+                        <React.Fragment>
+                            <span className={styles.searchIcon} />
+                            {shouldRenderNative && (
+                                <input
+                                    type='date'
+                                    ref={mergeRefs([ref, inputRef])}
+                                    defaultValue={defaultValue}
+                                    onChange={handleNativeInputChange}
+                                    className={styles.nativeInput}
+                                />
+                            )}
+                        </React.Fragment>
+                    }
                     onKeyDown={handleInputKeyDown}
                     onChange={handleInputChange}
                     block={true}
                     inputMode='numeric'
                     pattern='[0-9]*'
                 />
-                <Popover
-                    open={open}
-                    anchorElement={inputWrapperRef.current as HTMLElement}
-                    getPortalContainer={() => componentRef.current as HTMLElement}
-                    position='bottom-start'
-                    withTransition={false}
-                    popperClassName={styles.calendarContainer}
-                    offset={[0, 14]}
-                >
-                    {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-                    <div onMouseDown={handleCalendarWrapperMouseDown}>
-                        <Calendar
-                            {...calendarProps}
-                            ref={calendarRef}
-                            defaultMonth={defaultMonth}
-                            value={inputValue ? +parseDateString(inputValue) : undefined}
-                            onChange={handleCalendarChange}
-                        />
-                    </div>
-                </Popover>
+                {!shouldRenderNative && (
+                    <Popover
+                        open={open}
+                        anchorElement={inputWrapperRef.current as HTMLElement}
+                        popperClassName={styles.calendarContainer}
+                        position='bottom-start'
+                        offset={[0, 14]}
+                        withTransition={false}
+                        preventFlip={preventFlip}
+                    >
+                        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+                        <div onMouseDown={handleCalendarWrapperMouseDown}>
+                            <Calendar
+                                {...calendarProps}
+                                ref={calendarRef}
+                                defaultMonth={defaultMonth}
+                                value={inputValue ? +parseDateString(inputValue) : undefined}
+                                onChange={handleCalendarChange}
+                            />
+                        </div>
+                    </Popover>
+                )}
             </div>
         );
     },

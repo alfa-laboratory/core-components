@@ -9,5 +9,9 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../calendar" }, { "path": "../masked-input" }, { "path": "../popover" }]
+    "references": [
+        { "path": "../calendar" },
+        { "path": "../masked-input" },
+        { "path": "../popover" }
+    ]
 }

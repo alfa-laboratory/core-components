@@ -11,7 +11,12 @@ import { Input } from '../../input/src';
 import { withSuffix } from '../../with-suffix/src';
 import { name, version } from '../package.json';
 
-<Meta title='Компоненты' component={CalendarInput} />
+<Meta
+    title='Компоненты'
+    component={CalendarInput}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
 
 <!-- Canvas -->
 
@@ -23,11 +28,18 @@ import { name, version } from '../package.json';
             <CalendarInput
                 value={value}
                 onChange={handleChange}
-                label='Дата регистрации'
+                label={text('label', 'Дата регистрации')}
+                placeholder={text('placeholder', '')}
+                mobileMode={select('mobileMode', ['native', 'input'], 'input')}
+                preventFlip={boolean('preventFlip', false)}
+                block={boolean('block', false)}
+                success={boolean('success', false)}
+                error={boolean('error', false)}
             />
         );
     })}
 </Story>
+
 
 <!-- Docs -->
 
@@ -45,4 +57,31 @@ import { CalendarInput } from '@alfalab/core-components-calendar-input';
 
 Компонент для ввода даты.
 
+<Preview>
+    {React.createElement(() => {
+        const defaultMonth = new Date('December 1, 2010 00:00:00');
+        return (
+            <CalendarInput label='Дата регистрации' defaultMonth={defaultMonth} />
+        );
+    })}
+</Preview>
+
 <Props of={CalendarInput} />
+
+### Controlled-way
+
+Компонент может быть использован как controlled с помощью `onChange` и `selected`:
+
+<Preview>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('');
+        const handleChange = (event, { value }) => setValue(value);
+        return (
+            <CalendarInput
+                value={value}
+                onChange={handleChange}
+                label='Дата регистрации'
+            />
+        );
+    })}
+</Preview>
