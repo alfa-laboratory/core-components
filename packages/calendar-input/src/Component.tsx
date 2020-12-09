@@ -123,6 +123,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             preventFlip,
             mobileMode,
             wrapperRef = null,
+            disabled,
             onChange,
             onInputChange,
             onCalendarChange,
@@ -262,9 +263,9 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                     [styles.block]: block,
                 })}
                 tabIndex={-1}
-                onKeyDown={handleKeyDown}
-                onClick={handleClick}
-                onFocus={handleFocus}
+                onKeyDown={disabled ? undefined : handleKeyDown}
+                onClick={disabled ? undefined : handleClick}
+                onFocus={disabled ? undefined : handleFocus}
                 onBlur={handleBlur}
                 data-test-id={dataTestId}
             >
@@ -275,6 +276,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                     className={inputClassName}
                     value={inputValue}
                     defaultValue={defaultValue}
+                    disabled={disabled}
                     mask={DATE_MASK}
                     rightAddons={
                         <React.Fragment>
