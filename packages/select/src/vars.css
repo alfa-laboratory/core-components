@@ -6,7 +6,7 @@
     /* options list */
 
     --select-options-list-border-radius: 0 0 4px 4px;
-    --select-options-list-box-shadow: var(--shadow-m);
+    --select-options-list-box-shadow: var(--shadow-s);
     --select-options-list-offset: 0;
     --select-options-list-top-padding: 0;
     --select-options-list-bottom-padding: 0;

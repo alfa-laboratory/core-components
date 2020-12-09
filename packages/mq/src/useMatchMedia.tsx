@@ -13,11 +13,11 @@ export const useMatchMedia = (query: string) => {
 
         const handleMatchChange = () => setMatches(mql.matches);
 
-        mql.addEventListener('change', handleMatchChange);
+        mql.addListener(handleMatchChange);
         handleMatchChange();
 
         return () => {
-            mql.removeEventListener('change', handleMatchChange);
+            mql.removeListener(handleMatchChange);
             releaseMatchMedia(query);
         };
     }, [query]);

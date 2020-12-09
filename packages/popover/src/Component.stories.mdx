@@ -136,5 +136,56 @@ import { Popover } from '@alfalab/core-components-popover';
     })}
 </Preview>
 
+В редких случаях, если положение поповера не пересчитывается (например, при измененнии размера элемента-якоря),
+то можно воспользоваться методом `update`:
+
+<Preview>
+    {React.createElement(() => {
+        const [buttonElement, setButtonElement] = React.useState(null);
+        const [count, setCount] = React.useState(1);
+        const onClick = () => {
+            setCount(count => count + 1);
+            if (updatePopover.current) {
+                updatePopover.current(); // Обновляем положение поповера
+            }
+        };
+        const handleButtonRef = node => {
+            setButtonElement(node);
+        };
+        const updatePopover = React.useRef(); // updatePopover - ref, который хранит функцию, с помощью которой можно обновить положение поповера
+        const popoverChildren = React.useMemo(() => {
+            return (
+                <div style={{ padding: '15px', width: '156px' }}>I am popover</div>
+            );
+        }, [])
+        return (
+            <div
+                style={{
+                    width: '700px',
+                    height: '300px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
+            >
+                <Popover
+                    anchorElement={buttonElement}
+                    position='bottom'
+                    open={true}
+                    update={updatePopover}
+                >
+                    {popoverChildren}
+                </Popover>
+                <Button
+                    ref={handleButtonRef}
+                    onClick={onClick}
+                    style={{ height: `${56 * count}px`, width: `${128 * count}px` }}
+                >
+                    Press me
+                </Button>
+            </div>
+        );
+    })}
+</Preview>
 
 <Props of={Popover} />

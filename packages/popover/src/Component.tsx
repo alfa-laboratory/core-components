@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, CSSProperties } from 'react';
+import React, { useState, useEffect, useCallback, CSSProperties, MutableRefObject } from 'react';
 import cn from 'classnames';
 import { Transition } from 'react-transition-group';
 import { TransitionProps } from 'react-transition-group/Transition';
@@ -33,6 +33,12 @@ export type PopoverProps = {
      * Позиционирование поповера
      */
     position?: Position;
+
+    /**
+     * Запрещает поповеру менять свою позицию.
+     * Например, если места снизу недостаточно,то он все равно будет показан снизу
+     */
+    preventFlip?: boolean;
 
     /**
      * Если `true`, будет отрисована стрелочка
@@ -76,6 +82,11 @@ export type PopoverProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Хранит функцию, с помощью которой можно обновить положение компонента
+     */
+    update?: MutableRefObject<() => void>;
 };
 
 const TRANSITION_DURATION = 300;
@@ -89,10 +100,12 @@ export const Popover: React.FC<PopoverProps> = ({
     withArrow = false,
     withTransition = true,
     position = 'left',
+    preventFlip,
     popperClassName,
     arrowClassName,
     open,
     dataTestId,
+    update,
 }) => {
     const [referenceElement, setReferenceElement] = useState<RefElement>(anchorElement);
     const [popperElement, setPopperElement] = useState<RefElement>(null);
@@ -105,10 +118,14 @@ export const Popover: React.FC<PopoverProps> = ({
             modifiers.push({ name: 'arrow', options: { element: arrowElement } });
         }
 
-        return modifiers;
-    }, [withArrow, arrowElement, offset]);
+        if (preventFlip) {
+            modifiers.push({ name: 'flip', options: { fallbackPlacements: [] } });
+        }
 
-    const { styles: popperStyles, attributes, update } = usePopper(
+        return modifiers;
+    }, [offset, withArrow, preventFlip, arrowElement]);
+
+    const { styles: popperStyles, attributes, update: updatePopper } = usePopper(
         referenceElement,
         popperElement,
         {
@@ -122,10 +139,17 @@ export const Popover: React.FC<PopoverProps> = ({
     }, [anchorElement]);
 
     useEffect(() => {
-        if (update) {
-            update();
+        if (updatePopper) {
+            updatePopper();
         }
-    }, [update, arrowElement]);
+    }, [updatePopper, arrowElement, children]);
+
+    useEffect(() => {
+        if (update && updatePopper) {
+            // eslint-disable-next-line no-param-reassign
+            update.current = updatePopper;
+        }
+    }, [updatePopper, update]);
 
     const renderPortal = (showContent: boolean, className?: string, style?: CSSProperties) => (
         <Portal getPortalContainer={getPortalContainer}>

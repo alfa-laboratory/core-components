@@ -105,4 +105,23 @@ describe('processOptions', () => {
         expect(processOptions(options, ['non-existing key']).selectedOptions).toEqual([]);
         expect(processOptions(groups, ['non-existing key']).selectedOptions).toEqual([]);
     });
+
+    it('should return selected options by list of objects', () => {
+        expect(processOptions(options, [options[0], options[6]]).selectedOptions).toEqual([
+            options[0],
+            options[6],
+        ]);
+
+        expect(processOptions(groups, [options[0], options[6]]).selectedOptions).toEqual([
+            options[0],
+            options[6],
+        ]);
+    });
+
+    it('should return selected options even if passed objects not in options', () => {
+        expect(processOptions(options, [options[1], options[2]]).selectedOptions).toEqual([
+            options[1],
+            options[2],
+        ]);
+    });
 });

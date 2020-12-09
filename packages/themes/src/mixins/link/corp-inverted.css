@@ -1,0 +1,5 @@
+@import './default-inverted.css';
+
+@define-mixin link-corp-inverted {
+    @mixin link-default-inverted;
+}

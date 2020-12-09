@@ -93,7 +93,7 @@
 }
 
 .disabled {
-    cursor: default;
+    cursor: var(--disabled-cursor);
 }
 
 .disabled .box {

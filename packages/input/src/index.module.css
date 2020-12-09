@@ -88,6 +88,7 @@
 /* DISABLED STATE */
 
 .input:disabled {
+    cursor: var(--disabled-cursor);
     color: var(--input-disabled-color);
 }
 
