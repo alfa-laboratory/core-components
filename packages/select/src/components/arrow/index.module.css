@@ -8,6 +8,7 @@
 
     background: var(--select-arrow-background);
     background-size: cover;
+    background-position: center;
     transition: opacity 0.2s ease;
 }
 

@@ -2,6 +2,8 @@
 @import '../../../packages/themes/src/mixins/site.css';
 @import '../../../packages/themes/src/mixins/corp.css';
 @import '../../../packages/themes/src/mixins/mobile.css';
+@import '../../../packages/themes/src/mixins/default-inverted.css';
+@import '../../../packages/themes/src/mixins/corp-inverted.css';
 
 .tool {
     margin-top: auto;
@@ -28,4 +30,12 @@ body[data-theme='corp'] {
 
 body[data-theme='mobile'] {
     @mixin theme-mobile;
+}
+
+body[data-theme='default-inverted'] {
+    @mixin theme-default-inverted;
+}
+
+body[data-theme='corp-inverted'] {
+    @mixin theme-corp-inverted;
 }

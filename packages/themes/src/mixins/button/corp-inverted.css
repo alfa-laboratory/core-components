@@ -1,0 +1,15 @@
+@import '../../../../vars/src/index.css';
+
+@define-mixin button-corp-inverted {
+    /* secondary (выглядит как outline) */
+    --button-secondary-color: var(--color-light-text-primary-inverted);
+    --button-secondary-base-bg-color: transparent;
+    --button-secondary-base-border-color: var(--color-light-border-key-inverted);
+    --button-secondary-hover-bg-color: color-mod(var(--color-static-bg-dark) alpha(10%));
+    --button-secondary-active-bg-color: color-mod(var(--color-static-bg-dark) alpha(20%));
+    --button-secondary-disabled-bg-color: color-mod(var(--color-light-bg-primary) alpha(8%));
+    --button-secondary-disabled-border-color: transparent;
+    --button-secondary-disabled-color: color-mod(
+        var(--color-light-text-primary-inverted) alpha(40%)
+    );
+}

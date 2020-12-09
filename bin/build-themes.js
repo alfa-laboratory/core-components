@@ -19,6 +19,11 @@ const extractContentFromMixins = css => {
     if (match) return match[1];
 };
 
+// Удаляет импорты переменных из миксинов
+const removeImports = css => {
+    return css.replace(/^@import .*$\n+/gm, '');
+};
+
 // Прогоняет контент через postcss, применяя postcss-color-mod-function
 const filesWithVars = glob.sync(path.resolve(__dirname, '../packages/vars/src/*.css'));
 
@@ -52,7 +57,9 @@ const processPostCss = async (content, cssFile) =>
         for (let cssFile of cssFiles) {
             const component = path.basename(path.dirname(cssFile));
             // В сборке тем не должно быть color-mod - прогоняем через color-mod-function
-            const content = await processPostCss(fs.readFileSync(cssFile, 'utf-8'), cssFile);
+            const content = removeImports(
+                await processPostCss(fs.readFileSync(cssFile, 'utf-8'), cssFile),
+            );
             fs.writeFileSync(cssFile, content);
 
             const vars = extractContentFromMixins(content);
