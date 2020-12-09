@@ -22,7 +22,7 @@ import { name, version } from '../package.json';
 
 <Story name='CalendarInput'>
     {React.createElement(() => {
-        const [value, setValue] = React.useState('');
+        const [value, setValue] = React.useState('01012020');
         const handleChange = (event, { value }) => setValue(value);
         return (
             <CalendarInput
@@ -35,6 +35,7 @@ import { name, version } from '../package.json';
                 block={boolean('block', false)}
                 success={boolean('success', false)}
                 error={boolean('error', false)}
+                disabled={boolean('disabled', false)}
             />
         );
     })}
