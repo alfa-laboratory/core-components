@@ -1,10 +1,6 @@
 import React, { FC } from 'react';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
 import colorsIndigo from '@alfalab/core-components-themes/dist/colors/colors-indigo';
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
 import colorsBluetint from '@alfalab/core-components-themes/dist/colors/colors-bluetint';
 
 const colorsMap = {
