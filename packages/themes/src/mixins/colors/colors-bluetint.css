@@ -1,0 +1,59 @@
+@define-mixin dark-theme {
+    --color-light-bg-accent: var(--color-dark-bg-accent);
+    --color-light-bg-attention-muted: var(--color-dark-bg-attention-muted);
+    --color-light-bg-info: var(--color-dark-bg-info);
+    --color-light-bg-negative-muted: var(--color-dark-bg-negative-muted);
+    --color-light-bg-neutral: var(--color-dark-bg-neutral);
+    --color-light-bg-opaque: var(--color-dark-bg-opaque);
+    --color-light-bg-overlay: var(--color-dark-bg-overlay);
+    --color-light-bg-positive-muted: var(--color-dark-bg-positive-muted);
+    --color-light-bg-primary: var(--color-dark-bg-primary);
+    --color-light-bg-primary-inverted: var(--color-dark-bg-primary-inverted);
+    --color-light-bg-secondary: var(--color-dark-bg-secondary);
+    --color-light-bg-secondary-inverted: var(--color-dark-bg-secondary-inverted);
+    --color-light-bg-tertiary: var(--color-dark-bg-tertiary);
+    --color-light-bg-tertiary-inverted: var(--color-dark-bg-tertiary-inverted);
+    --color-light-border-accent: var(--color-dark-border-accent);
+    --color-light-border-key: var(--color-dark-border-key);
+    --color-light-border-key-inverted: var(--color-dark-border-key-inverted);
+    --color-light-border-primary: var(--color-dark-border-primary);
+    --color-light-border-secondary: var(--color-dark-border-secondary);
+    --color-light-border-secondary-inverted: var(--color-dark-border-secondary-inverted);
+    --color-light-border-tertiary: var(--color-dark-border-tertiary);
+    --color-light-border-tertiary-inverted: var(--color-dark-border-tertiary-inverted);
+    --color-light-graphic-accent: var(--color-dark-graphic-accent);
+    --color-light-graphic-attention: var(--color-dark-graphic-attention);
+    --color-light-graphic-link: var(--color-dark-graphic-link);
+    --color-light-graphic-negative: var(--color-dark-graphic-negative);
+    --color-light-graphic-neutral: var(--color-dark-graphic-neutral);
+    --color-light-graphic-positive: var(--color-dark-graphic-positive);
+    --color-light-graphic-primary: var(--color-dark-graphic-primary);
+    --color-light-graphic-primary-inverted: var(--color-dark-graphic-primary-inverted);
+    --color-light-graphic-secondary: var(--color-dark-graphic-secondary);
+    --color-light-graphic-tertiary: var(--color-dark-graphic-tertiary);
+    --color-light-specialbg-nulled: var(--color-dark-specialbg-nulled);
+    --color-light-specialbg-primary-grouped: var(--color-dark-specialbg-primary-grouped);
+    --color-light-specialbg-secondary-grouped: var(--color-dark-specialbg-secondary-grouped);
+    --color-light-specialbg-tertiary-grouped: var(--color-dark-specialbg-tertiary-grouped);
+    --color-light-text-accent: var(--color-dark-text-accent);
+    --color-light-text-attention: var(--color-dark-text-attention);
+    --color-light-text-disabled: var(--color-dark-text-disabled);
+    --color-light-text-disabled-transparent: var(--color-dark-text-disabled-transparent);
+    --color-light-text-link: var(--color-dark-text-link);
+    --color-light-text-negative: var(--color-dark-text-negative);
+    --color-light-text-positive: var(--color-dark-text-positive);
+    --color-light-text-primary: var(--color-dark-text-primary);
+    --color-light-text-primary-inverted: var(--color-dark-text-primary-inverted);
+    --color-light-text-secondary: var(--color-dark-text-secondary);
+    --color-light-text-secondary-inverted: var(--color-dark-text-secondary-inverted);
+    --color-light-text-secondary-inverted-transparent: var(
+        --color-dark-text-secondary-inverted-transparent
+    );
+    --color-light-text-secondary-transparent: var(--color-dark-text-secondary-transparent);
+    --color-light-text-tertiary: var(--color-dark-text-tertiary);
+    --color-light-text-tertiary-inverted: var(--color-dark-text-tertiary-inverted);
+    --color-light-text-tertiary-inverted-transparent: var(
+        --color-dark-text-tertiary-inverted-transparent
+    );
+    --color-light-text-tertiary-transparent: var(--color-dark-text-tertiary-transparent);
+}

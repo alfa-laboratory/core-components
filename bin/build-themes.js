@@ -78,6 +78,16 @@ const processPostCss = async (content, cssFile) =>
         }
     }
 
+    const colorsFiles = glob.sync('./colors/*.css', {});
+
+    colorsFiles.forEach(file => {
+        const content = fs.readFileSync(file, 'utf-8');
+        const vars = extractContentFromMixins(content);
+
+        shell.mkdir('-p', `../css/colors`);
+        fs.writeFileSync(`../css/colors/${path.basename(file)}`, toRoot(vars));
+    });
+
     // Переносим сгенерированные css-файлы в /dist
     shell.cd('../');
     shell.cp('-R', './css/.', './');
