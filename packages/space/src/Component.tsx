@@ -15,12 +15,12 @@ export const SpaceContext = React.createContext({
 
 export type SpaceProps = {
     /**
-     * Заголовок группы
+     * Заголовок
      */
     label?: ReactNode;
 
     /**
-     * Направление
+     * Выравнивание
      */
     align?: Align;
 
@@ -30,7 +30,7 @@ export type SpaceProps = {
     direction?: Direction;
 
     /**
-     * Тип компонента
+     * Размер отступов
      */
     size?: Size | [Size, Size];
 
@@ -40,7 +40,7 @@ export type SpaceProps = {
     className?: string;
 
     /**
-     * Дочерние элементы
+     * Дочерние компоненты
      */
     children: ReactNode;
 
