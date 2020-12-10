@@ -12,8 +12,27 @@ export function usePeriod({ onPeriodChange }: usePeriodProps) {
     const [selectedFrom, setSelectedFrom] = useState<number>();
     const [selectedTo, setSelectedTo] = useState<number>();
 
+    const resetPeriod = useCallback(() => {
+        setSelectedFrom(undefined);
+        setSelectedTo(undefined);
+    }, []);
+
+    const setStart = useCallback((date?: number) => {
+        setSelectedFrom(date);
+    }, []);
+
+    const setEnd = useCallback((date?: number) => {
+        setSelectedTo(date);
+    }, []);
+
     const updatePeriod = useCallback(
-        (date: number) => {
+        (date?: number) => {
+            // сбрасываем выделение
+            if (date === undefined) {
+                resetPeriod();
+                return;
+            }
+
             // начинаем выделение
             if (!selectedFrom) {
                 setSelectedFrom(date);
@@ -40,16 +59,9 @@ export function usePeriod({ onPeriodChange }: usePeriodProps) {
             if (date < selectedFrom) {
                 setSelectedTo(undefined);
                 setSelectedFrom(date);
-                return;
-            }
-
-            // сбрасываем выделение
-            if (!date) {
-                setSelectedFrom(undefined);
-                setSelectedTo(undefined);
             }
         },
-        [selectedFrom, selectedTo],
+        [resetPeriod, selectedFrom, selectedTo],
     );
 
     useDidUpdateEffect(() => {
@@ -62,6 +74,9 @@ export function usePeriod({ onPeriodChange }: usePeriodProps) {
     return {
         selectedFrom,
         selectedTo,
+        setStart,
+        setEnd,
+        resetPeriod,
         updatePeriod,
     };
 }
