@@ -41,7 +41,10 @@
     padding: var(--calendar-month-only-header-paddings);
 
     & .month {
-        @mixin headline_xsmall;
+        font-family: var(--calendar-month-only-header-font-family);
+        font-size: var(--calendar-month-only-header-font-size);
+        font-weight: var(--calendar-month-only-header-font-weight);
+        line-height: 24px;
 
         width: auto;
     }
