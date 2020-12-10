@@ -1,0 +1,175 @@
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { select } from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Input } from '@alfalab/core-components-input';
+import { CardImage } from '@alfalab/core-components-card-image';
+import { Button } from '@alfalab/core-components-button';
+import { Divider } from '@alfalab/core-components-divider';
+
+import { Space } from './Component';
+import { name, version } from '../package.json';
+
+export const DIRECTIONS = ['horizontal', 'vertical'];
+export const SIZES = ['s', 'm', 'l', 13, 37];
+
+<Meta
+    title='Компоненты'
+    component={Space}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+<!-- Canvas -->
+
+<Story name='Space'>
+    <Space 
+        align="start"
+        direction={select('direction', DIRECTIONS, 'horizontal')}
+        size={select('size', SIZES, 'm')}
+    >
+        <Input placeholder='Над вишней в цвету' />
+        <Input placeholder='Спряталась за облака' />
+        <Input placeholder='Скромница луна.' />
+        <Input placeholder='(с) Мацуо Басе' />
+    </Space>
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Space'
+    version={version}
+    package='@alfalab/core-components-space'
+    stage={1}
+    design='https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=532%3A544'
+/>
+
+```tsx
+import { Space } from '@alfalab/core-components-space';
+```
+
+Компонент для установки расстояния между компонентами.
+
+<Props of={Space} />
+
+### Примеры
+
+Просто карточки.
+
+<Preview>
+    <Space>
+        <CardImage cardId='EG' />
+        <CardImage cardId='GQ' />
+        <CardImage cardId='SU' />
+    </Space>
+</Preview>
+
+Пользовательское расстояние между карточками.
+
+<Preview>
+    <Space direction="horizontal" size={32}>
+        <CardImage cardId='EG' />
+        <CardImage cardId='GQ' />
+        <CardImage cardId='SU' />
+    </Space>
+</Preview>
+
+С адаптивом.
+
+<Preview>
+    <Space direction="horizontal" size={32} wrap>
+        <CardImage cardId='EG' />
+        <CardImage cardId='GQ' />
+        <CardImage cardId='SU' />
+    </Space>
+</Preview>
+
+С разделителем.
+
+<Preview>
+    <Space
+        direction="vertical"
+        split={<Divider />}
+        size="l"
+    >
+        <CardImage cardId='EG' />
+        <CardImage cardId='GQ' />
+        <CardImage cardId='SU' />
+    </Space>
+</Preview>
+
+Группа для полей ввода. Каждое поле ввода с аттрибутом block. Space c fullWidth.
+
+<Preview>
+    <Space
+        direction="horizontal"
+        fullWidth
+    >
+        <Input block placeholder='Над вишней в цвету' />
+        <Input block placeholder='Спряталась за облака' />
+        <Input block placeholder='Скромница луна.' />
+        <Input block placeholder='(с) Мацуо Басе' />
+    </Space>
+</Preview>
+
+Автоматический перенос строки.
+
+<Preview>
+    <Space
+        direction="horizontal"
+        wrap
+    >
+        <Button>Над вишней в цвету</Button>
+        <Button>Спряталась за облака</Button>
+        <Button>Скромница луна.</Button>
+        <Button>(с) Мацуо Басе</Button>
+        <Button>Над вишней в цвету</Button>
+        <Button>Спряталась за облака</Button>
+        <Button>Скромница луна.</Button>
+        <Button>(с) Мацуо Басе</Button>
+        <Button>Над вишней в цвету</Button>
+        <Button>Спряталась за облака</Button>
+    </Space>
+</Preview>
+
+Выравнивание.
+
+<Preview>
+    <Space direction="horizontal">
+        <Space
+            align="center"
+        >
+            <Button>Над вишней в цвету</Button>
+            <Button>Спряталась за облака</Button>
+            <CardImage cardId='SU' />
+        </Space>
+        <Space
+            align="end"
+        >
+            <Button>Над вишней в цвету</Button>
+            <Button>Спряталась за облака</Button>
+            <CardImage cardId='SU' />
+        </Space>
+    </Space>
+</Preview>
+
+<Preview>
+    <Space direction="vertical">
+        <Space
+            direction="horizontal"
+            align="start"
+        >
+            <Button>Над вишней в цвету</Button>
+            <Button>Спряталась за облака</Button>
+            <CardImage cardId='SU' />
+        </Space>
+        <Space
+            direction="horizontal"
+            align="end"
+        >
+            <Button>Над вишней в цвету</Button>
+            <Button>Спряталась за облака</Button>
+            <CardImage cardId='SU' />
+        </Space>
+    </Space>
+</Preview>
