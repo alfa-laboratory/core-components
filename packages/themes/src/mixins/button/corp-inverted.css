@@ -1,7 +1,7 @@
 @import '../../../../vars/src/index.css';
 
 @define-mixin button-corp-inverted {
-    /* secondary */
+    /* secondary (выглядит как outline) */
     --button-secondary-color: var(--color-light-text-primary-inverted);
     --button-secondary-base-bg-color: transparent;
     --button-secondary-base-border-color: var(--color-light-border-key-inverted);
