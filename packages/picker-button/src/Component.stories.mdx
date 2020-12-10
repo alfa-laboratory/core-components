@@ -9,7 +9,7 @@ import { Button } from '../../button/src';
 import { PickerButton } from './Component';
 import { name, version } from '../package.json';
 
-export const containerStyle = { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', columnGap: '24px', alignItems: 'center' }
+export const containerStyle = { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', columnGap: '24px', alignItems: 'center', justifyItems: 'center'}
 
 export const options = [
     { key: '1', content: 'Neptunium'},
@@ -100,44 +100,42 @@ import { PickerButton } from '@alfalab/core-components-picker-button';
 <div style={containerStyle}>
     <PickerButton label='Custom OptionList' options={options} OptionsList={customOptionList}/>
     <PickerButton label='Grouped options' options={groupedOptions} />
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        {React.createElement(() => {
-            const [selected, setSelected] = React.useState(null);
-            const handleChange = ({ selected }) => {
-                setSelected(selected ? selected.key : null);
-            };
-            const CustomOptionList = (props) => (
-                <div>
-                    <span style={{ display: 'inline-block', color: '#b6bcc3', fontSize: '14px', padding: '16px 24px' }}>Выберите счёт получателя</span>
-                    <OptionsList {...props} />
-                </div>
-            );
-            const Card = ({ bankName, cardNumber }) => (
-                <div style={{ display: 'flex', flexDirection: 'column', fontSize: '16px', padding: '8px 0', whiteSpace: 'nowrap' }}>
-                    <span>{cardNumber}</span>
-                    <span style={{ color: '#b6bcc3'}}>{bankName}</span>
-                </div>
-            );
-            return (
-                <PickerButton
-                    label='Custom options'
-                    selected={selected}
-                    onChange={handleChange}
-                    options={[
-                        { key: 'Account1', content: <Card bankName='Сбербанк' cardNumber='40817 810 3 0130 0000001' /> },
-                        { key: 'Account2', content: <Card bankName='Промсвязьбанк' cardNumber='40817 810 3 0130 0000001' /> },
-                        { key: 'Account3', content: <Card bankName='ВТБ' cardNumber='40817 810 3 0130 0000002' /> },
-                        { key: 'Account4', content: <Card bankName='Тинькофф' cardNumber='40817 810 3 0130 0000003' /> },
-                    ]}
-                    OptionsList={CustomOptionList}
-                    multiple={false}
-                    size='s'
-                    view='primary'
-                    allowUnselect={true}
-                />
-            );
-        })}
-    </div>
+    {React.createElement(() => {
+        const [selected, setSelected] = React.useState(null);
+        const handleChange = ({ selected }) => {
+            setSelected(selected ? selected.key : null);
+        };
+        const CustomOptionList = (props) => (
+            <div>
+                <span style={{ display: 'inline-block', color: '#b6bcc3', fontSize: '14px', padding: '16px 24px' }}>Выберите счёт получателя</span>
+                <OptionsList {...props} />
+            </div>
+        );
+        const Card = ({ bankName, cardNumber }) => (
+            <div style={{ display: 'flex', flexDirection: 'column', fontSize: '16px', padding: '8px 0', whiteSpace: 'nowrap' }}>
+                <span>{cardNumber}</span>
+                <span style={{ color: '#b6bcc3'}}>{bankName}</span>
+            </div>
+        );
+        return (
+            <PickerButton
+                label='Custom options'
+                selected={selected}
+                onChange={handleChange}
+                options={[
+                    { key: 'Account1', content: <Card bankName='Сбербанк' cardNumber='40817 810 3 0130 0000001' /> },
+                    { key: 'Account2', content: <Card bankName='Промсвязьбанк' cardNumber='40817 810 3 0130 0000001' /> },
+                    { key: 'Account3', content: <Card bankName='ВТБ' cardNumber='40817 810 3 0130 0000002' /> },
+                    { key: 'Account4', content: <Card bankName='Тинькофф' cardNumber='40817 810 3 0130 0000003' /> },
+                ]}
+                OptionsList={CustomOptionList}
+                multiple={false}
+                size='s'
+                view='primary'
+                allowUnselect={true}
+            />
+        );
+    })}
 </div>
 
 ### Разные размеры
