@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import cn from 'classnames';
 import { ButtonProps } from '@alfalab/core-components-button';
 
 import {
@@ -10,12 +11,13 @@ import {
 } from '@alfalab/core-components-select';
 
 import { Field as DefaultField } from './field';
+import styles from './index.module.css';
 
 export type PickerButtonSize = 'xs' | 's' | 'm';
 
 export type PickerButtonProps = Omit<
     BaseSelectProps,
-    'Field' | 'placeholder' | 'Arrow' | 'autocomplete' | 'size'
+    'Field' | 'placeholder' | 'Arrow' | 'autocomplete' | 'size' | 'onFocus'
 > &
     Pick<ButtonProps, 'view' | 'loading'> & {
         /**
@@ -34,6 +36,7 @@ export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
             view,
             loading,
             size = 'm',
+            className,
             ...restProps
         },
         ref,
@@ -52,6 +55,7 @@ export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
             }}
             Optgroup={Optgroup}
             OptionsList={OptionsList}
+            className={cn(styles.container, className)}
             {...restProps}
         />
     ),

@@ -6,7 +6,7 @@ exports[`Snapshots tests should display correctly 1`] = `
     aria-expanded="false"
     aria-haspopup="listbox"
     aria-owns="downshift-1-menu"
-    class="component"
+    class="component container"
     role="combobox"
     tabindex="-1"
   >
@@ -74,7 +74,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
     aria-expanded="true"
     aria-haspopup="listbox"
     aria-owns="downshift-3-menu"
-    class="component"
+    class="component container"
     role="combobox"
     tabindex="-1"
   >

@@ -4,9 +4,12 @@ import { action } from '@storybook/addon-actions';
 import { Container, Row, Col } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 
+import { OptionsList } from '../../select/src/components/options-list';
 import { Button } from '../../button/src';
 import { PickerButton } from './Component';
 import { name, version } from '../package.json';
+
+export const containerStyle = { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', columnGap: '24px', alignItems: 'center' }
 
 export const options = [
     { key: '1', content: 'Neptunium'},
@@ -25,6 +28,28 @@ export const options = [
     { key: '14', content: 'Seaborgium' },
     { key: '15', content: 'Bohrium' },
 ];
+
+export const customOptionList = (props) => (
+    <div>
+        <b>Header</b>
+        <OptionsList {...props} />
+    </div>
+);
+
+export const groupedOptions = [{
+    label: 'Группа №1',
+    options: [
+        { key: '1', content: 'Neptunium' },
+        { key: '2', content: 'Plutonium' },
+    ]
+},
+{
+    label: 'Группа №2',
+    options: [
+        { key: '3', content: 'Berkelium' },
+        { key: '4', content: 'Californium' },
+    ]
+}]
 
 <Meta
     title='Компоненты'
@@ -70,40 +95,75 @@ import { PickerButton } from '@alfalab/core-components-picker-button';
 
 ## Примеры
 
-PickerButton `size=xs`:
-<PickerButton label='Picker Button' options={options} size='xs' />
-<div style={{height: 32}} />
+### Кастомизированные элементы
 
-PickerButton `size=s`:
-<PickerButton label='Picker Button' options={options} size='s' />
-<div style={{height: 32}} />
+<div style={containerStyle}>
+    <PickerButton label='Custom OptionList' options={options} OptionsList={customOptionList}/>
+    <PickerButton label='Grouped options' options={groupedOptions} />
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        {React.createElement(() => {
+            const [selected, setSelected] = React.useState(null);
+            const handleChange = ({ selected }) => {
+                setSelected(selected ? selected.key : null);
+            };
+            const CustomOptionList = (props) => (
+                <div>
+                    <span style={{ display: 'inline-block', color: '#b6bcc3', fontSize: '14px', padding: '16px 24px' }}>Выберите счёт получателя</span>
+                    <OptionsList {...props} />
+                </div>
+            );
+            const Card = ({ bankName, cardNumber }) => (
+                <div style={{ display: 'flex', flexDirection: 'column', fontSize: '16px', padding: '8px 0', whiteSpace: 'nowrap' }}>
+                    <span>{cardNumber}</span>
+                    <span style={{ color: '#b6bcc3'}}>{bankName}</span>
+                </div>
+            );
+            return (
+                <PickerButton
+                    label='Custom options'
+                    selected={selected}
+                    onChange={handleChange}
+                    options={[
+                        { key: 'Account1', content: <Card bankName='Сбербанк' cardNumber='40817 810 3 0130 0000001' /> },
+                        { key: 'Account2', content: <Card bankName='Промсвязьбанк' cardNumber='40817 810 3 0130 0000001' /> },
+                        { key: 'Account3', content: <Card bankName='ВТБ' cardNumber='40817 810 3 0130 0000002' /> },
+                        { key: 'Account4', content: <Card bankName='Тинькофф' cardNumber='40817 810 3 0130 0000003' /> },
+                    ]}
+                    OptionsList={CustomOptionList}
+                    multiple={false}
+                    size='s'
+                    view='primary'
+                    allowUnselect={true}
+                />
+            );
+        })}
+    </div>
+</div>
 
-PickerButton `size=m`:
-<PickerButton label='Picker Button' options={options} size='m' />
-<div style={{height: 32}} />
+### Разные размеры
 
-PickerButton `disaled=tue`:
-<PickerButton label='Picker Button' options={options} disabled={true} />
-<div style={{height: 32}} />
+<div style={containerStyle}>
+    <PickerButton label='Secondary xs' options={options} size='xs' />
+    <PickerButton label='Secondary s' options={options} size='s' />
+    <PickerButton label='Secondary m' options={options} size='m' />
+</div>
 
-PickerButton `loading=true`:
-<PickerButton label='Picker Button' options={options} loading={true} />
-<div style={{height: 32}} />
 
-PickerButton `view=primary`:
-<PickerButton label='Picker Button' options={options} view='primary' />
-<div style={{height: 32}} />
+### Разные типы кнопок
+<div style={containerStyle}>
+    <PickerButton label='Primary m' options={options} view='primary' />
+    <PickerButton label='Outlined m' options={options} view='outlined' />
+    <PickerButton label='Ghost m' options={options} view='ghost' />
+</div>
 
-PickerButton `view=secondary`:
-<PickerButton label='Picker Button' options={options} view='secondary' />
-<div style={{height: 32}} />
+### Разные состояния кнопок
+<div style={containerStyle}>
+    <PickerButton label='Secondary disabled' options={options} disabled={true} />
+    <PickerButton label='Secondary loading' options={options} loading={true} />
+</div>
 
-PickerButton `view=outlined`:
-<PickerButton label='Picker Button' options={options} view='outlined' />
-<div style={{height: 32}} />
 
-PickerButton `view=ghost`:
-<PickerButton label='Picker Button' options={options} view='ghost' />
-<div style={{height: 32}} />
+
+
 
 <Props of={PickerButton} />
