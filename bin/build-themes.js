@@ -85,7 +85,14 @@ const processPostCss = async (content, cssFile) =>
         const vars = extractContentFromMixins(content);
 
         shell.mkdir('-p', `../css/colors`);
-        fs.writeFileSync(`../css/colors/${path.basename(file)}`, toRoot(vars));
+
+        const css = toRoot(vars);
+
+        fs.writeFileSync(`../css/colors/${path.basename(file)}`, css);
+        fs.writeFileSync(
+            `../css/colors/${path.basename(file).replace(/\.css$/, '.js')}`,
+            `module.exports = \`${css}\``,
+        );
     });
 
     // Переносим сгенерированные css-файлы в /dist
