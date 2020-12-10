@@ -6,6 +6,7 @@
     overflow-x: hidden;
     width: 100%;
     margin-bottom: var(--gap-m-neg);
+    padding-top: 6px;
 }
 
 .inner {

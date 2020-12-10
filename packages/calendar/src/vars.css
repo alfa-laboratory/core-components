@@ -9,6 +9,9 @@
     --calendar-select-icon-background: url('https://alfabank.st/icons/icon_arrow-select_m_black.svg');
     --calendar-header-paddings: var(--gap-m) var(--gap-m) var(--gap-s);
     --calendar-month-only-header-paddings: var(--gap-m) var(--gap-2xl) var(--gap-s);
+    --calendar-month-only-header-font-family: var(--font-family-system);
+    --calendar-month-only-header-font-size: 16px;
+    --calendar-month-only-header-font-weight: 400;
 
     /* День */
     --calendar-day-size: 40px;
