@@ -6,6 +6,8 @@
     --button-primary-hover-bg-color: color-mod(var(--button-primary-base-bg-color) shade(7%));
     --button-primary-active-bg-color: color-mod(var(--button-primary-base-bg-color) shade(15%));
     --button-primary-disabled-bg-color: color-mod(var(--button-primary-base-bg-color) alpha(30%));
+    --button-primary-color: var(--color-light-text-primary-inverted);
+    --button-primary-disabled-color: var(--color-light-text-primary-inverted);
 
     /* secondary */
     --button-secondary-color: var(--color-light-text-primary);
@@ -121,7 +123,7 @@ a.loading {
 /* Type */
 
 .primary {
-    color: var(--color-light-text-primary-inverted);
+    color: var(--button-primary-color);
     background-color: var(--button-primary-base-bg-color);
 
     &:hover {
@@ -216,6 +218,7 @@ a.loading {
     cursor: var(--disabled-cursor);
 
     &.primary {
+        color: var(--button-primary-disabled-color);
         background-color: var(--button-primary-disabled-bg-color);
 
         &.loading {
