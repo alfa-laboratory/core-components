@@ -69,6 +69,7 @@ import { CalendarInput } from '@alfalab/core-components-calendar-input';
 
 <Props of={CalendarInput} />
 
+
 ### Controlled-way
 
 Компонент может быть использован как controlled с помощью `onChange` и `selected`:
@@ -82,6 +83,26 @@ import { CalendarInput } from '@alfalab/core-components-calendar-input';
                 value={value}
                 onChange={handleChange}
                 label='Дата регистрации'
+            />
+        );
+    })}
+</Preview>
+
+
+### Рендер календаря под инпутом
+
+Календарь может рендериться как в поповере, так и под инпутом
+
+<Preview>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('');
+        const handleChange = (event, { value }) => setValue(value);
+        return (
+            <CalendarInput
+                value={value}
+                onChange={handleChange}
+                label='Дата регистрации'
+                calendarPosition='static'
             />
         );
     })}
