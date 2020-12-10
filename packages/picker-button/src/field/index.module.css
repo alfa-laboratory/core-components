@@ -13,3 +13,7 @@
 .open {
     transform: rotateZ(180deg);
 }
+
+[disabled]:not(.primary) svg {
+    opacity: 0.3;
+}

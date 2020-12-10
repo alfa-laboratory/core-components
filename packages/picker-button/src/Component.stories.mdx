@@ -3,6 +3,8 @@ import { text, boolean, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { Container, Row, Col } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
+// import Icon from '@alfalab/icons-glyph/StarMIcon';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
 
 import { OptionsList } from '../../select/src/components/options-list';
 import { Button } from '../../button/src';
@@ -69,8 +71,7 @@ export const groupedOptions = [{
         view={select('view', ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost'], 'secondary')}
         disabled={boolean('disabled', false)}
         loading={boolean('loading', false)}
-        multiple={boolean('multiple', true)}
-        allowUnselect={boolean('allowUnselect', true)}
+        leftAddons={boolean('has left icon', false) ? <Icon/> : null}
     />
 </Story>
 
@@ -96,7 +97,6 @@ import { PickerButton } from '@alfalab/core-components-picker-button';
 ## Примеры
 
 ### Кастомизированные элементы
-
 <div style={containerStyle}>
     <PickerButton label='Custom OptionList' options={options} OptionsList={customOptionList}/>
     <PickerButton label='Grouped options' options={groupedOptions} />
@@ -139,7 +139,6 @@ import { PickerButton } from '@alfalab/core-components-picker-button';
 </div>
 
 ### Разные размеры
-
 <div style={containerStyle}>
     <PickerButton label='Secondary xs' options={options} size='xs' />
     <PickerButton label='Secondary s' options={options} size='s' />
@@ -159,9 +158,5 @@ import { PickerButton } from '@alfalab/core-components-picker-button';
     <PickerButton label='Secondary disabled' options={options} disabled={true} />
     <PickerButton label='Secondary loading' options={options} loading={true} />
 </div>
-
-
-
-
 
 <Props of={PickerButton} />

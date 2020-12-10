@@ -17,9 +17,20 @@ export type PickerButtonSize = 'xs' | 's' | 'm';
 
 export type PickerButtonProps = Omit<
     BaseSelectProps,
-    'Field' | 'placeholder' | 'Arrow' | 'autocomplete' | 'size' | 'onFocus'
+    | 'Field'
+    | 'placeholder'
+    | 'Arrow'
+    | 'autocomplete'
+    | 'size'
+    | 'onFocus'
+    | 'selected'
+    | 'closeOnSelect'
+    | 'multiple'
+    | 'fieldProps'
+    | 'hint'
+    | 'allowUnselect'
 > &
-    Pick<ButtonProps, 'view' | 'loading'> & {
+    Pick<ButtonProps, 'view' | 'loading' | 'leftAddons'> & {
         /**
          * Размер кнопки
          */
@@ -32,18 +43,17 @@ export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
             OptionsList = DefaultOptionsList,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
-            closeOnSelect = false,
             view,
             loading,
             size = 'm',
             className,
+            leftAddons,
             ...restProps
         },
         ref,
     ) => (
         <BaseSelect
             ref={ref}
-            closeOnSelect={closeOnSelect}
             Option={Option}
             Field={DefaultField}
             size={size === 'm' ? 'm' : 's'}
@@ -52,11 +62,14 @@ export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
                 loading,
                 /** size у select, button несовместимы */
                 buttonSize: size,
+                leftAddons,
             }}
             Optgroup={Optgroup}
             OptionsList={OptionsList}
             className={cn(styles.container, className)}
             {...restProps}
+            selected={[]}
+            closeOnSelect={true}
         />
     ),
 );
