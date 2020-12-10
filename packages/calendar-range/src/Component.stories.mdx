@@ -1,0 +1,58 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { startOfMonth, subMonths } from 'date-fns';
+
+import { CalendarRange } from './Component';
+import { name, version } from '../package.json';
+
+<Meta
+    title='Компоненты'
+    component={CalendarRange}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+<!-- Canvas -->
+
+<Story name='CalendarRange'>
+    <CalendarRange />
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='CalendarRange'
+    version={version}
+    package='@alfalab/core-components-calendar-range'
+    stage={1}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=13931%3A20767'
+/>
+
+```tsx
+import { CalendarRange } from '@alfalab/core-components-calendar-range';
+```
+
+Компонент для ввода даты.
+
+<Props of={CalendarRange} />
+
+
+### Controlled-way
+
+<Preview>
+    {React.createElement(() => {
+        const [valueFrom, setValueFrom] = React.useState('10.10.2020');
+        const [valueTo, setValueTo] = React.useState('10.11.2020');
+        return (
+            <CalendarRange
+                valueFrom={valueFrom}
+                valueTo={valueTo}
+                onDateFromChange={({ value }) => setValueFrom(value)}
+                onDateToChange={({ value }) => setValueTo(value)}
+            />
+        );
+    })}
+</Preview>

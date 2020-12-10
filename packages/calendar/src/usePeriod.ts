@@ -6,11 +6,19 @@ type usePeriodProps = {
      * Обработчик изменения выделенного периода
      */
     onPeriodChange?: (selectedFrom?: number, selectedTo?: number) => void;
+
+    initialSelectedFrom?: number;
+
+    initialSelectedTo?: number;
 };
 
-export function usePeriod({ onPeriodChange }: usePeriodProps) {
-    const [selectedFrom, setSelectedFrom] = useState<number>();
-    const [selectedTo, setSelectedTo] = useState<number>();
+export function usePeriod({
+    onPeriodChange,
+    initialSelectedFrom,
+    initialSelectedTo,
+}: usePeriodProps) {
+    const [selectedFrom, setSelectedFrom] = useState<number | undefined>(initialSelectedFrom);
+    const [selectedTo, setSelectedTo] = useState<number | undefined>(initialSelectedTo);
 
     const resetPeriod = useCallback(() => {
         setSelectedFrom(undefined);
