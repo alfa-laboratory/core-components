@@ -1,6 +1,7 @@
 :root {
     --color-dark-bg-accent: #ef3124;
     --color-dark-bg-attention-muted: #432000;
+    --color-dark-bg-info: #001c3c;
     --color-dark-bg-negative-muted: #410903;
     --color-dark-bg-neutral: #485767;
     --color-dark-bg-opaque: rgba(11, 31, 53, 0.6);
@@ -55,6 +56,7 @@
     --color-dark-text-tertiary-transparent: rgba(255, 255, 255, 0.4);
     --color-light-bg-accent: #ef3124;
     --color-light-bg-attention-muted: #fff3e0;
+    --color-light-bg-info: #d6e8fc;
     --color-light-bg-negative-muted: #feebea;
     --color-light-bg-neutral: #dbdee1;
     --color-light-bg-opaque: rgba(255, 255, 255, 0.6);
@@ -85,7 +87,7 @@
     --color-light-graphic-primary-inverted: #f3f4f5;
     --color-light-graphic-secondary: #6d7986;
     --color-light-graphic-tertiary: #b6bcc3;
-    --color-light-specialbg-component: #eeeff1;
+    --color-light-specialbg-component: rgba(11, 31, 53, 0.07);
     --color-light-specialbg-nulled: rgba(255, 255, 255, 0);
     --color-light-specialbg-primary-grouped: #f3f4f5;
     --color-light-specialbg-secondary-grouped: #fff;
@@ -108,8 +110,10 @@
     --color-light-text-tertiary-inverted-transparent: rgba(255, 255, 255, 0.4);
     --color-light-text-tertiary-transparent: rgba(11, 31, 53, 0.3);
     --color-static-bg-accent: #ef3124;
-    --color-static-bg-dark: #000;
-    --color-static-bg-light: #fff;
+    --color-static-bg-primary-dark: #000;
+    --color-static-bg-primary-light: #fff;
+    --color-static-bg-secondary-dark: #2b2b2b;
+    --color-static-bg-secondary-light: #f3f4f5;
     --color-static-border-accent: #ef3124;
     --color-static-graphic-accent: #ef3124;
     --color-static-graphic-dark: #0b1f35;

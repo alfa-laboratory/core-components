@@ -305,14 +305,6 @@
     font-family: var(--font-family-styrene);
 }
 
-@define-mixin legacy_styrene_medium {
-    font-size: 28px;
-    line-height: 34px;
-    font-weight: 500;
-    font-feature-settings: 'ss01';
-    font-family: var(--font-family-styrene);
-}
-
 @define-mixin legacy_primary_small {
     font-size: 14px;
     line-height: 18px;
