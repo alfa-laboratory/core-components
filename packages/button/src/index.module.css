@@ -154,7 +154,7 @@ a.loading {
 .outlined {
     color: var(--color-light-text-primary);
     background-color: transparent;
-    border: 1px solid color-mod(var(--color-light-border-key) alpha(60%));
+    border: 1px solid var(--color-light-border-tertiary-inverted);
 
     &:hover {
         background-color: var(--color-light-specialbg-component);
@@ -242,11 +242,11 @@ a.loading {
     &.outlined {
         color: color-mod(var(--color-light-text-primary) alpha(30%));
         background-color: transparent;
-        border-color: color-mod(var(--color-light-border-key) alpha(10%));
+        border-color: color-mod(var(--color-light-border-tertiary-inverted) alpha(30%));
 
         &.loading {
             color: var(--color-light-text-primary);
-            border-color: color-mod(var(--color-light-border-key) alpha(60%));
+            border-color: var(--color-light-border-tertiary-inverted);
         }
     }
 
