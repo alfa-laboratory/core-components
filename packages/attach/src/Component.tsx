@@ -143,14 +143,12 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
         return (
             <div
                 className={cn(
-                    cn(
-                        styles.component,
-                        styles[size],
-                        {
-                            [styles.disabled]: disabled,
-                        },
-                        className,
-                    ),
+                    styles.component,
+                    styles[size],
+                    {
+                        [styles.disabled]: disabled,
+                    },
+                    className,
                 )}
             >
                 <Button
@@ -159,19 +157,17 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
                     disabled={disabled}
                     view={(buttonProps && buttonProps.view) || 'outlined'}
                     leftAddons={
-                        (buttonProps && buttonProps.leftAddons) || (
-                            <Icon className={cn(styles.icon)} />
-                        )
+                        (buttonProps && buttonProps.leftAddons) || <Icon className={styles.icon} />
                     }
                     onClick={handleButtonClick}
                     ref={buttonRef}
                 >
                     <span>{buttonContent}</span>
                 </Button>
-                <label className={cn(styles.label)} htmlFor={id} ref={labelRef}>
+                <label className={styles.label} htmlFor={id} ref={labelRef}>
                     <input
                         {...restProps}
-                        className={cn(styles.control)}
+                        className={styles.control}
                         accept={accept}
                         disabled={disabled}
                         id={id}
@@ -184,7 +180,7 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
                     />
                 </label>
                 {files && files.length > 0 ? (
-                    <div className={cn(styles.file)}>
+                    <div className={styles.file}>
                         <span>{statusTextContent}</span>
                         <KeyboardFocusable>
                             {(ref, focused) => (
@@ -201,14 +197,14 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
                         </KeyboardFocusable>
                         {progressBarPercent && (
                             <ProgressBar
-                                className={cn(styles.progressBar)}
+                                className={styles.progressBar}
                                 value={progressBarPercent}
                                 view='positive'
                             />
                         )}
                     </div>
                 ) : (
-                    <div className={cn(styles.noFile)}>{noFileText}</div>
+                    <div className={styles.noFile}>{noFileText}</div>
                 )}
             </div>
         );

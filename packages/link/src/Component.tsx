@@ -87,13 +87,13 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 
         return (
             <a {...componentProps} {...restProps} ref={mergeRefs([linkRef, ref])}>
-                {leftAddons && <span className={cn(styles.addons)}>{leftAddons}</span>}
+                {leftAddons && <span className={styles.addons}>{leftAddons}</span>}
                 {children && (
                     <span>
-                        <span className={cn(styles.text)}>{children}</span>
+                        <span className={styles.text}>{children}</span>
                     </span>
                 )}
-                {rightAddons && <span className={cn(styles.addons)}>{rightAddons}</span>}
+                {rightAddons && <span className={styles.addons}>{rightAddons}</span>}
             </a>
         );
     },

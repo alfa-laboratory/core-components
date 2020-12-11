@@ -14,7 +14,7 @@ type StatusProps = {
 };
 
 export const Status: React.FC<StatusProps> = ({ stage }) => (
-    <div className={cn(styles.status)}>
+    <div className={styles.status}>
         <a
             className={cn(styles.link, styles[`stage${stage}`])}
             href='./?path=/docs/гайдлайны-статусы--page'

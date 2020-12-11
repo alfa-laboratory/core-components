@@ -94,7 +94,7 @@ export type CalendarInputProps = Omit<
     /**
      * Управление нативным режимом на мобильных устройствах
      */
-    mobileMode?: 'native' | 'component';
+    mobileMode?: 'native' | 'popover' | 'input';
 
     /**
      * Обработчик изменения значения
@@ -139,7 +139,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             maxDate,
             calendarProps = {},
             preventFlip,
-            mobileMode = 'component',
+            mobileMode = 'popover',
             wrapperRef = null,
             disabled,
             onChange,
@@ -151,6 +151,10 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
     ) => {
         const uncontrolled = value === undefined;
         const shouldRenderNative = SUPPORTS_INPUT_TYPE_DATE && mobileMode === 'native';
+        const shouldRenderOnlyInput = mobileMode === 'input';
+        const shouldRenderStatic = calendarPosition === 'static' && !shouldRenderOnlyInput;
+        const shouldRenderPopover =
+            calendarPosition === 'popover' && !shouldRenderNative && !shouldRenderOnlyInput;
 
         const [open, setOpen] = useState(false);
 
@@ -335,9 +339,9 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                     inputMode='numeric'
                     pattern='[0-9]*'
                 />
-                {calendarPosition === 'static' && renderCalendar()}
+                {shouldRenderStatic && renderCalendar()}
 
-                {calendarPosition === 'popover' && !shouldRenderNative && (
+                {shouldRenderPopover && (
                     <Popover
                         open={open}
                         anchorElement={inputWrapperRef.current as HTMLElement}

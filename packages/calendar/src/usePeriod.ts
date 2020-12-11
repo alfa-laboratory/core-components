@@ -7,8 +7,14 @@ type usePeriodProps = {
      */
     onPeriodChange?: (selectedFrom?: number, selectedTo?: number) => void;
 
+    /**
+     * Начальное значение начала выделенного периода
+     */
     initialSelectedFrom?: number;
 
+    /**
+     * Начальное значение конца выделенного периода
+     */
     initialSelectedTo?: number;
 };
 

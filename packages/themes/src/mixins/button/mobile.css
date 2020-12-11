@@ -2,20 +2,27 @@
 
 @define-mixin button-mobile {
     /* core vars */
+    --color-light-bg-secondary-inverted: #1c1c1e;
+    --color-light-bg-primary-inverted: #000;
+    --color-light-text-tertiary-inverted: #464649;
     --color-light-bg-secondary: #f3f4f5;
+    --color-light-bg-tertiary: #e9e9eb;
+    --color-light-text-disabled: #dcdcdd;
 
     /* theme */
     --button-border-radius: 12px;
 
-    /* primary TODO secret color from the future */
-    --button-primary-base-bg-color: #2b2b2b;
-    --button-primary-hover-bg-color: color-mod(#2b2b2b shade(10%));
-    --button-primary-active-bg-color: color-mod(#2b2b2b shade(30%));
-    --button-primary-disabled-bg-color: color-mod(#2b2b2b alpha(30%));
+    /* primary */
+    --button-primary-base-bg-color: var(--color-light-bg-secondary-inverted);
+    --button-primary-hover-bg-color: var(--color-light-bg-secondary-inverted);
+    --button-primary-active-bg-color: var(--color-light-bg-primary-inverted);
+    --button-primary-disabled-bg-color: var(--color-light-bg-secondary-inverted);
+    --button-primary-disabled-color: var(--color-light-text-tertiary-inverted);
 
     /* secondary */
     --button-secondary-base-bg-color: var(--color-light-bg-secondary);
-    --button-secondary-hover-bg-color: color-mod(var(--color-light-bg-secondary) shade(10%));
-    --button-secondary-active-bg-color: color-mod(var(--color-light-bg-secondary) shade(30%));
-    --button-secondary-disabled-bg-color: color-mod(var(--color-light-bg-secondary) alpha(30%));
+    --button-secondary-hover-bg-color: var(--color-light-bg-secondary);
+    --button-secondary-active-bg-color: var(--color-light-bg-tertiary);
+    --button-secondary-disabled-bg-color: var(--color-light-bg-secondary);
+    --button-secondary-disabled-color: var(--color-light-text-disabled);
 }
