@@ -4,6 +4,9 @@ import { OptionShape, GroupShape, BaseSelectProps } from './typings';
 export const isGroup = (item: OptionShape | GroupShape): item is GroupShape =>
     Object.prototype.hasOwnProperty.call(item, 'options');
 
+export const isOptionShape = (item: OptionShape | string | null): item is OptionShape =>
+    item !== null && Object.prototype.hasOwnProperty.call(item, 'key');
+
 export const joinOptions = ({
     selected,
     selectedMultiple,
@@ -30,20 +33,22 @@ export const joinOptions = ({
 // За один проход делает список пунктов меню плоским и находит выбранные пункты по ключу
 export function processOptions(
     options: BaseSelectProps['options'],
-    selectedKeys: BaseSelectProps['selected'] = [],
+    selected: BaseSelectProps['selected'] = [],
 ) {
     const flatOptions: OptionShape[] = [];
-    const selectedOptions: OptionShape[] = [];
 
-    const selected = (option: OptionShape) =>
-        Array.isArray(selectedKeys)
-            ? selectedKeys.includes(option.key)
-            : selectedKeys === option.key;
+    const selectedArray = Array.isArray(selected) ? selected : [selected];
+    const selectedOptions = selectedArray.filter(isOptionShape);
+    const selectedKeys = selectedArray.filter(
+        (option): option is string => typeof option === 'string',
+    );
+
+    const isSelected = (option: OptionShape) => selectedKeys.includes(option.key);
 
     const process = (option: OptionShape) => {
         flatOptions.push(option);
 
-        if (selected(option)) {
+        if (isSelected(option)) {
             selectedOptions.push(option);
         }
     };

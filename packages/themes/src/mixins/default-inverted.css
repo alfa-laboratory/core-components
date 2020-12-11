@@ -1,0 +1,5 @@
+@import './link/default-inverted.css';
+
+@define-mixin theme-default-inverted {
+    @mixin link-default-inverted;
+}

@@ -1,0 +1,7 @@
+@import './button/corp-inverted.css';
+@import './link/corp-inverted.css';
+
+@define-mixin theme-corp-inverted {
+    @mixin button-corp-inverted;
+    @mixin link-corp-inverted;
+}

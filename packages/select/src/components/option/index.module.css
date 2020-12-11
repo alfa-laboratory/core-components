@@ -73,7 +73,7 @@
 }
 
 .disabled {
-    cursor: default;
+    cursor: var(--disabled-cursor);
     background: var(--select-option-disabled-background);
     color: var(--select-option-disabled-color);
 }

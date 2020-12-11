@@ -12,7 +12,7 @@ import React, {
 import NodeResolver from 'react-node-resolver';
 import cn from 'classnames';
 
-import { Popover, Position } from '@alfalab/core-components-popover';
+import { Popover, Position, PopoverProps } from '@alfalab/core-components-popover';
 
 import styles from './index.module.css';
 
@@ -96,6 +96,11 @@ export type TooltipProps = {
      * Дополнительный класс для поповера
      */
     popoverClassName?: string;
+
+    /**
+     * Хранит функцию, с помощью которой можно обновить положение компонента
+     */
+    updatePopover?: PopoverProps['update'];
 };
 
 export const Tooltip: FC<TooltipProps> = ({
@@ -114,6 +119,7 @@ export const Tooltip: FC<TooltipProps> = ({
     contentClassName,
     arrowClassName,
     popoverClassName,
+    updatePopover,
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
     const [target, setTarget] = useState<RefElement>(null);
@@ -298,6 +304,7 @@ export const Tooltip: FC<TooltipProps> = ({
                     offset={offset}
                     withArrow={true}
                     position={position}
+                    update={updatePopover}
                 >
                     {renderContent()}
                 </Popover>

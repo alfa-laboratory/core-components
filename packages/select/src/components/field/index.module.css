@@ -16,6 +16,10 @@
     }
 }
 
+.disabled {
+    cursor: var(--disabled-cursor);
+}
+
 /* TODO: Заюзать переменные из инпута */
 .placeholder {
     color: var(--color-light-text-secondary);
