@@ -105,7 +105,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
         const buttonChildren = (
             <React.Fragment>
                 {leftAddons && <span className={styles.addons}>{leftAddons}</span>}
-                {children && <span className={styles.text}>{children}</span>}
+                {children && <span className={cn(styles.text, {[styles.stretchText]: !(leftAddons || rightAddons)})}>{children}</span>}
                 {loading && <Loader className={styles.loader} />}
                 {rightAddons && <span className={styles.addons}>{rightAddons}</span>}
             </React.Fragment>
