@@ -1,6 +1,6 @@
 .component {
-    width: 344px;
-    height: 340px;
+    width: var(--calendar-width);
+    height: var(--calendar-height);
     display: flex;
     flex-direction: column;
     overflow: hidden;

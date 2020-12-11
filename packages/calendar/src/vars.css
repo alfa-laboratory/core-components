@@ -1,4 +1,7 @@
 :root {
+    --calendar-width: 344px;
+    --calendar-height: 340px;
+
     /* Кнопки выбора месяцев и годов */
     --calendar-selector-button-width: 100px;
     --calendar-selector-button-gap: 3px;
