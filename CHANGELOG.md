@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.6.0](https://github.com/alfa-laboratory/core-components/compare/v5.5.0...v5.6.0) (2020-12-11)
+
+
+### Features
+
+* **calendar:** add component ([#376](https://github.com/alfa-laboratory/core-components/issues/376)) ([2994d02](https://github.com/alfa-laboratory/core-components/commit/2994d02b49ad172d601f0fc63f89dea20896fd7d)), closes [#2](https://github.com/alfa-laboratory/core-components/issues/2) [#2](https://github.com/alfa-laboratory/core-components/issues/2) [#413](https://github.com/alfa-laboratory/core-components/issues/413)
+
+
+### Bug Fixes
+
+* **themes:** fix corp button themes ([#425](https://github.com/alfa-laboratory/core-components/issues/425)) ([2e49682](https://github.com/alfa-laboratory/core-components/commit/2e4968281a01c197bf98c37b791022fd8182d3a5))
+* snapshots ([03a70ef](https://github.com/alfa-laboratory/core-components/commit/03a70ef8c30e901347e718784a107d23bad127d6))
+
 ## [5.5.0](https://github.com/alfa-laboratory/core-components/compare/v5.4.1...v5.5.0) (2020-12-11)
 
 
