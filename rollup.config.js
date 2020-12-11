@@ -53,6 +53,9 @@ const postcssPlugin = postcss({
     separateCssFiles: true,
 });
 
+/**
+ * Сборка ES5 с commonjs модулями.
+ */
 const es5 = {
     ...baseConfig,
     output: [
@@ -79,6 +82,9 @@ const es5 = {
     ],
 };
 
+/**
+ * Сборка ES2020 с esm модулями.
+ */
 const modern = {
     ...baseConfig,
     output: [
@@ -110,6 +116,10 @@ const modern = {
     ],
 };
 
+/**
+ * Сборка ES5 с commonjs модулями.
+ * Css-модули поставляются как есть, не компилируются.
+ */
 const cssm = {
     ...baseConfig,
     output: [
@@ -138,6 +148,39 @@ const cssm = {
     ],
 };
 
+/**
+ * Сборка ES5 с esm модулями.
+ */
+const esm = {
+    ...baseConfig,
+    output: [
+        {
+            dir: 'dist/esm',
+            format: 'esm',
+            plugins: [
+                addCssImports({ currentPackageDir }),
+                coreComponentsResolver({ importFrom: 'dist/esm' }),
+            ],
+        },
+    ],
+    plugins: [
+        multiInputPlugin,
+        typescript({
+            outDir: 'dist/esm',
+            tsconfig: resolvedConfig => ({
+                ...resolvedConfig,
+                tsBuildInfoFile: 'tsconfig.tsbuildinfo',
+            }),
+        }),
+        json(),
+        postcssPlugin,
+        copy({
+            flatten: false,
+            targets: [{ src: 'src/**/*.{png,svg,jpg,jpeg}', dest: `dist/esm` }],
+        }),
+    ],
+};
+
 const rootDir = `../../dist/${currentComponentName}`;
 
 const root = {
@@ -151,17 +194,16 @@ const root = {
             flatten: false,
             targets: [
                 { src: ['dist/**/*', '!**/*.js'], dest: rootDir },
-                // TODO: вернуть, когда добавим еще одну сборку с es5 + esmodules
-                // {
-                //     src: 'package.json',
-                //     dest: `../../dist/${currentComponentName}`,
-                //     transform: () => createPackageJson('./modern/index.js'),
-                // },
-                // {
-                //     src: 'package.json',
-                //     dest: `../../dist/${currentComponentName}/cssm`,
-                //     transform: () => createPackageJson('../modern/index.js'),
-                // },
+                {
+                    src: 'package.json',
+                    dest: `../../dist/${currentComponentName}`,
+                    transform: () => createPackageJson('./esm/index.js'),
+                },
+                {
+                    src: 'package.json',
+                    dest: `../../dist/${currentComponentName}/cssm`,
+                    transform: () => createPackageJson('../esm/index.js'),
+                },
             ],
         }),
         coreComponentsRootPackageResolver({ currentPackageDir }),
@@ -174,4 +216,4 @@ const root = {
     ],
 };
 
-export default [es5, modern, cssm, root];
+export default [es5, modern, cssm, esm, root];
