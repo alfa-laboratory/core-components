@@ -5,10 +5,11 @@ import { Container, Row, Col } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
+import { startOfMonth, startOfDay, subMonths, addMonths } from 'date-fns';
+
 import { CalendarInput } from './Component';
-import { AmountInput } from '../../amount-input/src';
-import { Input } from '../../input/src';
-import { withSuffix } from '../../with-suffix/src';
+import { parseDateString } from './utils';
+
 import { name, version } from '../package.json';
 
 <Meta
@@ -103,6 +104,42 @@ import { CalendarInput } from '@alfalab/core-components-calendar-input';
                 onChange={handleChange}
                 label='Дата регистрации'
                 calendarPosition='static'
+            />
+        );
+    })}
+</Preview>
+
+
+### Минимальная и максимальная дата
+
+Календарь может рендериться как в поповере, так и под инпутом
+
+<Preview>
+    {React.createElement(() => {
+        const minDate = subMonths(startOfDay(new Date()), 2).getTime();
+        const maxDate = addMonths(startOfDay(new Date()), 2).getTime();
+        const [error, setError] = React.useState('');
+        const [value, setValue] = React.useState('');
+        const handleChange = (event, { value }) => {
+            setValue(value);
+        }
+        const handleBlur = (event) => {
+            if (value) {
+                const date = parseDateString(value);
+                if (Number.isNaN(date.getTime()) || date < minDate || date > maxDate) setError('Некорректная дата');
+            }
+        }
+        const handleFocus = () => setError('');
+        return (
+            <CalendarInput
+                label='Дата регистрации'
+                value={value}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onFocus={handleFocus}
+                minDate={minDate}
+                maxDate={maxDate}
+                error={error}
             />
         );
     })}

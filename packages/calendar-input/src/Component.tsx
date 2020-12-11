@@ -12,7 +12,7 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 import { MaskedInput, MaskedInputProps } from '@alfalab/core-components-masked-input';
-import { Calendar, CalendarProps } from '@alfalab/core-components-calendar';
+import { Calendar, CalendarProps, dateInLimits } from '@alfalab/core-components-calendar';
 import { Popover } from '@alfalab/core-components-popover';
 import mergeRefs from 'react-merge-refs';
 import {
@@ -66,9 +66,19 @@ export type CalendarInputProps = Omit<
     defaultOpen?: boolean;
 
     /**
-     * Месяц в календаре по умолчанию
+     * Месяц в календаре по умолчанию (timestamp)
      */
     defaultMonth?: number;
+
+    /**
+     * Минимальная дата, доступная для выбора (timestamp)
+     */
+    minDate?: number;
+
+    /**
+     * Максимальная дата, доступная для выбора (timestamp)
+     */
+    maxDate?: number;
 
     /**
      * Определяет, как рендерить календарь — в поповере или снизу инпута
@@ -84,7 +94,7 @@ export type CalendarInputProps = Omit<
     /**
      * Управление нативным режимом на мобильных устройствах
      */
-    mobileMode?: 'native' | 'input';
+    mobileMode?: 'native' | 'component';
 
     /**
      * Обработчик изменения значения
@@ -125,9 +135,11 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             calendarPosition = 'popover',
             value,
             dataTestId,
+            minDate,
+            maxDate,
             calendarProps = {},
             preventFlip,
-            mobileMode,
+            mobileMode = 'component',
             wrapperRef = null,
             disabled,
             onChange,
@@ -145,7 +157,9 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         const [stateValue, setStateValue] = useState(defaultValue);
 
         const inputValue = uncontrolled ? stateValue : value;
-        const calendarValue = inputValue ? +parseDateString(inputValue) : undefined;
+        const calendarValue = inputValue ? parseDateString(inputValue).getTime() : undefined;
+
+        const isCalendarValueValid = dateInLimits(calendarValue, minDate, maxDate);
 
         const inputRef = useRef<HTMLInputElement>(null);
         const inputWrapperRef = useRef<HTMLDivElement>(null);
@@ -195,12 +209,8 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                 newValue: string,
                 newDate: Date,
                 initiator: 'input' | 'calendar' = 'input',
-                shouldCallOnChange = true,
+                shouldChange = true,
             ) => {
-                if (uncontrolled && isCompleteDateInput(newValue)) {
-                    setStateValue(newValue);
-                }
-
                 if (initiator === 'input' && event && onInputChange) {
                     onInputChange(event, { value: newValue, date: newDate });
                 }
@@ -209,8 +219,14 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                     onCalendarChange(newDate.getTime());
                 }
 
-                if (onChange && shouldCallOnChange) {
-                    onChange(event, { date: newDate, value: newValue });
+                if (shouldChange) {
+                    if (uncontrolled) {
+                        setStateValue(newValue);
+                    }
+
+                    if (onChange) {
+                        onChange(event, { date: newDate, value: newValue });
+                    }
                 }
             },
             [onCalendarChange, onChange, onInputChange, uncontrolled],
@@ -219,14 +235,9 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         const handleInputChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
                 const newValue = event.target.value;
+                const newDate = parseDateString(newValue);
 
-                changeHandler(
-                    event,
-                    newValue,
-                    parseDateString(newValue),
-                    'input',
-                    isCompleteDateInput(newValue),
-                );
+                changeHandler(event, newValue, newDate, 'input', isCompleteDateInput(newValue));
             },
             [changeHandler],
         );
@@ -244,11 +255,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         const handleCalendarChange = useCallback(
             (date: number) => {
                 changeHandler(null, formatDate(date), new Date(date), 'calendar');
-
-                if (calendarRef.current) {
-                    calendarRef.current.focus();
-                    calendarRef.current.blur();
-                }
+                setOpen(false);
             },
             [changeHandler],
         );
@@ -268,11 +275,21 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                     {...calendarProps}
                     ref={calendarRef}
                     defaultMonth={defaultMonth}
-                    value={calendarValue}
+                    value={isCalendarValueValid ? calendarValue : undefined}
                     onChange={handleCalendarChange}
+                    minDate={minDate}
+                    maxDate={maxDate}
                 />
             ),
-            [calendarProps, calendarValue, defaultMonth, handleCalendarChange],
+            [
+                calendarProps,
+                calendarValue,
+                defaultMonth,
+                handleCalendarChange,
+                isCalendarValueValid,
+                maxDate,
+                minDate,
+            ],
         );
 
         return (
