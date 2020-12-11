@@ -16,16 +16,26 @@
 }
 
 .design {
+    padding: 0 0 0 20px;
+    background: url(https://static.figma.com/app/icon/1/favicon.svg) no-repeat 0 50%;
+}
+
+.github {
+    margin: 0 0 8px;
+    padding: 0 0 0 20px;
+    background: url(https://github.githubassets.com/favicons/favicon.svg) no-repeat 0 50%;
+    background-size: 16px 16px;
+}
+
+.links {
     position: absolute;
     right: 0;
     top: 20px;
     font-size: 16px;
     line-height: 16px;
-    padding: 0 0 0 20px;
-    background: url(https://static.figma.com/app/icon/1/favicon.svg) no-repeat 0 50%;
 }
 
-.design a {
+.links a {
     color: #0f62fe;
     border-bottom: 1px solid color-mod(#0f62fe alpha(30%));
     text-decoration: none;

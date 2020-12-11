@@ -1,0 +1,22 @@
+.component {
+    width: var(--calendar-width);
+    height: var(--calendar-height);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    outline: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: var(--gap-m);
+    box-sizing: border-box;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.sixWeeks {
+    height: 379px;
+}
