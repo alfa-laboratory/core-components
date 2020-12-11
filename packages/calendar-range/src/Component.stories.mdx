@@ -4,10 +4,12 @@ import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { Container, Row, Col } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 
-import { startOfMonth, subMonths } from 'date-fns';
+import { startOfMonth, startOfDay, subMonths, addMonths } from 'date-fns';
 
 import { CalendarRange } from './Component';
 import { name, version } from '../package.json';
+
+import { parseDateString } from '../../calendar-input/src/utils';
 
 <Meta
     title='Компоненты'
@@ -18,7 +20,9 @@ import { name, version } from '../package.json';
 <!-- Canvas -->
 
 <Story name='CalendarRange'>
-    <CalendarRange />
+    <CalendarRange
+        disabled={boolean('disabled', false)}
+    />
 </Story>
 
 <!-- Docs -->
@@ -52,6 +56,61 @@ import { CalendarRange } from '@alfalab/core-components-calendar-range';
                 valueTo={valueTo}
                 onDateFromChange={({ value }) => setValueFrom(value)}
                 onDateToChange={({ value }) => setValueTo(value)}
+            />
+        );
+    })}
+</Preview>
+
+### Min/Max даты
+
+<Preview>
+    {React.createElement(() => {
+        const [valueFrom, setValueFrom] = React.useState('10.11.2020');
+        const [valueTo, setValueTo] = React.useState('20.11.2020');
+        const minDate = subMonths(startOfDay(new Date()), 2).getTime();
+        const maxDate = addMonths(startOfDay(new Date()), 2).getTime();
+        const [fromError, setFromError] = React.useState('');
+        const [toError, setToError] = React.useState('');
+        const valid = (value) => {
+            const date = parseDateString(value);
+            return !value || (!Number.isNaN(date.getTime()) && date >= minDate && date <= maxDate);
+        }
+        const handleFromBlur = (event) => {
+            if (!valid(event.target.value)) {
+                setFromError(true);
+            }
+        }
+        const handleFromFocus = () => setFromError('');
+        const handleToBlur = (event) => {
+            if (!valid(event.target.value)) {
+                setToError(true);
+            }
+        }
+        const handleToFocus = () => setToError('');
+        return (
+            <CalendarRange
+                minDate={subMonths(startOfDay(new Date()), 2).getTime()}
+                maxDate={addMonths(startOfDay(new Date()), 2).getTime()}
+                valueFrom={valueFrom}
+                valueTo={valueTo}
+                onDateFromChange={({ value }) => {
+                    setFromError(false)
+                    setValueFrom(value)
+                }}
+                onDateToChange={({ value }) => {
+                    setToError(false);
+                    setValueTo(value)
+                }}
+                inputFromProps={{
+                    error: fromError,
+                    onBlur: handleFromBlur,
+                    onFocus: handleFromFocus
+                }}
+                inputToProps={{
+                    error: toError,
+                    onBlur: handleToBlur,
+                    onFocus: handleToFocus
+                }}
             />
         );
     })}

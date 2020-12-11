@@ -2,8 +2,7 @@
 import React, { useCallback, useState, MouseEvent, FC } from 'react';
 import cn from 'classnames';
 import { startOfMonth, subMonths, addMonths, endOfMonth } from 'date-fns';
-import { MaskedInputProps } from '@alfalab/core-components-masked-input';
-import { usePeriod } from '@alfalab/core-components-calendar';
+import { usePeriod, dateInLimits, limitDate } from '@alfalab/core-components-calendar';
 import {
     CalendarInput,
     CalendarInputProps,
@@ -11,14 +10,11 @@ import {
     isCompleteDateInput,
     parseDateString,
 } from '@alfalab/core-components-calendar-input';
-import { isDayButton } from './utils';
+import { isDayButton, ValueState, getCorrectValueState, initialValueState } from './utils';
 
 import styles from './index.module.css';
 
-export type CalendarRangeProps = Omit<
-    MaskedInputProps,
-    'mask' | 'value' | 'onChange' | 'clear' | 'onClear' | 'rightAddons' | 'onBeforeDisplay'
-> & {
+export type CalendarRangeProps = {
     /**
      * Дополнительный класс
      */
@@ -40,6 +36,16 @@ export type CalendarRangeProps = Omit<
     defaultMonth?: number;
 
     /**
+     * Минимальная дата, доступная для выбора (timestamp)
+     */
+    minDate?: number;
+
+    /**
+     * Максимальная дата, доступная для выбора (timestamp)
+     */
+    maxDate?: number;
+
+    /**
      * Обработчик изменения даты от
      */
     onDateFromChange?: (payload: ValueState) => void;
@@ -50,34 +56,46 @@ export type CalendarRangeProps = Omit<
     onDateToChange?: (payload: ValueState) => void;
 
     /**
+     * Пропсы для инпута даты от
+     */
+    inputFromProps?: CalendarInputProps;
+
+    /**
+     * Пропсы для инпута даты до
+     */
+    inputToProps?: CalendarInputProps;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
 };
 
-type ValueState = {
-    date: number | null;
-    value: string;
-};
-
-const initialValueState = { date: null, value: '' };
-
 export const CalendarRange: FC<CalendarRangeProps> = ({
-    block = false,
     className,
     defaultMonth = startOfMonth(new Date()).getTime(),
+    minDate,
+    maxDate,
     valueFrom,
     valueTo,
     onDateFromChange,
     onDateToChange,
+    inputFromProps = {},
+    inputToProps = {},
     dataTestId,
 }) => {
     const uncontrolled = valueFrom === undefined && valueTo === undefined;
 
-    const { selectedFrom, selectedTo, updatePeriod, setStart, setEnd, resetPeriod } = usePeriod({
+    const period = usePeriod({
         initialSelectedFrom: valueFrom ? parseDateString(valueFrom).getTime() : undefined,
         initialSelectedTo: valueTo ? parseDateString(valueTo).getTime() : undefined,
     });
+
+    const { updatePeriod, setStart, setEnd, resetPeriod } = period;
+    let { selectedFrom, selectedTo } = period;
+
+    if (!dateInLimits(selectedFrom, minDate, maxDate)) selectedFrom = undefined;
+    if (!dateInLimits(selectedTo, minDate, maxDate)) selectedTo = undefined;
 
     const [nextMonthHighlighted, setNextMonthHighlighted] = useState(false);
 
@@ -92,15 +110,8 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
     const [stateFrom, setStateFrom] = useState<ValueState>(initialValueState);
     const [stateTo, setStateTo] = useState<ValueState>(initialValueState);
 
-    const inputValueFrom: ValueState =
-        valueFrom === undefined
-            ? stateFrom
-            : { value: valueFrom, date: parseDateString(valueFrom as string).getTime() };
-
-    const inputValueTo: ValueState =
-        valueTo === undefined
-            ? stateTo
-            : { value: valueTo, date: parseDateString(valueTo as string).getTime() };
+    const inputValueFrom = getCorrectValueState(stateFrom, valueFrom, minDate, maxDate);
+    const inputValueTo = getCorrectValueState(stateTo, valueTo, minDate, maxDate);
 
     const handleStateFromChange = useCallback(
         (newFromState: ValueState) => {
@@ -125,13 +136,18 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                 handleStateFromChange(initialValueState);
             }
 
-            if (date && isCompleteDateInput(value)) {
-                setStart(date.getTime());
-                setMonth(startOfMonth(date).getTime());
-                handleStateFromChange({ date: date.getTime(), value });
+            if (isCompleteDateInput(value)) {
+                if (dateInLimits(date, minDate, maxDate)) {
+                    setStart(date.getTime());
+                    setMonth(startOfMonth(date).getTime());
+                    handleStateFromChange({ date: date.getTime(), value });
+                } else {
+                    setStart(undefined);
+                    handleStateFromChange({ date: null, value });
+                }
             }
         },
-        [handleStateFromChange, setStart],
+        [handleStateFromChange, maxDate, minDate, setStart],
     );
 
     const handleInputToChange = useCallback<Required<CalendarInputProps>['onInputChange']>(
@@ -141,13 +157,18 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                 handleStateToChange(initialValueState);
             }
 
-            if (date && isCompleteDateInput(value)) {
-                setEnd(date.getTime());
-                setMonth(subMonths(startOfMonth(date), 1).getTime());
-                handleStateToChange({ date: date.getTime(), value });
+            if (isCompleteDateInput(value)) {
+                if (dateInLimits(date, minDate, maxDate)) {
+                    setEnd(date.getTime());
+                    setMonth(subMonths(startOfMonth(date), 1).getTime());
+                    handleStateToChange({ date: date.getTime(), value });
+                } else {
+                    setEnd(undefined);
+                    handleStateToChange({ date: null, value });
+                }
             }
         },
-        [handleStateToChange, setEnd],
+        [handleStateToChange, maxDate, minDate, setEnd],
     );
 
     const handleCalendarChange = useCallback(
@@ -175,9 +196,9 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
         [
             inputValueFrom.date,
             handleStateToChange,
-            handleStateFromChange,
             updatePeriod,
             setStart,
+            handleStateFromChange,
             resetPeriod,
         ],
     );
@@ -203,20 +224,18 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
     );
 
     return (
-        <div
-            className={cn(styles.component, className, {
-                [styles.block]: block,
-            })}
-            data-test-id={dataTestId}
-        >
+        <div className={cn(styles.component, className)} data-test-id={dataTestId}>
             <CalendarInput
+                {...inputFromProps}
                 calendarPosition='static'
                 onInputChange={handleInputFromChange}
                 onCalendarChange={handleCalendarChange}
                 value={inputValueFrom.value}
+                minDate={minDate}
+                maxDate={limitDate(endOfMonth(month), minDate, maxDate).getTime()}
                 calendarProps={{
+                    ...inputFromProps.calendarProps,
                     month,
-                    maxDate: endOfMonth(month).getTime(),
                     onMonthChange: handleMonthFromChange,
                     selectorView: 'month-only',
                     selectedFrom,
@@ -229,13 +248,16 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
             {/* eslint-disable-next-line jsx-a11y/mouse-events-have-key-events */}
             <div onMouseOver={handleCalendarToMouseOver}>
                 <CalendarInput
+                    {...inputToProps}
                     calendarPosition='static'
                     onInputChange={handleInputToChange}
                     onCalendarChange={handleCalendarChange}
                     value={inputValueTo.value}
+                    minDate={limitDate(startOfMonth(monthTo), minDate, maxDate).getTime()}
+                    maxDate={maxDate}
                     calendarProps={{
+                        ...inputToProps.calendarProps,
                         month: monthTo,
-                        minDate: startOfMonth(monthTo).getTime(),
                         onMonthChange: handleMonthToChange,
                         selectorView: 'month-only',
                         selectedFrom,
