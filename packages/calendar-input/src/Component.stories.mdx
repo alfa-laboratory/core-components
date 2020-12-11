@@ -31,7 +31,7 @@ import { name, version } from '../package.json';
                 onChange={handleChange}
                 label={text('label', 'Дата регистрации')}
                 placeholder={text('placeholder', '')}
-                mobileMode={select('mobileMode', ['native', 'input'], 'input')}
+                mobileMode={select('mobileMode', ['native', 'input', 'popover'], 'popover')}
                 preventFlip={boolean('preventFlip', false)}
                 block={boolean('block', false)}
                 success={boolean('success', false)}
