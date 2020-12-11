@@ -94,7 +94,7 @@ export type CalendarInputProps = Omit<
     /**
      * Управление нативным режимом на мобильных устройствах
      */
-    mobileMode?: 'native' | 'input';
+    mobileMode?: 'native' | 'component';
 
     /**
      * Обработчик изменения значения
@@ -139,7 +139,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             maxDate,
             calendarProps = {},
             preventFlip,
-            mobileMode,
+            mobileMode = 'component',
             wrapperRef = null,
             disabled,
             onChange,
