@@ -65,6 +65,10 @@
     opacity: 0;
 }
 
+.stretchText {
+    flex-grow: 1;
+}
+
 a.loading {
     pointer-events: none;
 }
