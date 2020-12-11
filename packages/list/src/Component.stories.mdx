@@ -1,6 +1,7 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { text, select } from '@storybook/addon-knobs';
 import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Container, Row } from 'storybook/blocks/grid';
 import { Typography } from '@alfalab/core-components-typography';
 
 import { List } from './Component';
@@ -51,17 +52,29 @@ import { List } from '@alfalab/core-components-list';
 
 
 <Preview>
-    <List
-        tag={select('tag', TAG, 'ul')}
-        marker={text('marker', '')}
-        className={text('className', '')}
-        dataTestId={text('dataTestId', '')}
-    >
-        <Typography.Text tag='span' view='primary-medium'>1 item</Typography.Text>
-        <Typography.Text tag='span' view='primary-medium'>2 item</Typography.Text>
-        <Typography.Text tag='span' view='primary-medium'>3 item</Typography.Text>
-        <Typography.Text tag='span' view='primary-medium'>4 item</Typography.Text>
-    </List>
+    <Container>
+        <Row>
+            <List tag='ul'>
+                <Typography.Text view='primary-medium'>1 item</Typography.Text>
+                <Typography.Text view='primary-medium'>2 item</Typography.Text>
+                <Typography.Text view='primary-medium'>3 item</Typography.Text>
+            </List>
+        </Row>
+        <Row>
+            <List tag='ul' marker='•'>
+                <Typography.Text view='primary-medium'>1 item</Typography.Text>
+                <Typography.Text view='primary-medium'>2 item</Typography.Text>
+                <Typography.Text view='primary-medium'>3 item</Typography.Text>
+            </List>
+        </Row>
+        <Row>
+            <List tag='ol'>
+                <Typography.Text view='primary-medium'>1 item</Typography.Text>
+                <Typography.Text view='primary-medium'>2 item</Typography.Text>
+                <Typography.Text view='primary-medium'>3 item</Typography.Text>
+            </List>
+        </Row>
+    </Container>
 </Preview>
 
 <Props of={List} />
