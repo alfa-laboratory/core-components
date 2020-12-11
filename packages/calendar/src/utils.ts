@@ -145,11 +145,22 @@ export function buildMonth(month: Date, options: { minMonth?: Date; maxMonth?: D
 /**
  * Ограничивает дату на отрезке [minDate, maxDate]
  */
-export function limitDate(date: Date, minDate?: Date, maxDate?: Date) {
+export function limitDate(date: Date | number, minDate?: Date | number, maxDate?: Date | number) {
     let limitedDate = date;
     if (minDate) limitedDate = max([minDate, limitedDate]);
     if (maxDate) limitedDate = min([maxDate, limitedDate]);
-    return limitedDate;
+    return new Date(limitedDate);
+}
+
+/**
+ * Проверяет, находится ли переданная дата в указанных границах
+ */
+export function dateInLimits(
+    date?: Date | number | null,
+    minDate?: Date | number,
+    maxDate?: Date | number,
+) {
+    return date && limitDate(date, minDate, maxDate).getTime() === new Date(date).getTime();
 }
 
 /**
