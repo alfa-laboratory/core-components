@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.5.0](https://github.com/alfa-laboratory/core-components/compare/v5.4.1...v5.5.0) (2020-12-11)
+
+
+### Features
+
+* **amount-input:** added integerLength prop ([881af44](https://github.com/alfa-laboratory/core-components/commit/881af44b1823560d522ac07a7359cc6c5739ba0e))
+* **button:** add conditions ([5f034f3](https://github.com/alfa-laboratory/core-components/commit/5f034f382fcb1dc1304c9c0b9ccdcff765c5c7fd))
+* **button:** add css to button ([34b23ed](https://github.com/alfa-laboratory/core-components/commit/34b23ed2885a39f00928c3df0e485d1966fe6ec0))
+* **button:** update snapshorts ([29c36ac](https://github.com/alfa-laboratory/core-components/commit/29c36ac278407a04be7726996bf50f54c150ba97))
+* **picker-button:** add compoonent PickerButton ([e14b73d](https://github.com/alfa-laboratory/core-components/commit/e14b73db302acd401010b9fd227e33de10eca9fc))
+* **themes:** add dark theme mixins ([#420](https://github.com/alfa-laboratory/core-components/issues/420)) ([6cfd317](https://github.com/alfa-laboratory/core-components/commit/6cfd31795e937e33cd37262b85057f3e977a900c))
+* **themes:** updated button mobile theme ([ebdf5a1](https://github.com/alfa-laboratory/core-components/commit/ebdf5a14b912bffcefe087b95d62d4a35531e09f))
+* **vars:** fresh tokens ([48f2591](https://github.com/alfa-laboratory/core-components/commit/48f2591d030e7852fbd239e7d91e4c4c2bed6468))
+* **vars:** new reverse shadows ([6c18699](https://github.com/alfa-laboratory/core-components/commit/6c18699b02044e1ba38561d0fcded98d89c67339))
+
+
+### Bug Fixes
+
+* delete extra cn ([#415](https://github.com/alfa-laboratory/core-components/issues/415)) ([d08966f](https://github.com/alfa-laboratory/core-components/commit/d08966fd00459d497640d27a27afa5d0d0fddab9))
+* **button:** design review fixes ([4eca9d1](https://github.com/alfa-laboratory/core-components/commit/4eca9d10185f6ffc42644086e679ba7f361cc4f1))
+* **list:** apply --list-marker-color only to marker ([5479f47](https://github.com/alfa-laboratory/core-components/commit/5479f47dd44fc8d9cfedb84f7787e5af84c1f41d))
+* **picker-button:** fix icon color ([f8d97b4](https://github.com/alfa-laboratory/core-components/commit/f8d97b44680fa2ace1539b11b5d0a318d45094aa))
+
 ### [5.4.1](https://github.com/alfa-laboratory/core-components/compare/v5.4.0...v5.4.1) (2020-12-04)
 
 
