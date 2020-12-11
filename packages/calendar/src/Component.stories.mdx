@@ -1,0 +1,205 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { select, number } from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import startOfDay from 'date-fns/startOfDay';
+
+import { Calendar } from './';
+import { usePeriod } from './usePeriod';
+
+import { name, version } from '../package.json';
+
+
+<Meta
+    title='Компоненты'
+    component={Calendar}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+
+export const Box = ({ children }) => (
+    <div style={{
+        boxSizing: 'border-box',
+        boxShadow: '0px 8px 24px rgba(0, 0, 0, 0.16)',
+        borderRadius: '8px',
+        display: 'inline-block'
+    }}>
+        {children}
+    </div>
+);
+
+<!-- Canvas -->
+
+<Story name='Calendar'>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState();
+        return (
+            <Calendar
+                value={value}
+                onChange={setValue}
+                defaultView={select('defaultView', ['days', 'months', 'years'], 'days')}
+                selectorView={select('selectorView', ['full', 'month-only'], 'full')}
+                onMonthChange={action('onMonthChange')}
+            />
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Calendar'
+    version={version}
+    package='@alfalab/core-components-calendar'
+    stage={1}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=3423%3A6'
+/>
+
+```tsx
+import { Calendar } from '@alfalab/core-components-calendar';
+```
+
+<Props of={Calendar} />
+
+
+## Выбор даты из ограниченного интервала
+
+Календарь с заданными левой и правой границей.
+
+Позволяет выбрать дату из заданного диапазона.
+Например, дату встречи с банком для заключения кредитного договора.
+
+Задать границы можно с помощью свойств `minDate` и `maxDate`
+
+<Preview>
+      {React.createElement(() => {
+        const [value, setValue] = React.useState();
+        const minDate = startOfDay(new Date());
+        minDate.setDate(10);
+        const maxDate = startOfDay(new Date());
+        maxDate.setDate(20);
+        return (
+            <Box>
+                <Calendar
+                    value={value}
+                    onChange={setValue}
+                    selectorView="month-only"
+                    minDate={minDate.getTime()}
+                    maxDate={maxDate.getTime()}
+                />
+            </Box>
+        );
+    })}
+</Preview>
+
+## Скрытие выбора года и месяца
+
+<Preview>
+      {React.createElement(() => {
+        const [value, setValue] = React.useState(new Date().setMonth(6));
+        const minDate = startOfDay(new Date());
+        minDate.setMonth(5);
+        const maxDate = startOfDay(new Date());
+        maxDate.setMonth(7);
+        return (
+            <Box>
+                <Calendar
+                    value={value}
+                    onChange={setValue}
+                    selectorView="month-only"
+                    minDate={minDate.getTime()}
+                    maxDate={maxDate.getTime()}
+                />
+            </Box>
+        );
+    })}
+</Preview>
+
+
+## Недоступные даты
+
+Случается, что некоторые даты нельзя выбрать. Например, выходные или праздники.
+
+Задать недоступные даты можно, передав массив дат в свойство `offDays`
+
+<Preview>
+      {React.createElement(() => {
+        const [value, setValue] = React.useState();
+        const offDays = [new Date().setDate(1), new Date().setDate(7), new Date().setDate(28)];
+        return (
+            <Box>
+                <Calendar
+                    value={value}
+                    onChange={setValue}
+                    offDays={offDays}
+                />
+            </Box>
+        );
+    })}
+</Preview>
+
+
+## Отметка о событии
+
+К календарю могут быть привязаны события или мероприятия: запланированные платежи, даты сдачи отчётности в налоговую и т.д.
+
+Задать события можно, передав массив дат в свойство `events`
+
+<Preview>
+      {React.createElement(() => {
+        const [value, setValue] = React.useState();
+        const events = [
+            new Date().setDate(3),
+            new Date().setDate(15),
+            new Date().setDate(17),
+            new Date().setDate(21)
+        ];
+        return (
+            <Box>
+                <Calendar
+                    value={value}
+                    onChange={setValue}
+                    events={events}
+                />
+            </Box>
+        );
+    })}
+</Preview>
+
+
+## Выделение периода
+
+С помощью свойств `selectedFrom` и `selectedTo` можно подсвечивать определенный период дат на календаре.
+
+Если свойство `selectedTo` не задано, то подсвечивается период между `selectedFrom` и датой под курсором.
+
+Для автоматического управления выделением можно воспользоваться хуком `usePeriod`
+
+<Preview>
+    {React.createElement(() => {
+        // import { usePeriod } from '@alfalab/core-components/calendar';
+        const [value, setValue] = React.useState();
+        const onPeriodChange = (selectedFrom, selectedTo) => {
+            console.log('selected', selectedFrom, selectedTo);
+        }
+        const { selectedFrom, selectedTo, updatePeriod } = usePeriod({ onPeriodChange });
+        const handleChange = (date) => {
+            const newDate = date === selectedFrom ? undefined : date;
+            setValue(newDate);
+            updatePeriod(newDate);
+        }
+        return (
+            <Box>
+                <Calendar
+                    value={value}
+                    selectedFrom={selectedFrom}
+                    selectedTo={selectedTo}
+                    onChange={handleChange}
+                />
+            </Box>
+        );
+    })}
+</Preview>
