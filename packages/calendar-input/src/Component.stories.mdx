@@ -23,7 +23,7 @@ import { name, version } from '../package.json';
 
 <Story name='CalendarInput'>
     {React.createElement(() => {
-        const [value, setValue] = React.useState('01012020');
+        const [value, setValue] = React.useState('');
         const handleChange = (event, { value }) => setValue(value);
         return (
             <CalendarInput
