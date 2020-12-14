@@ -54,7 +54,7 @@ export const Field = ({
             {...restProps}
             {...innerProps}
             size={buttonSize}
-            className={cn(className, view === 'primary' && styles.primary)}
+            className={cn(styles.component, view === 'primary' && styles.primary, className)}
         >
             {label}
         </Button>
