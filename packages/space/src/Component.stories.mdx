@@ -1,5 +1,5 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { select } from '@storybook/addon-knobs';
+import { select, boolean, text } from '@storybook/addon-knobs';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Input } from '@alfalab/core-components-input';
 import { CardImage } from '@alfalab/core-components-card-image';
@@ -10,6 +10,7 @@ import { Space } from './Component';
 import { name, version } from '../package.json';
 
 export const DIRECTIONS = ['horizontal', 'vertical'];
+export const ALIGNES = ['start', 'end', 'center'];
 export const SIZES = ['s', 'm', 'l', 13, 37];
 
 <Meta
@@ -25,6 +26,10 @@ export const SIZES = ['s', 'm', 'l', 13, 37];
         align="start"
         direction={select('direction', DIRECTIONS, 'horizontal')}
         size={select('size', SIZES, 'm')}
+        align={select('align', ALIGNES, 'start')}
+        wrap={boolean('wrap')}
+        split={text('split')}
+        fullWidth={boolean('fullWidth')}
     >
         <Input placeholder='Над вишней в цвету' />
         <Input placeholder='Спряталась за облака' />

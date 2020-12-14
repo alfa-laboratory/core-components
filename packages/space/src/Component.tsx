@@ -6,11 +6,6 @@ import { Direction, Align, Size, SpaceContext } from './utils';
 
 export type SpaceProps = {
     /**
-     * Заголовок
-     */
-    label?: ReactNode;
-
-    /**
      * Выравнивание
      */
     align?: Align;
@@ -74,7 +69,6 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     const {
         children,
         className,
-        label,
         align = 'start',
         direction = 'vertical',
         size = 'm',
@@ -136,7 +130,6 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
     return (
         <div className={componentCls}>
-            {label ? <span className={styles.label}>{label}</span> : null}
             <div
                 className={containerCls}
                 style={{
