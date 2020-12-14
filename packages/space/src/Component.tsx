@@ -2,16 +2,7 @@ import React, { ReactNode, Children, forwardRef } from 'react';
 import classNames from 'classnames';
 import Item from './Item';
 import styles from './index.module.css';
-
-export type Align = 'start' | 'end' | 'center';
-export type Direction = 'horizontal' | 'vertical';
-export type Size = 's' | 'm' | 'l' | number;
-
-export const SpaceContext = React.createContext({
-    length: 0,
-    horizontalSize: 0,
-    verticalSize: 0,
-});
+import { Direction, Align, Size, SpaceContext } from './utils';
 
 export type SpaceProps = {
     /**

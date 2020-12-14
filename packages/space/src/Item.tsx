@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Direction, SpaceContext } from '.';
+import { Direction, SpaceContext } from './utils';
 
 export interface ItemProps {
     className: string;
