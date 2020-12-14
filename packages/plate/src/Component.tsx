@@ -136,25 +136,25 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                 tabIndex={isFoldable ? 0 : -1}
                 data-test-id={dataTestId}
             >
-                {leftAddons && <div className={cn(styles.leftAddons)}>{leftAddons}</div>}
+                {leftAddons && <div className={styles.leftAddons}>{leftAddons}</div>}
                 <div
                     className={cn(styles.contentContainer, {
                         [styles.withoutTitle]: !title,
                     })}
                 >
-                    {title && <div className={cn(styles.title)}>{title}</div>}
+                    {title && <div className={styles.title}>{title}</div>}
                     {children && (
                         <div
                             className={cn(styles.content, {
                                 [styles.isFolded]: isFoldable && isFolded,
                             })}
                         >
-                            <div className={cn(styles.contentInner)}>{children}</div>
+                            <div className={styles.contentInner}>{children}</div>
                         </div>
                     )}
                 </div>
                 {(foldable || hasCloser) && (
-                    <div className={cn(styles.additional)}>
+                    <div className={styles.additional}>
                         {isFoldable && (
                             <div
                                 className={cn(styles.folder, {
@@ -165,7 +165,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                         {isFoldable ||
                             (hasCloser && (
                                 <Button
-                                    className={cn(styles.closer)}
+                                    className={styles.closer}
                                     view='ghost'
                                     onClick={handleClose}
                                 />

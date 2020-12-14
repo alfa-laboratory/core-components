@@ -1,0 +1,75 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.header {
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--calendar-header-paddings);
+    transition: box-shadow 0.2s ease;
+}
+
+.withShadow {
+    box-shadow: 0 0 8px rgba(11, 31, 53, 0.04), 0 4px 8px rgba(11, 31, 53, 0.08);
+}
+
+.inner {
+    position: relative;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.month {
+    width: 131px;
+}
+
+.year {
+    width: 105px;
+
+    margin-left: var(--gap-xs);
+}
+
+.buttonContent {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.monthOnly {
+    padding: var(--calendar-month-only-header-paddings);
+
+    & .month {
+        font-family: var(--calendar-month-only-header-font-family);
+        font-size: var(--calendar-month-only-header-font-size);
+        font-weight: var(--calendar-month-only-header-font-weight);
+        line-height: 24px;
+
+        width: auto;
+    }
+}
+
+.upDownIcon {
+    display: block;
+    background: var(--calendar-select-icon-background);
+    width: 24px;
+    height: 24px;
+    margin-left: var(--gap-xs);
+}
+
+.arrow {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: var(--calendar-arrow-background);
+
+    &:first-child {
+        left: 0;
+    }
+
+    &:last-child {
+        right: 0;
+        transform: rotateY(180deg);
+    }
+}

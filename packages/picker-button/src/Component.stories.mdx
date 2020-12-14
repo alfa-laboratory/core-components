@@ -1,0 +1,162 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { text, boolean, select } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+// import Icon from '@alfalab/icons-glyph/StarMIcon';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+
+import { OptionsList } from '../../select/src/components/options-list';
+import { Button } from '../../button/src';
+import { PickerButton } from './Component';
+import { name, version } from '../package.json';
+
+export const containerStyle = { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', columnGap: '24px', alignItems: 'center', justifyItems: 'center'}
+
+export const options = [
+    { key: '1', content: 'Neptunium'},
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+    { key: '9', content: 'Mendelevium' },
+    { key: '10', content: 'Nobelium' },
+    { key: '11', content: 'Lawrencium' },
+    { key: '12', content: 'Rutherfordium' },
+    { key: '13', content: 'Dubnium' },
+    { key: '14', content: 'Seaborgium' },
+    { key: '15', content: 'Bohrium' },
+];
+
+export const customOptionList = (props) => (
+    <div>
+        <b>Header</b>
+        <OptionsList {...props} />
+    </div>
+);
+
+export const groupedOptions = [{
+    label: 'Группа №1',
+    options: [
+        { key: '1', content: 'Neptunium' },
+        { key: '2', content: 'Plutonium' },
+    ]
+},
+{
+    label: 'Группа №2',
+    options: [
+        { key: '3', content: 'Berkelium' },
+        { key: '4', content: 'Californium' },
+    ]
+}]
+
+<Meta
+    title='Компоненты'
+    id='components/picker-button'
+    component={PickerButton}
+    parameters={{ 'theme-switcher': { themes: ['corp'] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='PickerButton'>
+    <PickerButton
+        options={options}
+        label={text('label', 'some label')}
+        size={select('size', ['xs', 's', 'm'], 'm')}
+        view={select('view', ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost'], 'secondary')}
+        disabled={boolean('disabled', false)}
+        loading={boolean('loading', false)}
+        leftAddons={boolean('has left icon', false) ? <Icon/> : null}
+    />
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='PickerButton'
+    version={version}
+    package='@alfalab/core-components-picker-button'
+    stage={1}
+/>
+
+```tsx
+import { PickerButton } from '@alfalab/core-components-picker-button';
+```
+
+Компонент PickerButton. Использует селект, но с кнопкой вместо стандартного Field.
+Кнопка содержит несколько команд, объединенных по смыслу. Используется для скрытия редких или одинаковых по контексту действий.
+
+<PickerButton options={options} label='Picker Button' />
+
+## Примеры
+
+### Кастомизированные элементы
+<div style={containerStyle}>
+    <PickerButton label='Custom OptionList' options={options} OptionsList={customOptionList}/>
+    <PickerButton label='Grouped options' options={groupedOptions} />
+    {React.createElement(() => {
+        const [selected, setSelected] = React.useState(null);
+        const handleChange = ({ selected }) => {
+            setSelected(selected ? selected.key : null);
+        };
+        const CustomOptionList = (props) => (
+            <div>
+                <span style={{ display: 'inline-block', color: '#b6bcc3', fontSize: '14px', padding: '16px 24px' }}>Выберите счёт получателя</span>
+                <OptionsList {...props} />
+            </div>
+        );
+        const Card = ({ bankName, cardNumber }) => (
+            <div style={{ display: 'flex', flexDirection: 'column', fontSize: '16px', padding: '8px 0', whiteSpace: 'nowrap' }}>
+                <span>{cardNumber}</span>
+                <span style={{ color: '#b6bcc3'}}>{bankName}</span>
+            </div>
+        );
+        return (
+            <PickerButton
+                label='Custom options'
+                selected={selected}
+                onChange={handleChange}
+                options={[
+                    { key: 'Account1', content: <Card bankName='Сбербанк' cardNumber='40817 810 3 0130 0000001' /> },
+                    { key: 'Account2', content: <Card bankName='Промсвязьбанк' cardNumber='40817 810 3 0130 0000001' /> },
+                    { key: 'Account3', content: <Card bankName='ВТБ' cardNumber='40817 810 3 0130 0000002' /> },
+                    { key: 'Account4', content: <Card bankName='Тинькофф' cardNumber='40817 810 3 0130 0000003' /> },
+                ]}
+                OptionsList={CustomOptionList}
+                multiple={false}
+                size='s'
+                view='primary'
+                allowUnselect={true}
+            />
+        );
+    })}
+</div>
+
+### Разные размеры
+<div style={containerStyle}>
+    <PickerButton label='Secondary xs' options={options} size='xs' />
+    <PickerButton label='Secondary s' options={options} size='s' />
+    <PickerButton label='Secondary m' options={options} size='m' />
+</div>
+
+
+### Разные типы кнопок
+<div style={containerStyle}>
+    <PickerButton label='Primary m' options={options} view='primary' />
+    <PickerButton label='Outlined m' options={options} view='outlined' />
+    <PickerButton label='Ghost m' options={options} view='ghost' />
+</div>
+
+### Разные состояния кнопок
+<div style={containerStyle}>
+    <PickerButton label='Secondary disabled' options={options} disabled={true} />
+    <PickerButton label='Secondary loading' options={options} loading={true} />
+</div>
+
+<Props of={PickerButton} />
