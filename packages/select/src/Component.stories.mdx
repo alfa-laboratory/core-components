@@ -361,8 +361,9 @@ import { Select } from '@alfalab/core-components-select';
                     <Select
                         options={options}
                         allowUnselect={true}
+                        popoverPosition='bottom-end'
                         Field={({ selected, innerProps, ...restProps }) => (
-                            <Button {...innerProps}>
+                            <Button {...innerProps} size='xs'>
                                 {selected ? selected.content : 'Pick'}
                             </Button>
                         )}

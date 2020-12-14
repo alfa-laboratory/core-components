@@ -146,6 +146,11 @@ export type BaseSelectProps = {
     nativeSelect?: boolean;
 
     /**
+     * Позиционирование выпадающего списка
+     */
+    popoverPosition?: PopoverProps['position'];
+
+    /**
      * Кастомный рендер выбранного пункта
      */
     valueRenderer?: ({
