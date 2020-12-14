@@ -38,6 +38,7 @@ export const BaseSelect = forwardRef(
             nativeSelect = false,
             defaultOpen = false,
             popoverPosition = 'bottom-start',
+            preventFlip = true,
             name,
             id,
             selected,
@@ -329,7 +330,7 @@ export const BaseSelect = forwardRef(
                             withTransition={false}
                             anchorElement={fieldRef.current as HTMLElement}
                             position={popoverPosition}
-                            preventFlip={true}
+                            preventFlip={preventFlip}
                             getPortalContainer={getPortalContainer}
                             popperClassName={styles.popover}
                             update={updatePopover}

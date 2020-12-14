@@ -136,6 +136,12 @@ export type BaseSelectProps = {
     circularNavigation?: boolean;
 
     /**
+     * Запрещает поповеру менять свою позицию.
+     * Например, если места снизу недостаточно,то он все равно будет показан снизу
+     */
+    preventFlip?: boolean;
+
+    /**
      * Список value выбранных пунктов (controlled-селект)
      */
     selected?: Array<string | OptionShape> | string | OptionShape | null;
