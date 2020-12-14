@@ -15,10 +15,6 @@
         "react": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^3.2.0",
-        "@alfalab/core-components-card-image": "^1.1.0",
-        "@alfalab/core-components-button": "^1.8.0",
-        "@alfalab/core-components-divider": "^1.3.4",
         "classnames": "^2.2.6"
     }
 }

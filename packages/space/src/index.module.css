@@ -12,15 +12,15 @@
     flex-direction: column;
 }
 
-.align_center {
+.center {
     align-items: center;
 }
 
-.align_start {
+.start {
     align-items: flex-start;
 }
 
-.align_end {
+.end {
     align-items: flex-end;
 }
 

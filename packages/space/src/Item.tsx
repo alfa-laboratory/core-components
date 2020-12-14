@@ -1,8 +1,11 @@
 import * as React from 'react';
-import { Direction, SpaceContext } from './utils';
+import { Direction } from './utils';
 
 export interface ItemProps {
     className: string;
+    horizontalSize: number;
+    verticalSize: number;
+    length: number;
     children: React.ReactNode;
     index: number;
     direction?: Direction;
@@ -11,8 +14,17 @@ export interface ItemProps {
 }
 
 const Item = (props: ItemProps) => {
-    const { className, direction, index, children, split, wrap } = props;
-    const { horizontalSize, verticalSize, length } = React.useContext(SpaceContext);
+    const {
+        className,
+        horizontalSize,
+        verticalSize,
+        length,
+        direction,
+        index,
+        children,
+        split,
+        wrap,
+    } = props;
 
     let style: React.CSSProperties = {};
 

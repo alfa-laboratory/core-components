@@ -2,7 +2,7 @@ import React, { ReactNode, Children, forwardRef } from 'react';
 import classNames from 'classnames';
 import Item from './Item';
 import styles from './index.module.css';
-import { Direction, Align, Size, SpaceContext } from './utils';
+import { Direction, Align, Size } from './utils';
 
 export type SpaceProps = {
     /**
@@ -91,30 +91,32 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
         return null;
     }
 
-    const directionCls = styles[direction];
+    const directionClassName = styles[direction];
+    const alignClassName = styles[align];
 
-    const alignCls = styles[`align_${align}`];
-
-    const containerCls = classNames(
+    const containerClassName = classNames(
         styles.spaceContainer,
-        directionCls,
+        directionClassName,
         {
-            [alignCls]: align,
+            [alignClassName]: align,
             [styles.spaceContainerFullWidth]: fullWidth,
         },
         className,
     );
 
-    const itemCls = classNames(styles.spaceItem, {
+    const itemClassName = classNames(styles.spaceItem, {
         [styles.spaceItemFullWidth]: fullWidth,
     });
 
     const nodes = childNodes.map((child, i) => (
         /* eslint-disable react/no-array-index-key */
         <Item
-            className={itemCls}
-            key={`${itemCls}-${i}`}
+            className={itemClassName}
+            key={`${itemClassName}-${i}`}
             direction={direction}
+            horizontalSize={horizontalSize}
+            verticalSize={verticalSize}
+            length={childNodes.length}
             index={i}
             wrap={wrap}
             split={split}
@@ -124,24 +126,20 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
         /* eslint-enable */
     ));
 
-    const componentCls = classNames({
+    const componentClassName = classNames({
         [styles.spaceFullWidth]: fullWidth,
     });
 
     return (
-        <div className={componentCls}>
+        <div className={componentClassName}>
             <div
-                className={containerCls}
+                className={containerClassName}
                 style={{
                     ...(wrap && { flexWrap: 'wrap', marginBottom: -verticalSize }),
                 }}
                 ref={ref}
             >
-                <SpaceContext.Provider
-                    value={{ horizontalSize, verticalSize, length: childNodes.length }}
-                >
-                    {nodes}
-                </SpaceContext.Provider>
+                {nodes}
             </div>
         </div>
     );

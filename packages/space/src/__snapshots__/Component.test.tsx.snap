@@ -9,7 +9,7 @@ Object {
         class=""
       >
         <div
-          class="spaceContainer vertical align_start"
+          class="spaceContainer vertical start"
         >
           <div
             class="spaceItem"
@@ -38,7 +38,7 @@ Object {
       class=""
     >
       <div
-        class="spaceContainer vertical align_start"
+        class="spaceContainer vertical start"
       >
         <div
           class="spaceItem"
@@ -124,7 +124,7 @@ Object {
         class=""
       >
         <div
-          class="spaceContainer vertical align_start"
+          class="spaceContainer vertical start"
         >
           <div
             class="spaceItem"
@@ -145,7 +145,7 @@ Object {
       class=""
     >
       <div
-        class="spaceContainer vertical align_start"
+        class="spaceContainer vertical start"
       >
         <div
           class="spaceItem"

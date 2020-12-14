@@ -16,7 +16,6 @@ export const SIZES = ['s', 'm', 'l', 13, 37];
 <Meta
     title='Компоненты'
     component={Space}
-    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
 <!-- Canvas -->
@@ -45,7 +44,6 @@ export const SIZES = ['s', 'm', 'l', 13, 37];
     version={version}
     package='@alfalab/core-components-space'
     stage={1}
-    design='https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=532%3A544'
 />
 
 ```tsx
@@ -76,6 +74,18 @@ import { Space } from '@alfalab/core-components-space';
         <CardImage cardId='GQ' />
         <CardImage cardId='SU' />
     </Space>
+</Preview>
+
+Пользовательское расстояние между карточками в виде массива [64, 32].
+
+<Preview>
+    <div style={{ width: '700px' }}>
+        <Space direction="horizontal" size={[64, 32]} wrap>
+            <CardImage cardId='EG' />
+            <CardImage cardId='GQ' />
+            <CardImage cardId='SU' />
+        </Space>
+    </div>
 </Preview>
 
 С адаптивом.
