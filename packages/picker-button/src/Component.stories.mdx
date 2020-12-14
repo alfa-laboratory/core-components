@@ -107,7 +107,9 @@ import { PickerButton } from '@alfalab/core-components-picker-button';
         };
         const CustomOptionList = (props) => (
             <div>
-                <span style={{ display: 'inline-block', color: '#b6bcc3', fontSize: '14px', padding: '16px 24px' }}>Выберите счёт получателя</span>
+                <span style={{ display: 'inline-block', color: '#b6bcc3', fontSize: '14px', padding: '16px 24px' }}>
+                    Выберите счёт получателя
+                </span>
                 <OptionsList {...props} />
             </div>
         );
@@ -133,30 +135,45 @@ import { PickerButton } from '@alfalab/core-components-picker-button';
                 size='s'
                 view='primary'
                 allowUnselect={true}
+                popoverPosition='bottom-end'
             />
         );
     })}
 </div>
 
 ### Разные размеры
-<div style={containerStyle}>
-    <PickerButton label='Secondary xs' options={options} size='xs' />
-    <PickerButton label='Secondary s' options={options} size='s' />
-    <PickerButton label='Secondary m' options={options} size='m' />
-</div>
-
+<Preview>
+    <div style={containerStyle}>
+        <PickerButton label='Secondary xs' options={options} size='xs' />
+        <PickerButton label='Secondary s' options={options} size='s' />
+        <PickerButton label='Secondary m' options={options} size='m' />
+    </div>
+</Preview>
 
 ### Разные типы кнопок
-<div style={containerStyle}>
-    <PickerButton label='Primary m' options={options} view='primary' />
-    <PickerButton label='Outlined m' options={options} view='outlined' />
-    <PickerButton label='Ghost m' options={options} view='ghost' />
-</div>
+<Preview>
+    <div style={containerStyle}>
+        <PickerButton label='Primary m' options={options} view='primary' />
+        <PickerButton label='Outlined m' options={options} view='outlined' />
+        <PickerButton label='Ghost m' options={options} view='ghost' />
+    </div>
+</Preview>
 
 ### Разные состояния кнопок
-<div style={containerStyle}>
-    <PickerButton label='Secondary disabled' options={options} disabled={true} />
-    <PickerButton label='Secondary loading' options={options} loading={true} />
-</div>
+<Preview>
+    <div style={containerStyle}>
+        <PickerButton label='Secondary disabled' options={options} disabled={true} />
+        <PickerButton label='Secondary loading' options={options} loading={true} />
+    </div>
+</Preview>
+
+### Позиционирование меню
+<Preview>
+    <div style={containerStyle}>
+        <PickerButton label='start' options={options} popoverPosition='bottom-start' size='xs' />
+        <PickerButton label='center' options={options} popoverPosition='bottom' size='xs'/>
+        <PickerButton label='end' options={options} popoverPosition='bottom-end' size='xs' />
+    </div>
+</Preview>
 
 <Props of={PickerButton} />
