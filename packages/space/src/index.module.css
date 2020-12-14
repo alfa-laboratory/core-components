@@ -8,13 +8,6 @@
     width: 100%;
 }
 
-.label {
-    display: block;
-    @mixin system_14-18_regular;
-    margin-bottom: var(--gap-m);
-    color: var(--radio-group-label-color);
-}
-
 .vertical {
     flex-direction: column;
 }
