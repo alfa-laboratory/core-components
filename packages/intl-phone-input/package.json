@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-intl-phone-input",
-    "version": "1.2.0",
+    "version": "1.2.2",
     "description": "Phone input for international phones",
     "keywords": [],
     "license": "ISC",
@@ -16,8 +16,8 @@
         "react": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^3.2.0",
-        "@alfalab/core-components-select": "^4.3.0",
+        "@alfalab/core-components-input": "^3.2.2",
+        "@alfalab/core-components-select": "^4.3.2",
         "@alfalab/hooks": "^0.9.0",
         "@alfalab/utils": "^0.5.0",
         "classnames": "^2.2.6",

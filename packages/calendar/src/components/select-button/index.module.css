@@ -1,0 +1,42 @@
+@import '../../../../themes/src/default.css';
+
+.button {
+    @mixin paragraph_primary_medium;
+
+    height: 40px;
+    position: relative;
+    padding: 0 var(--gap-s);
+    background-color: transparent;
+    border-radius: 4px;
+
+    &:not(.disabled):hover {
+        background-color: var(--color-light-bg-tertiary);
+        color: var(--color-light-text-primary);
+    }
+
+    & > * {
+        flex-grow: 1;
+    }
+}
+
+.filled {
+    background-color: var(--color-light-bg-tertiary);
+
+    &:not(.disabled):hover {
+        background-color: color-mod(var(--color-light-bg-tertiary) shade(7%));
+    }
+}
+
+.outlined {
+    border: 1px solid var(--calendar-selector-button-outline-border-color);
+}
+
+.selected {
+    background-color: var(--color-light-bg-primary-inverted);
+    color: var(--color-light-text-primary-inverted);
+
+    &:not(.disabled):hover {
+        background-color: var(--color-light-bg-primary-inverted);
+        color: var(--color-light-text-primary-inverted);
+    }
+}

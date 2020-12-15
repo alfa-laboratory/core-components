@@ -52,7 +52,7 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
           class="component ghost m closer"
         >
           <span
-            class="text"
+            class="text stretchText"
           >
             <svg
               focusable="false"
@@ -99,7 +99,7 @@ exports[`Notification Snapshots tests should match snapshot with leftAddons 1`] 
           class="component ghost m closer"
         >
           <span
-            class="text"
+            class="text stretchText"
           >
             <svg
               focusable="false"
@@ -151,7 +151,7 @@ exports[`Notification Snapshots tests should match snapshot without icon 1`] = `
           class="component ghost m closer"
         >
           <span
-            class="text"
+            class="text stretchText"
           >
             <svg
               focusable="false"

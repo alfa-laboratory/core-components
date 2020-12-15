@@ -176,6 +176,8 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                     disabled={disabled}
                     className={cn(inputClassName, styles.input)}
                     focusedClassName={styles.focused}
+                    inputMode='numeric'
+                    pattern='[0-9]*'
                     bottomAddons={
                         <Slider
                             min={min}

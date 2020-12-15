@@ -167,7 +167,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
                 {label ? <span className={styles.label}>{label}</span> : null}
 
                 {children ? (
-                    <div className={cn(styles.radioList)}>
+                    <div className={styles.radioList}>
                         {Children.map(children, child => {
                             if (isValidElement(child)) {
                                 return type === 'radio' ? renderRadio(child) : renderTag(child);

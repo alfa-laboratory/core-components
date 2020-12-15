@@ -1,10 +1,11 @@
 {
     "name": "@alfalab/core-components-input-autocomplete",
-    "version": "3.4.0",
+    "version": "3.4.2",
     "description": "",
     "keywords": [],
     "license": "ISC",
     "main": "dist/index.js",
+    "module": "./dist/esm/index.js",
     "files": [
         "dist"
     ],
@@ -15,8 +16,8 @@
         "react": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^3.2.0",
-        "@alfalab/core-components-select": "^4.3.0",
+        "@alfalab/core-components-input": "^3.2.2",
+        "@alfalab/core-components-select": "^4.3.2",
         "classnames": "^2.2.6"
     }
 }

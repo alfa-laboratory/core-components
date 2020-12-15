@@ -1,6 +1,4 @@
 import globby from 'globby';
-import { promisify } from 'util';
-import fs from 'fs';
 import postcss from 'postcss';
 import path from 'path';
 
