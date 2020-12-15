@@ -56,6 +56,9 @@ Object {
         />
       </div>
     </div>
+    <div
+      alfa-portal-container=""
+    />
   </body>,
   "container": <div>
     <div

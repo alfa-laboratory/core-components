@@ -63,10 +63,7 @@ export const BaseSelect = forwardRef(
         }: BaseSelectProps,
         ref,
     ) => {
-        const optionsListRef = useRef<HTMLElement>(null);
         const fieldRef = useRef<HTMLInputElement>(null);
-
-        const getPortalContainer = () => optionsListRef.current as HTMLDivElement;
 
         const itemToString = (option: OptionShape) => (option ? option.key : '');
 
@@ -178,8 +175,12 @@ export const BaseSelect = forwardRef(
             },
         });
 
-        const menuProps = getMenuProps(nativeSelect ? {} : { ref: optionsListRef });
+        const menuProps = getMenuProps();
         const inputProps = getInputProps(getDropdownProps({ ref: mergeRefs([ref, fieldRef]) }));
+
+        const optionsListMinWidth = fieldRef.current
+            ? fieldRef.current.getBoundingClientRect().width
+            : 0;
 
         const handleFieldFocus = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
             if (onFocus) onFocus(event);
@@ -331,12 +332,16 @@ export const BaseSelect = forwardRef(
                             anchorElement={fieldRef.current as HTMLElement}
                             position={popoverPosition}
                             preventFlip={preventFlip}
-                            getPortalContainer={getPortalContainer}
                             popperClassName={styles.popover}
                             update={updatePopover}
                         >
                             {flatOptions.length > 0 && (
-                                <div className={styles.optionsList}>
+                                <div
+                                    className={styles.optionsList}
+                                    style={{
+                                        minWidth: optionsListMinWidth,
+                                    }}
+                                >
                                     <OptionsList
                                         flatOptions={flatOptions}
                                         highlightedIndex={highlightedIndex}

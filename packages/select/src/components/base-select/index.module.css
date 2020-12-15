@@ -9,7 +9,6 @@
 }
 
 .popover {
-    min-width: 100%;
     padding-top: var(--select-options-list-offset);
     padding-bottom: var(--select-options-list-offset);
     box-shadow: none;
