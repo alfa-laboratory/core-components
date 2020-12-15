@@ -32,13 +32,13 @@ describe('Snapshots tests', () => {
     });
 
     it('should display opened correctly', () => {
-        const { container } = render(<PickerButton options={options} />);
+        const { baseElement } = render(<PickerButton options={options} />);
 
         const button = document.querySelector('button');
 
         if (button) fireEvent.click(button);
 
-        expect(container).toMatchSnapshot();
+        expect(baseElement).toMatchSnapshot();
     });
 });
 
