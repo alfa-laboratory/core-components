@@ -85,23 +85,27 @@ Object {
       </div>
     </div>
     <div
-      class="component [object Object] mountOnEnter unmountOnExit in timeout children popper"
-      data-popper-escaped="true"
-      data-popper-placement="left"
-      data-popper-reference-hidden="true"
-      style="position: absolute; left: 0px; top: 0px; transition-duration: 300ms; right: 0px; transform: translate(-10px, 0px);"
+      alfa-portal-container=""
     >
       <div
-        class="component"
+        class="component [object Object] mountOnEnter unmountOnExit in timeout children popper"
+        data-popper-escaped="true"
+        data-popper-placement="left"
+        data-popper-reference-hidden="true"
+        style="position: absolute; left: 0px; top: 0px; transition-duration: 300ms; right: 0px; transform: translate(-10px, 0px);"
       >
-        <div>
-          I am tooltip
+        <div
+          class="component"
+        >
+          <div>
+            I am tooltip
+          </div>
         </div>
+        <div
+          class="arrow"
+          style="position: absolute; top: 0px; transform: translate(0px, 0px);"
+        />
       </div>
-      <div
-        class="arrow"
-        style="position: absolute; top: 0px; transform: translate(0px, 0px);"
-      />
     </div>
   </body>,
   "container": <div>
