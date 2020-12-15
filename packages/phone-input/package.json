@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-phone-input",
-    "version": "2.2.1",
+    "version": "2.2.2",
     "description": "",
     "keywords": [],
     "license": "ISC",
@@ -16,7 +16,7 @@
         "react": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/core-components-masked-input": "^2.2.1",
+        "@alfalab/core-components-masked-input": "^2.2.2",
         "classnames": "^2.2.6",
         "text-mask-core": "^5.1.2"
     }
