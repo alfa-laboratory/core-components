@@ -35,7 +35,7 @@ import { Portal } from '@alfalab/core-components-portal';
                 <Button onClick={handleClick}>{show ? 'Unmount children' : 'Mount children'}</Button>
                 <div>
                     {show && (
-                        <Portal container={() => document.getElementById('portal-container')}>
+                        <Portal getPortalContainer={() => document.getElementById('portal-container')}>
                             <Icon />
                         </Portal>
                     )}
