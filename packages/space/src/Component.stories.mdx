@@ -11,7 +11,7 @@ import { name, version } from '../package.json';
 
 export const DIRECTIONS = ['horizontal', 'vertical'];
 export const ALIGNES = ['start', 'end', 'center'];
-export const SIZES = ['s', 'm', 'l', 13, 37];
+export const SIZES = ['s', 'm', 'l', 8, 72];
 
 <Meta
     title='Компоненты'
@@ -27,7 +27,7 @@ export const SIZES = ['s', 'm', 'l', 13, 37];
         size={select('size', SIZES, 'm')}
         align={select('align', ALIGNES, 'start')}
         wrap={boolean('wrap')}
-        split={text('split')}
+        divider={text('divider')}
         fullWidth={boolean('fullWidth')}
     >
         <Input placeholder='Над вишней в цвету' />
@@ -103,7 +103,7 @@ import { Space } from '@alfalab/core-components-space';
 <Preview>
     <Space
         direction="vertical"
-        split={<Divider />}
+        divider={<Divider />}
         size="l"
     >
         <CardImage cardId='EG' />

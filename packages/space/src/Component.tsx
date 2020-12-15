@@ -43,7 +43,7 @@ export type SpaceProps = {
     /**
      * Компонент разделителя
      */
-    split?: boolean;
+    divider?: string | ReactNode;
 
     /**
      * Растягивать ли компонент на всю ширину
@@ -73,7 +73,7 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
         direction = 'vertical',
         size = 'm',
         wrap = false,
-        split = false,
+        divider = false,
         fullWidth = false,
     } = props;
 
@@ -119,7 +119,7 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
             length={childNodes.length}
             index={i}
             wrap={wrap}
-            split={split}
+            divider={divider}
         >
             {child}
         </Item>

@@ -9,7 +9,7 @@ export interface ItemProps {
     children: React.ReactNode;
     index: number;
     direction?: Direction;
-    split?: string | React.ReactNode;
+    divider?: string | React.ReactNode;
     wrap?: boolean;
 }
 
@@ -22,7 +22,7 @@ const Item = (props: ItemProps) => {
         direction,
         index,
         children,
-        split,
+        divider,
         wrap,
     } = props;
 
@@ -30,11 +30,11 @@ const Item = (props: ItemProps) => {
 
     if (direction === 'vertical') {
         if (index < length) {
-            style = { marginBottom: horizontalSize / (split ? 2 : 1) };
+            style = { marginBottom: horizontalSize / (divider ? 2 : 1) };
         }
     } else {
         style = {
-            ...(index < length && { marginRight: horizontalSize / (split ? 2 : 1) }),
+            ...(index < length && { marginRight: horizontalSize / (divider ? 2 : 1) }),
             ...(wrap && { paddingBottom: verticalSize }),
         };
     }
@@ -48,14 +48,14 @@ const Item = (props: ItemProps) => {
             <div className={className} style={style}>
                 {children}
             </div>
-            {index < length - 1 && split && (
+            {index < length - 1 && divider && (
                 <span
                     style={{
                         width: '100%',
                         ...style,
                     }}
                 >
-                    {split}
+                    {divider}
                 </span>
             )}
         </React.Fragment>
