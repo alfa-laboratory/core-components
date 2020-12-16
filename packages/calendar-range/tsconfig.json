@@ -9,5 +9,5 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../calendar-input" }]
+    "references": [{ "path": "../calendar-input" }, { "path": "../calendar" }]
 }

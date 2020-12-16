@@ -17,7 +17,6 @@
     },
     "dependencies": {
         "@alfalab/core-components-calendar-input": "^1.0.0",
-        "@alfalab/core-components-masked-input": "^2.1.4",
         "@alfalab/core-components-calendar": "^1.0.0",
         "classnames": "^2.2.6",
         "date-fns": "^2.16.1",
