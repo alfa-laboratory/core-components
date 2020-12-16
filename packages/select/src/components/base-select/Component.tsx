@@ -63,6 +63,7 @@ export const BaseSelect = forwardRef(
         }: BaseSelectProps,
         ref,
     ) => {
+        const rootRef = useRef<HTMLLabelElement>(null);
         const fieldRef = useRef<HTMLInputElement>(null);
 
         const itemToString = (option: OptionShape) => (option ? option.key : '');
@@ -175,11 +176,14 @@ export const BaseSelect = forwardRef(
             },
         });
 
-        const menuProps = getMenuProps();
+        const menuProps = (getMenuProps as (options: object, additional: object) => void)(
+            {},
+            { suppressRefError: true },
+        );
         const inputProps = getInputProps(getDropdownProps({ ref: mergeRefs([ref, fieldRef]) }));
 
-        const optionsListMinWidth = fieldRef.current
-            ? fieldRef.current.getBoundingClientRect().width
+        const optionsListMinWidth = rootRef.current
+            ? rootRef.current.getBoundingClientRect().width
             : 0;
 
         const handleFieldFocus = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
@@ -285,6 +289,7 @@ export const BaseSelect = forwardRef(
         return (
             <div
                 {...getComboboxProps({
+                    ref: rootRef,
                     className: cn(styles.component, { [styles.block]: block }, className),
                 })}
                 onKeyDown={disabled ? undefined : handleFieldKeyDown}
@@ -325,36 +330,35 @@ export const BaseSelect = forwardRef(
                 {name && !nativeSelect && renderValue()}
 
                 {!nativeSelect && (
-                    <div {...menuProps} className={styles.listWrapper}>
-                        <Popover
-                            open={open}
-                            withTransition={false}
-                            anchorElement={fieldRef.current as HTMLElement}
-                            position={popoverPosition}
-                            preventFlip={preventFlip}
-                            popperClassName={styles.popover}
-                            update={updatePopover}
-                        >
-                            {flatOptions.length > 0 && (
-                                <div
-                                    className={styles.optionsList}
-                                    style={{
-                                        minWidth: optionsListMinWidth,
-                                    }}
-                                >
-                                    <OptionsList
-                                        flatOptions={flatOptions}
-                                        highlightedIndex={highlightedIndex}
-                                        open={open}
-                                        size={size}
-                                        options={options}
-                                        Optgroup={Optgroup}
-                                        Option={WrappedOption}
-                                    />
-                                </div>
-                            )}
-                        </Popover>
-                    </div>
+                    <Popover
+                        open={open}
+                        withTransition={false}
+                        anchorElement={fieldRef.current as HTMLElement}
+                        position={popoverPosition}
+                        preventFlip={preventFlip}
+                        popperClassName={styles.popover}
+                        update={updatePopover}
+                    >
+                        {flatOptions.length > 0 && (
+                            <div
+                                {...menuProps}
+                                className={styles.optionsList}
+                                style={{
+                                    minWidth: optionsListMinWidth,
+                                }}
+                            >
+                                <OptionsList
+                                    flatOptions={flatOptions}
+                                    highlightedIndex={highlightedIndex}
+                                    open={open}
+                                    size={size}
+                                    options={options}
+                                    Optgroup={Optgroup}
+                                    Option={WrappedOption}
+                                />
+                            </div>
+                        )}
+                    </Popover>
                 )}
             </div>
         );

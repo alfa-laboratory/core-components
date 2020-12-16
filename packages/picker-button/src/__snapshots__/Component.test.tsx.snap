@@ -58,12 +58,6 @@ exports[`Snapshots tests should display correctly 1`] = `
         </span>
       </span>
     </button>
-    <div
-      aria-labelledby="downshift-1-label"
-      class="listWrapper"
-      id="downshift-1-menu"
-      role="listbox"
-    />
   </div>
 </div>
 `;
@@ -78,7 +72,10 @@ exports[`Snapshots tests should display opened correctly 1`] = `
       style="position: absolute; left: 0px; top: 0px;"
     >
       <div
+        aria-labelledby="downshift-3-label"
         class="optionsList"
+        id="downshift-3-menu"
+        role="listbox"
         style="min-width: 0;"
       >
         <div
@@ -360,12 +357,6 @@ exports[`Snapshots tests should display opened correctly 1`] = `
           </span>
         </span>
       </button>
-      <div
-        aria-labelledby="downshift-3-label"
-        class="listWrapper"
-        id="downshift-3-menu"
-        role="listbox"
-      />
     </div>
   </div>
 </body>

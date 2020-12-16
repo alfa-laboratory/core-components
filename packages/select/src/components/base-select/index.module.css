@@ -26,11 +26,6 @@
     overflow: hidden;
 }
 
-.listWrapper {
-    width: 100%;
-    outline: none;
-}
-
 .nativeSelect {
     opacity: 0;
     overflow: hidden;
