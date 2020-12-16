@@ -1,0 +1,57 @@
+@import '../../../../vars/src/index.css';
+
+.field {
+    cursor: pointer;
+}
+
+.field .contentWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: var(--gap-xs) var(--gap-m);
+    margin: var(--gap-2xs-neg);
+}
+
+.input {
+    @mixin system_16-20_regular;
+    flex-grow: 1;
+    flex-basis: 50px;
+    min-width: 50px;
+    padding: 0;
+    margin: var(--gap-2xs);
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+.tag {
+    padding-right: 0;
+    margin: var(--gap-2xs);
+    cursor: default;
+
+    &:active:not(:disabled) {
+        background-color: var(--tag-background-color-checked);
+        color: var(--tag-text-color-checked);
+    }
+
+    &:hover:not(:disabled):not(:active) {
+        background-color: var(--tag-background-color-checked);
+        color: var(--tag-text-color-checked);
+    }
+}
+
+.tagCrossWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 6px;
+    cursor: pointer;
+}
+
+.focusVisible {
+    @mixin focus-outline;
+}
+
+.placeholder {
+    color: var(--color-light-text-secondary);
+}
