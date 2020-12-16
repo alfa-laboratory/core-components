@@ -86,6 +86,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
 
         return (
             <BaseSelect
+                {...restProps}
                 ref={ref}
                 Option={Option}
                 Field={TagList}
@@ -105,7 +106,6 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                 autocomplete={isAutocomplete}
                 size={size}
                 options={filteredOptions}
-                {...restProps}
             />
         );
     },

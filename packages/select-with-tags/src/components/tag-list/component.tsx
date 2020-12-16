@@ -93,6 +93,8 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     return (
         <div ref={wrapperRef} onFocus={handleFocus} onBlur={handleBlur}>
             <FormControl
+                {...restProps}
+                {...innerProps}
                 className={cn(className, styles.field, {
                     [styles.focusVisible]: focusVisible,
                 })}
@@ -106,8 +108,6 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                 hint={hint}
                 onMouseDown={handleMouseDown}
                 rightAddons={Arrow}
-                {...restProps}
-                {...innerProps}
                 onClick={handleClick}
             >
                 <div className={styles.contentWrapper}>
