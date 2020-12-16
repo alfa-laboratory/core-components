@@ -1,4 +1,4 @@
-import React, { FC, SVGProps } from 'react';
+import React, { ButtonHTMLAttributes, FC, SVGProps } from 'react';
 import cn from 'classnames';
 import { Button, ButtonProps } from '@alfalab/core-components-button';
 import { FieldProps as BaseFieldProps } from '@alfalab/core-components-select/src/typings';
@@ -12,25 +12,24 @@ import {
 import styles from './index.module.css';
 import { PickerButtonSize } from '..';
 
-type FieldProps = Omit<BaseFieldProps, 'size'> &
+type FieldProps = Omit<BaseFieldProps, 'size' | 'hint' | 'success' | 'error' | 'placeholder'> &
     ButtonProps & {
         buttonSize?: PickerButtonSize;
     };
 
 export const Field = ({
+    buttonSize = 'm',
+    view,
+    label,
     open,
     multiple,
-    error,
-    hint,
-    label,
-    placeholder,
-    selected,
     rightAddons,
     Arrow,
     innerProps,
     className,
-    view,
-    buttonSize = 'm',
+    selected,
+    selectedMultiple,
+    valueRenderer,
     ...restProps
 }: FieldProps) => {
     let Icon: FC<SVGProps<SVGSVGElement>>;
@@ -40,10 +39,14 @@ export const Field = ({
         Icon = buttonSize === 'xs' ? ArrowDownSBlackIcon : ArrowDownMBlackIcon;
     }
 
+    const buttonProps = {
+        ...restProps,
+        ...innerProps,
+    } as ButtonHTMLAttributes<HTMLButtonElement>;
+
     return (
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-        // @ts-ignore
         <Button
+            {...buttonProps}
             rightAddons={
                 <span className={cn(styles.iconContainer, open && styles.open)}>
                     <Icon data-test-id='picker-button-icon' />
@@ -51,8 +54,6 @@ export const Field = ({
             }
             block={true}
             view={view}
-            {...restProps}
-            {...innerProps}
             size={buttonSize}
             className={cn(className, view === 'primary' && styles.primary)}
         >

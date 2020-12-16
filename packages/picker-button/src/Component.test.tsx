@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 
 import { PickerButton } from './index';
 
@@ -24,6 +24,11 @@ const options = [
     { key: '15', content: 'Bohrium' },
 ];
 
+const clickPickerButton = () => {
+    const button = document.querySelector('button') as HTMLButtonElement;
+    fireEvent.click(button);
+};
+
 describe('Snapshots tests', () => {
     it('should display correctly', () => {
         const { container } = render(<PickerButton label={label} options={options} />);
@@ -31,14 +36,14 @@ describe('Snapshots tests', () => {
         expect(container).toMatchSnapshot();
     });
 
-    it('should display opened correctly', () => {
+    it('should display opened correctly', async () => {
         const { baseElement } = render(<PickerButton options={options} />);
 
-        const button = document.querySelector('button');
+        clickPickerButton();
 
-        if (button) fireEvent.click(button);
-
-        expect(baseElement).toMatchSnapshot();
+        await waitFor(() => {
+            expect(baseElement).toMatchSnapshot();
+        });
     });
 });
 
@@ -109,27 +114,25 @@ describe('Render tests', () => {
         expect(icon.getAttribute('height')).toBe(iconSize);
     });
 
-    it('should have open class if opened', () => {
+    it('should have open class if opened', async () => {
         render(<PickerButton label={label} options={options} />);
 
-        const button = document.querySelector('button');
+        clickPickerButton();
 
-        const iconContainer = document.querySelector('.iconContainer');
-
-        if (button) fireEvent.click(button);
-
-        expect(iconContainer).toHaveClass('open');
+        await waitFor(() => {
+            const iconContainer = document.querySelector('.iconContainer');
+            expect(iconContainer).toHaveClass('open');
+        });
     });
 
-    it('should have options if opened', () => {
+    it('should have options if opened', async () => {
         render(<PickerButton label={label} options={options} />);
 
-        const button = document.querySelector('button') as HTMLButtonElement;
+        clickPickerButton();
 
-        fireEvent.click(button);
-
-        const renderedOptions = document.querySelectorAll('.option');
-
-        expect(renderedOptions).toHaveLength(options.length);
+        await waitFor(() => {
+            const renderedOptions = document.querySelectorAll('.option');
+            expect(renderedOptions).toHaveLength(options.length);
+        });
     });
 });

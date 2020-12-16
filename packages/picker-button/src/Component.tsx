@@ -53,6 +53,7 @@ export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
         ref,
     ) => (
         <BaseSelect
+            {...restProps}
             ref={ref}
             Option={Option}
             Field={DefaultField}
@@ -67,7 +68,6 @@ export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
             Optgroup={Optgroup}
             OptionsList={OptionsList}
             className={cn(styles.container, className)}
-            {...restProps}
             selected={[]}
             closeOnSelect={true}
         />
