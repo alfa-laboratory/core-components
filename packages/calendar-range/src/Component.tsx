@@ -91,7 +91,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
         initialSelectedTo: valueTo ? parseDateString(valueTo).getTime() : undefined,
     });
 
-    const { updatePeriod, setStart, setEnd, resetPeriod } = period;
+    const { setStart, setEnd, resetPeriod } = period;
     let { selectedFrom, selectedTo } = period;
 
     if (!dateInLimits(selectedFrom, minDate, maxDate)) selectedFrom = undefined;
@@ -173,9 +173,17 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
 
     const handleCalendarChange = useCallback(
         (date: number) => {
-            if (!inputValueFrom.date || date < inputValueFrom.date) {
+            if (!inputValueFrom.date) {
                 setStart(date);
+                handleStateFromChange({ date, value: formatDate(date) });
 
+                return;
+            }
+
+            if (date < inputValueFrom.date) {
+                resetPeriod();
+                setStart(date);
+                handleStateToChange(initialValueState);
                 handleStateFromChange({ date, value: formatDate(date) });
 
                 return;
@@ -190,13 +198,12 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
             }
 
             handleStateToChange({ date, value: formatDate(date) });
-
-            updatePeriod(date);
+            setEnd(date);
         },
         [
             inputValueFrom.date,
             handleStateToChange,
-            updatePeriod,
+            setEnd,
             setStart,
             handleStateFromChange,
             resetPeriod,
