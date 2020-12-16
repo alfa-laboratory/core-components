@@ -20,6 +20,7 @@ import {
 import { NativeSelect } from '../native-select';
 import { BaseSelectProps, OptionShape } from '../../typings';
 import { processOptions } from '../../utils';
+import { getDataTestId } from '../../../../utils';
 
 import styles from './index.module.css';
 
@@ -28,6 +29,9 @@ export const BaseSelect = forwardRef(
         {
             dataTestId,
             className,
+            fieldClassName,
+            optionsListClassName,
+            optionClassName,
             options,
             autocomplete = false,
             multiple = false,
@@ -237,6 +241,7 @@ export const BaseSelect = forwardRef(
                 <React.Fragment key={option.key}>
                     {Option({
                         ...rest,
+                        className: optionClassName,
                         innerProps: getItemProps({
                             index,
                             item: option,
@@ -249,10 +254,19 @@ export const BaseSelect = forwardRef(
                         disabled: option.disabled,
                         highlighted: index === highlightedIndex,
                         selected: selectedItems.includes(option),
+                        dataTestId: getDataTestId(dataTestId, 'option'),
                     })}
                 </React.Fragment>
             ),
-            [Option, getItemProps, highlightedIndex, selectedItems, size],
+            [
+                Option,
+                dataTestId,
+                getItemProps,
+                highlightedIndex,
+                optionClassName,
+                selectedItems,
+                size,
+            ],
         );
 
         useEffect(() => {
@@ -294,7 +308,7 @@ export const BaseSelect = forwardRef(
                 })}
                 onKeyDown={disabled ? undefined : handleFieldKeyDown}
                 tabIndex={-1}
-                data-test-id={dataTestId}
+                data-test-id={getDataTestId(dataTestId)}
             >
                 {nativeSelect && renderNativeSelect()}
 
@@ -311,6 +325,7 @@ export const BaseSelect = forwardRef(
                     error={error}
                     hint={hint}
                     valueRenderer={valueRenderer}
+                    className={fieldClassName}
                     innerProps={{
                         onBlur: handleFieldBlur,
                         onFocus: disabled ? undefined : handleFieldFocus,
@@ -324,6 +339,7 @@ export const BaseSelect = forwardRef(
                             ? inputProps['aria-autocomplete']
                             : undefined,
                     }}
+                    dataTestId={getDataTestId(dataTestId, 'field')}
                     {...fieldProps}
                 />
 
@@ -342,7 +358,7 @@ export const BaseSelect = forwardRef(
                         {flatOptions.length > 0 && (
                             <div
                                 {...menuProps}
-                                className={styles.optionsList}
+                                className={cn(optionsListClassName, styles.optionsList)}
                                 style={{
                                     minWidth: optionsListMinWidth,
                                 }}
@@ -355,6 +371,7 @@ export const BaseSelect = forwardRef(
                                     options={options}
                                     Optgroup={Optgroup}
                                     Option={WrappedOption}
+                                    dataTestId={getDataTestId(dataTestId, 'options-list')}
                                 />
                             </div>
                         )}

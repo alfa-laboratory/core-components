@@ -56,6 +56,21 @@ export type BaseSelectProps = {
     className?: string;
 
     /**
+     * Дополнительный класс для поля
+     */
+    fieldClassName?: string;
+
+    /**
+     * Дополнительный класс выпадающего меню
+     */
+    optionsListClassName?: string;
+
+    /**
+     * Дополнительный класс для пункта меню
+     */
+    optionClassName?: string;
+
+    /**
      * Список вариантов выбора
      */
     options: Array<OptionShape | GroupShape>;
@@ -230,6 +245,11 @@ export type BaseSelectProps = {
 // TODO: использовать InputProps
 export type FieldProps = {
     /**
+     * Дополнительный класс
+     */
+    className?: string;
+
+    /**
      * Размер компонента
      */
     size?: 's' | 'm' | 'l';
@@ -305,6 +325,11 @@ export type FieldProps = {
         id: string;
     } & RefAttributes<HTMLDivElement | HTMLInputElement> &
         AriaAttributes;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
 };
 
 export type ArrowProps = {
@@ -320,6 +345,11 @@ export type ArrowProps = {
 };
 
 export type OptionsListProps = {
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
+
     /**
      * Размер компонента
      */
@@ -354,6 +384,11 @@ export type OptionsListProps = {
      * Компонент группы
      */
     Optgroup?: BaseSelectProps['Optgroup'];
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
 };
 
 export type OptgroupProps = {
@@ -430,6 +465,11 @@ export type OptionProps = {
         role: string;
     } & RefAttributes<HTMLDivElement> &
         AriaAttributes;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
 };
 
 export type CheckmarkProps = {
