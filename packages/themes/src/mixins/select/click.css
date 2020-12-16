@@ -11,8 +11,6 @@
 
     /* options list */
 
-    --select-options-list-top-padding: var(--gap-xs);
-    --select-options-list-bottom-padding: var(--gap-xs);
     --select-options-list-s-height: 280px;
     --select-options-list-m-height: 324px;
     --select-options-list-l-height: 412px;
