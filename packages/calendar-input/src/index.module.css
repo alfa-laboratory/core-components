@@ -1,4 +1,5 @@
 @import '../../themes/src/default.css';
+@import '../../calendar/src/vars.css';
 
 :root {
     --calendar-input-calendar-icon: url('https://alfabank.st/icons/icon_calendar_m_black.svg');
