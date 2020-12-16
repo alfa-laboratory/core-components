@@ -15,6 +15,10 @@
     border: none;
     background: transparent;
     border-radius: 0;
+    position: relative;
+
+    /* TODO: перейти на систему */
+    z-index: 9999;
 }
 
 .optionsList {
