@@ -37,6 +37,12 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
 
         const inputRef = useRef<HTMLInputElement>();
 
+        const resetValue = useCallback(() => {
+            const event = { target: { value: '' } };
+
+            onInput(event as ChangeEvent<HTMLInputElement>);
+        }, [onInput]);
+
         const handleDeleteTag = useCallback(
             (deletedKey: string) => {
                 let tags = selected || selectedTags;
@@ -69,15 +75,23 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                 }
 
                 if (value) {
-                    const event = { target: { value: '' } };
-                    onInput(event as ChangeEvent<HTMLInputElement>);
+                    resetValue();
                 }
 
                 if (inputRef.current) {
                     inputRef.current.focus();
                 }
             },
-            [onChange, controlled, value, onInput],
+            [onChange, controlled, value, resetValue],
+        );
+
+        const handleOpen = useCallback<Required<BaseSelectProps>['onOpen']>(
+            ({ open }) => {
+                if (!open && value) {
+                    resetValue();
+                }
+            },
+            [resetValue, value],
         );
 
         const filteredOptions = filterOptions(options, value, match);
@@ -102,10 +116,11 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                     handleDeleteTag,
                 }}
                 selected={selected || selectedTags}
-                onChange={handleChange}
                 autocomplete={isAutocomplete}
                 size={size}
                 options={filteredOptions}
+                onChange={handleChange}
+                onOpen={handleOpen}
             />
         );
     },

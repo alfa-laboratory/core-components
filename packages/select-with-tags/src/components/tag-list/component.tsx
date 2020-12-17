@@ -26,17 +26,11 @@ type TagListOwnProps = {
 };
 
 export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
-    size = 'm',
+    size = 'l',
     open,
-    multiple,
-    error,
-    hint,
     disabled,
-    label,
     placeholder,
     selectedMultiple = [],
-    selected,
-    rightAddons,
     Arrow,
     innerProps,
     className,
@@ -45,7 +39,6 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     autocomplete,
     onInput,
     handleDeleteTag,
-    valueRenderer,
     ...restProps
 }) => {
     const [focused, setFocused] = useState(false);
@@ -103,35 +96,28 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                 focused={open || focused}
                 disabled={disabled}
                 filled={filled || !!placeholder}
-                label={label}
-                error={error}
-                hint={hint}
                 onMouseDown={handleMouseDown}
                 rightAddons={Arrow}
                 onClick={handleClick}
+                addonsClassName={cn(styles.addons, styles[`addons-size-${size}`])}
             >
                 <div className={styles.contentWrapper}>
                     {selectedMultiple.map(({ content, key }) => (
-                        <Tag
-                            key={key}
-                            size='xs'
-                            checked={true}
-                            className={styles.tag}
-                            rightAddons={
-                                <div className={styles.tagCrossWrap}>
-                                    <CrossCompactMIcon
-                                        onClick={() => {
-                                            if (handleDeleteTag) {
-                                                handleDeleteTag(key);
-                                            }
-                                        }}
-                                    />
-                                </div>
-                            }
-                        >
-                            {content}
+                        <Tag key={key} size='xs' checked={true} className={styles.tag}>
+                            <span className={styles.tagContentWrap}>
+                                {content}
+                                <CrossCompactMIcon
+                                    onClick={() => {
+                                        if (handleDeleteTag) {
+                                            handleDeleteTag(key);
+                                        }
+                                    }}
+                                    className={styles.tagCross}
+                                />
+                            </span>
                         </Tag>
                     ))}
+
                     {autocomplete && (
                         <input
                             ref={mergeRefs(inputRefs)}
@@ -142,9 +128,10 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                             })}
                             disabled={disabled}
                             onKeyDown={handleKeyDown}
-                            placeholder={placeholder}
+                            placeholder={filled ? '' : placeholder}
                         />
                     )}
+
                     {placeholder && !filled && !autocomplete && (
                         <span className={styles.placeholder}>{placeholder}</span>
                     )}

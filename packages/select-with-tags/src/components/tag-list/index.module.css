@@ -8,7 +8,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    padding: var(--gap-l) var(--gap-m);
+    padding: var(--gap-l) var(--gap-m) 18px;
     margin: var(--gap-2xs-neg);
 }
 
@@ -25,7 +25,8 @@
 }
 
 .tag {
-    padding-right: 0;
+    padding: 0;
+    padding-left: var(--gap-m);
     margin: var(--gap-2xs);
     cursor: default;
 
@@ -38,14 +39,32 @@
         background-color: var(--tag-background-color-checked);
         color: var(--tag-text-color-checked);
     }
+
+    & > span {
+        width: 100%;
+        height: 100%;
+    }
 }
 
-.tagCrossWrap {
+.tagContentWrap {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    padding-right: 6px;
+    height: 100%;
     cursor: pointer;
+}
+
+.tagCross {
+    height: 100%;
+    padding-right: var(--gap-xs);
+
+    &:hover {
+        opacity: 0.7;
+    }
+
+    &:active {
+        opacity: 0.5;
+    }
 }
 
 .focusVisible {
@@ -54,4 +73,13 @@
 
 .placeholder {
     color: var(--color-light-text-secondary);
+}
+
+.addons {
+    align-self: flex-start;
+    padding-top: var(--gap-l);
+}
+
+.addons-size-l {
+    padding-top: var(--gap-xl);
 }
