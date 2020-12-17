@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.8.0](https://github.com/alfa-laboratory/core-components/compare/v5.7.0...v5.8.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **calendar:** vars import ([b8cabec](https://github.com/alfa-laboratory/core-components/commit/b8cabec5811e2ac0839d05335edee568dc360f54))
+* **calendar-input:** vars import, fix pattern ([f1f9336](https://github.com/alfa-laboratory/core-components/commit/f1f9336d7ae5ed62b4ee5123636fe1950bc25f34))
+
 ## [5.7.0](https://github.com/alfa-laboratory/core-components/compare/v5.6.0...v5.7.0) (2020-12-15)
 
 
