@@ -95,6 +95,9 @@
 }
 
 .placeholder {
+    display: flex;
+    align-items: center;
+    min-height: 28px;
     padding-left: var(--gap-2xs);
     color: var(--color-light-text-secondary);
 }
