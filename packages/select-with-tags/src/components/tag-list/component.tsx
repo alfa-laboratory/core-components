@@ -6,6 +6,7 @@ import React, {
     useRef,
     useState,
     KeyboardEventHandler,
+    MouseEventHandler,
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
@@ -45,6 +46,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
 
     const wrapperRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
+    const contentWrapperRef = useRef<HTMLDivElement>(null);
 
     const [focusVisible] = useFocus(wrapperRef, 'keyboard');
     const [inputFocusVisible] = useFocus(inputRef, 'keyboard');
@@ -56,28 +58,34 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
         event.preventDefault();
     }, []);
 
-    const handleClick = useCallback(
+    const handleClick = useCallback<MouseEventHandler<HTMLDivElement>>(
         event => {
-            if (innerProps.onClick) {
-                innerProps.onClick(event);
+            if (innerProps.onClick && contentWrapperRef.current) {
+                const clickedInsideContent = contentWrapperRef.current.contains(
+                    event.target as HTMLDivElement,
+                );
+
+                if (!clickedInsideContent || (clickedInsideContent && !open)) {
+                    innerProps.onClick(event);
+                }
             }
 
             if (inputRef.current) {
                 inputRef.current.focus();
             }
         },
-        [innerProps],
+        [innerProps, open],
     );
 
     const handleKeyDown = useCallback<KeyboardEventHandler<HTMLInputElement>>(
         event => {
             const lastSelectedTag = selectedMultiple[selectedMultiple.length - 1];
 
-            if (event.key === 'Backspace' && handleDeleteTag && lastSelectedTag) {
+            if (event.key === 'Backspace' && !value && handleDeleteTag && lastSelectedTag) {
                 handleDeleteTag(lastSelectedTag.key);
             }
         },
-        [handleDeleteTag, selectedMultiple],
+        [handleDeleteTag, selectedMultiple, value],
     );
 
     const inputRefs = outerInputRef ? [outerInputRef, inputRef] : [inputRef];
@@ -101,7 +109,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                 onClick={handleClick}
                 addonsClassName={cn(styles.addons, styles[`addons-size-${size}`])}
             >
-                <div className={styles.contentWrapper}>
+                <div className={styles.contentWrapper} ref={contentWrapperRef}>
                     {selectedMultiple.map(({ content, key }) => (
                         <Tag key={key} size='xs' checked={true} className={styles.tag}>
                             <span className={styles.tagContentWrap}>

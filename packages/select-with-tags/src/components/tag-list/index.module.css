@@ -8,7 +8,7 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    padding: var(--gap-l) var(--gap-m) 18px;
+    padding: var(--gap-l) var(--gap-m);
     margin: var(--gap-2xs-neg);
 }
 
