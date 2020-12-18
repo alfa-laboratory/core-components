@@ -38,6 +38,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     value,
     inputRef: outerInputRef,
     autocomplete,
+    label,
     onInput,
     handleDeleteTag,
     ...restProps
@@ -92,7 +93,12 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     const filled = Boolean(selectedMultiple.length > 0) || Boolean(value);
 
     return (
-        <div ref={wrapperRef} onFocus={handleFocus} onBlur={handleBlur}>
+        <div
+            ref={wrapperRef}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            className={cn(styles.component, styles[size])}
+        >
             <FormControl
                 {...restProps}
                 {...innerProps}
@@ -108,8 +114,15 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                 rightAddons={Arrow}
                 onClick={handleClick}
                 addonsClassName={cn(styles.addons, styles[`addons-size-${size}`])}
+                label={label}
+                labelClassName={styles.label}
             >
-                <div className={styles.contentWrapper} ref={contentWrapperRef}>
+                <div
+                    className={cn(styles.contentWrapper, {
+                        [styles.hasLabel]: Boolean(label),
+                    })}
+                    ref={contentWrapperRef}
+                >
                     {selectedMultiple.map(({ content, key }) => (
                         <Tag key={key} size='xs' checked={true} className={styles.tag}>
                             <span className={styles.tagContentWrap}>
