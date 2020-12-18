@@ -21,7 +21,7 @@ exports[`CalendarInput Display tests should match snapshot 1`] = `
             <input
               class="input"
               inputmode="numeric"
-              pattern="[0-9]*"
+              pattern="[0-9\\\\.]*"
               type="text"
               value=""
             />

@@ -193,8 +193,8 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
 
         const handleBlur = useCallback((event: FocusEvent<HTMLDivElement>) => {
             if (
-                componentRef.current &&
-                componentRef.current.contains(event.relatedTarget as HTMLElement) === false
+                calendarRef.current &&
+                calendarRef.current.contains(event.relatedTarget as HTMLElement) === false
             ) {
                 setOpen(false);
             }
@@ -337,7 +337,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                     onChange={handleInputChange}
                     block={true}
                     inputMode='numeric'
-                    pattern='[0-9]*'
+                    pattern='[0-9\.]*'
                 />
                 {shouldRenderStatic && renderCalendar()}
 

@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.8.0](https://github.com/alfa-laboratory/core-components/compare/v5.7.0...v5.8.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **calendar:** vars import ([b8cabec](https://github.com/alfa-laboratory/core-components/commit/b8cabec5811e2ac0839d05335edee568dc360f54))
+* **calendar-input:** vars import, fix pattern ([f1f9336](https://github.com/alfa-laboratory/core-components/commit/f1f9336d7ae5ed62b4ee5123636fe1950bc25f34))
+
+## [5.7.0](https://github.com/alfa-laboratory/core-components/compare/v5.6.0...v5.7.0) (2020-12-15)
+
+
+### Features
+
+* **loader:** updated loader animation ([ec6b50c](https://github.com/alfa-laboratory/core-components/commit/ec6b50cf7942d93c89c4c5d0d8e98b3a96ab3509))
+* **slider-input:** use numeric mobile keyboard ([a866dab](https://github.com/alfa-laboratory/core-components/commit/a866dabf667f53e62733bd173f16b14c158e2368))
+
+
+### Bug Fixes
+
+* **calendar-input:** fix focus issue ([60af1b9](https://github.com/alfa-laboratory/core-components/commit/60af1b92d076ce393ac308b64b93af182a68c933))
+* **calendar-input:** fix story ([ff2732d](https://github.com/alfa-laboratory/core-components/commit/ff2732da4c7dc35819aebdfdc224472d932a42a2))
+* **circular-progress-bar:** change max-height ([b587c87](https://github.com/alfa-laboratory/core-components/commit/b587c8747fe242b32ea11ebad38ef960cf5669b6))
+* **loader:** fixed animation start ([4df4712](https://github.com/alfa-laboratory/core-components/commit/4df47121429793652f9c838ec306072136f75931))
+* **picker-button:** remove global style ([281ed10](https://github.com/alfa-laboratory/core-components/commit/281ed10010756c8337cfa1965da2a58e8a1dfe42))
+
+## [5.6.0](https://github.com/alfa-laboratory/core-components/compare/v5.5.0...v5.6.0) (2020-12-11)
+
+
+### Features
+
+* **calendar:** add component ([#376](https://github.com/alfa-laboratory/core-components/issues/376)) ([2994d02](https://github.com/alfa-laboratory/core-components/commit/2994d02b49ad172d601f0fc63f89dea20896fd7d)), closes [#2](https://github.com/alfa-laboratory/core-components/issues/2) [#2](https://github.com/alfa-laboratory/core-components/issues/2) [#413](https://github.com/alfa-laboratory/core-components/issues/413)
+
+
+### Bug Fixes
+
+* **themes:** fix corp button themes ([#425](https://github.com/alfa-laboratory/core-components/issues/425)) ([2e49682](https://github.com/alfa-laboratory/core-components/commit/2e4968281a01c197bf98c37b791022fd8182d3a5))
+* snapshots ([03a70ef](https://github.com/alfa-laboratory/core-components/commit/03a70ef8c30e901347e718784a107d23bad127d6))
+
 ## [5.5.0](https://github.com/alfa-laboratory/core-components/compare/v5.4.1...v5.5.0) (2020-12-11)
 
 
