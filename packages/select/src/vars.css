@@ -13,6 +13,7 @@
     --select-options-list-s-height: 264px;
     --select-options-list-m-height: 308px;
     --select-options-list-l-height: 396px;
+    --select-options-list-empty-placeholder-color: var(--color-light-text-secondary);
     --select-option-divider-display: none;
     --select-option-divider-background: var(--color-light-border-primary);
 

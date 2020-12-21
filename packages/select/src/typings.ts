@@ -214,6 +214,11 @@ export type BaseSelectProps = {
      * Хранит функцию, с помощью которой можно обновить положение поповера
      */
     updatePopover?: PopoverProps['update'];
+
+    /**
+     * Будет отображаться в компоненте OptionsList, если он пустой
+     */
+    optionsListEmptyPlaceholder?: string;
 };
 
 // TODO: использовать InputProps
@@ -343,6 +348,11 @@ export type OptionsListProps = {
      * Компонент группы
      */
     Optgroup?: BaseSelectProps['Optgroup'];
+
+    /**
+     * Будет отображаться, если компонент пустой
+     */
+    emptyPlaceholder?: string;
 };
 
 export type OptgroupProps = {

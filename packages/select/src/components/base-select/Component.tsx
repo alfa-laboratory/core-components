@@ -58,6 +58,7 @@ export const BaseSelect = forwardRef(
             Optgroup = () => null,
             Option = () => null,
             updatePopover,
+            optionsListEmptyPlaceholder,
         }: BaseSelectProps,
         ref,
     ) => {
@@ -279,6 +280,9 @@ export const BaseSelect = forwardRef(
             );
         }, [multiple, selectedItems, disabled, name, handleNativeSelectChange, options, menuProps]);
 
+        const needRenderOptionsList =
+            flatOptions.length > 0 || Boolean(optionsListEmptyPlaceholder);
+
         return (
             <div
                 {...getComboboxProps({
@@ -333,7 +337,7 @@ export const BaseSelect = forwardRef(
                             popperClassName={styles.popover}
                             update={updatePopover}
                         >
-                            {flatOptions.length > 0 && (
+                            {needRenderOptionsList && (
                                 <div className={styles.optionsList}>
                                     <OptionsList
                                         flatOptions={flatOptions}
@@ -342,6 +346,7 @@ export const BaseSelect = forwardRef(
                                         size={size}
                                         options={options}
                                         Optgroup={Optgroup}
+                                        emptyPlaceholder={optionsListEmptyPlaceholder}
                                         Option={WrappedOption}
                                     />
                                 </div>
