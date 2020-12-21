@@ -4,7 +4,7 @@
     font-family: var(--font-family);
 }
 
-.collapse,
+.collapse *,
 .collapse:before,
 .collapse:after {
     box-sizing: border-box;
@@ -22,7 +22,6 @@
     visibility: visible;
     height: auto;
     margin-bottom: 15px;
-    transition: height 0.2s;
 }
 
 .link {

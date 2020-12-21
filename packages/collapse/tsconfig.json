@@ -3,7 +3,10 @@
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",
-        "rootDirs": ["src"]
+        "rootDirs": ["src"],
+        "paths": {
+            "@alfalab/core-components-*": ["../*/src"]
+        }
     },
     "references": [{ "path": "../link" }]
 }

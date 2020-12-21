@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import { ArrowDownSBlackIcon, ArrowUpSBlackIcon } from '@alfalab/icons-classic';
 import { Link } from '@alfalab/core-components-link';
+import debounce from 'lodash.debounce';
 import styles from './index.module.css';
 
 export type CollapseProps = {
@@ -64,8 +65,9 @@ export const Collapse = (props: CollapseProps) => {
     const contentRef = useRef<HTMLDivElement>(null);
     const contentCaseRef = useRef<HTMLDivElement>(null);
     const [expanded, setExpanded] = useState(isExpanded);
+    const isClient = typeof window === 'object';
 
-    useEffect(() => {
+    const recalculate = useCallback(() => {
         let contentHeight;
 
         if (!contentCaseRef.current || !contentRef.current) {
@@ -80,6 +82,18 @@ export const Collapse = (props: CollapseProps) => {
 
         contentRef.current.style.height = `${contentHeight}px`;
     }, [expanded]);
+
+    useEffect(() => {
+        if (!isClient) return;
+
+        const handleResize = debounce(() => recalculate(), 300);
+        window.addEventListener('resize', handleResize);
+
+        // eslint-disable-next-line consistent-return
+        return () => window.removeEventListener('resize', handleResize);
+    }, [isClient, recalculate]);
+
+    useEffect(() => recalculate(), [expanded, recalculate]);
 
     const contentClassName = cn(styles.content, {
         [styles.expandedContent]: expanded,
