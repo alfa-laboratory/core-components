@@ -10,7 +10,8 @@ import mergeRefs from 'react-merge-refs';
 import { Button, ButtonProps } from '@alfalab/core-components-button';
 import { ProgressBar } from '@alfalab/core-components-progress-bar';
 import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
-import { AttachmentSBlackIcon, AttachmentMBlackIcon } from '@alfalab/icons-classic';
+import { AttachmentSBlackIcon } from '@alfalab/icons-classic/AttachmentSBlackIcon';
+import { AttachmentMBlackIcon } from '@alfalab/icons-classic/AttachmentMBlackIcon';
 import { pluralize } from '@alfalab/utils';
 import { truncateFilename } from './utils';
 
@@ -157,9 +158,7 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
                     disabled={disabled}
                     view={(buttonProps && buttonProps.view) || 'outlined'}
                     leftAddons={
-                        (buttonProps && buttonProps.leftAddons) || (
-                            <Icon className={styles.icon} />
-                        )
+                        (buttonProps && buttonProps.leftAddons) || <Icon className={styles.icon} />
                     }
                     onClick={handleButtonClick}
                     ref={buttonRef}
