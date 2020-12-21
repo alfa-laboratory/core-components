@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.9.0](https://github.com/alfa-laboratory/core-components/compare/v5.8.0...v5.9.0) (2020-12-21)
+
+
+### Features
+
+* **select:** add exporting select utils ([#436](https://github.com/alfa-laboratory/core-components/issues/436)) ([0499ae9](https://github.com/alfa-laboratory/core-components/commit/0499ae9f36731d6b25a4f2501c1c760afdb8a687))
+
+
+### Bug Fixes
+
+* change icons imports paths ([#437](https://github.com/alfa-laboratory/core-components/issues/437)) ([e3d4e25](https://github.com/alfa-laboratory/core-components/commit/e3d4e2504b282810973eab14201844cd084c4237))
+
 ## [5.8.0](https://github.com/alfa-laboratory/core-components/compare/v5.7.0...v5.8.0) (2020-12-17)
 
 
