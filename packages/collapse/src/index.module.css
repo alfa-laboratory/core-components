@@ -1,0 +1,34 @@
+@import '../../themes/src/default.css';
+
+.collapse {
+    font-family: var(--font-family);
+}
+
+.collapse,
+.collapse:before,
+.collapse:after {
+    box-sizing: border-box;
+}
+
+.content {
+    position: relative;
+    overflow: hidden;
+    visibility: hidden;
+    height: 0;
+    transition: height 0.2s;
+}
+
+.expandedContent {
+    visibility: visible;
+    height: auto;
+    margin-bottom: 15px;
+    transition: height 0.2s;
+}
+
+.link {
+    outline: none;
+}
+
+.icon {
+    vertical-align: text-bottom;
+}
