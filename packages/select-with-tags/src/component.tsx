@@ -25,7 +25,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
             onInput,
             onChange,
             options,
-            autocomplete = false,
+            autocomplete = true,
             match,
             ...restProps
         },

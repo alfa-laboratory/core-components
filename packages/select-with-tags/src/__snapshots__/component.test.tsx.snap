@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectWithTags Snapshots tests should match snapshot 1`] = `
+<div>
+  <div
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    aria-owns="downshift-1-menu"
+    class="component"
+    role="combobox"
+    tabindex="-1"
+  >
+    <div
+      class="component l"
+    >
+      <div
+        class="component l block hasRightAddons"
+      >
+        <div
+          aria-autocomplete="list"
+          aria-controls="downshift-1-menu"
+          aria-labelledby="downshift-1-label"
+          class="field inner"
+          id="downshift-0-input"
+          tabindex="0"
+        >
+          <div
+            class="inputWrapper"
+          >
+            <div
+              class="input"
+            >
+              <div
+                class="contentWrapper"
+              >
+                <input
+                  class="input"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="addons rightAddons addons addons-size-l"
+          >
+            <span
+              class="arrow"
+            />
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <div
+      aria-labelledby="downshift-1-label"
+      class="listWrapper"
+      id="downshift-1-menu"
+      role="listbox"
+    />
+  </div>
+</div>
+`;
