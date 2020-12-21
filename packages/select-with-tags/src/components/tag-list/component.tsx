@@ -39,6 +39,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     inputRef: outerInputRef,
     autocomplete,
     label,
+    valueRenderer,
     onInput,
     handleDeleteTag,
     ...restProps
