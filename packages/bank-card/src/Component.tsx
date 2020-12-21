@@ -2,9 +2,9 @@ import React, { useCallback, MouseEvent, ReactNode, useState, ChangeEvent, useEf
 import cn from 'classnames';
 import { MaskedInput } from '@alfalab/core-components-masked-input';
 // Дождаться иконку альфы в icons-logotype
-import { BankAlfaLColorIcon } from '@alfalab/icons-classic';
+import { BankAlfaLColorIcon } from '@alfalab/icons-classic/BankAlfaLColorIcon';
 
-import { CameraMIcon } from '@alfalab/icons-glyph';
+import { CameraMIcon } from '@alfalab/icons-glyph/CameraMIcon';
 
 import { VisaXxlIcon, MastercardLIcon, MirXxlIcon } from '@alfalab/icons-logotype';
 
