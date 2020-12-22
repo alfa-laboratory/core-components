@@ -23,6 +23,10 @@
     padding: var(--gap-s) var(--gap-m);
 }
 
+.component:hover .addons {
+    opacity: 0.7;
+}
+
 .field {
     cursor: pointer;
 }
