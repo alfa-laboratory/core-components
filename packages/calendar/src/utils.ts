@@ -96,12 +96,12 @@ export function generateMonths(year: Date, options: { minMonth?: Date; maxMonth?
 }
 
 /**
- * Возвращает массив лет от текущего года и до minYear
+ * Возвращает массив лет от minYear до maxYear
  */
-export function generateYears(minYear: Date) {
+export function generateYears(minYear: Date, maxYear: Date) {
     return eachYearOfInterval({
-        start: startOfYear(minYear),
-        end: max([startOfYear(new Date()), startOfYear(minYear)]),
+        start: min([startOfYear(maxYear), startOfYear(minYear)]),
+        end: max([startOfYear(maxYear), startOfYear(minYear)]),
     }).reverse();
 }
 
