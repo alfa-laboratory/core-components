@@ -85,9 +85,9 @@ export const Collapse = forwardRef<HTMLLabelElement, CollapseProps>((props: Coll
 
     useEffect(() => {
         const handleResize = debounce(() => recalculate(), 300);
+
         window.addEventListener('resize', handleResize);
 
-        // eslint-disable-next-line consistent-return
         return () => window.removeEventListener('resize', handleResize);
     }, [recalculate]);
 
