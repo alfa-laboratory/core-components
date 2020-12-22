@@ -1,315 +1,105 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Collapse Display tests should display radio group with one child correctly 1`] = `
-Object {
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="undefined collapse"
-      >
-        <div
-          class="content"
-          style="height: 0px;"
-        >
-          <div>
-            <p
-              style="margin: 0px 0px 16px 0px;"
-            >
-              Альфа-Банк, основанный в 1990 году, является универсальным банком, осуществляющим все основные виды банковских операций, представленных на рынке финансовых услуг, включая обслуживание частных и корпоративных клиентов, инвестиционный банковский бизнес, торговое финансирование и т.д.
-            </p>
-          </div>
-        </div>
-        <a
-          class="component primary pseudo link"
-        >
-          <span>
-            <span
-              class="text"
-            >
-              <svg
-                class="icon"
-                focusable="false"
-                height="18"
-                viewBox="0 0 18 18"
-                width="18"
-              >
-                <g
-                  fill="none"
-                  fill-rule="evenodd"
-                >
-                  <path
-                    d="M0 18h18V0H0z"
-                  />
-                  <path
-                    d="M12.182 6.879l.707.707L9 11.474 5.112 7.586l.707-.707L9 10.06z"
-                    fill="#000"
-                    fill-rule="nonzero"
-                  />
-                </g>
-              </svg>
-            </span>
-          </span>
-        </a>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
+<div>
+  <div
+    class="collapse"
+  >
     <div
-      class="undefined collapse"
+      class="content"
+      style="height: 0px;"
     >
-      <div
-        class="content"
-        style="height: 0px;"
-      >
-        <div>
-          <p
-            style="margin: 0px 0px 16px 0px;"
-          >
-            Альфа-Банк, основанный в 1990 году, является универсальным банком, осуществляющим все основные виды банковских операций, представленных на рынке финансовых услуг, включая обслуживание частных и корпоративных клиентов, инвестиционный банковский бизнес, торговое финансирование и т.д.
-          </p>
-        </div>
+      <div>
+        <p
+          style="margin: 0px 0px 16px 0px;"
+        >
+          Альфа-Банк, основанный в 1990 году, является универсальным банком, осуществляющим все основные виды банковских операций, представленных на рынке финансовых услуг, включая обслуживание частных и корпоративных клиентов, инвестиционный банковский бизнес, торговое финансирование и т.д.
+        </p>
       </div>
-      <a
-        class="component primary pseudo link"
-      >
-        <span>
-          <span
-            class="text"
-          >
-            <svg
-              class="icon"
-              focusable="false"
-              height="18"
-              viewBox="0 0 18 18"
-              width="18"
-            >
-              <g
-                fill="none"
-                fill-rule="evenodd"
-              >
-                <path
-                  d="M0 18h18V0H0z"
-                />
-                <path
-                  d="M12.182 6.879l.707.707L9 11.474 5.112 7.586l.707-.707L9 10.06z"
-                  fill="#000"
-                  fill-rule="nonzero"
-                />
-              </g>
-            </svg>
-          </span>
-        </span>
-      </a>
     </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+    <a
+      class="component primary pseudo"
+    >
+      <span>
+        <span
+          class="text"
+        >
+          <svg
+            class="icon"
+            focusable="false"
+            height="18"
+            viewBox="0 0 18 18"
+            width="18"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <path
+                d="M0 18h18V0H0z"
+              />
+              <path
+                d="M12.182 6.879l.707.707L9 11.474 5.112 7.586l.707-.707L9 10.06z"
+                fill="#000"
+                fill-rule="nonzero"
+              />
+            </g>
+          </svg>
+        </span>
+      </span>
+    </a>
+  </div>
+</div>
 `;
 
 exports[`Collapse Display tests should display with children like boolean or string or others react children type correctly 1`] = `
-Object {
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="undefined collapse"
-      >
-        <div
-          class="content"
-          style="height: 0px;"
-        >
-          <div>
-            <p
-              style="margin: 0px 0px 16px 0px;"
-            >
-              Альфа-Банк, основанный в 1990 году, является универсальным банком, осуществляющим все основные виды банковских операций, представленных на рынке финансовых услуг, включая обслуживание частных и корпоративных клиентов, инвестиционный банковский бизнес, торговое финансирование и т.д.
-            </p>
-          </div>
-        </div>
-        <a
-          class="component primary pseudo link"
-        >
-          <span>
-            <span
-              class="text"
-            >
-              <svg
-                class="icon"
-                focusable="false"
-                height="18"
-                viewBox="0 0 18 18"
-                width="18"
-              >
-                <g
-                  fill="none"
-                  fill-rule="evenodd"
-                >
-                  <path
-                    d="M0 18h18V0H0z"
-                  />
-                  <path
-                    d="M12.182 6.879l.707.707L9 11.474 5.112 7.586l.707-.707L9 10.06z"
-                    fill="#000"
-                    fill-rule="nonzero"
-                  />
-                </g>
-              </svg>
-            </span>
-          </span>
-        </a>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
+<div>
+  <div
+    class="collapse"
+  >
     <div
-      class="undefined collapse"
+      class="content"
+      style="height: 0px;"
     >
-      <div
-        class="content"
-        style="height: 0px;"
-      >
-        <div>
-          <p
-            style="margin: 0px 0px 16px 0px;"
-          >
-            Альфа-Банк, основанный в 1990 году, является универсальным банком, осуществляющим все основные виды банковских операций, представленных на рынке финансовых услуг, включая обслуживание частных и корпоративных клиентов, инвестиционный банковский бизнес, торговое финансирование и т.д.
-          </p>
-        </div>
+      <div>
+        <p
+          style="margin: 0px 0px 16px 0px;"
+        >
+          Альфа-Банк, основанный в 1990 году, является универсальным банком, осуществляющим все основные виды банковских операций, представленных на рынке финансовых услуг, включая обслуживание частных и корпоративных клиентов, инвестиционный банковский бизнес, торговое финансирование и т.д.
+        </p>
       </div>
-      <a
-        class="component primary pseudo link"
-      >
-        <span>
-          <span
-            class="text"
-          >
-            <svg
-              class="icon"
-              focusable="false"
-              height="18"
-              viewBox="0 0 18 18"
-              width="18"
-            >
-              <g
-                fill="none"
-                fill-rule="evenodd"
-              >
-                <path
-                  d="M0 18h18V0H0z"
-                />
-                <path
-                  d="M12.182 6.879l.707.707L9 11.474 5.112 7.586l.707-.707L9 10.06z"
-                  fill="#000"
-                  fill-rule="nonzero"
-                />
-              </g>
-            </svg>
-          </span>
-        </span>
-      </a>
     </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+    <a
+      class="component primary pseudo"
+    >
+      <span>
+        <span
+          class="text"
+        >
+          <svg
+            class="icon"
+            focusable="false"
+            height="18"
+            viewBox="0 0 18 18"
+            width="18"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <path
+                d="M0 18h18V0H0z"
+              />
+              <path
+                d="M12.182 6.879l.707.707L9 11.474 5.112 7.586l.707-.707L9 10.06z"
+                fill="#000"
+                fill-rule="nonzero"
+              />
+            </g>
+          </svg>
+        </span>
+      </span>
+    </a>
+  </div>
+</div>
 `;

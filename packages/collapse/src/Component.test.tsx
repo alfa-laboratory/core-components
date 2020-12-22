@@ -16,11 +16,15 @@ const paragraph = (
 describe('Collapse', () => {
     describe('Display tests', () => {
         it('should display with children like boolean or string or others react children type correctly', () => {
-            expect(render(<Collapse>{paragraph}</Collapse>)).toMatchSnapshot();
+            const { container } = render(<Collapse>{paragraph}</Collapse>);
+
+            expect(container).toMatchSnapshot();
         });
 
         it('should display radio group with one child correctly', () => {
-            expect(render(<Collapse>{paragraph}</Collapse>)).toMatchSnapshot();
+            const { container } = render(<Collapse>{paragraph}</Collapse>);
+
+            expect(container).toMatchSnapshot();
         });
     });
 });

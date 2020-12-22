@@ -1,6 +1,7 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
-import { ArrowDownSBlackIcon, ArrowUpSBlackIcon } from '@alfalab/icons-classic';
+import { ArrowDownSBlackIcon } from '@alfalab/icons-classic/ArrowDownSBlackIcon';
+import { ArrowUpSBlackIcon } from '@alfalab/icons-classic/ArrowUpSBlackIcon';
 import { Link } from '@alfalab/core-components-link';
 import debounce from 'lodash.debounce';
 import styles from './index.module.css';
@@ -10,7 +11,7 @@ export type CollapseProps = {
      * Первоначальное состояние компонента
      *
      */
-    isExpanded?: boolean;
+    expanded?: boolean;
 
     /**
      * Текст ссылки в `expanded` состоянии
@@ -42,30 +43,29 @@ export type CollapseProps = {
     /**
      * Обработчик смены состояний `expanded/collapsed`
      */
-    onExpandedChange?: (isExpanded?: boolean) => void;
+    onExpandedChange?: (expanded?: boolean) => void;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
      */
-    'data-test-id'?: string;
+    dataTestId?: string;
 };
 
-export const Collapse = (props: CollapseProps) => {
+export const Collapse = forwardRef<HTMLLabelElement, CollapseProps>((props: CollapseProps) => {
     const {
-        isExpanded,
+        expanded,
         collapsedLabel,
         expandedLabel,
         children,
         className,
         id,
         onExpandedChange,
-        'data-test-id': dataTestId,
+        dataTestId,
     } = props;
 
     const contentRef = useRef<HTMLDivElement>(null);
     const contentCaseRef = useRef<HTMLDivElement>(null);
-    const [expanded, setExpanded] = useState(isExpanded);
-    const isClient = typeof window === 'object';
+    const [isExpanded, setIsExpanded] = useState(expanded);
 
     const recalculate = useCallback(() => {
         let contentHeight;
@@ -74,49 +74,45 @@ export const Collapse = (props: CollapseProps) => {
             return;
         }
 
-        if (expanded) {
+        if (isExpanded) {
             contentHeight = contentCaseRef.current.offsetHeight;
         } else {
             contentHeight = 0;
         }
 
         contentRef.current.style.height = `${contentHeight}px`;
-    }, [expanded]);
+    }, [isExpanded]);
 
     useEffect(() => {
-        if (!isClient) return;
-
         const handleResize = debounce(() => recalculate(), 300);
         window.addEventListener('resize', handleResize);
 
         // eslint-disable-next-line consistent-return
         return () => window.removeEventListener('resize', handleResize);
-    }, [isClient, recalculate]);
+    }, [recalculate]);
 
-    useEffect(() => recalculate(), [expanded, recalculate]);
+    useEffect(() => recalculate(), [isExpanded, recalculate]);
 
     const contentClassName = cn(styles.content, {
-        [styles.expandedContent]: expanded,
+        [styles.expandedContent]: isExpanded,
     });
 
-    const ToggledIcon = expanded ? ArrowUpSBlackIcon : ArrowDownSBlackIcon;
+    const ToggledIcon = isExpanded ? ArrowUpSBlackIcon : ArrowDownSBlackIcon;
 
-    const handleExpandedChange = () => {
-        setExpanded(!expanded);
+    const handleExpandedChange = useCallback(() => {
+        setIsExpanded(!isExpanded);
         if (onExpandedChange) onExpandedChange();
-    };
+    }, [isExpanded, onExpandedChange]);
 
     return (
-        <div className={`${className} ${styles.collapse}`} id={id} data-test-id={dataTestId}>
+        <div className={cn(className, styles.collapse)} id={id} data-test-id={dataTestId}>
             <div ref={contentRef} className={contentClassName}>
                 <div ref={contentCaseRef}>{children}</div>
             </div>
-            <Link className={styles.link} pseudo={true} onClick={handleExpandedChange}>
-                {expanded ? expandedLabel : collapsedLabel}
+            <Link pseudo={true} onClick={handleExpandedChange}>
+                {isExpanded ? expandedLabel : collapsedLabel}
                 <ToggledIcon className={styles.icon} />
             </Link>
         </div>
     );
-};
-
-export default Collapse;
+});
