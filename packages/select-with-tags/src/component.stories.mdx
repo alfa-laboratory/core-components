@@ -44,8 +44,8 @@ export const matchOption = (option, inputValue) =>
 
 <Story name='SelectWithTags'>
     {React.createElement(() => {
-        const [value, setValue] = React.useState('Nob');
-        const [selected, setSelected] = React.useState(['1', '2']);
+        const [value, setValue] = React.useState('');
+        const [selected, setSelected] = React.useState([]);
         const handleInput = event => {
             setValue(event.target.value);
         };

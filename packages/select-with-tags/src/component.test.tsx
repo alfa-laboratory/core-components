@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 
 import { SelectWithTags } from './index';
 
@@ -22,108 +22,238 @@ const options = [
 ];
 
 describe('SelectWithTags', () => {
-    it('should match snapshot', () => {
-        const { container } = render(
-            <SelectWithTags options={options} value='' onInput={jest.fn()} />,
-        );
+    describe('Display tests', () => {
+        it('should match snapshot', () => {
+            const { container } = render(
+                <SelectWithTags options={options} value='' onInput={jest.fn()} />,
+            );
 
-        expect(container).toMatchSnapshot();
+            expect(container).toMatchSnapshot();
+        });
+
+        it('should match snapshot with selected tags', () => {
+            const { container } = render(
+                <SelectWithTags
+                    options={options}
+                    value=''
+                    selected={['1', '2', '3']}
+                    onInput={jest.fn()}
+                />,
+            );
+
+            expect(container).toMatchSnapshot();
+        });
     });
 
-    it('should match snapshot with selected tags', () => {
-        const { container } = render(
-            <SelectWithTags
-                options={options}
-                value=''
-                selected={['1', '2', '3']}
-                onInput={jest.fn()}
-            />,
-        );
+    describe('Attributes tests', () => {
+        it('should forward ref', () => {
+            const ref = jest.fn();
 
-        expect(container).toMatchSnapshot();
+            render(<SelectWithTags options={options} value='' onInput={jest.fn()} ref={ref} />);
+
+            expect(ref).toBeCalled();
+        });
+
+        it('should pass value', () => {
+            const value = '123';
+
+            const { container } = render(
+                <SelectWithTags options={options} value={value} onInput={jest.fn()} />,
+            );
+
+            const input = container.querySelector('input') as HTMLInputElement;
+
+            expect(input.value).toBe(value);
+        });
+
+        it('should render input if autocomplete=`true`', () => {
+            const { container } = render(
+                <SelectWithTags
+                    options={options}
+                    value=''
+                    onInput={jest.fn()}
+                    autocomplete={true}
+                />,
+            );
+
+            const input = container.querySelector('input') as HTMLInputElement;
+
+            expect(input).toBeInTheDocument();
+        });
+
+        it('should render input by default', () => {
+            const { container } = render(
+                <SelectWithTags options={options} value='' onInput={jest.fn()} />,
+            );
+
+            const input = container.querySelector('input') as HTMLInputElement;
+
+            expect(input).toBeInTheDocument();
+        });
+
+        it('should not render input if autocomplete=`false`', () => {
+            const { container } = render(
+                <SelectWithTags
+                    options={options}
+                    value=''
+                    onInput={jest.fn()}
+                    autocomplete={false}
+                />,
+            );
+
+            const input = container.querySelector('input') as HTMLInputElement;
+
+            expect(input).not.toBeInTheDocument();
+        });
     });
 
-    it('should forward ref', () => {
-        const ref = jest.fn();
+    describe('Callback tests', () => {
+        it('should call `onInput` fn', async () => {
+            const cb = jest.fn();
+            const { container } = render(
+                <SelectWithTags options={options} value='' onInput={cb} />,
+            );
 
-        render(<SelectWithTags options={options} value='' onInput={jest.fn()} ref={ref} />);
+            const input = container.querySelector('input') as HTMLInputElement;
 
-        expect(ref).toBeCalled();
+            const event = { target: { value: 'Nob' } };
+
+            fireEvent.change(input, event);
+
+            expect(cb).toBeCalled();
+        });
+
+        it('should call `match` fn', () => {
+            const match = jest.fn();
+            const { container } = render(
+                <SelectWithTags options={options} value='' onInput={jest.fn()} match={match} />,
+            );
+
+            const input = container.querySelector('input') as HTMLInputElement;
+
+            const event = { target: { value: 'Nob' } };
+
+            fireEvent.change(input, event);
+
+            expect(match).toBeCalled();
+        });
     });
 
-    it('should pass value', () => {
-        const value = '123';
+    describe('Open/close tests', () => {
+        it('should open menu on focus input, close on blur', async () => {
+            const { container } = render(
+                <SelectWithTags options={options} value='' onInput={jest.fn()} />,
+            );
 
-        const { container } = render(
-            <SelectWithTags options={options} value={value} onInput={jest.fn()} />,
-        );
+            const input = container.querySelector('input') as HTMLInputElement;
 
-        const input = container.querySelector('input') as HTMLInputElement;
+            await waitFor(() => {
+                fireEvent.focus(input);
 
-        expect(input.value).toBe(value);
+                expect(document.querySelector('[role="option"]')).toBeInTheDocument();
+            });
+
+            await waitFor(() => {
+                fireEvent.blur(input);
+
+                expect(document.querySelector('[role="option"]')).not.toBeInTheDocument();
+            });
+        });
+
+        it('should open menu on click to input, do not close on click on input', async () => {
+            const { container } = render(
+                <SelectWithTags options={options} value='' onInput={jest.fn()} />,
+            );
+
+            const input = container.querySelector('input') as HTMLInputElement;
+
+            await waitFor(() => {
+                fireEvent.click(input);
+
+                expect(document.querySelector('[role="option"]')).toBeInTheDocument();
+            });
+
+            await waitFor(() => {
+                fireEvent.click(input);
+
+                expect(document.querySelector('[role="option"]')).toBeInTheDocument();
+            });
+        });
     });
 
-    it('should render input if autocomplete=`true`', () => {
-        const { container } = render(
-            <SelectWithTags options={options} value='' onInput={jest.fn()} autocomplete={true} />,
-        );
+    describe('Tags tests', () => {
+        it('should render tag if click on option, delete tag if click on cross', async () => {
+            const { container } = render(
+                <SelectWithTags options={options} value='' onInput={jest.fn()} />,
+            );
 
-        const input = container.querySelector('input') as HTMLInputElement;
+            const input = container.querySelector('input') as HTMLInputElement;
 
-        expect(input).toBeInTheDocument();
+            await waitFor(() => {
+                fireEvent.click(input);
+
+                expect(document.querySelector('[role="option"]')).toBeInTheDocument();
+            });
+
+            await waitFor(() => {
+                const listOptions = document.querySelectorAll('[role="option"]');
+
+                fireEvent.click(listOptions[0]);
+
+                expect(container.querySelectorAll('button').length).toBe(1);
+            });
+
+            /**
+             * При клике на option в компоненте вызывается input.focus() и меню открывается.
+             * В тестах это почему-то не работает, приходится вызывать руками.
+             */
+            await waitFor(() => {
+                fireEvent.focus(input);
+
+                expect(document.querySelector('[role="option"]')).toBeInTheDocument();
+            });
+
+            await waitFor(() => {
+                const listOptions = document.querySelectorAll('[role="option"]');
+
+                if (listOptions[1]) {
+                    fireEvent.click(listOptions[1]);
+                }
+
+                expect(container.querySelectorAll('button').length).toBe(2);
+            });
+
+            await waitFor(() => {
+                const tags = container.querySelectorAll('button');
+
+                const tag = tags[0];
+
+                if (tag) {
+                    const tagCross = tags[0].querySelector('svg');
+
+                    fireEvent.click(tagCross as SVGSVGElement);
+                }
+
+                expect(tags.length).toBe(1);
+            });
+
+            await waitFor(() => {
+                const tags = container.querySelectorAll('button');
+
+                fireEvent.keyDown(input, { key: 'Backspace' });
+
+                expect(tags.length).toBe(0);
+            });
+        });
     });
 
-    it('should render input by default', () => {
-        const { container } = render(
-            <SelectWithTags options={options} value='' onInput={jest.fn()} />,
-        );
+    describe('Render tests', () => {
+        it('should unmount without errors', () => {
+            const { unmount } = render(
+                <SelectWithTags options={options} value='' onInput={jest.fn()} />,
+            );
 
-        const input = container.querySelector('input') as HTMLInputElement;
-
-        expect(input).toBeInTheDocument();
-    });
-
-    it('should not render input if autocomplete=`false`', () => {
-        const { container } = render(
-            <SelectWithTags options={options} value='' onInput={jest.fn()} autocomplete={false} />,
-        );
-
-        const input = container.querySelector('input') as HTMLInputElement;
-
-        expect(input).not.toBeInTheDocument();
-    });
-
-    it('should call `onInput` fn', async () => {
-        const cb = jest.fn();
-        const { container } = render(<SelectWithTags options={options} value='' onInput={cb} />);
-
-        const input = container.querySelector('input') as HTMLInputElement;
-
-        const event = { target: { value: 'Nob' } };
-
-        fireEvent.change(input, event);
-
-        expect(cb).toBeCalled();
-    });
-
-    it('should call `match` fn', async () => {
-        const match = jest.fn();
-        const { container } = render(<SelectWithTags options={options} value='' onInput={jest.fn()} match={match} />);
-
-        const input = container.querySelector('input') as HTMLInputElement;
-
-        const event = { target: { value: 'Nob' } };
-
-        fireEvent.change(input, event);
-
-        expect(match).toBeCalled();
-    });
-
-    it('should unmount without errors', () => {
-        const { unmount } = render(
-            <SelectWithTags options={options} value='' onInput={jest.fn()} />,
-        );
-
-        expect(unmount).not.toThrowError();
+            expect(unmount).not.toThrowError();
+        });
     });
 });
