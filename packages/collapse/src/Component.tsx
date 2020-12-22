@@ -51,7 +51,7 @@ export type CollapseProps = {
     dataTestId?: string;
 };
 
-export const Collapse = forwardRef<HTMLLabelElement, CollapseProps>((props: CollapseProps) => {
+export const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props: CollapseProps, ref) => {
     const {
         expanded,
         collapsedLabel,
@@ -105,7 +105,7 @@ export const Collapse = forwardRef<HTMLLabelElement, CollapseProps>((props: Coll
     }, [isExpanded, onExpandedChange]);
 
     return (
-        <div className={cn(className, styles.collapse)} id={id} data-test-id={dataTestId}>
+        <div ref={ref} className={cn(className, styles.collapse)} id={id} data-test-id={dataTestId}>
             <div ref={contentRef} className={contentClassName}>
                 <div ref={contentCaseRef}>{children}</div>
             </div>
