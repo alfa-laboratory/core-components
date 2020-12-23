@@ -17,12 +17,7 @@ exports[`SelectWithTags Display tests should match snapshot 1`] = `
         class="component l block hasRightAddons"
       >
         <div
-          aria-autocomplete="list"
-          aria-controls="downshift-1-menu"
-          aria-labelledby="downshift-1-label"
           class="field inner"
-          id="downshift-0-input"
-          tabindex="0"
         >
           <div
             class="inputWrapper"
@@ -34,7 +29,12 @@ exports[`SelectWithTags Display tests should match snapshot 1`] = `
                 class="contentWrapper"
               >
                 <input
+                  aria-autocomplete="list"
+                  aria-controls="downshift-1-menu"
+                  aria-labelledby="downshift-1-label"
                   class="input"
+                  id="downshift-0-input"
+                  tabindex="0"
                   value=""
                 />
               </div>
@@ -78,12 +78,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
         class="component l block hasRightAddons"
       >
         <div
-          aria-autocomplete="list"
-          aria-controls="downshift-3-menu"
-          aria-labelledby="downshift-3-label"
           class="field inner filled"
-          id="downshift-2-input"
-          tabindex="0"
         >
           <div
             class="inputWrapper"
@@ -167,8 +162,13 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                   </span>
                 </button>
                 <input
+                  aria-autocomplete="list"
+                  aria-controls="downshift-3-menu"
+                  aria-labelledby="downshift-3-label"
                   class="input"
+                  id="downshift-2-input"
                   placeholder=""
+                  tabindex="0"
                   value=""
                 />
               </div>

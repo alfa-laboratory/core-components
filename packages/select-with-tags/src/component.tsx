@@ -1,4 +1,4 @@
-import React, { ChangeEvent, forwardRef, useCallback, useRef, useState } from 'react';
+import React, { ChangeEvent, forwardRef, useCallback, useState } from 'react';
 import {
     BaseSelectProps,
     OptionsList as DefaultOptionsList,
@@ -27,6 +27,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
             options,
             autocomplete = true,
             match,
+            allowUnselect = true,
             ...restProps
         },
         ref,
@@ -34,8 +35,6 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
         const controlled = Boolean(selected);
 
         const [selectedTags, setSelectedTags] = useState(selected || []);
-
-        const inputRef = useRef<HTMLInputElement>();
 
         const resetValue = useCallback(() => {
             const event = { target: { value: '' } };
@@ -77,10 +76,6 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                 if (value) {
                     resetValue();
                 }
-
-                if (inputRef.current) {
-                    inputRef.current.focus();
-                }
             },
             [onChange, controlled, value, resetValue],
         );
@@ -108,9 +103,9 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                 OptionsList={OptionsList}
                 Arrow={Arrow}
                 multiple={true}
+                allowUnselect={allowUnselect}
                 fieldProps={{
                     value,
-                    inputRef,
                     autocomplete: isAutocomplete,
                     onInput,
                     handleDeleteTag,

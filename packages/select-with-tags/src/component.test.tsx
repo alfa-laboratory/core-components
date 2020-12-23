@@ -183,6 +183,8 @@ describe('SelectWithTags', () => {
 
     describe('Tags tests', () => {
         it('should render tag if click on option, delete tag if click on cross', async () => {
+            const getOptions = () => document.querySelectorAll('[role="option"]');
+
             const { container } = render(
                 <SelectWithTags options={options} value='' onInput={jest.fn()} />,
             );
@@ -195,11 +197,9 @@ describe('SelectWithTags', () => {
                 expect(document.querySelector('[role="option"]')).toBeInTheDocument();
             });
 
+            fireEvent.click(getOptions()[0]);
+
             await waitFor(() => {
-                const listOptions = document.querySelectorAll('[role="option"]');
-
-                fireEvent.click(listOptions[0]);
-
                 expect(container.querySelectorAll('button').length).toBe(1);
             });
 
@@ -213,13 +213,9 @@ describe('SelectWithTags', () => {
                 expect(document.querySelector('[role="option"]')).toBeInTheDocument();
             });
 
+            fireEvent.click(getOptions()[1]);
+
             await waitFor(() => {
-                const listOptions = document.querySelectorAll('[role="option"]');
-
-                if (listOptions[1]) {
-                    fireEvent.click(listOptions[1]);
-                }
-
                 expect(container.querySelectorAll('button').length).toBe(2);
             });
 

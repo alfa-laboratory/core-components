@@ -9,7 +9,6 @@ import React, {
     MouseEventHandler,
 } from 'react';
 import cn from 'classnames';
-import mergeRefs from 'react-merge-refs';
 import { FieldProps } from '@alfalab/core-components-select';
 import { FormControl, FormControlProps } from '@alfalab/core-components-form-control';
 import { Tag } from '@alfalab/core-components-tag';
@@ -36,7 +35,6 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     innerProps,
     className,
     value,
-    inputRef: outerInputRef,
     autocomplete,
     label,
     valueRenderer,
@@ -60,15 +58,17 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
         event.preventDefault();
     }, []);
 
+    const { onClick, ...restInnerProps } = innerProps;
+
     const handleClick = useCallback<MouseEventHandler<HTMLDivElement>>(
         event => {
-            if (innerProps.onClick && contentWrapperRef.current) {
+            if (onClick && contentWrapperRef.current) {
                 const clickedInsideContent = contentWrapperRef.current.contains(
                     event.target as HTMLDivElement,
                 );
 
                 if (!clickedInsideContent || (clickedInsideContent && !open)) {
-                    innerProps.onClick(event);
+                    onClick(event);
                 }
             }
 
@@ -76,7 +76,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                 inputRef.current.focus();
             }
         },
-        [innerProps, open],
+        [onClick, open],
     );
 
     const handleKeyDown = useCallback<KeyboardEventHandler<HTMLInputElement>>(
@@ -90,7 +90,6 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
         [handleDeleteTag, selectedMultiple, value],
     );
 
-    const inputRefs = outerInputRef ? [outerInputRef, inputRef] : [inputRef];
     const filled = Boolean(selectedMultiple.length > 0) || Boolean(value);
 
     return (
@@ -102,7 +101,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
         >
             <FormControl
                 {...restProps}
-                {...innerProps}
+                ref={innerProps.ref}
                 className={cn(className, styles.field, {
                     [styles.focusVisible]: focusVisible,
                 })}
@@ -142,7 +141,8 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
 
                     {autocomplete && (
                         <input
-                            ref={mergeRefs(inputRefs)}
+                            {...restInnerProps}
+                            ref={inputRef}
                             value={value}
                             onChange={onInput}
                             className={cn(styles.input, {
