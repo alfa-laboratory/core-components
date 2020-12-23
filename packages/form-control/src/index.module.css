@@ -1,6 +1,9 @@
 @import '../../themes/src/default.css';
 
 :root {
+    --form-control-s-min-height: 48px;
+    --form-control-m-min-height: 56px;
+    --form-control-l-min-height: 72px;
     --form-control-border-radius: 4px 4px 0 0;
     --form-control-border-bottom: 1px solid var(--color-light-border-secondary-inverted);
     --form-control-bg-color: color-mod(var(--color-light-bg-primary-inverted) alpha(7%));
@@ -8,11 +11,11 @@
     --form-control-hint-color: var(--color-light-text-secondary);
 
     /* paddings */
-    --form-control-paddings: 1px var(--gap-s) 0;
-    --form-control-l-paddings: 1px var(--gap-m) 0;
-    --form-control-labeled-s-paddings: 23px var(--gap-s) 4px;
-    --form-control-labeled-m-paddings: 28px var(--gap-s) 7px;
-    --form-control-labeled-l-paddings: 34px var(--gap-m) 13px;
+    --form-control-paddings: 0 var(--gap-s);
+    --form-control-l-paddings: 0 var(--gap-m);
+    --form-control-labeled-s-paddings: 23px var(--gap-s) 5px;
+    --form-control-labeled-m-paddings: 28px var(--gap-s) 8px;
+    --form-control-labeled-l-paddings: 34px var(--gap-m) 14px;
 
     /* disabled */
     --form-control-disabled-bg-color: color-mod(var(--color-light-bg-primary-inverted) alpha(15%));
@@ -21,7 +24,6 @@
     --form-control-disabled-color: var(--color-light-text-secondary);
 
     /* focus */
-    --form-control-focus-shadow: inset 0 -1px var(--color-light-border-key);
     --form-control-focus-border-bottom: 1px solid var(--color-light-border-key);
 
     /* hover */
@@ -30,7 +32,7 @@
     /* error */
     --form-control-error-color: var(--color-light-text-negative);
     --form-control-error-label-color: var(--color-light-text-secondary);
-    --form-control-error-shadow: inset 0 -1px var(--form-control-error-color);
+    --form-control-error-shadow: none;
     --form-control-error-border-bottom: 1px solid var(--form-control-error-color);
 
     /* font */
@@ -48,10 +50,22 @@
     min-height: 100%;
     background-color: var(--form-control-bg-color);
     border-radius: var(--form-control-border-radius);
-    border-bottom: var(--form-control-border-bottom);
-    transition: background 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
     box-sizing: border-box;
     outline: none;
+}
+
+/* Нижняя граница */
+.inner:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 0;
+    border-bottom: var(--form-control-border-bottom);
+    transition: transform 0.2s ease, border 0.2s ease;
+    transform-origin: bottom;
 }
 
 .inputWrapper {
@@ -78,15 +92,14 @@
     position: absolute;
     display: flex;
     align-items: center;
-    height: 100%;
     left: var(--gap-s);
     right: 0;
-    color: var(--form-control-label-color);
-    transform: translateY(0);
-    transform-origin: 0 100%;
+    transform-origin: left top;
+    transform: translateY(-50%);
     transition-duration: 200ms;
-    transition-property: color, transform, font-size;
+    transition-property: color, transform;
     transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    color: var(--form-control-label-color);
 }
 
 .labelInner {
@@ -135,12 +148,20 @@
     padding: var(--form-control-labeled-s-paddings);
 }
 
+.s .label {
+    top: calc(var(--form-control-s-min-height) / 2);
+}
+
 .m .inner {
     min-height: 56px;
 }
 
 .m .hasLabel .input > * {
     padding: var(--form-control-labeled-m-paddings);
+}
+
+.m .label {
+    top: calc(var(--form-control-m-min-height) / 2);
 }
 
 .l .inner {
@@ -183,26 +204,31 @@
     margin-top: var(--gap-xs);
 }
 
+.l .label {
+    top: calc(var(--form-control-l-min-height) / 2);
+}
+
 /* DISABLED STATE */
 
 .disabled {
     opacity: var(--form-control-disabled-opacity);
-    border-bottom: var(--form-control-disabled-border-bottom);
     background-color: var(--form-control-disabled-bg-color);
     color: var(--form-control-disabled-color);
 }
 
+.disabled:before {
+    border-bottom: var(--form-control-disabled-border-bottom);
+}
+
 /* FOCUS STATE */
 
-.focused:not(.disabled):not(.hasError) {
+.focused:not(.disabled):not(.hasError):before {
     border-bottom: var(--form-control-focus-border-bottom);
-    box-shadow: var(--form-control-focus-shadow);
+    transform: scaleY(2);
 }
 
 .filled .label {
-    @mixin system_14-18_regular;
-
-    transform: translateY(-10px);
+    transform: translateY(-100%) scale(0.875);
 }
 
 /* HOVER STATE */
@@ -223,7 +249,11 @@
 
 .hasError {
     box-shadow: var(--form-control-error-shadow);
+}
+
+.hasError:before {
     border-bottom: var(--form-control-error-border-bottom);
+    transform: scaleY(2);
 }
 
 /* IE min-height fix */

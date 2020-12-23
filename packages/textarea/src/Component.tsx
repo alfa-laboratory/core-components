@@ -239,7 +239,6 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
                 focused={focused}
                 error={error}
                 label={label}
-                labelClassName={cn(styles.label, styles[size])}
                 hint={hint}
                 leftAddons={leftAddons}
                 rightAddons={rightAddons}

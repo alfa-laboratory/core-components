@@ -7,7 +7,6 @@
     --form-control-bg-color: transparent;
 
     /* focus */
-    --form-control-focus-shadow: none;
     --form-control-focus-border-bottom: 1px solid var(--color-black);
 
     /* hover */
@@ -41,8 +40,7 @@
 
 .label {
     left: 0;
-    top: -4px;
-    transform: translateY(12px);
+    transform: translateY(-2px);
     color: var(--color-black-60);
     font-size: 20px;
     line-height: 24px;
@@ -55,13 +53,15 @@
 .focused .label,
 .filled .label {
     color: var(--color-black);
-    font-size: 20px;
     transform: translateY(-20px) scale(0.6);
 
     @media (max-width: 360px) {
-        font-size: 16px;
-        transform: translateY(-14px) scale(0.75);
+        transform: translateY(-22px) scale(0.75);
     }
+}
+
+.focused:before {
+    transform: scale(1) !important;
 }
 
 .input {
