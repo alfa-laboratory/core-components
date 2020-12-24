@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.9.1](https://github.com/alfa-laboratory/core-components/compare/v5.9.0...v5.9.1) (2020-12-24)
+
+
+### Bug Fixes
+
+* **calendar:** set max date to years calculation ([#441](https://github.com/alfa-laboratory/core-components/issues/441)) ([ec9fd36](https://github.com/alfa-laboratory/core-components/commit/ec9fd36c278bcb8cca209eb5a15690c5ac0dd3d8))
+
 ## [5.9.0](https://github.com/alfa-laboratory/core-components/compare/v5.8.0...v5.9.0) (2020-12-21)
 
 
