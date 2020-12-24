@@ -19,9 +19,6 @@
 
 .component {
     box-sizing: border-box;
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
     text-decoration: none;
     font-family: var(--font-family);
     cursor: pointer;
@@ -33,8 +30,13 @@
     }
 }
 
+.withAddons {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
 .text {
-    vertical-align: middle;
     border-bottom: 1px solid;
     transition: border 0.2s ease, color 0.2s ease;
 }
