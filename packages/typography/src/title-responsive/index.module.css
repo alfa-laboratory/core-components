@@ -1,4 +1,5 @@
 @import '../../../themes/src/default.css';
+@import '../margins.module.css';
 
 /* TODO: поменять медиа-запросы на миксины */
 
@@ -42,6 +43,26 @@
     @mixin headline-system_xsmall;
 }
 
+.margins-xlarge {
+    @mixin margin-large;
+}
+
+.margins-large {
+    @mixin margin-small;
+}
+
+.margins-medium {
+    @mixin margin-small;
+}
+
+.margins-small {
+    @mixin margin-small;
+}
+
+.margins-xsmall {
+    @mixin margin-small;
+}
+
 @media screen and (min-width: 600px) {
     .styrene-xlarge {
         @mixin headline_large;
@@ -81,6 +102,26 @@
 
     .system-xsmall {
         @mixin headline-system_xsmall;
+    }
+
+    .margins-xlarge {
+        @mixin margin-large;
+    }
+
+    .margins-large {
+        @mixin margin-medium;
+    }
+
+    .margins-medium {
+        @mixin margin-small;
+    }
+
+    .margins-small {
+        @mixin margin-small;
+    }
+
+    .margins-xsmall {
+        @mixin margin-small;
     }
 }
 
@@ -123,5 +164,25 @@
 
     .system-xsmall {
         @mixin headline-system_xsmall;
+    }
+
+    .margins-xlarge {
+        @mixin margin-large;
+    }
+
+    .margins-large {
+        @mixin margin-medium;
+    }
+
+    .margins-medium {
+        @mixin margin-medium;
+    }
+
+    .margins-small {
+        @mixin margin-small;
+    }
+
+    .margins-xsmall {
+        @mixin margin-small;
     }
 }
