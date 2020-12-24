@@ -36,24 +36,15 @@ exports[`Snapshots tests should display correctly 1`] = `
         >
           <svg
             data-test-id="picker-button-icon"
+            fill="currentColor"
             focusable="false"
             height="24"
             viewBox="0 0 24 24"
             width="24"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
-            >
-              <path
-                d="M0 24h24V0H0z"
-              />
-              <path
-                d="M16.074 9.646l.708.708-5.068 5.068-5.068-5.068.708-.708 4.36 4.362z"
-                fill="#000"
-                fill-rule="nonzero"
-              />
-            </g>
+            <path
+              d="M16.074 9.646l.708.708-5.068 5.068-5.068-5.068.708-.708 4.36 4.362z"
+            />
           </svg>
         </span>
       </span>
@@ -94,24 +85,15 @@ exports[`Snapshots tests should display opened correctly 1`] = `
         >
           <svg
             data-test-id="picker-button-icon"
+            fill="currentColor"
             focusable="false"
             height="24"
             viewBox="0 0 24 24"
             width="24"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
-            >
-              <path
-                d="M0 24h24V0H0z"
-              />
-              <path
-                d="M16.074 9.646l.708.708-5.068 5.068-5.068-5.068.708-.708 4.36 4.362z"
-                fill="#000"
-                fill-rule="nonzero"
-              />
-            </g>
+            <path
+              d="M16.074 9.646l.708.708-5.068 5.068-5.068-5.068.708-.708 4.36 4.362z"
+            />
           </svg>
         </span>
       </span>

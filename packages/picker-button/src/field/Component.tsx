@@ -2,10 +2,8 @@ import React, { FC, SVGProps } from 'react';
 import cn from 'classnames';
 import { Button, ButtonProps } from '@alfalab/core-components-button';
 import { FieldProps as BaseFieldProps } from '@alfalab/core-components-select/src/typings';
-import { ArrowDownMBlackIcon } from '@alfalab/icons-classic/ArrowDownMBlackIcon';
-import { ArrowDownSBlackIcon } from '@alfalab/icons-classic/ArrowDownSBlackIcon';
-import { ArrowDownMWhiteIcon } from '@alfalab/icons-classic/ArrowDownMWhiteIcon';
-import { ArrowDownSWhiteIcon } from '@alfalab/icons-classic/ArrowDownSWhiteIcon';
+import { ArrowDownMIcon } from '@alfalab/icons-classic/ArrowDownMIcon';
+import { ArrowDownSIcon } from '@alfalab/icons-classic/ArrowDownSIcon';
 
 import styles from './index.module.css';
 import { PickerButtonSize } from '..';
@@ -31,12 +29,7 @@ export const Field = ({
     buttonSize = 'm',
     ...restProps
 }: FieldProps) => {
-    let Icon: FC<SVGProps<SVGSVGElement>>;
-    if (view === 'primary') {
-        Icon = buttonSize === 'xs' ? ArrowDownSWhiteIcon : ArrowDownMWhiteIcon;
-    } else {
-        Icon = buttonSize === 'xs' ? ArrowDownSBlackIcon : ArrowDownMBlackIcon;
-    }
+    const Icon: FC<SVGProps<SVGSVGElement>> = buttonSize === 'xs' ? ArrowDownSIcon : ArrowDownMIcon;
 
     return (
         // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
