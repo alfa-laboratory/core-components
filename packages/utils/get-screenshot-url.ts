@@ -1,35 +1,6 @@
 /* eslint-disable */
-type SreenshotOpts = {
-    host: string;
-    cases: any[];
-};
-
-type ScreenshotTestCase = {
-    name: string;
-    url: string;
-};
 
 const getKnobStr = (knob: any) => (param: any) => `knob-${knob.toString()}=${param.toString()}`;
-
-/**
- * Example
-
-getScreenshotTestCases({
-    host: 'http://localhost:9009/iframe.html',
-    items: [
-        {
-            group: 'Common',
-            name: 'Alert',
-            variant: 'Basic',
-            params: {
-                type: ['default', 'error', 'success', 'default', 'warning'],
-                // onClickRightAddon: [true, false],
-            },
-        },
-    ],
-});
-
-*/
 
 export const getScreenshotTestCases = (opts: any): any[] => {
     const { host = '', items = [] } = opts;

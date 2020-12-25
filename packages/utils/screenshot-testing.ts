@@ -1,13 +1,8 @@
+/**
+ * Playwright должен быть установлен глобально через npm
+ */
 import { webkit, Page, Browser, BrowserContext } from 'playwright';
-
-const screenshotOpts = {
-    clip: {
-        x: 0,
-        y: 0,
-        width: 2000,
-        height: 100,
-    },
-};
+import axios from 'axios';
 
 export const screenshotTesting = (
     cases: any[],
@@ -31,9 +26,25 @@ export const screenshotTesting = (
     });
 
     it.each(cases)('%s', async (name: string, link: string) => {
-        await page?.goto(link);
-        const image = await page?.screenshot(screenshotOpts);
+        await page?.goto(encodeURI(link));
 
-        expect(image).toMatchImageSnapshot();
+        const body = await page.innerHTML('body');
+        const head = await page.innerHTML('head');
+
+        const { data: css } = await axios.get('http://localhost:9009/main.css', {
+            responseType: 'text',
+        });
+
+        const image = await axios.post(
+            'http://digital/playwright',
+            {
+                data: `<html><head>${head}</head><body><style>${css}</style>${body}</body></html>`,
+            },
+            {
+                responseType: 'arraybuffer',
+            },
+        );
+
+        expect(image.data).toMatchImageSnapshot();
     });
 };

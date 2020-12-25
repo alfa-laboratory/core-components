@@ -1,6 +1,6 @@
 module.exports = {
     preset: 'ts-jest/presets/js-with-ts',
-    testEnvironment: 'jsdom',
+    testEnvironment: 'jsdom-sixteen',
     setupFilesAfterEnv: ['./packages/setupTests.ts'],
     modulePathIgnorePatterns: ['dist'],
     globals: {
@@ -17,4 +17,5 @@ module.exports = {
         '@alfalab/core-components-(.*)$': '<rootDir>/packages/$1/src',
         '\\.css$': 'identity-obj-proxy',
     },
+    testMatch: ['**/*.test.ts?(x)', '!**/*.screenshots.test.ts?(x)'],
 };

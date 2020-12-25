@@ -8,7 +8,5 @@
 import '@testing-library/jest-dom/extend-expect';
 
 import { configure } from '@testing-library/react';
-import { toMatchImageSnapshot } from 'jest-image-snapshot';
 
 configure({ testIdAttribute: 'data-test-id' });
-expect.extend({ toMatchImageSnapshot });
