@@ -19,6 +19,11 @@ const extractContentFromMixins = css => {
     if (match) return match[1];
 };
 
+// Удаляет импорты переменных из миксинов
+const removeImports = css => {
+    return css.replace(/^@import .*$\n+/gm, '');
+};
+
 // Прогоняет контент через postcss, применяя postcss-color-mod-function
 const filesWithVars = glob.sync(path.resolve(__dirname, '../packages/vars/src/*.css'));
 
@@ -52,7 +57,9 @@ const processPostCss = async (content, cssFile) =>
         for (let cssFile of cssFiles) {
             const component = path.basename(path.dirname(cssFile));
             // В сборке тем не должно быть color-mod - прогоняем через color-mod-function
-            const content = await processPostCss(fs.readFileSync(cssFile, 'utf-8'), cssFile);
+            const content = removeImports(
+                await processPostCss(fs.readFileSync(cssFile, 'utf-8'), cssFile),
+            );
             fs.writeFileSync(cssFile, content);
 
             const vars = extractContentFromMixins(content);
@@ -70,6 +77,23 @@ const processPostCss = async (content, cssFile) =>
             fs.writeFileSync(`../css/${theme}.css`, toRoot(allVars));
         }
     }
+
+    const colorsFiles = glob.sync('./colors/*.css', {});
+
+    colorsFiles.forEach(file => {
+        const content = fs.readFileSync(file, 'utf-8');
+        const vars = extractContentFromMixins(content);
+
+        shell.mkdir('-p', `../css/colors`);
+
+        const css = toRoot(vars);
+
+        fs.writeFileSync(`../css/colors/${path.basename(file)}`, css);
+        fs.writeFileSync(
+            `../css/colors/${path.basename(file).replace(/\.css$/, '.js')}`,
+            `module.exports = \`${css}\``,
+        );
+    });
 
     // Переносим сгенерированные css-файлы в /dist
     shell.cd('../');

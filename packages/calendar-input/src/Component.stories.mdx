@@ -1,0 +1,146 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+
+import { startOfMonth, startOfDay, subMonths, addMonths } from 'date-fns';
+
+import { CalendarInput } from './Component';
+import { parseDateString } from './utils';
+
+import { name, version } from '../package.json';
+
+<Meta
+    title='Компоненты'
+    component={CalendarInput}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='CalendarInput'>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('');
+        const handleChange = (event, { value }) => setValue(value);
+        return (
+            <CalendarInput
+                value={value}
+                onChange={handleChange}
+                label={text('label', 'Дата регистрации')}
+                placeholder={text('placeholder', '')}
+                mobileMode={select('mobileMode', ['native', 'input', 'popover'], 'popover')}
+                preventFlip={boolean('preventFlip', false)}
+                block={boolean('block', false)}
+                success={boolean('success', false)}
+                error={boolean('error', false)}
+                disabled={boolean('disabled', false)}
+            />
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='CalendarInput'
+    version={version}
+    package='@alfalab/core-components-calendar-input'
+    stage={1}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=13931%3A20767'
+/>
+
+```tsx
+import { CalendarInput } from '@alfalab/core-components-calendar-input';
+```
+
+Компонент для ввода даты.
+
+<Preview>
+    {React.createElement(() => {
+        const defaultMonth = new Date('December 1, 2010 00:00:00');
+        return (
+            <CalendarInput label='Дата регистрации' defaultMonth={defaultMonth} />
+        );
+    })}
+</Preview>
+
+<Props of={CalendarInput} />
+
+
+### Controlled-way
+
+Компонент может быть использован как controlled с помощью `onChange` и `selected`:
+
+<Preview>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('');
+        const handleChange = (event, { value }) => setValue(value);
+        return (
+            <CalendarInput
+                value={value}
+                onChange={handleChange}
+                label='Дата регистрации'
+            />
+        );
+    })}
+</Preview>
+
+
+### Рендер календаря под инпутом
+
+Календарь может рендериться как в поповере, так и под инпутом
+
+<Preview>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('');
+        const handleChange = (event, { value }) => setValue(value);
+        return (
+            <CalendarInput
+                value={value}
+                onChange={handleChange}
+                label='Дата регистрации'
+                calendarPosition='static'
+            />
+        );
+    })}
+</Preview>
+
+
+### Минимальная и максимальная дата
+
+Календарь может рендериться как в поповере, так и под инпутом
+
+<Preview>
+    {React.createElement(() => {
+        const minDate = subMonths(startOfDay(new Date()), 2).getTime();
+        const maxDate = addMonths(startOfDay(new Date()), 2).getTime();
+        const [error, setError] = React.useState('');
+        const [value, setValue] = React.useState('');
+        const handleChange = (event, { value }) => {
+            setValue(value);
+        }
+        const handleBlur = (event) => {
+            if (value) {
+                const date = parseDateString(value);
+                if (Number.isNaN(date.getTime()) || date < minDate || date > maxDate) setError('Некорректная дата');
+            }
+        }
+        const handleFocus = () => setError('');
+        return (
+            <CalendarInput
+                label='Дата регистрации'
+                value={value}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                onFocus={handleFocus}
+                minDate={minDate}
+                maxDate={maxDate}
+                error={error}
+            />
+        );
+    })}
+</Preview>

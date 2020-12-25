@@ -1,0 +1,19 @@
+@import '../../../themes/src/default.css';
+
+:root {
+    --picker-button-icon-transition: transform 0.2s ease;
+}
+
+.iconContainer {
+    display: flex;
+    transition: var(--picker-button-icon-transition);
+    transform: rotateZ(0deg);
+}
+
+.open {
+    transform: rotateZ(180deg);
+}
+
+.component:not(.primary)[disabled] svg {
+    opacity: 0.3;
+}

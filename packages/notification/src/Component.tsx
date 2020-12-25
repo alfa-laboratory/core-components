@@ -11,8 +11,10 @@ import React, {
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
 import { useSwipeable, LEFT, RIGHT, UP } from 'react-swipeable';
-import { CloseSWhiteIcon } from '@alfalab/icons-classic';
-import { CheckmarkMIcon, CrossMIcon, ExclamationMIcon } from '@alfalab/icons-glyph';
+import { CloseSWhiteIcon } from '@alfalab/icons-classic/CloseSWhiteIcon';
+import { CheckmarkMIcon } from '@alfalab/icons-glyph/CheckmarkMIcon';
+import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
+import { ExclamationMIcon } from '@alfalab/icons-glyph/ExclamationMIcon';
 import { Portal } from '@alfalab/core-components-portal';
 import { Button } from '@alfalab/core-components-button';
 import { useClickOutside } from './utils';
@@ -99,9 +101,9 @@ export type NotificationProps = HTMLAttributes<HTMLDivElement> & {
 const notificationClassNameSelector = `.${styles.notificationComponent}`;
 
 const iconComponent = {
-    negative: <CrossMIcon className={cn(styles.iconSvg)} />,
-    positive: <CheckmarkMIcon className={cn(styles.iconSvg)} />,
-    warning: <ExclamationMIcon className={cn(styles.iconSvg)} />,
+    negative: <CrossMIcon className={styles.iconSvg} />,
+    positive: <CheckmarkMIcon className={styles.iconSvg} />,
+    warning: <ExclamationMIcon className={styles.iconSvg} />,
 };
 
 export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
@@ -242,7 +244,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                         {...restProps}
                     >
                         {(leftAddons || icon) && (
-                            <div className={cn(styles.leftAddons)}>
+                            <div className={styles.leftAddons}>
                                 {leftAddons ||
                                     (icon && (
                                         <div className={cn(styles.icon, styles[icon])}>
@@ -251,13 +253,13 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                                     ))}
                             </div>
                         )}
-                        <div className={cn(styles.contentContainer)}>
-                            {title && <div className={cn(styles.title)}>{title}</div>}
-                            {children && <div className={cn(styles.content)}>{children}</div>}
+                        <div className={styles.contentContainer}>
+                            {title && <div className={styles.title}>{title}</div>}
+                            {children && <div className={styles.content}>{children}</div>}
                         </div>
                         {hasCloser && onClose && (
                             <Button
-                                className={cn(styles.closer)}
+                                className={styles.closer}
                                 view='ghost'
                                 onClick={onClose}
                                 aria-label='закрыть'

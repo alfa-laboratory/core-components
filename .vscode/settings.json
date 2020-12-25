@@ -1,6 +1,12 @@
 {
     "typescript.tsdk": "node_modules/typescript/lib",
+    "files.associations": {
+        "*.css": "postcss"
+    },
     "emmet.includeLanguages": {
+        "postcss": "css"
+    },
+    "emmet.syntaxProfiles": {
         "postcss": "css"
     }
 }

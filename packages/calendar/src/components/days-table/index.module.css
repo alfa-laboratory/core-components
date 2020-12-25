@@ -1,0 +1,227 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.daysTable {
+    border-collapse: separate;
+    border-spacing: 0;
+    position: relative;
+
+    & th {
+        padding: 0;
+    }
+
+    & td {
+        padding: var(--gap-2xs) 0 0;
+
+        &:first-child .transitLeft {
+            background: linear-gradient(
+                270deg,
+                var(--calendar-range-background) 0%,
+                rgba(255, 255, 255, 0) 100%
+            );
+
+            &:after {
+                display: none;
+            }
+        }
+
+        &:last-child .transitRight {
+            background: linear-gradient(
+                270deg,
+                rgba(255, 255, 255, 0) 0%,
+                var(--calendar-range-background) 100%
+            );
+
+            &:after {
+                display: none;
+            }
+        }
+    }
+}
+
+.dayName {
+    @mixin paragraph_primary_small;
+
+    height: 40px;
+    color: var(--color-light-text-secondary);
+}
+
+.day {
+    @mixin paragraph_primary_medium;
+
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: var(--calendar-day-border-radius);
+    color: var(--color-light-text-primary);
+
+    &.event {
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 2px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--calendar-marker-background);
+        }
+    }
+
+    &.today {
+        font-weight: bold;
+
+        & span:after {
+            content: '';
+            border: 1px solid var(--calendar-today-border-color);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: var(--calendar-day-border-radius);
+            box-sizing: border-box;
+        }
+    }
+
+    &.highlighted {
+        color: var(--calendar-highlighted-color);
+        background: var(--calendar-highlighted-background);
+    }
+
+    &.disabled {
+        pointer-events: none;
+        color: var(--calendar-disabled-color);
+
+        background: var(--calendar-disabled-background);
+        cursor: default;
+    }
+
+    &.range {
+        color: var(--calendar-range-color);
+        background: var(--calendar-range-background);
+        border-radius: 0;
+    }
+
+    &.selected {
+        color: var(--calendar-selected-color);
+        background: var(--calendar-selected-background);
+        cursor: default;
+    }
+
+    &.rangeStart {
+        cursor: pointer;
+    }
+
+    &.firstDay,
+    &.lastDay {
+        &:after {
+            transition: opacity 0.2s ease;
+            content: '';
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    &.firstDay {
+        &:after {
+            right: 100%;
+            background: linear-gradient(
+                270deg,
+                var(--calendar-range-background) 0%,
+                rgba(255, 255, 255, 0) 100%
+            );
+        }
+    }
+
+    &.lastDay {
+        &:after {
+            left: 100%;
+            background: linear-gradient(
+                270deg,
+                rgba(255, 255, 255, 0) 0%,
+                var(--calendar-range-background) 100%
+            );
+        }
+    }
+
+    &.transitLeft,
+    &.transitRight {
+        &:after {
+            opacity: 1;
+        }
+    }
+
+    &:focus {
+        z-index: 1;
+    }
+}
+
+.left {
+    & .daysEnter {
+        transform: translateX(var(--calendar-day-size));
+    }
+
+    & .daysEnterActive {
+        transform: translateX(0%);
+    }
+
+    & .daysExit {
+        transform: translateX(0%);
+    }
+
+    & .daysExitActive {
+        transform: translateX(calc(-1 * var(--calendar-day-size)));
+    }
+}
+
+.right {
+    & .daysEnter {
+        transform: translateX(calc(-1 * var(--calendar-day-size)));
+    }
+
+    & .daysEnterActive {
+        transform: translateX(0%);
+    }
+
+    & .daysExit {
+        transform: translateX(0%);
+    }
+
+    & .daysExitActive {
+        transform: translateX(var(--calendar-day-size));
+    }
+}
+
+.daysEnter {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+}
+
+.daysEnterActive {
+    opacity: 1;
+}
+
+.daysExit {
+    pointer-events: none;
+    opacity: 1;
+}
+
+.daysExitActive {
+    opacity: 0;
+}
+
+.daysEnterActive,
+.daysExitActive {
+    transition: opacity 300ms, transform 300ms;
+}

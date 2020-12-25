@@ -2,6 +2,93 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.9.1](https://github.com/alfa-laboratory/core-components/compare/v5.9.0...v5.9.1) (2020-12-24)
+
+
+### Bug Fixes
+
+* **calendar:** set max date to years calculation ([#441](https://github.com/alfa-laboratory/core-components/issues/441)) ([ec9fd36](https://github.com/alfa-laboratory/core-components/commit/ec9fd36c278bcb8cca209eb5a15690c5ac0dd3d8))
+
+## [5.9.0](https://github.com/alfa-laboratory/core-components/compare/v5.8.0...v5.9.0) (2020-12-21)
+
+
+### Features
+
+* **select:** add exporting select utils ([#436](https://github.com/alfa-laboratory/core-components/issues/436)) ([0499ae9](https://github.com/alfa-laboratory/core-components/commit/0499ae9f36731d6b25a4f2501c1c760afdb8a687))
+
+
+### Bug Fixes
+
+* change icons imports paths ([#437](https://github.com/alfa-laboratory/core-components/issues/437)) ([e3d4e25](https://github.com/alfa-laboratory/core-components/commit/e3d4e2504b282810973eab14201844cd084c4237))
+
+## [5.8.0](https://github.com/alfa-laboratory/core-components/compare/v5.7.0...v5.8.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **calendar:** vars import ([b8cabec](https://github.com/alfa-laboratory/core-components/commit/b8cabec5811e2ac0839d05335edee568dc360f54))
+* **calendar-input:** vars import, fix pattern ([f1f9336](https://github.com/alfa-laboratory/core-components/commit/f1f9336d7ae5ed62b4ee5123636fe1950bc25f34))
+
+## [5.7.0](https://github.com/alfa-laboratory/core-components/compare/v5.6.0...v5.7.0) (2020-12-15)
+
+
+### Features
+
+* **loader:** updated loader animation ([ec6b50c](https://github.com/alfa-laboratory/core-components/commit/ec6b50cf7942d93c89c4c5d0d8e98b3a96ab3509))
+* **slider-input:** use numeric mobile keyboard ([a866dab](https://github.com/alfa-laboratory/core-components/commit/a866dabf667f53e62733bd173f16b14c158e2368))
+
+
+### Bug Fixes
+
+* **calendar-input:** fix focus issue ([60af1b9](https://github.com/alfa-laboratory/core-components/commit/60af1b92d076ce393ac308b64b93af182a68c933))
+* **calendar-input:** fix story ([ff2732d](https://github.com/alfa-laboratory/core-components/commit/ff2732da4c7dc35819aebdfdc224472d932a42a2))
+* **circular-progress-bar:** change max-height ([b587c87](https://github.com/alfa-laboratory/core-components/commit/b587c8747fe242b32ea11ebad38ef960cf5669b6))
+* **loader:** fixed animation start ([4df4712](https://github.com/alfa-laboratory/core-components/commit/4df47121429793652f9c838ec306072136f75931))
+* **picker-button:** remove global style ([281ed10](https://github.com/alfa-laboratory/core-components/commit/281ed10010756c8337cfa1965da2a58e8a1dfe42))
+
+## [5.6.0](https://github.com/alfa-laboratory/core-components/compare/v5.5.0...v5.6.0) (2020-12-11)
+
+
+### Features
+
+* **calendar:** add component ([#376](https://github.com/alfa-laboratory/core-components/issues/376)) ([2994d02](https://github.com/alfa-laboratory/core-components/commit/2994d02b49ad172d601f0fc63f89dea20896fd7d)), closes [#2](https://github.com/alfa-laboratory/core-components/issues/2) [#2](https://github.com/alfa-laboratory/core-components/issues/2) [#413](https://github.com/alfa-laboratory/core-components/issues/413)
+
+
+### Bug Fixes
+
+* **themes:** fix corp button themes ([#425](https://github.com/alfa-laboratory/core-components/issues/425)) ([2e49682](https://github.com/alfa-laboratory/core-components/commit/2e4968281a01c197bf98c37b791022fd8182d3a5))
+* snapshots ([03a70ef](https://github.com/alfa-laboratory/core-components/commit/03a70ef8c30e901347e718784a107d23bad127d6))
+
+## [5.5.0](https://github.com/alfa-laboratory/core-components/compare/v5.4.1...v5.5.0) (2020-12-11)
+
+
+### Features
+
+* **amount-input:** added integerLength prop ([881af44](https://github.com/alfa-laboratory/core-components/commit/881af44b1823560d522ac07a7359cc6c5739ba0e))
+* **button:** add conditions ([5f034f3](https://github.com/alfa-laboratory/core-components/commit/5f034f382fcb1dc1304c9c0b9ccdcff765c5c7fd))
+* **button:** add css to button ([34b23ed](https://github.com/alfa-laboratory/core-components/commit/34b23ed2885a39f00928c3df0e485d1966fe6ec0))
+* **button:** update snapshorts ([29c36ac](https://github.com/alfa-laboratory/core-components/commit/29c36ac278407a04be7726996bf50f54c150ba97))
+* **picker-button:** add compoonent PickerButton ([e14b73d](https://github.com/alfa-laboratory/core-components/commit/e14b73db302acd401010b9fd227e33de10eca9fc))
+* **themes:** add dark theme mixins ([#420](https://github.com/alfa-laboratory/core-components/issues/420)) ([6cfd317](https://github.com/alfa-laboratory/core-components/commit/6cfd31795e937e33cd37262b85057f3e977a900c))
+* **themes:** updated button mobile theme ([ebdf5a1](https://github.com/alfa-laboratory/core-components/commit/ebdf5a14b912bffcefe087b95d62d4a35531e09f))
+* **vars:** fresh tokens ([48f2591](https://github.com/alfa-laboratory/core-components/commit/48f2591d030e7852fbd239e7d91e4c4c2bed6468))
+* **vars:** new reverse shadows ([6c18699](https://github.com/alfa-laboratory/core-components/commit/6c18699b02044e1ba38561d0fcded98d89c67339))
+
+
+### Bug Fixes
+
+* delete extra cn ([#415](https://github.com/alfa-laboratory/core-components/issues/415)) ([d08966f](https://github.com/alfa-laboratory/core-components/commit/d08966fd00459d497640d27a27afa5d0d0fddab9))
+* **button:** design review fixes ([4eca9d1](https://github.com/alfa-laboratory/core-components/commit/4eca9d10185f6ffc42644086e679ba7f361cc4f1))
+* **list:** apply --list-marker-color only to marker ([5479f47](https://github.com/alfa-laboratory/core-components/commit/5479f47dd44fc8d9cfedb84f7787e5af84c1f41d))
+* **picker-button:** fix icon color ([f8d97b4](https://github.com/alfa-laboratory/core-components/commit/f8d97b44680fa2ace1539b11b5d0a318d45094aa))
+
+### [5.4.1](https://github.com/alfa-laboratory/core-components/compare/v5.4.0...v5.4.1) (2020-12-04)
+
+
+### Bug Fixes
+
+* **themes:** remove imports from mixins ([4d878b5](https://github.com/alfa-laboratory/core-components/commit/4d878b59e46c1cfc1799182367421402af6462db))
+
 ## [5.4.0](https://github.com/alfa-laboratory/core-components/compare/v5.3.0...v5.4.0) (2020-12-03)
 
 

@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarInput Display tests should match snapshot 1`] = `
+<div>
+  <div
+    class="component"
+    tabindex="-1"
+  >
+    <div
+      class="component s block hasRightAddons"
+    >
+      <div
+        class="formControl inner"
+      >
+        <div
+          class="inputWrapper"
+        >
+          <div
+            class="input"
+          >
+            <input
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9\\\\.]*"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          class="addons rightAddons"
+        >
+          <span
+            class="calendarIcon"
+          />
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;

@@ -11,6 +11,16 @@
     --color-static-graphic-sand: #f6bf65;
     --color-static-graphic-soft-peach: #f3eaeb;
     --color-static-graphic-solitude: #e8f2fe;
+    --color-static-overlay-black-high: rgba(0, 0, 0, 0.32);
+    --color-static-overlay-black-low: rgba(0, 0, 0, 0.16);
+    --color-static-overlay-black-normal: rgba(0, 0, 0, 0.24);
+    --color-static-overlay-black-xhigh: rgba(0, 0, 0, 0.4);
+    --color-static-overlay-black-xlow: rgba(0, 0, 0, 0.08);
+    --color-static-overlay-white-high: rgba(255, 255, 255, 0.32);
+    --color-static-overlay-white-low: rgba(255, 255, 255, 0.16);
+    --color-static-overlay-white-normal: rgba(255, 255, 255, 0.24);
+    --color-static-overlay-white-xhigh: rgba(255, 255, 255, 0.4);
+    --color-static-overlay-white-xlow: rgba(255, 255, 255, 0.08);
     --color-static-status-blue: #007aff;
     --color-static-status-green: #13a463;
     --color-static-status-grey: #6d7986;

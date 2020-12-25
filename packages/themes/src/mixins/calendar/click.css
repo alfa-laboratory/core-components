@@ -1,0 +1,12 @@
+@import '../../../../vars/src/index.css';
+
+@define-mixin calendar-click {
+    --calendar-arrow-background: url('https://alfabank.st/icons/glyph_chevron-back_m.svg');
+    --calendar-select-icon-background: url('https://alfabank.st/icons/glyph_arrow-up-down_m.svg');
+    --calendar-today-border-color: transparent;
+    --calendar-range-background: var(--color-light-bg-secondary);
+    --calendar-selector-button-outline-border-color: transparent;
+    --calendar-month-only-header-font-family: var(--font-family-styrene);
+    --calendar-month-only-header-font-size: 20px;
+    --calendar-month-only-header-font-weight: 500;
+}
