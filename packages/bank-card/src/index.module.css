@@ -40,7 +40,7 @@
 
 .label {
     left: 0;
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     color: var(--color-black-60);
     font-size: 20px;
     line-height: 24px;
@@ -53,7 +53,7 @@
 .focused .label,
 .filled .label {
     color: var(--color-black);
-    transform: translateY(-20px) scale(0.6);
+    transform: translateY(-19px) scale(0.6);
 
     @media (max-width: 360px) {
         transform: translateY(-22px) scale(0.75);
