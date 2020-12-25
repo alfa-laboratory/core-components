@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.9.1](https://github.com/alfa-laboratory/core-components/compare/v5.9.0...v5.9.1) (2020-12-24)
+
+
+### Bug Fixes
+
+* **calendar:** set max date to years calculation ([#441](https://github.com/alfa-laboratory/core-components/issues/441)) ([ec9fd36](https://github.com/alfa-laboratory/core-components/commit/ec9fd36c278bcb8cca209eb5a15690c5ac0dd3d8))
+
+## [5.9.0](https://github.com/alfa-laboratory/core-components/compare/v5.8.0...v5.9.0) (2020-12-21)
+
+
+### Features
+
+* **select:** add exporting select utils ([#436](https://github.com/alfa-laboratory/core-components/issues/436)) ([0499ae9](https://github.com/alfa-laboratory/core-components/commit/0499ae9f36731d6b25a4f2501c1c760afdb8a687))
+
+
+### Bug Fixes
+
+* change icons imports paths ([#437](https://github.com/alfa-laboratory/core-components/issues/437)) ([e3d4e25](https://github.com/alfa-laboratory/core-components/commit/e3d4e2504b282810973eab14201844cd084c4237))
+
+## [5.8.0](https://github.com/alfa-laboratory/core-components/compare/v5.7.0...v5.8.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **calendar:** vars import ([b8cabec](https://github.com/alfa-laboratory/core-components/commit/b8cabec5811e2ac0839d05335edee568dc360f54))
+* **calendar-input:** vars import, fix pattern ([f1f9336](https://github.com/alfa-laboratory/core-components/commit/f1f9336d7ae5ed62b4ee5123636fe1950bc25f34))
+
 ## [5.7.0](https://github.com/alfa-laboratory/core-components/compare/v5.6.0...v5.7.0) (2020-12-15)
 
 

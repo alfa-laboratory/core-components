@@ -2,12 +2,10 @@ import React, { FC, SVGProps } from 'react';
 import cn from 'classnames';
 import { Button, ButtonProps } from '@alfalab/core-components-button';
 import { FieldProps as BaseFieldProps } from '@alfalab/core-components-select/src/typings';
-import {
-    ArrowDownMBlackIcon,
-    ArrowDownSBlackIcon,
-    ArrowDownMWhiteIcon,
-    ArrowDownSWhiteIcon,
-} from '@alfalab/icons-classic';
+import { ArrowDownMBlackIcon } from '@alfalab/icons-classic/ArrowDownMBlackIcon';
+import { ArrowDownSBlackIcon } from '@alfalab/icons-classic/ArrowDownSBlackIcon';
+import { ArrowDownMWhiteIcon } from '@alfalab/icons-classic/ArrowDownMWhiteIcon';
+import { ArrowDownSWhiteIcon } from '@alfalab/icons-classic/ArrowDownSWhiteIcon';
 
 import styles from './index.module.css';
 import { PickerButtonSize } from '..';

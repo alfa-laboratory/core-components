@@ -1,3 +1,6 @@
+@import '../../themes/src/default.css';
+@import './vars.css';
+
 .component {
     width: var(--calendar-width);
     height: var(--calendar-height);
