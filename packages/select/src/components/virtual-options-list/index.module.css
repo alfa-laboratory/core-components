@@ -60,3 +60,7 @@
     padding: var(--gap-m) var(--gap-s);
     color: var(--select-options-list-empty-placeholder-color);
 }
+
+.l .emptyPlaceholder {
+    padding: var(--gap-xl) var(--gap-m);
+}
