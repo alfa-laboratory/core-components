@@ -172,6 +172,16 @@ export type BaseSelectProps = {
     fieldProps?: unknown;
 
     /**
+     * Пропсы, которые будут прокинуты в компонент списка
+     */
+    optionsListProps?: unknown;
+
+    /**
+     * Пропсы, которые будут прокинуты в компонент пункта меню
+     */
+    optionsProps?: unknown;
+
+    /**
      * Компонент выпадающего меню
      */
     OptionsList?: FC<OptionsListProps>;
@@ -216,9 +226,9 @@ export type BaseSelectProps = {
     updatePopover?: PopoverProps['update'];
 
     /**
-     * Будет отображаться в компоненте OptionsList, если он пустой
+     * Показывать OptionsList, если он пустой
      */
-    optionsListEmptyPlaceholder?: string;
+    showEmptyOptionsList?: boolean;
 };
 
 // TODO: использовать InputProps

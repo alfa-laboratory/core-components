@@ -55,3 +55,8 @@
         display: none;
     }
 }
+
+.emptyPlaceholder {
+    padding: var(--gap-m) var(--gap-s);
+    color: var(--select-options-list-empty-placeholder-color);
+}
