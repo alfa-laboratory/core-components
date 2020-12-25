@@ -1,27 +1,26 @@
 import cn from 'classnames';
-import React, {
-    useEffect, useCallback, useRef, useState, forwardRef,
-} from 'react';
-import {use100vh} from 'react-div-100vh';
+import React, { useEffect, useCallback, useRef, useState, forwardRef } from 'react';
+import { use100vh } from 'react-div-100vh';
+import mergeRefs from 'react-merge-refs';
 
 import { useEventCallback } from '@alfalab/hooks';
 import { CrossHeavyMIcon } from '@alfalab/icons-glyph';
-
 import { Portal, PortalProps } from '@alfalab/core-components-portal';
 import { TrapFocus } from '@alfalab/core-components-trap-focus';
 import { useMatchMedia } from '@alfalab/core-components-mq';
 
 import {
-    ComponentTransitionsProps,
     createChainedFunction,
     getContainer,
-    getHasTransition,
     ownerDocument,
-    useForkRef,
+    highlightSetter,
+    getIsScrolledFromTop,
+    getIsScrolledToBottom,
+    ariaHidden,
 } from './utils';
 
-import { ariaHidden, ModalElement, ModalManager } from './Component.manager';
-import { SimpleBackdrop, SimpleBackdropProps } from './SimpleBackdrop';
+import { ModalElement, ModalManager } from './Component.manager';
+import { Backdrop, BackdropProps } from './components/backdrop';
 
 import styles from './index.module.css';
 
@@ -30,7 +29,7 @@ const defaultManager = new ModalManager();
 export type ModalProps = React.HTMLAttributes<HTMLDivElement> & {
     /**
      * Бэкдроп компонент. Позволяет отрендерить кастомный оверлей
-     * @default SimpleBackdrop
+     * @default Backdrop
      */
     backdropComponent?: React.ElementType;
 
@@ -38,7 +37,7 @@ export type ModalProps = React.HTMLAttributes<HTMLDivElement> & {
      * Свойства для Бэкдропа
      * @default timeout: 200, appear: true
      */
-    backdropProps?: Partial<SimpleBackdropProps>;
+    backdropProps?: Partial<BackdropProps>;
 
     /**
      * Когда `true` модальное окно закрывается после анимации
@@ -51,7 +50,7 @@ export type ModalProps = React.HTMLAttributes<HTMLDivElement> & {
      *
      * Контейнер к которому будут добавляться порталы
      */
-    container?: PortalProps['container'];
+    container?: PortalProps['getPortalContainer'];
 
     /**
      * Отключает автоматический перевод фокуса на модалку при открытии, и
@@ -85,24 +84,10 @@ export type ModalProps = React.HTMLAttributes<HTMLDivElement> & {
     disableEscapeKeyDown?: boolean;
 
     /**
-     * Отключает поведение портала.
-     *
-     * Дочерние элементы остаются внутри DOM
-     * @default false
-     */
-    disablePortal?: PortalProps['disablePortal'];
-
-    /**
      * Отключает восстановление фокуса на предыдущем элементе после закрытия модалки
      * @default false
      */
     disableRestoreFocus?: boolean;
-
-    /**
-     * Блокирует скролл
-     * @default false
-     */
-    disableScrollLock?: boolean;
 
     /**
      * Контент футера, на мобильных устройствах содержимое футера прижимается к нижней части вьюпорта
@@ -148,7 +133,10 @@ export type ModalProps = React.HTMLAttributes<HTMLDivElement> & {
      * @param {string}`"escapeKeyDown"`, `"backdropClick"`, `"closerClick"`.
      */
     onClose?: {
-        (event: React.SyntheticEvent, reason: 'backdropClick' | 'escapeKeyDown' | 'closerClick'): void;
+        (
+            event: React.SyntheticEvent,
+            reason: 'backdropClick' | 'escapeKeyDown' | 'closerClick',
+        ): void;
     };
 
     /**
@@ -181,27 +169,13 @@ export type ModalProps = React.HTMLAttributes<HTMLDivElement> & {
     dataTestId?: string;
 };
 
-const highlightSetter = (
-    refObject: React.MutableRefObject<boolean>,
-    setter: React.Dispatch<React.SetStateAction<boolean>>,
-) => (highlight: boolean) => {
-    // eslint-disable-next-line no-param-reassign
-    refObject.current = highlight;
-    setter(highlight);
-};
-
-const getIsScrolledFromTop = (target: HTMLElement) => target.scrollTop > 0;
-
-const getIsScrolledToBottom = (target: HTMLElement) =>
-    (target.scrollHeight - target.offsetHeight) === (target.scrollTop);
-
 /**
  *
  * Заимствовано из  [MUI Modal](https://material-ui.com/components/modal/).
  */
 export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
     const {
-        backdropComponent: BackdropComponent = SimpleBackdrop,
+        backdropComponent: BackdropComponent = Backdrop,
         backdropProps = {
             timeout: 200,
             appear: true,
@@ -213,9 +187,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
         disableBackdropClick = false,
         disableEnforceFocus = false,
         disableEscapeKeyDown = false,
-        disablePortal = false,
         disableRestoreFocus = false,
-        disableScrollLock = false,
         footer,
         fullscreen,
         hasCloser,
@@ -237,9 +209,8 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
     const modal = useRef<ModalElement>({} as ModalElement);
     const mountNodeRef = useRef<HTMLDivElement | null>(null);
     const modalRef = useRef<HTMLDivElement>(null);
-    const handleRef = useForkRef(modalRef, ref);
+    const handleRef = mergeRefs([modalRef, ref]);
     const contentRef = useRef<HTMLDivElement>(null);
-    const hasTransition = getHasTransition(children);
     const height = use100vh() || '100vh';
     const [isSmall] = useMatchMedia('screen and (max-width: 47.9375em)');
 
@@ -249,6 +220,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
         modal.current.mountNode = mountNodeRef.current;
         return modal.current;
     };
+    const isTopModal = useCallback(() => manager.isTopModal(getModal()), [manager]);
 
     const [highlightCloser, _setHighlightCloser] = useState(false);
     const highlightCloserRef = useRef(highlightCloser);
@@ -263,7 +235,10 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
             const isScrolledFromTop = getIsScrolledFromTop(event.target);
             const isScrolledToBottom = getIsScrolledToBottom(event.target);
 
-            if (isScrolledFromTop !== highlightCloserRef.current || isScrolledToBottom === highlightFooterRef.current) {
+            if (
+                isScrolledFromTop !== highlightCloserRef.current ||
+                isScrolledToBottom === highlightFooterRef.current
+            ) {
                 setHighlightCloser(isScrolledFromTop);
                 setHighlightFooter(!isScrolledToBottom);
             }
@@ -274,7 +249,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
     const shouldHighlightFooter = highlightFooter && isSmall;
 
     const handleMounted = () => {
-        manager.mount(getModal(), { disableScrollLock });
+        manager.mount(getModal());
 
         // Fix a bug on Chrome where the scroll isn't initially 0.
         if (modalRef.current) {
@@ -300,8 +275,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
         }
     });
 
-    const isTopModal = useCallback(() => manager.isTopModal(getModal()), [manager]);
-
     const handlePortalRef = useEventCallback((node: HTMLDivElement) => {
         mountNodeRef.current = node;
 
@@ -321,7 +294,11 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
 
         if (contentRef.current !== null) {
             // TODO: заменить на optional chaining
-            return () => (contentRef.current as HTMLDivElement).removeEventListener('scroll', handleModalContentElementScroll);
+            return () =>
+                (contentRef.current as HTMLDivElement).removeEventListener(
+                    'scroll',
+                    handleModalContentElementScroll,
+                );
         }
 
         return null;
@@ -351,13 +328,12 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
     useEffect(() => {
         if (open) {
             handleOpen();
-        } else if (!hasTransition || !closeAfterTransition) {
+        } else if (!closeAfterTransition) {
             handleClose();
         }
-    }, [open, handleClose, hasTransition, closeAfterTransition, handleOpen]);
+    }, [open, handleClose, closeAfterTransition, handleOpen]);
 
-
-    if (!keepMounted && !open && (!hasTransition || exited)) {
+    if (!keepMounted && !open && exited) {
         return null;
     }
 
@@ -414,22 +390,10 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
         }
     };
 
-    const childProps: {
-        tabIndex?: number;
-    } & ComponentTransitionsProps = {};
-
+    const childProps: { tabIndex?: number } = {};
     if (React.isValidElement(children)) {
         if (children.props.tabIndex === undefined) {
             childProps.tabIndex = -1;
-        }
-
-        if (hasTransition) {
-            childProps.appear = true;
-            childProps.onEnter = createChainedFunction(handleEnter, children.props.onEnter);
-
-            if (targetHandleExited === 'children') {
-                childProps.onExited = createChainedFunction(handleExited, children.props.onExited);
-            }
         }
     }
 
@@ -438,12 +402,12 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
     }
 
     return (
-        <Portal ref={handlePortalRef} container={container} disablePortal={disablePortal}>
-            <div style={{height}}>
+        <Portal ref={handlePortalRef} getPortalContainer={container}>
+            <div style={{ height }}>
                 <div
                     data-test-id={dataTestId}
                     onKeyDown={handleKeyDown}
-                    role="presentation"
+                    role='presentation'
                     className={cn(styles.wrapper, {
                         [styles.hidden]: !open && exited,
                         [styles.wrapper_fullscreen]: fullscreen,
@@ -451,13 +415,15 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
                     })}
                     ref={handleRef}
                 >
-                    { hideBackdrop ? null : (
+                    {hideBackdrop ? null : (
                         <BackdropComponent
                             open={open}
                             onClick={handleBackdropClick}
+                            onEnter={handleEnter}
+                            onExited={handleExited}
                             {...backdropProps}
                         />
-                    ) }
+                    )}
 
                     <TrapFocus
                         disableEnforceFocus={disableEnforceFocus}
@@ -470,49 +436,58 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
                         <div
                             tabIndex={-1}
                             className={cn(styles.modal, styles[`modal_size_${size}`], {
-                                    [styles.modal_fullscreen]: fullscreen,
-                                    [styles.modal_small]: isSmall,
-                                })}
+                                [styles.modal_fullscreen]: fullscreen,
+                                [styles.modal_small]: isSmall,
+                            })}
                         >
-                            <div className={cn(styles['flex-container'], {
-                                [`${styles['flex-container_small']}`]: isSmall,
-                            })}>
+                            <div
+                                className={cn(styles['flex-container'], {
+                                    [`${styles['flex-container_small']}`]: isSmall,
+                                })}
+                            >
                                 <div
                                     style={style}
                                     className={cn(styles.content, className, {
                                         [styles.content_small]: isSmall,
                                     })}
+                                    // сюда стили для транзишна контента
                                     ref={contentRef}
                                 >
-                                    { React.isValidElement(children)
+                                    {React.isValidElement(children)
                                         ? React.cloneElement(children, childProps)
-                                        : children }
+                                        : children}
                                 </div>
 
-                                { footer && (
-                                    <div className={cn(styles.footer, {
-                                                [styles.footer_small]: isSmall,
-                                                [styles.footer_highlight]: shouldHighlightFooter,
-                                    })}>
-                                        { footer }
+                                {footer && (
+                                    <div
+                                        className={cn(styles.footer, {
+                                            [styles.footer_small]: isSmall,
+                                            [styles.footer_highlight]: shouldHighlightFooter,
+                                        })}
+                                    >
+                                        {footer}
                                     </div>
-                                ) }
+                                )}
 
-                                { hasCloser && (
-                                    <div className={cn(styles['closer-wrapper'], {
-                                                [styles['closer-wrapper_highlight']]: shouldHighlightCloser,
-                                    })}>
+                                {hasCloser && (
+                                    <div
+                                        className={cn(styles['closer-wrapper'], {
+                                            [styles[
+                                                'closer-wrapper_highlight'
+                                            ]]: shouldHighlightCloser,
+                                        })}
+                                    >
                                         <button
-                                            type="button"
+                                            type='button'
                                             className={cn([styles.closer], {
-                                                        [styles.closer_small]: isSmall,
-                                                    })}
+                                                [styles.closer_small]: isSmall,
+                                            })}
                                             onClick={handleCloserClick}
                                         >
                                             <CrossHeavyMIcon />
                                         </button>
                                     </div>
-                                ) }
+                                )}
                             </div>
                         </div>
                     </TrapFocus>

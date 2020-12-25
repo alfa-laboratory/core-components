@@ -5,11 +5,15 @@
     "keywords": [],
     "license": "ISC",
     "main": "dist/index.js",
+    "module": "./dist/modern/index.js",
     "files": [
         "dist"
     ],
     "publishConfig": {
         "access": "public"
+    },
+    "dependencies": {
+        "react-merge-refs": "^1.1.0"
     },
     "peerDependencies": {
         "react": "^16.9.0"

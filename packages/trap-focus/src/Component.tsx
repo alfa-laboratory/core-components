@@ -1,7 +1,11 @@
 /* eslint-disable react/no-find-dom-node,jsx-a11y/no-noninteractive-tabindex */
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { ownerDocument, useForkRef } from './utils';
+import mergeRefs from 'react-merge-refs';
+
+function ownerDocument(node: Element | Document | null) {
+    return (node && node.ownerDocument) || document;
+}
 
 export type TrapFocusProps = {
     /**
@@ -67,31 +71,21 @@ export const TrapFocus: React.FC<TrapFocusProps> = props => {
     const rootRef = React.useRef<HTMLElement | null>(null);
     // can be removed once we drop support for non ref forwarding class components
     const handleOwnRef = React.useCallback(instance => {
-        // #StrictMode ready
         rootRef.current = ReactDOM.findDOMNode(instance) as HTMLElement;
     }, []);
 
     // TODO: заменить на optional chaining
-    const handleRef = useForkRef(
+    const handleRef = mergeRefs([
         (children && (children as { ref: React.Ref<typeof children> }).ref) || null,
         handleOwnRef,
-    );
+    ]);
 
     const prevOpenRef = React.useRef<boolean>();
     React.useEffect(() => {
         prevOpenRef.current = open;
     }, [open]);
+
     if (!prevOpenRef.current && open && typeof window !== 'undefined') {
-        /*
-         * WARNING: Potentially unsafe in concurrent mode.
-         * The way the read on `nodeToRestore` is setup could make this actually safe.
-         * Say we render `open={false}` -> `open={true}` but never commit.
-         * We have now written a state that wasn't committed. But no committed effect
-         * will read this wrong value. We only read from `nodeToRestore` in effects
-         * that were committed on `open={true}`
-         * WARNING: Prevents the instance from being garbage collected. Should only
-         * hold a weak ref.
-         */
         nodeToRestore.current = getDoc().activeElement as HTMLElement;
     }
 

@@ -7,7 +7,7 @@ import { Fade } from './index';
 describe('Fade', () => {
     it('should use a children', () => {
         const text = 'Lorem ipsum';
-        const { getByText } = render(<Fade show={true}>{ text }</Fade>);
+        const { getByText } = render(<Fade show={true}>{text}</Fade>);
 
         expect(getByText(text)).toHaveTextContent(text);
     });

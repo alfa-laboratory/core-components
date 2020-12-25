@@ -1,19 +1,19 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Fade } from '@alfalab/core-components-fade';
+import { Fade } from '../fade';
 
-import { ComponentTransitionsProps } from './utils';
+import { ComponentTransitionsProps } from '../../utils';
 
 import style from './index.module.css';
 
-export type SimpleBackdropProps = {
+export type BackdropProps = {
     invisible?: boolean;
     open: boolean;
     onClick?: () => void;
 } & ComponentTransitionsProps;
 
-export const SimpleBackdrop: React.FC<SimpleBackdropProps> = ({
+export const Backdrop: React.FC<BackdropProps> = ({
     open,
     invisible = false,
     children,
@@ -22,11 +22,11 @@ export const SimpleBackdrop: React.FC<SimpleBackdropProps> = ({
 }) => (
     <Fade show={open} {...other}>
         <div
-            data-test-id="Backdrop"
+            data-test-id='Backdrop'
             aria-hidden={true}
             onClick={onClick}
-            className={cn(style['simple-backdrop'], {
-                [style['simple-backdrop_invisible']]: invisible,
+            className={cn(style.backdrop, {
+                [style.invisible]: invisible,
             })}
         />
     </Fade>

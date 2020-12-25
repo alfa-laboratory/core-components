@@ -10,7 +10,6 @@
         }
     },
   "references": [
-    { "path": "../fade" },
     { "path": "../mq" },
     { "path": "../portal" },
     { "path": "../trap-focus" }

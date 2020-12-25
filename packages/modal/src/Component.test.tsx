@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-    render, cleanup, fireEvent, RenderResult, within,
-} from '@testing-library/react';
+import { render, cleanup, fireEvent, RenderResult } from '@testing-library/react';
 
 import { Modal, ModalProps } from './Component';
 
@@ -39,7 +37,7 @@ describe('Modal', () => {
     describe('props', () => {
         it('should consume default props', () => {
             const { queryByTestId } = render(
-                <Modal open={true} dataTestId="Modal">
+                <Modal open={true} dataTestId='Modal'>
                     <p>Hello World</p>
                 </Modal>,
             );
@@ -51,8 +49,8 @@ describe('Modal', () => {
     describe('prop: open', () => {
         it('should not render the children by default', () => {
             const { queryByTestId } = render(
-                <Modal open={false} dataTestId="Modal">
-                    <p data-test-id="content">Hello World</p>
+                <Modal open={false} dataTestId='Modal'>
+                    <p data-test-id='content'>Hello World</p>
                 </Modal>,
             );
             expect(queryByTestId('content')).toBeNull();
@@ -60,7 +58,7 @@ describe('Modal', () => {
 
         it('renders the children inside a div through a porstal when open', () => {
             const { queryByTestId } = render(
-                <Modal open={true} dataTestId="Modal">
+                <Modal open={true} dataTestId='Modal'>
                     <p>Hello World</p>
                 </Modal>,
             );
@@ -71,9 +69,9 @@ describe('Modal', () => {
 
     describe('backdrop', () => {
         const modal = (props?: Partial<ModalProps>) => (
-            <Modal open={true} id="modal" dataTestId="Modal" {...props}>
-                <div id="container">
-                    <h1 id="heading">Hello</h1>
+            <Modal open={true} id='modal' dataTestId='Modal' {...props}>
+                <div id='container'>
+                    <h1 id='heading'>Hello</h1>
                 </div>
             </Modal>
         );
@@ -118,7 +116,7 @@ describe('Modal', () => {
                 modal({
                     onBackdropClick,
                     backdropComponent: ({ appear, ...other }) => (
-                        <div data-test-id="Backdrop" {...other}>
+                        <div data-test-id='Backdrop' {...other}>
                             <span />
                         </div>
                     ),
@@ -142,7 +140,7 @@ describe('Modal', () => {
 
                 return (
                     <Modal open={open}>
-                        <div id="modal-body">hello</div>
+                        <div id='modal-body'>hello</div>
                     </Modal>
                 );
             }
@@ -155,9 +153,9 @@ describe('Modal', () => {
         let wrapper: RenderResult;
 
         const modal = (props?: Partial<ModalProps>) => (
-            <Modal open={false} dataTestId="Modal" {...props}>
-                <div id="container">
-                    <h1 id="heading">Hello</h1>
+            <Modal open={false} dataTestId='Modal' {...props}>
+                <div id='container'>
+                    <h1 id='heading'>Hello</h1>
                 </div>
             </Modal>
         );
@@ -208,7 +206,13 @@ describe('Modal', () => {
         let modalWrapper: HTMLElement;
 
         const modal = (props?: Partial<ModalProps>) => (
-            <Modal open={true} onEscapeKeyDown={onEscapeKeyDownSpy} onClose={onCloseSpy} dataTestId="Modal" {...props}>
+            <Modal
+                open={true}
+                onEscapeKeyDown={onEscapeKeyDownSpy}
+                onClose={onCloseSpy}
+                dataTestId='Modal'
+                {...props}
+            >
                 <div />
             </Modal>
         );
@@ -243,9 +247,9 @@ describe('Modal', () => {
     describe('prop: keepMounted', () => {
         it('should keep the children in the DOM', () => {
             const wrapper = render(
-                <Modal keepMounted={true} open={false} dataTestId="Modal">
+                <Modal keepMounted={true} open={false} dataTestId='Modal'>
                     <div>
-                        <p data-test-id="children">Hello World</p>
+                        <p data-test-id='children'>Hello World</p>
                     </div>
                 </Modal>,
             );
@@ -254,7 +258,7 @@ describe('Modal', () => {
 
         it('does not include the children in the a11y tree', () => {
             const wrapper = render(
-                <Modal keepMounted={true} open={false} dataTestId="Modal">
+                <Modal keepMounted={true} open={false} dataTestId='Modal'>
                     <div>ModalContent</div>
                 </Modal>,
             );
@@ -262,7 +266,7 @@ describe('Modal', () => {
             expect(modalNode?.hasAttribute('aria-hidden')).toStrictEqual(true);
 
             wrapper.rerender(
-                <Modal keepMounted={true} open={true} dataTestId="Modal">
+                <Modal keepMounted={true} open={true} dataTestId='Modal'>
                     <div>ModalContent</div>
                 </Modal>,
             );
@@ -316,22 +320,22 @@ describe('Modal', () => {
         it('should be able to change the container', () => {
             class TestCase extends React.Component {
                 state = {
-                    anchorEl: null,
+                    anchorEl: undefined,
                 };
 
                 componentDidMount() {
                     this.setState(
                         () => ({
-                            anchorEl: document.body,
+                            anchorEl: () => document.body,
                         }),
                         () => {
                             this.setState(
                                 {
-                                    anchorEl: null,
+                                    anchorEl: undefined,
                                 },
                                 () => {
                                     this.setState({
-                                        anchorEl: document.body,
+                                        anchorEl: () => document.body,
                                     });
                                 },
                             );
@@ -349,19 +353,6 @@ describe('Modal', () => {
                 }
             }
             render(<TestCase />);
-        });
-    });
-
-    describe('prop: disablePortal', () => {
-        it('should render the content into the parent', () => {
-            const { getByTestId } = render(
-                <div data-test-id="parent">
-                    <Modal open={true} disablePortal={true}>
-                        <div data-test-id="child" />
-                    </Modal>
-                </div>,
-            );
-            expect(within(getByTestId('parent')).getByTestId('child'));
         });
     });
 });

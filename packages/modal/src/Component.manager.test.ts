@@ -32,7 +32,7 @@ describe('ModalManager', () => {
         const modal = {} as ModalElement;
         const modalManager2 = new ModalManager();
         const idx = modalManager2.add(modal, container1);
-        modalManager2.mount(modal, {});
+        modalManager2.mount(modal);
         expect(modalManager2.add(modal, container1)).toStrictEqual(idx);
         modalManager2.remove(modal);
     });
@@ -59,7 +59,7 @@ describe('ModalManager', () => {
 
         it('should add modal1', () => {
             const idx = modalManager.add(modal1, container1);
-            modalManager.mount(modal1, {});
+            modalManager.mount(modal1);
             expect(idx).toStrictEqual(0); // should be the first modal
             expect(modalManager.isTopModal(modal1)).toStrictEqual(true);
         });
@@ -83,7 +83,7 @@ describe('ModalManager', () => {
 
         it('should add modal2 2', () => {
             const idx = modalManager.add(modal2, container1);
-            modalManager.mount(modal2, {});
+            modalManager.mount(modal2);
             expect(idx).toStrictEqual(2); // should be the "third" modal
             expect(modalManager.isTopModal(modal2)).toStrictEqual(true);
             // modal3 should not be the top modal
@@ -107,7 +107,7 @@ describe('ModalManager', () => {
         });
 
         it('should not do anything', () => {
-            const idx = modalManager.remove({ nonExisting: true } as any);
+            const idx = modalManager.remove({ nonExisting: true } as never);
             expect(idx).toStrictEqual(-1);
         });
     });
@@ -133,7 +133,7 @@ describe('ModalManager', () => {
 
             const modal = {} as ModalElement;
             modalManager.add(modal, container1);
-            modalManager.mount(modal, {});
+            modalManager.mount(modal);
             expect(container1.style.overflow).toStrictEqual('hidden');
             expect(container1.style.paddingRight).toStrictEqual(`${20 + getScrollbarSize()}px`);
             expect(fixedNode.style.paddingRight).toStrictEqual(`${14 + getScrollbarSize()}px`);
@@ -158,7 +158,7 @@ describe('ModalManager', () => {
 
             const modal = {} as ModalElement;
             modalManager.add(modal, container2);
-            modalManager.mount(modal, {});
+            modalManager.mount(modal);
             expect(container2.style.overflow).toStrictEqual('hidden');
             modalManager.remove(modal);
             expect(container2.style.overflow).toStrictEqual('');
@@ -170,7 +170,7 @@ describe('ModalManager', () => {
             const modal = {} as ModalElement;
 
             modalManager.add(modal, container1);
-            modalManager.mount(modal, {});
+            modalManager.mount(modal);
             expect(container1.style.overflow).toStrictEqual('hidden');
             expect(container1.style.paddingRight).toStrictEqual(`${20 + getScrollbarSize()}px`);
             expect(fixedNode.style.paddingRight).toStrictEqual('');
@@ -200,11 +200,11 @@ describe('ModalManager', () => {
             const modal1 = {} as ModalElement;
             const modal2 = {} as ModalElement;
             modalManager.add(modal1, container3);
-            modalManager.mount(modal1, {});
+            modalManager.mount(modal1);
             expect(container3.children[0]).toHaveAttribute('aria-hidden');
 
             modalManager.add(modal2, container4);
-            modalManager.mount(modal2, {});
+            modalManager.mount(modal2);
             expect(container4.children[0]).toHaveAttribute('aria-hidden');
 
             modalManager.remove(modal2);
@@ -243,7 +243,7 @@ describe('ModalManager', () => {
             modal2.setAttribute('aria-hidden', 'true');
 
             expect(modal2).toHaveAttribute('aria-hidden');
-            modalManager.add({ modalRef: modal2 } as any, container2);
+            modalManager.add({ modalRef: modal2 } as never, container2);
             expect(modal2).not.toHaveAttribute('aria-hidden');
         });
 
@@ -259,12 +259,12 @@ describe('ModalManager', () => {
             container2.appendChild(modal2);
             container2.appendChild(modal3);
 
-            modalManager.add({ modalRef: modal2 } as any, container2);
+            modalManager.add({ modalRef: modal2 } as never, container2);
             // Simulate the main React DOM true.
             expect(container2.children[0]).toHaveAttribute('aria-hidden');
             expect(container2.children[1]).not.toHaveAttribute('aria-hidden');
 
-            modalManager.add({ modalRef: modal3 } as any, container2);
+            modalManager.add({ modalRef: modal3 } as never, container2);
             expect(container2.children[0]).toHaveAttribute('aria-hidden');
             expect(container2.children[1]).toHaveAttribute('aria-hidden');
             expect(container2.children[2]).not.toHaveAttribute('aria-hidden');
@@ -274,7 +274,7 @@ describe('ModalManager', () => {
             const modal = { modalRef: container2.children[0] } as ModalElement;
 
             modalManager.add(modal, container2);
-            modalManager.mount(modal, {});
+            modalManager.mount(modal);
             expect(container2.children[0]).not.toHaveAttribute('aria-hidden');
             modalManager.remove(modal);
             expect(container2.children[0]).toHaveAttribute('aria-hidden');
@@ -291,7 +291,7 @@ describe('ModalManager', () => {
             container2.appendChild(sibling2);
 
             modalManager.add(modal, container2);
-            modalManager.mount(modal, {});
+            modalManager.mount(modal);
             expect(container2.children[0]).not.toHaveAttribute('aria-hidden');
             modalManager.remove(modal);
             expect(container2.children[0]).toHaveAttribute('aria-hidden');

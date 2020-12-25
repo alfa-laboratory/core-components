@@ -2,14 +2,9 @@ import React, { ReactNode, forwardRef } from 'react';
 import { Transition } from 'react-transition-group';
 import { TransitionStatus } from 'react-transition-group/Transition';
 import cn from 'classnames';
+import mergeRefs from 'react-merge-refs';
 
-import {
-    ComponentTransitionsProps,
-    createTimeout,
-    createTransitionStyles,
-    reflow,
-    useForkRef,
-} from './utils';
+import { ComponentTransitionsProps, createTimeout, createTransitionStyles, reflow } from './utils';
 
 import styles from './index.module.css';
 
@@ -60,11 +55,11 @@ export const Fade = forwardRef<Element, FadeProps>((props, ref) => {
 
     const nodeRef = React.useRef(null);
     // TODO: заменить на optional chaining
-    const foreignRef = useForkRef(
+    const foreignRef = mergeRefs([
         (children && (children as { ref: React.Ref<typeof children> }).ref) || null,
         ref,
-    );
-    const handleRef = useForkRef(nodeRef, foreignRef);
+    ]);
+    const handleRef = mergeRefs([nodeRef, foreignRef]);
 
     const handleEnter = (node: HTMLElement, isAppearing: boolean) => {
         const element = node;
@@ -118,11 +113,9 @@ export const Fade = forwardRef<Element, FadeProps>((props, ref) => {
                     data-test-id={dataTestId}
                     tabIndex={tabIndex}
                 >
-                    {
-                        React.isValidElement(children)
+                    {React.isValidElement(children)
                         ? React.cloneElement(children, { ref: handleRef })
-                        : children
-                    }
+                        : children}
                 </div>
             )}
         </Transition>
