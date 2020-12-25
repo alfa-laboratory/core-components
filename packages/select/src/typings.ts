@@ -179,7 +179,7 @@ export type BaseSelectProps = {
     /**
      * Пропсы, которые будут прокинуты в компонент пункта меню
      */
-    optionsProps?: unknown;
+    optionProps?: unknown;
 
     /**
      * Компонент выпадающего меню

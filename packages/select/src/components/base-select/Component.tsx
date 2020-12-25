@@ -48,7 +48,7 @@ export const BaseSelect = forwardRef(
             placeholder,
             fieldProps = {},
             optionsListProps = {},
-            optionsProps = {},
+            optionProps = {},
             valueRenderer,
             onChange,
             onOpen,
@@ -232,7 +232,7 @@ export const BaseSelect = forwardRef(
             ({ option, index, ...rest }: { option: OptionShape; index: number }) => (
                 <React.Fragment key={option.key}>
                     {Option({
-                        ...(optionsProps as object),
+                        ...(optionProps as object),
                         ...rest,
                         innerProps: getItemProps({
                             index,
@@ -249,7 +249,7 @@ export const BaseSelect = forwardRef(
                     })}
                 </React.Fragment>
             ),
-            [Option, getItemProps, highlightedIndex, optionsProps, selectedItems, size],
+            [Option, getItemProps, highlightedIndex, optionProps, selectedItems, size],
         );
 
         useEffect(() => {
