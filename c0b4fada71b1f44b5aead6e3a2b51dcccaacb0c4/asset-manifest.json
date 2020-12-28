@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "./main.css",
+    "main.js": "./main.eca6fea1c0cfe5be9069.bundle.js",
+    "main.js.map": "./main.eca6fea1c0cfe5be9069.bundle.js.map",
+    "runtime~main.js": "./runtime~main.eca6fea1c0cfe5be9069.bundle.js",
+    "runtime~main.js.map": "./runtime~main.eca6fea1c0cfe5be9069.bundle.js.map",
+    "vendors~libphonenumber.js": "./vendors~libphonenumber.eca6fea1c0cfe5be9069.bundle.js",
+    "vendors~libphonenumber.js.map": "./vendors~libphonenumber.eca6fea1c0cfe5be9069.bundle.js.map",
+    "vendors~main.js": "./vendors~main.eca6fea1c0cfe5be9069.bundle.js",
+    "vendors~main.js.map": "./vendors~main.eca6fea1c0cfe5be9069.bundle.js.map",
+    "index.module.css": "./flag-icon_size_s@2x.790e974d.png",
+    "iframe.html": "./iframe.html",
+    "main.css.map": "./main.css.map",
+    "precache-manifest.4153e2826a81574f223b100c1fc3754a.js": "./precache-manifest.4153e2826a81574f223b100c1fc3754a.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.98ff843c.chunk.css.map": "./static/css/main.98ff843c.chunk.css.map",
+    "vendors~main.eca6fea1c0cfe5be9069.bundle.js.LICENSE.txt": "./vendors~main.eca6fea1c0cfe5be9069.bundle.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "runtime~main.eca6fea1c0cfe5be9069.bundle.js",
+    "vendors~main.eca6fea1c0cfe5be9069.bundle.js",
+    "static/css/main.98ff843c.chunk.css",
+    "main.css",
+    "main.eca6fea1c0cfe5be9069.bundle.js"
+  ]
+}
