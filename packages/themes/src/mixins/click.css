@@ -14,7 +14,7 @@
 
 @define-mixin theme-click {
     --disabled-cursor: not-allowed;
-    --arrow-transform: rotate(180deg);
+    --arrow-transform: rotate(-180deg);
 
     @mixin amount-click;
     @mixin form-control-click;
