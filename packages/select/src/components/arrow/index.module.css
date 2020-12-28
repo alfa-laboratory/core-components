@@ -9,9 +9,9 @@
     background: var(--select-arrow-background);
     background-size: cover;
     background-position: center;
-    transition: opacity 0.2s ease;
+    transition: transform 0.15s ease-in-out, opacity 0.2s ease;
 }
 
 .open {
-    transform: rotate(180deg);
+    transform: var(--arrow-transform);
 }
