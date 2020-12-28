@@ -151,7 +151,7 @@
 }
 
 .s .label {
-    top: calc(var(--form-control-s-min-height) / 2 - 1px);
+    top: calc(var(--form-control-s-min-height) / 2 + 1px);
 }
 
 .m .inner {
@@ -207,7 +207,7 @@
 }
 
 .l .label {
-    top: calc(var(--form-control-l-min-height) / 2 + 1px);
+    top: calc(var(--form-control-l-min-height) / 2 - 1px);
 }
 
 /* DISABLED STATE */
