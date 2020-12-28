@@ -1,9 +1,9 @@
-/* eslint-disable */
 /**
  * @jest-environment node
  */
+/* eslint-disable */
 
-// import axios from 'axios';
+import axios from 'axios';
 
 import { screenshotTesting, getScreenshotTestCases } from '../../utils';
 
@@ -23,27 +23,70 @@ const cases = getScreenshotTestCases({
     ],
 });
 
-describe('Button | screenshots', screenshotTesting(cases, it, beforeAll, afterAll, expect));
+// describe('Amount | screenshots', screenshotTesting(cases, it, beforeAll, afterAll, expect));
 
-// // WIP
+// WIP
+import { webkit, Page, Browser, BrowserContext } from 'playwright';
 
-// // test.skip('playground', async () => {
-// //     try {
-// //         const html = await axios.get('http://example.org/');
-//         const html = await axios.get('http://localhost:9009/iframe.html?id=components--amount');
-// //         // const html = await axios.get('http://localhost:9009/iframe.html?id=%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B--button');
+const screenshotOpts = {
+    clip: {
+        x: 0,
+        y: 0,
+        width: 2000,
+        height: 100,
+    },
+};
 
-//         const image = await axios.post('http://digital/playwright', {
-//             data: html.data,
-//         }, {
-//             responseType: 'arraybuffer',
-//         });
+describe('Next', () => {
+    let browser: Browser;
+    let context: BrowserContext;
+    let page: Page;
 
-// //         // const healf = await axios.get('http://digital/playwright/healf');
-// //         // console.info(healf.data);
+    beforeAll(async () => {
+        browser = await webkit.launch();
+        context = await browser.newContext();
+        page = await context.newPage();
+    });
 
-//         expect(image.data).toMatchImageSnapshot();
-// //     } catch(e) {
-// //         expect(e).toEqual('');
-// //     }
-// // });
+    afterAll(async () => {
+        await browser.close();
+    });
+
+    it('test', async () => {
+        // const html = await axios.get('http://localhost:3000');
+        await page.goto('http://localhost:9009/iframe.html?id=components--amount');
+        const html = await page.content();
+        await page.setContent(html);
+        // const pageR = await page.setContent('<p>Test</p>');
+        console.info(html);
+        const image = await page.screenshot();
+        // const image = await axios.post('http://digital/playwright', {
+        //     data: html,
+        // }, {
+        //     responseType: 'arraybuffer',
+        // });
+
+        // expect(image).toMatchImageSnapshot();
+    });
+});
+
+test.skip('playground', async () => {
+    try {
+        const html = await axios.get('http://localhost:3000');
+        console.info(html.data);
+        const image = await axios.post(
+            'http://digital/playwright',
+            {
+                data: html.data,
+            },
+            {
+                responseType: 'arraybuffer',
+            },
+        );
+
+        expect(image.data).toMatchImageSnapshot();
+    } catch (e) {
+        console.info(e);
+        expect(e).toEqual('');
+    }
+});
