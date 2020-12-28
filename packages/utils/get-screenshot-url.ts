@@ -1,38 +1,114 @@
-/* eslint-disable */
+import qs from 'querystring';
 
 import { STORYBOOK_URL } from './screenshot-testing';
 
-const getKnobStr = (knob: any) => (param: any) => `knob-${knob.toString()}=${param.toString()}`;
+type KnobValueType = string | boolean | number;
 
-export const getScreenshotTestCases = (opts: any): any[] => {
-    const { host = `${STORYBOOK_URL}/iframe.html`, items = [], variant = '' } = opts;
+type KnobsCombinations = {
+    [key: string]: KnobValueType[];
+};
 
-    const cases = items.map(({ group, name, variant, params }: any) => {
-        const knobs = Object.keys(params);
-        const testId = `${group.toLowerCase()}--${name.toLowerCase()}`;
+type Knobs = {
+    [key: string]: KnobValueType;
+};
 
-        const knobsList = knobs
-            // Convert param object to string
-            .map(knob => params[knob].map(getKnobStr(knob)))
-            // Join all params in one string
-            .reduce((acc, curr) => {
-                if (acc.length) {
-                    return curr.map((i: string) => acc.map((j: string) => `${j}&${i}`));
-                }
+const createStorybookUrl = (host: string, group: string, name: string, knobs: Knobs) => {
+    const preparedKnobs = Object.keys(knobs).reduce<Knobs>((acc, knobName) => {
+        acc[`knob-${knobName}`] = knobs[knobName];
+        return acc;
+    }, {});
 
-                return curr;
-            }, [])
-            .flat()
-            // Create Screenshot test case object
-            .map((paramStr: string) => [
-                `${name}:{${paramStr
-                    .replace(/&/g, ', ')
-                    .replace(/=/g, ': ')
-                    .replace(/knob-/g, '')}}`,
-                `${host}?id=${testId}&${paramStr}`,
+    return `${host}?id=${group}--${name}&${qs.stringify(preparedKnobs)}`;
+};
+
+type ComponentScreenshotTestCasesParams = {
+    storybookHost?: string;
+    group?: string;
+    name: string;
+    knobs: KnobsCombinations;
+};
+
+type JestTestArgs = Array<[string, string]>;
+
+type Node = {
+    name: string;
+    value: KnobValueType;
+    nodes: Node[];
+};
+
+export const getComponentScreenshotTestCases = ({
+    storybookHost = `${STORYBOOK_URL}/iframe.html`,
+    group = 'компоненты',
+    name,
+    knobs,
+}: ComponentScreenshotTestCasesParams): JestTestArgs => {
+    const knobsNames = Object.keys(knobs);
+    const knobsValues = Object.values(knobs);
+    const rootNode: Node = { name: 'root', nodes: [], value: 'root' };
+
+    const getNextKnobName = (knobName: string): string => {
+        if (knobName === 'root') {
+            return knobsNames[0];
+        }
+
+        const index = knobsNames.indexOf(knobName);
+
+        return index === knobsNames.length - 1 ? '' : knobsNames[index + 1];
+    };
+
+    const getNextKnobValues = (knobName: string): KnobValueType[] => {
+        if (knobName === 'root') {
+            return knobsValues[0];
+        }
+
+        const index = knobsNames.indexOf(knobName);
+
+        return index === knobsValues.length - 1 ? [] : knobsValues[index + 1];
+    };
+
+    const createNodes = (node: Node) => {
+        const row = knobsNames.indexOf(node.name);
+
+        if (row === knobsNames.length) {
+            return;
+        }
+
+        const nextKnobValues = getNextKnobValues(node.name);
+        const nextKnobName = getNextKnobName(node.name);
+
+        // eslint-disable-next-line no-param-reassign
+        node.nodes = nextKnobValues.map(value => ({
+            name: nextKnobName,
+            value,
+            nodes: [],
+        }));
+
+        node.nodes.forEach(currNode => {
+            createNodes(currNode);
+        });
+    };
+
+    createNodes(rootNode);
+
+    const result: JestTestArgs = [];
+
+    const visitNode = (node: Node, currKnobs: Knobs) => {
+        node.nodes.forEach(currNode => {
+            visitNode(currNode, {
+                ...currKnobs,
+                [currNode.name]: currNode.value,
+            });
+        });
+
+        if (node.nodes.length === 0) {
+            result.push([
+                JSON.stringify(currKnobs),
+                createStorybookUrl(storybookHost, group, name, currKnobs),
             ]);
-        return knobsList;
-    });
+        }
+    };
 
-    return cases.flat();
+    visitNode(rootNode, {});
+
+    return result;
 };
