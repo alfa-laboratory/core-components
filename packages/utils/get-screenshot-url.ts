@@ -1,13 +1,15 @@
 /* eslint-disable */
 
+import { STORYBOOK_URL } from './screenshot-testing';
+
 const getKnobStr = (knob: any) => (param: any) => `knob-${knob.toString()}=${param.toString()}`;
 
 export const getScreenshotTestCases = (opts: any): any[] => {
-    const { host = '', items = [] } = opts;
+    const { host = `${STORYBOOK_URL}/iframe.html`, items = [], variant = '' } = opts;
 
-    const cases = items.map(({ group, name: _name, variant, params }: any) => {
+    const cases = items.map(({ group, name, variant, params }: any) => {
         const knobs = Object.keys(params);
-        const testId = `${group.toLowerCase()}--${_name.toLowerCase()}`;
+        const testId = `${group.toLowerCase()}--${name.toLowerCase()}`;
 
         const knobsList = knobs
             // Convert param object to string
@@ -23,7 +25,7 @@ export const getScreenshotTestCases = (opts: any): any[] => {
             .flat()
             // Create Screenshot test case object
             .map((paramStr: string) => [
-                `${_name}:{${paramStr
+                `${name}:{${paramStr
                     .replace(/&/g, ', ')
                     .replace(/=/g, ': ')
                     .replace(/knob-/g, '')}}`,

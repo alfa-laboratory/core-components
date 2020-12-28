@@ -1,8 +1,10 @@
 /**
  * Playwright должен быть установлен глобально через npm
  */
-import { webkit, Page, Browser, BrowserContext } from 'playwright';
+import { chromium, Page, Browser, BrowserContext } from 'playwright';
 import axios from 'axios';
+
+export const STORYBOOK_URL = process.env.STORYBOOK_URL || 'http://localhost:9009';
 
 export const screenshotTesting = (
     cases: any[],
@@ -17,11 +19,11 @@ export const screenshotTesting = (
     let css: string;
 
     beforeAll(async () => {
-        browser = await webkit.launch();
+        browser = await chromium.launch();
         context = await browser.newContext();
         page = await context.newPage();
 
-        const result = await axios.get('http://localhost:9009/main.css', {
+        const result = await axios.get(`${STORYBOOK_URL}/main.css`, {
             responseType: 'text',
         });
 
