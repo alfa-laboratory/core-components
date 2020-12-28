@@ -1,7 +1,7 @@
 import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
-import { ArrowDownSBlackIcon } from '@alfalab/icons-classic/ArrowDownSBlackIcon';
-import { ArrowUpSBlackIcon } from '@alfalab/icons-classic/ArrowUpSBlackIcon';
+import { ArrowDownMBlackIcon } from '@alfalab/icons-classic/ArrowDownMBlackIcon';
+import { ArrowUpMBlackIcon } from '@alfalab/icons-classic/ArrowUpMBlackIcon';
 import { Link } from '@alfalab/core-components-link';
 import debounce from 'lodash.debounce';
 import styles from './index.module.css';
@@ -97,7 +97,7 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props: Collap
         [styles.expandedContent]: isExpanded,
     });
 
-    const ToggledIcon = isExpanded ? ArrowUpSBlackIcon : ArrowDownSBlackIcon;
+    const ToggledIcon = isExpanded ? ArrowUpMBlackIcon : ArrowDownMBlackIcon;
 
     const handleExpandedChange = useCallback(() => {
         setIsExpanded(!isExpanded);
@@ -109,9 +109,8 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props: Collap
             <div ref={contentRef} className={contentClassName}>
                 <div ref={contentCaseRef}>{children}</div>
             </div>
-            <Link pseudo={true} onClick={handleExpandedChange}>
+            <Link pseudo={true} onClick={handleExpandedChange} rightAddons={<ToggledIcon />}>
                 {isExpanded ? expandedLabel : collapsedLabel}
-                <ToggledIcon className={styles.icon} />
             </Link>
         </div>
     );
