@@ -137,7 +137,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
             {label ? <span className={styles.label}>{label}</span> : null}
 
             {children ? (
-                <div className={cn(styles.checkboxList)}>
+                <div className={styles.checkboxList}>
                     {Children.map(children, child => {
                         if (isValidElement(child)) {
                             return type === 'checkbox' ? renderCheckbox(child) : renderTag(child);

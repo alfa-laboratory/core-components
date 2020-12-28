@@ -1,0 +1,55 @@
+@import '../../themes/src/default.css';
+@import '../../calendar/src/vars.css';
+
+:root {
+    --calendar-input-calendar-icon: url('https://alfabank.st/icons/icon_calendar_m_black.svg');
+}
+
+.component {
+    width: var(--calendar-width);
+    outline: none;
+    position: relative;
+}
+
+.block {
+    width: 100%;
+}
+
+.calendarContainer {
+    display: inline-block;
+    box-sizing: border-box;
+    box-shadow: var(--shadow-s);
+    border: 1px solid var(--color-light-border-primary);
+    border-radius: 8px;
+}
+
+.calendarIcon {
+    width: 24px;
+    height: 24px;
+    display: block;
+    background: var(--calendar-input-calendar-icon);
+    background-size: cover;
+    background-position: center;
+
+    &:not(:only-child) {
+        margin-left: var(--gap-2xs);
+    }
+}
+
+.nativeInput {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    appearance: none;
+    z-index: 1;
+
+    &::-webkit-calendar-picker-indicator {
+        display: none;
+    }
+    &::-webkit-inner-spin-button {
+        display: none;
+    }
+}

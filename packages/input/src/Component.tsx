@@ -270,7 +270,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                                 className={styles.clearButton}
                                 onClick={handleClear}
                             >
-                                <span className={cn(styles.clearIcon)} />
+                                <span className={styles.clearIcon} />
                             </Button>
                         )}
                         {error && <span className={styles.errorIcon} />}

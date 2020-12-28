@@ -22,6 +22,7 @@ import { name, version } from '../package.json';
     <AmountInput
         value={number('value', null)}
         currency={text('currency', 'RUR')}
+        integerLength={number('integerLength', 9)}
         minority={number('minority', 100)}
         bold={boolean('bold', true)}
         block={boolean('block', false)}

@@ -21,6 +21,11 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
     currency?: CurrencyCodes;
 
     /**
+     * Максимальное число знаков до запятой
+     */
+    integerLength?: number;
+
+    /**
      * Минорные единицы
      */
     minority?: number;
@@ -61,6 +66,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
     (
         {
             value = null,
+            integerLength = 9,
             minority = 100,
             currency = 'RUR',
             placeholder = `0\u2009${getCurrencySymbol(currency) || ''}`,
@@ -106,7 +112,9 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             const input = e.target;
             const enteredValue = input.value.replace(/\s/g, '').replace('.', ',');
-            const isCorrectEnteredValue = /(^[0-9]{1,9}(,([0-9]+)?)?$|^\s*$)/.test(enteredValue);
+            const isCorrectEnteredValue = RegExp(
+                `(^[0-9]{1,${integerLength}}(,([0-9]+)?)?$|^\\s*$)`,
+            ).test(enteredValue);
 
             if (isCorrectEnteredValue) {
                 const newFormatedValue = getFormatedValue(enteredValue, currency, minority);
