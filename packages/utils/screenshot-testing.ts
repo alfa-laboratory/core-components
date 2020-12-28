@@ -14,11 +14,18 @@ export const screenshotTesting = (
     let browser: Browser;
     let context: BrowserContext;
     let page: Page;
+    let css: string;
 
     beforeAll(async () => {
         browser = await webkit.launch();
         context = await browser.newContext();
         page = await context.newPage();
+
+        const result = await axios.get('http://localhost:9009/main.css', {
+            responseType: 'text',
+        });
+
+        css = result.data;
     });
 
     afterAll(async () => {
@@ -30,10 +37,6 @@ export const screenshotTesting = (
 
         const body = await page.innerHTML('body');
         const head = await page.innerHTML('head');
-
-        const { data: css } = await axios.get('http://localhost:9009/main.css', {
-            responseType: 'text',
-        });
 
         const image = await axios.post(
             'http://digital/playwright',
