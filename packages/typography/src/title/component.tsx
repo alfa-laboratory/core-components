@@ -31,6 +31,11 @@ export type TitleProps = {
     font?: 'styrene' | 'system';
 
     /**
+     * Добавляет отступы
+     */
+    defaultMargins?: boolean;
+
+    /**
      * Css-класс для стилизации
      */
     className?: string;
@@ -57,6 +62,7 @@ export const Title: React.FC<TitleProps & Styles> = ({
     view = 'medium',
     font = 'styrene',
     weight = font === 'styrene' ? 'medium' : 'bold',
+    defaultMargins = false,
     color,
     className,
     dataTestId,
@@ -68,6 +74,7 @@ export const Title: React.FC<TitleProps & Styles> = ({
             styles.component,
             className,
             styles[`${font}-${view}`],
+            defaultMargins && styles[`margins-${view}`],
             styles[weight],
             color && colors[color],
         )}

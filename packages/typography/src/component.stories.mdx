@@ -25,7 +25,14 @@ import { colors } from './colors';
         const weight = select('weight', ['regular', 'medium', 'bold'], 'medium');
         const font = select('font', ['styrene', 'system'], 'styrene');
         return VIEW_TYPES.map(view => (
-            <Typography.Title view={view} color={color} weight={weight} font={font} key={view}>
+            <Typography.Title
+                defaultMargins={boolean('defaultMargins', false)}
+                view={view}
+                color={color}
+                weight={weight}
+                font={font}
+                key={view}
+            >
                 заголовок view='{view}'
             </Typography.Title>
         ))
@@ -45,7 +52,14 @@ import { colors } from './colors';
         const weight = select('weight', ['regular', 'medium', 'bold'], 'medium');
         const font = select('font', ['styrene', 'system'], 'styrene');
         return VIEW_TYPES.map(view => (
-            <Typography.TitleResponsive view={view} color={color} weight={weight} font={font} key={view}>
+            <Typography.TitleResponsive
+                defaultMargins={boolean('defaultMargins', false)}
+                view={view}
+                color={color}
+                weight={weight}
+                font={font}
+                key={view}
+            >
                 заголовок view='{view}'
             </Typography.TitleResponsive>
         ))
