@@ -120,6 +120,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                 <div
                     className={cn(styles.contentWrapper, {
                         [styles.hasLabel]: Boolean(label),
+                        [styles.hasTags]: selectedMultiple.length > 0,
                     })}
                     ref={contentWrapperRef}
                 >

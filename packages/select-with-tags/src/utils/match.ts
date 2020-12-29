@@ -21,7 +21,7 @@ export const filterOptions = (
     math = defaultMatch,
 ) => {
     if (optionsIsGroupShapes(options)) {
-        return options.reduce((acc, group) => {
+        return options.reduce<GroupShape[]>((acc, group) => {
             const matchedOptions = group.options.filter(option => math(option, inputValue));
 
             if (matchedOptions.length > 0) {
@@ -31,7 +31,7 @@ export const filterOptions = (
             }
 
             return acc;
-        }, [] as GroupShape[]);
+        }, []);
     }
 
     return (options as OptionShape[]).filter(option => math(option, inputValue));

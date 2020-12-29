@@ -87,7 +87,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
               class="input"
             >
               <div
-                class="contentWrapper"
+                class="contentWrapper hasTags"
               >
                 <button
                   class="component xs checked tag"

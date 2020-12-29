@@ -7,6 +7,10 @@
     margin: var(--gap-2xs-neg);
 
     &.hasLabel {
+        margin-top: var(--gap-xs);
+    }
+
+    &.hasTags.hasLabel {
         margin-top: var(--gap-s);
     }
 }
@@ -41,6 +45,7 @@
     background-color: transparent;
     outline: none;
     border: none;
+    font-family: var(--font-family);
 
     &::placeholder {
         color: var(--color-light-text-secondary);
