@@ -5,6 +5,7 @@ import {
     act,
     RenderResult,
     waitForElementToBeRemoved,
+    waitFor,
 } from '@testing-library/react';
 
 import { Tooltip, TooltipProps } from './index';
@@ -174,18 +175,26 @@ describe('Click event tests', () => {
             open: true,
         });
 
-        const content = getByText(contentText);
-        const children = getByText(childrenText);
+        await waitFor(() => {
+            const content = getByText(contentText);
 
-        expect(content).toBeInTheDocument();
+            expect(content).toBeInTheDocument();
+        });
 
-        fireEvent.click(document.body);
+        await waitFor(() => {
+            fireEvent.click(document.body);
+            const content = getByText(contentText);
 
-        expect(content).toBeInTheDocument();
+            expect(content).toBeInTheDocument();
+        });
 
-        fireEvent.click(children);
+        await waitFor(() => {
+            const children = getByText(childrenText);
+            fireEvent.click(children);
+            const content = getByText(contentText);
 
-        expect(content).toBeInTheDocument();
+            expect(content).toBeInTheDocument();
+        });
     });
 
     it('should stay close if prop `open` is `false`', async () => {
