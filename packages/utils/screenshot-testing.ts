@@ -1,8 +1,25 @@
-/* eslint-disable multiline-comment-style */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { chromium, Page, Browser, BrowserContext } from 'playwright';
 import axios from 'axios';
+import { MatchImageSnapshotOptions } from 'jest-image-snapshot';
+import kebab from 'lodash.kebabcase';
 
 export const STORYBOOK_URL = process.env.STORYBOOK_URL || 'http://localhost:9009';
+
+type CustomSnapshotIdentifierParams = {
+    currentTestName: string;
+    counter: number;
+    defaultIdentifier: string;
+    testPath: string;
+};
+
+/**
+ * Удаляем из названия теста лишнюю информацию, чтобы имя файла было короче
+ */
+const customSnapshotIdentifier = ({ currentTestName }: CustomSnapshotIdentifierParams) => {
+    const [knobsStrObj] = /(\{.{1,}\})/.exec(currentTestName) || [];
+    return kebab(`${knobsStrObj}`);
+};
 
 export const screenshotTesting = (
     cases: any[],
@@ -10,6 +27,7 @@ export const screenshotTesting = (
     beforeAll: any,
     afterAll: any,
     expect: any,
+    matchImageSnapshotOptions?: MatchImageSnapshotOptions,
 ) => () => {
     let browser: Browser;
     let context: BrowserContext;
@@ -32,78 +50,27 @@ export const screenshotTesting = (
         await browser.close();
     });
 
-    it.each(cases)('%s', async (name: string, link: string) => {
+    it.each(cases)('%s', async (testName: string, link: string) => {
         await page?.goto(encodeURI(link));
 
         const body = await page?.innerHTML('body');
         const head = await page?.innerHTML('head');
 
+        const pageHtml = `<html><head>${head}</head><body><style>${css}</style>${body}</body></html>`;
+
         const image = await axios.post(
             'http://digital/playwright',
             {
-                data: `<html><head>${head}</head><body><style>${css}</style>${body}</body></html>`,
+                data: pageHtml,
             },
             {
                 responseType: 'arraybuffer',
             },
         );
 
-        expect(image.data).toMatchImageSnapshot();
+        expect(image.data).toMatchImageSnapshot({
+            customSnapshotIdentifier,
+            ...matchImageSnapshotOptions,
+        });
     });
 };
-
-
-// Попытка запускать тесты параллельно пока ни к чему хорошему не привела
-// export const screenshotTesting = (
-//     cases: any[],
-//     it: any,
-//     beforeAll: any,
-//     afterAll: any,
-//     expect: any,
-// ) => () => {
-//     let browser: Browser;
-
-//     const preparePlaywright: () => Promise<{ css: string; context: BrowserContext }> = async () => {
-//         browser = await chromium.launch();
-//         const context = await browser.newContext();
-
-//         const { data: css } = await axios.get(`${STORYBOOK_URL}/main.css`, {
-//             responseType: 'text',
-//         });
-
-//         return { context, css };
-//     };
-
-//     /**
-//      * Workaround
-//      * https://github.com/facebook/jest/issues/4281
-//      */
-//     const prepare = preparePlaywright();
-
-//     afterAll(async () => {
-//         await browser.close();
-//     });
-
-//     it.concurrent.each(cases)('%s', async (name: string, link: string) => {
-//         const { css, context } = await prepare;
-
-//         const page = await context.newPage();
-
-//         await page.goto(encodeURI(link));
-
-//         const body = await page?.innerHTML('body');
-//         const head = await page?.innerHTML('head');
-
-//         const image = await axios.post(
-//             'http://digital/playwright',
-//             {
-//                 data: `<html><head>${head}</head><body><style>${css}</style>${body}</body></html>`,
-//             },
-//             {
-//                 responseType: 'arraybuffer',
-//             },
-//         );
-
-//         expect(image.data).toMatchImageSnapshot();
-//     });
-// };
