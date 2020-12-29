@@ -1,6 +1,5 @@
 import React, { ReactNode, forwardRef } from 'react';
-import { Transition } from 'react-transition-group';
-import { TransitionStatus } from 'react-transition-group/Transition';
+import Transition, { TransitionStatus } from 'react-transition-group/Transition';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
 
@@ -102,12 +101,12 @@ export const Fade = forwardRef<Element, FadeProps>((props, ref) => {
             onExit={handleExit}
             onExited={handleExited}
         >
-            {(status: string) => (
+            {(status: TransitionStatus) => (
                 <div
                     className={cn(
                         styles.fade,
                         { [styles.hidden]: status === 'exited' && !show },
-                        (styles as { [status: string]: TransitionStatus })[status],
+                        styles[status],
                         className,
                     )}
                     data-test-id={dataTestId}

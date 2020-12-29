@@ -69,7 +69,8 @@ export const TrapFocus: React.FC<TrapFocusProps> = props => {
     const nodeToRestore = React.useRef<HTMLElement | null>();
 
     const rootRef = React.useRef<HTMLElement | null>(null);
-    // can be removed once we drop support for non ref forwarding class components
+
+    // используется для non ref forwarding классовых компонентов
     const handleOwnRef = React.useCallback(instance => {
         rootRef.current = ReactDOM.findDOMNode(instance) as HTMLElement;
     }, []);
@@ -142,11 +143,11 @@ export const TrapFocus: React.FC<TrapFocusProps> = props => {
                 return;
             }
 
-            // Make sure the next tab starts from the right place.
+            // Чтобы табуляция всегда начиналась с нужной позиции.
             if (doc.activeElement === rootRef.current) {
                 /*
-                 * We need to ignore the next contain as
-                 * it will try to move the focus back to the rootRef element.
+                 * Необходимо игнорировать следующий контейнер, так как он
+                 * будет пытаться сдвинуть фокус обратно на rootRef-элемент.
                  */
                 ignoreNextEnforceFocus.current = true;
                 if (event.shiftKey) {
@@ -176,13 +177,10 @@ export const TrapFocus: React.FC<TrapFocusProps> = props => {
             doc.removeEventListener('focus', contain, true);
             doc.removeEventListener('keydown', loopFocus, true);
 
-            // restoreLastFocus()
             if (!disableRestoreFocus) {
                 /*
-                 * In IE 11 it is possible for document.activeElement to be null resulting
-                 * in nodeToRestore.current being null.
-                 * Not all elements in IE 11 have a focus method.
-                 * Once IE 11 support is dropped the focus() call can be unconditional.
+                 * В IE 11 document.activeElement может быть null -> nodeToRestore.current тоже будет null.
+                 * Также не у всех элементов в IE 11 есть метод focus.
                  */
                 if (nodeToRestore.current && nodeToRestore.current.focus) {
                     nodeToRestore.current.focus();

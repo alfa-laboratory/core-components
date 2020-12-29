@@ -5,8 +5,6 @@ import {
     ExitHandler,
 } from 'react-transition-group/Transition';
 
-// TODO: перенести в alfalab/utils
-
 /**
  * Типы для свойств компонентов с анимацией
  */

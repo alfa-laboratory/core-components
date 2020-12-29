@@ -251,7 +251,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
     const handleMounted = () => {
         manager.mount(getModal());
 
-        // Fix a bug on Chrome where the scroll isn't initially 0.
         if (modalRef.current) {
             modalRef.current.scrollTop = 0;
         }
@@ -403,17 +402,19 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
 
     return (
         <Portal ref={handlePortalRef} getPortalContainer={container}>
-            <div style={{ height }}>
+            <div
+                style={{ height }}
+                role='presentation'
+                data-test-id={dataTestId}
+                ref={handleRef}
+                onKeyDown={handleKeyDown}
+            >
                 <div
-                    data-test-id={dataTestId}
-                    onKeyDown={handleKeyDown}
-                    role='presentation'
                     className={cn(styles.wrapper, {
                         [styles.hidden]: !open && exited,
-                        [styles.wrapper_fullscreen]: fullscreen,
-                        [styles.wrapper_small]: isSmall,
+                        [styles.wrapperFullscreen]: fullscreen,
+                        [styles.wrapperSmall]: isSmall,
                     })}
-                    ref={handleRef}
                 >
                     {hideBackdrop ? null : (
                         <BackdropComponent
@@ -435,22 +436,21 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
                     >
                         <div
                             tabIndex={-1}
-                            className={cn(styles.modal, styles[`modal_size_${size}`], {
-                                [styles.modal_fullscreen]: fullscreen,
-                                [styles.modal_small]: isSmall,
+                            className={cn(styles.modal, styles[size], {
+                                [styles.modalFullscreen]: fullscreen,
+                                [styles.modalSmall]: isSmall,
                             })}
                         >
                             <div
-                                className={cn(styles['flex-container'], {
-                                    [`${styles['flex-container_small']}`]: isSmall,
+                                className={cn(styles.flexContainer, {
+                                    [styles.flexContainerSmall]: isSmall,
                                 })}
                             >
                                 <div
                                     style={style}
                                     className={cn(styles.content, className, {
-                                        [styles.content_small]: isSmall,
+                                        [styles.contentSmall]: isSmall,
                                     })}
-                                    // сюда стили для транзишна контента
                                     ref={contentRef}
                                 >
                                     {React.isValidElement(children)
@@ -461,8 +461,8 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
                                 {footer && (
                                     <div
                                         className={cn(styles.footer, {
-                                            [styles.footer_small]: isSmall,
-                                            [styles.footer_highlight]: shouldHighlightFooter,
+                                            [styles.footerSmall]: isSmall,
+                                            [styles.footerHighlight]: shouldHighlightFooter,
                                         })}
                                     >
                                         {footer}
@@ -471,16 +471,14 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
 
                                 {hasCloser && (
                                     <div
-                                        className={cn(styles['closer-wrapper'], {
-                                            [styles[
-                                                'closer-wrapper_highlight'
-                                            ]]: shouldHighlightCloser,
+                                        className={cn(styles.closerWrapper, {
+                                            [styles.closerWrapperHighlight]: shouldHighlightCloser,
                                         })}
                                     >
                                         <button
                                             type='button'
                                             className={cn([styles.closer], {
-                                                [styles.closer_small]: isSmall,
+                                                [styles.closerSmall]: isSmall,
                                             })}
                                             onClick={handleCloserClick}
                                         >
