@@ -53,8 +53,7 @@ export const screenshotTesting = (
     it.each(cases)('%s', async (testName: string, link: string) => {
         await page?.goto(encodeURI(link));
 
-        const body = await page?.innerHTML('body');
-        const head = await page?.innerHTML('head');
+        const [head, body] = await Promise.all([page?.innerHTML('head'), page?.innerHTML('body')]);
 
         const pageHtml = `<html><head>${head}</head><body><style>${css}</style>${body}</body></html>`;
 
