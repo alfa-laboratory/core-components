@@ -275,21 +275,25 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
 
         const renderCalendar = useCallback(
             () => (
-                <Calendar
-                    {...calendarProps}
-                    ref={calendarRef}
-                    defaultMonth={defaultMonth}
-                    value={isCalendarValueValid ? calendarValue : undefined}
-                    onChange={handleCalendarChange}
-                    minDate={minDate}
-                    maxDate={maxDate}
-                />
+                // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+                <div onMouseDown={handleCalendarWrapperMouseDown}>
+                    <Calendar
+                        {...calendarProps}
+                        ref={calendarRef}
+                        defaultMonth={defaultMonth}
+                        value={isCalendarValueValid ? calendarValue : undefined}
+                        onChange={handleCalendarChange}
+                        minDate={minDate}
+                        maxDate={maxDate}
+                    />
+                </div>
             ),
             [
                 calendarProps,
                 calendarValue,
                 defaultMonth,
                 handleCalendarChange,
+                handleCalendarWrapperMouseDown,
                 isCalendarValueValid,
                 maxDate,
                 minDate,
@@ -351,8 +355,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                         withTransition={false}
                         preventFlip={preventFlip}
                     >
-                        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-                        <div onMouseDown={handleCalendarWrapperMouseDown}>{renderCalendar()}</div>
+                        {renderCalendar()}
                     </Popover>
                 )}
             </div>

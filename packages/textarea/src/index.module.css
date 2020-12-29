@@ -2,9 +2,9 @@
 
 :root {
     /* Local variables, not used in theming */
-    --textarea-s-min-height: 47px;
-    --textarea-m-min-height: 55px;
-    --textarea-l-min-height: 71px;
+    --textarea-s-min-height: var(--form-control-s-min-height);
+    --textarea-m-min-height: var(--form-control-m-min-height);
+    --textarea-l-min-height: var(--form-control-l-min-height);
     --textarea-s-padding-top: 14px;
     --textarea-m-padding-top: 18px;
     --textarea-l-padding-top: 24px;
@@ -29,7 +29,6 @@
     display: block;
     width: 100%;
     height: 100%;
-    padding-bottom: var(--gap-xs);
     color: var(--input-color);
     background: none;
     border: none;
@@ -42,14 +41,17 @@
 
     &.s {
         padding-top: var(--textarea-s-padding-top);
+        padding-bottom: var(--gap-xs);
     }
 
     &.m {
         padding-top: var(--textarea-m-padding-top);
+        padding-bottom: var(--gap-xs);
     }
 
     &.l {
         padding-top: var(--textarea-l-padding-top);
+        padding-bottom: var(--gap-xs);
     }
 }
 
@@ -68,23 +70,6 @@
 }
 
 /* SIZES */
-
-.label {
-    height: 100%;
-    min-height: auto;
-
-    &.s {
-        max-height: var(--textarea-s-min-height);
-    }
-
-    &.m {
-        max-height: var(--textarea-m-min-height);
-    }
-
-    &.l {
-        max-height: var(--textarea-l-min-height);
-    }
-}
 
 .textarea {
     &.s {

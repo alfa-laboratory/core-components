@@ -1,0 +1,33 @@
+@import '../../themes/src/default.css';
+
+.spaceContainer {
+    display: inline-flex;
+}
+
+.spaceContainerFullWidth {
+    width: 100%;
+}
+
+.vertical {
+    flex-direction: column;
+}
+
+.center {
+    align-items: center;
+}
+
+.start {
+    align-items: flex-start;
+}
+
+.end {
+    align-items: flex-end;
+}
+
+.spaceItemFullWidth {
+    width: 100%;
+}
+
+.spaceItem:empty {
+    display: none;
+}
