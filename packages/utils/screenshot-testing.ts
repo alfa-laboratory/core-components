@@ -2,24 +2,11 @@
 import { chromium, Page, Browser, BrowserContext } from 'playwright';
 import axios from 'axios';
 import { MatchImageSnapshotOptions } from 'jest-image-snapshot';
-import kebab from 'lodash.kebabcase';
 
-export const STORYBOOK_URL = process.env.STORYBOOK_URL || 'http://localhost:9009';
+import { matchHtml } from './helpers';
 
-type CustomSnapshotIdentifierParams = {
-    currentTestName: string;
-    counter: number;
-    defaultIdentifier: string;
-    testPath: string;
-};
-
-/**
- * Удаляем из названия теста лишнюю информацию, чтобы имя файла было короче
- */
-const customSnapshotIdentifier = ({ currentTestName }: CustomSnapshotIdentifierParams) => {
-    const [knobsStrObj] = /(\{.{1,}\})/.exec(currentTestName) || [];
-    return kebab(`${knobsStrObj}`);
-};
+export const STORYBOOK_URL = process.env.STORYBOOK_URL || 'http://localhost:9009/iframe.html';
+export const STYLES_URL = 'http://localhost:9009/main.css';
 
 export const screenshotTesting = (
     cases: any[],
@@ -39,7 +26,7 @@ export const screenshotTesting = (
         context = await browser.newContext();
         page = await context.newPage();
 
-        const result = await axios.get(`${STORYBOOK_URL}/main.css`, {
+        const result = await axios.get(STYLES_URL, {
             responseType: 'text',
         });
 
@@ -53,23 +40,6 @@ export const screenshotTesting = (
     it.each(cases)('%s', async (testName: string, link: string) => {
         await page?.goto(encodeURI(link));
 
-        const [head, body] = await Promise.all([page?.innerHTML('head'), page?.innerHTML('body')]);
-
-        const pageHtml = `<html><head>${head}</head><body><style>${css}</style>${body}</body></html>`;
-
-        const image = await axios.post(
-            'http://digital/playwright',
-            {
-                data: pageHtml,
-            },
-            {
-                responseType: 'arraybuffer',
-            },
-        );
-
-        expect(image.data).toMatchImageSnapshot({
-            customSnapshotIdentifier,
-            ...matchImageSnapshotOptions,
-        });
+        await matchHtml({ page, expect, css, matchImageSnapshotOptions });
     });
 };

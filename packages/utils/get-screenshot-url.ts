@@ -12,19 +12,31 @@ type Knobs = {
     [key: string]: KnobValueType;
 };
 
-const createStorybookUrl = (host: string, group: string, name: string, knobs: Knobs) => {
+type CreateStorybookUrlParams = {
+    url?: string;
+    group?: string;
+    componentName: string;
+    knobs?: Knobs;
+};
+
+export const createStorybookUrl = ({
+    url = STORYBOOK_URL,
+    group = 'компоненты',
+    componentName,
+    knobs = {},
+}: CreateStorybookUrlParams) => {
     const preparedKnobs = Object.keys(knobs).reduce<Knobs>((acc, knobName) => {
         acc[`knob-${knobName}`] = knobs[knobName];
         return acc;
     }, {});
 
-    return `${host}?id=${group}--${name}&${qs.stringify(preparedKnobs)}`;
+    return `${url}?id=${group}--${componentName}&${qs.stringify(preparedKnobs)}`;
 };
 
 type ComponentScreenshotTestCasesParams = {
-    storybookHost?: string;
+    storybookUrl?: string;
     group?: string;
-    name: string;
+    componentName: string;
     knobs: KnobsCombinations;
 };
 
@@ -37,9 +49,9 @@ type Node = {
 };
 
 export const getComponentScreenshotTestCases = ({
-    storybookHost = `${STORYBOOK_URL}/iframe.html`,
-    group = 'компоненты',
-    name,
+    storybookUrl,
+    group,
+    componentName,
     knobs,
 }: ComponentScreenshotTestCasesParams): JestTestArgs => {
     const knobsNames = Object.keys(knobs);
@@ -103,7 +115,12 @@ export const getComponentScreenshotTestCases = ({
         if (node.nodes.length === 0) {
             result.push([
                 JSON.stringify(currKnobs),
-                createStorybookUrl(storybookHost, group, name, currKnobs),
+                createStorybookUrl({
+                    componentName,
+                    group,
+                    url: storybookUrl,
+                    knobs: currKnobs,
+                }),
             ]);
         }
     };

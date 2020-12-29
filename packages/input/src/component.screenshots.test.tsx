@@ -1,7 +1,7 @@
 import { screenshotTesting, getComponentScreenshotTestCases } from '../../utils';
 
 const sizesBlockDisabledCases = getComponentScreenshotTestCases({
-    name: 'input',
+    componentName: 'input',
     knobs: {
         size: ['s', 'm', 'l'],
         block: [false, true],
@@ -10,7 +10,7 @@ const sizesBlockDisabledCases = getComponentScreenshotTestCases({
 });
 
 const sizesPlaceholderLabelCases = getComponentScreenshotTestCases({
-    name: 'input',
+    componentName: 'input',
     knobs: {
         size: ['s', 'm', 'l'],
         placeholder: ['', 'Placeholder'],
@@ -20,7 +20,7 @@ const sizesPlaceholderLabelCases = getComponentScreenshotTestCases({
 });
 
 const sizesHintErrorCases = getComponentScreenshotTestCases({
-    name: 'input',
+    componentName: 'input',
     knobs: {
         size: ['s', 'm', 'l'],
         hint: ['', 'Hint'],
@@ -29,7 +29,7 @@ const sizesHintErrorCases = getComponentScreenshotTestCases({
 });
 
 const addonsCases = getComponentScreenshotTestCases({
-    name: 'input',
+    componentName: 'input',
     knobs: {
         rightAddons: [true, false],
         leftAddons: [true, false],

@@ -149,6 +149,7 @@
         "mini-css-extract-plugin": "^0.11.0",
         "optimize-css-assets-webpack-plugin": "^5.0.4",
         "playwright": "^1.7.1",
+        "playwright-cli": "^0.171.0",
         "postcss-cli": "^7.1.0",
         "postcss-import": "^12.0.1",
         "postcss-mixins": "^6.2.3",

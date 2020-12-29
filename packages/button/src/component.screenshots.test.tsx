@@ -1,7 +1,7 @@
 import { screenshotTesting, getComponentScreenshotTestCases } from '../../utils';
 
 const viewsSizesCases = getComponentScreenshotTestCases({
-    name: 'button',
+    componentName: 'button',
     knobs: {
         view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
         size: ['xs', 's', 'm', 'l'],
@@ -9,7 +9,7 @@ const viewsSizesCases = getComponentScreenshotTestCases({
 });
 
 const viewsDisabledCases = getComponentScreenshotTestCases({
-    name: 'button',
+    componentName: 'button',
     knobs: {
         view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
         disabled: [true],
@@ -17,7 +17,7 @@ const viewsDisabledCases = getComponentScreenshotTestCases({
 });
 
 const viewsBlockCases = getComponentScreenshotTestCases({
-    name: 'button',
+    componentName: 'button',
     knobs: {
         view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
         block: [true],
@@ -25,7 +25,7 @@ const viewsBlockCases = getComponentScreenshotTestCases({
 });
 
 const viewsLoadingCases = getComponentScreenshotTestCases({
-    name: 'button',
+    componentName: 'button',
     knobs: {
         view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
         loading: [true],
