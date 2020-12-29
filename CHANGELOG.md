@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.10.0](https://github.com/alfa-laboratory/core-components/compare/v5.9.1...v5.10.0) (2020-12-28)
+
+
+### Features
+
+* **space:** codestyle ([36994db](https://github.com/alfa-laboratory/core-components/commit/36994db62086c32f4f583454e880bff915721193))
+* **space:** codestyle ([fc6d760](https://github.com/alfa-laboratory/core-components/commit/fc6d7604be3803cf6499dc7d2f034922a7858524))
+* **space:** first Space tests ([9434b91](https://github.com/alfa-laboratory/core-components/commit/9434b910f20737b58194c006a4d4d47fb931767f))
+* **space:** just add Space component ([945a456](https://github.com/alfa-laboratory/core-components/commit/945a45635e6a90f295c27a61dac9ec08676669c3))
+* **space:** lil fixes ([b9c588a](https://github.com/alfa-laboratory/core-components/commit/b9c588ab97e95e01d9962296d453b9bb2f712126))
+* **space:** remove label and more knobs ([e2af148](https://github.com/alfa-laboratory/core-components/commit/e2af148d1dc603495e2d6eb559502c6f363aa7f0))
+* **space:** remove label and more knobs 2 ([b85b459](https://github.com/alfa-laboratory/core-components/commit/b85b4595303c2ac2e2516db17b562d08da833204))
+* **space:** version ([f262441](https://github.com/alfa-laboratory/core-components/commit/f26244139550d96cc2503c60173d0bae7e9dbea5))
+
+### [5.9.1](https://github.com/alfa-laboratory/core-components/compare/v5.9.0...v5.9.1) (2020-12-24)
+
+
+### Bug Fixes
+
+* **calendar:** set max date to years calculation ([#441](https://github.com/alfa-laboratory/core-components/issues/441)) ([ec9fd36](https://github.com/alfa-laboratory/core-components/commit/ec9fd36c278bcb8cca209eb5a15690c5ac0dd3d8))
+
 ## [5.9.0](https://github.com/alfa-laboratory/core-components/compare/v5.8.0...v5.9.0) (2020-12-21)
 
 

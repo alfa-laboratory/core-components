@@ -108,7 +108,7 @@ export function useCalendar({
         activeMonth,
     ]);
 
-    const years = useMemo(() => generateYears(minDate), [minDate]);
+    const years = useMemo(() => generateYears(minDate, maxDate || new Date()), [minDate, maxDate]);
 
     const setMonth = useCallback(
         (newMonth: Date) => {
