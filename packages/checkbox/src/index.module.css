@@ -52,6 +52,13 @@
     overflow: hidden;
 }
 
+.m .box {
+    width: 20px;
+    height: 20px;
+    margin-right: var(--gap-m);
+    margin-top: 2px;
+}
+
 .component:hover:not(.disabled) .box {
     background-color: var(--checkbox-hover-bg-color);
     border-color: var(--checkbox-hover-border-color);
