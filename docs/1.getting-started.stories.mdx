@@ -1,23 +1,57 @@
 import { Description } from '@storybook/addon-docs/blocks';
 import GitHubButton from 'react-github-btn'
 import readme from '../README.md';
+import { version } from '../package.json';
 
 <Meta title='Гайдлайны|Начало работы' />
 
-<h1>Core Components</h1>
-<p className='lead'>Библиотека React-компонентов для создания веб-интерфейсов</p>
+<div className="lib">
+  <div className="lib-header">
+    <div className="alfa-logo">
+      <img className="alfa-logo__image" src="https://alfabank.st/icons/icon_bank-alfa_xxl_color.svg" alt="Альфа-Банк" />
+    </div>
+    <h1 className="lib-title">
+      <span className="lib-title__line">Core</span>
+      <span className="lib-title__line blinking-cursor">Components</span>
+    </h1>
+    <div className="lib-welcome" />
+  </div>
 
-<div className='benefits'>
-  <div className='benefits-item'>Актуальные протестированные компоненты</div>
-  <div className='benefits-item'>Соответствуют дизайн-системе Альфа-Банка</div>
-  <div className='benefits-item'>Написаны на TypeScript и типизированы</div>
-  <div className='benefits-item'>Легко темизируются через <span>CSS-переменные</span></div>
-  <div className='benefits-item'>Отвечают требованиям по доступности</div>
-  <div className='benefits-item'>Выделенная команда и оперативная поддержка</div>
-</div>
+  <div className="lib-desc">
+    <span className="lib-desc__about">Библиотека React-компонентов для создания веб-интерфейсов</span>
+    <span className="lib-desc__version">{version}</span>
+  </div>
 
-<div className='github'>
-  <GitHubButton href="https://github.com/alfa-laboratory/core-components" data-size="large" data-show-count="true" aria-label="Star alfa-laboratory/core-components on GitHub">GitHub</GitHubButton>
+  <div className="benefits">
+    <div className="benefits-item">
+      <img src="./images/lib_1_tested.svg" alt="" />
+      <span className="benefits-item__desc">Актуальные протестированные компоненты</span>
+    </div>
+    <div className="benefits-item">
+      <img src="./images/lib_2_approved.svg" alt="" />
+      <span className="benefits-item__desc">Соответствуют дизайн-системе Альфа-Банка</span>
+    </div>
+    <div className="benefits-item">
+      <img src="./images/lib_3_typed.svg" alt="" />
+      <span className="benefits-item__desc">Написаны на TypeScript и типизированы</span>
+    </div>
+    <div className="benefits-item">
+      <img src="./images/lib_4_themeable.svg" alt="" />
+      <span className="benefits-item__desc">Легко темизируются через CSS‑переменные</span>
+    </div>
+    <div className="benefits-item">
+      <img src="./images/lib_5_accessible.svg" alt="" />
+      <span className="benefits-item__desc">Отвечают требованиям по доступности</span>
+    </div>
+    <div className="benefits-item">
+      <img src="./images/lib_6_maintained.svg" alt="" />
+      <span className="benefits-item__desc">Выделенная команда и оперативная поддержка</span>
+    </div>
+  </div>
+
+  <div className="github">
+    <GitHubButton href="https://github.com/alfa-laboratory/core-components" data-size="large" data-show-count="true" aria-label="Star alfa-laboratory/core-components on GitHub">GitHub</GitHubButton>
+  </div>
 </div>
 
 <Description>

@@ -209,7 +209,9 @@ export const BaseSelect = forwardRef(
         };
 
         const handleFieldClick = () => {
-            toggleMenu();
+            if (!autocomplete || !open) {
+                toggleMenu();
+            }
         };
 
         const handleNativeSelectChange = useCallback(
