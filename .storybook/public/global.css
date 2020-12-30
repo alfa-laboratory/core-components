@@ -189,7 +189,7 @@ div.benefits {
     counter-reset: item;
 
     border: solid #e7e8ea;
-    border-width: 1px 1px 0 1px;
+    border-width: 1px 1px 0;
     border-radius: 0 44px 0 0;
 }
 
@@ -309,6 +309,7 @@ h2.sbdocs-h2:first-of-type {
     margin: 48px -16px 16px;
     padding: 12px 16px;
     color: rgba(11, 31, 53, 1);
+
     /* font-size: 24px; */
     font-size: 24px;
     line-height: 1.2;
@@ -681,8 +682,8 @@ span.lib-title__line:before {
     position: relative;
     padding: 12px 86px 14px 16px;
     border: solid #e7e8ea;
-    border-width: 0 1px 1px 1px;
-    border-radius: 0 0 44px 0;
+    border-width: 0 1px 1px;
+    border-radius: 0 0 44px;
 }
 
 span.lib-desc__about {
@@ -771,7 +772,7 @@ div.lib-welcome {
     justify-content: center;
     align-items: center;
     border: solid #e7e8ea;
-    border-width: 0 1px 1px 1px;
+    border-width: 0 1px 1px;
     box-sizing: border-box;
 }
 

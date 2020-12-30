@@ -14,9 +14,11 @@ const createCounter = () => {
 
 export const OptionsList = ({
     size = 's',
+    className,
     Option,
     options = [],
     Optgroup = DefaultOptgroup,
+    dataTestId,
     emptyPlaceholder,
 }: OptionsListProps) => {
     const counter = createCounter();
@@ -35,7 +37,7 @@ export const OptionsList = ({
     }
 
     return (
-        <div className={cn(styles.optionsList, styles[size])}>
+        <div className={cn(styles.optionsList, styles[size], className)} data-test-id={dataTestId}>
             {options.map(option =>
                 isGroup(option) ? renderGroup(option) : Option({ option, index: counter() }),
             )}

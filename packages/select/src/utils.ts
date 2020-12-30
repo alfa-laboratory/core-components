@@ -5,7 +5,7 @@ export const isGroup = (item: OptionShape | GroupShape): item is GroupShape =>
     Object.prototype.hasOwnProperty.call(item, 'options');
 
 export const isOptionShape = (item: OptionShape | string | null): item is OptionShape =>
-    item !== null && Object.prototype.hasOwnProperty.call(item, 'key');
+    !!item && Object.prototype.hasOwnProperty.call(item, 'key');
 
 export const joinOptions = ({
     selected,

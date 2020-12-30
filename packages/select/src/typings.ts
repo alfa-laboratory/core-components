@@ -56,6 +56,21 @@ export type BaseSelectProps = {
     className?: string;
 
     /**
+     * Дополнительный класс для поля
+     */
+    fieldClassName?: string;
+
+    /**
+     * Дополнительный класс выпадающего меню
+     */
+    optionsListClassName?: string;
+
+    /**
+     * Дополнительный класс для пункта меню
+     */
+    optionClassName?: string;
+
+    /**
      * Список вариантов выбора
      */
     options: Array<OptionShape | GroupShape>;
@@ -136,6 +151,12 @@ export type BaseSelectProps = {
     circularNavigation?: boolean;
 
     /**
+     * Запрещает поповеру менять свою позицию.
+     * Например, если места снизу недостаточно,то он все равно будет показан снизу
+     */
+    preventFlip?: boolean;
+
+    /**
      * Список value выбранных пунктов (controlled-селект)
      */
     selected?: Array<string | OptionShape> | string | OptionShape | null;
@@ -144,6 +165,11 @@ export type BaseSelectProps = {
      * Рендерит нативный селект вместо выпадающего меню. (на десктопе использовать только с multiple=false)
      */
     nativeSelect?: boolean;
+
+    /**
+     * Позиционирование выпадающего списка
+     */
+    popoverPosition?: PopoverProps['position'];
 
     /**
      * Кастомный рендер выбранного пункта
@@ -234,6 +260,11 @@ export type BaseSelectProps = {
 // TODO: использовать InputProps
 export type FieldProps = {
     /**
+     * Дополнительный класс
+     */
+    className?: string;
+
+    /**
      * Размер компонента
      */
     size?: 's' | 'm' | 'l';
@@ -309,6 +340,11 @@ export type FieldProps = {
         id: string;
     } & RefAttributes<HTMLDivElement | HTMLInputElement> &
         AriaAttributes;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
 };
 
 export type ArrowProps = {
@@ -324,6 +360,11 @@ export type ArrowProps = {
 };
 
 export type OptionsListProps = {
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
+
     /**
      * Размер компонента
      */
@@ -363,6 +404,11 @@ export type OptionsListProps = {
      * Будет отображаться, если компонент пустой
      */
     emptyPlaceholder?: string;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
 };
 
 export type OptgroupProps = {
@@ -439,6 +485,11 @@ export type OptionProps = {
         role: string;
     } & RefAttributes<HTMLDivElement> &
         AriaAttributes;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
 };
 
 export type CheckmarkProps = {

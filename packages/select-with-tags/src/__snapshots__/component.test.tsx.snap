@@ -51,12 +51,6 @@ exports[`SelectWithTags Display tests should match snapshot 1`] = `
         
       </div>
     </div>
-    <div
-      aria-labelledby="downshift-1-label"
-      class="listWrapper"
-      id="downshift-1-menu"
-      role="listbox"
-    />
   </div>
 </div>
 `;
@@ -185,12 +179,6 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
         
       </div>
     </div>
-    <div
-      aria-labelledby="downshift-3-label"
-      class="listWrapper"
-      id="downshift-3-menu"
-      role="listbox"
-    />
   </div>
 </div>
 `;

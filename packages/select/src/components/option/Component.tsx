@@ -15,6 +15,7 @@ export const Option: FC<OptionProps> = ({
     disabled,
     Checkmark = DefaultCheckMark,
     innerProps,
+    dataTestId,
 }) => (
     <div
         {...innerProps}
@@ -23,6 +24,7 @@ export const Option: FC<OptionProps> = ({
             [styles.selected]: selected,
             [styles.disabled]: disabled,
         })}
+        data-test-id={dataTestId}
     >
         {Checkmark && <Checkmark selected={selected} />}
         <div className={styles.content}>{children || option.content || option.key}</div>
