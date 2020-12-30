@@ -125,6 +125,7 @@
 }
 
 .component .label {
+    top: 0;
     align-items: flex-start;
     height: auto;
     padding-top: var(--gap-s);
