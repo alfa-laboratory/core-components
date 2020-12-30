@@ -41,6 +41,7 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
                 placeholder,
                 className,
                 disabled,
+                readOnly,
                 suffixContainerClassName,
                 ...restProps
             },
@@ -92,6 +93,7 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
                         ref={mergeRefs([ref, inputRef])}
                         value={visibleValue}
                         disabled={disabled}
+                        readOnly={readOnly}
                         onChange={handleInputChange}
                         onClear={handleClear}
                         placeholder={placeholder}
@@ -105,7 +107,12 @@ export const withSuffix = (Input: FC<InputProps & RefAttributes<HTMLInputElement
                         <div className={cn(styles.suffixContainer, suffixContainerClassName)}>
                             <span className={styles.spacer}>{visibleValue}</span>
                             {suffix && (
-                                <div className={cn(styles.suffix, { [styles.disabled]: disabled })}>
+                                <div
+                                    className={cn(styles.suffix, {
+                                        [styles.disabled]: disabled,
+                                        [styles.readOnly]: readOnly,
+                                    })}
+                                >
                                     {suffix}
                                 </div>
                             )}

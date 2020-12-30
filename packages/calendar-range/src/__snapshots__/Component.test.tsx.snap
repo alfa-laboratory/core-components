@@ -1,0 +1,1127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarRange Display tests should match snapshot 1`] = `
+<div>
+  <div
+    class="component"
+  >
+    <div
+      class="component"
+      tabindex="-1"
+    >
+      <div
+        class="component s block hasRightAddons"
+      >
+        <div
+          class="formControl inner"
+        >
+          <div
+            class="inputWrapper"
+          >
+            <div
+              class="input"
+            >
+              <input
+                class="input"
+                inputmode="numeric"
+                pattern="[0-9\\\\.]*"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="addons rightAddons"
+          >
+            <span
+              class="calendarIcon"
+            />
+          </div>
+        </div>
+        
+      </div>
+      <div>
+        <div
+          class="component"
+          tabindex="-1"
+        >
+          <div
+            aria-live="polite"
+            class="header monthOnly"
+          >
+            <div
+              class="inner"
+            >
+              <button
+                aria-label="Предыдущий месяц"
+                class="component ghost m iconOnly arrow"
+              />
+              <span
+                class="button month"
+              >
+                Октябрь
+              </span>
+            </div>
+          </div>
+          <div
+            class="container"
+          >
+            <table
+              class="daysTable"
+            >
+              <thead>
+                <tr>
+                  <th
+                    class="dayName"
+                  >
+                    Пн
+                  </th>
+                  <th
+                    class="dayName"
+                  >
+                    Вт
+                  </th>
+                  <th
+                    class="dayName"
+                  >
+                    Ср
+                  </th>
+                  <th
+                    class="dayName"
+                  >
+                    Чт
+                  </th>
+                  <th
+                    class="dayName"
+                  >
+                    Пт
+                  </th>
+                  <th
+                    class="dayName"
+                  >
+                    Сб
+                  </th>
+                  <th
+                    class="dayName"
+                  >
+                    Вс
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td />
+                  <td />
+                  <td />
+                  <td>
+                    <button
+                      class="component ghost xs day firstDay"
+                      data-date="1601510400000"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        1
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1601596800000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        2
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1601683200000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        3
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1601769600000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        4
+                      </span>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1601856000000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        5
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1601942400000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        6
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1602028800000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        7
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1602115200000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        8
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1602201600000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        9
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1602288000000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        10
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1602374400000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        11
+                      </span>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1602460800000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        12
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1602547200000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        13
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1602633600000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        14
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1602720000000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        15
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1602806400000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        16
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1602892800000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        17
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1602979200000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        18
+                      </span>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1603065600000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        19
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1603152000000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        20
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1603238400000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        21
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1603324800000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        22
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1603411200000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        23
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1603497600000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        24
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1603584000000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        25
+                      </span>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1603670400000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        26
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1603756800000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        27
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1603843200000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        28
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1603929600000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        29
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day"
+                      data-date="1604016000000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        30
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      class="component ghost xs day lastDay"
+                      data-date="1604102400000"
+                      tabindex="-1"
+                      type="button"
+                    >
+                      <span
+                        class="text stretchText"
+                      >
+                        31
+                      </span>
+                    </button>
+                  </td>
+                  <td />
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span
+      class="divider"
+    />
+    <div>
+      <div
+        class="component"
+        tabindex="-1"
+      >
+        <div
+          class="component s block hasRightAddons"
+        >
+          <div
+            class="formControl inner"
+          >
+            <div
+              class="inputWrapper"
+            >
+              <div
+                class="input"
+              >
+                <input
+                  class="input"
+                  inputmode="numeric"
+                  pattern="[0-9\\\\.]*"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="addons rightAddons"
+            >
+              <span
+                class="calendarIcon"
+              />
+            </div>
+          </div>
+          
+        </div>
+        <div>
+          <div
+            class="component sixWeeks"
+            tabindex="-1"
+          >
+            <div
+              aria-live="polite"
+              class="header monthOnly"
+            >
+              <div
+                class="inner"
+              >
+                <span
+                  class="button month"
+                >
+                  Ноябрь
+                </span>
+                <button
+                  aria-label="Следующий месяц"
+                  class="component ghost m iconOnly arrow"
+                />
+              </div>
+            </div>
+            <div
+              class="container"
+            >
+              <table
+                class="daysTable"
+              >
+                <thead>
+                  <tr>
+                    <th
+                      class="dayName"
+                    >
+                      Пн
+                    </th>
+                    <th
+                      class="dayName"
+                    >
+                      Вт
+                    </th>
+                    <th
+                      class="dayName"
+                    >
+                      Ср
+                    </th>
+                    <th
+                      class="dayName"
+                    >
+                      Чт
+                    </th>
+                    <th
+                      class="dayName"
+                    >
+                      Пт
+                    </th>
+                    <th
+                      class="dayName"
+                    >
+                      Сб
+                    </th>
+                    <th
+                      class="dayName"
+                    >
+                      Вс
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td />
+                    <td />
+                    <td />
+                    <td />
+                    <td />
+                    <td />
+                    <td>
+                      <button
+                        class="component ghost xs day firstDay"
+                        data-date="1604188800000"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          1
+                        </span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1604275200000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          2
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1604361600000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          3
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1604448000000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          4
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1604534400000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          5
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1604620800000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          6
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1604707200000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          7
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1604793600000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          8
+                        </span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1604880000000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          9
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1604966400000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          10
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1605052800000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          11
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1605139200000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          12
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1605225600000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          13
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1605312000000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          14
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1605398400000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          15
+                        </span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1605484800000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          16
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1605571200000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          17
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1605657600000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          18
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1605744000000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          19
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1605830400000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          20
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1605916800000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          21
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1606003200000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          22
+                        </span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1606089600000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          23
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1606176000000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          24
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1606262400000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          25
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1606348800000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          26
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1606435200000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          27
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1606521600000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          28
+                        </span>
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="component ghost xs day"
+                        data-date="1606608000000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          29
+                        </span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <button
+                        class="component ghost xs day lastDay"
+                        data-date="1606694400000"
+                        tabindex="-1"
+                        type="button"
+                      >
+                        <span
+                          class="text stretchText"
+                        >
+                          30
+                        </span>
+                      </button>
+                    </td>
+                    <td />
+                    <td />
+                    <td />
+                    <td />
+                    <td />
+                    <td />
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

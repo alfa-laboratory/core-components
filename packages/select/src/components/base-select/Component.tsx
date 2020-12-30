@@ -20,6 +20,7 @@ import {
 import { NativeSelect } from '../native-select';
 import { BaseSelectProps, OptionShape } from '../../typings';
 import { processOptions } from '../../utils';
+import { getDataTestId } from '../../../../utils';
 
 import styles from './index.module.css';
 
@@ -28,6 +29,9 @@ export const BaseSelect = forwardRef(
         {
             dataTestId,
             className,
+            fieldClassName,
+            optionsListClassName,
+            optionClassName,
             options,
             autocomplete = false,
             multiple = false,
@@ -37,6 +41,8 @@ export const BaseSelect = forwardRef(
             circularNavigation = false,
             nativeSelect = false,
             defaultOpen = false,
+            popoverPosition = 'bottom-start',
+            preventFlip = true,
             name,
             id,
             selected,
@@ -47,6 +53,8 @@ export const BaseSelect = forwardRef(
             label,
             placeholder,
             fieldProps = {},
+            optionsListProps = {},
+            optionProps = {},
             valueRenderer,
             onChange,
             onOpen,
@@ -58,13 +66,12 @@ export const BaseSelect = forwardRef(
             Optgroup = () => null,
             Option = () => null,
             updatePopover,
+            showEmptyOptionsList = false,
         }: BaseSelectProps,
         ref,
     ) => {
-        const optionsListRef = useRef<HTMLElement>(null);
+        const rootRef = useRef<HTMLLabelElement>(null);
         const fieldRef = useRef<HTMLInputElement>(null);
-
-        const getPortalContainer = () => optionsListRef.current as HTMLDivElement;
 
         const itemToString = (option: OptionShape) => (option ? option.key : '');
 
@@ -176,8 +183,15 @@ export const BaseSelect = forwardRef(
             },
         });
 
-        const menuProps = getMenuProps(nativeSelect ? {} : { ref: optionsListRef });
+        const menuProps = (getMenuProps as (options: object, additional: object) => void)(
+            {},
+            { suppressRefError: true },
+        );
         const inputProps = getInputProps(getDropdownProps({ ref: mergeRefs([ref, fieldRef]) }));
+
+        const optionsListMinWidth = rootRef.current
+            ? rootRef.current.getBoundingClientRect().width
+            : 0;
 
         const handleFieldFocus = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
             if (onFocus) onFocus(event);
@@ -209,7 +223,9 @@ export const BaseSelect = forwardRef(
         };
 
         const handleFieldClick = () => {
-            toggleMenu();
+            if (!autocomplete || !open) {
+                toggleMenu();
+            }
         };
 
         const handleNativeSelectChange = useCallback(
@@ -229,7 +245,9 @@ export const BaseSelect = forwardRef(
             ({ option, index, ...rest }: { option: OptionShape; index: number }) => (
                 <React.Fragment key={option.key}>
                     {Option({
+                        ...(optionProps as object),
                         ...rest,
+                        className: optionClassName,
                         innerProps: getItemProps({
                             index,
                             item: option,
@@ -242,10 +260,20 @@ export const BaseSelect = forwardRef(
                         disabled: option.disabled,
                         highlighted: index === highlightedIndex,
                         selected: selectedItems.includes(option),
+                        dataTestId: getDataTestId(dataTestId, 'option'),
                     })}
                 </React.Fragment>
             ),
-            [Option, getItemProps, highlightedIndex, selectedItems, size],
+            [
+                Option,
+                getItemProps,
+                highlightedIndex,
+                optionProps,
+                optionClassName,
+                selectedItems,
+                size,
+                dataTestId,
+            ],
         );
 
         useEffect(() => {
@@ -279,14 +307,17 @@ export const BaseSelect = forwardRef(
             );
         }, [multiple, selectedItems, disabled, name, handleNativeSelectChange, options, menuProps]);
 
+        const needRenderOptionsList = flatOptions.length > 0 || showEmptyOptionsList;
+
         return (
             <div
                 {...getComboboxProps({
+                    ref: rootRef,
                     className: cn(styles.component, { [styles.block]: block }, className),
                 })}
                 onKeyDown={disabled ? undefined : handleFieldKeyDown}
                 tabIndex={-1}
-                data-test-id={dataTestId}
+                data-test-id={getDataTestId(dataTestId)}
             >
                 {nativeSelect && renderNativeSelect()}
 
@@ -303,6 +334,7 @@ export const BaseSelect = forwardRef(
                     error={error}
                     hint={hint}
                     valueRenderer={valueRenderer}
+                    className={fieldClassName}
                     innerProps={{
                         onBlur: handleFieldBlur,
                         onFocus: disabled ? undefined : handleFieldFocus,
@@ -316,38 +348,44 @@ export const BaseSelect = forwardRef(
                             ? inputProps['aria-autocomplete']
                             : undefined,
                     }}
+                    dataTestId={getDataTestId(dataTestId, 'field')}
                     {...fieldProps}
                 />
 
                 {name && !nativeSelect && renderValue()}
 
                 {!nativeSelect && (
-                    <div {...menuProps} className={styles.listWrapper}>
-                        <Popover
-                            open={open}
-                            withTransition={false}
-                            anchorElement={fieldRef.current as HTMLElement}
-                            position='bottom-start'
-                            preventFlip={true}
-                            getPortalContainer={getPortalContainer}
-                            popperClassName={styles.popover}
-                            update={updatePopover}
-                        >
-                            {flatOptions.length > 0 && (
-                                <div className={styles.optionsList}>
-                                    <OptionsList
-                                        flatOptions={flatOptions}
-                                        highlightedIndex={highlightedIndex}
-                                        open={open}
-                                        size={size}
-                                        options={options}
-                                        Optgroup={Optgroup}
-                                        Option={WrappedOption}
-                                    />
-                                </div>
-                            )}
-                        </Popover>
-                    </div>
+                    <Popover
+                        open={open}
+                        withTransition={false}
+                        anchorElement={fieldRef.current as HTMLElement}
+                        position={popoverPosition}
+                        preventFlip={preventFlip}
+                        popperClassName={styles.popover}
+                        update={updatePopover}
+                    >
+                        {needRenderOptionsList && (
+                            <div
+                                {...menuProps}
+                                className={cn(optionsListClassName, styles.optionsList)}
+                                style={{
+                                    minWidth: optionsListMinWidth,
+                                }}
+                            >
+                                <OptionsList
+                                    {...optionsListProps}
+                                    flatOptions={flatOptions}
+                                    highlightedIndex={highlightedIndex}
+                                    open={open}
+                                    size={size}
+                                    options={options}
+                                    Optgroup={Optgroup}
+                                    Option={WrappedOption}
+                                    dataTestId={getDataTestId(dataTestId, 'options-list')}
+                                />
+                            </div>
+                        )}
+                    </Popover>
                 )}
             </div>
         );

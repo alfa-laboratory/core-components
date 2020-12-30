@@ -80,6 +80,21 @@ export const renderUppercased = (options) => {
     return options.map(option => option.content.toUpperCase()).join(', ');
 };
 
+export const POSITION_OPTIONS = [
+    'top',
+    'top-start',
+    'top-end',
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+    'right',
+    'right-start',
+    'right-end',
+    'left',
+    'left-start',
+    'left-end',
+];
+
 
 <Meta
     title='Компоненты'
@@ -108,6 +123,7 @@ export const renderUppercased = (options) => {
         label={text('label', 'Элемент')}
         onChange={action('change')}
         onOpen={action('open')}
+        popoverPosition={selectKnob('popoverPosition', POSITION_OPTIONS, 'bottom-start')}
     />
 </Story>
 
@@ -360,8 +376,9 @@ import { Select } from '@alfalab/core-components-select';
                     <Select
                         options={options}
                         allowUnselect={true}
+                        popoverPosition='bottom-end'
                         Field={({ selected, innerProps, ...restProps }) => (
-                            <Button {...innerProps}>
+                            <Button {...innerProps} size='xs'>
                                 {selected ? selected.content : 'Pick'}
                             </Button>
                         )}
@@ -497,4 +514,14 @@ const groups = [{
             </Col>
         </Row>
     </Container>
+</Preview>
+
+
+## Открытие вверх, если места недостаточно
+
+<Preview>
+    <Select
+        options={groups}
+        preventFlip={false}
+    />
 </Preview>

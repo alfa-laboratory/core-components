@@ -1,0 +1,9 @@
+@import '../../../../vars/src/index.css';
+
+@define-mixin tabs-corp {
+    /* core vars */
+    --color-light-border-secondary-inverted: #b6bcc3;
+
+    /* theme */
+    --primary-tablist-bottom-border-color: var(--color-light-border-secondary-inverted);
+}

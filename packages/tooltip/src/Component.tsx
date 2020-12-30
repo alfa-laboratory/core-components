@@ -187,11 +187,19 @@ export const Tooltip: FC<TooltipProps> = ({
         };
     }, [close]);
 
-    const handleTargetClick = () => {
+    const handleTargetClick = (event: React.MouseEvent<HTMLElement>) => {
+        if (children.props.onClick) {
+            children.props.onClick(event);
+        }
+
         toggle();
     };
 
-    const handleMouseOver = () => {
+    const handleMouseOver = (event: React.MouseEvent<HTMLElement>) => {
+        if (children.props.onMouseOver) {
+            children.props.onMouseOver(event);
+        }
+
         clearTimeout(timer.current);
 
         timer.current = window.setTimeout(() => {
@@ -199,7 +207,11 @@ export const Tooltip: FC<TooltipProps> = ({
         }, onOpenDelay);
     };
 
-    const handleMouseOut = () => {
+    const handleMouseOut = (event: React.MouseEvent<HTMLElement>) => {
+        if (children.props.onMouseOut) {
+            children.props.onMouseOut(event);
+        }
+
         clearTimeout(timer.current);
 
         timer.current = window.setTimeout(() => {
@@ -208,6 +220,10 @@ export const Tooltip: FC<TooltipProps> = ({
     };
 
     const handleTouchStart = (event: React.TouchEvent<HTMLElement>) => {
+        if (children.props.onTouchStart) {
+            children.props.onTouchStart(event);
+        }
+
         const eventTarget = event.target as Element;
 
         clearTimeout(timer.current);

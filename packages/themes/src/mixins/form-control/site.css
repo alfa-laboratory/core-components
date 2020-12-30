@@ -1,0 +1,5 @@
+@import '../../../../vars/src/index.css';
+
+@define-mixin form-control-site {
+    --form-control-bg-backdrop-filter: blur(20px);
+}

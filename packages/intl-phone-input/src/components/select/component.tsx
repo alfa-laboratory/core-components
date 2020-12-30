@@ -1,6 +1,6 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, useCallback, useMemo } from 'react';
 
-import { Select, SelectProps } from '@alfalab/core-components-select';
+import { OptionsList, Select, SelectProps } from '@alfalab/core-components-select';
 import { Country } from '@alfalab/utils';
 
 import { SelectField } from '../select-field';
@@ -8,12 +8,10 @@ import { FlagIcon } from '../flag-icon';
 
 import styles from './index.module.css';
 
-type CountriesSelectProps = {
-    disabled: boolean;
-    size: SelectProps['size'];
+type CountriesSelectProps = Pick<SelectProps, 'size' | 'disabled' | 'onChange' | 'preventFlip'> & {
     selected: string;
     countries: Country[];
-    onChange: SelectProps['onChange'];
+    fieldWidth: number | null;
 };
 
 export const CountriesSelect: FC<CountriesSelectProps> = ({
@@ -21,6 +19,8 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
     size,
     selected,
     countries,
+    fieldWidth,
+    preventFlip,
     onChange,
 }) => {
     const options = useMemo(
@@ -42,6 +42,15 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
         [countries],
     );
 
+    const renderOptionsList = useCallback(
+        props => (
+            <div style={{ width: fieldWidth || 0 }}>
+                <OptionsList {...props} />
+            </div>
+        ),
+        [fieldWidth],
+    );
+
     return (
         <Select
             disabled={disabled}
@@ -50,6 +59,8 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
             selected={selected}
             onChange={onChange}
             Field={SelectField}
+            OptionsList={renderOptionsList}
+            preventFlip={preventFlip}
             className={styles.component}
         />
     );

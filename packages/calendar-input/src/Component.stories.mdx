@@ -8,7 +8,7 @@ import Icon from '@alfalab/icons-glyph/StarMIcon';
 import { startOfMonth, startOfDay, subMonths, addMonths } from 'date-fns';
 
 import { CalendarInput } from './Component';
-import { parseDateString } from './utils';
+import { parseDateString, formatDate } from './utils';
 
 import { name, version } from '../package.json';
 
@@ -23,7 +23,7 @@ import { name, version } from '../package.json';
 
 <Story name='CalendarInput'>
     {React.createElement(() => {
-        const [value, setValue] = React.useState('');
+        const [value, setValue] = React.useState(formatDate(new Date()));
         const handleChange = (event, { value }) => setValue(value);
         return (
             <CalendarInput
@@ -37,6 +37,7 @@ import { name, version } from '../package.json';
                 success={boolean('success', false)}
                 error={boolean('error', false)}
                 disabled={boolean('disabled', false)}
+                readOnly={boolean('readOnly', false)}
             />
         );
     })}

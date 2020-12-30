@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <label
-        class="container"
+        class="container s"
       >
         <input
           type="radio"
@@ -28,7 +28,7 @@ Object {
   </body>,
   "container": <div>
     <label
-      class="container"
+      class="container s"
     >
       <input
         type="radio"
@@ -107,7 +107,7 @@ Object {
   "baseElement": <body>
     <div>
       <label
-        class="container"
+        class="container s"
       >
         <input
           type="radio"
@@ -134,7 +134,7 @@ Object {
   </body>,
   "container": <div>
     <label
-      class="container"
+      class="container s"
     >
       <input
         type="radio"

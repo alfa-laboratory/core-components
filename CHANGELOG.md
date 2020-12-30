@@ -2,6 +2,85 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/alfa-laboratory/core-components/compare/v6.0.0...v7.0.0) (2020-12-30)
+
+
+### Features
+
+* read-only state ([#459](https://github.com/alfa-laboratory/core-components/issues/459)) ([ed087c7](https://github.com/alfa-laboratory/core-components/commit/ed087c7f0440cb7ebdeb2883a3c3998c3c48fa30))
+* **checkbox:** size m ([9fdbf2b](https://github.com/alfa-laboratory/core-components/commit/9fdbf2ba938a5ef336020c17041ceaa6c524f1b0))
+* **collapse:** add component ([eea2a52](https://github.com/alfa-laboratory/core-components/commit/eea2a52de14dbada541735b7684090aee17a2bcd))
+* **collapse:** codestyle fixes ([74b780a](https://github.com/alfa-laboratory/core-components/commit/74b780a51fc0fb80b810e2e621fc08a1e0ca2dc6))
+* **collapse:** codestyle fixes again ([1cd37b7](https://github.com/alfa-laboratory/core-components/commit/1cd37b7894cc3b71dc29359c297ba15b261dea08))
+* **collapse:** fix icon ([5f64a69](https://github.com/alfa-laboratory/core-components/commit/5f64a69838d2e6803e0d744ce5b3699eefb600f8))
+* **collapse:** fixes ([81d48d0](https://github.com/alfa-laboratory/core-components/commit/81d48d0674be40241f781487df47c5fff6ad9658))
+* **collapse:** forgotten ref ([3a256fb](https://github.com/alfa-laboratory/core-components/commit/3a256fb74380b70bca89c9f491836caf5078e9cb))
+* **core-components-fade:** add fade ([459d2c0](https://github.com/alfa-laboratory/core-components/commit/459d2c0111f0ab9a3fd6a22c46ed27cbcd1df6e0))
+* **core-components-modal:** add modal ([2a71f1b](https://github.com/alfa-laboratory/core-components/commit/2a71f1bb2296306df359c9f051fbef44ca0abe6b))
+* **core-components-trap-focus:** add trap-focus ([a5be636](https://github.com/alfa-laboratory/core-components/commit/a5be6367b5a1683dae00a13dea1ab5bc103083cc))
+* **link:** simplify link without addons, fixes [#406](https://github.com/alfa-laboratory/core-components/issues/406) ([37288e4](https://github.com/alfa-laboratory/core-components/commit/37288e45eb529fcabdf9dc79e0cd04ba015a7d4e))
+* **modal:** hide ([9d02eba](https://github.com/alfa-laboratory/core-components/commit/9d02eba13214038b483dc43d696f38328a95c597))
+* **picker-button:** simplify picker-button using colorless icons ([bd0bdba](https://github.com/alfa-laboratory/core-components/commit/bd0bdbaa8425bca05b209d7680c9ecadb65235e1))
+* **radio:** size m ([c8dfb66](https://github.com/alfa-laboratory/core-components/commit/c8dfb66f5a5b3ab5b904edc57ac88ec6003b02ba))
+* **select:** add empty list placeholder prop ([#438](https://github.com/alfa-laboratory/core-components/issues/438)) ([75b0c9c](https://github.com/alfa-laboratory/core-components/commit/75b0c9c7824b0fcb6d4ae3e238d2eb858d615808))
+* **select:** popoverPosition, render to body, test issues ([#428](https://github.com/alfa-laboratory/core-components/issues/428)) ([7688ec7](https://github.com/alfa-laboratory/core-components/commit/7688ec74bce41dac4fff6fd36a61723f7ce1b9d3)), closes [#429](https://github.com/alfa-laboratory/core-components/issues/429)
+* **select-with-tags:** add select with tags ([#435](https://github.com/alfa-laboratory/core-components/issues/435)) ([bc42165](https://github.com/alfa-laboratory/core-components/commit/bc42165b73e2c50455534c5c7f7aec4a5d155f75))
+* **themes:** arrow transform var with click theme ([35d4ef2](https://github.com/alfa-laboratory/core-components/commit/35d4ef2db379391c58919445e161c2234b1b16a9))
+* **themes:** fixed click theme for tag ([c0b4fad](https://github.com/alfa-laboratory/core-components/commit/c0b4fada71b1f44b5aead6e3a2b51dcccaacb0c4))
+* **themes:** updated tabs border colors ([5a41d86](https://github.com/alfa-laboratory/core-components/commit/5a41d86b23fd961e0e7b8a214906363551ae0e41))
+
+
+### Bug Fixes
+
+* **space:** removed excess div ([776e093](https://github.com/alfa-laboratory/core-components/commit/776e09393cc74eb31e4e56d3fba29a797f813a7f))
+* snapshots ([6d387a8](https://github.com/alfa-laboratory/core-components/commit/6d387a802a5eb1a5b150cb47ec35b5cbe3f086d7))
+* **calendar-range:** fix snapshot ([a135dde](https://github.com/alfa-laboratory/core-components/commit/a135ddee4ae99c576df85133984a247231fbb786))
+* **core-components-*:** fix class properties transform ([f407938](https://github.com/alfa-laboratory/core-components/commit/f4079384388728251fd90154758fc4aa100f50d6))
+* **core-components-*:** fix undefined refs ([ea5dac0](https://github.com/alfa-laboratory/core-components/commit/ea5dac0c5e4371a7224c0a2eddbd80a257675961))
+* **core-components-*:** portal related issues ([a5735fb](https://github.com/alfa-laboratory/core-components/commit/a5735fbc17110372464fdc7fa0c59bd072c1b525))
+* **core-components-*:** remove optional chaining to fix build issues ([75b0e7a](https://github.com/alfa-laboratory/core-components/commit/75b0e7a701c1f2891533d1242e7c83a83854f414))
+* **core-components-modal:** fix lint issues ([5fc1eb4](https://github.com/alfa-laboratory/core-components/commit/5fc1eb4c4a42dde687e2255e6a544b7a0e1b193f))
+* **core-components-portal:** update portal ([5638163](https://github.com/alfa-laboratory/core-components/commit/5638163e98e6c0c4a9ea3254761fe1fdb739c78e))
+* **core-components-vars:** import colors-transparent in index ([2109973](https://github.com/alfa-laboratory/core-components/commit/2109973ecfd4549f0cb2d711ee19ddd07faa415d))
+* **divider:** missed vars ([afeb14e](https://github.com/alfa-laboratory/core-components/commit/afeb14ea21281d49fdd24a456f4f18aaa6452cc9))
+* **modal:** fix class properties transform ([f6a1de5](https://github.com/alfa-laboratory/core-components/commit/f6a1de5b769bcf7605cc992a7e9ebf63445d1169))
+* **modal:** fix comments issues ([3c5c9e2](https://github.com/alfa-laboratory/core-components/commit/3c5c9e2704070a41cc466fd3ea7881ff13ea1edd))
+* **modal:** fix comments issues ([dd8370f](https://github.com/alfa-laboratory/core-components/commit/dd8370f79264d29c5de5b5fa558339cf98384486))
+* **portal:** revert "portal related issues" ([407489a](https://github.com/alfa-laboratory/core-components/commit/407489a4278f16806900e97fd2af3655e5b8b071))
+* **portal:** revert "update portal" ([d93aeb1](https://github.com/alfa-laboratory/core-components/commit/d93aeb1afdbef0c590d1586c7cd0c6d66f89da9b))
+* **themes:** fixed click select theme ([68dd29e](https://github.com/alfa-laboratory/core-components/commit/68dd29e6e0dcbdf4378687e9550d02c875d11b20))
+
+## [6.0.0](https://github.com/alfa-laboratory/core-components/compare/v5.10.0...v6.0.0) (2020-12-29)
+
+
+### Features
+
+* **calendar-range:** add component ([#426](https://github.com/alfa-laboratory/core-components/issues/426)) ([7bf76d9](https://github.com/alfa-laboratory/core-components/commit/7bf76d9528ffae9b69bf6fdebf8a27e198393eaa))
+* **input-autocomplete:** dont close popover on input click ([#445](https://github.com/alfa-laboratory/core-components/issues/445)) ([5b49e54](https://github.com/alfa-laboratory/core-components/commit/5b49e542d3e4433024152ba6099d3992a4fc66e3))
+* **typography:** add default margins ([#446](https://github.com/alfa-laboratory/core-components/issues/446)) ([fb98d10](https://github.com/alfa-laboratory/core-components/commit/fb98d101651abfb7126dac3a7dee7226972f6a62))
+* change form-control styles ([#444](https://github.com/alfa-laboratory/core-components/issues/444)) ([2e464a8](https://github.com/alfa-laboratory/core-components/commit/2e464a87fba7ae6b60e0f58796f8663c3e456239))
+
+
+### Bug Fixes
+
+* **calendar:** snapshots timezone issue ([#448](https://github.com/alfa-laboratory/core-components/issues/448)) ([18f8080](https://github.com/alfa-laboratory/core-components/commit/18f80805499a78cec06377472cdf8d0e81b2378d))
+* **themes:** add missing variables import ([#449](https://github.com/alfa-laboratory/core-components/issues/449)) ([456c045](https://github.com/alfa-laboratory/core-components/commit/456c0450b484863287c24088eefc51d6d7396570)), closes [#442](https://github.com/alfa-laboratory/core-components/issues/442)
+* **tooltip:** execute tooltip's target missing callbacks ([#443](https://github.com/alfa-laboratory/core-components/issues/443)) ([237cef1](https://github.com/alfa-laboratory/core-components/commit/237cef12805284bc036ddc59789771a3ad9c9210))
+
+## [5.10.0](https://github.com/alfa-laboratory/core-components/compare/v5.9.1...v5.10.0) (2020-12-28)
+
+
+### Features
+
+* **space:** codestyle ([36994db](https://github.com/alfa-laboratory/core-components/commit/36994db62086c32f4f583454e880bff915721193))
+* **space:** codestyle ([fc6d760](https://github.com/alfa-laboratory/core-components/commit/fc6d7604be3803cf6499dc7d2f034922a7858524))
+* **space:** first Space tests ([9434b91](https://github.com/alfa-laboratory/core-components/commit/9434b910f20737b58194c006a4d4d47fb931767f))
+* **space:** just add Space component ([945a456](https://github.com/alfa-laboratory/core-components/commit/945a45635e6a90f295c27a61dac9ec08676669c3))
+* **space:** lil fixes ([b9c588a](https://github.com/alfa-laboratory/core-components/commit/b9c588ab97e95e01d9962296d453b9bb2f712126))
+* **space:** remove label and more knobs ([e2af148](https://github.com/alfa-laboratory/core-components/commit/e2af148d1dc603495e2d6eb559502c6f363aa7f0))
+* **space:** remove label and more knobs 2 ([b85b459](https://github.com/alfa-laboratory/core-components/commit/b85b4595303c2ac2e2516db17b562d08da833204))
+* **space:** version ([f262441](https://github.com/alfa-laboratory/core-components/commit/f26244139550d96cc2503c60173d0bae7e9dbea5))
+
 ### [5.9.1](https://github.com/alfa-laboratory/core-components/compare/v5.9.0...v5.9.1) (2020-12-24)
 
 

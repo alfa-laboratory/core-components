@@ -1,5 +1,7 @@
 @import './button/corp.css';
+@import './tabs/corp.css';
 
 @define-mixin theme-corp {
     @mixin button-corp;
+    @mixin tabs-corp;
 }

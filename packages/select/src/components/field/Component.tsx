@@ -23,6 +23,7 @@ export const Field = ({
     Arrow,
     innerProps,
     className,
+    dataTestId,
     ...restProps
 }: BaseFieldProps & FormControlProps) => {
     const [focused, setFocused] = useState(false);
@@ -68,6 +69,7 @@ export const Field = ({
                         </React.Fragment>
                     )
                 }
+                data-test-id={dataTestId}
                 {...restProps}
                 {...innerProps}
             >

@@ -3,6 +3,7 @@ module.exports = {
     testEnvironment: 'jsdom-sixteen',
     setupFilesAfterEnv: ['./packages/setupTests.ts'],
     modulePathIgnorePatterns: ['dist'],
+    globalSetup: './packages/globalSetup.ts',
     globals: {
         'ts-jest': {
             babelConfig: {

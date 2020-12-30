@@ -1,24 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, ReactNode, forwardRef } from 'react';
 import { createPortal } from 'react-dom';
 
-import { getDefaultPortalContainer } from './portalContainer';
+import { getDefaultPortalContainer, setRef } from './utils';
 
 export type PortalProps = {
+    /** Контент */
+    children?: ReactNode;
+
     /**
      * Функция, возвращающая контейнер, в который будут рендериться дочерние элементы
      */
     getPortalContainer?: () => Element;
 };
+export const Portal = forwardRef<Element, PortalProps>(
+    ({ getPortalContainer = getDefaultPortalContainer, children }, ref) => {
+        const [mountNode, setMountNode] = useState<Element | null>(null);
 
-export const Portal: React.FC<PortalProps> = ({
-    children,
-    getPortalContainer = getDefaultPortalContainer,
-}) => {
-    const [isMount, setIsMount] = useState(false);
+        useEffect(() => {
+            setMountNode(getPortalContainer());
+        }, [getPortalContainer]);
 
-    useEffect(() => {
-        setIsMount(true);
-    }, []);
+        useEffect(() => {
+            if (mountNode) {
+                setRef(ref, mountNode);
+                return () => {
+                    setRef(ref, null);
+                };
+            }
+            return () => null;
+        }, [ref, mountNode]);
 
-    return isMount ? createPortal(children, getPortalContainer()) : null;
-};
+        return mountNode ? createPortal(children, mountNode) : mountNode;
+    },
+);

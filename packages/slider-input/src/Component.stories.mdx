@@ -15,6 +15,7 @@ import { name, version } from '../package.json';
 <Meta
     title='Компоненты'
     component={SliderInput}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
 
@@ -22,7 +23,7 @@ import { name, version } from '../package.json';
 
 <Story name='SliderInput'>
 {React.createElement(() => {
-    const [value, setValue] = React.useState('');
+    const [value, setValue] = React.useState('50');
     const handleChange = (event, { value }) => setValue(value);
     return (
         <SliderInput
@@ -42,6 +43,7 @@ import { name, version } from '../package.json';
             error={text('error', '')}
             rightAddons={boolean('rightAddons', false) && !text('error') && <Icon />}
             leftAddons={boolean('leftAddons', false) && <Icon />}
+            readOnly={boolean('readOnly', false)}
         />
     );
 })}

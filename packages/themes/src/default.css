@@ -1,4 +1,5 @@
 @import '../../vars/src/colors.css';
+@import '../../vars/src/colors-addons.css';
 @import '../../vars/src/colors-indigo.css';
 @import '../../vars/src/shadows-indigo.css';
 @import '../../vars/src/gaps.css';
@@ -12,5 +13,6 @@
     --focus-color: var(--color-light-border-link);
     --font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica,
         sans-serif;
-    --disabled-cursor: default;
+    --disabled-cursor: not-allowed;
+    --arrow-transform: rotateX(180deg);
 }

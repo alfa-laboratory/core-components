@@ -27,6 +27,11 @@ export type InputAutocompleteProps = Omit<BaseSelectProps, 'Field' | 'nativeSele
     value?: string;
 
     /**
+     * Поле доступно только для чтения
+     */
+    readOnly?: InputProps['readOnly'];
+
+    /**
      * Отображение иконки успеха
      */
     success?: boolean;
@@ -53,6 +58,7 @@ export const InputAutocomplete = forwardRef<HTMLInputElement, InputAutocompleteP
             onInput,
             value,
             success,
+            readOnly,
             closeOnSelect = false,
             options,
             ...restProps
@@ -71,6 +77,7 @@ export const InputAutocomplete = forwardRef<HTMLInputElement, InputAutocompleteP
                 onInput,
                 value,
                 inputProps,
+                readOnly,
                 success,
             }}
             Optgroup={Optgroup}

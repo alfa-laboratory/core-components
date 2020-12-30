@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-picker-button",
-    "version": "1.0.2",
+    "version": "3.0.0",
     "description": "Picker button component",
     "keywords": [],
     "license": "ISC",
@@ -17,7 +17,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-button": "^1.10.0",
-        "@alfalab/core-components-select": "^4.4.0",
+        "@alfalab/core-components-select": "^6.0.0",
         "@alfalab/icons-glyph": "^1.70.0",
         "classnames": "^2.2.6"
     }

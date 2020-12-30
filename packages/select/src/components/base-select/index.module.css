@@ -9,13 +9,16 @@
 }
 
 .popover {
-    min-width: 100%;
     padding-top: var(--select-options-list-offset);
     padding-bottom: var(--select-options-list-offset);
     box-shadow: none;
     border: none;
     background: transparent;
     border-radius: 0;
+    position: relative;
+
+    /* TODO: перейти на систему */
+    z-index: 9999;
 }
 
 .optionsList {
@@ -25,11 +28,6 @@
     border-radius: var(--select-options-list-border-radius);
     background: var(--select-option-background);
     overflow: hidden;
-}
-
-.listWrapper {
-    width: 100%;
-    outline: none;
 }
 
 .nativeSelect {
