@@ -59,7 +59,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
               <span
                 class="button month"
               >
-                Декабрь
+                Октябрь
               </span>
             </div>
           </div>
@@ -111,10 +111,12 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
               <tbody>
                 <tr>
                   <td />
+                  <td />
+                  <td />
                   <td>
                     <button
                       class="component ghost xs day firstDay"
-                      data-date="1606780800000"
+                      data-date="1601510400000"
                       tabindex="0"
                       type="button"
                     >
@@ -128,7 +130,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1606867200000"
+                      data-date="1601596800000"
                       tabindex="-1"
                       type="button"
                     >
@@ -142,7 +144,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1606953600000"
+                      data-date="1601683200000"
                       tabindex="-1"
                       type="button"
                     >
@@ -156,7 +158,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1607040000000"
+                      data-date="1601769600000"
                       tabindex="-1"
                       type="button"
                     >
@@ -167,10 +169,12 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                       </span>
                     </button>
                   </td>
+                </tr>
+                <tr>
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1607126400000"
+                      data-date="1601856000000"
                       tabindex="-1"
                       type="button"
                     >
@@ -184,7 +188,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1607212800000"
+                      data-date="1601942400000"
                       tabindex="-1"
                       type="button"
                     >
@@ -195,12 +199,10 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                       </span>
                     </button>
                   </td>
-                </tr>
-                <tr>
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1607299200000"
+                      data-date="1602028800000"
                       tabindex="-1"
                       type="button"
                     >
@@ -214,7 +216,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1607385600000"
+                      data-date="1602115200000"
                       tabindex="-1"
                       type="button"
                     >
@@ -228,7 +230,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1607472000000"
+                      data-date="1602201600000"
                       tabindex="-1"
                       type="button"
                     >
@@ -242,7 +244,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1607558400000"
+                      data-date="1602288000000"
                       tabindex="-1"
                       type="button"
                     >
@@ -256,7 +258,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1607644800000"
+                      data-date="1602374400000"
                       tabindex="-1"
                       type="button"
                     >
@@ -267,10 +269,12 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                       </span>
                     </button>
                   </td>
+                </tr>
+                <tr>
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1607731200000"
+                      data-date="1602460800000"
                       tabindex="-1"
                       type="button"
                     >
@@ -284,7 +288,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1607817600000"
+                      data-date="1602547200000"
                       tabindex="-1"
                       type="button"
                     >
@@ -295,12 +299,10 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                       </span>
                     </button>
                   </td>
-                </tr>
-                <tr>
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1607904000000"
+                      data-date="1602633600000"
                       tabindex="-1"
                       type="button"
                     >
@@ -314,7 +316,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1607990400000"
+                      data-date="1602720000000"
                       tabindex="-1"
                       type="button"
                     >
@@ -328,7 +330,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1608076800000"
+                      data-date="1602806400000"
                       tabindex="-1"
                       type="button"
                     >
@@ -342,7 +344,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1608163200000"
+                      data-date="1602892800000"
                       tabindex="-1"
                       type="button"
                     >
@@ -356,7 +358,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1608249600000"
+                      data-date="1602979200000"
                       tabindex="-1"
                       type="button"
                     >
@@ -367,10 +369,12 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                       </span>
                     </button>
                   </td>
+                </tr>
+                <tr>
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1608336000000"
+                      data-date="1603065600000"
                       tabindex="-1"
                       type="button"
                     >
@@ -384,7 +388,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1608422400000"
+                      data-date="1603152000000"
                       tabindex="-1"
                       type="button"
                     >
@@ -395,12 +399,10 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                       </span>
                     </button>
                   </td>
-                </tr>
-                <tr>
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1608508800000"
+                      data-date="1603238400000"
                       tabindex="-1"
                       type="button"
                     >
@@ -414,7 +416,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1608595200000"
+                      data-date="1603324800000"
                       tabindex="-1"
                       type="button"
                     >
@@ -428,7 +430,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1608681600000"
+                      data-date="1603411200000"
                       tabindex="-1"
                       type="button"
                     >
@@ -442,7 +444,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1608768000000"
+                      data-date="1603497600000"
                       tabindex="-1"
                       type="button"
                     >
@@ -456,7 +458,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1608854400000"
+                      data-date="1603584000000"
                       tabindex="-1"
                       type="button"
                     >
@@ -467,10 +469,12 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                       </span>
                     </button>
                   </td>
+                </tr>
+                <tr>
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1608940800000"
+                      data-date="1603670400000"
                       tabindex="-1"
                       type="button"
                     >
@@ -484,7 +488,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1609027200000"
+                      data-date="1603756800000"
                       tabindex="-1"
                       type="button"
                     >
@@ -495,12 +499,10 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                       </span>
                     </button>
                   </td>
-                </tr>
-                <tr>
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1609113600000"
+                      data-date="1603843200000"
                       tabindex="-1"
                       type="button"
                     >
@@ -514,7 +516,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   <td>
                     <button
                       class="component ghost xs day"
-                      data-date="1609200000000"
+                      data-date="1603929600000"
                       tabindex="-1"
                       type="button"
                     >
@@ -527,8 +529,8 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   </td>
                   <td>
                     <button
-                      class="component ghost xs day today"
-                      data-date="1609286400000"
+                      class="component ghost xs day"
+                      data-date="1604016000000"
                       tabindex="-1"
                       type="button"
                     >
@@ -542,7 +544,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   <td>
                     <button
                       class="component ghost xs day lastDay"
-                      data-date="1609372800000"
+                      data-date="1604102400000"
                       tabindex="-1"
                       type="button"
                     >
@@ -553,8 +555,6 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                       </span>
                     </button>
                   </td>
-                  <td />
-                  <td />
                   <td />
                 </tr>
               </tbody>
@@ -604,7 +604,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
         </div>
         <div>
           <div
-            class="component"
+            class="component sixWeeks"
             tabindex="-1"
           >
             <div
@@ -617,7 +617,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                 <span
                   class="button month"
                 >
-                  Январь
+                  Ноябрь
                 </span>
                 <button
                   aria-label="Следующий месяц"
@@ -676,10 +676,12 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                     <td />
                     <td />
                     <td />
+                    <td />
+                    <td />
                     <td>
                       <button
                         class="component ghost xs day firstDay"
-                        data-date="1609459200000"
+                        data-date="1604188800000"
                         tabindex="0"
                         type="button"
                       >
@@ -690,10 +692,12 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                         </span>
                       </button>
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1609545600000"
+                        data-date="1604275200000"
                         tabindex="-1"
                         type="button"
                       >
@@ -707,7 +711,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1609632000000"
+                        data-date="1604361600000"
                         tabindex="-1"
                         type="button"
                       >
@@ -718,12 +722,10 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                         </span>
                       </button>
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1609718400000"
+                        data-date="1604448000000"
                         tabindex="-1"
                         type="button"
                       >
@@ -737,7 +739,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1609804800000"
+                        data-date="1604534400000"
                         tabindex="-1"
                         type="button"
                       >
@@ -751,7 +753,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1609891200000"
+                        data-date="1604620800000"
                         tabindex="-1"
                         type="button"
                       >
@@ -765,7 +767,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1609977600000"
+                        data-date="1604707200000"
                         tabindex="-1"
                         type="button"
                       >
@@ -779,7 +781,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1610064000000"
+                        data-date="1604793600000"
                         tabindex="-1"
                         type="button"
                       >
@@ -790,10 +792,12 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                         </span>
                       </button>
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1610150400000"
+                        data-date="1604880000000"
                         tabindex="-1"
                         type="button"
                       >
@@ -807,7 +811,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1610236800000"
+                        data-date="1604966400000"
                         tabindex="-1"
                         type="button"
                       >
@@ -818,12 +822,10 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                         </span>
                       </button>
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1610323200000"
+                        data-date="1605052800000"
                         tabindex="-1"
                         type="button"
                       >
@@ -837,7 +839,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1610409600000"
+                        data-date="1605139200000"
                         tabindex="-1"
                         type="button"
                       >
@@ -851,7 +853,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1610496000000"
+                        data-date="1605225600000"
                         tabindex="-1"
                         type="button"
                       >
@@ -865,7 +867,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1610582400000"
+                        data-date="1605312000000"
                         tabindex="-1"
                         type="button"
                       >
@@ -879,7 +881,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1610668800000"
+                        data-date="1605398400000"
                         tabindex="-1"
                         type="button"
                       >
@@ -890,10 +892,12 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                         </span>
                       </button>
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1610755200000"
+                        data-date="1605484800000"
                         tabindex="-1"
                         type="button"
                       >
@@ -907,7 +911,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1610841600000"
+                        data-date="1605571200000"
                         tabindex="-1"
                         type="button"
                       >
@@ -918,12 +922,10 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                         </span>
                       </button>
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1610928000000"
+                        data-date="1605657600000"
                         tabindex="-1"
                         type="button"
                       >
@@ -937,7 +939,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1611014400000"
+                        data-date="1605744000000"
                         tabindex="-1"
                         type="button"
                       >
@@ -951,7 +953,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1611100800000"
+                        data-date="1605830400000"
                         tabindex="-1"
                         type="button"
                       >
@@ -965,7 +967,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1611187200000"
+                        data-date="1605916800000"
                         tabindex="-1"
                         type="button"
                       >
@@ -979,7 +981,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1611273600000"
+                        data-date="1606003200000"
                         tabindex="-1"
                         type="button"
                       >
@@ -990,10 +992,12 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                         </span>
                       </button>
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1611360000000"
+                        data-date="1606089600000"
                         tabindex="-1"
                         type="button"
                       >
@@ -1007,7 +1011,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1611446400000"
+                        data-date="1606176000000"
                         tabindex="-1"
                         type="button"
                       >
@@ -1018,12 +1022,10 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                         </span>
                       </button>
                     </td>
-                  </tr>
-                  <tr>
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1611532800000"
+                        data-date="1606262400000"
                         tabindex="-1"
                         type="button"
                       >
@@ -1037,7 +1039,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1611619200000"
+                        data-date="1606348800000"
                         tabindex="-1"
                         type="button"
                       >
@@ -1051,7 +1053,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1611705600000"
+                        data-date="1606435200000"
                         tabindex="-1"
                         type="button"
                       >
@@ -1065,7 +1067,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1611792000000"
+                        data-date="1606521600000"
                         tabindex="-1"
                         type="button"
                       >
@@ -1079,7 +1081,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                     <td>
                       <button
                         class="component ghost xs day"
-                        data-date="1611878400000"
+                        data-date="1606608000000"
                         tabindex="-1"
                         type="button"
                       >
@@ -1090,10 +1092,12 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                         </span>
                       </button>
                     </td>
+                  </tr>
+                  <tr>
                     <td>
                       <button
-                        class="component ghost xs day"
-                        data-date="1611964800000"
+                        class="component ghost xs day lastDay"
+                        data-date="1606694400000"
                         tabindex="-1"
                         type="button"
                       >
@@ -1104,20 +1108,12 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                         </span>
                       </button>
                     </td>
-                    <td>
-                      <button
-                        class="component ghost xs day lastDay"
-                        data-date="1612051200000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          31
-                        </span>
-                      </button>
-                    </td>
+                    <td />
+                    <td />
+                    <td />
+                    <td />
+                    <td />
+                    <td />
                   </tr>
                 </tbody>
               </table>

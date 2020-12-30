@@ -92,6 +92,13 @@
     color: var(--input-disabled-color);
 }
 
+/* READ-ONLY STATE */
+
+.textarea:read-only {
+    cursor: var(--disabled-cursor);
+    color: var(--input-read-only-color);
+}
+
 /* FOCUS STATE */
 
 .textarea:focus.hasLabel::placeholder {
