@@ -47,6 +47,8 @@ export const BaseSelect = forwardRef(
             label,
             placeholder,
             fieldProps = {},
+            optionsListProps = {},
+            optionProps = {},
             valueRenderer,
             onChange,
             onOpen,
@@ -58,6 +60,7 @@ export const BaseSelect = forwardRef(
             Optgroup = () => null,
             Option = () => null,
             updatePopover,
+            showEmptyOptionsList = false,
         }: BaseSelectProps,
         ref,
     ) => {
@@ -231,6 +234,7 @@ export const BaseSelect = forwardRef(
             ({ option, index, ...rest }: { option: OptionShape; index: number }) => (
                 <React.Fragment key={option.key}>
                     {Option({
+                        ...(optionProps as object),
                         ...rest,
                         innerProps: getItemProps({
                             index,
@@ -247,7 +251,7 @@ export const BaseSelect = forwardRef(
                     })}
                 </React.Fragment>
             ),
-            [Option, getItemProps, highlightedIndex, selectedItems, size],
+            [Option, getItemProps, highlightedIndex, optionProps, selectedItems, size],
         );
 
         useEffect(() => {
@@ -280,6 +284,8 @@ export const BaseSelect = forwardRef(
                 />
             );
         }, [multiple, selectedItems, disabled, name, handleNativeSelectChange, options, menuProps]);
+
+        const needRenderOptionsList = flatOptions.length > 0 || showEmptyOptionsList;
 
         return (
             <div
@@ -335,9 +341,10 @@ export const BaseSelect = forwardRef(
                             popperClassName={styles.popover}
                             update={updatePopover}
                         >
-                            {flatOptions.length > 0 && (
+                            {needRenderOptionsList && (
                                 <div className={styles.optionsList}>
                                     <OptionsList
+                                        {...optionsListProps}
                                         flatOptions={flatOptions}
                                         highlightedIndex={highlightedIndex}
                                         open={open}
