@@ -48,14 +48,11 @@ Object {
             
           </div>
         </div>
-        <div
-          aria-labelledby="downshift-1-label"
-          class="listWrapper"
-          id="downshift-1-menu"
-          role="listbox"
-        />
       </div>
     </div>
+    <div
+      alfa-portal-container=""
+    />
   </body>,
   "container": <div>
     <div
@@ -101,12 +98,6 @@ Object {
           
         </div>
       </div>
-      <div
-        aria-labelledby="downshift-1-label"
-        class="listWrapper"
-        id="downshift-1-menu"
-        role="listbox"
-      />
     </div>
   </div>,
   "debug": [Function],

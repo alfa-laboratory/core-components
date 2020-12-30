@@ -126,21 +126,15 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
         /* eslint-enable */
     ));
 
-    const componentClassName = classNames({
-        [styles.spaceFullWidth]: fullWidth,
-    });
-
     return (
-        <div className={componentClassName}>
-            <div
-                className={containerClassName}
-                style={{
-                    ...(wrap && { flexWrap: 'wrap', marginBottom: -verticalSize }),
-                }}
-                ref={ref}
-            >
-                {nodes}
-            </div>
+        <div
+            className={containerClassName}
+            style={{
+                ...(wrap && { flexWrap: 'wrap', marginBottom: -verticalSize }),
+            }}
+            ref={ref}
+        >
+            {nodes}
         </div>
     );
 });

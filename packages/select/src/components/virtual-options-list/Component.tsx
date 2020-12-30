@@ -20,11 +20,14 @@ export const VirtualOptionsList = ({
     size = 's',
     flatOptions = [],
     highlightedIndex = -1,
+    className,
     Option,
     open,
     options = [],
     overscan = 10,
     Optgroup = DefaultOptgroup,
+    dataTestId,
+    emptyPlaceholder,
 }: VirtualOptionsList) => {
     const parentRef = useRef<HTMLDivElement>(null);
     const prevHighlightedIndex = usePrevious(highlightedIndex) || -1;
@@ -84,7 +87,11 @@ export const VirtualOptionsList = ({
     }, [options]);
 
     return (
-        <div className={cn(styles.virtualOptionsList, styles[size])} ref={parentRef}>
+        <div
+            className={cn(styles.virtualOptionsList, styles[size], className)}
+            ref={parentRef}
+            data-test-id={dataTestId}
+        >
             <div
                 className={styles.inner}
                 style={{
@@ -112,6 +119,10 @@ export const VirtualOptionsList = ({
                     );
                 })}
             </div>
+
+            {emptyPlaceholder && options.length === 0 && (
+                <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>
+            )}
         </div>
     );
 };

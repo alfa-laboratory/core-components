@@ -17,25 +17,23 @@ const countriesHash = getCountriesHash();
 
 const MAX_DIAL_CODE_LENGTH = 4;
 
-export type IntlPhoneInputProps = Omit<
-    InputProps,
-    'value' | 'onChange' | 'type' | 'defaultValue'
-> & {
-    /**
-     * Значение
-     */
-    value: string;
+export type IntlPhoneInputProps = Omit<InputProps, 'value' | 'onChange' | 'type' | 'defaultValue'> &
+    Pick<SelectProps, 'preventFlip'> & {
+        /**
+         * Значение
+         */
+        value: string;
 
-    /**
-     * Обработчик события изменения значения
-     */
-    onChange: (value: string) => void;
+        /**
+         * Обработчик события изменения значения
+         */
+        onChange: (value: string) => void;
 
-    /**
-     * Дефолтный код страны
-     */
-    defaultCountryIso2?: string;
-};
+        /**
+         * Дефолтный код страны
+         */
+        defaultCountryIso2?: string;
+    };
 
 export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
     (
@@ -47,6 +45,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             value,
             onChange,
             defaultCountryIso2 = 'ru',
+            preventFlip,
             ...restProps
         },
         ref,
@@ -54,6 +53,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         const [countryIso2, setCountryIso2] = useState(defaultCountryIso2);
 
         const inputRef = useRef<HTMLInputElement>(null);
+        const inputWrapperRef = useRef<HTMLDivElement>(null);
 
         const phoneLibUtils = useRef<typeof AsYouType>();
 
@@ -176,6 +176,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 value={value}
                 type='tel'
                 ref={mergeRefs([inputRef, ref])}
+                wrapperRef={inputWrapperRef}
                 className={cn(className, styles[size])}
                 addonsClassName={styles.addons}
                 size={size}
@@ -188,6 +189,11 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                         selected={countryIso2}
                         countries={countries}
                         onChange={handleSelectChange}
+                        fieldWidth={
+                            inputWrapperRef.current &&
+                            inputWrapperRef.current.getBoundingClientRect().width
+                        }
+                        preventFlip={preventFlip}
                     />
                 }
             />
