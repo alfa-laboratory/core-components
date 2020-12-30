@@ -1,0 +1,40 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { boolean } from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { Collapse } from './Component';
+import { name, version } from '../package.json';
+
+<Meta title='Компоненты' component={Collapse} />
+
+<!-- Canvas -->
+
+<Story name='Collapse'>
+    <Collapse
+        collapsedLabel='Подробнее'
+        expandedLabel='Скрыть'
+        isExpanded={ true }
+    >
+        <p style={{ margin: '0 0 16px 0' }}>
+            Альфа-Банк, основанный в 1990 году, является универсальным банком,
+            осуществляющим все основные виды банковских операций, представленных
+            на рынке финансовых услуг, включая обслуживание частных и корпоративных
+            клиентов, инвестиционный банковский бизнес, торговое финансирование и т.д.
+        </p>
+    </Collapse>
+</Story>
+
+<ComponentHeader
+    name='Collapse'
+    version={version}
+    package='@alfalab/core-components-collapse'
+    stage={1}
+/>
+
+```tsx
+import { Collapse } from '@alfalab/core-components-collase';
+```
+
+Компонент «подката» позволяет спрятать кусок текста за ссылку «Еще...».
+
+<Props of={Collapse} />

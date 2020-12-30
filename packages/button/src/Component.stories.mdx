@@ -32,6 +32,8 @@ export const SIZES = ['xs', 's', 'm', 'l'];
         block={boolean('block', false)}
         nowrap={boolean('nowrap', false)}
         onClick={action('click')}
+        leftAddons={boolean('leftAddons', false) && <IconM />}
+        rightAddons={boolean('rightAddons', false) && <IconM />}
     >
         {text('label', 'Оплатить')}
     </Button>

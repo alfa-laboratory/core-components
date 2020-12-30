@@ -10,7 +10,7 @@ import styles from './index.module.css';
 
 type NativeProps = InputHTMLAttributes<HTMLInputElement>;
 
-export type CheckboxProps = Omit<NativeProps, 'onChange'> & {
+export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange'> & {
     /**
      * Управление состоянием вкл/выкл чекбокса (native prop)
      */
@@ -38,6 +38,11 @@ export type CheckboxProps = Omit<NativeProps, 'onChange'> & {
     hint?: ReactNode;
 
     /**
+     * Размер компонента
+     */
+    size?: 's' | 'm';
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -54,6 +59,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             checked,
             label,
             hint,
+            size = 's',
             onChange,
             className,
             name,
@@ -77,7 +83,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
         return (
             // eslint-disable-next-line jsx-a11y/label-has-associated-control
             <label
-                className={cn(styles.component, className, {
+                className={cn(styles.component, styles[size], className, {
                     [styles.disabled]: disabled,
                     [styles.checked]: checked,
                     [styles.indeterminate]: indeterminate,

@@ -14,4 +14,5 @@
     --font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica,
         sans-serif;
     --disabled-cursor: default;
+    --arrow-transform: rotateX(180deg);
 }

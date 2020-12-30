@@ -34,27 +34,39 @@ describe('Radio', () => {
             expect(container.firstElementChild).toHaveClass('disabled');
         });
 
-        describe('Attributes tests', () => {
-            it('should set `data-test-id` atribute', () => {
-                const dataTestId = 'test-id';
-                const { getByTestId } = render(<Radio dataTestId={dataTestId} />);
+        it('should set size `s` as default size', () => {
+            const { container } = render(<Radio />);
 
-                expect(getByTestId(dataTestId).tagName).toBe('INPUT');
-            });
+            expect(container.firstElementChild).toHaveClass('s');
+        });
 
-            it('should set disabled attribute', () => {
-                const dataTestId = 'test-id';
-                const { getByTestId } = render(<Radio disabled={true} dataTestId={dataTestId} />);
+        it('should set size', () => {
+            const { container } = render(<Radio size='m' />);
 
-                expect(getByTestId(dataTestId)).toBeDisabled();
-            });
+            expect(container.firstElementChild).toHaveClass('m');
+        });
+    });
 
-            it('should set checked attribute', () => {
-                const dataTestId = 'test-id';
-                const { getByTestId } = render(<Radio checked={true} dataTestId={dataTestId} />);
+    describe('Attributes tests', () => {
+        it('should set `data-test-id` atribute', () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<Radio dataTestId={dataTestId} />);
 
-                expect(getByTestId(dataTestId)).toBeChecked();
-            });
+            expect(getByTestId(dataTestId).tagName).toBe('INPUT');
+        });
+
+        it('should set disabled attribute', () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<Radio disabled={true} dataTestId={dataTestId} />);
+
+            expect(getByTestId(dataTestId)).toBeDisabled();
+        });
+
+        it('should set checked attribute', () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<Radio checked={true} dataTestId={dataTestId} />);
+
+            expect(getByTestId(dataTestId)).toBeChecked();
         });
     });
 

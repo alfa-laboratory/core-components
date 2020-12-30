@@ -9,12 +9,10 @@ Object {
         class="component primary"
         href=""
       >
-        <span>
-          <span
-            class="text"
-          >
-            Link
-          </span>
+        <span
+          class="text"
+        >
+          Link
         </span>
       </a>
     </div>
@@ -24,12 +22,10 @@ Object {
       class="component primary"
       href=""
     >
-      <span>
-        <span
-          class="text"
-        >
-          Link
-        </span>
+      <span
+        class="text"
+      >
+        Link
       </span>
     </a>
   </div>,
@@ -93,7 +89,7 @@ Object {
   "baseElement": <body>
     <div>
       <a
-        class="component primary"
+        class="component primary withAddons"
         href=""
       >
         <span
@@ -123,7 +119,7 @@ Object {
   </body>,
   "container": <div>
     <a
-      class="component primary"
+      class="component primary withAddons"
       href=""
     >
       <span
@@ -210,7 +206,7 @@ Object {
   "baseElement": <body>
     <div>
       <a
-        class="component primary"
+        class="component primary withAddons"
         href=""
       >
         <span>
@@ -240,7 +236,7 @@ Object {
   </body>,
   "container": <div>
     <a
-      class="component primary"
+      class="component primary withAddons"
       href=""
     >
       <span>

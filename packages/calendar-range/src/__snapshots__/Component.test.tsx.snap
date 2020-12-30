@@ -513,7 +513,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   </td>
                   <td>
                     <button
-                      class="component ghost xs day today"
+                      class="component ghost xs day"
                       data-date="1609200000000"
                       tabindex="-1"
                       type="button"
@@ -527,7 +527,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                   </td>
                   <td>
                     <button
-                      class="component ghost xs day"
+                      class="component ghost xs day today"
                       data-date="1609286400000"
                       tabindex="-1"
                       type="button"

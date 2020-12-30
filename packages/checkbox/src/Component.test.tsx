@@ -41,6 +41,18 @@ describe('Checkbox', () => {
 
             expect(container.firstElementChild).toHaveClass('indeterminate');
         });
+
+        it('should set size `s` as default size', () => {
+            const { container } = render(<Checkbox />);
+
+            expect(container.firstElementChild).toHaveClass('s');
+        });
+
+        it('should set size', () => {
+            const { container } = render(<Checkbox size='m' />);
+
+            expect(container.firstElementChild).toHaveClass('m');
+        });
     });
 
     describe('Attributes tests', () => {

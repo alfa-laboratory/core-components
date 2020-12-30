@@ -1,4 +1,4 @@
-@import '../../vars/src/colors.css';
+@import '../../themes/src/default.css';
 
 :root {
     --divider-color: var(--color-light-border-primary);
