@@ -5,6 +5,7 @@ import { ComponentHeader } from 'storybook/blocks/component-header';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
 import { Link } from './Component';
+import { Typography } from '../../typography/src';
 import { name, version } from '../package.json';
 
 export const VIEWS = ['primary', 'secondary', 'default'];
@@ -20,15 +21,17 @@ export const VIEWS = ['primary', 'secondary', 'default'];
 <!-- Canvas -->
 
 <Story name='Link'>
-    <Link
-        view={select('view', VIEWS, 'primary')}
-        pseudo={boolean('pseudo', false)}
-        href={text('href', '')}
-        leftAddons={boolean('leftAddons', false) && <Icon />}
-        rightAddons={boolean('rightAddons', false) && <Icon />}
-    >
-        {text('text', 'Вернуться в интернет-банк')}
-    </Link>
+    <Typography.Text view='primary-medium'>
+        <Link
+            view={select('view', VIEWS, 'primary')}
+            pseudo={boolean('pseudo', false)}
+            href={text('href', '')}
+            leftAddons={boolean('leftAddons', false) && <Icon />}
+            rightAddons={boolean('rightAddons', false) && <Icon />}
+        >
+            {text('text', 'Вернуться в интернет-банк')}
+        </Link>
+    </Typography.Text>
 </Story>
 
 
@@ -49,9 +52,13 @@ import { Link } from '@alfalab/core-components-link';
 Ссылка — элемент навигации, который обозначает возможность перехода на другую страницу
 или вызова нового информационного слоя.
 
-<Link view='default' href='https://alfabank.ru/get-money/credit-cards/100-days/'>
-    Заказать карту
-</Link>
+<Preview>
+    <Typography.Text view='primary-medium'>
+        <Link view='default' href='https://alfabank.ru/get-money/credit-cards/100-days/'>
+            Заказать карту
+        </Link>
+    </Typography.Text>
+</Preview>
 
 
 <Props of={Link} />
