@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 import { Portal } from './index';
-import { PORTAL_CONTAINER_ATTRIBUTE } from './portalContainer';
+import { PORTAL_CONTAINER_ATTRIBUTE } from './utils';
 
 describe('Portal tests', () => {
     it('should render in a different node', () => {

@@ -11,13 +11,6 @@
     --form-control-border-bottom: 0;
     --form-control-bg-color: var(--color-light-bg-tertiary);
 
-    /* paddings */
-    --form-control-paddings: 0 var(--gap-s);
-    --form-control-l-paddings: 0 var(--gap-m);
-    --form-control-labeled-s-paddings: 23px var(--gap-s) 5px;
-    --form-control-labeled-m-paddings: 28px var(--gap-s) 8px;
-    --form-control-labeled-l-paddings: 34px var(--gap-m) 14px;
-
     /* disabled */
     --form-control-disabled-opacity: 0.5;
     --form-control-disabled-border-bottom: 0;

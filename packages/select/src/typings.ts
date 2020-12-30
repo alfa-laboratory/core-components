@@ -198,6 +198,16 @@ export type BaseSelectProps = {
     fieldProps?: unknown;
 
     /**
+     * Пропсы, которые будут прокинуты в компонент списка
+     */
+    optionsListProps?: unknown;
+
+    /**
+     * Пропсы, которые будут прокинуты в компонент пункта меню
+     */
+    optionProps?: unknown;
+
+    /**
      * Компонент выпадающего меню
      */
     OptionsList?: FC<OptionsListProps>;
@@ -240,6 +250,11 @@ export type BaseSelectProps = {
      * Хранит функцию, с помощью которой можно обновить положение поповера
      */
     updatePopover?: PopoverProps['update'];
+
+    /**
+     * Показывать OptionsList, если он пустой
+     */
+    showEmptyOptionsList?: boolean;
 };
 
 // TODO: использовать InputProps
@@ -384,6 +399,11 @@ export type OptionsListProps = {
      * Компонент группы
      */
     Optgroup?: BaseSelectProps['Optgroup'];
+
+    /**
+     * Будет отображаться, если компонент пустой
+     */
+    emptyPlaceholder?: string;
 
     /**
      * Идентификатор для систем автоматизированного тестирования

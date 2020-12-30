@@ -1,0 +1,14 @@
+.backdrop {
+    z-index: -1;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    background-color: var(--color-dark-bg-opaque);
+    -webkit-tap-highlight-color: transparent; /* убирает хайлайт */
+}
+
+.invisible {
+    background-color: transparent;
+}

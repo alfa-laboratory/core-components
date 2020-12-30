@@ -79,6 +79,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
                 {
                     [styles.pseudo]: pseudo,
                     [styles.focused]: focused,
+                    [styles.withAddons]: leftAddons || rightAddons,
                 },
                 className,
             ),
@@ -87,13 +88,19 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
 
         return (
             <a {...componentProps} {...restProps} ref={mergeRefs([linkRef, ref])}>
-                {leftAddons && <span className={styles.addons}>{leftAddons}</span>}
-                {children && (
-                    <span>
-                        <span className={styles.text}>{children}</span>
-                    </span>
+                {leftAddons || rightAddons ? (
+                    <React.Fragment>
+                        {leftAddons && <span className={styles.addons}>{leftAddons}</span>}
+                        {children && (
+                            <span>
+                                <span className={styles.text}>{children}</span>
+                            </span>
+                        )}
+                        {rightAddons && <span className={styles.addons}>{rightAddons}</span>}
+                    </React.Fragment>
+                ) : (
+                    <span className={styles.text}>{children}</span>
                 )}
-                {rightAddons && <span className={styles.addons}>{rightAddons}</span>}
             </a>
         );
     },

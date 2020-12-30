@@ -11,17 +11,12 @@
 
     /* options list */
 
-    --select-options-list-top-padding: var(--gap-xs);
-    --select-options-list-bottom-padding: var(--gap-xs);
-    --select-options-list-s-height: 280px;
-    --select-options-list-m-height: 324px;
-    --select-options-list-l-height: 412px;
     --select-option-divider-display: block;
 
     /* checkmark */
 
     --select-checkmark-margin: 0 0 0 auto;
-    --select-checkmark-size: 20px;
+    --select-checkmark-size: 24px;
     --select-checkmark-order: 1;
     --select-checkmark-background: url('http://alfabank.st/icons/glyph_checkmark-circle_m_color.svg');
     --select-checkmark-border-radius: 0;

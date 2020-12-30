@@ -199,11 +199,6 @@ const root = {
                     dest: `../../dist/${currentComponentName}`,
                     transform: () => createPackageJson('./esm/index.js'),
                 },
-                {
-                    src: 'package.json',
-                    dest: `../../dist/${currentComponentName}/cssm`,
-                    transform: () => createPackageJson('../esm/index.js'),
-                },
             ],
         }),
         coreComponentsRootPackageResolver({ currentPackageDir }),

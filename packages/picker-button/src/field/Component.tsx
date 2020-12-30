@@ -2,12 +2,8 @@ import React, { ButtonHTMLAttributes, FC, SVGProps } from 'react';
 import cn from 'classnames';
 import { Button, ButtonProps } from '@alfalab/core-components-button';
 import { FieldProps as BaseFieldProps } from '@alfalab/core-components-select/src/typings';
-import {
-    ArrowDownMBlackIcon,
-    ArrowDownSBlackIcon,
-    ArrowDownMWhiteIcon,
-    ArrowDownSWhiteIcon,
-} from '@alfalab/icons-classic';
+import { ArrowDownMIcon } from '@alfalab/icons-classic/ArrowDownMIcon';
+import { ArrowDownSIcon } from '@alfalab/icons-classic/ArrowDownSIcon';
 
 import styles from './index.module.css';
 import { PickerButtonSize } from '..';
@@ -32,12 +28,7 @@ export const Field = ({
     valueRenderer,
     ...restProps
 }: FieldProps) => {
-    let Icon: FC<SVGProps<SVGSVGElement>>;
-    if (view === 'primary') {
-        Icon = buttonSize === 'xs' ? ArrowDownSWhiteIcon : ArrowDownMWhiteIcon;
-    } else {
-        Icon = buttonSize === 'xs' ? ArrowDownSBlackIcon : ArrowDownMBlackIcon;
-    }
+    const Icon: FC<SVGProps<SVGSVGElement>> = buttonSize === 'xs' ? ArrowDownSIcon : ArrowDownMIcon;
 
     const buttonProps = {
         ...restProps,

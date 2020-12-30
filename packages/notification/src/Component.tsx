@@ -11,8 +11,10 @@ import React, {
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
 import { useSwipeable, LEFT, RIGHT, UP } from 'react-swipeable';
-import { CloseSWhiteIcon } from '@alfalab/icons-classic';
-import { CheckmarkMIcon, CrossMIcon, ExclamationMIcon } from '@alfalab/icons-glyph';
+import { CloseSWhiteIcon } from '@alfalab/icons-classic/CloseSWhiteIcon';
+import { CheckmarkMIcon } from '@alfalab/icons-glyph/CheckmarkMIcon';
+import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
+import { ExclamationMIcon } from '@alfalab/icons-glyph/ExclamationMIcon';
 import { Portal } from '@alfalab/core-components-portal';
 import { Button } from '@alfalab/core-components-button';
 import { useClickOutside } from './utils';

@@ -5,7 +5,7 @@
     --primary-tablist-color: var(--color-light-text-secondary);
     --primary-tablist-hover-color: var(--color-light-text-primary);
     --primary-tablist-selected-color: var(--color-light-text-primary);
-    --primary-tablist-bottom-border-color: color-mod(var(--color-light-border-key) alpha(30%));
+    --primary-tablist-bottom-border-color: var(--color-light-border-primary);
     --primary-tablist-line-color: var(--color-light-border-accent);
 
     /* mobile */

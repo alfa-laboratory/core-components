@@ -27,6 +27,7 @@ export const VirtualOptionsList = ({
     overscan = 10,
     Optgroup = DefaultOptgroup,
     dataTestId,
+    emptyPlaceholder,
 }: VirtualOptionsList) => {
     const parentRef = useRef<HTMLDivElement>(null);
     const prevHighlightedIndex = usePrevious(highlightedIndex) || -1;
@@ -118,6 +119,10 @@ export const VirtualOptionsList = ({
                     );
                 })}
             </div>
+
+            {emptyPlaceholder && options.length === 0 && (
+                <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>
+            )}
         </div>
     );
 };

@@ -12,6 +12,7 @@
     border: none;
     margin: 0;
     padding: var(--form-control-paddings);
+    padding-top: 1px;
     border-bottom: var(--form-control-border-bottom);
     outline: none;
     text-overflow: ellipsis;
@@ -32,16 +33,17 @@
 /* SIZE */
 
 .s {
-    height: 48px;
+    height: var(--form-control-s-min-height);
 }
 
 .m {
-    height: 56px;
+    height: var(--form-control-m-min-height);
 }
 
 .l {
-    height: 72px;
+    height: var(--form-control-l-min-height);
     padding: var(--form-control-l-paddings);
+    padding-top: 1px;
 }
 
 /* DISABLED STATE */

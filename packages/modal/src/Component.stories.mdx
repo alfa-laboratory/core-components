@@ -1,0 +1,106 @@
+import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
+import {boolean, select} from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { Modal } from './Component';
+import { version } from '../package.json';
+
+<Meta
+    title='Компоненты'
+    component={Modal}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+<!-- Canvas -->
+
+
+<!-- <Story name='Modal'>
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        const handleModalOpen = () => setOpen(!open);
+        const showFooter = boolean('show footer', false);
+        const footerContent = <div>Footer content</div>;
+        return (
+            <React.Fragment>
+                <button onClick={handleModalOpen}>Open Modal</button>
+                <Modal
+                    open={open}
+                    onClose={handleModalOpen}
+                    hasCloser={boolean('closer', false)}
+                    fullscreen={boolean('fullscreen', false)}
+                    size={select('size', ['s', 'm', 'l'], 'm')}
+                    hideBackdrop={boolean('hide backdrop', false)}
+                    footer={showFooter && footerContent}
+                >
+                    <div>
+                        <h3>Modal content</h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+                            veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+                            ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                            consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque
+                            porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+                            adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore
+                            et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam,
+                            quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
+                            aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit
+                            qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum
+                            qui dolorem eum fugiat quo voluptas nulla pariatur?
+                        </p>
+                    </div>
+                </Modal>
+            </React.Fragment>
+        );
+    })}
+</Story>-->
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Modal'
+    version={version}
+    package='@alfalab/core-components-modal'
+    stage={1}
+/>
+
+```tsx
+import { Modal } from '@alfalab/core-components-modal';
+```
+Компонент `Modal`.
+
+<Props of={Modal} />
+
+export const SimpleModal = () => {
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
+    return (
+        <div>
+            <button type="button" onClick={handleOpen}>
+                Open Modal
+            </button>
+            <Modal open={open} onClose={handleClose} closeAfterTransition={true} footer={
+                <div id="simple-modal-footer">
+                    footer content
+                </div>
+            }>
+                <div>
+                    <p id="simple-modal-title">Text in a modal</p>
+                    <p id="simple-modal-description">
+                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                    </p>
+                    <SimpleModal />
+                </div>
+            </Modal>
+        </div>
+    );
+};
+
+<Preview>
+    <SimpleModal />
+</Preview>

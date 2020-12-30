@@ -53,6 +53,8 @@ export const BaseSelect = forwardRef(
             label,
             placeholder,
             fieldProps = {},
+            optionsListProps = {},
+            optionProps = {},
             valueRenderer,
             onChange,
             onOpen,
@@ -64,6 +66,7 @@ export const BaseSelect = forwardRef(
             Optgroup = () => null,
             Option = () => null,
             updatePopover,
+            showEmptyOptionsList = false,
         }: BaseSelectProps,
         ref,
     ) => {
@@ -220,7 +223,9 @@ export const BaseSelect = forwardRef(
         };
 
         const handleFieldClick = () => {
-            toggleMenu();
+            if (!autocomplete || !open) {
+                toggleMenu();
+            }
         };
 
         const handleNativeSelectChange = useCallback(
@@ -240,6 +245,7 @@ export const BaseSelect = forwardRef(
             ({ option, index, ...rest }: { option: OptionShape; index: number }) => (
                 <React.Fragment key={option.key}>
                     {Option({
+                        ...(optionProps as object),
                         ...rest,
                         className: optionClassName,
                         innerProps: getItemProps({
@@ -260,12 +266,13 @@ export const BaseSelect = forwardRef(
             ),
             [
                 Option,
-                dataTestId,
                 getItemProps,
                 highlightedIndex,
+                optionProps,
                 optionClassName,
                 selectedItems,
                 size,
+                dataTestId,
             ],
         );
 
@@ -299,6 +306,8 @@ export const BaseSelect = forwardRef(
                 />
             );
         }, [multiple, selectedItems, disabled, name, handleNativeSelectChange, options, menuProps]);
+
+        const needRenderOptionsList = flatOptions.length > 0 || showEmptyOptionsList;
 
         return (
             <div
@@ -355,7 +364,7 @@ export const BaseSelect = forwardRef(
                         popperClassName={styles.popover}
                         update={updatePopover}
                     >
-                        {flatOptions.length > 0 && (
+                        {needRenderOptionsList && (
                             <div
                                 {...menuProps}
                                 className={cn(optionsListClassName, styles.optionsList)}
@@ -364,6 +373,7 @@ export const BaseSelect = forwardRef(
                                 }}
                             >
                                 <OptionsList
+                                    {...optionsListProps}
                                     flatOptions={flatOptions}
                                     highlightedIndex={highlightedIndex}
                                     open={open}

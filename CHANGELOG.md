@@ -2,6 +2,64 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](https://github.com/alfa-laboratory/core-components/compare/v5.10.0...v6.0.0) (2020-12-29)
+
+
+### Features
+
+* **calendar-range:** add component ([#426](https://github.com/alfa-laboratory/core-components/issues/426)) ([7bf76d9](https://github.com/alfa-laboratory/core-components/commit/7bf76d9528ffae9b69bf6fdebf8a27e198393eaa))
+* **input-autocomplete:** dont close popover on input click ([#445](https://github.com/alfa-laboratory/core-components/issues/445)) ([5b49e54](https://github.com/alfa-laboratory/core-components/commit/5b49e542d3e4433024152ba6099d3992a4fc66e3))
+* **typography:** add default margins ([#446](https://github.com/alfa-laboratory/core-components/issues/446)) ([fb98d10](https://github.com/alfa-laboratory/core-components/commit/fb98d101651abfb7126dac3a7dee7226972f6a62))
+* change form-control styles ([#444](https://github.com/alfa-laboratory/core-components/issues/444)) ([2e464a8](https://github.com/alfa-laboratory/core-components/commit/2e464a87fba7ae6b60e0f58796f8663c3e456239))
+
+
+### Bug Fixes
+
+* **calendar:** snapshots timezone issue ([#448](https://github.com/alfa-laboratory/core-components/issues/448)) ([18f8080](https://github.com/alfa-laboratory/core-components/commit/18f80805499a78cec06377472cdf8d0e81b2378d))
+* **themes:** add missing variables import ([#449](https://github.com/alfa-laboratory/core-components/issues/449)) ([456c045](https://github.com/alfa-laboratory/core-components/commit/456c0450b484863287c24088eefc51d6d7396570)), closes [#442](https://github.com/alfa-laboratory/core-components/issues/442)
+* **tooltip:** execute tooltip's target missing callbacks ([#443](https://github.com/alfa-laboratory/core-components/issues/443)) ([237cef1](https://github.com/alfa-laboratory/core-components/commit/237cef12805284bc036ddc59789771a3ad9c9210))
+
+## [5.10.0](https://github.com/alfa-laboratory/core-components/compare/v5.9.1...v5.10.0) (2020-12-28)
+
+
+### Features
+
+* **space:** codestyle ([36994db](https://github.com/alfa-laboratory/core-components/commit/36994db62086c32f4f583454e880bff915721193))
+* **space:** codestyle ([fc6d760](https://github.com/alfa-laboratory/core-components/commit/fc6d7604be3803cf6499dc7d2f034922a7858524))
+* **space:** first Space tests ([9434b91](https://github.com/alfa-laboratory/core-components/commit/9434b910f20737b58194c006a4d4d47fb931767f))
+* **space:** just add Space component ([945a456](https://github.com/alfa-laboratory/core-components/commit/945a45635e6a90f295c27a61dac9ec08676669c3))
+* **space:** lil fixes ([b9c588a](https://github.com/alfa-laboratory/core-components/commit/b9c588ab97e95e01d9962296d453b9bb2f712126))
+* **space:** remove label and more knobs ([e2af148](https://github.com/alfa-laboratory/core-components/commit/e2af148d1dc603495e2d6eb559502c6f363aa7f0))
+* **space:** remove label and more knobs 2 ([b85b459](https://github.com/alfa-laboratory/core-components/commit/b85b4595303c2ac2e2516db17b562d08da833204))
+* **space:** version ([f262441](https://github.com/alfa-laboratory/core-components/commit/f26244139550d96cc2503c60173d0bae7e9dbea5))
+
+### [5.9.1](https://github.com/alfa-laboratory/core-components/compare/v5.9.0...v5.9.1) (2020-12-24)
+
+
+### Bug Fixes
+
+* **calendar:** set max date to years calculation ([#441](https://github.com/alfa-laboratory/core-components/issues/441)) ([ec9fd36](https://github.com/alfa-laboratory/core-components/commit/ec9fd36c278bcb8cca209eb5a15690c5ac0dd3d8))
+
+## [5.9.0](https://github.com/alfa-laboratory/core-components/compare/v5.8.0...v5.9.0) (2020-12-21)
+
+
+### Features
+
+* **select:** add exporting select utils ([#436](https://github.com/alfa-laboratory/core-components/issues/436)) ([0499ae9](https://github.com/alfa-laboratory/core-components/commit/0499ae9f36731d6b25a4f2501c1c760afdb8a687))
+
+
+### Bug Fixes
+
+* change icons imports paths ([#437](https://github.com/alfa-laboratory/core-components/issues/437)) ([e3d4e25](https://github.com/alfa-laboratory/core-components/commit/e3d4e2504b282810973eab14201844cd084c4237))
+
+## [5.8.0](https://github.com/alfa-laboratory/core-components/compare/v5.7.0...v5.8.0) (2020-12-17)
+
+
+### Bug Fixes
+
+* **calendar:** vars import ([b8cabec](https://github.com/alfa-laboratory/core-components/commit/b8cabec5811e2ac0839d05335edee568dc360f54))
+* **calendar-input:** vars import, fix pattern ([f1f9336](https://github.com/alfa-laboratory/core-components/commit/f1f9336d7ae5ed62b4ee5123636fe1950bc25f34))
+
 ## [5.7.0](https://github.com/alfa-laboratory/core-components/compare/v5.6.0...v5.7.0) (2020-12-15)
 
 
