@@ -328,6 +328,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     value={uncontrolled ? stateValue : value}
                     readOnly={readOnly}
                     data-test-id={dataTestId}
+                    aria-label={typeof label === 'string' ? label : undefined}
                 />
             </FormControl>
         );
