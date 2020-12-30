@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectWithTags Display tests should match snapshot 1`] = `
+<div>
+  <div
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    aria-owns="downshift-1-menu"
+    class="component"
+    role="combobox"
+    tabindex="-1"
+  >
+    <div
+      class="component l"
+    >
+      <div
+        class="component l block hasRightAddons"
+      >
+        <div
+          class="field inner"
+        >
+          <div
+            class="inputWrapper"
+          >
+            <div
+              class="input"
+            >
+              <div
+                class="contentWrapper"
+              >
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="downshift-1-menu"
+                  aria-labelledby="downshift-1-label"
+                  class="input"
+                  id="downshift-0-input"
+                  tabindex="0"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="addons rightAddons addons addons-size-l"
+          >
+            <span
+              class="arrow"
+            />
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <div
+      aria-labelledby="downshift-1-label"
+      class="listWrapper"
+      id="downshift-1-menu"
+      role="listbox"
+    />
+  </div>
+</div>
+`;
+
+exports[`SelectWithTags Display tests should match snapshot with selected tags 1`] = `
+<div>
+  <div
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    aria-owns="downshift-3-menu"
+    class="component"
+    role="combobox"
+    tabindex="-1"
+  >
+    <div
+      class="component l"
+    >
+      <div
+        class="component l block hasRightAddons"
+      >
+        <div
+          class="field inner filled"
+        >
+          <div
+            class="inputWrapper"
+          >
+            <div
+              class="input"
+            >
+              <div
+                class="contentWrapper hasTags"
+              >
+                <button
+                  class="component xs checked tag"
+                  type="button"
+                >
+                  <span>
+                    <span
+                      class="tagContentWrap"
+                    >
+                      H
+                      <svg
+                        class="tagCross"
+                        fill="currentColor"
+                        focusable="false"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        width="24"
+                      >
+                        <path
+                          d="M10.586 12L8 14.5 9.5 16l2.5-2.586L14.5 16l1.5-1.5-2.586-2.5L16 9.5 14.5 8 12 10.586 9.5 8 8 9.5l2.586 2.5z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  class="component xs checked tag"
+                  type="button"
+                >
+                  <span>
+                    <span
+                      class="tagContentWrap"
+                    >
+                      Li
+                      <svg
+                        class="tagCross"
+                        fill="currentColor"
+                        focusable="false"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        width="24"
+                      >
+                        <path
+                          d="M10.586 12L8 14.5 9.5 16l2.5-2.586L14.5 16l1.5-1.5-2.586-2.5L16 9.5 14.5 8 12 10.586 9.5 8 8 9.5l2.586 2.5z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  class="component xs checked tag"
+                  type="button"
+                >
+                  <span>
+                    <span
+                      class="tagContentWrap"
+                    >
+                      Na
+                      <svg
+                        class="tagCross"
+                        fill="currentColor"
+                        focusable="false"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        width="24"
+                      >
+                        <path
+                          d="M10.586 12L8 14.5 9.5 16l2.5-2.586L14.5 16l1.5-1.5-2.586-2.5L16 9.5 14.5 8 12 10.586 9.5 8 8 9.5l2.586 2.5z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <input
+                  aria-autocomplete="list"
+                  aria-controls="downshift-3-menu"
+                  aria-labelledby="downshift-3-label"
+                  class="input"
+                  id="downshift-2-input"
+                  placeholder=""
+                  tabindex="0"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="addons rightAddons addons addons-size-l"
+          >
+            <span
+              class="arrow"
+            />
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <div
+      aria-labelledby="downshift-3-label"
+      class="listWrapper"
+      id="downshift-3-menu"
+      role="listbox"
+    />
+  </div>
+</div>
+`;

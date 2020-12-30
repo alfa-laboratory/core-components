@@ -2,17 +2,66 @@
 # yarn lockfile v1
 
 
+"@alfalab/core-components-form-control@3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-form-control/-/core-components-form-control-3.1.1.tgz#6000a300ac58dc0e493e52cac393b26016cfae49"
+  integrity sha512-oFeWbSMQOhPOK7nB0ZNnkdeXh+/rtMN8Cg81jVim+FOVE7L9hv5bRfbsgiZbOHh4xVwymyvJk+FWtjILnin8Kw==
+  dependencies:
+    classnames "^2.2.6"
+
+"@alfalab/core-components-form-control@^3.1.5":
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-form-control/-/core-components-form-control-3.1.5.tgz#c064abf1ad4a1f71b75206e7d40d4935e4098b58"
+  integrity sha512-ZDx5k5TVKKYQL1Q9Ar7kL5xcROxKT/Xes3RiWbcdVBQulJmvyk0bwTHxNaUDYhIwWRGaYEZiIxkPmPneFrxKuw==
+  dependencies:
+    classnames "^2.2.6"
+
+"@alfalab/core-components-input@^3.2.2":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-input/-/core-components-input-3.2.2.tgz#04bf0f52b6a8faccf778218861064369376c40df"
+  integrity sha512-1LMCCX50ia2MQpcAcifQJsca6fVel+/heITmSSNzmSPEjffw57f3rTFhNCAN2LQfwJg5B2nW0lj0TiFfzWMJgw==
+  dependencies:
+    "@alfalab/core-components-button" "^1.10.0"
+    "@alfalab/core-components-form-control" "^3.1.5"
+    "@alfalab/hooks" "^1.0.0"
+    "@alfalab/icons-glyph" "^1.26.0"
+    classnames "^2.2.6"
+    react-merge-refs "^1.1.0"
+
 "@alfalab/core-components-mq@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components-mq/-/core-components-mq-1.0.0.tgz#7bb1eb6651962178d05b63afb5cf65cf14156a49"
   integrity sha512-8IzpRffooGggKdfIU82I5kv1mmlIE7u/PYLsjABINJ24+QI49WBHeGM4Rz7GnP+dVfBGxPWSaWMWSrzaUNdCyQ==
+
+"@alfalab/core-components-select@^4.3.1":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-select/-/core-components-select-4.4.0.tgz#a38b74b29cebe726013199ce33d7521bec87f6b1"
+  integrity sha512-y7SmH85mHhtylBiwaZoEfmqFnkWYNj3IpO8ihMJmfi0Qysbi/sS5uF3jbRm78elZTvfJhB9OuEXE9/bf9GUUAA==
+  dependencies:
+    "@alfalab/core-components-form-control" "^3.1.5"
+    "@alfalab/core-components-input" "^3.2.2"
+    "@alfalab/core-components-popover" "^1.3.1"
+    "@alfalab/hooks" "^1.0.0"
+    classnames "^2.2.6"
+    downshift "5.4.7"
+    react-merge-refs "^1.1.0"
+    react-virtual "^2.2.0"
+
+"@alfalab/core-components-tag@1.6.4":
+  version "1.6.4"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-tag/-/core-components-tag-1.6.4.tgz#4974856e355fe48aaf6b2a80fe6ca67ff12c8101"
+  integrity sha512-IamOgzXbYboP8CjZ7SztvfVkGw1SAGG0Glw5GqZBYJ/zB1aQvaOm4ZOZ4cZpm6rFcilPcAcFbbgqWNYpbXSOOw==
+  dependencies:
+    "@alfalab/hooks" "^1.0.0"
+    classnames "^2.2.6"
+    react-merge-refs "^1.1.0"
 
 "@alfalab/data@^0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-0.2.0.tgz#4956618252d0eb754652ec20554ff71292578add"
   integrity sha512-so5/YttRoIvaulQincuwpensE4zmC9nSRdD2ikCgo6nhyZs6vPB4o7VNhvBcMddrvPOiXRYLerCU+J98GPe22Q==
 
-"@alfalab/hooks@^0.9.0":
+"@alfalab/hooks@0.9.0", "@alfalab/hooks@^0.9.0":
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-0.9.0.tgz#cc1258698011e1d929d9154e87cba573689babad"
   integrity sha512-2YGUfBpZ8omADxvn5oXA0zwDMLINg5AvCx1nCrJNSLbiekpP/jk8F2rcVjN0OKgY9OKUOgMaGZZ3keDtsvVCIA==
@@ -36,6 +85,11 @@
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-flag/-/icons-flag-1.3.0.tgz#edd1b82a92954ed5339d51083d83ec41f7ff77fb"
   integrity sha512-kvVrwjKw6TZfbr9xaK7/e/QtkOAT5HzsWTI2rtvrIp0tzwnkQzp1cCHsiX/mt6h+YOixWfDGYbYEL2RKHFrBaw==
+
+"@alfalab/icons-glyph@1.70.0":
+  version "1.70.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.70.0.tgz#251896a5300f2dbcf5c703ae70a23c87cc13e757"
+  integrity sha512-J+9rGbRfm1EmQp5+wq5IBnG5+qJlq635CAmwCpHY22jR3v4tFx0At91rT6Eju/ArHJe1QkCptjANQLmAqD5NxQ==
 
 "@alfalab/icons-glyph@^1.26.0":
   version "1.26.0"

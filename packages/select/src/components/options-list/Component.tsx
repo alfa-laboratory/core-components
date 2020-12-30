@@ -17,6 +17,7 @@ export const OptionsList = ({
     Option,
     options = [],
     Optgroup = DefaultOptgroup,
+    emptyPlaceholder,
 }: OptionsListProps) => {
     const counter = createCounter();
 
@@ -29,11 +30,19 @@ export const OptionsList = ({
         [Option, counter, size],
     );
 
-    return options.length > 0 ? (
+    if (options.length === 0 && !emptyPlaceholder) {
+        return null;
+    }
+
+    return (
         <div className={cn(styles.optionsList, styles[size])}>
             {options.map(option =>
                 isGroup(option) ? renderGroup(option) : Option({ option, index: counter() }),
             )}
+
+            {emptyPlaceholder && options.length === 0 && (
+                <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>
+            )}
         </div>
-    ) : null;
+    );
 };

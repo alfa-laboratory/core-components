@@ -1,0 +1,112 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { Tag } from '@alfalab/core-components-tag';
+import { Input } from '@alfalab/core-components-input';
+import { MaskedInput } from '@alfalab/core-components-masked-input';
+import { Arrow, Option } from '@alfalab/core-components-select';
+
+import { SelectWithTags } from './component';
+
+export const options = [
+    { key: '1', content: 'H', value: 'H' },
+    { key: '2', content: 'Li', value: 'Li' },
+    { key: '3', content: 'Na', value: 'Na' },
+    { key: '4', content: 'Curium', value: 'Curium' },
+    { key: '5', content: 'Berkelium', value: 'Berkelium' },
+    { key: '6', content: 'Californium', value: 'Californium' },
+    { key: '7', content: 'Einsteinium', value: 'Einsteinium' },
+    { key: '8', content: 'Fermium', value: 'Fermium' },
+    { key: '9', content: 'Mendelevium', value: 'Mendelevium' },
+    { key: '10', content: 'Nobelium', value: 'Nobelium' },
+    { key: '11', content: 'Lawrencium', value: 'Lawrencium'},
+    { key: '12', content: 'Rutherfordium', value: 'Rutherfordium'},
+    { key: '13', content: 'Dubnium', value: 'Dubnium' },
+    { key: '14', content: 'Seaborgium', value: 'Seaborgium'},
+    { key: '15', content: 'Bohrium', value: 'Bohrium' },
+];
+
+export const matchOption = (option, inputValue) =>
+    option.content.toLowerCase().includes((inputValue || '').toLowerCase());
+
+
+<Meta
+    title='Компоненты'
+    component={SelectWithTags}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='SelectWithTags'>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('');
+        const [selected, setSelected] = React.useState([]);
+        const handleInput = event => {
+            setValue(event.target.value);
+        };
+        const handleChange = React.useCallback(({ selectedMultiple }) => {
+            setSelected(selectedMultiple);
+        }, [])
+        return (
+            <div style={{width: '375px'}}>
+                <SelectWithTags
+                    options={options}
+                    block={boolean('block', true)}
+                    size={select('size', ['s', 'm', 'l'], 'l')}
+                    disabled={boolean('disabled', false)}
+                    error={text('error', '')}
+                    success={boolean('success', false)}
+                    hint={text('hint', '')}
+                    Arrow={boolean('Arrow', false) ? Arrow : undefined}
+                    circularNavigation={boolean('circularNavigation', false)}
+                    placeholder={text('placeholder', 'Элемент')}
+                    label={text('label', '')}
+                    autocomplete={boolean('autocomplete', true)}
+                    onInput={handleInput}
+                    value={value}
+                    onChange={handleChange}
+                    selected={selected}
+                />
+            </div>
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='SelectWithTags'
+    stage={1}
+/>
+
+```tsx
+import { SelectWithTags } from '@alfalab/core-components-select-with-tags';
+```
+
+<Preview>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('');
+        const handleInput = event => {
+            setValue(event.target.value);
+        };
+        return (
+            <div style={{width: '375px'}}>
+                <SelectWithTags
+                    options={options}
+                    onInput={handleInput}
+                    value={value}
+                    autocomplete={true}
+                    block={true}
+                />
+            </div>
+        );
+    })}
+</Preview>
+
+<Props of={SelectWithTags} />
