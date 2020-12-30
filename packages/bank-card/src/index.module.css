@@ -32,8 +32,8 @@
     left: 0;
     display: flex;
     align-items: center;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: var(--gap-l);
+    padding-right: var(--gap-l);
     border-radius: 12px;
     box-sizing: border-box;
 }
@@ -114,7 +114,7 @@
     user-select: none;
     cursor: pointer;
     outline: none;
-    margin-bottom: 4px;
+    margin-bottom: var(--gap-2xs);
     align-self: flex-end;
 
     /* В макете иконка прилегает к правому краю поля, а по дизайн-системе там должен быть отступ */
