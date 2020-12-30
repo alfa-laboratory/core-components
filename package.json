@@ -25,7 +25,7 @@
         "lint:css": "stylelint ./packages/**/*.css",
         "lint:js": "eslint ./packages --ext .ts,.tsx,.js,.jsx",
         "test": "jest --watchAll=false",
-        "test:screenshot": "jest --config=jest.screenshots.config.js",
+        "test:screenshots": "jest --config=jest.screenshots.config.js",
         "format": "prettier --write \"./{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
         "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist} && rimraf {dist,build}",
         "cm": "git-cz",

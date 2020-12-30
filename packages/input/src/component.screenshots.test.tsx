@@ -38,21 +38,21 @@ const addonsCases = getComponentScreenshotTestCases({
 });
 
 describe(
-    'Button | screenshots sizes, blocks and disabled',
+    'Input | screenshots sizes, blocks and disabled',
     screenshotTesting(sizesBlockDisabledCases, it, beforeAll, afterAll, expect),
 );
 
 describe(
-    'Button | screenshots size, placeholder and label',
+    'Input | screenshots size, placeholder and label',
     screenshotTesting(sizesPlaceholderLabelCases, it, beforeAll, afterAll, expect),
 );
 
 describe(
-    'Button | screenshots size, hint and error',
+    'Input | screenshots size, hint and error',
     screenshotTesting(sizesHintErrorCases, it, beforeAll, afterAll, expect),
 );
 
 describe(
-    'Button | screenshots addons',
+    'Input | screenshots addons',
     screenshotTesting(addonsCases, it, beforeAll, afterAll, expect),
 );

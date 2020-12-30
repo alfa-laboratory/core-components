@@ -41,9 +41,8 @@ const customSnapshotIdentifier = ({ currentTestName, counter }: CustomSnapshotId
 
 const getPageHtml = async (page: Page, css?: string) => {
     const [head, body] = await Promise.all([page?.innerHTML('head'), page?.innerHTML('body')]);
-    // TODO: сервер работает нестабильно, если передавать туда стили, возможно ограничение на размер json
-    // return `<html><head>${head}</head><body><style>${css}</style>${body}</body></html>`;
-    return `<html><head>${head}</head><body>${body}</body></html>`;
+
+    return `<html><head>${head}</head><body><style>${css}</style>${body}</body></html>`;
 };
 
 type MatchHtmlParams = {
@@ -68,6 +67,11 @@ export const matchHtml = async ({
         },
         {
             responseType: 'arraybuffer',
+            headers: {
+                accept: 'application/json',
+            },
+            maxContentLength: Infinity,
+            maxBodyLength: Infinity,
         },
     );
 
