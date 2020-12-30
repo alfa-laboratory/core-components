@@ -6,38 +6,6 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class=""
-      >
-        <div
-          class="spaceContainer vertical start"
-        >
-          <div
-            class="spaceItem"
-            style="margin-bottom: 16px;"
-          >
-            <div
-              class="cardImage rounded"
-              style="width: 280px; height: 176.4px;"
-            >
-              <img
-                class="image"
-                height="176.4"
-                role="presentation"
-                src="https://online.alfabank.ru/cards-images/cards/EG/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE&width=280"
-                srcset="https://online.alfabank.ru/cards-images/cards/EG/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE&width=560 2x"
-                width="280"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class=""
-    >
-      <div
         class="spaceContainer vertical start"
       >
         <div
@@ -57,6 +25,30 @@ Object {
               width="280"
             />
           </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="spaceContainer vertical start"
+    >
+      <div
+        class="spaceItem"
+        style="margin-bottom: 16px;"
+      >
+        <div
+          class="cardImage rounded"
+          style="width: 280px; height: 176.4px;"
+        >
+          <img
+            class="image"
+            height="176.4"
+            role="presentation"
+            src="https://online.alfabank.ru/cards-images/cards/EG/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE&width=280"
+            srcset="https://online.alfabank.ru/cards-images/cards/EG/images?layers=BACKGROUND,CARD_NUMBER,CARD_HOLDER,PAY_PASS,CHIP,LOGO,PAYMENT_SYSTEM,RESERVED_1,RESERVED_2,VALID_DATE&width=560 2x"
+            width="280"
+          />
         </div>
       </div>
     </div>
@@ -121,30 +113,6 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class=""
-      >
-        <div
-          class="spaceContainer vertical start"
-        >
-          <div
-            class="spaceItem"
-            style="margin-bottom: 16px;"
-          >
-            0
-          </div>
-          <div
-            class="spaceItem"
-            style="margin-bottom: 16px;"
-          />
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class=""
-    >
-      <div
         class="spaceContainer vertical start"
       >
         <div
@@ -158,6 +126,22 @@ Object {
           style="margin-bottom: 16px;"
         />
       </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="spaceContainer vertical start"
+    >
+      <div
+        class="spaceItem"
+        style="margin-bottom: 16px;"
+      >
+        0
+      </div>
+      <div
+        class="spaceItem"
+        style="margin-bottom: 16px;"
+      />
     </div>
   </div>,
   "debug": [Function],
