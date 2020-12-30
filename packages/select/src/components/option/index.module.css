@@ -29,6 +29,7 @@
         height: 1px;
         background: var(--select-option-divider-background);
         display: var(--select-option-divider-display);
+        transition: opacity 0.2s ease;
     }
 
     &:first-child:before {
@@ -68,7 +69,7 @@
 
     &:before,
     & + .option:before {
-        display: none;
+        opacity: 0;
     }
 }
 
