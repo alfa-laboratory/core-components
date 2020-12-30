@@ -33,3 +33,7 @@ input:focus + .suffixContainer,
 .disabled {
     color: var(--input-disabled-color);
 }
+
+.readOnly {
+    color: var(--input-read-only-color);
+}

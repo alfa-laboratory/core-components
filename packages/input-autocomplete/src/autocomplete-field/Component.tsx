@@ -4,7 +4,7 @@ import { FieldProps } from '@alfalab/core-components-select';
 import { InputAutocompleteProps } from '../Component';
 
 export type AutocompleteFieldProps = FieldProps &
-    Pick<InputAutocompleteProps, 'Input' | 'inputProps' | 'value' | 'onInput'>;
+    Pick<InputAutocompleteProps, 'Input' | 'inputProps' | 'value' | 'onInput' | 'readOnly'>;
 
 export const AutocompleteField = ({
     label,
@@ -17,6 +17,7 @@ export const AutocompleteField = ({
     success,
     hint,
     disabled,
+    readOnly,
     onInput,
     inputProps = {},
     innerProps,
@@ -47,6 +48,7 @@ export const AutocompleteField = ({
             wrapperRef={innerProps.ref}
             ref={inputRef}
             disabled={disabled}
+            readOnly={readOnly}
             block={true}
             label={label}
             placeholder={placeholder}

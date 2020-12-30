@@ -13,6 +13,6 @@
     --focus-color: var(--color-light-border-link);
     --font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica,
         sans-serif;
-    --disabled-cursor: default;
+    --disabled-cursor: not-allowed;
     --arrow-transform: rotateX(180deg);
 }

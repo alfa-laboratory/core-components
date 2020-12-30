@@ -145,6 +145,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             onChange,
             onInputChange,
             onCalendarChange,
+            readOnly,
             ...restProps
         },
         ref,
@@ -164,6 +165,8 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         const calendarValue = inputValue ? parseDateString(inputValue).getTime() : undefined;
 
         const isCalendarValueValid = dateInLimits(calendarValue, minDate, maxDate);
+
+        const inputDisabled = disabled || readOnly;
 
         const inputRef = useRef<HTMLInputElement>(null);
         const inputWrapperRef = useRef<HTMLDivElement>(null);
@@ -308,9 +311,9 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                     [styles.block]: block,
                 })}
                 tabIndex={-1}
-                onKeyDown={disabled ? undefined : handleKeyDown}
-                onClick={disabled ? undefined : handleClick}
-                onFocus={disabled ? undefined : handleFocus}
+                onKeyDown={inputDisabled ? undefined : handleKeyDown}
+                onClick={inputDisabled ? undefined : handleClick}
+                onFocus={inputDisabled ? undefined : handleFocus}
                 onBlur={handleBlur}
                 data-test-id={dataTestId}
             >
@@ -322,6 +325,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                     value={inputValue}
                     defaultValue={defaultValue}
                     disabled={disabled}
+                    readOnly={readOnly}
                     mask={DATE_MASK}
                     rightAddons={
                         <React.Fragment>

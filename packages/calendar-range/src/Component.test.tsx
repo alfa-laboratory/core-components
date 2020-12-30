@@ -1,6 +1,14 @@
 import React from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
-import { setMonth, startOfMonth, addMonths, setDate, endOfMonth, startOfDay } from 'date-fns';
+import {
+    setMonth,
+    startOfMonth,
+    addMonths,
+    setDate,
+    endOfMonth,
+    startOfDay,
+    subMonths,
+} from 'date-fns';
 import { MONTHS } from '../../calendar/src/utils';
 import { formatDate } from '../../calendar-input/src/utils';
 
@@ -15,7 +23,10 @@ describe('CalendarRange', () => {
 
     describe('Display tests', () => {
         it('should match snapshot', () => {
-            expect(render(<CalendarRange />).container).toMatchSnapshot();
+            expect(
+                render(<CalendarRange defaultMonth={subMonths(currentMonth, 2).getTime()} />)
+                    .container,
+            ).toMatchSnapshot();
         });
     });
 

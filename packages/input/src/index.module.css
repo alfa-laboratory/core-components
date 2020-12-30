@@ -13,6 +13,9 @@
 
     /* disabled */
     --input-disabled-color: var(--color-light-text-secondary);
+
+    /* read-only */
+    --input-read-only-color: var(--color-light-text-secondary);
 }
 
 @define-mixin _input-icon {
@@ -90,6 +93,13 @@
 .input:disabled {
     cursor: var(--disabled-cursor);
     color: var(--input-disabled-color);
+}
+
+/* READ-ONLY STATE */
+
+.input:read-only {
+    cursor: var(--disabled-cursor);
+    color: var(--input-read-only-color);
 }
 
 /* FOCUS STATE */

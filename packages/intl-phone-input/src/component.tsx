@@ -41,6 +41,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
     (
         {
             disabled = false,
+            readOnly = false,
             size = 'm',
             className,
             value,
@@ -179,9 +180,10 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 addonsClassName={styles.addons}
                 size={size}
                 disabled={disabled}
+                readOnly={readOnly}
                 leftAddons={
                     <CountriesSelect
-                        disabled={disabled}
+                        disabled={disabled || readOnly}
                         size={size}
                         selected={countryIso2}
                         countries={countries}

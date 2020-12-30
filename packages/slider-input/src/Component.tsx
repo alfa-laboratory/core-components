@@ -117,6 +117,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             label,
             info,
             disabled,
+            readOnly,
             onChange,
             onInputChange,
             onSliderChange,
@@ -174,6 +175,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                     size={size}
                     label={label}
                     disabled={disabled}
+                    readOnly={readOnly}
                     className={cn(inputClassName, styles.input)}
                     focusedClassName={styles.focused}
                     inputMode='numeric'
@@ -186,7 +188,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                             onChange={handleSliderChange}
                             ref={ref}
                             value={Number.isNaN(sliderValue) ? 0 : sliderValue}
-                            disabled={disabled}
+                            disabled={disabled || readOnly}
                             className={cn(styles.slider, sliderClassName)}
                         />
                     }
