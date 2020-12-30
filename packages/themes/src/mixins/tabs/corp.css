@@ -1,14 +1,9 @@
 @import '../../../../vars/src/index.css';
 
-@define-mixin tabs-site {
+@define-mixin tabs-corp {
     /* core vars */
-    --gap-4xl: 48px;
     --color-light-border-secondary-inverted: #b6bcc3;
 
     /* theme */
-    --primary-tablist-m-gaps: var(--gap-4xl);
-    --primary-tablist-m-font-weight: 500;
-    --primary-tablist-l-gaps: var(--gap-4xl);
-    --primary-tablist-l-font-weight: 500;
     --primary-tablist-bottom-border-color: var(--color-light-border-secondary-inverted);
 }

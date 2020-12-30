@@ -9,7 +9,7 @@ type NativeProps = InputHTMLAttributes<HTMLInputElement>;
 
 export type RadioProps = Omit<
     NativeProps,
-    'type' | 'onChange' | 'checked' | 'disabled' | 'name' | 'className'
+    'size' | 'type' | 'onChange' | 'checked' | 'disabled' | 'name' | 'className'
 > & {
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -25,6 +25,11 @@ export type RadioProps = Omit<
      * Текст подписи
      */
     label?: ReactNode;
+
+    /**
+     * Размер компонента
+     */
+    size?: 's' | 'm';
 
     /**
      * Управление состоянием отмечен/не отмечен
@@ -60,7 +65,18 @@ export type RadioProps = Omit<
 
 export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
     (
-        { onChange, className, name, disabled, dataTestId, label, checked, hint, ...restProps },
+        {
+            onChange,
+            className,
+            name,
+            disabled,
+            dataTestId,
+            label,
+            checked,
+            hint,
+            size = 's',
+            ...restProps
+        },
         ref,
     ) => {
         const labelRef = useRef<HTMLLabelElement>(null);
@@ -76,7 +92,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
         return (
             // eslint-disable-next-line jsx-a11y/label-has-associated-control
             <label
-                className={cn(styles.container, className, {
+                className={cn(styles.container, styles[size], className, {
                     [styles.disabled]: disabled,
                     [styles.checked]: checked,
                     [styles.focused]: focused,
