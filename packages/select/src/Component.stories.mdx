@@ -80,6 +80,21 @@ export const renderUppercased = (options) => {
     return options.map(option => option.content.toUpperCase()).join(', ');
 };
 
+export const POSITION_OPTIONS = [
+    'top',
+    'top-start',
+    'top-end',
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+    'right',
+    'right-start',
+    'right-end',
+    'left',
+    'left-start',
+    'left-end',
+];
+
 
 <Meta
     title='Компоненты'
@@ -109,6 +124,7 @@ export const renderUppercased = (options) => {
         label={text('label', 'Элемент')}
         onChange={action('change')}
         onOpen={action('open')}
+        popoverPosition={selectKnob('popoverPosition', POSITION_OPTIONS, 'bottom-start')}
     />
 </Story>
 
