@@ -1,20 +1,13 @@
 import React from 'react';
 import { render, fireEvent, act } from '@testing-library/react';
-import {
-    setMonth,
-    startOfMonth,
-    addMonths,
-    setDate,
-    endOfMonth,
-    startOfDay,
-    subMonths,
-} from 'date-fns';
+import { setMonth, startOfMonth, addMonths, setDate, endOfMonth, startOfDay } from 'date-fns';
 import { MONTHS } from '../../calendar/src/utils';
 import { formatDate } from '../../calendar-input/src/utils';
 
 import { CalendarRange } from './index';
 
 describe('CalendarRange', () => {
+    const defaultDate = new Date('October 01, 2020 00:00:00');
     const currentDate = new Date();
     const currentMonth = startOfMonth(currentDate);
     const nextMonth = addMonths(currentMonth, 1);
@@ -24,8 +17,7 @@ describe('CalendarRange', () => {
     describe('Display tests', () => {
         it('should match snapshot', () => {
             expect(
-                render(<CalendarRange defaultMonth={subMonths(currentMonth, 2).getTime()} />)
-                    .container,
+                render(<CalendarRange defaultMonth={defaultDate.getTime()} />).container,
             ).toMatchSnapshot();
         });
     });
