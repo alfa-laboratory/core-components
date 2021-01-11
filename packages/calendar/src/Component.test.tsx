@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { subDays, addDays, setDate, endOfMonth, setMonth, addMonths } from 'date-fns';
+import { subDays, addDays, setDate, endOfMonth, setMonth, addMonths, endOfYear } from 'date-fns';
 import { act } from 'react-dom/test-utils';
 import { monthName, MONTHS } from './utils';
 import { View, SelectorView } from './typings';
@@ -24,7 +24,13 @@ describe('Calendar', () => {
 
         it.each(['days', 'months', 'years'])('should match defaultView="%s" snapshot', view => {
             expect(
-                render(<Calendar value={defaultValue} defaultView={view as View} />).container,
+                render(
+                    <Calendar
+                        value={defaultValue}
+                        maxDate={endOfYear(defaultValue).getTime()}
+                        defaultView={view as View}
+                    />,
+                ).container,
             ).toMatchSnapshot();
         });
 
@@ -165,9 +171,7 @@ describe('Calendar', () => {
 
             const years = container.querySelectorAll('button[data-date]');
 
-            expect(years).toHaveLength(2);
-            expect(years[0]).toHaveTextContent('2020');
-            expect(years[1]).toHaveTextContent('2019');
+            expect(years[years.length - 1]).toHaveTextContent('2019');
         });
     });
 
