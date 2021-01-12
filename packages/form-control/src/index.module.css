@@ -41,8 +41,8 @@
 }
 
 .component {
-    display: inline-block;
     font-family: var(--form-control-font-family);
+    width: max-content;
 }
 
 .inner {

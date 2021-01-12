@@ -2,8 +2,8 @@
 @import '../../vars.css';
 
 .component {
-    display: inline-block;
     min-width: 240px;
+    width: max-content;
     position: relative;
     outline: 0;
 }
