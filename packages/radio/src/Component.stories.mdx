@@ -20,12 +20,16 @@ import { name, version } from '../package.json';
         const handleChange = () => setChecked(!checked);
         const size = select('size', ['s', 'm'], 's');
         const disabled = boolean('disabled', false);
+        const fullWidth = boolean('fullWidth', false);
         const label = text('label', 'Text label')
         const hint = text('hint', 'Hint');
         const align = select('align', ['start', 'end', 'center'], 'start');
+        const addons = text('addons');
         return (
             <Radio
                 disabled={disabled}
+                addons={addons}
+                fullWidth={fullWidth}
                 size={size}
                 align={align}
                 onChange={handleChange}

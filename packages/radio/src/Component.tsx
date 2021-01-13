@@ -58,6 +58,16 @@ export type RadioProps = Omit<
     align?: Align;
 
     /**
+     * Дополнительный слот
+     */
+    addons: React.ReactNode | string;
+
+    /**
+     * Растягивать ли компонент на всю ширину
+     */
+    fullWidth?: boolean;
+
+    /**
      * Обработчик на выбор элемента
      */
     onChange?: (
@@ -82,6 +92,8 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
             hint,
             size = 's',
             align = 'start',
+            addons,
+            fullWidth,
             ...restProps
         },
         ref,
@@ -103,6 +115,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
                     [styles.disabled]: disabled,
                     [styles.checked]: checked,
                     [styles.focused]: focused,
+                    [styles.fullWidth]: fullWidth,
                 })}
                 ref={mergeRefs([labelRef, ref])}
             >
@@ -120,6 +133,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
                     <span className={styles.label}>{label}</span>
                     {hint && <span className={styles.hint}>{hint}</span>}
                 </span>
+                {addons && <span className={styles.addons}>{addons}</span>}
             </label>
         );
     },

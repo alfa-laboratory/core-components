@@ -151,6 +151,15 @@
     align-items: center;
 }
 
+.addons {
+    margin-left: auto;
+    line-height: 24px;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
 .label {
     @mixin system_16-24_regular;
     color: var(--radio-label-color);
