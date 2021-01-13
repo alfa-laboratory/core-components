@@ -1,10 +1,8 @@
-import { chromium } from 'playwright';
-
 import {
     screenshotTesting,
     getComponentScreenshotTestCases,
     createStorybookUrl,
-    openBrowser,
+    openBrowserPage,
     matchHtml,
     closeBrowser,
 } from '../../utils';
@@ -92,7 +90,7 @@ describe(
 describe('Input | interactions tests', () => {
     test('Fill input value', async () => {
         const pageUrl = createStorybookUrl({ componentName: 'input' });
-        const { browser, context, page, css } = await openBrowser(chromium, pageUrl);
+        const { browser, context, page, css } = await openBrowserPage(pageUrl);
 
         try {
             await page.fill('input', 'value');

@@ -7,6 +7,7 @@ import {
     FirefoxBrowser,
     WebKitBrowser,
     ChromiumBrowser,
+    chromium,
 } from 'playwright';
 import axios from 'axios';
 import { MatchImageSnapshotOptions } from 'jest-image-snapshot';
@@ -93,9 +94,9 @@ export const matchHtml = async ({
     });
 };
 
-export const openBrowser = async (
-    browserType: BrowserType<ChromiumBrowser | FirefoxBrowser | WebKitBrowser>,
+export const openBrowserPage = async (
     pageUrl: string,
+    browserType: BrowserType<ChromiumBrowser | FirefoxBrowser | WebKitBrowser> = chromium,
 ) => {
     const browser = await browserType.launch();
     const context = await browser.newContext();

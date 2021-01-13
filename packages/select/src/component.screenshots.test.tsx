@@ -1,12 +1,10 @@
-import { chromium } from 'playwright';
-
 import {
     screenshotTesting,
     getComponentScreenshotTestCases,
     createStorybookUrl,
     matchHtml,
     closeBrowser,
-    openBrowser,
+    openBrowserPage,
 } from '../../utils';
 
 const sizesBlockDisabledCases = getComponentScreenshotTestCases({
@@ -69,7 +67,7 @@ describe(
 describe('Select | interactions tests', () => {
     test('Open select, select one item', async () => {
         const pageUrl = createStorybookUrl({ componentName: 'select' });
-        const { browser, context, page, css } = await openBrowser(chromium, pageUrl);
+        const { browser, context, page, css } = await openBrowserPage(pageUrl);
 
         // eslint-disable-next-line no-shadow
         const clip = { x: 0, y: 0, width: 300, height: 500 };

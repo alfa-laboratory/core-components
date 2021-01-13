@@ -1,0 +1,115 @@
+<Meta title='Гайдлайны|Скриншотное тестирование' />
+
+# Скриншотное тестирование
+
+Для запуска тестов необходимо запустить `storybook`:
+
+```bash
+$ yarn start
+```
+
+и запустить тесты:
+
+```bash
+$ yarn test:screenshots
+```
+
+**Для работы тестов необходимо включить VPN!**
+
+**Версия `Node.JS` должна быть >=14.2.0, иначе может быть проблема с установкой зависимостей!**
+
+### Как работают скриншот-тесты
+
+Механизм тестирования следующий: локально с помощью [playwright](https://playwright.dev/) открывается
+определенная страница в сторибуке, оттуда берется html-код страницы и отправляется
+на [специальный сервер](http://git.moscow.alfaintra.net/projects/DESIGN/repos/playwright-server/browse),
+где делается скришот этой страницы.
+
+Сервер нужен, чтобы:
+
+-   не принуждать разработчиков запускать у себя локально браузер в докере
+-   делать скриншоты в единой ОС
+
+### Есть два вида тестов:
+
+1. Статические тесты.
+
+С помощью специальной функции, в зависимости от пропсов (кнобсов), генерируется массив ссылок.
+
+Для каждой ссылки делается скриншот:
+
+```tsx
+// component.screenshot.test.ts
+const cases = getComponentScreenshotTestCases({
+    componentName: 'input',
+    knobs: {
+        size: ['s', 'm', 'l'],
+        block: [false, true],
+        disabled: [false, true],
+    },
+});
+
+describe(
+    'Input | screenshots sizes, blocks and disabled',
+    screenshotTesting({ cases, it, beforeAll, afterAll, expect }),
+);
+```
+
+**_Функция `getComponentScreenshotTestCases` вернет все возможные комбинации пропсов.
+Так что с ней надо быть аккуратным, и, если пропсов много, то лучше разделить на несколько тестов._**
+
+2. Динамические тесты.
+
+В таких тестах есть возможность сначала куда-то кликнуть/что-то ввести в поле, а потом сделать скриншот.
+
+Взаимодействие со страницей тоже происходит через [playwright](https://playwright.dev/):
+
+```tsx
+// component.screenshot.test.ts
+describe('Input | interactions tests', () => {
+    test('Fill input value', async () => {
+        const pageUrl = createStorybookUrl({ componentName: 'input' });
+        const { browser, context, page, css } = await openBrowser(chromium, pageUrl);
+
+        try {
+            await page.fill('input', 'value');
+
+            await matchHtml({ page, expect, css });
+        } catch (error) {
+            // eslint-disable-next-line no-console
+            console.error(error);
+        } finally {
+            await closeBrowser({ browser, context, page });
+        }
+    });
+});
+```
+
+### Файлы скриншотов
+
+Файлы скриншотов хранятся в [git-lfs](https://git-lfs.github.com/).
+
+Установка `git-lfs` на MacOS:
+
+```bash
+$ brew install git-lfs
+```
+
+**Затем необходимо установить хук:**
+
+```bash
+git lfs install --force
+```
+
+Далее работать с файлами скриншотов в гите можно как с обычными файлами.
+
+### Сравнение скриншотов
+
+Сравнение скриншотов производится посредством плагина [jest-image-snapshot](https://github.com/americanexpress/jest-image-snapshot).
+
+При изменении скриншота появляется папка `__diff_output__`, в которой можно увидеть изменения.
+
+Если изменения нужно принять, то обновляем скриншоты:
+```bash
+$ yarn test:screenshots -u
+```
