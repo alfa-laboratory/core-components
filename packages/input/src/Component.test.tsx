@@ -33,6 +33,13 @@ describe('Input', () => {
         expect(getByTestId(dataTestId).tagName).toBe('INPUT');
     });
 
+    it('should set `aria-label` atribute to input', () => {
+        const label = 'label';
+        const { getByLabelText } = render(<Input block={true} label={label} />);
+
+        expect(getByLabelText(label).tagName).toBe('INPUT');
+    });
+
     it('should set `disabled` atribute', () => {
         const dataTestId = 'test-id';
         const { getByTestId } = render(<Input disabled={true} dataTestId={dataTestId} />);

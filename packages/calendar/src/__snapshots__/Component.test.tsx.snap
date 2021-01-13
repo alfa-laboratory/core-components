@@ -777,7 +777,7 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
         </button>
         <button
           aria-selected="false"
-          class="component ghost xs button outlined button"
+          class="component ghost xs button default button"
           data-date="1606780800000"
           tabindex="-1"
         >

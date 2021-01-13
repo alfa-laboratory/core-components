@@ -37,13 +37,16 @@ describe('Snapshots tests', () => {
     });
 
     it('should display opened correctly', async () => {
-        const { baseElement } = render(<PickerButton options={options} />);
+        const { container, baseElement, queryByRole } = render(<PickerButton options={options} />);
 
         clickPickerButton();
 
         await waitFor(() => {
-            expect(baseElement).toMatchSnapshot();
+            expect(queryByRole('combobox')).toBeInTheDocument();
         });
+
+        expect(container).toMatchSnapshot();
+        expect(baseElement.firstElementChild).toMatchSnapshot();
     });
 });
 
