@@ -22,8 +22,8 @@ export const Field = ({
     valueRenderer = joinOptions,
     Arrow,
     innerProps,
-    className,
     dataTestId,
+    fieldClassName,
     ...restProps
 }: BaseFieldProps & FormControlProps) => {
     const [focused, setFocused] = useState(false);
@@ -47,7 +47,7 @@ export const Field = ({
             onBlur={handleBlur}
         >
             <FormControl
-                className={cn(className, styles.field, {
+                fieldClassName={cn(styles.field, fieldClassName, {
                     [styles.hasLabel]: label,
                     [styles.disabled]: disabled,
                     [styles.focusVisible]: focusVisible,

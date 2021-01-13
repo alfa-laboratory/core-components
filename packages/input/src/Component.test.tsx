@@ -66,8 +66,14 @@ describe('Input', () => {
     });
 
     describe('Classes tests', () => {
-        it('should set `className` class to form-control inner', () => {
+        it('should set `className` class to form-control wrapper', () => {
             const { container } = render(<Input className='test-class' />);
+
+            expect(container.querySelector('.test-class')).toHaveClass('component');
+        });
+
+        it('should set `fieldClassName` class to form-control field', () => {
+            const { container } = render(<Input fieldClassName='test-class' />);
 
             expect(container.querySelector('.test-class')).toHaveClass('inner');
         });
@@ -123,29 +129,25 @@ describe('Input', () => {
     });
 
     describe('when component is controlled', () => {
-        it('should set `filled` and filledClassName classes when value passed', () => {
+        it('should filledClassName classes when value passed', () => {
             const filledClassName = 'custom-filled-class';
             const { container } = render(
                 <Input value='some value' filledClassName={filledClassName} />,
             );
 
-            const inner = container.querySelector('.inner');
+            const component = container.querySelector(`.${filledClassName}`);
 
-            expect(inner).toHaveClass('filled');
-            expect(inner).toHaveClass(filledClassName);
+            expect(component).toBeInTheDocument();
         });
 
-        it('should not set `filled` and filledClassName classes if the value is empty', () => {
+        it('should not set filledClassName classes if the value is empty', () => {
             const filledClassName = 'custom-filled-class';
             const { container } = render(<Input value='' filledClassName={filledClassName} />);
 
-            const inner = container.querySelector('.inner');
-
-            expect(inner).not.toHaveClass('filled');
-            expect(inner).not.toHaveClass(filledClassName);
+            expect(container.querySelector(`.${filledClassName}`)).not.toBeInTheDocument();
         });
 
-        it('should unset `filled` and filledClassName classes if the value becomes empty', () => {
+        it('should unset filledClassName classes if the value becomes empty', () => {
             const filledClassName = 'custom-filled-class';
             const { container, rerender } = render(
                 <Input value='some value' filledClassName={filledClassName} />,
@@ -153,10 +155,7 @@ describe('Input', () => {
 
             rerender(<Input value='' filledClassName={filledClassName} />);
 
-            const inner = container.querySelector('.inner');
-
-            expect(inner).not.toHaveClass('filled');
-            expect(inner).not.toHaveClass(filledClassName);
+            expect(container.querySelector(`.${filledClassName}`)).not.toBeInTheDocument();
         });
 
         it('should show clear button only if input has value', () => {
@@ -198,32 +197,28 @@ describe('Input', () => {
     });
 
     describe('when component is uncontrolled', () => {
-        it('should set `filled` and filledClassName classes when defaultValue passed', () => {
+        it('should filledClassName classes when defaultValue passed', () => {
             const filledClassName = 'custom-filled-class';
             const { container } = render(
                 <Input defaultValue='some value' filledClassName={filledClassName} />,
             );
 
-            const inner = container.querySelector('.inner');
+            const component = container.querySelector(`.${filledClassName}`);
 
-            expect(inner).toHaveClass('filled');
-            expect(inner).toHaveClass(filledClassName);
+            expect(component).toBeInTheDocument();
         });
 
-        it('should not set `filled` and filledClassName classes if the value is empty', () => {
+        it('should not filledClassName classes if the value is empty', () => {
             const filledClassName = 'custom-filled-class';
             const { container } = render(<Input filledClassName={filledClassName} />);
 
-            const inner = container.querySelector('.inner');
-
-            expect(inner).not.toHaveClass('filled');
-            expect(inner).not.toHaveClass(filledClassName);
+            expect(container.querySelector(`.${filledClassName}`)).not.toBeInTheDocument();
         });
 
-        it('should unset `filled` and filledClassName classes if value becomes empty', async () => {
+        it('should unset filledClassName classes if value becomes empty', async () => {
             const dataTestId = 'test-id';
             const filledClassName = 'custom-filled-class';
-            const { getByTestId } = render(
+            const { container, getByTestId } = render(
                 <Input
                     defaultValue='some value'
                     dataTestId={dataTestId}
@@ -239,8 +234,8 @@ describe('Input', () => {
             input.blur();
 
             expect(input.value).toBe('');
-            expect(input).not.toHaveClass('filled');
-            expect(input).not.toHaveClass(filledClassName);
+
+            expect(container.querySelector(`.${filledClassName}`)).not.toBeInTheDocument();
         });
 
         it('should show clear button only if input has value', async () => {
