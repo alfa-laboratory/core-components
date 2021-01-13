@@ -24,7 +24,7 @@
         "lint": "yarn lint:css && yarn lint:js",
         "lint:css": "stylelint ./packages/**/*.css",
         "lint:js": "eslint ./packages --ext .ts,.tsx,.js,.jsx",
-        "test": "jest --env=jsdom-sixteen --watchAll=false",
+        "test": "jest --watchAll=false --env=jsdom-sixteen",
         "test:screenshots": "jest --config=jest.screenshots.config.js",
         "format": "prettier --write \"./{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
         "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist} && rimraf {dist,build}",
