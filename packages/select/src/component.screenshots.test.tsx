@@ -35,19 +35,35 @@ const hintErrorArrowCases = getComponentScreenshotTestCases({
     },
 });
 
+const clip = { x: 0, y: 0, width: 300, height: 100 };
+
 describe(
     'Select | screenshots sizes, block and disabled',
-    screenshotTesting(sizesBlockDisabledCases, it, beforeAll, afterAll, expect),
+    screenshotTesting({ cases: sizesBlockDisabledCases, it, beforeAll, afterAll, expect }),
 );
 
 describe(
     'Select | screenshots placeholder and label',
-    screenshotTesting(placeholderLabelCases, it, beforeAll, afterAll, expect),
+    screenshotTesting({
+        cases: placeholderLabelCases,
+        it,
+        beforeAll,
+        afterAll,
+        expect,
+        screenshotOpts: { clip },
+    }),
 );
 
 describe(
     'Select | screenshots hint, error and Arrow',
-    screenshotTesting(hintErrorArrowCases, it, beforeAll, afterAll, expect),
+    screenshotTesting({
+        cases: hintErrorArrowCases,
+        it,
+        beforeAll,
+        afterAll,
+        expect,
+        screenshotOpts: { clip },
+    }),
 );
 
 describe('Select | interactions tests', () => {
@@ -55,16 +71,19 @@ describe('Select | interactions tests', () => {
         const pageUrl = createStorybookUrl({ componentName: 'select' });
         const { browser, context, page, css } = await openBrowser(chromium, pageUrl);
 
+        // eslint-disable-next-line no-shadow
+        const clip = { x: 0, y: 0, width: 300, height: 500 };
+
         try {
-            await matchHtml({ page, expect, css });
+            await matchHtml({ page, expect, css, screenshotOpts: { clip } });
 
             await page.click('[role="combobox"]');
 
-            await matchHtml({ page, expect, css });
+            await matchHtml({ page, expect, css, screenshotOpts: { clip } });
 
             await page.click('[role="option"]');
 
-            await matchHtml({ page, expect, css });
+            await matchHtml({ page, expect, css, screenshotOpts: { clip } });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error(error);

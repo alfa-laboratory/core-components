@@ -46,24 +46,47 @@ const addonsCases = getComponentScreenshotTestCases({
     },
 });
 
+const clip = { x: 0, y: 0, width: 350, height: 150 };
+
 describe(
     'Input | screenshots sizes, blocks and disabled',
-    screenshotTesting(sizesBlockDisabledCases, it, beforeAll, afterAll, expect),
+    screenshotTesting({ cases: sizesBlockDisabledCases, it, beforeAll, afterAll, expect }),
 );
 
 describe(
     'Input | screenshots size, placeholder and label',
-    screenshotTesting(sizesPlaceholderLabelCases, it, beforeAll, afterAll, expect),
+    screenshotTesting({
+        cases: sizesPlaceholderLabelCases,
+        it,
+        beforeAll,
+        afterAll,
+        expect,
+        screenshotOpts: { clip },
+    }),
 );
 
 describe(
     'Input | screenshots size, hint and error',
-    screenshotTesting(sizesHintErrorCases, it, beforeAll, afterAll, expect),
+    screenshotTesting({
+        cases: sizesHintErrorCases,
+        it,
+        beforeAll,
+        afterAll,
+        expect,
+        screenshotOpts: { clip },
+    }),
 );
 
 describe(
     'Input | screenshots addons',
-    screenshotTesting(addonsCases, it, beforeAll, afterAll, expect),
+    screenshotTesting({
+        cases: addonsCases,
+        it,
+        beforeAll,
+        afterAll,
+        expect,
+        screenshotOpts: { clip },
+    }),
 );
 
 describe('Input | interactions tests', () => {
@@ -74,7 +97,7 @@ describe('Input | interactions tests', () => {
         try {
             await page.fill('input', 'value');
 
-            await matchHtml({ page, expect, css });
+            await matchHtml({ page, expect, css, screenshotOpts: { clip } });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error(error);

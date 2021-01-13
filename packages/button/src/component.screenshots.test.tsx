@@ -32,19 +32,41 @@ const viewsLoadingCases = getComponentScreenshotTestCases({
     },
 });
 
+const clip = { x: 0, y: 0, width: 200, height: 100 };
+
 describe(
     'Button | screenshots views and sizes',
-    screenshotTesting(viewsSizesCases, it, beforeAll, afterAll, expect),
+    screenshotTesting({
+        cases: viewsSizesCases,
+        it,
+        beforeAll,
+        afterAll,
+        expect,
+        screenshotOpts: { clip },
+    }),
 );
 
 describe(
     'Button | screenshots views and disabled',
-    screenshotTesting(viewsDisabledCases, it, beforeAll, afterAll, expect),
+    screenshotTesting({
+        cases: viewsDisabledCases,
+        it,
+        beforeAll,
+        afterAll,
+        expect,
+        screenshotOpts: { clip },
+    }),
 );
 
 describe(
     'Button | screenshots views and block',
-    screenshotTesting(viewsBlockCases, it, beforeAll, afterAll, expect),
+    screenshotTesting({
+        cases: viewsBlockCases,
+        it,
+        beforeAll,
+        afterAll,
+        expect,
+    }),
 );
 
 /**
@@ -55,8 +77,16 @@ describe(
  */
 describe(
     'Button | screenshots views and loading',
-    screenshotTesting(viewsLoadingCases, it, beforeAll, afterAll, expect, {
-        failureThresholdType: 'pixel',
-        failureThreshold: 5,
+    screenshotTesting({
+        cases: viewsLoadingCases,
+        it,
+        beforeAll,
+        afterAll,
+        expect,
+        matchImageSnapshotOptions: {
+            failureThresholdType: 'pixel',
+            failureThreshold: 5,
+        },
+        screenshotOpts: { clip },
     }),
 );

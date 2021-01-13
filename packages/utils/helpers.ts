@@ -11,7 +11,7 @@ import {
 import axios from 'axios';
 import { MatchImageSnapshotOptions } from 'jest-image-snapshot';
 import kebab from 'lodash.kebabcase';
-import { STYLES_URL } from './screenshot-testing';
+import { STYLES_URL, ScreenshotOpts } from './screenshot-testing';
 
 type CustomSnapshotIdentifierParams = {
     currentTestName: string;
@@ -50,6 +50,18 @@ type MatchHtmlParams = {
     css?: string;
     expect: any;
     matchImageSnapshotOptions?: MatchImageSnapshotOptions;
+    screenshotOpts?: ScreenshotOpts;
+};
+
+const screenshotDefaultOpts = {
+    clip: {
+        x: 0,
+        y: 0,
+        width: 1920,
+        height: 500,
+    },
+    fullPage: false,
+    omitBackground: false,
 };
 
 export const matchHtml = async ({
@@ -57,6 +69,7 @@ export const matchHtml = async ({
     css,
     expect,
     matchImageSnapshotOptions,
+    screenshotOpts = screenshotDefaultOpts,
 }: MatchHtmlParams) => {
     const pageHtml = await getPageHtml(page, css);
 
@@ -64,14 +77,13 @@ export const matchHtml = async ({
         'http://digital/playwright',
         {
             data: pageHtml,
+            screenshotOpts,
         },
         {
             responseType: 'arraybuffer',
             headers: {
                 accept: 'application/json',
             },
-            maxContentLength: Infinity,
-            maxBodyLength: Infinity,
         },
     );
 
