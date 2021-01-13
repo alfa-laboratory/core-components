@@ -1,6 +1,6 @@
 module.exports = {
     preset: 'ts-jest/presets/js-with-ts',
-    testEnvironment: 'jsdom-sixteen',
+    testEnvironment: 'jsdom',
     setupFilesAfterEnv: ['./packages/setupTests.ts'],
     modulePathIgnorePatterns: ['dist'],
     globalSetup: './packages/globalSetup.ts',

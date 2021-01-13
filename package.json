@@ -24,7 +24,7 @@
         "lint": "yarn lint:css && yarn lint:js",
         "lint:css": "stylelint ./packages/**/*.css",
         "lint:js": "eslint ./packages --ext .ts,.tsx,.js,.jsx",
-        "test": "jest --watchAll=false",
+        "test": "jest --env=jsdom-sixteen --watchAll=false",
         "test:screenshots": "jest --config=jest.screenshots.config.js",
         "format": "prettier --write \"./{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
         "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist} && rimraf {dist,build}",
@@ -209,6 +209,9 @@
             "pre-commit": "yarn lint-staged && yarn test",
             "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
         }
+    },
+    "jest": {
+        "testEnvironment": "jest-environment-jsdom-sixteen"
     },
     "config": {
         "commitizen": {
