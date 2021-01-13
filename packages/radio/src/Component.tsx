@@ -60,7 +60,7 @@ export type RadioProps = Omit<
     /**
      * Дополнительный слот
      */
-    addons: React.ReactNode | string;
+    addons?: React.ReactNode | string;
 
     /**
      * Растягивать ли компонент на всю ширину
