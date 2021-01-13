@@ -1,4 +1,13 @@
-import { screenshotTesting, getComponentScreenshotTestCases } from '../../utils';
+import { chromium } from 'playwright';
+
+import {
+    screenshotTesting,
+    getComponentScreenshotTestCases,
+    createStorybookUrl,
+    openBrowser,
+    matchHtml,
+    closeBrowser,
+} from '../../utils';
 
 const sizesBlockDisabledCases = getComponentScreenshotTestCases({
     componentName: 'input',
@@ -56,3 +65,21 @@ describe(
     'Input | screenshots addons',
     screenshotTesting(addonsCases, it, beforeAll, afterAll, expect),
 );
+
+describe('Input | interactions tests', () => {
+    test('Fill input value', async () => {
+        const pageUrl = createStorybookUrl({ componentName: 'input' });
+        const { browser, context, page, css } = await openBrowser(chromium, pageUrl);
+
+        try {
+            await page.fill('input', 'value');
+
+            await matchHtml({ page, expect, css });
+        } catch (error) {
+            // eslint-disable-next-line no-console
+            console.error(error);
+        } finally {
+            await closeBrowser({ browser, context, page });
+        }
+    });
+});

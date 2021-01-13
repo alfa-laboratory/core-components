@@ -56,15 +56,15 @@ describe('Select | interactions tests', () => {
         const { browser, context, page, css } = await openBrowser(chromium, pageUrl);
 
         try {
-            await matchHtml({ page, expect, css: css?.data });
+            await matchHtml({ page, expect, css });
 
             await page.click('[role="combobox"]');
 
-            await matchHtml({ page, expect, css: css?.data });
+            await matchHtml({ page, expect, css });
 
             await page.click('[role="option"]');
 
-            await matchHtml({ page, expect, css: css?.data });
+            await matchHtml({ page, expect, css });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error(error);

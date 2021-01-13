@@ -8,8 +8,8 @@
     --input-with-label-placeholder-color: var(--color-light-text-tertiary);
     --input-error-icon-display: flex;
     --input-success-icon-display: flex;
-    --input-error-icon: url('http://alfabank.st/icons/icon_error_s_color.svg');
-    --input-success-icon: url('http://alfabank.st/icons/icon_ok_s_color.svg');
+    --input-error-icon: url('https://alfabank.st/icons/icon_error_s_color.svg');
+    --input-success-icon: url('https://alfabank.st/icons/icon_ok_s_color.svg');
 
     /* disabled */
     --input-disabled-color: var(--color-light-text-secondary);
@@ -78,14 +78,14 @@
     @mixin _input-icon;
 
     display: var(--input-error-icon-display);
-    background-image: url('http://alfabank.st/icons/icon_error_s_color.svg');
+    background-image: url('https://alfabank.st/icons/icon_error_s_color.svg');
 }
 
 .successIcon {
     @mixin _input-icon;
 
     display: var(--input-success-icon-display);
-    background-image: url('http://alfabank.st/icons/icon_ok_s_color.svg');
+    background-image: url('https://alfabank.st/icons/icon_ok_s_color.svg');
 }
 
 /* DISABLED STATE */
