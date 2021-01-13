@@ -153,6 +153,7 @@
 
 .addons {
     margin-left: auto;
+    padding-left: var(--gap-m);
     line-height: 24px;
 }
 

@@ -1,5 +1,5 @@
 import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
-import { text, boolean } from '@storybook/addon-knobs';
+import { text, boolean, select } from '@storybook/addon-knobs';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { Button } from '../../button/src';
@@ -27,6 +27,9 @@ import { name, version } from '../package.json';
                 checked={checked}
                 disabled={boolean('disabled', false)}
                 reversed={boolean('reversed', false)}
+                block={boolean('block', false)}
+                addons={text('addons')}
+                align={select('align', ['start', 'end', 'center'])}
                 className={text('className', '')}
                 dataTestId={text('dataTestId', '')}
                 label={text('label', 'Условие тоггла')}
