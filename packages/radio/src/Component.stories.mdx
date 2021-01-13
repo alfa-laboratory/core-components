@@ -22,10 +22,12 @@ import { name, version } from '../package.json';
         const disabled = boolean('disabled', false);
         const label = text('label', 'Text label')
         const hint = text('hint', 'Hint');
+        const align = select('align', ['start', 'end', 'center'], 'start');
         return (
             <Radio
                 disabled={disabled}
                 size={size}
+                align={align}
                 onChange={handleChange}
                 checked={checked}
                 hint={hint}
