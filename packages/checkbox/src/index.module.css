@@ -35,6 +35,28 @@
     cursor: pointer;
 }
 
+.start {
+    align-items: flex-start;
+}
+
+.end {
+    align-items: flex-end;
+}
+
+.center {
+    align-items: center;
+}
+
+.addons {
+    margin-left: auto;
+    padding-left: var(--gap-m);
+    line-height: 24px;
+}
+
+.block {
+    width: 100%;
+}
+
 .box {
     display: flex;
     justify-content: center;

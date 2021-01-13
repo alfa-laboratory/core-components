@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <label
-        class="component s"
+        class="component s start"
       >
         <span
           class="box"
@@ -34,7 +34,7 @@ Object {
   </body>,
   "container": <div>
     <label
-      class="component s"
+      class="component s start"
     >
       <span
         class="box"
@@ -119,7 +119,7 @@ Object {
   "baseElement": <body>
     <div>
       <label
-        class="component s indeterminate"
+        class="component s start indeterminate"
       >
         <span
           class="box"
@@ -157,7 +157,7 @@ Object {
   </body>,
   "container": <div>
     <label
-      class="component s indeterminate"
+      class="component s start indeterminate"
     >
       <span
         class="box"
