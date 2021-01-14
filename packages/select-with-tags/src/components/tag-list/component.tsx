@@ -63,11 +63,13 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     const handleClick = useCallback<MouseEventHandler<HTMLDivElement>>(
         event => {
             if (onClick && contentWrapperRef.current) {
-                const clickedInsideContent = contentWrapperRef.current.contains(
-                    event.target as HTMLDivElement,
-                );
+                const eventTarget = event.target as HTMLDivElement;
 
-                if (!clickedInsideContent || (clickedInsideContent && !open)) {
+                const clickedInsideContent =
+                    eventTarget !== contentWrapperRef.current &&
+                    contentWrapperRef.current.contains(eventTarget);
+
+                if (!clickedInsideContent) {
                     onClick(event);
                 }
             }
@@ -76,7 +78,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                 inputRef.current.focus();
             }
         },
-        [onClick, open],
+        [onClick],
     );
 
     const handleKeyDown = useCallback<KeyboardEventHandler<HTMLInputElement>>(
