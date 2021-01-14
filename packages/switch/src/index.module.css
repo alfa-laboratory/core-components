@@ -105,6 +105,13 @@
     margin-left: 0;
 }
 
+.reversed .addons {
+    margin-left: 0;
+    padding-left: 0;
+    margin-right: auto;
+    padding-right: var(--gap-m);
+}
+
 /* Checked state */
 
 .checked .switch {
