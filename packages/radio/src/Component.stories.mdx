@@ -23,7 +23,7 @@ import { name, version } from '../package.json';
         const block = boolean('block', false);
         const label = text('label', 'Text label')
         const hint = text('hint', 'Hint');
-        const align = select('align', ['start', 'end', 'center'], 'start');
+        const align = select('align', ['start', 'center'], 'start');
         const addons = text('addons');
         return (
             <Radio

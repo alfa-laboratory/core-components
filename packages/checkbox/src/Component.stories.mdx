@@ -24,9 +24,9 @@ import { name, version } from '../package.json';
         const label = text('label', 'Согласен с условиями');
         const indeterminate = boolean('indeterminate', false);
         const hint = text('hint', 'Дополнительная информация');
-        const block= boolean('block', false);
-        const addons= text('addons');
-        const align= select('align', ['start', 'end', 'center']);
+        const block = boolean('block', false);
+        const addons = text('addons');
+        const align = select('align', ['start', 'center']);
         return (
             <Checkbox
                 disabled={disabled}

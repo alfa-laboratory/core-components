@@ -32,10 +32,6 @@
     align-items: flex-start;
 }
 
-.end {
-    align-items: flex-end;
-}
-
 .center {
     align-items: center;
 }

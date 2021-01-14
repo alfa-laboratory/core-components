@@ -12,7 +12,7 @@ import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
 
-type Align = 'start' | 'end' | 'center';
+type Align = 'start' | 'center';
 
 export type SwitchProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,

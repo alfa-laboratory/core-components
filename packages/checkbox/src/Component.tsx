@@ -9,7 +9,7 @@ import IndeterminateIcon from '@alfalab/icons-classic/CheckIndeterminateSWhiteIc
 import styles from './index.module.css';
 
 type NativeProps = InputHTMLAttributes<HTMLInputElement>;
-type Align = 'start' | 'end' | 'center';
+type Align = 'start' | 'center';
 
 export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange'> & {
     /**

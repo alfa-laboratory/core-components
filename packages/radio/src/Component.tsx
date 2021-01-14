@@ -6,7 +6,7 @@ import { useFocus } from '@alfalab/hooks';
 import styles from './index.module.css';
 
 type NativeProps = InputHTMLAttributes<HTMLInputElement>;
-type Align = 'start' | 'end' | 'center';
+type Align = 'start' | 'center';
 
 export type RadioProps = Omit<
     NativeProps,
