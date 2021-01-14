@@ -7,6 +7,7 @@ import React, {
     useState,
     KeyboardEventHandler,
     MouseEventHandler,
+    useEffect,
 } from 'react';
 import cn from 'classnames';
 import { FieldProps } from '@alfalab/core-components-select';
@@ -34,7 +35,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     Arrow,
     innerProps,
     className,
-    value,
+    value = '',
     autocomplete,
     label,
     valueRenderer,
@@ -43,6 +44,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     ...restProps
 }) => {
     const [focused, setFocused] = useState(false);
+    const [inputOnNewLine, setInputOnNewLine] = useState(false);
 
     const wrapperRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -53,6 +55,11 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
 
     const handleFocus = useCallback(() => setFocused(true), []);
     const handleBlur = useCallback(() => setFocused(false), []);
+
+    const inputTextIsOverflow = useCallback(
+        () => inputRef.current && inputRef.current.scrollWidth > inputRef.current.clientWidth,
+        [],
+    );
 
     const handleMouseDown = useCallback(event => {
         event.preventDefault();
@@ -91,6 +98,17 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
         },
         [handleDeleteTag, selectedMultiple, value],
     );
+
+    useEffect(() => {
+        /**
+         * Если текст не помещается в инпут, то нужно перенести инпут на новую строку.
+         */
+        if (inputTextIsOverflow() && !inputOnNewLine) {
+            setInputOnNewLine(true);
+        } else if (value.length === 0) {
+            setInputOnNewLine(false);
+        }
+    }, [value, inputOnNewLine, inputTextIsOverflow]);
 
     const filled = Boolean(selectedMultiple.length > 0) || Boolean(value);
 
@@ -145,11 +163,13 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                     {autocomplete && (
                         <input
                             {...restInnerProps}
+                            autoComplete='off'
                             ref={inputRef}
                             value={value}
                             onChange={onInput}
                             className={cn(styles.input, {
                                 [styles.focusVisible]: inputFocusVisible,
+                                [styles.block]: inputOnNewLine,
                             })}
                             disabled={disabled}
                             onKeyDown={handleKeyDown}

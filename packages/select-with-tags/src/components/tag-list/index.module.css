@@ -58,6 +58,10 @@
     }
 }
 
+.block {
+    min-width: 100%;
+}
+
 .tag {
     padding: 0;
     padding-left: var(--gap-m);
