@@ -1,20 +1,5 @@
 @import '../../../../vars/src/index.css';
 
-.component .contentWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    margin: var(--gap-2xs-neg);
-
-    &.hasLabel {
-        margin-top: var(--gap-xs);
-    }
-
-    &.hasTags.hasLabel {
-        margin-top: var(--gap-s);
-    }
-}
-
 .component.l .contentWrapper {
     padding: var(--gap-l) var(--gap-m);
 }
@@ -25,6 +10,23 @@
 
 .component.s .contentWrapper {
     padding: var(--gap-s) var(--gap-m);
+}
+
+.component .contentWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: var(--gap-2xs-neg);
+
+    &.hasLabel {
+        margin-top: var(--gap-xs);
+        padding-bottom: var(--gap-xs);
+    }
+
+    &.hasTags.hasLabel {
+        margin-top: var(--gap-m);
+        padding-bottom: var(--gap-s);
+    }
 }
 
 .component:hover .addons {
@@ -125,9 +127,9 @@
 }
 
 .component .label {
-    top: 0;
+    top: 14px;
     align-items: flex-start;
     height: auto;
-    padding-top: var(--gap-s);
     transform: none;
+    font-size: 14px;
 }
