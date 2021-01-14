@@ -36,4 +36,9 @@ export type SelectWithTagsProps = Omit<
      * Функция сравнения при поиске
      */
     match?: OptionMatcher;
+
+    /**
+     * Будет отображаться, если компонент списка пустой
+     */
+    emptyListPlaceholder?: string;
 };
