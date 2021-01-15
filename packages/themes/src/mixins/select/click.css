@@ -10,7 +10,8 @@
     --select-arrow-background: url('http://alfabank.st/icons/glyph_chevron-down_m.svg');
 
     /* options list */
-
+    --select-options-list-top-padding: 8px;
+    --select-options-list-bottom-padding: 8px;
     --select-option-divider-display: block;
 
     /* checkmark */
