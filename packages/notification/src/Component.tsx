@@ -1,37 +1,15 @@
-import React, {
-    forwardRef,
-    useCallback,
-    ReactNode,
-    MouseEvent,
-    useRef,
-    HTMLAttributes,
-    useEffect,
-    useState,
-} from 'react';
+import React, { forwardRef, useCallback, MouseEvent, useRef, useEffect, useState } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
 import { useSwipeable, LEFT, RIGHT, UP } from 'react-swipeable';
-import { CloseSWhiteIcon } from '@alfalab/icons-classic/CloseSWhiteIcon';
-import { CheckmarkMIcon } from '@alfalab/icons-glyph/CheckmarkMIcon';
-import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
-import { ExclamationMIcon } from '@alfalab/icons-glyph/ExclamationMIcon';
 import { Portal } from '@alfalab/core-components-portal';
-import { Button } from '@alfalab/core-components-button';
+import { Toast, ToastProps } from '@alfalab/core-components-toast';
+
 import { useClickOutside } from './utils';
 
 import styles from './index.module.css';
 
-export type NotificationProps = HTMLAttributes<HTMLDivElement> & {
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
-
-    /**
-     * Дочерние элементы
-     */
-    children?: ReactNode;
-
+export type NotificationProps = ToastProps & {
     /**
      * Управление видимостью компонента
      */
@@ -43,34 +21,9 @@ export type NotificationProps = HTMLAttributes<HTMLDivElement> & {
     offset?: number;
 
     /**
-     * Управляет отображением кнопки закрытия уведомления
-     */
-    hasCloser?: boolean;
-
-    /**
-     * Заголовок компонента
-     */
-    title?: ReactNode;
-
-    /**
-     * Вид иконки
-     */
-    icon?: 'negative' | 'positive' | 'warning';
-
-    /**
-     * Слот слева, заменяет стандартную иконку
-     */
-    leftAddons?: ReactNode;
-
-    /**
      * Время до закрытия компонента
      */
     autoCloseDelay?: number;
-
-    /**
-     * Обработчик клика по крестику
-     */
-    onClose?: (event?: MouseEvent<HTMLButtonElement>) => void;
 
     /**
      * Обработчик события истечения времени до закрытия компонента
@@ -91,20 +44,9 @@ export type NotificationProps = HTMLAttributes<HTMLDivElement> & {
      * Обработчик клика вне компонента
      */
     onClickOutside?: (event?: MouseEvent<any>) => void;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
 };
 
 const notificationClassNameSelector = `.${styles.notificationComponent}`;
-
-const iconComponent = {
-    negative: <CrossMIcon className={styles.iconSvg} />,
-    positive: <CheckmarkMIcon className={styles.iconSvg} />,
-    warning: <ExclamationMIcon className={styles.iconSvg} />,
-};
 
 export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
     (
@@ -114,16 +56,12 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
             visible,
             offset = 108,
             hasCloser = true,
-            title,
-            icon,
-            leftAddons,
             autoCloseDelay = 5000,
             onClose,
             onCloseTimeout,
             onMouseEnter,
             onMouseLeave,
             onClickOutside,
-            dataTestId,
             style,
             ...restProps
         },
@@ -222,12 +160,11 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         return (
             <Portal>
                 <div {...swipeableHandlers}>
-                    <div
+                    <Toast
                         className={cn(
                             styles.notificationComponent,
                             {
                                 [styles.isVisible]: visible,
-                                [styles.hasCloser]: hasCloser,
                                 [styles.isClosing]: isClosing,
                             },
                             className,
@@ -240,34 +177,12 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                         onMouseLeave={handleMouseLeave}
                         ref={mergeRefs([ref, notificationRef])}
                         role={visible ? 'alert' : undefined}
-                        data-test-id={dataTestId}
+                        hasCloser={hasCloser}
+                        onClose={onClose}
                         {...restProps}
                     >
-                        {(leftAddons || icon) && (
-                            <div className={styles.leftAddons}>
-                                {leftAddons ||
-                                    (icon && (
-                                        <div className={cn(styles.icon, styles[icon])}>
-                                            {iconComponent[icon]}
-                                        </div>
-                                    ))}
-                            </div>
-                        )}
-                        <div className={styles.contentContainer}>
-                            {title && <div className={styles.title}>{title}</div>}
-                            {children && <div className={styles.content}>{children}</div>}
-                        </div>
-                        {hasCloser && onClose && (
-                            <Button
-                                className={styles.closer}
-                                view='ghost'
-                                onClick={onClose}
-                                aria-label='закрыть'
-                            >
-                                <CloseSWhiteIcon />
-                            </Button>
-                        )}
-                    </div>
+                        {children}
+                    </Toast>
                 </div>
             </Portal>
         );
