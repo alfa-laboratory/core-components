@@ -1,0 +1,13 @@
+@import '../../../../vars/src/index.css';
+
+@define-mixin toast-plate-click {
+    --toast-plate-title-font-weight: 400;
+
+    --toast-plate-close-icon-background-image: url('https://alfabank.st/icons/glyph_cross_m_white.svg');
+    --toast-plate-close-icon-size: 24px;
+
+    --toast-plate-badge-size: 20px;
+    --toast-plate-badge-icon-size: 24px;
+
+    --toast-plate-left-addons-margin: 0 var(--gap-xs) 0 0;
+}

@@ -5,6 +5,15 @@
     --toast-plate-bg-color: var(--color-light-bg-primary-inverted);
     --toast-plate-color: var(--color-light-text-primary-inverted);
     --toast-plate-border-radius: 8px;
+    --toast-plate-title-font-weight: 700;
+
+    --toast-plate-close-icon-size: 18px;
+    --toast-plate-close-icon-background-image: url('https://alfabank.st/icons/icon_close_s_white.svg');
+
+    --toast-plate-badge-size: 24px;
+    --toast-plate-badge-icon-size: 30px;
+
+    --toast-plate-left-addons-margin: 0 var(--gap-m) 0 0;
 }
 
 .component {
@@ -12,13 +21,18 @@
 
     position: relative;
     display: inline-flex;
+    align-items: flex-start;
     box-sizing: border-box;
     border-radius: var(--toast-plate-border-radius);
     color: var(--toast-plate-color);
     min-height: 56px;
-    padding: var(--gap-s);
+    padding: var(--gap-m);
     background-color: var(--toast-plate-bg-color);
     box-shadow: var(--shadow-s);
+
+    &.hasCloser {
+        padding-right: var(--gap-s);
+    }
 }
 
 .block {
@@ -29,52 +43,29 @@
     display: flex;
     align-items: center;
     flex-grow: 1;
-    margin-right: var(--gap-xl);
+
+    &.hasChildren {
+        align-items: flex-start;
+    }
 }
 
 .actionsSection {
     display: flex;
     align-items: center;
-}
-
-.component * {
-    box-sizing: border-box;
+    margin-left: var(--gap-xl);
 }
 
 .leftAddons {
     display: flex;
     flex-shrink: 0;
     min-width: 24px;
-    margin-right: var(--gap-m);
-}
-
-.icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-
-    &.positive {
-        background-color: var(--color-light-graphic-positive);
-    }
-
-    &.warning {
-        background-color: var(--color-light-graphic-attention);
-    }
-
-    &.negative {
-        background-color: var(--color-light-graphic-accent);
-    }
-}
-
-.iconSvg {
-    height: 18px;
+    margin: var(--toast-plate-left-addons-margin);
 }
 
 .title {
     @mixin accent_primary_medium;
+
+    font-weight: var(--toast-plate-title-font-weight);
 }
 
 .content {
@@ -86,21 +77,42 @@
 }
 
 .closeButton {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
     padding: var(--gap-s);
     transition: opacity 0.2s ease-out;
     cursor: pointer;
 
-    &:hover {
-        color: color-mod(var(--color-light-text-primary-inverted) alpha(70%))
+    &:hover .closeIcon {
+        opacity: 0.7;
     }
 
-    &:active {
-        color: color-mod(var(--color-light-text-primary-inverted) alpha(50%))
+    &:active .closeIcon {
+        opacity: 0.5;
     }
 }
 
 .actionButtonWrapper {
     margin-right: var(--gap-s);
+}
+
+.closeIcon {
+    width: var(--toast-plate-close-icon-size);
+    height: var(--toast-plate-close-icon-size);
+    background-image: var(--toast-plate-close-icon-background-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: opacity 0.2s ease-out;
+}
+
+.badge {
+    width: var(--toast-plate-badge-size);
+    height: var(--toast-plate-badge-size);
+}
+
+/* Переопределение стилей в компоненте Badge  */
+.component svg.badgeIcon {
+    max-height: none;
+    width: var(--toast-plate-badge-icon-size);
+    height: var(--toast-plate-badge-icon-size);
 }

@@ -6,19 +6,28 @@ import { Button } from '@alfalab/core-components-button';
 import { ToastPlate } from './';
 import { name, version } from '../package.json';
 
-<Meta title='Компоненты' component={ToastPlate} />
+<Meta
+    title='Компоненты'
+    component={ToastPlate}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
 
 <!-- Canvas -->
 
 <Story name='ToastPlate'>
-    <ToastPlate
-        icon={select('icon', ['negative', 'positive', 'warning', undefined], 'positive')}
-        title={text('title', 'Автоплатеж удален')}
-        hasCloser={boolean('hasCloser', true)}
-        block={boolean('block', false)}
-        onClose={Function.prototype}
-        actionButton={<Button view="ghost" size="s">Восстановить</Button>}
-    />
+    {React.createElement(() => {
+        return (
+            <ToastPlate
+                badge={select('badge', ['negative', 'positive', 'attention', undefined], 'positive')}
+                title={text('title', 'Поздравляем, полный успех')}
+                hasCloser={boolean('hasCloser', true)}
+                block={boolean('block', false)}
+                onClose={Function.prototype}
+            >
+                {text('children', '')}
+            </ToastPlate>
+        )
+    })}
 </Story>
 
 <!-- Docs -->
@@ -39,10 +48,12 @@ import { ToastPlate } from '@alfalab/core-components-toast-plate';
 
 <Preview>
     <ToastPlate
-        icon='positive'
+        badge='positive'
         title='Поздравляем, полный успех'
         hasCloser={true}
+        block={true}
         onClose={Function.prototype}
+        actionButton={<Button view="ghost" size="s">Восстановить</Button> }
     />
 </Preview>
 

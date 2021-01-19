@@ -17,6 +17,7 @@
         "react-dom": "^16.9.0"
     },
     "dependencies": {
+        "@alfalab/core-components-badge": "^1.0.3",
         "@alfalab/core-components-button": "^1.10.0",
         "classnames": "^2.2.6"
     }

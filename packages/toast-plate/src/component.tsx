@@ -1,11 +1,11 @@
 import React, { forwardRef, HTMLAttributes, ReactNode, MouseEvent } from 'react';
 import cn from 'classnames';
 
-import { CloseSWhiteIcon } from '@alfalab/icons-classic/CloseSWhiteIcon';
-import { CheckmarkMIcon } from '@alfalab/icons-glyph/CheckmarkMIcon';
-import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
-import { ExclamationMIcon } from '@alfalab/icons-glyph/ExclamationMIcon';
 import { Button } from '@alfalab/core-components-button';
+import { Badge } from '@alfalab/core-components-badge';
+import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
+import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
+import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
 
 import styles from './index.module.css';
 
@@ -26,9 +26,9 @@ export type ToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     title?: ReactNode;
 
     /**
-     * Вид иконки
+     * Вид бэйджа
      */
-    icon?: 'negative' | 'positive' | 'warning';
+    badge?: 'negative' | 'positive' | 'attention';
 
     /**
      * Слот слева, заменяет стандартную иконку
@@ -62,9 +62,9 @@ export type ToastPlateProps = HTMLAttributes<HTMLDivElement> & {
 };
 
 const iconComponent = {
-    negative: <CrossMIcon className={styles.iconSvg} />,
-    positive: <CheckmarkMIcon className={styles.iconSvg} />,
-    warning: <ExclamationMIcon className={styles.iconSvg} />,
+    negative: <CrossCircleMIcon className={styles.badgeIcon} />,
+    positive: <CheckmarkCircleMIcon className={styles.badgeIcon} />,
+    attention: <AlertCircleMIcon className={styles.badgeIcon} />,
 };
 
 export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
@@ -74,7 +74,7 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
             className,
             hasCloser,
             leftAddons,
-            icon,
+            badge,
             title,
             children,
             onClose,
@@ -84,21 +84,33 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
         },
         ref,
     ) => {
+        const needRenderCloser = hasCloser && Boolean(onClose);
+        const needRenderActionsSection = needRenderCloser || Boolean(actionButton);
+
         return (
             <div
-                className={cn(styles.component, { [styles.block]: block }, className)}
+                className={cn(
+                    styles.component,
+                    { [styles.block]: block, [styles.hasCloser]: hasCloser },
+                    className,
+                )}
                 ref={ref}
                 data-test-id={dataTestId}
                 {...restProps}
             >
-                <div className={styles.mainSection}>
-                    {(leftAddons || icon) && (
+                <div
+                    className={cn(styles.mainSection, { [styles.hasChildren]: Boolean(children) })}
+                >
+                    {(leftAddons || badge) && (
                         <div className={styles.leftAddons}>
                             {leftAddons ||
-                                (icon && (
-                                    <div className={cn(styles.icon, styles[icon])}>
-                                        {iconComponent[icon]}
-                                    </div>
+                                (badge && (
+                                    <Badge
+                                        view='icon'
+                                        content={iconComponent[badge]}
+                                        iconColor={badge}
+                                        className={styles.badge}
+                                    />
                                 ))}
                         </div>
                     )}
@@ -109,21 +121,23 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
                     </div>
                 </div>
 
-                <div className={styles.actionsSection}>
-                    {actionButton && (
-                        <div className={styles.actionButtonWrapper}>{actionButton}</div>
-                    )}
+                {needRenderActionsSection && (
+                    <div className={styles.actionsSection}>
+                        {actionButton && (
+                            <div className={styles.actionButtonWrapper}>{actionButton}</div>
+                        )}
 
-                    {hasCloser && onClose && (
-                        <Button
-                            className={styles.closeButton}
-                            view='ghost'
-                            onClick={onClose}
-                            aria-label='закрыть'
-                            leftAddons={<CrossMIcon />}
-                        />
-                    )}
-                </div>
+                        {needRenderCloser && (
+                            <Button
+                                className={styles.closeButton}
+                                view='ghost'
+                                onClick={onClose}
+                                aria-label='закрыть'
+                                leftAddons={<div className={styles.closeIcon} />}
+                            />
+                        )}
+                    </div>
+                )}
             </div>
         );
     },

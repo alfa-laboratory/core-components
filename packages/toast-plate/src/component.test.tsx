@@ -9,7 +9,7 @@ describe('Notification', () => {
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
             const { baseElement } = render(
-                <ToastPlate icon='positive' title='title'>
+                <ToastPlate badge='positive' title='title'>
                     text
                 </ToastPlate>,
             );
@@ -56,25 +56,13 @@ describe('Notification', () => {
             expect(el).toHaveClass(className);
         });
 
-        it('should set `positive` class if `icon` prop is `positive`', () => {
-            const icon = 'positive';
-            const { baseElement } = render(<ToastPlate icon={icon} />);
+        it('should set `hasCloser` class', () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<ToastPlate hasCloser={true} dataTestId={dataTestId} />);
 
-            expect(baseElement.querySelector('.icon')).toHaveClass(icon);
-        });
+            const el = getByTestId(dataTestId);
 
-        it('should set `negative` class if `icon` prop is `negative`', () => {
-            const icon = 'negative';
-            const { baseElement } = render(<ToastPlate icon={icon} />);
-
-            expect(baseElement.querySelector('.icon')).toHaveClass(icon);
-        });
-
-        it('should set `warning` class if `icon` prop is `warning`', () => {
-            const icon = 'warning';
-            const { baseElement } = render(<ToastPlate icon={icon} />);
-
-            expect(baseElement.querySelector('.icon')).toHaveClass(icon);
+            expect(el).toHaveClass('hasCloser');
         });
     });
 

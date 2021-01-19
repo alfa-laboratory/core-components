@@ -8,34 +8,13 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
   >
     <div>
       <div
-        class="component notificationComponent"
+        class="component hasCloser notificationComponent"
+        icon="positive"
         style="top: 108px;"
       >
         <div
-          class="mainSection"
+          class="mainSection hasChildren"
         >
-          <div
-            class="leftAddons"
-          >
-            <div
-              class="icon positive"
-            >
-              <svg
-                class="iconSvg"
-                fill="currentColor"
-                focusable="false"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M20 7.5L10.5 17 4 10.5 5.5 9l5 5 8-8L20 7.5z"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </div>
-          </div>
           <div
             class="contentContainer"
           >
@@ -61,17 +40,9 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
             <span
               class="addons"
             >
-              <svg
-                fill="currentColor"
-                focusable="false"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-              >
-                <path
-                  d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
-                />
-              </svg>
+              <div
+                class="closeIcon"
+              />
             </span>
           </button>
         </div>
