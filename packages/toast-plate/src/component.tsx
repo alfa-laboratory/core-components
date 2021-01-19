@@ -122,7 +122,11 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
                 </div>
 
                 {needRenderActionsSection && (
-                    <div className={styles.actionsSection}>
+                    <div
+                        className={cn(styles.actionsSection, {
+                            [styles.hasChildren]: Boolean(children),
+                        })}
+                    >
                         {actionButton && (
                             <div className={styles.actionButtonWrapper}>{actionButton}</div>
                         )}

@@ -53,6 +53,10 @@
     display: flex;
     align-items: center;
     margin-left: var(--gap-xl);
+
+    &.hasChildren {
+        margin-left: var(--gap-l);
+    }
 }
 
 .leftAddons {
