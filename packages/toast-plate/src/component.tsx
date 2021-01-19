@@ -9,7 +9,7 @@ import { Button } from '@alfalab/core-components-button';
 
 import styles from './index.module.css';
 
-export type ToastProps = HTMLAttributes<HTMLDivElement> & {
+export type ToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     /**
      * Дополнительный класс
      */
@@ -36,6 +36,11 @@ export type ToastProps = HTMLAttributes<HTMLDivElement> & {
     leftAddons?: ReactNode;
 
     /**
+     * Кнопка действия
+     */
+    actionButton?: ReactNode;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -44,6 +49,11 @@ export type ToastProps = HTMLAttributes<HTMLDivElement> & {
      * Управляет отображением кнопки закрытия уведомления
      */
     hasCloser?: boolean;
+
+    /**
+     * Растягивает компонент на ширину контейнера
+     */
+    block?: boolean;
 
     /**
      * Обработчик клика по крестику
@@ -57,7 +67,7 @@ const iconComponent = {
     warning: <ExclamationMIcon className={styles.iconSvg} />,
 };
 
-export const Toast = forwardRef<HTMLDivElement, ToastProps>(
+export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
     (
         {
             dataTestId,
@@ -68,47 +78,52 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
             title,
             children,
             onClose,
+            actionButton,
+            block,
             ...restProps
         },
         ref,
     ) => {
         return (
             <div
-                className={cn(
-                    styles.component,
-                    {
-                        [styles.hasCloser]: hasCloser,
-                    },
-                    className,
-                )}
+                className={cn(styles.component, { [styles.block]: block }, className)}
                 ref={ref}
                 data-test-id={dataTestId}
                 {...restProps}
             >
-                {(leftAddons || icon) && (
-                    <div className={styles.leftAddons}>
-                        {leftAddons ||
-                            (icon && (
-                                <div className={cn(styles.icon, styles[icon])}>
-                                    {iconComponent[icon]}
-                                </div>
-                            ))}
+                <div className={styles.mainSection}>
+                    {(leftAddons || icon) && (
+                        <div className={styles.leftAddons}>
+                            {leftAddons ||
+                                (icon && (
+                                    <div className={cn(styles.icon, styles[icon])}>
+                                        {iconComponent[icon]}
+                                    </div>
+                                ))}
+                        </div>
+                    )}
+
+                    <div className={styles.contentContainer}>
+                        {title && <div className={styles.title}>{title}</div>}
+                        {children && <div className={styles.content}>{children}</div>}
                     </div>
-                )}
-                <div className={styles.contentContainer}>
-                    {title && <div className={styles.title}>{title}</div>}
-                    {children && <div className={styles.content}>{children}</div>}
                 </div>
-                {hasCloser && onClose && (
-                    <Button
-                        className={styles.closer}
-                        view='ghost'
-                        onClick={onClose}
-                        aria-label='закрыть'
-                    >
-                        <CloseSWhiteIcon />
-                    </Button>
-                )}
+
+                <div className={styles.actionsSection}>
+                    {actionButton && (
+                        <div className={styles.actionButtonWrapper}>{actionButton}</div>
+                    )}
+
+                    {hasCloser && onClose && (
+                        <Button
+                            className={styles.closeButton}
+                            view='ghost'
+                            onClick={onClose}
+                            aria-label='закрыть'
+                            leftAddons={<CrossMIcon />}
+                        />
+                    )}
+                </div>
             </div>
         );
     },

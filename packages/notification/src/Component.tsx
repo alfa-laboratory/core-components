@@ -3,13 +3,13 @@ import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
 import { useSwipeable, LEFT, RIGHT, UP } from 'react-swipeable';
 import { Portal } from '@alfalab/core-components-portal';
-import { Toast, ToastProps } from '@alfalab/core-components-toast';
+import { ToastPlate, ToastPlateProps } from '@alfalab/core-components-toast-plate';
 
 import { useClickOutside } from './utils';
 
 import styles from './index.module.css';
 
-export type NotificationProps = ToastProps & {
+export type NotificationProps = ToastPlateProps & {
     /**
      * Управление видимостью компонента
      */
@@ -160,7 +160,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         return (
             <Portal>
                 <div {...swipeableHandlers}>
-                    <Toast
+                    <ToastPlate
                         className={cn(
                             styles.notificationComponent,
                             {
@@ -182,7 +182,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                         {...restProps}
                     >
                         {children}
-                    </Toast>
+                    </ToastPlate>
                 </div>
             </Portal>
         );

@@ -1,7 +1,7 @@
 {
-    "name": "@alfalab/core-components-toast",
+    "name": "@alfalab/core-components-toast-plate",
     "version": "1.0.0",
-    "description": "Toast component",
+    "description": "Toast plate component",
     "keywords": [],
     "license": "ISC",
     "main": "dist/index.js",

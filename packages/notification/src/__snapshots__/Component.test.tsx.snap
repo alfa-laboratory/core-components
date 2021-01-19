@@ -8,66 +8,73 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
   >
     <div>
       <div
-        class="component hasCloser notificationComponent"
+        class="component notificationComponent"
         style="top: 108px;"
       >
         <div
-          class="leftAddons"
+          class="mainSection"
         >
           <div
-            class="icon positive"
+            class="leftAddons"
           >
-            <svg
-              class="iconSvg"
-              fill="currentColor"
-              focusable="false"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
+            <div
+              class="icon positive"
             >
-              <path
-                clip-rule="evenodd"
-                d="M20 7.5L10.5 17 4 10.5 5.5 9l5 5 8-8L20 7.5z"
-                fill-rule="evenodd"
-              />
-            </svg>
+              <svg
+                class="iconSvg"
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M20 7.5L10.5 17 4 10.5 5.5 9l5 5 8-8L20 7.5z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </div>
+          <div
+            class="contentContainer"
+          >
+            <div
+              class="title"
+            >
+              title
+            </div>
+            <div
+              class="content"
+            >
+              text
+            </div>
           </div>
         </div>
         <div
-          class="contentContainer"
+          class="actionsSection"
         >
-          <div
-            class="title"
+          <button
+            aria-label="закрыть"
+            class="component ghost m iconOnly closeButton"
           >
-            title
-          </div>
-          <div
-            class="content"
-          >
-            text
-          </div>
-        </div>
-        <button
-          aria-label="закрыть"
-          class="component ghost m closer"
-        >
-          <span
-            class="text stretchText"
-          >
-            <svg
-              focusable="false"
-              height="18"
-              version="1"
-              viewBox="0 0 18 18"
-              width="18"
+            <span
+              class="addons"
             >
-              <path
-                d="M14.646 2.646L9 8.293 3.354 2.646l-.708.708L8.293 9l-5.647 5.646.708.708L9 9.707l5.646 5.647.708-.708L9.707 9l5.647-5.646z"
-                fill="#FFF"
-              />
-            </svg>
-          </span>
-        </button>
+              <svg
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   </div>

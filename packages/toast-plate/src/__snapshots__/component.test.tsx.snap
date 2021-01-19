@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification Snapshots tests should match snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="component"
+    >
+      <div
+        class="mainSection"
+      >
+        <div
+          class="leftAddons"
+        >
+          <div
+            class="icon positive"
+          >
+            <svg
+              class="iconSvg"
+              fill="currentColor"
+              focusable="false"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M20 7.5L10.5 17 4 10.5 5.5 9l5 5 8-8L20 7.5z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="contentContainer"
+        >
+          <div
+            class="title"
+          >
+            title
+          </div>
+          <div
+            class="content"
+          >
+            text
+          </div>
+        </div>
+      </div>
+      <div
+        class="actionsSection"
+      />
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Notification Snapshots tests should match snapshot with leftAddons 1`] = `
+<body>
+  <div>
+    <div
+      class="component"
+    >
+      <div
+        class="mainSection"
+      >
+        <div
+          class="leftAddons"
+        >
+          <div>
+            leftAddons
+          </div>
+        </div>
+        <div
+          class="contentContainer"
+        />
+      </div>
+      <div
+        class="actionsSection"
+      />
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Notification Snapshots tests should match snapshot without icon 1`] = `
+<body>
+  <div>
+    <div
+      class="component"
+    >
+      <div
+        class="mainSection"
+      >
+        <div
+          class="contentContainer"
+        >
+          <div
+            class="title"
+          >
+            title
+          </div>
+          <div
+            class="content"
+          >
+            text
+          </div>
+        </div>
+      </div>
+      <div
+        class="actionsSection"
+      />
+    </div>
+  </div>
+</body>
+`;

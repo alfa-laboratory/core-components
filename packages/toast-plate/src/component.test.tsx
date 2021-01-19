@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
-import { Toast } from './index';
+import { ToastPlate } from './index';
 
 jest.useFakeTimers();
 
@@ -9,22 +9,22 @@ describe('Notification', () => {
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
             const { baseElement } = render(
-                <Toast icon='positive' title='title'>
+                <ToastPlate icon='positive' title='title'>
                     text
-                </Toast>,
+                </ToastPlate>,
             );
 
             expect(baseElement).toMatchSnapshot();
         });
 
         it('should match snapshot with leftAddons', () => {
-            const { baseElement } = render(<Toast leftAddons={<div>leftAddons</div>} />);
+            const { baseElement } = render(<ToastPlate leftAddons={<div>leftAddons</div>} />);
 
             expect(baseElement).toMatchSnapshot();
         });
 
         it('should match snapshot without icon', () => {
-            const { baseElement } = render(<Toast title='title'>text</Toast>);
+            const { baseElement } = render(<ToastPlate title='title'>text</ToastPlate>);
 
             expect(baseElement).toMatchSnapshot();
         });
@@ -32,7 +32,7 @@ describe('Notification', () => {
 
     it('should set `data-test-id` attribute', () => {
         const dataTestId = 'test-id';
-        const { getByTestId } = render(<Toast dataTestId={dataTestId} />);
+        const { getByTestId } = render(<ToastPlate dataTestId={dataTestId} />);
 
         expect(getByTestId(dataTestId).tagName).toBe('DIV');
     });
@@ -40,7 +40,7 @@ describe('Notification', () => {
     it('should forward ref', () => {
         const ref = jest.fn();
         const dataTestId = 'test-id';
-        const { getByTestId } = render(<Toast ref={ref} dataTestId={dataTestId} />);
+        const { getByTestId } = render(<ToastPlate ref={ref} dataTestId={dataTestId} />);
 
         expect(ref.mock.calls).toEqual([[getByTestId(dataTestId)]]);
     });
@@ -49,39 +49,30 @@ describe('Notification', () => {
         it('should set `className` class', () => {
             const className = 'test-class';
             const dataTestId = 'test-id';
-            const { getByTestId } = render(<Toast className={className} dataTestId={dataTestId} />);
+            const { getByTestId } = render(<ToastPlate className={className} dataTestId={dataTestId} />);
 
             const el = getByTestId(dataTestId);
 
             expect(el).toHaveClass(className);
         });
 
-        it('should set `hasCloser` class', () => {
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(<Toast hasCloser={true} dataTestId={dataTestId} />);
-
-            const el = getByTestId(dataTestId);
-
-            expect(el).toHaveClass('hasCloser');
-        });
-
         it('should set `positive` class if `icon` prop is `positive`', () => {
             const icon = 'positive';
-            const { baseElement } = render(<Toast icon={icon} />);
+            const { baseElement } = render(<ToastPlate icon={icon} />);
 
             expect(baseElement.querySelector('.icon')).toHaveClass(icon);
         });
 
         it('should set `negative` class if `icon` prop is `negative`', () => {
             const icon = 'negative';
-            const { baseElement } = render(<Toast icon={icon} />);
+            const { baseElement } = render(<ToastPlate icon={icon} />);
 
             expect(baseElement.querySelector('.icon')).toHaveClass(icon);
         });
 
         it('should set `warning` class if `icon` prop is `warning`', () => {
             const icon = 'warning';
-            const { baseElement } = render(<Toast icon={icon} />);
+            const { baseElement } = render(<ToastPlate icon={icon} />);
 
             expect(baseElement.querySelector('.icon')).toHaveClass(icon);
         });
@@ -92,7 +83,7 @@ describe('Notification', () => {
             const cb = jest.fn();
             const dataTestId = 'test-id';
             const { getByTestId } = render(
-                <Toast hasCloser={true} onClose={cb} dataTestId={dataTestId} />,
+                <ToastPlate hasCloser={true} onClose={cb} dataTestId={dataTestId} />,
             );
 
             const el = getByTestId(dataTestId);
@@ -105,7 +96,7 @@ describe('Notification', () => {
     });
 
     it('should unmount without errors', () => {
-        const { unmount } = render(<Toast />);
+        const { unmount } = render(<ToastPlate />);
 
         expect(unmount).not.toThrowError();
     });

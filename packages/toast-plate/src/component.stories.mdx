@@ -1,0 +1,49 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Button } from '@alfalab/core-components-button';
+
+import { ToastPlate } from './';
+import { name, version } from '../package.json';
+
+<Meta title='Компоненты' component={ToastPlate} />
+
+<!-- Canvas -->
+
+<Story name='ToastPlate'>
+    <ToastPlate
+        icon={select('icon', ['negative', 'positive', 'warning', undefined], 'positive')}
+        title={text('title', 'Автоплатеж удален')}
+        hasCloser={boolean('hasCloser', true)}
+        block={boolean('block', false)}
+        onClose={Function.prototype}
+        actionButton={<Button view="ghost" size="s">Восстановить</Button>}
+    />
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='ToastPlate'
+    version={version}
+    package={name}
+    stage={1}
+    design='https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=15915%3A56409'
+/>
+
+```tsx
+import { ToastPlate } from '@alfalab/core-components-toast-plate';
+```
+
+Плашка для компонента `Toast`. Также используется в компоненте `Notification`.
+
+<Preview>
+    <ToastPlate
+        icon='positive'
+        title='Поздравляем, полный успех'
+        hasCloser={true}
+        onClose={Function.prototype}
+    />
+</Preview>
+
+<Props of={ToastPlate} />

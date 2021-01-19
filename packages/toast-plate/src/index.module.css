@@ -1,0 +1,106 @@
+@import '../../themes/src/default.css';
+@import '../../themes/src/mixins/button/default-inverted.css';
+
+:root {
+    --toast-plate-bg-color: var(--color-light-bg-primary-inverted);
+    --toast-plate-color: var(--color-light-text-primary-inverted);
+    --toast-plate-border-radius: 8px;
+}
+
+.component {
+    @mixin button-default-inverted;
+
+    position: relative;
+    display: inline-flex;
+    box-sizing: border-box;
+    border-radius: var(--toast-plate-border-radius);
+    color: var(--toast-plate-color);
+    min-height: 56px;
+    padding: var(--gap-s);
+    background-color: var(--toast-plate-bg-color);
+    box-shadow: var(--shadow-s);
+}
+
+.block {
+    display: flex;
+}
+
+.mainSection {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    margin-right: var(--gap-xl);
+}
+
+.actionsSection {
+    display: flex;
+    align-items: center;
+}
+
+.component * {
+    box-sizing: border-box;
+}
+
+.leftAddons {
+    display: flex;
+    flex-shrink: 0;
+    min-width: 24px;
+    margin-right: var(--gap-m);
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+
+    &.positive {
+        background-color: var(--color-light-graphic-positive);
+    }
+
+    &.warning {
+        background-color: var(--color-light-graphic-attention);
+    }
+
+    &.negative {
+        background-color: var(--color-light-graphic-accent);
+    }
+}
+
+.iconSvg {
+    height: 18px;
+}
+
+.title {
+    @mixin accent_primary_medium;
+}
+
+.content {
+    @mixin paragraph_primary_small;
+}
+
+.title + .content {
+    margin-top: var(--gap-2xs);
+}
+
+.closeButton {
+    width: 32px;
+    height: 32px;
+    padding: var(--gap-s);
+    transition: opacity 0.2s ease-out;
+    cursor: pointer;
+
+    &:hover {
+        color: color-mod(var(--color-light-text-primary-inverted) alpha(70%))
+    }
+
+    &:active {
+        color: color-mod(var(--color-light-text-primary-inverted) alpha(50%))
+    }
+}
+
+.actionButtonWrapper {
+    margin-right: var(--gap-s);
+}
