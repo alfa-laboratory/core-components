@@ -1,0 +1,96 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Button } from '@alfalab/core-components-button';
+
+import { Toast } from './';
+import { name, version } from '../package.json';
+
+<Meta
+    title='Компоненты'
+    component={Toast}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+<!-- Canvas -->
+
+<Story name='Toast'>
+    {React.createElement(() => {
+        const POSITION_OPTIONS = [
+            'top',
+            'top-start',
+            'top-end',
+            'bottom',
+            'bottom-start',
+            'bottom-end',
+            'right',
+            'right-start',
+            'right-end',
+            'left',
+            'left-start',
+            'left-end',
+        ];
+        const [open, setOpen] = React.useState(false);
+        const [buttonElement, setButtonElement] = React.useState(null);
+        const toggle = () => {
+            setOpen(!open);
+        };
+        const handleButtonRef = node => {
+            setButtonElement(node);
+        };
+        const transitionTimeout = number('transition.timeout (ms)', 0);
+        return (
+            <div
+                style={{
+                    width: '700px',
+                    height: '300px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
+            >
+                <Toast
+                    popoverProps={{
+                        anchorElement: buttonElement,
+                        position: select('position', POSITION_OPTIONS, 'left'),
+                        open: open,
+                        transition: { timeout: transitionTimeout },
+                        offset: [number('offset[0]', 0), number('offset[1]', 0)],
+                        withArrow: boolean('withArrow', false),
+                        withTransition: boolean('withTransition', true),
+                    }}
+                    toastPlateProps={{
+                        badge: select('badge', ['negative', 'positive', 'attention', undefined], 'positive'),
+                        title: text('title', 'Скопировано'),
+                        hasCloser: boolean('hasCloser', true),
+                        block: boolean('block', false),
+                        onClose: () => {
+                            setOpen(false)
+                        },
+                    }}
+                >
+                    <div style={{ padding: '15px', width: '156px' }}>I am popover</div>
+                </Toast>
+                <Button ref={handleButtonRef} onClick={toggle}>
+                    Show/Hide toast
+                </Button>
+            </div>
+        );
+    })}
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Toast'
+    version={version}
+    package={name}
+    stage={1}
+    design='https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=15915%3A56409'
+/>
+
+```tsx
+import { Toast } from '@alfalab/core-components-toast';
+```
+
+<Props of={Toast} />

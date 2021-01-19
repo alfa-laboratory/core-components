@@ -9,5 +9,5 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../toast-plate" }]
+    "references": [{ "path": "../toast-plate" }, { "path": "../popover" }]
 }

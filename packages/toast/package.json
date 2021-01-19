@@ -16,6 +16,7 @@
         "react": "^16.9.0"
     },
     "dependencies": {
+        "@alfalab/core-components-popover": "^1.4.0",
         "@alfalab/core-components-toast-plate": "^1.0.0",
         "classnames": "^2.2.6"
     }
