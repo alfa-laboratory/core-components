@@ -12,7 +12,7 @@ describe('Notification', () => {
 
         it('should match snapshot', () => {
             const { baseElement } = render(
-                <Notification icon='positive' title='title' onClose={onClose}>
+                <Notification badge='positive' title='title' onClose={onClose}>
                     text
                 </Notification>,
             );
