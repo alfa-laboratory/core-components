@@ -31,7 +31,7 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="actionsSection"
+          class="actionsSection hasChildren"
         >
           <button
             aria-label="закрыть"

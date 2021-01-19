@@ -7,12 +7,15 @@
     --toast-plate-border-radius: 8px;
     --toast-plate-title-font-weight: 700;
 
+    /* Close icon */
     --toast-plate-close-icon-size: 18px;
     --toast-plate-close-icon-background-image: url('https://alfabank.st/icons/icon_close_s_white.svg');
 
+    /* Badge */
     --toast-plate-badge-size: 24px;
     --toast-plate-badge-icon-size: 30px;
 
+    /* Left addons */
     --toast-plate-left-addons-margin: 0 var(--gap-m) 0 0;
 }
 
