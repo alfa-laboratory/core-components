@@ -1,3 +1,10 @@
+## [8.0.2](https://github.com/alfa-laboratory/core-components/compare/v8.0.1...v8.0.2) (2021-01-20)
+
+
+### Bug Fixes
+
+* **tag:** fix formatting ([#480](https://github.com/alfa-laboratory/core-components/issues/480)) ([111bf08](https://github.com/alfa-laboratory/core-components/commit/111bf08c068f4efe400ce6a25a60280a50fda7b4))
+
 ## [8.0.1](https://github.com/alfa-laboratory/core-components/compare/v8.0.0...v8.0.1) (2021-01-20)
 
 
