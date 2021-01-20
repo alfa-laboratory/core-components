@@ -98,7 +98,7 @@
 .xs {
     min-width: 60px;
     min-height: 32px;
-    padding: 4px 16px;
+    padding: var(--gap-2xs) var(--gap-m);
     border-radius: 32px;
     font-size: 14px;
     line-height: 18px;
@@ -114,7 +114,7 @@
 .s {
     min-width: 80px;
     min-height: 48px;
-    padding: 4px 16px;
+    padding: var(--gap-2xs) var(--gap-m);
     border-radius: 48px;
     font-size: 16px;
     line-height: 20px;
@@ -128,13 +128,11 @@
 }
 
 .m {
+    @mixin action_component;
     min-width: 96px;
     min-height: 56px;
-    padding: 4px 24px;
+    padding: var(--gap-2xs) var(--gap-xl);
     border-radius: 56px;
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 500;
 
     @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
         /* Хак для ие, в котором не работает центрирование по высоте с использованием флексов, если указан min-height
@@ -146,7 +144,7 @@
 .l {
     min-width: 120px;
     min-height: 68px;
-    padding: 4px 32px;
+    padding: var(--gap-2xs) var(--gap-2xl);
     border-radius: 68px;
     font-size: 18px;
     line-height: 22px;
