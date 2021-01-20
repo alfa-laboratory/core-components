@@ -26,10 +26,6 @@ export const AutocompleteField = ({
 
     const { onClick } = innerProps;
 
-    const handleMouseDown = useCallback(event => {
-        event.preventDefault();
-    }, []);
-
     const handleClick = useCallback(
         event => {
             if (onClick) onClick(event);
@@ -57,7 +53,6 @@ export const AutocompleteField = ({
             success={success}
             hint={hint}
             onChange={onInput}
-            onMouseDown={handleMouseDown}
             onClick={handleClick}
             autoComplete='off'
             value={value}

@@ -25,6 +25,7 @@
         "lint:css": "stylelint ./packages/**/*.css",
         "lint:js": "eslint ./packages --ext .ts,.tsx,.js,.jsx",
         "test": "jest --watchAll=false --env=jsdom-sixteen",
+        "test:screenshots": "jest --config=jest.screenshots.config.js",
         "format": "prettier --write \"./{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
         "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist} && rimraf {dist,build}",
         "cm": "git-cz",
@@ -76,6 +77,7 @@
     },
     "devDependencies": {
         "@alfalab/rollup-plugin-postcss": "^3.2.0",
+        "@alfalab/stylelint-core-vars": "^0.0.4",
         "@babel/plugin-proposal-class-properties": "^7.12.1",
         "@babel/preset-typescript": "^7.9.0",
         "@commitlint/config-conventional": "^8.3.4",
@@ -100,7 +102,9 @@
         "@testing-library/user-event": "^12.0.2",
         "@types/classnames": "^2.2.9",
         "@types/jest": "^26.0.15",
+        "@types/jest-image-snapshot": "^4.1.3",
         "@types/lodash.debounce": "^4.0.6",
+        "@types/lodash.kebabcase": "^4.1.6",
         "@types/node": "^13.5.0",
         "@types/react": "^16.9.19",
         "@types/react-dom": "^16.9.5",
@@ -109,6 +113,7 @@
         "@wessberg/rollup-plugin-ts": "^1.3.6",
         "arui-presets-lint": "4.1.1",
         "arui-presets-ts": "^5.0.0",
+        "axios": "^0.21.0",
         "babel-jest": "^26.6.3",
         "babel-loader": "^8.0.6",
         "commitizen": "^4.1.2",
@@ -136,11 +141,15 @@
         "identity-obj-proxy": "^3.0.0",
         "jest": "^26.6.3",
         "jest-environment-jsdom-sixteen": "^1.0.3",
+        "jest-image-snapshot": "^4.2.0",
         "json": "^9.0.6",
         "lerna": "^3.20.2",
         "lint-staged": "^10.0.8",
+        "lodash.kebabcase": "^4.1.1",
         "mini-css-extract-plugin": "^0.11.0",
         "optimize-css-assets-webpack-plugin": "^5.0.4",
+        "playwright": "^1.7.1",
+        "playwright-cli": "^0.171.0",
         "postcss-cli": "^7.1.0",
         "postcss-import": "^12.0.1",
         "postcss-mixins": "^6.2.3",
@@ -183,8 +192,12 @@
     "stylelint": {
         "extends": "arui-presets-lint/stylelint",
         "rules": {
-            "arui-cssvars/use-variables": false
-        }
+            "arui-cssvars/use-variables": false,
+            "stylelint-core-vars/use-vars": true
+        },
+        "plugins": [
+            "@alfalab/stylelint-core-vars"
+        ]
     },
     "lint-staged": {
         "{packages,bin}/**/*.{js,jsx,ts,tsx}": [
