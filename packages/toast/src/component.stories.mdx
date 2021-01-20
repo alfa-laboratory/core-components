@@ -32,13 +32,15 @@ import { name, version } from '../package.json';
         ];
         const [open, setOpen] = React.useState(false);
         const [buttonElement, setButtonElement] = React.useState(null);
-        const toggle = () => {
-            setOpen(!open);
+        const openToast = () => {
+            setOpen(true);
+        };
+        const closeToast = () => {
+            setOpen(false);
         };
         const handleButtonRef = node => {
             setButtonElement(node);
         };
-        const transitionTimeout = number('transition.timeout (ms)', 0);
         return (
             <div
                 style={{
@@ -50,29 +52,19 @@ import { name, version } from '../package.json';
                 }}
             >
                 <Toast
-                    popoverProps={{
-                        anchorElement: buttonElement,
-                        position: select('position', POSITION_OPTIONS, 'left'),
-                        open: open,
-                        transition: { timeout: transitionTimeout },
-                        offset: [number('offset[0]', 0), number('offset[1]', 0)],
-                        withArrow: boolean('withArrow', false),
-                        withTransition: boolean('withTransition', true),
-                    }}
-                    toastPlateProps={{
-                        badge: select('badge', ['negative', 'positive', 'attention', undefined], 'positive'),
-                        title: text('title', 'Скопировано'),
-                        hasCloser: boolean('hasCloser', true),
-                        block: boolean('block', false),
-                        onClose: () => {
-                            setOpen(false)
-                        },
-                    }}
-                >
-                    <div style={{ padding: '15px', width: '156px' }}>I am popover</div>
-                </Toast>
-                <Button ref={handleButtonRef} onClick={toggle}>
-                    Show/Hide toast
+                    open={open}
+                    anchorElement={buttonElement}
+                    position={select('position', POSITION_OPTIONS, 'left')}
+                    offset={[number('offset[0]', 0), number('offset[1]', 0)]}
+                    badge={select('badge', ['negative', 'positive', 'attention', undefined], 'positive')}
+                    title={text('title', 'Toast Message')}
+                    hasCloser={boolean('hasCloser', true)}
+                    block={boolean('block', false)}
+                    onClose={closeToast}
+                    autoCloseDelay={number('autoCloseDelay', 3000)}
+                />
+                <Button ref={handleButtonRef} onClick={openToast}>
+                    Показать Toast
                 </Button>
             </div>
         );

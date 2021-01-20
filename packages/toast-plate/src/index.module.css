@@ -24,7 +24,6 @@
 
     position: relative;
     display: inline-flex;
-    align-items: flex-start;
     box-sizing: border-box;
     border-radius: var(--toast-plate-border-radius);
     color: var(--toast-plate-color);
@@ -58,6 +57,7 @@
     margin-left: var(--gap-xl);
 
     &.hasChildren {
+        align-items: flex-start;
         margin-left: var(--gap-l);
     }
 }
