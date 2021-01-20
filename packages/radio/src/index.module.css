@@ -139,6 +139,24 @@
     flex-direction: column;
 }
 
+.start {
+    align-items: flex-start;
+}
+
+.center {
+    align-items: center;
+}
+
+.addons {
+    margin-left: auto;
+    padding-left: var(--gap-m);
+    line-height: 24px;
+}
+
+.block {
+    width: 100%;
+}
+
 .label {
     @mixin system_16-24_regular;
     color: var(--radio-label-color);

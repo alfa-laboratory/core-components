@@ -41,8 +41,8 @@
 }
 
 .component {
-    display: inline-block;
     font-family: var(--form-control-font-family);
+    width: max-content;
 }
 
 .inner {
@@ -258,9 +258,14 @@
     transform: scaleY(2);
 }
 
-/* IE min-height fix */
+/* min-height and width: max-content; fix for IE */
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .component {
+        float: left;
+        clear: left;
+    }
+
     .inner:after {
         min-height: inherit;
         font-size: 0;

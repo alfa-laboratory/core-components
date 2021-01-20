@@ -14,7 +14,9 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     position: relative;
-    left: 20px;
+
+    /* 16px - 3px margin от кнопки года */
+    left: 13px;
     overflow: hidden;
 }
 

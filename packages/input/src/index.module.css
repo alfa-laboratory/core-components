@@ -123,3 +123,15 @@
     width: 0;
     height: 0;
 }
+
+/* Убирает синюю заливку при автокомплите */
+
+.input {
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+        /* Hack from http://stackoverflow.com/a/29350537 */
+        transition: background-color 999999s ease-in-out 0s;
+    }
+}
