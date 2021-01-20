@@ -9,7 +9,7 @@ Object {
         class="component s"
       >
         <div
-          class="formControl inner filled"
+          class="inner filled"
         >
           <div
             class="inputWrapper"
@@ -34,7 +34,7 @@ Object {
       class="component s"
     >
       <div
-        class="formControl inner filled"
+        class="inner filled"
       >
         <div
           class="inputWrapper"

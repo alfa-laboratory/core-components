@@ -65,6 +65,11 @@ export type FormControlProps = HTMLAttributes<HTMLDivElement> & {
     className?: string;
 
     /**
+     * Дополнительный класс для поля
+     */
+    fieldClassName?: string;
+
+    /**
      * Дополнительный класс для лейбла
      */
     labelClassName?: string;
@@ -91,6 +96,7 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
             block = false,
             size = 's',
             className,
+            fieldClassName,
             labelClassName,
             addonsClassName,
             disabled,
@@ -113,7 +119,7 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
         return (
             <div
                 data-test-id={dataTestId}
-                className={cn(styles.component, styles[size], {
+                className={cn(styles.component, className, styles[size], {
                     [styles.block]: block,
                     [styles.hasLeftAddons]: leftAddons,
                     [styles.hasRightAddons]: rightAddons || error,
@@ -121,7 +127,7 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
             >
                 <div
                     {...restProps}
-                    className={cn(className, styles.inner, {
+                    className={cn(fieldClassName, styles.inner, {
                         [styles.focused]: focused,
                         [styles.disabled]: disabled,
                         [styles.filled]: filled,
