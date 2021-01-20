@@ -1,3 +1,10 @@
+## [8.0.1](https://github.com/alfa-laboratory/core-components/compare/v8.0.0...v8.0.1) (2021-01-20)
+
+
+### Bug Fixes
+
+* adds semantic release configs again ([01231a3](https://github.com/alfa-laboratory/core-components/commit/01231a3e0de52beb226d5f4bb350db54478307d3))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
