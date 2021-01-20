@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <label
-        class="component"
+        class="component start"
       >
         <input
           type="checkbox"
@@ -34,7 +34,7 @@ Object {
   </body>,
   "container": <div>
     <label
-      class="component"
+      class="component start"
     >
       <input
         type="checkbox"
@@ -119,7 +119,7 @@ Object {
   "baseElement": <body>
     <div>
       <label
-        class="component"
+        class="component start"
       >
         <input
           type="checkbox"
@@ -133,7 +133,7 @@ Object {
   </body>,
   "container": <div>
     <label
-      class="component"
+      class="component start"
     >
       <input
         type="checkbox"
