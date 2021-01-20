@@ -2,8 +2,8 @@
 @import '../../vars.css';
 
 .component {
-    display: inline-block;
     min-width: 240px;
+    width: max-content;
     position: relative;
     outline: 0;
 }
@@ -48,4 +48,13 @@
 .block {
     width: 100%;
     min-width: auto;
+}
+
+/* width: max-content; fix for IE */
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .component {
+        float: left;
+        clear: left;
+    }
 }

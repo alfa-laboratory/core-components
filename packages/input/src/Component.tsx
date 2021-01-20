@@ -96,6 +96,11 @@ export type InputProps = Omit<
     className?: string;
 
     /**
+     * Дополнительный класс для поля
+     */
+    fieldClassName?: string;
+
+    /**
      * Дополнительный класс инпута
      */
     inputClassName?: string;
@@ -158,13 +163,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             type = 'text',
             block = false,
             bottomAddons,
-            className,
             dataTestId,
             clear = false,
             disabled,
             error,
             success,
             hint,
+            className,
+            fieldClassName,
             inputClassName,
             labelClassName,
             addonsClassName,
@@ -284,15 +290,10 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         return (
             <FormControl
                 ref={wrapperRef}
-                className={cn(
-                    styles.formControl,
-                    className,
-                    focused && focusedClassName,
-                    filled && filledClassName,
-                    {
-                        [styles.focusVisible]: focusVisible,
-                    },
-                )}
+                className={cn(className, focused && focusedClassName, filled && filledClassName)}
+                fieldClassName={cn(fieldClassName, {
+                    [styles.focusVisible]: focusVisible,
+                })}
                 labelClassName={labelClassName}
                 addonsClassName={addonsClassName}
                 size={size}

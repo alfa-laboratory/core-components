@@ -7,7 +7,7 @@
     --select-options-list-border-radius: 4px;
     --select-options-list-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
     --select-options-list-offset: 8px;
-    --select-arrow-background: url('http://alfabank.st/icons/glyph_chevron-down_m.svg');
+    --select-arrow-background: url('https://alfabank.st/icons/glyph_chevron-down_m.svg');
 
     /* options list */
 
@@ -18,6 +18,6 @@
     --select-checkmark-margin: 0 0 0 auto;
     --select-checkmark-size: 24px;
     --select-checkmark-order: 1;
-    --select-checkmark-background: url('http://alfabank.st/icons/glyph_checkmark-circle_m_color.svg');
+    --select-checkmark-background: url('https://alfabank.st/icons/glyph_checkmark-circle_m_color.svg');
     --select-checkmark-border-radius: 0;
 }

@@ -21,8 +21,8 @@
 .s {
     height: 16px;
     min-width: 16px;
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: var(--gap-2xs);
+    padding-right: var(--gap-2xs);
 }
 
 .m {

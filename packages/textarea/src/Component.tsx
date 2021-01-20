@@ -74,6 +74,11 @@ export type TextareaProps = Omit<
     className?: string;
 
     /**
+     * Дополнительный класс для поля
+     */
+    fieldClassName?: string;
+
+    /**
      * Дополнительный класс textarea
      */
     textareaClassName?: string;
@@ -127,6 +132,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             size = 's',
             block = false,
             bottomAddons,
+            fieldClassName,
             className,
             dataTestId,
             disabled,
@@ -229,7 +235,8 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 
         return (
             <FormControl
-                className={cn(className, {
+                className={cn(className)}
+                fieldClassName={cn(fieldClassName, {
                     [styles.focusVisible]: focusVisible,
                 })}
                 size={size}

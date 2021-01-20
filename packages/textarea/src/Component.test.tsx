@@ -29,12 +29,10 @@ describe('Textarea', () => {
     });
 
     describe('Classes tests', () => {
-        it('should set `className` class to form-control inner', () => {
+        it('should set `className` class to form-control wrapper', () => {
             const { container } = render(<Textarea className='test-class' />);
 
-            const inner = container.querySelector('.test-class');
-
-            expect(inner).toHaveClass('inner');
+            expect(container.querySelector('.test-class')).toHaveClass('component');
         });
 
         it('should set `textareaClassName` class to textarea', () => {
