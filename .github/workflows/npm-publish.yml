@@ -17,6 +17,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build app
         run: yarn && yarn build
+        env:
+          BUILD_CONCURRENCY: 5
 
       - name: Set NPM Token Action
         uses: filipstefansson/set-npm-token-action@v1
