@@ -3,7 +3,7 @@ name: Create new library packages
 on:
   push:
     branches:
-      - test-test
+      - master
 
 jobs:
   build:
@@ -14,7 +14,7 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Build app
         run: yarn && yarn build
 
@@ -26,13 +26,11 @@ jobs:
       - name: Publish root package
         run: |
           yarn semantic-release
-          sh ${{ github.workspace }}/bin/publish-root-package.sh
         env:
           GITHUB_TOKEN: ${{ secrets.PERMISSION_GITHUB_TOKEN }}
 
       - name: Publish separate packages
         run: |
           yarn semantic-release-lerna
-          yarn lerna publish from-package --yes
         env:
           GITHUB_TOKEN: ${{ secrets.PERMISSION_GITHUB_TOKEN }}
