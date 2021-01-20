@@ -165,8 +165,8 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             [view],
         );
 
-        const handleScroll = useCallback(event => {
-            setScrolled(event.target.scrollTop > 0);
+        const handleScroll = useCallback((scrollTop: number) => {
+            setScrolled(scrollTop > 0);
         }, []);
 
         const handlePrevArrowClick = useCallback(() => {
