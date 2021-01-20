@@ -93,7 +93,9 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
                 {...restProps}
             >
                 {leftAddons ? <span className={styles.addons}>{leftAddons}</span> : null}
+
                 <span>{children}</span>
+
                 {rightAddons ? <span className={styles.addons}>{rightAddons}</span> : null}
             </button>
         );
