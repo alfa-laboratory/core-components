@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/alfa-laboratory/core-components/compare/v7.0.0...v8.0.0) (2021-01-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* может затронуть кастомную стилизацию контролов
+
+### Features
+
+* add fieldClassName ([#467](https://github.com/alfa-laboratory/core-components/issues/467)) ([8847c5a](https://github.com/alfa-laboratory/core-components/commit/8847c5a83187b97ab8f83b0149965a1d3825f89f))
+* add stylelint-core-vars ([#461](https://github.com/alfa-laboratory/core-components/issues/461)) ([c2f515e](https://github.com/alfa-laboratory/core-components/commit/c2f515e46a590815df66321ae8da011f5b2f24db))
+* **calendar:** add scrolling to selected year when open year select ([#471](https://github.com/alfa-laboratory/core-components/issues/471)) ([bf295ab](https://github.com/alfa-laboratory/core-components/commit/bf295ab281c80df550cd38d04e86f934e822f3eb))
+* **radio:** add addons ([7923354](https://github.com/alfa-laboratory/core-components/commit/7923354468ded0a2ea4602c7dae0eb722871c1f1))
+* **radio:** add align ([fe9faec](https://github.com/alfa-laboratory/core-components/commit/fe9faecb74b2528f5a2e18f1707dffa28ec29f7d))
+* **radio:** addons, align, block for Checkbox ([78c6f37](https://github.com/alfa-laboratory/core-components/commit/78c6f37ef7cb828ac4e8b54bd6edc9d9d4a151ab))
+* **radio:** addons, align, block for Switch ([df81ef9](https://github.com/alfa-laboratory/core-components/commit/df81ef9a6ad1c560c43d08741ba0e134a4658af3))
+* **radio:** fix reversed addons of switch ([30721a9](https://github.com/alfa-laboratory/core-components/commit/30721a9ee525aca73e9a73565755607b3abcfba3))
+* **radio:** fixes ([12128fb](https://github.com/alfa-laboratory/core-components/commit/12128fb8db85c27d0309ef806ef46673f4abbddc))
+* **radio:** fullWidth -> block ([97e0cf6](https://github.com/alfa-laboratory/core-components/commit/97e0cf65b0cc9a7dc60ec99ee16d4028a2c724cc))
+* **radio:** lil fixy ([7e8103a](https://github.com/alfa-laboratory/core-components/commit/7e8103a863194f0c5115b586aaddd0ba89f75469))
+
+
+### Bug Fixes
+
+* **amount:** fix story ([#463](https://github.com/alfa-laboratory/core-components/issues/463)) ([3e1d6c1](https://github.com/alfa-laboratory/core-components/commit/3e1d6c178cc7b0305b0f82e79588bf4d1fa40f91))
+* **calendar:** fix years-table position ([#474](https://github.com/alfa-laboratory/core-components/issues/474)) ([0f8cfe2](https://github.com/alfa-laboratory/core-components/commit/0f8cfe2b7405989f69d4df964bc2df7858c20ac6))
+* **input:** prevent autocomplete to change bgcolor ([#468](https://github.com/alfa-laboratory/core-components/issues/468)) ([d00abe3](https://github.com/alfa-laboratory/core-components/commit/d00abe396fad28d6e22887cf5878367d9a6997f8))
+* **input:** set aria-label attr when label passed ([#462](https://github.com/alfa-laboratory/core-components/issues/462)) ([c8e4489](https://github.com/alfa-laboratory/core-components/commit/c8e448929e9f1a63e9391dda4db2b0d3a7d94902))
+* **input-autocomplete:** fix mousedown issue ([#473](https://github.com/alfa-laboratory/core-components/issues/473)) ([889d5ff](https://github.com/alfa-laboratory/core-components/commit/889d5ffa35a6f2163107b646165dc2ecd2401887))
+* add fallback for IE for width: max-content ([22a88bb](https://github.com/alfa-laboratory/core-components/commit/22a88bb40b40e8ea6d8a7d618c2957ed33751a86))
+* fix style for form-control and base-select ([51f9800](https://github.com/alfa-laboratory/core-components/commit/51f9800f13a3c4d682be310fe155c2aaddcc7191))
+* **picker-button:** fix test ([639fbe6](https://github.com/alfa-laboratory/core-components/commit/639fbe69f5771e5ffbff5fe65a5e46d009a6bd7c))
+
 ## [7.0.0](https://github.com/alfa-laboratory/core-components/compare/v6.0.0...v7.0.0) (2020-12-30)
 
 
