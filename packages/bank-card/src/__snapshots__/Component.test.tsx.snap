@@ -52,6 +52,7 @@ exports[`BankCard Snapshots tests should match snapshots 1`] = `
                 class="input"
               >
                 <input
+                  aria-label="Номер карты или счёта"
                   class="input hasLabel input"
                   inputmode="numeric"
                   pattern="[0-9]*"
@@ -160,6 +161,7 @@ exports[`BankCard Snapshots tests should match snapshots 2`] = `
                 class="input"
               >
                 <input
+                  aria-label="Номер карты или счёта"
                   class="input hasLabel input"
                   inputmode="numeric"
                   pattern="[0-9]*"
@@ -266,6 +268,7 @@ exports[`BankCard Snapshots tests should match snapshots 3`] = `
                 class="input"
               >
                 <input
+                  aria-label="Номер карты или счёта"
                   class="input hasLabel input"
                   inputmode="numeric"
                   pattern="[0-9]*"
@@ -372,6 +375,7 @@ exports[`BankCard Snapshots tests should match snapshots 4`] = `
                 class="input"
               >
                 <input
+                  aria-label="Номер карты или счёта"
                   class="input hasLabel input"
                   inputmode="numeric"
                   pattern="[0-9]*"
