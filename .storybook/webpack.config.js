@@ -61,7 +61,10 @@ const getBabelRules = ({ mode, withRDTL }) => {
 
 module.exports = ({ config }) => ({
     ...config,
-
+    watchOptions: {
+        ...config.watchOptions,
+        ignored: /__image_snapshots__/
+    },
     resolve: {
         plugins: [componentsResolver],
         alias: {

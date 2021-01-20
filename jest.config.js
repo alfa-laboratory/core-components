@@ -18,4 +18,5 @@ module.exports = {
         '@alfalab/core-components-(.*)$': '<rootDir>/packages/$1/src',
         '\\.css$': 'identity-obj-proxy',
     },
+    testMatch: ['**/*.test.ts?(x)', '!**/*.screenshots.test.ts?(x)'],
 };
