@@ -141,10 +141,10 @@
     safe-identifier "^0.4.1"
     style-inject "^0.3.0"
 
-"@alfalab/stylelint-core-vars@0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@alfalab/stylelint-core-vars/-/stylelint-core-vars-0.0.3.tgz#67617e02f8addd76d16bee53955b239f6972189a"
-  integrity sha512-uy+AXRi3XIKLXHkPiVyfoCfPprS+QUkbAkqFYhlFnqLxtSbfy9tI23rDYWQluiznTfeEz/Z5Nuzl2GWqgj2rRA==
+"@alfalab/stylelint-core-vars@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@alfalab/stylelint-core-vars/-/stylelint-core-vars-0.0.4.tgz#f9ba0ea20b8a2d77646d3a65b34631659d6073ea"
+  integrity sha512-KMaN6A4QGwLDeD5aVTPl6zozDUPgB5WeumcWib4zdzv7zfnFtOnUFfpyLguFXCi9geg4/gC2hf4MCNH8uNe8Dg==
 
 "@alfalab/utils@^0.4.1":
   version "0.4.1"
