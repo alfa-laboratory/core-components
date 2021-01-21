@@ -1,3 +1,9 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [8.0.3](https://github.com/alfa-laboratory/core-components/compare/v8.0.2...v8.0.3) (2021-01-21)
+
 ## [8.0.2](https://github.com/alfa-laboratory/core-components/compare/v8.0.1...v8.0.2) (2021-01-20)
 
 
