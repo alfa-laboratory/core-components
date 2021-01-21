@@ -3,11 +3,12 @@ import mergeRefs from 'react-merge-refs';
 import { useClickOutside, usePrevious } from '@alfalab/hooks';
 import { ToastPlate, ToastPlateProps } from '@alfalab/core-components-toast-plate';
 import { Popover, PopoverProps } from '@alfalab/core-components-popover';
+import { Portal } from '@alfalab/core-components-portal';
 
 import styles from './index.module.css';
 
 export type ToastProps = ToastPlateProps &
-    Pick<PopoverProps, 'anchorElement' | 'position' | 'offset' | 'open'> & {
+    Pick<PopoverProps, 'anchorElement' | 'position' | 'offset' | 'open' | 'getPortalContainer'> & {
         /**
          * Через сколько исчезнет компонент (ms)
          */
@@ -21,7 +22,16 @@ export type ToastProps = ToastPlateProps &
 
 export const Toast = forwardRef<HTMLDivElement, ToastProps>(
     (
-        { anchorElement, position, offset, open, onClose, autoCloseDelay = 3000, ...restProps },
+        {
+            anchorElement,
+            position,
+            offset,
+            open,
+            autoCloseDelay = 3000,
+            onClose,
+            getPortalContainer,
+            ...restProps
+        },
         ref,
     ) => {
         const plateRef = useRef<HTMLDivElement>(null);
@@ -45,17 +55,25 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
             };
         }, [autoCloseDelay, open, prevOpen, onClose]);
 
+        if (anchorElement) {
+            return (
+                <Popover
+                    open={open}
+                    anchorElement={anchorElement}
+                    position={position}
+                    offset={offset}
+                    popperClassName={styles.popover}
+                    transition={{ timeout: 150 }}
+                >
+                    <ToastPlate {...restProps} ref={mergeRefs([ref, plateRef])} onClose={onClose} />
+                </Popover>
+            );
+        }
+
         return (
-            <Popover
-                open={open}
-                anchorElement={anchorElement}
-                position={position}
-                offset={offset}
-                popperClassName={styles.popover}
-                transition={{ timeout: 150 }}
-            >
+            <Portal getPortalContainer={getPortalContainer}>
                 <ToastPlate {...restProps} ref={mergeRefs([ref, plateRef])} onClose={onClose} />
-            </Popover>
+            </Portal>
         );
     },
 );

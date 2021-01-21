@@ -2,25 +2,4 @@
     border: none;
     border-radius: var(--toast-plate-border-radius);
     transition-timing-function: ease-in-out;
-    transition-property: opacity, transform;
-
-    &.entering {
-        opacity: 0;
-        transform: scale(0.98);
-    }
-
-    &.entered {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    &.exiting {
-        opacity: 0;
-        transform: scale(0.98);
-    }
-
-    &.exited {
-        opacity: 0;
-        transform: scale(0.98);
-    }
 }
