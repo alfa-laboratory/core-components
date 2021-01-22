@@ -1,4 +1,11 @@
-import React, { forwardRef, useCallback, useEffect, useRef } from 'react';
+import React, {
+    forwardRef,
+    MouseEventHandler,
+    useCallback,
+    useEffect,
+    useRef,
+    TouchEventHandler,
+} from 'react';
 import mergeRefs from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
 import cn from 'classnames';
@@ -24,7 +31,7 @@ export type ToastProps = ToastPlateProps &
         /**
          * Обработчик закрытия компонента
          */
-        onClose?: () => void;
+        onClose: () => void;
 
         /**
          * Отступ снизу
@@ -43,6 +50,9 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
             className,
             bottomOffset,
             style = {},
+            onMouseEnter,
+            onMouseLeave,
+            onTouchStart,
             onClose,
             getPortalContainer,
             ...restProps
@@ -53,22 +63,71 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
         const timerId = useRef(0);
         const prevOpen = usePrevious(open);
 
-        const handleClickOutside = useCallback(() => {
+        const startTimer = useCallback(() => {
             clearTimeout(timerId.current);
+
+            timerId.current = window.setTimeout(onClose, autoCloseDelay);
+        }, [autoCloseDelay, onClose]);
+
+        const stopTimer = useCallback(() => {
+            clearTimeout(timerId.current);
+        }, []);
+
+        const handleMouseEnter = useCallback<MouseEventHandler<HTMLDivElement>>(
+            event => {
+                stopTimer();
+
+                if (onMouseEnter) {
+                    onMouseEnter(event);
+                }
+            },
+            [onMouseEnter, stopTimer],
+        );
+
+        const handleMouseLeave = useCallback<MouseEventHandler<HTMLDivElement>>(
+            event => {
+                startTimer();
+
+                if (onMouseLeave) {
+                    onMouseLeave(event);
+                }
+            },
+            [onMouseLeave, startTimer],
+        );
+
+        const handleTouchStart = useCallback<TouchEventHandler<HTMLDivElement>>(
+            event => {
+                stopTimer();
+
+                if (onTouchStart) {
+                    onTouchStart(event);
+                }
+            },
+            [onTouchStart, stopTimer],
+        );
+
+        const handleClickOutside = useCallback(() => {
             onClose();
-        }, [onClose]);
+            stopTimer();
+        }, [onClose, stopTimer]);
 
         useClickOutside(plateRef, handleClickOutside);
 
         useEffect(() => {
             if (open !== prevOpen && open) {
-                timerId.current = window.setTimeout(onClose, autoCloseDelay);
+                startTimer();
             }
 
             return () => {
-                clearTimeout(timerId.current);
+                stopTimer();
             };
-        }, [autoCloseDelay, open, prevOpen, onClose]);
+        }, [open, prevOpen, startTimer, stopTimer]);
+
+        const callbacks = {
+            onMouseEnter: handleMouseEnter,
+            onMouseLeave: handleMouseLeave,
+            onTouchStart: handleTouchStart,
+        };
 
         if (anchorElement) {
             return (
@@ -80,7 +139,12 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
                     popperClassName={styles.popover}
                     transition={{ timeout: 150 }}
                 >
-                    <ToastPlate {...restProps} ref={mergeRefs([ref, plateRef])} onClose={onClose} />
+                    <ToastPlate
+                        {...restProps}
+                        ref={mergeRefs([ref, plateRef])}
+                        onClose={onClose}
+                        {...callbacks}
+                    />
                 </Popover>
             );
         }
@@ -107,6 +171,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
                             ...style,
                             bottom: bottomOffset && `${bottomOffset}px`,
                         }}
+                        {...callbacks}
                     />
                 </CSSTransition>
             </Portal>
