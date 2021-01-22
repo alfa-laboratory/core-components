@@ -18,17 +18,17 @@
         opacity: 0;
         transform: translateX(-50%) scale(0.98);
     }
-    
+
     &.enterActive {
         opacity: 1;
         transform: translateX(-50%) scale(1);
     }
-    
+
     &.exit {
         opacity: 1;
         transform: translateX(-50%) scale(1);
     }
-    
+
     &.exitActive {
         opacity: 0;
         transform: translateX(-50%) scale(0.98);
