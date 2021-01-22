@@ -1,51 +1,17 @@
-@import '../../vars/src';
+@import './vars.css';
 
-:root {
-    --z-index-modal: 1300;
-    --opacity-minor: 0.6;
-    --opacity-active: 1;
-    --border-radius-control: 4px;
-}
-
-.wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    z-index: var(--z-index-modal);
-    overflow: auto;
-    display: flex;
-    flex-direction: column;
-    padding-top: var(--gap-xl);
-    padding-bottom: var(--gap-xl);
-}
-
-.wrapperFullscreen {
-    padding: 0;
-    background: transparent;
-}
-
-.wrapperSmall {
-    padding: 0;
-}
-
-.hidden {
-    visibility: hidden;
-}
-
-.modal {
+.component {
     position: relative;
     box-sizing: border-box;
     width: 600px;
     display: flex;
     flex: 0 0 auto;
 
-    border-radius: calc(var(--border-radius-control) * 2);
+    border-radius: calc(var(--modal-border-radius) * 2);
     padding: var(--gap-xl) var(--gap-4xl) calc(var(--gap-xl) + 6px);
 
     border: 0;
+    outline: none;
     background: var(--color-dark-bg-primary-inverted);
     overflow: auto;
     margin: auto;
@@ -61,7 +27,7 @@
     padding: var(--gap-2xl) var(--gap-5xl) calc(var(--gap-2xl) + 6px);
 }
 
-.modalFullscreen {
+.fullscreen {
     width: 100%;
     max-width: 100%;
     min-height: 100%;
@@ -70,7 +36,7 @@
     border-radius: 0;
 }
 
-.modalSmall {
+.small {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -85,11 +51,21 @@
     transform: none;
 }
 
+.wrapper {
+    padding-top: var(--gap-xl);
+    padding-bottom: var(--gap-xl);
+}
+
+.noPaddings {
+    padding: 0;
+}
+
 .flexContainer {
     width: 100%;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
+    outline: none;
 }
 
 .flexContainerSmall {
@@ -132,7 +108,7 @@
     transition: border-bottom 0.4s;
 }
 
-.modalSmall .closerWrapper {
+.small .closerWrapper {
     background: rgba(255, 255, 255, 0.95);
 }
 
@@ -147,20 +123,40 @@
     right: 0;
     width: 48px;
     height: 48px;
-    opacity: var(--opacity-minor);
     background: transparent;
     border: none;
     padding: 0;
     margin: 0;
     transition: opacity 0.1s ease-out;
     cursor: pointer;
-
-    &:hover {
-        opacity: var(--opacity-active);
-    }
 }
 
 .closerSmall {
     right: auto;
     left: 0;
+}
+
+.appear,
+.enter {
+    opacity: 0;
+    transform: translateY(15px);
+}
+
+.appearActive,
+.enterActive {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 200ms ease-in, transform 200ms ease-in;
+}
+
+.exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.exitActive,
+.exitDone {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 200ms ease-out, transform 200ms ease-out;
 }

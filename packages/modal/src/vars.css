@@ -1,0 +1,6 @@
+@import '../../vars/src/index.css';
+
+:root {
+    --modal-z-index: 1300;
+    --modal-border-radius: 4px;
+}

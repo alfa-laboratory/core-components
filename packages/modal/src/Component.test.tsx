@@ -69,7 +69,7 @@ describe('Modal', () => {
 
     describe('backdrop', () => {
         const modal = (props?: Partial<ModalProps>) => (
-            <Modal open={true} id='modal' dataTestId='Modal' {...props}>
+            <Modal open={true} dataTestId='Modal' {...props}>
                 <div id='container'>
                     <h1 id='heading'>Hello</h1>
                 </div>
@@ -79,14 +79,14 @@ describe('Modal', () => {
         it('should render a backdrop', () => {
             const wrapper = render(modal());
 
-            const backdrop = wrapper.queryByTestId('Backdrop');
+            const backdrop = wrapper.queryByTestId('backdrop');
             expect(backdrop).not.toBeNull();
         });
 
         it('should attach a handler to the backdrop that fires onClose', () => {
             const onClose = jest.fn();
             const wrapper = render(modal({ onClose }));
-            const backdrop = wrapper.getByTestId('Backdrop');
+            const backdrop = wrapper.getByTestId('backdrop');
             fireEvent.click(backdrop);
 
             expect(onClose.mock.calls.length).toStrictEqual(1);
@@ -95,7 +95,7 @@ describe('Modal', () => {
         it('should let the user disable backdrop click triggering onClose', () => {
             const onClose = jest.fn();
             const { getByTestId } = render(modal({ onClose, disableBackdropClick: true }));
-            const backdrop = getByTestId('Backdrop');
+            const backdrop = getByTestId('backdrop');
             fireEvent.click(backdrop);
 
             expect(onClose.mock.calls.length).toStrictEqual(0);
@@ -104,7 +104,7 @@ describe('Modal', () => {
         it('should call through to the user specified onBackdropClick callback', () => {
             const onBackdropClick = jest.fn();
             const { getByTestId } = render(modal({ onBackdropClick }));
-            const backdrop = getByTestId('Backdrop');
+            const backdrop = getByTestId('backdrop');
             fireEvent.click(backdrop);
 
             expect(onBackdropClick.mock.calls.length).toStrictEqual(1);
@@ -115,37 +115,19 @@ describe('Modal', () => {
             const { getByTestId } = render(
                 modal({
                     onBackdropClick,
-                    backdropComponent: ({ appear, ...other }) => (
-                        <div data-test-id='Backdrop' {...other}>
+                    backdropComponent: ({ onClick }) => (
+                        // eslint-disable-next-line
+                        <div data-test-id='backdrop' onClick={onClick}>
                             <span />
                         </div>
                     ),
                 }),
             );
-            const backdrop = getByTestId('Backdrop');
+            const backdrop = getByTestId('backdrop');
             const span = backdrop.querySelector('span') as HTMLSpanElement;
             fireEvent.click(span);
 
             expect(onBackdropClick.mock.calls.length).toStrictEqual(0);
-        });
-
-        // Test case for https://github.com/mui-org/material-ui/issues/12831
-        it('should unmount the children when starting open and closing immediately', () => {
-            function TestCase() {
-                const [open, setOpen] = React.useState(true);
-
-                React.useEffect(() => {
-                    setOpen(false);
-                }, []);
-
-                return (
-                    <Modal open={open}>
-                        <div id='modal-body'>hello</div>
-                    </Modal>
-                );
-            }
-            render(<TestCase />);
-            expect(document.querySelector('#modal-body')).toBeNull();
         });
     });
 
@@ -186,16 +168,6 @@ describe('Modal', () => {
             expect(heading.tagName.toLowerCase()).toStrictEqual('h1');
             expect(portalLayer?.contains(container)).toStrictEqual(true);
             expect(portalLayer?.contains(heading)).toStrictEqual(true);
-
-            const container2 = document.getElementById('container');
-
-            if (!container2) {
-                throw new Error('missing container');
-            }
-
-            // should not add any role
-            expect(container2.getAttribute('role')).toStrictEqual(null);
-            expect(container2.getAttribute('tabindex')).toStrictEqual('-1');
         });
     });
 
@@ -236,10 +208,10 @@ describe('Modal', () => {
             expect(onCloseSpy.mock.calls.length).toStrictEqual(1);
         });
 
-        it('when disableEscapeKeyDown should call only onClose', () => {
+        it('when disableEscapeKeyDown should not call onClose and onEscapeKeyDown', () => {
             wrapper.rerender(modal({ disableEscapeKeyDown: true }));
             fireEvent.keyDown(modalWrapper, { key: 'Escape' });
-            expect(onEscapeKeyDownSpy.mock.calls.length).toStrictEqual(1);
+            expect(onEscapeKeyDownSpy.mock.calls.length).toStrictEqual(0);
             expect(onCloseSpy.mock.calls.length).toStrictEqual(0);
         });
     });
@@ -262,15 +234,15 @@ describe('Modal', () => {
                     <div>ModalContent</div>
                 </Modal>,
             );
-            const modalNode = wrapper.queryByTestId('Modal');
-            expect(modalNode?.hasAttribute('aria-hidden')).toStrictEqual(true);
+            const modalNode = wrapper.queryByRole('dialog');
+            expect(modalNode).toHaveClass('hidden');
 
             wrapper.rerender(
                 <Modal keepMounted={true} open={true} dataTestId='Modal'>
                     <div>ModalContent</div>
                 </Modal>,
             );
-            expect(modalNode?.hasAttribute('aria-hidden')).toStrictEqual(false);
+            expect(modalNode).not.toHaveClass('hidden');
         });
     });
 

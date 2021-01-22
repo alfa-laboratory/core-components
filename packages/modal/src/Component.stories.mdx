@@ -13,8 +13,7 @@ import { version } from '../package.json';
 
 <!-- Canvas -->
 
-
-<!-- <Story name='Modal'>
+<Story name='Modal'>
     {React.createElement(() => {
         const [open, setOpen] = React.useState(false);
         const handleModalOpen = () => setOpen(!open);
@@ -26,11 +25,17 @@ import { version } from '../package.json';
                 <Modal
                     open={open}
                     onClose={handleModalOpen}
-                    hasCloser={boolean('closer', false)}
+                    hasCloser={boolean('closer', true)}
                     fullscreen={boolean('fullscreen', false)}
                     size={select('size', ['s', 'm', 'l'], 'm')}
                     hideBackdrop={boolean('hide backdrop', false)}
                     footer={showFooter && footerContent}
+                    keepMounted={boolean('keepMounted', false)}
+                    disableBackdropClick={boolean('disableBackdropClick', false)}
+                    disableEscapeKeyDown={boolean('disableEscapeKeyDown', false)}
+                    disableRestoreFocus={boolean('disableRestoreFocus', false)}
+                    disableFocusLock={boolean('disableFocusLock', false)}
+                    disableAutoFocus={boolean('disableAutoFocus', false)}
                 >
                     <div>
                         <h3>Modal content</h3>
@@ -52,7 +57,7 @@ import { version } from '../package.json';
             </React.Fragment>
         );
     })}
-</Story>-->
+</Story>
 
 
 <!-- Docs -->
@@ -84,17 +89,16 @@ export const SimpleModal = () => {
             <button type="button" onClick={handleOpen}>
                 Open Modal
             </button>
-            <Modal open={open} onClose={handleClose} closeAfterTransition={true} footer={
-                <div id="simple-modal-footer">
+            <Modal open={open} onClose={handleClose} footer={
+                <div>
                     footer content
                 </div>
             }>
                 <div>
-                    <p id="simple-modal-title">Text in a modal</p>
-                    <p id="simple-modal-description">
+                    <p>Text in a modal</p>
+                    <p>
                         Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
                     </p>
-                    <SimpleModal />
                 </div>
             </Modal>
         </div>
