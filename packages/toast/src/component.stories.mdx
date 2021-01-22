@@ -30,41 +30,52 @@ import { name, version } from '../package.json';
             'left-start',
             'left-end',
         ];
-        const [open, setOpen] = React.useState(false);
+        const [anchorToastOpen, setAnchorToastOpen] = React.useState(false);
+        const [fixedToastOpen, setFixedToastOpen] = React.useState(false);
         const [buttonElement, setButtonElement] = React.useState(null);
-        const openToast = () => {
-            setOpen(true);
-        };
-        const closeToast = () => {
-            setOpen(false);
-        };
         const handleButtonRef = node => {
             setButtonElement(node);
         };
         return (
             <div
                 style={{
-                    width: '700px',
-                    height: '300px',
+                    width: '100%',
+                    height: '150vh',
                     display: 'flex',
                     justifyContent: 'center',
-                    alignItems: 'center',
+                    alignItems: 'flex-start',
+                    padding: '200px',
+                    boxSizing: 'border-box'
                 }}
             >
                 <Toast
-                    open={open}
+                    open={anchorToastOpen}
                     anchorElement={buttonElement}
                     position={select('position', POSITION_OPTIONS, 'left')}
-                    offset={[number('offset[0]', 0), number('offset[1]', 0)]}
+                    offset={[number('offset[0]', 0), number('offset[1]', 8)]}
                     badge={select('badge', ['negative', 'positive', 'attention', undefined], 'positive')}
-                    title={text('title', 'Toast Message')}
+                    title={text('title', 'Скопировано')}
                     hasCloser={boolean('hasCloser', true)}
                     block={boolean('block', false)}
-                    onClose={closeToast}
+                    onClose={() => { setAnchorToastOpen(false); }}
                     autoCloseDelay={number('autoCloseDelay', 3000)}
                 />
-                <Button ref={handleButtonRef} onClick={openToast}>
-                    Показать Toast
+                <Toast
+                    open={fixedToastOpen}
+                    badge={select('badge', ['negative', 'positive', 'attention', undefined], 'positive')}
+                    title="Ваша карта удалена"
+                    hasCloser={boolean('hasCloser', true)}
+                    block={boolean('block', false)}
+                    onClose={() => { setFixedToastOpen(false); }}
+                    autoCloseDelay={number('autoCloseDelay', 3000)}
+                    actionButton={<Button size="s" view="ghost" onClick={() => { setFixedToastOpen(false) }}>Восстановить</Button>}
+                    style={{maxWidth: 'calc(100vw - 150px)'}}
+                />
+                <Button ref={handleButtonRef} onClick={() => { setAnchorToastOpen(true); }}>
+                    Скопировать
+                </Button>
+                <Button onClick={() => { setFixedToastOpen(true) }} style={{marginLeft: '20px'}}>
+                    Удалить
                 </Button>
             </div>
         );
@@ -84,5 +95,81 @@ import { name, version } from '../package.json';
 ```tsx
 import { Toast } from '@alfalab/core-components-toast';
 ```
+
+Компонент `Toast`. Cообщает пользователю о результате выполнения его команды.
+
+`Toast` привязан либо к элементу, который спровоцировал его появление, либо появляется снизу экрана.
+
+Если передать ссылку на якорный элемент в пропсе `anchorElement`, то тост появится около якорного элемента.
+
+Если `anchorElement` не передавать, то тост появится снизу экрана.
+
+<Preview>
+    {React.createElement(() => {
+        const POSITION_OPTIONS = [
+            'top',
+            'top-start',
+            'top-end',
+            'bottom',
+            'bottom-start',
+            'bottom-end',
+            'right',
+            'right-start',
+            'right-end',
+            'left',
+            'left-start',
+            'left-end',
+        ];
+        const [anchorToastOpen, setAnchorToastOpen] = React.useState(false);
+        const [fixedToastOpen, setFixedToastOpen] = React.useState(false);
+        const [buttonElement, setButtonElement] = React.useState(null);
+        const handleButtonRef = node => {
+            setButtonElement(node);
+        };
+        return (
+            <div
+                style={{
+                    width: '100%',
+                    height: '50vh',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'flex-start',
+                    padding: '200px',
+                    boxSizing: 'border-box'
+                }}
+            >
+                <Toast
+                    open={anchorToastOpen}
+                    anchorElement={buttonElement}
+                    position="left"
+                    offset={[0, 8]}
+                    badge="positive"
+                    title="Скопировано"
+                    hasCloser={false}
+                    block={false}
+                    onClose={() => { setAnchorToastOpen(false); }}
+                    autoCloseDelay={1500}
+                />
+                <Toast
+                    open={fixedToastOpen}
+                    badge="positive"
+                    title="Ваша карта удалена"
+                    hasCloser={true}
+                    block={true}
+                    onClose={() => { setFixedToastOpen(false); }}
+                    autoCloseDelay={3000}
+                    actionButton={<Button size="s" view="ghost" onClick={() => { setFixedToastOpen(false) }}>Восстановить</Button>}
+                    style={{maxWidth: 'calc(100vw - 150px)'}}
+                />
+                <Button ref={handleButtonRef} onClick={() => { setAnchorToastOpen(true); }}>
+                    Скопировать
+                </Button>
+                <Button onClick={() => { setFixedToastOpen(true) }} style={{marginLeft: '20px'}}>
+                    Удалить
+                </Button>
+            </div>
+        );
+    })}
+</Preview>
 
 <Props of={Toast} />
