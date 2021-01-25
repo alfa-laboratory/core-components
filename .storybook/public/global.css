@@ -3,6 +3,7 @@
  * Don't mess with Voodoo
  */
 
+/* stylelint-disable */
 @font-face {
     font-family: 'Styrene UI';
     src: url('https://alfabank.st/media/fonts/styrene-ui/styrene-ui_regular.woff2') format('woff2'),
@@ -785,4 +786,8 @@ div.lib-welcome {
 .alfa-logo img {
     margin: 0;
     border: 0;
+}
+
+.docblock-propstable .docblock-propstable-body code {
+    white-space: normal;
 }

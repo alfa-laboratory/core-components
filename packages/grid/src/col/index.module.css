@@ -1,0 +1,107 @@
+:root {
+    --grid-col-width: calc(100% / 12);
+}
+
+.component {
+    max-width: 100%;
+    min-height: 1px;
+    flex-basis: 0;
+    flex-grow: 1;
+    box-sizing: border-box;
+}
+
+.width-auto {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+}
+
+.width-available {
+    flex-basis: auto;
+    min-height: auto;
+    height: auto;
+}
+
+@for $i from 1 to 12 {
+    .width-$(i) {
+        flex: 0 0 calc(var(--grid-col-width) * $(i));
+        max-width: calc(var(--grid-col-width) * $(i));
+    }
+}
+
+.align-top {
+    align-self: flex-start;
+}
+
+.align-middle {
+    align-self: center;
+}
+
+.align-bottom {
+    align-self: flex-end;
+}
+
+@for $i from 1 to 11 {
+    .offset-$(i) {
+        margin-left: calc(var(--grid-col-width) * $(i));
+    }
+}
+
+.order-first {
+    order: -1;
+}
+
+.order-last {
+    order: 13;
+}
+
+@for $i from 1 to 12 {
+    .order-$(i) {
+        order: $(i);
+    }
+}
+
+@each $breakpoint in mobile, mobile-s, mobile-m, mobile-l, tablet, tablet-s, tablet-m, desktop,
+    desktop-s, desktop-m, desktop-l, desktop-xl
+{
+    @media (--$(breakpoint)) {
+        .width-$(breakpoint)-auto {
+            flex: 0 0 auto;
+            width: auto;
+            max-width: none;
+        }
+
+        .width-$(breakpoint)-available {
+            flex-basis: auto;
+            min-height: auto;
+            height: auto;
+        }
+
+        @for $i from 1 to 12 {
+            .width-$(breakpoint)-$(i) {
+                flex: 0 0 calc(var(--grid-col-width) * $(i));
+                max-width: calc(var(--grid-col-width) * $(i));
+            }
+        }
+
+        @for $i from 1 to 11 {
+            .offset-$(breakpoint)-$(i) {
+                margin-left: calc(var(--grid-col-width) * $(i));
+            }
+        }
+
+        .order-$(breakpoint)-first {
+            order: -1;
+        }
+
+        .order-$(breakpoint)-last {
+            order: 13;
+        }
+
+        @for $i from 1 to 12 {
+            .order-$(breakpoint)-$(i) {
+                order: $(i);
+            }
+        }
+    }
+}

@@ -17,5 +17,10 @@ module.exports = {
                 'custom-properties': false,
             },
         }),
+        require('postcss-for')({}),
+        require('postcss-each')({}),
+        require('postcss-custom-media')({
+            importFrom: path.resolve(__dirname, 'node_modules/arui-scripts/build/configs/mq.js'),
+        }),
     ],
 };

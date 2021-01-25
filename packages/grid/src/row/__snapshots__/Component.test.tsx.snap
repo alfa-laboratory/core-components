@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid.Row Snapshots tests should match snapshot 1`] = `
+<div>
+  <div
+    class="row component between gutter-mobile-s-16 gutter-desktop-m-24"
+  >
+    <div
+      class="col component"
+    >
+      content
+    </div>
+  </div>
+</div>
+`;
