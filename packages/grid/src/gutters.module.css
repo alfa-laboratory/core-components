@@ -1,15 +1,16 @@
+/* stylelint-disable comment-empty-line-before */
 @for $i from 8 to 24 by 8 {
     .row.gutter-$(i) {
-        /* stylelint-disable-next-line prettier/prettier */
-        margin-left: calc(-$(i) px / 2);
-        /* stylelint-disable-next-line prettier/prettier */
-        margin-right: calc(-$(i) px / 2);
+        /* prettier-ignore */
+        margin-left: calc(-$(i)px / 2);
+        /* prettier-ignore */
+        margin-right: calc(-$(i)px / 2);
 
         & > .col {
-            /* stylelint-disable-next-line prettier/prettier */
-            padding-left: calc($(i) px / 2);
-            /* stylelint-disable-next-line prettier/prettier */
-            padding-right: calc($(i) px / 2);
+            /* prettier-ignore */
+            padding-left: calc($(i)px / 2);
+            /* prettier-ignore */
+            padding-right: calc($(i)px / 2);
         }
     }
 }
@@ -20,16 +21,16 @@
     @media (--$(breakpoint)) {
         @for $i from 8 to 24 by 8 {
             .row.gutter-$(breakpoint)-$(i) {
-                /* stylelint-disable-next-line prettier/prettier */
-                margin-left: calc(-$(i) px / 2);
-                /* stylelint-disable-next-line prettier/prettier */
-                margin-right: calc(-$(i) px / 2);
+                /* prettier-ignore */
+                margin-left: calc(-$(i)px / 2);
+                /* prettier-ignore */
+                margin-right: calc(-$(i)px / 2);
 
                 & > .col {
-                    /* stylelint-disable-next-line prettier/prettier */
-                    padding-left: calc($(i) px / 2);
-                    /* stylelint-disable-next-line prettier/prettier */
-                    padding-right: calc($(i) px / 2);
+                    /* prettier-ignore */
+                    padding-left: calc($(i)px / 2);
+                    /* prettier-ignore */
+                    padding-right: calc($(i)px / 2);
                 }
             }
         }
