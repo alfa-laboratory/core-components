@@ -9,6 +9,13 @@
   dependencies:
     classnames "^2.2.6"
 
+"@alfalab/core-components-form-control@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-form-control/-/core-components-form-control-4.0.0.tgz#3de29b2946509fedc8120c2d56f4930b11d867d0"
+  integrity sha512-TbYiOltjf/Mz/BvZpSX8ZWlpDPYVT2PIfta4vU7RXN6B9JYtLEUZXLmWkHgIZqVCf1T/RHxVbjmtbneFDdEYQg==
+  dependencies:
+    classnames "^2.2.6"
+
 "@alfalab/core-components-input@^3.2.2":
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components-input/-/core-components-input-3.2.2.tgz#04bf0f52b6a8faccf778218861064369376c40df"
@@ -64,11 +71,6 @@
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-flag/-/icons-flag-1.3.0.tgz#edd1b82a92954ed5339d51083d83ec41f7ff77fb"
   integrity sha512-kvVrwjKw6TZfbr9xaK7/e/QtkOAT5HzsWTI2rtvrIp0tzwnkQzp1cCHsiX/mt6h+YOixWfDGYbYEL2RKHFrBaw==
-
-"@alfalab/icons-glyph@1.70.0":
-  version "1.70.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.70.0.tgz#251896a5300f2dbcf5c703ae70a23c87cc13e757"
-  integrity sha512-J+9rGbRfm1EmQp5+wq5IBnG5+qJlq635CAmwCpHY22jR3v4tFx0At91rT6Eju/ArHJe1QkCptjANQLmAqD5NxQ==
 
 "@alfalab/icons-glyph@^1.26.0", "@alfalab/icons-glyph@^1.70.0", "@alfalab/icons-glyph@^1.71.0", "@alfalab/icons-glyph@^1.80.0":
   version "1.85.0"

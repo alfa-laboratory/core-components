@@ -130,6 +130,16 @@
     padding-top: var(--gap-xl);
 }
 
+.component.s .label {
+    top: 4px;
+    left: 16px;
+}
+
+.component.m .label {
+    top: 6px;
+    left: 16px;
+}
+
 .component .label {
     top: 14px;
     align-items: flex-start;
