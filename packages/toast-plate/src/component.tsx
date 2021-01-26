@@ -6,8 +6,15 @@ import { Badge } from '@alfalab/core-components-badge';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
+import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
 import styles from './index.module.css';
+
+export type BadgeIcons = {
+    negative: JSX.Element;
+    positive: JSX.Element;
+    attention: JSX.Element;
+};
 
 export type ToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     /**
@@ -59,9 +66,14 @@ export type ToastPlateProps = HTMLAttributes<HTMLDivElement> & {
      * Обработчик клика по крестику
      */
     onClose?: (event?: MouseEvent<HTMLButtonElement>) => void;
+
+    /**
+     * Функция, с помощью которой можно переопределить иконки в Badge
+     */
+    getBadgeIcons?: (icons: BadgeIcons) => BadgeIcons;
 };
 
-const iconComponent = {
+const iconDefaultComponents = {
     negative: <CrossCircleMIcon className={styles.badgeIcon} />,
     positive: <CheckmarkCircleMIcon className={styles.badgeIcon} />,
     attention: <AlertCircleMIcon className={styles.badgeIcon} />,
@@ -77,15 +89,20 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
             badge,
             title,
             children,
-            onClose,
             actionButton,
             block,
+            onClose,
+            getBadgeIcons,
             ...restProps
         },
         ref,
     ) => {
         const needRenderCloser = hasCloser && Boolean(onClose);
         const needRenderActionsSection = needRenderCloser || Boolean(actionButton);
+
+        const iconComponents = getBadgeIcons
+            ? getBadgeIcons(iconDefaultComponents)
+            : iconDefaultComponents;
 
         return (
             <div
@@ -107,7 +124,7 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
                                 (badge && (
                                     <Badge
                                         view='icon'
-                                        content={iconComponent[badge]}
+                                        content={iconComponents[badge]}
                                         iconColor={badge}
                                         className={styles.badge}
                                     />
@@ -137,7 +154,7 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
                                 view='ghost'
                                 onClick={onClose}
                                 aria-label='закрыть'
-                                leftAddons={<div className={styles.closeIcon} />}
+                                leftAddons={<CrossMIcon />}
                             />
                         )}
                     </div>
