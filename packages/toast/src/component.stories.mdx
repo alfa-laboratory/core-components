@@ -70,6 +70,8 @@ import { name, version } from '../package.json';
                     autoCloseDelay={number('autoCloseDelay', 3000)}
                     actionButton={<Button size="s" view="ghost" onClick={() => { setFixedToastOpen(false) }}>Восстановить</Button>}
                     style={{maxWidth: 'calc(100vw - 150px)'}}
+                    centeredPosition={boolean('centeredPosition', true)}
+                    bottomOffset={number('bottomOffset', 32)}
                 />
                 <Button ref={handleButtonRef} onClick={() => { setAnchorToastOpen(true); }}>
                     Скопировать

@@ -17,26 +17,35 @@ import { Portal } from '@alfalab/core-components-portal';
 import styles from './index.module.css';
 
 export type ToastProps = ToastPlateProps &
-    Pick<PopoverProps, 'position' | 'offset' | 'open' | 'getPortalContainer'> & {
+    Pick<
+        PopoverProps,
+        'position' | 'offset' | 'open' | 'getPortalContainer' | 'preventFlip' | 'transition'
+    > & {
         /**
-         * Элемент, относительного которого появляется тост
+         * Элемент, относительного которого появляется тост.
+         * Если не передавать, тост будет позиционирован снизу экрана, по центру (position: fixed).
          */
         anchorElement?: HTMLElement;
 
         /**
-         * Через сколько исчезнет компонент (ms)
+         * Через сколько исчезнет компонент (ms).
          */
         autoCloseDelay?: number;
 
         /**
-         * Обработчик закрытия компонента
+         * Обработчик закрытия компонента.
          */
         onClose: () => void;
 
         /**
-         * Отступ снизу
+         * Отступ снизу (при fixed-позиционировании).
          */
         bottomOffset?: number;
+
+        /**
+         * Будет позиционирован снизу по центру (при fixed-позиционировании)
+         */
+        centeredPosition?: boolean;
     };
 
 export const Toast = forwardRef<HTMLDivElement, ToastProps>(
@@ -50,11 +59,13 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
             className,
             bottomOffset,
             style = {},
+            block,
             onMouseEnter,
             onMouseLeave,
             onTouchStart,
             onClose,
             getPortalContainer,
+            centeredPosition = true,
             ...restProps
         },
         ref,
@@ -136,11 +147,14 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
                     anchorElement={anchorElement}
                     position={position}
                     offset={offset}
-                    popperClassName={styles.popover}
+                    popperClassName={cn(styles.popover, { [styles.block]: block })}
                     transition={{ timeout: 150 }}
+                    getPortalContainer={getPortalContainer}
                 >
                     <ToastPlate
                         {...restProps}
+                        block={block}
+                        style={style}
                         ref={mergeRefs([ref, plateRef])}
                         onClose={onClose}
                         {...callbacks}
@@ -164,9 +178,14 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
                 >
                     <ToastPlate
                         {...restProps}
+                        block={block}
                         ref={mergeRefs([ref, plateRef])}
                         onClose={onClose}
-                        className={cn(styles.fixed, className)}
+                        className={cn(
+                            styles.fixed,
+                            { [styles.centered]: centeredPosition },
+                            className,
+                        )}
                         style={{
                             ...style,
                             bottom: bottomOffset && `${bottomOffset}px`,
