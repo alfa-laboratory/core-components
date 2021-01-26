@@ -6,6 +6,7 @@ import { useFocus } from '@alfalab/hooks';
 import styles from './index.module.css';
 
 type NativeProps = InputHTMLAttributes<HTMLInputElement>;
+type Align = 'start' | 'center';
 
 export type RadioProps = Omit<
     NativeProps,
@@ -52,6 +53,21 @@ export type RadioProps = Omit<
     className?: string;
 
     /**
+     * Выравнивание
+     */
+    align?: Align;
+
+    /**
+     * Дополнительный слот
+     */
+    addons?: React.ReactNode;
+
+    /**
+     * Растягивать ли компонент на всю ширину
+     */
+    block?: boolean;
+
+    /**
      * Обработчик на выбор элемента
      */
     onChange?: (
@@ -75,6 +91,9 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
             checked,
             hint,
             size = 's',
+            align = 'start',
+            addons,
+            block,
             ...restProps
         },
         ref,
@@ -92,10 +111,11 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
         return (
             // eslint-disable-next-line jsx-a11y/label-has-associated-control
             <label
-                className={cn(styles.container, styles[size], className, {
+                className={cn(styles.container, styles[size], styles[align], className, {
                     [styles.disabled]: disabled,
                     [styles.checked]: checked,
                     [styles.focused]: focused,
+                    [styles.block]: block,
                 })}
                 ref={mergeRefs([labelRef, ref])}
             >
@@ -113,6 +133,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
                     <span className={styles.label}>{label}</span>
                     {hint && <span className={styles.hint}>{hint}</span>}
                 </span>
+                {addons && <span className={styles.addons}>{addons}</span>}
             </label>
         );
     },

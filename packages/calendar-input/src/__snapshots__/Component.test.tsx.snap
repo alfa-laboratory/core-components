@@ -10,7 +10,7 @@ exports[`CalendarInput Display tests should match snapshot 1`] = `
       class="component s block hasRightAddons"
     >
       <div
-        class="formControl inner"
+        class="inner"
       >
         <div
           class="inputWrapper"

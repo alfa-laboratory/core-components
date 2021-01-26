@@ -9,6 +9,7 @@ import IndeterminateIcon from '@alfalab/icons-classic/CheckIndeterminateSWhiteIc
 import styles from './index.module.css';
 
 type NativeProps = InputHTMLAttributes<HTMLInputElement>;
+type Align = 'start' | 'center';
 
 export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange'> & {
     /**
@@ -43,6 +44,21 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange'> & {
     size?: 's' | 'm';
 
     /**
+     * Выравнивание
+     */
+    align?: Align;
+
+    /**
+     * Дополнительный слот
+     */
+    addons?: React.ReactNode;
+
+    /**
+     * Растягивать ли компонент на всю ширину
+     */
+    block?: boolean;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -60,6 +76,9 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             label,
             hint,
             size = 's',
+            align = 'start',
+            addons,
+            block,
             onChange,
             className,
             name,
@@ -83,11 +102,12 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
         return (
             // eslint-disable-next-line jsx-a11y/label-has-associated-control
             <label
-                className={cn(styles.component, styles[size], className, {
+                className={cn(styles.component, styles[size], styles[align], className, {
                     [styles.disabled]: disabled,
                     [styles.checked]: checked,
                     [styles.indeterminate]: indeterminate,
                     [styles.focused]: focused,
+                    [styles.block]: block,
                 })}
                 ref={mergeRefs([labelRef, ref])}
             >
@@ -114,6 +134,8 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                         {hint && <span className={styles.hint}>{hint}</span>}
                     </span>
                 )}
+
+                {addons && <span className={styles.addons}>{addons}</span>}
             </label>
         );
     },

@@ -12,6 +12,8 @@ import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
 
+type Align = 'start' | 'center';
+
 export type SwitchProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
     'type' | 'hint' | 'onChange'
@@ -37,6 +39,21 @@ export type SwitchProps = Omit<
     reversed?: boolean;
 
     /**
+     * Выравнивание
+     */
+    align?: Align;
+
+    /**
+     * Дополнительный слот
+     */
+    addons?: React.ReactNode;
+
+    /**
+     * Растягивать ли компонент на всю ширину
+     */
+    block?: boolean;
+
+    /**
      * Обработчик переключения компонента
      */
     onChange?: (
@@ -58,6 +75,9 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
         {
             reversed = false,
             checked = false,
+            align = 'start',
+            addons,
+            block,
             disabled,
             label,
             hint,
@@ -86,11 +106,12 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
         return (
             // eslint-disable-next-line jsx-a11y/label-has-associated-control
             <label
-                className={cn(styles.component, className, {
+                className={cn(styles.component, styles[align], className, {
                     [styles.disabled]: disabled,
                     [styles.checked]: checked,
                     [styles.reversed]: reversed,
                     [styles.focused]: focused,
+                    [styles.block]: block,
                 })}
                 ref={mergeRefs([labelRef, ref])}
             >
@@ -113,6 +134,8 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                         {hint && <span className={styles.hint}>{hint}</span>}
                     </span>
                 )}
+
+                {addons && <span className={styles.addons}>{addons}</span>}
             </label>
         );
     },

@@ -58,14 +58,14 @@ describe('FormControl', () => {
     });
 
     describe('Classes tests', () => {
-        it('should set `className` class to inner', () => {
+        it('should set `className` class to root', () => {
             const className = 'test-class';
             const dataTestId = 'test-id';
             const { getByTestId } = render(
                 <FormControl className={className} dataTestId={dataTestId} />,
             );
 
-            expect(getByTestId(dataTestId).firstElementChild).toHaveClass(className);
+            expect(getByTestId(dataTestId)).toHaveClass(className);
         });
 
         it('should set `labelClassName` class to label', () => {

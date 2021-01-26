@@ -20,7 +20,7 @@ import {
 import { NativeSelect } from '../native-select';
 import { BaseSelectProps, OptionShape } from '../../typings';
 import { processOptions } from '../../utils';
-import { getDataTestId } from '../../../../utils';
+import { getDataTestId } from '../../../../utils/getDataTestId';
 
 import styles from './index.module.css';
 

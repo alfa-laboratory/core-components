@@ -17,7 +17,7 @@
             background: linear-gradient(
                 270deg,
                 var(--calendar-range-background) 0%,
-                rgba(255, 255, 255, 0) 100%
+                var(--color-light-specialbg-nulled) 100%
             );
 
             &:after {
@@ -28,7 +28,7 @@
         &:last-child .transitRight {
             background: linear-gradient(
                 270deg,
-                rgba(255, 255, 255, 0) 0%,
+                var(--color-light-specialbg-nulled) 0%,
                 var(--calendar-range-background) 100%
             );
 
@@ -138,7 +138,7 @@
             background: linear-gradient(
                 270deg,
                 var(--calendar-range-background) 0%,
-                rgba(255, 255, 255, 0) 100%
+                var(--color-light-specialbg-nulled) 100%
             );
         }
     }
@@ -148,7 +148,7 @@
             left: 100%;
             background: linear-gradient(
                 270deg,
-                rgba(255, 255, 255, 0) 0%,
+                var(--color-light-specialbg-nulled) 0%,
                 var(--calendar-range-background) 100%
             );
         }

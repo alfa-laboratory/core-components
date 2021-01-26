@@ -35,6 +35,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     Arrow,
     innerProps,
     className,
+    fieldClassName,
     value = '',
     autocomplete,
     label,
@@ -117,12 +118,12 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
             ref={wrapperRef}
             onFocus={handleFocus}
             onBlur={handleBlur}
-            className={cn(styles.component, styles[size])}
+            className={cn(className, styles.component, styles[size])}
         >
             <FormControl
                 {...restProps}
                 ref={innerProps.ref}
-                className={cn(className, styles.field, {
+                fieldClassName={cn(fieldClassName, styles.field, {
                     [styles.focusVisible]: focusVisible,
                 })}
                 block={true}

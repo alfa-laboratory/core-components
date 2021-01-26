@@ -9,10 +9,10 @@ Object {
         class="container bold"
       >
         <div
-          class="component s"
+          class="component component hasSuffix s"
         >
           <div
-            class="formControl component hasSuffix inner"
+            class="inner"
           >
             <div
               class="inputWrapper"
@@ -57,10 +57,10 @@ Object {
       class="container bold"
     >
       <div
-        class="component s"
+        class="component component hasSuffix s"
       >
         <div
-          class="formControl component hasSuffix inner"
+          class="inner"
         >
           <div
             class="inputWrapper"
@@ -162,10 +162,10 @@ Object {
         class="container bold"
       >
         <div
-          class="component s"
+          class="component component hasSuffix s"
         >
           <div
-            class="formControl component hasSuffix inner"
+            class="inner"
           >
             <div
               class="inputWrapper"
@@ -209,10 +209,10 @@ Object {
         class="container bold filled"
       >
         <div
-          class="component s"
+          class="component component suffixVisible hasSuffix s"
         >
           <div
-            class="formControl component suffixVisible hasSuffix inner filled"
+            class="inner filled"
           >
             <div
               class="inputWrapper"
@@ -260,10 +260,10 @@ Object {
       class="container bold filled"
     >
       <div
-        class="component s"
+        class="component component suffixVisible hasSuffix s"
       >
         <div
-          class="formControl component suffixVisible hasSuffix inner filled"
+          class="inner filled"
         >
           <div
             class="inputWrapper"
