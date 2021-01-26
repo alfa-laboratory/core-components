@@ -15,7 +15,7 @@ import { name, version } from '../package.json';
 
 <Story name='Notification'>
     <Notification
-        badge={select('badge', ['negative', 'positive', 'warning', undefined], 'positive')}
+        badge={select('badge', ['negative', 'positive', 'attention', undefined], 'positive')}
         title={text('title', 'Поздравляем, полный успех')}
         visible={boolean('visible', true)}
         hasCloser={boolean('hasCloser', true)}
