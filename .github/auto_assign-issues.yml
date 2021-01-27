@@ -1,9 +1,6 @@
 addAssignees: true
 
 assignees:
-  - SiebenSieben
-  - reme3d2y
-  - dmitrsavk
-  - etroynov
-  - YozhEzhi
-  - Heymdall
+    - SiebenSieben
+    - reme3d2y
+    - dmitrsavk

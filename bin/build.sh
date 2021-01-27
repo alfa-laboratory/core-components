@@ -28,7 +28,7 @@ lerna exec \
 lerna exec --scope @alfalab/core-components-themes -- node $(pwd)/bin/build-themes.js
 
 # копирую собранные css пакеты в корневой пакет
-copy_to_root="mkdir -p ../../dist/\${PWD##*/} && cp -r dist/ ../../dist/\${PWD##*/}"
+copy_to_root="cp -rp dist/ ../../dist/\${PWD##*/}"
 lerna exec \
     --scope @alfalab/core-components-vars \
     --scope @alfalab/core-components-themes \
