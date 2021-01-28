@@ -1,0 +1,39 @@
+@import './vars.css';
+
+.header-s {
+    padding: 0 var(--gap-m) 0;
+}
+
+.content-s {
+    padding: 0 var(--gap-m) 0;
+}
+
+.footer-s {
+    padding: var(--gap-m);
+}
+
+.header-m {
+    padding: 0 var(--gap-m) 0;
+}
+
+.content-m {
+    padding: 0 var(--gap-m) 0;
+}
+
+.footer-m {
+    padding: var(--gap-m) var(--gap-m) var(--gap-2xl);
+}
+
+.closer {
+    margin-right: 0;
+    margin-left: 0;
+    order: 0;
+}
+
+.header {
+    min-height: 0;
+    text-align: center;
+    flex-direction: row-reverse;
+    padding-right: var(--gap-4xl);
+    padding-left: 0;
+}

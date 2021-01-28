@@ -1,0 +1,24 @@
+@import '../../../../vars/src/index.css';
+
+@define-mixin modal-click {
+    /* sizes */
+    --modal-s-width: 500px;
+    --modal-header-min-height: 84px;
+
+    /* paddings */
+    --modal-s-header-paddings: var(--gap-xl) var(--gap-2xl) var(--gap-s) var(--gap-4xl);
+    --modal-m-header-paddings: var(--gap-xl) var(--gap-2xl) var(--gap-s) var(--gap-4xl);
+    --modal-l-header-paddings: var(--gap-xl) var(--gap-2xl) var(--gap-s) var(--gap-6xl);
+    --modal-s-footer-paddings: var(--gap-2xl) var(--gap-4xl) var(--gap-4xl);
+    --modal-m-footer-paddings: var(--gap-2xl) var(--gap-4xl) var(--gap-4xl);
+    --modal-l-footer-paddings: var(--gap-2xl) var(--gap-6xl) var(--gap-6xl);
+
+    /* closer */
+    --modal-closer-icon: url('https://alfabank.st/icons/glyph_cross-heavy_m.svg');
+
+    /* scroll */
+    --modal-header-highlight-box-shadow: none;
+    --modal-header-highlight-background: var(--color-light-bg-secondary);
+    --modal-footer-highlight-box-shadow: none;
+    --modal-footer-highlight-background: var(--color-light-bg-secondary);
+}

@@ -115,7 +115,7 @@ describe('Modal', () => {
             const { getByTestId } = render(
                 modal({
                     onBackdropClick,
-                    backdropComponent: ({ onClick }) => (
+                    Backdrop: ({ onClick }) => (
                         // eslint-disable-next-line
                         <div data-test-id='backdrop' onClick={onClick}>
                             <span />
@@ -271,60 +271,28 @@ describe('Modal', () => {
         });
     });
 
-    it('should support open abort', () => {
-        const TestCase = () => {
-            const [open, setOpen] = React.useState(true);
-
-            React.useEffect(() => {
-                setOpen(false);
-            }, []);
-
-            return (
-                <Modal open={open}>
-                    <div>Hello</div>
+    it('should be able to change the container', () => {
+        const modal = (props?: Partial<ModalProps>) => (
+            <React.Fragment>
+                <div id='container-1' />
+                <div id='container-2' />
+                <Modal open={false} dataTestId='Modal' {...props}>
+                    <h1>Hello</h1>
                 </Modal>
-            );
-        };
-        render(<TestCase />);
-    });
+            </React.Fragment>
+        );
 
-    describe('prop: container', () => {
-        it('should be able to change the container', () => {
-            class TestCase extends React.Component {
-                state = {
-                    anchorEl: undefined,
-                };
+        const { rerender, getByTestId } = render(modal());
 
-                componentDidMount() {
-                    this.setState(
-                        () => ({
-                            anchorEl: () => document.body,
-                        }),
-                        () => {
-                            this.setState(
-                                {
-                                    anchorEl: undefined,
-                                },
-                                () => {
-                                    this.setState({
-                                        anchorEl: () => document.body,
-                                    });
-                                },
-                            );
-                        },
-                    );
-                }
+        const container1 = document.getElementById('container-1');
+        const container2 = document.getElementById('container-2');
 
-                render() {
-                    const { anchorEl } = this.state;
-                    return (
-                        <Modal open={Boolean(anchorEl)} container={anchorEl} {...this.props}>
-                            <div>Hello</div>
-                        </Modal>
-                    );
-                }
-            }
-            render(<TestCase />);
-        });
+        rerender(modal({ open: true, container: () => container1 as HTMLElement }));
+
+        expect(container1).toContainElement(getByTestId('Modal'));
+
+        rerender(modal({ open: true, container: () => container2 as HTMLElement }));
+
+        expect(container2).toContainElement(getByTestId('Modal'));
     });
 });

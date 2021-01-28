@@ -17,7 +17,7 @@ import cn from 'classnames';
 import { Portal, PortalProps } from '@alfalab/core-components-portal';
 
 import { handleContainer } from '../../utils';
-import { Backdrop, BackdropProps } from '../backdrop';
+import { Backdrop as DefaultBackdrop, BackdropProps } from '../backdrop';
 
 import styles from './index.module.css';
 
@@ -31,7 +31,7 @@ export type BaseModalProps = {
      * Бэкдроп компонент. Позволяет отрендерить кастомный оверлей
      * @default Backdrop
      */
-    backdropComponent?: ElementType;
+    Backdrop?: ElementType;
 
     /**
      * Свойства для Бэкдропа
@@ -125,7 +125,7 @@ export type BaseModalProps = {
 export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
     (
         {
-            backdropComponent: BackdropComponent = Backdrop,
+            Backdrop = DefaultBackdrop,
             backdropProps = {},
             className,
             children,
@@ -250,7 +250,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                         data-test-id={dataTestId}
                     >
                         {hideBackdrop === false && (
-                            <BackdropComponent
+                            <Backdrop
                                 {...backdropProps}
                                 open={open}
                                 onExited={handleBackdropExited}
