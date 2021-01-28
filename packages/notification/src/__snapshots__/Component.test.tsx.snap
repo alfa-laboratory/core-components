@@ -12,68 +12,68 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
         style="top: 108px;"
       >
         <div
-          class="mainSection hasChildren"
+          class="mainContentWrap"
         >
           <div
-            class="leftAddons"
+            class="mainSection"
           >
             <div
-              class="component m icon positive badge"
+              class="leftAddons"
             >
-              <svg
-                class="badgeIcon"
-                fill="currentColor"
-                focusable="false"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
+              <div
+                class="component m icon positive badge"
               >
-                <path
-                  clip-rule="evenodd"
-                  d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-1.5-6L17 9.5 15.5 8l-5 5-2-2L7 12.5l3.5 3.5z"
-                  fill-rule="evenodd"
-                />
-              </svg>
+                <svg
+                  class="badgeIcon"
+                  fill="currentColor"
+                  focusable="false"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-1.5-6L17 9.5 15.5 8l-5 5-2-2L7 12.5l3.5 3.5z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </div>
             </div>
-          </div>
-          <div
-            class="contentContainer"
-          >
             <div
               class="title"
             >
               title
             </div>
-            <div
-              class="content"
+          </div>
+          <div
+            class="actionsSection"
+          >
+            <button
+              aria-label="закрыть"
+              class="component ghost m iconOnly closeButton"
             >
-              text
-            </div>
+              <span
+                class="addons"
+              >
+                <svg
+                  fill="currentColor"
+                  focusable="false"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path
+                    d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
+                  />
+                </svg>
+              </span>
+            </button>
           </div>
         </div>
         <div
-          class="actionsSection hasChildren"
+          class="children"
         >
-          <button
-            aria-label="закрыть"
-            class="component ghost m iconOnly closeButton"
-          >
-            <span
-              class="addons"
-            >
-              <svg
-                fill="currentColor"
-                focusable="false"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-              >
-                <path
-                  d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
-                />
-              </svg>
-            </span>
-          </button>
+          text
         </div>
       </div>
     </div>

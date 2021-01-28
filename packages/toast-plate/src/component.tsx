@@ -108,57 +108,52 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
             <div
                 className={cn(
                     styles.component,
-                    { [styles.block]: block, [styles.hasCloser]: hasCloser },
+                    { [styles.block]: block, [styles.hasCloser]: needRenderCloser },
                     className,
                 )}
                 ref={ref}
                 data-test-id={dataTestId}
                 {...restProps}
             >
-                <div
-                    className={cn(styles.mainSection, { [styles.hasChildren]: Boolean(children) })}
-                >
-                    {(leftAddons || badge) && (
-                        <div className={styles.leftAddons}>
-                            {leftAddons ||
-                                (badge && (
-                                    <Badge
-                                        view='icon'
-                                        content={iconComponents[badge]}
-                                        iconColor={badge}
-                                        className={styles.badge}
-                                    />
-                                ))}
+                <div className={styles.mainContentWrap}>
+                    <div className={cn(styles.mainSection)}>
+                        {(leftAddons || badge) && (
+                            <div className={styles.leftAddons}>
+                                {leftAddons ||
+                                    (badge && (
+                                        <Badge
+                                            view='icon'
+                                            content={iconComponents[badge]}
+                                            iconColor={badge}
+                                            className={styles.badge}
+                                        />
+                                    ))}
+                            </div>
+                        )}
+
+                        {title && <div className={styles.title}>{title}</div>}
+                    </div>
+
+                    {needRenderActionsSection && (
+                        <div className={cn(styles.actionsSection)}>
+                            {actionButton || null}
+
+                            {needRenderCloser && (
+                                <Button
+                                    className={cn(styles.closeButton, {
+                                        [styles.hasActionButton]: Boolean(actionButton),
+                                    })}
+                                    view='ghost'
+                                    onClick={onClose}
+                                    aria-label='закрыть'
+                                    leftAddons={<CrossMIcon />}
+                                />
+                            )}
                         </div>
                     )}
-
-                    <div className={styles.contentContainer}>
-                        {title && <div className={styles.title}>{title}</div>}
-                        {children && <div className={styles.content}>{children}</div>}
-                    </div>
                 </div>
 
-                {needRenderActionsSection && (
-                    <div
-                        className={cn(styles.actionsSection, {
-                            [styles.hasChildren]: Boolean(children),
-                        })}
-                    >
-                        {actionButton && (
-                            <div className={styles.actionButtonWrapper}>{actionButton}</div>
-                        )}
-
-                        {needRenderCloser && (
-                            <Button
-                                className={styles.closeButton}
-                                view='ghost'
-                                onClick={onClose}
-                                aria-label='закрыть'
-                                leftAddons={<CrossMIcon />}
-                            />
-                        )}
-                    </div>
-                )}
+                {children && <div className={styles.children}>{children}</div>}
             </div>
         );
     },

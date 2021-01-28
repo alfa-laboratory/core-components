@@ -49,7 +49,9 @@ describe('Notification', () => {
         it('should set `className` class', () => {
             const className = 'test-class';
             const dataTestId = 'test-id';
-            const { getByTestId } = render(<ToastPlate className={className} dataTestId={dataTestId} />);
+            const { getByTestId } = render(
+                <ToastPlate className={className} dataTestId={dataTestId} />,
+            );
 
             const el = getByTestId(dataTestId);
 
@@ -58,7 +60,9 @@ describe('Notification', () => {
 
         it('should set `hasCloser` class', () => {
             const dataTestId = 'test-id';
-            const { getByTestId } = render(<ToastPlate hasCloser={true} dataTestId={dataTestId} />);
+            const { getByTestId } = render(
+                <ToastPlate hasCloser={true} dataTestId={dataTestId} onClose={jest.fn()} />,
+            );
 
             const el = getByTestId(dataTestId);
 

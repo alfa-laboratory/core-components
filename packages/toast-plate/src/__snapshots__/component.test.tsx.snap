@@ -7,44 +7,44 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
       class="component"
     >
       <div
-        class="mainSection hasChildren"
+        class="mainContentWrap"
       >
         <div
-          class="leftAddons"
+          class="mainSection"
         >
           <div
-            class="component m icon positive badge"
+            class="leftAddons"
           >
-            <svg
-              class="badgeIcon"
-              fill="currentColor"
-              focusable="false"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
+            <div
+              class="component m icon positive badge"
             >
-              <path
-                clip-rule="evenodd"
-                d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-1.5-6L17 9.5 15.5 8l-5 5-2-2L7 12.5l3.5 3.5z"
-                fill-rule="evenodd"
-              />
-            </svg>
+              <svg
+                class="badgeIcon"
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-1.5-6L17 9.5 15.5 8l-5 5-2-2L7 12.5l3.5 3.5z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
           </div>
-        </div>
-        <div
-          class="contentContainer"
-        >
           <div
             class="title"
           >
             title
           </div>
-          <div
-            class="content"
-          >
-            text
-          </div>
         </div>
+      </div>
+      <div
+        class="children"
+      >
+        text
       </div>
     </div>
   </div>
@@ -58,18 +58,19 @@ exports[`Notification Snapshots tests should match snapshot with leftAddons 1`] 
       class="component"
     >
       <div
-        class="mainSection"
+        class="mainContentWrap"
       >
         <div
-          class="leftAddons"
+          class="mainSection"
         >
-          <div>
-            leftAddons
+          <div
+            class="leftAddons"
+          >
+            <div>
+              leftAddons
+            </div>
           </div>
         </div>
-        <div
-          class="contentContainer"
-        />
       </div>
     </div>
   </div>
@@ -83,22 +84,22 @@ exports[`Notification Snapshots tests should match snapshot without icon 1`] = `
       class="component"
     >
       <div
-        class="mainSection hasChildren"
+        class="mainContentWrap"
       >
         <div
-          class="contentContainer"
+          class="mainSection"
         >
           <div
             class="title"
           >
             title
           </div>
-          <div
-            class="content"
-          >
-            text
-          </div>
         </div>
+      </div>
+      <div
+        class="children"
+      >
+        text
       </div>
     </div>
   </div>

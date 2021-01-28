@@ -23,7 +23,7 @@ import { name, version } from '../package.json';
                 hasCloser={boolean('hasCloser', true)}
                 block={boolean('block', false)}
                 onClose={Function.prototype}
-                actionButton={<Button view="ghost" size="s">Button Ghost S</Button> }
+                actionButton={boolean('renderActionButton', true) ? <Button view="ghost" size="s">Button Ghost S</Button> : null }
             >
                 {text('children', '')}
             </ToastPlate>
