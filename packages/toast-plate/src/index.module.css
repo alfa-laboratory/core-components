@@ -18,19 +18,18 @@
     border-radius: var(--toast-plate-border-radius);
     color: var(--toast-plate-color);
     min-height: 56px;
-    padding: var(--gap-s) var(--gap-m);
+    padding: var(--gap-m);
     background-color: var(--toast-plate-bg-color);
     box-shadow: var(--shadow-s);
 
     &.hasCloser {
-        padding-right: var(--gap-s);
+        padding-right: var(--gap-4xl);
     }
 }
 
 .mainContentWrap {
     display: flex;
-    align-items: center;
-    min-height: 32px;
+    align-items: flex-start;
 }
 
 .block {
@@ -40,20 +39,33 @@
 
 .mainSection {
     display: flex;
-    align-items: center;
     flex-grow: 1;
+
+    &.hasRightSection {
+        margin-right: var(--gap-xl);
+    }
 }
 
 .actionsSection {
     display: flex;
-    align-items: center;
-    margin-left: var(--gap-xl);
+    flex-shrink: 0;
+
+    &.hasCloser {
+        margin-right: var(--gap-xs);
+    }
+}
+
+.actionsSection button {
+    /* Нужно для выравнивания */
+    @mixin action_primary_medium;
 }
 
 .leftAddons {
     display: flex;
     flex-shrink: 0;
-    margin-right: var(--gap-s);
+    padding-right: var(--gap-s);
+    /* Нужно для выравнивания */
+    padding-top: 2px;
 }
 
 .title {
@@ -65,19 +77,16 @@
 .children {
     @mixin paragraph_primary_small;
 
-    margin-left: var(--gap-2xl);
+    margin: var(--gap-2xs) var(--gap-2xl) 0;
 }
 
 .closeButton {
-    width: 32px;
-    height: 32px;
-    padding: var(--gap-s);
+    position: absolute;
+    top: var(--gap-s);
+    right: var(--gap-s);
+    padding: var(--gap-2xs);
     transition: opacity 0.2s ease-out;
     cursor: pointer;
-
-    &.hasActionButton {
-        margin-left: var(--gap-s);
-    }
 
     &:hover .closeIcon {
         opacity: 0.7;
