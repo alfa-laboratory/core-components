@@ -1,3 +1,10 @@
+# [8.2.0](https://github.com/alfa-laboratory/core-components/compare/v8.1.0...v8.2.0) (2021-01-28)
+
+
+### Features
+
+* **button:** transparent view ([e395049](https://github.com/alfa-laboratory/core-components/commit/e39504987bf7c3afb01fc78151bff182199d08cb))
+
 # [8.1.0](https://github.com/alfa-laboratory/core-components/compare/v8.0.3...v8.1.0) (2021-01-27)
 
 
