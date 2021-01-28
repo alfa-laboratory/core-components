@@ -49,15 +49,11 @@
 .actionsSection {
     display: flex;
     flex-shrink: 0;
+    margin-top: 3px;
 
     &.hasCloser {
         margin-right: var(--gap-xs);
     }
-}
-
-.actionsSection button {
-    /* Нужно для выравнивания */
-    @mixin action_primary_medium;
 }
 
 .leftAddons {
