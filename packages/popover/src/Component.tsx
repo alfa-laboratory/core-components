@@ -93,12 +93,21 @@ export type PopoverProps = {
     update?: MutableRefObject<() => void>;
 };
 
-const TRANSITION_DURATION = 300;
+const DEFAULT_TRANSITION = {
+    timeout: 300,
+};
+
+const CSS_TRANSITION_CLASS_NAMES = {
+    enter: styles.enter,
+    enterActive: styles.enterActive,
+    exit: styles.exit,
+    exitActive: styles.exitActive,
+};
 
 export const Popover: React.FC<PopoverProps> = ({
     children,
     getPortalContainer,
-    transition = { timeout: TRANSITION_DURATION },
+    transition = DEFAULT_TRANSITION,
     anchorElement,
     offset = [0, 0],
     withArrow = false,
@@ -185,12 +194,7 @@ export const Popover: React.FC<PopoverProps> = ({
             {withTransition ? (
                 <CSSTransition
                     unmountOnExit={true}
-                    classNames={{
-                        enter: styles.enter,
-                        enterActive: styles.enterActive,
-                        exit: styles.exit,
-                        exitActive: styles.exitActive,
-                    }}
+                    classNames={CSS_TRANSITION_CLASS_NAMES}
                     {...transition}
                     in={open}
                 >
