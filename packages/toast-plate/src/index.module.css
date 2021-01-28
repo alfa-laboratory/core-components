@@ -63,9 +63,8 @@
 .leftAddons {
     display: flex;
     flex-shrink: 0;
-    padding-right: var(--gap-s);
-    /* Нужно для выравнивания */
     padding-top: 2px;
+    padding-right: var(--gap-s);
 }
 
 .title {
