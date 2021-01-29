@@ -1,3 +1,17 @@
+# [8.2.0](https://github.com/alfa-laboratory/core-components/compare/v8.1.0...v8.2.0) (2021-01-28)
+
+
+### Features
+
+* **button:** transparent view ([e395049](https://github.com/alfa-laboratory/core-components/commit/e39504987bf7c3afb01fc78151bff182199d08cb))
+
+# [8.1.0](https://github.com/alfa-laboratory/core-components/compare/v8.0.3...v8.1.0) (2021-01-27)
+
+
+### Features
+
+* **amount-input:** delete zero minor part in passed amount ([#484](https://github.com/alfa-laboratory/core-components/issues/484)) ([b787cb1](https://github.com/alfa-laboratory/core-components/commit/b787cb1ea1a56bc022470a644e4029bba623b151))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
