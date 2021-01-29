@@ -115,7 +115,7 @@ describe('Modal', () => {
             const { getByTestId } = render(
                 modal({
                     onBackdropClick,
-                    Backdrop: ({ onClick }) => (
+                    backdrop: ({ onClick }) => (
                         // eslint-disable-next-line
                         <div data-test-id='backdrop' onClick={onClick}>
                             <span />

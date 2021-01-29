@@ -1,6 +1,19 @@
 @import '../../vars.css';
 
 .component {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+    margin: auto;
+    outline: none;
+    background: var(--color-light-bg-primary);
+}
+
+/* WRAPPER */
+
+.wrapper {
     position: fixed;
     top: 0;
     left: 0;
@@ -13,8 +26,68 @@
     flex-direction: column;
     align-items: center;
     outline: 0;
+
+    padding-top: var(--gap-xl);
+    padding-bottom: var(--gap-xl);
 }
 
 .hidden {
     display: none;
+}
+
+/* FULLSCREEN */
+
+.fullscreen {
+    padding: 0;
+
+    & .component {
+        width: 100%;
+        max-width: 100%;
+        min-height: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    & .stickyHeader {
+        top: 0;
+    }
+
+    & .stickyFooter {
+        bottom: 0;
+    }
+}
+
+/* CONTENT */
+
+.content {
+    flex: 1 1 auto;
+    overflow: auto;
+}
+
+/* HEADER */
+
+.header {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.stickyHeader {
+    position: sticky;
+
+    /* равен верхнему отступу wrapper'а */
+    top: var(--gap-xl-neg);
+}
+
+/* FOOTER */
+
+.footer {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.stickyFooter {
+    position: sticky;
+
+    /* равен нижнему отступу wrapper'а */
+    bottom: var(--gap-xl-neg);
 }

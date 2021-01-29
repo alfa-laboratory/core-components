@@ -13,27 +13,22 @@
 }
 
 .header-m {
-    padding: 0 var(--gap-m) 0;
+    padding: 0 var(--gap-2xl) 0;
 }
 
 .content-m {
-    padding: 0 var(--gap-m) 0;
+    padding: 0 var(--gap-2xl) 0;
 }
 
 .footer-m {
-    padding: var(--gap-m) var(--gap-m) var(--gap-2xl);
-}
-
-.closer {
-    margin-right: 0;
-    margin-left: 0;
-    order: 0;
+    padding: var(--gap-m) var(--gap-2xl) var(--gap-2xl);
 }
 
 .header {
     min-height: 0;
     text-align: center;
     flex-direction: row-reverse;
+    justify-content: flex-end;
     padding-right: var(--gap-4xl);
     padding-left: 0;
 }

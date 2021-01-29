@@ -1,0 +1,49 @@
+@import '../../vars.css';
+
+.component {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    transition: box-shadow 0.3s ease, background 0.3s ease;
+    min-height: var(--modal-header-min-height);
+    border-top-left-radius: var(--modal-border-radius);
+    border-top-right-radius: var(--modal-border-radius);
+}
+
+.s {
+    padding: var(--modal-s-header-paddings);
+}
+
+.m {
+    padding: var(--modal-m-header-paddings);
+}
+
+.l {
+    padding: var(--modal-l-header-paddings);
+}
+
+.highlighted {
+    background: var(--modal-header-highlight-background);
+    box-shadow: var(--modal-header-highlight-box-shadow);
+}
+
+.onlyCloser {
+    padding: 0;
+    min-height: var(--modal-closer-size);
+}
+
+.content {
+    flex-grow: 1;
+    margin-top: var(--gap-xs);
+}
+
+.closer {
+    width: 48px;
+    height: 48px;
+    background-image: var(--modal-closer-icon);
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+}
