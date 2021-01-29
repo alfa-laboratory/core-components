@@ -17,6 +17,7 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
           >
             <div
               class="component m icon positive badge"
+              data-test-id="badge"
             >
               <svg
                 class="badgeIcon"
@@ -34,17 +35,19 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
               </svg>
             </div>
           </div>
-          <div
-            class="title"
-          >
-            title
+          <div>
+            <div
+              class="title"
+            >
+              title
+            </div>
+            <div
+              class="children"
+            >
+              text
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="children"
-      >
-        text
       </div>
     </div>
   </div>
@@ -70,6 +73,7 @@ exports[`Notification Snapshots tests should match snapshot with leftAddons 1`] 
               leftAddons
             </div>
           </div>
+          <div />
         </div>
       </div>
     </div>
@@ -89,17 +93,19 @@ exports[`Notification Snapshots tests should match snapshot without icon 1`] = `
         <div
           class="mainSection"
         >
-          <div
-            class="title"
-          >
-            title
+          <div>
+            <div
+              class="title"
+            >
+              title
+            </div>
+            <div
+              class="children"
+            >
+              text
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="children"
-      >
-        text
       </div>
     </div>
   </div>

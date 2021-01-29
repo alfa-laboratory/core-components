@@ -130,12 +130,16 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
                                             content={iconComponents[badge]}
                                             iconColor={badge}
                                             className={styles.badge}
+                                            dataTestId='badge'
                                         />
                                     ))}
                             </div>
                         )}
 
-                        {title && <div className={styles.title}>{title}</div>}
+                        <div>
+                            {title && <div className={styles.title}>{title}</div>}
+                            {children && <div className={styles.children}>{children}</div>}
+                        </div>
                     </div>
 
                     {needRenderActionsSection && (
@@ -158,8 +162,6 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
                         />
                     )}
                 </div>
-
-                {children && <div className={styles.children}>{children}</div>}
             </div>
         );
     },

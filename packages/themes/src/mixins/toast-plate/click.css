@@ -2,4 +2,5 @@
 
 @define-mixin toast-plate-click {
     --toast-plate-title-font-weight: 400;
+    --toast-plate-bg-color: var(--color-light-bg-secondary-inverted);
 }

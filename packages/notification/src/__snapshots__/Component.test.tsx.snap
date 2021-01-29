@@ -22,6 +22,7 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
             >
               <div
                 class="component m icon positive badge"
+                data-test-id="badge"
               >
                 <svg
                   class="badgeIcon"
@@ -39,10 +40,17 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
                 </svg>
               </div>
             </div>
-            <div
-              class="title"
-            >
-              title
+            <div>
+              <div
+                class="title"
+              >
+                title
+              </div>
+              <div
+                class="children"
+              >
+                text
+              </div>
             </div>
           </div>
           <button
@@ -65,11 +73,6 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
               </svg>
             </span>
           </button>
-        </div>
-        <div
-          class="children"
-        >
-          text
         </div>
       </div>
     </div>

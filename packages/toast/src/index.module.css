@@ -1,9 +1,18 @@
 @import '../../themes/src/default.css';
 
+:root {
+    --toast-box-shadow: var(--shadow-m);
+}
+
+.toastPlate {
+    box-shadow: var(--toast-box-shadow);
+}
+
 .popover {
+    z-index: 100;
     border: none;
     border-radius: var(--toast-plate-border-radius);
-    z-index: 100;
+    box-shadow: var(--toast-box-shadow);
 }
 
 .block {

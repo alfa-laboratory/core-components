@@ -16,6 +16,13 @@ import { Portal } from '@alfalab/core-components-portal';
 
 import styles from './index.module.css';
 
+const CSS_TRANSITION_CLASS_NAMES = {
+    enter: styles.enter,
+    enterActive: styles.enterActive,
+    exit: styles.exit,
+    exitActive: styles.exitActive,
+};
+
 export type ToastProps = ToastPlateProps &
     Pick<
         PopoverProps,
@@ -157,6 +164,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
                         style={style}
                         ref={mergeRefs([ref, plateRef])}
                         onClose={onClose}
+                        className={className}
                         {...callbacks}
                     />
                 </Popover>
@@ -169,12 +177,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
                     unmountOnExit={true}
                     in={open}
                     timeout={150}
-                    classNames={{
-                        enter: styles.enter,
-                        enterActive: styles.enterActive,
-                        exit: styles.exit,
-                        exitActive: styles.exitActive,
-                    }}
+                    classNames={CSS_TRANSITION_CLASS_NAMES}
                 >
                     <ToastPlate
                         {...restProps}
@@ -183,6 +186,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
                         onClose={onClose}
                         className={cn(
                             styles.fixed,
+                            styles.toastPlate,
                             { [styles.centered]: centeredPosition },
                             className,
                         )}
