@@ -12,11 +12,12 @@ import React, {
 import cn from 'classnames';
 import { FieldProps } from '@alfalab/core-components-select';
 import { FormControl, FormControlProps } from '@alfalab/core-components-form-control';
-import { Tag } from '@alfalab/core-components-tag';
 import { useFocus } from '@alfalab/hooks';
-import { CrossCompactMIcon } from '@alfalab/icons-glyph';
 
 import styles from './index.module.css';
+
+import { RenderTagFunction } from '../../types';
+import { renderTag as renderDefaultTag } from '../tag';
 
 type TagListOwnProps = {
     value?: string;
@@ -24,6 +25,7 @@ type TagListOwnProps = {
     onInput?: (event: ChangeEvent<HTMLInputElement>) => void;
     inputRef?: MutableRefObject<HTMLInputElement>;
     autocomplete?: boolean;
+    renderTag?: RenderTagFunction;
 };
 
 export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
@@ -42,6 +44,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     valueRenderer,
     onInput,
     handleDeleteTag,
+    renderTag = renderDefaultTag,
     ...restProps
 }) => {
     const [focused, setFocused] = useState(false);
@@ -145,21 +148,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                     })}
                     ref={contentWrapperRef}
                 >
-                    {selectedMultiple.map(({ content, key }) => (
-                        <Tag key={key} size='xs' checked={true} className={styles.tag}>
-                            <span className={styles.tagContentWrap}>
-                                {content}
-                                <CrossCompactMIcon
-                                    onClick={() => {
-                                        if (handleDeleteTag) {
-                                            handleDeleteTag(key);
-                                        }
-                                    }}
-                                    className={styles.tagCross}
-                                />
-                            </span>
-                        </Tag>
-                    ))}
+                    {selectedMultiple.map(option => renderTag({ option, handleDeleteTag }))}
 
                     {autocomplete && (
                         <input

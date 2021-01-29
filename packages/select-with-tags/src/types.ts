@@ -3,6 +3,11 @@ import { BaseSelectProps, OptionShape } from '@alfalab/core-components-select';
 
 export type OptionMatcher = (option: OptionShape, inputValue: string) => boolean;
 
+export type RenderTagFunction = (params: {
+    option: OptionShape;
+    handleDeleteTag?: (key: string) => void;
+}) => JSX.Element;
+
 export type SelectWithTagsProps = Omit<
     BaseSelectProps,
     'Field' | 'nativeSelect' | 'multiple' | 'autocomplete' | 'selected' | 'onChange'
@@ -41,4 +46,9 @@ export type SelectWithTagsProps = Omit<
      * Будет отображаться, если компонент списка пустой
      */
     emptyListPlaceholder?: string;
+
+    /**
+     * Render-функция для тэга
+     */
+    renderTag?: RenderTagFunction;
 };
