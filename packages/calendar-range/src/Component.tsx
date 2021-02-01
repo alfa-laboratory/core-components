@@ -189,7 +189,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                 return;
             }
 
-            if (date === inputValueFrom.date) {
+            if (date === inputValueFrom.date && date === inputValueTo.date) {
                 resetPeriod();
                 handleStateFromChange(initialValueState);
                 handleStateToChange(initialValueState);
@@ -202,6 +202,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
         },
         [
             inputValueFrom.date,
+            inputValueTo.date,
             handleStateToChange,
             setEnd,
             setStart,
