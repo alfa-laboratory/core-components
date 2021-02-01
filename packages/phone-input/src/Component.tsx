@@ -51,7 +51,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
 
                 if (
                     previousConformedValue &&
-                    (([3, 6, 11].includes(currentCaretPosition) &&
+                    (([3, 6].includes(currentCaretPosition) &&
                         Math.abs(
                             previousValueWithoutFormatting.length -
                                 currentValueWithoutFormatting.length,
