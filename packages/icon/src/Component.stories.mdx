@@ -1,0 +1,38 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { Icon } from './Component';
+import { name, version } from '../package.json';
+
+
+<Meta title='Компоненты' component={Icon} />
+
+
+<!-- Canvas -->
+
+<Story name='Icon'>
+    <Icon />
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Icon'
+    version={version}
+    package='@alfalab/core-components-icon'
+    stage={2}
+    design='https://www.figma.com/file/QoGuPDB1hAMoMMqsQQ4Mx7lB/Icons?node-id=3890%3A311'
+/>
+
+```tsx
+import { BankCard } from '@alfalab/core-components-icon';
+```
+
+Компонент иконки, которая запрашивается с сервера.
+
+<Icon name='glyph_debt_m' color='#f00'/>
+
+<Props of={Icon} />
+
+

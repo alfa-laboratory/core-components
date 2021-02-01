@@ -1,0 +1,8 @@
+@import '../../themes/src/default.css';
+
+.iconWrapper svg {
+    fill: currentColor;
+}
+.iconWrapper path {
+    fill: inherit;
+}
