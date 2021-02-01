@@ -141,10 +141,13 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
             };
         }, [open, prevOpen, startTimer, stopTimer]);
 
-        const callbacks = {
+        const props = {
+            block,
+            onClose,
             onMouseEnter: handleMouseEnter,
             onMouseLeave: handleMouseLeave,
             onTouchStart: handleTouchStart,
+            ref: mergeRefs([ref, plateRef]),
         };
 
         if (anchorElement) {
@@ -158,15 +161,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
                     transition={{ timeout: 150 }}
                     getPortalContainer={getPortalContainer}
                 >
-                    <ToastPlate
-                        {...restProps}
-                        block={block}
-                        style={style}
-                        ref={mergeRefs([ref, plateRef])}
-                        onClose={onClose}
-                        className={className}
-                        {...callbacks}
-                    />
+                    <ToastPlate {...restProps} style={style} className={className} {...props} />
                 </Popover>
             );
         }
@@ -181,9 +176,6 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
                 >
                     <ToastPlate
                         {...restProps}
-                        block={block}
-                        ref={mergeRefs([ref, plateRef])}
-                        onClose={onClose}
                         className={cn(
                             styles.fixed,
                             styles.toastPlate,
@@ -194,7 +186,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
                             ...style,
                             bottom: bottomOffset && `${bottomOffset}px`,
                         }}
-                        {...callbacks}
+                        {...props}
                     />
                 </CSSTransition>
             </Portal>

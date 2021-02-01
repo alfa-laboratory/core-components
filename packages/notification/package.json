@@ -16,7 +16,6 @@
         "react": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^1.11.0",
         "@alfalab/core-components-portal": "^1.4.0",
         "@alfalab/core-components-toast-plate": "^1.0.0",
         "classnames": "^2.2.6",

@@ -1,4 +1,4 @@
-import React, { forwardRef, HTMLAttributes, ReactNode, MouseEvent } from 'react';
+import React, { forwardRef, HTMLAttributes, ReactNode, MouseEvent, useCallback } from 'react';
 import cn from 'classnames';
 
 import { Button } from '@alfalab/core-components-button';
@@ -97,18 +97,26 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
         },
         ref,
     ) => {
-        const needRenderCloser = hasCloser && Boolean(onClose);
-        const needRenderActionsSection = Boolean(actionButton);
+        const needRenderLeftAddons = Boolean(leftAddons || badge);
 
         const iconComponents = getBadgeIcons
             ? getBadgeIcons(iconDefaultComponents)
             : iconDefaultComponents;
 
+        const handleClose = useCallback(
+            event => {
+                if (onClose) {
+                    onClose(event);
+                }
+            },
+            [onClose],
+        );
+
         return (
             <div
                 className={cn(
                     styles.component,
-                    { [styles.block]: block, [styles.hasCloser]: needRenderCloser },
+                    { [styles.block]: block, [styles.hasCloser]: hasCloser },
                     className,
                 )}
                 ref={ref}
@@ -118,21 +126,20 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
                 <div className={styles.mainContentWrap}>
                     <div
                         className={cn(styles.mainSection, {
-                            [styles.hasRightSection]: needRenderActionsSection || needRenderCloser,
+                            [styles.hasRightSection]: actionButton || hasCloser,
                         })}
                     >
-                        {(leftAddons || badge) && (
+                        {needRenderLeftAddons && (
                             <div className={styles.leftAddons}>
-                                {leftAddons ||
-                                    (badge && (
-                                        <Badge
-                                            view='icon'
-                                            content={iconComponents[badge]}
-                                            iconColor={badge}
-                                            className={styles.badge}
-                                            dataTestId='badge'
-                                        />
-                                    ))}
+                                {leftAddons || (
+                                    <Badge
+                                        view='icon'
+                                        content={badge && iconComponents[badge]}
+                                        iconColor={badge}
+                                        className={styles.badge}
+                                        dataTestId='badge'
+                                    />
+                                )}
                             </div>
                         )}
 
@@ -142,21 +149,21 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
                         </div>
                     </div>
 
-                    {needRenderActionsSection && (
+                    {actionButton && (
                         <div
                             className={cn(styles.actionsSection, {
-                                [styles.hasCloser]: needRenderCloser,
+                                [styles.hasCloser]: hasCloser,
                             })}
                         >
-                            {actionButton || null}
+                            {actionButton}
                         </div>
                     )}
 
-                    {needRenderCloser && (
+                    {hasCloser && (
                         <Button
                             className={cn(styles.closeButton)}
                             view='ghost'
-                            onClick={onClose}
+                            onClick={handleClose}
                             aria-label='закрыть'
                             leftAddons={<CrossMIcon />}
                         />
