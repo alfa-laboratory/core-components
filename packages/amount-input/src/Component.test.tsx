@@ -8,9 +8,9 @@ import userEvent from '@testing-library/user-event';
 import { CurrencyCodes } from '@alfalab/data';
 import { AmountInput } from './index';
 
-const THINSP = String.fromCharCode(8201);
-
 describe('AmountInput', () => {
+    const THINSP = String.fromCharCode(8201);
+
     function renderAmountInput(value: number | null, currency: CurrencyCodes | null = 'RUR') {
         // TODO: почему тесты в кор компонентах цепляются к data-test-id вместо label?
         const dataTestId = 'test-id';
@@ -64,8 +64,13 @@ describe('AmountInput', () => {
     });
 
     it('should render passed amount', () => {
+        const input = renderAmountInput(1234567);
+        expect(input.value).toBe(`12${THINSP}345,67`);
+    });
+
+    it('should render passed amount without zero minor part', () => {
         const input = renderAmountInput(1234500);
-        expect(input.value).toBe(`12${THINSP}345,00`);
+        expect(input.value).toBe(`12${THINSP}345`);
     });
 
     it('should render empty input if passed amount.value is null', () => {
@@ -73,9 +78,9 @@ describe('AmountInput', () => {
         expect(input.value).toBe('');
     });
 
-    it('should render 0,00 in input if passed amount.value is 0', () => {
+    it('should render 0 in input if passed amount.value is 0', () => {
         const input = renderAmountInput(0);
-        expect(input.value).toBe('0,00');
+        expect(input.value).toBe('0');
     });
 
     it('should render passed decimal amount', () => {
@@ -118,13 +123,13 @@ describe('AmountInput', () => {
     });
 
     it('should prevent input of incorrect amounts', () => {
-        const input = renderAmountInput(1234500);
+        const input = renderAmountInput(1234567);
 
         fireEvent.change(input, { target: { value: 'f' } });
-        expect(input.value).toBe(`12${THINSP}345,00`);
+        expect(input.value).toBe(`12${THINSP}345,67`);
 
         fireEvent.change(input, { target: { value: '!' } });
-        expect(input.value).toBe(`12${THINSP}345,00`);
+        expect(input.value).toBe(`12${THINSP}345,67`);
     });
 
     it('should avoid inserting leading zero before number, but allow inserting zero', async () => {
@@ -143,13 +148,13 @@ describe('AmountInput', () => {
     });
 
     it('should allow replace minor part without deleting', async () => {
-        const input = renderAmountInput(1234500);
+        const input = renderAmountInput(1234567);
 
         input.focus();
         input.setSelectionRange(7, 7);
 
-        await userEvent.type(input, '6', { initialSelectionStart: 7, initialSelectionEnd: 7 });
-        expect(input.value).toBe(`12${THINSP}345,60`);
+        await userEvent.type(input, '8', { initialSelectionStart: 7, initialSelectionEnd: 7 });
+        expect(input.value).toBe(`12${THINSP}345,86`);
     });
 
     it('should allow to past value with spaces', async () => {
