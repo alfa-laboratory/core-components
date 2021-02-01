@@ -1,3 +1,15 @@
+# [8.3.0](https://github.com/alfa-laboratory/core-components/compare/v8.2.1...v8.3.0) (2021-02-01)
+
+
+### Bug Fixes
+
+* **switch:** box-sizing issue ([#490](https://github.com/alfa-laboratory/core-components/issues/490)) ([73c9eb0](https://github.com/alfa-laboratory/core-components/commit/73c9eb0b682a7d8168ae97b9a524d56c65fbd5a5))
+
+
+### Features
+
+* **calendar-range:** allow to select one-day range ([#491](https://github.com/alfa-laboratory/core-components/issues/491)) ([7fe56eb](https://github.com/alfa-laboratory/core-components/commit/7fe56eb7128146127b9b0732a945f11ee08980f3))
+
 ## [8.2.1](https://github.com/alfa-laboratory/core-components/compare/v8.2.0...v8.2.1) (2021-02-01)
 
 
