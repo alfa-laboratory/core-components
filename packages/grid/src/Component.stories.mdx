@@ -14,9 +14,25 @@ import { name, version } from '../package.json';
 <!-- Canvas -->
 
 <Story name='Grid'>
-    <Grid.Row>
-        <Grid.Col width='12'>content</Grid.Col>
-    </Grid.Row>
+    {React.createElement(() => {
+        const style = {
+            height: 30,
+            background: '#ff5c5c'
+        };
+        return (
+            <Grid.Row gutter={{ mobile: 0, tablet: 16, desktop: 24}}>
+                <Grid.Col>
+                    <div style={ style } />
+                </Grid.Col>
+                <Grid.Col>
+                    <div style={ { ...style, background: '#f04539' } } />
+                </Grid.Col>
+                <Grid.Col>
+                    <div style={ style } />
+                </Grid.Col>
+            </Grid.Row>
+        );
+    })}
 </Story>
 
 
