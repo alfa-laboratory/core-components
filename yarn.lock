@@ -18009,11 +18009,6 @@ react-dev-utils@^9.0.0:
     strip-ansi "5.2.0"
     text-table "0.2.0"
 
-react-div-100vh@0.5.6:
-  version "0.5.6"
-  resolved "https://registry.yarnpkg.com/react-div-100vh/-/react-div-100vh-0.5.6.tgz#1d73866e96379433dea066d3e55026efd77f4b29"
-  integrity sha512-foNzJeBwiWp2Xs+pDhKyX2sP9O8UoGfYyz/D+GgZaHCKS3R+lbtJc8OdgMDr03txXgPVsxGEtmjKeDcLW30xwQ==
-
 react-docgen-typescript-loader@^3.6.0:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/react-docgen-typescript-loader/-/react-docgen-typescript-loader-3.7.2.tgz#45cb2305652c0602767242a8700ad1ebd66bbbbd"
