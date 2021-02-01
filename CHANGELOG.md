@@ -1,3 +1,11 @@
+## [8.2.1](https://github.com/alfa-laboratory/core-components/compare/v8.2.0...v8.2.1) (2021-02-01)
+
+
+### Bug Fixes
+
+* **phone-input:** fix caret ([#493](https://github.com/alfa-laboratory/core-components/issues/493)) ([b510257](https://github.com/alfa-laboratory/core-components/commit/b510257a7793041766a1d7f4f0a8eae61ee69a8d))
+* **select:** fix safari overflow bug ([#492](https://github.com/alfa-laboratory/core-components/issues/492)) ([a273dc1](https://github.com/alfa-laboratory/core-components/commit/a273dc1372d171b0a36ad7acfa6e50e65b10a889))
+
 # [8.2.0](https://github.com/alfa-laboratory/core-components/compare/v8.1.0...v8.2.0) (2021-01-28)
 
 
