@@ -1,12 +1,14 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, FC } from 'react';
 import { BaseSelectProps, OptionShape } from '@alfalab/core-components-select';
 
 export type OptionMatcher = (option: OptionShape, inputValue: string) => boolean;
 
-export type RenderTagFunction = (params: {
+export type TagProps = {
     option: OptionShape;
     handleDeleteTag?: (key: string) => void;
-}) => JSX.Element;
+};
+
+export type TagComponent = FC<TagProps>;
 
 export type SelectWithTagsProps = Omit<
     BaseSelectProps,
@@ -48,7 +50,7 @@ export type SelectWithTagsProps = Omit<
     emptyListPlaceholder?: string;
 
     /**
-     * Render-функция для тэга
+     * Компонент Тэг
      */
-    renderTag?: RenderTagFunction;
+    Tag?: TagComponent;
 };

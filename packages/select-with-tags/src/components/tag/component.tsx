@@ -1,26 +1,25 @@
-import React from 'react';
-import { Tag } from '@alfalab/core-components-tag';
+import React, { useCallback } from 'react';
+import { Tag as CoreTag } from '@alfalab/core-components-tag';
 import { CrossCompactMIcon } from '@alfalab/icons-glyph';
 
-import { RenderTagFunction } from '../../types';
+import { TagComponent } from '../../types';
 
 import styles from './index.module.css';
 
-export const renderTag: RenderTagFunction = ({ option: { content, key }, handleDeleteTag }) => {
+export const Tag: TagComponent = ({ option: { content, key }, handleDeleteTag }) => {
+    const handleClick = useCallback(() => {
+        if (handleDeleteTag) {
+            handleDeleteTag(key);
+        }
+    }, [handleDeleteTag, key]);
+
     return (
-        <Tag key={key} size='xs' checked={true} className={styles.tag}>
+        <CoreTag key={key} size='xs' checked={true} className={styles.tag}>
             <span className={styles.tagContentWrap}>
                 {content}
 
-                <CrossCompactMIcon
-                    onClick={() => {
-                        if (handleDeleteTag) {
-                            handleDeleteTag(key);
-                        }
-                    }}
-                    className={styles.tagCross}
-                />
+                <CrossCompactMIcon onClick={handleClick} className={styles.tagCross} />
             </span>
-        </Tag>
+        </CoreTag>
     );
 };

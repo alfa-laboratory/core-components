@@ -29,7 +29,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
             match,
             allowUnselect = true,
             emptyListPlaceholder = 'Ничего не найдено',
-            renderTag,
+            Tag,
             ...restProps
         },
         ref,
@@ -112,7 +112,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                     autocomplete: isAutocomplete,
                     onInput,
                     handleDeleteTag,
-                    renderTag,
+                    Tag,
                 }}
                 optionsListProps={{
                     emptyPlaceholder: emptyListPlaceholder,

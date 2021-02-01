@@ -16,8 +16,8 @@ import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
 
-import { RenderTagFunction } from '../../types';
-import { renderTag as renderDefaultTag } from '../tag';
+import { TagComponent } from '../../types';
+import { Tag as DefaultTag } from '../tag';
 
 type TagListOwnProps = {
     value?: string;
@@ -25,7 +25,7 @@ type TagListOwnProps = {
     onInput?: (event: ChangeEvent<HTMLInputElement>) => void;
     inputRef?: MutableRefObject<HTMLInputElement>;
     autocomplete?: boolean;
-    renderTag?: RenderTagFunction;
+    Tag?: TagComponent;
 };
 
 export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
@@ -44,7 +44,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     valueRenderer,
     onInput,
     handleDeleteTag,
-    renderTag = renderDefaultTag,
+    Tag = DefaultTag,
     ...restProps
 }) => {
     const [focused, setFocused] = useState(false);
@@ -148,7 +148,9 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                     })}
                     ref={contentWrapperRef}
                 >
-                    {selectedMultiple.map(option => renderTag({ option, handleDeleteTag }))}
+                    {selectedMultiple.map(option => (
+                        <Tag key={option.key} option={option} handleDeleteTag={handleDeleteTag} />
+                    ))}
 
                     {autocomplete && (
                         <input
