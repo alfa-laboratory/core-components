@@ -5,13 +5,12 @@ import { Modal, ModalProps } from './Component';
 export type ModalDesktopProps = ModalProps;
 
 export const ModalDesktop = forwardRef<HTMLDivElement, ModalDesktopProps>(
-    ({ size = 's', hasCloser, headerTitle, ...restProps }, ref) => (
+    ({ size = 's', hasCloser, headerContent, ...restProps }, ref) => (
         <Modal
             ref={ref}
             size={size}
             hasCloser={hasCloser}
-            headerTitle={headerTitle}
-            disableHeaderHightlight={hasCloser && !headerTitle}
+            headerContent={headerContent}
             {...restProps}
         />
     ),

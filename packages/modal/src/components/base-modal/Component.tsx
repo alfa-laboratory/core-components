@@ -103,19 +103,9 @@ export type BaseModalProps = {
     className?: string;
 
     /**
-     * Дополнительный класс для хэдера
-     */
-    headerClassName?: string;
-
-    /**
      * Дополнительный класс для контента
      */
     contentClassName?: string;
-
-    /**
-     * Дополнительный класс для футера
-     */
-    footerClassName?: string;
 
     /**
      * Дополнительный класс для обертки (BaseModal)
@@ -136,7 +126,7 @@ export type BaseModalProps = {
     /**
      * Заставляет хэдер прилипать к верхнему краю экрана при прокрутке
      */
-    stickyHeader?: boolean;
+    highlightHeader?: boolean;
 
     /**
      * Контент футера, на мобильных устройствах содержимое футера прижимается к нижней части вьюпорта
@@ -146,7 +136,7 @@ export type BaseModalProps = {
     /**
      * Заставляет футер прилипать к нижнему краю экрана при прокрутке
      */
-    stickyFooter?: boolean;
+    highlightFooter?: boolean;
 
     /**
      * Компонент анимации модалки
@@ -218,8 +208,8 @@ export const BaseModal: FC<BaseModalProps & RefAttributes<HTMLDivElement>> = for
             footer,
             header,
             fullscreen,
-            stickyFooter = false,
-            stickyHeader = false,
+            highlightHeader = false,
+            highlightFooter = false,
             backdrop: Backdrop = DefaultBackdrop,
             backdropProps = {},
             Transition = CSSTransition,
@@ -232,8 +222,6 @@ export const BaseModal: FC<BaseModalProps & RefAttributes<HTMLDivElement>> = for
             keepMounted = false,
             targetHandleExited = Backdrop === null ? 'children' : 'backdrop',
             className,
-            footerClassName,
-            headerClassName,
             contentClassName,
             wrapperClassName,
             onBackdropClick,
@@ -250,25 +238,28 @@ export const BaseModal: FC<BaseModalProps & RefAttributes<HTMLDivElement>> = for
         const [exited, setExited] = useState(!open);
         const restoreContainerStyles = useRef<null | Function>(null);
 
-        const modalRef = useRef<HTMLDivElement>(null);
+        const wrapperRef = useRef<HTMLDivElement>(null);
+        const contentRef = useRef<HTMLDivElement>(null);
 
-        const shouldHightlightHeader = header && (stickyHeader || fullscreen);
-        const shouldHightlightFooter = footer && stickyFooter;
-        const shouldHandleScroll = shouldHightlightHeader || shouldHightlightFooter;
+        const scrollableNodeRef = useRef<HTMLDivElement | null>(null);
+
+        const shouldHighlightHeader = header && highlightHeader;
+        const shouldHighlightFooter = footer && highlightFooter;
+        const shouldHandleScroll = shouldHighlightHeader || shouldHighlightFooter;
 
         const shouldRender = keepMounted || open || !exited;
 
         const handleScroll = useCallback(() => {
-            if (!modalRef.current) return;
+            if (!scrollableNodeRef.current) return;
 
-            if (shouldHightlightHeader && onHeaderHighlight) {
-                onHeaderHighlight(isScrolledToTop(modalRef.current) === false);
+            if (shouldHighlightHeader && onHeaderHighlight) {
+                onHeaderHighlight(isScrolledToTop(scrollableNodeRef.current) === false);
             }
 
-            if (shouldHightlightFooter && onFooterHighlight) {
-                onFooterHighlight(isScrolledToBottom(modalRef.current) === false);
+            if (shouldHighlightFooter && onFooterHighlight) {
+                onFooterHighlight(isScrolledToBottom(scrollableNodeRef.current) === false);
             }
-        }, [onFooterHighlight, onHeaderHighlight, shouldHightlightFooter, shouldHightlightHeader]);
+        }, [onFooterHighlight, onHeaderHighlight, shouldHighlightFooter, shouldHighlightHeader]);
 
         const handleClose = useCallback<Required<BaseModalProps>['onClose']>(
             (event, reason) => {
@@ -340,9 +331,15 @@ export const BaseModal: FC<BaseModalProps & RefAttributes<HTMLDivElement>> = for
 
         const handleEntered: TransitionProps['onEntered'] = useCallback(
             (node, isAppearing) => {
-                if (shouldHandleScroll && modalRef.current) {
-                    modalRef.current.addEventListener('scroll', handleScroll);
-                    handleScroll();
+                if (shouldHandleScroll) {
+                    scrollableNodeRef.current = fullscreen
+                        ? contentRef.current
+                        : wrapperRef.current;
+
+                    if (scrollableNodeRef.current) {
+                        scrollableNodeRef.current.addEventListener('scroll', handleScroll);
+                        handleScroll();
+                    }
                 }
 
                 if (transitionProps.onEnter) {
@@ -351,13 +348,13 @@ export const BaseModal: FC<BaseModalProps & RefAttributes<HTMLDivElement>> = for
 
                 if (onMount) onMount();
             },
-            [handleScroll, onMount, shouldHandleScroll, transitionProps],
+            [fullscreen, handleScroll, onMount, shouldHandleScroll, transitionProps],
         );
 
         const handleExited: TransitionProps['onExited'] = useCallback(
             node => {
-                if (shouldHandleScroll && modalRef.current) {
-                    modalRef.current.removeEventListener('scroll', handleScroll);
+                if (shouldHandleScroll && scrollableNodeRef.current) {
+                    scrollableNodeRef.current.removeEventListener('scroll', handleScroll);
                 }
 
                 if (targetHandleExited === 'children') {
@@ -409,7 +406,7 @@ export const BaseModal: FC<BaseModalProps & RefAttributes<HTMLDivElement>> = for
                             [styles.hidden]: !open && exited,
                             [styles.fullscreen]: fullscreen,
                         })}
-                        ref={mergeRefs([modalRef, ref])}
+                        ref={mergeRefs([wrapperRef, ref])}
                         onKeyDown={handleKeyDown}
                         tabIndex={-1}
                         data-test-id={dataTestId}
@@ -433,33 +430,20 @@ export const BaseModal: FC<BaseModalProps & RefAttributes<HTMLDivElement>> = for
                             onExited={handleExited}
                         >
                             <div className={cn(styles.component, className)}>
-                                {header && (
-                                    <div
-                                        className={cn(styles.header, headerClassName, {
-                                            [styles.stickyHeader]: stickyHeader || fullscreen,
-                                        })}
-                                    >
-                                        {isValidElement(header)
-                                            ? cloneElement(header, {
-                                                  onCloserClick: handleCloserClick,
-                                              })
-                                            : header}
-                                    </div>
-                                )}
+                                {isValidElement(header)
+                                    ? cloneElement(header, {
+                                          onCloserClick: handleCloserClick,
+                                      })
+                                    : header}
 
-                                <div className={cn(styles.content, contentClassName)}>
+                                <div
+                                    className={cn(styles.content, contentClassName)}
+                                    ref={contentRef}
+                                >
                                     {children}
                                 </div>
 
-                                {footer && (
-                                    <div
-                                        className={cn(styles.footer, footerClassName, {
-                                            [styles.stickyFooter]: stickyFooter,
-                                        })}
-                                    >
-                                        {footer}
-                                    </div>
-                                )}
+                                {footer}
                             </div>
                         </Transition>
                     </div>

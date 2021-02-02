@@ -34,12 +34,43 @@
     padding: var(--modal-l-content-paddings);
 }
 
+.fullscreen {
+    border-radius: 0;
+    width: 100%;
+
+    & .stickyHeader {
+        top: 0;
+    }
+
+    & .stickyFooter {
+        bottom: 0;
+    }
+}
+
 /* CONTENT */
 
 .content {
     &:last-child {
         padding-bottom: var(--modal-content-no-footer-bottom-padding);
     }
+}
+
+/* HEADER */
+
+.stickyHeader {
+    position: sticky;
+
+    /* равен верхнему отступу wrapper'а */
+    top: var(--gap-xl-neg);
+}
+
+/* FOOTER */
+
+.stickyFooter {
+    position: sticky;
+
+    /* равен верхнему отступу wrapper'а */
+    bottom: var(--gap-xl-neg);
 }
 
 /* ANIMATION */

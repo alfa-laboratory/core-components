@@ -73,7 +73,7 @@ export const Content = () => {
                 <ModalMobile
                     open={open}
                     onClose={handleModalOpen}
-                    headerTitle={text('headerTitle', 'Заголовок окна')}
+                    headerContent={text('headerContent', 'Заголовок окна')}
                     footer={boolean('footer', false) && footerContent}
                     hasCloser={boolean('closer', true)}
                     backdrop={boolean('backdrop', true) ? undefined : null}
@@ -105,7 +105,7 @@ export const Content = () => {
                 <ModalDesktop
                     open={open}
                     onClose={handleModalOpen}
-                    headerTitle={text('headerTitle', 'Заголовок окна')}
+                    headerContent={text('headerContent', 'Заголовок окна')}
                     footer={boolean('footer', false) && footerContent}
                     hasCloser={boolean('closer', true)}
                     fullscreen={boolean('fullscreen', false)}
@@ -140,7 +140,7 @@ export const Content = () => {
                 <ModalResponsive
                     open={open}
                     onClose={handleModalOpen}
-                    headerTitle={text('headerTitle', 'Заголовок окна')}
+                    headerContent={text('headerContent', 'Заголовок окна')}
                     footer={boolean('footer', false) && footerContent}
                     hasCloser={boolean('closer', true)}
                     fullscreen={boolean('fullscreen', false)}

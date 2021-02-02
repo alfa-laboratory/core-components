@@ -25,7 +25,7 @@
 }
 
 .header {
-    min-height: 0;
+    min-height: auto;
     text-align: center;
     flex-direction: row-reverse;
     justify-content: flex-end;

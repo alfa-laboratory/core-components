@@ -36,6 +36,11 @@
 
 .content {
     flex-grow: 1;
+}
+
+.withTitle {
+    @mixin headline_small;
+
     margin-top: var(--gap-xs);
 }
 

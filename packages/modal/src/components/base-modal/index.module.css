@@ -39,21 +39,14 @@
 
 .fullscreen {
     padding: 0;
+    overflow: hidden;
 
     & .component {
-        width: 100%;
-        max-width: 100%;
-        min-height: 100%;
+        position: fixed;
         margin: 0;
+        height: 100%;
+        will-change: transform;
         border-radius: 0;
-    }
-
-    & .stickyHeader {
-        top: 0;
-    }
-
-    & .stickyFooter {
-        bottom: 0;
     }
 }
 
@@ -62,32 +55,4 @@
 .content {
     flex: 1 1 auto;
     overflow: auto;
-}
-
-/* HEADER */
-
-.header {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.stickyHeader {
-    position: sticky;
-
-    /* равен верхнему отступу wrapper'а */
-    top: var(--gap-xl-neg);
-}
-
-/* FOOTER */
-
-.footer {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.stickyFooter {
-    position: sticky;
-
-    /* равен нижнему отступу wrapper'а */
-    bottom: var(--gap-xl-neg);
 }

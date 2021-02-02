@@ -23,3 +23,7 @@
     background: var(--modal-footer-highlight-background);
     box-shadow: var(--modal-footer-highlight-box-shadow);
 }
+
+.grow {
+    flex-grow: 1;
+}

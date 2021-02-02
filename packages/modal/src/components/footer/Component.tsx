@@ -25,9 +25,9 @@ export type FooterProps = {
     size?: 's' | 'm' | 'l';
 };
 
-export const Footer: React.FC<FooterProps> = ({ children, highlighted, size = 'm', className }) => (
+export const Footer: React.FC<FooterProps> = ({ children, highlighted, size, className }) => (
     <div
-        className={cn(styles.component, className, styles[size], {
+        className={cn(styles.component, className, size && styles[size], {
             [styles.highlighted]: highlighted,
         })}
     >

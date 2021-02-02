@@ -41,25 +41,37 @@ export const Header: React.FC<HeaderProps> = ({
     hasCloser,
     highlighted,
     onCloserClick,
-    size = 'm',
+    size,
     className,
-}) => (
-    <div
-        className={cn(styles.component, className, styles[size], {
-            [styles.highlighted]: highlighted,
-            [styles.onlyCloser]: hasCloser && !children,
-        })}
-    >
-        {children && <div className={styles.content}>{children}</div>}
+}) => {
+    if (!children && !hasCloser) return null;
 
-        {hasCloser && (
-            <Button
-                type='button'
-                view='ghost'
-                className={cn(styles.closer)}
-                aria-label='закрыть'
-                onClick={onCloserClick}
-            />
-        )}
-    </div>
-);
+    return (
+        <div
+            className={cn(styles.component, className, size && styles[size], {
+                [styles.highlighted]: highlighted,
+                [styles.onlyCloser]: hasCloser && !children,
+            })}
+        >
+            {children && (
+                <div
+                    className={cn(styles.content, {
+                        [styles.withTitle]: typeof children === 'string',
+                    })}
+                >
+                    {children}
+                </div>
+            )}
+
+            {hasCloser && (
+                <Button
+                    type='button'
+                    view='ghost'
+                    className={cn(styles.closer)}
+                    aria-label='закрыть'
+                    onClick={onCloserClick}
+                />
+            )}
+        </div>
+    );
+};
