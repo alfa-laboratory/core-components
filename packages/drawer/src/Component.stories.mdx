@@ -1,0 +1,112 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { Button } from '../../button/src';
+import { Typography } from '../../typography/src';
+
+import { Drawer } from './Component';
+
+import { name, version } from '../package.json';
+
+
+<Meta
+    title='Компоненты'
+    component={Drawer}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+<!-- Canvas -->
+
+export const footerContent = (
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <Button size="s" view="primary" style={{ marginBottom: '24px' }}>Сохранить</Button>
+        <Button size="s" view="secondary">Отмена</Button>
+    </div>
+);
+
+export const Content = () => {
+    const [showMore, setShowMore] = React.useState(false);
+    const Text = () => (
+        <p>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+            veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+            ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+            consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque
+            porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+            adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore
+            et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam,
+            quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
+            aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit
+            qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum
+            qui dolorem eum fugiat quo voluptas nulla pariatur?
+        </p>
+    );
+    return (
+        <>
+            <Text/>
+            {showMore && (
+                <>
+                    <Text/>
+                    <Text/>
+                    <Text/>
+                </>
+            )}
+            <Button size="xs" type="button" onClick={() => setShowMore(!showMore)}>
+                {showMore ? 'Hide' : 'Show'} more
+            </Button>
+        </>
+    );
+};
+
+<Story name='Drawer'>
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        const handleModalOpen = () => setOpen(!open);
+        return (
+            <React.Fragment>
+                <button onClick={handleModalOpen}>Open Drawer</button>
+                <Drawer
+                    open={open}
+                    onClose={handleModalOpen}
+                    headerContent={text('headerContent', 'Заголовок окна')}
+                    footer={boolean('footer', false) && footerContent}
+                    hasCloser={boolean('closer', true)}
+                    keepMounted={boolean('keepMounted', false)}
+                    disableBackdropClick={boolean('disableBackdropClick', false)}
+                    disableEscapeKeyDown={boolean('disableEscapeKeyDown', false)}
+                    disableRestoreFocus={boolean('disableRestoreFocus', false)}
+                    disableFocusLock={boolean('disableFocusLock', false)}
+                    disableAutoFocus={boolean('disableAutoFocus', false)}
+                >
+                    <Content/>
+                </Drawer>
+            </React.Fragment>
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Drawer'
+    version={version}
+    package='@alfalab/core-components-drawer'
+    stage={1}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=16215%3A0'
+/>
+
+```tsx
+import { Drawer } from '@alfalab/core-components-drawer';
+```
+
+## Компонент Drawer
+
+<Props of={Drawer} />
+
+<Preview>
+    <Drawer>123</Drawer>
+</Preview>

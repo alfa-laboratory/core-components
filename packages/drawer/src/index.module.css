@@ -1,0 +1,68 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --drawer-header-paddings: 0 0 0 var(--gap-4xl);
+    --drawer-content-paddings: 0 var(--gap-4xl) 0;
+    --drawer-footer-paddings: var(--gap-xl) var(--gap-4xl) var(--gap-4xl);
+}
+
+.component {
+    width: 500px;
+    right: 0;
+    top: 0;
+    will-change: transform;
+}
+
+.header {
+    min-height: auto;
+    padding: var(--drawer-header-paddings);
+}
+
+.content {
+    padding: var(--drawer-content-paddings);
+}
+
+.footer {
+    padding: var(--drawer-footer-paddings);
+}
+
+.appear,
+.enter {
+    transform: translateX(100%);
+}
+
+.appearActive,
+.enterActive {
+    transition: transform 400ms ease-in-out 200ms;
+    transform: translateX(0);
+}
+
+.exit {
+    transform: translateX(0);
+}
+
+.exitActive,
+.exitDone {
+    transition: transform 400ms ease-in-out;
+    transform: translateX(100%);
+}
+
+.backdropAppear,
+.backdropEnter {
+    opacity: 0;
+}
+
+.backdropAppearActive,
+.backdropEnterActive {
+    transition: opacity 200ms ease-in-out;
+    opacity: 1;
+}
+
+.backdropExit {
+    opacity: 1;
+}
+
+.backdropExitActive {
+    transition: opacity 200ms ease-in-out 400ms;
+    opacity: 0;
+}
