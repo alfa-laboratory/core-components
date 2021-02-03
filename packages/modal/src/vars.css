@@ -21,6 +21,7 @@
     --modal-m-footer-paddings: var(--gap-xl) var(--gap-4xl) var(--gap-4xl);
     --modal-l-footer-paddings: var(--gap-xl) var(--gap-6xl) var(--gap-6xl);
     --modal-content-no-footer-bottom-padding: var(--gap-2xl);
+    --modal-content-no-header-top-padding: var(--gap-2xl);
 
     /* closer */
     --modal-closer-icon: url('https://alfabank.st/icons/glyph_cross_m.svg');

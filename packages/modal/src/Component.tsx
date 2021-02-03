@@ -112,7 +112,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                     <Header
                         size={size}
                         className={cn(headerClassName, {
-                            [styles.stickyHeader]: stickyHeader,
+                            [styles.stickyHeader]: stickyHeader && !fullscreen,
                         })}
                         highlighted={headerHighlighted && !disableHeaderHightlight}
                         hasCloser={hasCloser}
@@ -124,7 +124,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                     footer && (
                         <Footer
                             className={cn(footerClassName, {
-                                [styles.stickyFooter]: stickyFooter,
+                                [styles.stickyFooter]: stickyHeader && !fullscreen,
                             })}
                             highlighted={footerHightlighted}
                             size={size}
