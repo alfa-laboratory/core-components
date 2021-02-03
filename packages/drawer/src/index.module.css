@@ -49,20 +49,20 @@
 
 .backdropAppear,
 .backdropEnter {
-    opacity: 0;
+    background-color: var(--modal-backdrop-hidden-background);
 }
 
 .backdropAppearActive,
 .backdropEnterActive {
-    transition: opacity 200ms ease-in-out;
-    opacity: 1;
+    transition: background 200ms ease-in-out;
+    background-color: var(--modal-backdrop-visible-background);
 }
 
 .backdropExit {
-    opacity: 1;
+    background-color: var(--modal-backdrop-visible-background);
 }
 
 .backdropExitActive {
-    transition: opacity 200ms ease-in-out 400ms;
-    opacity: 0;
+    transition: background 200ms ease-in-out 400ms;
+    background-color: var(--modal-backdrop-hidden-background);
 }

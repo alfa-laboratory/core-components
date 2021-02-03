@@ -12,7 +12,8 @@ export type DrawerProps = Omit<
     | 'highlightHeader'
     | 'highlightFooter'
     | 'header'
-    | 'backdrop'
+    | 'hideBackdrop'
+    | 'backdropProps'
     | 'fullscreen'
     | 'container'
 > & {
@@ -85,9 +86,8 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
                     exitActive: styles.backdropExitActive,
                 },
                 timeout: 600,
-                ...restProps.backdropProps,
             }),
-            [restProps.backdropProps],
+            [],
         );
 
         return (
