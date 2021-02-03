@@ -76,17 +76,10 @@ describe('Modal', () => {
             </Modal>
         );
 
-        it('should render a backdrop', () => {
-            const wrapper = render(modal());
-
-            const backdrop = wrapper.queryByTestId('backdrop');
-            expect(backdrop).not.toBeNull();
-        });
-
         it('should attach a handler to the backdrop that fires onClose', () => {
             const onClose = jest.fn();
-            const wrapper = render(modal({ onClose }));
-            const backdrop = wrapper.getByTestId('backdrop');
+            const { getByRole } = render(modal({ onClose }));
+            const backdrop = getByRole('dialog');
             fireEvent.click(backdrop);
 
             expect(onClose.mock.calls.length).toStrictEqual(1);
@@ -94,8 +87,8 @@ describe('Modal', () => {
 
         it('should let the user disable backdrop click triggering onClose', () => {
             const onClose = jest.fn();
-            const { getByTestId } = render(modal({ onClose, disableBackdropClick: true }));
-            const backdrop = getByTestId('backdrop');
+            const { getByRole } = render(modal({ onClose, disableBackdropClick: true }));
+            const backdrop = getByRole('dialog');
             fireEvent.click(backdrop);
 
             expect(onClose.mock.calls.length).toStrictEqual(0);
@@ -103,31 +96,11 @@ describe('Modal', () => {
 
         it('should call through to the user specified onBackdropClick callback', () => {
             const onBackdropClick = jest.fn();
-            const { getByTestId } = render(modal({ onBackdropClick }));
-            const backdrop = getByTestId('backdrop');
+            const { getByRole } = render(modal({ onBackdropClick }));
+            const backdrop = getByRole('dialog');
             fireEvent.click(backdrop);
 
             expect(onBackdropClick.mock.calls.length).toStrictEqual(1);
-        });
-
-        it('should ignore the backdrop click if the event did not come from the backdrop', () => {
-            const onBackdropClick = jest.fn();
-            const { getByTestId } = render(
-                modal({
-                    onBackdropClick,
-                    backdrop: ({ onClick }) => (
-                        // eslint-disable-next-line
-                        <div data-test-id='backdrop' onClick={onClick}>
-                            <span />
-                        </div>
-                    ),
-                }),
-            );
-            const backdrop = getByTestId('backdrop');
-            const span = backdrop.querySelector('span') as HTMLSpanElement;
-            fireEvent.click(span);
-
-            expect(onBackdropClick.mock.calls.length).toStrictEqual(0);
         });
     });
 
