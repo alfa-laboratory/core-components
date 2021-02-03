@@ -13,12 +13,12 @@
 
     /* secondary */
     --button-secondary-base-bg-color: transparent;
-    --button-secondary-base-border-color: var(--color-light-border-tertiary-inverted);
     --button-secondary-hover-bg-color: var(--color-light-specialbg-component);
     --button-secondary-active-bg-color: color-mod(
         var(--color-light-specialbg-component) blenda(black 7%)
     );
     --button-secondary-disabled-bg-color: transparent;
+    --button-secondary-base-border-color: var(--color-light-border-tertiary-inverted);
     --button-secondary-disabled-border-color: color-mod(
         var(--color-light-border-tertiary-inverted) alpha(30%)
     );
