@@ -22,7 +22,6 @@ import FocusLock from 'react-focus-lock';
 import { Portal, PortalProps } from '@alfalab/core-components-portal';
 
 import { handleContainer, isScrolledToBottom, isScrolledToTop } from '../../utils';
-import { Backdrop as DefaultBackdrop, BackdropProps } from '../backdrop';
 
 import styles from './index.module.css';
 
@@ -33,16 +32,16 @@ export type BaseModalProps = {
     children?: ReactNode;
 
     /**
-     * Бэкдроп компонент. Позволяет отрендерить кастомный оверлей
-     * @default Backdrop
+     * Скрыть бэкдроп
+     * @default false
      */
-    backdrop?: ElementType | null;
+    hideBackdrop?: boolean;
 
     /**
      * Свойства для Бэкдропа
      * @default timeout: 200, appear: true
      */
-    backdropProps?: Partial<BackdropProps>;
+    backdropProps?: Partial<TransitionProps>;
 
     /**
      * Нода, компонент или функция возвращающая их
@@ -210,7 +209,7 @@ export const BaseModal: FC<BaseModalProps & RefAttributes<HTMLDivElement>> = for
             fullscreen,
             highlightHeader = false,
             highlightFooter = false,
-            backdrop: Backdrop = DefaultBackdrop,
+            hideBackdrop = false,
             backdropProps = {},
             Transition = CSSTransition,
             transitionProps = {},
@@ -220,7 +219,7 @@ export const BaseModal: FC<BaseModalProps & RefAttributes<HTMLDivElement>> = for
             disableEscapeKeyDown = false,
             disableRestoreFocus = false,
             keepMounted = false,
-            targetHandleExited = Backdrop === null ? 'children' : 'backdrop',
+            targetHandleExited = hideBackdrop ? 'children' : 'backdrop',
             className,
             contentClassName,
             wrapperClassName,
@@ -399,54 +398,55 @@ export const BaseModal: FC<BaseModalProps & RefAttributes<HTMLDivElement>> = for
                     disabled={disableFocusLock || !open}
                     returnFocus={!disableRestoreFocus}
                 >
-                    {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
-                    <div
-                        role='dialog'
-                        className={cn(styles.wrapper, wrapperClassName, {
-                            [styles.hidden]: !open && exited,
-                            [styles.fullscreen]: fullscreen,
-                        })}
-                        ref={mergeRefs([wrapperRef, ref])}
-                        onKeyDown={handleKeyDown}
-                        tabIndex={-1}
-                        data-test-id={dataTestId}
+                    <CSSTransition
+                        in={open}
+                        appear={true}
+                        timeout={200}
+                        classNames={styles}
+                        onExited={handleBackdropExited}
+                        {...backdropProps}
                     >
-                        {Backdrop && (
-                            <Backdrop
-                                {...backdropProps}
-                                open={open}
-                                onExited={handleBackdropExited}
-                                onClick={handleBackdropClick}
-                            />
-                        )}
-
-                        <Transition
-                            appear={true}
-                            timeout={200}
-                            classNames={styles}
-                            {...transitionProps}
-                            in={open}
-                            onEntered={handleEntered}
-                            onExited={handleExited}
+                        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
+                        <div
+                            role='dialog'
+                            className={cn(styles.wrapper, wrapperClassName, {
+                                [styles.hidden]: !open && exited,
+                                [styles.fullscreen]: fullscreen,
+                                [styles.hideBackdrop]: hideBackdrop,
+                            })}
+                            ref={mergeRefs([wrapperRef, ref])}
+                            onKeyDown={handleKeyDown}
+                            tabIndex={-1}
+                            data-test-id={dataTestId}
+                            onClick={handleBackdropClick}
                         >
-                            <div className={cn(styles.component, className)}>
-                                {isValidElement(header)
-                                    ? cloneElement(header, {
-                                          onCloserClick: handleCloserClick,
-                                      })
-                                    : header}
+                            <Transition
+                                appear={true}
+                                timeout={200}
+                                {...transitionProps}
+                                in={open}
+                                onEntered={handleEntered}
+                                onExited={handleExited}
+                            >
+                                <div className={cn(styles.component, className)}>
+                                    {isValidElement(header)
+                                        ? cloneElement(header, {
+                                              onCloserClick: handleCloserClick,
+                                          })
+                                        : header}
 
-                                <div
-                                    className={cn(styles.content, contentClassName)}
-                                    ref={contentRef}
-                                >
-                                    {children}
+                                    <div
+                                        className={cn(styles.content, contentClassName)}
+                                        ref={contentRef}
+                                    >
+                                        {children}
+                                    </div>
+
+                                    {footer}
                                 </div>
-
-                                {footer}
-                            </div>
-                        </Transition>
-                    </div>
+                            </Transition>
+                        </div>
+                    </CSSTransition>
                 </FocusLock>
             </Portal>
         );

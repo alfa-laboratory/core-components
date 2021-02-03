@@ -26,6 +26,7 @@
     flex-direction: column;
     align-items: center;
     outline: 0;
+    background-color: var(--modal-backdrop-visible-background);
 
     padding-top: var(--gap-xl);
     padding-bottom: var(--gap-xl);
@@ -55,4 +56,30 @@
 .content {
     flex: 1 1 auto;
     overflow: auto;
+}
+
+/* ANIMATION */
+
+.appear,
+.enter {
+    background-color: var(--modal-backdrop-hidden-background);
+}
+
+.appearActive,
+.enterActive {
+    background-color: var(--modal-backdrop-visible-background);
+    transition: background-color 200ms ease-in;
+}
+
+.exit {
+    background-color: var(--modal-backdrop-visible-background);
+}
+
+.exitActive {
+    background-color: var(--modal-backdrop-hidden-background);
+    transition: background-color 200ms ease-out;
+}
+
+.hideBackdrop {
+    background-color: var(--modal-backdrop-hidden-background);
 }

@@ -27,7 +27,7 @@ export const ModalMobile = forwardRef<HTMLDivElement, ModalMobileProps>(
                 contentClassName={cn(styles[`content-${size}`], contentClassName)}
                 footerClassName={cn(styles[`footer-${size}`], footerClassName)}
                 headerClassName={cn(styles.header, styles[`header-${size}`], headerClassName)}
-                backdrop={null}
+                hideBackdrop={true}
                 {...restProps}
                 stickyFooter={true}
                 stickyHeader={true}
