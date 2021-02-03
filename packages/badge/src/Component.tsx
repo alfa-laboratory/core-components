@@ -10,14 +10,19 @@ export type BadgeProps = {
     className?: string;
 
     /**
-     * Размер компонента
+     *  Вид компонента
+     */
+    view: 'icon' | 'count';
+
+    /**
+     * Размер компонента (только для view=count)
      */
     size?: 's' | 'm' | 'l';
 
     /**
-     *  Вид компонента
+     *  Видимость обводки вокруг иконки (только для view=icon)
      */
-    view: 'icon' | 'count';
+    visibleIconOutline?: boolean;
 
     /**
      * Контент компонента
@@ -27,7 +32,7 @@ export type BadgeProps = {
     /**
      * Цветовое оформление иконки
      */
-    iconColor?: 'positive' | 'attention' | 'negative' | 'tertiary' | 'primary';
+    iconColor?: 'positive' | 'attention' | 'negative' | 'tertiary' | 'secondary' | 'primary';
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -39,6 +44,7 @@ export const Badge = ({
     className,
     size = 'm',
     view,
+    visibleIconOutline = false,
     content,
     iconColor,
     dataTestId,
@@ -58,6 +64,7 @@ export const Badge = ({
                 {
                     [styles.isHidden]: isHidden,
                     [styles.dot]: !content,
+                    [styles.outline]: visibleIconOutline,
                 },
                 className,
             )}

@@ -48,6 +48,12 @@ describe('Badge', () => {
             expect(container.firstElementChild).toHaveClass(view);
         });
 
+        it('should set `outline` class', () => {
+            const { container } = render(<Badge view='icon' visibleIconOutline={true} />);
+
+            expect(container.firstElementChild).toHaveClass('outline');
+        });
+
         it('should set `positive` class if `iconColor` prop is `positive`', () => {
             const iconColor = 'positive';
             const { container } = render(<Badge view='icon' iconColor={iconColor} />);
