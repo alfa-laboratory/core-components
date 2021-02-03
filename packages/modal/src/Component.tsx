@@ -4,7 +4,7 @@ import { use100vh } from 'react-div-100vh';
 import mergeRefs from 'react-merge-refs';
 
 import { useEventCallback } from '@alfalab/hooks';
-import { CrossHeavyMIcon } from '@alfalab/icons-glyph';
+import { CrossHeavyMIcon } from '@alfalab/icons-glyph/CrossHeavyMIcon';
 import { Portal, PortalProps } from '@alfalab/core-components-portal';
 import { TrapFocus } from '@alfalab/core-components-trap-focus';
 import { useMatchMedia } from '@alfalab/core-components-mq';
