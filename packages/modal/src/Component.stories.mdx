@@ -1,5 +1,6 @@
 import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
 import {boolean, select, text} from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { Button } from '../../button/src';
@@ -23,8 +24,8 @@ import { version } from '../package.json';
 
 export const footerContent = (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Button size="s" view="primary" style={{ marginBottom: '24px' }}>Сохранить</Button>
-        <Button size="s" view="secondary">Отмена</Button>
+        <Button size='s' view='primary' style={{ marginBottom: '24px' }}>Сохранить</Button>
+        <Button size='s' view='secondary'>Отмена</Button>
     </div>
 );
 
@@ -32,18 +33,10 @@ export const Content = () => {
     const [showMore, setShowMore] = React.useState(false);
     const Text = () => (
         <p>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-            veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-            ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-            consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque
-            porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-            adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore
-            et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam,
-            quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
-            aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit
-            qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum
-            qui dolorem eum fugiat quo voluptas nulla pariatur?
+            Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка.
+            Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов,
+            потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов,
+            полученных преступным путем, и финансированию терроризма» — 115-ФЗ
         </p>
     );
     return (
@@ -56,7 +49,7 @@ export const Content = () => {
                     <Text/>
                 </>
             )}
-            <Button size="xs" type="button" onClick={() => setShowMore(!showMore)}>
+            <Button size='xs' type='Button' onClick={() => setShowMore(!showMore)}>
                 {showMore ? 'Hide' : 'Show'} more
             </Button>
         </>
@@ -69,7 +62,7 @@ export const Content = () => {
         const handleModalOpen = () => setOpen(!open);
         return (
             <React.Fragment>
-                <button onClick={handleModalOpen}>Open Modal</button>
+                <Button type='button' size='xs' onClick={handleModalOpen}>Open Modal</Button>
                 <ModalMobile
                     open={open}
                     onClose={handleModalOpen}
@@ -85,7 +78,7 @@ export const Content = () => {
                     disableAutoFocus={boolean('disableAutoFocus', false)}
                 >
                     <div>
-                        <h3>Modal content</h3>
+                        <h3>Заголовок контента</h3>
                         <Content />
                     </div>
                 </ModalMobile>
@@ -101,7 +94,7 @@ export const Content = () => {
         const handleModalOpen = () => setOpen(!open);
         return (
             <React.Fragment>
-                <button onClick={handleModalOpen}>Open Modal</button>
+                <Button type='button' size='xs' onClick={handleModalOpen}>Open Modal</Button>
                 <ModalDesktop
                     open={open}
                     onClose={handleModalOpen}
@@ -121,7 +114,7 @@ export const Content = () => {
                     disableAutoFocus={boolean('disableAutoFocus', false)}
                 >
                     <div>
-                        <h3>Modal content</h3>
+                        <h3>Заголовок контента</h3>
                         <Content />
                     </div>
                 </ModalDesktop>
@@ -136,7 +129,7 @@ export const Content = () => {
         const handleModalOpen = () => setOpen(!open);
         return (
             <React.Fragment>
-                <button onClick={handleModalOpen}>Open Modal</button>
+                <Button type='button' size='xs' onClick={handleModalOpen}>Open Modal</Button>
                 <ModalResponsive
                     open={open}
                     onClose={handleModalOpen}
@@ -156,7 +149,7 @@ export const Content = () => {
                     disableAutoFocus={boolean('disableAutoFocus', false)}
                 >
                     <div>
-                        <h3>Modal content</h3>
+                        <h3>Заголовок контента</h3>
                         <Content />
                     </div>
                 </ModalResponsive>
@@ -189,35 +182,207 @@ import { Modal } from '@alfalab/core-components-modal';
 }} />
 
 
-export const SimpleModal = () => {
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => {
-        setOpen(true);
-    };
-    const handleClose = () => {
-        setOpen(false);
-    };
-    return (
-        <div>
-            <button type="button" onClick={handleOpen}>
-                Open Modal
-            </button>
-            <ModalDesktop open={open} onClose={handleClose} footer={
-                <div>
-                    footer content
-                </div>
-            }>
-                <div>
-                    <p>Text in a modal</p>
-                    <p>
-                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                    </p>
-                </div>
-            </ModalDesktop>
-        </div>
-    );
-};
-
 <Preview>
-    <SimpleModal />
+    <Container>
+        <Row>
+            <Typography.Title view="small">Шапка</Typography.Title>
+        </Row>
+        <Row>
+            <Col>
+                {React.createElement(() => {
+                    const [open, setOpen] = React.useState(false);
+                    const handleModalOpen = () => setOpen(!open);
+                    return (
+                        <React.Fragment>
+                            <Button type='button' size='xs' onClick={handleModalOpen}>С заголовком</Button>
+                            <ModalResponsive
+                                open={open}
+                                onClose={handleModalOpen}
+                                headerContent='Заголовок окна'
+                            >
+                                <Content />
+                            </ModalResponsive>
+                        </React.Fragment>
+                    );
+                })}
+            </Col>
+            <Col>
+                {React.createElement(() => {
+                    const [open, setOpen] = React.useState(false);
+                    const handleModalOpen = () => setOpen(!open);
+                    return (
+                        <React.Fragment>
+                            <Button type='button' size='xs' onClick={handleModalOpen}>Без заголовка</Button>
+                            <ModalResponsive
+                                open={open}
+                                onClose={handleModalOpen}
+                            >
+                                <Content />
+                            </ModalResponsive>
+                        </React.Fragment>
+                    );
+                })}
+            </Col>
+            <Col>
+                {React.createElement(() => {
+                    const [open, setOpen] = React.useState(false);
+                    const handleModalOpen = () => setOpen(!open);
+                    return (
+                        <React.Fragment>
+                            <Button type='button' size='xs' onClick={handleModalOpen}>Без шапки</Button>
+                            <ModalResponsive
+                                open={open}
+                                onClose={handleModalOpen}
+                                hasCloser={false}
+                            >
+                                <Content />
+                            </ModalResponsive>
+                        </React.Fragment>
+                    );
+                })}
+            </Col>
+            <Col>
+                {React.createElement(() => {
+                    const [open, setOpen] = React.useState(false);
+                    const handleModalOpen = () => setOpen(!open);
+                    return (
+                        <React.Fragment>
+                            <Button type='button' size='xs' onClick={handleModalOpen}>Sticky шапка</Button>
+                            <ModalResponsive
+                                open={open}
+                                onClose={handleModalOpen}
+                                stickyHeader={true}
+                                headerContent='Заголовок окна'
+                            >
+                                <Content />
+                            </ModalResponsive>
+                        </React.Fragment>
+                    );
+                })}
+            </Col>
+            <Col>
+                {React.createElement(() => {
+                    const [open, setOpen] = React.useState(false);
+                    const handleModalOpen = () => setOpen(!open);
+                    return (
+                        <React.Fragment>
+                            <Button type='button' size='xs' onClick={handleModalOpen}>Sticky шапка (только крестик)</Button>
+                            <ModalResponsive
+                                open={open}
+                                onClose={handleModalOpen}
+                                stickyHeader={true}
+                            >
+                                <Content />
+                            </ModalResponsive>
+                        </React.Fragment>
+                    );
+                })}
+            </Col>
+        </Row>
+        <Row>
+            <Typography.Title view="small">Футер</Typography.Title>
+        </Row>
+        <Row>
+            <Col>
+                {React.createElement(() => {
+                    const [open, setOpen] = React.useState(false);
+                    const handleModalOpen = () => setOpen(!open);
+                    return (
+                        <React.Fragment>
+                            <Button type='button' size='xs' onClick={handleModalOpen}>С футером</Button>
+                            <ModalResponsive
+                                open={open}
+                                onClose={handleModalOpen}
+                                footer={footerContent}
+                            >
+                                <Content />
+                            </ModalResponsive>
+                        </React.Fragment>
+                    );
+                })}
+            </Col>
+            <Col>
+                {React.createElement(() => {
+                    const [open, setOpen] = React.useState(false);
+                    const handleModalOpen = () => setOpen(!open);
+                    return (
+                        <React.Fragment>
+                            <Button type='button' size='xs' onClick={handleModalOpen}>Sticky футер</Button>
+                            <ModalResponsive
+                                open={open}
+                                onClose={handleModalOpen}
+                                footer={footerContent}
+                                stickyFooter={true}
+                            >
+                                <Content />
+                            </ModalResponsive>
+                        </React.Fragment>
+                    );
+                })}
+            </Col>
+            <Col>
+                {React.createElement(() => {
+                    const [open, setOpen] = React.useState(false);
+                    const handleModalOpen = () => setOpen(!open);
+                    return (
+                        <React.Fragment>
+                            <Button type='button' size='xs' onClick={handleModalOpen}>Sticky футер и шапка</Button>
+                            <ModalResponsive
+                                open={open}
+                                onClose={handleModalOpen}
+                                headerContent='Заголовок окна'
+                                footer={footerContent}
+                                stickyFooter={true}
+                                stickyHeader={true}
+                            >
+                                <Content />
+                            </ModalResponsive>
+                        </React.Fragment>
+                    );
+                })}
+            </Col>
+        </Row>
+        <Row>
+            <Typography.Title view="small">Fullscreen (шапка и футер всегда sticky)</Typography.Title>
+        </Row>
+        <Row>
+            <Col>
+                {React.createElement(() => {
+                    const [open, setOpen] = React.useState(false);
+                    const handleModalOpen = () => setOpen(!open);
+                    return (
+                        <React.Fragment>
+                            <Button type='button' size='xs' onClick={handleModalOpen}>С футером</Button>
+                            <ModalResponsive
+                                open={open}
+                                onClose={handleModalOpen}
+                                footer={footerContent}
+                                fullscreen={true}
+                            >
+                                <Content />
+                            </ModalResponsive>
+                        </React.Fragment>
+                    );
+                })}
+            </Col>
+            <Col>
+                {React.createElement(() => {
+                    const [open, setOpen] = React.useState(false);
+                    const handleModalOpen = () => setOpen(!open);
+                    return (
+                        <React.Fragment>
+                            <Button type='button' size='xs' onClick={handleModalOpen}>Без футера</Button>
+                            <ModalResponsive
+                                open={open}
+                                onClose={handleModalOpen}
+                                fullscreen={true}
+                            >
+                                <Content />
+                            </ModalResponsive>
+                        </React.Fragment>
+                    );
+                })}
+            </Col>
+        </Row>
+    </Container>
 </Preview>

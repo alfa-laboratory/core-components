@@ -50,6 +50,10 @@
 /* CONTENT */
 
 .content {
+    &:first-child {
+        padding-top: var(--modal-content-no-header-top-padding);
+    }
+
     &:last-child {
         padding-bottom: var(--modal-content-no-footer-bottom-padding);
     }
