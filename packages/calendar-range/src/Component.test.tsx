@@ -216,11 +216,40 @@ describe('CalendarRange', () => {
             expect(days[1]).toHaveClass('range');
         });
 
-        it('should unselected day, clear input and cancel selection if clicked on same day', () => {
+        it('should select new day, fill inputTo and end selection if clicked on same day twice', () => {
             const { container, queryAllByRole } = render(<CalendarRange />);
 
             const days = container.querySelectorAll('*[data-date]');
             const inputFrom = queryAllByRole('textbox')[0] as HTMLInputElement;
+            const inputTo = queryAllByRole('textbox')[1] as HTMLInputElement;
+
+            act(() => {
+                (days[0] as HTMLButtonElement).click();
+            });
+
+            act(() => {
+                (days[0] as HTMLButtonElement).click();
+            });
+
+            expect(days[0]).toHaveAttribute('aria-selected');
+            expect(inputFrom).toHaveValue(formatDate(currentMonth));
+            expect(inputTo).toHaveValue(formatDate(currentMonth));
+
+            fireEvent.mouseEnter(days[1]);
+
+            expect(days[1]).not.toHaveClass('range');
+        });
+
+        it('should unselected day, clear inputs and cancel selection if clicked on same day thrice', () => {
+            const { container, queryAllByRole } = render(<CalendarRange />);
+
+            const days = container.querySelectorAll('*[data-date]');
+            const inputFrom = queryAllByRole('textbox')[0] as HTMLInputElement;
+            const inputTo = queryAllByRole('textbox')[1] as HTMLInputElement;
+
+            act(() => {
+                (days[0] as HTMLButtonElement).click();
+            });
 
             act(() => {
                 (days[0] as HTMLButtonElement).click();
@@ -232,6 +261,7 @@ describe('CalendarRange', () => {
 
             expect(days[0]).not.toHaveAttribute('aria-selected');
             expect(inputFrom).toHaveValue('');
+            expect(inputTo).toHaveValue('');
 
             fireEvent.mouseEnter(days[1]);
 

@@ -13,7 +13,7 @@ import { FieldProps } from '@alfalab/core-components-select';
 import { FormControl, FormControlProps } from '@alfalab/core-components-form-control';
 import { Tag } from '@alfalab/core-components-tag';
 import { useFocus } from '@alfalab/hooks';
-import { CrossCompactMIcon } from '@alfalab/icons-glyph';
+import { CrossCompactMIcon } from '@alfalab/icons-glyph/CrossCompactMIcon';
 
 import styles from './index.module.css';
 

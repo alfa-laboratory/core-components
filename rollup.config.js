@@ -35,6 +35,12 @@ const baseConfig = {
 
 const multiInputPlugin = multiInput();
 
+const copyPlugin = dest =>
+    copy({
+        flatten: false,
+        targets: [{ src: ['src/**/*.{png,svg,jpg,jpeg}', '!**/__image_snapshots__/**'], dest }],
+    });
+
 const postcssPlugin = postcss({
     modules: {
         generateScopedName: function(name, fileName) {
@@ -75,10 +81,7 @@ const es5 = {
         }),
         json(),
         postcssPlugin,
-        copy({
-            flatten: false,
-            targets: [{ src: 'src/**/*.{png,svg,jpg,jpeg}', dest: `dist` }],
-        }),
+        copyPlugin('dist'),
     ],
 };
 
@@ -109,10 +112,7 @@ const modern = {
         }),
         json(),
         postcssPlugin,
-        copy({
-            flatten: false,
-            targets: [{ src: 'src/**/*.{png,svg,jpg,jpeg}', dest: `dist/modern` }],
-        }),
+        copyPlugin('dist/modern'),
     ],
 };
 
@@ -141,10 +141,7 @@ const cssm = {
         }),
         json(),
         processCss(),
-        copy({
-            flatten: false,
-            targets: [{ src: 'src/**/*.{png,svg,jpg,jpeg}', dest: `dist/cssm` }],
-        }),
+        copyPlugin('dist/cssm'),
     ],
 };
 
@@ -174,10 +171,7 @@ const esm = {
         }),
         json(),
         postcssPlugin,
-        copy({
-            flatten: false,
-            targets: [{ src: 'src/**/*.{png,svg,jpg,jpeg}', dest: `dist/esm` }],
-        }),
+        copyPlugin('dist/esm'),
     ],
 };
 

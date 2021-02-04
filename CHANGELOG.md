@@ -1,3 +1,50 @@
+## [8.3.1](https://github.com/alfa-laboratory/core-components/compare/v8.3.0...v8.3.1) (2021-02-03)
+
+
+### Bug Fixes
+
+* update data and utils dependencies ([#496](https://github.com/alfa-laboratory/core-components/issues/496)) ([76eba5d](https://github.com/alfa-laboratory/core-components/commit/76eba5dec90fc8f7616018171ddbf97ddfe091ce))
+
+# [8.3.0](https://github.com/alfa-laboratory/core-components/compare/v8.2.1...v8.3.0) (2021-02-01)
+
+
+### Bug Fixes
+
+* **switch:** box-sizing issue ([#490](https://github.com/alfa-laboratory/core-components/issues/490)) ([73c9eb0](https://github.com/alfa-laboratory/core-components/commit/73c9eb0b682a7d8168ae97b9a524d56c65fbd5a5))
+
+
+### Features
+
+* **calendar-range:** allow to select one-day range ([#491](https://github.com/alfa-laboratory/core-components/issues/491)) ([7fe56eb](https://github.com/alfa-laboratory/core-components/commit/7fe56eb7128146127b9b0732a945f11ee08980f3))
+
+## [8.2.1](https://github.com/alfa-laboratory/core-components/compare/v8.2.0...v8.2.1) (2021-02-01)
+
+
+### Bug Fixes
+
+* **phone-input:** fix caret ([#493](https://github.com/alfa-laboratory/core-components/issues/493)) ([b510257](https://github.com/alfa-laboratory/core-components/commit/b510257a7793041766a1d7f4f0a8eae61ee69a8d))
+* **select:** fix safari overflow bug ([#492](https://github.com/alfa-laboratory/core-components/issues/492)) ([a273dc1](https://github.com/alfa-laboratory/core-components/commit/a273dc1372d171b0a36ad7acfa6e50e65b10a889))
+
+# [8.2.0](https://github.com/alfa-laboratory/core-components/compare/v8.1.0...v8.2.0) (2021-01-28)
+
+
+### Features
+
+* **button:** transparent view ([e395049](https://github.com/alfa-laboratory/core-components/commit/e39504987bf7c3afb01fc78151bff182199d08cb))
+
+# [8.1.0](https://github.com/alfa-laboratory/core-components/compare/v8.0.3...v8.1.0) (2021-01-27)
+
+
+### Features
+
+* **amount-input:** delete zero minor part in passed amount ([#484](https://github.com/alfa-laboratory/core-components/issues/484)) ([b787cb1](https://github.com/alfa-laboratory/core-components/commit/b787cb1ea1a56bc022470a644e4029bba623b151))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [8.0.3](https://github.com/alfa-laboratory/core-components/compare/v8.0.2...v8.0.3) (2021-01-21)
+
 ## [8.0.2](https://github.com/alfa-laboratory/core-components/compare/v8.0.1...v8.0.2) (2021-01-20)
 
 
