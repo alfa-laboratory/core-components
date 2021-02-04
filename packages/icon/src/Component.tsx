@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import DOMPurify from 'dompurify';
 
 import styles from './index.module.css';
 
@@ -28,11 +27,7 @@ export const Icon: React.FC<IconProps> = ({ name, color, dataTestId }) => {
             .then(res => res.data)
             .then(svg => {
                 if (svg.startsWith('<svg')) {
-                    const cleanSvg = DOMPurify.sanitize(svg, {
-                        USE_PROFILES: { svg: true, svgFilters: true },
-                    });
-
-                    setIcon(cleanSvg);
+                    setIcon(svg);
                 } else {
                     throw new Error();
                 }

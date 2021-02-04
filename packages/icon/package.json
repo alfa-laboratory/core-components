@@ -12,8 +12,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "@types/dompurify": "^2.2.1",
-    "dompurify": "^2.2.6"
-  }
+  "dependencies": {}
 }
