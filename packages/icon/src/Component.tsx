@@ -44,10 +44,10 @@ export const Icon: React.FC<IconProps> = ({
     }, [name]);
 
     return (
-        // eslint-disable-next-line react/no-danger
         <span
             style={{ color }}
             className={styles.component}
+            // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: icon }}
             data-test-id={dataTestId}
         />
