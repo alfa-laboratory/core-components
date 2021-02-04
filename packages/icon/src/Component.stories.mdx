@@ -1,8 +1,8 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { Icon } from './Component';
-import { name, version } from '../package.json';
+import { version } from '../package.json';
 
 
 <Meta title='Компоненты' component={Icon} />
@@ -11,7 +11,7 @@ import { name, version } from '../package.json';
 <!-- Canvas -->
 
 <Story name='Icon'>
-    <Icon />
+    <Icon name='glyph_debt_m' />
 </Story>
 
 
@@ -35,4 +35,7 @@ import { BankCard } from '@alfalab/core-components-icon';
 
 <Props of={Icon} />
 
+#### Иконка, которая появится, если имя иконки передано неверно
+
+<Icon name='fake-fake-fake'/>
 
