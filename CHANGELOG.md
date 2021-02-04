@@ -1,3 +1,10 @@
+## [8.3.1](https://github.com/alfa-laboratory/core-components/compare/v8.3.0...v8.3.1) (2021-02-03)
+
+
+### Bug Fixes
+
+* update data and utils dependencies ([#496](https://github.com/alfa-laboratory/core-components/issues/496)) ([76eba5d](https://github.com/alfa-laboratory/core-components/commit/76eba5dec90fc8f7616018171ddbf97ddfe091ce))
+
 # [8.3.0](https://github.com/alfa-laboratory/core-components/compare/v8.2.1...v8.3.0) (2021-02-01)
 
 
