@@ -11,8 +11,11 @@ const fallbackIcon =
     '</svg>';
 
 type IconProps = {
+    /** Имя иконки */
     name: string;
+    /** Цвет иконки */
     color?: string;
+    /** Идентификатор для систем автоматизированного тестирования */
     dataTestId?: string;
 };
 
