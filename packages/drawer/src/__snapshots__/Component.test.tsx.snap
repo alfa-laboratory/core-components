@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drawer should match snapshot 1`] = `
+<div
+  class="wrapper fullscreen backdropAppear backdropAppearActive"
+  data-test-id="drawer"
+  role="dialog"
+  tabindex="-1"
+>
+  <div
+    class="component appear appearActive"
+  >
+    <div
+      class="component header"
+    >
+      <div
+        class="content"
+      >
+        <span>
+          header
+        </span>
+      </div>
+    </div>
+    <div
+      class="content content"
+    >
+      content
+    </div>
+    <div
+      class="component footer"
+    >
+      <span>
+        footer
+      </span>
+    </div>
+  </div>
+</div>
+`;
