@@ -12,7 +12,7 @@ import { CurrencyCodes } from '@alfalab/data';
  * @param currency валюта
  * @param minority количество минорных единиц
  */
-export function getFormatedValue(enteredValue: string, currency: CurrencyCodes, minority: number) {
+export function getFormattedValue(enteredValue: string, currency: CurrencyCodes, minority: number) {
     const [head, tail] = enteredValue.split(',');
     const { majorPart } = formatAmount({
         value: Number(head) * minority,

@@ -13,8 +13,12 @@
     --button-secondary-color: var(--color-light-text-primary);
     --button-secondary-base-bg-color: var(--color-light-specialbg-component);
     --button-secondary-base-border-color: transparent;
-    --button-secondary-hover-bg-color: color-mod(var(--button-secondary-base-bg-color) shade(7%));
-    --button-secondary-active-bg-color: color-mod(var(--button-secondary-base-bg-color) shade(15%));
+    --button-secondary-hover-bg-color: color-mod(
+        var(--button-secondary-base-bg-color) blenda(black 7%)
+    );
+    --button-secondary-active-bg-color: color-mod(
+        var(--button-secondary-base-bg-color) blenda(black 15%)
+    );
     --button-secondary-disabled-bg-color: var(--color-light-specialbg-component);
     --button-secondary-disabled-border-color: transparent;
     --button-secondary-disabled-color: color-mod(var(--color-light-text-primary) alpha(30%));
@@ -163,7 +167,7 @@ a.loading {
     }
 
     &:active {
-        background-color: color-mod(var(--color-light-specialbg-component) shade(7%));
+        background-color: color-mod(var(--color-light-specialbg-component) blenda(black 7%));
     }
 }
 
@@ -172,11 +176,24 @@ a.loading {
     background-color: var(--color-light-specialbg-component);
 
     &:hover {
-        background-color: color-mod(var(--color-light-specialbg-component) shade(7%));
+        background-color: color-mod(var(--color-light-specialbg-component) blenda(black 7%));
     }
 
     &:active {
-        background-color: color-mod(var(--color-light-specialbg-component) shade(15%));
+        background-color: color-mod(var(--color-light-specialbg-component) blenda(black 15%));
+    }
+}
+
+.transparent {
+    color: var(--color-light-text-primary);
+    background-color: color-mod(var(--color-light-bg-primary-inverted) alpha(10%));
+
+    &:hover {
+        background-color: color-mod(var(--color-light-bg-primary-inverted) alpha(20%));
+    }
+
+    &:active {
+        background-color: color-mod(var(--color-light-bg-primary-inverted) alpha(40%));
     }
 }
 
@@ -190,7 +207,7 @@ a.loading {
     }
 
     &:active {
-        background-color: color-mod(var(--color-light-specialbg-component) shade(7%));
+        background-color: color-mod(var(--color-light-specialbg-component) blenda(black 7%));
     }
 }
 
@@ -260,6 +277,16 @@ a.loading {
         &.loading {
             color: var(--color-light-text-primary);
             background-color: var(--color-light-specialbg-component);
+        }
+    }
+
+    &.transparent {
+        color: color-mod(var(--color-light-text-primary) alpha(30%));
+        background-color: color-mod(var(--color-light-bg-primary-inverted) alpha(3%));
+
+        &.loading {
+            color: var(--color-light-text-primary);
+            background-color: color-mod(var(--color-light-bg-primary-inverted) alpha(10%));
         }
     }
 

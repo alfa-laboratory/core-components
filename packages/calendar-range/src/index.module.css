@@ -2,6 +2,10 @@
 
 .component {
     display: flex;
+
+    & button[aria-selected='true'] {
+        cursor: pointer;
+    }
 }
 
 .divider {
