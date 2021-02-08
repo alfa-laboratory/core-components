@@ -28,6 +28,8 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
             autocomplete = true,
             match,
             allowUnselect = true,
+            emptyListPlaceholder = 'Ничего не найдено',
+            Tag,
             ...restProps
         },
         ref,
@@ -104,11 +106,16 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                 Arrow={Arrow}
                 multiple={true}
                 allowUnselect={allowUnselect}
+                showEmptyOptionsList={true}
                 fieldProps={{
                     value,
                     autocomplete: isAutocomplete,
                     onInput,
                     handleDeleteTag,
+                    Tag,
+                }}
+                optionsListProps={{
+                    emptyPlaceholder: emptyListPlaceholder,
                 }}
                 selected={selected || selectedTags}
                 autocomplete={isAutocomplete}
