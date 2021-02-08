@@ -1,3 +1,15 @@
+# [10.0.0](https://github.com/alfa-laboratory/core-components/compare/v9.1.0...v10.0.0) (2021-02-08)
+
+
+### Features
+
+* **badge:** reinvented icon view, visibleIconOutline prop ([#499](https://github.com/alfa-laboratory/core-components/issues/499)) ([bad9140](https://github.com/alfa-laboratory/core-components/commit/bad91400cb72edcd0878f7a07188e928d4bf3281))
+
+
+### BREAKING CHANGES
+
+* **badge:** new icon view without fixed size
+
 # [9.1.0](https://github.com/alfa-laboratory/core-components/compare/v9.0.0...v9.1.0) (2021-02-08)
 
 
