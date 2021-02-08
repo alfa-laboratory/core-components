@@ -108,7 +108,8 @@
         border-radius: 0;
     }
 
-    &.selected {
+    &.selected,
+    &.disabled.selected {
         color: var(--calendar-selected-color);
         background: var(--calendar-selected-background);
         cursor: default;
