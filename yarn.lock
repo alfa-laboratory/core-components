@@ -66,7 +66,7 @@
   resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-0.9.0.tgz#cc1258698011e1d929d9154e87cba573689babad"
   integrity sha512-2YGUfBpZ8omADxvn5oXA0zwDMLINg5AvCx1nCrJNSLbiekpP/jk8F2rcVjN0OKgY9OKUOgMaGZZ3keDtsvVCIA==
 
-"@alfalab/hooks@^1.0.0":
+"@alfalab/hooks@^1.0.0", "@alfalab/hooks@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.1.1.tgz#c61e839983cb915e2e4de730bf9c9b0f1c0aea45"
   integrity sha512-4NBh/BzFE/W7Wxgxa0SByodjpDgUQT5RHzc/9wLbMlhljpo+S145mavFdtK+YcJ2Sg4GK6OZon61KqV5w7Nafw==

@@ -11,6 +11,9 @@ Object {
         Hover me
       </div>
     </div>
+    <div
+      alfa-portal-container=""
+    />
   </body>,
   "container": <div>
     <div
@@ -77,18 +80,11 @@ exports[`Display tests should display correctly if tooltip open 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <div>
-      <div
-        class="target"
-      >
-        Hover me
-      </div>
-    </div>
     <div
       alfa-portal-container=""
     >
       <div
-        class="component [object Object] mountOnEnter unmountOnExit in timeout children popper"
+        class="component popper"
         data-popper-escaped="true"
         data-popper-placement="left"
         data-popper-reference-hidden="true"
@@ -105,6 +101,13 @@ Object {
           class="arrow"
           style="position: absolute; top: 0px; transform: translate(0px, 0px);"
         />
+      </div>
+    </div>
+    <div>
+      <div
+        class="target"
+      >
+        Hover me
       </div>
     </div>
   </body>,

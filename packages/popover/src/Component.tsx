@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, CSSProperties, MutableRefObject } from 'react';
 import cn from 'classnames';
-import { Transition } from 'react-transition-group';
-import { TransitionProps } from 'react-transition-group/Transition';
+import { CSSTransition } from 'react-transition-group';
+import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
 import { usePopper } from 'react-popper';
 import { BasePlacement, VariationPlacement, Obj } from '@popperjs/core';
 
@@ -68,10 +68,14 @@ export type PopoverProps = {
     getPortalContainer?: () => HTMLElement;
 
     /**
-     * Transition props, прокидываются в компонент Transition.
-     * См. https://reactcommunity.org/react-transition-group/transition
+     * CSSTransitionProps, прокидываются в компонент CSSTransitionProps.
      */
-    transition?: Partial<TransitionProps>;
+    transition?: CSSTransitionProps;
+
+    /**
+     * Выставляет кастомное свойство transition-duration
+     */
+    transitionDuration?: CSSProperties['transitionDuration'];
 
     /**
      * Рендерит компонент, обернутый в Transition
@@ -89,12 +93,21 @@ export type PopoverProps = {
     update?: MutableRefObject<() => void>;
 };
 
-const TRANSITION_DURATION = 300;
+const DEFAULT_TRANSITION = {
+    timeout: 300,
+};
+
+const CSS_TRANSITION_CLASS_NAMES = {
+    enter: styles.enter,
+    enterActive: styles.enterActive,
+    exit: styles.exit,
+    exitActive: styles.exitActive,
+};
 
 export const Popover: React.FC<PopoverProps> = ({
     children,
     getPortalContainer,
-    transition = {},
+    transition = DEFAULT_TRANSITION,
     anchorElement,
     offset = [0, 0],
     withArrow = false,
@@ -106,6 +119,7 @@ export const Popover: React.FC<PopoverProps> = ({
     open,
     dataTestId,
     update,
+    transitionDuration = `${transition.timeout}ms`,
 }) => {
     const [referenceElement, setReferenceElement] = useState<RefElement>(anchorElement);
     const [popperElement, setPopperElement] = useState<RefElement>(null);
@@ -151,53 +165,44 @@ export const Popover: React.FC<PopoverProps> = ({
         }
     }, [updatePopper, update]);
 
-    const renderPortal = (showContent: boolean, className?: string, style?: CSSProperties) => (
+    const renderContent = (style?: CSSProperties) => {
+        return (
+            <div
+                ref={setPopperElement}
+                className={cn(styles.component, popperClassName)}
+                style={{
+                    ...popperStyles.popper,
+                    ...style,
+                }}
+                data-test-id={dataTestId}
+                {...attributes.popper}
+            >
+                {children}
+                {withArrow && (
+                    <div
+                        ref={setArrowElement}
+                        style={popperStyles.arrow}
+                        className={cn(styles.arrow, arrowClassName)}
+                    />
+                )}
+            </div>
+        );
+    };
+
+    return (
         <Portal getPortalContainer={getPortalContainer}>
-            {showContent && (
-                <div
-                    ref={setPopperElement}
-                    className={cn(styles.component, className, popperClassName)}
-                    style={{
-                        ...popperStyles.popper,
-                        ...style,
-                    }}
-                    data-test-id={dataTestId}
-                    {...attributes.popper}
+            {withTransition ? (
+                <CSSTransition
+                    unmountOnExit={true}
+                    classNames={CSS_TRANSITION_CLASS_NAMES}
+                    {...transition}
+                    in={open}
                 >
-                    {children}
-                    {withArrow && (
-                        <div
-                            ref={setArrowElement}
-                            style={popperStyles.arrow}
-                            className={cn(styles.arrow, arrowClassName)}
-                        />
-                    )}
-                </div>
+                    {renderContent({ transitionDuration })}
+                </CSSTransition>
+            ) : (
+                open && renderContent()
             )}
         </Portal>
     );
-
-    if (withTransition) {
-        const timeout = transition.timeout === undefined ? TRANSITION_DURATION : transition.timeout;
-
-        const transitionProps = {
-            mountOnEnter: true,
-            unmountOnExit: true,
-            ...transition,
-            in: open,
-            timeout,
-        };
-
-        return (
-            <Transition {...transitionProps}>
-                {status =>
-                    renderPortal(true, cn(styles[status], status), {
-                        transitionDuration: `${timeout}ms`,
-                    })
-                }
-            </Transition>
-        );
-    }
-
-    return renderPortal(open);
 };
