@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph';
+import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 
 import { Badge } from './index';
 

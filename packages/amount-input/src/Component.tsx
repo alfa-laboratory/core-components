@@ -4,7 +4,7 @@ import { Input, InputProps } from '@alfalab/core-components-input';
 import { THINSP, formatAmount, getCurrencySymbol } from '@alfalab/utils';
 import { CurrencyCodes } from '@alfalab/data';
 import { withSuffix } from '@alfalab/core-components-with-suffix';
-import { getFormatedValue, getAmountValueFromStr } from './utils';
+import { getFormattedValue, getAmountValueFromStr } from './utils';
 
 import styles from './index.module.css';
 
@@ -87,7 +87,8 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                 value: value as number,
                 currency,
                 minority,
-            }).formated,
+                view: 'default',
+            }).formatted,
         );
 
         const currencySymbol = getCurrencySymbol(currency);
@@ -101,7 +102,8 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                         value: value as number,
                         currency,
                         minority,
-                    }).formated,
+                        view: 'default',
+                    }).formatted,
                 );
             }
 
@@ -117,9 +119,9 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             ).test(enteredValue);
 
             if (isCorrectEnteredValue) {
-                const newFormatedValue = getFormatedValue(enteredValue, currency, minority);
+                const newFormattedValue = getFormattedValue(enteredValue, currency, minority);
 
-                if (newFormatedValue === inputValue) {
+                if (newFormattedValue === inputValue) {
                     const caret = input.selectionStart;
                     window.requestAnimationFrame(() => {
                         input.selectionStart = caret;
@@ -141,7 +143,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                         notFormattedEnteredValueLength += tail.slice(0, 2).length; // только 2 символа в минорной части
                     }
 
-                    const diff = newFormatedValue.length - notFormattedEnteredValueLength;
+                    const diff = newFormattedValue.length - notFormattedEnteredValueLength;
                     const caret = (input.selectionStart as number) + diff;
                     window.requestAnimationFrame(() => {
                         input.selectionStart = caret;
@@ -149,11 +151,11 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     });
                 }
 
-                setInputValue(newFormatedValue);
+                setInputValue(newFormattedValue);
                 if (onChange) {
                     onChange(e, {
-                        value: getAmountValueFromStr(newFormatedValue, minority),
-                        valueString: newFormatedValue,
+                        value: getAmountValueFromStr(newFormattedValue, minority),
+                        valueString: newFormattedValue,
                     });
                 }
             } else {

@@ -28,6 +28,7 @@
     border-radius: var(--select-options-list-border-radius);
     background: var(--select-option-background);
     overflow: hidden;
+    will-change: transform;
 }
 
 .nativeSelect {

@@ -56,17 +56,17 @@
     classnames "^2.2.6"
     react-merge-refs "^1.1.0"
 
-"@alfalab/data@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-0.2.0.tgz#4956618252d0eb754652ec20554ff71292578add"
-  integrity sha512-so5/YttRoIvaulQincuwpensE4zmC9nSRdD2ikCgo6nhyZs6vPB4o7VNhvBcMddrvPOiXRYLerCU+J98GPe22Q==
+"@alfalab/data@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-0.3.0.tgz#0c424ed39186bcd05d0f76d93a70610e01d9a38a"
+  integrity sha512-8+dlxoOGe/2X3MirHCca9//PtYwBkyakzMcLKNMRC9P0jNzrz+IUVkxSab5UPwWOaXKWm81c70EvQfu6W9wXUw==
 
 "@alfalab/hooks@0.9.0", "@alfalab/hooks@^0.9.0":
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-0.9.0.tgz#cc1258698011e1d929d9154e87cba573689babad"
   integrity sha512-2YGUfBpZ8omADxvn5oXA0zwDMLINg5AvCx1nCrJNSLbiekpP/jk8F2rcVjN0OKgY9OKUOgMaGZZ3keDtsvVCIA==
 
-"@alfalab/hooks@^1.0.0":
+"@alfalab/hooks@^1.0.0", "@alfalab/hooks@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.1.1.tgz#c61e839983cb915e2e4de730bf9c9b0f1c0aea45"
   integrity sha512-4NBh/BzFE/W7Wxgxa0SByodjpDgUQT5RHzc/9wLbMlhljpo+S145mavFdtK+YcJ2Sg4GK6OZon61KqV5w7Nafw==
@@ -136,15 +136,10 @@
   resolved "https://registry.yarnpkg.com/@alfalab/stylelint-core-vars/-/stylelint-core-vars-0.0.4.tgz#f9ba0ea20b8a2d77646d3a65b34631659d6073ea"
   integrity sha512-KMaN6A4QGwLDeD5aVTPl6zozDUPgB5WeumcWib4zdzv7zfnFtOnUFfpyLguFXCi9geg4/gC2hf4MCNH8uNe8Dg==
 
-"@alfalab/utils@^0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-0.4.1.tgz#b914e45591b98dcaf59c553d48cb1c92f640aa62"
-  integrity sha512-yu0xPluUa1zbv4UlNCReNHZCNLrevTqRQ7rUW8hkpiKw/pL3Wn9JgFwgZPFS0VkiReTaL9D7eP7xHcjjzCMj+Q==
-
-"@alfalab/utils@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-0.5.0.tgz#92c2dfbe5f5c301da243699dd92ec4b40ab682f5"
-  integrity sha512-KXuiGgHeDkXoYu8WdNPCkr9hKkz2ybQNVA7VCyilzuUpsepQcctvMPQv0oG98cI/ipFK0mDxo2gAhtVXLfCOoA==
+"@alfalab/utils@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.0.1.tgz#6af0cc51229bbd1243c8480a535845fc51811d71"
+  integrity sha512-2PEWKVvctknYgMZei0o09BxbJ53fZDnpBl7Nfcy0vureiwwAe/IuwNZOjqwfzEbHAiLnx5CN4ZbXtOur1n06oA==
 
 "@babel/code-frame@7.5.5":
   version "7.5.5"
