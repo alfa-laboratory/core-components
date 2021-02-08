@@ -14,12 +14,6 @@ describe('CDNIcon', () => {
         await waitFor(() => expect(container.querySelector('svg')).not.toBe(null));
     });
 
-    it('should pass an invalid value to the `name` prop', async () => {
-        mockedAxios.get.mockResolvedValueOnce({ data: '' });
-        const { container } = render(<CDNIcon name='fake-fake-fake' />);
-        await waitFor(() => expect(container.querySelector('span')).toHaveTextContent(''));
-    });
-
     it('should use the color prop', async () => {
         mockedAxios.get.mockResolvedValueOnce({ data: '<svg />' });
         const color = '#ccc';

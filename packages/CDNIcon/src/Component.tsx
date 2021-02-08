@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 
 import styles from './index.module.css';
 
@@ -16,14 +15,13 @@ export const CDNIcon: React.FC<CDNIconProps> = ({ name, color, dataTestId }) => 
     const [icon, setIcon] = useState('');
 
     useEffect(() => {
-        axios
-            .get(`https://alfabank.st/icons/${name}.svg`)
-            .then(res => res.data)
-            .then(svg => {
-                if (svg.startsWith('<svg')) {
-                    setIcon(svg);
-                }
-            });
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', `https://alfabank.st/icons/${name}.svg`);
+        xhr.send();
+        xhr.onload = function() {
+            const svg = xhr.response;
+            if (svg.startsWith('<svg')) setIcon(svg);
+        };
     }, [name]);
 
     return (
