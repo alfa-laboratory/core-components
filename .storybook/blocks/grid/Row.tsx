@@ -10,11 +10,12 @@ type RowProps = {
     flex?: boolean;
 };
 
-export const Row: React.FC<RowProps> = ({ align, flex, className, children }) => (
+export const Row: React.FC<RowProps> = ({ align, flex, className, children, ...restProps }) => (
     <div
         className={cn(styles.row, className, styles[align], {
             [styles.flex]: flex,
         })}
+        {...restProps}
     >
         {children}
     </div>
