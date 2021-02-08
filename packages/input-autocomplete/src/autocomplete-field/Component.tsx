@@ -24,7 +24,9 @@ export const AutocompleteField = ({
 }: AutocompleteFieldProps) => {
     const inputRef = useRef<HTMLInputElement>(null);
 
-    const { onClick } = innerProps;
+    const { onClick, onFocus } = innerProps;
+
+    const inputDisabled = disabled || readOnly;
 
     const handleClick = useCallback(
         event => {
@@ -53,7 +55,8 @@ export const AutocompleteField = ({
             success={success}
             hint={hint}
             onChange={onInput}
-            onClick={handleClick}
+            onClick={inputDisabled ? undefined : handleClick}
+            onFocus={inputDisabled ? undefined : onFocus}
             autoComplete='off'
             value={value}
             rightAddons={
