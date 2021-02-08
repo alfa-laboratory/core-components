@@ -27,6 +27,11 @@ const execOptions = {
 const tempOutputDir = shell.exec('git rev-parse HEAD', execOptions).stdout.trim();
 /** Current git branch */
 const sourceBranch = shell.exec('git rev-parse --abbrev-ref HEAD', execOptions).stdout.trim();
+/** Try to get affected component name from last commit message **/
+const lastCommitMessage = shell.exec('git show-branch --no-name HEAD', execOptions).stdout.trim();
+/** Parse affected component from last commit message */
+const affectedComponent = parseScopeFromCommit(lastCommitMessage);
+
 /** Git remote url */
 const gitUrl = shell
     .exec(`git config --get remote.${defaultConfig.gitRemote}.url`, execOptions)
@@ -74,9 +79,18 @@ console.log(`=> Commit changes with message: ${defaultConfig.commitMessage}`);
 shell.exec('git add .', execOptions);
 shell.exec(`git commit -m "${defaultConfig.commitMessage}"`, execOptions);
 
-const storybookUrl = `${gitPagesUrl}/${sourceBranch === 'master' ? 'master' : tempOutputDir}/`;
+const folder = sourceBranch === 'master' ? 'master' : tempOutputDir;
+const path = affectedComponent ? `?path=/story/компоненты--${affectedComponent}` : '';
+const storybookUrl = encodeURI(`${gitPagesUrl}/${folder}/${path}`);
 
 console.log(`=> Storybook deployed to: ${storybookUrl}`);
 
 // store storybook url
 shell.exec(`echo ::set-output name=storybook_url::${storybookUrl}`);
+
+function parseScopeFromCommit(message) {
+    const matches = /^[^\(]*\(([^\)]*)\):.*$/.exec(message);
+    if (matches && ['themes', 'vars'].includes(matches[1]) === false) {
+        return matches[1];
+    }
+}
