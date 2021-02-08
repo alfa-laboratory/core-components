@@ -30,7 +30,7 @@ export type ToastProps = ToastPlateProps &
     > & {
         /**
          * Элемент, относительного которого появляется тост.
-         * Если не передавать, тост будет позиционирован снизу экрана, по центру (position: fixed).
+         * Если не передавать, тост будет позиционирован снизу экрана (position: fixed).
          */
         anchorElement?: HTMLElement;
 
@@ -48,11 +48,6 @@ export type ToastProps = ToastPlateProps &
          * Отступ снизу (при fixed-позиционировании).
          */
         bottomOffset?: number;
-
-        /**
-         * Будет позиционирован снизу по центру (при fixed-позиционировании)
-         */
-        centeredPosition?: boolean;
     };
 
 export const Toast = forwardRef<HTMLDivElement, ToastProps>(
@@ -72,7 +67,6 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
             onTouchStart,
             onClose,
             getPortalContainer,
-            centeredPosition = true,
             ...restProps
         },
         ref,
@@ -176,12 +170,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
                 >
                     <ToastPlate
                         {...restProps}
-                        className={cn(
-                            styles.fixed,
-                            styles.toastPlate,
-                            { [styles.centered]: centeredPosition },
-                            className,
-                        )}
+                        className={cn(styles.fixed, styles.toastPlate, className)}
                         style={{
                             ...style,
                             bottom: bottomOffset && `${bottomOffset}px`,

@@ -45,24 +45,3 @@
         transform: scale(0.98);
     }
 }
-
-.centered {
-    left: 50%;
-    transform: translateX(-50%) scale(1);
-
-    &.enter {
-        transform: translateX(-50%) scale(0.98);
-    }
-
-    &.enterActive {
-        transform: translateX(-50%) scale(1);
-    }
-
-    &.exit {
-        transform: translateX(-50%) scale(1);
-    }
-
-    &.exitActive {
-        transform: translateX(-50%) scale(0.98);
-    }
-}
