@@ -8,6 +8,7 @@
     --form-control-border-bottom: 1px solid var(--color-light-border-secondary-inverted);
     --form-control-bg-color: color-mod(var(--color-light-bg-primary-inverted) alpha(7%));
     --form-control-bg-backdrop-filter: unset;
+    --form-control-color: var(--color-light-text-primary);
     --form-control-label-color: var(--color-light-text-secondary);
     --form-control-hint-color: var(--color-light-text-secondary);
 
@@ -43,6 +44,7 @@
 .component {
     font-family: var(--form-control-font-family);
     width: max-content;
+    color: var(--form-control-color);
 }
 
 .inner {
