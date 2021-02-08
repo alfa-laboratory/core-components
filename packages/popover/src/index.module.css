@@ -74,18 +74,18 @@
     }
 }
 
-.entering {
+.enter {
     opacity: 0;
 }
 
-.entered {
+.enterActive {
     opacity: 1;
 }
 
-.exiting {
-    opacity: 0;
+.exit {
+    opacity: 1;
 }
 
-.exited {
+.exitActive {
     opacity: 0;
 }
