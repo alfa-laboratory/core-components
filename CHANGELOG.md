@@ -1,3 +1,36 @@
+# [9.0.0](https://github.com/alfa-laboratory/core-components/compare/v8.3.1...v9.0.0) (2021-02-08)
+
+
+### Features
+
+* **notification:** move inner content to toast ([8b7a4e9](https://github.com/alfa-laboratory/core-components/commit/8b7a4e932a7ac684edc62d2039263d0b9183ff0a))
+* **popover:** fix transition ([f8564bc](https://github.com/alfa-laboratory/core-components/commit/f8564bceace99104b521fc92d037f7ef9c635f91))
+* **themes:** add button ghost inverted theme ([dd71bbf](https://github.com/alfa-laboratory/core-components/commit/dd71bbf94ba3f7cc3502f1ff4f60dad4b023ff9e))
+* **toast:** remove extra prop ([6a8167a](https://github.com/alfa-laboratory/core-components/commit/6a8167a6685a290efc30ac9fc285ddc4b62bd1fe))
+* **toast:** review fixes ([50fea1d](https://github.com/alfa-laboratory/core-components/commit/50fea1d764a2b99b66a1212fa56c98958e34f147))
+* yet another fixes ([6ecd273](https://github.com/alfa-laboratory/core-components/commit/6ecd273b8900e9559e1b8a54a95d1874b4c4a7a3))
+* **themes:** updates ([86bd76f](https://github.com/alfa-laboratory/core-components/commit/86bd76fa1cb204b274c0092a5fcc0d984d3f57a1))
+* **toast:** add draft component ([d04fbb3](https://github.com/alfa-laboratory/core-components/commit/d04fbb315adda99553f87f5d8e477ff60314a070))
+* **toast:** add new component ([09de8b0](https://github.com/alfa-laboratory/core-components/commit/09de8b0ad2684b047d129929506a83127b2ccf99))
+* **toast:** add portal ([439148d](https://github.com/alfa-laboratory/core-components/commit/439148d04d950f21b0d7186c1cbc4e681f305d63))
+* **toast:** add stop, start timers ([b28ea98](https://github.com/alfa-laboratory/core-components/commit/b28ea982cec94eb9c0a50250d51cf173d0bc0a02))
+* **toast:** fix linter error ([e994512](https://github.com/alfa-laboratory/core-components/commit/e9945125a90935e205aee8e4a6bb8b762e352d25))
+* **toast:** fix linter problems ([e8342e8](https://github.com/alfa-laboratory/core-components/commit/e8342e89353b6f1a3935473c46a1694b2186561e))
+* **toast:** some fixes ([fe95b5d](https://github.com/alfa-laboratory/core-components/commit/fe95b5d8930698ab6d37ab6dd15497af056ac4ee))
+* **toast:** updates ([896ac02](https://github.com/alfa-laboratory/core-components/commit/896ac02f251d6b45698bdb35c08eb6131141080a))
+* **toast:** updates ([24cc308](https://github.com/alfa-laboratory/core-components/commit/24cc3089a04e7f86ca929192405b71209ed3ebe7))
+* **toast-plate:** change close button position to absolute ([2f9161d](https://github.com/alfa-laboratory/core-components/commit/2f9161d8b23647485df7759c1f5a4bbf0c113925))
+* **toast-plate:** design review fixes ([55b58fd](https://github.com/alfa-laboratory/core-components/commit/55b58fd1713c89bed3da74ede15487021477545d))
+* **toast-plate:** fix ([4e378ec](https://github.com/alfa-laboratory/core-components/commit/4e378ec7cd9901807458ff1c1a09c0cbf3c41401))
+* **toast-plate:** fix styles ([b600f86](https://github.com/alfa-laboratory/core-components/commit/b600f860b37c039f8a4272a9f27aa5689643b614))
+* **toast-plate:** fix styles ([14af3b4](https://github.com/alfa-laboratory/core-components/commit/14af3b49fe8803cec870cd946e3835f3b92cd3e8))
+* **toast-plate:** updates ([2303335](https://github.com/alfa-laboratory/core-components/commit/230333560732c11cff2c850db41112c398e6ab76))
+
+
+### BREAKING CHANGES
+
+* **popover:** fix popover transition, change Transition to CSSTransition
+
 ## [8.3.1](https://github.com/alfa-laboratory/core-components/compare/v8.3.0...v8.3.1) (2021-02-03)
 
 
