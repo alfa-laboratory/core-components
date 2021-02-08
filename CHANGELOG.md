@@ -1,3 +1,15 @@
+# [9.1.0](https://github.com/alfa-laboratory/core-components/compare/v9.0.0...v9.1.0) (2021-02-08)
+
+
+### Bug Fixes
+
+* **calendar:** fixes ([#498](https://github.com/alfa-laboratory/core-components/issues/498)) ([410630e](https://github.com/alfa-laboratory/core-components/commit/410630e3cdd093027444207f16a0f942a62b86de))
+
+
+### Features
+
+* **select-with-tags:** design review fixes ([#472](https://github.com/alfa-laboratory/core-components/issues/472)) ([0ff989f](https://github.com/alfa-laboratory/core-components/commit/0ff989fa09e482a5e9bda1d64bf5eed9241fc451))
+
 # [9.0.0](https://github.com/alfa-laboratory/core-components/compare/v8.3.1...v9.0.0) (2021-02-08)
 
 
