@@ -3,11 +3,17 @@ import React, { useEffect, useState } from 'react';
 import styles from './index.module.css';
 
 type CDNIconProps = {
-    /** Имя иконки */
+    /**
+     * Имя иконки
+     */
     name: string;
-    /** Цвет иконки */
+    /**
+     * Цвет иконки
+     */
     color?: string;
-    /** Идентификатор для систем автоматизированного тестирования */
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
     dataTestId?: string;
 };
 
