@@ -49,12 +49,13 @@
 .switch {
     position: relative;
     border-radius: 16px;
-    width: 36px;
-    height: 20px;
+    width: 40px;
+    height: 24px;
     flex-shrink: 0;
     background-color: var(--switch-bg-color);
     border: 2px solid var(--switch-border-color);
     transition: background-color 0.2s ease, border-color 0.2s ease;
+    box-sizing: border-box;
 }
 
 .switch:before {

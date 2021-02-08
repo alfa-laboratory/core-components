@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { Tag as CoreTag } from '@alfalab/core-components-tag';
-import { CrossCompactMIcon } from '@alfalab/icons-glyph';
+import { CrossCompactMIcon } from '@alfalab/icons-glyph/CrossCompactMIcon';
 
 import { TagComponent } from '../../types';
 

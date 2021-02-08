@@ -17,9 +17,9 @@ glob(path.join(colorsDir, 'colors*.json'), {}, (err, files) => {
             if (token.deprecated) {
                 return;
             }
-            const formatedName = name.replace(UNDERSCORE_RE, DASH);
+            const formattedName = name.replace(UNDERSCORE_RE, DASH);
             let value = token.a === 1 || token.hex.length <= 7 ? token.hex : token.rgba;
-            css += `    --color-${formatedName}: ${value};\n`;
+            css += `    --color-${formattedName}: ${value};\n`;
         });
 
         const cssPath = path.resolve(
@@ -63,9 +63,9 @@ function updateDarkThemeMixins(pathname, colors) {
                 const pair = findPair(color);
 
                 if (pair) {
-                    const formatedName = color.replace(UNDERSCORE_RE, DASH);
+                    const formattedName = color.replace(UNDERSCORE_RE, DASH);
                     const formattedPairName = pair.replace(UNDERSCORE_RE, DASH);
-                    css += `    --color-${formatedName}: var(--color-${formattedPairName});\n`;
+                    css += `    --color-${formattedName}: var(--color-${formattedPairName});\n`;
                 } else {
                     console.warn(`No pair found for '${color}' color.`);
                 }

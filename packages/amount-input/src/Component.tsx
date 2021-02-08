@@ -88,7 +88,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                 currency,
                 minority,
                 view: 'default',
-            }).formated,
+            }).formatted,
         );
 
         const currencySymbol = getCurrencySymbol(currency);
@@ -103,7 +103,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                         currency,
                         minority,
                         view: 'default',
-                    }).formated,
+                    }).formatted,
                 );
             }
 
