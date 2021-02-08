@@ -1,0 +1,93 @@
+@import '../../themes/src/default.css';
+@import '../../themes/src/mixins/button/default-inverted.css';
+
+:root {
+    --toast-plate-bg-color: var(--color-light-bg-primary-inverted);
+    --toast-plate-color: var(--color-light-text-primary-inverted);
+    --toast-plate-border-radius: 8px;
+    --toast-plate-title-font-weight: 700;
+}
+
+.component {
+    @mixin button-default-inverted;
+
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: var(--toast-plate-border-radius);
+    color: var(--toast-plate-color);
+    min-height: 56px;
+    padding: var(--gap-m);
+    background-color: var(--toast-plate-bg-color);
+    box-shadow: var(--shadow-s);
+
+    &.hasCloser {
+        padding-right: var(--gap-4xl);
+    }
+}
+
+.mainContentWrap {
+    display: flex;
+    align-items: flex-start;
+}
+
+.block {
+    display: flex;
+    width: 100%;
+}
+
+.mainSection {
+    display: flex;
+    flex-grow: 1;
+
+    &.hasRightSection {
+        margin-right: var(--gap-xl);
+    }
+}
+
+.actionsSection {
+    display: flex;
+    flex-shrink: 0;
+    margin-top: 3px;
+
+    &.hasCloser {
+        margin-right: var(--gap-xs);
+    }
+}
+
+.leftAddons {
+    display: flex;
+    flex-shrink: 0;
+    padding-top: 2px;
+    padding-right: var(--gap-s);
+}
+
+.title {
+    @mixin accent_primary_medium;
+
+    font-weight: var(--toast-plate-title-font-weight);
+}
+
+.children {
+    @mixin paragraph_primary_small;
+
+    margin-top: var(--gap-2xs);
+}
+
+.closeButton {
+    position: absolute;
+    top: var(--gap-s);
+    right: var(--gap-s);
+    padding: var(--gap-2xs);
+    transition: opacity 0.2s ease-out;
+    cursor: pointer;
+
+    &:hover .closeIcon {
+        opacity: 0.7;
+    }
+
+    &:active .closeIcon {
+        opacity: 0.5;
+    }
+}

@@ -18,7 +18,7 @@ export const PureAmount: React.FC<AmountProps> = ({
     className,
     dataTestId,
 }) => {
-    const { formatedWithCurrency } = formatAmount({
+    const { formattedWithCurrency } = formatAmount({
         value,
         currency,
         minority,
@@ -27,7 +27,7 @@ export const PureAmount: React.FC<AmountProps> = ({
 
     return (
         <span className={cn(styles.component, className)} data-test-id={dataTestId}>
-            {formatedWithCurrency}
+            {formattedWithCurrency}
         </span>
     );
 };
