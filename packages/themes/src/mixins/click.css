@@ -11,6 +11,8 @@
 @import './select/click.css';
 @import './confirmation/click.css';
 @import './calendar/click.css';
+@import './calendar-input/click.css';
+@import './toast-plate/click.css';
 
 @define-mixin theme-click {
     --disabled-cursor: not-allowed;
@@ -29,4 +31,6 @@
     @mixin select-click;
     @mixin confirmation-click;
     @mixin calendar-click;
+    @mixin calendar-input-click;
+    @mixin toast-plate-click;
 }

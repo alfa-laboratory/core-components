@@ -18,8 +18,8 @@
     "dependencies": {
         "@alfalab/core-components-input": "^5.0.0",
         "@alfalab/core-components-with-suffix": "^2.2.0",
-        "@alfalab/data": "^0.2.0",
-        "@alfalab/utils": "^0.4.1",
+        "@alfalab/data": "^0.3.0",
+        "@alfalab/utils": "^1.0.1",
         "classnames": "^2.2.6"
     }
 }

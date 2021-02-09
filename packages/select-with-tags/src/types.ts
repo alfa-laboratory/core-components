@@ -1,7 +1,14 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, FC } from 'react';
 import { BaseSelectProps, OptionShape } from '@alfalab/core-components-select';
 
 export type OptionMatcher = (option: OptionShape, inputValue: string) => boolean;
+
+export type TagProps = {
+    option: OptionShape;
+    handleDeleteTag?: (key: string) => void;
+};
+
+export type TagComponent = FC<TagProps>;
 
 export type SelectWithTagsProps = Omit<
     BaseSelectProps,
@@ -36,4 +43,14 @@ export type SelectWithTagsProps = Omit<
      * Функция сравнения при поиске
      */
     match?: OptionMatcher;
+
+    /**
+     * Будет отображаться, если компонент списка пустой
+     */
+    emptyListPlaceholder?: string;
+
+    /**
+     * Компонент Тэг
+     */
+    Tag?: TagComponent;
 };

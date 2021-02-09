@@ -1,5 +1,13 @@
 import { KeyboardEvent, MouseEvent, Ref, useCallback, useMemo, useRef, useState } from 'react';
-import { startOfMonth, isSameDay, isSameMonth, isSameYear, setYear, addMonths } from 'date-fns';
+import {
+    startOfMonth,
+    isSameDay,
+    isSameMonth,
+    isSameYear,
+    setYear,
+    addMonths,
+    subYears,
+} from 'date-fns';
 import mergeRefs from 'react-merge-refs';
 import {
     limitDate,
@@ -32,7 +40,7 @@ export type UseCalendarProps = {
     /**
      * Минимальная дата, доступная для выбора
      */
-    minDate: Date;
+    minDate?: Date;
 
     /**
      * Максимальная дата, доступная для выбора
@@ -108,7 +116,10 @@ export function useCalendar({
         activeMonth,
     ]);
 
-    const years = useMemo(() => generateYears(minDate, maxDate || new Date()), [minDate, maxDate]);
+    const years = useMemo(
+        () => generateYears(minDate || subYears(new Date(), 100), maxDate || new Date()),
+        [minDate, maxDate],
+    );
 
     const setMonth = useCallback(
         (newMonth: Date) => {

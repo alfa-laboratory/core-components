@@ -1,20 +1,5 @@
 @import '../../../../vars/src/index.css';
 
-.component .contentWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    margin: var(--gap-2xs-neg);
-
-    &.hasLabel {
-        margin-top: var(--gap-xs);
-    }
-
-    &.hasTags.hasLabel {
-        margin-top: var(--gap-s);
-    }
-}
-
 .component.l .contentWrapper {
     padding: var(--gap-l) var(--gap-m);
 }
@@ -25,6 +10,23 @@
 
 .component.s .contentWrapper {
     padding: var(--gap-s) var(--gap-m);
+}
+
+.component .contentWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: var(--gap-2xs-neg);
+
+    &.hasLabel {
+        margin-top: var(--gap-xs);
+        padding-bottom: var(--gap-xs);
+    }
+
+    &.hasTags.hasLabel {
+        margin-top: var(--gap-m);
+        padding-bottom: var(--gap-s);
+    }
 }
 
 .component:hover .addons {
@@ -56,47 +58,8 @@
     }
 }
 
-.tag {
-    padding: 0;
-    padding-left: var(--gap-m);
-    margin: var(--gap-2xs);
-    cursor: default;
-
-    &:active:not(:disabled) {
-        background-color: var(--tag-background-color-checked);
-        color: var(--tag-text-color-checked);
-    }
-
-    &:hover:not(:disabled):not(:active) {
-        background-color: var(--tag-background-color-checked);
-        color: var(--tag-text-color-checked);
-    }
-
-    & > span {
-        width: 100%;
-        height: 100%;
-    }
-}
-
-.tagContentWrap {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100%;
-    cursor: pointer;
-}
-
-.tagCross {
-    height: 100%;
-    padding-right: var(--gap-xs);
-
-    &:hover {
-        opacity: 0.7;
-    }
-
-    &:active {
-        opacity: 0.5;
-    }
+.block {
+    min-width: 100%;
 }
 
 .focusVisible {
@@ -108,7 +71,7 @@
     align-items: center;
     min-height: 28px;
     padding-left: var(--gap-2xs);
-    color: var(--color-light-text-secondary);
+    color: var(--color-light-text-tertiary);
 }
 
 .addons {
@@ -124,10 +87,20 @@
     padding-top: var(--gap-xl);
 }
 
+.component.s .label {
+    top: 4px;
+    left: 16px;
+}
+
+.component.m .label {
+    top: 6px;
+    left: 16px;
+}
+
 .component .label {
-    top: 0;
+    top: 14px;
     align-items: flex-start;
     height: auto;
-    padding-top: var(--gap-s);
     transform: none;
+    font-size: 14px;
 }

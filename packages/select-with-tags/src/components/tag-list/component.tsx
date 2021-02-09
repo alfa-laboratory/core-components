@@ -7,15 +7,17 @@ import React, {
     useState,
     KeyboardEventHandler,
     MouseEventHandler,
+    useEffect,
 } from 'react';
 import cn from 'classnames';
 import { FieldProps } from '@alfalab/core-components-select';
 import { FormControl, FormControlProps } from '@alfalab/core-components-form-control';
-import { Tag } from '@alfalab/core-components-tag';
 import { useFocus } from '@alfalab/hooks';
-import { CrossCompactMIcon } from '@alfalab/icons-glyph';
 
 import styles from './index.module.css';
+
+import { TagComponent } from '../../types';
+import { Tag as DefaultTag } from '../tag';
 
 type TagListOwnProps = {
     value?: string;
@@ -23,6 +25,7 @@ type TagListOwnProps = {
     onInput?: (event: ChangeEvent<HTMLInputElement>) => void;
     inputRef?: MutableRefObject<HTMLInputElement>;
     autocomplete?: boolean;
+    Tag?: TagComponent;
 };
 
 export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
@@ -35,15 +38,17 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     innerProps,
     className,
     fieldClassName,
-    value,
+    value = '',
     autocomplete,
     label,
     valueRenderer,
     onInput,
     handleDeleteTag,
+    Tag = DefaultTag,
     ...restProps
 }) => {
     const [focused, setFocused] = useState(false);
+    const [inputOnNewLine, setInputOnNewLine] = useState(false);
 
     const wrapperRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -55,6 +60,11 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     const handleFocus = useCallback(() => setFocused(true), []);
     const handleBlur = useCallback(() => setFocused(false), []);
 
+    const inputTextIsOverflow = useCallback(
+        () => inputRef.current && inputRef.current.scrollWidth > inputRef.current.clientWidth,
+        [],
+    );
+
     const handleMouseDown = useCallback(event => {
         event.preventDefault();
     }, []);
@@ -64,11 +74,13 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     const handleClick = useCallback<MouseEventHandler<HTMLDivElement>>(
         event => {
             if (onClick && contentWrapperRef.current) {
-                const clickedInsideContent = contentWrapperRef.current.contains(
-                    event.target as HTMLDivElement,
-                );
+                const eventTarget = event.target as HTMLDivElement;
 
-                if (!clickedInsideContent || (clickedInsideContent && !open)) {
+                const clickedInsideContent =
+                    eventTarget !== contentWrapperRef.current &&
+                    contentWrapperRef.current.contains(eventTarget);
+
+                if (!clickedInsideContent) {
                     onClick(event);
                 }
             }
@@ -77,7 +89,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                 inputRef.current.focus();
             }
         },
-        [onClick, open],
+        [onClick],
     );
 
     const handleKeyDown = useCallback<KeyboardEventHandler<HTMLInputElement>>(
@@ -90,6 +102,17 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
         },
         [handleDeleteTag, selectedMultiple, value],
     );
+
+    useEffect(() => {
+        /**
+         * Если текст не помещается в инпут, то нужно перенести инпут на новую строку.
+         */
+        if (inputTextIsOverflow() && !inputOnNewLine) {
+            setInputOnNewLine(true);
+        } else if (value.length === 0) {
+            setInputOnNewLine(false);
+        }
+    }, [value, inputOnNewLine, inputTextIsOverflow]);
 
     const filled = Boolean(selectedMultiple.length > 0) || Boolean(value);
 
@@ -125,30 +148,20 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                     })}
                     ref={contentWrapperRef}
                 >
-                    {selectedMultiple.map(({ content, key }) => (
-                        <Tag key={key} size='xs' checked={true} className={styles.tag}>
-                            <span className={styles.tagContentWrap}>
-                                {content}
-                                <CrossCompactMIcon
-                                    onClick={() => {
-                                        if (handleDeleteTag) {
-                                            handleDeleteTag(key);
-                                        }
-                                    }}
-                                    className={styles.tagCross}
-                                />
-                            </span>
-                        </Tag>
+                    {selectedMultiple.map(option => (
+                        <Tag key={option.key} option={option} handleDeleteTag={handleDeleteTag} />
                     ))}
 
                     {autocomplete && (
                         <input
                             {...restInnerProps}
+                            autoComplete='off'
                             ref={inputRef}
                             value={value}
                             onChange={onInput}
                             className={cn(styles.input, {
                                 [styles.focusVisible]: inputFocusVisible,
+                                [styles.block]: inputOnNewLine,
                             })}
                             disabled={disabled}
                             onKeyDown={handleKeyDown}
