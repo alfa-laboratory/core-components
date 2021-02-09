@@ -28,6 +28,8 @@ export const CDNIcon: React.FC<CDNIconProps> = ({ name, color, dataTestId }) => 
             const svg = xhr.response;
             if (svg.startsWith('<svg')) setIcon(svg);
         };
+
+        return () => xhr.abort();
     }, [name]);
 
     return (
