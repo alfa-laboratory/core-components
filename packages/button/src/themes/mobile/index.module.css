@@ -1,0 +1,8 @@
+/* css-variables: false */
+
+@import '../../index.module.css';
+@import '../../../../themes/src/mixins/button/mobile.css';
+
+:root {
+    @mixin button-mobile;
+}

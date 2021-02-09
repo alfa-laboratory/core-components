@@ -5,8 +5,6 @@ import mergeRefs from 'react-merge-refs';
 import { useFocus } from '@alfalab/hooks';
 import { Loader } from '@alfalab/core-components-loader';
 
-import styles from './index.module.css';
-
 export type ComponentProps = {
     /**
      * Тип кнопки
@@ -63,7 +61,11 @@ type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement
 type NativeButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
 export type ButtonProps = Partial<AnchorButtonProps | NativeButtonProps>;
 
-export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
+type Styles = {
+    styles: { [key: string]: string };
+};
+
+export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps & Styles>(
     (
         {
             children,
@@ -77,6 +79,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
             href,
             loading = false,
             nowrap = false,
+            styles,
             ...restProps
         },
         ref,
