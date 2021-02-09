@@ -1,0 +1,68 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { select, number } from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { StarMIcon } from '@alfalab/icons-glyph';
+import { BankAlfaXxlBlackIcon } from '@alfalab/icons-classic';
+
+
+import { IconButton } from './Component';
+
+import { name, version } from '../package.json';
+
+
+<Meta
+    title='Компоненты'
+    component={IconButton}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='IconButton'>
+    <IconButton
+        size={select('size', ['s', 'm'], 'm')}
+        view={select('view', ['primary', 'secondary', 'transparent'], 'primary')}
+        icon={StarMIcon}
+    />
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='IconButton'
+    version={version}
+    package='@alfalab/core-components-icon-button'
+    stage={1}
+    design='https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=21264%3A120061'
+/>
+
+```tsx
+import { IconButton } from '@alfalab/core-components-icon-button';
+```
+
+
+### Кнопка с иконкой
+
+<Preview>
+    <Container>
+        <Row>
+            <Col>
+                <IconButton view='primary' icon={StarMIcon} />
+            </Col>
+            <Col>
+                <IconButton view='primary' icon={BankAlfaXxlBlackIcon} />
+            </Col>
+            <Col>
+                <IconButton view='primary' size='m' icon={StarMIcon} />
+            </Col>
+            <Col>
+                <IconButton view='primary' size='m' icon={BankAlfaXxlBlackIcon} />
+            </Col>
+        </Row>
+    </Container>
+</Preview>
+
+<Props of={IconButton} />
