@@ -1,3 +1,34 @@
+# [10.1.0](https://github.com/alfa-laboratory/core-components/compare/v10.0.0...v10.1.0) (2021-02-09)
+
+
+### Features
+
+* **button:** updated button colors and themes ([#500](https://github.com/alfa-laboratory/core-components/issues/500)) ([b34f12d](https://github.com/alfa-laboratory/core-components/commit/b34f12db8cebc53641a642de9164075d0ed2dacf))
+
+# [10.0.0](https://github.com/alfa-laboratory/core-components/compare/v9.1.0...v10.0.0) (2021-02-08)
+
+
+### Features
+
+* **badge:** reinvented icon view, visibleIconOutline prop ([#499](https://github.com/alfa-laboratory/core-components/issues/499)) ([bad9140](https://github.com/alfa-laboratory/core-components/commit/bad91400cb72edcd0878f7a07188e928d4bf3281))
+
+
+### BREAKING CHANGES
+
+* **badge:** new icon view without fixed size
+
+# [9.1.0](https://github.com/alfa-laboratory/core-components/compare/v9.0.0...v9.1.0) (2021-02-08)
+
+
+### Bug Fixes
+
+* **calendar:** fixes ([#498](https://github.com/alfa-laboratory/core-components/issues/498)) ([410630e](https://github.com/alfa-laboratory/core-components/commit/410630e3cdd093027444207f16a0f942a62b86de))
+
+
+### Features
+
+* **select-with-tags:** design review fixes ([#472](https://github.com/alfa-laboratory/core-components/issues/472)) ([0ff989f](https://github.com/alfa-laboratory/core-components/commit/0ff989fa09e482a5e9bda1d64bf5eed9241fc451))
+
 # [9.0.0](https://github.com/alfa-laboratory/core-components/compare/v8.3.1...v9.0.0) (2021-02-08)
 
 

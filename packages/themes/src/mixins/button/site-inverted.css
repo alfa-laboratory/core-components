@@ -1,0 +1,36 @@
+@import '../../../../vars/src/index.css';
+
+@define-mixin button-site-inverted {
+    /* core vars */
+    --color-dark-bg-accent: #ef3124;
+    --color-dark-bg-neutral: #485767;
+    --color-dark-text-primary: #fff;
+    --color-dark-border-tertiary: #233549;
+
+    /* theme */
+    --button-border-radius: 8px;
+
+    /* primary */
+    --button-primary-base-bg-color: var(--color-dark-bg-accent);
+    --button-primary-hover-bg-color: color-mod(var(--color-dark-bg-accent) tint(15%));
+    --button-primary-active-bg-color: color-mod(var(--color-dark-bg-accent) shade(15%));
+    --button-primary-disabled-bg-color: color-mod(var(--color-dark-bg-accent) alpha(30%));
+
+    /* secondary */
+    --button-secondary-base-bg-color: var(--color-dark-bg-neutral);
+    --button-secondary-hover-bg-color: color-mod(var(--color-dark-bg-neutral) tint(15%));
+    --button-secondary-active-bg-color: color-mod(var(--color-dark-bg-neutral) shade(15%));
+    --button-secondary-disabled-bg-color: color-mod(var(--color-dark-bg-neutral) alpha(30%));
+    --button-secondary-color: var(--color-dark-text-primary);
+    --button-secondary-disabled-color: color-mod(var(--color-dark-text-primary) alpha(30%));
+
+    /* outlined */
+    --button-outlined-hover-bg-color: rgba(255, 255, 255, 0.15);
+    --button-outlined-active-bg-color: rgba(0, 0, 0, 0.15);
+    --button-outlined-border-color: var(--color-dark-border-tertiary);
+    --button-outlined-disabled-border-color: color-mod(
+        var(--color-dark-border-tertiary) alpha(30%)
+    );
+    --button-outlined-color: var(--color-dark-text-primary);
+    --button-outlined-disabled-color: color-mod(var(--color-dark-text-primary) alpha(30%));
+}

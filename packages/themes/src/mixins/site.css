@@ -1,7 +1,9 @@
+@import './button/site.css';
 @import './tabs/site.css';
 @import './form-control/site.css';
 
 @define-mixin theme-site {
+    @mixin button-site;
     @mixin form-control-site;
     @mixin tabs-site;
 }
