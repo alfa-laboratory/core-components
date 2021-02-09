@@ -5,7 +5,7 @@ const { promisify } = require('util');
 
 const writeFile = promisify(fs.writeFile);
 
-const matches = glob.sync('dist/**/*.css', { ignore: 'dist/+(themes|vars|bank-card|toast-plate)/**' });
+const matches = glob.sync('dist/**/*.css', { ignore: 'dist/+(themes|vars|bank-card|grid|toast-plate)/**' });
 
 /**
  * Purgecss вырезает селекторы по атрибуту (например .component[data-popper-placement='left'] .arrow в поповере).
