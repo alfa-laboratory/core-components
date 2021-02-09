@@ -1,3 +1,10 @@
+# [10.1.0](https://github.com/alfa-laboratory/core-components/compare/v10.0.0...v10.1.0) (2021-02-09)
+
+
+### Features
+
+* **button:** updated button colors and themes ([#500](https://github.com/alfa-laboratory/core-components/issues/500)) ([b34f12d](https://github.com/alfa-laboratory/core-components/commit/b34f12db8cebc53641a642de9164075d0ed2dacf))
+
 # [10.0.0](https://github.com/alfa-laboratory/core-components/compare/v9.1.0...v10.0.0) (2021-02-08)
 
 
