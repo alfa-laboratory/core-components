@@ -544,7 +544,7 @@ div.github {
 
 body[data-theme$='-inverted'] iframe,
 body[data-theme$='-inverted'] .sbdocs-preview {
-    background: var(--color-light-bg-tertiary-inverted);
+    background: var(--color-light-bg-primary-inverted);
 }
 
 div.lib {

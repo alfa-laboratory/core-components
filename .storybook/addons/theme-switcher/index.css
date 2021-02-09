@@ -1,9 +1,10 @@
+@import '../../../packages/themes/src/mixins/default-inverted.css';
 @import '../../../packages/themes/src/mixins/click.css';
 @import '../../../packages/themes/src/mixins/site.css';
+@import '../../../packages/themes/src/mixins/site-inverted.css';
 @import '../../../packages/themes/src/mixins/corp.css';
-@import '../../../packages/themes/src/mixins/mobile.css';
-@import '../../../packages/themes/src/mixins/default-inverted.css';
 @import '../../../packages/themes/src/mixins/corp-inverted.css';
+@import '../../../packages/themes/src/mixins/mobile.css';
 
 .tool {
     margin-top: auto;
@@ -16,6 +17,10 @@
     font-size: 13px;
 }
 
+body[data-theme='default-inverted'] {
+    @mixin theme-default-inverted;
+}
+
 body[data-theme='click'] {
     @mixin theme-click;
 }
@@ -24,18 +29,18 @@ body[data-theme='site'] {
     @mixin theme-site;
 }
 
+body[data-theme='site-inverted'] {
+    @mixin theme-site-inverted;
+}
+
 body[data-theme='corp'] {
     @mixin theme-corp;
 }
 
-body[data-theme='mobile'] {
-    @mixin theme-mobile;
-}
-
-body[data-theme='default-inverted'] {
-    @mixin theme-default-inverted;
-}
-
 body[data-theme='corp-inverted'] {
     @mixin theme-corp-inverted;
+}
+
+body[data-theme='mobile'] {
+    @mixin theme-mobile;
 }
