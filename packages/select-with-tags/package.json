@@ -16,11 +16,11 @@
         "react": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/core-components-form-control": "3.1.1",
+        "@alfalab/core-components-form-control": "^4.0.0",
         "@alfalab/core-components-select": "^4.3.1",
-        "@alfalab/core-components-tag": "1.6.4",
-        "@alfalab/hooks": "0.9.0",
-        "@alfalab/icons-glyph": "1.70.0",
+        "@alfalab/core-components-tag": "^1.7.1",
+        "@alfalab/hooks": "^0.9.0",
+        "@alfalab/icons-glyph": "^1.70.0",
         "classnames": "^2.2.6"
     }
 }
