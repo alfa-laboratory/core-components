@@ -10,29 +10,17 @@ exports[`Drawer should match snapshot 1`] = `
   <div
     class="component appear appearActive"
   >
-    <div
-      class="component header"
-    >
-      <div
-        class="content"
-      >
-        <span>
-          header
-        </span>
-      </div>
-    </div>
+    <span>
+      header
+    </span>
     <div
       class="content content"
     >
       content
     </div>
-    <div
-      class="component footer"
-    >
-      <span>
-        footer
-      </span>
-    </div>
+    <span>
+      footer
+    </span>
   </div>
 </div>
 `;

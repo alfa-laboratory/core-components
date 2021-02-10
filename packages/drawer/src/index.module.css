@@ -1,39 +1,14 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --drawer-header-paddings: 0 0 0 var(--gap-4xl);
-    --drawer-content-paddings: 0 var(--gap-4xl) 0;
-    --drawer-footer-paddings: var(--gap-xl) var(--gap-4xl) var(--gap-4xl);
-    --drawer-content-no-footer-bottom-padding: var(--gap-2xl);
-    --drawer-content-no-header-top-padding: var(--gap-2xl);
+    --drawer-width: 500px;
 }
 
 .component {
-    width: 500px;
+    width: var(--drawer-width);
     right: 0;
     top: 0;
     will-change: transform;
-}
-
-.header {
-    min-height: auto;
-    padding: var(--drawer-header-paddings);
-}
-
-.content {
-    padding: var(--drawer-content-paddings);
-
-    &:first-child {
-        padding-top: var(--drawer-content-no-header-top-padding);
-    }
-
-    &:last-child {
-        padding-bottom: var(--drawer-content-no-footer-bottom-padding);
-    }
-}
-
-.footer {
-    padding: var(--drawer-footer-paddings);
 }
 
 .appear,

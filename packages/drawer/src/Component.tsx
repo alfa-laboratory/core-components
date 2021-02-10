@@ -1,9 +1,11 @@
-import React, { forwardRef, ReactNode, useCallback, useMemo, useState } from 'react';
+import React, { forwardRef, ReactNode, useMemo } from 'react';
 import cn from 'classnames';
 
-import { BaseModal, BaseModalProps, Footer, Header } from '@alfalab/core-components-modal';
+import { BaseModal, BaseModalProps } from '@alfalab/core-components-modal';
 
 import styles from './index.module.css';
+
+export const ANIMATION_DURATION = 600;
 
 export type DrawerProps = Omit<
     BaseModalProps,
@@ -16,63 +18,29 @@ export type DrawerProps = Omit<
     | 'backdropProps'
     | 'fullscreen'
     | 'container'
+    | 'targetHandleExited'
+    | 'Transition'
+    | 'transitionProps'
 > & {
     /**
-     * Дополнительный класс для хэдера
+     * Шапка
      */
-    headerClassName?: string;
+    header?: ReactNode;
 
     /**
-     * Дополнительный класс для футера
+     * Футер
      */
-    footerClassName?: string;
-
-    /**
-     * Заголовок модального окна
-     */
-    headerContent?: ReactNode;
-
-    /**
-     * Управление наличием закрывающего крестика
-     * @default false
-     */
-    hasCloser?: boolean;
+    footer?: ReactNode;
 };
 
 export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
-    (
-        {
-            open,
-            className,
-            children,
-            headerContent,
-            footer,
-            hasCloser,
-            headerClassName,
-            footerClassName,
-            contentClassName,
-            ...restProps
-        },
-        ref,
-    ) => {
-        const [headerHighlighted, setHeaderHighlighted] = useState(false);
-        const [footerHightlighted, setFooterHighlighted] = useState(false);
-
-        const handleHeaderHightlight = useCallback(highlighted => {
-            setHeaderHighlighted(highlighted);
-        }, []);
-
-        const handleFooterHightlight = useCallback(highlighted => {
-            setFooterHighlighted(highlighted);
-        }, []);
-
+    ({ open, className, children, header, footer, contentClassName, ...restProps }, ref) => {
         const transitionProps = useMemo(
             () => ({
                 classNames: styles,
-                timeout: 600,
-                ...restProps.transitionProps,
+                timeout: ANIMATION_DURATION,
             }),
-            [restProps.transitionProps],
+            [],
         );
 
         const backdropProps = useMemo(
@@ -85,7 +53,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
                     exit: styles.backdropExit,
                     exitActive: styles.backdropExitActive,
                 },
-                timeout: 600,
+                timeout: ANIMATION_DURATION,
             }),
             [],
         );
@@ -103,27 +71,8 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
                 targetHandleExited='children'
                 transitionProps={transitionProps}
                 backdropProps={backdropProps}
-                onHeaderHighlight={handleHeaderHightlight}
-                onFooterHighlight={handleFooterHightlight}
-                header={
-                    <Header
-                        className={cn(headerClassName, styles.header)}
-                        highlighted={headerHighlighted}
-                        hasCloser={hasCloser}
-                    >
-                        {headerContent}
-                    </Header>
-                }
-                footer={
-                    footer && (
-                        <Footer
-                            className={cn(footerClassName, styles.footer)}
-                            highlighted={footerHightlighted}
-                        >
-                            {footer}
-                        </Footer>
-                    )
-                }
+                header={header}
+                footer={footer}
             >
                 {children}
             </BaseModal>

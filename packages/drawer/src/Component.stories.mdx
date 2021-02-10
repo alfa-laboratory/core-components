@@ -4,6 +4,7 @@ import { text, select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { Button } from '../../button/src';
+import { ModalContext } from '../../modal/src/components/base-modal';
 import { Typography } from '../../typography/src';
 
 import { Drawer } from './Component';
@@ -19,12 +20,28 @@ import { name, version } from '../package.json';
 
 <!-- Canvas -->
 
-export const footerContent = (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Button size="s" view="primary" style={{ marginBottom: '24px' }}>Сохранить</Button>
-        <Button size="s" view="secondary">Отмена</Button>
-    </div>
-);
+export const Header = () => {
+    const { headerHighlighted, onClose } = React.useContext(ModalContext);
+    return (
+        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', padding: '16px 32px' }}>
+            <Typography.Title view="small">
+                {headerHighlighted ? 'Шапка при скролле' : 'Шапка'}
+            </Typography.Title>
+            <Button size="xs" onClick={onClose}>Закрыть</Button>
+        </div>
+    );
+}
+
+export const Footer = () => {
+    const { footerHighlighted } = React.useContext(ModalContext);
+    return (
+        <div style={{ padding: '16px 32px' }}>
+            <Typography.Title view="small">
+                {footerHighlighted ? 'Футер при скролле' : 'Футер'}
+            </Typography.Title>
+        </div>
+    );
+}
 
 export const Content = () => {
     const [showMore, setShowMore] = React.useState(false);
@@ -67,21 +84,16 @@ export const Content = () => {
         const handleModalOpen = () => setOpen(!open);
         return (
             <React.Fragment>
-                <button onClick={handleModalOpen}>Open Drawer</button>
+                <Button size="xs" onClick={handleModalOpen}>Open Drawer</Button>
                 <Drawer
                     open={open}
                     onClose={handleModalOpen}
-                    headerContent={text('headerContent', 'Заголовок окна')}
-                    footer={boolean('footer', false) && footerContent}
                     hasCloser={boolean('closer', true)}
                     keepMounted={boolean('keepMounted', false)}
-                    disableBackdropClick={boolean('disableBackdropClick', false)}
-                    disableEscapeKeyDown={boolean('disableEscapeKeyDown', false)}
-                    disableRestoreFocus={boolean('disableRestoreFocus', false)}
-                    disableFocusLock={boolean('disableFocusLock', false)}
-                    disableAutoFocus={boolean('disableAutoFocus', false)}
                 >
-                    <Content/>
+                    <div style={{ padding: '32px' }}>
+                        <Content/>
+                    </div>
                 </Drawer>
             </React.Fragment>
         );
@@ -105,8 +117,51 @@ import { Drawer } from '@alfalab/core-components-drawer';
 
 ## Компонент Drawer
 
+Компонент, представляющим собой заголовку для реализации сайд-панелей. В основе компонента лежит `BaseModal`.
+
 <Props of={Drawer} />
 
 <Preview>
-    <Drawer>123</Drawer>
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        const handleModalOpen = () => setOpen(!open);
+        return (
+            <React.Fragment>
+                <Button size="xs" onClick={handleModalOpen}>Open Drawer</Button>
+                <Drawer
+                    open={open}
+                    onClose={handleModalOpen}
+                >
+                    <div style={{ padding: '32px' }}>
+                        <Content/>
+                    </div>
+                </Drawer>
+            </React.Fragment>
+        );
+    })}
+</Preview>
+
+
+## Кастомные шапка и футер
+
+<Preview>
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        const handleModalOpen = () => setOpen(!open);
+        return (
+            <React.Fragment>
+                <Button size="xs" onClick={handleModalOpen}>Open Drawer</Button>
+                <Drawer
+                    open={open}
+                    onClose={handleModalOpen}
+                    header={<Header />}
+                    footer={<Footer />}
+                >
+                    <div style={{ padding: '32px' }}>
+                        <Content/>
+                    </div>
+                </Drawer>
+            </React.Fragment>
+        );
+    })}
 </Preview>
