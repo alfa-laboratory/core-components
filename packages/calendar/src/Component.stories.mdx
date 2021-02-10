@@ -19,17 +19,6 @@ import { name, version } from '../package.json';
 />
 
 
-export const Box = ({ children }) => (
-    <div style={{
-        boxSizing: 'border-box',
-        boxShadow: '0px 8px 24px rgba(0, 0, 0, 0.16)',
-        borderRadius: '8px',
-        display: 'inline-block'
-    }}>
-        {children}
-    </div>
-);
-
 <!-- Canvas -->
 
 <Story name='Calendar'>
@@ -82,15 +71,13 @@ import { Calendar } from '@alfalab/core-components-calendar';
         const maxDate = startOfDay(new Date());
         maxDate.setDate(20);
         return (
-            <Box>
-                <Calendar
-                    value={value}
-                    onChange={setValue}
-                    selectorView="month-only"
-                    minDate={minDate.getTime()}
-                    maxDate={maxDate.getTime()}
-                />
-            </Box>
+            <Calendar
+                value={value}
+                onChange={setValue}
+                selectorView="month-only"
+                minDate={minDate.getTime()}
+                maxDate={maxDate.getTime()}
+            />
         );
     })}
 </Preview>
@@ -105,15 +92,13 @@ import { Calendar } from '@alfalab/core-components-calendar';
         const maxDate = startOfDay(new Date());
         maxDate.setMonth(7);
         return (
-            <Box>
-                <Calendar
-                    value={value}
-                    onChange={setValue}
-                    selectorView="month-only"
-                    minDate={minDate.getTime()}
-                    maxDate={maxDate.getTime()}
-                />
-            </Box>
+            <Calendar
+                value={value}
+                onChange={setValue}
+                selectorView="month-only"
+                minDate={minDate.getTime()}
+                maxDate={maxDate.getTime()}
+            />
         );
     })}
 </Preview>
@@ -130,13 +115,11 @@ import { Calendar } from '@alfalab/core-components-calendar';
         const [value, setValue] = React.useState();
         const offDays = [new Date().setDate(1), new Date().setDate(7), new Date().setDate(28)];
         return (
-            <Box>
-                <Calendar
-                    value={value}
-                    onChange={setValue}
-                    offDays={offDays}
-                />
-            </Box>
+            <Calendar
+                value={value}
+                onChange={setValue}
+                offDays={offDays}
+            />
         );
     })}
 </Preview>
@@ -158,13 +141,11 @@ import { Calendar } from '@alfalab/core-components-calendar';
             new Date().setDate(21)
         ];
         return (
-            <Box>
-                <Calendar
-                    value={value}
-                    onChange={setValue}
-                    events={events}
-                />
-            </Box>
+            <Calendar
+                value={value}
+                onChange={setValue}
+                events={events}
+            />
         );
     })}
 </Preview>
@@ -192,14 +173,12 @@ import { Calendar } from '@alfalab/core-components-calendar';
             updatePeriod(newDate);
         }
         return (
-            <Box>
-                <Calendar
-                    value={value}
-                    selectedFrom={selectedFrom}
-                    selectedTo={selectedTo}
-                    onChange={handleChange}
-                />
-            </Box>
+            <Calendar
+                value={value}
+                selectedFrom={selectedFrom}
+                selectedTo={selectedTo}
+                onChange={handleChange}
+            />
         );
     })}
 </Preview>
