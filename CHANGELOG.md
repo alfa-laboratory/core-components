@@ -1,3 +1,10 @@
+## [10.2.1](https://github.com/alfa-laboratory/core-components/compare/v10.2.0...v10.2.1) (2021-02-10)
+
+
+### Bug Fixes
+
+* form-control colors ([#503](https://github.com/alfa-laboratory/core-components/issues/503)) ([784e05e](https://github.com/alfa-laboratory/core-components/commit/784e05ecebf2cf9991447bf2dbac4b1dd36b9792))
+
 # [10.2.0](https://github.com/alfa-laboratory/core-components/compare/v10.1.0...v10.2.0) (2021-02-09)
 
 
