@@ -1,4 +1,4 @@
-import React, { useCallback, useState, forwardRef, useMemo, ReactNode } from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 import cn from 'classnames';
 
 import { BaseModal, BaseModalProps, Header, Footer } from './components/index';
@@ -31,11 +31,6 @@ export type ModalProps = Omit<
     headerContent?: ReactNode;
 
     /**
-     * Отключает подсветку хедера
-     */
-    disableHeaderHighlight?: boolean;
-
-    /**
      * Заставляет хэдер прилипать к верхнему краю экрана при прокрутке
      */
     stickyHeader?: boolean;
@@ -57,7 +52,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
         {
             size,
             hasCloser = true,
-            disableHeaderHighlight = false,
             className,
             contentClassName,
             headerClassName,
@@ -67,29 +61,11 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
             stickyHeader,
             stickyFooter,
             fullscreen,
+            transitionProps,
             ...restProps
         },
         ref,
     ) => {
-        const [headerHighlighted, setHeaderHighlighted] = useState(false);
-        const [footerHighlighted, setFooterHighlighted] = useState(false);
-
-        const handleHeaderHighlight = useCallback(highlighted => {
-            setHeaderHighlighted(highlighted);
-        }, []);
-
-        const handleFooterHighlight = useCallback(highlighted => {
-            setFooterHighlighted(highlighted);
-        }, []);
-
-        const transitionProps = useMemo(
-            () => ({
-                classNames: styles,
-                ...restProps.transitionProps,
-            }),
-            [restProps.transitionProps],
-        );
-
         return (
             <BaseModal
                 {...restProps}
@@ -103,18 +79,18 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                     size && styles[`content-${size}`],
                     contentClassName,
                 )}
-                transitionProps={transitionProps}
-                onHeaderHighlight={handleHeaderHighlight}
-                onFooterHighlight={handleFooterHighlight}
+                transitionProps={{
+                    classNames: styles,
+                    ...transitionProps,
+                }}
                 highlightHeader={stickyHeader || fullscreen}
                 highlightFooter={stickyFooter}
                 header={
                     <Header
-                        size={size}
                         className={cn(headerClassName, {
                             [styles.stickyHeader]: stickyHeader && !fullscreen,
                         })}
-                        highlighted={headerHighlighted && !disableHeaderHighlight}
+                        size={size}
                         hasCloser={hasCloser}
                     >
                         {headerContent}
@@ -126,7 +102,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                             className={cn(footerClassName, {
                                 [styles.stickyFooter]: stickyFooter && !fullscreen,
                             })}
-                            highlighted={footerHighlighted}
                             size={size}
                         >
                             {footer}

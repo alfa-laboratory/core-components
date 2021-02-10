@@ -1,8 +1,9 @@
-import React, { MouseEvent, ReactNode } from 'react';
+import React, { ReactNode, useCallback, useContext } from 'react';
 import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
 
 import styles from './index.module.css';
+import { ModalContext } from '../base-modal';
 
 export type HeaderProps = {
     /**
@@ -21,35 +22,27 @@ export type HeaderProps = {
     className?: string;
 
     /**
-     * Подсветка шапки
-     */
-    highlighted?: boolean;
-
-    /**
      * Размер шапки
      */
     size?: 's' | 'm' | 'l';
-
-    /**
-     * Обработчик нажатия на крестик
-     */
-    onCloserClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 };
 
-export const Header: React.FC<HeaderProps> = ({
-    children,
-    hasCloser,
-    highlighted,
-    onCloserClick,
-    size,
-    className,
-}) => {
+export const Header: React.FC<HeaderProps> = ({ children, hasCloser, size, className }) => {
+    const { headerHighlighted, onClose } = useContext(ModalContext);
+
+    const handleCloserClick = useCallback(
+        event => {
+            onClose(event, 'closerClick');
+        },
+        [onClose],
+    );
+
     if (!children && !hasCloser) return null;
 
     return (
         <div
             className={cn(styles.component, className, size && styles[size], {
-                [styles.highlighted]: highlighted,
+                [styles.highlighted]: headerHighlighted,
                 [styles.onlyCloser]: hasCloser && !children,
             })}
         >
@@ -69,7 +62,7 @@ export const Header: React.FC<HeaderProps> = ({
                     view='ghost'
                     className={cn(styles.closer)}
                     aria-label='закрыть'
-                    onClick={onCloserClick}
+                    onClick={handleCloserClick}
                 />
             )}
         </div>

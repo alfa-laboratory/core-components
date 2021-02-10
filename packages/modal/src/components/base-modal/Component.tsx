@@ -10,8 +10,7 @@ import React, {
     ReactNode,
     ElementType,
     useEffect,
-    isValidElement,
-    cloneElement,
+    useMemo,
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
@@ -179,20 +178,22 @@ export type BaseModalProps = {
     onUnmount?: () => void;
 
     /**
-     * Обработчик подсветки хедера при скролле
-     */
-    onHeaderHighlight?: (highlighted: boolean) => void;
-
-    /**
-     * Обработчик подсветки футера при скролле
-     */
-    onFooterHighlight?: (highlighted: boolean) => void;
-
-    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
 };
+
+export type ModalContext = {
+    headerHighlighted: boolean;
+    footerHighlighted: boolean;
+    onClose: Required<BaseModalProps>['onClose'];
+};
+
+export const ModalContext = React.createContext<ModalContext>({
+    headerHighlighted: false,
+    footerHighlighted: false,
+    onClose: () => null,
+});
 
 // FIXME: без явного указания типа возникает ts(4023)
 export const BaseModal: FC<BaseModalProps & RefAttributes<HTMLDivElement>> = forwardRef<
@@ -228,13 +229,14 @@ export const BaseModal: FC<BaseModalProps & RefAttributes<HTMLDivElement>> = for
             onEscapeKeyDown,
             onMount,
             onUnmount,
-            onHeaderHighlight,
-            onFooterHighlight,
             dataTestId,
         },
         ref,
     ) => {
         const [exited, setExited] = useState(!open);
+        const [headerHighlighted, setHeaderHighlighted] = useState(false);
+        const [footerHighlighted, setFooterHighlighted] = useState(false);
+
         const restoreContainerStyles = useRef<null | Function>(null);
 
         const wrapperRef = useRef<HTMLDivElement>(null);
@@ -251,14 +253,14 @@ export const BaseModal: FC<BaseModalProps & RefAttributes<HTMLDivElement>> = for
         const handleScroll = useCallback(() => {
             if (!scrollableNodeRef.current) return;
 
-            if (shouldHighlightHeader && onHeaderHighlight) {
-                onHeaderHighlight(isScrolledToTop(scrollableNodeRef.current) === false);
+            if (shouldHighlightHeader) {
+                setHeaderHighlighted(isScrolledToTop(scrollableNodeRef.current) === false);
             }
 
-            if (shouldHighlightFooter && onFooterHighlight) {
-                onFooterHighlight(isScrolledToBottom(scrollableNodeRef.current) === false);
+            if (shouldHighlightFooter) {
+                setFooterHighlighted(isScrolledToBottom(scrollableNodeRef.current) === false);
             }
-        }, [onFooterHighlight, onHeaderHighlight, shouldHighlightFooter, shouldHighlightHeader]);
+        }, [shouldHighlightFooter, shouldHighlightHeader]);
 
         const handleClose = useCallback<Required<BaseModalProps>['onClose']>(
             (event, reason) => {
@@ -273,13 +275,6 @@ export const BaseModal: FC<BaseModalProps & RefAttributes<HTMLDivElement>> = for
                 return null;
             },
             [onBackdropClick, onClose, onEscapeKeyDown],
-        );
-
-        const handleCloserClick = useCallback(
-            (event: MouseEvent<HTMLButtonElement>) => {
-                handleClose(event, 'closerClick');
-            },
-            [handleClose],
         );
 
         const handleBackdropClick = useCallback(
@@ -389,6 +384,14 @@ export const BaseModal: FC<BaseModalProps & RefAttributes<HTMLDivElement>> = for
             if (open) setExited(false);
         }, [open]);
 
+        const contextValue = useMemo(() => {
+            return {
+                headerHighlighted,
+                footerHighlighted,
+                onClose: handleClose,
+            };
+        }, [headerHighlighted, footerHighlighted, handleClose]);
+
         if (!shouldRender) return null;
 
         return (
@@ -406,46 +409,44 @@ export const BaseModal: FC<BaseModalProps & RefAttributes<HTMLDivElement>> = for
                         onExited={handleBackdropExited}
                         {...backdropProps}
                     >
-                        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
-                        <div
-                            role='dialog'
-                            className={cn(styles.wrapper, wrapperClassName, {
-                                [styles.hidden]: !open && exited,
-                                [styles.fullscreen]: fullscreen,
-                                [styles.hideBackdrop]: hideBackdrop,
-                            })}
-                            ref={mergeRefs([wrapperRef, ref])}
-                            onKeyDown={handleKeyDown}
-                            tabIndex={-1}
-                            data-test-id={dataTestId}
-                            onClick={handleBackdropClick}
-                        >
-                            <Transition
-                                appear={true}
-                                timeout={200}
-                                {...transitionProps}
-                                in={open}
-                                onEntered={handleEntered}
-                                onExited={handleExited}
+                        <ModalContext.Provider value={contextValue}>
+                            {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
+                            <div
+                                role='dialog'
+                                className={cn(styles.wrapper, wrapperClassName, {
+                                    [styles.hidden]: !open && exited,
+                                    [styles.fullscreen]: fullscreen,
+                                    [styles.hideBackdrop]: hideBackdrop,
+                                })}
+                                ref={mergeRefs([wrapperRef, ref])}
+                                onKeyDown={handleKeyDown}
+                                tabIndex={-1}
+                                data-test-id={dataTestId}
+                                onClick={handleBackdropClick}
                             >
-                                <div className={cn(styles.component, className)}>
-                                    {isValidElement(header)
-                                        ? cloneElement(header, {
-                                              onCloserClick: handleCloserClick,
-                                          })
-                                        : header}
+                                <Transition
+                                    appear={true}
+                                    timeout={200}
+                                    {...transitionProps}
+                                    in={open}
+                                    onEntered={handleEntered}
+                                    onExited={handleExited}
+                                >
+                                    <div className={cn(styles.component, className)}>
+                                        {header}
 
-                                    <div
-                                        className={cn(styles.content, contentClassName)}
-                                        ref={contentRef}
-                                    >
-                                        {children}
+                                        <div
+                                            className={cn(styles.content, contentClassName)}
+                                            ref={contentRef}
+                                        >
+                                            {children}
+                                        </div>
+
+                                        {footer}
                                     </div>
-
-                                    {footer}
-                                </div>
-                            </Transition>
-                        </div>
+                                </Transition>
+                            </div>
+                        </ModalContext.Provider>
                     </CSSTransition>
                 </FocusLock>
             </Portal>
