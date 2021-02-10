@@ -5,7 +5,7 @@
     --icon-button-m-size: 32px;
 
     /* primary */
-    --icon-button-primary-base-color: var(--color-light-graphic-primary);
+    --icon-button-primary-base-color: var(--color-black);
     --icon-button-primary-hover-color: color-mod(var(--icon-button-primary-base-color) tint(30%));
     --icon-button-primary-active-color: color-mod(var(--icon-button-primary-base-color) tint(50%));
     --icon-button-primary-disabled-color: color-mod(
@@ -25,7 +25,7 @@
     );
 
     /* transparent */
-    --icon-button-transparent-base-color: color-mod(var(--color-light-graphic-primary) alpha(30%));
+    --icon-button-transparent-base-color: color-mod(var(--color-black) alpha(30%));
     --icon-button-transparent-hover-color: color-mod(
         var(--icon-button-transparent-base-color) alpha(40%)
     );
@@ -94,7 +94,7 @@
     max-height: 100%;
 }
 
-.icon g[fill-rule],
-.icon path[fill-rule] {
+/* Для иконок с заливкой (icons-classic) */
+.icon *[fill-rule] {
     fill: currentColor;
 }

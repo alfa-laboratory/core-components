@@ -1,11 +1,10 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { select, number } from '@storybook/addon-knobs';
+import { select } from '@storybook/addon-knobs';
 import { Container, Row, Col } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { StarMIcon } from '@alfalab/icons-glyph';
 import { BankAlfaXxlBlackIcon } from '@alfalab/icons-classic';
-
 
 import { IconButton } from './Component';
 
@@ -43,8 +42,26 @@ import { name, version } from '../package.json';
 import { IconButton } from '@alfalab/core-components-icon-button';
 ```
 
+### Размеры
 
-### Кнопка с иконкой
+<Preview>
+    <Container>
+        <Row>
+            <Col>
+                <div>s</div>
+                <IconButton view='primary' size='s' icon={StarMIcon} />
+            </Col>
+            <Col>
+                <div>s</div>
+                <IconButton view='primary' size='m' icon={StarMIcon} />
+            </Col>
+        </Row>
+    </Container>
+</Preview>
+
+### Виды кнопок
+
+- <b>Primary</b>
 
 <Preview>
     <Container>
@@ -55,11 +72,35 @@ import { IconButton } from '@alfalab/core-components-icon-button';
             <Col>
                 <IconButton view='primary' icon={BankAlfaXxlBlackIcon} />
             </Col>
+        </Row>
+    </Container>
+</Preview>
+
+- <b>Secondary</b>
+
+<Preview>
+    <Container>
+        <Row>
             <Col>
-                <IconButton view='primary' size='m' icon={StarMIcon} />
+                <IconButton view='secondary' icon={StarMIcon} />
             </Col>
             <Col>
-                <IconButton view='primary' size='m' icon={BankAlfaXxlBlackIcon} />
+                <IconButton view='secondary' icon={BankAlfaXxlBlackIcon} />
+            </Col>
+        </Row>
+    </Container>
+</Preview>
+
+- <b>Transparent</b>
+
+<Preview style={{ background: '#ef3124'}}>
+    <Container>
+        <Row>
+            <Col>
+                <IconButton view='transparent' icon={StarMIcon} />
+            </Col>
+            <Col>
+                <IconButton view='transparent' icon={BankAlfaXxlBlackIcon} />
             </Col>
         </Row>
     </Container>
