@@ -48,6 +48,11 @@
     outline: none;
     border: none;
     font-family: var(--font-family);
+    color: var(--color-light-text-primary);
+
+    &:disabled {
+        color: var(--color-light-text-secondary);
+    }
 
     &::placeholder {
         color: var(--color-light-text-secondary);
