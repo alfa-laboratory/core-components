@@ -6,7 +6,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
-    transition: box-shadow 0.3s ease, background 0.3s ease;
+    transition: box-shadow 0.2s ease, background 0.2s ease;
     min-height: var(--modal-header-min-height);
     border-top-left-radius: var(--modal-border-radius);
     border-top-right-radius: var(--modal-border-radius);
@@ -36,6 +36,8 @@
 
 .content {
     flex-grow: 1;
+    margin-right: var(--gap-m);
+    word-break: break-word;
 }
 
 .withTitle {
@@ -51,4 +53,11 @@
     background-position: center;
     background-repeat: no-repeat;
     flex-shrink: 0;
+
+    opacity: 0.6;
+    transition: opacity 0.2s ease-out;
+
+    &:hover {
+        opacity: 1;
+    }
 }
