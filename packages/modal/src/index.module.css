@@ -65,7 +65,7 @@
     position: sticky;
 
     /* равен верхнему отступу wrapper'а */
-    top: var(--gap-xl-neg);
+    top: calc(var(--modal-vertical-padding) * -1);
 }
 
 /* FOOTER */
@@ -74,7 +74,7 @@
     position: sticky;
 
     /* равен верхнему отступу wrapper'а */
-    bottom: var(--gap-xl-neg);
+    bottom: calc(var(--modal-vertical-padding) * -1);
 }
 
 /* ANIMATION */

@@ -12,6 +12,7 @@ export const ModalDesktop = forwardRef<HTMLDivElement, ModalDesktopProps>(
             hasCloser={hasCloser}
             headerContent={headerContent}
             hideBackdrop={fullscreen}
+            fullscreen={fullscreen}
             {...restProps}
         />
     ),

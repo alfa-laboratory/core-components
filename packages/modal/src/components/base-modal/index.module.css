@@ -28,8 +28,8 @@
     outline: 0;
     background-color: var(--modal-backdrop-visible-background);
 
-    padding-top: var(--gap-xl);
-    padding-bottom: var(--gap-xl);
+    padding-top: var(--modal-vertical-padding);
+    padding-bottom: var(--modal-vertical-padding);
 }
 
 .hidden {

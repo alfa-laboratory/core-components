@@ -1,7 +1,7 @@
 @import '../../vars.css';
 
 .component {
-    transition: box-shadow 0.3s ease, background 0.3s ease;
+    transition: box-shadow 0.2s ease, background 0.2s ease;
     background: var(--color-light-bg-primary);
     border-bottom-left-radius: var(--modal-border-radius);
     border-bottom-right-radius: var(--modal-border-radius);

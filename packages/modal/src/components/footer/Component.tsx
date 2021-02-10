@@ -5,7 +5,7 @@ import styles from './index.module.css';
 
 export type FooterProps = {
     /**
-     * Контент шапки
+     * Контент футера
      */
     children?: ReactNode;
 
@@ -15,12 +15,12 @@ export type FooterProps = {
     className?: string;
 
     /**
-     * Подсветка шапки
+     * Подсветка футера
      */
     highlighted?: boolean;
 
     /**
-     * Размер шапки
+     * Размер футера
      */
     size?: 's' | 'm' | 'l';
 };

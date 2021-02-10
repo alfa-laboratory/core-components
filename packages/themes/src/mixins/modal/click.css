@@ -1,9 +1,20 @@
 @import '../../../../vars/src/index.css';
 
 @define-mixin modal-click {
+    /* core vars */
+    --color-light-graphic-primary: #0b1f35;
+    --color-light-bg-primary: #fff;
+    --color-light-bg-secondary: #f3f4f5;
+    --gap-s: 12px;
+    --gap-2xl: 32px;
+    --gap-4xl: 48px;
+    --gap-6xl: 72px;
+
     /* sizes */
     --modal-s-width: 500px;
     --modal-header-min-height: 84px;
+    --modal-backdrop-visible-background: color-mod(var(--color-light-graphic-primary) alpha(50%));
+    --modal-vertical-padding: var(--gap-4xl);
 
     /* paddings */
     --modal-s-header-paddings: var(--gap-xl) var(--gap-2xl) var(--gap-s) var(--gap-4xl);
@@ -18,7 +29,7 @@
 
     /* scroll */
     --modal-header-highlight-box-shadow: none;
-    --modal-header-highlight-background: var(--color-light-bg-secondary);
+    --modal-header-highlight-background: var(--color-light-bg-primary);
     --modal-footer-highlight-box-shadow: none;
     --modal-footer-highlight-background: var(--color-light-bg-secondary);
 }

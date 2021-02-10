@@ -9,7 +9,7 @@ import IconS from '@alfalab/icons-glyph/FlashCircleSIcon';
 import { Button } from './Component';
 import { name, version } from '../package.json';
 
-export const VIEWS = ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'];
+export const VIEWS = ['primary', 'secondary', 'outlined', 'filled', 'transparent', 'link', 'ghost'];
 export const SIZES = ['xs', 's', 'm', 'l'];
 
 
@@ -71,6 +71,9 @@ import { Button } from '@alfalab/core-components-button';
             </Col>
             <Col>
                 <Button view='filled'>Filled</Button>
+            </Col>
+            <Col>
+                <Button view='transparent'>Transparent</Button>
             </Col>
             <Col>
                 <Button view='link'>Link</Button>
@@ -147,6 +150,22 @@ import { Button } from '@alfalab/core-components-button';
             {SIZES.map(size => (
                 <Col key={size}>
                     <Button size={size} view="filled">
+                        Кнопка
+                    </Button>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+</Preview>
+
+- <b>Transparent</b>. Кнопка с прозрачностью.
+
+<Preview>
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <Button size={size} view="transparent">
                         Кнопка
                     </Button>
                 </Col>
@@ -255,10 +274,7 @@ import { Button } from '@alfalab/core-components-button';
     {React.createElement(() => {
         const [loading, setLoading] = React.useState({
             primary: false,
-            secondary: false,
-            outlined: false,
-            link: false,
-            ghost: false
+            secondary: false
         });
         const handleClick = (buttonName) => {
             setLoading({...loading, [buttonName]: true});
