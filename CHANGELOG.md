@@ -1,3 +1,10 @@
+# [10.3.0](https://github.com/alfa-laboratory/core-components/compare/v10.2.1...v10.3.0) (2021-02-11)
+
+
+### Features
+
+* **grid:** add component ([#486](https://github.com/alfa-laboratory/core-components/issues/486)) ([96bd0f3](https://github.com/alfa-laboratory/core-components/commit/96bd0f34047fa4c8a877c75a60cc39f839f20b84))
+
 ## [10.2.1](https://github.com/alfa-laboratory/core-components/compare/v10.2.0...v10.2.1) (2021-02-10)
 
 
