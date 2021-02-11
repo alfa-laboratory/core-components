@@ -1,3 +1,10 @@
+# [10.4.0](https://github.com/alfa-laboratory/core-components/compare/v10.3.0...v10.4.0) (2021-02-11)
+
+
+### Features
+
+* improve read-only behaviour (PDS-200) ([#502](https://github.com/alfa-laboratory/core-components/issues/502)) ([3b3c5e6](https://github.com/alfa-laboratory/core-components/commit/3b3c5e664a829351f09f97d742311396dd0c98c6))
+
 # [10.3.0](https://github.com/alfa-laboratory/core-components/compare/v10.2.1...v10.3.0) (2021-02-11)
 
 
