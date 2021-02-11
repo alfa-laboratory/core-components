@@ -23,7 +23,13 @@ import { name, version } from '../package.json';
 export const Header = () => {
     const { headerHighlighted, onClose } = React.useContext(ModalContext);
     return (
-        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', padding: '16px 32px' }}>
+        <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            padding: '16px 32px',
+            background: '#feebea'
+        }}>
             <Typography.Title view="small">
                 {headerHighlighted ? 'Шапка при скролле' : 'Шапка'}
             </Typography.Title>
@@ -35,7 +41,7 @@ export const Header = () => {
 export const Footer = () => {
     const { footerHighlighted } = React.useContext(ModalContext);
     return (
-        <div style={{ padding: '16px 32px' }}>
+        <div style={{ padding: '16px 32px', background: '#feebea' }}>
             <Typography.Title view="small">
                 {footerHighlighted ? 'Футер при скролле' : 'Футер'}
             </Typography.Title>
@@ -90,6 +96,11 @@ export const Content = () => {
                     onClose={handleModalOpen}
                     hasCloser={boolean('closer', true)}
                     keepMounted={boolean('keepMounted', false)}
+                    stickyHeader={boolean('stickyHeader', false)}
+                    stickyFooter={boolean('stickyFooter', false)}
+                    flexContent={boolean('flexContent', false)}
+                    header={<Header />}
+                    footer={<Footer />}
                 >
                     <div style={{ padding: '32px' }}>
                         <Content/>
