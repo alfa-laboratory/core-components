@@ -37,14 +37,6 @@
 .fullscreen {
     border-radius: 0;
     width: 100%;
-
-    & .stickyHeader {
-        top: 0;
-    }
-
-    & .stickyFooter {
-        bottom: 0;
-    }
 }
 
 /* CONTENT */
@@ -57,24 +49,6 @@
     &:last-child {
         padding-bottom: var(--modal-content-no-footer-bottom-padding);
     }
-}
-
-/* HEADER */
-
-.stickyHeader {
-    position: sticky;
-
-    /* равен верхнему отступу wrapper'а */
-    top: calc(var(--modal-vertical-padding) * -1);
-}
-
-/* FOOTER */
-
-.stickyFooter {
-    position: sticky;
-
-    /* равен верхнему отступу wrapper'а */
-    bottom: calc(var(--modal-vertical-padding) * -1);
 }
 
 /* ANIMATION */

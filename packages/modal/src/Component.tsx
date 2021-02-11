@@ -31,16 +31,6 @@ export type ModalProps = Omit<
     headerContent?: ReactNode;
 
     /**
-     * Заставляет хэдер прилипать к верхнему краю экрана при прокрутке
-     */
-    stickyHeader?: boolean;
-
-    /**
-     * Заставляет футер прилипать к нижнему краю экрана при прокрутке
-     */
-    stickyFooter?: boolean;
-
-    /**
      * Управление наличием закрывающего крестика
      * @default false
      */
@@ -60,6 +50,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
             footer,
             stickyHeader,
             stickyFooter,
+            flexContent,
             fullscreen,
             transitionProps,
             ...restProps
@@ -83,27 +74,19 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                     classNames: styles,
                     ...transitionProps,
                 }}
-                highlightHeader={stickyHeader || fullscreen}
-                highlightFooter={stickyFooter}
+                stickyHeader={stickyHeader}
+                stickyFooter={stickyFooter}
+                flexContent={flexContent}
                 header={
-                    <Header
-                        className={cn(headerClassName, {
-                            [styles.stickyHeader]: stickyHeader && !fullscreen,
-                        })}
-                        size={size}
-                        hasCloser={hasCloser}
-                    >
-                        {headerContent}
-                    </Header>
+                    (headerContent || hasCloser) && (
+                        <Header className={headerClassName} size={size} hasCloser={hasCloser}>
+                            {headerContent}
+                        </Header>
+                    )
                 }
                 footer={
                     footer && (
-                        <Footer
-                            className={cn(footerClassName, {
-                                [styles.stickyFooter]: stickyFooter && !fullscreen,
-                            })}
-                            size={size}
-                        >
+                        <Footer className={footerClassName} size={size}>
                             {footer}
                         </Footer>
                     )

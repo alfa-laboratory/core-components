@@ -5,14 +5,22 @@ import { Modal, ModalProps } from './Component';
 
 import styles from './mobile.module.css';
 
-export type ModalMobileProps = Omit<
-    ModalProps,
-    'fullscreen' | 'stickyFooter' | 'stickyHeader' | 'size'
->;
+export type ModalMobileProps = Omit<ModalProps, 'fullscreen' | 'size'>;
 
 // FIXME: без явного указания типа возникает ts(4023)
 export const ModalMobile = forwardRef<HTMLDivElement, ModalMobileProps>(
-    ({ headerClassName, contentClassName, footerClassName, ...restProps }, ref) => {
+    (
+        {
+            headerClassName,
+            contentClassName,
+            footerClassName,
+            stickyFooter = true,
+            stickyHeader = true,
+            flexContent = true,
+            ...restProps
+        },
+        ref,
+    ) => {
         const [size] = useMedia(
             [
                 ['s', '(max-width: 375px)'],
@@ -28,9 +36,10 @@ export const ModalMobile = forwardRef<HTMLDivElement, ModalMobileProps>(
                 footerClassName={cn(styles[`footer-${size}`], footerClassName)}
                 headerClassName={cn(styles.header, styles[`header-${size}`], headerClassName)}
                 hideBackdrop={true}
+                stickyHeader={stickyHeader}
+                stickyFooter={stickyFooter}
+                flexContent={flexContent}
                 {...restProps}
-                stickyFooter={true}
-                stickyHeader={true}
                 fullscreen={true}
             />
         );

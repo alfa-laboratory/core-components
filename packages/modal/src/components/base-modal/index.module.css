@@ -48,14 +48,40 @@
         height: 100%;
         will-change: transform;
         border-radius: 0;
+        overflow: auto;
+    }
+
+    & .stickyHeader {
+        top: 0;
+    }
+
+    & .stickyFooter {
+        bottom: 0;
     }
 }
 
 /* CONTENT */
 
-.content {
+.flexContent {
     flex: 1 1 auto;
-    overflow: auto;
+}
+
+/* HEADER */
+
+.stickyHeader {
+    position: sticky;
+
+    /* равен верхнему отступу wrapper'а */
+    top: calc(var(--modal-vertical-padding) * -1);
+}
+
+/* FOOTER */
+
+.stickyFooter {
+    position: sticky;
+
+    /* равен верхнему отступу wrapper'а */
+    bottom: calc(var(--modal-vertical-padding) * -1);
 }
 
 /* ANIMATION */
