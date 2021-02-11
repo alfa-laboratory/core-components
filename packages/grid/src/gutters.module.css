@@ -1,0 +1,38 @@
+/* stylelint-disable comment-empty-line-before */
+@for $i from 8 to 24 by 8 {
+    .row.gutter-$(i) {
+        /* prettier-ignore */
+        margin-left: calc(-$(i)px / 2);
+        /* prettier-ignore */
+        margin-right: calc(-$(i)px / 2);
+
+        & > .col {
+            /* prettier-ignore */
+            padding-left: calc($(i)px / 2);
+            /* prettier-ignore */
+            padding-right: calc($(i)px / 2);
+        }
+    }
+}
+
+@each $breakpoint in mobile, mobile-s, mobile-m, mobile-l, tablet, tablet-s, tablet-m, desktop,
+    desktop-s, desktop-m, desktop-l, desktop-xl
+{
+    @media (--$(breakpoint)) {
+        @for $i from 8 to 24 by 8 {
+            .row.gutter-$(breakpoint)-$(i) {
+                /* prettier-ignore */
+                margin-left: calc(-$(i)px / 2);
+                /* prettier-ignore */
+                margin-right: calc(-$(i)px / 2);
+
+                & > .col {
+                    /* prettier-ignore */
+                    padding-left: calc($(i)px / 2);
+                    /* prettier-ignore */
+                    padding-right: calc($(i)px / 2);
+                }
+            }
+        }
+    }
+}

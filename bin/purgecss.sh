@@ -7,5 +7,6 @@ node bin/purgecss.js
 lerna exec --parallel \
     --ignore @alfalab/core-components-vars \
     --ignore @alfalab/core-components-themes \
+    --ignore @alfalab/core-components-grid \
     --ignore @alfalab/core-components-toast-plate \
     -- node ../../bin/purgecss.js

@@ -17,5 +17,12 @@ module.exports = {
                 'custom-properties': false,
             },
         }),
+        require('postcss-for')({}),
+        require('postcss-each')({}),
+        require('postcss-custom-media')({
+            importFrom: {
+                customMedia: require('./packages/mq/src/mq.json'),
+            },
+        }),
     ],
 };
