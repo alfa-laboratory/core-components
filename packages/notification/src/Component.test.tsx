@@ -12,25 +12,7 @@ describe('Notification', () => {
 
         it('should match snapshot', () => {
             const { baseElement } = render(
-                <Notification icon='positive' title='title' onClose={onClose}>
-                    text
-                </Notification>,
-            );
-
-            expect(baseElement).toMatchSnapshot();
-        });
-
-        it('should match snapshot with leftAddons', () => {
-            const { baseElement } = render(
-                <Notification leftAddons={<div>leftAddons</div>} onClose={onClose} />,
-            );
-
-            expect(baseElement).toMatchSnapshot();
-        });
-
-        it('should match snapshot without icon', () => {
-            const { baseElement } = render(
-                <Notification title='title' onClose={onClose}>
+                <Notification badge='positive' title='title' onClose={onClose}>
                     text
                 </Notification>,
             );
@@ -67,17 +49,6 @@ describe('Notification', () => {
             expect(el).toHaveClass(className);
         });
 
-        it('should set `hasCloser` class', () => {
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(
-                <Notification hasCloser={true} dataTestId={dataTestId} />,
-            );
-
-            const el = getByTestId(dataTestId);
-
-            expect(el).toHaveClass('hasCloser');
-        });
-
         it('should set `visible` class', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(<Notification visible={true} dataTestId={dataTestId} />);
@@ -85,27 +56,6 @@ describe('Notification', () => {
             const el = getByTestId(dataTestId);
 
             expect(el).toHaveClass('isVisible');
-        });
-
-        it('should set `positive` class if `icon` prop is `positive`', () => {
-            const icon = 'positive';
-            const { baseElement } = render(<Notification icon={icon} />);
-
-            expect(baseElement.querySelector('.icon')).toHaveClass(icon);
-        });
-
-        it('should set `negative` class if `icon` prop is `negative`', () => {
-            const icon = 'negative';
-            const { baseElement } = render(<Notification icon={icon} />);
-
-            expect(baseElement.querySelector('.icon')).toHaveClass(icon);
-        });
-
-        it('should set `warning` class if `icon` prop is `warning`', () => {
-            const icon = 'warning';
-            const { baseElement } = render(<Notification icon={icon} />);
-
-            expect(baseElement.querySelector('.icon')).toHaveClass(icon);
         });
     });
 

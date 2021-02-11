@@ -1,0 +1,5 @@
+@import '../../../../vars/src/index.css';
+
+@define-mixin calendar-input-click {
+    --calendar-input-calendar-icon: url('https://alfabank.st/icons/glyph_calendar_m.svg');
+}

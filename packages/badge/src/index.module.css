@@ -8,11 +8,12 @@
     @mixin accent_secondary_medium;
 
     position: relative;
+    z-index: 2;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    border-radius: 16px;
+    border-radius: 99px;
     background-color: var(--color-light-bg-accent);
     color: var(--color-light-text-primary-inverted);
     overflow: hidden;
@@ -21,28 +22,27 @@
 .s {
     height: 16px;
     min-width: 16px;
-    padding-left: var(--gap-2xs);
-    padding-right: var(--gap-2xs);
+    padding: 0 var(--gap-2xs);
 }
 
 .m {
     height: 20px;
     min-width: 20px;
-    padding-left: 6px;
-    padding-right: 6px;
+    padding: 0 6px;
 }
 
 .l {
     height: 24px;
     min-width: 24px;
-    padding-left: 6px;
-    padding-right: 6px;
+    padding: 0 6px;
 }
 
 .icon {
+    height: auto;
+    min-width: 0;
     padding: 0;
     color: var(--color-light-graphic-positive);
-    background-color: var(--badge-icon-bg-color);
+    background-color: transparent;
 
     &.positive {
         color: var(--color-light-graphic-positive);
@@ -60,29 +60,32 @@
         color: var(--color-light-graphic-tertiary);
     }
 
+    &.secondary {
+        color: var(--color-light-graphic-secondary);
+    }
+
     &.primary {
         color: var(--color-light-graphic-primary);
     }
 }
 
-/* Нужно из-за того, что иконка в виде кружка занимает не все пространство свг */
-.icon svg {
+.icon:before {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    z-index: -1;
+    left: 16%;
+    right: 16%;
+    top: 16%;
+    bottom: 16%;
+    background-color: var(--badge-icon-bg-color);
+    border-radius: 99px;
+    content: '';
 }
 
-.icon.s svg {
-    max-height: 18px;
-}
-
-.icon.m svg {
-    max-height: 24px;
-}
-
-.icon.l svg {
-    max-height: 24px;
+.outline:before {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
 }
 
 .dot {

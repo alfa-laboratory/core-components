@@ -222,9 +222,11 @@ export const BaseSelect = forwardRef(
             }
         };
 
-        const handleFieldClick = () => {
-            if (!autocomplete || !open) {
+        const handleFieldClick = (event: MouseEvent) => {
+            if (!autocomplete || (event.target as HTMLElement).tagName !== 'INPUT') {
                 toggleMenu();
+            } else {
+                openMenu();
             }
         };
 
