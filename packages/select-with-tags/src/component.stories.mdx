@@ -71,6 +71,7 @@ export const matchOption = (option, inputValue) =>
                     value={value}
                     onChange={handleChange}
                     selected={selected}
+                    emptyListPlaceholder={text('emptyListPlaceholder', 'Ничего не найдено')}
                 />
             </div>
         );
@@ -88,6 +89,8 @@ export const matchOption = (option, inputValue) =>
 ```tsx
 import { SelectWithTags } from '@alfalab/core-components-select-with-tags';
 ```
+
+Размеры `s` и `m` пока лучше не использовать, так как еще нет актуальных макетов.
 
 <Preview>
     {React.createElement(() => {

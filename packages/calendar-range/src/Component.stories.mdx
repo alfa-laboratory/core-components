@@ -63,10 +63,11 @@ import { CalendarRange } from '@alfalab/core-components-calendar-range';
 
 <Preview>
     {React.createElement(() => {
-        const [valueFrom, setValueFrom] = React.useState('10.11.2020');
-        const [valueTo, setValueTo] = React.useState('20.11.2020');
-        const minDate = subMonths(startOfDay(new Date()), 2).getTime();
-        const maxDate = addMonths(startOfDay(new Date()), 2).getTime();
+        const defaultDate = '10.11.2020';
+        const [valueFrom, setValueFrom] = React.useState(defaultDate);
+        const [valueTo, setValueTo] = React.useState('');
+        const minDate = subMonths(startOfDay(parseDateString(defaultDate)), 2).getTime();
+        const maxDate = addMonths(startOfDay(parseDateString(defaultDate)), 2).getTime();
         const [fromError, setFromError] = React.useState('');
         const [toError, setToError] = React.useState('');
         const valid = (value) => {
@@ -87,8 +88,8 @@ import { CalendarRange } from '@alfalab/core-components-calendar-range';
         const handleToFocus = () => setToError('');
         return (
             <CalendarRange
-                minDate={subMonths(startOfDay(new Date()), 2).getTime()}
-                maxDate={addMonths(startOfDay(new Date()), 2).getTime()}
+                minDate={minDate}
+                maxDate={maxDate}
                 valueFrom={valueFrom}
                 valueTo={valueTo}
                 onDateFromChange={({ value }) => {

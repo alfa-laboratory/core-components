@@ -1,0 +1,8 @@
+@import '../../themes/src/default.css';
+
+.component svg {
+    fill: currentColor;
+}
+.component path {
+    fill: inherit;
+}

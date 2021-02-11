@@ -122,19 +122,24 @@ export type BaseModalProps = {
     header?: ReactNode;
 
     /**
-     * Заставляет хэдер прилипать к верхнему краю экрана при прокрутке
-     */
-    highlightHeader?: boolean;
-
-    /**
      * Контент футера, на мобильных устройствах содержимое футера прижимается к нижней части вьюпорта
      */
     footer?: ReactNode;
 
     /**
+     * Заставляет хэдер прилипать к верхнему краю экрана при прокрутке
+     */
+    stickyHeader?: boolean;
+
+    /**
      * Заставляет футер прилипать к нижнему краю экрана при прокрутке
      */
-    highlightFooter?: boolean;
+    stickyFooter?: boolean;
+
+    /**
+     * Заставляет контент растягиваться на всю высоту, прижимая футер к нижнему краю
+     */
+    flexContent?: boolean;
 
     /**
      * Компонент анимации модалки
@@ -208,8 +213,6 @@ export const BaseModal: FC<BaseModalProps & RefAttributes<HTMLDivElement>> = for
             footer,
             header,
             fullscreen,
-            highlightHeader = false,
-            highlightFooter = false,
             hideBackdrop = false,
             backdropProps = {},
             Transition = CSSTransition,
@@ -220,6 +223,9 @@ export const BaseModal: FC<BaseModalProps & RefAttributes<HTMLDivElement>> = for
             disableEscapeKeyDown = false,
             disableRestoreFocus = false,
             keepMounted = false,
+            flexContent,
+            stickyHeader,
+            stickyFooter,
             targetHandleExited = hideBackdrop ? 'children' : 'backdrop',
             className,
             contentClassName,
@@ -240,12 +246,12 @@ export const BaseModal: FC<BaseModalProps & RefAttributes<HTMLDivElement>> = for
         const restoreContainerStyles = useRef<null | Function>(null);
 
         const wrapperRef = useRef<HTMLDivElement>(null);
-        const contentRef = useRef<HTMLDivElement>(null);
+        const componentRef = useRef<HTMLDivElement>(null);
 
         const scrollableNodeRef = useRef<HTMLDivElement | null>(null);
 
-        const shouldHighlightHeader = header && highlightHeader;
-        const shouldHighlightFooter = footer && highlightFooter;
+        const shouldHighlightHeader = header && stickyHeader;
+        const shouldHighlightFooter = footer && stickyFooter;
         const shouldHandleScroll = shouldHighlightHeader || shouldHighlightFooter;
 
         const shouldRender = keepMounted || open || !exited;
@@ -327,7 +333,7 @@ export const BaseModal: FC<BaseModalProps & RefAttributes<HTMLDivElement>> = for
             (node, isAppearing) => {
                 if (shouldHandleScroll) {
                     scrollableNodeRef.current = fullscreen
-                        ? contentRef.current
+                        ? componentRef.current
                         : wrapperRef.current;
 
                     if (scrollableNodeRef.current) {
@@ -432,17 +438,37 @@ export const BaseModal: FC<BaseModalProps & RefAttributes<HTMLDivElement>> = for
                                     onEntered={handleEntered}
                                     onExited={handleExited}
                                 >
-                                    <div className={cn(styles.component, className)}>
-                                        {header}
+                                    <div
+                                        className={cn(styles.component, className)}
+                                        ref={componentRef}
+                                    >
+                                        {header && (
+                                            <div
+                                                className={cn(styles.header, {
+                                                    [styles.stickyHeader]: stickyHeader,
+                                                })}
+                                            >
+                                                {header}
+                                            </div>
+                                        )}
 
                                         <div
-                                            className={cn(styles.content, contentClassName)}
-                                            ref={contentRef}
+                                            className={cn(styles.content, contentClassName, {
+                                                [styles.flexContent]: flexContent,
+                                            })}
                                         >
                                             {children}
                                         </div>
 
-                                        {footer}
+                                        {footer && (
+                                            <div
+                                                className={cn(styles.footer, {
+                                                    [styles.stickyFooter]: stickyFooter,
+                                                })}
+                                            >
+                                                {footer}
+                                            </div>
+                                        )}
                                     </div>
                                 </Transition>
                             </div>

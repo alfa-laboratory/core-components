@@ -1,0 +1,12 @@
+@import '../../../../vars/src/index.css';
+
+@define-mixin button-default-inverted {
+    /* core vars */
+    --color-light-text-primary-inverted: #fff;
+
+    /* ghost */
+    --button-ghost-base-color: var(--color-light-text-primary-inverted);
+    --button-ghost-hover-color: color-mod(var(--color-light-text-primary-inverted) alpha(70%));
+    --button-ghost-active-color: color-mod(var(--color-light-text-primary-inverted) alpha(50%));
+    --button-ghost-disabled-color: color-mod(var(--color-light-text-primary-inverted) alpha(70%));
+}

@@ -1,0 +1,6 @@
+@import '../../../../vars/src/index.css';
+
+@define-mixin button-site {
+    /* theme */
+    --button-border-radius: 8px;
+}

@@ -6,6 +6,8 @@
     --modal-backdrop-visible-background: var(--color-light-bg-overlay);
     --modal-backdrop-hidden-background: transparent;
     --modal-vertical-padding: var(--gap-3xl);
+    --modal-header-background: var(--color-light-bg-primary);
+    --modal-footer-background: var(--color-light-bg-primary);
 
     /* sizes */
     --modal-s-width: 476px;

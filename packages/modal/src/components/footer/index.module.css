@@ -5,6 +5,7 @@
     background: var(--color-light-bg-primary);
     border-bottom-left-radius: var(--modal-border-radius);
     border-bottom-right-radius: var(--modal-border-radius);
+    background: var(--modal-header-background);
 }
 
 .s {

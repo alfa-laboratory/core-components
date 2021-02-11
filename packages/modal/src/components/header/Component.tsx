@@ -37,8 +37,6 @@ export const Header: React.FC<HeaderProps> = ({ children, hasCloser, size, class
         [onClose],
     );
 
-    if (!children && !hasCloser) return null;
-
     return (
         <div
             className={cn(styles.component, className, size && styles[size], {

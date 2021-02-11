@@ -1,6 +1,6 @@
 import React, { forwardRef, useCallback, useMemo, useState } from 'react';
 import cn from 'classnames';
-import { startOfMonth, subYears } from 'date-fns';
+import { startOfMonth } from 'date-fns';
 import { Header } from './components/header';
 import { DaysTable } from './components/days-table';
 import { MonthsTable } from './components/months-table';
@@ -121,10 +121,9 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             monthTimestamp,
         ]);
 
-        const minDate = useMemo(
-            () => (minDateTimestamp ? new Date(minDateTimestamp) : subYears(defaultMonth, 100)),
-            [minDateTimestamp, defaultMonth],
-        );
+        const minDate = useMemo(() => (minDateTimestamp ? new Date(minDateTimestamp) : undefined), [
+            minDateTimestamp,
+        ]);
 
         const maxDate = useMemo(() => (maxDateTimestamp ? new Date(maxDateTimestamp) : undefined), [
             maxDateTimestamp,

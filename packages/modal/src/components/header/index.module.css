@@ -10,6 +10,7 @@
     min-height: var(--modal-header-min-height);
     border-top-left-radius: var(--modal-border-radius);
     border-top-right-radius: var(--modal-border-radius);
+    background: var(--modal-header-background);
 }
 
 .s {

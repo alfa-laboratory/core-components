@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification Snapshots tests should match snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="component"
+    >
+      <div
+        class="mainContentWrap"
+      >
+        <div
+          class="mainSection"
+        >
+          <div
+            class="leftAddons"
+          >
+            <div
+              class="component m icon positive badge"
+              data-test-id="badge"
+            >
+              <svg
+                class="badgeIcon"
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-1.5-6L17 9.5 15.5 8l-5 5-2-2L7 12.5l3.5 3.5z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </div>
+          <div>
+            <div
+              class="title"
+            >
+              title
+            </div>
+            <div
+              class="children"
+            >
+              text
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Notification Snapshots tests should match snapshot with leftAddons 1`] = `
+<body>
+  <div>
+    <div
+      class="component"
+    >
+      <div
+        class="mainContentWrap"
+      >
+        <div
+          class="mainSection"
+        >
+          <div
+            class="leftAddons"
+          >
+            <div>
+              leftAddons
+            </div>
+          </div>
+          <div />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Notification Snapshots tests should match snapshot without icon 1`] = `
+<body>
+  <div>
+    <div
+      class="component"
+    >
+      <div
+        class="mainContentWrap"
+      >
+        <div
+          class="mainSection"
+        >
+          <div>
+            <div
+              class="title"
+            >
+              title
+            </div>
+            <div
+              class="children"
+            >
+              text
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

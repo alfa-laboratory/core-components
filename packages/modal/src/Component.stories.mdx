@@ -68,6 +68,9 @@ export const Content = () => {
                     onClose={handleModalOpen}
                     headerContent={text('headerContent', 'Заголовок окна')}
                     footer={boolean('footer', false) && footerContent}
+                    stickyHeader={boolean('stickyHeader', true)}
+                    stickyFooter={boolean('stickyFooter', true)}
+                    flexContent={boolean('flexContent', true)}
                     hasCloser={boolean('closer', true)}
                     keepMounted={boolean('keepMounted', false)}
                     disableBackdropClick={boolean('disableBackdropClick', false)}
@@ -103,6 +106,7 @@ export const Content = () => {
                     fullscreen={boolean('fullscreen', false)}
                     stickyHeader={boolean('stickyHeader', false)}
                     stickyFooter={boolean('stickyFooter', false)}
+                    flexContent={boolean('flexContent', false)}
                     size={select('size', ['s', 'm', 'l'], 's')}
                     keepMounted={boolean('keepMounted', false)}
                     disableBackdropClick={boolean('disableBackdropClick', false)}
@@ -137,6 +141,7 @@ export const Content = () => {
                     fullscreen={boolean('fullscreen', false)}
                     stickyHeader={boolean('stickyHeader', false)}
                     stickyFooter={boolean('stickyFooter', false)}
+                    flexContent={boolean('flexContent', false)}
                     size={select('size', ['s', 'm', 'l'], 's')}
                     keepMounted={boolean('keepMounted', false)}
                     disableBackdropClick={boolean('disableBackdropClick', false)}
