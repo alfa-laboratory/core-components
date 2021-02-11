@@ -34,7 +34,7 @@ export const coreComponentsRootPackageResolver = ({ currentPackageDir }) => ({
 });
 
 /**
- * Заменяет импорты компонентов для сборки modern и cssm
+ * Заменяет импорты компонентов для сборки modern/cssm/esm
  */
 export const coreComponentsResolver = ({ importFrom }) => ({
     name: 'core-components-resolver',
@@ -48,6 +48,52 @@ export const coreComponentsResolver = ({ importFrom }) => ({
 
             while (requireRegExp.exec(code)) {
                 code = code.replace(requireRegExp, `$1$2/${importFrom}$3`);
+            }
+
+            bundles[bundleName].code = code;
+        });
+
+        return bundles;
+    },
+});
+
+/**
+ * Заменяет импорты компонентов на импорты компонентов нужной темы
+ */
+export const coreComponentsThemesResolver = () => ({
+    name: 'core-components-resolver',
+    generateBundle: (opts, bundles) => {
+        const { dir } = opts;
+
+        const [_, themeName] = /themes\/(\w+)/.exec(dir);
+
+        Object.keys(bundles).forEach(bundleName => {
+            let code = bundles[bundleName].code;
+
+            const requireRegExp = new RegExp(
+                /(\b(?:require\(|import |from )['"])(@alfalab\/core-components-[^\/\n]+)(['"])/,
+            );
+
+            /**
+             * Заменяет обычные импорты, например:
+             * require('@alfalab/core-components-loader') заменит на
+             * require('@alfalab/core-components-loader/dist/themes/:themeName')
+             */
+            while (requireRegExp.exec(code)) {
+                code = code.replace(requireRegExp, `$1$2/dist/themes/${themeName}$3`);
+            }
+
+            const requireFromDistRegExp = new RegExp(
+                /(\b(?:require\(|import |from )['"])(@alfalab\/core-components-\w+\/dist)(\/(?!themes).+)(['"])/,
+            );
+
+            /**
+             * Заменяет импорты из modern/cssm/esm, например:
+             * require('@alfalab/core-components-loader/dist/esm') заменит на
+             * require('@alfalab/core-components-loader/dist/themes/:themeName/esm')
+             */
+            while (requireFromDistRegExp.exec(code)) {
+                code = code.replace(requireFromDistRegExp, `$1$2/themes/${themeName}$3$4`);
             }
 
             bundles[bundleName].code = code;

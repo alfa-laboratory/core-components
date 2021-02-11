@@ -152,6 +152,7 @@
         "playwright-cli": "^0.171.0",
         "postcss-cli": "^7.1.0",
         "postcss-custom-media": "^7.0.8",
+        "postcss-custom-properties": "^10.0.0",
         "postcss-each": "^0.10.0",
         "postcss-for": "^2.1.1",
         "postcss-import": "^12.0.1",

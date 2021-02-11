@@ -14,7 +14,7 @@ echo "start build on $CONCURRENCY parallel process"
 lerna exec --concurrency $CONCURRENCY \
     --ignore @alfalab/core-components-vars \
     --ignore @alfalab/core-components-themes \
-    -- $(pwd)/bin/rollup.sh
+    -- $(pwd)/bin/rollup.sh && node $(pwd)/bin/inject-themes.js
 
 # собираю css пакеты
 copy_css="yarn copyfiles -u 1 \"src/**/*.css\" dist"
