@@ -1,4 +1,12 @@
-import { useRef, useEffect, ReactNode, isValidElement, cloneElement } from 'react';
+import {
+    useRef,
+    useEffect,
+    ReactNode,
+    isValidElement,
+    cloneElement,
+    useLayoutEffect,
+    RefObject,
+} from 'react';
 import { OptionShape, GroupShape, BaseSelectProps } from './typings';
 
 export const isGroup = (item: OptionShape | GroupShape): item is GroupShape =>
@@ -62,6 +70,65 @@ export function processOptions(
     });
 
     return { flatOptions, selectedOptions };
+}
+
+type useVisibleOptionsArgs = {
+    /**
+     * Количество видимых пунктов
+     */
+    visibleOptions: number;
+
+    /**
+     * Реф на контейнер с пунтами меню
+     */
+    listRef: RefObject<HTMLElement>;
+
+    /**
+     * Реф на контейнер, которому нужно установить высоту
+     */
+    styleTargetRef?: RefObject<HTMLElement>;
+
+    /**
+     * Флаг открытия меню
+     */
+    open?: boolean;
+
+    /**
+     * Позволяет вызвать пересчет высоты
+     */
+    invalidate?: number;
+};
+
+export function useVisibleOptions({
+    visibleOptions,
+    listRef,
+    styleTargetRef = listRef,
+    open,
+    invalidate,
+}: useVisibleOptionsArgs) {
+    useLayoutEffect(() => {
+        const list = listRef.current;
+        const styleTarget = styleTargetRef.current;
+
+        if (open && list && styleTarget) {
+            const optionsNodes = ([] as HTMLElement[]).slice.call(
+                list.children,
+                0,
+                visibleOptions + 1,
+            );
+
+            let height = optionsNodes
+                .slice(0, visibleOptions)
+                .reduce((acc, child) => acc + child.clientHeight, 0);
+
+            if (visibleOptions < list.children.length) {
+                // Добавляем половинку
+                height += Math.round(optionsNodes[optionsNodes.length - 1].clientHeight / 2);
+            }
+
+            styleTarget.style.height = `${height}px`;
+        }
+    }, [listRef, open, styleTargetRef, visibleOptions, invalidate]);
 }
 
 // TODO: перенести

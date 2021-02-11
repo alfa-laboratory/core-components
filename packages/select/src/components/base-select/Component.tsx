@@ -67,6 +67,7 @@ export const BaseSelect = forwardRef(
             Option = () => null,
             updatePopover,
             showEmptyOptionsList = false,
+            visibleOptions,
         }: BaseSelectProps,
         ref,
     ) => {
@@ -383,6 +384,7 @@ export const BaseSelect = forwardRef(
                                     options={options}
                                     Optgroup={Optgroup}
                                     Option={WrappedOption}
+                                    visibleOptions={visibleOptions}
                                     dataTestId={getDataTestId(dataTestId, 'options-list')}
                                 />
                             </div>
