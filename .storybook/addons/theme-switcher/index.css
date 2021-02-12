@@ -17,30 +17,30 @@
     font-size: 13px;
 }
 
-body[data-theme='default-inverted'] {
+[data-theme='default-inverted'] {
     @mixin theme-default-inverted;
 }
 
-body[data-theme='click'] {
+[data-theme='click'] {
     @mixin theme-click;
 }
 
-body[data-theme='site'] {
+[data-theme='site'] {
     @mixin theme-site;
 }
 
-body[data-theme='site-inverted'] {
+[data-theme='site-inverted'] {
     @mixin theme-site-inverted;
 }
 
-body[data-theme='corp'] {
+[data-theme='corp'] {
     @mixin theme-corp;
 }
 
-body[data-theme='corp-inverted'] {
+[data-theme='corp-inverted'] {
     @mixin theme-corp-inverted;
 }
 
-body[data-theme='mobile'] {
+[data-theme='mobile'] {
     @mixin theme-mobile;
 }
