@@ -1,4 +1,4 @@
-import React, { ChangeEvent, forwardRef, useCallback, useState } from 'react';
+import React, { ChangeEvent, forwardRef, useCallback, useState, useRef } from 'react';
 import {
     BaseSelectProps,
     OptionsList as DefaultOptionsList,
@@ -28,7 +28,10 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
             autocomplete = true,
             match,
             allowUnselect = true,
+            collapseTagList = false,
+            transferInputToNewLine = true,
             emptyListPlaceholder = 'Ничего не найдено',
+            collapsedTagText,
             Tag,
             ...restProps
         },
@@ -37,12 +40,19 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
         const controlled = Boolean(selected);
 
         const [selectedTags, setSelectedTags] = useState(selected || []);
+        const popoverRef = useRef(() => null);
 
         const resetValue = useCallback(() => {
             const event = { target: { value: '' } };
 
             onInput(event as ChangeEvent<HTMLInputElement>);
         }, [onInput]);
+
+        const handleUpdatePopover = useCallback(() => {
+            if (popoverRef && popoverRef.current) {
+                popoverRef.current();
+            }
+        }, []);
 
         const handleDeleteTag = useCallback(
             (deletedKey: string) => {
@@ -105,6 +115,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                 OptionsList={OptionsList}
                 Arrow={Arrow}
                 multiple={true}
+                updatePopover={popoverRef}
                 allowUnselect={allowUnselect}
                 showEmptyOptionsList={true}
                 fieldProps={{
@@ -113,6 +124,10 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                     onInput,
                     handleDeleteTag,
                     Tag,
+                    collapseTagList,
+                    transferInputToNewLine,
+                    collapsedTagText,
+                    handleUpdatePopover,
                 }}
                 optionsListProps={{
                     emptyPlaceholder: emptyListPlaceholder,
