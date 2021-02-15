@@ -23,6 +23,8 @@ export const OptionsList = ({
 }: OptionsListProps) => {
     const counter = createCounter();
 
+    const handleMouseDown = useCallback(event => event.preventDefault(), []);
+
     const renderGroup = useCallback(
         (group: GroupShape) => (
             <Optgroup label={group.label} key={group.label} size={size}>
@@ -37,7 +39,12 @@ export const OptionsList = ({
     }
 
     return (
-        <div className={cn(styles.optionsList, styles[size], className)} data-test-id={dataTestId}>
+        // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+        <div
+            className={cn(styles.optionsList, styles[size], className)}
+            onMouseDown={handleMouseDown}
+            data-test-id={dataTestId}
+        >
             {options.map(option =>
                 isGroup(option) ? renderGroup(option) : Option({ option, index: counter() }),
             )}

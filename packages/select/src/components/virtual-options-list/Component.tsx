@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import React, { useRef, useEffect, useMemo } from 'react';
+import React, { useRef, useEffect, useMemo, useCallback } from 'react';
 import cn from 'classnames';
 import { useVirtual } from 'react-virtual';
 import { OptionsListProps, GroupShape, OptionShape } from '../../typings';
@@ -37,6 +37,8 @@ export const VirtualOptionsList = ({
         parentRef,
         overscan,
     });
+
+    const handleMouseDown = useCallback(event => event.preventDefault(), []);
 
     // Сколл к выбранному пункту при открытии меню
     useEffect(() => {
@@ -87,9 +89,11 @@ export const VirtualOptionsList = ({
     }, [options]);
 
     return (
+        // eslint-disable-next-line jsx-a11y/no-static-element-interactions
         <div
             className={cn(styles.virtualOptionsList, styles[size], className)}
             ref={parentRef}
+            onMouseDown={handleMouseDown}
             data-test-id={dataTestId}
         >
             <div

@@ -254,7 +254,6 @@ export const BaseSelect = forwardRef(
                             index,
                             item: option,
                             disabled: option.disabled,
-                            onMouseDown: (event: MouseEvent) => event.preventDefault(),
                         }),
                         index,
                         option,
