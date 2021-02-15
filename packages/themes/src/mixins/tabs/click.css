@@ -7,9 +7,9 @@
 
     /* theme */
     --primary-tablist-mobile-padding: var(--gap-s) 0;
-    --primary-tablist-s-font-size: 20px;
+    --primary-tablist-s-font-size: 18px;
     --primary-tablist-s-font-weight: 500;
-    --primary-tablist-s-font-family: var(--font-family-styrene);
+    --primary-tablist-s-font-family: var(--font-family-system);
     --primary-tablist-s-padding: var(--gap-s) 0;
     --primary-tablist-m-font-size: 20px;
     --primary-tablist-m-font-weight: 500;
