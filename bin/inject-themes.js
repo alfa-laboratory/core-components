@@ -9,7 +9,7 @@ const writeFile = promisify(fs.writeFile);
 
 async function compileCssVars(path) {
     try {
-        const [_, theme] = /themes\/(\w+)/.exec(path);
+        const [_, theme] = /themes\/([\w\-]+)/.exec(path);
 
         const css = await readFile(path, 'utf-8');
 
