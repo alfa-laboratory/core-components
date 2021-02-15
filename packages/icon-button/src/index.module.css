@@ -1,8 +1,9 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --icon-button-s-size: 24px;
-    --icon-button-m-size: 32px;
+    --icon-button-xxs-size: 24px;
+    --icon-button-xs-size: 32px;
+    --icon-button-s-size: 48px;
 
     /* primary */
     --icon-button-primary-base-color: var(--color-light-graphic-primary);
@@ -73,14 +74,19 @@
     }
 }
 
+.xxs {
+    width: var(--icon-button-xss-size);
+    height: var(--icon-button-xss-size);
+}
+
+.xs {
+    width: var(--icon-button-xs-size);
+    height: var(--icon-button-xs-size);
+}
+
 .s {
     width: var(--icon-button-s-size);
     height: var(--icon-button-s-size);
-}
-
-.m {
-    width: var(--icon-button-m-size);
-    height: var(--icon-button-m-size);
 }
 
 .iconWrapper {

@@ -21,7 +21,7 @@ import { name, version } from '../package.json';
 
 <Story name='IconButton'>
     <IconButton
-        size={select('size', ['s', 'm'], 'm')}
+        size={select('size', ['xxs', 'xs', 's'], 's')}
         view={select('view', ['primary', 'secondary', 'transparent'], 'primary')}
         icon={StarMIcon}
     />
@@ -48,10 +48,13 @@ import { IconButton } from '@alfalab/core-components-icon-button';
     <Container>
         <Row>
             <Col>
-                <IconButton view='primary' size='s' icon={StarMIcon} style={{ border: '1px solid rgba(0,0,0,0.1) '}} />
+                <IconButton view='primary' size='xxs' icon={StarMIcon} style={{ border: '1px solid rgba(0,0,0,0.1) '}} />
             </Col>
             <Col>
-                <IconButton view='primary' size='m' icon={StarMIcon} style={{ border: '1px solid rgba(0,0,0,0.1) '}} />
+                <IconButton view='primary' size='xs' icon={StarMIcon} style={{ border: '1px solid rgba(0,0,0,0.1) '}} />
+            </Col>
+            <Col>
+                <IconButton view='primary' size='s' icon={StarMIcon} style={{ border: '1px solid rgba(0,0,0,0.1) '}} />
             </Col>
         </Row>
     </Container>

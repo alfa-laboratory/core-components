@@ -29,11 +29,12 @@ describe('IconButton', () => {
             expect(container.firstElementChild).toHaveClass(className);
         });
 
-        it('should set `size` class on icon wrapper', () => {
-            const size = 'm';
-            const { container } = render(<IconButton icon={StarMIcon} size={size} />);
+        (['xxs', 'xs', 's'] as const).forEach(size => {
+            it('should set `size` class on icon wrapper', () => {
+                const { container } = render(<IconButton icon={StarMIcon} size={size} />);
 
-            expect(container.querySelector('.iconWrapper')).toHaveClass(size);
+                expect(container.querySelector('.iconWrapper')).toHaveClass(size);
+            });
         });
 
         it('should set `view` class', () => {

@@ -19,7 +19,7 @@ export type IconButtonProps = {
     /**
      * Размер компонента
      */
-    size?: 's' | 'm';
+    size?: 'xxs' | 'xs' | 's';
 
     /**
      * Дополнительный класс
@@ -30,7 +30,7 @@ export type IconButtonProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'size'>;
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     ({ className, icon: Icon, view = 'primary', size = 's', ...restProps }, ref) => {
@@ -40,7 +40,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
                 ref={ref}
                 view='ghost'
                 className={cn(className, styles[view])}
-                size={size}
+                size='s'
                 leftAddons={
                     <span className={cn(styles.iconWrapper, styles[size])}>
                         <Icon className={styles.icon} />
