@@ -1,3 +1,10 @@
+## [10.4.2](https://github.com/alfa-laboratory/core-components/compare/v10.4.1...v10.4.2) (2021-02-15)
+
+
+### Bug Fixes
+
+* **themes:** fixed click theme for tabs size S ([#510](https://github.com/alfa-laboratory/core-components/issues/510)) ([1ce93e5](https://github.com/alfa-laboratory/core-components/commit/1ce93e55d0622951e8db652f16b883a151a75e79))
+
 ## [10.4.1](https://github.com/alfa-laboratory/core-components/compare/v10.4.0...v10.4.1) (2021-02-15)
 
 
