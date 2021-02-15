@@ -1,3 +1,10 @@
+## [10.4.1](https://github.com/alfa-laboratory/core-components/compare/v10.4.0...v10.4.1) (2021-02-15)
+
+
+### Bug Fixes
+
+* **themes:** corp theme ([#512](https://github.com/alfa-laboratory/core-components/issues/512)) ([6226238](https://github.com/alfa-laboratory/core-components/commit/6226238be1104550622eba1b842dac5ed9828d83))
+
 # [10.4.0](https://github.com/alfa-laboratory/core-components/compare/v10.3.0...v10.4.0) (2021-02-11)
 
 
