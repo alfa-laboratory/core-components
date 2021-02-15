@@ -6,6 +6,9 @@
     --toast-plate-color: var(--color-light-text-primary-inverted);
     --toast-plate-border-radius: 8px;
     --toast-plate-title-font-weight: 700;
+    --toast-plate-action-align: center;
+    --toast-plate-action-padding: 0 var(--gap-2xl) 0 var(--gap-xs);
+    --toast-plate-action-divider-display: block;
 }
 
 .component {
@@ -29,7 +32,6 @@
 
 .mainContentWrap {
     display: flex;
-    align-items: flex-start;
 }
 
 .block {
@@ -46,10 +48,12 @@
     }
 }
 
-.actionsSection {
+.actionSection {
     display: flex;
+    align-items: var(--toast-plate-action-align);
     flex-shrink: 0;
-    margin-top: 3px;
+    margin: 3px 0;
+    padding: var(--toast-plate-action-padding);
 
     &.hasCloser {
         margin-right: var(--gap-xs);
@@ -58,8 +62,8 @@
 
 .leftAddons {
     display: flex;
+    align-items: flex-start;
     flex-shrink: 0;
-    padding-top: 2px;
     padding-right: var(--gap-s);
 }
 
@@ -76,8 +80,11 @@
 }
 
 .closeButton {
+    display: flex;
+    align-items: flex-start;
     position: absolute;
     top: var(--gap-s);
+    bottom: var(--gap-s);
     right: var(--gap-s);
     padding: var(--gap-2xs);
     transition: opacity 0.2s ease-out;
@@ -89,5 +96,20 @@
 
     &:active .closeIcon {
         opacity: 0.5;
+    }
+}
+
+.actionSection + .closeButton {
+    align-items: var(--toast-plate-action-align);
+
+    &:before {
+        display: var(--toast-plate-action-divider-display);
+        position: absolute;
+        right: 44px;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background-color: var(--color-light-bg-tertiary-inverted);
+        content: '';
     }
 }
