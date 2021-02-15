@@ -29,7 +29,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
             match,
             allowUnselect = true,
             collapseTagList = false,
-            transferInputToNewLine = true,
+            moveInputToNewLine = true,
             emptyListPlaceholder = 'Ничего не найдено',
             collapsedTagText,
             Tag,
@@ -40,7 +40,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
         const controlled = Boolean(selected);
 
         const [selectedTags, setSelectedTags] = useState(selected || []);
-        const popoverRef = useRef(() => null);
+        const updatePopover = useRef(() => null);
 
         const resetValue = useCallback(() => {
             const event = { target: { value: '' } };
@@ -49,8 +49,8 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
         }, [onInput]);
 
         const handleUpdatePopover = useCallback(() => {
-            if (popoverRef && popoverRef.current) {
-                popoverRef.current();
+            if (updatePopover && updatePopover.current) {
+                updatePopover.current();
             }
         }, []);
 
@@ -115,7 +115,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                 OptionsList={OptionsList}
                 Arrow={Arrow}
                 multiple={true}
-                updatePopover={popoverRef}
+                updatePopover={updatePopover}
                 allowUnselect={allowUnselect}
                 showEmptyOptionsList={true}
                 fieldProps={{
@@ -125,7 +125,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                     handleDeleteTag,
                     Tag,
                     collapseTagList,
-                    transferInputToNewLine,
+                    moveInputToNewLine,
                     collapsedTagText,
                     handleUpdatePopover,
                 }}

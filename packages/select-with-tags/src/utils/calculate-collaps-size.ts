@@ -1,8 +1,10 @@
-const getElementSize = (element: HTMLElement, property: string): number =>
-    +window
+const getElementSize = (element: HTMLElement, property: string): number => {
+    const size = +window
         .getComputedStyle(element)
         .getPropertyValue(property)
         .replace('px', '');
+    return Number.isNaN(size) ? 0 : size;
+};
 
 const getTagWidth = (tag: HTMLElement) => {
     const tagMarginLeft = getElementSize(tag, 'margin-left');

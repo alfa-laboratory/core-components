@@ -27,7 +27,7 @@ type TagListOwnProps = {
     inputRef?: MutableRefObject<HTMLInputElement>;
     autocomplete?: boolean;
     collapseTagList?: boolean;
-    transferInputToNewLine?: boolean;
+    moveInputToNewLine?: boolean;
     collapsedTagText?: (collapsedCount: number) => string;
     Tag?: TagComponent;
     handleUpdatePopover?: () => void;
@@ -50,7 +50,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     onInput,
     handleDeleteTag,
     collapseTagList,
-    transferInputToNewLine,
+    moveInputToNewLine,
     collapsedTagText,
     handleUpdatePopover,
     Tag = DefaultTag,
@@ -143,14 +143,14 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
         /**
          * Если текст не помещается в инпут, то нужно перенести инпут на новую строку.
          */
-        if (transferInputToNewLine) {
+        if (moveInputToNewLine) {
             if (inputTextIsOverflow() && !inputOnNewLine) {
                 setInputOnNewLine(true);
             } else if (value.length === 0) {
                 setInputOnNewLine(false);
             }
         }
-    }, [value, inputOnNewLine, inputTextIsOverflow, transferInputToNewLine]);
+    }, [value, inputOnNewLine, inputTextIsOverflow, moveInputToNewLine]);
 
     const collapseTagTitle = useMemo(() => {
         if (isShowMoreEnabled) {

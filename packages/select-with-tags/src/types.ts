@@ -63,7 +63,7 @@ export type SelectWithTagsProps = Omit<
     /**
      * Если текст не помещается в инпут, то нужно перенести инпут на новую строку.
      */
-    transferInputToNewLine?: boolean;
+    moveInputToNewLine?: boolean;
 
     /**
      * Текст Компонента Тэг который отображает общее количество выбранных элементов
