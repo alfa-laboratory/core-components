@@ -40,6 +40,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
         const controlled = Boolean(selected);
 
         const [selectedTags, setSelectedTags] = useState(selected || []);
+        const [isPopoverOpen, setPopoverOpen] = useState<boolean | undefined>(false);
         const updatePopover = useRef(() => null);
 
         const resetValue = useCallback(() => {
@@ -97,6 +98,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                 if (!open && value) {
                     resetValue();
                 }
+                setPopoverOpen(open);
             },
             [resetValue, value],
         );
@@ -128,6 +130,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                     moveInputToNewLine,
                     collapsedTagText,
                     handleUpdatePopover,
+                    isPopoverOpen,
                 }}
                 optionsListProps={{
                     emptyPlaceholder: emptyListPlaceholder,

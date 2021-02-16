@@ -26,6 +26,7 @@ type TagListOwnProps = {
     onInput?: (event: ChangeEvent<HTMLInputElement>) => void;
     inputRef?: MutableRefObject<HTMLInputElement>;
     autocomplete?: boolean;
+    isPopoverOpen?: boolean;
     collapseTagList?: boolean;
     moveInputToNewLine?: boolean;
     collapsedTagText?: (collapsedCount: number) => string;
@@ -52,12 +53,13 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     collapseTagList,
     moveInputToNewLine,
     collapsedTagText,
+    isPopoverOpen,
     handleUpdatePopover,
     Tag = DefaultTag,
     ...restProps
 }) => {
     const [focused, setFocused] = useState(false);
-    const [isShowMoreEnabled, setShowMoreEnabled] = useState(false);
+    const [isShowMoreEnabled, setShowMoreEnabled] = useState<boolean | undefined>(false);
     const [visibleElements, setVisibleElements] = useState(1);
     const [inputOnNewLine, setInputOnNewLine] = useState(false);
 
@@ -68,8 +70,13 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     const [focusVisible] = useFocus(wrapperRef, 'keyboard');
     const [inputFocusVisible] = useFocus(inputRef, 'keyboard');
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+        setShowMoreEnabled(isPopoverOpen);
+    }, [isPopoverOpen]);
+
+    useLayoutEffect(() => {
         setVisibleElements(selectedMultiple.length);
+        setShowMoreEnabled(false);
     }, [selectedMultiple]);
 
     useLayoutEffect(() => {
