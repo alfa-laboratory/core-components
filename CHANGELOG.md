@@ -1,3 +1,10 @@
+## [10.4.3](https://github.com/alfa-laboratory/core-components/compare/v10.4.2...v10.4.3) (2021-02-16)
+
+
+### Bug Fixes
+
+* **form-control:** ff blink ([490ff25](https://github.com/alfa-laboratory/core-components/commit/490ff257eacb61c5d0d7f8861d12e43af9df3a55))
+
 ## [10.4.2](https://github.com/alfa-laboratory/core-components/compare/v10.4.1...v10.4.2) (2021-02-15)
 
 
