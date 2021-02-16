@@ -1,3 +1,10 @@
+## [10.4.4](https://github.com/alfa-laboratory/core-components/compare/v10.4.3...v10.4.4) (2021-02-16)
+
+
+### Bug Fixes
+
+* **plate:** fixed --arrow-transform var, tuned transition ([#509](https://github.com/alfa-laboratory/core-components/issues/509)) ([dd51018](https://github.com/alfa-laboratory/core-components/commit/dd510185db28fefb102b287ae5022cf42e8072dc))
+
 ## [10.4.3](https://github.com/alfa-laboratory/core-components/compare/v10.4.2...v10.4.3) (2021-02-16)
 
 
