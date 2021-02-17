@@ -95,13 +95,6 @@
     color: var(--input-disabled-color);
 }
 
-/* READ-ONLY STATE */
-
-.input:read-only {
-    cursor: var(--disabled-cursor);
-    color: var(--input-read-only-color);
-}
-
 /* FOCUS STATE */
 
 .input:focus.hasLabel::placeholder {
@@ -114,6 +107,21 @@
 
 .focusVisible {
     @mixin focus-outline;
+}
+
+/* READ-ONLY STATE */
+
+.input:read-only {
+    cursor: var(--disabled-cursor);
+    color: var(--input-read-only-color);
+
+    &:focus::placeholder {
+        color: var(--input-placeholder-color);
+    }
+}
+
+.hasLabel:read-only:focus::placeholder {
+    opacity: 0;
 }
 
 /* IE hide clear */

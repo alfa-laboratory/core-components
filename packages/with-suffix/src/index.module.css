@@ -10,7 +10,7 @@
     pointer-events: none;
 }
 
-input:focus + .suffixContainer,
+input:focus:not(:read-only) + .suffixContainer,
 .suffixVisible .suffixContainer {
     display: inline-flex;
 }

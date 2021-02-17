@@ -1,3 +1,59 @@
+# [10.6.0](https://github.com/alfa-laboratory/core-components/compare/v10.5.0...v10.6.0) (2021-02-17)
+
+
+### Features
+
+* **toast-plate:** add action button theming, fix addons align ([#514](https://github.com/alfa-laboratory/core-components/issues/514)) ([20a7c67](https://github.com/alfa-laboratory/core-components/commit/20a7c67e89e4b6d3d90a9f1da2eb1b428c8ebf73))
+
+# [10.5.0](https://github.com/alfa-laboratory/core-components/compare/v10.4.4...v10.5.0) (2021-02-17)
+
+
+### Features
+
+* **icon-button:** add component ([#505](https://github.com/alfa-laboratory/core-components/issues/505)) ([da8ba6e](https://github.com/alfa-laboratory/core-components/commit/da8ba6e4473da87d8043713a592368d500cd284f))
+
+## [10.4.4](https://github.com/alfa-laboratory/core-components/compare/v10.4.3...v10.4.4) (2021-02-16)
+
+
+### Bug Fixes
+
+* **plate:** fixed --arrow-transform var, tuned transition ([#509](https://github.com/alfa-laboratory/core-components/issues/509)) ([dd51018](https://github.com/alfa-laboratory/core-components/commit/dd510185db28fefb102b287ae5022cf42e8072dc))
+
+## [10.4.3](https://github.com/alfa-laboratory/core-components/compare/v10.4.2...v10.4.3) (2021-02-16)
+
+
+### Bug Fixes
+
+* **form-control:** ff blink ([490ff25](https://github.com/alfa-laboratory/core-components/commit/490ff257eacb61c5d0d7f8861d12e43af9df3a55))
+
+## [10.4.2](https://github.com/alfa-laboratory/core-components/compare/v10.4.1...v10.4.2) (2021-02-15)
+
+
+### Bug Fixes
+
+* **themes:** fixed click theme for tabs size S ([#510](https://github.com/alfa-laboratory/core-components/issues/510)) ([1ce93e5](https://github.com/alfa-laboratory/core-components/commit/1ce93e55d0622951e8db652f16b883a151a75e79))
+
+## [10.4.1](https://github.com/alfa-laboratory/core-components/compare/v10.4.0...v10.4.1) (2021-02-15)
+
+
+### Bug Fixes
+
+* **themes:** corp theme ([#512](https://github.com/alfa-laboratory/core-components/issues/512)) ([6226238](https://github.com/alfa-laboratory/core-components/commit/6226238be1104550622eba1b842dac5ed9828d83))
+
+# [10.4.0](https://github.com/alfa-laboratory/core-components/compare/v10.3.0...v10.4.0) (2021-02-11)
+
+
+### Features
+
+* improve read-only behaviour (PDS-200) ([#502](https://github.com/alfa-laboratory/core-components/issues/502)) ([3b3c5e6](https://github.com/alfa-laboratory/core-components/commit/3b3c5e664a829351f09f97d742311396dd0c98c6))
+
+# [10.3.0](https://github.com/alfa-laboratory/core-components/compare/v10.2.1...v10.3.0) (2021-02-11)
+
+
+### Features
+
+* **grid:** add component ([#486](https://github.com/alfa-laboratory/core-components/issues/486)) ([96bd0f3](https://github.com/alfa-laboratory/core-components/commit/96bd0f34047fa4c8a877c75a60cc39f839f20b84))
+
 ## [10.2.1](https://github.com/alfa-laboratory/core-components/compare/v10.2.0...v10.2.1) (2021-02-10)
 
 

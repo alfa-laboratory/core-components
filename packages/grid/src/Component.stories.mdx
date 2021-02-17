@@ -1,0 +1,398 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { Grid } from './Component';
+import { name, version } from '../package.json';
+
+
+<Meta
+    title='Компоненты'
+    component={Grid}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='Grid'>
+    {React.createElement(() => {
+        const style = {
+            height: 30,
+            background: '#ff5c5c'
+        };
+        return (
+            <Grid.Row gutter={{ mobile: 0, tablet: 16, desktop: 24}}>
+                <Grid.Col>
+                    <div style={ style } />
+                </Grid.Col>
+                <Grid.Col>
+                    <div style={ { ...style, background: '#f04539' } } />
+                </Grid.Col>
+                <Grid.Col>
+                    <div style={ style } />
+                </Grid.Col>
+            </Grid.Row>
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Grid'
+    version={version}
+    package='@alfalab/core-components-grid'
+    stage={1}
+/>
+
+```tsx
+import { Grid } from '@alfalab/core-components-grid';
+```
+
+Компонент грид, который включает в себя Row и Col.
+
+## Grid.Row
+Строка используется для создания сетки. Сетка имеет резиновую систему разметки, которая масштабируется до 12 столбцов.
+
+### Установка горизонтального отступа
+
+<Preview>
+    {React.createElement(() => {
+        const style = {
+            height: 30,
+            background: '#ff5c5c'
+        };
+        return (
+            <Grid.Row gutter={{ mobile: 0, tablet: 16, desktop: { m: 24 }}}>
+                <Grid.Col>
+                    <div style={ style } />
+                </Grid.Col>
+                <Grid.Col>
+                    <div style={ { ...style, background: '#f04539' } } />
+                </Grid.Col>
+                <Grid.Col>
+                    <div style={ style } />
+                </Grid.Col>
+            </Grid.Row>
+        );
+    })}
+</Preview>
+
+### Выравнивание
+
+По вертикали
+
+<Preview>
+    {React.createElement(() => {
+        const style = {
+            height: 30,
+            background: '#ff5c5c'
+        };
+        const styleLastDiv = {
+            width: 0,
+            height: 90,
+            padding: 0,
+            marginBottom: 10
+        };
+        return (
+            <div>
+                <div style={ { background: '#f3f4f5', marginBottom: 10 } }>
+                    <Grid.Row align='top'>
+                        <Grid.Col>
+                            <div style={ style } />
+                        </Grid.Col>
+                        <Grid.Col>
+                            <div style={ { ...style, background: '#f04539' } } />
+                        </Grid.Col>
+                        <Grid.Col>
+                            <div style={ style } />
+                        </Grid.Col>
+                        <div style={ styleLastDiv } />
+                    </Grid.Row>
+                </div>
+                <div style={ { background: '#f3f4f5', marginBottom: 10 } }>
+                    <Grid.Row align='middle'>
+                        <Grid.Col>
+                            <div style={ style } />
+                        </Grid.Col>
+                        <Grid.Col>
+                            <div style={ { ...style, background: '#f04539' } } />
+                        </Grid.Col>
+                        <Grid.Col>
+                            <div style={ style } />
+                        </Grid.Col>
+                        <div style={ styleLastDiv } />
+                    </Grid.Row>
+                </div>
+                <div style={ { background: '#f3f4f5' } }>
+                    <Grid.Row align='bottom'>
+                        <Grid.Col>
+                            <div style={ style } />
+                        </Grid.Col>
+                        <Grid.Col>
+                            <div style={ { ...style, background: '#f04539' } } />
+                        </Grid.Col>
+                        <Grid.Col>
+                            <div style={ style } />
+                        </Grid.Col>
+                        <div style={ { ...styleLastDiv, marginBottom: 0 } } />
+                    </Grid.Row>
+                </div>
+            </div>
+        );
+    })}
+</Preview>
+
+По горизонтали
+
+<Preview>
+    {React.createElement(() => {
+        const style = {
+            height: 30,
+            background: '#ff5c5c',
+            marginBottom: 10
+        };
+        return (
+            <div>
+                <Grid.Row justify='left'>
+                    <Grid.Col width='4'>
+                        <div style={ style } />
+                    </Grid.Col>
+                    <Grid.Col width='4'>
+                        <div style={ { ...style, background: '#f04539' } } />
+                    </Grid.Col>
+                </Grid.Row>
+                <Grid.Row justify='center'>
+                    <Grid.Col width='4'>
+                        <div style={ style } />
+                    </Grid.Col>
+                    <Grid.Col width='4'>
+                        <div style={ { ...style, background: '#f04539' } } />
+                    </Grid.Col>
+                </Grid.Row>
+                <Grid.Row justify='right'>
+                    <Grid.Col width='4'>
+                        <div style={ style } />
+                    </Grid.Col>
+                    <Grid.Col width='4'>
+                        <div style={ { ...style, background: '#f04539' } } />
+                    </Grid.Col>
+                </Grid.Row>
+                <Grid.Row justify='around'>
+                    <Grid.Col width='4'>
+                        <div style={ style } />
+                    </Grid.Col>
+                    <Grid.Col width='4'>
+                        <div style={ { ...style, background: '#f04539' } } />
+                    </Grid.Col>
+                </Grid.Row>
+                <Grid.Row justify='between'>
+                    <Grid.Col width='4'>
+                        <div style={ { ...style, marginBottom: 0 } } />
+                    </Grid.Col>
+                    <Grid.Col width='4'>
+                        <div style={ { ...style, background: '#f04539', marginBottom: 0 } } />
+                    </Grid.Col>
+                </Grid.Row>
+            </div>
+        );
+    })}
+</Preview>
+
+## Grid.Col
+Колонки используются для создания сетки. Сетка имеет резиновую систему разметки, которая масштабируется до 12 столбцов. Колонки должны быть помещены в строки (компонент Grid.Row).
+
+<Preview>
+    {React.createElement(() => {
+        const style = {
+            height: 30,
+            lineHeight: '30px',
+            color: '#fff',
+            background: '#ff5c5c',
+            textAlign: 'center',
+            marginTop: 10
+        };
+        return (
+            <div>
+                <Grid.Row>
+                    <Grid.Col width={ { desktop: { m: 12 } } }>
+                        <div style={ { ...style, background: '#f04539', marginTop: 0 } }>12</div>
+                    </Grid.Col>
+                </Grid.Row>
+                <Grid.Row>
+                    {
+                        [1, 2].map(key => (
+                            <Grid.Col width='6' key={ key }>
+                                <div style={ style }>6</div>
+                            </Grid.Col>
+                        ))
+                    }
+                </Grid.Row>
+                <Grid.Row>
+                    {
+                        [1, 2, 3].map(key => (
+                            <Grid.Col width='4' key={ key }>
+                                <div style={ { ...style, background: '#f04539' } }>4</div>
+                            </Grid.Col>
+                        ))
+                    }
+                </Grid.Row>
+                <Grid.Row>
+                    {
+                        [1, 2, 3, 4].map(key => (
+                            <Grid.Col width='3' key={ key }>
+                                <div style={ style }>3</div>
+                            </Grid.Col>
+                        ))
+                    }
+                </Grid.Row>
+                <Grid.Row>
+                    {
+                        [1, 2, 3, 4, 5, 6].map(key => (
+                            <Grid.Col width='2' key={ key }>
+                                <div style={ { ...style, background: '#f04539' } }>2</div>
+                            </Grid.Col>
+                        ))
+                    }
+                </Grid.Row>
+                <Grid.Row>
+                    {
+                        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(key => (
+                            <Grid.Col width='1' key={ key }>
+                                <div style={ style }>1</div>
+                            </Grid.Col>
+                        ))
+                    }
+                </Grid.Row>
+            </div>
+        );
+    })}
+</Preview>
+
+### Адаптивная ширина
+
+Сетку можно настроить для каждой контрольной точки для построения сложного адаптивного интерфейса.
+
+<Preview>
+    {React.createElement(() => {
+        const style = {
+            height: 30,
+            lineHeight: '30px',
+            color: '#fff',
+            textAlign: 'center',
+            background: '#ff5c5c',
+            marginBottom: '10px'
+        };
+        return (
+            <div style={ { marginBottom: '-10px' } }>
+                <Grid.Row>
+                    <Grid.Col width={ { mobile: 12, tablet: 12, desktop: 4 } }>
+                        <div style={ style } />
+                    </Grid.Col>
+                    <Grid.Col width={ { mobile: 12, tablet: 6, desktop: 4 } }>
+                        <div style={ { ...style, background: '#f04539' } } />
+                    </Grid.Col>
+                    <Grid.Col width={ { mobile: 12, tablet: 6, desktop: 4 } }>
+                        <div style={ style } />
+                    </Grid.Col>
+                </Grid.Row>
+            </div>
+        );
+    })}
+</Preview>
+
+### Вертикальное выравнивание
+
+<Preview>
+    {React.createElement(() => {
+        const style = {
+            height: 30,
+            background: '#ff5c5c'
+        };
+        return (
+            <div style={ { background: '#f3f4f5' } }>
+                <Grid.Row>
+                    <Grid.Col align='top'>
+                        <div style={ style } />
+                    </Grid.Col>
+                    <Grid.Col align='middle'>
+                        <div style={ { ...style, background: '#f04539' } } />
+                    </Grid.Col>
+                    <Grid.Col align='bottom'>
+                        <div style={ style } />
+                    </Grid.Col>
+                    <div style={ { width: 0, height: 90, padding: 0 } } />
+                </Grid.Row>
+            </div>
+        );
+    })}
+</Preview>
+
+### Изменение порядка элементов
+
+Для быстрого изменения порядка одного элемента возможно использование значений first и last.
+
+<Preview>
+    {React.createElement(() => {
+        const style = {
+            height: 30,
+            lineHeight: '30px',
+            color: '#fff',
+            textAlign: 'center',
+            background: '#ff5c5c',
+            marginBottom: '10px'
+        };
+        return (
+            <div style={ { marginBottom: '-10px' } }>
+                <Grid.Row>
+                    <Grid.Col order='1'>
+                        <div style={ style }>Первый (order=1)</div>
+                    </Grid.Col>
+                    <Grid.Col order='3'>
+                        <div style={ style }>Второй (order=3)</div>
+                    </Grid.Col>
+                    <Grid.Col order='2'>
+                        <div style={ { ...style, background: '#f04539' } }>Третий (order=2)</div>
+                    </Grid.Col>
+                </Grid.Row>
+                <Grid.Row>
+                    <Grid.Col order='last'>
+                        <div style={ style }>Первый (order=last)</div>
+                    </Grid.Col>
+                    <Grid.Col>
+                        <div style={ style }>Второй</div>
+                    </Grid.Col>
+                    <Grid.Col>
+                        <div style={ { ...style, background: '#f04539' } }>Третий</div>
+                    </Grid.Col>
+                </Grid.Row>
+            </div>
+        );
+    })}
+</Preview>
+
+### Смещение колонок
+
+<Preview>
+    {React.createElement(() => {
+        const style = {
+            height: 30,
+            lineHeight: '30px',
+            color: '#fff',
+            textAlign: 'center',
+            background: '#ff5c5c'
+        };
+        return (
+            <Grid.Row>
+                <Grid.Col width='4'>
+                    <div style={ style }>width 4</div>
+                </Grid.Col>
+                <Grid.Col width='4' offset='4'>
+                    <div style={ { ...style, background: '#f04539' } }>width 4, offset 4</div>
+                </Grid.Col>
+            </Grid.Row>
+        );
+    })}
+</Preview>
+
+<Props components={Grid} />
