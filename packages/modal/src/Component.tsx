@@ -454,7 +454,9 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                                     onExited={handleExited}
                                 >
                                     <div
-                                        className={cn(styles.component, className)}
+                                        className={cn(styles.component, className, {
+                                            [styles.fullscreen]: fullscreen,
+                                        })}
                                         ref={componentRef}
                                     >
                                         {children}
