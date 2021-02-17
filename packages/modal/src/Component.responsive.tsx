@@ -17,8 +17,8 @@ const ResponsiveContext = React.createContext<ResponsiveContext>({
     view: 'desktop',
 });
 
-function createResponsive<DestopType extends FC, MobileType extends FC>(
-    desktop: DestopType,
+function createResponsive<DesktopType extends FC, MobileType extends FC>(
+    desktop: DesktopType,
     mobile: MobileType,
 ) {
     function ResponsiveChild(props: never) {
@@ -29,7 +29,7 @@ function createResponsive<DestopType extends FC, MobileType extends FC>(
         return <Child {...props} />;
     }
 
-    return ResponsiveChild as DestopType | MobileType;
+    return ResponsiveChild as DesktopType | MobileType;
 }
 
 const ModalResponsiveComponent = forwardRef<HTMLDivElement, ModalResponsiveProps>(
