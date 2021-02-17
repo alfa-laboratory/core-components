@@ -52,7 +52,7 @@
     display: flex;
     align-items: var(--toast-plate-action-align);
     flex-shrink: 0;
-    margin: 3px 0;
+    margin: 2px 0;
     padding: var(--toast-plate-action-padding);
 
     &.hasCloser {
