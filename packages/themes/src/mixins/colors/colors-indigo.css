@@ -31,6 +31,7 @@
     --color-light-graphic-primary: var(--color-dark-graphic-primary);
     --color-light-graphic-primary-inverted: var(--color-dark-graphic-primary-inverted);
     --color-light-graphic-secondary: var(--color-dark-graphic-secondary);
+    --color-light-graphic-secondary-inverted: var(--color-dark-graphic-secondary-inverted);
     --color-light-graphic-tertiary: var(--color-dark-graphic-tertiary);
     --color-light-specialbg-component: var(--color-dark-specialbg-component);
     --color-light-specialbg-nulled: var(--color-dark-specialbg-nulled);

@@ -4886,10 +4886,10 @@ ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.3, ajv@^6.12.4, ajv@^6.12.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-alfa-ui-primitives@^2.105.0:
-  version "2.122.0"
-  resolved "https://registry.yarnpkg.com/alfa-ui-primitives/-/alfa-ui-primitives-2.122.0.tgz#d6973fa3af555a8666d99aa10bd19ced25803743"
-  integrity sha512-icVw928Js/o98/Y4FxqS2K/YME0A+IXzb1K6cPYycuWIrzagM0GiFSU2mgnw5k1Y3OcWhyYfwbrBeY/UsPaHKA==
+alfa-ui-primitives@^2.148.0:
+  version "2.148.0"
+  resolved "https://registry.yarnpkg.com/alfa-ui-primitives/-/alfa-ui-primitives-2.148.0.tgz#ab90d50528986641fa391f94d16150a88a4ca9e9"
+  integrity sha512-Scv+Y7S8sWTyz8y1UBGd4bFghKCW5lD14Gw8mEXv8Hxx/6ihshyvsGWJMUM8Xllx7SJe13S2cDDYnMIeZBI4yg==
 
 alphanum-sort@^1.0.0:
   version "1.0.2"
