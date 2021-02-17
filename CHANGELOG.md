@@ -1,3 +1,10 @@
+# [10.6.0](https://github.com/alfa-laboratory/core-components/compare/v10.5.0...v10.6.0) (2021-02-17)
+
+
+### Features
+
+* **toast-plate:** add action button theming, fix addons align ([#514](https://github.com/alfa-laboratory/core-components/issues/514)) ([20a7c67](https://github.com/alfa-laboratory/core-components/commit/20a7c67e89e4b6d3d90a9f1da2eb1b428c8ebf73))
+
 # [10.5.0](https://github.com/alfa-laboratory/core-components/compare/v10.4.4...v10.5.0) (2021-02-17)
 
 
