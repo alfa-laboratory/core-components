@@ -57,6 +57,7 @@
     transition: background 0.2s ease, box-shadow 0.2s ease;
     box-sizing: border-box;
     outline: none;
+    transform: translateZ(0);
 }
 
 /* Нижняя граница */
