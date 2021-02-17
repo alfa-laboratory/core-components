@@ -436,7 +436,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                                 role='dialog'
                                 className={cn(styles.wrapper, wrapperClassName, {
                                     [styles.hidden]: !open && exited,
-                                    [styles.fullscreen]: fullscreen,
+                                    [styles.wrapperFullscreen]: fullscreen,
                                     [styles.hideBackdrop]: hideBackdrop,
                                 })}
                                 ref={mergeRefs([wrapperRef, ref])}
