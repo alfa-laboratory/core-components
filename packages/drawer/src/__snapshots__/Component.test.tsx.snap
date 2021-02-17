@@ -8,7 +8,7 @@ exports[`Drawer should match snapshot 1`] = `
   tabindex="-1"
 >
   <div
-    class="component appear appearActive"
+    class="component fullscreen appear appearActive"
   >
     <span>
       header

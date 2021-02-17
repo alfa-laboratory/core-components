@@ -106,7 +106,9 @@ export const Content = () => {
                     onClose={handleModalOpen}
                     keepMounted={boolean('keepMounted', false)}
                 >
-                    <Content/>
+                    <ContentWrapper>
+                        <Content/>
+                    </ContentWrapper>
                 </Drawer>
             </React.Fragment>
         );
@@ -145,7 +147,9 @@ import { Drawer } from '@alfalab/core-components-drawer';
                     open={open}
                     onClose={handleModalOpen}
                 >
-                    <Content/>
+                    <ContentWrapper>
+                        <Content/>
+                    </ContentWrapper>
                 </Drawer>
             </React.Fragment>
         );
