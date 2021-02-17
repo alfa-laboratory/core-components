@@ -169,6 +169,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                             },
                             className,
                         )}
+                        contentClassName={styles.toastContent}
                         style={{
                             top: offset,
                             ...style,
