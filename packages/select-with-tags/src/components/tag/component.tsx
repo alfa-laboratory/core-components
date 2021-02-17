@@ -23,7 +23,7 @@ export const Tag: TagComponent = ({
             size='xs'
             onClick={onClick}
             checked={!!handleDeleteTag}
-            className={cn(styles.tag, !handleDeleteTag && styles.tagNoClose)}
+            className={cn(styles.tag, { [styles.tagNoClose]: !handleDeleteTag })}
             {...props}
         >
             <span className={styles.tagContentWrap}>
