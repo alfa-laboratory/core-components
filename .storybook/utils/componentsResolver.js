@@ -11,11 +11,20 @@ module.exports = componentResolver = {
     apply(resolver) {
         resolver.plugin('module', function(init, callback) {
             if (init.request.startsWith(componentsPrefix)) {
-                const componentName = init.request.replace(componentsPrefix, '');
+                const [componentName, entrypoint] = init.request
+                    .replace(componentsPrefix, '')
+                    .split('/');
+
+                console.warn({ componentsDir, componentName, entrypoint });
 
                 this.doResolve(
                     'resolve',
-                    { ...init, request: `${componentsDir}/${componentName}/src` },
+                    {
+                        ...init,
+                        request: path.join(
+                            ...[componentsDir, componentName, 'src', entrypoint].filter(Boolean),
+                        ),
+                    },
                     `Resolve ${init.request}`,
                     callback,
                 );

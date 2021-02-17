@@ -38,19 +38,19 @@
 
 /* FULLSCREEN */
 
-.fullscreen {
+.wrapperFullscreen {
     padding: 0;
     overflow: hidden;
+}
 
-    & .component {
-        position: fixed;
-        margin: 0;
-        height: 100%;
-        width: 100%;
-        will-change: transform;
-        border-radius: 0;
-        overflow: auto;
-    }
+.fullscreen {
+    position: fixed;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    will-change: transform;
+    border-radius: 0;
+    overflow: auto;
 }
 
 .hideBackdrop {
