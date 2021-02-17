@@ -1,9 +1,10 @@
-import React, { ReactNode, useCallback, useContext } from 'react';
+import React, { ReactNode, useContext, useEffect } from 'react';
 import cn from 'classnames';
-import { Button } from '@alfalab/core-components-button';
+
+import { Closer } from '../closer/Component';
+import { ModalContext } from '../../Component';
 
 import styles from './index.module.css';
-import { ModalContext } from '../base-modal';
 
 export type HeaderProps = {
     /**
@@ -22,26 +23,30 @@ export type HeaderProps = {
     className?: string;
 
     /**
-     * Размер шапки
+     * Фиксирует шапку
      */
-    size?: 's' | 'm' | 'l';
+    sticky?: boolean;
 };
 
-export const Header: React.FC<HeaderProps> = ({ children, hasCloser, size, className }) => {
-    const { headerHighlighted, onClose } = useContext(ModalContext);
+export const Header: React.FC<HeaderProps> = ({
+    className,
+    children,
+    hasCloser = true,
+    sticky,
+}) => {
+    const { headerHighlighted, setHasHeader, fullscreen } = useContext(ModalContext);
 
-    const handleCloserClick = useCallback(
-        event => {
-            onClose(event, 'closerClick');
-        },
-        [onClose],
-    );
+    useEffect(() => {
+        setHasHeader(true);
+    }, [setHasHeader]);
 
     return (
         <div
-            className={cn(styles.component, className, size && styles[size], {
-                [styles.highlighted]: headerHighlighted,
+            className={cn(styles.header, className, {
+                [styles.highlighted]: sticky && headerHighlighted,
                 [styles.onlyCloser]: hasCloser && !children,
+                [styles.sticky]: sticky,
+                [styles.fullscreen]: fullscreen,
             })}
         >
             {children && (
@@ -54,15 +59,7 @@ export const Header: React.FC<HeaderProps> = ({ children, hasCloser, size, class
                 </div>
             )}
 
-            {hasCloser && (
-                <Button
-                    type='button'
-                    view='ghost'
-                    className={cn(styles.closer)}
-                    aria-label='закрыть'
-                    onClick={handleCloserClick}
-                />
-            )}
+            {hasCloser && <Closer />}
         </div>
     );
 };

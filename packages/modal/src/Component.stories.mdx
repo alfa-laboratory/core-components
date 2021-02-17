@@ -6,7 +6,7 @@ import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Button } from '../../button/src';
 import { Typography } from '../../typography/src';
 
-import { Modal } from './Component';
+import { Modal, ModalContext } from './Component';
 import { ModalMobile } from './Component.mobile';
 import { ModalDesktop } from './Component.desktop';
 import { ModalResponsive } from './Component.responsive';
@@ -60,18 +60,18 @@ export const Content = () => {
     {React.createElement(() => {
         const [open, setOpen] = React.useState(false);
         const handleModalOpen = () => setOpen(!open);
+        const headerTitle = text('header.children', 'Заголовок окна');
+        const hasCloser = boolean('header.hasCloser', true);
+        const stickyHeader = boolean('header.sticky', false);
+        const footer = boolean('footer', false);
+        const stickyFooter = boolean('footer.sticky', false);
+        const flexContent = boolean('content.flex', false)
         return (
             <React.Fragment>
                 <Button type='button' size='xs' onClick={handleModalOpen}>Open Modal</Button>
                 <ModalMobile
                     open={open}
                     onClose={handleModalOpen}
-                    headerContent={text('headerContent', 'Заголовок окна')}
-                    footer={boolean('footer', false) && footerContent}
-                    stickyHeader={boolean('stickyHeader', true)}
-                    stickyFooter={boolean('stickyFooter', true)}
-                    flexContent={boolean('flexContent', true)}
-                    hasCloser={boolean('closer', true)}
                     keepMounted={boolean('keepMounted', false)}
                     disableBackdropClick={boolean('disableBackdropClick', false)}
                     disableEscapeKeyDown={boolean('disableEscapeKeyDown', false)}
@@ -79,10 +79,20 @@ export const Content = () => {
                     disableFocusLock={boolean('disableFocusLock', false)}
                     disableAutoFocus={boolean('disableAutoFocus', false)}
                 >
-                    <div>
+                    {headerTitle && (
+                        <ModalMobile.Header sticky={stickyHeader} hasCloser={hasCloser}>
+                            {headerTitle}
+                        </ModalMobile.Header>
+                    )}
+                    <ModalMobile.Content flex={flexContent}>
                         <h3>Заголовок контента</h3>
                         <Content />
-                    </div>
+                    </ModalMobile.Content>
+                    {footer && (
+                        <ModalMobile.Footer sticky={stickyFooter}>
+                            {footerContent}
+                        </ModalMobile.Footer>
+                    )}
                 </ModalMobile>
             </React.Fragment>
         );
@@ -94,19 +104,19 @@ export const Content = () => {
     {React.createElement(() => {
         const [open, setOpen] = React.useState(false);
         const handleModalOpen = () => setOpen(!open);
+        const headerTitle = text('header.children', 'Заголовок окна');
+        const hasCloser = boolean('header.hasCloser', true);
+        const stickyHeader = boolean('header.sticky', false);
+        const footer = boolean('footer', false);
+        const stickyFooter = boolean('footer.sticky', false);
+        const flexContent = boolean('content.flex', false)
         return (
             <React.Fragment>
                 <Button type='button' size='xs' onClick={handleModalOpen}>Open Modal</Button>
                 <ModalDesktop
                     open={open}
                     onClose={handleModalOpen}
-                    headerContent={text('headerContent', 'Заголовок окна')}
-                    footer={boolean('footer', false) && footerContent}
-                    hasCloser={boolean('closer', true)}
                     fullscreen={boolean('fullscreen', false)}
-                    stickyHeader={boolean('stickyHeader', false)}
-                    stickyFooter={boolean('stickyFooter', false)}
-                    flexContent={boolean('flexContent', false)}
                     size={select('size', ['s', 'm', 'l'], 's')}
                     keepMounted={boolean('keepMounted', false)}
                     disableBackdropClick={boolean('disableBackdropClick', false)}
@@ -115,10 +125,20 @@ export const Content = () => {
                     disableFocusLock={boolean('disableFocusLock', false)}
                     disableAutoFocus={boolean('disableAutoFocus', false)}
                 >
-                    <div>
+                    {headerTitle && (
+                        <ModalDesktop.Header sticky={stickyHeader} hasCloser={hasCloser}>
+                            {headerTitle}
+                        </ModalDesktop.Header>
+                    )}
+                    <ModalDesktop.Content flex={flexContent}>
                         <h3>Заголовок контента</h3>
                         <Content />
-                    </div>
+                    </ModalDesktop.Content>
+                    {footer && (
+                        <ModalDesktop.Footer sticky={stickyFooter}>
+                            {footerContent}
+                        </ModalDesktop.Footer>
+                    )}
                 </ModalDesktop>
             </React.Fragment>
         );
@@ -129,19 +149,19 @@ export const Content = () => {
     {React.createElement(() => {
         const [open, setOpen] = React.useState(false);
         const handleModalOpen = () => setOpen(!open);
+        const headerTitle = text('header.children', 'Заголовок окна');
+        const hasCloser = boolean('header.hasCloser', true);
+        const stickyHeader = boolean('header.sticky', false);
+        const footer = boolean('footer', false);
+        const stickyFooter = boolean('footer.sticky', false);
+        const flexContent = boolean('content.flex', false)
         return (
             <React.Fragment>
                 <Button type='button' size='xs' onClick={handleModalOpen}>Open Modal</Button>
                 <ModalResponsive
                     open={open}
                     onClose={handleModalOpen}
-                    headerContent={text('headerContent', 'Заголовок окна')}
-                    footer={boolean('footer', false) && footerContent}
-                    hasCloser={boolean('closer', true)}
                     fullscreen={boolean('fullscreen', false)}
-                    stickyHeader={boolean('stickyHeader', false)}
-                    stickyFooter={boolean('stickyFooter', false)}
-                    flexContent={boolean('flexContent', false)}
                     size={select('size', ['s', 'm', 'l'], 's')}
                     keepMounted={boolean('keepMounted', false)}
                     disableBackdropClick={boolean('disableBackdropClick', false)}
@@ -150,10 +170,20 @@ export const Content = () => {
                     disableFocusLock={boolean('disableFocusLock', false)}
                     disableAutoFocus={boolean('disableAutoFocus', false)}
                 >
-                    <div>
+                    {headerTitle && (
+                        <ModalResponsive.Header sticky={stickyHeader} hasCloser={hasCloser}>
+                            {headerTitle}
+                        </ModalResponsive.Header>
+                    )}
+                    <ModalResponsive.Content flex={flexContent}>
                         <h3>Заголовок контента</h3>
                         <Content />
-                    </div>
+                    </ModalResponsive.Content>
+                    {footer && (
+                        <ModalResponsive.Footer sticky={stickyFooter}>
+                            {footerContent}
+                        </ModalResponsive.Footer>
+                    )}
                 </ModalResponsive>
             </React.Fragment>
         );
@@ -200,9 +230,13 @@ import { Modal } from '@alfalab/core-components-modal';
                             <ModalResponsive
                                 open={open}
                                 onClose={handleModalOpen}
-                                headerContent='Заголовок окна'
                             >
-                                <Content />
+                                <ModalResponsive.Header>
+                                    Заголовок окна
+                                </ModalResponsive.Header>
+                                <ModalResponsive.Content>
+                                    <Content />
+                                </ModalResponsive.Content>
                             </ModalResponsive>
                         </React.Fragment>
                     );
@@ -219,7 +253,10 @@ import { Modal } from '@alfalab/core-components-modal';
                                 open={open}
                                 onClose={handleModalOpen}
                             >
-                                <Content />
+                                <ModalResponsive.Header />
+                                <ModalResponsive.Content>
+                                    <Content />
+                                </ModalResponsive.Content>
                             </ModalResponsive>
                         </React.Fragment>
                     );
@@ -235,9 +272,10 @@ import { Modal } from '@alfalab/core-components-modal';
                             <ModalResponsive
                                 open={open}
                                 onClose={handleModalOpen}
-                                hasCloser={false}
                             >
-                                <Content />
+                                <ModalResponsive.Content>
+                                    <Content />
+                                </ModalResponsive.Content>
                             </ModalResponsive>
                         </React.Fragment>
                     );
@@ -253,10 +291,13 @@ import { Modal } from '@alfalab/core-components-modal';
                             <ModalResponsive
                                 open={open}
                                 onClose={handleModalOpen}
-                                stickyHeader={true}
-                                headerContent='Заголовок окна'
                             >
-                                <Content />
+                                <ModalResponsive.Header sticky={true}>
+                                    Заголовок окна
+                                </ModalResponsive.Header>
+                                <ModalResponsive.Content>
+                                    <Content />
+                                </ModalResponsive.Content>
                             </ModalResponsive>
                         </React.Fragment>
                     );
@@ -272,9 +313,11 @@ import { Modal } from '@alfalab/core-components-modal';
                             <ModalResponsive
                                 open={open}
                                 onClose={handleModalOpen}
-                                stickyHeader={true}
                             >
-                                <Content />
+                                <ModalResponsive.Header sticky={true} />
+                                <ModalResponsive.Content>
+                                    <Content />
+                                </ModalResponsive.Content>
                             </ModalResponsive>
                         </React.Fragment>
                     );
@@ -295,9 +338,13 @@ import { Modal } from '@alfalab/core-components-modal';
                             <ModalResponsive
                                 open={open}
                                 onClose={handleModalOpen}
-                                footer={footerContent}
                             >
-                                <Content />
+                                <ModalResponsive.Content>
+                                    <Content />
+                                </ModalResponsive.Content>
+                                <ModalResponsive.Footer>
+                                    {footerContent}
+                                </ModalResponsive.Footer>
                             </ModalResponsive>
                         </React.Fragment>
                     );
@@ -313,10 +360,13 @@ import { Modal } from '@alfalab/core-components-modal';
                             <ModalResponsive
                                 open={open}
                                 onClose={handleModalOpen}
-                                footer={footerContent}
-                                stickyFooter={true}
                             >
-                                <Content />
+                                <ModalResponsive.Content>
+                                    <Content />
+                                </ModalResponsive.Content>
+                                <ModalResponsive.Footer sticky={true}>
+                                    {footerContent}
+                                </ModalResponsive.Footer>
                             </ModalResponsive>
                         </React.Fragment>
                     );
@@ -332,12 +382,16 @@ import { Modal } from '@alfalab/core-components-modal';
                             <ModalResponsive
                                 open={open}
                                 onClose={handleModalOpen}
-                                headerContent='Заголовок окна'
-                                footer={footerContent}
-                                stickyFooter={true}
-                                stickyHeader={true}
                             >
-                                <Content />
+                                <ModalResponsive.Header sticky={true}>
+                                    Заголовок окна
+                                </ModalResponsive.Header>
+                                <ModalResponsive.Content>
+                                    <Content />
+                                </ModalResponsive.Content>
+                                <ModalResponsive.Footer sticky={true}>
+                                    {footerContent}
+                                </ModalResponsive.Footer>
                             </ModalResponsive>
                         </React.Fragment>
                     );
@@ -345,7 +399,7 @@ import { Modal } from '@alfalab/core-components-modal';
             </Col>
         </Row>
         <Row>
-            <Typography.Title view="small">Fullscreen (шапка и футер всегда sticky)</Typography.Title>
+            <Typography.Title view="small">Fullscreen</Typography.Title>
         </Row>
         <Row>
             <Col>
@@ -358,10 +412,14 @@ import { Modal } from '@alfalab/core-components-modal';
                             <ModalResponsive
                                 open={open}
                                 onClose={handleModalOpen}
-                                footer={footerContent}
                                 fullscreen={true}
                             >
-                                <Content />
+                                <ModalResponsive.Content>
+                                    <Content />
+                                </ModalResponsive.Content>
+                                <ModalResponsive.Footer>
+                                    {footerContent}
+                                </ModalResponsive.Footer>
                             </ModalResponsive>
                         </React.Fragment>
                     );
@@ -379,7 +437,9 @@ import { Modal } from '@alfalab/core-components-modal';
                                 onClose={handleModalOpen}
                                 fullscreen={true}
                             >
-                                <Content />
+                                <ModalResponsive.Content>
+                                    <Content />
+                                </ModalResponsive.Content>
                             </ModalResponsive>
                         </React.Fragment>
                     );
@@ -387,4 +447,41 @@ import { Modal } from '@alfalab/core-components-modal';
             </Col>
         </Row>
     </Container>
+</Preview>
+
+## Использование контекста
+
+<Preview>
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        const handleModalOpen = () => setOpen(!open);
+        const Footer = () => {
+            const { footerHighlighted, hasScroll, setHasFooter } = React.useContext(ModalContext);
+            React.useEffect(() => setHasFooter(true), [setHasFooter]);
+            return (
+                <div style={{ position: 'sticky', bottom: -40, background: '#fff', padding: 32 }}>
+                    <div>
+                        hasScroll: {hasScroll ? 'true' : 'false'}
+                    </div>
+                    <div>
+                        footerHighlighted: {footerHighlighted ? 'true' : 'false'}
+                    </div>
+                </div>
+            );
+        }
+        return (
+            <React.Fragment>
+                <Button type='button' size='xs' onClick={handleModalOpen}>Открыть</Button>
+                <ModalDesktop
+                    open={open}
+                    onClose={handleModalOpen}
+                >
+                    <ModalDesktop.Content>
+                        <Content />
+                    </ModalDesktop.Content>
+                    <Footer/>
+                </ModalDesktop>
+            </React.Fragment>
+        );
+    })}
 </Preview>

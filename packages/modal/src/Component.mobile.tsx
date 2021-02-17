@@ -1,26 +1,24 @@
-import React, { forwardRef } from 'react';
-import cn from 'classnames';
+import React, { cloneElement, forwardRef, isValidElement } from 'react';
 import { useMedia } from '@alfalab/hooks';
+
 import { Modal, ModalProps } from './Component';
+import { HeaderMobile } from './components/header/Component.mobile';
+import { ContentMobile } from './components/content/Component.mobile';
+import { FooterMobile } from './components/footer/Component.mobile';
+import { Closer } from './components/closer/Component';
 
-import styles from './mobile.module.css';
+import transitions from './transitions/content.module.css';
 
-export type ModalMobileProps = Omit<ModalProps, 'fullscreen' | 'size'>;
+export type ModalMobileProps = Omit<ModalProps, 'fullscreen' | 'size'> & {
+    /**
+     * Управление наличием закрывающего крестика
+     * @default false
+     */
+    hasCloser?: boolean;
+};
 
-// FIXME: без явного указания типа возникает ts(4023)
-export const ModalMobile = forwardRef<HTMLDivElement, ModalMobileProps>(
-    (
-        {
-            headerClassName,
-            contentClassName,
-            footerClassName,
-            stickyFooter = true,
-            stickyHeader = true,
-            flexContent = true,
-            ...restProps
-        },
-        ref,
-    ) => {
+const ModalMobileComponent = forwardRef<HTMLDivElement, ModalMobileProps>(
+    ({ children, ...restProps }, ref) => {
         const [size] = useMedia(
             [
                 ['s', '(max-width: 375px)'],
@@ -31,17 +29,28 @@ export const ModalMobile = forwardRef<HTMLDivElement, ModalMobileProps>(
 
         return (
             <Modal
-                ref={ref}
-                contentClassName={cn(styles[`content-${size}`], contentClassName)}
-                footerClassName={cn(styles[`footer-${size}`], footerClassName)}
-                headerClassName={cn(styles.header, styles[`header-${size}`], headerClassName)}
-                hideBackdrop={true}
-                stickyHeader={stickyHeader}
-                stickyFooter={stickyFooter}
-                flexContent={flexContent}
                 {...restProps}
+                ref={ref}
+                transitionProps={{
+                    classNames: transitions,
+                    ...restProps.transitionProps,
+                }}
+                hideBackdrop={true}
                 fullscreen={true}
-            />
+            >
+                {React.Children.map(children, child =>
+                    isValidElement(child)
+                        ? cloneElement(child, { size: child.props.size || size })
+                        : child,
+                )}
+            </Modal>
         );
     },
 );
+
+export const ModalMobile = Object.assign(ModalMobileComponent, {
+    Content: ContentMobile,
+    Header: HeaderMobile,
+    Footer: FooterMobile,
+    Closer,
+});

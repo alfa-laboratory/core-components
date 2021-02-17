@@ -1,0 +1,19 @@
+@import '../../vars.css';
+
+.header {
+    min-height: var(--modal-header-min-height);
+    border-top-left-radius: var(--modal-border-radius);
+    border-top-right-radius: var(--modal-border-radius);
+}
+
+.s {
+    padding: var(--modal-s-header-paddings);
+}
+
+.m {
+    padding: var(--modal-m-header-paddings);
+}
+
+.l {
+    padding: var(--modal-l-header-paddings);
+}
