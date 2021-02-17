@@ -3,4 +3,7 @@
 @define-mixin toast-plate-click {
     --toast-plate-title-font-weight: 400;
     --toast-plate-bg-color: var(--color-light-bg-secondary-inverted);
+    --toast-plate-action-align: flex-start;
+    --toast-plate-action-padding: 0;
+    --toast-plate-action-divider-display: none;
 }

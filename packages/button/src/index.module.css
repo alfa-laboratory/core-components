@@ -56,7 +56,7 @@
     align-items: center;
     margin: 0;
     padding: 0 var(--gap-xl);
-    line-height: 1.2;
+    line-height: 20px;
     font-weight: 500;
     font-family: var(--font-family);
     text-align: center;
@@ -132,6 +132,7 @@ a.loading {
     min-height: 72px;
     padding: 0 var(--gap-2xl);
     font-size: 18px;
+    line-height: 24px;
 
     &.iconOnly {
         min-width: 72px;

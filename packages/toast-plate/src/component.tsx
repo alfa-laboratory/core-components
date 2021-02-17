@@ -151,7 +151,7 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
 
                     {actionButton && (
                         <div
-                            className={cn(styles.actionsSection, {
+                            className={cn(styles.actionSection, {
                                 [styles.hasCloser]: hasCloser,
                             })}
                         >
