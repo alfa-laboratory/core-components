@@ -1,79 +1,58 @@
 @import './vars.css';
 
 .component {
-    border-radius: var(--modal-border-radius);
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+    margin: auto;
+    outline: none;
+    background: var(--color-light-bg-primary);
 }
 
-/* SIZES - S */
+/* WRAPPER */
 
-.s {
-    width: var(--modal-s-width);
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: var(--modal-z-index);
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    outline: 0;
+    background-color: var(--modal-backdrop-visible-background);
+
+    padding-top: var(--modal-vertical-padding);
+    padding-bottom: var(--modal-vertical-padding);
 }
 
-.content-s {
-    padding: var(--modal-s-content-paddings);
+.hidden {
+    display: none;
 }
 
-/* SIZES - M */
-
-.m {
-    width: var(--modal-m-width);
-}
-
-.content-m {
-    padding: var(--modal-m-content-paddings);
-}
-
-/* SIZES - L */
-
-.l {
-    width: var(--modal-l-width);
-}
-
-.content-l {
-    padding: var(--modal-l-content-paddings);
-}
+/* FULLSCREEN */
 
 .fullscreen {
-    border-radius: 0;
-    width: 100%;
-}
+    padding: 0;
+    overflow: hidden;
 
-/* CONTENT */
-
-.content {
-    &:first-child {
-        padding-top: var(--modal-content-no-header-top-padding);
-    }
-
-    &:last-child {
-        padding-bottom: var(--modal-content-no-footer-bottom-padding);
+    & .component {
+        position: fixed;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        will-change: transform;
+        border-radius: 0;
+        overflow: auto;
     }
 }
 
-/* ANIMATION */
-
-.appear,
-.enter {
-    opacity: 0;
-    transform: translateY(15px);
-}
-
-.appearActive,
-.enterActive {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 200ms ease-in, transform 200ms ease-in;
-}
-
-.exit {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.exitActive,
-.exitDone {
-    opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 200ms ease-out, transform 200ms ease-out;
+.hideBackdrop {
+    background-color: var(--modal-backdrop-hidden-background);
 }

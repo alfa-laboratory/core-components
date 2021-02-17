@@ -1,18 +1,64 @@
 import { useMedia } from '@alfalab/hooks';
-import React, { forwardRef } from 'react';
+import React, { FC, forwardRef, useContext, useMemo } from 'react';
+
 import { ModalDesktop, ModalDesktopProps } from './Component.desktop';
 import { ModalMobile, ModalMobileProps } from './Component.mobile';
+import { Closer } from './components/closer/Component';
 
-export type ModalResponsiveProps = ModalMobileProps | ModalDesktopProps;
+export type ModalResponsiveProps = ModalMobileProps & ModalDesktopProps;
 
-export const ModalResponsive = forwardRef<HTMLDivElement, ModalResponsiveProps>((props, ref) => {
-    const [Component] = useMedia(
-        [
-            [ModalMobile, '(max-width: 767px)'],
-            [ModalDesktop, '(min-width: 768px)'],
-        ],
-        ModalDesktop,
-    );
+type View = 'desktop' | 'mobile';
 
-    return <Component ref={ref} {...props} />;
+type ResponsiveContext = {
+    view?: View;
+};
+
+const ResponsiveContext = React.createContext<ResponsiveContext>({
+    view: 'desktop',
+});
+
+function createResponsive<DestopType extends FC, MobileType extends FC>(
+    desktop: DestopType,
+    mobile: MobileType,
+) {
+    function ResponsiveChild(props: never) {
+        const { view } = useContext(ResponsiveContext);
+
+        const Child = view === 'desktop' ? desktop : mobile;
+
+        return <Child {...props} />;
+    }
+
+    return ResponsiveChild as DestopType | MobileType;
+}
+
+const ModalResponsiveComponent = forwardRef<HTMLDivElement, ModalResponsiveProps>(
+    ({ children, ...restProps }, ref) => {
+        const [view] = useMedia<View>(
+            [
+                ['mobile', '(max-width: 767px)'],
+                ['desktop', '(min-width: 768px)'],
+            ],
+            'desktop',
+        );
+
+        const contextValue = useMemo<ResponsiveContext>(() => ({ view }), [view]);
+
+        const Component = view === 'desktop' ? ModalDesktop : ModalMobile;
+
+        return (
+            <ResponsiveContext.Provider value={contextValue}>
+                <Component ref={ref} {...restProps}>
+                    {children}
+                </Component>
+            </ResponsiveContext.Provider>
+        );
+    },
+);
+
+export const ModalResponsive = Object.assign(ModalResponsiveComponent, {
+    Header: createResponsive(ModalDesktop.Header, ModalMobile.Header),
+    Content: createResponsive(ModalDesktop.Content, ModalMobile.Content),
+    Footer: createResponsive(ModalDesktop.Footer, ModalMobile.Footer),
+    Closer,
 });

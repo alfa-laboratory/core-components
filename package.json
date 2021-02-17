@@ -74,6 +74,7 @@
         "react-textarea-autosize": "^8.2.0",
         "react-transition-group": "^4.3.0",
         "react-virtual": "^2.2.0",
+        "resize-observer": "^1.0.0",
         "text-mask-core": "^5.1.2"
     },
     "devDependencies": {

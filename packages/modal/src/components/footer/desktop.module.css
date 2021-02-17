@@ -1,0 +1,18 @@
+@import '../../vars.css';
+
+.footer {
+    border-bottom-left-radius: var(--modal-border-radius);
+    border-bottom-right-radius: var(--modal-border-radius);
+}
+
+.s {
+    padding: var(--modal-s-footer-paddings);
+}
+
+.m {
+    padding: var(--modal-m-footer-paddings);
+}
+
+.l {
+    padding: var(--modal-l-footer-paddings);
+}

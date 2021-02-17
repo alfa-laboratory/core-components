@@ -1,0 +1,18 @@
+@import '../../vars.css';
+
+.content {
+    box-sizing: border-box;
+    width: 100%;
+
+    &:first-child {
+        padding-top: var(--modal-content-no-header-top-padding);
+    }
+
+    &:last-child {
+        padding-bottom: var(--modal-content-no-footer-bottom-padding);
+    }
+}
+
+.flex {
+    flex: 1 1 auto;
+}

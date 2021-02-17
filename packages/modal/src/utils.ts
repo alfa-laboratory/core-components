@@ -6,6 +6,10 @@ export function isScrolledToBottom(target: HTMLElement) {
     return target.scrollHeight - target.offsetHeight === target.scrollTop;
 }
 
+export function hasScrollbar(target: HTMLElement) {
+    return target.scrollHeight > target.clientHeight;
+}
+
 const getScrollbarSize = () => {
     const scrollDiv = document.createElement('div');
     scrollDiv.style.width = '99px';

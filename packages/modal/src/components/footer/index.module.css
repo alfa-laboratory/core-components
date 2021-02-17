@@ -1,23 +1,11 @@
 @import '../../vars.css';
 
-.component {
+.footer {
+    width: 100%;
+    box-sizing: border-box;
     transition: box-shadow 0.2s ease, background 0.2s ease;
     background: var(--color-light-bg-primary);
-    border-bottom-left-radius: var(--modal-border-radius);
-    border-bottom-right-radius: var(--modal-border-radius);
     background: var(--modal-header-background);
-}
-
-.s {
-    padding: var(--modal-s-footer-paddings);
-}
-
-.m {
-    padding: var(--modal-m-footer-paddings);
-}
-
-.l {
-    padding: var(--modal-l-footer-paddings);
 }
 
 .highlighted {
@@ -25,6 +13,11 @@
     box-shadow: var(--modal-footer-highlight-box-shadow);
 }
 
-.grow {
-    flex-grow: 1;
+.sticky {
+    position: sticky;
+    bottom: calc(var(--modal-vertical-padding) * -1);
+}
+
+.fullscreen.sticky {
+    bottom: 0;
 }
