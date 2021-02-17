@@ -1,1 +1,1 @@
-export * from './Component.responsive';
+export * from './Component';
