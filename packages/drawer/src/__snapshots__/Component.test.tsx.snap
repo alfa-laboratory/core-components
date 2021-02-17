@@ -2,7 +2,7 @@
 
 exports[`Drawer should match snapshot 1`] = `
 <div
-  class="wrapper fullscreen backdropAppear backdropAppearActive"
+  class="wrapper wrapperFullscreen backdropAppear backdropAppearActive"
   data-test-id="drawer"
   role="dialog"
   tabindex="-1"
@@ -10,25 +10,15 @@ exports[`Drawer should match snapshot 1`] = `
   <div
     class="component appear appearActive"
   >
-    <div
-      class="header"
-    >
-      <span>
-        header
-      </span>
-    </div>
-    <div
-      class="content content"
-    >
+    <span>
+      header
+    </span>
+    <span>
       content
-    </div>
-    <div
-      class="footer"
-    >
-      <span>
-        footer
-      </span>
-    </div>
+    </span>
+    <span>
+      footer
+    </span>
   </div>
 </div>
 `;

@@ -1,46 +1,28 @@
-import React, { forwardRef, ReactNode, useMemo } from 'react';
+import React, { forwardRef, useMemo } from 'react';
 import cn from 'classnames';
 
-import { BaseModal, BaseModalProps } from '@alfalab/core-components-modal';
+import { Modal, ModalProps, ModalContext } from '@alfalab/core-components-modal';
 
 import styles from './index.module.css';
 
 export const ANIMATION_DURATION = 600;
 
 export type DrawerProps = Omit<
-    BaseModalProps,
-    | 'onHeaderHighlight'
-    | 'onFooterHighlight'
-    | 'highlightHeader'
-    | 'highlightFooter'
-    | 'header'
-    | 'hideBackdrop'
-    | 'backdropProps'
-    | 'fullscreen'
-    | 'container'
-    | 'targetHandleExited'
-    | 'Transition'
-    | 'transitionProps'
-> & {
-    /**
-     * Шапка
-     */
-    header?: ReactNode;
+    ModalProps,
+    'hideBackdrop' | 'fullscreen' | 'container' | 'targetHandleExited'
+>;
 
-    /**
-     * Футер
-     */
-    footer?: ReactNode;
-};
+export const DrawerContext = ModalContext;
 
 export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
-    ({ open, className, children, header, footer, contentClassName, ...restProps }, ref) => {
+    ({ open, className, children, ...restProps }, ref) => {
         const transitionProps = useMemo(
             () => ({
                 classNames: styles,
                 timeout: ANIMATION_DURATION,
+                ...restProps.transitionProps,
             }),
-            [],
+            [restProps.transitionProps],
         );
 
         const backdropProps = useMemo(
@@ -54,26 +36,24 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
                     exitActive: styles.backdropExitActive,
                 },
                 timeout: ANIMATION_DURATION,
+                ...restProps.backdropProps,
             }),
-            [],
+            [restProps.backdropProps],
         );
 
         return (
-            <BaseModal
+            <Modal
                 {...restProps}
                 ref={ref}
                 open={open}
                 className={cn(styles.component, className)}
-                contentClassName={cn(contentClassName, styles.content)}
                 fullscreen={true}
                 targetHandleExited='children'
                 transitionProps={transitionProps}
                 backdropProps={backdropProps}
-                header={header}
-                footer={footer}
             >
                 {children}
-            </BaseModal>
+            </Modal>
         );
     },
 );

@@ -22,13 +22,10 @@ describe('Drawer', () => {
 
     it('should match snapshot', () => {
         const { queryByTestId } = render(
-            <Drawer
-                header={<span>header</span>}
-                footer={<span>footer</span>}
-                open={true}
-                dataTestId='drawer'
-            >
-                content
+            <Drawer open={true} dataTestId='drawer'>
+                <span>header</span>
+                <span>content</span>
+                <span>footer</span>
             </Drawer>,
         );
 
