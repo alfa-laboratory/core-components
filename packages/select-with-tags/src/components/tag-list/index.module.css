@@ -40,8 +40,8 @@
 .input {
     @mixin system_16-20_regular;
     flex-grow: 1;
-    flex-basis: 20px;
-    min-width: 20px;
+    flex-basis: 50px;
+    min-width: 50px;
     padding: 0;
     margin: var(--gap-2xs);
     background-color: transparent;
