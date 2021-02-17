@@ -17,7 +17,7 @@ import { FieldProps } from '@alfalab/core-components-select';
 import { FormControl, FormControlProps } from '@alfalab/core-components-form-control';
 import { TagComponent } from '../../types';
 import { Tag as DefaultTag } from '../tag';
-import { calculateTotalElementsPerRow } from '../../utils/calculate-collaps-size';
+import { calculateTotalElementsPerRow } from '../../utils/calculate-collapse-size';
 import styles from './index.module.css';
 
 type TagListOwnProps = {
@@ -166,7 +166,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
         if (collapsedTagText) {
             return collapsedTagText(selectedMultiple.length - visibleElements);
         }
-        return `+ ${selectedMultiple.length - visibleElements}`;
+        return `+${selectedMultiple.length - visibleElements}`;
     }, [collapsedTagText, isShowMoreEnabled, selectedMultiple.length, visibleElements]);
 
     const filled = Boolean(selectedMultiple.length > 0) || Boolean(value);
