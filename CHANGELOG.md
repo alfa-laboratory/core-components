@@ -1,3 +1,10 @@
+# [10.5.0](https://github.com/alfa-laboratory/core-components/compare/v10.4.4...v10.5.0) (2021-02-17)
+
+
+### Features
+
+* **icon-button:** add component ([#505](https://github.com/alfa-laboratory/core-components/issues/505)) ([da8ba6e](https://github.com/alfa-laboratory/core-components/commit/da8ba6e4473da87d8043713a592368d500cd284f))
+
 ## [10.4.4](https://github.com/alfa-laboratory/core-components/compare/v10.4.3...v10.4.4) (2021-02-16)
 
 
