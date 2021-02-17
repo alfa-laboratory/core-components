@@ -209,13 +209,15 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
         const handleInputFocus = useCallback(
             (event: React.FocusEvent<HTMLInputElement>) => {
-                setFocused(true);
+                if (!readOnly) {
+                    setFocused(true);
+                }
 
                 if (onFocus) {
                     onFocus(event);
                 }
             },
-            [onFocus],
+            [onFocus, readOnly],
         );
 
         const handleInputBlur = useCallback(

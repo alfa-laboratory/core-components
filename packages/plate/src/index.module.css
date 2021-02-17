@@ -72,11 +72,11 @@
 .content {
     max-height: 300vh;
     overflow: hidden;
-    transition: max-height 3s ease-in-out;
+    transition: max-height 2s ease-in-out;
 
     &.isFolded {
         max-height: 0;
-        transition: max-height 1.5s cubic-bezier(0, 1, 0, 1);
+        transition: max-height 1s cubic-bezier(0, 1, 0, 1);
     }
 }
 
@@ -116,8 +116,9 @@
 .folder {
     background: var(--plate-arrow-icon) center no-repeat;
     transition: transform 0.15s ease-in-out, opacity 0.2s ease;
+    transform: var(--arrow-transform);
 
     &.isFolded {
-        transform: var(--arrow-transform);
+        transform: rotate(0deg);
     }
 }
