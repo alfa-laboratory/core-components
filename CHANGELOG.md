@@ -1,3 +1,10 @@
+## [11.0.2](https://github.com/alfa-laboratory/core-components/compare/v11.0.1...v11.0.2) (2021-02-18)
+
+
+### Bug Fixes
+
+* update versions ([d1b69a3](https://github.com/alfa-laboratory/core-components/commit/d1b69a3f0f488bdef5bea2b3aafc0e275058f321))
+
 ## [11.0.1](https://github.com/alfa-laboratory/core-components/compare/v11.0.0...v11.0.1) (2021-02-18)
 
 
