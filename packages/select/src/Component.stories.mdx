@@ -1,6 +1,5 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { text, boolean } from '@storybook/addon-knobs';
-import { select as selectKnob } from '@storybook/addon-knobs'; // name conflict
+import { text, boolean, number, select as selectKnob } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { Container, Row, Col } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
@@ -121,6 +120,7 @@ export const POSITION_OPTIONS = [
         nativeSelect={boolean('nativeSelect', false)}
         placeholder={text('placeholder', 'Выберите элемент')}
         label={text('label', 'Элемент')}
+        visibleOptions={number('visibleOptions', 5)}
         onChange={action('change')}
         onOpen={action('open')}
         popoverPosition={selectKnob('popoverPosition', POSITION_OPTIONS, 'bottom-start')}
@@ -388,7 +388,6 @@ import { Select } from '@alfalab/core-components-select';
         </Container>
     </div>
 </Preview>
-
 
 ## Селект с заголовком меню
 

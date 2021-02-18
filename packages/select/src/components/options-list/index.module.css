@@ -8,18 +8,6 @@
     box-sizing: border-box;
 }
 
-.s {
-    max-height: var(--select-options-list-s-height);
-}
-
-.m {
-    max-height: var(--select-options-list-m-height);
-}
-
-.l {
-    max-height: var(--select-options-list-l-height);
-}
-
 .emptyPlaceholder {
     padding: var(--gap-m) var(--gap-s);
     color: var(--select-options-list-empty-placeholder-color);
