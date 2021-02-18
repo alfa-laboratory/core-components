@@ -55,9 +55,6 @@ export const matchOption = (option, inputValue) =>
         const transformCollapsedTagText = (collapsedCount) => {
             return `+${collapsedCount} element`;
         };
-        const transformTagText = (tagText) => {
-            return `+${tagText}`;
-        };
         return (
             <div style={{width: '375px'}}>
                 <SelectWithTags
@@ -77,7 +74,6 @@ export const matchOption = (option, inputValue) =>
                     autocomplete={boolean('autocomplete', true)}
                     onInput={handleInput}
                     transformCollapsedTagText={transformCollapsedTagText}
-                    transformTagText={transformTagText}
                     value={value}
                     onChange={handleChange}
                     selected={selected}
