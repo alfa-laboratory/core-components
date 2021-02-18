@@ -1,4 +1,4 @@
-import { ChangeEvent, FC } from 'react';
+import { ChangeEvent, FC, ReactNode } from 'react';
 import { BaseSelectProps, OptionShape } from '@alfalab/core-components-select';
 import { TagProps as TagPropsBase } from '@alfalab/core-components-tag';
 
@@ -66,7 +66,12 @@ export type SelectWithTagsProps = Omit<
     moveInputToNewLine?: boolean;
 
     /**
-     * Текст Компонента Тэг который отображает общее количество выбранных элементов
+     * Трансформировать текст компонента Тэг который отображает общее количество выбранных элементов
      */
-    collapsedTagText?: (collapsedCount: number) => string;
+    transformCollapsedTagText?: (collapsedCount: number) => string;
+
+    /**
+     * Трансформировать текст компонента Тэг
+     */
+    transformTagText?: (tagText?: ReactNode) => ReactNode;
 };

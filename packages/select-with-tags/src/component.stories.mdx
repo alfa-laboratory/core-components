@@ -52,8 +52,11 @@ export const matchOption = (option, inputValue) =>
         const handleChange = React.useCallback(({ selectedMultiple }) => {
             setSelected(selectedMultiple);
         }, []);
-        const collapsedTagText = (collapsedCount) => {
+        const transformCollapsedTagText = (collapsedCount) => {
             return `+${collapsedCount} element`;
+        };
+        const transformTagText = (tagText) => {
+            return `+${tagText}`;
         };
         return (
             <div style={{width: '375px'}}>
@@ -73,7 +76,8 @@ export const matchOption = (option, inputValue) =>
                     label={text('label', '')}
                     autocomplete={boolean('autocomplete', true)}
                     onInput={handleInput}
-                    collapsedTagText={collapsedTagText}
+                    transformCollapsedTagText={transformCollapsedTagText}
+                    transformTagText={transformTagText}
                     value={value}
                     onChange={handleChange}
                     selected={selected}

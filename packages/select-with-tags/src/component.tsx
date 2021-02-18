@@ -31,7 +31,8 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
             collapseTagList = false,
             moveInputToNewLine = true,
             emptyListPlaceholder = 'Ничего не найдено',
-            collapsedTagText,
+            transformCollapsedTagText,
+            transformTagText,
             Tag,
             ...restProps
         },
@@ -128,7 +129,8 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                     Tag,
                     collapseTagList,
                     moveInputToNewLine,
-                    collapsedTagText,
+                    transformCollapsedTagText,
+                    transformTagText,
                     handleUpdatePopover,
                     isPopoverOpen,
                 }}

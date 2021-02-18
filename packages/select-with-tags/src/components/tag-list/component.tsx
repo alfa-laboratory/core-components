@@ -1,7 +1,9 @@
 import React, {
     FC,
     useRef,
+    useMemo,
     useState,
+    ReactNode,
     useEffect,
     ChangeEvent,
     useCallback,
@@ -9,7 +11,6 @@ import React, {
     MutableRefObject,
     MouseEventHandler,
     KeyboardEventHandler,
-    useMemo,
 } from 'react';
 import cn from 'classnames';
 import { useFocus } from '@alfalab/hooks';
@@ -29,7 +30,8 @@ type TagListOwnProps = {
     isPopoverOpen?: boolean;
     collapseTagList?: boolean;
     moveInputToNewLine?: boolean;
-    collapsedTagText?: (collapsedCount: number) => string;
+    transformCollapsedTagText?: (collapsedCount: number) => string;
+    transformTagText?: (tagText?: ReactNode) => ReactNode;
     Tag?: TagComponent;
     handleUpdatePopover?: () => void;
 };
@@ -52,7 +54,8 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     handleDeleteTag,
     collapseTagList,
     moveInputToNewLine,
-    collapsedTagText,
+    transformCollapsedTagText,
+    transformTagText,
     isPopoverOpen,
     handleUpdatePopover,
     Tag = DefaultTag,
@@ -163,11 +166,11 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
         if (isShowMoreEnabled) {
             return 'Свернуть';
         }
-        if (collapsedTagText) {
-            return collapsedTagText(selectedMultiple.length - visibleElements);
+        if (transformCollapsedTagText) {
+            return transformCollapsedTagText(selectedMultiple.length - visibleElements);
         }
         return `+${selectedMultiple.length - visibleElements}`;
-    }, [collapsedTagText, isShowMoreEnabled, selectedMultiple.length, visibleElements]);
+    }, [transformCollapsedTagText, isShowMoreEnabled, selectedMultiple.length, visibleElements]);
 
     const filled = Boolean(selectedMultiple.length > 0) || Boolean(value);
 
@@ -206,7 +209,12 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                     {selectedMultiple.map((option, index) =>
                         isShowMoreEnabled || index + 1 <= visibleElements ? (
                             <Tag
-                                option={option}
+                                option={{
+                                    ...option,
+                                    content: transformTagText
+                                        ? transformTagText(option.content)
+                                        : option.content,
+                                }}
                                 key={option.key}
                                 handleDeleteTag={handleDeleteTag}
                             />
@@ -214,7 +222,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                     )}
                     {visibleElements < selectedMultiple.length && (
                         <Tag
-                            id='collapse'
+                            id='collapse-last-tag-element'
                             onClick={toggleShowMoreLessButton}
                             option={{
                                 key: 'collapse',
