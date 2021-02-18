@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from 'react';
+import React, { FC, useCallback, useContext } from 'react';
 import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
 
@@ -13,7 +13,7 @@ export type CloserProps = {
     className?: string;
 };
 
-export const Closer: React.FC<CloserProps> = ({ className }) => {
+export const Closer: FC<CloserProps> = ({ className }) => {
     const { onClose } = useContext(ModalContext);
 
     const handleClick = useCallback(

@@ -1,4 +1,4 @@
-import React, { ReactNode, Ref, useContext } from 'react';
+import React, { FC, ReactNode, Ref, useContext } from 'react';
 import cn from 'classnames';
 
 import { ModalContext } from '../../Component';
@@ -22,7 +22,7 @@ export type ContentProps = {
     flex?: boolean;
 };
 
-export const Content: React.FC<ContentProps> = ({ children, flex, className }) => {
+export const Content: FC<ContentProps> = ({ children, flex, className }) => {
     const { contentRef } = useContext(ModalContext);
 
     return (

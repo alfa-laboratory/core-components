@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext, useEffect } from 'react';
+import React, { FC, ReactNode, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
 import { ModalContext } from '../../Component';
@@ -22,7 +22,7 @@ export type FooterProps = {
     sticky?: boolean;
 };
 
-export const Footer: React.FC<FooterProps> = ({ children, className, sticky }) => {
+export const Footer: FC<FooterProps> = ({ children, className, sticky }) => {
     const { footerHighlighted, fullscreen, setHasFooter } = useContext(ModalContext);
 
     useEffect(() => {
