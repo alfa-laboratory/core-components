@@ -1,3 +1,10 @@
+# [11.1.0](https://github.com/alfa-laboratory/core-components/compare/v11.0.3...v11.1.0) (2021-02-18)
+
+
+### Features
+
+* **tabs:** disabled view ([#513](https://github.com/alfa-laboratory/core-components/issues/513)) ([8bdb1a7](https://github.com/alfa-laboratory/core-components/commit/8bdb1a789f720c6ccd98ebed3f0ae3c84dbbf52e))
+
 ## [11.0.3](https://github.com/alfa-laboratory/core-components/compare/v11.0.2...v11.0.3) (2021-02-18)
 
 
