@@ -29,7 +29,7 @@ const ModalDesktopComponent = forwardRef<HTMLDivElement, ModalDesktopProps>(
         <Modal
             {...restProps}
             ref={ref}
-            className={cn(styles.component, className, styles[size])}
+            className={cn(styles.component, className, !fullscreen && styles[size])}
             hideBackdrop={fullscreen}
             fullscreen={fullscreen}
             transitionProps={{

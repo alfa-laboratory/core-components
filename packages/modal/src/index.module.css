@@ -30,6 +30,10 @@
 
     padding-top: var(--modal-vertical-padding);
     padding-bottom: var(--modal-vertical-padding);
+
+    &.hideBackdrop {
+        background-color: var(--modal-backdrop-hidden-background);
+    }
 }
 
 .hidden {
@@ -51,8 +55,4 @@
     will-change: transform;
     border-radius: 0;
     overflow: auto;
-}
-
-.hideBackdrop {
-    background-color: var(--modal-backdrop-hidden-background);
 }
