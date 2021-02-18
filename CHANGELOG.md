@@ -1,3 +1,10 @@
+# [11.2.0](https://github.com/alfa-laboratory/core-components/compare/v11.1.0...v11.2.0) (2021-02-18)
+
+
+### Features
+
+* updated design tokens ([#516](https://github.com/alfa-laboratory/core-components/issues/516)) ([ef66b65](https://github.com/alfa-laboratory/core-components/commit/ef66b65bb35b2ef06292b8da709ccc335eb44735))
+
 # [11.1.0](https://github.com/alfa-laboratory/core-components/compare/v11.0.3...v11.1.0) (2021-02-18)
 
 
