@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
 import { Content, ContentProps } from './Component';
 
@@ -11,6 +11,6 @@ export type ContentMobileProps = ContentProps & {
     size?: 's' | 'm';
 };
 
-export const ContentMobile: React.FC<ContentMobileProps> = ({ size, className, ...restProps }) => (
+export const ContentMobile: FC<ContentMobileProps> = ({ size, className, ...restProps }) => (
     <Content className={cn(className, size && styles[size])} {...restProps} />
 );

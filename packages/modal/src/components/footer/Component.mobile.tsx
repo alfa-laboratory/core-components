@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
 import { Footer, FooterProps } from './Component';
 
@@ -11,6 +11,6 @@ export type FooterMobileProps = FooterProps & {
     size?: 's' | 'm';
 };
 
-export const FooterMobile: React.FC<FooterMobileProps> = ({ size, className, ...restProps }) => (
+export const FooterMobile: FC<FooterMobileProps> = ({ size, className, ...restProps }) => (
     <Footer className={cn(className, size && styles[size])} {...restProps} />
 );

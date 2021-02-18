@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
 import { Footer, FooterProps } from './Component';
 
@@ -11,6 +11,6 @@ export type FooterDesktopProps = FooterProps & {
     size?: 's' | 'm' | 'l';
 };
 
-export const FooterDesktop: React.FC<FooterDesktopProps> = ({ size, className, ...restProps }) => (
+export const FooterDesktop: FC<FooterDesktopProps> = ({ size, className, ...restProps }) => (
     <Footer className={cn(className, styles.footer, size && styles[size])} {...restProps} />
 );

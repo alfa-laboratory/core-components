@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext, useEffect } from 'react';
+import React, { FC, ReactNode, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
 import { Closer } from '../closer/Component';
@@ -28,12 +28,7 @@ export type HeaderProps = {
     sticky?: boolean;
 };
 
-export const Header: React.FC<HeaderProps> = ({
-    className,
-    children,
-    hasCloser = true,
-    sticky,
-}) => {
+export const Header: FC<HeaderProps> = ({ className, children, hasCloser = true, sticky }) => {
     const { headerHighlighted, setHasHeader, fullscreen } = useContext(ModalContext);
 
     useEffect(() => {

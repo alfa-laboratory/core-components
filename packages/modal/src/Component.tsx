@@ -291,8 +291,8 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
         const handleKeyDown = useCallback(
             (event: KeyboardEvent<HTMLDivElement>) => {
                 /*
-                 * Обработчик не устанавливает event.preventDefault()
-                 * что бы сохранить дефолтное поведение элементов и событий форм.
+                 * Чтобы сохранить дефолтное поведение элементов и событий форм,
+                 * обработчик не устанавливает event.preventDefault()
                  */
                 if (event.key !== 'Escape') {
                     return;
@@ -321,7 +321,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
             [backdropProps, targetHandleExited],
         );
 
-        const handleEntered: TransitionProps['onEntered'] = useCallback(
+        const handleEntered: Required<TransitionProps>['onEntered'] = useCallback(
             (node, isAppearing) => {
                 scrollableNodeRef.current = fullscreen ? componentRef.current : wrapperRef.current;
 
@@ -341,7 +341,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
             [addResizeHandle, fullscreen, handleScroll, onMount, transitionProps],
         );
 
-        const handleExited: TransitionProps['onExited'] = useCallback(
+        const handleExited: Required<TransitionProps>['onExited'] = useCallback(
             node => {
                 removeResizeHandle();
 

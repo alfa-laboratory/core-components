@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
 import { Header, HeaderProps } from './Component';
 
@@ -11,6 +11,6 @@ export type HeaderDesktopProps = HeaderProps & {
     size?: 's' | 'm' | 'l';
 };
 
-export const HeaderDesktop: React.FC<HeaderDesktopProps> = ({ size, className, ...restProps }) => (
+export const HeaderDesktop: FC<HeaderDesktopProps> = ({ size, className, ...restProps }) => (
     <Header className={cn(className, styles.header, size && styles[size])} {...restProps} />
 );
