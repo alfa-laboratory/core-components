@@ -13,6 +13,7 @@
 @import './calendar/click.css';
 @import './calendar-input/click.css';
 @import './toast-plate/click.css';
+@import './list/click.css';
 
 @define-mixin theme-click {
     --disabled-cursor: not-allowed;
@@ -33,4 +34,5 @@
     @mixin calendar-click;
     @mixin calendar-input-click;
     @mixin toast-plate-click;
+    @mixin list-click;
 }
