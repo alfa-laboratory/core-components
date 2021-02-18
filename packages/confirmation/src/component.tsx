@@ -54,8 +54,6 @@ export type ConfirmationProps = {
 
     /**
      * Номер телефона, на который отправляется сообщение.
-     * Пробрасывается в компонент обратного отсчета as is и форматируется там же.
-     * Должен быть в формате '+7 000 000 00 00'
      */
     phone?: string;
 
@@ -185,8 +183,6 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
     ) => {
         const [showHint, setShowHint] = useState(false);
 
-        const [retries, setRetries] = useState(0);
-
         const [countdownFinished, setCountdownFinished] = useState(false);
 
         const shouldShowError = errorIsFatal && Boolean(errorText);
@@ -197,18 +193,16 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
 
         const nonFatalError = errorIsFatal ? '' : errorText;
 
-        const shouldShowHintLink = countdownFinished && !codeChecking && retries > 0;
+        const shouldShowHintLink = countdownFinished && !codeChecking;
 
         const inputRef = useRef<HTMLInputElement>(null);
 
         const handleSmsRetryClick = useCallback(() => {
-            setRetries(prevRetry => prevRetry + 1);
             setCountdownFinished(false);
             onSmsRetryClick();
         }, [onSmsRetryClick]);
 
         const handleSmsRetryFromHintClick = useCallback(() => {
-            setRetries(prevRetry => prevRetry + 1);
             setCountdownFinished(false);
             setShowHint(false);
             onSmsRetryClick();

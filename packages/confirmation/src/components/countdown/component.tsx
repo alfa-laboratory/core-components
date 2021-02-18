@@ -1,5 +1,6 @@
 import React, { MouseEvent, FC, useCallback, useState, useRef, useEffect } from 'react';
 import cn from 'classnames';
+import { phoneNumber } from '@alfalab/utils';
 
 import { Button } from '@alfalab/core-components-button';
 
@@ -8,7 +9,7 @@ import { CountdownLoader } from '../countdown-loader';
 import styles from './index.module.css';
 
 /**
- * TODO: Вынести это в utils
+ * TODO: Вынести это в utils (https://github.com/alfa-laboratory/utils/pull/51)
  * Маскирует номер телефона.
  *
  * @param {String} number Номер телефона
@@ -54,7 +55,7 @@ export type CountdownProps = {
 
 export const Countdown: FC<CountdownProps> = ({
     duration = 5000,
-    phone,
+    phone = '',
     hasPhoneMask = true,
     alignContent,
     onRepeatSms,
@@ -108,24 +109,31 @@ export const Countdown: FC<CountdownProps> = ({
 
     const progress = timePassed / duration;
 
+    const formattedPhone = phoneNumber.format(phone);
+
     return (
         <div className={cn(styles.component, styles[alignContent], className)}>
+            {phone && (
+                <div>
+                    Код отправлен на
+                    {' '}
+                    {hasPhoneMask ? formatMaskedPhone(formattedPhone) : formattedPhone}
+                </div>
+            )}
+
             {repeatSmsButtonShow ? (
-                <Button size='s' view='secondary' block={true} onClick={handleRepeatSmsButtonClick}>
+                <Button
+                    size='s'
+                    view='secondary'
+                    block={true}
+                    onClick={handleRepeatSmsButtonClick}
+                    className={styles.getCodeButton}
+                >
                     Запросить код повторно
                 </Button>
             ) : (
                 <div>
-                    {phone && (
-                        <div>
-                            Код отправлен на
-                            {' '}
-                            {hasPhoneMask ? formatMaskedPhone(phone) : phone}
-                        </div>
-                    )}
-
                     <div className={styles.info}>Запросить повторно можно через</div>
-
                     <div className={styles.loaderWrap}>
                         <CountdownLoader progress={progress} className={styles.loader} />
 
