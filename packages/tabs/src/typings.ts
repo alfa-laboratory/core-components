@@ -82,6 +82,11 @@ export type TabProps = {
     className?: string;
 
     /**
+     * Блокирует таб
+     */
+    disabled?: boolean;
+
+    /**
      * Управление видимостью таба
      */
     hidden?: boolean;
@@ -118,6 +123,7 @@ export type TabListProps = Pick<
     titles?: Array<{
         title: string;
         id: SelectedId;
+        disabled?: boolean;
         rightAddons?: ReactNode;
     }>;
 };
