@@ -1,6 +1,6 @@
 :root {
-    --font-family-system: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica,
-        sans-serif;
+    --font-family-system: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+        Helvetica, sans-serif;
     --font-family-styrene: 'Styrene UI', system-ui, -apple-system, 'Segoe UI', Roboto,
         'Helvetica Neue', Helvetica, sans-serif;
 }
