@@ -27,6 +27,8 @@ export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
         (position: 'prev' | 'next' | 'start' | 'end') => {
             const refs = itemRefs.current;
 
+            if (refs.every(ref => ref.disabled)) return;
+
             let focusedTabIndex = refs.findIndex(node => document.activeElement === node);
 
             if (focusedTabIndex === -1) {
@@ -47,6 +49,12 @@ export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
                 case 'end':
                     newFocusIndex = refs.length - 1;
                     break;
+            }
+
+            const shift = ['prev', 'end'].includes(position) ? -1 : 1;
+
+            while (refs[newFocusIndex].disabled) {
+                newFocusIndex = (refs.length + newFocusIndex + shift) % refs.length;
             }
 
             refs[newFocusIndex].focus();
@@ -89,10 +97,12 @@ export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
     const getTabListItemProps = (index: number, outerRef?: MutableRefObject<HTMLElement>) => {
         const item = titles[index];
         const itemSelected = item.id === selectedId;
+
         return {
             role: 'tab',
             tabIndex: itemSelected ? 0 : -1,
             'aria-selected': itemSelected,
+            disabled: item.disabled,
             ref: (node: HTMLButtonElement) => {
                 // eslint-disable-next-line no-param-reassign
                 if (outerRef) outerRef.current = node;
