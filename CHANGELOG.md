@@ -1,3 +1,13 @@
+# [11.0.0](https://github.com/alfa-laboratory/core-components/compare/v10.6.0...v11.0.0) (2021-02-18)
+
+
+* Betters toasts (#521) ([628b032](https://github.com/alfa-laboratory/core-components/commit/628b032f00dc36a71563f62238bd3f559968f320)), closes [#521](https://github.com/alfa-laboratory/core-components/issues/521)
+
+
+### BREAKING CHANGES
+
+* --notification-desktop-width var removed
+
 # [10.6.0](https://github.com/alfa-laboratory/core-components/compare/v10.5.0...v10.6.0) (2021-02-17)
 
 
