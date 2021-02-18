@@ -1,3 +1,41 @@
+## [11.0.3](https://github.com/alfa-laboratory/core-components/compare/v11.0.2...v11.0.3) (2021-02-18)
+
+
+### Bug Fixes
+
+* update versions ([1d83612](https://github.com/alfa-laboratory/core-components/commit/1d8361241fecb6be83e3ce8b546f19def1efc592))
+
+## [11.0.2](https://github.com/alfa-laboratory/core-components/compare/v11.0.1...v11.0.2) (2021-02-18)
+
+
+### Bug Fixes
+
+* update versions ([d1b69a3](https://github.com/alfa-laboratory/core-components/commit/d1b69a3f0f488bdef5bea2b3aafc0e275058f321))
+
+## [11.0.1](https://github.com/alfa-laboratory/core-components/compare/v11.0.0...v11.0.1) (2021-02-18)
+
+
+### Bug Fixes
+
+* update versions ([#525](https://github.com/alfa-laboratory/core-components/issues/525)) ([31b2e4c](https://github.com/alfa-laboratory/core-components/commit/31b2e4c92fde6e2b63a3391a4e053cd328e93e70))
+
+# [11.0.0](https://github.com/alfa-laboratory/core-components/compare/v10.6.0...v11.0.0) (2021-02-18)
+
+
+* Betters toasts (#521) ([628b032](https://github.com/alfa-laboratory/core-components/commit/628b032f00dc36a71563f62238bd3f559968f320)), closes [#521](https://github.com/alfa-laboratory/core-components/issues/521)
+
+
+### BREAKING CHANGES
+
+* --notification-desktop-width var removed
+
+# [10.6.0](https://github.com/alfa-laboratory/core-components/compare/v10.5.0...v10.6.0) (2021-02-17)
+
+
+### Features
+
+* **toast-plate:** add action button theming, fix addons align ([#514](https://github.com/alfa-laboratory/core-components/issues/514)) ([20a7c67](https://github.com/alfa-laboratory/core-components/commit/20a7c67e89e4b6d3d90a9f1da2eb1b428c8ebf73))
+
 # [10.5.0](https://github.com/alfa-laboratory/core-components/compare/v10.4.4...v10.5.0) (2021-02-17)
 
 

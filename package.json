@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "10.5.0",
+    "version": "11.0.3",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -32,10 +32,10 @@
         "release": "standard-version --no-verify --releaseCommitMessageFormat \"chore: release\"",
         "postbuild": "yarn purgecss",
         "purgecss": "./bin/purgecss.sh",
-        "semantic-release-lerna": "lerna exec --concurrency 5 -- yarn semantic-release -e semantic-release-monorepo --tag-format='${LERNA_PACKAGE_NAME}@\\${version}'",
         "pub:patch": "RELEASE_TYPE=\"patch\" ./bin/publish.sh",
         "pub:minor": "RELEASE_TYPE=\"minor\" ./bin/publish.sh",
-        "pub:major": "RELEASE_TYPE=\"major\" ./bin/publish.sh"
+        "pub:major": "RELEASE_TYPE=\"major\" ./bin/publish.sh",
+        "pub:ci": "./bin/publish-ci.sh"
     },
     "browserslist": {
         "production": [
