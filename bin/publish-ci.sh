@@ -20,9 +20,9 @@ then
     then
         echo "There are no relevant changes, so no new versions are released."
     else
-        lerna version --conventional-commits --no-commit-hooks --yes
+        lerna version --conventional-commits --no-commit-hooks --yes --force-git-tag
         git push origin master
-        lerna publish from-git --yes
+        lerna publish from-package --yes
     fi
 else
     exit 0
