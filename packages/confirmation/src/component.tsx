@@ -183,8 +183,6 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
     ) => {
         const [showHint, setShowHint] = useState(false);
 
-        const [countdownFinished, setCountdownFinished] = useState(false);
-
         const shouldShowError = errorIsFatal && Boolean(errorText);
 
         const shouldShowSignComponent = !showHint && !shouldShowError;
@@ -193,24 +191,18 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
 
         const nonFatalError = errorIsFatal ? '' : errorText;
 
-        const shouldShowHintLink = countdownFinished && !codeChecking;
-
         const inputRef = useRef<HTMLInputElement>(null);
 
         const handleSmsRetryClick = useCallback(() => {
-            setCountdownFinished(false);
             onSmsRetryClick();
         }, [onSmsRetryClick]);
 
         const handleSmsRetryFromHintClick = useCallback(() => {
-            setCountdownFinished(false);
             setShowHint(false);
             onSmsRetryClick();
         }, [onSmsRetryClick]);
 
         const handleCountdownFinished = useCallback(() => {
-            setCountdownFinished(true);
-
             if (onCountdownFinished) {
                 onCountdownFinished();
             }
@@ -248,7 +240,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                     <SignConfirmation
                         codeChecking={codeChecking}
                         codeSending={codeSending}
-                        smsHintVisible={shouldShowHintLink}
+                        smsHintVisible={!codeChecking}
                         additionalContent={additionalContent}
                         requiredCharAmount={requiredCharAmount}
                         hasSmsCountdown={hasSmsCountdown}
