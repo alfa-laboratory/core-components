@@ -77,15 +77,15 @@
   resolved "https://registry.yarnpkg.com/@alfalab/icons-flag/-/icons-flag-1.3.0.tgz#edd1b82a92954ed5339d51083d83ec41f7ff77fb"
   integrity sha512-kvVrwjKw6TZfbr9xaK7/e/QtkOAT5HzsWTI2rtvrIp0tzwnkQzp1cCHsiX/mt6h+YOixWfDGYbYEL2RKHFrBaw==
 
+"@alfalab/icons-glyph@^1.102.0":
+  version "1.102.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.102.0.tgz#5e403273e08bfce32719d571f9ab2cc121121546"
+  integrity sha512-s4Y/kxRsAyGWjseauTUSQdQrDVDkauyLeVY0pJ0pQ5fSZkaFxZIXUYG9E1OpNhRPOfU9lJdnwY67zJE7jjIIjQ==
+
 "@alfalab/icons-glyph@^1.26.0", "@alfalab/icons-glyph@^1.70.0", "@alfalab/icons-glyph@^1.71.0":
   version "1.99.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.99.0.tgz#6c39d80750644b739fa8c599344404697e8d4920"
   integrity sha512-iA23rxX/DEJYdzuG92GbORJLAg3HAQtL8xjg8n3wk573VLftJuPV8nQHPKtXSTX2V2bfH+LE0BRS6x2Y8F1TnQ==
-
-"@alfalab/icons-glyph@^1.96.0":
-  version "1.96.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.96.0.tgz#4fbf352d02f208c13119c1cc33cc94fb6632d90a"
-  integrity sha512-VmxKoyZLPiJhhOlbN7XQIoV1jMeJhyzj4KFd3r0evhThORhJpB8Tga0Ufcj7r7OVYXXHxllMFducWqiFT9Ji3Q==
 
 "@alfalab/icons-logotype@^1.4.0":
   version "1.8.0"
@@ -4886,10 +4886,10 @@ ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.3, ajv@^6.12.4, ajv@^6.12.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-alfa-ui-primitives@^2.105.0:
-  version "2.122.0"
-  resolved "https://registry.yarnpkg.com/alfa-ui-primitives/-/alfa-ui-primitives-2.122.0.tgz#d6973fa3af555a8666d99aa10bd19ced25803743"
-  integrity sha512-icVw928Js/o98/Y4FxqS2K/YME0A+IXzb1K6cPYycuWIrzagM0GiFSU2mgnw5k1Y3OcWhyYfwbrBeY/UsPaHKA==
+alfa-ui-primitives@^2.148.0:
+  version "2.148.0"
+  resolved "https://registry.yarnpkg.com/alfa-ui-primitives/-/alfa-ui-primitives-2.148.0.tgz#ab90d50528986641fa391f94d16150a88a4ca9e9"
+  integrity sha512-Scv+Y7S8sWTyz8y1UBGd4bFghKCW5lD14Gw8mEXv8Hxx/6ihshyvsGWJMUM8Xllx7SJe13S2cDDYnMIeZBI4yg==
 
 alphanum-sort@^1.0.0:
   version "1.0.2"

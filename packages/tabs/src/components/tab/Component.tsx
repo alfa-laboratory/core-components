@@ -4,7 +4,7 @@ import { TabProps } from '../../typings';
 
 import styles from './index.module.css';
 
-export const Tab = ({ children, hidden, className }: TabProps) => (
+export const Tab = ({ children, hidden, className, disabled }: TabProps) => (
     <div
         className={cn(
             styles.component,
@@ -15,7 +15,7 @@ export const Tab = ({ children, hidden, className }: TabProps) => (
         )}
         hidden={hidden}
         role='tabpanel'
-        tabIndex={0}
+        tabIndex={disabled ? -1 : 0}
     >
         {children}
     </div>
