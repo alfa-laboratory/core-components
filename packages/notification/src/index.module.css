@@ -19,7 +19,7 @@
     @media screen and (min-width: 600px) {
         right: var(--gap-4xl);
         width: auto;
-        transform: translate(var(--notification-desktop-width), 0);
+        transform: translate(var(--notification-desktop-content-width), 0);
     }
 
     &.isVisible {
@@ -32,7 +32,10 @@
         transform: translate(100vw, 0);
 
         @media screen and (min-width: 600px) {
-            transform: translate(calc(var(--notification-desktop-width) + var(--gap-4xl)), 0);
+            transform: translate(
+                calc(var(--notification-desktop-content-width) + var(--gap-4xl)),
+                0
+            );
         }
     }
 }
