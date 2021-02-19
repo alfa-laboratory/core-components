@@ -1,3 +1,10 @@
+## [11.3.1](https://github.com/alfa-laboratory/core-components/compare/v11.3.0...v11.3.1) (2021-02-19)
+
+
+### Bug Fixes
+
+* **toast-plate:** polish toast-plate themes ([#527](https://github.com/alfa-laboratory/core-components/issues/527)) ([57d73d4](https://github.com/alfa-laboratory/core-components/commit/57d73d47b089997b2cc0d85e37b70f068c945e50))
+
 # [11.3.0](https://github.com/alfa-laboratory/core-components/compare/v11.2.0...v11.3.0) (2021-02-18)
 
 
