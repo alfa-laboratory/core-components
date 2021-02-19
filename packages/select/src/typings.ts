@@ -172,6 +172,11 @@ export type BaseSelectProps = {
     popoverPosition?: PopoverProps['position'];
 
     /**
+     * Количество видимых пунктов меню (5 = 5.5)
+     */
+    visibleOptions?: number;
+
+    /**
      * Кастомный рендер выбранного пункта
      */
     valueRenderer?: ({
@@ -404,6 +409,11 @@ export type OptionsListProps = {
      * Будет отображаться, если компонент пустой
      */
     emptyPlaceholder?: string;
+
+    /**
+     * Количество видимых пунктов меню (5 = 5.5)
+     */
+    visibleOptions?: number;
 
     /**
      * Идентификатор для систем автоматизированного тестирования

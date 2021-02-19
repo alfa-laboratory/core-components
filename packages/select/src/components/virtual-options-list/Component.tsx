@@ -5,7 +5,7 @@ import cn from 'classnames';
 import { useVirtual } from 'react-virtual';
 import { OptionsListProps, GroupShape, OptionShape } from '../../typings';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
-import { isGroup, lastIndexOf, usePrevious } from '../../utils';
+import { isGroup, lastIndexOf, usePrevious, useVisibleOptions } from '../../utils';
 
 import styles from './index.module.css';
 
@@ -28,7 +28,9 @@ export const VirtualOptionsList = ({
     Optgroup = DefaultOptgroup,
     dataTestId,
     emptyPlaceholder,
+    visibleOptions = 5,
 }: VirtualOptionsList) => {
+    const listRef = useRef<HTMLDivElement>(null);
     const parentRef = useRef<HTMLDivElement>(null);
     const prevHighlightedIndex = usePrevious(highlightedIndex) || -1;
 
@@ -72,6 +74,14 @@ export const VirtualOptionsList = ({
         }
     }, [prevHighlightedIndex, highlightedIndex]);
 
+    useVisibleOptions({
+        visibleOptions,
+        invalidate: rowVirtualizer.virtualItems.length,
+        listRef,
+        styleTargetRef: parentRef,
+        open,
+    });
+
     // Т.к. рендерится плоский список, необходимо знать индекс, когда начинается новая группа
     const groupStartIndexes = useMemo(() => {
         let currentIndex = 0;
@@ -97,6 +107,7 @@ export const VirtualOptionsList = ({
                 style={{
                     height: `${rowVirtualizer.totalSize}px`,
                 }}
+                ref={listRef}
             >
                 {rowVirtualizer.virtualItems.map(virtualRow => {
                     const option = flatOptions[virtualRow.index];

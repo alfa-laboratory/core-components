@@ -41,9 +41,12 @@ export const PrimaryTabList = ({
                             type='button'
                             className={cn(styles.title, {
                                 [styles.selected]: item.id === selectedId,
+                                [styles.disabled]: item.disabled,
                             })}
                         >
-                            <span className={cn(focused && styles.focused)}>{item.title}</span>
+                            <span className={focused ? styles.focused : undefined}>
+                                {item.title}
+                            </span>
                             {item.rightAddons && (
                                 <span className={styles.rightAddons}>{item.rightAddons}</span>
                             )}

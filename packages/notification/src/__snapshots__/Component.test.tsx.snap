@@ -12,10 +12,10 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
         style="top: 108px;"
       >
         <div
-          class="mainContentWrap"
+          class="contentWrap"
         >
           <div
-            class="mainSection hasRightSection"
+            class="toastContent content"
           >
             <div
               class="leftAddons"

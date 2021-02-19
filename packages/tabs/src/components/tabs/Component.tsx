@@ -14,9 +14,10 @@ export const Tabs = ({
     onChange,
 }: Omit<TabsProps, 'view'>) => {
     const tabsArray = React.Children.toArray(children) as TabsProps['children'];
-    const titles = tabsArray.map(({ props: { title, id, rightAddons } }) => ({
+    const titles = tabsArray.map(({ props: { title, id, rightAddons, disabled } }) => ({
         title,
         id,
+        disabled,
         rightAddons,
     }));
     const tabs = tabsArray.filter(
