@@ -1,3 +1,11 @@
+## [11.3.2](https://github.com/alfa-laboratory/core-components/compare/v11.3.1...v11.3.2) (2021-02-19)
+
+
+### Bug Fixes
+
+* **notification:** fix css var name ([#526](https://github.com/alfa-laboratory/core-components/issues/526)) ([6bbc851](https://github.com/alfa-laboratory/core-components/commit/6bbc851fba023309292a89f0152fbe0603a955a1))
+* **select:** min width bug ([#524](https://github.com/alfa-laboratory/core-components/issues/524)) ([cdd686b](https://github.com/alfa-laboratory/core-components/commit/cdd686ba0780fdde982fff6629afd2fa798f9479))
+
 ## [11.3.1](https://github.com/alfa-laboratory/core-components/compare/v11.3.0...v11.3.1) (2021-02-19)
 
 
