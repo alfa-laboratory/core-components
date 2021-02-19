@@ -1,4 +1,4 @@
-name: Create new library packages
+name: Release
 
 on:
   push:
@@ -15,24 +15,30 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
+        run: yarn --pure-lockfile
+
       - name: Build app
-        run: yarn && yarn build
+        run: yarn build
         env:
           BUILD_CONCURRENCY: 5
 
-      - name: Set NPM Token Action
+      - name: Set NPM Token
         uses: filipstefansson/set-npm-token-action@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish root package
-        run: |
-          yarn semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.PERMISSION_GITHUB_TOKEN }}
+      - name: Set Github credentials
+        uses: oleksiyrudenko/gha-git-credentials@v2-latest
+        with:
+          name: 'semantic-release-bot'
+          email: 'semantic-release-bot@martynus.net'
+          token: '${{ secrets.PERMISSION_GITHUB_TOKEN }}'
 
-      - name: Publish separate packages
-        run: |
-          yarn semantic-release-lerna
+      - name: Publish
+        run: yarn pub:ci
         env:
           GITHUB_TOKEN: ${{ secrets.PERMISSION_GITHUB_TOKEN }}

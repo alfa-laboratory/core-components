@@ -84,6 +84,18 @@ describe('Attributes tests', () => {
 
         expect(testIdAttr).toBe(dataTestId);
     });
+
+    it('should set rel="noreferrer noopener" if prop "target" is "_blank"', () => {
+        const { container } = render(
+            <Link href='' target='_blank'>
+                Link
+            </Link>,
+        );
+
+        const relAttr = container.firstElementChild?.getAttribute('rel');
+
+        expect(relAttr).toBe('noreferrer noopener');
+    });
 });
 
 describe('Render tests', () => {

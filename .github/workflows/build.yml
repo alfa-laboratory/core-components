@@ -1,6 +1,9 @@
-name: BUILD
+name: Tests & Build
 
-on: [push]
+on:
+  push:
+    branches-ignore:
+      - master
 
 jobs:
     test:

@@ -17,9 +17,7 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
           tabindex="-1"
           type="button"
         >
-          <span
-            class=""
-          >
+          <span>
             Таб 1
           </span>
           <span
@@ -35,9 +33,7 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
           tabindex="0"
           type="button"
         >
-          <span
-            class=""
-          >
+          <span>
             Таб 2
           </span>
         </button>
@@ -48,9 +44,7 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
           tabindex="-1"
           type="button"
         >
-          <span
-            class=""
-          >
+          <span>
             Таб 3
           </span>
         </button>
@@ -61,9 +55,7 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
           tabindex="-1"
           type="button"
         >
-          <span
-            class=""
-          >
+          <span>
             Таб 4
           </span>
         </button>
@@ -74,9 +66,7 @@ exports[`Tabs Snapshots tests should match snapshot 1`] = `
           tabindex="-1"
           type="button"
         >
-          <span
-            class=""
-          >
+          <span>
             Таб 5
           </span>
         </button>
@@ -200,9 +190,7 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
             tabindex="-1"
             type="button"
           >
-            <span
-              class=""
-            >
+            <span>
               Таб 1
             </span>
             <span>
@@ -211,14 +199,12 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
           </button>
           <button
             aria-selected="true"
-            class="undefined"
+            class=""
             role="tab"
             tabindex="0"
             type="button"
           >
-            <span
-              class=""
-            >
+            <span>
               Таб 2
             </span>
           </button>
@@ -229,9 +215,7 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
             tabindex="-1"
             type="button"
           >
-            <span
-              class=""
-            >
+            <span>
               Таб 3
             </span>
           </button>
@@ -242,9 +226,7 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
             tabindex="-1"
             type="button"
           >
-            <span
-              class=""
-            >
+            <span>
               Таб 4
             </span>
           </button>
@@ -255,9 +237,7 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
             tabindex="-1"
             type="button"
           >
-            <span
-              class=""
-            >
+            <span>
               Таб 5
             </span>
           </button>
@@ -382,9 +362,7 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
           tabindex="-1"
           type="button"
         >
-          <span
-            class=""
-          >
+          <span>
             Таб 1
           </span>
           <span
@@ -400,9 +378,7 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
           tabindex="0"
           type="button"
         >
-          <span
-            class=""
-          >
+          <span>
             Таб 2
           </span>
         </button>
@@ -413,9 +389,7 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
           tabindex="-1"
           type="button"
         >
-          <span
-            class=""
-          >
+          <span>
             Таб 3
           </span>
         </button>
@@ -426,9 +400,7 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
           tabindex="-1"
           type="button"
         >
-          <span
-            class=""
-          >
+          <span>
             Таб 4
           </span>
         </button>
@@ -439,9 +411,7 @@ exports[`Tabs Snapshots tests should match snapshot 5`] = `
           tabindex="-1"
           type="button"
         >
-          <span
-            class=""
-          >
+          <span>
             Таб 5
           </span>
         </button>

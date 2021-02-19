@@ -7,10 +7,10 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
       class="component"
     >
       <div
-        class="mainContentWrap"
+        class="contentWrap"
       >
         <div
-          class="mainSection"
+          class="content"
         >
           <div
             class="leftAddons"
@@ -61,10 +61,10 @@ exports[`Notification Snapshots tests should match snapshot with leftAddons 1`] 
       class="component"
     >
       <div
-        class="mainContentWrap"
+        class="contentWrap"
       >
         <div
-          class="mainSection"
+          class="content"
         >
           <div
             class="leftAddons"
@@ -88,10 +88,10 @@ exports[`Notification Snapshots tests should match snapshot without icon 1`] = `
       class="component"
     >
       <div
-        class="mainContentWrap"
+        class="contentWrap"
       >
         <div
-          class="mainSection"
+          class="content"
         >
           <div>
             <div

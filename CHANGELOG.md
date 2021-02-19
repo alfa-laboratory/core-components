@@ -1,3 +1,86 @@
+# [11.5.0](https://github.com/alfa-laboratory/core-components/compare/v11.4.0...v11.5.0) (2021-02-19)
+
+
+### Features
+
+* **select-with-tags:** added collapsed tag list ([#511](https://github.com/alfa-laboratory/core-components/issues/511)) ([fe1d551](https://github.com/alfa-laboratory/core-components/commit/fe1d551385e9122c205bbe7a679f02a6eb376569))
+
+# [11.4.0](https://github.com/alfa-laboratory/core-components/compare/v11.3.2...v11.4.0) (2021-02-19)
+
+
+### Features
+
+* **button:** add rel='noopener noreferrer' if target='blank' ([#522](https://github.com/alfa-laboratory/core-components/issues/522)) ([a1da871](https://github.com/alfa-laboratory/core-components/commit/a1da87118a32195ba844c239f5a0f73e164faa6f))
+* **link:** set rel='noopener noreferrer' if target='_blank' ([#520](https://github.com/alfa-laboratory/core-components/issues/520)) ([08c556e](https://github.com/alfa-laboratory/core-components/commit/08c556ecc0944d121b23566ae54319a1a33899ba)), closes [#519](https://github.com/alfa-laboratory/core-components/issues/519)
+* **themes:** list click theme ([#528](https://github.com/alfa-laboratory/core-components/issues/528)) ([e54ad60](https://github.com/alfa-laboratory/core-components/commit/e54ad605a9f873b06e0fe984bc87bcbb810a2541))
+
+## [11.3.2](https://github.com/alfa-laboratory/core-components/compare/v11.3.1...v11.3.2) (2021-02-19)
+
+
+### Bug Fixes
+
+* **notification:** fix css var name ([#526](https://github.com/alfa-laboratory/core-components/issues/526)) ([6bbc851](https://github.com/alfa-laboratory/core-components/commit/6bbc851fba023309292a89f0152fbe0603a955a1))
+* **select:** min width bug ([#524](https://github.com/alfa-laboratory/core-components/issues/524)) ([cdd686b](https://github.com/alfa-laboratory/core-components/commit/cdd686ba0780fdde982fff6629afd2fa798f9479))
+
+## [11.3.1](https://github.com/alfa-laboratory/core-components/compare/v11.3.0...v11.3.1) (2021-02-19)
+
+
+### Bug Fixes
+
+* **toast-plate:** polish toast-plate themes ([#527](https://github.com/alfa-laboratory/core-components/issues/527)) ([57d73d4](https://github.com/alfa-laboratory/core-components/commit/57d73d47b089997b2cc0d85e37b70f068c945e50))
+
+# [11.3.0](https://github.com/alfa-laboratory/core-components/compare/v11.2.0...v11.3.0) (2021-02-18)
+
+
+### Features
+
+* **select:** add visible-options ([#506](https://github.com/alfa-laboratory/core-components/issues/506)) ([0154866](https://github.com/alfa-laboratory/core-components/commit/0154866bb8fc8308945d32f115b3ab1e46f98db6))
+
+# [11.2.0](https://github.com/alfa-laboratory/core-components/compare/v11.1.0...v11.2.0) (2021-02-18)
+
+
+### Features
+
+* updated design tokens ([#516](https://github.com/alfa-laboratory/core-components/issues/516)) ([ef66b65](https://github.com/alfa-laboratory/core-components/commit/ef66b65bb35b2ef06292b8da709ccc335eb44735))
+
+# [11.1.0](https://github.com/alfa-laboratory/core-components/compare/v11.0.3...v11.1.0) (2021-02-18)
+
+
+### Features
+
+* **tabs:** disabled view ([#513](https://github.com/alfa-laboratory/core-components/issues/513)) ([8bdb1a7](https://github.com/alfa-laboratory/core-components/commit/8bdb1a789f720c6ccd98ebed3f0ae3c84dbbf52e))
+
+## [11.0.3](https://github.com/alfa-laboratory/core-components/compare/v11.0.2...v11.0.3) (2021-02-18)
+
+
+### Bug Fixes
+
+* update versions ([1d83612](https://github.com/alfa-laboratory/core-components/commit/1d8361241fecb6be83e3ce8b546f19def1efc592))
+
+## [11.0.2](https://github.com/alfa-laboratory/core-components/compare/v11.0.1...v11.0.2) (2021-02-18)
+
+
+### Bug Fixes
+
+* update versions ([d1b69a3](https://github.com/alfa-laboratory/core-components/commit/d1b69a3f0f488bdef5bea2b3aafc0e275058f321))
+
+## [11.0.1](https://github.com/alfa-laboratory/core-components/compare/v11.0.0...v11.0.1) (2021-02-18)
+
+
+### Bug Fixes
+
+* update versions ([#525](https://github.com/alfa-laboratory/core-components/issues/525)) ([31b2e4c](https://github.com/alfa-laboratory/core-components/commit/31b2e4c92fde6e2b63a3391a4e053cd328e93e70))
+
+# [11.0.0](https://github.com/alfa-laboratory/core-components/compare/v10.6.0...v11.0.0) (2021-02-18)
+
+
+* Betters toasts (#521) ([628b032](https://github.com/alfa-laboratory/core-components/commit/628b032f00dc36a71563f62238bd3f559968f320)), closes [#521](https://github.com/alfa-laboratory/core-components/issues/521)
+
+
+### BREAKING CHANGES
+
+* --notification-desktop-width var removed
+
 # [10.6.0](https://github.com/alfa-laboratory/core-components/compare/v10.5.0...v10.6.0) (2021-02-17)
 
 
