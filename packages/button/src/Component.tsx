@@ -120,8 +120,11 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
         );
 
         if (href) {
+            const { target } = restProps as AnchorHTMLAttributes<HTMLAnchorElement>;
+
             return (
                 <a
+                    rel={target === '_blank' ? 'noreferrer noopener' : undefined}
                     {...componentProps}
                     {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
                     href={href}
