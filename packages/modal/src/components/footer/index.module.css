@@ -1,0 +1,23 @@
+@import '../../vars.css';
+
+.footer {
+    width: 100%;
+    box-sizing: border-box;
+    transition: box-shadow 0.2s ease, background 0.2s ease;
+    background: var(--color-light-bg-primary);
+    background: var(--modal-header-background);
+}
+
+.highlighted {
+    background: var(--modal-footer-highlight-background);
+    box-shadow: var(--modal-footer-highlight-box-shadow);
+}
+
+.sticky {
+    position: sticky;
+    bottom: calc(var(--modal-vertical-padding) * -1);
+}
+
+.fullscreen.sticky {
+    bottom: 0;
+}

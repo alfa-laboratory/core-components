@@ -11,6 +11,7 @@
 @import './select/click.css';
 @import './confirmation/click.css';
 @import './calendar/click.css';
+@import './modal/click.css';
 @import './calendar-input/click.css';
 @import './toast-plate/click.css';
 @import './list/click.css';
@@ -32,6 +33,7 @@
     @mixin select-click;
     @mixin confirmation-click;
     @mixin calendar-click;
+    @mixin modal-click;
     @mixin calendar-input-click;
     @mixin toast-plate-click;
     @mixin list-click;
