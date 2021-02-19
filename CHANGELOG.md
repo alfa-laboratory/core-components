@@ -1,3 +1,12 @@
+# [11.4.0](https://github.com/alfa-laboratory/core-components/compare/v11.3.2...v11.4.0) (2021-02-19)
+
+
+### Features
+
+* **button:** add rel='noopener noreferrer' if target='blank' ([#522](https://github.com/alfa-laboratory/core-components/issues/522)) ([a1da871](https://github.com/alfa-laboratory/core-components/commit/a1da87118a32195ba844c239f5a0f73e164faa6f))
+* **link:** set rel='noopener noreferrer' if target='_blank' ([#520](https://github.com/alfa-laboratory/core-components/issues/520)) ([08c556e](https://github.com/alfa-laboratory/core-components/commit/08c556ecc0944d121b23566ae54319a1a33899ba)), closes [#519](https://github.com/alfa-laboratory/core-components/issues/519)
+* **themes:** list click theme ([#528](https://github.com/alfa-laboratory/core-components/issues/528)) ([e54ad60](https://github.com/alfa-laboratory/core-components/commit/e54ad605a9f873b06e0fe984bc87bcbb810a2541))
+
 ## [11.3.2](https://github.com/alfa-laboratory/core-components/compare/v11.3.1...v11.3.2) (2021-02-19)
 
 
