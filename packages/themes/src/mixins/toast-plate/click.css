@@ -12,5 +12,4 @@
     --toast-plate-action-align: flex-start;
     --toast-plate-action-padding: 0 0 0 var(--gap-xl);
     --toast-plate-action-divider-display: none;
-    --toast-plate-shadow: var(--shadow-s-hard);
 }
