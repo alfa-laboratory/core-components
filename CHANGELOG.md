@@ -1,3 +1,10 @@
+# [11.5.0](https://github.com/alfa-laboratory/core-components/compare/v11.4.0...v11.5.0) (2021-02-19)
+
+
+### Features
+
+* **select-with-tags:** added collapsed tag list ([#511](https://github.com/alfa-laboratory/core-components/issues/511)) ([fe1d551](https://github.com/alfa-laboratory/core-components/commit/fe1d551385e9122c205bbe7a679f02a6eb376569))
+
 # [11.4.0](https://github.com/alfa-laboratory/core-components/compare/v11.3.2...v11.4.0) (2021-02-19)
 
 
