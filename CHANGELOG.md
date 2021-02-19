@@ -1,3 +1,24 @@
+## [11.3.1](https://github.com/alfa-laboratory/core-components/compare/v11.3.0...v11.3.1) (2021-02-19)
+
+
+### Bug Fixes
+
+* **toast-plate:** polish toast-plate themes ([#527](https://github.com/alfa-laboratory/core-components/issues/527)) ([57d73d4](https://github.com/alfa-laboratory/core-components/commit/57d73d47b089997b2cc0d85e37b70f068c945e50))
+
+# [11.3.0](https://github.com/alfa-laboratory/core-components/compare/v11.2.0...v11.3.0) (2021-02-18)
+
+
+### Features
+
+* **select:** add visible-options ([#506](https://github.com/alfa-laboratory/core-components/issues/506)) ([0154866](https://github.com/alfa-laboratory/core-components/commit/0154866bb8fc8308945d32f115b3ab1e46f98db6))
+
+# [11.2.0](https://github.com/alfa-laboratory/core-components/compare/v11.1.0...v11.2.0) (2021-02-18)
+
+
+### Features
+
+* updated design tokens ([#516](https://github.com/alfa-laboratory/core-components/issues/516)) ([ef66b65](https://github.com/alfa-laboratory/core-components/commit/ef66b65bb35b2ef06292b8da709ccc335eb44735))
+
 # [11.1.0](https://github.com/alfa-laboratory/core-components/compare/v11.0.3...v11.1.0) (2021-02-18)
 
 

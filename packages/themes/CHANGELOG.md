@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.1.0...@alfalab/core-components-themes@3.1.1) (2021-02-19)
+
+
+### Bug Fixes
+
+* **toast-plate:** polish toast-plate themes ([#527](https://github.com/alfa-laboratory/core-components/issues/527)) ([57d73d4](https://github.com/alfa-laboratory/core-components/commit/57d73d47b089997b2cc0d85e37b70f068c945e50))
+
+
+
+
+
+# [3.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.0.0...@alfalab/core-components-themes@3.1.0) (2021-02-18)
+
+
+### Features
+
+* updated design tokens ([#516](https://github.com/alfa-laboratory/core-components/issues/516)) ([ef66b65](https://github.com/alfa-laboratory/core-components/commit/ef66b65bb35b2ef06292b8da709ccc335eb44735))
+
+
+
+
+
 # [3.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@2.14.0...@alfalab/core-components-themes@3.0.0) (2021-02-18)
 
 
