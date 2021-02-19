@@ -1,3 +1,11 @@
+# [11.6.0](https://github.com/alfa-laboratory/core-components/compare/v11.5.0...v11.6.0) (2021-02-19)
+
+
+### Features
+
+* **drawer:** add component ([#497](https://github.com/alfa-laboratory/core-components/issues/497)) ([5943188](https://github.com/alfa-laboratory/core-components/commit/594318886d581e6afca99fcebe9088c222aa3d52))
+* **modal:** reinvent modal ([#489](https://github.com/alfa-laboratory/core-components/issues/489)) ([06cb8ba](https://github.com/alfa-laboratory/core-components/commit/06cb8ba7f7a09445c04ab2a9871a86c1abf4a79c))
+
 # [11.5.0](https://github.com/alfa-laboratory/core-components/compare/v11.4.0...v11.5.0) (2021-02-19)
 
 
