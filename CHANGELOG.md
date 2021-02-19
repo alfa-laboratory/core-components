@@ -1,3 +1,24 @@
+# [11.3.0](https://github.com/alfa-laboratory/core-components/compare/v11.2.0...v11.3.0) (2021-02-18)
+
+
+### Features
+
+* **select:** add visible-options ([#506](https://github.com/alfa-laboratory/core-components/issues/506)) ([0154866](https://github.com/alfa-laboratory/core-components/commit/0154866bb8fc8308945d32f115b3ab1e46f98db6))
+
+# [11.2.0](https://github.com/alfa-laboratory/core-components/compare/v11.1.0...v11.2.0) (2021-02-18)
+
+
+### Features
+
+* updated design tokens ([#516](https://github.com/alfa-laboratory/core-components/issues/516)) ([ef66b65](https://github.com/alfa-laboratory/core-components/commit/ef66b65bb35b2ef06292b8da709ccc335eb44735))
+
+# [11.1.0](https://github.com/alfa-laboratory/core-components/compare/v11.0.3...v11.1.0) (2021-02-18)
+
+
+### Features
+
+* **tabs:** disabled view ([#513](https://github.com/alfa-laboratory/core-components/issues/513)) ([8bdb1a7](https://github.com/alfa-laboratory/core-components/commit/8bdb1a789f720c6ccd98ebed3f0ae3c84dbbf52e))
+
 ## [11.0.3](https://github.com/alfa-laboratory/core-components/compare/v11.0.2...v11.0.3) (2021-02-18)
 
 

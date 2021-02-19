@@ -114,6 +114,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
     >
       <div
         class="optionsList m"
+        style="height: 0px;"
       >
         <div
           aria-selected="true"
