@@ -31,14 +31,14 @@ export const calculateTotalElementsPerRow = (
 
     const tags = container.getElementsByTagName('button');
     const latestTag = tags[tags.length - 1];
-    if (latestTag && latestTag.id === 'collapse-last-tag-element') {
+    if (latestTag && latestTag.getAttribute('data-collapse') === 'collapse-last-tag-element') {
         containerWidth -= getTagWidth(latestTag);
     }
     let totalTagsWidth = 0;
     let totalVisibleElements = 0;
     for (let i = 0; i < tags.length; i++) {
         const tag = tags[i];
-        if (tag.id === 'collapse-last-tag-element') {
+        if (tag.getAttribute('data-collapse') === 'collapse-last-tag-element') {
             break;
         }
         totalTagsWidth += getTagWidth(tag);

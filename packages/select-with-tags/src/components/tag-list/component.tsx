@@ -222,7 +222,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                     )}
                     {visibleElements < selectedMultiple.length && (
                         <Tag
-                            id='collapse-last-tag-element'
+                            data-collapse='collapse-last-tag-element'
                             onClick={toggleShowMoreLessButton}
                             option={{
                                 key: 'collapse',
