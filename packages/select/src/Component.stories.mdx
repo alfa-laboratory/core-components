@@ -144,7 +144,9 @@ import { Select } from '@alfalab/core-components-select';
 
 Компонент выпадающего списка.
 
-<Select options={options} />
+<div style={{ width: 240 }}>
+    <Select options={options} block={true} />
+</div>
 
 <!-- Spacer -->
 <div style={{height: 32}} />
@@ -174,8 +176,9 @@ import { Select } from '@alfalab/core-components-select';
 Изменить это поведение можно с помощью `closeOnSelect`.
 
 <Preview>
-    <div style={{ height: 300, width: 300 }}>
+    <div style={{ width: 240 }}>
         <Select
+            block={true}
             options={options}
             multiple={true}
             placeholder='Выберите элемент'
@@ -189,7 +192,7 @@ import { Select } from '@alfalab/core-components-select';
 Компонент может быть использован как controlled с помощью `onChange` и `selected`:
 
 <Preview>
-    <div style={{ height: 180, width: 300 }}>
+    <div style={{ width: 240 }}>
         {React.createElement(() => {
             const [selected, setSelected] = React.useState([options[8].key, options[9].key]);
             const handleChange = ({ selectedMultiple }) => {
@@ -213,10 +216,10 @@ import { Select } from '@alfalab/core-components-select';
 #### OptionShape вместо ключей для выбранных пунктов
 
 Иногда может быть удобнее использовать в качестве выбранных значений не ключи, а сами объекты.
-В этом случае просто перевайте их через свойство `selected`.
+В этом случае просто передавайте их через свойство `selected`.
 
 <Preview>
-    <div style={{ height: 180, width: 300 }}>
+    <div style={{ width: 240 }}>
         {React.createElement(() => {
             const [selected, setSelected] = React.useState([options[8], options[9]]);
             const handleChange = ({ selectedMultiple }) => {
@@ -242,7 +245,7 @@ import { Select } from '@alfalab/core-components-select';
 Чтобы использовать селект внутри формы - следует указать атрибут `name`
 
 <Preview>
-    <div style={{ height: 180, width: 300 }}>
+    <div style={{ width: 240 }}>
         {React.createElement(() => {
             const options = [
                 { key: '1', content: 'Neptunium' },
@@ -286,7 +289,7 @@ import { Select } from '@alfalab/core-components-select';
 Помимо текста, компонент позволяет использовать html в качестве поля `content` у вариантов выбора
 
 <Preview>
-    <div style={{ height: 180, width: 480 }}>
+    <div style={{ width: 480 }}>
         {React.createElement(() => {
             const [selected, setSelected] = React.useState(null);
             const handleChange = ({ selected }) => {
@@ -325,7 +328,7 @@ import { Select } from '@alfalab/core-components-select';
 Стандартный компонент **Field** позволяет управлять рендером выбранных пунктов с помощью `valueRenderer`
 
 <Preview>
-    <div style={{ height: 180 }}>
+    <div style={{ width: 240 }}>
         {React.createElement(() => {
             const OptionWithIcon = ({ content }) => (
                 <span style={{ display: 'flex' }} key={content}>
@@ -336,6 +339,7 @@ import { Select } from '@alfalab/core-components-select';
             const valueRenderer = ({ selected }) => selected ? <OptionWithIcon {...selected} /> : null;
             return (
                 <Select
+                    block={true}
                     options={options}
                     label='С иконкой'
                     valueRenderer={valueRenderer}
@@ -348,44 +352,47 @@ import { Select } from '@alfalab/core-components-select';
 Селект позволяет заменять или кастомизировать компоненты **Field**, **Option**, **OptionsList**, **Optgroup**, **Arrow**
 
 <Preview>
-    <div style={{ height: 180 }}>
-        <Container>
-            <Row align='middle'>
-                <Col>
-                    {React.createElement(() => {
-                        const BoldOption = (props) => (
-                            <Option {...props}><b>{props.option.content}</b></Option>
-                        );
-                        return (
-                            <Select
-                                options={options}
-                                label='Bold options'
-                                Option={BoldOption}
-                            />
-                        );
-                    })}
-                </Col>
-                <Col>
-                    <Select
-                        options={options}
-                        label='With addons'
-                        Field={(props) => <Field {...props} leftAddons={props.selected && <Icon/>} />}
-                    />
-                </Col>
-                <Col>
-                    <Select
-                        options={options}
-                        allowUnselect={true}
-                        popoverPosition='bottom-end'
-                        Field={({ selected, innerProps, ...restProps }) => (
-                            <Button {...innerProps} size='xs'>
-                                {selected ? selected.content : 'Pick'}
-                            </Button>
-                        )}
-                    />
-                </Col>
-            </Row>
-        </Container>
+    <div style={{ width: 240 }}>
+        {React.createElement(() => {
+            const BoldOption = (props) => (
+                <Option {...props}><b>{props.option.content}</b></Option>
+            );
+            return (
+                <Select
+                    block={true}
+                    options={options}
+                    label='Bold options'
+                    Option={BoldOption}
+                />
+            );
+        })}
+    </div>
+</Preview>
+
+<Preview>
+    <div style={{ width: 240 }}>
+        <Select
+            block={true}
+            options={options}
+            label='With addons'
+            Field={(props) => <Field {...props} leftAddons={props.selected && <Icon/>} />}
+        />
+    </div>
+</Preview>
+
+<Preview>
+    <div style={{ width: 240 }}>
+        <Select
+            block={true}
+            options={options}
+            allowUnselect={true}
+            popoverPosition='bottom-start'
+            Field={({ selected, innerProps, ...restProps }) => (
+                <Button {...innerProps} size='xs'>
+                    {selected ? selected.content : 'Pick'}
+                </Button>
+            )}
+        />
     </div>
 </Preview>
 
@@ -400,11 +407,14 @@ import { Select } from '@alfalab/core-components-select';
             </div>
         );
         return (
-            <Select
-                label='With header'
-                options={options}
-                OptionsList={renderList}
-            />
+            <div style={{ width: 240 }}>
+                <Select
+                    block={true}
+                    label='With header'
+                    options={options}
+                    OptionsList={renderList}
+                />
+            </div>
         );
     })}
 </Preview>
@@ -431,8 +441,9 @@ const groups = [{
 ```
 
 <Preview>
-    <div style={{ height: 180 }}>
+    <div style={{ width: 240 }}>
         <Select
+            block={true}
             options={groups}
             label='Optgroup'
             multiple={true}
@@ -445,11 +456,14 @@ const groups = [{
 Рендерит нативный селект вместо выпадающего меню. (стоит использовать только для мобильных устройств)
 
 <Preview>
-    <Select
-        options={groups}
-        label='native'
-        nativeSelect={true}
-    />
+    <div style={{ width: 240 }}>
+        <Select
+            block={true}
+            options={groups}
+            label='native'
+            nativeSelect={true}
+        />
+    </div>
 </Preview>
 
 ## Рендер длинных списков
@@ -457,70 +471,59 @@ const groups = [{
 Используйте `OptionsList={VirtualOptionsList}` для рендера большого количества данных
 
 <Preview>
-    <Container>
-        <Row align='middle'>
-            <Col>
-                <div
-                    style={{
-                        height: 400,
-                        width: 240,
-                    }}
-                >
-                    {React.createElement(() => {
-                        const options = new Array(10000).fill().map((_, index) => {
-                            const variableSizeText = `Вы восхитительны! `.repeat(
-                                Math.round(Math.random() * 10),
-                            );
-                            return {
-                                key: index,
-                                content: `${index}. ${variableSizeText}`,
-                            };
-                        });
-                        return (
-                            <Select
-                                label='virtual 10k'
-                                block={true}
-                                options={options}
-                                circularNavigation={true}
-                                OptionsList={VirtualOptionsList}
-                                allowUnselect={true}
-                            />
-                        );
-                    })}
-                </div>
-            </Col>
-            <Col>
-                <div
-                    style={{
-                        height: 400,
-                        width: 240,
-                    }}
-                >
-                    {React.createElement(() => {
-                        return (
-                            <Select
-                                label='virtual with groups'
-                                block={true}
-                                options={groups}
-                                multiple={true}
-                                allowUnselect={true}
-                                circularNavigation={true}
-                                OptionsList={VirtualOptionsList}
-                            />
-                        );
-                    })}
-                </div>
-            </Col>
-        </Row>
-    </Container>
+    <div style={{ width: 240 }}>
+        {React.createElement(() => {
+            const options = new Array(10000).fill().map((_, index) => {
+                const variableSizeText = `Вы восхитительны! `.repeat(
+                    Math.round(Math.random() * 10),
+                );
+                return {
+                    key: index,
+                    content: `${index}. ${variableSizeText}`,
+                };
+            });
+            return (
+                <Select
+                    label='virtual 10k'
+                    block={true}
+                    options={options}
+                    circularNavigation={true}
+                    OptionsList={VirtualOptionsList}
+                    allowUnselect={true}
+                    visibleOptions={3}
+                />
+            );
+        })}
+    </div>
+</Preview>
+
+<Preview>
+    <div style={{ width: 240 }}>
+        {React.createElement(() => {
+            return (
+                <Select
+                    label='virtual with groups'
+                    block={true}
+                    options={groups}
+                    multiple={true}
+                    allowUnselect={true}
+                    circularNavigation={true}
+                    OptionsList={VirtualOptionsList}
+                />
+            );
+        })}
+    </div>
 </Preview>
 
 
 ## Открытие вверх, если места недостаточно
 
 <Preview>
-    <Select
-        options={groups}
-        preventFlip={false}
-    />
+    <div style={{ width: 240 }}>
+        <Select
+            block={true}
+            options={groups}
+            preventFlip={false}
+        />
+    </div>
 </Preview>
