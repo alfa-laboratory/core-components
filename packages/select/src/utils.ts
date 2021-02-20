@@ -96,7 +96,7 @@ type useVisibleOptionsArgs = {
     /**
      * Позволяет вызвать пересчет высоты
      */
-    invalidate?: number;
+    invalidate?: unknown;
 };
 
 export function useVisibleOptions({
