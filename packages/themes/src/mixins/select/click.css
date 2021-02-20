@@ -1,8 +1,6 @@
 @import '../../../../vars/src/index.css';
 
 @define-mixin select-click {
-    /* core vars */
-
     /* theme */
     --select-options-list-border-radius: 4px;
     --select-options-list-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
