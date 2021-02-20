@@ -12,7 +12,7 @@ import {
 import axios from 'axios';
 import { MatchImageSnapshotOptions } from 'jest-image-snapshot';
 import kebab from 'lodash.kebabcase';
-import { STYLES_URL, ScreenshotOpts } from './screenshot-testing';
+import { STYLES_URL, ScreenshotOpts, EvaluateFn } from './screenshot-testing';
 
 type CustomSnapshotIdentifierParams = {
     currentTestName: string;
@@ -30,7 +30,10 @@ type CloseBrowserParams = {
 /**
  * Удаляем из названия теста лишнюю информацию, чтобы имя файла было короче
  */
-const customSnapshotIdentifier = ({ currentTestName, counter }: CustomSnapshotIdentifierParams) => {
+export const customSnapshotIdentifier = ({
+    currentTestName,
+    counter,
+}: CustomSnapshotIdentifierParams) => {
     const [knobsStrObj] = /(\{.{1,}\})/.exec(currentTestName) || [];
 
     if (!knobsStrObj) {
@@ -52,6 +55,7 @@ type MatchHtmlParams = {
     expect: any;
     matchImageSnapshotOptions?: MatchImageSnapshotOptions;
     screenshotOpts?: ScreenshotOpts;
+    evaluate?: EvaluateFn;
 };
 
 const screenshotDefaultOpts = {
@@ -71,6 +75,7 @@ export const matchHtml = async ({
     expect,
     matchImageSnapshotOptions,
     screenshotOpts = screenshotDefaultOpts,
+    evaluate,
 }: MatchHtmlParams) => {
     const pageHtml = await getPageHtml(page, css);
 
@@ -79,6 +84,7 @@ export const matchHtml = async ({
         {
             data: pageHtml,
             screenshotOpts,
+            evaluate: evaluate && evaluate.toString(),
         },
         {
             responseType: 'arraybuffer',
