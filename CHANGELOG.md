@@ -1,3 +1,10 @@
+## [11.6.2](https://github.com/alfa-laboratory/core-components/compare/v11.6.1...v11.6.2) (2021-02-20)
+
+
+### Bug Fixes
+
+* **select:** recalc height on options changed ([#536](https://github.com/alfa-laboratory/core-components/issues/536)) ([4c27c19](https://github.com/alfa-laboratory/core-components/commit/4c27c197882256e507ec83678da4811f6285c2fe))
+
 ## [11.6.1](https://github.com/alfa-laboratory/core-components/compare/v11.6.0...v11.6.1) (2021-02-20)
 
 
