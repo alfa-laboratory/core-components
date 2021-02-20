@@ -1,3 +1,10 @@
+## [11.6.1](https://github.com/alfa-laboratory/core-components/compare/v11.6.0...v11.6.1) (2021-02-20)
+
+
+### Bug Fixes
+
+* **themes:** lost core vars ([#534](https://github.com/alfa-laboratory/core-components/issues/534)) ([54a23c9](https://github.com/alfa-laboratory/core-components/commit/54a23c90997c4aa90944d0391f2aab27f799353d))
+
 # [11.6.0](https://github.com/alfa-laboratory/core-components/compare/v11.5.0...v11.6.0) (2021-02-19)
 
 
