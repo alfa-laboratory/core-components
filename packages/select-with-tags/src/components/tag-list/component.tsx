@@ -1,23 +1,25 @@
 import React, {
-    ChangeEvent,
     FC,
-    MutableRefObject,
-    useCallback,
     useRef,
+    useMemo,
     useState,
-    KeyboardEventHandler,
-    MouseEventHandler,
+    ReactNode,
     useEffect,
+    ChangeEvent,
+    useCallback,
+    useLayoutEffect,
+    MutableRefObject,
+    MouseEventHandler,
+    KeyboardEventHandler,
 } from 'react';
 import cn from 'classnames';
+import { useFocus } from '@alfalab/hooks';
 import { FieldProps } from '@alfalab/core-components-select';
 import { FormControl, FormControlProps } from '@alfalab/core-components-form-control';
-import { useFocus } from '@alfalab/hooks';
-
-import styles from './index.module.css';
-
 import { TagComponent } from '../../types';
 import { Tag as DefaultTag } from '../tag';
+import { calculateTotalElementsPerRow } from '../../utils/calculate-collapse-size';
+import styles from './index.module.css';
 
 type TagListOwnProps = {
     value?: string;
@@ -25,7 +27,13 @@ type TagListOwnProps = {
     onInput?: (event: ChangeEvent<HTMLInputElement>) => void;
     inputRef?: MutableRefObject<HTMLInputElement>;
     autocomplete?: boolean;
+    isPopoverOpen?: boolean;
+    collapseTagList?: boolean;
+    moveInputToNewLine?: boolean;
+    transformCollapsedTagText?: (collapsedCount: number) => string;
+    transformTagText?: (tagText?: ReactNode) => ReactNode;
     Tag?: TagComponent;
+    handleUpdatePopover?: () => void;
 };
 
 export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
@@ -44,10 +52,18 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     valueRenderer,
     onInput,
     handleDeleteTag,
+    collapseTagList,
+    moveInputToNewLine,
+    transformCollapsedTagText,
+    transformTagText,
+    isPopoverOpen,
+    handleUpdatePopover,
     Tag = DefaultTag,
     ...restProps
 }) => {
     const [focused, setFocused] = useState(false);
+    const [isShowMoreEnabled, setShowMoreEnabled] = useState<boolean | undefined>(false);
+    const [visibleElements, setVisibleElements] = useState(1);
     const [inputOnNewLine, setInputOnNewLine] = useState(false);
 
     const wrapperRef = useRef<HTMLDivElement>(null);
@@ -56,6 +72,25 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
 
     const [focusVisible] = useFocus(wrapperRef, 'keyboard');
     const [inputFocusVisible] = useFocus(inputRef, 'keyboard');
+
+    useLayoutEffect(() => {
+        setShowMoreEnabled(isPopoverOpen);
+    }, [isPopoverOpen]);
+
+    useLayoutEffect(() => {
+        setVisibleElements(selectedMultiple.length);
+        setShowMoreEnabled(false);
+    }, [selectedMultiple]);
+
+    useLayoutEffect(() => {
+        if (collapseTagList && contentWrapperRef.current) {
+            const totalVisibleElements = calculateTotalElementsPerRow(
+                contentWrapperRef.current,
+                autocomplete && inputRef.current ? inputRef.current : null,
+            );
+            setVisibleElements(totalVisibleElements);
+        }
+    }, [collapseTagList, visibleElements, autocomplete]);
 
     const handleFocus = useCallback(() => setFocused(true), []);
     const handleBlur = useCallback(() => setFocused(false), []);
@@ -103,16 +138,39 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
         [handleDeleteTag, selectedMultiple, value],
     );
 
+    const toggleShowMoreLessButton = useCallback(
+        event => {
+            event.stopPropagation();
+            setShowMoreEnabled(value => !value);
+            if (handleUpdatePopover) {
+                handleUpdatePopover();
+            }
+        },
+        [handleUpdatePopover],
+    );
+
     useEffect(() => {
         /**
          * Если текст не помещается в инпут, то нужно перенести инпут на новую строку.
          */
-        if (inputTextIsOverflow() && !inputOnNewLine) {
-            setInputOnNewLine(true);
-        } else if (value.length === 0) {
-            setInputOnNewLine(false);
+        if (moveInputToNewLine) {
+            if (inputTextIsOverflow() && !inputOnNewLine) {
+                setInputOnNewLine(true);
+            } else if (value.length === 0) {
+                setInputOnNewLine(false);
+            }
         }
-    }, [value, inputOnNewLine, inputTextIsOverflow]);
+    }, [value, inputOnNewLine, inputTextIsOverflow, moveInputToNewLine]);
+
+    const collapseTagTitle = useMemo(() => {
+        if (isShowMoreEnabled) {
+            return 'Свернуть';
+        }
+        if (transformCollapsedTagText) {
+            return transformCollapsedTagText(selectedMultiple.length - visibleElements);
+        }
+        return `+${selectedMultiple.length - visibleElements}`;
+    }, [transformCollapsedTagText, isShowMoreEnabled, selectedMultiple.length, visibleElements]);
 
     const filled = Boolean(selectedMultiple.length > 0) || Boolean(value);
 
@@ -148,9 +206,30 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                     })}
                     ref={contentWrapperRef}
                 >
-                    {selectedMultiple.map(option => (
-                        <Tag key={option.key} option={option} handleDeleteTag={handleDeleteTag} />
-                    ))}
+                    {selectedMultiple.map((option, index) =>
+                        isShowMoreEnabled || index + 1 <= visibleElements ? (
+                            <Tag
+                                option={{
+                                    ...option,
+                                    content: transformTagText
+                                        ? transformTagText(option.content)
+                                        : option.content,
+                                }}
+                                key={option.key}
+                                handleDeleteTag={handleDeleteTag}
+                            />
+                        ) : null,
+                    )}
+                    {visibleElements < selectedMultiple.length && (
+                        <Tag
+                            data-collapse='collapse-last-tag-element'
+                            onClick={toggleShowMoreLessButton}
+                            option={{
+                                key: 'collapse',
+                                content: collapseTagTitle,
+                            }}
+                        />
+                    )}
 
                     {autocomplete && (
                         <input

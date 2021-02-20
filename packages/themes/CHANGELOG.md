@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.2.0...@alfalab/core-components-themes@3.3.0) (2021-02-19)
+
+
+### Features
+
+* **modal:** reinvent modal ([#489](https://github.com/alfa-laboratory/core-components/issues/489)) ([06cb8ba](https://github.com/alfa-laboratory/core-components/commit/06cb8ba7f7a09445c04ab2a9871a86c1abf4a79c))
+
+
+
+
+
+# [3.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.1.1...@alfalab/core-components-themes@3.2.0) (2021-02-19)
+
+
+### Features
+
+* **themes:** list click theme ([#528](https://github.com/alfa-laboratory/core-components/issues/528)) ([e54ad60](https://github.com/alfa-laboratory/core-components/commit/e54ad605a9f873b06e0fe984bc87bcbb810a2541))
+
+
+
+
+
 ## [3.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.1.0...@alfalab/core-components-themes@3.1.1) (2021-02-19)
 
 

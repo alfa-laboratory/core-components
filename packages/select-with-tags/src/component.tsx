@@ -1,4 +1,4 @@
-import React, { ChangeEvent, forwardRef, useCallback, useState } from 'react';
+import React, { ChangeEvent, forwardRef, useCallback, useState, useRef } from 'react';
 import {
     BaseSelectProps,
     OptionsList as DefaultOptionsList,
@@ -28,7 +28,11 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
             autocomplete = true,
             match,
             allowUnselect = true,
+            collapseTagList = false,
+            moveInputToNewLine = true,
             emptyListPlaceholder = 'Ничего не найдено',
+            transformCollapsedTagText,
+            transformTagText,
             Tag,
             ...restProps
         },
@@ -37,12 +41,20 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
         const controlled = Boolean(selected);
 
         const [selectedTags, setSelectedTags] = useState(selected || []);
+        const [isPopoverOpen, setPopoverOpen] = useState<boolean | undefined>(false);
+        const updatePopover = useRef(() => null);
 
         const resetValue = useCallback(() => {
             const event = { target: { value: '' } };
 
             onInput(event as ChangeEvent<HTMLInputElement>);
         }, [onInput]);
+
+        const handleUpdatePopover = useCallback(() => {
+            if (updatePopover && updatePopover.current) {
+                updatePopover.current();
+            }
+        }, []);
 
         const handleDeleteTag = useCallback(
             (deletedKey: string) => {
@@ -87,6 +99,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                 if (!open && value) {
                     resetValue();
                 }
+                setPopoverOpen(open);
             },
             [resetValue, value],
         );
@@ -105,6 +118,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                 OptionsList={OptionsList}
                 Arrow={Arrow}
                 multiple={true}
+                updatePopover={updatePopover}
                 allowUnselect={allowUnselect}
                 showEmptyOptionsList={true}
                 fieldProps={{
@@ -113,6 +127,12 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                     onInput,
                     handleDeleteTag,
                     Tag,
+                    collapseTagList,
+                    moveInputToNewLine,
+                    transformCollapsedTagText,
+                    transformTagText,
+                    handleUpdatePopover,
+                    isPopoverOpen,
                 }}
                 optionsListProps={{
                     emptyPlaceholder: emptyListPlaceholder,

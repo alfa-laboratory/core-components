@@ -51,10 +51,15 @@ export const matchOption = (option, inputValue) =>
         };
         const handleChange = React.useCallback(({ selectedMultiple }) => {
             setSelected(selectedMultiple);
-        }, [])
+        }, []);
+        const transformCollapsedTagText = (collapsedCount) => {
+            return `+${collapsedCount} element`;
+        };
         return (
             <div style={{width: '375px'}}>
                 <SelectWithTags
+                    collapseTagList={boolean('collapseTagList', true)}
+                    moveInputToNewLine={boolean('moveInputToNewLine', true)}
                     options={options}
                     block={boolean('block', true)}
                     size={select('size', ['s', 'm', 'l'], 'l')}
@@ -68,6 +73,7 @@ export const matchOption = (option, inputValue) =>
                     label={text('label', '')}
                     autocomplete={boolean('autocomplete', true)}
                     onInput={handleInput}
+                    transformCollapsedTagText={transformCollapsedTagText}
                     value={value}
                     onChange={handleChange}
                     selected={selected}

@@ -20,6 +20,10 @@
     }
 }
 
+.tagNoClose {
+    padding-right: var(--gap-m);
+}
+
 .tagContentWrap {
     display: flex;
     justify-content: flex-start;
