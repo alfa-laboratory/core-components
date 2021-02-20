@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-notification",
-    "version": "2.0.3",
+    "version": "2.0.4",
     "description": "",
     "keywords": [],
     "license": "ISC",
@@ -17,7 +17,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-portal": "^1.4.0",
-        "@alfalab/core-components-toast-plate": "^2.0.2",
+        "@alfalab/core-components-toast-plate": "^2.0.3",
         "classnames": "^2.2.6",
         "react-merge-refs": "^1.1.0",
         "react-swipeable": "^6.0.0"
