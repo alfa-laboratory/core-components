@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, act } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Confirmation } from './index';
 
@@ -104,10 +104,7 @@ describe('Confirmation', () => {
         );
 
         expect(onCountdownFinished).not.toBeCalled();
-
-        await act(() => new Promise(resolve => setTimeout(resolve, 1000)));
-
-        expect(onCountdownFinished).toBeCalledTimes(1);
+        await waitFor(() => expect(onCountdownFinished).toBeCalledTimes(1));
     });
 
     describe('Fatal error tests', () => {
