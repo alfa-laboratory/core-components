@@ -3,7 +3,6 @@
 @define-mixin tag-click {
     /* core vars */
     --color-light-specialbg-component: #eeeff1;
-    --color-light-text-primary-inverted: #fff;
 
     /* theme */
     --tag-background-color: var(--color-light-specialbg-component);
