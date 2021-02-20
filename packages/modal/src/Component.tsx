@@ -1,49 +1,46 @@
+import React, {
+    useCallback,
+    useRef,
+    useState,
+    forwardRef,
+    MouseEvent,
+    KeyboardEvent,
+    ReactNode,
+    useEffect,
+    useMemo,
+    Ref,
+} from 'react';
 import cn from 'classnames';
-import React, { useEffect, useCallback, useRef, useState, forwardRef } from 'react';
-import { use100vh } from 'react-div-100vh';
 import mergeRefs from 'react-merge-refs';
+import { ResizeObserver } from 'resize-observer';
+import { CSSTransition } from 'react-transition-group';
+import { TransitionProps } from 'react-transition-group/Transition';
+import FocusLock from 'react-focus-lock';
 
-import { useEventCallback } from '@alfalab/hooks';
-import { CrossHeavyMIcon } from '@alfalab/icons-glyph/CrossHeavyMIcon';
 import { Portal, PortalProps } from '@alfalab/core-components-portal';
-import { TrapFocus } from '@alfalab/core-components-trap-focus';
-import { useMatchMedia } from '@alfalab/core-components-mq';
 
-import {
-    createChainedFunction,
-    getContainer,
-    ownerDocument,
-    highlightSetter,
-    getIsScrolledFromTop,
-    getIsScrolledToBottom,
-    ariaHidden,
-} from './utils';
-
-import { ModalElement, ModalManager } from './Component.manager';
-import { Backdrop, BackdropProps } from './components/backdrop';
+import { handleContainer, hasScrollbar, isScrolledToBottom, isScrolledToTop } from './utils';
 
 import styles from './index.module.css';
+import backdropTransitions from './transitions/backdrop.module.css';
 
-const defaultManager = new ModalManager();
-
-export type ModalProps = React.HTMLAttributes<HTMLDivElement> & {
+export type ModalProps = {
     /**
-     * Бэкдроп компонент. Позволяет отрендерить кастомный оверлей
-     * @default Backdrop
+     * Контент
      */
-    backdropComponent?: React.ElementType;
+    children?: ReactNode;
+
+    /**
+     * Скрыть бэкдроп
+     * @default false
+     */
+    hideBackdrop?: boolean;
 
     /**
      * Свойства для Бэкдропа
      * @default timeout: 200, appear: true
      */
-    backdropProps?: Partial<BackdropProps>;
-
-    /**
-     * Когда `true` модальное окно закрывается после анимации
-     * @default false
-     */
-    closeAfterTransition?: boolean;
+    backdropProps?: Partial<TransitionProps>;
 
     /**
      * Нода, компонент или функция возвращающая их
@@ -53,35 +50,16 @@ export type ModalProps = React.HTMLAttributes<HTMLDivElement> & {
     container?: PortalProps['getPortalContainer'];
 
     /**
-     * Отключает автоматический перевод фокуса на модалку при открытии, и
-     * переключать его обратно после закрытия.
-     *
-     * В большинстве случаев этот параметр не должен устанавливаться в `true`,
-     * так как модалка перестаёт отвечать требованиям доступности, например для скринридеров.
+     * Отключает автоматический перевод фокуса на модалку при открытии
      * @default false
      */
     disableAutoFocus?: boolean;
 
     /**
-     * Отключает вызов `callback` при клике на бэкдроп
+     * Отключает ловушку фокуса
      * @default false
      */
-    disableBackdropClick?: boolean;
-
-    /**
-     * Отключает ограничение перевода фокуса в пределах модалки
-     *
-     * В большинстве случаев этот параметр не должен устанавливаться в `true`,
-     * так как модалка перестаёт отвечать требованиям доступности, например для скринридеров.
-     * @default false
-     */
-    disableEnforceFocus?: boolean;
-
-    /**
-     * Отключает вызов `callback` при нажатии Escape
-     * @default false
-     */
-    disableEscapeKeyDown?: boolean;
+    disableFocusLock?: boolean;
 
     /**
      * Отключает восстановление фокуса на предыдущем элементе после закрытия модалки
@@ -90,9 +68,42 @@ export type ModalProps = React.HTMLAttributes<HTMLDivElement> & {
     disableRestoreFocus?: boolean;
 
     /**
-     * Контент футера, на мобильных устройствах содержимое футера прижимается к нижней части вьюпорта
+     * Отключает вызов `callback` при нажатии Escape
+     * @default false
      */
-    footer?: React.ReactNode;
+    disableEscapeKeyDown?: boolean;
+
+    /**
+     * Отключает вызов `callback` при клике на бэкдроп
+     * @default false
+     */
+    disableBackdropClick?: boolean;
+
+    /**
+     * Содержимое модалки всегда в DOM
+     * @default false
+     */
+    keepMounted?: boolean;
+
+    /**
+     * Управление видимостью модалки
+     */
+    open: boolean;
+
+    /**
+     * Указывает, когда вызывать коллбэк закрытия — при закрытии бэкдропа или самого контента
+     */
+    targetHandleExited?: 'children' | 'backdrop';
+
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
+
+    /**
+     * Дополнительный класс для обертки (Modal)
+     */
+    wrapperClassName?: string;
 
     /**
      * Управление возможностью сделать модальное окно на весь экран
@@ -101,67 +112,39 @@ export type ModalProps = React.HTMLAttributes<HTMLDivElement> & {
     fullscreen?: boolean;
 
     /**
-     * Управление наличием закрывающего крестика
-     * @default false
+     * Пропсы для анимации (CSSTransition)
      */
-    hasCloser?: boolean;
+    transitionProps?: Partial<TransitionProps>;
 
     /**
-     * Отключает рендер бэкдропа
-     * @default false
+     * Обработчик события нажатия на бэкдроп
      */
-    hideBackdrop?: boolean;
-
-    /**
-     * Содержимое модалки всегда в DOM
-     * @default false
-     */
-    keepMounted?: boolean;
-
-    /** @ignore */
-    manager?: ModalManager;
-
-    /** Обработчик события нажатия на бэкдроп */
-    onBackdropClick?: React.ReactEventHandler;
-
-    /**
-     * Обработчик события закрытия
-     *
-     * Может регулировать параметром `reason`
-     *
-     * @param {object} event
-     * @param {string}`"escapeKeyDown"`, `"backdropClick"`, `"closerClick"`.
-     */
-    onClose?: {
-        (
-            event: React.SyntheticEvent,
-            reason: 'backdropClick' | 'escapeKeyDown' | 'closerClick',
-        ): void;
-    };
+    onBackdropClick?: (event: MouseEvent) => void;
 
     /**
      * Обработчик события нажатия на Escape
      *
      * Если `disableEscapeKeyDown` - false и модальное окно в фокусе
      */
-    onEscapeKeyDown?: React.ReactEventHandler;
-
-    /** Открывает модальное окно */
-    open: boolean;
+    onEscapeKeyDown?: (event: KeyboardEvent) => void;
 
     /**
-     * Ширина модального окна
-     * @default "m"
+     * Обработчик закрытия
      */
-    size?: 's' | 'm' | 'l';
+    onClose?: (
+        event: MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>,
+        reason?: 'backdropClick' | 'escapeKeyDown' | 'closerClick',
+    ) => void;
 
     /**
-     * Компонент, в который передаётся обработчик на завершение анимаиции закрытия
-     *
-     * Нужно, если анимация для `Backdrop` происходит с задержкой
-     * @default "children"
+     * Обработчик события onEntered компонента Transition
      */
-    targetHandleExited?: 'children' | 'backdrop';
+    onMount?: () => void;
+
+    /**
+     * Обработчик события onExited компонента Transition
+     */
+    onUnmount?: () => void;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -169,328 +152,321 @@ export type ModalProps = React.HTMLAttributes<HTMLDivElement> & {
     dataTestId?: string;
 };
 
-/**
- *
- * Заимствовано из  [MUI Modal](https://material-ui.com/components/modal/).
- */
-export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
-    const {
-        backdropComponent: BackdropComponent = Backdrop,
-        backdropProps = {
-            timeout: 200,
-            appear: true,
-        },
-        children,
-        closeAfterTransition = false,
-        container,
-        disableAutoFocus = false,
-        disableBackdropClick = false,
-        disableEnforceFocus = false,
-        disableEscapeKeyDown = false,
-        disableRestoreFocus = false,
-        footer,
-        fullscreen,
-        hasCloser,
-        hideBackdrop = false,
-        keepMounted = false,
-        manager = defaultManager,
-        onBackdropClick,
-        onClose,
-        onEscapeKeyDown,
-        open,
-        size = 'm',
-        targetHandleExited = 'children',
-        dataTestId,
-        style,
-        className,
-    } = props;
+export type ModalContext = {
+    hasFooter?: boolean;
+    hasHeader?: boolean;
+    hasScroll?: boolean;
+    fullscreen?: boolean;
+    headerHighlighted?: boolean;
+    footerHighlighted?: boolean;
+    contentRef: Ref<HTMLElement>;
+    setHasHeader: (exists: boolean) => void;
+    setHasFooter: (exists: boolean) => void;
+    onClose: Required<ModalProps>['onClose'];
+};
 
-    const [exited, setExited] = useState(true);
-    const modal = useRef<ModalElement>({} as ModalElement);
-    const mountNodeRef = useRef<HTMLDivElement | null>(null);
-    const modalRef = useRef<HTMLDivElement>(null);
-    const handleRef = mergeRefs([modalRef, ref]);
-    const contentRef = useRef<HTMLDivElement>(null);
-    const height = use100vh() || '100vh';
-    const [isSmall] = useMatchMedia('screen and (max-width: 47.9375em)');
-
-    const getDoc = () => ownerDocument(mountNodeRef.current);
-    const getModal = () => {
-        modal.current.modalRef = modalRef.current;
-        modal.current.mountNode = mountNodeRef.current;
-        return modal.current;
-    };
-    const isTopModal = useCallback(() => manager.isTopModal(getModal()), [manager]);
-
-    const [highlightCloser, _setHighlightCloser] = useState(false);
-    const highlightCloserRef = useRef(highlightCloser);
-    const setHighlightCloser = highlightSetter(highlightCloserRef, _setHighlightCloser);
-
-    const [highlightFooter, _setHighlightFooter] = useState(false);
-    const highlightFooterRef = useRef(highlightCloser);
-    const setHighlightFooter = highlightSetter(highlightFooterRef, _setHighlightFooter);
-
-    const handleModalContentElementScroll = useEventCallback((event: Event) => {
-        if (event.target instanceof HTMLElement) {
-            const isScrolledFromTop = getIsScrolledFromTop(event.target);
-            const isScrolledToBottom = getIsScrolledToBottom(event.target);
-
-            if (
-                isScrolledFromTop !== highlightCloserRef.current ||
-                isScrolledToBottom === highlightFooterRef.current
-            ) {
-                setHighlightCloser(isScrolledFromTop);
-                setHighlightFooter(!isScrolledToBottom);
-            }
-        }
-    });
-
-    const shouldHighlightCloser = highlightCloser && isSmall;
-    const shouldHighlightFooter = highlightFooter && isSmall;
-
-    const handleMounted = () => {
-        manager.mount(getModal());
-
-        if (modalRef.current) {
-            modalRef.current.scrollTop = 0;
-        }
-
-        if (contentRef.current) {
-            contentRef.current.addEventListener('scroll', handleModalContentElementScroll);
-
-            const isScrolledToBottom = getIsScrolledToBottom(contentRef.current);
-            setHighlightFooter(!isScrolledToBottom);
-        }
-    };
-
-    const handleOpen = useEventCallback(() => {
-        const resolvedContainer = getContainer(container) || getDoc().body;
-
-        manager.add(getModal(), resolvedContainer);
-
-        // Элемент был уже смонтирован
-        if (modalRef.current) {
-            handleMounted();
-        }
-    });
-
-    const handlePortalRef = useEventCallback((node: HTMLDivElement) => {
-        mountNodeRef.current = node;
-
-        if (!node) {
-            return;
-        }
-
-        if (open && isTopModal()) {
-            handleMounted();
-        } else if (modalRef.current) {
-            ariaHidden(modalRef.current, true);
-        }
-    });
-
-    const handleClose = useCallback(() => {
-        manager.remove(getModal());
-
-        if (contentRef.current !== null) {
-            // TODO: заменить на optional chaining
-            return () =>
-                (contentRef.current as HTMLDivElement).removeEventListener(
-                    'scroll',
-                    handleModalContentElementScroll,
-                );
-        }
-
-        return null;
-    }, [handleModalContentElementScroll, manager]);
-
-    useEffect(() => {
-        if (keepMounted && modalRef.current) {
-            ariaHidden(modalRef.current, !(open || isTopModal()));
-        }
-        // eslint-disable-next-line
-    }, [modalRef]);
-
-    useEffect(() => {
-        if (contentRef.current) {
-            const isScrolledToBottom = getIsScrolledToBottom(contentRef.current);
-            setHighlightFooter(!isScrolledToBottom);
-        }
-    }, [handleModalContentElementScroll, setHighlightFooter]);
-
-    useEffect(
-        () => () => {
-            handleClose();
-        },
-        [handleClose],
-    );
-
-    useEffect(() => {
-        if (open) {
-            handleOpen();
-        } else if (!closeAfterTransition) {
-            handleClose();
-        }
-    }, [open, handleClose, closeAfterTransition, handleOpen]);
-
-    if (!keepMounted && !open && exited) {
-        return null;
-    }
-
-    const handleEnter = () => {
-        setExited(false);
-    };
-
-    const handleExited = () => {
-        setExited(true);
-
-        if (closeAfterTransition) {
-            handleClose();
-        }
-    };
-
-    const handleBackdropClick = (event: React.MouseEvent) => {
-        if (event.target !== event.currentTarget) {
-            return;
-        }
-
-        if (onBackdropClick) {
-            onBackdropClick(event);
-        }
-
-        if (!disableBackdropClick && onClose) {
-            onClose(event, 'backdropClick');
-        }
-    };
-
-    const handleCloserClick = (event: React.MouseEvent) => {
-        if (onClose) {
-            onClose(event, 'closerClick');
-        }
-    };
-
-    const handleKeyDown = (event: React.KeyboardEvent) => {
-        /*
-         * Обработчик не устанавливает event.preventDefault()
-         * что бы сохранить дефолтное поведение элементов и событий форм.
-         */
-        if (event.key !== 'Escape' || !isTopModal()) {
-            return;
-        }
-
-        // Если есть обработчик escape на body
-        event.stopPropagation();
-
-        if (onEscapeKeyDown) {
-            onEscapeKeyDown(event);
-        }
-
-        if (!disableEscapeKeyDown && onClose) {
-            onClose(event, 'escapeKeyDown');
-        }
-    };
-
-    const childProps: { tabIndex?: number } = {};
-    if (React.isValidElement(children)) {
-        if (children.props.tabIndex === undefined) {
-            childProps.tabIndex = -1;
-        }
-    }
-
-    if (targetHandleExited === 'backdrop') {
-        backdropProps.onExited = createChainedFunction(handleExited, backdropProps.onExited);
-    }
-
-    return (
-        <Portal ref={handlePortalRef} getPortalContainer={container}>
-            <div
-                style={{ height }}
-                role='presentation'
-                data-test-id={dataTestId}
-                ref={handleRef}
-                onKeyDown={handleKeyDown}
-            >
-                <div
-                    className={cn(styles.wrapper, {
-                        [styles.hidden]: !open && exited,
-                        [styles.wrapperFullscreen]: fullscreen,
-                        [styles.wrapperSmall]: isSmall,
-                    })}
-                >
-                    {hideBackdrop ? null : (
-                        <BackdropComponent
-                            open={open}
-                            onClick={handleBackdropClick}
-                            onEnter={handleEnter}
-                            onExited={handleExited}
-                            {...backdropProps}
-                        />
-                    )}
-
-                    <TrapFocus
-                        disableEnforceFocus={disableEnforceFocus}
-                        disableAutoFocus={disableAutoFocus}
-                        disableRestoreFocus={disableRestoreFocus}
-                        getDoc={getDoc}
-                        isEnabled={isTopModal}
-                        open={open}
-                    >
-                        <div
-                            tabIndex={-1}
-                            className={cn(styles.modal, styles[size], {
-                                [styles.modalFullscreen]: fullscreen,
-                                [styles.modalSmall]: isSmall,
-                            })}
-                        >
-                            <div
-                                className={cn(styles.flexContainer, {
-                                    [styles.flexContainerSmall]: isSmall,
-                                })}
-                            >
-                                <div
-                                    style={style}
-                                    className={cn(styles.content, className, {
-                                        [styles.contentSmall]: isSmall,
-                                    })}
-                                    ref={contentRef}
-                                >
-                                    {React.isValidElement(children)
-                                        ? React.cloneElement(children, childProps)
-                                        : children}
-                                </div>
-
-                                {footer && (
-                                    <div
-                                        className={cn(styles.footer, {
-                                            [styles.footerSmall]: isSmall,
-                                            [styles.footerHighlight]: shouldHighlightFooter,
-                                        })}
-                                    >
-                                        {footer}
-                                    </div>
-                                )}
-
-                                {hasCloser && (
-                                    <div
-                                        className={cn(styles.closerWrapper, {
-                                            [styles.closerWrapperHighlight]: shouldHighlightCloser,
-                                        })}
-                                    >
-                                        <button
-                                            type='button'
-                                            className={cn([styles.closer], {
-                                                [styles.closerSmall]: isSmall,
-                                            })}
-                                            onClick={handleCloserClick}
-                                        >
-                                            <CrossHeavyMIcon />
-                                        </button>
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                    </TrapFocus>
-                </div>
-            </div>
-        </Portal>
-    );
+export const ModalContext = React.createContext<ModalContext>({
+    hasFooter: false,
+    hasHeader: false,
+    hasScroll: false,
+    fullscreen: false,
+    headerHighlighted: false,
+    footerHighlighted: false,
+    contentRef: () => null,
+    setHasHeader: () => null,
+    setHasFooter: () => null,
+    onClose: () => null,
 });
+
+export const Modal = forwardRef<HTMLDivElement, ModalProps>(
+    (
+        {
+            open,
+            container,
+            children,
+            fullscreen,
+            hideBackdrop = false,
+            backdropProps = {},
+            transitionProps = {},
+            disableAutoFocus = false,
+            disableBackdropClick = false,
+            disableFocusLock = false,
+            disableEscapeKeyDown = false,
+            disableRestoreFocus = false,
+            keepMounted = false,
+            targetHandleExited = hideBackdrop ? 'children' : 'backdrop',
+            className,
+            wrapperClassName,
+            onBackdropClick,
+            onClose,
+            onEscapeKeyDown,
+            onMount,
+            onUnmount,
+            dataTestId,
+        },
+        ref,
+    ) => {
+        const [exited, setExited] = useState(!open);
+        const [hasScroll, setHasScroll] = useState(false);
+        const [hasHeader, setHasHeader] = useState(false);
+        const [hasFooter, setHasFooter] = useState(false);
+        const [headerHighlighted, setHeaderHighlighted] = useState(false);
+        const [footerHighlighted, setFooterHighlighted] = useState(false);
+
+        const wrapperRef = useRef<HTMLDivElement>(null);
+        const componentRef = useRef<HTMLDivElement>(null);
+        const contentRef = useRef<HTMLDivElement>(null);
+        const scrollableNodeRef = useRef<HTMLDivElement | null>(null);
+        const restoreContainerStyles = useRef<null | Function>(null);
+
+        const shouldHighlightHeader = hasHeader;
+        const shouldHighlightFooter = hasFooter;
+        const shouldRender = keepMounted || open || !exited;
+
+        const resizeObserver = useMemo(() => {
+            return new ResizeObserver(() => {
+                if (scrollableNodeRef.current) {
+                    const scrollExists = hasScrollbar(scrollableNodeRef.current);
+                    setFooterHighlighted(scrollExists);
+                    setHasScroll(scrollExists);
+                }
+            });
+        }, []);
+
+        const addResizeHandle = useCallback(() => {
+            if (scrollableNodeRef.current && contentRef.current) {
+                resizeObserver.observe(scrollableNodeRef.current);
+                resizeObserver.observe(contentRef.current);
+            }
+        }, [resizeObserver]);
+
+        const removeResizeHandle = useCallback(() => {
+            resizeObserver.disconnect();
+        }, [resizeObserver]);
+
+        const handleScroll = useCallback(() => {
+            if (!scrollableNodeRef.current) return;
+
+            if (shouldHighlightHeader) {
+                setHeaderHighlighted(isScrolledToTop(scrollableNodeRef.current) === false);
+            }
+
+            if (shouldHighlightFooter) {
+                setFooterHighlighted(isScrolledToBottom(scrollableNodeRef.current) === false);
+            }
+        }, [shouldHighlightFooter, shouldHighlightHeader]);
+
+        const handleClose = useCallback<Required<ModalProps>['onClose']>(
+            (event, reason) => {
+                if (onClose) {
+                    onClose(event, reason);
+                }
+
+                if (reason === 'backdropClick' && onBackdropClick) {
+                    onBackdropClick(event as MouseEvent);
+                }
+
+                if (reason === 'escapeKeyDown' && onEscapeKeyDown) {
+                    onEscapeKeyDown(event as KeyboardEvent);
+                }
+
+                return null;
+            },
+            [onBackdropClick, onClose, onEscapeKeyDown],
+        );
+
+        const handleBackdropClick = useCallback(
+            (event: MouseEvent<HTMLDivElement>) => {
+                if (event.target !== event.currentTarget) {
+                    return;
+                }
+
+                if (!disableBackdropClick && handleClose) {
+                    handleClose(event, 'backdropClick');
+                }
+            },
+            [disableBackdropClick, handleClose],
+        );
+
+        const handleKeyDown = useCallback(
+            (event: KeyboardEvent<HTMLDivElement>) => {
+                /*
+                 * Чтобы сохранить дефолтное поведение элементов и событий форм,
+                 * обработчик не устанавливает event.preventDefault()
+                 */
+                if (event.key !== 'Escape') {
+                    return;
+                }
+
+                // Если есть обработчик escape на body
+                event.stopPropagation();
+
+                if (!disableEscapeKeyDown && handleClose) {
+                    handleClose(event, 'escapeKeyDown');
+                }
+            },
+            [disableEscapeKeyDown, handleClose],
+        );
+
+        const handleBackdropExited = useCallback(
+            (node: HTMLElement) => {
+                if (targetHandleExited === 'backdrop') {
+                    setExited(true);
+                }
+
+                if (backdropProps.onExited) {
+                    backdropProps.onExited(node);
+                }
+            },
+            [backdropProps, targetHandleExited],
+        );
+
+        const handleEntered: Required<TransitionProps>['onEntered'] = useCallback(
+            (node, isAppearing) => {
+                scrollableNodeRef.current = fullscreen ? componentRef.current : wrapperRef.current;
+
+                addResizeHandle();
+
+                if (scrollableNodeRef.current) {
+                    scrollableNodeRef.current.addEventListener('scroll', handleScroll);
+                    handleScroll();
+                }
+
+                if (transitionProps.onEnter) {
+                    transitionProps.onEnter(node, isAppearing);
+                }
+
+                if (onMount) onMount();
+            },
+            [addResizeHandle, fullscreen, handleScroll, onMount, transitionProps],
+        );
+
+        const handleExited: Required<TransitionProps>['onExited'] = useCallback(
+            node => {
+                removeResizeHandle();
+
+                if (scrollableNodeRef.current) {
+                    scrollableNodeRef.current.removeEventListener('scroll', handleScroll);
+                }
+
+                if (targetHandleExited === 'children') {
+                    setExited(true);
+                }
+
+                if (transitionProps.onExited) {
+                    transitionProps.onExited(node);
+                }
+
+                if (onUnmount) onUnmount();
+            },
+            [handleScroll, onUnmount, removeResizeHandle, targetHandleExited, transitionProps],
+        );
+
+        useEffect(() => {
+            if (open) {
+                restoreContainerStyles.current = handleContainer(
+                    (container ? container() : document.body) as HTMLElement,
+                );
+            }
+
+            return () => {
+                if (restoreContainerStyles.current) {
+                    restoreContainerStyles.current();
+                    restoreContainerStyles.current = null;
+                }
+            };
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [open]);
+
+        useEffect(() => {
+            if (open) setExited(false);
+        }, [open]);
+
+        useEffect(() => {
+            return () => {
+                resizeObserver.disconnect();
+            };
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, []);
+
+        const contextValue = useMemo<ModalContext>(
+            () => ({
+                hasHeader,
+                hasFooter,
+                hasScroll,
+                fullscreen,
+                headerHighlighted,
+                footerHighlighted,
+                contentRef,
+                setHasHeader,
+                setHasFooter,
+                onClose: handleClose,
+            }),
+            [
+                hasHeader,
+                hasFooter,
+                hasScroll,
+                fullscreen,
+                headerHighlighted,
+                footerHighlighted,
+                handleClose,
+            ],
+        );
+
+        if (!shouldRender) return null;
+
+        return (
+            <Portal getPortalContainer={container}>
+                <ModalContext.Provider value={contextValue}>
+                    <FocusLock
+                        autoFocus={!disableAutoFocus}
+                        disabled={disableFocusLock || !open}
+                        returnFocus={!disableRestoreFocus}
+                    >
+                        <CSSTransition
+                            classNames={backdropTransitions}
+                            appear={true}
+                            timeout={200}
+                            {...backdropProps}
+                            in={open}
+                            onExited={handleBackdropExited}
+                        >
+                            {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
+                            <div
+                                role='dialog'
+                                className={cn(styles.wrapper, wrapperClassName, {
+                                    [styles.hidden]: !open && exited,
+                                    [styles.wrapperFullscreen]: fullscreen,
+                                    [styles.hideBackdrop]: hideBackdrop,
+                                })}
+                                ref={mergeRefs([wrapperRef, ref])}
+                                onKeyDown={handleKeyDown}
+                                tabIndex={-1}
+                                data-test-id={dataTestId}
+                                onClick={handleBackdropClick}
+                            >
+                                <CSSTransition
+                                    appear={true}
+                                    timeout={200}
+                                    {...transitionProps}
+                                    in={open}
+                                    onEntered={handleEntered}
+                                    onExited={handleExited}
+                                >
+                                    <div
+                                        className={cn(styles.component, className, {
+                                            [styles.fullscreen]: fullscreen,
+                                        })}
+                                        ref={componentRef}
+                                    >
+                                        {children}
+                                    </div>
+                                </CSSTransition>
+                            </div>
+                        </CSSTransition>
+                    </FocusLock>
+                </ModalContext.Provider>
+            </Portal>
+        );
+    },
+);

@@ -41,6 +41,14 @@ describe('Button', () => {
 
             expect(getByTestId(dataTestId).tagName).toBe('BUTTON');
         });
+
+        it('should set rel="noreferrer noopener" if "href" and target="_blank" are passed', () => {
+            const { container } = render(<Button href='#' target='_blank' />);
+
+            const relAttr = container.firstElementChild?.getAttribute('rel');
+
+            expect(relAttr).toBe('noreferrer noopener');
+        });
     });
 
     describe('Classes tests', () => {

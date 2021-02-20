@@ -1,7 +1,7 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { select, text, boolean, number } from '@storybook/addon-knobs';
 import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Button } from "@alfalab/core-components-button/src";
+import { Button } from "@alfalab/core-components-button";
 import { Notification } from './Component';
 import { name, version } from '../package.json';
 
@@ -19,6 +19,7 @@ import { name, version } from '../package.json';
         title={text('title', 'Поздравляем, полный успех')}
         visible={boolean('visible', true)}
         hasCloser={boolean('hasCloser', true)}
+        actionButton={boolean('renderActionButton', false) ? <Button view="ghost" size="s">Action Button</Button> : null }
         offset={number('offset', 48)}
         onClose={() => {}}
     >

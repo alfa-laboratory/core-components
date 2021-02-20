@@ -77,15 +77,15 @@
   resolved "https://registry.yarnpkg.com/@alfalab/icons-flag/-/icons-flag-1.3.0.tgz#edd1b82a92954ed5339d51083d83ec41f7ff77fb"
   integrity sha512-kvVrwjKw6TZfbr9xaK7/e/QtkOAT5HzsWTI2rtvrIp0tzwnkQzp1cCHsiX/mt6h+YOixWfDGYbYEL2RKHFrBaw==
 
+"@alfalab/icons-glyph@^1.102.0":
+  version "1.102.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.102.0.tgz#5e403273e08bfce32719d571f9ab2cc121121546"
+  integrity sha512-s4Y/kxRsAyGWjseauTUSQdQrDVDkauyLeVY0pJ0pQ5fSZkaFxZIXUYG9E1OpNhRPOfU9lJdnwY67zJE7jjIIjQ==
+
 "@alfalab/icons-glyph@^1.26.0", "@alfalab/icons-glyph@^1.70.0", "@alfalab/icons-glyph@^1.71.0":
   version "1.99.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.99.0.tgz#6c39d80750644b739fa8c599344404697e8d4920"
   integrity sha512-iA23rxX/DEJYdzuG92GbORJLAg3HAQtL8xjg8n3wk573VLftJuPV8nQHPKtXSTX2V2bfH+LE0BRS6x2Y8F1TnQ==
-
-"@alfalab/icons-glyph@^1.96.0":
-  version "1.96.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.96.0.tgz#4fbf352d02f208c13119c1cc33cc94fb6632d90a"
-  integrity sha512-VmxKoyZLPiJhhOlbN7XQIoV1jMeJhyzj4KFd3r0evhThORhJpB8Tga0Ufcj7r7OVYXXHxllMFducWqiFT9Ji3Q==
 
 "@alfalab/icons-logotype@^1.4.0":
   version "1.8.0"
@@ -4095,7 +4095,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-transition-group@4.4.0", "@types/react-transition-group@^4.2.4":
+"@types/react-transition-group@^4.2.4":
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.0.tgz#882839db465df1320e4753e6e9f70ca7e9b4d46d"
   integrity sha512-/QfLHGpu+2fQOqQaXh8MG9q03bFENooTb/it4jr5kKaZlDQfWvjqWZg48AwzPVMBHlRuTRAY7hRHCEOXz5kV6w==
@@ -4886,10 +4886,10 @@ ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.3, ajv@^6.12.4, ajv@^6.12.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-alfa-ui-primitives@^2.105.0:
-  version "2.122.0"
-  resolved "https://registry.yarnpkg.com/alfa-ui-primitives/-/alfa-ui-primitives-2.122.0.tgz#d6973fa3af555a8666d99aa10bd19ced25803743"
-  integrity sha512-icVw928Js/o98/Y4FxqS2K/YME0A+IXzb1K6cPYycuWIrzagM0GiFSU2mgnw5k1Y3OcWhyYfwbrBeY/UsPaHKA==
+alfa-ui-primitives@^2.148.0:
+  version "2.148.0"
+  resolved "https://registry.yarnpkg.com/alfa-ui-primitives/-/alfa-ui-primitives-2.148.0.tgz#ab90d50528986641fa391f94d16150a88a4ca9e9"
+  integrity sha512-Scv+Y7S8sWTyz8y1UBGd4bFghKCW5lD14Gw8mEXv8Hxx/6ihshyvsGWJMUM8Xllx7SJe13S2cDDYnMIeZBI4yg==
 
 alphanum-sort@^1.0.0:
   version "1.0.2"
@@ -18050,11 +18050,6 @@ react-dev-utils@^9.0.0:
     strip-ansi "5.2.0"
     text-table "0.2.0"
 
-react-div-100vh@0.5.6:
-  version "0.5.6"
-  resolved "https://registry.yarnpkg.com/react-div-100vh/-/react-div-100vh-0.5.6.tgz#1d73866e96379433dea066d3e55026efd77f4b29"
-  integrity sha512-foNzJeBwiWp2Xs+pDhKyX2sP9O8UoGfYyz/D+GgZaHCKS3R+lbtJc8OdgMDr03txXgPVsxGEtmjKeDcLW30xwQ==
-
 react-docgen-typescript-loader@^3.6.0:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/react-docgen-typescript-loader/-/react-docgen-typescript-loader-3.7.2.tgz#45cb2305652c0602767242a8700ad1ebd66bbbbd"
@@ -18128,7 +18123,7 @@ react-fast-compare@^3.0.1, react-fast-compare@^3.2.0:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
 
-react-focus-lock@^2.1.0:
+react-focus-lock@^2.1.0, react-focus-lock@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/react-focus-lock/-/react-focus-lock-2.5.0.tgz#12e3a3940e897c26e2c2a0408cd25ea3c99b3709"
   integrity sha512-XLxj6uTXgz0US8TmqNU2jMfnXwZG0mH2r/afQqvPEaX6nyEll5LHVcEXk2XDUQ34RVeLPkO/xK5x6c/qiuSq/A==
@@ -19022,6 +19017,11 @@ resize-observer-polyfill@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
   integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
+
+resize-observer@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/resize-observer/-/resize-observer-1.0.0.tgz#4f8380b73b411af4ed7d916fe85a2d59900e71ef"
+  integrity sha512-D7UFShDm2TgrEDEyeg+/tTEbvOgPWlvPAfJtxiKp+qutu6HowmcGJKjECgGru0PPDIj3SAucn3ZPpOx54fF7DQ==
 
 resolve-cwd@^2.0.0:
   version "2.0.0"

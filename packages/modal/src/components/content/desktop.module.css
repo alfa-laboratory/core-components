@@ -1,0 +1,13 @@
+@import '../../vars.css';
+
+.s {
+    padding: var(--modal-s-content-paddings);
+}
+
+.m {
+    padding: var(--modal-m-content-paddings);
+}
+
+.l {
+    padding: var(--modal-l-content-paddings);
+}

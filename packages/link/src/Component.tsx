@@ -84,6 +84,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
                 className,
             ),
             'data-test-id': dataTestId,
+            rel: restProps.target === '_blank' ? 'noreferrer noopener' : undefined,
         };
 
         return (
