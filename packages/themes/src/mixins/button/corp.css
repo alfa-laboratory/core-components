@@ -2,14 +2,8 @@
 
 @define-mixin button-corp {
     /* core vars */
-    --color-light-border-key: #0b1f35;
     --color-light-specialbg-component: #eeeff1;
-
-    /* primary */
-    --button-primary-base-bg-color: var(--color-light-bg-accent);
-    --button-primary-hover-bg-color: color-mod(var(--color-light-bg-accent) shade(7%));
-    --button-primary-active-bg-color: color-mod(var(--color-light-bg-accent) shade(15%));
-    --button-primary-disabled-bg-color: color-mod(var(--color-light-bg-accent) alpha(30%));
+    --color-light-border-tertiary-inverted: #6d7986;
 
     /* secondary */
     --button-secondary-base-bg-color: transparent;

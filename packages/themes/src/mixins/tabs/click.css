@@ -2,6 +2,8 @@
 
 @define-mixin tabs-click {
     /* core vars */
+    --gap-s: 12px;
+    --gap-l: 20px;
     --font-family-styrene: 'Styrene UI', system-ui, -apple-system, 'Segoe UI', Roboto,
         'Helvetica Neue', Helvetica, sans-serif;
 
