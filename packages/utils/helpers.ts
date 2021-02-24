@@ -27,6 +27,11 @@ type CloseBrowserParams = {
     browser: Browser;
 };
 
+const CI = process.env.CI === 'true';
+
+const serverHost = CI ? 'https://digital.alfabank.ru' : 'http://digital';
+const playwrightUrl = `${serverHost}/playwright`;
+
 /**
  * Удаляем из названия теста лишнюю информацию, чтобы имя файла было короче
  */
@@ -80,7 +85,7 @@ export const matchHtml = async ({
     const pageHtml = await getPageHtml(page, css);
 
     const image = await axios.post(
-        'http://digital/playwright',
+        playwrightUrl,
         {
             data: pageHtml,
             screenshotOpts,
@@ -91,6 +96,12 @@ export const matchHtml = async ({
             headers: {
                 accept: 'application/json',
             },
+            auth: CI
+                ? {
+                      username: process.env.CI_USER_NAME as string,
+                      password: process.env.CI_USER_PASSWORD as string,
+                  }
+                : undefined,
         },
     );
 
