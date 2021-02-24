@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@alfalab/core-components-badge@^1.0.3":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-badge/-/core-components-badge-1.1.0.tgz#8147efbda2e45619f4c5a3997a1423d11cfdb812"
+  integrity sha512-+iqCpiHIm+q2Rsk0sJWyHbtVbshtW1T0Ux+YoouXdRutI//StIUp2hIkT4Ja8On8rxHScP0KlPD1FcZqiZpiEA==
+  dependencies:
+    classnames "^2.2.6"
+
 "@alfalab/core-components-form-control@^3.1.5":
   version "3.1.5"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components-form-control/-/core-components-form-control-3.1.5.tgz#c064abf1ad4a1f71b75206e7d40d4935e4098b58"
@@ -32,6 +39,17 @@
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components-mq/-/core-components-mq-1.0.0.tgz#7bb1eb6651962178d05b63afb5cf65cf14156a49"
   integrity sha512-8IzpRffooGggKdfIU82I5kv1mmlIE7u/PYLsjABINJ24+QI49WBHeGM4Rz7GnP+dVfBGxPWSaWMWSrzaUNdCyQ==
+
+"@alfalab/core-components-popover@^1.3.1", "@alfalab/core-components-popover@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-popover/-/core-components-popover-1.4.0.tgz#b32a9785a4ff574cd87e90e88250012ba356836e"
+  integrity sha512-Rt75fwznzyCMDTsq/UxAXbac8TmJS4V7D/YGReSU5t1VjDS/MQV7editwR+bYhtkcnmzTq/JjK+dKQuCKoBY5g==
+  dependencies:
+    "@alfalab/core-components-portal" "^1.4.0"
+    "@popperjs/core" "^2.3.3"
+    classnames "^2.2.6"
+    react-popper "^2.2.2"
+    react-transition-group "^4.3.0"
 
 "@alfalab/core-components-select@^4.3.1":
   version "4.4.0"
@@ -16409,7 +16427,25 @@ playwright-cli@^0.171.0:
     react "^17.0.1"
     react-dom "^17.0.1"
 
-playwright@=1.7.1, playwright@^1.7.1:
+playwright@1.8.1:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/playwright/-/playwright-1.8.1.tgz#0a26035d1b5f2c31d9a4da09d649b4992f989d1e"
+  integrity sha512-nmuiDEDwB/SdAxiZQS5pLqPS3XXN8OJ1LKvTSiAbJvu+AUf7f0RD7nuq9xB0C08Emd6stx9yBMhANvD12k/+GQ==
+  dependencies:
+    commander "^6.1.0"
+    debug "^4.1.1"
+    extract-zip "^2.0.1"
+    https-proxy-agent "^5.0.0"
+    jpeg-js "^0.4.2"
+    mime "^2.4.6"
+    pngjs "^5.0.0"
+    progress "^2.0.3"
+    proper-lockfile "^4.1.1"
+    proxy-from-env "^1.1.0"
+    rimraf "^3.0.2"
+    ws "^7.3.1"
+
+playwright@=1.7.1:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/playwright/-/playwright-1.7.1.tgz#841638811bc39eb2fed792ffaacbcc959a0aaf5e"
   integrity sha512-dOSWME42wDedJ/PXv8k0zG0Kxd6d6R2OKA51/05++Z2ISdA4N58gHlWqlVKPDkBog1MI6lu/KNt7QDn19AybWQ==
