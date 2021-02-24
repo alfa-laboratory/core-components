@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toast Snapshots tests should match snapshot when closed 1`] = `
+<body>
+  <div
+    alfa-portal-container=""
+  />
+  <div />
+</body>
+`;
+
+exports[`Toast Snapshots tests should match snapshot when open 1`] = `
+<body>
+  <div />
+  <div
+    alfa-portal-container=""
+  >
+    <div
+      class="component fixed toastPlate"
+    >
+      <div
+        class="contentWrap"
+      >
+        <div
+          class="content"
+        >
+          <div>
+            <div
+              class="children"
+            >
+              text
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Toast Snapshots tests should math snapshot when prop \`anchorElement\` is passed 1`] = `
+<body>
+  <div
+    alfa-portal-container=""
+  >
+    <div
+      class="component popover"
+      style="position: absolute; left: 0px; top: 0px; transition-duration: 150ms;"
+    >
+      <div
+        class="component"
+      >
+        <div
+          class="contentWrap"
+        >
+          <div
+            class="content"
+          >
+            <div>
+              <div
+                class="children"
+              >
+                text
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div />
+  <div />
+</body>
+`;
