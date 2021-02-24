@@ -61,13 +61,14 @@ export const matchOption = (option, inputValue) =>
                     collapseTagList={boolean('collapseTagList', true)}
                     moveInputToNewLine={boolean('moveInputToNewLine', true)}
                     options={options}
+                    multiple={boolean('multiple', true)}
                     block={boolean('block', true)}
+                    closeOnSelect={boolean('closeOnSelect', false)}
                     size={select('size', ['s', 'm', 'l'], 'l')}
                     disabled={boolean('disabled', false)}
                     error={text('error', '')}
                     success={boolean('success', false)}
                     hint={text('hint', '')}
-                    Arrow={boolean('Arrow', false) ? Arrow : undefined}
                     circularNavigation={boolean('circularNavigation', false)}
                     placeholder={text('placeholder', 'Элемент')}
                     label={text('label', '')}

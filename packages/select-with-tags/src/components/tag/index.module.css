@@ -22,6 +22,13 @@
 
 .tagNoClose {
     padding-right: var(--gap-m);
+    color: var(--color-blue-link-mobile);
+
+    &:hover:not(:disabled):not(:active) {
+        background-color: var(--tag-background-color-hover);
+        color: var(--color-blue-link-mobile);
+        border-color: var(--tag-border-color-disabled);
+    }
 }
 
 .tagContentWrap {
@@ -34,7 +41,8 @@
 
 .tagCross {
     height: 100%;
-    padding-right: var(--gap-xs);
+    margin-left: var(--gap-xs);
+    margin-right: var(--gap-m);
 
     &:hover {
         opacity: 0.7;

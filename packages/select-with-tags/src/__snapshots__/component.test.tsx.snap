@@ -26,7 +26,7 @@ exports[`SelectWithTags Display tests should match snapshot 1`] = `
               class="input"
             >
               <div
-                class="contentWrapper"
+                class="contentWrapper contentWrapperVertical"
               >
                 <input
                   aria-autocomplete="list"
@@ -82,7 +82,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
               class="input"
             >
               <div
-                class="contentWrapper hasTags"
+                class="contentWrapper contentWrapperVertical hasTags"
               >
                 <button
                   class="component xs checked tag"
@@ -95,14 +95,15 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                       H
                       <svg
                         class="tagCross"
-                        fill="currentColor"
                         focusable="false"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        width="24"
+                        height="18"
+                        version="1"
+                        viewBox="0 0 18 18"
+                        width="18"
                       >
                         <path
-                          d="M10.586 12L8 14.5 9.5 16l2.5-2.586L14.5 16l1.5-1.5-2.586-2.5L16 9.5 14.5 8 12 10.586 9.5 8 8 9.5l2.586 2.5z"
+                          d="M14.646 2.646L9 8.293 3.354 2.646l-.708.708L8.293 9l-5.647 5.646.708.708L9 9.707l5.646 5.647.708-.708L9.707 9l5.647-5.646z"
+                          fill="#FFF"
                         />
                       </svg>
                     </span>
@@ -119,14 +120,15 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                       Li
                       <svg
                         class="tagCross"
-                        fill="currentColor"
                         focusable="false"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        width="24"
+                        height="18"
+                        version="1"
+                        viewBox="0 0 18 18"
+                        width="18"
                       >
                         <path
-                          d="M10.586 12L8 14.5 9.5 16l2.5-2.586L14.5 16l1.5-1.5-2.586-2.5L16 9.5 14.5 8 12 10.586 9.5 8 8 9.5l2.586 2.5z"
+                          d="M14.646 2.646L9 8.293 3.354 2.646l-.708.708L8.293 9l-5.647 5.646.708.708L9 9.707l5.646 5.647.708-.708L9.707 9l5.647-5.646z"
+                          fill="#FFF"
                         />
                       </svg>
                     </span>
@@ -143,14 +145,15 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                       Na
                       <svg
                         class="tagCross"
-                        fill="currentColor"
                         focusable="false"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        width="24"
+                        height="18"
+                        version="1"
+                        viewBox="0 0 18 18"
+                        width="18"
                       >
                         <path
-                          d="M10.586 12L8 14.5 9.5 16l2.5-2.586L14.5 16l1.5-1.5-2.586-2.5L16 9.5 14.5 8 12 10.586 9.5 8 8 9.5l2.586 2.5z"
+                          d="M14.646 2.646L9 8.293 3.354 2.646l-.708.708L8.293 9l-5.647 5.646.708.708L9 9.707l5.646 5.647.708-.708L9.707 9l5.647-5.646z"
+                          fill="#FFF"
                         />
                       </svg>
                     </span>

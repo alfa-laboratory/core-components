@@ -13,7 +13,7 @@ export type TagComponent = FC<TagProps>;
 
 export type SelectWithTagsProps = Omit<
     BaseSelectProps,
-    'Field' | 'nativeSelect' | 'multiple' | 'autocomplete' | 'selected' | 'onChange'
+    'Field' | 'nativeSelect' | 'autocomplete' | 'selected' | 'onChange'
 > & {
     /**
      * Значение поля ввода

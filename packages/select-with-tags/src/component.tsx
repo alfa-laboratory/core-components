@@ -30,6 +30,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
             allowUnselect = true,
             collapseTagList = false,
             moveInputToNewLine = true,
+            multiple = true,
             emptyListPlaceholder = 'Ничего не найдено',
             transformCollapsedTagText,
             transformTagText,
@@ -117,7 +118,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
                 Optgroup={Optgroup}
                 OptionsList={OptionsList}
                 Arrow={Arrow}
-                multiple={true}
+                multiple={multiple}
                 updatePopover={updatePopover}
                 allowUnselect={allowUnselect}
                 showEmptyOptionsList={true}

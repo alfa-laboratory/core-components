@@ -1,18 +1,28 @@
 @import '../../../../vars/src/index.css';
 
+.component.l .contentWrapperVertical {
+    padding-top: var(--gap-l);
+    padding-bottom: var(--gap-l);
+}
+
+.component.m .contentWrapperVertical {
+    padding-top: var(--gap-s);
+    padding-bottom: var(--gap-s);
+}
+
+.component.s .contentWrapperVertical {
+    padding-top: var(--gap-xs);
+    padding-bottom: var(--gap-xs);
+}
+
 .component.l .contentWrapper {
-    padding: var(--gap-l) var(--gap-m);
-}
-
-.component.m .contentWrapper {
-    padding: var(--gap-m) var(--gap-m);
-}
-
-.component.s .contentWrapper {
-    padding: var(--gap-s) var(--gap-m);
+    padding-left: var(--gap-m);
+    padding-right: var(--gap-m);
 }
 
 .component .contentWrapper {
+    padding-left: var(--gap-s);
+    padding-right: var(--gap-s);
     display: flex;
     flex-wrap: wrap;
     width: 100%;
