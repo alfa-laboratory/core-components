@@ -28,7 +28,7 @@ jobs:
           run: yarn build-storybook
 
         - name: Serve storybook
-          run: yarn serve-storybook
+          run: yarn serve-storybook &
 
         - name: Run screenshots tests
           run: yarn test:screenshots
