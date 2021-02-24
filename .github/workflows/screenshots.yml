@@ -25,7 +25,7 @@ jobs:
         - uses: microsoft/playwright-github-action@v1
 
         - name: Run storybook
-          run: yarn start
+          run: yarn start:ci
 
         - name: Run screenshots tests
           run: yarn test:screenshots
