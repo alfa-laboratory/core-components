@@ -121,4 +121,42 @@ describe('IntlPhoneInput', () => {
 
         expect(document.activeElement).toBe(input);
     });
+
+    it('should call `onCountryChange` callback after country was changed', () => {
+        const onCountryChange = jest.fn();
+        const { container, getAllByRole } = render(
+            <IntlPhoneInput
+                value=''
+                onChange={() => null}
+                onCountryChange={onCountryChange}
+                dataTestId={testId}
+            />,
+        );
+        const flagComponent = container.querySelector('.flagIcon');
+
+        fireEvent.click(flagComponent as HTMLSpanElement);
+        fireEvent.click(getAllByRole('option')[0]);
+
+        expect(onCountryChange).toBeCalledWith('AU');
+        expect(onCountryChange).toHaveBeenCalledTimes(1);
+    });
+
+    it('should call `onCountryChange` callback after input was changed', () => {
+        const onCountryChange = jest.fn();
+        const { getByTestId } = render(
+            <IntlPhoneInput
+                value=''
+                onChange={() => null}
+                dataTestId={testId}
+                onCountryChange={onCountryChange}
+                defaultCountryIso2='ru'
+            />,
+        );
+        const input = getByTestId(testId);
+
+        fireEvent.change(input, { target: { value: '+998 12 345 67 89' } });
+
+        expect(onCountryChange).toBeCalledWith('UZ');
+        expect(onCountryChange).toHaveBeenCalledTimes(1);
+    });
 });

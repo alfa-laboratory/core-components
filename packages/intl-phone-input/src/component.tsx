@@ -33,6 +33,11 @@ export type IntlPhoneInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'
          * Дефолтный код страны
          */
         defaultCountryIso2?: string;
+
+        /**
+         * Обработчик события изменения страны
+         */
+        onCountryChange?: (countryCode: CountryCode) => void;
     };
 
 export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
@@ -44,13 +49,14 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             className,
             value,
             onChange,
+            onCountryChange,
             defaultCountryIso2 = 'ru',
             preventFlip,
             ...restProps
         },
         ref,
     ) => {
-        const [countryIso2, setCountryIso2] = useState(defaultCountryIso2);
+        const [countryIso2, setCountryIso2] = useState(defaultCountryIso2.toLowerCase());
 
         const inputRef = useRef<HTMLInputElement>(null);
         const inputWrapperRef = useRef<HTMLDivElement>(null);
@@ -97,6 +103,11 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                         if (country.priority === undefined) {
                             setValue(inputValue);
                             setCountryIso2(country.iso2);
+
+                            if (onCountryChange) {
+                                onCountryChange(country.iso2.toUpperCase() as CountryCode);
+                            }
+
                             break;
                         }
 
@@ -104,17 +115,27 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                         if (countryIso2 === country.iso2) {
                             setValue(inputValue);
                             setCountryIso2(country.iso2);
+
+                            if (onCountryChange) {
+                                onCountryChange(country.iso2.toUpperCase() as CountryCode);
+                            }
+
                             break;
                             // Если не совпадают - выбираем по приоритету
                         } else if (country.priority === 0) {
                             setValue(inputValue);
                             setCountryIso2(country.iso2);
+
+                            if (onCountryChange) {
+                                onCountryChange(country.iso2.toUpperCase() as CountryCode);
+                            }
+
                             break;
                         }
                     }
                 }
             },
-            [countryIso2, setValue],
+            [countryIso2, setValue, onCountryChange],
         );
 
         const loadPhoneUtils = useCallback(() => {
@@ -156,9 +177,13 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                         inputRef.current.focus();
                         inputRef.current.setSelectionRange(inputValue.length, inputValue.length);
                     }
+
+                    if (onCountryChange) {
+                        onCountryChange(country.iso2.toUpperCase() as CountryCode);
+                    }
                 }
             },
-            [setCountryByIso2],
+            [setCountryByIso2, onCountryChange],
         );
 
         useEffect(() => {
