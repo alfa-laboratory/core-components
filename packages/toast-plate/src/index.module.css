@@ -23,7 +23,6 @@
     min-height: 56px;
     padding: var(--gap-m);
     background-color: var(--toast-plate-bg-color);
-    box-shadow: var(--shadow-s);
 
     &.hasCloser {
         /* 2×16 + 24 */

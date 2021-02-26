@@ -1,0 +1,42 @@
+@import '../../vars.css';
+
+.header {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    transition: box-shadow 0.2s ease, background 0.2s ease;
+    background: var(--modal-header-background);
+}
+
+.highlighted {
+    background: var(--modal-header-highlight-background);
+    box-shadow: var(--modal-header-highlight-box-shadow);
+}
+
+.onlyCloser {
+    padding: 0;
+    min-height: var(--modal-closer-size);
+}
+
+.sticky {
+    position: sticky;
+    top: calc(var(--modal-vertical-padding) * -1);
+}
+
+.fullscreen.sticky {
+    top: 0;
+}
+
+.content {
+    flex-grow: 1;
+    margin-right: var(--gap-m);
+    word-break: break-word;
+}
+
+.withTitle {
+    @mixin headline_small;
+
+    margin-top: var(--gap-xs);
+}

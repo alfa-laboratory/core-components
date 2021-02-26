@@ -1,6 +1,12 @@
 @import '../../../../vars/src/index.css';
 
 @define-mixin confirmation-click {
+    /* core vars */
+    --color-light-bg-secondary: #f3f4f5;
+    --font-family-styrene: 'Styrene UI', system-ui, -apple-system, 'Segoe UI', Roboto,
+        'Helvetica Neue', Helvetica, sans-serif;
+
+    /* theme */
     --confirmation-title-font-size: 24px;
     --confirmation-title-font-weight: 500;
     --confirmation-title-font-family: var(--font-family-styrene);

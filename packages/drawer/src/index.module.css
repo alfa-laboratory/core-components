@@ -1,0 +1,53 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --drawer-width: 500px;
+}
+
+.component {
+    width: var(--drawer-width);
+    right: 0;
+    top: 0;
+    will-change: transform;
+}
+
+.appear,
+.enter {
+    transform: translateX(100%);
+}
+
+.appearActive,
+.enterActive {
+    transition: transform 400ms ease-in-out 200ms;
+    transform: translateX(0);
+}
+
+.exit {
+    transform: translateX(0);
+}
+
+.exitActive,
+.exitDone {
+    transition: transform 400ms ease-in-out;
+    transform: translateX(100%);
+}
+
+.backdropAppear,
+.backdropEnter {
+    background-color: var(--modal-backdrop-hidden-background);
+}
+
+.backdropAppearActive,
+.backdropEnterActive {
+    transition: background 200ms ease-in-out;
+    background-color: var(--modal-backdrop-visible-background);
+}
+
+.backdropExit {
+    background-color: var(--modal-backdrop-visible-background);
+}
+
+.backdropExitActive {
+    transition: background 200ms ease-in-out 400ms;
+    background-color: var(--modal-backdrop-hidden-background);
+}

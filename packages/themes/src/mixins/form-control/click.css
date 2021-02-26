@@ -3,8 +3,6 @@
 @define-mixin form-control-click {
     /* core vars */
     --color-light-bg-tertiary: #e7e9eb;
-    --gap-s: 12px;
-    --gap-m: 16px;
 
     /* theme */
     --form-control-border-radius: 4px;

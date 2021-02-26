@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-badge@2.0.1...@alfalab/core-components-badge@2.1.0) (2021-02-20)
+
+
+### Features
+
+* updated design tokens ([#516](https://github.com/alfa-laboratory/core-components/issues/516)) ([ef66b65](https://github.com/alfa-laboratory/core-components/commit/ef66b65bb35b2ef06292b8da709ccc335eb44735))
+
+
+
+
+
 ## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-badge@2.0.0...@alfalab/core-components-badge@2.0.1) (2021-02-18)
 
 

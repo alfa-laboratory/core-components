@@ -1,3 +1,56 @@
+## [11.6.2](https://github.com/alfa-laboratory/core-components/compare/v11.6.1...v11.6.2) (2021-02-20)
+
+
+### Bug Fixes
+
+* **select:** recalc height on options changed ([#536](https://github.com/alfa-laboratory/core-components/issues/536)) ([4c27c19](https://github.com/alfa-laboratory/core-components/commit/4c27c197882256e507ec83678da4811f6285c2fe))
+
+## [11.6.1](https://github.com/alfa-laboratory/core-components/compare/v11.6.0...v11.6.1) (2021-02-20)
+
+
+### Bug Fixes
+
+* **themes:** lost core vars ([#534](https://github.com/alfa-laboratory/core-components/issues/534)) ([54a23c9](https://github.com/alfa-laboratory/core-components/commit/54a23c90997c4aa90944d0391f2aab27f799353d))
+
+# [11.6.0](https://github.com/alfa-laboratory/core-components/compare/v11.5.0...v11.6.0) (2021-02-19)
+
+
+### Features
+
+* **drawer:** add component ([#497](https://github.com/alfa-laboratory/core-components/issues/497)) ([5943188](https://github.com/alfa-laboratory/core-components/commit/594318886d581e6afca99fcebe9088c222aa3d52))
+* **modal:** reinvent modal ([#489](https://github.com/alfa-laboratory/core-components/issues/489)) ([06cb8ba](https://github.com/alfa-laboratory/core-components/commit/06cb8ba7f7a09445c04ab2a9871a86c1abf4a79c))
+
+# [11.5.0](https://github.com/alfa-laboratory/core-components/compare/v11.4.0...v11.5.0) (2021-02-19)
+
+
+### Features
+
+* **select-with-tags:** added collapsed tag list ([#511](https://github.com/alfa-laboratory/core-components/issues/511)) ([fe1d551](https://github.com/alfa-laboratory/core-components/commit/fe1d551385e9122c205bbe7a679f02a6eb376569))
+
+# [11.4.0](https://github.com/alfa-laboratory/core-components/compare/v11.3.2...v11.4.0) (2021-02-19)
+
+
+### Features
+
+* **button:** add rel='noopener noreferrer' if target='blank' ([#522](https://github.com/alfa-laboratory/core-components/issues/522)) ([a1da871](https://github.com/alfa-laboratory/core-components/commit/a1da87118a32195ba844c239f5a0f73e164faa6f))
+* **link:** set rel='noopener noreferrer' if target='_blank' ([#520](https://github.com/alfa-laboratory/core-components/issues/520)) ([08c556e](https://github.com/alfa-laboratory/core-components/commit/08c556ecc0944d121b23566ae54319a1a33899ba)), closes [#519](https://github.com/alfa-laboratory/core-components/issues/519)
+* **themes:** list click theme ([#528](https://github.com/alfa-laboratory/core-components/issues/528)) ([e54ad60](https://github.com/alfa-laboratory/core-components/commit/e54ad605a9f873b06e0fe984bc87bcbb810a2541))
+
+## [11.3.2](https://github.com/alfa-laboratory/core-components/compare/v11.3.1...v11.3.2) (2021-02-19)
+
+
+### Bug Fixes
+
+* **notification:** fix css var name ([#526](https://github.com/alfa-laboratory/core-components/issues/526)) ([6bbc851](https://github.com/alfa-laboratory/core-components/commit/6bbc851fba023309292a89f0152fbe0603a955a1))
+* **select:** min width bug ([#524](https://github.com/alfa-laboratory/core-components/issues/524)) ([cdd686b](https://github.com/alfa-laboratory/core-components/commit/cdd686ba0780fdde982fff6629afd2fa798f9479))
+
+## [11.3.1](https://github.com/alfa-laboratory/core-components/compare/v11.3.0...v11.3.1) (2021-02-19)
+
+
+### Bug Fixes
+
+* **toast-plate:** polish toast-plate themes ([#527](https://github.com/alfa-laboratory/core-components/issues/527)) ([57d73d4](https://github.com/alfa-laboratory/core-components/commit/57d73d47b089997b2cc0d85e37b70f068c945e50))
+
 # [11.3.0](https://github.com/alfa-laboratory/core-components/compare/v11.2.0...v11.3.0) (2021-02-18)
 
 

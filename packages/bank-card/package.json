@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-bank-card",
-    "version": "3.2.1",
+    "version": "3.2.3",
     "description": "Bank card component",
     "keywords": [],
     "license": "ISC",
@@ -17,7 +17,7 @@
         "react-dom": "^16.9.0"
     },
     "dependencies": {
-        "@alfalab/core-components-masked-input": "^3.2.1",
+        "@alfalab/core-components-masked-input": "^3.2.3",
         "@alfalab/icons-classic": "^1.7.0",
         "@alfalab/icons-glyph": "^1.26.0",
         "@alfalab/icons-logotype": "^1.4.0",

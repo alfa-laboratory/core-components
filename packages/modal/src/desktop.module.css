@@ -1,0 +1,18 @@
+@import './vars.css';
+@import './vars.css';
+
+.component {
+    border-radius: var(--modal-border-radius);
+}
+
+.s {
+    width: var(--modal-s-width);
+}
+
+.m {
+    width: var(--modal-m-width);
+}
+
+.l {
+    width: var(--modal-l-width);
+}

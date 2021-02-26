@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@2.3.1...@alfalab/core-components-vars@2.3.2) (2021-02-20)
+
+**Note:** Version bump only for package @alfalab/core-components-vars
+
+
+
+
+
+## [2.3.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@2.3.0...@alfalab/core-components-vars@2.3.1) (2021-02-19)
+
+
+### Bug Fixes
+
+* **toast-plate:** polish toast-plate themes ([#527](https://github.com/alfa-laboratory/core-components/issues/527)) ([57d73d4](https://github.com/alfa-laboratory/core-components/commit/57d73d47b089997b2cc0d85e37b70f068c945e50))
+
+
+
+
+
 # [2.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@2.2.0...@alfalab/core-components-vars@2.3.0) (2021-02-18)
 
 

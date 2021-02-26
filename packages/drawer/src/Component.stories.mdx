@@ -1,0 +1,183 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { Button } from '../../button/src';
+import { Typography } from '../../typography/src';
+
+import { Drawer, DrawerContext } from './Component';
+
+import { name, version } from '../package.json';
+
+
+<Meta
+    title='Компоненты'
+    component={Drawer}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+<!-- Canvas -->
+
+export const Header = () => {
+    const { headerHighlighted, onClose, setHasHeader } = React.useContext(DrawerContext);
+    React.useEffect(() => setHasHeader(true), [setHasHeader]);
+    return (
+        <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            padding: '16px 32px',
+            background: '#feebea',
+            position: 'sticky',
+            top: 0,
+        }}>
+            <Typography.Title view="small">
+                {headerHighlighted ? 'Шапка при скролле' : 'Шапка'}
+            </Typography.Title>
+            <Button size="xs" onClick={onClose}>Закрыть</Button>
+        </div>
+    );
+}
+
+export const Footer = () => {
+    const { setHasFooter } = React.useContext(DrawerContext);
+    React.useEffect(() => setHasFooter(true), [setHasFooter]);
+    return (
+        <div style={{
+            padding: '16px 32px',
+            background: '#feebea',
+        }}>
+            <Typography.Title view="small">
+                Футер
+            </Typography.Title>
+        </div>
+    );
+}
+
+export const ContentWrapper = ({ children }) => {
+    const { contentRef } = React.useContext(DrawerContext);
+    return (
+        <div
+            style={{ padding: '16px 32px' }}
+            ref={contentRef}
+        >
+        {children}
+        </div>
+    )
+}
+
+export const Content = () => {
+    const [showMore, setShowMore] = React.useState(false);
+    const Text = () => (
+        <p>
+            Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка.
+            Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов,
+            потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов,
+            полученных преступным путем, и финансированию терроризма» — 115-ФЗ
+        </p>
+    );
+    return (
+        <>
+            <Text/>
+            {showMore && (
+                <>
+                    <Text/>
+                    <Text/>
+                    <Text/>
+                </>
+            )}
+            <Button size="xs" type="button" onClick={() => setShowMore(!showMore)}>
+                {showMore ? 'Hide' : 'Show'} more
+            </Button>
+        </>
+    );
+};
+
+<Story name='Drawer'>
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        const handleModalOpen = () => setOpen(!open);
+        return (
+            <React.Fragment>
+                <Button size="xs" onClick={handleModalOpen}>Open Drawer</Button>
+                <Drawer
+                    open={open}
+                    onClose={handleModalOpen}
+                    keepMounted={boolean('keepMounted', false)}
+                >
+                    <ContentWrapper>
+                        <Content/>
+                    </ContentWrapper>
+                </Drawer>
+            </React.Fragment>
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Drawer'
+    version={version}
+    package='@alfalab/core-components-drawer'
+    stage={1}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=16215%3A0'
+/>
+
+```tsx
+import { Drawer } from '@alfalab/core-components-drawer';
+```
+
+## Компонент Drawer
+
+Компонент, представляющим собой заготовку для реализации сайд-панелей. В основе компонента лежит `Modal`.
+
+<Props of={Drawer} />
+
+<Preview>
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        const handleModalOpen = () => setOpen(!open);
+        return (
+            <React.Fragment>
+                <Button size="xs" onClick={handleModalOpen}>Open Drawer</Button>
+                <Drawer
+                    open={open}
+                    onClose={handleModalOpen}
+                >
+                    <ContentWrapper>
+                        <Content/>
+                    </ContentWrapper>
+                </Drawer>
+            </React.Fragment>
+        );
+    })}
+</Preview>
+
+
+## Кастомные шапка и футер
+
+<Preview>
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        const handleModalOpen = () => setOpen(!open);
+        return (
+            <React.Fragment>
+                <Button size="xs" onClick={handleModalOpen}>Open Drawer</Button>
+                <Drawer
+                    open={open}
+                    onClose={handleModalOpen}
+                >
+                    <Header />
+                    <ContentWrapper>
+                        <Content/>
+                    </ContentWrapper>
+                    <Footer />
+                </Drawer>
+            </React.Fragment>
+        );
+    })}
+</Preview>
+
