@@ -1,4 +1,5 @@
 import { Meta, Story, Preview, Props, Description, Title } from '@storybook/addon-docs/blocks';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 import { action } from '@storybook/addon-actions';
 import { text, select, boolean } from '@storybook/addon-knobs';
 
@@ -11,9 +12,14 @@ import { name, version } from '../package.json';
     parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
-<Title>
-    IntlPhoneInput ({name}@{version})
-</Title>
+<!-- Docs -->
+
+<ComponentHeader
+    name='IntlPhoneInput'
+    version={version}
+    package='@alfalab/core-components-intl-phone-input'
+    stage={1}
+/>
 
 ```tsx
 import { IntlPhoneInput } from '@alfalab/core-components-intl-phone-input';
