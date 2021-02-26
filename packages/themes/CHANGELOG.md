@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.3.0...@alfalab/core-components-themes@3.3.1) (2021-02-20)
+
+
+### Bug Fixes
+
+* **themes:** lost core vars ([#534](https://github.com/alfa-laboratory/core-components/issues/534)) ([54a23c9](https://github.com/alfa-laboratory/core-components/commit/54a23c90997c4aa90944d0391f2aab27f799353d))
+
+
+
+
+
 # [3.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.2.0...@alfalab/core-components-themes@3.3.0) (2021-02-19)
 
 

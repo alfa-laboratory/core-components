@@ -3,7 +3,7 @@
 @define-mixin link-click {
     /* core vars */
     --color-light-text-primary: #0b1f35;
-    --color-light-text-secondary: #6d7986;
+    --color-light-text-secondary: #546272;
     --color-light-text-link: #007aff;
 
     /* primary */

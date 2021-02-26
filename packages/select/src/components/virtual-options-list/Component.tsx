@@ -76,7 +76,7 @@ export const VirtualOptionsList = ({
 
     useVisibleOptions({
         visibleOptions,
-        invalidate: rowVirtualizer.virtualItems.length,
+        invalidate: listRef.current,
         listRef,
         styleTargetRef: parentRef,
         open,
