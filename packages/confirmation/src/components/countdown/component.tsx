@@ -49,6 +49,7 @@ export type CountdownProps = {
     phone?: string;
     className?: string;
     alignContent: string;
+    noAttemptsLeftMessage?: string;
     onCountdownFinished?: () => void;
     onRepeatSms: (event: MouseEvent) => void;
 };
@@ -58,9 +59,10 @@ export const Countdown: FC<CountdownProps> = ({
     phone = '',
     hasPhoneMask = true,
     alignContent,
+    className,
+    noAttemptsLeftMessage,
     onRepeatSms,
     onCountdownFinished,
-    className,
 }) => {
     const requestId = useRef(0);
 
@@ -121,7 +123,10 @@ export const Countdown: FC<CountdownProps> = ({
                 </div>
             )}
 
-            {repeatSmsButtonShow ? (
+            {/* eslint-disable-next-line no-nested-ternary */}
+            {noAttemptsLeftMessage ? (
+                <div className={styles.noAttemptsLeftMessage}>{noAttemptsLeftMessage}</div>
+            ) : repeatSmsButtonShow ? (
                 <Button
                     size='s'
                     view='secondary'

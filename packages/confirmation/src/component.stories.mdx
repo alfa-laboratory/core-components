@@ -58,7 +58,8 @@ import { Select } from '../../select/src/Component';
                     options={[
                         { key: 'success', content: 'Успешный сценарий'},
                         { key: 'error', content: 'Сценарий с ошибкой'},
-                        { key: 'fatal', content: 'Сценарий с критичной ошибкой'}
+                        { key: 'fatal', content: 'Сценарий с критичной ошибкой'},
+                        { key: 'attempts-left', content: 'Сценарий, когда кончились попытки запроса смс'}
                     ]}
                     onChange={({ selected }) => {
                         setVariant(selected)
@@ -126,6 +127,26 @@ import { Select } from '../../select/src/Component';
                                 onInputChange={({ code }) => setCode('fatal', code)}
                                 alignContent={alignContent}
                                 requiredCharAmount={requiredCharAmount}
+                            />
+                        </div>
+                    }
+                    {variant.key === 'attempts-left' &&
+                        <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
+                            <Confirmation
+                                phone={phone}
+                                onInputFinished={() => handleSubmit('attempts-left')}
+                                onSmsRetryClick={() => handleSmsRetryClick('attempts-left')}
+                                codeSending={codeSending['attempts-left']}
+                                codeChecking={codeChecking['attempts-left']}
+                                error={!!error['attempts-left']}
+                                errorText={error['attempts-left']}
+                                errorIsFatal={true}
+                                countdownDuration={countdownDuration}
+                                code={value['attempts-left']}
+                                onInputChange={({ code }) => setCode('attempts-left', code)}
+                                alignContent={alignContent}
+                                requiredCharAmount={requiredCharAmount}
+                                noAttemptsLeftMessage="Не осталось попыток запроса кода"
                             />
                         </div>
                     }

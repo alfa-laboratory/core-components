@@ -118,6 +118,12 @@ export type ConfirmationProps = {
     alignContent?: ContentAlign;
 
     /**
+     * Сообщение, если не осталось попыток ввода кода.
+     * Кнопка повтороной отправки смс при этом скрывается.
+     */
+    noAttemptsLeftMessage?: string;
+
+    /**
      * Обработчик события завершения ввода кода подписания
      */
     onInputFinished: ({ code }: { code: string }) => void;
@@ -172,6 +178,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
             buttonErrorText = 'Понятно',
             buttonRetryText = 'Попробовать заново',
             alignContent = 'left',
+            noAttemptsLeftMessage,
             onInputFinished,
             onSmsRetryClick,
             onActionWithFatalError,
@@ -199,8 +206,11 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
 
         const handleSmsRetryFromHintClick = useCallback(() => {
             setShowHint(false);
-            onSmsRetryClick();
-        }, [onSmsRetryClick]);
+
+            if (!noAttemptsLeftMessage) {
+                onSmsRetryClick();
+            }
+        }, [onSmsRetryClick, noAttemptsLeftMessage]);
 
         const handleCountdownFinished = useCallback(() => {
             if (onCountdownFinished) {
@@ -255,6 +265,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                         codeCheckingText={codeCheckingText}
                         codeSendingText={codeSendingText}
                         alignContent={alignContent}
+                        noAttemptsLeftMessage={noAttemptsLeftMessage}
                         onInputFinished={onInputFinished}
                         onInputChange={onInputChange}
                         onSmsRetryClick={handleSmsRetryClick}
