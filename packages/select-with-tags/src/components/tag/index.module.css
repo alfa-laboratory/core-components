@@ -22,11 +22,11 @@
 
 .tagNoClose {
     padding-right: var(--gap-m);
-    color: var(--color-blue-link-mobile);
+    color: var(--color-light-text-link);
 
     &:hover:not(:disabled):not(:active) {
         background-color: var(--tag-background-color-hover);
-        color: var(--color-blue-link-mobile);
+        color: var(--color-light-text-link);
         border-color: var(--tag-border-color-disabled);
     }
 }
