@@ -103,12 +103,17 @@
 }
 
 .component.s .label {
-    top: 4px;
-    left: 16px;
+    top: 6px;
+    left: 12px;
 }
 
 .component.m .label {
-    top: 6px;
+    top: 8px;
+    left: 12px;
+}
+
+.component.l .label {
+    top: 14px;
     left: 16px;
 }
 
