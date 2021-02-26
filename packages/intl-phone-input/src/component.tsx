@@ -93,6 +93,15 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             [onChange, countryIso2],
         );
 
+        const handleCountryChange = useCallback(
+            (countryCode: string) => {
+                if (onCountryChange) {
+                    onCountryChange(countryCode.toUpperCase() as CountryCode);
+                }
+            },
+            [onCountryChange],
+        );
+
         const setCountryByDialCode = useCallback(
             inputValue => {
                 for (let i = 0; i < countries.length; i++) {
@@ -103,10 +112,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                         if (country.priority === undefined) {
                             setValue(inputValue);
                             setCountryIso2(country.iso2);
-
-                            if (onCountryChange) {
-                                onCountryChange(country.iso2.toUpperCase() as CountryCode);
-                            }
+                            handleCountryChange(country.iso2);
 
                             break;
                         }
@@ -115,27 +121,21 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                         if (countryIso2 === country.iso2) {
                             setValue(inputValue);
                             setCountryIso2(country.iso2);
-
-                            if (onCountryChange) {
-                                onCountryChange(country.iso2.toUpperCase() as CountryCode);
-                            }
+                            handleCountryChange(country.iso2);
 
                             break;
                             // Если не совпадают - выбираем по приоритету
                         } else if (country.priority === 0) {
                             setValue(inputValue);
                             setCountryIso2(country.iso2);
-
-                            if (onCountryChange) {
-                                onCountryChange(country.iso2.toUpperCase() as CountryCode);
-                            }
+                            handleCountryChange(country.iso2);
 
                             break;
                         }
                     }
                 }
             },
-            [countryIso2, setValue, onCountryChange],
+            [countryIso2, setValue, handleCountryChange],
         );
 
         const loadPhoneUtils = useCallback(() => {
@@ -178,12 +178,10 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                         inputRef.current.setSelectionRange(inputValue.length, inputValue.length);
                     }
 
-                    if (onCountryChange) {
-                        onCountryChange(country.iso2.toUpperCase() as CountryCode);
-                    }
+                    handleCountryChange(country.iso2);
                 }
             },
-            [setCountryByIso2, onCountryChange],
+            [setCountryByIso2, handleCountryChange],
         );
 
         useEffect(() => {
