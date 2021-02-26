@@ -6,6 +6,7 @@
     --confirmation-title-font-weight: 700;
     --confirmation-title-font-family: var(--font-family-system);
     --confirmation-title-color: var(--color-light-text-primary);
+    --confirmation-title-font-feature-settings: normal;
 
     /* text */
     --confirmation-text-font-size: 14px;
@@ -31,6 +32,7 @@
     font-weight: var(--confirmation-title-font-weight);
     font-family: var(--confirmation-title-font-family);
     color: var(--confirmation-title-color);
+    font-feature-settings: var(--confirmation-title-font-feature-settings);
 }
 
 @define-mixin _confirmation-text {
