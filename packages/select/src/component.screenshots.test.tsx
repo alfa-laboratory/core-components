@@ -1,11 +1,4 @@
-import {
-    screenshotTesting,
-    getComponentScreenshotTestCases,
-    createStorybookUrl,
-    matchHtml,
-    closeBrowser,
-    openBrowserPage,
-} from '../../utils';
+import { screenshotTesting, getComponentScreenshotTestCases } from '../../utils';
 
 const sizesBlockDisabledCases = getComponentScreenshotTestCases({
     componentName: 'select',
@@ -64,9 +57,9 @@ describe(
     }),
 );
 
-/**
- * Пока удалил этот тест, так как сейчас есть различие между скриншотами
- */
+/* eslint-disable */
+// Пока удалил этот тест, так как сейчас есть различие между скриншотами
+
 // describe('Select | interactions tests', () => {
 //     test('Open select, select one item', async () => {
 //         const pageUrl = createStorybookUrl({ componentName: 'select' });
