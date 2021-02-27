@@ -28,6 +28,7 @@ export type SignConfirmationProps = {
     hasSmsCountdown: boolean;
     inputRef: MutableRefObject<HTMLInputElement | null>;
     alignContent: ContentAlign;
+    disableSmsRepeat: boolean;
     onInputFinished: ({ code }: { code: string }) => void;
     onInputChange: ({ code }: { code: string }) => void;
     onSmsRetryClick: (event: React.MouseEvent) => void;
@@ -53,6 +54,7 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
     codeCheckingText,
     codeSendingText,
     alignContent,
+    disableSmsRepeat,
     onInputFinished,
     onInputChange,
     onSmsRetryClick,
@@ -132,6 +134,7 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
                         hasPhoneMask={hasPhoneMask}
                         className={styles.countdown}
                         alignContent={alignContent}
+                        disableSmsRepeat={disableSmsRepeat}
                         onRepeatSms={onSmsRetryClick}
                         onCountdownFinished={onCountdownFinished}
                     />

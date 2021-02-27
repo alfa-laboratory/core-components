@@ -52,6 +52,7 @@ import { Select } from '../../select/src/Component';
         const phone = '+7 000 000 00 42';
         const countdownDuration = 10000;
         const requiredCharAmount = number('requiredCharAmount', 5);
+        const disableSmsRepeat = boolean('disableSmsRepeat', false);
         return (
             <div>
                 <Select
@@ -89,6 +90,7 @@ import { Select } from '../../select/src/Component';
                                 onInputChange={({ code }) => setCode('success', code)}
                                 alignContent={alignContent}
                                 requiredCharAmount={requiredCharAmount}
+                                disableSmsRepeat={disableSmsRepeat}
                             />
                         </div>
                     }

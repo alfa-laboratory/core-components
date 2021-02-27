@@ -120,6 +120,11 @@ export type ConfirmationProps = {
     alignContent?: ContentAlign;
 
     /**
+     * Управление возможностью перезапросить код
+     */
+    disableSmsRepeat?: boolean;
+
+    /**
      * Обработчик события завершения ввода кода подписания
      */
     onInputFinished: ({ code }: { code: string }) => void;
@@ -174,6 +179,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
             buttonErrorText = 'Понятно',
             buttonRetryText = 'Попробовать заново',
             alignContent = 'left',
+            disableSmsRepeat = false,
             onInputFinished,
             onSmsRetryClick,
             onActionWithFatalError,
@@ -197,7 +203,8 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
 
         const nonFatalError = errorIsFatal ? '' : errorText;
 
-        const shouldShowHintLink = countdownFinished && !codeChecking && retries > 0;
+        const shouldShowHintLink =
+            disableSmsRepeat || (countdownFinished && !codeChecking && retries > 0);
 
         const inputRef = useRef<HTMLInputElement>(null);
 
@@ -269,6 +276,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                         codeCheckingText={codeCheckingText}
                         codeSendingText={codeSendingText}
                         alignContent={alignContent}
+                        disableSmsRepeat={disableSmsRepeat}
                         onInputFinished={onInputFinished}
                         onInputChange={onInputChange}
                         onSmsRetryClick={handleSmsRetryClick}
@@ -328,7 +336,6 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                         </div>
 
                         <Button
-                            className={styles.repeatButton}
                             size='s'
                             view='secondary'
                             block={true}

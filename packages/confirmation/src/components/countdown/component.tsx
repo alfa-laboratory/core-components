@@ -48,6 +48,7 @@ export type CountdownProps = {
     phone?: string;
     className?: string;
     alignContent: string;
+    disableSmsRepeat: boolean;
     onCountdownFinished?: () => void;
     onRepeatSms: (event: MouseEvent) => void;
 };
@@ -57,6 +58,7 @@ export const Countdown: FC<CountdownProps> = ({
     phone,
     hasPhoneMask = true,
     alignContent,
+    disableSmsRepeat,
     onRepeatSms,
     onCountdownFinished,
     className,
@@ -97,16 +99,34 @@ export const Countdown: FC<CountdownProps> = ({
     }, [duration, onCountdownFinished]);
 
     useEffect(() => {
-        start.current = Date.now();
-
-        requestId.current = window.requestAnimationFrame(updateProgress);
+        if (!disableSmsRepeat) {
+            start.current = Date.now();
+            requestId.current = window.requestAnimationFrame(updateProgress);
+        }
 
         return () => {
-            window.cancelAnimationFrame(requestId.current);
+            if (requestId.current) {
+                window.cancelAnimationFrame(requestId.current);
+                requestId.current = 0;
+            }
         };
-    }, [updateProgress, repeatSmsButtonShow]);
+    }, [updateProgress, repeatSmsButtonShow, disableSmsRepeat]);
 
     const progress = timePassed / duration;
+
+    if (disableSmsRepeat) {
+        return (
+            <div className={cn(styles.component, styles[alignContent], className)}>
+                {phone && (
+                    <div>
+                        Код отправлен на
+                        {' '}
+                        {hasPhoneMask ? formatMaskedPhone(phone) : phone}
+                    </div>
+                )}
+            </div>
+        );
+    }
 
     return (
         <div className={cn(styles.component, styles[alignContent], className)}>
