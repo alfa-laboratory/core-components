@@ -184,8 +184,8 @@
         "url-loader": "^4.1.1"
     },
     "peerDependencies": {
-        "react": "^16.9.0",
-        "react-dom": "^16.9.0"
+        "react": "^16.9.0 || ^17.0.1",
+        "react-dom": "^16.9.0 || ^17.0.1"
     },
     "publishConfig": {
         "access": "public"

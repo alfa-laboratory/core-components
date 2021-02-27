@@ -26,6 +26,6 @@
         "@types/react-transition-group": "^4.2.4"
     },
     "peerDependencies": {
-        "react": "^16.9.0"
+        "react": "^16.9.0 || ^17.0.1"
     }
 }
