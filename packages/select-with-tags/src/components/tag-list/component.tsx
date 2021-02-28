@@ -203,6 +203,9 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                     className={cn(styles.contentWrapper, {
                         [styles.hasLabel]: Boolean(label),
                         [styles.hasTags]: selectedMultiple.length > 0,
+                        [styles.contentWrapperVertical]: Boolean(
+                            (!collapseTagList || isShowMoreEnabled) && !label,
+                        ),
                     })}
                     ref={contentWrapperRef}
                 >

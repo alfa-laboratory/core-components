@@ -26,7 +26,7 @@ exports[`SelectWithTags Display tests should match snapshot 1`] = `
               class="input"
             >
               <div
-                class="contentWrapper"
+                class="contentWrapper contentWrapperVertical"
               >
                 <input
                   aria-autocomplete="list"
@@ -82,7 +82,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
               class="input"
             >
               <div
-                class="contentWrapper hasTags"
+                class="contentWrapper hasTags contentWrapperVertical"
               >
                 <button
                   class="component xs checked tag"

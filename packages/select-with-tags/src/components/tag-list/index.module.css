@@ -5,11 +5,26 @@
 }
 
 .component.m .contentWrapper {
-    padding: var(--gap-m) var(--gap-m);
+    padding: var(--gap-m) var(--gap-s);
 }
 
 .component.s .contentWrapper {
-    padding: var(--gap-s) var(--gap-m);
+    padding: var(--gap-s) var(--gap-s);
+}
+
+.component.l .contentWrapperVertical {
+    padding-top: var(--gap-l);
+    padding-bottom: var(--gap-l);
+}
+
+.component.m .contentWrapperVertical {
+    padding-top: var(--gap-s);
+    padding-bottom: var(--gap-s);
+}
+
+.component.s .contentWrapperVertical {
+    padding-top: var(--gap-xs);
+    padding-bottom: var(--gap-xs);
 }
 
 .component .contentWrapper {
@@ -17,6 +32,11 @@
     flex-wrap: wrap;
     width: 100%;
     margin: var(--gap-2xs-neg);
+
+    &:not(.contentWrapperVertical):not(.hasLabel) {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
 
     &.hasLabel {
         margin-top: var(--gap-xs);
@@ -93,12 +113,17 @@
 }
 
 .component.s .label {
-    top: 4px;
-    left: 16px;
+    top: 5px;
+    left: 12px;
 }
 
 .component.m .label {
-    top: 6px;
+    top: 8px;
+    left: 12px;
+}
+
+.component.l .label {
+    top: 14px;
     left: 16px;
 }
 
