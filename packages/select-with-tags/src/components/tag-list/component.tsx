@@ -174,6 +174,13 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
 
     const filled = Boolean(selectedMultiple.length > 0) || Boolean(value);
 
+    /**
+     * Флаг который позволит добавлять класс с вертикальными
+     * отступами если элементы не помещаются в один ряд,
+     * для того чтобы не менялась высота инпута
+     */
+    const shouldAddVerticalMargin = Boolean((!collapseTagList || isShowMoreEnabled) && !label);
+
     return (
         <div
             ref={wrapperRef}
@@ -203,9 +210,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
                     className={cn(styles.contentWrapper, {
                         [styles.hasLabel]: Boolean(label),
                         [styles.hasTags]: selectedMultiple.length > 0,
-                        [styles.contentWrapperVertical]: Boolean(
-                            (!collapseTagList || isShowMoreEnabled) && !label,
-                        ),
+                        [styles.contentWrapperVertical]: shouldAddVerticalMargin,
                     })}
                     ref={contentWrapperRef}
                 >
