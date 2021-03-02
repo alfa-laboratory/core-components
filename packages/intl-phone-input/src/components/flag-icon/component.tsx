@@ -12,7 +12,7 @@ export type FlagIconProps = {
     /**
      * Размер компонента
      */
-    size?: 's' | 'm' | 'l';
+    size?: 's' | 'm' | 'l' | 'xl';
 
     /**
      * Дополнительный класс
