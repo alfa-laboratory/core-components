@@ -1,3 +1,10 @@
+## [11.6.3](https://github.com/alfa-laboratory/core-components/compare/v11.6.2...v11.6.3) (2021-03-01)
+
+
+### Bug Fixes
+
+* **select-with-tags:** fixed styles ([#543](https://github.com/alfa-laboratory/core-components/issues/543)) ([206db51](https://github.com/alfa-laboratory/core-components/commit/206db5138c8ba2869c5ac458609928c4753cc83b))
+
 ## [11.6.2](https://github.com/alfa-laboratory/core-components/compare/v11.6.1...v11.6.2) (2021-02-20)
 
 

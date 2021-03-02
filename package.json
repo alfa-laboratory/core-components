@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "11.6.2",
+    "version": "11.6.3",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -18,7 +18,8 @@
         "build": "./bin/build.sh",
         "start": "start-storybook -p 9009 -c .storybook -s ./.storybook/public",
         "start:quick": "RDTL=off yarn start",
-        "build-storybook": "build-storybook -o build -s ./.storybook/public",
+        "build-storybook": "build-storybook -o build -s ./.storybook/public --quiet",
+        "serve-storybook": "http-server build -p 9009",
         "update-colors": "node ./tools/update-colors.js && yarn lint:css --fix",
         "update-typography": "node ./tools/update-typography.js",
         "lint": "yarn lint:css && yarn lint:js",
@@ -139,6 +140,7 @@
         "glob": "^7.1.6",
         "globby": "^11.0.1",
         "handlebars": "^4.7.3",
+        "http-server": "^0.12.3",
         "husky": "^4.3.0",
         "identity-obj-proxy": "^3.0.0",
         "jest": "^26.6.3",
@@ -150,7 +152,7 @@
         "lodash.kebabcase": "^4.1.1",
         "mini-css-extract-plugin": "^0.11.0",
         "optimize-css-assets-webpack-plugin": "^5.0.4",
-        "playwright": "^1.7.1",
+        "playwright": "1.8.1",
         "playwright-cli": "^0.171.0",
         "postcss-cli": "^7.1.0",
         "postcss-custom-media": "^7.0.8",
