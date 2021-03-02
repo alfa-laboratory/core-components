@@ -34,9 +34,17 @@
 }
 
 .l {
-    height: 72px;
+    height: 64px;
 
     & .title + .title {
         margin-left: var(--secondary-tablist-l-gaps);
+    }
+}
+
+.xl {
+    height: 72px;
+
+    & .title + .title {
+        margin-left: var(--secondary-tablist-xl-gaps);
     }
 }

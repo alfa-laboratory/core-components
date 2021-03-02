@@ -31,7 +31,7 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
                 keepMounted={boolean('keepMounted')}
                 onChange={handleChange}
                 scrollable={boolean('scrollable', false)}
-                size={select('size', ['s', 'm', 'l'], 'm')}
+                size={select('size', ['s', 'm', 'l', 'xl'], 'm')}
             >
                 <Tab title='Таб 1' id='tab-1'>
                     Таб 1
@@ -92,7 +92,7 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
         return (
             <TabsResponsive
                 view={select('view', ['primary', 'secondary'], 'primary')}
-                size={select('size', ['s', 'm', 'l'], 'm')}
+                size={select('size', ['s', 'm', 'l', 'xl'], 'm')}
                 selectedId={selectedId}
                 keepMounted={boolean('keepMounted')}
                 onChange={handleChange}
@@ -153,7 +153,7 @@ import { TabsMobile, Tab } from '@alfalab/core-components-tabs/mobile';
                 keepMounted={boolean('keepMounted')}
                 onChange={handleChange}
                 scrollable={boolean('scrollable', false)}
-                size={select('size', ['s', 'm', 'l'], 'm')}
+                size={select('size', ['s', 'm', 'l', 'xl'], 'm')}
             >
                 <Tab title='Таб 1' id='tab-1'>
                     Таб 1
@@ -220,7 +220,7 @@ import { TabsMobile, Tab } from '@alfalab/core-components-tabs/mobile';
         return (
             <TabsResponsive
                 view={select('view', ['primary', 'secondary'], 'primary')}
-                size={select('size', ['s', 'm', 'l'], 'm')}
+                size={select('size', ['s', 'm', 'l', 'xl'], 'm')}
                 selectedId={selectedId}
                 keepMounted={boolean('keepMounted')}
                 onChange={handleChange}
