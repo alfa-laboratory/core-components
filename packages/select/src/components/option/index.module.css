@@ -46,8 +46,15 @@
 }
 
 .l {
-    min-height: 72px;
+    min-height: 64px;
+}
 
+.xl {
+    min-height: 72px;
+}
+
+.l,
+.xl {
     padding-left: var(--select-option-l-left-padding);
     padding-right: var(--select-option-l-right-padding);
 
