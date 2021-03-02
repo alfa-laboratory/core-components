@@ -1,4 +1,9 @@
-import { screenshotTesting, getComponentScreenshotTestCases } from '../../utils';
+import { Page } from 'playwright';
+import {
+    screenshotTesting,
+    getComponentScreenshotTestCases,
+    customSnapshotIdentifier,
+} from '../../utils';
 
 const viewsSizesCases = getComponentScreenshotTestCases({
     componentName: 'button',
@@ -29,6 +34,13 @@ const viewsLoadingCases = getComponentScreenshotTestCases({
     knobs: {
         view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
         loading: [true],
+    },
+});
+
+const viewsHoverCases = getComponentScreenshotTestCases({
+    componentName: 'button',
+    knobs: {
+        view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
     },
 });
 
@@ -88,5 +100,21 @@ describe(
             failureThreshold: 5,
         },
         screenshotOpts: { clip },
+    }),
+);
+
+describe(
+    'Button | screenshots hover state',
+    screenshotTesting({
+        cases: viewsHoverCases,
+        it,
+        beforeAll,
+        afterAll,
+        expect,
+        screenshotOpts: { clip },
+        evaluate: (page: Page) => page.hover('button').then(() => page.waitForTimeout(500)),
+        matchImageSnapshotOptions: {
+            customSnapshotIdentifier: (...args) => `hover-${customSnapshotIdentifier(...args)}`,
+        },
     }),
 );
