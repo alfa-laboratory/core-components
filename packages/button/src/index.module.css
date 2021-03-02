@@ -129,6 +129,18 @@ a.loading {
 
 .l {
     min-width: 160px;
+    min-height: 64px;
+    padding: 0 var(--gap-2xl);
+    font-size: 18px;
+    line-height: 24px;
+
+    &.iconOnly {
+        min-width: 64px;
+    }
+}
+
+.xl {
+    min-width: 160px;
     min-height: 72px;
     padding: 0 var(--gap-2xl);
     font-size: 18px;
