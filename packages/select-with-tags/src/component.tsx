@@ -30,7 +30,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
             allowUnselect = true,
             collapseTagList = false,
             moveInputToNewLine = true,
-            emptyListPlaceholder = 'Ничего не найдено',
+            emptyListPlaceholder = 'Ничего не найдено.',
             transformCollapsedTagText,
             transformTagText,
             Tag,
