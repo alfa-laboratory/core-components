@@ -21,7 +21,7 @@ export const SelectWithTags = forwardRef<HTMLInputElement, SelectWithTagsProps>(
             Arrow = DefaultArrow,
             value,
             selected,
-            size = 'l',
+            size = 'xl',
             onInput,
             onChange,
             options,

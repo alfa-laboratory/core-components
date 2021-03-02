@@ -1,7 +1,11 @@
 @import '../../../../vars/src/index.css';
 
-.component.l .contentWrapper {
+.component.xl .contentWrapper {
     padding: var(--gap-l) var(--gap-m);
+}
+
+.component.l .contentWrapper {
+    padding: var(--gap-m) var(--gap-m);
 }
 
 .component.m .contentWrapper {
@@ -12,9 +16,14 @@
     padding: var(--gap-s) var(--gap-s);
 }
 
-.component.l .contentWrapperVertical {
+.component.xl .contentWrapperVertical {
     padding-top: var(--gap-l);
     padding-bottom: var(--gap-l);
+}
+
+.component.l .contentWrapperVertical {
+    padding-top: var(--gap-m);
+    padding-bottom: var(--gap-m);
 }
 
 .component.m .contentWrapperVertical {
@@ -109,6 +118,10 @@
 }
 
 .addons-size-l {
+    padding-top: var(--gap-l);
+}
+
+.addons-size-xl {
     padding-top: var(--gap-xl);
 }
 
@@ -123,6 +136,11 @@
 }
 
 .component.l .label {
+    top: 10px;
+    left: 16px;
+}
+
+.component.xl .label {
     top: 14px;
     left: 16px;
 }
