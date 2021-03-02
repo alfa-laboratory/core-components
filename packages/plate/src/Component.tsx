@@ -35,7 +35,7 @@ export type PlateProps = {
     /**
      * Заголовок компонента
      */
-    title?: string;
+    title?: ReactNode;
 
     /**
      * Вид компонента
@@ -136,42 +136,44 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                 tabIndex={isFoldable ? 0 : -1}
                 data-test-id={dataTestId}
             >
-                {leftAddons && <div className={styles.leftAddons}>{leftAddons}</div>}
-                <div
-                    className={cn(styles.contentContainer, {
-                        [styles.withoutTitle]: !title,
-                    })}
-                >
-                    {title && <div className={styles.title}>{title}</div>}
-                    {children && (
-                        <div
-                            className={cn(styles.content, {
-                                [styles.isFolded]: isFoldable && isFolded,
-                            })}
-                        >
-                            <div className={styles.contentInner}>{children}</div>
+                <div className={styles.inner}>
+                    {leftAddons && <div className={styles.leftAddons}>{leftAddons}</div>}
+                    <div
+                        className={cn(styles.contentContainer, {
+                            [styles.withoutTitle]: !title,
+                        })}
+                    >
+                        {title && <div className={styles.title}>{title}</div>}
+                        {children && (
+                            <div
+                                className={cn(styles.content, {
+                                    [styles.isFolded]: isFoldable && isFolded,
+                                })}
+                            >
+                                <div className={styles.contentInner}>{children}</div>
+                            </div>
+                        )}
+                    </div>
+                    {(foldable || hasCloser) && (
+                        <div className={styles.additional}>
+                            {isFoldable && (
+                                <div
+                                    className={cn(styles.folder, {
+                                        [styles.isFolded]: isFolded,
+                                    })}
+                                />
+                            )}
+                            {isFoldable ||
+                                (hasCloser && (
+                                    <Button
+                                        className={styles.closer}
+                                        view='ghost'
+                                        onClick={handleClose}
+                                    />
+                                ))}
                         </div>
                     )}
                 </div>
-                {(foldable || hasCloser) && (
-                    <div className={styles.additional}>
-                        {isFoldable && (
-                            <div
-                                className={cn(styles.folder, {
-                                    [styles.isFolded]: isFolded,
-                                })}
-                            />
-                        )}
-                        {isFoldable ||
-                            (hasCloser && (
-                                <Button
-                                    className={styles.closer}
-                                    view='ghost'
-                                    onClick={handleClose}
-                                />
-                            ))}
-                    </div>
-                )}
             </div>
         );
     },

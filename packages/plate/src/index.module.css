@@ -17,11 +17,6 @@
     padding: var(--gap-m);
     outline: none;
 
-    &.hasCloser,
-    &.foldable {
-        padding-right: var(--gap-4xl);
-    }
-
     &.isFolded {
         cursor: pointer;
     }
@@ -33,6 +28,11 @@
 
 .focused {
     @mixin focus-outline;
+}
+
+.inner {
+    position: relative;
+    width: 100%;
 }
 
 .common {
@@ -70,6 +70,8 @@
 }
 
 .content {
+    @mixin paragraph_primary_small;
+
     max-height: 300vh;
     overflow: hidden;
     transition: max-height 2s ease-in-out;
@@ -92,14 +94,14 @@
 
 .additional {
     position: absolute;
-    top: var(--gap-s);
-    right: var(--gap-s);
+    top: 0;
+    right: 0;
 }
 
 .closer,
 .folder {
-    height: 32px;
-    width: 32px;
+    height: 24px;
+    width: 24px;
     opacity: 0.6;
     transition: opacity 0.1s ease-out;
     cursor: pointer;
