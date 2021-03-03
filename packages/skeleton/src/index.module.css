@@ -2,13 +2,14 @@
 
 :root {
     --skeleton-background-filter: none;
-    --skeleton-default-color: var(--color-light-graphic-neutral);
+    --skeleton-default-color: var(--color-light-specialbg-component);
+    --skeleton-border-radius: 8px;
 }
 
 .component {
     position: relative;
     display: inline-block;
-    border-radius: 4px;
+    border-radius: var(--skeleton-border-radius);
     overflow: hidden;
 }
 
