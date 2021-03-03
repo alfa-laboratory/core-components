@@ -1,3 +1,10 @@
+## [11.7.1](https://github.com/alfa-laboratory/core-components/compare/v11.7.0...v11.7.1) (2021-03-03)
+
+
+### Bug Fixes
+
+* **select-with-tags:** missed dot ([c3c98d0](https://github.com/alfa-laboratory/core-components/commit/c3c98d0106072a431a616e8420edb01d83ad5fce))
+
 # [11.7.0](https://github.com/alfa-laboratory/core-components/compare/v11.6.3...v11.7.0) (2021-03-03)
 
 
