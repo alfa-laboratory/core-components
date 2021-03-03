@@ -1,4 +1,5 @@
 :root {
+    --gap-3xs: 2px;
     --gap-2xs: 4px;
     --gap-xs: 8px;
     --gap-s: 12px;
@@ -12,6 +13,7 @@
     --gap-6xl: 72px;
     --gap-7xl: 96px;
     --gap-8xl: 128px;
+    --gap-3xs-neg: -2px;
     --gap-2xs-neg: -4px;
     --gap-xs-neg: -8px;
     --gap-s-neg: -12px;

@@ -1,3 +1,10 @@
+# [11.7.0](https://github.com/alfa-laboratory/core-components/compare/v11.6.3...v11.7.0) (2021-03-03)
+
+
+### Features
+
+* **vars:** 2px gap ([#544](https://github.com/alfa-laboratory/core-components/issues/544)) ([e401782](https://github.com/alfa-laboratory/core-components/commit/e40178290a02c45bd9ea23ab0deffabd74a69276))
+
 ## [11.6.3](https://github.com/alfa-laboratory/core-components/compare/v11.6.2...v11.6.3) (2021-03-01)
 
 

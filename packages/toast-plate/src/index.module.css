@@ -48,7 +48,7 @@
     display: flex;
     align-items: var(--toast-plate-action-align);
     flex-shrink: 0;
-    margin: 2px 0;
+    margin: var(--gap-3xs) 0;
     padding: var(--toast-plate-action-padding);
 
     &:last-child {

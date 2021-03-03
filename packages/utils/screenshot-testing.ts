@@ -29,6 +29,8 @@ export type ScreenshotOpts = {
     };
 };
 
+export type EvaluateFn = (page: Page) => void;
+
 export type ScreenshotTestingParams = {
     cases: any[];
     it: any;
@@ -37,6 +39,7 @@ export type ScreenshotTestingParams = {
     expect: any;
     matchImageSnapshotOptions?: MatchImageSnapshotOptions;
     screenshotOpts?: ScreenshotOpts;
+    evaluate?: EvaluateFn;
 };
 
 export const screenshotTesting = ({
@@ -47,6 +50,7 @@ export const screenshotTesting = ({
     expect,
     matchImageSnapshotOptions,
     screenshotOpts,
+    evaluate,
 }: ScreenshotTestingParams) => () => {
     let browser: Browser;
     let context: BrowserContext;
@@ -72,6 +76,6 @@ export const screenshotTesting = ({
     it.each(cases)('%s', async (testName: string, link: string) => {
         await page?.goto(encodeURI(link));
 
-        await matchHtml({ page, expect, css, matchImageSnapshotOptions, screenshotOpts });
+        await matchHtml({ page, expect, css, matchImageSnapshotOptions, screenshotOpts, evaluate });
     });
 };
