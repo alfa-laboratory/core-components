@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@1.3.3...@alfalab/core-components-select-with-tags@1.3.4) (2021-03-03)
+
+
+### Bug Fixes
+
+* **select-with-tags:** remove pointer events from placeholder ([#545](https://github.com/alfa-laboratory/core-components/issues/545)) ([41b860b](https://github.com/alfa-laboratory/core-components/commit/41b860bd550b71d2025081d76d7c1240258ecaf9))
+
+
+
+
+
 ## [1.3.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@1.3.2...@alfalab/core-components-select-with-tags@1.3.3) (2021-03-03)
 
 

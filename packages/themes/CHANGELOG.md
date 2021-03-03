@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.3.1...@alfalab/core-components-themes@3.3.2) (2021-03-03)
+
+
+### Bug Fixes
+
+* **confirmation:** add font feature settings ([#540](https://github.com/alfa-laboratory/core-components/issues/540)) ([08057f6](https://github.com/alfa-laboratory/core-components/commit/08057f6930e9cd19c0213442a4915e366d26e607))
+
+
+
+
+
 ## [3.3.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.3.0...@alfalab/core-components-themes@3.3.1) (2021-02-20)
 
 
