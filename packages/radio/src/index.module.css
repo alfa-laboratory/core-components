@@ -5,7 +5,7 @@
     --radio-label-color: var(--color-light-text-primary);
 
     /* unchecked */
-    --radio-bg-color: var(--color-light-bg-secondary);
+    --radio-bg-color: var(--color-light-graphic-secondary-inverted);
     --radio-border-color: var(--color-light-border-tertiary-inverted);
     --radio-hover-bg-color: var(--color-light-graphic-tertiary);
     --radio-hover-border-color: var(--color-light-border-tertiary-inverted);
@@ -13,20 +13,20 @@
     --radio-active-border-color: var(--color-light-border-key);
 
     /* checked */
-    --radio-checked-bg-color: var(--color-red-brand-85-flat); /* TODO */
-    --radio-checked-border-color: var(--color-red-dark); /* TODO */
-    --radio-checked-hover-bg-color: var(--color-light-bg-accent);
-    --radio-checked-hover-border-color: var(--color-red-dark); /* TODO */
-    --radio-checked-active-bg-color: var(--color-light-bg-accent);
-    --radio-checked-active-border-color: var(--color-light-border-key);
+    --radio-checked-bg-color: var(--color-light-graphic-accent);
+    --radio-checked-border-color: transparent;
+    --radio-checked-hover-bg-color: color-mod(var(--color-light-graphic-accent) shade(10%));
+    --radio-checked-hover-border-color: transparent;
+    --radio-checked-active-bg-color: color-mod(var(--color-light-graphic-accent) shade(30%));
+    --radio-checked-active-border-color: transparent;
 
     /* disabled */
     --radio-disabled-bg-color: var(--color-light-bg-neutral);
     --radio-disabled-border-color: var(--color-light-border-primary);
 
     /* disabled and checked */
-    --radio-checked-disabled-bg-color: var(--color-red-brand-30-flat); /* TODO */
-    --radio-checked-disabled-border-color: var(--color-red-brand-30-flat); /* TODO */
+    --radio-checked-disabled-bg-color: color-mod(var(--color-light-graphic-accent) alpha(30%));
+    --radio-checked-disabled-border-color: transparent;
 }
 
 .container {
@@ -105,8 +105,7 @@
     box-sizing: border-box;
     border-radius: 8px;
     position: relative;
-    margin-right: var(--gap-xs);
-    margin-top: var(--gap-2xs);
+    margin: var(--gap-2xs);
     transition: background-color 0.2s ease, border 0.2s ease;
 
     &:before {
@@ -130,13 +129,13 @@
     width: 20px;
     height: 20px;
     border-radius: 10px;
-    margin-right: var(--gap-m);
-    margin-top: var(--gap-3xs);
+    margin: var(--gap-3xs);
 }
 
 .content {
     display: flex;
     flex-direction: column;
+    margin-left: var(--gap-s);
 }
 
 .start {
