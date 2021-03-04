@@ -21,8 +21,9 @@
     --radio-checked-active-border-color: transparent;
 
     /* disabled */
-    --radio-disabled-bg-color: var(--color-light-bg-neutral);
-    --radio-disabled-border-color: var(--color-light-border-primary);
+    --radio-disabled-color: var(--color-light-text-tertiary);
+    --radio-disabled-bg-color: var(--color-light-graphic-primary-inverted);
+    --radio-disabled-border-color: var(--color-light-graphic-neutral);
 
     /* disabled and checked */
     --radio-checked-disabled-bg-color: color-mod(var(--color-light-graphic-accent) alpha(30%));
@@ -57,6 +58,14 @@
         & .circle {
             background-color: var(--radio-disabled-bg-color);
             border: 1px solid var(--radio-disabled-border-color);
+        }
+
+        & .label {
+            color: var(--radio-disabled-color);
+        }
+
+        & .hint {
+            color: var(--radio-disabled-color);
         }
     }
 
