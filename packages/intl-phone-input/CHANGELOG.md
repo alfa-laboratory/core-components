@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-intl-phone-input@3.2.0...@alfalab/core-components-intl-phone-input@4.0.0) (2021-03-04)
+
+
+### Features
+
+* **intl-phone-input:** changed size L (72 → 64), added size XL (72) ([9077b7f](https://github.com/alfa-laboratory/core-components/commit/9077b7f454035cdc7be611d526a5f9642ae4d76d))
+
+
+### BREAKING CHANGES
+
+* **intl-phone-input:** size L changed to size XL
+
+
+
+
+
 # [3.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-intl-phone-input@3.1.9...@alfalab/core-components-intl-phone-input@3.2.0) (2021-03-03)
 
 

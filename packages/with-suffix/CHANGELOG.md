@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-with-suffix@2.3.6...@alfalab/core-components-with-suffix@2.4.0) (2021-03-04)
+
+
+### Features
+
+* **with-suffix:** xl size ([d2bb796](https://github.com/alfa-laboratory/core-components/commit/d2bb7967b6756f8b06b3484c7900ef7637b1c777))
+
+
+
+
+
 ## [2.3.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-with-suffix@2.3.5...@alfalab/core-components-with-suffix@2.3.6) (2021-03-03)
 
 **Note:** Version bump only for package @alfalab/core-components-with-suffix

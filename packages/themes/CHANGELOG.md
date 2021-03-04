@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.3.2...@alfalab/core-components-themes@3.4.0) (2021-03-04)
+
+
+### Features
+
+* size vars (xs/s/m/l/xl → 32/48/56/64/72) ([d7254d2](https://github.com/alfa-laboratory/core-components/commit/d7254d2963106663e8f04b84bc747b38e4f57632))
+* **themes:** updated click theme for tabs ([0a4c17e](https://github.com/alfa-laboratory/core-components/commit/0a4c17e5628f959d72e0ee6044ca56bd3c890d92))
+
+
+
+
+
 ## [3.3.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.3.1...@alfalab/core-components-themes@3.3.2) (2021-03-03)
 
 

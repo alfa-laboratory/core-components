@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@1.15.4...@alfalab/core-components-button@2.0.0) (2021-03-04)
+
+
+### Features
+
+* size vars (xs/s/m/l/xl → 32/48/56/64/72) ([d7254d2](https://github.com/alfa-laboratory/core-components/commit/d7254d2963106663e8f04b84bc747b38e4f57632))
+* **button:** changed size L (72 → 64), added size XL (72) ([051d964](https://github.com/alfa-laboratory/core-components/commit/051d964e83fd7af3703c82facf75345eca66915b))
+
+
+### BREAKING CHANGES
+
+* **button:** size L changed to size XL
+
+
+
+
+
 ## [1.15.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@1.15.3...@alfalab/core-components-button@1.15.4) (2021-03-03)
 
 **Note:** Version bump only for package @alfalab/core-components-button

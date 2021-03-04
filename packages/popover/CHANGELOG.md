@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-popover@2.0.3...@alfalab/core-components-popover@3.0.0) (2021-03-04)
+
+
+### Features
+
+* **popover:** change animation, add scale ([2e48a02](https://github.com/alfa-laboratory/core-components/commit/2e48a02a8f3f7ff9a6df48cf4e6337a8928f67c7))
+
+
+### BREAKING CHANGES
+
+* **popover:** Change html structure of popover component.
+
+
+
+
+
 ## [2.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-popover@2.0.2...@alfalab/core-components-popover@2.0.3) (2021-03-03)
 
 **Note:** Version bump only for package @alfalab/core-components-popover

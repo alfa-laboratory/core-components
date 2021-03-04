@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount-input@3.3.7...@alfalab/core-components-amount-input@4.0.0) (2021-03-04)
+
+
+### Features
+
+* **amount-input:** changed size L (72 → 64), added size XL (72) ([a2c0b7c](https://github.com/alfa-laboratory/core-components/commit/a2c0b7ce6c208183897064cd6235d69445e3afe5))
+
+
+### BREAKING CHANGES
+
+* **amount-input:** size L changed to size XL
+
+
+
+
+
 ## [3.3.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount-input@3.3.6...@alfalab/core-components-amount-input@3.3.7) (2021-03-03)
 
 **Note:** Version bump only for package @alfalab/core-components-amount-input
