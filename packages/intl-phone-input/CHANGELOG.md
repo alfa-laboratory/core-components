@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-intl-phone-input@3.1.9...@alfalab/core-components-intl-phone-input@3.2.0) (2021-03-03)
+
+
+### Features
+
+* **intl-phone-input:** add onCountryChange handler ([#539](https://github.com/alfa-laboratory/core-components/issues/539)) ([f8c0cd6](https://github.com/alfa-laboratory/core-components/commit/f8c0cd618ced23bbb49a81cfee07c1f45ee20427))
+
+
+
+
+
+## [3.1.9](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-intl-phone-input@3.1.8...@alfalab/core-components-intl-phone-input@3.1.9) (2021-03-03)
+
+**Note:** Version bump only for package @alfalab/core-components-intl-phone-input
+
+
+
+
+
 ## [3.1.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-intl-phone-input@3.1.7...@alfalab/core-components-intl-phone-input@3.1.8) (2021-03-03)
 
 **Note:** Version bump only for package @alfalab/core-components-intl-phone-input

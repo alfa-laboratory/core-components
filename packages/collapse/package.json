@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-collapse",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "",
     "keywords": [],
     "license": "ISC",
@@ -12,10 +12,10 @@
         "access": "public"
     },
     "peerDependencies": {
-        "react": "^16.9.0"
+        "react": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-link": "^1.6.1",
+        "@alfalab/core-components-link": "^1.6.2",
         "classnames": "^2.2.6",
         "lodash.debounce": "^4.0.8"
     }

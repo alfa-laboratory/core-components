@@ -1,3 +1,23 @@
+# [11.8.0](https://github.com/alfa-laboratory/core-components/compare/v11.7.1...v11.8.0) (2021-03-03)
+
+
+### Bug Fixes
+
+* **confirmation:** add font feature settings ([#540](https://github.com/alfa-laboratory/core-components/issues/540)) ([08057f6](https://github.com/alfa-laboratory/core-components/commit/08057f6930e9cd19c0213442a4915e366d26e607))
+* **select-with-tags:** remove pointer events from placeholder ([#545](https://github.com/alfa-laboratory/core-components/issues/545)) ([41b860b](https://github.com/alfa-laboratory/core-components/commit/41b860bd550b71d2025081d76d7c1240258ecaf9))
+
+
+### Features
+
+* **intl-phone-input:** add onCountryChange handler ([#539](https://github.com/alfa-laboratory/core-components/issues/539)) ([f8c0cd6](https://github.com/alfa-laboratory/core-components/commit/f8c0cd618ced23bbb49a81cfee07c1f45ee20427))
+
+## [11.7.1](https://github.com/alfa-laboratory/core-components/compare/v11.7.0...v11.7.1) (2021-03-03)
+
+
+### Bug Fixes
+
+* **select-with-tags:** missed dot ([c3c98d0](https://github.com/alfa-laboratory/core-components/commit/c3c98d0106072a431a616e8420edb01d83ad5fce))
+
 # [11.7.0](https://github.com/alfa-laboratory/core-components/compare/v11.6.3...v11.7.0) (2021-03-03)
 
 
