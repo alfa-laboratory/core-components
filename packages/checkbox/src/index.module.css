@@ -59,9 +59,9 @@
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    width: 16px;
-    height: 16px;
-    margin: var(--gap-2xs);
+    width: 20px;
+    height: 20px;
+    margin: var(--gap-3xs);
     background-color: var(--checkbox-bg-color);
     border: 1px solid var(--checkbox-border-color);
     border-radius: var(--border-radius);
@@ -70,10 +70,10 @@
     overflow: hidden;
 }
 
-.m .box {
-    width: 20px;
-    height: 20px;
-    margin: var(--gap-3xs);
+.s .box {
+    width: 16px;
+    height: 16px;
+    margin: var(--gap-2xs) var(--gap-3xs);
 }
 
 .component:hover:not(.disabled) .box {
@@ -150,6 +150,10 @@
 .content {
     flex-grow: 1;
     margin-left: var(--gap-s);
+}
+
+.s .content {
+    margin-left: var(--gap-xs);
 }
 
 .label {
