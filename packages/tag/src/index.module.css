@@ -97,7 +97,7 @@
 
 .xs {
     min-width: 60px;
-    min-height: 32px;
+    min-height: var(--size-xs-height);
     padding: var(--gap-2xs) var(--gap-m);
     font-size: 14px;
     line-height: 20px;
@@ -112,7 +112,7 @@
 
 .s {
     min-width: 80px;
-    min-height: 48px;
+    min-height: var(--size-s-height);
     padding: var(--gap-2xs) var(--gap-m);
     font-size: 16px;
     line-height: 20px;
@@ -128,7 +128,7 @@
 .m {
     @mixin action_component;
     min-width: 96px;
-    min-height: 56px;
+    min-height: var(--size-m-height);
     padding: var(--gap-2xs) var(--gap-xl);
 
     @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
@@ -141,7 +141,7 @@
 .l {
     @mixin action_primary_large;
     min-width: 120px;
-    min-height: 64px;
+    min-height: var(--size-l-height);
     padding: var(--gap-2xs) var(--gap-2xl);
 
     @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
@@ -154,7 +154,7 @@
 .xl {
     @mixin action_primary_large;
     min-width: 120px;
-    min-height: 72px;
+    min-height: var(--size-xl-height);
     padding: var(--gap-2xs) var(--gap-2xl);
 
     @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {

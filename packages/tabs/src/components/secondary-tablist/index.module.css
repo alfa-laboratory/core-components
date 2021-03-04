@@ -18,7 +18,7 @@
 /* sizes */
 
 .s {
-    height: 48px;
+    height: var(--size-s-height);
 
     & .title + .title {
         margin-left: var(--secondary-tablist-s-gaps);
@@ -26,7 +26,7 @@
 }
 
 .m {
-    height: 56px;
+    height: var(--size-m-height);
 
     & .title + .title {
         margin-left: var(--secondary-tablist-m-gaps);
@@ -34,7 +34,7 @@
 }
 
 .l {
-    height: 64px;
+    height: var(--size-l-height);
 
     & .title + .title {
         margin-left: var(--secondary-tablist-l-gaps);
@@ -42,7 +42,7 @@
 }
 
 .xl {
-    height: 72px;
+    height: var(--size-xl-height);
 
     & .title + .title {
         margin-left: var(--secondary-tablist-xl-gaps);

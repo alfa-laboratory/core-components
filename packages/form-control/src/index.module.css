@@ -1,10 +1,10 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --form-control-s-min-height: 48px;
-    --form-control-m-min-height: 56px;
-    --form-control-l-min-height: 64px;
-    --form-control-xl-min-height: 72px;
+    --form-control-s-min-height: var(--size-s-height);
+    --form-control-m-min-height: var(--size-m-height);
+    --form-control-l-min-height: var(--size-l-height);
+    --form-control-xl-min-height: var(--size-xl-height);
     --form-control-border-radius: 4px 4px 0 0;
     --form-control-border-bottom: 1px solid var(--color-light-border-secondary-inverted);
     --form-control-bg-color: color-mod(var(--color-light-bg-primary-inverted) alpha(7%));
