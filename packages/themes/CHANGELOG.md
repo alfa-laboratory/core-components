@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.4.0...@alfalab/core-components-themes@3.5.0) (2021-03-04)
+
+
+### Features
+
+* **icon-button:** inverted theme ([#550](https://github.com/alfa-laboratory/core-components/issues/550)) ([98c3691](https://github.com/alfa-laboratory/core-components/commit/98c36919f682041278aa31753f1d18be95358df1))
+
+
+
+
+
 # [3.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.3.2...@alfalab/core-components-themes@3.4.0) (2021-03-04)
 
 
