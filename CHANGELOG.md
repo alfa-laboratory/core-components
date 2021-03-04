@@ -1,3 +1,10 @@
+# [12.1.0](https://github.com/alfa-laboratory/core-components/compare/v12.0.0...v12.1.0) (2021-03-04)
+
+
+### Features
+
+* **icon-button:** inverted theme ([#550](https://github.com/alfa-laboratory/core-components/issues/550)) ([98c3691](https://github.com/alfa-laboratory/core-components/commit/98c36919f682041278aa31753f1d18be95358df1))
+
 # [12.0.0](https://github.com/alfa-laboratory/core-components/compare/v11.8.0...v12.0.0) (2021-03-04)
 
 
