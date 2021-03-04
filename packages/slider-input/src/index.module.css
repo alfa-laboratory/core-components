@@ -69,6 +69,12 @@
     padding-right: 0;
 }
 
+.xl.hasLabel .info {
+    padding: var(--form-control-labeled-xl-paddings);
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .focused .info,
 .filled .info {
     visibility: visible;

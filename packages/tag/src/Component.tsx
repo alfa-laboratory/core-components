@@ -16,7 +16,7 @@ export type TagProps = Omit<NativeProps, 'onClick'> & {
     /**
      * Размер компонента
      */
-    size?: 'xs' | 's' | 'm' | 'l';
+    size?: 'xs' | 's' | 'm' | 'l' | 'xl';
 
     /**
      * Слот слева

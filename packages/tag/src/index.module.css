@@ -32,7 +32,7 @@
     font-family: var(--font-family);
     text-decoration: none;
     border: var(--tag-border-width) var(--tag-border-style) var(--tag-border-color);
-    border-radius: var(--tag-border-radius);
+    border-radius: 99px;
     background-color: var(--tag-background-color);
     transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
     box-sizing: border-box;
@@ -97,11 +97,10 @@
 
 .xs {
     min-width: 60px;
-    min-height: 32px;
+    min-height: var(--size-xs-height);
     padding: var(--gap-2xs) var(--gap-m);
-    border-radius: 32px;
     font-size: 14px;
-    line-height: 18px;
+    line-height: 20px;
     font-weight: normal;
 
     @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
@@ -113,9 +112,8 @@
 
 .s {
     min-width: 80px;
-    min-height: 48px;
+    min-height: var(--size-s-height);
     padding: var(--gap-2xs) var(--gap-m);
-    border-radius: 48px;
     font-size: 16px;
     line-height: 20px;
     font-weight: normal;
@@ -130,9 +128,8 @@
 .m {
     @mixin action_component;
     min-width: 96px;
-    min-height: 56px;
+    min-height: var(--size-m-height);
     padding: var(--gap-2xs) var(--gap-xl);
-    border-radius: 56px;
 
     @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
         /* Хак для ие, в котором не работает центрирование по высоте с использованием флексов, если указан min-height
@@ -142,17 +139,27 @@
 }
 
 .l {
+    @mixin action_primary_large;
     min-width: 120px;
-    min-height: 68px;
+    min-height: var(--size-l-height);
     padding: var(--gap-2xs) var(--gap-2xl);
-    border-radius: 68px;
-    font-size: 18px;
-    line-height: 22px;
-    font-weight: 500;
 
     @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
         /* Хак для ие, в котором не работает центрирование по высоте с использованием флексов, если указан min-height
         Возможно другое решение - если в будущем у компонента появится обертка, установить ей display: flex / inline-flex */
-        height: 68px;
+        height: 64px;
+    }
+}
+
+.xl {
+    @mixin action_primary_large;
+    min-width: 120px;
+    min-height: var(--size-xl-height);
+    padding: var(--gap-2xs) var(--gap-2xl);
+
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        /* Хак для ие, в котором не работает центрирование по высоте с использованием флексов, если указан min-height
+        Возможно другое решение - если в будущем у компонента появится обертка, установить ей display: flex / inline-flex */
+        height: 72px;
     }
 }

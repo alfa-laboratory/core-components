@@ -27,7 +27,8 @@
     }
 }
 
-.l {
+.l,
+.xl {
     background-image: url('./images/sprites/flag-icon_size_l@1x.png');
     background-size: 300px 275px;
 
@@ -3140,8 +3141,9 @@
     }
 }
 
-/* sprite size l */
-.l {
+/* sprite size l/xl */
+.l,
+.xl {
     &.ac {
         width: 22px;
         height: 11px;
