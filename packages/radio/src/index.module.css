@@ -109,12 +109,12 @@
 
 .circle {
     flex-shrink: 0;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
     box-sizing: border-box;
-    border-radius: 8px;
     position: relative;
-    margin: var(--gap-2xs);
+    margin: var(--gap-3xs);
     transition: background-color 0.2s ease, border 0.2s ease;
 
     &:before {
@@ -134,17 +134,21 @@
     }
 }
 
-.m .circle {
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
-    margin: var(--gap-3xs);
+.s .circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    margin: var(--gap-2xs) var(--gap-3xs);
 }
 
 .content {
     display: flex;
     flex-direction: column;
     margin-left: var(--gap-s);
+}
+
+.s .content {
+    margin-left: var(--gap-xs);
 }
 
 .start {
