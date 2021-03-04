@@ -32,6 +32,8 @@ const CI = process.env.CI === 'true';
 const serverHost = CI ? 'https://digital.alfabank.ru' : 'http://digital';
 const playwrightUrl = `${serverHost}/playwright`;
 
+export const viewport = { width: 1920, height: 1080 };
+
 /**
  * Удаляем из названия теста лишнюю информацию, чтобы имя файла было короче
  */
@@ -116,7 +118,7 @@ export const openBrowserPage = async (
     browserType: BrowserType<ChromiumBrowser | FirefoxBrowser | WebKitBrowser> = chromium,
 ) => {
     const browser = await browserType.launch();
-    const context = await browser.newContext();
+    const context = await browser.newContext({ viewport });
     const page = await context.newPage();
 
     const [css] = await Promise.all([

@@ -66,24 +66,19 @@ describe(
 
 describe('Select | interactions tests', () => {
     test('Open select, select one item', async () => {
-        const pageUrl = createStorybookUrl({ componentName: 'select' });
+        const pageUrl = createStorybookUrl({ componentName: 'select', knobs: { block: true } });
         const { browser, context, page, css } = await openBrowserPage(pageUrl);
 
-        // eslint-disable-next-line no-shadow
-        const clip = { x: 0, y: 0, width: 300, height: 500 };
-
         try {
-            await matchHtml({ page, expect, css, screenshotOpts: { clip } });
+            await matchHtml({ page, expect, css });
 
             await page.click('[role="combobox"]');
 
-            await page.waitForTimeout(1000);
-
-            await matchHtml({ page, expect, css, screenshotOpts: { clip } });
+            await matchHtml({ page, expect, css });
 
             await page.click('[role="option"]');
 
-            await matchHtml({ page, expect, css, screenshotOpts: { clip } });
+            await matchHtml({ page, expect, css });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error(error);
