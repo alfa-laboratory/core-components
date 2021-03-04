@@ -26,7 +26,7 @@
     --checkbox-disabled-border-color: var(--color-light-graphic-neutral);
 
     /* disabled and checked */
-    --checkbox-checked-disabled-bg-color: color-mod(var(--color-light-graphic-accent) alpha(30%));
+    --checkbox-checked-disabled-bg-color: var(--color-light-graphic-neutral);
     --checkbox-checked-disabled-border-color: transparent;
 }
 
