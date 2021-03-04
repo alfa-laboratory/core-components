@@ -1,8 +1,8 @@
 import {
     screenshotTesting,
     getComponentScreenshotTestCases,
-    closeBrowser,
     createStorybookUrl,
+    closeBrowser,
     matchHtml,
     openBrowserPage,
 } from '../../utils';
@@ -64,8 +64,6 @@ describe(
     }),
 );
 
-// Пока удалил этот тест, так как сейчас есть различие между скриншотами
-
 describe('Select | interactions tests', () => {
     test('Open select, select one item', async () => {
         const pageUrl = createStorybookUrl({ componentName: 'select' });
@@ -78,6 +76,8 @@ describe('Select | interactions tests', () => {
             await matchHtml({ page, expect, css, screenshotOpts: { clip } });
 
             await page.click('[role="combobox"]');
+
+            await page.waitForTimeout(1000);
 
             await matchHtml({ page, expect, css, screenshotOpts: { clip } });
 
