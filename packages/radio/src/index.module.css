@@ -26,7 +26,7 @@
     --radio-disabled-border-color: var(--color-light-graphic-neutral);
 
     /* disabled and checked */
-    --radio-checked-disabled-bg-color: color-mod(var(--color-light-graphic-accent) alpha(30%));
+    --radio-checked-disabled-bg-color: var(--color-light-graphic-neutral);
     --radio-checked-disabled-border-color: transparent;
 }
 
