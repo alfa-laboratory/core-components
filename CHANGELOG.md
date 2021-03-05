@@ -1,3 +1,10 @@
+# [12.2.0](https://github.com/alfa-laboratory/core-components/compare/v12.1.0...v12.2.0) (2021-03-05)
+
+
+### Features
+
+* **status:** add component ([#546](https://github.com/alfa-laboratory/core-components/issues/546)) ([52a1f0b](https://github.com/alfa-laboratory/core-components/commit/52a1f0bd8578fe34d1c214b93a363e7b76621c17))
+
 # [12.1.0](https://github.com/alfa-laboratory/core-components/compare/v12.0.0...v12.1.0) (2021-03-04)
 
 
