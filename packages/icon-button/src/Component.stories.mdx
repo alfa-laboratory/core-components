@@ -14,6 +14,7 @@ import { name, version } from '../package.json';
 <Meta
     title='Компоненты'
     component={IconButton}
+    parameters={{ 'theme-switcher': { themes: ['default-inverted'] } }}
 />
 
 
@@ -34,7 +35,7 @@ import { name, version } from '../package.json';
     name='IconButton'
     version={version}
     package='@alfalab/core-components-icon-button'
-    stage={1}
+    stage={2}
     design='https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=21264%3A120061'
 />
 
@@ -108,3 +109,20 @@ import { IconButton } from '@alfalab/core-components-icon-button';
 </Preview>
 
 <Props of={IconButton} />
+
+## Темы
+
+`default-inverted`
+
+<div data-theme='default-inverted' style={{padding: '24px', borderRadius: '4px', backgroundColor: '#0b1f35'}}>
+    <Container>
+        <Row>
+            <Col>
+                <IconButton view='primary' icon={StarMIcon} />
+            </Col>
+            <Col>
+                <IconButton view='primary' icon={BankAlfaXxlBlackIcon} />
+            </Col>
+        </Row>
+    </Container>
+</div>

@@ -131,7 +131,7 @@
     height: 20px;
     border-radius: 10px;
     margin-right: var(--gap-m);
-    margin-top: 2px;
+    margin-top: var(--gap-3xs);
 }
 
 .content {

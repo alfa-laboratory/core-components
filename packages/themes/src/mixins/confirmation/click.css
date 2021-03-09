@@ -10,6 +10,7 @@
     --confirmation-title-font-size: 24px;
     --confirmation-title-font-weight: 500;
     --confirmation-title-font-family: var(--font-family-styrene);
+    --confirmation-title-font-feature-settings: 'ss01';
     --confirmation-text-font-size: 16px;
     --confirmation-input-font-size: 24px;
     --confirmation-input-font-weight: 400;

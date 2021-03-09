@@ -19,7 +19,7 @@ export type PureInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size' 
     /**
      * Размер компонента
      */
-    size?: 's' | 'm' | 'l';
+    size?: 's' | 'm' | 'l' | 'xl';
 
     /**
      * Дополнительный класс

@@ -3,7 +3,7 @@ import { chromium, Page, Browser, BrowserContext } from 'playwright';
 import axios from 'axios';
 import { MatchImageSnapshotOptions } from 'jest-image-snapshot';
 
-import { matchHtml } from './helpers';
+import { matchHtml, viewport } from './helpers';
 
 export const STORYBOOK_URL = process.env.STORYBOOK_URL || 'http://localhost:9009/iframe.html';
 export const STYLES_URL = 'http://localhost:9009/main.css';
@@ -29,6 +29,8 @@ export type ScreenshotOpts = {
     };
 };
 
+export type EvaluateFn = (page: Page) => void;
+
 export type ScreenshotTestingParams = {
     cases: any[];
     it: any;
@@ -37,6 +39,7 @@ export type ScreenshotTestingParams = {
     expect: any;
     matchImageSnapshotOptions?: MatchImageSnapshotOptions;
     screenshotOpts?: ScreenshotOpts;
+    evaluate?: EvaluateFn;
 };
 
 export const screenshotTesting = ({
@@ -47,6 +50,7 @@ export const screenshotTesting = ({
     expect,
     matchImageSnapshotOptions,
     screenshotOpts,
+    evaluate,
 }: ScreenshotTestingParams) => () => {
     let browser: Browser;
     let context: BrowserContext;
@@ -55,7 +59,7 @@ export const screenshotTesting = ({
 
     beforeAll(async () => {
         browser = await chromium.launch();
-        context = await browser.newContext();
+        context = await browser.newContext({ viewport });
         page = await context.newPage();
 
         const result = await axios.get(STYLES_URL, {
@@ -72,6 +76,6 @@ export const screenshotTesting = ({
     it.each(cases)('%s', async (testName: string, link: string) => {
         await page?.goto(encodeURI(link));
 
-        await matchHtml({ page, expect, css, matchImageSnapshotOptions, screenshotOpts });
+        await matchHtml({ page, expect, css, matchImageSnapshotOptions, screenshotOpts, evaluate });
     });
 };

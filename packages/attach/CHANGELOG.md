@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@1.4.7...@alfalab/core-components-attach@1.4.8) (2021-03-04)
+
+**Note:** Version bump only for package @alfalab/core-components-attach
+
+
+
+
+
+## [1.4.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@1.4.6...@alfalab/core-components-attach@1.4.7) (2021-03-03)
+
+**Note:** Version bump only for package @alfalab/core-components-attach
+
+
+
+
+
+## [1.4.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@1.4.5...@alfalab/core-components-attach@1.4.6) (2021-03-03)
+
+**Note:** Version bump only for package @alfalab/core-components-attach
+
+
+
+
+
+## [1.4.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@1.4.4...@alfalab/core-components-attach@1.4.5) (2021-03-03)
+
+**Note:** Version bump only for package @alfalab/core-components-attach
+
+
+
+
+
 ## [1.4.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@1.4.3...@alfalab/core-components-attach@1.4.4) (2021-02-20)
 
 **Note:** Version bump only for package @alfalab/core-components-attach

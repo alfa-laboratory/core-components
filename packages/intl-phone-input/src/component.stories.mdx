@@ -1,4 +1,5 @@
 import { Meta, Story, Preview, Props, Description, Title } from '@storybook/addon-docs/blocks';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 import { action } from '@storybook/addon-actions';
 import { text, select, boolean } from '@storybook/addon-knobs';
 
@@ -11,9 +12,14 @@ import { name, version } from '../package.json';
     parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
-<Title>
-    IntlPhoneInput ({name}@{version})
-</Title>
+<!-- Docs -->
+
+<ComponentHeader
+    name='IntlPhoneInput'
+    version={version}
+    package='@alfalab/core-components-intl-phone-input'
+    stage={1}
+/>
 
 ```tsx
 import { IntlPhoneInput } from '@alfalab/core-components-intl-phone-input';
@@ -32,23 +38,33 @@ import { IntlPhoneInput } from '@alfalab/core-components-intl-phone-input';
 <Story name='IntlPhoneInput'>
     {React.createElement(() => {
             const [value, setValue] = React.useState('+79647820725');
+            const [selectedCountry, setSelectedCountry] = React.useState('RU');
             const handleChange = React.useCallback((newValue) => {
                 setValue(newValue);
             }, [setValue]);
-            const size = select('size', ['s', 'm', 'l'], 'm');
+            const size = select('size', ['s', 'm', 'l', 'xl'], 'm');
             const block = boolean('block', false);
             const disabled = boolean('disabled', false);
             const label = text('label', 'Номер телефона');
+            const handleCountryChange = React.useCallback((countryCode) => { 
+                setSelectedCountry(countryCode);
+            })
             return (
-                <IntlPhoneInput
-                    value={value}
-                    onChange={handleChange}
-                    size={size}
-                    block={block}
-                    label={label}
-                    disabled={disabled}
-                    readOnly={boolean('readOnly', false)}
-                />
+                <React.Fragment>
+                    <IntlPhoneInput
+                        value={value}
+                        onChange={handleChange}
+                        size={size}
+                        block={block}
+                        label={label}
+                        disabled={disabled}
+                        defaultCountryIso2="RU"
+                        readOnly={boolean('readOnly', false)}
+                        onCountryChange={handleCountryChange}
+                    />
+                    <br />
+                    Код выбранной страны: <strong>{selectedCountry}</strong>
+                </React.Fragment>
             );
         })}
 </Story>

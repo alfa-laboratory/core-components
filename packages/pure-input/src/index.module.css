@@ -46,6 +46,12 @@
     padding-top: 1px;
 }
 
+.xl {
+    height: var(--form-control-xl-min-height);
+    padding: var(--form-control-l-paddings);
+    padding-top: 1px;
+}
+
 /* DISABLED STATE */
 
 .component:disabled {
