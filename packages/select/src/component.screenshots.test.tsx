@@ -1,4 +1,11 @@
-import { screenshotTesting, getComponentScreenshotTestCases } from '../../utils';
+import {
+    screenshotTesting,
+    getComponentScreenshotTestCases,
+    createStorybookUrl,
+    closeBrowser,
+    matchHtml,
+    openBrowserPage,
+} from '../../utils';
 
 const sizesBlockDisabledCases = getComponentScreenshotTestCases({
     componentName: 'select',
@@ -57,32 +64,26 @@ describe(
     }),
 );
 
-/* eslint-disable */
-// Пока удалил этот тест, так как сейчас есть различие между скриншотами
+describe('Select | interactions tests', () => {
+    test('Open select, select one item', async () => {
+        const pageUrl = createStorybookUrl({ componentName: 'select', knobs: { block: true } });
+        const { browser, context, page, css } = await openBrowserPage(pageUrl);
 
-// describe('Select | interactions tests', () => {
-//     test('Open select, select one item', async () => {
-//         const pageUrl = createStorybookUrl({ componentName: 'select' });
-//         const { browser, context, page, css } = await openBrowserPage(pageUrl);
+        try {
+            await matchHtml({ page, expect, css });
 
-//         // eslint-disable-next-line no-shadow
-//         const clip = { x: 0, y: 0, width: 300, height: 500 };
+            await page.click('[role="combobox"]');
 
-//         try {
-//             await matchHtml({ page, expect, css, screenshotOpts: { clip } });
+            await matchHtml({ page, expect, css });
 
-//             await page.click('[role="combobox"]');
+            await page.click('[role="option"]');
 
-//             await matchHtml({ page, expect, css, screenshotOpts: { clip } });
-
-//             await page.click('[role="option"]');
-
-//             await matchHtml({ page, expect, css, screenshotOpts: { clip } });
-//         } catch (error) {
-//             // eslint-disable-next-line no-console
-//             console.error(error);
-//         } finally {
-//             await closeBrowser({ browser, context, page });
-//         }
-//     });
-// });
+            await matchHtml({ page, expect, css });
+        } catch (error) {
+            // eslint-disable-next-line no-console
+            console.error(error);
+        } finally {
+            await closeBrowser({ browser, context, page });
+        }
+    });
+});

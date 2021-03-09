@@ -3,12 +3,14 @@
     .row.gutter-$(i) {
         /* prettier-ignore */
         margin-left: calc(-$(i)px / 2);
+
         /* prettier-ignore */
         margin-right: calc(-$(i)px / 2);
 
         & > .col {
             /* prettier-ignore */
             padding-left: calc($(i)px / 2);
+
             /* prettier-ignore */
             padding-right: calc($(i)px / 2);
         }
@@ -23,12 +25,14 @@
             .row.gutter-$(breakpoint)-$(i) {
                 /* prettier-ignore */
                 margin-left: calc(-$(i)px / 2);
+
                 /* prettier-ignore */
                 margin-right: calc(-$(i)px / 2);
 
                 & > .col {
                     /* prettier-ignore */
                     padding-left: calc($(i)px / 2);
+
                     /* prettier-ignore */
                     padding-right: calc($(i)px / 2);
                 }

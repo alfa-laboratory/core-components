@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "11.6.3",
+    "version": "12.2.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -186,8 +186,8 @@
         "url-loader": "^4.1.1"
     },
     "peerDependencies": {
-        "react": "^16.9.0",
-        "react-dom": "^16.9.0"
+        "react": "^16.9.0 || ^17.0.1",
+        "react-dom": "^16.9.0 || ^17.0.1"
     },
     "publishConfig": {
         "access": "public"

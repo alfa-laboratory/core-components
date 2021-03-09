@@ -15,4 +15,9 @@
         sans-serif;
     --disabled-cursor: not-allowed;
     --arrow-transform: rotate(180deg);
+    --size-xs-height: 32px;
+    --size-s-height: 48px;
+    --size-m-height: 56px;
+    --size-l-height: 64px;
+    --size-xl-height: 72px;
 }

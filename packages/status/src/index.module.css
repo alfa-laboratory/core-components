@@ -1,0 +1,88 @@
+@import '../../themes/src/default.css';
+
+.component {
+    @mixin accent_secondary_small;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    padding: 0 var(--gap-xs);
+    border-radius: var(--border-radius);
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    &:empty {
+        padding: 0;
+    }
+}
+
+.soft {
+    &.green {
+        background: color-mod(var(--color-static-status-green) tint(90%));
+        color: var(--color-static-status-green);
+    }
+
+    &.orange {
+        background: color-mod(var(--color-static-status-orange) tint(90%));
+        color: var(--color-static-status-orange);
+    }
+
+    &.red {
+        background: color-mod(var(--color-static-status-red) tint(90%));
+        color: var(--color-static-status-red);
+    }
+
+    &.blue {
+        background: color-mod(var(--color-static-status-blue) tint(90%));
+        color: var(--color-static-status-blue);
+    }
+
+    &.grey {
+        background: color-mod(var(--color-static-status-grey) tint(90%));
+        color: var(--color-static-status-grey);
+    }
+
+    &.teal {
+        background: color-mod(var(--color-static-status-teal) tint(90%));
+        color: var(--color-static-status-teal);
+    }
+
+    &.purple {
+        background: color-mod(var(--color-static-status-purple) tint(90%));
+        color: var(--color-static-status-purple);
+    }
+}
+
+.contrast {
+    color: var(--color-light-text-primary-inverted);
+
+    &.green {
+        background: var(--color-static-status-green);
+    }
+
+    &.orange {
+        background: var(--color-static-status-orange);
+    }
+
+    &.red {
+        background: var(--color-static-status-red);
+    }
+
+    &.blue {
+        background: var(--color-static-status-blue);
+    }
+
+    &.grey {
+        background: var(--color-static-status-grey);
+    }
+
+    &.teal {
+        background: var(--color-static-status-teal);
+    }
+
+    &.purple {
+        background: var(--color-static-status-purple);
+    }
+}

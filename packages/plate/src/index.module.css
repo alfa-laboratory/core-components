@@ -84,7 +84,7 @@
 
 .contentContainer {
     &.withoutTitle {
-        padding-top: 2px;
+        padding-top: var(--gap-3xs);
     }
 }
 

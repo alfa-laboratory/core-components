@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-calendar-input",
-    "version": "2.2.3",
+    "version": "2.2.7",
     "description": "Calendar input component",
     "keywords": [],
     "license": "ISC",
@@ -12,12 +12,12 @@
         "access": "public"
     },
     "peerDependencies": {
-        "react": "^16.9.0",
-        "react-dom": "^16.9.0"
+        "react": "^16.9.0 || ^17.0.1",
+        "react-dom": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-calendar": "^1.1.4",
-        "@alfalab/core-components-masked-input": "^3.2.3",
+        "@alfalab/core-components-calendar": "^1.1.8",
+        "@alfalab/core-components-masked-input": "^3.2.7",
         "@alfalab/core-components-popover": "^1.4.0",
         "classnames": "^2.2.6",
         "date-fns": "^2.16.1",
