@@ -1,6 +1,7 @@
 import React, { MouseEvent, FC, useCallback, useState, useRef, useEffect } from 'react';
 import cn from 'classnames';
 import { phoneNumber } from '@alfalab/utils';
+import { usePrevious } from '@alfalab/hooks';
 
 import { Button } from '@alfalab/core-components-button';
 
@@ -72,16 +73,11 @@ export const Countdown: FC<CountdownProps> = ({
 
     const [timePassed, setTimePassed] = useState(0);
 
-    const handleRepeatSmsButtonClick = useCallback(
-        (event: MouseEvent) => {
-            setRepeatSmsButtonShow(false);
+    const noAttemptsLeftMessagePrev = usePrevious(noAttemptsLeftMessage);
 
-            if (onRepeatSms) {
-                onRepeatSms(event);
-            }
-        },
-        [onRepeatSms],
-    );
+    const stopTimer = useCallback(() => {
+        window.cancelAnimationFrame(requestId.current);
+    }, []);
 
     const updateProgress = useCallback(() => {
         const passed = Date.now() - start.current;
@@ -96,18 +92,44 @@ export const Countdown: FC<CountdownProps> = ({
             if (onCountdownFinished) {
                 onCountdownFinished();
             }
-        }
-    }, [duration, onCountdownFinished]);
 
-    useEffect(() => {
+            stopTimer();
+        }
+    }, [duration, onCountdownFinished, stopTimer]);
+
+    const startTimer = useCallback(() => {
         start.current = Date.now();
 
         requestId.current = window.requestAnimationFrame(updateProgress);
+    }, [updateProgress]);
+
+    const handleRepeatSmsButtonClick = useCallback(
+        (event: MouseEvent) => {
+            setRepeatSmsButtonShow(false);
+
+            if (onRepeatSms) {
+                onRepeatSms(event);
+            }
+
+            startTimer();
+        },
+        [onRepeatSms, startTimer],
+    );
+
+    useEffect(() => {
+        startTimer();
 
         return () => {
-            window.cancelAnimationFrame(requestId.current);
+            stopTimer();
         };
-    }, [updateProgress, repeatSmsButtonShow]);
+    }, [startTimer, stopTimer]);
+
+    useEffect(() => {
+        // Если кончились попытки ввода кода, то останавливаем таймер
+        if (!noAttemptsLeftMessagePrev && noAttemptsLeftMessage) {
+            stopTimer();
+        }
+    }, [noAttemptsLeftMessage, noAttemptsLeftMessagePrev, stopTimer]);
 
     const progress = timePassed / duration;
 

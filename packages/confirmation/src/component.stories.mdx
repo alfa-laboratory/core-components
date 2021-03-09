@@ -24,6 +24,7 @@ import { Select } from '../../select/src/Component';
         const [codeChecking, setCodeChecking] = useState({'success': false, 'error': false, 'fatal': false});
         const [codeSending, setCodeSending] = useState({'success': false, 'error': false, 'fatal': false});
         const [error, setError] = useState({'success': '', 'error': '', 'fatal': ''});
+        const [noAttemptsLeftMessage, setNoAttemptsLeftMessage] = useState('');
         const setCode = (variant, code) => {
             setValue({...value, [variant]: code});
             setError({...error, [variant]: ''});
@@ -37,6 +38,8 @@ import { Select } from '../../select/src/Component';
                     setError({...error, 'error': 'Неправильный код'});
                 } else if (variant === 'fatal') {
                     setError({...error, 'fatal': 'Выполните операцию с самого начала'});
+                } else if (variant === 'attempts-left') {
+                    setNoAttemptsLeftMessage('Не осталось попыток запроса кода');
                 }
             }, 1000);
         }
@@ -146,7 +149,7 @@ import { Select } from '../../select/src/Component';
                                 onInputChange={({ code }) => setCode('attempts-left', code)}
                                 alignContent={alignContent}
                                 requiredCharAmount={requiredCharAmount}
-                                noAttemptsLeftMessage="Не осталось попыток запроса кода"
+                                noAttemptsLeftMessage={noAttemptsLeftMessage}
                             />
                         </div>
                     }
