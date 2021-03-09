@@ -3,7 +3,7 @@
     "version": "3.0.0",
     "description": "Popover component",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "main": "dist/index.js",
     "module": "./dist/esm/index.js",
     "files": [

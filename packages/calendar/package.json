@@ -3,7 +3,7 @@
     "version": "1.1.8",
     "description": "Calendar component",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "main": "dist/index.js",
     "files": [
         "dist"

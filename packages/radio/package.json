@@ -3,7 +3,7 @@
     "version": "1.6.3",
     "description": "Radio component",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "main": "dist/index.js",
     "module": "./dist/esm/index.js",
     "files": [
