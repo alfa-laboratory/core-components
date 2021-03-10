@@ -12,6 +12,9 @@
     color: transparent;
     border-radius: var(--skeleton-border-radius);
     overflow: hidden;
+
+    /* Safari overflow fix https://gist.github.com/ayamflow/b602ab436ac9f05660d9c15190f4fd7b */
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .component > * {
