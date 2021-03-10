@@ -1,0 +1,12 @@
+@import '../../themes/src/default.css';
+@import '../../vars/src/index.css';
+
+.component {
+    position: fixed;
+    right: var(--gap-s);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: calc(100% - var(--gap-s));
+}

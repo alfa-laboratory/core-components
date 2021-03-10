@@ -1,0 +1,67 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { select, text, boolean, number } from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Button } from '@alfalab/core-components-button';
+import { Notification } from '@alfalab/core-components-notification';
+
+import { NotificationManager } from './component';
+import { name, version } from '../package.json';
+
+<Meta title='Компоненты' component={NotificationManager} />
+
+<!-- Canvas -->
+
+<Story name='NotificationManager'>
+    {React.createElement(() => {
+        const [notifications, setNotifications] = React.useState([]);
+        const [count, setCount] = React.useState(0);
+        const addNotification = () => {
+            const arr = [...notifications];
+            arr.unshift({
+                badge: 'positive',
+                title: `Нотификация ${notifications.length}`,
+                autoCloseDelay: 3000,
+                id: count.toString(),
+            });
+            setNotifications(arr);
+            setCount(count => ++count);
+        };
+        const removeNotification = id => {
+            console.log(notifications);
+            console.log('removeNotification', id);
+            const filtered = notifications.filter(notification => notification.id !== id);
+            console.log(filtered);
+            setNotifications(filtered);
+        };
+        return (
+            <div>
+                <Button onClick={addNotification}>Добавить нотификацию</Button>
+                <NotificationManager
+                    onRemoveNotification={removeNotification}
+                    notifications={notifications}
+                />
+            </div>
+        );
+    })}
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='NotificationManager'
+    version={version}
+    package='@alfalab/core-components-notification-manager'
+    stage={2}
+/>
+
+```tsx
+import { NotificationManager } from '@alfalab/core-components-notification-manager';
+```
+
+Менеджер нотификаций.
+Рендерит массив нотификаций:
+
+-   Располагает нотификации друг под другом, новые нотификации появляются выше старых
+-   Скрывает/показывает нотификации с анимацией
+
+<Props of={NotificationManager} />
