@@ -10,6 +10,9 @@
 
 .popover {
     z-index: 9999;
+}
+
+.popoverInner {
     border: none;
     border-radius: var(--toast-plate-border-radius);
     box-shadow: var(--toast-box-shadow);

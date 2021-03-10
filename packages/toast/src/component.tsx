@@ -147,8 +147,8 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
                     anchorElement={anchorElement}
                     position={position}
                     offset={offset}
-                    popperClassName={styles.popover}
-                    className={cn({ [styles.block]: block })}
+                    popperClassName={styles.popoverInner}
+                    className={cn(styles.popover, { [styles.block]: block })}
                     transition={{ timeout: 150 }}
                     getPortalContainer={getPortalContainer}
                 >
