@@ -2,14 +2,19 @@
 
 :root {
     --skeleton-background-filter: none;
-    --skeleton-default-color: var(--color-light-graphic-neutral);
+    --skeleton-default-color: var(--color-light-specialbg-component);
+    --skeleton-border-radius: var(--border-radius-m);
 }
 
 .component {
     position: relative;
     display: inline-block;
-    border-radius: var(--border-radius-s);
+    color: transparent;
+    border-radius: var(--skeleton-border-radius);
     overflow: hidden;
+
+    /* Safari overflow fix https://gist.github.com/ayamflow/b602ab436ac9f05660d9c15190f4fd7b */
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .component > * {
@@ -43,7 +48,7 @@
         to left,
         rgba(0, 0, 0, 0),
         rgba(0, 0, 0, 0) 40%,
-        rgba(0, 0, 0, 0.025) 50%,
+        rgba(0, 0, 0, 0.05) 50%,
         rgba(0, 0, 0, 0) 60%,
         rgba(0, 0, 0, 0)
     );
