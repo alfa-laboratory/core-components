@@ -129,10 +129,6 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
             if (open !== prevOpen && open) {
                 startTimer();
             }
-
-            return () => {
-                stopTimer();
-            };
         }, [open, prevOpen, startTimer, stopTimer]);
 
         const props = {
