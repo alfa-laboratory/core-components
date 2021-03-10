@@ -38,7 +38,7 @@
     --select-checkmark-order: 0;
     --select-checkmark-unselected-opacity: 0;
     --select-checkmark-background: var(--color-light-graphic-primary);
-    --select-checkmark-border-radius: 50%;
+    --select-checkmark-border-radius: var(--border-radius-circle);
 
     /* optgroup */
 
