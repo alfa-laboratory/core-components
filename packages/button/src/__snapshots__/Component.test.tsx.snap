@@ -7,12 +7,14 @@ Object {
     <div>
       <button
         class="component secondary m iconOnly"
+        type="button"
       />
     </div>
   </body>,
   "container": <div>
     <button
       class="component secondary m iconOnly"
+      type="button"
     />
   </div>,
   "debug": [Function],
@@ -147,12 +149,14 @@ Object {
     <div>
       <button
         class="component secondary m iconOnly"
+        type="button"
       />
     </div>
   </body>,
   "container": <div>
     <button
       class="component secondary m iconOnly"
+      type="button"
     />
   </div>,
   "debug": [Function],
@@ -216,6 +220,7 @@ Object {
     <div>
       <button
         class="component secondary m iconOnly"
+        type="button"
       >
         <span
           class="addons"
@@ -230,6 +235,7 @@ Object {
   "container": <div>
     <button
       class="component secondary m iconOnly"
+      type="button"
     >
       <span
         class="addons"
@@ -419,6 +425,7 @@ Object {
       <button
         class="component secondary m iconOnly loading"
         disabled=""
+        type="button"
       >
         <svg
           class="component loader"
@@ -449,6 +456,7 @@ Object {
     <button
       class="component secondary m iconOnly loading"
       disabled=""
+      type="button"
     >
       <svg
         class="component loader"
@@ -535,6 +543,7 @@ Object {
     <div>
       <button
         class="component secondary m iconOnly"
+        type="button"
       >
         <span
           class="addons"
@@ -549,6 +558,7 @@ Object {
   "container": <div>
     <button
       class="component secondary m iconOnly"
+      type="button"
     >
       <span
         class="addons"
