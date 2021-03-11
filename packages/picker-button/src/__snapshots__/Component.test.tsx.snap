@@ -99,14 +99,14 @@ exports[`Snapshots tests should display opened correctly 2`] = `
   alfa-portal-container=""
 >
   <div
-    class="component"
+    class="component popover"
     data-popper-escaped="true"
     data-popper-placement="bottom-start"
     data-popper-reference-hidden="true"
     style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
   >
     <div
-      class="inner popover"
+      class="inner popoverInner"
     >
       <div
         aria-labelledby="downshift-3-label"

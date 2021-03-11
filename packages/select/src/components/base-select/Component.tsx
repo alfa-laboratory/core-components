@@ -364,7 +364,8 @@ export const BaseSelect = forwardRef(
                         anchorElement={fieldRef.current as HTMLElement}
                         position={popoverPosition}
                         preventFlip={preventFlip}
-                        popperClassName={styles.popover}
+                        popperClassName={styles.popoverInner}
+                        className={styles.popover}
                         update={updatePopover}
                     >
                         {needRenderOptionsList && (
