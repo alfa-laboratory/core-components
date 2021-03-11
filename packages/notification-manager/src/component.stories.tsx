@@ -1,40 +1,50 @@
 import React, { useCallback, useState } from 'react';
 import { Button } from '@alfalab/core-components-button';
+import { Notification } from '@alfalab/core-components-notification';
 
-import { NotificationManager } from '.';
+import { NotificationManager, NotificationManagerProps } from '.';
 
 export const Story = () => {
-    const [notifications, setNotifications] = useState([]);
+    const [notifications, setNotifications] = useState<NotificationManagerProps['notifications']>(
+        [],
+    );
 
     const [count, setCount] = useState(0);
 
     const addNotification = () => {
-        setNotifications(
-            [
-                {
-                    badge: 'positive',
-                    title: `Нотификация ${notifications.length}`,
-                    autoCloseDelay: 3000,
-                    id: count.toString(),
-                },
-            ].concat(notifications),
+        const newNotification = (
+            <Notification
+                badge='positive'
+                title={`Нотификация #${count}`}
+                autoCloseDelay={3000}
+                id={count.toString()}
+                key={count.toString()}
+            />
         );
+
+        notifications.unshift(newNotification);
+
+        setNotifications([...notifications]);
+
         setCount(val => val + 1);
     };
 
-    const removeNotification = useCallback(
-        id => {
-            setNotifications(notifications.filter(notification => notification.id !== id));
-        },
-        [notifications],
-    );
+    const removeNotification = useCallback(id => {
+        /**
+         * Обратите внимание, что актуальный массив нотификаций
+         * нужно брать из аргументов функции обновления состояния.
+         */
+        setNotifications(actualNotifications =>
+            actualNotifications.filter(notification => notification.props.id !== id),
+        );
+    }, []);
 
     return (
         <div>
             <Button onClick={addNotification}>Добавить нотификацию</Button>
             <NotificationManager
-                onRemoveNotification={removeNotification}
                 notifications={notifications}
+                onRemoveNotification={removeNotification}
             />
         </div>
     );

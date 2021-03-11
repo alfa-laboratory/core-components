@@ -1,7 +1,0 @@
-@import '../../../../vars/src/index.css';
-
-.notification {
-    position: static;
-    width: 100%;
-    margin-top: var(--gap-s);
-}

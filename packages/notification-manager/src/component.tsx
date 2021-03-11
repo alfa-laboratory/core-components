@@ -1,25 +1,18 @@
-import React, {
-    forwardRef,
-    ReactElement,
-    isValidElement,
-    HTMLAttributes,
-    useEffect,
-    useRef,
-} from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import cn from 'classnames';
 
-import { NotificationProps } from '@alfalab/core-components-notification';
 import { Portal } from '@alfalab/core-components-portal';
 
-import { Notification } from './components';
+import { Notification, NotificationElement } from './components';
 
 import styles from './index.module.css';
 
 export type NotificationManagerProps = HTMLAttributes<HTMLDivElement> & {
     /**
-     * Массив нотификаций (native prop)
+     * Массив нотификаций.
+     * В нотификации обязательно передавайте id.
      */
-    notifications: Array<NotificationProps & { id: string }>;
+    notifications: NotificationElement[];
 
     /**
      * Дополнительный класс (native prop)
@@ -38,29 +31,16 @@ export type NotificationManagerProps = HTMLAttributes<HTMLDivElement> & {
 };
 
 export const NotificationManager = forwardRef<HTMLDivElement, NotificationManagerProps>(
-    ({ children, className, notifications, onRemoveNotification, ...restProps }, ref) => {
-        // useEffect(() => {
-        //     notifications.forEach(notification => {
-        //         window.setTimeout(() => {
-        //             if (notifications.find(n => n.id === notification.id)) {
-        //                 onRemoveNotification(notification.id);
-        //             }
-        //         }, notification.autoCloseDelay);
-        //     });
-        // }, [notifications, onRemoveNotification]);
-
+    ({ notifications, className, onRemoveNotification, ...restProps }, ref) => {
         return (
             <Portal>
                 <div className={cn(styles.component, className)} ref={ref} {...restProps}>
                     {notifications.map(element => {
-                        // if (!isValidElement(element)) {
-                        //     return null;
-                        // }
-
                         return (
                             <Notification
-                                key={element.id}
+                                key={element.props.id}
                                 element={element}
+                                className={styles.notification}
                                 onRemoveNotification={onRemoveNotification}
                             />
                         );

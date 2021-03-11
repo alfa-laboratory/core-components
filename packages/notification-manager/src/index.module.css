@@ -10,3 +10,9 @@
     align-items: flex-end;
     width: calc(100% - var(--gap-s));
 }
+
+.component .notification {
+    position: static;
+    width: 100%;
+    margin-top: var(--gap-s);
+}
