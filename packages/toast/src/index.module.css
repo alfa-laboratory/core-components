@@ -16,6 +16,7 @@
     border: none;
     border-radius: var(--toast-plate-border-radius);
     box-shadow: var(--toast-box-shadow);
+    background-color: transparent;
 }
 
 .block {
