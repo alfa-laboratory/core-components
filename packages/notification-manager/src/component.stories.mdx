@@ -16,29 +16,34 @@ import { name, version } from '../package.json';
         const [notifications, setNotifications] = React.useState([]);
         const [count, setCount] = React.useState(0);
         const addNotification = () => {
-            const arr = [...notifications];
-            arr.unshift({
-                badge: 'positive',
-                title: `Нотификация ${notifications.length}`,
-                autoCloseDelay: 3000,
-                id: count.toString(),
-            });
-            setNotifications(arr);
-            setCount(count => ++count);
+            const newNotification = (
+                <Notification
+                    badge='positive'
+                    title={`Нотификация #${count}`}
+                    autoCloseDelay={3000}
+                    id={count.toString()}
+                    key={count.toString()}
+                />
+            );
+            notifications.unshift(newNotification);
+            setNotifications([...notifications]);
+            setCount(val => val + 1);
         };
-        const removeNotification = id => {
-            console.log(notifications);
-            console.log('removeNotification', id);
-            const filtered = notifications.filter(notification => notification.id !== id);
-            console.log(filtered);
-            setNotifications(filtered);
-        };
+        const removeNotification = React.useCallback(id => {
+            /**
+             * Обратите внимание, что актуальный массив нотификаций
+             * нужно брать из аргументов функции обновления состояния.
+             */
+            setNotifications(actualNotifications =>
+                actualNotifications.filter(notification => notification.props.id !== id),
+            );
+        }, []);
         return (
             <div>
                 <Button onClick={addNotification}>Добавить нотификацию</Button>
                 <NotificationManager
-                    onRemoveNotification={removeNotification}
                     notifications={notifications}
+                    onRemoveNotification={removeNotification}
                 />
             </div>
         );
@@ -63,5 +68,60 @@ import { NotificationManager } from '@alfalab/core-components-notification-manag
 
 -   Располагает нотификации друг под другом, новые нотификации появляются выше старых
 -   Скрывает/показывает нотификации с анимацией
+-   В качестве нотификации может быть прокинут любой компонент со схожим API
+
+**При реализации функции onRemoveNotification, актуальный массив нотификаций следует брать
+из аргументов функции обновления состояния:**
+
+```tsx
+const removeNotification = React.useCallback(id => {
+    /**
+     * Обратите внимание, что актуальный массив нотификаций
+     * нужно брать из аргументов функции обновления состояния.
+     */
+    setNotifications(actualNotifications =>
+        actualNotifications.filter(notification => notification.props.id !== id),
+    );
+}, []);
+```
+
+<Preview>
+    {React.createElement(() => {
+        const [notifications, setNotifications] = React.useState([]);
+        const [count, setCount] = React.useState(0);
+        const addNotification = () => {
+            const newNotification = (
+                <Notification
+                    badge='positive'
+                    title={`Нотификация #${count}`}
+                    autoCloseDelay={3000}
+                    id={count.toString()}
+                    key={count.toString()}
+                />
+            );
+            notifications.unshift(newNotification);
+            setNotifications([...notifications]);
+            setCount(val => val + 1);
+        };
+        const removeNotification = React.useCallback(id => {
+            /**
+             * Обратите внимание, что актуальный массив нотификаций
+             * нужно брать из аргументов функции обновления состояния.
+             */
+            setNotifications(actualNotifications =>
+                actualNotifications.filter(notification => notification.props.id !== id),
+            );
+        }, []);
+        return (
+            <div>
+                <Button onClick={addNotification}>Добавить нотификацию</Button>
+                <NotificationManager
+                    notifications={notifications}
+                    onRemoveNotification={removeNotification}
+                />
+            </div>
+        );
+    })}
+</Preview>
 
 <Props of={NotificationManager} />

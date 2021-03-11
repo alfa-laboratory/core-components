@@ -1,5 +1,7 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
 import cn from 'classnames';
+import TransitionGroup from 'react-transition-group/TransitionGroup';
+import CSSTransition from 'react-transition-group/CSSTransition';
 
 import { Portal } from '@alfalab/core-components-portal';
 
@@ -30,21 +32,34 @@ export type NotificationManagerProps = HTMLAttributes<HTMLDivElement> & {
     onRemoveNotification: (id: string) => void;
 };
 
+const CSS_TRANSITION_CLASS_NAMES = {
+    enter: styles.enter,
+    enterActive: styles.enterActive,
+    exit: styles.exit,
+    exitActive: styles.exitActive,
+};
+
 export const NotificationManager = forwardRef<HTMLDivElement, NotificationManagerProps>(
     ({ notifications, className, onRemoveNotification, ...restProps }, ref) => {
         return (
             <Portal>
                 <div className={cn(styles.component, className)} ref={ref} {...restProps}>
-                    {notifications.map(element => {
-                        return (
-                            <Notification
+                    <TransitionGroup>
+                        {notifications.map(element => (
+                            <CSSTransition
                                 key={element.props.id}
-                                element={element}
-                                className={styles.notification}
-                                onRemoveNotification={onRemoveNotification}
-                            />
-                        );
-                    })}
+                                timeout={200}
+                                classNames={CSS_TRANSITION_CLASS_NAMES}
+                                unmountOnExit={true}
+                            >
+                                <Notification
+                                    element={element}
+                                    className={styles.notification}
+                                    onRemoveNotification={onRemoveNotification}
+                                />
+                            </CSSTransition>
+                        ))}
+                    </TransitionGroup>
                 </div>
             </Portal>
         );
