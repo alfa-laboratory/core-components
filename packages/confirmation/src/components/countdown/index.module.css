@@ -31,3 +31,11 @@
     display: flex;
     min-width: 3em;
 }
+
+.getCodeButton {
+    margin-top: var(--gap-2xl);
+}
+
+.noAttemptsLeftMessage {
+    margin-top: var(--gap-l);
+}
