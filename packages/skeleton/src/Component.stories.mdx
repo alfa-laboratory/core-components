@@ -9,7 +9,11 @@ import { Typography } from '../../typography/src';
 import styles from './stories.module.css';
 
 
-<Meta title='Компоненты' component={Skeleton} />
+<Meta
+    title='Компоненты'
+    component={Skeleton}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
 
 
 <!-- Canvas -->
@@ -42,6 +46,7 @@ import styles from './stories.module.css';
     version={version}
     package='@alfalab/core-components-skeleton'
     stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=13404%3A5'
 />
 
 ```tsx

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@7.0.2...@alfalab/core-components-select@7.0.3) (2021-03-11)
+
+
+### Bug Fixes
+
+* **toast:** remove extra timer clearing ([#559](https://github.com/alfa-laboratory/core-components/issues/559)) ([ae5d811](https://github.com/alfa-laboratory/core-components/commit/ae5d81169d4db0427ae5baf0bffd784adee184ee))
+
+
+
+
+
+## [7.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@7.0.1...@alfalab/core-components-select@7.0.2) (2021-03-10)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
 ## [7.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@7.0.0...@alfalab/core-components-select@7.0.1) (2021-03-05)
 
 **Note:** Version bump only for package @alfalab/core-components-select
