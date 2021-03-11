@@ -1,7 +1,6 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
 import cn from 'classnames';
-import TransitionGroup from 'react-transition-group/TransitionGroup';
-import CSSTransition from 'react-transition-group/CSSTransition';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import { Portal } from '@alfalab/core-components-portal';
 
@@ -40,10 +39,15 @@ const CSS_TRANSITION_CLASS_NAMES = {
 };
 
 export const NotificationManager = forwardRef<HTMLDivElement, NotificationManagerProps>(
-    ({ notifications, className, onRemoveNotification, ...restProps }, ref) => {
+    ({ notifications, className, dataTestId, onRemoveNotification, ...restProps }, ref) => {
         return (
             <Portal>
-                <div className={cn(styles.component, className)} ref={ref} {...restProps}>
+                <div
+                    className={cn(styles.component, className)}
+                    ref={ref}
+                    data-test-id={dataTestId}
+                    {...restProps}
+                >
                     <TransitionGroup>
                         {notifications.map(element => (
                             <CSSTransition
