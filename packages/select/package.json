@@ -19,7 +19,7 @@
     "dependencies": {
         "@alfalab/core-components-form-control": "^6.0.0",
         "@alfalab/core-components-input": "^6.0.0",
-        "@alfalab/core-components-popover": "^1.4.0",
+        "@alfalab/core-components-popover": "^3.0.0",
         "@alfalab/hooks": "^1.0.0",
         "classnames": "^2.2.6",
         "downshift": "5.4.7",
