@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.11](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@3.2.10...@alfalab/core-components-picker-button@3.2.11) (2021-03-11)
+
+
+### Bug Fixes
+
+* **toast:** remove extra timer clearing ([#559](https://github.com/alfa-laboratory/core-components/issues/559)) ([ae5d811](https://github.com/alfa-laboratory/core-components/commit/ae5d81169d4db0427ae5baf0bffd784adee184ee))
+
+
+
+
+
 ## [3.2.10](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@3.2.9...@alfalab/core-components-picker-button@3.2.10) (2021-03-10)
 
 **Note:** Version bump only for package @alfalab/core-components-picker-button
