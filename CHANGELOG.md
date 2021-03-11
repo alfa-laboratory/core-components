@@ -1,3 +1,23 @@
+# [13.0.0](https://github.com/alfa-laboratory/core-components/compare/v12.3.0...v13.0.0) (2021-03-11)
+
+
+### Bug Fixes
+
+* **confirmation:** fix bug with timers ([2bdb105](https://github.com/alfa-laboratory/core-components/commit/2bdb10505ebb91713bca0b56e4d10af08cbcd4ed))
+
+
+### Features
+
+* **confirmation:** add noAttemptsLeftMessage prop ([7dc0e02](https://github.com/alfa-laboratory/core-components/commit/7dc0e02074443fd68c13aa0ac54bd966e8968ffc))
+* **confirmation:** always show sms come link ([0a14a54](https://github.com/alfa-laboratory/core-components/commit/0a14a54b177ee72ccf8cd8b057ea48db0168c1fb))
+* **confirmation:** confirmation design updates ([69f26e4](https://github.com/alfa-laboratory/core-components/commit/69f26e415a195d863686076941b6a3f15f3d1d15))
+* **confirmation:** fix text ([40d4d6b](https://github.com/alfa-laboratory/core-components/commit/40d4d6b2261b2e0db79bc160266cc207a1ca3858))
+
+
+### BREAKING CHANGES
+
+* **confirmation:** Add phone formatting into component. Phone prop doesn't have to be formatted.
+
 # [12.3.0](https://github.com/alfa-laboratory/core-components/compare/v12.2.0...v12.3.0) (2021-03-10)
 
 
