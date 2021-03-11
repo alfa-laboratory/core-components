@@ -3,7 +3,7 @@
     "version": "2.4.2",
     "description": "",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "style": "index.css",
     "publishConfig": {
         "access": "public",

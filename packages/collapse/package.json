@@ -3,7 +3,7 @@
     "version": "1.0.4",
     "description": "",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "main": "dist/index.js",
     "files": [
         "dist"

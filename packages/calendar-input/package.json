@@ -3,7 +3,7 @@
     "version": "2.2.8",
     "description": "Calendar input component",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "main": "dist/index.js",
     "files": [
         "dist"

@@ -3,7 +3,7 @@
     "version": "4.0.3",
     "description": "Phone input for international phones",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "main": "dist/index.js",
     "module": "./dist/modern/index.js",
     "files": [

@@ -3,7 +3,7 @@
     "version": "1.4.10",
     "description": "Inject dark theme styles in page",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "main": "dist/index.js",
     "files": [
         "dist"

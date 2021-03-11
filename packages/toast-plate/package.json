@@ -3,7 +3,7 @@
     "version": "2.1.4",
     "description": "Toast plate component",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "main": "dist/index.js",
     "module": "./dist/esm/index.js",
     "files": [
