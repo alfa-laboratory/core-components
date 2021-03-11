@@ -1,3 +1,10 @@
+## [13.0.1](https://github.com/alfa-laboratory/core-components/compare/v13.0.0...v13.0.1) (2021-03-11)
+
+
+### Bug Fixes
+
+* **toast:** remove extra timer clearing ([#559](https://github.com/alfa-laboratory/core-components/issues/559)) ([ae5d811](https://github.com/alfa-laboratory/core-components/commit/ae5d81169d4db0427ae5baf0bffd784adee184ee))
+
 # [13.0.0](https://github.com/alfa-laboratory/core-components/compare/v12.3.0...v13.0.0) (2021-03-11)
 
 
