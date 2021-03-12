@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropzone Snapshots tests should match snapshot 1`] = `
+<div
+  class="component"
+>
+  <div
+    class="overlay"
+  >
+    <svg
+      fill="currentColor"
+      focusable="false"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M19 9V3H5v6l2 1V5h10v5l2-1zm3 11a1 1 0 01-1 1H3a1 1 0 01-1-1v-9l10 4.5L22 11v9zM9 7h6v2H9V7zm6 3H9v2h6v-2z"
+        fill-rule="evenodd"
+      />
+    </svg>
+    <span
+      class="text"
+    >
+      Перетащите файлы
+    </span>
+  </div>
+</div>
+`;

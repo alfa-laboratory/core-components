@@ -1,0 +1,69 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { select, text } from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { Dropzone } from './Component';
+import { name, version } from '../package.json';
+
+<Meta
+    title='Компоненты'
+    component={Dropzone}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='Dropzone'>
+    <Dropzone>
+        <div style={{ width: 400, minHeight: 200, padding: 10 }}>
+            <span>Перетащите файлы сюда</span>
+        </div>
+    </Dropzone>
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Dropzone'
+    version={version}
+    package='@alfalab/core-components-dropzone'
+    stage={1}
+/>
+
+```tsx
+import { Dropzone } from '@alfalab/core-components-dropzone';
+```
+
+Компонент drag-and-drop контейнер для прикрепления файлов.
+
+
+<Props of={Dropzone} />
+
+
+<Preview>
+    {React.createElement(() => {
+        const [filesList, setFilesList] = React.useState([]);
+        const handleDrop = (files) => {
+            setFilesList(
+                Array.from(files)
+                    .map(file => file.name)
+                    .filter(Boolean)
+            );
+        };
+        return (
+            <Dropzone onDrop={handleDrop}>
+                <div style={{ width: 400, minHeight: 200, padding: 10 }}>
+                    {filesList.length > 0 ? (
+                        <ul>
+                            { filesList.map(file => <li key={ file }>{ file }</li>) }
+                        </ul>
+                    ) : (
+                        <span>Перетащите файлы сюда</span>
+                    )}
+                </div>
+            </Dropzone>
+        );
+    })}
+</Preview>
