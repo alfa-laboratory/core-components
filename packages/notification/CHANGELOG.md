@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.10](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@2.0.9...@alfalab/core-components-notification@2.0.10) (2021-03-14)
+
+
+### Bug Fixes
+
+* **button:** set type button by default ([#564](https://github.com/alfa-laboratory/core-components/issues/564)) ([59fdefd](https://github.com/alfa-laboratory/core-components/commit/59fdefd4f37fbe589840aa8944d88bde5b8cda6e))
+
+
+
+
+
 ## [2.0.9](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@2.0.8...@alfalab/core-components-notification@2.0.9) (2021-03-10)
 
 **Note:** Version bump only for package @alfalab/core-components-notification
