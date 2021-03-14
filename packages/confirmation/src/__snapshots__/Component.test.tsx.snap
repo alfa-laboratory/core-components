@@ -155,6 +155,7 @@ exports[`Confirmation Snapshot tests should match snapshot with fatal error 1`] 
       </span>
       <button
         class="component secondary s block"
+        type="button"
       >
         <span
           class="text stretchText"

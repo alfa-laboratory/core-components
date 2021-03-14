@@ -135,7 +135,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
             );
         }
 
-        const { disabled, ...restButtonProps } = restProps as ButtonHTMLAttributes<
+        const { disabled, type = 'button', ...restButtonProps } = restProps as ButtonHTMLAttributes<
             HTMLButtonElement
         >;
 
@@ -144,6 +144,8 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
             <button
                 {...componentProps}
                 {...restButtonProps}
+                // eslint-disable-next-line react/button-has-type
+                type={type}
                 disabled={disabled || loading}
                 ref={mergeRefs([buttonRef, ref])}
             >
