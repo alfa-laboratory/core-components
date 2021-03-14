@@ -1,3 +1,10 @@
+## [13.0.2](https://github.com/alfa-laboratory/core-components/compare/v13.0.1...v13.0.2) (2021-03-14)
+
+
+### Bug Fixes
+
+* **button:** set type button by default ([#564](https://github.com/alfa-laboratory/core-components/issues/564)) ([59fdefd](https://github.com/alfa-laboratory/core-components/commit/59fdefd4f37fbe589840aa8944d88bde5b8cda6e))
+
 ## [13.0.1](https://github.com/alfa-laboratory/core-components/compare/v13.0.0...v13.0.1) (2021-03-11)
 
 
