@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.7.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.6.1...@alfalab/core-components-themes@3.7.0) (2021-03-15)
+
+
+### Features
+
+* **vars:** introducing border-radius vars ([1a6fb28](https://github.com/alfa-laboratory/core-components/commit/1a6fb287bcfab50048c3a9100645b4dee8cd3395))
+
+
+
+
+
 ## [3.6.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.6.0...@alfalab/core-components-themes@3.6.1) (2021-03-14)
 
 **Note:** Version bump only for package @alfalab/core-components-themes

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-slider-input",
-    "version": "3.0.2",
+    "version": "3.0.3",
     "description": "Slider input component",
     "keywords": [],
     "license": "MIT",
@@ -17,8 +17,8 @@
         "react-dom": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^6.0.2",
-        "@alfalab/core-components-slider": "^1.1.4",
+        "@alfalab/core-components-input": "^6.0.3",
+        "@alfalab/core-components-slider": "^1.2.0",
         "classnames": "^2.2.6",
         "react-merge-refs": "^1.1.0"
     }

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-calendar",
-    "version": "1.1.10",
+    "version": "1.2.0",
     "description": "Calendar component",
     "keywords": [],
     "license": "MIT",
@@ -15,7 +15,7 @@
         "react": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^2.0.2",
+        "@alfalab/core-components-button": "^2.1.0",
         "classnames": "^2.2.6",
         "date-fns": "^2.16.1",
         "react-merge-refs": "^1.1.0"

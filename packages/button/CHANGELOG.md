@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@2.0.2...@alfalab/core-components-button@2.1.0) (2021-03-15)
+
+
+### Features
+
+* **vars:** introducing border-radius vars ([1a6fb28](https://github.com/alfa-laboratory/core-components/commit/1a6fb287bcfab50048c3a9100645b4dee8cd3395))
+
+
+
+
+
 ## [2.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@2.0.1...@alfalab/core-components-button@2.0.2) (2021-03-14)
 
 

@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-select",
-    "version": "7.0.4",
+    "version": "7.1.0",
     "description": "Select component",
     "keywords": [],
     "license": "MIT",
@@ -18,7 +18,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-form-control": "^6.0.1",
-        "@alfalab/core-components-input": "^6.0.2",
+        "@alfalab/core-components-input": "^6.0.3",
         "@alfalab/core-components-popover": "^3.0.2",
         "@alfalab/hooks": "^1.0.0",
         "classnames": "^2.2.6",

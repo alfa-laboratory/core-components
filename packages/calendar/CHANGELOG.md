@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar@1.1.10...@alfalab/core-components-calendar@1.2.0) (2021-03-15)
+
+
+### Features
+
+* **vars:** introducing border-radius vars ([1a6fb28](https://github.com/alfa-laboratory/core-components/commit/1a6fb287bcfab50048c3a9100645b4dee8cd3395))
+
+
+
+
+
 ## [1.1.10](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar@1.1.9...@alfalab/core-components-calendar@1.1.10) (2021-03-14)
 
 

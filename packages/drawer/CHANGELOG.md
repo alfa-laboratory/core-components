@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-drawer@1.1.7...@alfalab/core-components-drawer@1.1.8) (2021-03-15)
+
+**Note:** Version bump only for package @alfalab/core-components-drawer
+
+
+
+
+
 ## [1.1.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-drawer@1.1.6...@alfalab/core-components-drawer@1.1.7) (2021-03-14)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer
