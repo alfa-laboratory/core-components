@@ -1,6 +1,5 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { boolean } from '@storybook/addon-knobs';
-import { Container, Row, Col } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { Dropzone } from './Component';
@@ -11,14 +10,26 @@ import { name, version } from '../package.json';
     component={Dropzone}
 />
 
+export const Container = ({ children }) => (
+    <div
+        style={{
+            width: 400,
+            height: 200,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+        }}>
+            {children}
+        </div>
+);
 
 <!-- Canvas -->
 
 <Story name='Dropzone'>
     <Dropzone error={boolean('error', false)}>
-        <div style={{ width: 400, minHeight: 200, padding: 10 }}>
-            <span>Перетащите файлы сюда</span>
-        </div>
+        <Container>
+            <span>children</span>
+        </Container>
     </Dropzone>
 </Story>
 
@@ -54,15 +65,15 @@ import { Dropzone } from '@alfalab/core-components-dropzone';
         };
         return (
             <Dropzone onDrop={handleDrop}>
-                <div style={{ width: 400, minHeight: 200, padding: 10 }}>
+                <Container>
                     {filesList.length > 0 ? (
                         <ul>
                             { filesList.map(file => <li key={ file }>{ file }</li>) }
                         </ul>
                     ) : (
-                        <span>Перетащите файлы сюда</span>
+                        <span>children</span>
                     )}
-                </div>
+                </Container>
             </Dropzone>
         );
     })}
