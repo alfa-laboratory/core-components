@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Notification manager",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "main": "dist/index.js",
     "module": "./dist/modern/index.js",
     "files": [
