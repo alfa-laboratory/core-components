@@ -4,6 +4,7 @@
 @import '../../vars/src/shadows-indigo.css';
 @import '../../vars/src/gaps.css';
 @import '../../vars/src/typography.css';
+@import '../../vars/src/border-radius.css';
 
 :root {
     --text-primary-color: var(--color-light-text-primary);
