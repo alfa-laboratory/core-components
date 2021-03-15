@@ -1,3 +1,10 @@
+## [13.1.1](https://github.com/alfa-laboratory/core-components/compare/v13.1.0...v13.1.1) (2021-03-15)
+
+
+### Bug Fixes
+
+* **themes:** fixes border-radius ([9d152d9](https://github.com/alfa-laboratory/core-components/commit/9d152d9ae0e70736cf78f3a014b6710dc8aa2331))
+
 # [13.1.0](https://github.com/alfa-laboratory/core-components/compare/v13.0.2...v13.1.0) (2021-03-15)
 
 
