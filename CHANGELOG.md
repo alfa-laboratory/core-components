@@ -1,3 +1,10 @@
+# [13.1.0](https://github.com/alfa-laboratory/core-components/compare/v13.0.2...v13.1.0) (2021-03-15)
+
+
+### Features
+
+* **vars:** introducing border-radius vars ([1a6fb28](https://github.com/alfa-laboratory/core-components/commit/1a6fb287bcfab50048c3a9100645b4dee8cd3395))
+
 ## [13.0.2](https://github.com/alfa-laboratory/core-components/compare/v13.0.1...v13.0.2) (2021-03-14)
 
 
