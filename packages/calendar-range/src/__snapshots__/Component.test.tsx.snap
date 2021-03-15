@@ -55,6 +55,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
               <button
                 aria-label="Предыдущий месяц"
                 class="component ghost m iconOnly arrow"
+                type="button"
               />
               <span
                 class="button month"
@@ -622,6 +623,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
                 <button
                   aria-label="Следующий месяц"
                   class="component ghost m iconOnly arrow"
+                  type="button"
                 />
               </div>
             </div>

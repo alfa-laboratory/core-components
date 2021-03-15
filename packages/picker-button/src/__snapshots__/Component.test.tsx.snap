@@ -16,6 +16,7 @@ exports[`Snapshots tests should display correctly 1`] = `
       class="component secondary m block component"
       id="downshift-0-input"
       tabindex="0"
+      type="button"
     >
       <span
         class="text"
@@ -68,6 +69,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
       class="component secondary m block iconOnly component"
       id="downshift-2-input"
       tabindex="0"
+      type="button"
     >
       <span
         class="addons"
