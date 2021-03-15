@@ -1,9 +1,9 @@
 {
     "name": "@alfalab/core-components-portal",
-    "version": "1.4.2",
+    "version": "1.4.3",
     "description": "Portal component",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "main": "dist/index.js",
     "module": "./dist/esm/index.js",
     "files": [

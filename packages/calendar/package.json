@@ -1,9 +1,9 @@
 {
     "name": "@alfalab/core-components-calendar",
-    "version": "1.1.8",
+    "version": "1.1.10",
     "description": "Calendar component",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "main": "dist/index.js",
     "files": [
         "dist"
@@ -15,7 +15,7 @@
         "react": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^2.0.0",
+        "@alfalab/core-components-button": "^2.0.2",
         "classnames": "^2.2.6",
         "date-fns": "^2.16.1",
         "react-merge-refs": "^1.1.0"

@@ -44,11 +44,11 @@ exports[`Toast Snapshots tests should math snapshot when prop \`anchorElement\` 
     alfa-portal-container=""
   >
     <div
-      class="component"
+      class="component popover"
       style="position: absolute; left: 0px; top: 0px;"
     >
       <div
-        class="inner popover"
+        class="inner popoverInner"
         style="transition-duration: 150ms;"
       >
         <div

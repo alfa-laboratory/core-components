@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.10](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@1.4.9...@alfalab/core-components-attach@1.4.10) (2021-03-14)
+
+
+### Bug Fixes
+
+* **button:** set type button by default ([#564](https://github.com/alfa-laboratory/core-components/issues/564)) ([59fdefd](https://github.com/alfa-laboratory/core-components/commit/59fdefd4f37fbe589840aa8944d88bde5b8cda6e))
+
+
+
+
+
+## [1.4.9](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@1.4.8...@alfalab/core-components-attach@1.4.9) (2021-03-10)
+
+**Note:** Version bump only for package @alfalab/core-components-attach
+
+
+
+
+
 ## [1.4.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@1.4.7...@alfalab/core-components-attach@1.4.8) (2021-03-04)
 
 **Note:** Version bump only for package @alfalab/core-components-attach

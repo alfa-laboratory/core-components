@@ -9,6 +9,16 @@
   dependencies:
     classnames "^2.2.6"
 
+"@alfalab/core-components-button@^1.10.0":
+  version "1.15.4"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-button/-/core-components-button-1.15.4.tgz#f607b43f4a0d43f557a76e3e4fa83b6fb062d116"
+  integrity sha512-2dWvaDaPzC2F8V8/SA5LQ1VGSp0FUToyN5hiP+l3MnVfIUtkZ7lApzsCBbiZDZQ8YV9R2qYJpnUsCLRBsxSkdw==
+  dependencies:
+    "@alfalab/core-components-loader" "^1.1.1"
+    "@alfalab/hooks" "^1.0.0"
+    classnames "^2.2.6"
+    react-merge-refs "^1.1.0"
+
 "@alfalab/core-components-form-control@^3.1.5":
   version "3.1.5"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components-form-control/-/core-components-form-control-3.1.5.tgz#c064abf1ad4a1f71b75206e7d40d4935e4098b58"

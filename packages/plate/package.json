@@ -1,9 +1,9 @@
 {
     "name": "@alfalab/core-components-plate",
-    "version": "1.4.3",
+    "version": "1.4.5",
     "description": "",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "main": "dist/index.js",
     "module": "./dist/esm/index.js",
     "files": [
@@ -16,7 +16,7 @@
         "react": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^2.0.0",
+        "@alfalab/core-components-button": "^2.0.2",
         "@alfalab/hooks": "^1.0.0",
         "classnames": "^2.2.6",
         "react-merge-refs": "^1.1.0"

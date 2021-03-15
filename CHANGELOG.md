@@ -1,3 +1,44 @@
+## [13.0.2](https://github.com/alfa-laboratory/core-components/compare/v13.0.1...v13.0.2) (2021-03-14)
+
+
+### Bug Fixes
+
+* **button:** set type button by default ([#564](https://github.com/alfa-laboratory/core-components/issues/564)) ([59fdefd](https://github.com/alfa-laboratory/core-components/commit/59fdefd4f37fbe589840aa8944d88bde5b8cda6e))
+
+## [13.0.1](https://github.com/alfa-laboratory/core-components/compare/v13.0.0...v13.0.1) (2021-03-11)
+
+
+### Bug Fixes
+
+* **toast:** remove extra timer clearing ([#559](https://github.com/alfa-laboratory/core-components/issues/559)) ([ae5d811](https://github.com/alfa-laboratory/core-components/commit/ae5d81169d4db0427ae5baf0bffd784adee184ee))
+
+# [13.0.0](https://github.com/alfa-laboratory/core-components/compare/v12.3.0...v13.0.0) (2021-03-11)
+
+
+### Bug Fixes
+
+* **confirmation:** fix bug with timers ([2bdb105](https://github.com/alfa-laboratory/core-components/commit/2bdb10505ebb91713bca0b56e4d10af08cbcd4ed))
+
+
+### Features
+
+* **confirmation:** add noAttemptsLeftMessage prop ([7dc0e02](https://github.com/alfa-laboratory/core-components/commit/7dc0e02074443fd68c13aa0ac54bd966e8968ffc))
+* **confirmation:** always show sms come link ([0a14a54](https://github.com/alfa-laboratory/core-components/commit/0a14a54b177ee72ccf8cd8b057ea48db0168c1fb))
+* **confirmation:** confirmation design updates ([69f26e4](https://github.com/alfa-laboratory/core-components/commit/69f26e415a195d863686076941b6a3f15f3d1d15))
+* **confirmation:** fix text ([40d4d6b](https://github.com/alfa-laboratory/core-components/commit/40d4d6b2261b2e0db79bc160266cc207a1ca3858))
+
+
+### BREAKING CHANGES
+
+* **confirmation:** Add phone formatting into component. Phone prop doesn't have to be formatted.
+
+# [12.3.0](https://github.com/alfa-laboratory/core-components/compare/v12.2.0...v12.3.0) (2021-03-10)
+
+
+### Features
+
+* **skeleton:** updated default theme, click theme ([#549](https://github.com/alfa-laboratory/core-components/issues/549)) ([9bf9259](https://github.com/alfa-laboratory/core-components/commit/9bf9259d4d1efd73067ea548cdfaf3007b0f8839))
+
 # [12.2.0](https://github.com/alfa-laboratory/core-components/compare/v12.1.0...v12.2.0) (2021-03-05)
 
 

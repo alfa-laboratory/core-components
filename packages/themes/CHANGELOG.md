@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.6.0...@alfalab/core-components-themes@3.6.1) (2021-03-14)
+
+**Note:** Version bump only for package @alfalab/core-components-themes
+
+
+
+
+
+# [3.6.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.5.0...@alfalab/core-components-themes@3.6.0) (2021-03-10)
+
+
+### Features
+
+* **skeleton:** updated default theme, click theme ([#549](https://github.com/alfa-laboratory/core-components/issues/549)) ([9bf9259](https://github.com/alfa-laboratory/core-components/commit/9bf9259d4d1efd73067ea548cdfaf3007b0f8839))
+
+
+
+
+
 # [3.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.4.0...@alfalab/core-components-themes@3.5.0) (2021-03-04)
 
 
