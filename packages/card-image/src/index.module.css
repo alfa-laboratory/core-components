@@ -1,6 +1,6 @@
 :root {
     --card-image-background: #e7e8ea;
-    --card-image-border-radius: 8px;
+    --card-image-border-radius: var(--border-radius-m);
 }
 
 .cardImage {

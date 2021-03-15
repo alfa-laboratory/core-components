@@ -10,7 +10,7 @@
     --color-light-text-disabled: #dcdcdd;
 
     /* theme */
-    --button-border-radius: 12px;
+    --button-border-radius: var(--border-radius-l);
 
     /* primary */
     --button-primary-base-bg-color: var(--color-light-bg-secondary-inverted);

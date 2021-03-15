@@ -2,7 +2,7 @@
 
 @define-mixin select-click {
     /* theme */
-    --select-options-list-border-radius: 4px;
+    --select-options-list-border-radius: var(--border-radius-s);
     --select-options-list-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
     --select-options-list-offset: 8px;
     --select-arrow-background: url('https://alfabank.st/icons/glyph_chevron-down_m.svg');

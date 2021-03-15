@@ -34,7 +34,7 @@
     align-items: center;
     padding-left: var(--gap-l);
     padding-right: var(--gap-l);
-    border-radius: 12px;
+    border-radius: var(--border-radius-l);
     box-sizing: border-box;
 }
 

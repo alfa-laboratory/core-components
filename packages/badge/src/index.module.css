@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    border-radius: 99px;
+    border-radius: var(--border-radius-pill);
     background-color: var(--color-light-bg-accent);
     color: var(--color-light-text-primary-inverted);
     overflow: hidden;
@@ -77,7 +77,7 @@
     top: 16%;
     bottom: 16%;
     background-color: var(--badge-icon-bg-color);
-    border-radius: 99px;
+    border-radius: var(--border-radius-pill);
     content: '';
 }
 

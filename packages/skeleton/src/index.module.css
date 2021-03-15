@@ -3,7 +3,7 @@
 :root {
     --skeleton-background-filter: none;
     --skeleton-default-color: var(--color-light-specialbg-component);
-    --skeleton-border-radius: 8px;
+    --skeleton-border-radius: var(--border-radius-m);
 }
 
 .component {
