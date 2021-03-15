@@ -1,5 +1,5 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { select, text } from '@storybook/addon-knobs';
+import { boolean } from '@storybook/addon-knobs';
 import { Container, Row, Col } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 
@@ -15,7 +15,7 @@ import { name, version } from '../package.json';
 <!-- Canvas -->
 
 <Story name='Dropzone'>
-    <Dropzone>
+    <Dropzone error={boolean('error', false)}>
         <div style={{ width: 400, minHeight: 200, padding: 10 }}>
             <span>Перетащите файлы сюда</span>
         </div>

@@ -17,6 +17,11 @@ export type DropzoneProps = {
     text?: string;
 
     /**
+     * Состояние ошибки
+     */
+    error?: boolean;
+
+    /**
      * Обработчик события 'drop'
      */
     onDrop?: (files: FileList) => void;
@@ -46,6 +51,7 @@ export const Dropzone: FC<DropzoneProps> = ({
     className,
     children,
     text = 'Перетащите файлы',
+    error = false,
     onDragEnter,
     onDragLeave,
     onDragOver,
@@ -123,6 +129,7 @@ export const Dropzone: FC<DropzoneProps> = ({
         <div
             className={cn(styles.component, className, {
                 [styles.dragOver]: dragOver,
+                [styles.error]: error,
             })}
             onDragEnter={handleDragEnter}
             onDragLeave={handleDragLeave}

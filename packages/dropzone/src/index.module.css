@@ -1,8 +1,26 @@
 @import '../../themes/src/default.css';
 
+@define-mixin border $color {
+    /* https://kovart.github.io/dashed-border-generator/ */
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23$(color)' stroke-width='2' stroke-dasharray='4%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+}
+
 .component {
     display: inline-block;
     position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        border-radius: 4px;
+
+        @mixin border 6d7986;
+    }
 }
 
 .overlay {
@@ -20,9 +38,6 @@
     border-radius: 4px;
     background: var(--color-light-bg-secondary);
 
-    /* https://kovart.github.io/dashed-border-generator/ */
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%236D7986FF' stroke-width='2' stroke-dasharray='4%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
-
     opacity: 0;
     transition: opacity 0.2s ease;
     pointer-events: none;
@@ -31,6 +46,10 @@
 .dragOver .overlay {
     opacity: 1;
     pointer-events: all;
+}
+
+.error:after {
+    @mixin border ef3124;
 }
 
 .text {
