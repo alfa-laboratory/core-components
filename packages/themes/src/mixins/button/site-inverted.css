@@ -8,7 +8,7 @@
     --color-dark-border-tertiary: #233549;
 
     /* theme */
-    --button-border-radius: 8px;
+    --button-border-radius: var(--border-radius-m);
 
     /* primary */
     --button-primary-base-bg-color: var(--color-dark-bg-accent);

@@ -32,7 +32,7 @@
     border: 0;
     appearance: none;
     background: var(--slider-thumb-color);
-    border-radius: 50%;
+    border-radius: var(--border-radius-circle);
     box-shadow: 0 2px 10px color-mod(var(--slider-thumb-color) alpha(30%));
     cursor: grab;
 }

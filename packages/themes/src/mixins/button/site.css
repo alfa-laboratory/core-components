@@ -2,5 +2,5 @@
 
 @define-mixin button-site {
     /* theme */
-    --button-border-radius: 8px;
+    --button-border-radius: var(--border-radius-m);
 }

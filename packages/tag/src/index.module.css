@@ -32,7 +32,7 @@
     font-family: var(--font-family);
     text-decoration: none;
     border: var(--tag-border-width) var(--tag-border-style) var(--tag-border-color);
-    border-radius: 99px;
+    border-radius: var(--border-radius-pill);
     background-color: var(--tag-background-color);
     transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
     box-sizing: border-box;
