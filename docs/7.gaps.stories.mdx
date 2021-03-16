@@ -26,6 +26,9 @@ import { Description } from '@storybook/addon-docs/blocks';
 | --gap-7xl | 96px     |
 | --gap-8xl | 128px    |
 
+Также эти переменные доступны для отрицательных значений отступов: для этого к ним нужно добавить постфикс `*-neg`.
+Например, если переменная `--gap-m` равна `16px`, то переменная `--gap-m-neg` будет равна `-16px`.
+
 ### Пример использования
 
 ```css
@@ -33,5 +36,15 @@ import { Description } from '@storybook/addon-docs/blocks';
 
 .item {
     margin-bottom: var(--gap-xl);
+}
+```
+
+### Пример использования переменной c отрицательным значением
+
+```css
+@import '@alfalab/core-components/vars/gaps.css';
+
+.item {
+    margin-bottom: var(--gap-xl-neg);
 }
 ```
