@@ -1,10 +1,10 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import cn from 'classnames';
 import { OptionsListProps, GroupShape } from '../../typings';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 
 import styles from './index.module.css';
-import { isGroup } from '../../utils';
+import { isGroup, useVisibleOptions } from '../../utils';
 
 const createCounter = () => {
     let count = 0;
@@ -20,7 +20,10 @@ export const OptionsList = ({
     Optgroup = DefaultOptgroup,
     dataTestId,
     emptyPlaceholder,
+    visibleOptions = 5,
+    open,
 }: OptionsListProps) => {
+    const listRef = useRef<HTMLDivElement>(null);
     const counter = createCounter();
 
     const renderGroup = useCallback(
@@ -32,12 +35,23 @@ export const OptionsList = ({
         [Option, counter, size],
     );
 
+    useVisibleOptions({
+        visibleOptions,
+        listRef,
+        open,
+        invalidate: options.length,
+    });
+
     if (options.length === 0 && !emptyPlaceholder) {
         return null;
     }
 
     return (
-        <div className={cn(styles.optionsList, styles[size], className)} data-test-id={dataTestId}>
+        <div
+            className={cn(styles.optionsList, styles[size], className)}
+            data-test-id={dataTestId}
+            ref={listRef}
+        >
             {options.map(option =>
                 isGroup(option) ? renderGroup(option) : Option({ option, index: counter() }),
             )}

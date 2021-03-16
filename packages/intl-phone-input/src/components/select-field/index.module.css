@@ -22,7 +22,8 @@
     outline: none;
 }
 
-.l .inner {
+.l .inner,
+.xl .inner {
     padding-left: var(--gap-m);
 }
 

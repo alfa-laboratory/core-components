@@ -37,7 +37,7 @@ import { name, version } from '../package.json';
     name='Badge'
     version={version}
     package='@alfalab/core-components-badge'
-    stage={2}
+    stage={3}
 />
 
 ```tsx
@@ -92,13 +92,16 @@ import { Badge } from '@alfalab/core-components-badge';
                 <Badge view='icon' iconColor='negative' content={<CrossCircleMIcon/>} />
             </Col>
             <Col>
-                <Badge view='icon' iconColor='primary' content={<StopCircleMIcon/>} />
+                <Badge view='icon' iconColor='negative' content={<StopCircleMIcon/>} />
             </Col>
             <Col>
                 <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon/>} />
             </Col>
             <Col>
-                <Badge view='icon' iconColor='tertiary' content={<ClockMIcon/>} />
+                <Badge view='icon' iconColor='secondary' content={<ClockMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' iconColor='secondary' content={<CrossCircleMIcon/>} />
             </Col>
         </Row>
         <Row style={{margin: 0, padding: 12, backgroundColor: '#DBDEE1'}}>
@@ -115,13 +118,16 @@ import { Badge } from '@alfalab/core-components-badge';
                 <Badge view='icon' iconColor='negative' content={<CrossCircleMIcon/>} />
             </Col>
             <Col>
-                <Badge view='icon' iconColor='primary' content={<StopCircleMIcon/>} />
+                <Badge view='icon' iconColor='negative' content={<StopCircleMIcon/>} />
             </Col>
             <Col>
                 <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon/>} />
             </Col>
             <Col>
-                <Badge view='icon' iconColor='tertiary' content={<ClockMIcon/>} />
+                <Badge view='icon' iconColor='secondary' content={<ClockMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' iconColor='secondary' content={<CrossCircleMIcon/>} />
             </Col>
         </Row>
         <Row style={{margin: 0, padding: 12, paddingTop: 0, backgroundColor: '#DBDEE1'}}>
@@ -138,13 +144,16 @@ import { Badge } from '@alfalab/core-components-badge';
                 <Badge view='icon' visibleIconOutline={true} iconColor='negative' content={<CrossCircleMIcon/>} />
             </Col>
             <Col>
-                <Badge view='icon' visibleIconOutline={true} iconColor='primary' content={<StopCircleMIcon/>} />
+                <Badge view='icon' visibleIconOutline={true} iconColor='negative' content={<StopCircleMIcon/>} />
             </Col>
             <Col>
                 <Badge view='icon' visibleIconOutline={true} iconColor='secondary' content={<InformationCircleMIcon/>} />
             </Col>
             <Col>
-                <Badge view='icon' visibleIconOutline={true} iconColor='tertiary' content={<ClockMIcon/>} />
+                <Badge view='icon' visibleIconOutline={true} iconColor='secondary' content={<ClockMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' visibleIconOutline={true} iconColor='secondary' content={<CrossCircleMIcon/>} />
             </Col>
         </Row>
     </Container>

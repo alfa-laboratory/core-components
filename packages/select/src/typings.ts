@@ -103,7 +103,7 @@ export type BaseSelectProps = {
     /**
      * Размер компонента
      */
-    size?: 's' | 'm' | 'l';
+    size?: 's' | 'm' | 'l' | 'xl';
 
     /**
      * Растягивает компонент на ширину контейнера
@@ -170,6 +170,11 @@ export type BaseSelectProps = {
      * Позиционирование выпадающего списка
      */
     popoverPosition?: PopoverProps['position'];
+
+    /**
+     * Количество видимых пунктов меню (5 = 5.5)
+     */
+    visibleOptions?: number;
 
     /**
      * Кастомный рендер выбранного пункта
@@ -267,7 +272,7 @@ export type FieldProps = {
     /**
      * Размер компонента
      */
-    size?: 's' | 'm' | 'l';
+    size?: 's' | 'm' | 'l' | 'xl';
 
     /**
      * Выбранный пункт
@@ -368,7 +373,7 @@ export type OptionsListProps = {
     /**
      * Размер компонента
      */
-    size?: 's' | 'm' | 'l';
+    size?: 's' | 'm' | 'l' | 'xl';
 
     /**
      * Компонент пункта меню
@@ -406,6 +411,11 @@ export type OptionsListProps = {
     emptyPlaceholder?: string;
 
     /**
+     * Количество видимых пунктов меню (5 = 5.5)
+     */
+    visibleOptions?: number;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -415,7 +425,7 @@ export type OptgroupProps = {
     /**
      * Размер компонента
      */
-    size?: 's' | 'm' | 'l';
+    size?: 's' | 'm' | 'l' | 'xl';
 
     /**
      * Заголовок группы
@@ -437,7 +447,7 @@ export type OptionProps = {
     /**
      * Размер компонента
      */
-    size?: 's' | 'm' | 'l';
+    size?: 's' | 'm' | 'l' | 'xl';
 
     /**
      * Контент пункта меню

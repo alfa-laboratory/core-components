@@ -10,9 +10,6 @@
     --select-options-list-offset: 0;
     --select-options-list-top-padding: 0;
     --select-options-list-bottom-padding: 0;
-    --select-options-list-s-height: 264px;
-    --select-options-list-m-height: 308px;
-    --select-options-list-l-height: 396px;
     --select-options-list-empty-placeholder-color: var(--color-light-text-secondary);
     --select-option-divider-display: none;
     --select-option-divider-background: var(--color-light-border-primary);
@@ -41,7 +38,7 @@
     --select-checkmark-order: 0;
     --select-checkmark-unselected-opacity: 0;
     --select-checkmark-background: var(--color-light-graphic-primary);
-    --select-checkmark-border-radius: 50%;
+    --select-checkmark-border-radius: var(--border-radius-circle);
 
     /* optgroup */
 

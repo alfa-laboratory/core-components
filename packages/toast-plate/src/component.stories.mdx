@@ -19,11 +19,11 @@ import { name, version } from '../package.json';
         return (
             <ToastPlate
                 badge={select('badge', ['negative', 'positive', 'attention', undefined], 'positive')}
-                title={text('title', 'Toast Message')}
+                title={text('title', 'Toast Title')}
                 hasCloser={boolean('hasCloser', true)}
                 block={boolean('block', false)}
                 onClose={Function.prototype}
-                actionButton={boolean('renderActionButton', true) ? <Button view="ghost" size="s">Button Ghost S</Button> : null }
+                actionButton={boolean('renderActionButton', false) ? <Button view="ghost" size="s">Action Button</Button> : null }
             >
                 {text('children', '')}
             </ToastPlate>
@@ -37,7 +37,7 @@ import { name, version } from '../package.json';
     name='ToastPlate'
     version={version}
     package={name}
-    stage={1}
+    stage={2}
     design='https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=15915%3A56409'
 />
 

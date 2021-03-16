@@ -1,0 +1,106 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --icon-button-xxs-size: 24px;
+    --icon-button-xs-size: 32px;
+    --icon-button-s-size: 48px;
+
+    /* primary */
+    --icon-button-primary-base-color: var(--color-light-graphic-primary);
+    --icon-button-primary-hover-color: color-mod(var(--icon-button-primary-base-color) tint(30%));
+    --icon-button-primary-active-color: color-mod(var(--icon-button-primary-base-color) tint(50%));
+    --icon-button-primary-disabled-color: color-mod(
+        var(--icon-button-primary-base-color) alpha(30%)
+    );
+
+    /* secondary */
+    --icon-button-secondary-base-color: var(--color-light-graphic-secondary);
+    --icon-button-secondary-hover-color: color-mod(
+        var(--icon-button-secondary-base-color) shade(30%)
+    );
+    --icon-button-secondary-active-color: color-mod(
+        var(--icon-button-secondary-base-color) shade(50%)
+    );
+    --icon-button-secondary-disabled-color: color-mod(
+        var(--icon-button-secondary-base-color) alpha(30%)
+    );
+
+    /* transparent */
+    --icon-button-transparent-base-color: color-mod(var(--color-light-graphic-primary) alpha(30%));
+    --icon-button-transparent-hover-color: color-mod(
+        var(--icon-button-transparent-base-color) alpha(40%)
+    );
+    --icon-button-transparent-active-color: color-mod(
+        var(--icon-button-transparent-base-color) alpha(50%)
+    );
+    --icon-button-transparent-disabled-color: color-mod(
+        var(--icon-button-transparent-base-color) alpha(40%)
+    );
+}
+
+.primary {
+    color: var(--icon-button-primary-base-color);
+
+    &:hover {
+        color: var(--icon-button-primary-hover-color);
+    }
+
+    &:active {
+        color: var(--icon-button-primary-active-color);
+    }
+}
+
+.secondary {
+    color: var(--icon-button-secondary-base-color);
+
+    &:hover {
+        color: var(--icon-button-secondary-hover-color);
+    }
+
+    &:active {
+        color: var(--icon-button-secondary-active-color);
+    }
+}
+
+.transparent {
+    color: var(--icon-button-transparent-base-color);
+
+    &:hover {
+        color: var(--icon-button-transparent-hover-color);
+    }
+
+    &:active {
+        color: var(--icon-button-transparent-active-color);
+    }
+}
+
+.xxs {
+    width: var(--icon-button-xss-size);
+    height: var(--icon-button-xss-size);
+}
+
+.xs {
+    width: var(--icon-button-xs-size);
+    height: var(--icon-button-xs-size);
+}
+
+.s {
+    width: var(--icon-button-s-size);
+    height: var(--icon-button-s-size);
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Для иконок с заливкой (icons-classic) */
+.icon *[fill-rule] {
+    fill: currentColor;
+}

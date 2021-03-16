@@ -12,7 +12,7 @@ export type FormControlProps = HTMLAttributes<HTMLDivElement> & {
     /**
      * Размер компонента
      */
-    size?: 's' | 'm' | 'l';
+    size?: 's' | 'm' | 'l' | 'xl';
 
     /**
      * Заблокированное состояние

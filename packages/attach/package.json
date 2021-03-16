@@ -1,9 +1,9 @@
 {
     "name": "@alfalab/core-components-attach",
-    "version": "1.4.0",
+    "version": "1.4.11",
     "description": "",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "main": "dist/index.js",
     "module": "./dist/esm/index.js",
     "files": [
@@ -13,12 +13,12 @@
         "access": "public"
     },
     "peerDependencies": {
-        "react": "^16.9.0"
+        "react": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^1.11.0",
-        "@alfalab/core-components-keyboard-focusable": "^1.2.4",
-        "@alfalab/core-components-progress-bar": "^1.0.6",
+        "@alfalab/core-components-button": "^2.1.0",
+        "@alfalab/core-components-keyboard-focusable": "^1.2.7",
+        "@alfalab/core-components-progress-bar": "^1.1.0",
         "@alfalab/icons-classic": "^1.7.0",
         "@alfalab/utils": "^1.0.1",
         "classnames": "^2.2.6",

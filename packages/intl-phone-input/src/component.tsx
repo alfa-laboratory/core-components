@@ -33,6 +33,11 @@ export type IntlPhoneInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'
          * Дефолтный код страны
          */
         defaultCountryIso2?: string;
+
+        /**
+         * Обработчик события изменения страны
+         */
+        onCountryChange?: (countryCode: CountryCode) => void;
     };
 
 export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
@@ -44,13 +49,14 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             className,
             value,
             onChange,
+            onCountryChange,
             defaultCountryIso2 = 'ru',
             preventFlip,
             ...restProps
         },
         ref,
     ) => {
-        const [countryIso2, setCountryIso2] = useState(defaultCountryIso2);
+        const [countryIso2, setCountryIso2] = useState(defaultCountryIso2.toLowerCase());
 
         const inputRef = useRef<HTMLInputElement>(null);
         const inputWrapperRef = useRef<HTMLDivElement>(null);
@@ -87,6 +93,15 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             [onChange, countryIso2],
         );
 
+        const handleCountryChange = useCallback(
+            (countryCode: string) => {
+                if (onCountryChange) {
+                    onCountryChange(countryCode.toUpperCase() as CountryCode);
+                }
+            },
+            [onCountryChange],
+        );
+
         const setCountryByDialCode = useCallback(
             inputValue => {
                 for (let i = 0; i < countries.length; i++) {
@@ -97,6 +112,8 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                         if (country.priority === undefined) {
                             setValue(inputValue);
                             setCountryIso2(country.iso2);
+                            handleCountryChange(country.iso2);
+
                             break;
                         }
 
@@ -104,17 +121,21 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                         if (countryIso2 === country.iso2) {
                             setValue(inputValue);
                             setCountryIso2(country.iso2);
+                            handleCountryChange(country.iso2);
+
                             break;
                             // Если не совпадают - выбираем по приоритету
                         } else if (country.priority === 0) {
                             setValue(inputValue);
                             setCountryIso2(country.iso2);
+                            handleCountryChange(country.iso2);
+
                             break;
                         }
                     }
                 }
             },
-            [countryIso2, setValue],
+            [countryIso2, setValue, handleCountryChange],
         );
 
         const loadPhoneUtils = useCallback(() => {
@@ -156,9 +177,11 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                         inputRef.current.focus();
                         inputRef.current.setSelectionRange(inputValue.length, inputValue.length);
                     }
+
+                    handleCountryChange(country.iso2);
                 }
             },
-            [setCountryByIso2],
+            [setCountryByIso2, handleCountryChange],
         );
 
         useEffect(() => {

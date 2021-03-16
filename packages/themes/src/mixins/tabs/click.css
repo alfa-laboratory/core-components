@@ -2,14 +2,16 @@
 
 @define-mixin tabs-click {
     /* core vars */
+    --gap-s: 12px;
+    --gap-l: 20px;
     --font-family-styrene: 'Styrene UI', system-ui, -apple-system, 'Segoe UI', Roboto,
         'Helvetica Neue', Helvetica, sans-serif;
 
     /* theme */
     --primary-tablist-mobile-padding: var(--gap-s) 0;
-    --primary-tablist-s-font-size: 20px;
+    --primary-tablist-s-font-size: 18px;
     --primary-tablist-s-font-weight: 500;
-    --primary-tablist-s-font-family: var(--font-family-styrene);
+    --primary-tablist-s-font-family: var(--font-family-system);
     --primary-tablist-s-padding: var(--gap-s) 0;
     --primary-tablist-m-font-size: 20px;
     --primary-tablist-m-font-weight: 500;
@@ -19,4 +21,8 @@
     --primary-tablist-l-font-weight: 500;
     --primary-tablist-l-font-family: var(--font-family-styrene);
     --primary-tablist-l-padding: var(--gap-l) 0;
+    --primary-tablist-xl-font-size: 24px;
+    --primary-tablist-xl-font-weight: 500;
+    --primary-tablist-xl-font-family: var(--font-family-styrene);
+    --primary-tablist-xl-padding: var(--gap-l) 0;
 }

@@ -1,3 +1,297 @@
+## [13.1.1](https://github.com/alfa-laboratory/core-components/compare/v13.1.0...v13.1.1) (2021-03-15)
+
+
+### Bug Fixes
+
+* **themes:** fixes border-radius ([9d152d9](https://github.com/alfa-laboratory/core-components/commit/9d152d9ae0e70736cf78f3a014b6710dc8aa2331))
+
+# [13.1.0](https://github.com/alfa-laboratory/core-components/compare/v13.0.2...v13.1.0) (2021-03-15)
+
+
+### Features
+
+* **vars:** introducing border-radius vars ([1a6fb28](https://github.com/alfa-laboratory/core-components/commit/1a6fb287bcfab50048c3a9100645b4dee8cd3395))
+
+## [13.0.2](https://github.com/alfa-laboratory/core-components/compare/v13.0.1...v13.0.2) (2021-03-14)
+
+
+### Bug Fixes
+
+* **button:** set type button by default ([#564](https://github.com/alfa-laboratory/core-components/issues/564)) ([59fdefd](https://github.com/alfa-laboratory/core-components/commit/59fdefd4f37fbe589840aa8944d88bde5b8cda6e))
+
+## [13.0.1](https://github.com/alfa-laboratory/core-components/compare/v13.0.0...v13.0.1) (2021-03-11)
+
+
+### Bug Fixes
+
+* **toast:** remove extra timer clearing ([#559](https://github.com/alfa-laboratory/core-components/issues/559)) ([ae5d811](https://github.com/alfa-laboratory/core-components/commit/ae5d81169d4db0427ae5baf0bffd784adee184ee))
+
+# [13.0.0](https://github.com/alfa-laboratory/core-components/compare/v12.3.0...v13.0.0) (2021-03-11)
+
+
+### Bug Fixes
+
+* **confirmation:** fix bug with timers ([2bdb105](https://github.com/alfa-laboratory/core-components/commit/2bdb10505ebb91713bca0b56e4d10af08cbcd4ed))
+
+
+### Features
+
+* **confirmation:** add noAttemptsLeftMessage prop ([7dc0e02](https://github.com/alfa-laboratory/core-components/commit/7dc0e02074443fd68c13aa0ac54bd966e8968ffc))
+* **confirmation:** always show sms come link ([0a14a54](https://github.com/alfa-laboratory/core-components/commit/0a14a54b177ee72ccf8cd8b057ea48db0168c1fb))
+* **confirmation:** confirmation design updates ([69f26e4](https://github.com/alfa-laboratory/core-components/commit/69f26e415a195d863686076941b6a3f15f3d1d15))
+* **confirmation:** fix text ([40d4d6b](https://github.com/alfa-laboratory/core-components/commit/40d4d6b2261b2e0db79bc160266cc207a1ca3858))
+
+
+### BREAKING CHANGES
+
+* **confirmation:** Add phone formatting into component. Phone prop doesn't have to be formatted.
+
+# [12.3.0](https://github.com/alfa-laboratory/core-components/compare/v12.2.0...v12.3.0) (2021-03-10)
+
+
+### Features
+
+* **skeleton:** updated default theme, click theme ([#549](https://github.com/alfa-laboratory/core-components/issues/549)) ([9bf9259](https://github.com/alfa-laboratory/core-components/commit/9bf9259d4d1efd73067ea548cdfaf3007b0f8839))
+
+# [12.2.0](https://github.com/alfa-laboratory/core-components/compare/v12.1.0...v12.2.0) (2021-03-05)
+
+
+### Features
+
+* **status:** add component ([#546](https://github.com/alfa-laboratory/core-components/issues/546)) ([52a1f0b](https://github.com/alfa-laboratory/core-components/commit/52a1f0bd8578fe34d1c214b93a363e7b76621c17))
+
+# [12.1.0](https://github.com/alfa-laboratory/core-components/compare/v12.0.0...v12.1.0) (2021-03-04)
+
+
+### Features
+
+* **icon-button:** inverted theme ([#550](https://github.com/alfa-laboratory/core-components/issues/550)) ([98c3691](https://github.com/alfa-laboratory/core-components/commit/98c36919f682041278aa31753f1d18be95358df1))
+
+# [12.0.0](https://github.com/alfa-laboratory/core-components/compare/v11.8.0...v12.0.0) (2021-03-04)
+
+
+### Features
+
+* size vars (xs/s/m/l/xl → 32/48/56/64/72) ([d7254d2](https://github.com/alfa-laboratory/core-components/commit/d7254d2963106663e8f04b84bc747b38e4f57632))
+* **amount-input:** changed size L (72 → 64), added size XL (72) ([a2c0b7c](https://github.com/alfa-laboratory/core-components/commit/a2c0b7ce6c208183897064cd6235d69445e3afe5))
+* **button:** changed size L (72 → 64), added size XL (72) ([051d964](https://github.com/alfa-laboratory/core-components/commit/051d964e83fd7af3703c82facf75345eca66915b))
+* **form-control:** changed size L (72 → 64), added size XL (72) ([4a129f3](https://github.com/alfa-laboratory/core-components/commit/4a129f3ca3c80e94489cbc485018e6eb6e542244))
+* **input:** changed size L (72 → 64), added size XL (72) ([79699e3](https://github.com/alfa-laboratory/core-components/commit/79699e34d28075809e537b73911875ff5fc2d406))
+* **input-autocomplete:** changed size L (72 → 64), added size XL (72) ([858359a](https://github.com/alfa-laboratory/core-components/commit/858359a0dab558113fe1d225d839eb97acd5c917))
+* **intl-phone-input:** changed size L (72 → 64), added size XL (72) ([9077b7f](https://github.com/alfa-laboratory/core-components/commit/9077b7f454035cdc7be611d526a5f9642ae4d76d))
+* **phone-input:** changed size L (72 → 64), added size XL (72) ([13257c5](https://github.com/alfa-laboratory/core-components/commit/13257c54543b2f1a870527093df11c532143dab9))
+* **popover:** change animation, add scale ([2e48a02](https://github.com/alfa-laboratory/core-components/commit/2e48a02a8f3f7ff9a6df48cf4e6337a8928f67c7))
+* **pure-input:** changed size L (72 → 64), added size XL (72) ([af4cfb5](https://github.com/alfa-laboratory/core-components/commit/af4cfb515a25c6dcae32a7e2a0730fe4f9e6e791))
+* **select:** changed size L (72 → 64), added size XL (72) ([af5dc6a](https://github.com/alfa-laboratory/core-components/commit/af5dc6a4f5b52f45bc97f4cc16633aca499aa67a))
+* **select-with-tags:** changed size L (72 → 64), added size XL (72) ([523b96f](https://github.com/alfa-laboratory/core-components/commit/523b96fa79bc12972ec6ac748105ba20906ba236))
+* **slider-input:** changed size L (72 → 64), added size XL (72) ([f5fda56](https://github.com/alfa-laboratory/core-components/commit/f5fda569e0e73a06850914c1e494024a3aaab12c))
+* **tabs:** changed size L (72 → 64), added size XL (72) ([2043939](https://github.com/alfa-laboratory/core-components/commit/2043939c5ecdb03c9b84379a3cce21c6f6047530))
+* **tag:** changed size L (72 → 64), added size XL (72) ([ea43560](https://github.com/alfa-laboratory/core-components/commit/ea435601abb79b3bde9e34d60616239e2a0ef6bc))
+* **textarea:** changed size L (72 → 64), added size XL (72) ([175e360](https://github.com/alfa-laboratory/core-components/commit/175e360d5acb4eb146c81020fd65dc725588edee))
+* **themes:** updated click theme for tabs ([0a4c17e](https://github.com/alfa-laboratory/core-components/commit/0a4c17e5628f959d72e0ee6044ca56bd3c890d92))
+* **toast:** update popover ([9961bc8](https://github.com/alfa-laboratory/core-components/commit/9961bc8a15428c4417af9df9585d8fc55b6a154c))
+* **with-suffix:** xl size ([d2bb796](https://github.com/alfa-laboratory/core-components/commit/d2bb7967b6756f8b06b3484c7900ef7637b1c777))
+
+
+### BREAKING CHANGES
+
+* **phone-input:** size L changed to size XL
+* **amount-input:** size L changed to size XL
+* **pure-input:** size L changed to size XL
+* **input-autocomplete:** size L changed to size XL
+* **intl-phone-input:** size L changed to size XL
+* **input:** size L changed to size XL
+* **tag:** size L changed to size XL
+* **select-with-tags:** size L changed to size XL
+* **tabs:** size L changed to size XL
+* **form-control:** size L changed to size XL
+* **textarea:** size L changed to size XL
+* **select:** size L changed to size XL
+* **slider-input:** size L changed to size XL
+* **button:** size L changed to size XL
+* **popover:** Change html structure of popover component.
+
+# [11.8.0](https://github.com/alfa-laboratory/core-components/compare/v11.7.1...v11.8.0) (2021-03-03)
+
+
+### Bug Fixes
+
+* **confirmation:** add font feature settings ([#540](https://github.com/alfa-laboratory/core-components/issues/540)) ([08057f6](https://github.com/alfa-laboratory/core-components/commit/08057f6930e9cd19c0213442a4915e366d26e607))
+* **select-with-tags:** remove pointer events from placeholder ([#545](https://github.com/alfa-laboratory/core-components/issues/545)) ([41b860b](https://github.com/alfa-laboratory/core-components/commit/41b860bd550b71d2025081d76d7c1240258ecaf9))
+
+
+### Features
+
+* **intl-phone-input:** add onCountryChange handler ([#539](https://github.com/alfa-laboratory/core-components/issues/539)) ([f8c0cd6](https://github.com/alfa-laboratory/core-components/commit/f8c0cd618ced23bbb49a81cfee07c1f45ee20427))
+
+## [11.7.1](https://github.com/alfa-laboratory/core-components/compare/v11.7.0...v11.7.1) (2021-03-03)
+
+
+### Bug Fixes
+
+* **select-with-tags:** missed dot ([c3c98d0](https://github.com/alfa-laboratory/core-components/commit/c3c98d0106072a431a616e8420edb01d83ad5fce))
+
+# [11.7.0](https://github.com/alfa-laboratory/core-components/compare/v11.6.3...v11.7.0) (2021-03-03)
+
+
+### Features
+
+* **vars:** 2px gap ([#544](https://github.com/alfa-laboratory/core-components/issues/544)) ([e401782](https://github.com/alfa-laboratory/core-components/commit/e40178290a02c45bd9ea23ab0deffabd74a69276))
+
+## [11.6.3](https://github.com/alfa-laboratory/core-components/compare/v11.6.2...v11.6.3) (2021-03-01)
+
+
+### Bug Fixes
+
+* **select-with-tags:** fixed styles ([#543](https://github.com/alfa-laboratory/core-components/issues/543)) ([206db51](https://github.com/alfa-laboratory/core-components/commit/206db5138c8ba2869c5ac458609928c4753cc83b))
+
+## [11.6.2](https://github.com/alfa-laboratory/core-components/compare/v11.6.1...v11.6.2) (2021-02-20)
+
+
+### Bug Fixes
+
+* **select:** recalc height on options changed ([#536](https://github.com/alfa-laboratory/core-components/issues/536)) ([4c27c19](https://github.com/alfa-laboratory/core-components/commit/4c27c197882256e507ec83678da4811f6285c2fe))
+
+## [11.6.1](https://github.com/alfa-laboratory/core-components/compare/v11.6.0...v11.6.1) (2021-02-20)
+
+
+### Bug Fixes
+
+* **themes:** lost core vars ([#534](https://github.com/alfa-laboratory/core-components/issues/534)) ([54a23c9](https://github.com/alfa-laboratory/core-components/commit/54a23c90997c4aa90944d0391f2aab27f799353d))
+
+# [11.6.0](https://github.com/alfa-laboratory/core-components/compare/v11.5.0...v11.6.0) (2021-02-19)
+
+
+### Features
+
+* **drawer:** add component ([#497](https://github.com/alfa-laboratory/core-components/issues/497)) ([5943188](https://github.com/alfa-laboratory/core-components/commit/594318886d581e6afca99fcebe9088c222aa3d52))
+* **modal:** reinvent modal ([#489](https://github.com/alfa-laboratory/core-components/issues/489)) ([06cb8ba](https://github.com/alfa-laboratory/core-components/commit/06cb8ba7f7a09445c04ab2a9871a86c1abf4a79c))
+
+# [11.5.0](https://github.com/alfa-laboratory/core-components/compare/v11.4.0...v11.5.0) (2021-02-19)
+
+
+### Features
+
+* **select-with-tags:** added collapsed tag list ([#511](https://github.com/alfa-laboratory/core-components/issues/511)) ([fe1d551](https://github.com/alfa-laboratory/core-components/commit/fe1d551385e9122c205bbe7a679f02a6eb376569))
+
+# [11.4.0](https://github.com/alfa-laboratory/core-components/compare/v11.3.2...v11.4.0) (2021-02-19)
+
+
+### Features
+
+* **button:** add rel='noopener noreferrer' if target='blank' ([#522](https://github.com/alfa-laboratory/core-components/issues/522)) ([a1da871](https://github.com/alfa-laboratory/core-components/commit/a1da87118a32195ba844c239f5a0f73e164faa6f))
+* **link:** set rel='noopener noreferrer' if target='_blank' ([#520](https://github.com/alfa-laboratory/core-components/issues/520)) ([08c556e](https://github.com/alfa-laboratory/core-components/commit/08c556ecc0944d121b23566ae54319a1a33899ba)), closes [#519](https://github.com/alfa-laboratory/core-components/issues/519)
+* **themes:** list click theme ([#528](https://github.com/alfa-laboratory/core-components/issues/528)) ([e54ad60](https://github.com/alfa-laboratory/core-components/commit/e54ad605a9f873b06e0fe984bc87bcbb810a2541))
+
+## [11.3.2](https://github.com/alfa-laboratory/core-components/compare/v11.3.1...v11.3.2) (2021-02-19)
+
+
+### Bug Fixes
+
+* **notification:** fix css var name ([#526](https://github.com/alfa-laboratory/core-components/issues/526)) ([6bbc851](https://github.com/alfa-laboratory/core-components/commit/6bbc851fba023309292a89f0152fbe0603a955a1))
+* **select:** min width bug ([#524](https://github.com/alfa-laboratory/core-components/issues/524)) ([cdd686b](https://github.com/alfa-laboratory/core-components/commit/cdd686ba0780fdde982fff6629afd2fa798f9479))
+
+## [11.3.1](https://github.com/alfa-laboratory/core-components/compare/v11.3.0...v11.3.1) (2021-02-19)
+
+
+### Bug Fixes
+
+* **toast-plate:** polish toast-plate themes ([#527](https://github.com/alfa-laboratory/core-components/issues/527)) ([57d73d4](https://github.com/alfa-laboratory/core-components/commit/57d73d47b089997b2cc0d85e37b70f068c945e50))
+
+# [11.3.0](https://github.com/alfa-laboratory/core-components/compare/v11.2.0...v11.3.0) (2021-02-18)
+
+
+### Features
+
+* **select:** add visible-options ([#506](https://github.com/alfa-laboratory/core-components/issues/506)) ([0154866](https://github.com/alfa-laboratory/core-components/commit/0154866bb8fc8308945d32f115b3ab1e46f98db6))
+
+# [11.2.0](https://github.com/alfa-laboratory/core-components/compare/v11.1.0...v11.2.0) (2021-02-18)
+
+
+### Features
+
+* updated design tokens ([#516](https://github.com/alfa-laboratory/core-components/issues/516)) ([ef66b65](https://github.com/alfa-laboratory/core-components/commit/ef66b65bb35b2ef06292b8da709ccc335eb44735))
+
+# [11.1.0](https://github.com/alfa-laboratory/core-components/compare/v11.0.3...v11.1.0) (2021-02-18)
+
+
+### Features
+
+* **tabs:** disabled view ([#513](https://github.com/alfa-laboratory/core-components/issues/513)) ([8bdb1a7](https://github.com/alfa-laboratory/core-components/commit/8bdb1a789f720c6ccd98ebed3f0ae3c84dbbf52e))
+
+## [11.0.3](https://github.com/alfa-laboratory/core-components/compare/v11.0.2...v11.0.3) (2021-02-18)
+
+
+### Bug Fixes
+
+* update versions ([1d83612](https://github.com/alfa-laboratory/core-components/commit/1d8361241fecb6be83e3ce8b546f19def1efc592))
+
+## [11.0.2](https://github.com/alfa-laboratory/core-components/compare/v11.0.1...v11.0.2) (2021-02-18)
+
+
+### Bug Fixes
+
+* update versions ([d1b69a3](https://github.com/alfa-laboratory/core-components/commit/d1b69a3f0f488bdef5bea2b3aafc0e275058f321))
+
+## [11.0.1](https://github.com/alfa-laboratory/core-components/compare/v11.0.0...v11.0.1) (2021-02-18)
+
+
+### Bug Fixes
+
+* update versions ([#525](https://github.com/alfa-laboratory/core-components/issues/525)) ([31b2e4c](https://github.com/alfa-laboratory/core-components/commit/31b2e4c92fde6e2b63a3391a4e053cd328e93e70))
+
+# [11.0.0](https://github.com/alfa-laboratory/core-components/compare/v10.6.0...v11.0.0) (2021-02-18)
+
+
+* Betters toasts (#521) ([628b032](https://github.com/alfa-laboratory/core-components/commit/628b032f00dc36a71563f62238bd3f559968f320)), closes [#521](https://github.com/alfa-laboratory/core-components/issues/521)
+
+
+### BREAKING CHANGES
+
+* --notification-desktop-width var removed
+
+# [10.6.0](https://github.com/alfa-laboratory/core-components/compare/v10.5.0...v10.6.0) (2021-02-17)
+
+
+### Features
+
+* **toast-plate:** add action button theming, fix addons align ([#514](https://github.com/alfa-laboratory/core-components/issues/514)) ([20a7c67](https://github.com/alfa-laboratory/core-components/commit/20a7c67e89e4b6d3d90a9f1da2eb1b428c8ebf73))
+
+# [10.5.0](https://github.com/alfa-laboratory/core-components/compare/v10.4.4...v10.5.0) (2021-02-17)
+
+
+### Features
+
+* **icon-button:** add component ([#505](https://github.com/alfa-laboratory/core-components/issues/505)) ([da8ba6e](https://github.com/alfa-laboratory/core-components/commit/da8ba6e4473da87d8043713a592368d500cd284f))
+
+## [10.4.4](https://github.com/alfa-laboratory/core-components/compare/v10.4.3...v10.4.4) (2021-02-16)
+
+
+### Bug Fixes
+
+* **plate:** fixed --arrow-transform var, tuned transition ([#509](https://github.com/alfa-laboratory/core-components/issues/509)) ([dd51018](https://github.com/alfa-laboratory/core-components/commit/dd510185db28fefb102b287ae5022cf42e8072dc))
+
+## [10.4.3](https://github.com/alfa-laboratory/core-components/compare/v10.4.2...v10.4.3) (2021-02-16)
+
+
+### Bug Fixes
+
+* **form-control:** ff blink ([490ff25](https://github.com/alfa-laboratory/core-components/commit/490ff257eacb61c5d0d7f8861d12e43af9df3a55))
+
+## [10.4.2](https://github.com/alfa-laboratory/core-components/compare/v10.4.1...v10.4.2) (2021-02-15)
+
+
+### Bug Fixes
+
+* **themes:** fixed click theme for tabs size S ([#510](https://github.com/alfa-laboratory/core-components/issues/510)) ([1ce93e5](https://github.com/alfa-laboratory/core-components/commit/1ce93e55d0622951e8db652f16b883a151a75e79))
+
+## [10.4.1](https://github.com/alfa-laboratory/core-components/compare/v10.4.0...v10.4.1) (2021-02-15)
+
+
+### Bug Fixes
+
+* **themes:** corp theme ([#512](https://github.com/alfa-laboratory/core-components/issues/512)) ([6226238](https://github.com/alfa-laboratory/core-components/commit/6226238be1104550622eba1b842dac5ed9828d83))
+
 # [10.4.0](https://github.com/alfa-laboratory/core-components/compare/v10.3.0...v10.4.0) (2021-02-11)
 
 

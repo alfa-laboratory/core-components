@@ -31,12 +31,12 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
                 keepMounted={boolean('keepMounted')}
                 onChange={handleChange}
                 scrollable={boolean('scrollable', false)}
-                size={select('size', ['s', 'm', 'l'], 'm')}
+                size={select('size', ['s', 'm', 'l', 'xl'], 'm')}
             >
                 <Tab title='Таб 1' id='tab-1'>
                     Таб 1
                 </Tab>
-                <Tab title='Таб 2' id='tab-2'>
+                <Tab title='Таб 2' id='tab-2' disabled>
                     Таб 2
                 </Tab>
                 <Tab title='Таб 3' id='tab-3'>
@@ -45,7 +45,7 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
                 <Tab title='Таб 4' id='tab-4'>
                     Таб 4
                 </Tab>
-                <Tab title='Таб 5' id='tab-5'>
+                <Tab title='Таб 5' id='tab-5' disabled>
                     Таб 5
                 </Tab>
             </TabsDesktop>
@@ -71,7 +71,7 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
                 <Tab title='Таб 2' id='tab-2'>
                     Таб 2
                 </Tab>
-                <Tab title='Таб 3' id='tab-3'>
+                <Tab title='Таб 3' id='tab-3' disabled>
                     Таб 3
                 </Tab>
                 <Tab title='Таб 4' id='tab-4'>
@@ -92,7 +92,7 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
         return (
             <TabsResponsive
                 view={select('view', ['primary', 'secondary'], 'primary')}
-                size={select('size', ['s', 'm', 'l'], 'm')}
+                size={select('size', ['s', 'm', 'l', 'xl'], 'm')}
                 selectedId={selectedId}
                 keepMounted={boolean('keepMounted')}
                 onChange={handleChange}
@@ -107,10 +107,10 @@ export const titles = Array(7).fill(0).map((_, i) => ({ title: `Таб ${i + 1}`
                 <Tab title='Таб 3' id='tab-3'>
                     Таб 3
                 </Tab>
-                <Tab title='Таб 4' id='tab-4'>
+                <Tab title='Таб 4' id='tab-4' disabled>
                     Таб 4
                 </Tab>
-                <Tab title='Таб 5' id='tab-5'>
+                <Tab title='Таб 5' id='tab-5' disabled>
                     Таб 5
                 </Tab>
             </TabsResponsive>
@@ -153,7 +153,7 @@ import { TabsMobile, Tab } from '@alfalab/core-components-tabs/mobile';
                 keepMounted={boolean('keepMounted')}
                 onChange={handleChange}
                 scrollable={boolean('scrollable', false)}
-                size={select('size', ['s', 'm', 'l'], 'm')}
+                size={select('size', ['s', 'm', 'l', 'xl'], 'm')}
             >
                 <Tab title='Таб 1' id='tab-1'>
                     Таб 1
@@ -220,7 +220,7 @@ import { TabsMobile, Tab } from '@alfalab/core-components-tabs/mobile';
         return (
             <TabsResponsive
                 view={select('view', ['primary', 'secondary'], 'primary')}
-                size={select('size', ['s', 'm', 'l'], 'm')}
+                size={select('size', ['s', 'm', 'l', 'xl'], 'm')}
                 selectedId={selectedId}
                 keepMounted={boolean('keepMounted')}
                 onChange={handleChange}

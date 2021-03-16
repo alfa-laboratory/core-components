@@ -1,15 +1,39 @@
 @import '../../../../vars/src/index.css';
 
-.component.l .contentWrapper {
+.component.xl .contentWrapper {
     padding: var(--gap-l) var(--gap-m);
 }
 
-.component.m .contentWrapper {
+.component.l .contentWrapper {
     padding: var(--gap-m) var(--gap-m);
 }
 
+.component.m .contentWrapper {
+    padding: var(--gap-m) var(--gap-s);
+}
+
 .component.s .contentWrapper {
-    padding: var(--gap-s) var(--gap-m);
+    padding: var(--gap-s) var(--gap-s);
+}
+
+.component.xl .contentWrapperVertical {
+    padding-top: var(--gap-l);
+    padding-bottom: var(--gap-l);
+}
+
+.component.l .contentWrapperVertical {
+    padding-top: var(--gap-m);
+    padding-bottom: var(--gap-m);
+}
+
+.component.m .contentWrapperVertical {
+    padding-top: var(--gap-s);
+    padding-bottom: var(--gap-s);
+}
+
+.component.s .contentWrapperVertical {
+    padding-top: var(--gap-xs);
+    padding-bottom: var(--gap-xs);
 }
 
 .component .contentWrapper {
@@ -17,6 +41,11 @@
     flex-wrap: wrap;
     width: 100%;
     margin: var(--gap-2xs-neg);
+
+    &:not(.contentWrapperVertical):not(.hasLabel) {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
 
     &.hasLabel {
         margin-top: var(--gap-xs);
@@ -77,6 +106,7 @@
     min-height: 28px;
     padding-left: var(--gap-2xs);
     color: var(--color-light-text-tertiary);
+    pointer-events: none;
 }
 
 .addons {
@@ -89,16 +119,30 @@
 }
 
 .addons-size-l {
+    padding-top: var(--gap-l);
+}
+
+.addons-size-xl {
     padding-top: var(--gap-xl);
 }
 
 .component.s .label {
-    top: 4px;
-    left: 16px;
+    top: 5px;
+    left: 12px;
 }
 
 .component.m .label {
-    top: 6px;
+    top: 8px;
+    left: 12px;
+}
+
+.component.l .label {
+    top: 10px;
+    left: 16px;
+}
+
+.component.xl .label {
+    top: 14px;
     left: 16px;
 }
 

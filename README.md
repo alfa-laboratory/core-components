@@ -2,6 +2,9 @@
 
 <p><img width="914" alt="Библиотека React компонентов для создания веб-интерфейсов" src="https://user-images.githubusercontent.com/109410/78970104-3873e000-7b11-11ea-945d-02f86cad62e0.png"/></p>
 
+[![Release](https://github.com/alfa-laboratory/core-components/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/alfa-laboratory/core-components/actions/workflows/npm-publish.yml)
+[![Tests & Build](https://github.com/alfa-laboratory/core-components/actions/workflows/build.yml/badge.svg)](https://github.com/alfa-laboratory/core-components/actions/workflows/build.yml)
+[![Demo build](https://github.com/alfa-laboratory/core-components/actions/workflows/main.yml/badge.svg)](https://github.com/alfa-laboratory/core-components/actions/workflows/main.yml)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 [Cторибук](https://alfa-laboratory.github.io/core-components/) с документацией и песочницей.
@@ -35,7 +38,7 @@ import { Button } from '@alfalab/core-components-button';
 
     ```
     :root {
-        --border-radius: 12px;
+        --border-radius: var(--border-radius-l);
     }
     ```
 

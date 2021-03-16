@@ -12,7 +12,7 @@ import {
 import axios from 'axios';
 import { MatchImageSnapshotOptions } from 'jest-image-snapshot';
 import kebab from 'lodash.kebabcase';
-import { STYLES_URL, ScreenshotOpts } from './screenshot-testing';
+import { STYLES_URL, ScreenshotOpts, EvaluateFn } from './screenshot-testing';
 
 type CustomSnapshotIdentifierParams = {
     currentTestName: string;
@@ -27,10 +27,20 @@ type CloseBrowserParams = {
     browser: Browser;
 };
 
+const CI = process.env.CI === 'true';
+
+const serverHost = CI ? 'https://digital.alfabank.ru' : 'http://digital';
+const playwrightUrl = `${serverHost}/playwright`;
+
+export const viewport = { width: 1920, height: 1080 };
+
 /**
  * Удаляем из названия теста лишнюю информацию, чтобы имя файла было короче
  */
-const customSnapshotIdentifier = ({ currentTestName, counter }: CustomSnapshotIdentifierParams) => {
+export const customSnapshotIdentifier = ({
+    currentTestName,
+    counter,
+}: CustomSnapshotIdentifierParams) => {
     const [knobsStrObj] = /(\{.{1,}\})/.exec(currentTestName) || [];
 
     if (!knobsStrObj) {
@@ -52,6 +62,7 @@ type MatchHtmlParams = {
     expect: any;
     matchImageSnapshotOptions?: MatchImageSnapshotOptions;
     screenshotOpts?: ScreenshotOpts;
+    evaluate?: EvaluateFn;
 };
 
 const screenshotDefaultOpts = {
@@ -71,20 +82,28 @@ export const matchHtml = async ({
     expect,
     matchImageSnapshotOptions,
     screenshotOpts = screenshotDefaultOpts,
+    evaluate,
 }: MatchHtmlParams) => {
     const pageHtml = await getPageHtml(page, css);
 
     const image = await axios.post(
-        'http://digital/playwright',
+        playwrightUrl,
         {
             data: pageHtml,
             screenshotOpts,
+            evaluate: evaluate && evaluate.toString(),
         },
         {
             responseType: 'arraybuffer',
             headers: {
                 accept: 'application/json',
             },
+            auth: CI
+                ? {
+                      username: process.env.CI_USER_NAME as string,
+                      password: process.env.CI_USER_PASSWORD as string,
+                  }
+                : undefined,
         },
     );
 
@@ -99,7 +118,7 @@ export const openBrowserPage = async (
     browserType: BrowserType<ChromiumBrowser | FirefoxBrowser | WebKitBrowser> = chromium,
 ) => {
     const browser = await browserType.launch();
-    const context = await browser.newContext();
+    const context = await browser.newContext({ viewport });
     const page = await context.newPage();
 
     const [css] = await Promise.all([

@@ -23,6 +23,11 @@ export type ToastPlateProps = HTMLAttributes<HTMLDivElement> & {
     className?: string;
 
     /**
+     * Дополнительный класс для контентной области
+     */
+    contentClassName?: string;
+
+    /**
      * Дочерние элементы
      */
     children?: ReactNode;
@@ -84,6 +89,7 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
         {
             dataTestId,
             className,
+            contentClassName,
             hasCloser,
             leftAddons,
             badge,
@@ -123,12 +129,8 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
                 data-test-id={dataTestId}
                 {...restProps}
             >
-                <div className={styles.mainContentWrap}>
-                    <div
-                        className={cn(styles.mainSection, {
-                            [styles.hasRightSection]: actionButton || hasCloser,
-                        })}
-                    >
+                <div className={styles.contentWrap}>
+                    <div className={cn(contentClassName, styles.content)}>
                         {needRenderLeftAddons && (
                             <div className={styles.leftAddons}>
                                 {leftAddons || (
@@ -151,7 +153,7 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
 
                     {actionButton && (
                         <div
-                            className={cn(styles.actionsSection, {
+                            className={cn(styles.actionSection, {
                                 [styles.hasCloser]: hasCloser,
                             })}
                         >

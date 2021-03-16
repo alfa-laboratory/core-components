@@ -14,18 +14,6 @@
     width: 100%;
 }
 
-.s {
-    max-height: var(--select-options-list-s-height);
-}
-
-.m {
-    max-height: var(--select-options-list-m-height);
-}
-
-.l {
-    max-height: var(--select-options-list-l-height);
-}
-
 .virtualRow {
     position: absolute;
     top: 0;
@@ -61,6 +49,7 @@
     color: var(--select-options-list-empty-placeholder-color);
 }
 
-.l .emptyPlaceholder {
+.l .emptyPlaceholder,
+.xl .emptyPlaceholder {
     padding: var(--gap-xl) var(--gap-m);
 }

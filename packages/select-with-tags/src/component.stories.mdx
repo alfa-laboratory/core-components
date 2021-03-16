@@ -51,13 +51,18 @@ export const matchOption = (option, inputValue) =>
         };
         const handleChange = React.useCallback(({ selectedMultiple }) => {
             setSelected(selectedMultiple);
-        }, [])
+        }, []);
+        const transformCollapsedTagText = (collapsedCount) => {
+            return `+${collapsedCount} element`;
+        };
         return (
             <div style={{width: '375px'}}>
                 <SelectWithTags
+                    collapseTagList={boolean('collapseTagList', true)}
+                    moveInputToNewLine={boolean('moveInputToNewLine', true)}
                     options={options}
                     block={boolean('block', true)}
-                    size={select('size', ['s', 'm', 'l'], 'l')}
+                    size={select('size', ['s', 'm', 'l', 'xl'], 'xl')}
                     disabled={boolean('disabled', false)}
                     error={text('error', '')}
                     success={boolean('success', false)}
@@ -68,10 +73,11 @@ export const matchOption = (option, inputValue) =>
                     label={text('label', '')}
                     autocomplete={boolean('autocomplete', true)}
                     onInput={handleInput}
+                    transformCollapsedTagText={transformCollapsedTagText}
                     value={value}
                     onChange={handleChange}
                     selected={selected}
-                    emptyListPlaceholder={text('emptyListPlaceholder', 'Ничего не найдено')}
+                    emptyListPlaceholder={text('emptyListPlaceholder', 'Ничего не найдено.')}
                 />
             </div>
         );
@@ -83,7 +89,7 @@ export const matchOption = (option, inputValue) =>
 
 <ComponentHeader
     name='SelectWithTags'
-    stage={1}
+    stage={2}
 />
 
 ```tsx

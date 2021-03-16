@@ -64,7 +64,7 @@
     margin-right: var(--gap-xs);
     background-color: var(--checkbox-bg-color);
     border: 1px solid var(--checkbox-border-color);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-s);
     transition: background-color 0.2s ease, border-color 0.2s ease;
     box-sizing: border-box;
     overflow: hidden;
@@ -74,7 +74,7 @@
     width: 20px;
     height: 20px;
     margin-right: var(--gap-m);
-    margin-top: 2px;
+    margin-top: var(--gap-3xs);
 }
 
 .component:hover:not(.disabled) .box {

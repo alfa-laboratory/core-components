@@ -35,11 +35,30 @@ describe('Button', () => {
     });
 
     describe('Attributes tests', () => {
-        it('should set `data-test-id` atribute', () => {
+        it('should set `data-test-id` attribute', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(<Button dataTestId={dataTestId} />);
 
             expect(getByTestId(dataTestId).tagName).toBe('BUTTON');
+        });
+
+        it('should set rel="noreferrer noopener" if "href" and target="_blank" are passed', () => {
+            const { container } = render(<Button href='#' target='_blank' />);
+
+            const relAttr = container.firstElementChild?.getAttribute('rel');
+
+            expect(relAttr).toBe('noreferrer noopener');
+        });
+
+        it('should set type="button" by default', () => {
+            const { container } = render(<Button />);
+            expect(container.firstElementChild).toHaveAttribute('type', 'button');
+        });
+
+        it('should set type attribute', () => {
+            const type = 'submit';
+            const { container } = render(<Button type={type} />);
+            expect(container.firstElementChild).toHaveAttribute('type', type);
         });
     });
 

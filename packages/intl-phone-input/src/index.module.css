@@ -2,7 +2,8 @@
     padding-left: 0;
 }
 
-.l {
+.l,
+.xl {
     & .addons {
         padding-left: 0;
     }

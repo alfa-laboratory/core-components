@@ -13,10 +13,15 @@ Object {
         data-popper-escaped="true"
         data-popper-placement="left"
         data-popper-reference-hidden="true"
-        style="position: absolute; left: 0px; top: 0px; transition-duration: 300ms; right: 0px; transform: translate(0px, 0px);"
+        style="position: absolute; left: 0px; top: 0px; right: 0px; transform: translate(0px, 0px);"
       >
-        <div>
-          I am popover
+        <div
+          class="inner"
+          style="transition-duration: 150ms;"
+        >
+          <div>
+            I am popover
+          </div>
         </div>
       </div>
     </div>
@@ -90,8 +95,12 @@ Object {
         data-popper-reference-hidden="true"
         style="position: absolute; left: 0px; top: 0px; right: 0px; transform: translate(0px, 0px);"
       >
-        <div>
-          I am popover
+        <div
+          class="inner"
+        >
+          <div>
+            I am popover
+          </div>
         </div>
       </div>
     </div>

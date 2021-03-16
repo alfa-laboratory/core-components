@@ -1,3 +1,52 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.0.13](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount@1.0.12...@alfalab/core-components-amount@1.0.13) (2021-03-14)
+
+**Note:** Version bump only for package @alfalab/core-components-amount
+
+
+
+
+
+## [1.0.12](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount@1.0.11...@alfalab/core-components-amount@1.0.12) (2021-03-04)
+
+**Note:** Version bump only for package @alfalab/core-components-amount
+
+
+
+
+
+## [1.0.11](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount@1.0.10...@alfalab/core-components-amount@1.0.11) (2021-03-03)
+
+**Note:** Version bump only for package @alfalab/core-components-amount
+
+
+
+
+
+## [1.0.10](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount@1.0.9...@alfalab/core-components-amount@1.0.10) (2021-02-20)
+
+**Note:** Version bump only for package @alfalab/core-components-amount
+
+
+
+
+
+## [1.0.9](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount@1.0.8...@alfalab/core-components-amount@1.0.9) (2021-02-18)
+
+
+### Bug Fixes
+
+* update versions ([d1b69a3](https://github.com/alfa-laboratory/core-components/commit/d1b69a3f0f488bdef5bea2b3aafc0e275058f321))
+* update versions ([#525](https://github.com/alfa-laboratory/core-components/issues/525)) ([31b2e4c](https://github.com/alfa-laboratory/core-components/commit/31b2e4c92fde6e2b63a3391a4e053cd328e93e70))
+
+
+
+
+
 # @alfalab/core-components-amount-v1.0.0 (2020-11-25)
 
 

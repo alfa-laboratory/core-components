@@ -24,6 +24,7 @@ import { Select } from '../../select/src/Component';
         const [codeChecking, setCodeChecking] = useState({'success': false, 'error': false, 'fatal': false});
         const [codeSending, setCodeSending] = useState({'success': false, 'error': false, 'fatal': false});
         const [error, setError] = useState({'success': '', 'error': '', 'fatal': ''});
+        const [noAttemptsLeftMessage, setNoAttemptsLeftMessage] = useState('');
         const setCode = (variant, code) => {
             setValue({...value, [variant]: code});
             setError({...error, [variant]: ''});
@@ -37,6 +38,8 @@ import { Select } from '../../select/src/Component';
                     setError({...error, 'error': 'Неправильный код'});
                 } else if (variant === 'fatal') {
                     setError({...error, 'fatal': 'Выполните операцию с самого начала'});
+                } else if (variant === 'attempts-left') {
+                    setNoAttemptsLeftMessage('Не осталось попыток запроса кода');
                 }
             }, 1000);
         }
@@ -58,7 +61,8 @@ import { Select } from '../../select/src/Component';
                     options={[
                         { key: 'success', content: 'Успешный сценарий'},
                         { key: 'error', content: 'Сценарий с ошибкой'},
-                        { key: 'fatal', content: 'Сценарий с критичной ошибкой'}
+                        { key: 'fatal', content: 'Сценарий с критичной ошибкой'},
+                        { key: 'attempts-left', content: 'Сценарий, когда кончились попытки запроса смс'}
                     ]}
                     onChange={({ selected }) => {
                         setVariant(selected)
@@ -129,6 +133,26 @@ import { Select } from '../../select/src/Component';
                             />
                         </div>
                     }
+                    {variant.key === 'attempts-left' &&
+                        <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
+                            <Confirmation
+                                phone={phone}
+                                onInputFinished={() => handleSubmit('attempts-left')}
+                                onSmsRetryClick={() => handleSmsRetryClick('attempts-left')}
+                                codeSending={codeSending['attempts-left']}
+                                codeChecking={codeChecking['attempts-left']}
+                                error={!!error['attempts-left']}
+                                errorText={error['attempts-left']}
+                                errorIsFatal={true}
+                                countdownDuration={countdownDuration}
+                                code={value['attempts-left']}
+                                onInputChange={({ code }) => setCode('attempts-left', code)}
+                                alignContent={alignContent}
+                                requiredCharAmount={requiredCharAmount}
+                                noAttemptsLeftMessage={noAttemptsLeftMessage}
+                            />
+                        </div>
+                    }
                 </div>
             </div>
         );
@@ -142,7 +166,7 @@ import { Select } from '../../select/src/Component';
     name='Confirmation'
     version={version}
     package='@alfalab/core-components-confirmation'
-    stage={2}
+    stage={3}
     design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=8558%3A22'
 />
 

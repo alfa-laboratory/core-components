@@ -38,7 +38,7 @@
     cursor: pointer;
     outline: none;
 
-    &:hover {
+    &:not(.disabled):hover {
         color: var(--primary-tablist-hover-color);
     }
 }
@@ -50,6 +50,11 @@
 .selected {
     cursor: default;
     color: var(--primary-tablist-selected-color);
+}
+
+.disabled {
+    cursor: var(--disabled-cursor);
+    color: var(--primary-tablist-disabled-color);
 }
 
 .line {
@@ -101,11 +106,25 @@
         font-size: var(--primary-tablist-l-font-size);
         font-weight: var(--primary-tablist-l-font-weight);
         font-family: var(--primary-tablist-l-font-family);
-        line-height: 32px;
+        line-height: 24px;
     }
 
     & .title + .title {
         margin-left: var(--primary-tablist-l-gaps);
+    }
+}
+
+.xl {
+    & .title {
+        padding: var(--primary-tablist-xl-padding);
+        font-size: var(--primary-tablist-xl-font-size);
+        font-weight: var(--primary-tablist-xl-font-weight);
+        font-family: var(--primary-tablist-xl-font-family);
+        line-height: 32px;
+    }
+
+    & .title + .title {
+        margin-left: var(--primary-tablist-xl-gaps);
     }
 }
 
