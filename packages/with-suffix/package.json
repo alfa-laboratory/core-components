@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-with-suffix",
-    "version": "2.4.3",
+    "version": "2.4.5",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -16,7 +16,7 @@
         "react": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^6.0.3",
+        "@alfalab/core-components-input": "^6.0.5",
         "@alfalab/core-components-portal": "^1.4.3",
         "classnames": "^2.2.6",
         "react-merge-refs": "^1.1.0"

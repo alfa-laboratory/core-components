@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-switch@1.7.0...@alfalab/core-components-switch@1.7.2) (2021-03-16)
+
+
+### Bug Fixes
+
+* border-radius in packages ([781749e](https://github.com/alfa-laboratory/core-components/commit/781749ef38aefd5a6707ac56d2e297dce9f3e073))
+
+
+
+
+
 # [1.7.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-switch@1.6.6...@alfalab/core-components-switch@1.7.0) (2021-03-15)
 
 
