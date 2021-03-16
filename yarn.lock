@@ -125,10 +125,10 @@
   resolved "https://registry.yarnpkg.com/@alfalab/icons-logotype/-/icons-logotype-1.9.0.tgz#5e0b96830cdd6cfaa49039f10abc39e05ef6e03e"
   integrity sha512-rpHRXXhsER+YyYSn63sMVLhXU5BpY0nkfjKNffsJvOv+8+eTbjjzEDfdxtN+1/C1ZiqcXQXTJ1ItKJnrKzf5Jg==
 
-"@alfalab/rollup-plugin-postcss@^3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/rollup-plugin-postcss/-/rollup-plugin-postcss-3.2.0.tgz#5ace0c087ad816884e7fdcea8ac1c0508a45d2dc"
-  integrity sha512-c9l2iTJwXnVkoDmbEgNTZJDlJv8VqiQvd37p8YpnnFyOC+oHM3lHIFG2sXR1AFluLd1T/Mr1f2NNBoku2AKkpg==
+"@alfalab/rollup-plugin-postcss@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/rollup-plugin-postcss/-/rollup-plugin-postcss-3.4.0.tgz#2e5d74fe637c1883f86410ad04ce39c83e85ba72"
+  integrity sha512-pLNWFGVmjQ5YGlZgpxtDk8obq7WdQ4IqjmL0L51Vy3syJ4TkwSjnCLjdW1eymXi5ZH0QQalchCYh58Pf6KxGhw==
   dependencies:
     chalk "^4.0.0"
     concat-with-sourcemaps "^1.1.0"
@@ -143,6 +143,7 @@
     resolve "^1.16.1"
     rollup-pluginutils "^2.8.2"
     safe-identifier "^0.4.1"
+    string-hash "^1.1.3"
     style-inject "^0.3.0"
 
 "@alfalab/stylelint-core-vars@^0.0.4":

@@ -1,9 +1,8 @@
 import { ScriptTarget } from 'typescript';
 import path from 'path';
 import multiInput from 'rollup-plugin-multi-input';
-import postcss, { addCssImports } from '@alfalab/rollup-plugin-postcss';
+import postcss, { addCssImports, generateClassNameHash } from '@alfalab/rollup-plugin-postcss';
 import typescript from '@wessberg/rollup-plugin-ts';
-import stringHash from 'string-hash';
 import copy from 'rollup-plugin-copy';
 import json from '@rollup/plugin-json';
 
@@ -47,17 +46,15 @@ const postcssPlugin = postcss({
         generateScopedName: function(name, fileName) {
             const folderName = path.basename(path.dirname(fileName));
 
-            const str = `${pkg.name}@${pkg.version}@${folderName}`;
-
-            const hash = stringHash(str)
-                .toString(36)
-                .substr(0, 5);
+            const hash = generateClassNameHash(pkg.name, pkg.version, folderName);
 
             return `${currentComponentName}__${name}_${hash}`;
         },
     },
     extract: true,
     separateCssFiles: true,
+    packageName: pkg.name,
+    packageVersion: pkg.version,
 });
 
 /**
@@ -235,7 +232,7 @@ if (themes && themes.length > 0) {
                 flatten: false,
                 targets: [{ src: ['dist/**/*', '!**/*.js'], dest }],
             }),
-            coreComponentsThemesResolver()
+            coreComponentsThemesResolver(),
         ],
         output,
     });
