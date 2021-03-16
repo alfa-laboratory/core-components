@@ -64,6 +64,10 @@ describe(
         beforeAll,
         afterAll,
         expect,
+        matchImageSnapshotOptions: {
+            failureThresholdType: 'pixel',
+            failureThreshold: 5,
+        },
         screenshotOpts: { clip },
     }),
 );
