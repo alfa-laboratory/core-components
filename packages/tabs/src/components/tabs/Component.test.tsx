@@ -125,9 +125,8 @@ describe('Tabs', () => {
                 </TabsDesktop>,
             );
 
-            const tabpanels = queryAllByRole('tabpanel', { hidden: true });
-
-            expect(tabpanels).toHaveLength(1);
+            expect(queryAllByRole('tabpanel', { hidden: true })).toHaveLength(1);
+            expect(queryAllByRole('tabpanel', { hidden: false })).toHaveLength(0);
         });
     });
 
