@@ -1,0 +1,24 @@
+{
+    "name": "@alfalab/core-components-file-upload-item",
+    "version": "1.0.0",
+    "description": "",
+    "keywords": [],
+    "license": "MIT",
+    "main": "dist/index.js",
+    "module": "./dist/esm/index.js",
+    "files": [
+        "dist"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "peerDependencies": {
+        "react": "^16.9.0 || ^17.0.1"
+    },
+    "dependencies": {
+        "@alfalab/core-components-icon-button": "^1.1.2",
+        "@alfalab/core-components-link": "^1.6.4",
+        "@alfalab/core-components-spinner": "^1.0.5",
+        "@alfalab/icons-glyph": "^1.102.0"
+    }
+}
