@@ -19,7 +19,7 @@ describe(
         expect,
         matchImageSnapshotOptions: {
             failureThresholdType: 'pixel',
-            failureThreshold: 5,
+            failureThreshold: 10,
         },
         screenshotOpts: { clip },
     }),
@@ -66,7 +66,7 @@ describe(
         expect,
         matchImageSnapshotOptions: {
             failureThresholdType: 'pixel',
-            failureThreshold: 5,
+            failureThreshold: 10,
         },
         screenshotOpts: { clip },
     }),
