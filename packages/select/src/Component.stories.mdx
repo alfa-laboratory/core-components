@@ -396,6 +396,27 @@ import { Select } from '@alfalab/core-components-select';
     </div>
 </Preview>
 
+## Управление размером пунктов меню
+
+По умолчанию размер пунктов меню совпадает с размером селекта, но с помощью свойства `optionsSize` можно задать размер отдельно.
+
+<Preview>
+    <div style={{ width: 240 }}>
+        {React.createElement(() => {
+            return (
+                <Select
+                    block={true}
+                    size='l'
+                    options={options}
+                    label='optionsSize'
+                    optionsSize='s'
+                />
+            );
+        })}
+    </div>
+</Preview>
+
+
 ## Селект с заголовком меню
 
 <Preview>
