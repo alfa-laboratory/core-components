@@ -71,34 +71,6 @@ describe('Plate', () => {
 
             expect(container.firstElementChild).toHaveClass(view);
         });
-
-        it('should set `hasCloser` class', () => {
-            const { container } = render(<Plate hasCloser={true} />);
-
-            expect(container.firstElementChild).toHaveClass('hasCloser');
-        });
-
-        it('should set `foldable` class', () => {
-            const { container } = render(
-                <Plate foldable={true} title='title'>
-                    text
-                </Plate>,
-            );
-
-            expect(container.firstElementChild).toHaveClass('foldable');
-        });
-
-        it('should not set `foldable` class with empty `title`', () => {
-            const { container } = render(<Plate foldable={true}>text</Plate>);
-
-            expect(container.firstElementChild).not.toHaveClass('foldable');
-        });
-
-        it('should not set `foldable` class with empty `children`', () => {
-            const { container } = render(<Plate foldable={true} title='title' />);
-
-            expect(container.firstElementChild).not.toHaveClass('foldable');
-        });
     });
 
     describe('Callbacks tests', () => {

@@ -33,6 +33,7 @@
 .inner {
     position: relative;
     width: 100%;
+    display: flex;
 }
 
 .common {
@@ -67,6 +68,8 @@
 
 .title {
     @mixin accent_primary_large;
+
+    word-break: break-word;
 }
 
 .content {
@@ -85,6 +88,8 @@
 }
 
 .contentContainer {
+    flex: 1;
+
     &.withoutTitle {
         padding-top: var(--gap-3xs);
     }
@@ -94,14 +99,9 @@
     padding-top: var(--gap-xs);
 }
 
-.additional {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
 .closer,
 .folder {
+    display: block;
     height: 24px;
     width: 24px;
     opacity: 1;

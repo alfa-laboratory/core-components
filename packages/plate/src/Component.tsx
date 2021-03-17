@@ -167,8 +167,6 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                     {
                         [styles.focused]: focused,
                         [styles.isHidden]: hasCloser && isHidden,
-                        [styles.hasCloser]: hasCloser,
-                        [styles.foldable]: isFoldable,
                         [styles.isFolded]: isFoldable && isFolded,
                     },
                     className,
@@ -202,24 +200,17 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                             </div>
                         )}
                     </div>
-                    {(foldable || hasCloser) && (
-                        <div className={styles.additional}>
-                            {isFoldable && (
-                                <div
-                                    className={cn(styles.folder, {
-                                        [styles.isFolded]: isFolded,
-                                    })}
-                                />
-                            )}
-                            {isFoldable ||
-                                (hasCloser && (
-                                    <Button
-                                        className={styles.closer}
-                                        view='ghost'
-                                        onClick={handleClose}
-                                    />
-                                ))}
-                        </div>
+
+                    {isFoldable && (
+                        <div
+                            className={cn(styles.folder, {
+                                [styles.isFolded]: isFolded,
+                            })}
+                        />
+                    )}
+
+                    {hasCloser && !isFoldable && (
+                        <Button className={styles.closer} view='ghost' onClick={handleClose} />
                     )}
                 </div>
             </div>
