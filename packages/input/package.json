@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-input",
-    "version": "6.0.2",
+    "version": "6.0.5",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -16,8 +16,8 @@
         "react": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^2.0.2",
-        "@alfalab/core-components-form-control": "^6.0.1",
+        "@alfalab/core-components-button": "^2.1.2",
+        "@alfalab/core-components-form-control": "^6.0.3",
         "@alfalab/hooks": "^1.0.0",
         "@alfalab/icons-glyph": "^1.26.0",
         "classnames": "^2.2.6",

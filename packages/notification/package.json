@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-notification",
-    "version": "2.0.10",
+    "version": "2.0.13",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -17,7 +17,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-portal": "^1.4.3",
-        "@alfalab/core-components-toast-plate": "^2.1.5",
+        "@alfalab/core-components-toast-plate": "^2.2.2",
         "classnames": "^2.2.6",
         "react-merge-refs": "^1.1.0",
         "react-swipeable": "^6.0.0"
