@@ -12,6 +12,9 @@ import { parseDateString, formatDate } from './utils';
 
 import { name, version } from '../package.json';
 
+import styles from './stories.module.css';
+
+
 <Meta
     title='Компоненты'
     component={CalendarInput}
@@ -144,4 +147,19 @@ import { CalendarInput } from '@alfalab/core-components-calendar-input';
             />
         );
     })}
+</Preview>
+
+
+### Инпут по ширине календаря
+
+Используя css-переменную `--calendar-width` можно задать инпуту такую же ширину, как и компонента календаря
+
+
+<Preview>
+    {/*
+        .calendarWidth {
+            width: var(--calendar-width);
+        }
+    */}
+    <CalendarInput className={styles.calendarWidth} />
 </Preview>
