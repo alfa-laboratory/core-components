@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { Alert } from './Component';
+import { Button } from '../../button/src';
 
 import { name, version } from '../package.json';
 
@@ -20,6 +21,10 @@ import { name, version } from '../package.json';
         view={select('view', ['common', 'negative', 'positive', 'attention'], 'common')}
         title={text('title', '')}
         hasCloser={boolean('hasCloser', false)}
+        buttons={boolean('buttons', false) ? [
+            <Button>Хорошо</Button>,
+            <Button>Подробнее</Button>
+        ] : null}
     >
         {text('children', 'Вам одобрено. Согласитесь на предложение')}
     </Alert>
