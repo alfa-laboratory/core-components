@@ -75,6 +75,8 @@
     max-height: 300vh;
     overflow: hidden;
     transition: max-height 2s ease-in-out;
+    padding: var(--gap-2xs);
+    margin: var(--gap-2xs-neg);
 
     &.isFolded {
         max-height: 0;
@@ -126,5 +128,17 @@
 
     &.isFolded {
         transform: rotate(0deg);
+    }
+}
+
+.buttons {
+    margin-top: var(--gap-xl);
+}
+
+.button {
+    margin-right: var(--gap-s);
+
+    &:last-child {
+        margin-right: 0;
     }
 }

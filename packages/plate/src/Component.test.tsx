@@ -3,6 +3,7 @@ import { fireEvent, render } from '@testing-library/react';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 
 import { Plate } from './index';
+import { Button } from '../../button/src';
 
 describe('Plate', () => {
     describe('Snapshots tests', () => {
@@ -30,6 +31,30 @@ describe('Plate', () => {
         const { getByTestId } = render(<Plate dataTestId={dataTestId} />);
 
         expect(getByTestId(dataTestId).tagName).toBe('DIV');
+    });
+
+    it('should render buttons size=xs, first view=outlined, others view=link', () => {
+        const { queryByTestId } = render(
+            <Plate
+                buttons={[
+                    <Button dataTestId='button-1'>1</Button>,
+                    <Button dataTestId='button-2'>2</Button>,
+                    <Button dataTestId='button-3'>3</Button>,
+                ]}
+            />,
+        );
+
+        expect(queryByTestId('button-1')).toBeInTheDocument();
+        expect(queryByTestId('button-2')).toBeInTheDocument();
+        expect(queryByTestId('button-3')).toBeInTheDocument();
+
+        expect(queryByTestId('button-1')).toHaveClass('xs');
+        expect(queryByTestId('button-2')).toHaveClass('xs');
+        expect(queryByTestId('button-3')).toHaveClass('xs');
+
+        expect(queryByTestId('button-1')).toHaveClass('outlined');
+        expect(queryByTestId('button-2')).toHaveClass('link');
+        expect(queryByTestId('button-3')).toHaveClass('link');
     });
 
     describe('Classes tests', () => {

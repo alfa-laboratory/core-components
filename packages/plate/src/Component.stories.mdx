@@ -2,7 +2,10 @@ import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import {select, text, boolean} from '@storybook/addon-knobs';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon'
+
 import { Plate } from './Component';
+import { Button } from '../../button/src';
+
 import { name, version } from '../package.json';
 
 
@@ -19,6 +22,10 @@ import { name, version } from '../package.json';
         title={text('title', 'Поздравляем, полный успех')}
         foldable={boolean('foldable', false)}
         hasCloser={boolean('hasCloser', false)}
+        buttons={boolean('buttons', false) ? [
+            <Button>Хорошо</Button>,
+            <Button>Подробнее</Button>
+        ] : null}
     >
         {text('children', 'Вам одобрено. Согласитесь на предложение')}
     </Plate>
