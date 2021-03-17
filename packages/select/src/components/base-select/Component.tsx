@@ -43,6 +43,7 @@ export const BaseSelect = forwardRef(
             defaultOpen = false,
             popoverPosition = 'bottom-start',
             preventFlip = true,
+            optionsListWidth = 'content',
             name,
             id,
             selected,
@@ -373,7 +374,9 @@ export const BaseSelect = forwardRef(
                                 {...menuProps}
                                 className={cn(optionsListClassName, styles.optionsList)}
                                 style={{
-                                    minWidth: optionsListMinWidth,
+                                    [optionsListWidth === 'field'
+                                        ? 'width'
+                                        : 'minWidth']: optionsListMinWidth,
                                 }}
                             >
                                 <OptionsList

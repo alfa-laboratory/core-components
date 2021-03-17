@@ -111,6 +111,12 @@ export type BaseSelectProps = {
     block?: boolean;
 
     /**
+     * Управляет шириной выпадающего меню.
+     * Ширину определяет контент, либо ширина равна ширине поля
+     */
+    optionsListWidth?: 'content' | 'field';
+
+    /**
      * Лейбл поля
      */
     label?: ReactNode;

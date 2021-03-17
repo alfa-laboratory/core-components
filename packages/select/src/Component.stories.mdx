@@ -419,6 +419,39 @@ import { Select } from '@alfalab/core-components-select';
     })}
 </Preview>
 
+## Ширина выпадающего меню
+
+По умолчанию ширину выпадающего меню задает контент пунктов.
+Если контент слишком длинный, то может понадобиться изменить это поведение.
+
+Это можно сделать с помощью свойства `optionsListWidth='field'` — в этом случае ширина выпадающего меню будет равна ширине поля, а лишний контент обрежется.
+
+<Preview>
+    {React.createElement(() => {
+        const LongContent = ({ text }) => (
+            <span style={{ whiteSpace: 'nowrap' }} title={text}>
+                {text}
+            </span>
+        );
+        const longOptions = [
+            { key: '1', content: <LongContent text='Великий Новгород' /> },
+            { key: '2', content: <LongContent text='Гусь-Хрустальный' /> },
+            { key: '3', content: <LongContent text='Каменск-Шахтинский' /> },
+            { key: '4', content: <LongContent text='Очень длинное название' /> },
+        ];
+        return (
+            <div style={{ width: 160 }}>
+                <Select
+                    block={true}
+                    label='Города'
+                    options={longOptions}
+                    optionsListWidth='field'
+                />
+            </div>
+        );
+    })}
+</Preview>
+
 ## Группы
 
 Группированный селект
