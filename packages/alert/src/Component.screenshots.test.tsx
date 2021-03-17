@@ -36,3 +36,21 @@ describe(
         screenshotOpts: { clip },
     }),
 );
+
+describe(
+    'Alert | screenshots with buttons',
+    screenshotTesting({
+        cases: getComponentScreenshotTestCases({
+            componentName: 'alert',
+            knobs: {
+                buttons: [true],
+                title: ['Title', ''],
+            },
+        }),
+        it,
+        beforeAll,
+        afterAll,
+        expect,
+        screenshotOpts: { clip: { ...clip, height: 140 } },
+    }),
+);
