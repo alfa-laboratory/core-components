@@ -8,7 +8,12 @@
     border-left-width: 2px;
     padding-top: var(--gap-s);
     padding-bottom: var(--gap-s);
+    padding-right: var(--gap-s);
     min-height: 48px;
+}
+
+.buttons {
+    margin-top: var(--gap-m);
 }
 
 .title {

@@ -10,6 +10,7 @@ export type AlertProps = Omit<PlateProps, 'foldable' | 'defaultFolded' | 'leftAd
 export const Alert: FC<AlertProps> = ({ className, title, ...restProps }) => (
     <Plate
         className={cn(styles.component, className)}
+        buttonsClassName={styles.buttons}
         title={title ? <span className={styles.title}>{title}</span> : null}
         {...restProps}
     />

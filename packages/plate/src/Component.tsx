@@ -61,6 +61,11 @@ export type PlateProps = {
     className?: string;
 
     /**
+     * Дополнительный класс для кнопок
+     */
+    buttonsClassName?: string;
+
+    /**
      * Обработчик клика по плашке
      */
     onClick?: (event?: MouseEvent<HTMLDivElement>) => void;
@@ -88,6 +93,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             title,
             view = 'common',
             className,
+            buttonsClassName,
             onClick,
             onClose,
             dataTestId,
@@ -141,7 +147,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
 
         const renderButtons = useCallback(
             () => (
-                <div className={styles.buttons} ref={buttonsRef}>
+                <div className={cn(styles.buttons, buttonsClassName)} ref={buttonsRef}>
                     {buttons.map((button, index) =>
                         button
                             ? React.cloneElement(button, {
@@ -155,7 +161,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                     )}
                 </div>
             ),
-            [buttons],
+            [buttons, buttonsClassName],
         );
 
         return (
