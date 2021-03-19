@@ -1,3 +1,17 @@
+## [13.1.3](https://github.com/alfa-laboratory/core-components/compare/v13.1.2...v13.1.3) (2021-03-18)
+
+
+### Bug Fixes
+
+* one more sborka bug ([#579](https://github.com/alfa-laboratory/core-components/issues/579)) ([9fbe0be](https://github.com/alfa-laboratory/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
+
+## [13.1.2](https://github.com/alfa-laboratory/core-components/compare/v13.1.1...v13.1.2) (2021-03-16)
+
+
+### Bug Fixes
+
+* border-radius in packages ([781749e](https://github.com/alfa-laboratory/core-components/commit/781749ef38aefd5a6707ac56d2e297dce9f3e073))
+
 ## [13.1.1](https://github.com/alfa-laboratory/core-components/compare/v13.1.0...v13.1.1) (2021-03-15)
 
 
