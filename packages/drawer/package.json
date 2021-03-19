@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-drawer",
-    "version": "1.1.8",
+    "version": "1.1.12",
     "description": "Drawer component",
     "gitHead": "f054fef20200664c65e2501ef1f916c555cdf05d",
     "keywords": [],
@@ -18,7 +18,7 @@
         "react-dom": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-modal": "^1.2.0",
+        "@alfalab/core-components-modal": "^1.2.5",
         "classnames": "^2.2.6"
     }
 }

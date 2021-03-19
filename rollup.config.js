@@ -44,9 +44,9 @@ const copyPlugin = dest =>
 const postcssPlugin = postcss({
     modules: {
         generateScopedName: function(name, fileName) {
-            const folderName = path.basename(path.dirname(fileName));
+            const relativeFileName = path.relative(currentPackageDir, fileName);
 
-            const hash = generateClassNameHash(pkg.name, pkg.version, folderName);
+            const hash = generateClassNameHash(pkg.name, pkg.version, relativeFileName);
 
             return `${currentComponentName}__${name}_${hash}`;
         },

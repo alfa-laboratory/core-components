@@ -140,6 +140,17 @@ import { TabsMobile, Tab } from '@alfalab/core-components-tabs/mobile';
 
 Компоненты для построения табов.
 
+### Tab
+
+Данный компонент используется для семантики в клиентском коде.
+
+Свойство `title` будет использовано для генерации заголовков, а `id` для переключения табов.
+
+С помощью свойства `disabled` таб можно заблокировать для выбора.
+
+По умолчанию в DOM рендерится контент только активного таба, с помощью `keepMounted` можно указать, контент каких табов нужно рендерить в любом случае.
+Контент в таком случае останется невидимым, но всегда будет находиться в DOM.
+
 ### TabsDesktop
 
 <Preview>
@@ -277,5 +288,6 @@ import { TabsMobile, Tab } from '@alfalab/core-components-tabs/mobile';
 <Props components={{
     TabsDesktop,
     TabsMobile,
-    TabsResponsive
+    TabsResponsive,
+    Tab
 }} />
