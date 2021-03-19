@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@2.1.4...@alfalab/core-components-button@2.1.5) (2021-03-19)
+
+
+### Bug Fixes
+
+* **button:** fixed alignment of several buttons in a row ([#561](https://github.com/alfa-laboratory/core-components/issues/561)) ([8d9e1e2](https://github.com/alfa-laboratory/core-components/commit/8d9e1e2f7a4ba8c5c986bb833f7424b38601d463))
+
+
+
+
+
 ## [2.1.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@2.1.2...@alfalab/core-components-button@2.1.4) (2021-03-18)
 
 
