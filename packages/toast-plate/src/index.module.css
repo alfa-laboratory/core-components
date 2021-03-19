@@ -4,7 +4,7 @@
 :root {
     --toast-plate-bg-color: var(--color-light-bg-primary-inverted);
     --toast-plate-color: var(--color-light-text-primary-inverted);
-    --toast-plate-border-radius: 8px;
+    --toast-plate-border-radius: var(--border-radius-m);
     --toast-plate-title-font-weight: 700;
     --toast-plate-action-align: center;
     --toast-plate-action-padding: 0 var(--gap-2xl);

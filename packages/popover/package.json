@@ -1,9 +1,9 @@
 {
     "name": "@alfalab/core-components-popover",
-    "version": "3.0.0",
+    "version": "3.0.6",
     "description": "Popover component",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "main": "dist/index.js",
     "module": "./dist/esm/index.js",
     "files": [
@@ -17,7 +17,7 @@
         "react-dom": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-portal": "^1.4.2",
+        "@alfalab/core-components-portal": "^1.4.5",
         "@popperjs/core": "^2.3.3",
         "classnames": "^2.2.6",
         "react-popper": "^2.2.2",

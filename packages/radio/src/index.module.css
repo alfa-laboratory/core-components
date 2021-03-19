@@ -103,7 +103,7 @@
     width: 16px;
     height: 16px;
     box-sizing: border-box;
-    border-radius: 8px;
+    border-radius: var(--border-radius-m);
     position: relative;
     margin-right: var(--gap-xs);
     margin-top: var(--gap-2xs);

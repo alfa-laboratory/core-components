@@ -1,9 +1,9 @@
 {
     "name": "@alfalab/core-components-pure-input",
-    "version": "3.0.0",
+    "version": "3.0.5",
     "description": "",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "main": "dist/index.js",
     "module": "./dist/esm/index.js",
     "files": [

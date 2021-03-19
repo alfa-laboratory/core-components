@@ -1,11 +1,11 @@
 {
     "name": "@alfalab/core-components",
-    "version": "12.3.0",
+    "version": "13.1.3",
     "private": true,
     "workspaces": [
         "packages/*"
     ],
-    "license": "ISC",
+    "license": "MIT",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/alfa-laboratory/core-components.git"

@@ -7,6 +7,7 @@
 
 .component {
     background-color: transparent;
+    z-index: var(--popover-z-index);
 }
 
 .inner {
@@ -14,7 +15,6 @@
     background-color: var(--color-light-bg-primary);
     box-shadow: var(--shadow-l);
     border: 1px solid var(--popover-border-color);
-    z-index: var(--popover-z-index);
     transition-property: opacity, transform;
     transition-timing-function: ease-in-out;
     box-sizing: border-box;
