@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-select",
-    "version": "7.1.2",
+    "version": "7.1.4",
     "description": "Select component",
     "keywords": [],
     "license": "MIT",
@@ -17,9 +17,9 @@
         "react-dom": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-form-control": "^6.0.3",
-        "@alfalab/core-components-input": "^6.0.5",
-        "@alfalab/core-components-popover": "^3.0.4",
+        "@alfalab/core-components-form-control": "^6.0.5",
+        "@alfalab/core-components-input": "^6.0.7",
+        "@alfalab/core-components-popover": "^3.0.6",
         "@alfalab/hooks": "^1.0.0",
         "classnames": "^2.2.6",
         "downshift": "5.4.7",

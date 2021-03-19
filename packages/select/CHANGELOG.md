@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@7.1.2...@alfalab/core-components-select@7.1.4) (2021-03-18)
+
+
+### Bug Fixes
+
+* one more sborka bug ([#579](https://github.com/alfa-laboratory/core-components/issues/579)) ([9fbe0be](https://github.com/alfa-laboratory/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
+
+
+
+
+
 ## [7.1.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@7.1.0...@alfalab/core-components-select@7.1.2) (2021-03-16)
 
 

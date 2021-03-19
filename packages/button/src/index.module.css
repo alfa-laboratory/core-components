@@ -49,6 +49,7 @@
 .component {
     position: relative;
     display: inline-flex;
+    vertical-align: middle;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;

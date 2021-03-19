@@ -1,4 +1,4 @@
-@import '../../../../vars/src/index.css';
+@import '../../../../themes/src/default.css';
 
 @define-mixin button-default-inverted {
     /* core vars */
