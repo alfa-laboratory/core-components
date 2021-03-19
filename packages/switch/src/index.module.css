@@ -48,7 +48,7 @@
 
 .switch {
     position: relative;
-    border-radius: 16px;
+    border-radius: var(--border-radius-xl);
     width: 40px;
     height: 24px;
     flex-shrink: 0;
@@ -66,7 +66,7 @@
     display: block;
     width: 20px;
     height: 20px;
-    border-radius: 50%;
+    border-radius: var(--border-radius-circle);
     background-color: #fff;
     border: 0.5px solid color-mod(var(--color-light-border-key) alpha(5%));
     box-shadow: 0 2px 4px color-mod(var(--color-light-border-key) alpha(30%));

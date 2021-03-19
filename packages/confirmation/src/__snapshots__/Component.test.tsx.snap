@@ -63,6 +63,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
         <div
           class="component left countdown"
         >
+          
           <div>
             <div
               class="info"
@@ -115,6 +116,19 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="smsComeLinkWrap"
+      >
+        <a
+          class="component secondary smsComeLink"
+        >
+          <span
+            class="text"
+          >
+            Не приходит сообщение?
+          </span>
+        </a>
+      </div>
       <div />
     </div>
   </div>
@@ -141,6 +155,7 @@ exports[`Confirmation Snapshot tests should match snapshot with fatal error 1`] 
       </span>
       <button
         class="component secondary s block"
+        type="button"
       >
         <span
           class="text stretchText"
@@ -217,11 +232,11 @@ exports[`Confirmation Snapshot tests should match snapshot with masked phone 1`]
           class="component left countdown"
         >
           <div>
-            <div>
-              Код отправлен на
-               
-              +7 ··· ··· 55 66
-            </div>
+            Код отправлен на
+             
+            +7 ··· ··· 55-66
+          </div>
+          <div>
             <div
               class="info"
             >
@@ -272,6 +287,19 @@ exports[`Confirmation Snapshot tests should match snapshot with masked phone 1`]
             </div>
           </div>
         </div>
+      </div>
+      <div
+        class="smsComeLinkWrap"
+      >
+        <a
+          class="component secondary smsComeLink"
+        >
+          <span
+            class="text"
+          >
+            Не приходит сообщение?
+          </span>
+        </a>
       </div>
       <div />
     </div>
@@ -346,6 +374,7 @@ exports[`Confirmation Snapshot tests should match snapshot with nonFatal error 1
         <div
           class="component left countdown"
         >
+          
           <div>
             <div
               class="info"
@@ -397,6 +426,19 @@ exports[`Confirmation Snapshot tests should match snapshot with nonFatal error 1
             </div>
           </div>
         </div>
+      </div>
+      <div
+        class="smsComeLinkWrap"
+      >
+        <a
+          class="component secondary smsComeLink"
+        >
+          <span
+            class="text"
+          >
+            Не приходит сообщение?
+          </span>
+        </a>
       </div>
       <div />
     </div>
@@ -468,11 +510,11 @@ exports[`Confirmation Snapshot tests should match snapshot with unmasked phone 1
           class="component left countdown"
         >
           <div>
-            <div>
-              Код отправлен на
-               
-              +7 999 888 55 66
-            </div>
+            Код отправлен на
+             
+            +7 999 888-55-66
+          </div>
+          <div>
             <div
               class="info"
             >
@@ -523,6 +565,19 @@ exports[`Confirmation Snapshot tests should match snapshot with unmasked phone 1
             </div>
           </div>
         </div>
+      </div>
+      <div
+        class="smsComeLinkWrap"
+      >
+        <a
+          class="component secondary smsComeLink"
+        >
+          <span
+            class="text"
+          >
+            Не приходит сообщение?
+          </span>
+        </a>
       </div>
       <div />
     </div>
@@ -586,6 +641,19 @@ exports[`Confirmation Snapshot tests should math snapshot without smsCountdown 1
           />
         </div>
         
+      </div>
+      <div
+        class="smsComeLinkWrap"
+      >
+        <a
+          class="component secondary smsComeLink"
+        >
+          <span
+            class="text"
+          >
+            Не приходит сообщение?
+          </span>
+        </a>
       </div>
       <div />
     </div>

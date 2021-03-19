@@ -1,3 +1,65 @@
+## [13.1.3](https://github.com/alfa-laboratory/core-components/compare/v13.1.2...v13.1.3) (2021-03-18)
+
+
+### Bug Fixes
+
+* one more sborka bug ([#579](https://github.com/alfa-laboratory/core-components/issues/579)) ([9fbe0be](https://github.com/alfa-laboratory/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
+
+## [13.1.2](https://github.com/alfa-laboratory/core-components/compare/v13.1.1...v13.1.2) (2021-03-16)
+
+
+### Bug Fixes
+
+* border-radius in packages ([781749e](https://github.com/alfa-laboratory/core-components/commit/781749ef38aefd5a6707ac56d2e297dce9f3e073))
+
+## [13.1.1](https://github.com/alfa-laboratory/core-components/compare/v13.1.0...v13.1.1) (2021-03-15)
+
+
+### Bug Fixes
+
+* **themes:** fixes border-radius ([9d152d9](https://github.com/alfa-laboratory/core-components/commit/9d152d9ae0e70736cf78f3a014b6710dc8aa2331))
+
+# [13.1.0](https://github.com/alfa-laboratory/core-components/compare/v13.0.2...v13.1.0) (2021-03-15)
+
+
+### Features
+
+* **vars:** introducing border-radius vars ([1a6fb28](https://github.com/alfa-laboratory/core-components/commit/1a6fb287bcfab50048c3a9100645b4dee8cd3395))
+
+## [13.0.2](https://github.com/alfa-laboratory/core-components/compare/v13.0.1...v13.0.2) (2021-03-14)
+
+
+### Bug Fixes
+
+* **button:** set type button by default ([#564](https://github.com/alfa-laboratory/core-components/issues/564)) ([59fdefd](https://github.com/alfa-laboratory/core-components/commit/59fdefd4f37fbe589840aa8944d88bde5b8cda6e))
+
+## [13.0.1](https://github.com/alfa-laboratory/core-components/compare/v13.0.0...v13.0.1) (2021-03-11)
+
+
+### Bug Fixes
+
+* **toast:** remove extra timer clearing ([#559](https://github.com/alfa-laboratory/core-components/issues/559)) ([ae5d811](https://github.com/alfa-laboratory/core-components/commit/ae5d81169d4db0427ae5baf0bffd784adee184ee))
+
+# [13.0.0](https://github.com/alfa-laboratory/core-components/compare/v12.3.0...v13.0.0) (2021-03-11)
+
+
+### Bug Fixes
+
+* **confirmation:** fix bug with timers ([2bdb105](https://github.com/alfa-laboratory/core-components/commit/2bdb10505ebb91713bca0b56e4d10af08cbcd4ed))
+
+
+### Features
+
+* **confirmation:** add noAttemptsLeftMessage prop ([7dc0e02](https://github.com/alfa-laboratory/core-components/commit/7dc0e02074443fd68c13aa0ac54bd966e8968ffc))
+* **confirmation:** always show sms come link ([0a14a54](https://github.com/alfa-laboratory/core-components/commit/0a14a54b177ee72ccf8cd8b057ea48db0168c1fb))
+* **confirmation:** confirmation design updates ([69f26e4](https://github.com/alfa-laboratory/core-components/commit/69f26e415a195d863686076941b6a3f15f3d1d15))
+* **confirmation:** fix text ([40d4d6b](https://github.com/alfa-laboratory/core-components/commit/40d4d6b2261b2e0db79bc160266cc207a1ca3858))
+
+
+### BREAKING CHANGES
+
+* **confirmation:** Add phone formatting into component. Phone prop doesn't have to be formatted.
+
 # [12.3.0](https://github.com/alfa-laboratory/core-components/compare/v12.2.0...v12.3.0) (2021-03-10)
 
 

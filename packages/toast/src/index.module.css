@@ -9,10 +9,14 @@
 }
 
 .popover {
-    z-index: 100;
+    z-index: 9999;
+}
+
+.popoverInner {
     border: none;
     border-radius: var(--toast-plate-border-radius);
     box-shadow: var(--toast-box-shadow);
+    background-color: transparent;
 }
 
 .block {
@@ -21,7 +25,7 @@
 
 .fixed {
     position: fixed;
-    z-index: 100;
+    z-index: 9999;
     bottom: var(--gap-2xl);
     transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
 

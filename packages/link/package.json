@@ -1,9 +1,9 @@
 {
     "name": "@alfalab/core-components-link",
-    "version": "1.6.3",
+    "version": "1.6.6",
     "description": "Link component",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "main": "dist/index.js",
     "module": "./dist/esm/index.js",
     "files": [

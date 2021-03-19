@@ -43,7 +43,7 @@
     --button-font-family: var(--font-family);
 
     /* radius */
-    --button-border-radius: var(--border-radius);
+    --button-border-radius: var(--border-radius-s);
 }
 
 .component {
