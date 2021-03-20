@@ -1,13 +1,12 @@
-import { screenshotTesting, getComponentScreenshotTestCases } from '../../utils';
+import { generateTestCases, setupScreenshotTesting } from '../../screenshot-utils';
 
 import { colors } from './Component';
 
-const viewsSizesCases = getComponentScreenshotTestCases({
-    componentName: 'status',
-    knobs: {
-        view: ['soft', 'contrast'],
-        color: [...colors],
-    },
+const screenshotTesting = setupScreenshotTesting({
+    it,
+    beforeAll,
+    afterAll,
+    expect,
 });
 
 const clip = { x: 0, y: 0, width: 70, height: 35 };
@@ -15,11 +14,13 @@ const clip = { x: 0, y: 0, width: 70, height: 35 };
 describe(
     'Status | screenshots views and colors',
     screenshotTesting({
-        cases: viewsSizesCases,
-        it,
-        beforeAll,
-        afterAll,
-        expect,
+        cases: generateTestCases({
+            componentName: 'Status',
+            knobs: {
+                view: ['soft', 'contrast'],
+                color: [...colors],
+            },
+        }),
         screenshotOpts: { clip },
     }),
 );

@@ -1,64 +1,47 @@
 import {
-    screenshotTesting,
-    getComponentScreenshotTestCases,
+    setupScreenshotTesting,
+    generateTestCases,
     createStorybookUrl,
     openBrowserPage,
-    matchHtml,
     closeBrowser,
-} from '../../utils';
+    matchHtml,
+} from '../../screenshot-utils';
 
-const sizesBlockDisabledCases = getComponentScreenshotTestCases({
-    componentName: 'input',
-    knobs: {
-        size: ['s', 'm', 'l'],
-        block: [false, true],
-        disabled: [false, true],
-    },
-});
-
-const sizesPlaceholderLabelCases = getComponentScreenshotTestCases({
-    componentName: 'input',
-    knobs: {
-        size: ['s', 'm', 'l'],
-        placeholder: ['', 'Placeholder'],
-        label: ['', 'Label'],
-        success: [true, false],
-    },
-});
-
-const sizesHintErrorCases = getComponentScreenshotTestCases({
-    componentName: 'input',
-    knobs: {
-        size: ['s', 'm', 'l'],
-        hint: ['', 'Hint'],
-        error: ['', 'Error'],
-    },
-});
-
-const addonsCases = getComponentScreenshotTestCases({
-    componentName: 'input',
-    knobs: {
-        rightAddons: [true, false],
-        leftAddons: [true, false],
-        bottomAddons: [true, false],
-    },
+const screenshotTesting = setupScreenshotTesting({
+    it,
+    beforeAll,
+    afterAll,
+    expect,
 });
 
 const clip = { x: 0, y: 0, width: 350, height: 150 };
 
 describe(
     'Input | screenshots sizes, blocks and disabled',
-    screenshotTesting({ cases: sizesBlockDisabledCases, it, beforeAll, afterAll, expect }),
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'Input',
+            knobs: {
+                size: ['s', 'm', 'l'],
+                block: [false, true],
+                disabled: [false, true],
+            },
+        }),
+    }),
 );
 
 describe(
     'Input | screenshots size, placeholder and label',
     screenshotTesting({
-        cases: sizesPlaceholderLabelCases,
-        it,
-        beforeAll,
-        afterAll,
-        expect,
+        cases: generateTestCases({
+            componentName: 'Input',
+            knobs: {
+                size: ['s', 'm', 'l'],
+                placeholder: ['', 'Placeholder'],
+                label: ['', 'Label'],
+                success: [true, false],
+            },
+        }),
         screenshotOpts: { clip },
     }),
 );
@@ -66,11 +49,14 @@ describe(
 describe(
     'Input | screenshots size, hint and error',
     screenshotTesting({
-        cases: sizesHintErrorCases,
-        it,
-        beforeAll,
-        afterAll,
-        expect,
+        cases: generateTestCases({
+            componentName: 'Input',
+            knobs: {
+                size: ['s', 'm', 'l'],
+                hint: ['', 'Hint'],
+                error: ['', 'Error'],
+            },
+        }),
         screenshotOpts: { clip },
     }),
 );
@@ -78,11 +64,14 @@ describe(
 describe(
     'Input | screenshots addons',
     screenshotTesting({
-        cases: addonsCases,
-        it,
-        beforeAll,
-        afterAll,
-        expect,
+        cases: generateTestCases({
+            componentName: 'Input',
+            knobs: {
+                rightAddons: [true, false],
+                leftAddons: [true, false],
+                bottomAddons: [true, false],
+            },
+        }),
         screenshotOpts: { clip },
     }),
 );
@@ -98,7 +87,7 @@ describe('Input | interactions tests', () => {
             await matchHtml({ page, expect, css, screenshotOpts: { clip } });
         } catch (error) {
             // eslint-disable-next-line no-console
-            console.error(error);
+            console.error(error.message);
         } finally {
             await closeBrowser({ browser, context, page });
         }

@@ -12,7 +12,7 @@ import {
 import axios from 'axios';
 import { MatchImageSnapshotOptions } from 'jest-image-snapshot';
 import kebab from 'lodash.kebabcase';
-import { STYLES_URL, ScreenshotOpts, EvaluateFn } from './screenshot-testing';
+import { STYLES_URL, ScreenshotOpts, EvaluateFn } from './setupScreenshotTesting';
 
 type CustomSnapshotIdentifierParams = {
     currentTestName: string;
@@ -41,13 +41,7 @@ export const customSnapshotIdentifier = ({
     currentTestName,
     counter,
 }: CustomSnapshotIdentifierParams) => {
-    const [knobsStrObj] = /(\{.{1,}\})/.exec(currentTestName) || [];
-
-    if (!knobsStrObj) {
-        return kebab(`${currentTestName}-${counter}`);
-    }
-
-    return kebab(`${knobsStrObj}-${counter}`);
+    return kebab(`${currentTestName}${counter > 1 ? `-${counter}` : ''}`);
 };
 
 const getPageHtml = async (page: Page, css?: string, theme?: string) => {
@@ -58,7 +52,7 @@ const getPageHtml = async (page: Page, css?: string, theme?: string) => {
     return `<html><head>${head}</head><body${themeAttr}><style>${css}</style>${body}</body></html>`;
 };
 
-type MatchHtmlParams = {
+export type MatchHtmlParams = {
     page: Page;
     css?: string;
     expect: any;
