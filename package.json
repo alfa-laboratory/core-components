@@ -79,7 +79,7 @@
         "text-mask-core": "^5.1.2"
     },
     "devDependencies": {
-        "@alfalab/rollup-plugin-postcss": "^3.2.0",
+        "@alfalab/rollup-plugin-postcss": "^3.5.0",
         "@alfalab/stylelint-core-vars": "^0.0.4",
         "@babel/plugin-proposal-class-properties": "^7.12.1",
         "@babel/preset-typescript": "^7.9.0",
@@ -156,6 +156,7 @@
         "playwright-cli": "^0.171.0",
         "postcss-cli": "^7.1.0",
         "postcss-custom-media": "^7.0.8",
+        "postcss-custom-properties": "^10.0.0",
         "postcss-each": "^0.10.0",
         "postcss-for": "^2.1.1",
         "postcss-import": "^12.0.1",
