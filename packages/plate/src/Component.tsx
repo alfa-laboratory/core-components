@@ -66,6 +66,11 @@ export type PlateProps = {
     buttonsClassName?: string;
 
     /**
+     * Дополнительный класс для контента
+     */
+    contentClassName?: string;
+
+    /**
      * Обработчик клика по плашке
      */
     onClick?: (event?: MouseEvent<HTMLDivElement>) => void;
@@ -94,6 +99,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             view = 'common',
             className,
             buttonsClassName,
+            contentClassName,
             onClick,
             onClose,
             dataTestId,
@@ -188,7 +194,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                 <div className={styles.inner}>
                     {leftAddons && <div className={styles.leftAddons}>{leftAddons}</div>}
                     <div
-                        className={cn(styles.contentContainer, {
+                        className={cn(styles.contentContainer, contentClassName, {
                             [styles.withoutTitle]: !title,
                         })}
                     >
