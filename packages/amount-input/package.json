@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-amount-input",
-    "version": "4.0.2",
+    "version": "4.0.8",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -16,8 +16,8 @@
         "react": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^6.0.2",
-        "@alfalab/core-components-with-suffix": "^2.4.2",
+        "@alfalab/core-components-input": "^6.0.8",
+        "@alfalab/core-components-with-suffix": "^2.4.8",
         "@alfalab/data": "^0.3.0",
         "@alfalab/utils": "^1.0.1",
         "classnames": "^2.2.6"

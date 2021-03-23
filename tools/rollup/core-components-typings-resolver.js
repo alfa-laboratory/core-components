@@ -1,7 +1,9 @@
 import globby from 'globby';
 import path from 'path';
 
-import { checkOrCreateDir, readFile, requireRegExp, writeFile } from './common';
+import { checkOrCreateDir, readFile, writeFile } from './common';
+
+const importTypesRegexp = /((?:from |import\()['"])@alfalab\/core-components-(.+?)(['"])/;
 
 async function transformTypings(source, rootDir) {
     const rootAbsDir = path.resolve(rootDir);
@@ -11,12 +13,12 @@ async function transformTypings(source, rootDir) {
 
     let matches;
 
-    while ((matches = requireRegExp.exec(fileContent))) {
+    while ((matches = importTypesRegexp.exec(fileContent))) {
         const componentName = matches[2];
 
         const componentRelativePath = path.relative(path.dirname(sourceAbs), componentName);
 
-        fileContent = fileContent.replace(requireRegExp, `$1${componentRelativePath}$3`);
+        fileContent = fileContent.replace(importTypesRegexp, `$1${componentRelativePath}$3`);
     }
 
     let dest = path.join(rootAbsDir, source.replace('dist/', ''));

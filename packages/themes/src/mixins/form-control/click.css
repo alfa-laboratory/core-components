@@ -1,11 +1,11 @@
-@import '../../../../vars/src/index.css';
+@import '../../../../themes/src/default.css';
 
 @define-mixin form-control-click {
     /* core vars */
     --color-light-bg-tertiary: #e7e9eb;
 
     /* theme */
-    --form-control-border-radius: 4px;
+    --form-control-border-radius: var(--border-radius-s);
     --form-control-border-bottom: 0;
     --form-control-bg-color: var(--color-light-bg-tertiary);
 

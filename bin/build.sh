@@ -34,6 +34,12 @@ lerna exec \
     --scope @alfalab/core-components-themes \
     -- $copy_to_root
 
+# собираю компоненты с темами (inject themes)
+lerna exec --concurrency $CONCURRENCY \
+    --ignore @alfalab/core-components-vars \
+    --ignore @alfalab/core-components-themes \
+    -- node $(pwd)/bin/inject-themes.js
+
 # копирую package.json в сборку корневого пакета
 cp package.json dist/package.json
 

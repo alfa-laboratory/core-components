@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.16](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@1.3.15...@alfalab/core-components-calendar-range@1.3.16) (2021-03-19)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar-range
+
+
+
+
+
+## [1.3.15](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@1.3.13...@alfalab/core-components-calendar-range@1.3.15) (2021-03-18)
+
+
+### Bug Fixes
+
+* one more sborka bug ([#579](https://github.com/alfa-laboratory/core-components/issues/579)) ([9fbe0be](https://github.com/alfa-laboratory/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
+
+
+
+
+
+## [1.3.13](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@1.3.11...@alfalab/core-components-calendar-range@1.3.13) (2021-03-16)
+
+
+### Bug Fixes
+
+* border-radius in packages ([781749e](https://github.com/alfa-laboratory/core-components/commit/781749ef38aefd5a6707ac56d2e297dce9f3e073))
+
+
+
+
+
+## [1.3.11](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@1.3.10...@alfalab/core-components-calendar-range@1.3.11) (2021-03-15)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar-range
+
+
+
+
+
 ## [1.3.10](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@1.3.9...@alfalab/core-components-calendar-range@1.3.10) (2021-03-14)
 
 

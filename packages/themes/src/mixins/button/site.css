@@ -1,6 +1,6 @@
-@import '../../../../vars/src/index.css';
+@import '../../../../themes/src/default.css';
 
 @define-mixin button-site {
     /* theme */
-    --button-border-radius: 8px;
+    --button-border-radius: var(--border-radius-m);
 }

@@ -40,6 +40,7 @@ export type ScreenshotTestingParams = {
     matchImageSnapshotOptions?: MatchImageSnapshotOptions;
     screenshotOpts?: ScreenshotOpts;
     evaluate?: EvaluateFn;
+    theme?: string;
 };
 
 export const screenshotTesting = ({
@@ -51,6 +52,7 @@ export const screenshotTesting = ({
     matchImageSnapshotOptions,
     screenshotOpts,
     evaluate,
+    theme,
 }: ScreenshotTestingParams) => () => {
     let browser: Browser;
     let context: BrowserContext;
@@ -76,6 +78,14 @@ export const screenshotTesting = ({
     it.each(cases)('%s', async (testName: string, link: string) => {
         await page?.goto(encodeURI(link));
 
-        await matchHtml({ page, expect, css, matchImageSnapshotOptions, screenshotOpts, evaluate });
+        await matchHtml({
+            page,
+            expect,
+            css,
+            matchImageSnapshotOptions,
+            screenshotOpts,
+            evaluate,
+            theme,
+        });
     });
 };
