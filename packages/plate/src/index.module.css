@@ -40,21 +40,37 @@
 .common {
     background-color: var(--color-light-bg-secondary);
     border-color: var(--color-static-status-grey);
+
+    & .leftAddons {
+        color: var(--color-light-graphic-secondary);
+    }
 }
 
 .negative {
     background-color: var(--color-light-bg-negative-muted);
     border-color: var(--color-static-status-red);
+
+    & .leftAddons {
+        color: var(--color-light-graphic-negative);
+    }
 }
 
 .positive {
     background-color: var(--color-light-bg-positive-muted);
     border-color: var(--color-static-status-green);
+
+    & .leftAddons {
+        color: var(--color-light-graphic-positive);
+    }
 }
 
 .attention {
     background-color: var(--color-light-bg-attention-muted);
     border-color: var(--color-static-status-orange);
+
+    & .leftAddons {
+        color: var(--color-light-graphic-attention);
+    }
 }
 
 .isHidden {

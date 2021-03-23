@@ -1,7 +1,12 @@
-import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import {select, text, boolean} from '@storybook/addon-knobs';
+import { Container, Row } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
-import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon'
+
+import { CheckmarkOnCircleMIcon } from '@alfalab/icons-glyph';
+import { AlertCircleMIcon } from '@alfalab/icons-glyph';
+import { InformationCircleMIcon } from '@alfalab/icons-glyph';
+
 
 import { Plate } from './Component';
 import { Button } from '../../button/src';
@@ -22,6 +27,7 @@ import { name, version } from '../package.json';
         title={text('title', 'Поздравляем, полный успех')}
         foldable={boolean('foldable', false)}
         hasCloser={boolean('hasCloser', false)}
+        leftAddons={boolean('leftAddons', true) ? <CheckmarkOnCircleMIcon /> : null}
         buttons={boolean('buttons', false) ? [
             <Button>Хорошо</Button>,
             <Button>Подробнее</Button>
@@ -46,14 +52,45 @@ import { Plate } from '@alfalab/core-components-plate';
 
 Компонент плашки.
 
-<Plate
-    view='positive'
-    title='Компонент плашки'
-    leftAddons={
-        <CheckmarkCircleMIcon/>
-    }
->
-    Самая обыкновенная плашка
-</Plate>
+<Preview>
+    <>
+        <Row>
+            <Plate
+                view='common'
+                title='Компонент плашки'
+                leftAddons={<InformationCircleMIcon/>}
+            >
+                Самая обыкновенная плашка
+            </Plate>
+        </Row>
+        <Row>
+            <Plate
+                view='positive'
+                title='Компонент плашки'
+                leftAddons={<CheckmarkOnCircleMIcon/>}
+            >
+                Самая обыкновенная плашка
+            </Plate>
+        </Row>
+        <Row>
+            <Plate
+                view='negative'
+                title='Компонент плашки'
+                leftAddons={<AlertCircleMIcon/>}
+            >
+                Самая обыкновенная плашка
+            </Plate>
+        </Row>
+        <Row>
+            <Plate
+                view='attention'
+                title='Компонент плашки'
+                leftAddons={<AlertCircleMIcon/>}
+            >
+                Самая обыкновенная плашка
+            </Plate>
+        </Row>
+    </>
+</Preview>
 
 <Props of={Plate} />
