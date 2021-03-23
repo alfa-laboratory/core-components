@@ -19,3 +19,7 @@
 .title {
     @mixin accent_primary_medium;
 }
+
+.content {
+    max-width: 586px;
+}
