@@ -99,7 +99,7 @@ export type TabProps = {
     /**
      * Контент таба
      */
-    children: ReactNode;
+    children?: ReactNode;
 
     /**
      * Слот справа

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.15](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-masked-input@3.2.14...@alfalab/core-components-masked-input@3.2.15) (2021-03-19)
+
+**Note:** Version bump only for package @alfalab/core-components-masked-input
+
+
+
+
+
+## [3.2.14](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-masked-input@3.2.12...@alfalab/core-components-masked-input@3.2.14) (2021-03-18)
+
+
+### Bug Fixes
+
+* one more sborka bug ([#579](https://github.com/alfa-laboratory/core-components/issues/579)) ([9fbe0be](https://github.com/alfa-laboratory/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
+
+
+
+
+
 ## [3.2.12](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-masked-input@3.2.10...@alfalab/core-components-masked-input@3.2.12) (2021-03-16)
 
 
