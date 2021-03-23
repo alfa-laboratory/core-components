@@ -76,6 +76,7 @@
     @mixin paragraph_primary_small;
 
     max-height: 300vh;
+    max-width: 586px;
     overflow: hidden;
     transition: max-height 2s ease-in-out;
     padding: var(--gap-2xs);
