@@ -14,7 +14,7 @@
     max-width: calc(100vw - var(--gap-xl));
     user-select: none;
     z-index: 9999;
-    transition: transform 0.2s ease-out;
+    transition: transform 0.4s ease-out;
 
     @media screen and (min-width: 600px) {
         right: var(--gap-4xl);

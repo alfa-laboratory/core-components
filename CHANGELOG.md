@@ -1,3 +1,10 @@
+# [13.2.0](https://github.com/alfa-laboratory/core-components/compare/v13.1.4...v13.2.0) (2021-03-24)
+
+
+### Features
+
+* **notification-manager:** add component ([#565](https://github.com/alfa-laboratory/core-components/issues/565)) ([ad6ffab](https://github.com/alfa-laboratory/core-components/commit/ad6ffabb0f9665cd453b862279e96b7a1a6f359b))
+
 ## [13.1.4](https://github.com/alfa-laboratory/core-components/compare/v13.1.3...v13.1.4) (2021-03-19)
 
 
