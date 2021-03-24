@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@2.3.6...@alfalab/core-components-calendar-input@2.4.0) (2021-03-24)
+
+
+### Features
+
+* **calendar-input:** remove input width ([#576](https://github.com/alfa-laboratory/core-components/issues/576)) ([f0954b0](https://github.com/alfa-laboratory/core-components/commit/f0954b0724ead52ea0a60ab8baebd5dfa3638a01))
+
+
+
+
+
 ## [2.3.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@2.3.5...@alfalab/core-components-calendar-input@2.3.6) (2021-03-24)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar-input
