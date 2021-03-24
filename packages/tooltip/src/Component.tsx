@@ -97,6 +97,11 @@ export type TooltipProps = {
     popoverClassName?: string;
 
     /**
+     * Дополнительный класс для обертки над дочерними элементами
+     */
+    targetClassName?: string;
+
+    /**
      * Хранит функцию, с помощью которой можно обновить положение компонента
      */
     updatePopover?: PopoverProps['update'];
@@ -109,16 +114,17 @@ export const Tooltip: FC<TooltipProps> = ({
     onCloseDelay = 300,
     onOpenDelay = 300,
     dataTestId,
-    onClose,
-    onOpen,
     open: forcedOpen,
-    getPortalContainer,
     offset = [0, 10],
     position,
     contentClassName,
     arrowClassName,
     popoverClassName,
     updatePopover,
+    targetClassName,
+    onClose,
+    onOpen,
+    getPortalContainer,
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
     const [target, setTarget] = useState<RefElement>(null);
@@ -230,7 +236,7 @@ export const Tooltip: FC<TooltipProps> = ({
 
     const getTargetProps = (): HTMLAttributes<HTMLElement> => {
         const props = {
-            className: styles.target,
+            className: cn(styles.target, targetClassName),
         };
 
         switch (trigger) {
