@@ -106,6 +106,11 @@ export type BaseSelectProps = {
     size?: 's' | 'm' | 'l' | 'xl';
 
     /**
+     * Размер пунктов меню
+     */
+    optionsSize?: 's' | 'm' | 'l' | 'xl';
+
+    /**
      * Растягивает компонент на ширину контейнера
      */
     block?: boolean;
