@@ -1,0 +1,51 @@
+@import '../../themes/src/default.css';
+
+.component {
+    width: var(--calendar-width);
+    height: var(--calendar-height);
+    position: relative;
+}
+
+.skeleton {
+    display: flex;
+    flex-direction: column;
+    padding: var(--gap-m);
+    pointer-events: all;
+    box-sizing: border-box;
+    position: absolute;
+    transition: 0.2s ease;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-light-bg-primary);
+    background-clip: content-box;
+}
+
+.header {
+    height: 48px;
+    margin-bottom: var(--gap-l);
+}
+
+.weekDays {
+    height: 12px;
+    margin-bottom: var(--gap-m);
+}
+
+.row {
+    height: 32px;
+
+    & + .row {
+        margin-top: 10px;
+    }
+}
+
+.enter,
+.enterActive,
+.exit {
+    opacity: 1;
+}
+
+.exitActive {
+    opacity: 0;
+}
