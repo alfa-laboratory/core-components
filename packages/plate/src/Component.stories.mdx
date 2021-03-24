@@ -10,6 +10,7 @@ import { InformationCircleMIcon } from '@alfalab/icons-glyph';
 
 import { Plate } from './Component';
 import { Button } from '../../button/src';
+import { Badge } from '../../badge/src';
 
 import { name, version } from '../package.json';
 
@@ -58,7 +59,9 @@ import { Plate } from '@alfalab/core-components-plate';
             <Plate
                 view='common'
                 title='Компонент плашки'
-                leftAddons={<InformationCircleMIcon/>}
+                leftAddons={
+                    <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon/>} />
+                }
             >
                 Самая обыкновенная плашка
             </Plate>
@@ -67,7 +70,9 @@ import { Plate } from '@alfalab/core-components-plate';
             <Plate
                 view='positive'
                 title='Компонент плашки'
-                leftAddons={<CheckmarkOnCircleMIcon/>}
+                leftAddons={
+                    <Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon/>} />
+                }
             >
                 Самая обыкновенная плашка
             </Plate>
@@ -76,7 +81,9 @@ import { Plate } from '@alfalab/core-components-plate';
             <Plate
                 view='negative'
                 title='Компонент плашки'
-                leftAddons={<AlertCircleMIcon/>}
+                leftAddons={
+                    <Badge view='icon' iconColor='negative' content={<AlertCircleMIcon/>} />
+                }
             >
                 Самая обыкновенная плашка
             </Plate>
@@ -85,7 +92,9 @@ import { Plate } from '@alfalab/core-components-plate';
             <Plate
                 view='attention'
                 title='Компонент плашки'
-                leftAddons={<AlertCircleMIcon/>}
+                leftAddons={
+                    <Badge view='icon' iconColor='attention' content={<AlertCircleMIcon/>} />
+                }
             >
                 Самая обыкновенная плашка
             </Plate>
