@@ -37,7 +37,7 @@ type TagListOwnProps = {
 };
 
 export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
-    size = 'l',
+    size = 'xl',
     open,
     disabled,
     placeholder,

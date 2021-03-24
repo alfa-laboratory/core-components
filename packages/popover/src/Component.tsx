@@ -91,10 +91,15 @@ export type PopoverProps = {
      * Хранит функцию, с помощью которой можно обновить положение компонента
      */
     update?: MutableRefObject<() => void>;
+
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
 };
 
 const DEFAULT_TRANSITION = {
-    timeout: 300,
+    timeout: 150,
 };
 
 const CSS_TRANSITION_CLASS_NAMES = {
@@ -116,6 +121,7 @@ export const Popover: React.FC<PopoverProps> = ({
     preventFlip,
     popperClassName,
     arrowClassName,
+    className,
     open,
     dataTestId,
     update,
@@ -169,22 +175,21 @@ export const Popover: React.FC<PopoverProps> = ({
         return (
             <div
                 ref={setPopperElement}
-                className={cn(styles.component, popperClassName)}
-                style={{
-                    ...popperStyles.popper,
-                    ...style,
-                }}
+                style={popperStyles.popper}
                 data-test-id={dataTestId}
+                className={cn(styles.component, className)}
                 {...attributes.popper}
             >
-                {children}
-                {withArrow && (
-                    <div
-                        ref={setArrowElement}
-                        style={popperStyles.arrow}
-                        className={cn(styles.arrow, arrowClassName)}
-                    />
-                )}
+                <div className={cn(styles.inner, popperClassName)} style={style}>
+                    {children}
+                    {withArrow && (
+                        <div
+                            ref={setArrowElement}
+                            style={popperStyles.arrow}
+                            className={cn(styles.arrow, arrowClassName)}
+                        />
+                    )}
+                </div>
             </div>
         );
     };

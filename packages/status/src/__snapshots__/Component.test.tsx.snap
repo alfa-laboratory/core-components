@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Status Snapshots tests should match view="contrast" snapshot 1`] = `
+<div>
+  <span
+    class="component green contrast"
+  >
+    Label
+  </span>
+</div>
+`;
+
+exports[`Status Snapshots tests should match view="soft" snapshot 1`] = `
+<div>
+  <span
+    class="component green soft"
+  >
+    Label
+  </span>
+</div>
+`;

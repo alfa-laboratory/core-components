@@ -32,6 +32,8 @@ const CI = process.env.CI === 'true';
 const serverHost = CI ? 'https://digital.alfabank.ru' : 'http://digital';
 const playwrightUrl = `${serverHost}/playwright`;
 
+export const viewport = { width: 1920, height: 1080 };
+
 /**
  * Удаляем из названия теста лишнюю информацию, чтобы имя файла было короче
  */
@@ -48,10 +50,12 @@ export const customSnapshotIdentifier = ({
     return kebab(`${knobsStrObj}-${counter}`);
 };
 
-const getPageHtml = async (page: Page, css?: string) => {
+const getPageHtml = async (page: Page, css?: string, theme?: string) => {
     const [head, body] = await Promise.all([page?.innerHTML('head'), page?.innerHTML('body')]);
 
-    return `<html><head>${head}</head><body><style>${css}</style>${body}</body></html>`;
+    const themeAttr = theme ? ` data-theme="${theme}"` : '';
+
+    return `<html><head>${head}</head><body${themeAttr}><style>${css}</style>${body}</body></html>`;
 };
 
 type MatchHtmlParams = {
@@ -61,6 +65,7 @@ type MatchHtmlParams = {
     matchImageSnapshotOptions?: MatchImageSnapshotOptions;
     screenshotOpts?: ScreenshotOpts;
     evaluate?: EvaluateFn;
+    theme?: string;
 };
 
 const screenshotDefaultOpts = {
@@ -81,8 +86,9 @@ export const matchHtml = async ({
     matchImageSnapshotOptions,
     screenshotOpts = screenshotDefaultOpts,
     evaluate,
+    theme,
 }: MatchHtmlParams) => {
-    const pageHtml = await getPageHtml(page, css);
+    const pageHtml = await getPageHtml(page, css, theme);
 
     const image = await axios.post(
         playwrightUrl,
@@ -116,7 +122,7 @@ export const openBrowserPage = async (
     browserType: BrowserType<ChromiumBrowser | FirefoxBrowser | WebKitBrowser> = chromium,
 ) => {
     const browser = await browserType.launch();
-    const context = await browser.newContext();
+    const context = await browser.newContext({ viewport });
     const page = await context.newPage();
 
     const [css] = await Promise.all([

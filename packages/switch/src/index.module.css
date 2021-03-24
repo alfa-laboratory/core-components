@@ -51,7 +51,7 @@
 
 .switch {
     position: relative;
-    border-radius: 16px;
+    border-radius: var(--border-radius-xl);
     width: 36px;
     height: 20px;
     margin: var(--gap-3xs);
@@ -70,7 +70,7 @@
     display: block;
     width: 16px;
     height: 16px;
-    border-radius: 50%;
+    border-radius: var(--border-radius-circle);
     background-color: var(--color-light-graphic-primary-inverted);
     box-sizing: border-box;
     transition: transform 0.2s ease;

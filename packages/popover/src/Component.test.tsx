@@ -39,7 +39,7 @@ describe('Attributes tests', () => {
             open: true,
             anchorElement: document.body,
             dataTestId: testId,
-            popperClassName: className,
+            className,
         });
 
         const popperContentWrap = document.querySelector(`.${className}`);
@@ -60,7 +60,7 @@ describe('Styles tests', () => {
             open: true,
             anchorElement: document.body,
             dataTestId: testId,
-            popperClassName: className,
+            className,
         });
 
         expect(getByTestId(testId)).toHaveClass(className);

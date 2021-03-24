@@ -36,3 +36,10 @@ jobs:
             CI: true
             CI_USER_NAME: ${{ secrets.CI_USER_NAME }}
             CI_USER_PASSWORD: ${{ secrets.CI_USER_PASSWORD }}
+
+        - uses: actions/upload-artifact@v2
+          if: failure()
+          with:
+            name: diffs
+            path: packages/**/__diff_output__/*
+            if-no-files-found: ignore

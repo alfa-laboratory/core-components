@@ -42,7 +42,7 @@ import { IntlPhoneInput } from '@alfalab/core-components-intl-phone-input';
             const handleChange = React.useCallback((newValue) => {
                 setValue(newValue);
             }, [setValue]);
-            const size = select('size', ['s', 'm', 'l'], 'm');
+            const size = select('size', ['s', 'm', 'l', 'xl'], 'm');
             const block = boolean('block', false);
             const disabled = boolean('disabled', false);
             const label = text('label', 'Номер телефона');

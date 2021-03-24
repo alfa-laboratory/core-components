@@ -54,8 +54,6 @@ export type ConfirmationProps = {
 
     /**
      * Номер телефона, на который отправляется сообщение.
-     * Пробрасывается в компонент обратного отсчета as is и форматируется там же.
-     * Должен быть в формате '+7 000 000 00 00'
      */
     phone?: string;
 
@@ -120,6 +118,12 @@ export type ConfirmationProps = {
     alignContent?: ContentAlign;
 
     /**
+     * Сообщение, если не осталось попыток ввода кода.
+     * Кнопка повторной отправки смс при этом скрывается.
+     */
+    noAttemptsLeftMessage?: string;
+
+    /**
      * Обработчик события завершения ввода кода подписания
      */
     onInputFinished: ({ code }: { code: string }) => void;
@@ -175,6 +179,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
             buttonErrorText = 'Понятно',
             buttonRetryText = 'Попробовать заново',
             alignContent = 'left',
+            noAttemptsLeftMessage,
             onInputFinished,
             onSmsRetryClick,
             onActionWithFatalError,
@@ -186,10 +191,6 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
     ) => {
         const [showHint, setShowHint] = useState(false);
 
-        const [retries, setRetries] = useState(0);
-
-        const [countdownFinished, setCountdownFinished] = useState(false);
-
         const shouldShowError = errorIsFatal && Boolean(errorText);
 
         const shouldShowSignComponent = !showHint && !shouldShowError;
@@ -198,26 +199,21 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
 
         const nonFatalError = errorIsFatal ? '' : errorText;
 
-        const shouldShowHintLink = countdownFinished && !codeChecking && retries > 0;
-
         const inputRef = useRef<HTMLInputElement>(null);
 
         const handleSmsRetryClick = useCallback(() => {
-            setRetries(prevRetry => prevRetry + 1);
-            setCountdownFinished(false);
             onSmsRetryClick();
         }, [onSmsRetryClick]);
 
         const handleSmsRetryFromHintClick = useCallback(() => {
-            setRetries(prevRetry => prevRetry + 1);
-            setCountdownFinished(false);
             setShowHint(false);
-            onSmsRetryClick();
-        }, [onSmsRetryClick]);
+
+            if (!noAttemptsLeftMessage) {
+                onSmsRetryClick();
+            }
+        }, [onSmsRetryClick, noAttemptsLeftMessage]);
 
         const handleCountdownFinished = useCallback(() => {
-            setCountdownFinished(true);
-
             if (onCountdownFinished) {
                 onCountdownFinished();
             }
@@ -255,7 +251,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                     <SignConfirmation
                         codeChecking={codeChecking}
                         codeSending={codeSending}
-                        smsHintVisible={shouldShowHintLink}
+                        smsHintVisible={!codeChecking}
                         additionalContent={additionalContent}
                         requiredCharAmount={requiredCharAmount}
                         hasSmsCountdown={hasSmsCountdown}
@@ -270,6 +266,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                         codeCheckingText={codeCheckingText}
                         codeSendingText={codeSendingText}
                         alignContent={alignContent}
+                        noAttemptsLeftMessage={noAttemptsLeftMessage}
                         onInputFinished={onInputFinished}
                         onInputChange={onInputChange}
                         onSmsRetryClick={handleSmsRetryClick}

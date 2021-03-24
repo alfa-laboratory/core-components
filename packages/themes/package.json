@@ -1,9 +1,9 @@
 {
     "name": "@alfalab/core-components-themes",
-    "version": "3.3.2",
+    "version": "3.7.5",
     "description": "",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "publishConfig": {
         "access": "public",
         "directory": "dist"

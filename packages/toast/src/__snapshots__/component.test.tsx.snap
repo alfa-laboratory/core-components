@@ -45,22 +45,27 @@ exports[`Toast Snapshots tests should math snapshot when prop \`anchorElement\` 
   >
     <div
       class="component popover"
-      style="position: absolute; left: 0px; top: 0px; transition-duration: 150ms;"
+      style="position: absolute; left: 0px; top: 0px;"
     >
       <div
-        class="component"
+        class="inner popoverInner"
+        style="transition-duration: 150ms;"
       >
         <div
-          class="contentWrap"
+          class="component"
         >
           <div
-            class="content"
+            class="contentWrap"
           >
-            <div>
-              <div
-                class="children"
-              >
-                text
+            <div
+              class="content"
+            >
+              <div>
+                <div
+                  class="children"
+                >
+                  text
+                </div>
               </div>
             </div>
           </div>

@@ -1,10 +1,10 @@
 {
     "name": "@alfalab/core-components-button",
-    "version": "1.15.4",
+    "version": "2.1.6",
     "description": "",
     "gitHead": "f054fef20200664c65e2501ef1f916c555cdf05d",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "main": "dist/index.js",
     "module": "./dist/esm/index.js",
     "files": [
@@ -17,9 +17,13 @@
         "react": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-loader": "^1.1.1",
+        "@alfalab/core-components-loader": "^1.1.5",
         "@alfalab/hooks": "^1.0.0",
         "classnames": "^2.2.6",
         "react-merge-refs": "^1.1.0"
-    }
+    },
+    "buildThemes": [
+        "site",
+        "site-inverted"
+    ]
 }

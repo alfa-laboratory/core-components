@@ -3,6 +3,92 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.7.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.7.3...@alfalab/core-components-themes@3.7.5) (2021-03-18)
+
+
+### Bug Fixes
+
+* one more sborka bug ([#579](https://github.com/alfa-laboratory/core-components/issues/579)) ([9fbe0be](https://github.com/alfa-laboratory/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
+
+
+
+
+
+## [3.7.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.7.1...@alfalab/core-components-themes@3.7.3) (2021-03-16)
+
+
+### Bug Fixes
+
+* border-radius in packages ([781749e](https://github.com/alfa-laboratory/core-components/commit/781749ef38aefd5a6707ac56d2e297dce9f3e073))
+
+
+
+
+
+## [3.7.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.7.0...@alfalab/core-components-themes@3.7.1) (2021-03-15)
+
+
+### Bug Fixes
+
+* **themes:** fixes border-radius ([9d152d9](https://github.com/alfa-laboratory/core-components/commit/9d152d9ae0e70736cf78f3a014b6710dc8aa2331))
+
+
+
+
+
+# [3.7.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.6.1...@alfalab/core-components-themes@3.7.0) (2021-03-15)
+
+
+### Features
+
+* **vars:** introducing border-radius vars ([1a6fb28](https://github.com/alfa-laboratory/core-components/commit/1a6fb287bcfab50048c3a9100645b4dee8cd3395))
+
+
+
+
+
+## [3.6.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.6.0...@alfalab/core-components-themes@3.6.1) (2021-03-14)
+
+**Note:** Version bump only for package @alfalab/core-components-themes
+
+
+
+
+
+# [3.6.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.5.0...@alfalab/core-components-themes@3.6.0) (2021-03-10)
+
+
+### Features
+
+* **skeleton:** updated default theme, click theme ([#549](https://github.com/alfa-laboratory/core-components/issues/549)) ([9bf9259](https://github.com/alfa-laboratory/core-components/commit/9bf9259d4d1efd73067ea548cdfaf3007b0f8839))
+
+
+
+
+
+# [3.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.4.0...@alfalab/core-components-themes@3.5.0) (2021-03-04)
+
+
+### Features
+
+* **icon-button:** inverted theme ([#550](https://github.com/alfa-laboratory/core-components/issues/550)) ([98c3691](https://github.com/alfa-laboratory/core-components/commit/98c36919f682041278aa31753f1d18be95358df1))
+
+
+
+
+
+# [3.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.3.2...@alfalab/core-components-themes@3.4.0) (2021-03-04)
+
+
+### Features
+
+* size vars (xs/s/m/l/xl → 32/48/56/64/72) ([d7254d2](https://github.com/alfa-laboratory/core-components/commit/d7254d2963106663e8f04b84bc747b38e4f57632))
+* **themes:** updated click theme for tabs ([0a4c17e](https://github.com/alfa-laboratory/core-components/commit/0a4c17e5628f959d72e0ee6044ca56bd3c890d92))
+
+
+
+
+
 ## [3.3.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.3.1...@alfalab/core-components-themes@3.3.2) (2021-03-03)
 
 

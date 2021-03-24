@@ -1,0 +1,18 @@
+@import '../../../../themes/src/default.css';
+
+@define-mixin icon-button-default-inverted {
+    /* core vars */
+    --color-light-graphic-primary-inverted: #fff;
+
+    /* theme */
+    --icon-button-primary-base-color: var(--color-light-graphic-primary-inverted);
+    --icon-button-primary-hover-color: color-mod(
+        var(--color-light-graphic-primary-inverted) shade(10%)
+    );
+    --icon-button-primary-active-color: color-mod(
+        var(--color-light-graphic-primary-inverted) shade(30%)
+    );
+    --icon-button-primary-disabled-color: color-mod(
+        var(--color-light-graphic-primary-inverted) alpha(30%)
+    );
+}

@@ -18,7 +18,7 @@
 
     /* День */
     --calendar-day-size: 40px;
-    --calendar-day-border-radius: 4px;
+    --calendar-day-border-radius: var(--border-radius-s);
 
     /* today */
     --calendar-today-border-color: var(--color-light-border-key);

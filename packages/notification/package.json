@@ -1,9 +1,9 @@
 {
     "name": "@alfalab/core-components-notification",
-    "version": "2.0.7",
+    "version": "2.1.0",
     "description": "",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "main": "dist/index.js",
     "module": "./dist/modern/index.js",
     "files": [
@@ -16,8 +16,8 @@
         "react": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-portal": "^1.4.1",
-        "@alfalab/core-components-toast-plate": "^2.1.2",
+        "@alfalab/core-components-portal": "^1.4.5",
+        "@alfalab/core-components-toast-plate": "^2.2.6",
         "classnames": "^2.2.6",
         "react-merge-refs": "^1.1.0",
         "react-swipeable": "^6.0.0"

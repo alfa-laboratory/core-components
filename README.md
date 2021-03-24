@@ -38,7 +38,7 @@ import { Button } from '@alfalab/core-components-button';
 
     ```
     :root {
-        --border-radius: 12px;
+        --border-radius: var(--border-radius-l);
     }
     ```
 
