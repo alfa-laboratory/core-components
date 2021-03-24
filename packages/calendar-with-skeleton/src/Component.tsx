@@ -33,7 +33,7 @@ export const CalendarWithSkeleton = forwardRef<HTMLDivElement, CalendarWithSkele
                     unmountOnExit={true}
                     classNames={styles}
                 >
-                    <div className={styles.skeleton}>
+                    <div className={styles.skeleton} ref={ref}>
                         <Skeleton {...skeletonProps} className={styles.header} />
 
                         <Skeleton {...skeletonProps} className={styles.weekDays} />

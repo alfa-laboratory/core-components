@@ -6,7 +6,8 @@ import { ComponentHeader } from 'storybook/blocks/component-header';
 import { CalendarWithSkeleton } from '.';
 import { name, version } from '../package.json';
 
-import { Calendar } from '../../calendar/src';
+import { CalendarInput } from '../../calendar-input/src';
+import { CalendarRange } from '../../calendar-range/src';
 import { Button } from '../../button/src';
 
 
@@ -61,3 +62,30 @@ import { CalendarWithSkeleton } from '@alfalab/core-components-calendar-with-ske
 </Preview>
 
 <Props of={CalendarWithSkeleton} />
+
+## Использование с другими компонентами
+
+<Preview>
+    {React.createElement(() => {
+        return (
+            <CalendarInput
+                Calendar={CalendarWithSkeleton}
+                calendarProps={{ calendarVisible: false }}
+            />
+        );
+    })}
+</Preview>
+
+<Preview>
+    {React.createElement(() => {
+        return (
+            <CalendarRange
+                inputFromProps={{
+                    Calendar: CalendarWithSkeleton,
+                    disabled: true,
+                    calendarProps: {calendarVisible: false }
+                }}
+            />
+        );
+    })}
+</Preview>
