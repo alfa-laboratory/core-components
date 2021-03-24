@@ -6,7 +6,7 @@
 }
 
 .component {
-    width: var(--calendar-width);
+    display: inline-block;
     outline: none;
     position: relative;
 }
