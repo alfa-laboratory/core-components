@@ -1,23 +1,27 @@
-import React, { forwardRef, useMemo } from 'react';
+import React, { forwardRef } from 'react';
 
 import { CSSTransition } from 'react-transition-group';
 
-import { Skeleton, SkeletonProps } from '@alfalab/core-components-skeleton';
+import { Skeleton } from '@alfalab/core-components-skeleton';
 import { Calendar, CalendarProps } from '@alfalab/core-components-calendar';
 
 import styles from './index.module.css';
 
-export type CalendarWithSkeletonProps = CalendarProps &
-    Omit<SkeletonProps, 'visible'> & {
-        /**
-         * Флаг управлением видимостью календаря
-         */
-        calendarVisible?: boolean;
-    };
+export type CalendarWithSkeletonProps = CalendarProps & {
+    /**
+     * Флаг включения анимации скелета
+     */
+    animate?: boolean;
+
+    /**
+     * Флаг управлением видимостью календаря
+     */
+    calendarVisible?: boolean;
+};
 
 export const CalendarWithSkeleton = forwardRef<HTMLDivElement, CalendarWithSkeletonProps>(
     ({ calendarVisible = true, animate = true, ...restProps }, ref) => {
-        const skeletonProps = useMemo(() => ({ visible: true, animate }), [animate]);
+        const skeletonProps = { visible: true, animate };
 
         return (
             <div className={styles.component}>
