@@ -1,9 +1,9 @@
 {
     "name": "@alfalab/core-components-input-autocomplete",
-    "version": "5.2.7",
+    "version": "6.0.11",
     "description": "",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "main": "dist/index.js",
     "module": "./dist/esm/index.js",
     "files": [
@@ -13,11 +13,11 @@
         "access": "public"
     },
     "peerDependencies": {
-        "react": "^16.9.0"
+        "react": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^5.1.4",
-        "@alfalab/core-components-select": "^6.3.5",
+        "@alfalab/core-components-input": "^6.0.9",
+        "@alfalab/core-components-select": "^7.1.6",
         "classnames": "^2.2.6"
     }
 }

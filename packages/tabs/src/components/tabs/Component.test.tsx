@@ -113,6 +113,21 @@ describe('Tabs', () => {
 
             expect(unmount).not.toThrowError();
         });
+
+        it('should not render empty tabs', () => {
+            const { queryAllByRole } = render(
+                <TabsDesktop selectedId='tab-2' keepMounted={true}>
+                    <Tab title='Таб 1' id='tab-1' />
+                    <Tab title='Таб 2' id='tab-2' />
+                    <Tab title='Таб 3' id='tab-3'>
+                        Таб 3
+                    </Tab>
+                </TabsDesktop>,
+            );
+
+            expect(queryAllByRole('tabpanel', { hidden: true })).toHaveLength(1);
+            expect(queryAllByRole('tabpanel', { hidden: false })).toHaveLength(0);
+        });
     });
 
     describe('Interaction tests', () => {

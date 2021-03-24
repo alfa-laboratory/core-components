@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@2.5.0...@alfalab/core-components-vars@2.5.2) (2021-03-18)
+
+
+### Bug Fixes
+
+* one more sborka bug ([#579](https://github.com/alfa-laboratory/core-components/issues/579)) ([9fbe0be](https://github.com/alfa-laboratory/core-components/commit/9fbe0beca56ec5971de78b3f6cda25305b260efc))
+
+
+
+
+
+# [2.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@2.4.3...@alfalab/core-components-vars@2.5.0) (2021-03-15)
+
+
+### Features
+
+* **vars:** introducing border-radius vars ([1a6fb28](https://github.com/alfa-laboratory/core-components/commit/1a6fb287bcfab50048c3a9100645b4dee8cd3395))
+
+
+
+
+
+## [2.4.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@2.4.2...@alfalab/core-components-vars@2.4.3) (2021-03-14)
+
+**Note:** Version bump only for package @alfalab/core-components-vars
+
+
+
+
+
+## [2.4.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@2.4.1...@alfalab/core-components-vars@2.4.2) (2021-03-04)
+
+**Note:** Version bump only for package @alfalab/core-components-vars
+
+
+
+
+
+## [2.4.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@2.4.0...@alfalab/core-components-vars@2.4.1) (2021-03-03)
+
+**Note:** Version bump only for package @alfalab/core-components-vars
+
+
+
+
+
 # [2.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@2.3.2...@alfalab/core-components-vars@2.4.0) (2021-03-03)
 
 

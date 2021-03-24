@@ -6,13 +6,19 @@
 }
 
 .component {
+    background-color: transparent;
+    z-index: var(--popover-z-index);
+}
+
+.inner {
+    position: relative;
     background-color: var(--color-light-bg-primary);
     box-shadow: var(--shadow-l);
     border: 1px solid var(--popover-border-color);
-    z-index: var(--popover-z-index);
-    transition-property: opacity;
-    transition-timing-function: ease;
+    transition-property: opacity, transform;
+    transition-timing-function: ease-in-out;
     box-sizing: border-box;
+    will-change: transform;
 }
 
 .arrow:after {
@@ -74,18 +80,22 @@
     }
 }
 
-.enter {
+.enter .inner {
     opacity: 0;
+    transform: scale(0.98);
 }
 
-.enterActive {
+.enterActive .inner {
     opacity: 1;
+    transform: scale(1);
 }
 
-.exit {
+.exit .inner {
     opacity: 1;
+    transform: scale(1);
 }
 
-.exitActive {
+.exitActive .inner {
     opacity: 0;
+    transform: scale(0.98);
 }

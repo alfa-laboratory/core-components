@@ -111,8 +111,8 @@
     flex-shrink: 0;
     width: 20px;
     height: 20px;
-    border-radius: 10px;
     box-sizing: border-box;
+    border-radius: var(--border-radius-m);
     position: relative;
     margin: var(--gap-3xs);
     transition: background-color 0.2s ease, border 0.2s ease;

@@ -1,4 +1,4 @@
-@import '../../../../vars/src/index.css';
+@import '../../../../themes/src/default.css';
 
 @define-mixin tabs-click {
     /* core vars */
@@ -21,4 +21,8 @@
     --primary-tablist-l-font-weight: 500;
     --primary-tablist-l-font-family: var(--font-family-styrene);
     --primary-tablist-l-padding: var(--gap-l) 0;
+    --primary-tablist-xl-font-size: 24px;
+    --primary-tablist-xl-font-weight: 500;
+    --primary-tablist-xl-font-family: var(--font-family-styrene);
+    --primary-tablist-xl-padding: var(--gap-l) 0;
 }

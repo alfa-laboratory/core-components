@@ -1,0 +1,662 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Confirmation Snapshot tests should match snapshot 1`] = `
+<div>
+  <div
+    class="component left"
+  >
+    <div
+      class="component left"
+    >
+      <span
+        class="header"
+      >
+        Введите код из сообщения
+      </span>
+      <div
+        class="inputContainer"
+      >
+        <div
+          class="component codeInput"
+        >
+          <input
+            autocomplete="one-time-code"
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="1"
+          />
+          <input
+            autocomplete=""
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="2"
+          />
+          <input
+            autocomplete=""
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="3"
+          />
+          <input
+            autocomplete=""
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="4"
+          />
+          <input
+            autocomplete=""
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="5"
+          />
+        </div>
+        
+      </div>
+      <div
+        class="countdown"
+      >
+        <div
+          class="component left countdown"
+        >
+          
+          <div>
+            <div
+              class="info"
+            >
+              Запросить повторно можно через
+            </div>
+            <div
+              class="loaderWrap"
+            >
+              <svg
+                class="loader"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+              >
+                <defs>
+                  <mask
+                    id="cut"
+                  >
+                    <rect
+                      fill="white"
+                      height="100%"
+                      width="100%"
+                    />
+                    <circle
+                      cx="8"
+                      cy="8"
+                      fill="black"
+                      r="6"
+                    />
+                    <path
+                      d="M8 0 V8 L8 0 H0 L0 0 Z"
+                    />
+                  </mask>
+                </defs>
+                <circle
+                  class="circle"
+                  cx="8"
+                  cy="8"
+                  mask="url(#cut)"
+                  r="8"
+                />
+              </svg>
+              <div
+                class="timePassed"
+              >
+                01:00
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="smsComeLinkWrap"
+      >
+        <a
+          class="component secondary smsComeLink"
+        >
+          <span
+            class="text"
+          >
+            Не приходит сообщение?
+          </span>
+        </a>
+      </div>
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Confirmation Snapshot tests should match snapshot with fatal error 1`] = `
+<div>
+  <div
+    class="component left"
+  >
+    <div
+      class="error"
+    >
+      <span
+        class="errorHeader"
+      >
+        Превышено количество попыток ввода кода
+      </span>
+      <span
+        class="errorText"
+      >
+        Выполните операцию с самого начала
+      </span>
+      <button
+        class="component secondary s block"
+        type="button"
+      >
+        <span
+          class="text stretchText"
+        >
+          Понятно
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Confirmation Snapshot tests should match snapshot with masked phone 1`] = `
+<div>
+  <div
+    class="component left"
+  >
+    <div
+      class="component left"
+    >
+      <span
+        class="header"
+      >
+        Введите код из сообщения
+      </span>
+      <div
+        class="inputContainer"
+      >
+        <div
+          class="component codeInput"
+        >
+          <input
+            autocomplete="one-time-code"
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="1"
+          />
+          <input
+            autocomplete=""
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="2"
+          />
+          <input
+            autocomplete=""
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="3"
+          />
+          <input
+            autocomplete=""
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="4"
+          />
+          <input
+            autocomplete=""
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="5"
+          />
+        </div>
+        
+      </div>
+      <div
+        class="countdown"
+      >
+        <div
+          class="component left countdown"
+        >
+          <div>
+            Код отправлен на
+             
+            +7 ··· ··· 55-66
+          </div>
+          <div>
+            <div
+              class="info"
+            >
+              Запросить повторно можно через
+            </div>
+            <div
+              class="loaderWrap"
+            >
+              <svg
+                class="loader"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+              >
+                <defs>
+                  <mask
+                    id="cut"
+                  >
+                    <rect
+                      fill="white"
+                      height="100%"
+                      width="100%"
+                    />
+                    <circle
+                      cx="8"
+                      cy="8"
+                      fill="black"
+                      r="6"
+                    />
+                    <path
+                      d="M8 0 V8 L8 0 H0 L0 0 Z"
+                    />
+                  </mask>
+                </defs>
+                <circle
+                  class="circle"
+                  cx="8"
+                  cy="8"
+                  mask="url(#cut)"
+                  r="8"
+                />
+              </svg>
+              <div
+                class="timePassed"
+              >
+                01:00
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="smsComeLinkWrap"
+      >
+        <a
+          class="component secondary smsComeLink"
+        >
+          <span
+            class="text"
+          >
+            Не приходит сообщение?
+          </span>
+        </a>
+      </div>
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Confirmation Snapshot tests should match snapshot with nonFatal error 1`] = `
+<div>
+  <div
+    class="component left"
+  >
+    <div
+      class="component left"
+    >
+      <span
+        class="header"
+      >
+        Введите код из сообщения
+      </span>
+      <div
+        class="inputContainer"
+      >
+        <div
+          class="component codeInput"
+        >
+          <input
+            autocomplete="one-time-code"
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="1"
+          />
+          <input
+            autocomplete=""
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="2"
+          />
+          <input
+            autocomplete=""
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="3"
+          />
+          <input
+            autocomplete=""
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="4"
+          />
+          <input
+            autocomplete=""
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="5"
+          />
+        </div>
+        <div
+          class="error"
+        >
+          Неверный код
+        </div>
+      </div>
+      <div
+        class="countdown"
+      >
+        <div
+          class="component left countdown"
+        >
+          
+          <div>
+            <div
+              class="info"
+            >
+              Запросить повторно можно через
+            </div>
+            <div
+              class="loaderWrap"
+            >
+              <svg
+                class="loader"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+              >
+                <defs>
+                  <mask
+                    id="cut"
+                  >
+                    <rect
+                      fill="white"
+                      height="100%"
+                      width="100%"
+                    />
+                    <circle
+                      cx="8"
+                      cy="8"
+                      fill="black"
+                      r="6"
+                    />
+                    <path
+                      d="M8 0 V8 L8 0 H0 L0 0 Z"
+                    />
+                  </mask>
+                </defs>
+                <circle
+                  class="circle"
+                  cx="8"
+                  cy="8"
+                  mask="url(#cut)"
+                  r="8"
+                />
+              </svg>
+              <div
+                class="timePassed"
+              >
+                01:00
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="smsComeLinkWrap"
+      >
+        <a
+          class="component secondary smsComeLink"
+        >
+          <span
+            class="text"
+          >
+            Не приходит сообщение?
+          </span>
+        </a>
+      </div>
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Confirmation Snapshot tests should match snapshot with unmasked phone 1`] = `
+<div>
+  <div
+    class="component left"
+  >
+    <div
+      class="component left"
+    >
+      <span
+        class="header"
+      >
+        Введите код из сообщения
+      </span>
+      <div
+        class="inputContainer"
+      >
+        <div
+          class="component codeInput"
+        >
+          <input
+            autocomplete="one-time-code"
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="1"
+          />
+          <input
+            autocomplete=""
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="2"
+          />
+          <input
+            autocomplete=""
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="3"
+          />
+          <input
+            autocomplete=""
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="4"
+          />
+          <input
+            autocomplete=""
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="5"
+          />
+        </div>
+        
+      </div>
+      <div
+        class="countdown"
+      >
+        <div
+          class="component left countdown"
+        >
+          <div>
+            Код отправлен на
+             
+            +7 999 888-55-66
+          </div>
+          <div>
+            <div
+              class="info"
+            >
+              Запросить повторно можно через
+            </div>
+            <div
+              class="loaderWrap"
+            >
+              <svg
+                class="loader"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+              >
+                <defs>
+                  <mask
+                    id="cut"
+                  >
+                    <rect
+                      fill="white"
+                      height="100%"
+                      width="100%"
+                    />
+                    <circle
+                      cx="8"
+                      cy="8"
+                      fill="black"
+                      r="6"
+                    />
+                    <path
+                      d="M8 0 V8 L8 0 H0 L0 0 Z"
+                    />
+                  </mask>
+                </defs>
+                <circle
+                  class="circle"
+                  cx="8"
+                  cy="8"
+                  mask="url(#cut)"
+                  r="8"
+                />
+              </svg>
+              <div
+                class="timePassed"
+              >
+                01:00
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="smsComeLinkWrap"
+      >
+        <a
+          class="component secondary smsComeLink"
+        >
+          <span
+            class="text"
+          >
+            Не приходит сообщение?
+          </span>
+        </a>
+      </div>
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Confirmation Snapshot tests should math snapshot without smsCountdown 1`] = `
+<div>
+  <div
+    class="component left"
+  >
+    <div
+      class="component left"
+    >
+      <span
+        class="header"
+      >
+        Введите код из сообщения
+      </span>
+      <div
+        class="inputContainer"
+      >
+        <div
+          class="component codeInput"
+        >
+          <input
+            autocomplete="one-time-code"
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="1"
+          />
+          <input
+            autocomplete=""
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="2"
+          />
+          <input
+            autocomplete=""
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="3"
+          />
+          <input
+            autocomplete=""
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="4"
+          />
+          <input
+            autocomplete=""
+            class="input left"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            value="5"
+          />
+        </div>
+        
+      </div>
+      <div
+        class="smsComeLinkWrap"
+      >
+        <a
+          class="component secondary smsComeLink"
+        >
+          <span
+            class="text"
+          >
+            Не приходит сообщение?
+          </span>
+        </a>
+      </div>
+      <div />
+    </div>
+  </div>
+</div>
+`;

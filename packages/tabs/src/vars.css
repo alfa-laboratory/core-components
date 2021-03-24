@@ -37,6 +37,13 @@
     --primary-tablist-l-font-family: var(--font-family-system);
     --primary-tablist-l-padding: 0 0 var(--gap-l);
 
+    /* size xl */
+    --primary-tablist-xl-gaps: var(--gap-2xl);
+    --primary-tablist-xl-font-size: 18px;
+    --primary-tablist-xl-font-weight: 400;
+    --primary-tablist-xl-font-family: var(--font-family-system);
+    --primary-tablist-xl-padding: 0 0 var(--gap-l);
+
     /* mobile */
     --secondary-tablist-mobile-gaps: var(--gap-xs);
 
@@ -48,4 +55,7 @@
 
     /* size l */
     --secondary-tablist-l-gaps: var(--gap-s);
+
+    /* size xl */
+    --secondary-tablist-xl-gaps: var(--gap-s);
 }

@@ -1,9 +1,9 @@
 {
     "name": "@alfalab/core-components-checkbox",
-    "version": "1.7.0",
+    "version": "1.8.4",
     "description": "Checkbox component",
     "keywords": [],
-    "license": "ISC",
+    "license": "MIT",
     "main": "dist/index.js",
     "module": "./dist/esm/index.js",
     "files": [
@@ -13,8 +13,8 @@
         "access": "public"
     },
     "peerDependencies": {
-        "react": "^16.9.0",
-        "react-dom": "^16.9.0"
+        "react": "^16.9.0 || ^17.0.1",
+        "react-dom": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
         "@alfalab/hooks": "^1.0.0",

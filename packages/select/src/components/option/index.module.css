@@ -38,16 +38,23 @@
 }
 
 .s {
-    min-height: 48px;
+    min-height: var(--size-s-height);
 }
 
 .m {
-    min-height: 56px;
+    min-height: var(--size-m-height);
 }
 
 .l {
-    min-height: 72px;
+    min-height: var(--size-l-height);
+}
 
+.xl {
+    min-height: var(--size-xl-height);
+}
+
+.l,
+.xl {
     padding-left: var(--select-option-l-left-padding);
     padding-right: var(--select-option-l-right-padding);
 

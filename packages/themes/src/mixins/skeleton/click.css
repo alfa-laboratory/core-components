@@ -1,0 +1,10 @@
+@import '../../../../themes/src/default.css';
+
+@define-mixin skeleton-click {
+    /* core vars */
+    --color-light-graphic-neutral: #dbdee1;
+
+    /* theme */
+    --skeleton-default-color: var(--color-light-graphic-neutral);
+    --skeleton-border-radius: 4px;
+}

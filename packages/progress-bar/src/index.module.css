@@ -14,7 +14,7 @@
 
 .container {
     background: var(--progressbar-bg-color);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-s);
     display: flex;
     height: 6px;
     overflow: hidden;

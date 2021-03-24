@@ -36,7 +36,7 @@ export type TextareaProps = Omit<
     /**
      * Размер компонента
      */
-    size?: 's' | 'm' | 'l';
+    size?: 's' | 'm' | 'l' | 'xl';
 
     /**
      * Отображение ошибки

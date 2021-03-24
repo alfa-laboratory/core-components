@@ -32,7 +32,7 @@ export type TabsProps = {
     /**
      * Высота заголовков табов
      */
-    size?: 's' | 'm' | 'l';
+    size?: 's' | 'm' | 'l' | 'xl';
 
     /**
      * Мобильный вид
@@ -99,7 +99,7 @@ export type TabProps = {
     /**
      * Контент таба
      */
-    children: ReactNode;
+    children?: ReactNode;
 
     /**
      * Слот справа

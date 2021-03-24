@@ -27,7 +27,8 @@
     min-height: 48px;
 }
 
-.l {
+.l,
+.xl {
     min-height: 56px;
 
     padding-left: var(--select-optgroup-l-left-padding);

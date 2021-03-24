@@ -1,18 +1,17 @@
-@import '../../vars/src/colors.css';
-@import '../../vars/src/colors-addons.css';
-@import '../../vars/src/colors-indigo.css';
-@import '../../vars/src/shadows-indigo.css';
-@import '../../vars/src/gaps.css';
-@import '../../vars/src/typography.css';
+@import '../../vars/src/index.css';
 
 :root {
     --text-primary-color: var(--color-light-text-primary);
     --text-secondary-color: var(--color-light-text-secondary);
     --text-tertiary-color: var(--color-light-text-tertiary);
-    --border-radius: 4px;
     --focus-color: var(--color-light-border-link);
     --font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica,
         sans-serif;
     --disabled-cursor: not-allowed;
     --arrow-transform: rotate(180deg);
+    --size-xs-height: 32px;
+    --size-s-height: 48px;
+    --size-m-height: 56px;
+    --size-l-height: 64px;
+    --size-xl-height: 72px;
 }
