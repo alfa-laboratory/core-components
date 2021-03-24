@@ -3,6 +3,8 @@ import { render } from '@testing-library/react';
 
 import { CalendarWithSkeleton } from './Component';
 
+jest.useFakeTimers();
+
 describe('Calendar', () => {
     describe('Render tests', () => {
         test('should render skeleton when calendarVisible=`false`', () => {
