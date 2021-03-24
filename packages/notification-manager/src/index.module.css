@@ -18,13 +18,13 @@
 
 .enter {
     visibility: hidden;
-    transform: translate3d(100%, 0, 0);
-    transition: transform 0.2s ease-out;
+    transform: translate(0, -500px);
+    transition: transform 0.4s ease-out;
 }
 
 .enterActive {
     visibility: visible;
-    transform: translate3d(0, 0, 0);
+    transform: translate(0);
 }
 
 .exit {
@@ -44,5 +44,13 @@
 
     .component .notification {
         width: auto;
+    }
+
+    .enter {
+        transform: translate(100%, 0);
+    }
+
+    .enterActive {
+        transform: translate(0);
     }
 }

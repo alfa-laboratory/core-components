@@ -52,7 +52,7 @@ export const NotificationManager = forwardRef<HTMLDivElement, NotificationManage
                         {notifications.map(element => (
                             <CSSTransition
                                 key={element.props.id}
-                                timeout={200}
+                                timeout={400}
                                 classNames={CSS_TRANSITION_CLASS_NAMES}
                                 unmountOnExit={true}
                             >
