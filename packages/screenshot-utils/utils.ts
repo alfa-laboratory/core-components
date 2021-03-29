@@ -16,12 +16,3 @@ export function generateCombos<T>(
 
     return result;
 }
-
-export function snakeToCamel(str: string) {
-    return str.toLowerCase().replace(/([-_][a-z])/g, (group: string) =>
-        group
-            .toUpperCase()
-            .replace('-', '')
-            .replace('_', ''),
-    );
-}
