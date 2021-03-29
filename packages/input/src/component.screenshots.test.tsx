@@ -17,11 +17,12 @@ const screenshotTesting = setupScreenshotTesting({
 const clip = { x: 0, y: 0, width: 350, height: 150 };
 
 describe(
-    'Input | screenshots sizes, blocks and disabled',
+    'Input | screenshots main props',
     screenshotTesting({
         cases: generateTestCases({
             componentName: 'Input',
             knobs: {
+                label: 'Label',
                 size: ['s', 'm', 'l'],
                 block: [false, true],
                 disabled: [false, true],
@@ -31,28 +32,12 @@ describe(
 );
 
 describe(
-    'Input | screenshots size, placeholder and label',
+    'Input | screenshots hint and error',
     screenshotTesting({
         cases: generateTestCases({
             componentName: 'Input',
             knobs: {
-                size: ['s', 'm', 'l'],
-                placeholder: ['', 'Placeholder'],
-                label: ['', 'Label'],
-                success: [true, false],
-            },
-        }),
-        screenshotOpts: { clip },
-    }),
-);
-
-describe(
-    'Input | screenshots size, hint and error',
-    screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'Input',
-            knobs: {
-                size: ['s', 'm', 'l'],
+                size: 'm',
                 hint: ['', 'Hint'],
                 error: ['', 'Error'],
             },
@@ -67,9 +52,10 @@ describe(
         cases: generateTestCases({
             componentName: 'Input',
             knobs: {
-                rightAddons: [true, false],
-                leftAddons: [true, false],
-                bottomAddons: [true, false],
+                rightAddons: ['right', false],
+                leftAddons: ['left', false],
+                bottomAddons: ['bottom', false],
+                success: [false, true],
             },
         }),
         screenshotOpts: { clip },
