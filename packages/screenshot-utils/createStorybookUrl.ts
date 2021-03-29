@@ -1,5 +1,5 @@
+import kebab from 'lodash.kebabcase';
 import { STORYBOOK_URL } from './setupScreenshotTesting';
-import { snakeToCamel } from './utils';
 
 export type KnobValueType = string | boolean | number;
 
@@ -30,7 +30,7 @@ export type CreateSpriteStorybookUrlParams = {
 export function createStorybookUrl({
     url = STORYBOOK_URL,
     componentName,
-    packageName = snakeToCamel(componentName),
+    packageName = kebab(componentName),
     testStory = true,
     knobs = {},
 }: CreateStorybookUrlParams) {

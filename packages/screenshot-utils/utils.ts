@@ -30,12 +30,3 @@ export function combosToProps(combos: Array<Array<[unknown, number]>>, names: st
         [],
     );
 }
-
-export function snakeToCamel(str: string) {
-    return str.toLowerCase().replace(/([-_][a-z])/g, (group: string) =>
-        group
-            .toUpperCase()
-            .replace('-', '')
-            .replace('_', ''),
-    );
-}
