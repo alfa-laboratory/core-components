@@ -773,3 +773,7 @@ div.lib-welcome {
 .docblock-propstable .docblock-propstable-body code {
     white-space: normal;
 }
+
+#explorerкомпоненты--screenshots {
+    display: none;
+}
