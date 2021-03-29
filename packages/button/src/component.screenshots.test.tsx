@@ -3,6 +3,7 @@ import {
     setupScreenshotTesting,
     customSnapshotIdentifier,
     generateTestCases,
+    createSpriteStorybookUrl,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -15,33 +16,26 @@ const screenshotTesting = setupScreenshotTesting({
 const clip = { x: 0, y: 0, width: 200, height: 100 };
 
 describe(
-    'Button | screenshots views and sizes',
+    'Button | views, sizes, disabled',
     screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'Button',
-            knobs: {
-                children: 'Оплатить',
-                view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
-                size: ['xs', 's', 'm', 'l'],
-            },
-        }),
-
-        screenshotOpts: { clip },
-    }),
-);
-
-describe(
-    'Button | screenshots views and disabled',
-    screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'Button',
-            knobs: {
-                children: 'Оплатить',
-                view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
-                disabled: true,
-            },
-        }),
-        screenshotOpts: { clip },
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Button',
+                    size: { width: 200, height: 80 },
+                    knobs: {
+                        children: 'Оплатить',
+                        view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
+                        size: ['xs', 's', 'm', 'l'],
+                        disabled: [false, true],
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
     }),
 );
 

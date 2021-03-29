@@ -1,6 +1,6 @@
 import qs from 'querystring';
 
-const queryParams = qs.parse(document.location.search);
+export const queryParams = qs.parse(document.location.search);
 
 export const getQueryParam = (param: string) => queryParams[param] as string;
 

@@ -19,6 +19,14 @@ export type CreateStorybookUrlParams = {
     knobs?: Knobs;
 };
 
+export type CreateSpriteStorybookUrlParams = {
+    url?: string;
+    packageName?: string;
+    componentName: string;
+    knobs?: KnobsCombinations;
+    size?: { width: number; height: number };
+};
+
 export function createStorybookUrl({
     url = STORYBOOK_URL,
     componentName,
@@ -36,4 +44,18 @@ export function createStorybookUrl({
     }
 
     return `${url}?id=компоненты--${packageName}${knobsQuery}`;
+}
+
+export function createSpriteStorybookUrl({
+    url = STORYBOOK_URL,
+    componentName,
+    packageName = snakeToCamel(componentName),
+    knobs = {},
+    size,
+}: CreateSpriteStorybookUrlParams) {
+    const sizeParam = size ? `&height=${size.height}&width=${size.width}` : '';
+
+    return `${url}?id=компоненты--screenshots-sprite&package=${packageName}&component=${componentName}${sizeParam}&knobs=${JSON.stringify(
+        knobs,
+    )}`;
 }

@@ -16,3 +16,17 @@ export function generateCombos<T>(
 
     return result;
 }
+
+export function combosToProps(combos: Array<Array<[unknown, number]>>, names: string[]) {
+    return combos.map(
+        combo =>
+            combo.reduce(
+                (props, [value], nameIndex) => ({
+                    ...props,
+                    [names[nameIndex]]: value,
+                }),
+                [],
+            ),
+        [],
+    );
+}
