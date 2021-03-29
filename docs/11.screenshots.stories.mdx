@@ -41,9 +41,17 @@ $ yarn test:screenshots
 
 ```tsx
 // component.screenshot.test.ts
-const cases = getComponentScreenshotTestCases({
-    componentName: 'input',
+const screenshotTesting = setupScreenshotTesting({
+    it,
+    beforeAll,
+    afterAll,
+    expect,
+});
+
+const cases = generateTestCases({
+    componentName: 'Input',
     knobs: {
+        value: 'value',
         size: ['s', 'm', 'l'],
         block: [false, true],
         disabled: [false, true],
@@ -52,11 +60,11 @@ const cases = getComponentScreenshotTestCases({
 
 describe(
     'Input | screenshots sizes, blocks and disabled',
-    screenshotTesting({ cases, it, beforeAll, afterAll, expect }),
+    screenshotTesting({ cases }),
 );
 ```
 
-**_Функция `getComponentScreenshotTestCases` вернет все возможные комбинации пропсов.
+**_Функция `generateTestCases` вернет все возможные комбинации пропсов.
 Так что с ней надо быть аккуратным, и, если пропсов много, то лучше разделить на несколько тестов._**
 
 2. Динамические тесты.
@@ -69,7 +77,7 @@ describe(
 // component.screenshot.test.ts
 describe('Input | interactions tests', () => {
     test('Fill input value', async () => {
-        const pageUrl = createStorybookUrl({ componentName: 'input' });
+        const pageUrl = createStorybookUrl({ componentName: 'Input' });
         const { browser, context, page, css } = await openBrowser(chromium, pageUrl);
 
         try {
