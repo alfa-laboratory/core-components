@@ -17,6 +17,7 @@ describe(
         cases: generateTestCases({
             componentName: 'Status',
             knobs: {
+                children: 'Label',
                 view: ['soft', 'contrast'],
                 color: [...colors],
             },
