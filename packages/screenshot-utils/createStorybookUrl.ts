@@ -49,7 +49,7 @@ export function createStorybookUrl({
 export function createSpriteStorybookUrl({
     url = STORYBOOK_URL,
     componentName,
-    packageName = snakeToCamel(componentName),
+    packageName = kebab(componentName),
     knobs = {},
     size,
 }: CreateSpriteStorybookUrlParams) {
