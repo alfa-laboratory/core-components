@@ -1,0 +1,20 @@
+@import '../../themes/src/default.css';
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.item {
+    margin: var(--gap-2xs);
+    border-radius: 3px;
+}
+
+.title {
+    max-width: 240px;
+    display: block;
+    font-size: 9px;
+    color: var(--color-light-text-secondary);
+    margin-bottom: var(--gap-xs);
+}
