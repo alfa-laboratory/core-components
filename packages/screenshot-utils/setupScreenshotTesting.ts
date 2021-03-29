@@ -1,7 +1,7 @@
 import { chromium, Page, Browser, BrowserContext } from 'playwright';
 import axios from 'axios';
 
-import { matchHtml, MatchHtmlParams, viewport } from './helpers';
+import { defaultViewport, matchHtml, MatchHtmlParams } from './helpers';
 
 export const STORYBOOK_URL = process.env.STORYBOOK_URL || 'http://localhost:9009/iframe.html';
 export const STYLES_URL = 'http://localhost:9009/main.css';
@@ -52,7 +52,7 @@ export const setupScreenshotTesting = ({
 
         beforeAll(async () => {
             browser = await chromium.launch();
-            context = await browser.newContext({ viewport });
+            context = await browser.newContext({ viewport: defaultViewport });
             page = await context.newPage();
 
             const result = await axios.get(STYLES_URL, {

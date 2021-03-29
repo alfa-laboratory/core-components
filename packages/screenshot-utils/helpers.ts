@@ -32,7 +32,7 @@ const CI = process.env.CI === 'true';
 const serverHost = CI ? 'https://digital.alfabank.ru' : 'http://digital';
 const playwrightUrl = `${serverHost}/playwright`;
 
-export const viewport = { width: 1920, height: 1080 };
+export const defaultViewport = { width: 1024, height: 768 };
 
 /**
  * Удаляем из названия теста лишнюю информацию, чтобы имя файла было короче
@@ -60,6 +60,7 @@ export type MatchHtmlParams = {
     screenshotOpts?: ScreenshotOpts;
     evaluate?: EvaluateFn;
     theme?: string;
+    viewport?: { width: number; height: number };
 };
 
 const screenshotDefaultOpts = {
@@ -81,6 +82,7 @@ export const matchHtml = async ({
     screenshotOpts = screenshotDefaultOpts,
     evaluate,
     theme,
+    viewport = defaultViewport,
 }: MatchHtmlParams) => {
     const pageHtml = await getPageHtml(page, css, theme);
 
@@ -90,6 +92,7 @@ export const matchHtml = async ({
             data: pageHtml,
             screenshotOpts,
             evaluate: evaluate && evaluate.toString(),
+            viewport,
         },
         {
             responseType: 'arraybuffer',
@@ -116,7 +119,7 @@ export const openBrowserPage = async (
     browserType: BrowserType<ChromiumBrowser | FirefoxBrowser | WebKitBrowser> = chromium,
 ) => {
     const browser = await browserType.launch();
-    const context = await browser.newContext({ viewport });
+    const context = await browser.newContext({ viewport: defaultViewport });
     const page = await context.newPage();
 
     const [css] = await Promise.all([
