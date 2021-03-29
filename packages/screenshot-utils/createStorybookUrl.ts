@@ -15,6 +15,7 @@ export type CreateStorybookUrlParams = {
     url?: string;
     packageName?: string;
     componentName: string;
+    testStory?: boolean;
     knobs?: Knobs;
 };
 
@@ -22,6 +23,7 @@ export function createStorybookUrl({
     url = STORYBOOK_URL,
     componentName,
     packageName = snakeToCamel(componentName),
+    testStory = true,
     knobs = {},
 }: CreateStorybookUrlParams) {
     const knobsQuery = Object.keys(knobs).reduce(
@@ -29,5 +31,9 @@ export function createStorybookUrl({
         '',
     );
 
-    return `${url}?id=компоненты--screenshots&package=${packageName}&component=${componentName}${knobsQuery}`;
+    if (testStory) {
+        return `${url}?id=компоненты--screenshots&package=${packageName}&component=${componentName}${knobsQuery}`;
+    }
+
+    return `${url}?id=компоненты--${packageName}${knobsQuery}`;
 }
