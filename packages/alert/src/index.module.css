@@ -1,0 +1,25 @@
+@import '../../themes/src/default.css';
+
+.component {
+    border-radius: 2px 0 0 2px;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-left-width: 2px;
+    padding-top: var(--gap-s);
+    padding-bottom: var(--gap-s);
+    padding-right: var(--gap-s);
+    min-height: 48px;
+}
+
+.buttons {
+    margin-top: var(--gap-m);
+}
+
+.title {
+    @mixin accent_primary_medium;
+}
+
+.content {
+    max-width: none;
+}
