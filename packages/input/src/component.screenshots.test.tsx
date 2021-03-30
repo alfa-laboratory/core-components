@@ -64,7 +64,7 @@ describe(
 
 describe('Input | interactions tests', () => {
     test('Fill input value', async () => {
-        const pageUrl = createStorybookUrl({ componentName: 'Input' });
+        const pageUrl = createStorybookUrl({ componentName: 'Input', knobs: { label: 'Label' } });
         const { browser, context, page, css } = await openBrowserPage(pageUrl);
 
         try {

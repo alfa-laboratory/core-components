@@ -53,12 +53,6 @@ describe(
     }),
 );
 
-/**
- * Скриншот для этого теста получается не информативным,
- * так как в самом начале анимации не видно лоадер.
- * Для того, чтобы скриншот был информативным, необходимо на сервере подождать какое-то время,
- * чтобы появился лоадер, а потом уже делать скриншот.
- */
 describe(
     'Button | screenshots views and loading',
     screenshotTesting({
@@ -70,7 +64,7 @@ describe(
                 loading: true,
             },
         }),
-
+        evaluate: (page: Page) => page.waitForTimeout(300),
         matchImageSnapshotOptions: {
             failureThresholdType: 'pixel',
             failureThreshold: 5,
