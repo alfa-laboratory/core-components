@@ -15,6 +15,7 @@ export type CreateStorybookUrlParams = {
     url?: string;
     packageName?: string;
     componentName: string;
+    subComponentName?: string;
     testStory?: boolean;
     knobs?: Knobs;
 };
@@ -23,6 +24,7 @@ export type CreateSpriteStorybookUrlParams = {
     url?: string;
     packageName?: string;
     componentName: string;
+    subComponentName?: string;
     knobs?: KnobsCombinations;
     size?: { width: number; height: number };
 };
@@ -30,6 +32,7 @@ export type CreateSpriteStorybookUrlParams = {
 export function createStorybookUrl({
     url = STORYBOOK_URL,
     componentName,
+    subComponentName,
     packageName = kebab(componentName),
     testStory = true,
     knobs = {},
@@ -40,7 +43,8 @@ export function createStorybookUrl({
     );
 
     if (testStory) {
-        return `${url}?id=компоненты--screenshots&package=${packageName}&component=${componentName}${knobsQuery}`;
+        // TODO: укоротить
+        return `${url}?id=компоненты--screenshots&package=${packageName}&component=${componentName}&subComponent=${subComponentName}${knobsQuery}`;
     }
 
     return `${url}?id=компоненты--${packageName}${knobsQuery}`;
@@ -49,13 +53,15 @@ export function createStorybookUrl({
 export function createSpriteStorybookUrl({
     url = STORYBOOK_URL,
     componentName,
+    subComponentName,
     packageName = kebab(componentName),
     knobs = {},
     size,
 }: CreateSpriteStorybookUrlParams) {
     const sizeParam = size ? `&height=${size.height}&width=${size.width}` : '';
 
-    return `${url}?id=компоненты--screenshots-sprite&package=${packageName}&component=${componentName}${sizeParam}&knobs=${JSON.stringify(
+    // TODO: укоротить
+    return `${url}?id=компоненты--screenshots-sprite&package=${packageName}&component=${componentName}&subComponent=${subComponentName}${sizeParam}&knobs=${JSON.stringify(
         knobs,
     )}`;
 }
