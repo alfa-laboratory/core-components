@@ -43,10 +43,12 @@ export const BaseSelect = forwardRef(
             defaultOpen = false,
             popoverPosition = 'bottom-start',
             preventFlip = true,
+            optionsListWidth = 'content',
             name,
             id,
             selected,
             size = 's',
+            optionsSize = size,
             error,
             hint,
             block,
@@ -259,7 +261,7 @@ export const BaseSelect = forwardRef(
                         }),
                         index,
                         option,
-                        size,
+                        size: optionsSize,
                         disabled: option.disabled,
                         highlighted: index === highlightedIndex,
                         selected: selectedItems.includes(option),
@@ -269,12 +271,12 @@ export const BaseSelect = forwardRef(
             ),
             [
                 Option,
-                getItemProps,
-                highlightedIndex,
                 optionProps,
                 optionClassName,
+                getItemProps,
+                optionsSize,
+                highlightedIndex,
                 selectedItems,
-                size,
                 dataTestId,
             ],
         );
@@ -373,7 +375,9 @@ export const BaseSelect = forwardRef(
                                 {...menuProps}
                                 className={cn(optionsListClassName, styles.optionsList)}
                                 style={{
-                                    minWidth: optionsListMinWidth,
+                                    [optionsListWidth === 'field'
+                                        ? 'width'
+                                        : 'minWidth']: optionsListMinWidth,
                                 }}
                             >
                                 <OptionsList

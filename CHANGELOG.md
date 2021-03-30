@@ -1,3 +1,20 @@
+## [13.3.1](https://github.com/alfa-laboratory/core-components/compare/v13.3.0...v13.3.1) (2021-03-30)
+
+
+### Bug Fixes
+
+* subComponentName ([8064ac6](https://github.com/alfa-laboratory/core-components/commit/8064ac67af83750673ac2dde4794b2ec8fc04f2e))
+
+# [13.3.0](https://github.com/alfa-laboratory/core-components/compare/v13.2.0...v13.3.0) (2021-03-24)
+
+
+### Features
+
+* **alert:** add component ([#548](https://github.com/alfa-laboratory/core-components/issues/548)) ([264cbf8](https://github.com/alfa-laboratory/core-components/commit/264cbf8f7465d2ecaf043bf0f67530e040fc83f6))
+* **calendar-input:** remove input width ([#576](https://github.com/alfa-laboratory/core-components/issues/576)) ([f0954b0](https://github.com/alfa-laboratory/core-components/commit/f0954b0724ead52ea0a60ab8baebd5dfa3638a01))
+* **select:** add options-list width ([#578](https://github.com/alfa-laboratory/core-components/issues/578)) ([6f1c12b](https://github.com/alfa-laboratory/core-components/commit/6f1c12b9196d3ebf87e1ea3e0610f73b8832b771))
+* **select:** add optionsSize ([#577](https://github.com/alfa-laboratory/core-components/issues/577)) ([12f3b43](https://github.com/alfa-laboratory/core-components/commit/12f3b4342a3dada9db97eb80839a3d7adb9e3747))
+
 # [13.2.0](https://github.com/alfa-laboratory/core-components/compare/v13.1.4...v13.2.0) (2021-03-24)
 
 
