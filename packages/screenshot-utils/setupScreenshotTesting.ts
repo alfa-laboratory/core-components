@@ -67,6 +67,8 @@ export const setupScreenshotTesting = ({
         });
 
         it.each(cases)('%s', async (_, link: string) => {
+            console.log(link);
+
             await page?.goto(encodeURI(link));
 
             await matchHtml({
