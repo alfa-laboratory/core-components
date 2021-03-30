@@ -8,11 +8,11 @@ const screenshotTesting = setupScreenshotTesting({
 });
 
 describe(
-    'Textarea | main props',
+    'Textarea | sprite',
     screenshotTesting({
         cases: [
             [
-                'sprite',
+                'main props',
                 createSpriteStorybookUrl({
                     componentName: 'Textarea',
                     knobs: {
@@ -24,20 +24,8 @@ describe(
                     size: { width: 240, height: 100 },
                 }),
             ],
-        ],
-        screenshotOpts: {
-            fullPage: true,
-        },
-        viewport: { width: 1024, height: 100 },
-    }),
-);
-
-describe(
-    'Textarea | hint & error',
-    screenshotTesting({
-        cases: [
             [
-                'sprite',
+                'hint & error',
                 createSpriteStorybookUrl({
                     componentName: 'Textarea',
                     knobs: {
