@@ -22,7 +22,7 @@ import { Tag } from '../../tag/src';
         const direction = select('direction', ['vertical', 'horizontal'], 'vertical');
         const error = text('error', '');
         const disabled = boolean('disabled', false);
-        const label = text('label', 'Заголовок группы');
+        const label = text('label', '');
         return (
             <RadioGroup
                 label={label}
