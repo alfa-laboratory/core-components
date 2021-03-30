@@ -1,3 +1,10 @@
+## [13.3.1](https://github.com/alfa-laboratory/core-components/compare/v13.3.0...v13.3.1) (2021-03-30)
+
+
+### Bug Fixes
+
+* subComponentName ([8064ac6](https://github.com/alfa-laboratory/core-components/commit/8064ac67af83750673ac2dde4794b2ec8fc04f2e))
+
 # [13.3.0](https://github.com/alfa-laboratory/core-components/compare/v13.2.0...v13.3.0) (2021-03-24)
 
 
