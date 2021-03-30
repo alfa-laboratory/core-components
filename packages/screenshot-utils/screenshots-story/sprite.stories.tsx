@@ -7,7 +7,9 @@ import styles from './sprite.stories.module.css';
 
 const propsToTitle = props => {
     const { children, ...restProps } = props;
-    return JSON.stringify(restProps).replace(/[{}"]/g, '');
+    return JSON.stringify(restProps)
+        .replace(/[{}"]/g, '')
+        .replace(/,/g, ', ');
 };
 
 export const ScreenshotsSprite = () => {
