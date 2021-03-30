@@ -2,7 +2,7 @@
 
 @define-mixin button-corp {
     /* core vars */
-    --color-light-specialbg-component: #eeeff1;
+    --color-light-specialbg-component: rgba(11, 31, 53, 0.07);
     --color-light-border-tertiary-inverted: #6d7986;
 
     /* secondary */
