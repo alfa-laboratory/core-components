@@ -20,9 +20,11 @@ export const ScreenshotsSprite = () => {
 
     const propsList = combosToProps(combos, Object.keys(knobs));
 
-    const packageName = getQueryParam('package');
-    const componentName = getQueryParam('component');
-    const Component = getComponent(packageName, componentName);
+    const Component = getComponent(
+        getQueryParam('package'),
+        getQueryParam('component'),
+        getQueryParam('subComponent'),
+    );
 
     const componentStyles: CSSProperties = {};
     componentStyles.width = +getQueryParam('width') || undefined;

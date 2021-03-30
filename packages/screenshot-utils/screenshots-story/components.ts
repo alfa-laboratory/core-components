@@ -10,5 +10,15 @@ const packages = req.keys().reduce((acc, key) => {
     return acc;
 }, {});
 
-export const getComponent = (packageName: string, componentName: string) =>
-    (packages[packageName] || {})[componentName];
+export const getComponent = (
+    packageName: string,
+    componentName: string,
+    subComponentName?: string,
+) => {
+    try {
+        const component = packages[packageName][componentName];
+        return subComponentName ? component[subComponentName] : component;
+    } catch (e) {
+        return null;
+    }
+};
