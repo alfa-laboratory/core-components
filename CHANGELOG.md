@@ -1,3 +1,10 @@
+## [14.0.1](https://github.com/alfa-laboratory/core-components/compare/v14.0.0...v14.0.1) (2021-03-30)
+
+
+### Bug Fixes
+
+* **themes:** fixed button corp theme ([4dec71c](https://github.com/alfa-laboratory/core-components/commit/4dec71ccc9bd321a9d7a50dba221b13267b092f9))
+
 # [14.0.0](https://github.com/alfa-laboratory/core-components/compare/v13.3.1...v14.0.0) (2021-03-30)
 
 
