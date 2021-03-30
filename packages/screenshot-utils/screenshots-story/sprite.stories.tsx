@@ -7,7 +7,9 @@ import styles from './sprite.stories.module.css';
 
 const propsToTitle = props => {
     const { children, ...restProps } = props;
-    return JSON.stringify(restProps).replace(/[{}"]/g, '');
+    return JSON.stringify(restProps)
+        .replace(/[{}"]/g, '')
+        .replace(/,/g, ', ');
 };
 
 export const ScreenshotsSprite = () => {
@@ -20,9 +22,11 @@ export const ScreenshotsSprite = () => {
 
     const propsList = combosToProps(combos, Object.keys(knobs));
 
-    const packageName = getQueryParam('package');
-    const componentName = getQueryParam('component');
-    const Component = getComponent(packageName, componentName);
+    const Component = getComponent(
+        getQueryParam('package'),
+        getQueryParam('component'),
+        getQueryParam('subComponent'),
+    );
 
     const componentStyles: CSSProperties = {};
     componentStyles.width = +getQueryParam('width') || undefined;
