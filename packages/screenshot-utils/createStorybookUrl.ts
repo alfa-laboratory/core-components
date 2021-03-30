@@ -32,7 +32,7 @@ export type CreateSpriteStorybookUrlParams = {
 export function createStorybookUrl({
     url = STORYBOOK_URL,
     componentName,
-    subComponentName,
+    subComponentName = '',
     packageName = kebab(componentName),
     testStory = true,
     knobs = {},
@@ -53,7 +53,7 @@ export function createStorybookUrl({
 export function createSpriteStorybookUrl({
     url = STORYBOOK_URL,
     componentName,
-    subComponentName,
+    subComponentName = '',
     packageName = kebab(componentName),
     knobs = {},
     size,
