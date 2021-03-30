@@ -1,3 +1,4 @@
+import { Page } from 'playwright';
 import {
     setupScreenshotTesting,
     createStorybookUrl,
@@ -5,6 +6,7 @@ import {
     matchHtml,
     closeBrowser,
     createSpriteStorybookUrl,
+    generateTestCases,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -63,6 +65,44 @@ describe(
         ],
         screenshotOpts: {
             fullPage: true,
+        },
+    }),
+);
+
+describe(
+    'Checkbox | hover state',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'Checkbox',
+            knobs: {
+                label: ['Согласен с условиями'],
+                disabled: [true, false],
+            },
+        }),
+        evaluate: (page: Page) => page.hover('label').then(() => page.waitForTimeout(500)),
+        screenshotOpts: {
+            clip,
+        },
+    }),
+);
+
+describe(
+    'Checkbox | pressed state',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'Checkbox',
+            knobs: {
+                label: ['Согласен с условиями'],
+                disabled: [true, false],
+            },
+        }),
+        evaluate: (page: Page) => {
+            return page.mouse
+                .move(30, 30)
+                .then(() => page.mouse.down().then(() => page.waitForTimeout(500)));
+        },
+        screenshotOpts: {
+            clip,
         },
     }),
 );
