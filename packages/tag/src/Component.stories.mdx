@@ -27,6 +27,7 @@ export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
                 size={select('size', SIZES, 'm')}
                 disabled={boolean('disabled', false)}
                 checked={checked || boolean('checked', false)}
+                rightAddons={boolean('rightAddons', false) && <Icon />}
                 onClick={handleClick}
             >
                 {text('label', 'Оплатить')}
