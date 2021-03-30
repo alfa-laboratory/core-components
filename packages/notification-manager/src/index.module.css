@@ -1,0 +1,56 @@
+@import '../../vars/src/gaps.css';
+
+.component {
+    position: fixed;
+    top: 0;
+    right: var(--gap-s);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+}
+
+.component .notification {
+    position: static;
+    width: calc(100vw - var(--gap-xl));
+    margin-top: var(--gap-s);
+    will-change: transform;
+}
+
+.enter {
+    visibility: hidden;
+    transform: translate(0, -500px);
+    transition: transform 0.4s ease-out;
+}
+
+.enterActive {
+    visibility: visible;
+    transform: translate(0);
+}
+
+.exit {
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+}
+
+.exitActive {
+    visibility: hidden;
+    opacity: 0;
+}
+
+@media (--tablet-s) {
+    .component {
+        right: var(--gap-4xl);
+    }
+
+    .component .notification {
+        width: auto;
+    }
+
+    .enter {
+        transform: translate(100%, 0);
+    }
+
+    .enterActive {
+        transform: translate(0);
+    }
+}

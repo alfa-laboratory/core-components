@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-attach",
-    "version": "1.4.16",
+    "version": "1.4.18",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -16,7 +16,7 @@
         "react": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^2.1.5",
+        "@alfalab/core-components-button": "^2.1.7",
         "@alfalab/core-components-keyboard-focusable": "^1.2.9",
         "@alfalab/core-components-progress-bar": "^1.1.4",
         "@alfalab/icons-classic": "^1.7.0",

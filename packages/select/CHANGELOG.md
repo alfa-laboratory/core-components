@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@7.2.0...@alfalab/core-components-select@7.2.1) (2021-03-30)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+# [7.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@7.1.6...@alfalab/core-components-select@7.2.0) (2021-03-24)
+
+
+### Features
+
+* **select:** add options-list width ([#578](https://github.com/alfa-laboratory/core-components/issues/578)) ([6f1c12b](https://github.com/alfa-laboratory/core-components/commit/6f1c12b9196d3ebf87e1ea3e0610f73b8832b771))
+* **select:** add optionsSize ([#577](https://github.com/alfa-laboratory/core-components/issues/577)) ([12f3b43](https://github.com/alfa-laboratory/core-components/commit/12f3b4342a3dada9db97eb80839a3d7adb9e3747))
+
+
+
+
+
+## [7.1.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@7.1.5...@alfalab/core-components-select@7.1.6) (2021-03-24)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
 ## [7.1.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@7.1.4...@alfalab/core-components-select@7.1.5) (2021-03-19)
 
 **Note:** Version bump only for package @alfalab/core-components-select

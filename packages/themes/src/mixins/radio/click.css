@@ -11,6 +11,4 @@
     --radio-checked-hover-border-color: transparent;
     --radio-checked-active-bg-color: color-mod(var(--color-light-graphic-positive) shade(30%));
     --radio-checked-active-border-color: transparent;
-    --radio-checked-disabled-bg-color: color-mod(var(--color-light-graphic-positive) alpha(30%));
-    --radio-checked-disabled-border-color: transparent;
 }
