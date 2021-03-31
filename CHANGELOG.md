@@ -1,3 +1,10 @@
+## [14.0.2](https://github.com/alfa-laboratory/core-components/compare/v14.0.1...v14.0.2) (2021-03-31)
+
+
+### Bug Fixes
+
+* **calendar-input:** z-index increased ([8e0df44](https://github.com/alfa-laboratory/core-components/commit/8e0df445a1be317291f2d35e2f4d4afb9d24609c))
+
 ## [14.0.1](https://github.com/alfa-laboratory/core-components/compare/v14.0.0...v14.0.1) (2021-03-30)
 
 
