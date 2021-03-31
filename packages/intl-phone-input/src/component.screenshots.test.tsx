@@ -5,8 +5,6 @@ import {
     closeBrowser,
 } from '../../screenshot-utils';
 
-const clip = { x: 0, y: 0, width: 360, height: 600 };
-
 /**
  * TODO: иконки стран недоступны на playwright-сервере
  */
@@ -15,6 +13,9 @@ describe('IntlPhoneInput | interactions tests', () => {
         const pageUrl = createStorybookUrl({
             componentName: 'IntlPhoneInput',
             testStory: false,
+            knobs: {
+                block: true,
+            },
         });
 
         const { browser, context, page, css } = await openBrowserPage(pageUrl);
@@ -27,15 +28,15 @@ describe('IntlPhoneInput | interactions tests', () => {
              */
             await page.waitForTimeout(300);
 
-            await matchHtml({ page, expect, css, screenshotOpts: { clip } });
+            await matchHtml({ page, expect, css });
 
             await page.click('[role="combobox"]');
 
-            await matchHtml({ page, expect, css, screenshotOpts: { clip } });
+            await matchHtml({ page, expect, css });
 
             await page.click('[role="option"]');
 
-            await matchHtml({ page, expect, css, screenshotOpts: { clip } });
+            await matchHtml({ page, expect, css });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error(error.message);
