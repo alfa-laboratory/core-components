@@ -1,10 +1,10 @@
 import {
     setupScreenshotTesting,
-    generateTestCases,
     createStorybookUrl,
     openBrowserPage,
     matchHtml,
     closeBrowser,
+    createSpriteStorybookUrl,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -14,20 +14,23 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
-const clip = { x: 0, y: 0, width: 400, height: 100 };
-
 describe(
     'Attach | screenshots',
     screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'Attach',
-            knobs: {
-                buttonContent: 'Выберите файл',
-                noFileText: 'Нет файла',
-                size: ['xs', 's', 'm', 'l'],
-            },
-        }),
-        screenshotOpts: { clip },
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Attach',
+                    knobs: {
+                        buttonContent: 'Выберите файл',
+                        noFileText: 'Нет файла',
+                        size: ['xs', 's', 'm', 'l'],
+                    },
+                    size: { width: 400, height: 100 },
+                }),
+            ],
+        ],
     }),
 );
 

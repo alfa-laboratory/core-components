@@ -19,7 +19,7 @@ const screenshotTesting = setupScreenshotTesting({
 const clip = { x: 0, y: 0, width: 400, height: 100 };
 
 describe(
-    'Checkbox | size, disabled, align',
+    'Checkbox | size, disabled, checked',
     screenshotTesting({
         cases: [
             [
@@ -27,12 +27,12 @@ describe(
                 createSpriteStorybookUrl({
                     componentName: 'Checkbox',
                     knobs: {
+                        checked: [true, false],
                         label: ['Согласен с условиями'],
                         hint: ['Дополнительная информация'],
                         size: ['s', 'm'],
                         disabled: [true, false],
                         indeterminate: [true, false],
-                        align: ['start', 'center'],
                     },
                     size: { width: 400, height: 100 },
                 }),
@@ -45,7 +45,7 @@ describe(
 );
 
 describe(
-    'Checkbox | addons, block',
+    'Checkbox | addons, block, align',
     screenshotTesting({
         cases: [
             [
@@ -58,6 +58,7 @@ describe(
                         size: ['s'],
                         addons: ['', 'Addons'],
                         block: [true, false],
+                        align: ['start', 'center'],
                     },
                     size: { width: 400, height: 100 },
                 }),
@@ -106,29 +107,3 @@ describe(
         },
     }),
 );
-
-describe('Checkbox | interactions tests', () => {
-    test('Check checkbox', async () => {
-        const pageUrl = createStorybookUrl({
-            componentName: 'Checkbox',
-            knobs: {
-                label: 'Согласен с условиями',
-                size: 's',
-            },
-            testStory: false,
-        });
-
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
-
-        try {
-            await page.click('label');
-
-            await matchHtml({ page, expect, css, screenshotOpts: { clip } });
-        } catch (error) {
-            // eslint-disable-next-line no-console
-            console.error(error.message);
-        } finally {
-            await closeBrowser({ browser, context, page });
-        }
-    });
-});

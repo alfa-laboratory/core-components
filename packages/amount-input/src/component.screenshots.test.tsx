@@ -1,4 +1,4 @@
-import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
+import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -7,21 +7,23 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
-const clip = { x: 0, y: 0, width: 300, height: 70 };
-
 describe(
     'AmountInput | screenshots',
     screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'AmountInput',
-            knobs: {
-                value: [12300],
-                currency: ['RUR', 'USD'],
-                minority: [100],
-                view: ['default', 'withZeroMinorPart'],
-                bold: [true, false],
-            },
-        }),
-        screenshotOpts: { clip },
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'AmountInput',
+                    knobs: {
+                        value: [12300],
+                        currency: ['RUR', 'USD'],
+                        minority: [100],
+                        bold: [true, false],
+                    },
+                    size: { width: 300, height: 70 },
+                }),
+            ],
+        ],
     }),
 );
