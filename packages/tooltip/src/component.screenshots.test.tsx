@@ -48,8 +48,8 @@ describe('Tooltip', () => {
                     expect,
                     css,
                     matchImageSnapshotOptions: {
-                        failureThresholdType: 'pixel',
-                        failureThreshold: 5,
+                        failureThresholdType: 'percent',
+                        failureThreshold: 1.5,
                     },
                 });
             } catch (error) {

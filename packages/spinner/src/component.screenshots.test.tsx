@@ -27,8 +27,8 @@ describe(
             fullPage: true,
         },
         matchImageSnapshotOptions: {
-            failureThresholdType: 'pixel',
-            failureThreshold: 10,
+            failureThresholdType: 'percent',
+            failureThreshold: 0.7,
         },
         viewport: {
             width: 250,
