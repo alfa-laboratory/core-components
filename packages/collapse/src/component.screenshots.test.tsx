@@ -18,11 +18,29 @@ describe('Collapse | interactions tests', () => {
         const { browser, context, page, css } = await openBrowserPage(pageUrl);
 
         try {
-            await matchHtml({ page, expect, css, screenshotOpts: { clip } });
+            await matchHtml({
+                page,
+                expect,
+                css,
+                screenshotOpts: { clip },
+                matchImageSnapshotOptions: {
+                    failureThresholdType: 'percent',
+                    failureThreshold: 0.2,
+                },
+            });
 
             await page.click('a');
 
-            await matchHtml({ page, expect, css, screenshotOpts: { clip } });
+            await matchHtml({
+                page,
+                expect,
+                css,
+                screenshotOpts: { clip },
+                matchImageSnapshotOptions: {
+                    failureThresholdType: 'percent',
+                    failureThreshold: 0.2,
+                },
+            });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error(error.message);
