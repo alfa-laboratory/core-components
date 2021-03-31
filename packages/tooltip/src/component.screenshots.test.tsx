@@ -9,7 +9,7 @@ import {
 
 describe('Tooltip', () => {
     test('test positioning', async () => {
-        jest.setTimeout(30000);
+        jest.setTimeout(60000);
 
         const cases = generateTestCases({
             componentName: 'Tooltip',
@@ -43,7 +43,15 @@ describe('Tooltip', () => {
 
                 await page.hover('*[class^=target]');
 
-                await matchHtml({ page, expect, css });
+                await matchHtml({
+                    page,
+                    expect,
+                    css,
+                    matchImageSnapshotOptions: {
+                        failureThresholdType: 'pixel',
+                        failureThreshold: 5,
+                    },
+                });
             } catch (error) {
                 // eslint-disable-next-line no-console
                 await console.error(error.message);
