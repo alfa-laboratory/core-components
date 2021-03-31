@@ -32,6 +32,7 @@ describe(
                         size: ['s', 'm', 'l'],
                         block: [false, true],
                         disabled: [false, true],
+                        value: ['', 'Value'],
                     },
                     size: { width: 350, height: 150 },
                 }),
@@ -55,6 +56,7 @@ describe(
                         size: 'm',
                         hint: ['', 'Hint'],
                         error: ['', 'Error'],
+                        value: ['', 'Value'],
                     },
                     size: { width: 350, height: 150 },
                 }),
@@ -79,6 +81,7 @@ describe(
                         leftAddons: ['left', false],
                         bottomAddons: ['bottom', false],
                         success: [false, true],
+                        value: ['', 'Value'],
                     },
                     size: { width: 350, height: 150 },
                 }),
@@ -105,23 +108,3 @@ describe(
         },
     }),
 );
-
-describe('Input | interactions tests', () => {
-    test('Fill input value', async () => {
-        const pageUrl = createStorybookUrl({ componentName: 'Input', knobs: { label: 'Label' } });
-        const { browser, context, page, css } = await openBrowserPage(pageUrl);
-
-        try {
-            await matchHtml({ page, expect, css, screenshotOpts: { clip } });
-
-            await page.fill('input', 'value');
-
-            await matchHtml({ page, expect, css, screenshotOpts: { clip } });
-        } catch (error) {
-            // eslint-disable-next-line no-console
-            console.error(error.message);
-        } finally {
-            await closeBrowser({ browser, context, page });
-        }
-    });
-});

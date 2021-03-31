@@ -42,14 +42,23 @@ describe(
 describe(
     'Button | screenshots views and block',
     screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'Button',
-            knobs: {
-                children: 'Оплатить',
-                view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
-                block: true,
-            },
-        }),
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Button',
+                    size: { width: 500, height: 80 },
+                    knobs: {
+                        children: 'Оплатить',
+                        view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
+                        block: true,
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
     }),
 );
 
