@@ -48,7 +48,11 @@ export function createStorybookUrl({
         return `${url}?id=компоненты--screenshots&package=${packageName}&component=${componentName}&subComponent=${subComponentName}${knobsQuery}`;
     }
 
-    return `${url}?id=компоненты--${packageName}${knobsQuery}`;
+    const componentPath = subComponentName
+        ? `-${packageName}--${kebab(subComponentName)}`
+        : `--${packageName}`;
+
+    return `${url}?id=компоненты${componentPath}${knobsQuery}`;
 }
 
 export function createSpriteStorybookUrl({
