@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@2.4.1...@alfalab/core-components-calendar-input@2.4.2) (2021-03-31)
+
+
+### Bug Fixes
+
+* **calendar-input:** z-index increased ([8e0df44](https://github.com/alfa-laboratory/core-components/commit/8e0df445a1be317291f2d35e2f4d4afb9d24609c))
+
+
+
+
+
 ## [2.4.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@2.4.0...@alfalab/core-components-calendar-input@2.4.1) (2021-03-30)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar-input
