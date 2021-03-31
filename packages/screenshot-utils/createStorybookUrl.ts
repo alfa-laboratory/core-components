@@ -18,6 +18,7 @@ export type CreateStorybookUrlParams = {
     subComponentName?: string;
     testStory?: boolean;
     knobs?: Knobs;
+    mockDate?: number;
 };
 
 export type CreateSpriteStorybookUrlParams = {
@@ -27,6 +28,7 @@ export type CreateSpriteStorybookUrlParams = {
     subComponentName?: string;
     knobs?: KnobsCombinations;
     size?: { width: number; height: number };
+    mockDate?: number;
 };
 
 export function createStorybookUrl({
@@ -36,6 +38,7 @@ export function createStorybookUrl({
     packageName = kebab(componentName),
     testStory = true,
     knobs = {},
+    mockDate,
 }: CreateStorybookUrlParams) {
     const knobsQuery = Object.keys(knobs).reduce(
         (acc, knobName) => `${acc}&knob-${knobName}=${knobs[knobName]}`,
@@ -43,11 +46,12 @@ export function createStorybookUrl({
     );
 
     if (testStory) {
-        // TODO: укоротить
-        return `${url}?id=компоненты--screenshots&package=${packageName}&component=${componentName}&subComponent=${subComponentName}${knobsQuery}`;
+        // TODO: укоротить (переписать на qs.stringify)
+        return `${url}?id=компоненты--screenshots&package=${packageName}&component=${componentName}&subComponent=${subComponentName}${knobsQuery}&mockDate=${mockDate ||
+            ''}`;
     }
 
-    return `${url}?id=компоненты--${packageName}${knobsQuery}`;
+    return `${url}?id=компоненты--${packageName}${knobsQuery}&mockDate=${mockDate || ''}`;
 }
 
 export function createSpriteStorybookUrl({
@@ -57,11 +61,12 @@ export function createSpriteStorybookUrl({
     packageName = kebab(componentName),
     knobs = {},
     size,
+    mockDate,
 }: CreateSpriteStorybookUrlParams) {
     const sizeParam = size ? `&height=${size.height}&width=${size.width}` : '';
 
-    // TODO: укоротить
+    // TODO: укоротить (переписать на qs.stringify)
     return `${url}?id=компоненты--screenshots-sprite&package=${packageName}&component=${componentName}&subComponent=${subComponentName}${sizeParam}&knobs=${JSON.stringify(
         knobs,
-    )}`;
+    )}&mockDate=${mockDate || ''}`;
 }
