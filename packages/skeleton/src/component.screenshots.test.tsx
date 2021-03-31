@@ -1,4 +1,4 @@
-import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
+import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -7,20 +7,32 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
-describe(
-    'Skeleton',
-    screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'Skeleton',
-            knobs: {
-                children: 'Skeleton Skeleton Skeleton Skeleton Skeleton',
-                animate: false,
-                visible: [false, true],
+describe('Skeleton', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        componentName: 'Skeleton',
+                        knobs: {
+                            children: 'Skeleton Skeleton Skeleton Skeleton Skeleton',
+                            animate: false,
+                            visible: [false, true],
+                        },
+                        size: { width: 200, height: 100 },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
             },
-        }),
-        viewport: {
-            width: 200,
-            height: 100,
-        },
-    }),
-);
+            viewport: {
+                width: 450,
+                height: 100,
+            },
+            theme,
+        })();
+
+    ['default', 'click'].map(testCase);
+});
