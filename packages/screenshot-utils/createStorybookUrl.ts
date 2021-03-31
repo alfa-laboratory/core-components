@@ -1,7 +1,7 @@
 import kebab from 'lodash.kebabcase';
 import { STORYBOOK_URL } from './setupScreenshotTesting';
 
-export type KnobValueType = string | boolean | number;
+export type KnobValueType = string | boolean | number | Array<string | boolean | number>;
 
 export type KnobsCombinations = {
     [key: string]: KnobValueType | KnobValueType[];
