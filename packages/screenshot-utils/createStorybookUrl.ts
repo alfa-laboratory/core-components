@@ -1,7 +1,8 @@
 import kebab from 'lodash.kebabcase';
 import { STORYBOOK_URL } from './setupScreenshotTesting';
 
-export type KnobValueType = string | boolean | number | unknown[];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type KnobValueType = string | boolean | number | any[];
 
 export type KnobsCombinations = {
     [key: string]: KnobValueType | KnobValueType[];
