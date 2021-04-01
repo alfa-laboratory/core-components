@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.21](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@1.3.20...@alfalab/core-components-calendar-range@1.3.21) (2021-04-01)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar-range
+
+
+
+
+
 ## [1.3.20](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@1.3.19...@alfalab/core-components-calendar-range@1.3.20) (2021-03-31)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar-range

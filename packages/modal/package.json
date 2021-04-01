@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-modal",
-    "version": "1.2.7",
+    "version": "1.2.8",
     "description": "Modal component",
     "keywords": [],
     "license": "MIT",
@@ -12,10 +12,10 @@
         "access": "public"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^2.1.7",
+        "@alfalab/core-components-button": "^2.2.0",
         "@alfalab/core-components-mq": "1.0.0",
         "@alfalab/core-components-portal": "^1.4.5",
-        "@alfalab/core-components-typography": "^1.4.5",
+        "@alfalab/core-components-typography": "^1.4.6",
         "@alfalab/icons-glyph": "^1.71.0",
         "classnames": "^2.2.6",
         "react-focus-lock": "^2.5.0",

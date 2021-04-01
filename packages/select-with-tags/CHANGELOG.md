@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@2.0.6...@alfalab/core-components-select-with-tags@2.0.7) (2021-04-01)
+
+
+### Bug Fixes
+
+* **select-with-tags:** tag box-sizing issue ([#589](https://github.com/alfa-laboratory/core-components/issues/589)) ([9bc9a44](https://github.com/alfa-laboratory/core-components/commit/9bc9a4484b1e46372bce5fc16663f3ac05378310))
+
+
+
+
+
 ## [2.0.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@2.0.4...@alfalab/core-components-select-with-tags@2.0.6) (2021-03-18)
 
 
