@@ -6,7 +6,7 @@ import {
 } from '../../screenshot-utils';
 
 describe('SelectWithTags | interactions tests', () => {
-    const testCase = async (theme: string) =>
+    ['default', 'click'].map(async (theme: string) =>
         test(`${theme} — main scenario`, async () => {
             const pageUrl = createStorybookUrl({
                 componentName: 'SelectWithTags',
@@ -38,11 +38,18 @@ describe('SelectWithTags | interactions tests', () => {
                 await match();
 
                 await page.click('[role="option"]:nth-child(1)');
-                await page.waitForTimeout(100);
+
+                await match();
+
+                await page.click('[role="option"]:nth-child(4)');
 
                 await match();
 
                 await page.click('[data-collapse]');
+
+                await match();
+
+                await page.click('[class^=tagCross]');
 
                 await match();
             } catch (error) {
@@ -51,9 +58,67 @@ describe('SelectWithTags | interactions tests', () => {
             } finally {
                 await closeBrowser({ browser, context, page });
             }
+        }),
+    );
+
+    test('hover & pressed', async () => {
+        const pageUrl = createStorybookUrl({
+            componentName: 'SelectWithTags',
+            testStory: false,
+            knobs: {},
         });
 
-    ['default', 'click'].map(testCase);
+        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+
+        const viewport = { width: 420, height: 768 };
+
+        await page.setViewportSize(viewport);
+
+        try {
+            await page.click('[role="combobox"]');
+
+            await page.click('[role="option"]:nth-child(4)');
+            await page.click('[role="option"]:nth-child(5)');
+            await page.click('[role="option"]:nth-child(6)');
+
+            await matchHtml({
+                page,
+                expect,
+                css,
+                viewport,
+                evaluate: remotePage =>
+                    remotePage.hover('[data-collapse]').then(() => remotePage.waitForTimeout(500)),
+            });
+
+            await matchHtml({
+                page,
+                expect,
+                css,
+                viewport,
+                evaluate: remotePage =>
+                    remotePage
+                        .hover('[class^=tagCross]')
+                        .then(() => remotePage.waitForTimeout(500)),
+            });
+
+            await matchHtml({
+                page,
+                expect,
+                css,
+                viewport,
+                evaluate: remotePage =>
+                    remotePage
+                        .hover('[class^=tagCross]')
+                        .then(() => remotePage.mouse.down())
+                        .then(() => remotePage.waitForTimeout(500)),
+            });
+        } catch (error) {
+            // eslint-disable-next-line no-console
+            console.error(error.message);
+        } finally {
+            await closeBrowser({ browser, context, page });
+        }
+    });
 
     test('collapseTagList', async () => {
         const pageUrl = createStorybookUrl({
