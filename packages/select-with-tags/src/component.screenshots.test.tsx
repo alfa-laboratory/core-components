@@ -22,7 +22,18 @@ describe('SelectWithTags | interactions tests', () => {
 
             await page.setViewportSize(viewport);
 
-            const match = async () => matchHtml({ page, expect, css, theme, viewport });
+            const match = async () =>
+                matchHtml({
+                    page,
+                    expect,
+                    css,
+                    theme,
+                    viewport,
+                    matchImageSnapshotOptions: {
+                        failureThresholdType: 'percent',
+                        failureThreshold: 1,
+                    },
+                });
 
             try {
                 await page.click('[role="combobox"]');
@@ -137,7 +148,17 @@ describe('SelectWithTags | interactions tests', () => {
 
         await page.setViewportSize(viewport);
 
-        const match = async () => matchHtml({ page, expect, css, viewport });
+        const match = async () =>
+            matchHtml({
+                page,
+                expect,
+                css,
+                viewport,
+                matchImageSnapshotOptions: {
+                    failureThresholdType: 'percent',
+                    failureThreshold: 1,
+                },
+            });
 
         try {
             await page.click('[role="combobox"]');
