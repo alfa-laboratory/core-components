@@ -220,6 +220,7 @@ describe('AmountInput', () => {
             const [currency, setCurrency] = useState<CurrencyCodes>('RUR');
             const [minority, setMinority] = useState(100);
 
+            /* eslint-disable no-shadow */
             setAmountManually = (
                 value: number | null,
                 currency: CurrencyCodes,
@@ -229,6 +230,7 @@ describe('AmountInput', () => {
                 setCurrency(currency);
                 setMinority(minority);
             };
+            /* eslint-enable no-shadow */
 
             return (
                 <AmountInput

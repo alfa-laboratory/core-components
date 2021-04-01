@@ -1,10 +1,10 @@
 import {
     setupScreenshotTesting,
-    generateTestCases,
     createStorybookUrl,
     closeBrowser,
     matchHtml,
     openBrowserPage,
+    createSpriteStorybookUrl,
 } from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
@@ -14,89 +14,169 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
-const clip = { x: 0, y: 0, width: 300, height: 100 };
-
-const options = JSON.stringify([
+const options = [
     { key: '1', content: 'Neptunium' },
     { key: '2', content: 'Plutonium' },
     { key: '3', content: 'Americium' },
     { key: '4', content: 'Curium' },
     { key: '5', content: 'Berkelium' },
     { key: '6', content: 'Californium' },
-]);
+];
 
-describe(
-    'Select | screenshots sizes, block and disabled',
-    screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'Select',
-            knobs: {
-                options,
-                size: ['s', 'm', 'l'],
-                block: [true, false],
-                disabled: [true, false],
-                label: 'Элемент',
-                placeholder: 'Выберите элемент',
+describe('Select', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme} theme — main props`,
+                    createSpriteStorybookUrl({
+                        componentName: 'Select',
+                        knobs: {
+                            options: [[]],
+                            block: true,
+                            placeholder: 'Выберите элемент',
+                            size: ['s', 'm', 'l'],
+                            label: ['Элемент', ''],
+                        },
+                        size: { width: 300, height: 120 },
+                    }),
+                ],
+                [
+                    `${theme} theme - additional props`,
+                    createSpriteStorybookUrl({
+                        componentName: 'Select',
+                        knobs: {
+                            options: [[]],
+                            block: true,
+                            Arrow: [false, undefined],
+                            placeholder: 'Выберите элемент',
+                            label: ['Элемент', ''],
+                            hint: 'Hint',
+                            error: ['', 'Error'],
+                            disabled: [false, true],
+                        },
+                        size: { width: 300, height: 120 },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
             },
-        }),
-    }),
-);
+            viewport: {
+                width: 700,
+                height: 100,
+            },
+            theme,
+        })();
 
-describe(
-    'Select | screenshots placeholder and label',
-    screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'Select',
-            knobs: {
-                block: [true],
-                options,
-                placeholder: ['Placeholder', ''],
-                label: ['Label', ''],
-            },
-        }),
-    }),
-);
-
-describe(
-    'Select | screenshots hint, error and Arrow',
-    screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'Select',
-            knobs: {
-                options,
-                hint: ['Hint', ''],
-                error: ['Error', ''],
-                label: 'Элемент',
-                placeholder: 'Выберите элемент',
-            },
-        }),
-        screenshotOpts: { clip },
-    }),
-);
+    ['default', 'click'].map(testCase);
+});
 
 describe('Select | interactions tests', () => {
-    test('Open select, select one item', async () => {
+    const testCase = async (theme: string) =>
+        test(`${theme} - open select, select one item`, async () => {
+            const pageUrl = createStorybookUrl({
+                componentName: 'Select',
+                knobs: {
+                    block: true,
+                    label: 'Элемент',
+                    placeholder: 'Выберите элемент',
+                    options: JSON.stringify(options),
+                },
+            });
+            const { browser, context, page, css } = await openBrowserPage(pageUrl);
+
+            const viewport = { width: 260, height: 768 };
+
+            await page.setViewportSize(viewport);
+
+            const match = async () => matchHtml({ page, expect, css, theme, viewport });
+
+            try {
+                await match();
+
+                await page.click('[role="combobox"]');
+
+                await match();
+
+                await page.click('[role="option"]');
+
+                await match();
+
+                await page.click('[role="combobox"]');
+
+                await match();
+            } catch (error) {
+                // eslint-disable-next-line no-console
+                console.error(error.message);
+            } finally {
+                await closeBrowser({ browser, context, page });
+            }
+        });
+
+    ['default', 'click'].map(testCase);
+
+    test('Visible options', async () => {
         const pageUrl = createStorybookUrl({
             componentName: 'Select',
             knobs: {
                 block: true,
                 label: 'Элемент',
                 placeholder: 'Выберите элемент',
-                options,
+                visibleOptions: 3,
+                options: JSON.stringify(options),
             },
         });
         const { browser, context, page, css } = await openBrowserPage(pageUrl);
 
-        try {
-            await matchHtml({ page, expect, css });
+        const viewport = { width: 260, height: 768 };
 
+        await page.setViewportSize(viewport);
+
+        try {
             await page.click('[role="combobox"]');
 
-            await matchHtml({ page, expect, css });
+            await matchHtml({ page, expect, css, viewport });
+        } catch (error) {
+            // eslint-disable-next-line no-console
+            console.error(error.message);
+        } finally {
+            await closeBrowser({ browser, context, page });
+        }
+    });
+
+    test('Long options', async () => {
+        const pageUrl = createStorybookUrl({
+            componentName: 'Select',
+            knobs: {
+                block: true,
+                label: 'Элемент',
+                placeholder: 'Выберите элемент',
+                optionsListWidth: 'field',
+                options: JSON.stringify([
+                    { key: '1', content: 'ВеликийНовгород' },
+                    { key: '2', content: 'ГусьХрустальный' },
+                    { key: '3', content: 'КаменскШахтинский' },
+                    { key: '4', content: 'ОченьДлинноеНазвание' },
+                ]),
+            },
+        });
+        const { browser, context, page, css } = await openBrowserPage(pageUrl);
+
+        const viewport = { width: 200, height: 768 };
+
+        await page.setViewportSize(viewport);
+
+        try {
+            await page.click('[role="combobox"]');
+
+            await matchHtml({ page, expect, css, viewport });
 
             await page.click('[role="option"]');
 
-            await matchHtml({ page, expect, css });
+            await page.click('[role="combobox"]');
+
+            await matchHtml({ page, expect, css, viewport });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error(error.message);

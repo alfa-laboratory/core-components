@@ -184,7 +184,7 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
                     <div className={styles.file}>
                         <span>{statusTextContent}</span>
                         <KeyboardFocusable>
-                            {(ref, focused) => (
+                            {(targetRef, focused) => (
                                 <button
                                     aria-label='очистить'
                                     type='button'
@@ -192,7 +192,7 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
                                         [styles.focused]: focused,
                                     })}
                                     onClick={handleClearClick}
-                                    ref={ref}
+                                    ref={targetRef}
                                 />
                             )}
                         </KeyboardFocusable>

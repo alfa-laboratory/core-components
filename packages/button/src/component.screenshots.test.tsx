@@ -42,23 +42,26 @@ describe(
 describe(
     'Button | screenshots views and block',
     screenshotTesting({
-        cases: generateTestCases({
-            componentName: 'Button',
-            knobs: {
-                children: 'Оплатить',
-                view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
-                block: true,
-            },
-        }),
+        cases: [
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'Button',
+                    size: { width: 500, height: 80 },
+                    knobs: {
+                        children: 'Оплатить',
+                        view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
+                        block: true,
+                    },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
     }),
 );
 
-/**
- * Скриншот для этого теста получается не информативным,
- * так как в самом начале анимации не видно лоадер.
- * Для того, чтобы скриншот был информативным, необходимо на сервере подождать какое-то время,
- * чтобы появился лоадер, а потом уже делать скриншот.
- */
 describe(
     'Button | screenshots views and loading',
     screenshotTesting({
@@ -70,10 +73,10 @@ describe(
                 loading: true,
             },
         }),
-
+        evaluate: (page: Page) => page.waitForTimeout(300),
         matchImageSnapshotOptions: {
-            failureThresholdType: 'pixel',
-            failureThreshold: 5,
+            failureThresholdType: 'percent',
+            failureThreshold: 0.1,
         },
         screenshotOpts: { clip },
     }),
@@ -91,6 +94,28 @@ describe(
         }),
         screenshotOpts: { clip },
         evaluate: (page: Page) => page.hover('button').then(() => page.waitForTimeout(500)),
+        matchImageSnapshotOptions: {
+            customSnapshotIdentifier: (...args) => `hover-${customSnapshotIdentifier(...args)}`,
+        },
+    }),
+);
+
+describe(
+    'Button | screenshots pressed state',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'Button',
+            knobs: {
+                children: 'Оплатить',
+                view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
+            },
+        }),
+        screenshotOpts: { clip },
+        evaluate: (page: Page) => {
+            return page.mouse
+                .move(30, 30)
+                .then(() => page.mouse.down().then(() => page.waitForTimeout(500)));
+        },
         matchImageSnapshotOptions: {
             customSnapshotIdentifier: (...args) => `hover-${customSnapshotIdentifier(...args)}`,
         },

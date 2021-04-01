@@ -32,6 +32,12 @@ export const ScreenshotsSprite = () => {
     componentStyles.width = +getQueryParam('width') || undefined;
     componentStyles.height = +getQueryParam('height') || undefined;
 
+    const mockDate = +getQueryParam('mockDate');
+
+    if (mockDate) {
+        Date.now = () => mockDate;
+    }
+
     if (!Component) return null;
 
     return (

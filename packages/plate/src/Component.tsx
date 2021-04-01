@@ -116,7 +116,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
 
         const isFoldable = !!title && !!children && foldable;
 
-        const hasButtons = Array.isArray(buttons) && buttons.length;
+        const hasButtons = Array.isArray(buttons) && buttons.length > 0;
         const hasContent = children || hasButtons;
 
         const handleClick = useCallback(

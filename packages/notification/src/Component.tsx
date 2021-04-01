@@ -56,6 +56,7 @@ export type NotificationProps = ToastPlateProps & {
     /**
      * Обработчик клика вне компонента
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onClickOutside?: (event?: MouseEvent<any>) => void;
 };
 
