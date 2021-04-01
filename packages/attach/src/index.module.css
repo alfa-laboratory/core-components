@@ -2,6 +2,11 @@
 
 .component {
     display: inline-flex;
+    flex-direction: column;
+}
+
+.attachInput {
+    display: inline-flex;
     align-items: center;
     position: relative;
 
@@ -32,18 +37,25 @@
 }
 
 /* TODO обновить типографику на новую, когда ее зарелизят */
+.xs .errorHint {
+    @mixin system_12-16_regular;
+}
+
 .xs .file,
-.xs .noFile {
+.xs .noFile,
+.s .errorHint {
     @mixin system_14-18_regular;
 }
 
 .s .file,
-.s .noFile {
+.s .noFile,
+.m .errorHint {
     @mixin system_16-20_regular;
 }
 
 .m .file,
-.m .noFile {
+.m .noFile,
+.l .errorHint {
     @mixin system_16-20_regular;
 }
 
@@ -57,6 +69,10 @@
     display: inline-block;
     margin-left: 0.5em;
     text-align: center;
+}
+
+.errorHint {
+    color: var(--color-light-text-negative);
 }
 
 .clear {

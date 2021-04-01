@@ -218,6 +218,69 @@ describe('Attach', () => {
         });
     });
 
+    describe('with maxFileSize prop', () => {
+        it('should show max file size error when we upload big file', () => {
+            const dataTestId = 'test-id';
+            const { container, getByTestId } = render(
+                <Attach dataTestId={dataTestId} maxFileSize={100} />,
+            );
+
+            const input = getByTestId(dataTestId) as HTMLInputElement;
+
+            fireEvent.change(input, {
+                target: {
+                    files: [
+                        {
+                            name: 'test1.txt',
+                            type: 'application/text',
+                            size: 1000,
+                        },
+                        {
+                            name: 'test2.txt',
+                            type: 'application/text',
+                            size: 99,
+                        },
+                    ],
+                },
+            });
+
+            expect(container.textContent).not.toContain('test.txt');
+            expect(container.textContent).toContain('Максимальный размер файла 100');
+
+            expect(container.textContent).toContain('Нет файла');
+            expect(input.value).toBeFalsy();
+        });
+
+        it('should show file name when we upload normal file', () => {
+            const dataTestId = 'test-id';
+            const { container, getByTestId } = render(
+                <Attach dataTestId={dataTestId} maxFileSize={10000} />,
+            );
+
+            const input = getByTestId(dataTestId) as HTMLInputElement;
+
+            fireEvent.change(input, {
+                target: {
+                    files: [
+                        {
+                            name: 'test1.txt',
+                            type: 'application/text',
+                            size: 1000,
+                        },
+                        {
+                            name: 'test2.txt',
+                            type: 'application/text',
+                            size: 99,
+                        },
+                    ],
+                },
+            });
+
+            expect(container.textContent).toContain('2 файла');
+            expect(container.textContent).not.toContain('Максимальный размер файла');
+        });
+    });
+
     it('should unmount without errors', () => {
         const { unmount } = render(<Attach />);
 

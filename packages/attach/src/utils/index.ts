@@ -9,3 +9,9 @@ export function truncateFilename(filename: string, maxFilenameLength?: number): 
 
     return filename;
 }
+
+export const validateFilesMaxSize = (files: File[], maxFileSize: number | undefined): boolean => {
+    if (!maxFileSize) return true;
+
+    return files.every(file => file.size < maxFileSize);
+};
