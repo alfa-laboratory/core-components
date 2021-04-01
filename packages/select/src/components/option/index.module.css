@@ -86,6 +86,11 @@
     color: var(--select-option-disabled-color);
 }
 
+.content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 /* IE min-height fix */
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {

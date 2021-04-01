@@ -1,8 +1,16 @@
-import React, { forwardRef, useCallback, useState, ReactNode, MouseEvent, useRef } from 'react';
+import React, {
+    forwardRef,
+    useCallback,
+    useState,
+    ReactNode,
+    MouseEvent,
+    useRef,
+    ReactElement,
+} from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
 import { useFocus } from '@alfalab/hooks';
-import { Button } from '@alfalab/core-components-button';
+import { Button, ComponentProps as ButtonProps } from '@alfalab/core-components-button';
 
 import styles from './index.module.css';
 
@@ -35,7 +43,7 @@ export type PlateProps = {
     /**
      * Заголовок компонента
      */
-    title?: string;
+    title?: ReactNode;
 
     /**
      * Вид компонента
@@ -43,9 +51,24 @@ export type PlateProps = {
     view?: 'common' | 'negative' | 'positive' | 'attention';
 
     /**
+     * Набор действий
+     */
+    buttons?: Array<ReactElement<ButtonProps>>;
+
+    /**
      * Дополнительный класс
      */
     className?: string;
+
+    /**
+     * Дополнительный класс для кнопок
+     */
+    buttonsClassName?: string;
+
+    /**
+     * Дополнительный класс для контента
+     */
+    contentClassName?: string;
 
     /**
      * Обработчик клика по плашке
@@ -71,9 +94,12 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             defaultFolded = true,
             leftAddons,
             children,
+            buttons = [],
             title,
             view = 'common',
             className,
+            buttonsClassName,
+            contentClassName,
             onClick,
             onClose,
             dataTestId,
@@ -81,6 +107,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
         ref,
     ) => {
         const plateRef = useRef<HTMLDivElement>(null);
+        const buttonsRef = useRef<HTMLDivElement>(null);
 
         const [focused] = useFocus(plateRef, 'keyboard');
 
@@ -89,9 +116,20 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
 
         const isFoldable = !!title && !!children && foldable;
 
+        const hasButtons = Array.isArray(buttons) && buttons.length > 0;
+        const hasContent = children || hasButtons;
+
         const handleClick = useCallback(
             event => {
-                if (isFoldable) {
+                const eventInsideButtons =
+                    buttonsRef.current && buttonsRef.current.contains(event.target);
+
+                const clickSimilarKeys = ['Enter', ' '].includes(event.key);
+
+                const shouldChangeIsFolded =
+                    !eventInsideButtons && (event.type === 'click' || clickSimilarKeys);
+
+                if (isFoldable && shouldChangeIsFolded) {
                     setIsFolded(!isFolded);
                 }
 
@@ -113,6 +151,25 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             [onClose],
         );
 
+        const renderButtons = useCallback(
+            () => (
+                <div className={cn(styles.buttons, buttonsClassName)} ref={buttonsRef}>
+                    {buttons.map((button, index) =>
+                        button
+                            ? React.cloneElement(button, {
+                                  // eslint-disable-next-line react/no-array-index-key
+                                  key: index,
+                                  size: 'xs',
+                                  view: index === 0 ? 'outlined' : 'link',
+                                  className: cn(button.props.className, styles.button),
+                              })
+                            : null,
+                    )}
+                </div>
+            ),
+            [buttons, buttonsClassName],
+        );
+
         return (
             // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
             <div
@@ -122,8 +179,6 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                     {
                         [styles.focused]: focused,
                         [styles.isHidden]: hasCloser && isHidden,
-                        [styles.hasCloser]: hasCloser,
-                        [styles.foldable]: isFoldable,
                         [styles.isFolded]: isFoldable && isFolded,
                     },
                     className,
@@ -136,42 +191,40 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                 tabIndex={isFoldable ? 0 : -1}
                 data-test-id={dataTestId}
             >
-                {leftAddons && <div className={styles.leftAddons}>{leftAddons}</div>}
-                <div
-                    className={cn(styles.contentContainer, {
-                        [styles.withoutTitle]: !title,
-                    })}
-                >
-                    {title && <div className={styles.title}>{title}</div>}
-                    {children && (
+                <div className={styles.inner}>
+                    {leftAddons && <div className={styles.leftAddons}>{leftAddons}</div>}
+                    <div
+                        className={cn(styles.contentContainer, contentClassName, {
+                            [styles.withoutTitle]: !title,
+                        })}
+                    >
+                        {title && <div className={styles.title}>{title}</div>}
+                        {hasContent && (
+                            <div
+                                className={cn(styles.content, {
+                                    [styles.isFolded]: isFoldable && isFolded,
+                                })}
+                            >
+                                <div className={styles.contentInner}>
+                                    {children}
+                                    {hasButtons ? renderButtons() : null}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                    {isFoldable && (
                         <div
-                            className={cn(styles.content, {
-                                [styles.isFolded]: isFoldable && isFolded,
+                            className={cn(styles.folder, {
+                                [styles.isFolded]: isFolded,
                             })}
-                        >
-                            <div className={styles.contentInner}>{children}</div>
-                        </div>
+                        />
+                    )}
+
+                    {hasCloser && !isFoldable && (
+                        <Button className={styles.closer} view='ghost' onClick={handleClose} />
                     )}
                 </div>
-                {(foldable || hasCloser) && (
-                    <div className={styles.additional}>
-                        {isFoldable && (
-                            <div
-                                className={cn(styles.folder, {
-                                    [styles.isFolded]: isFolded,
-                                })}
-                            />
-                        )}
-                        {isFoldable ||
-                            (hasCloser && (
-                                <Button
-                                    className={styles.closer}
-                                    view='ghost'
-                                    onClick={handleClose}
-                                />
-                            ))}
-                    </div>
-                )}
             </div>
         );
     },

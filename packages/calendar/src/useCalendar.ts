@@ -401,6 +401,7 @@ export function useCalendar({
     );
 
     const getMonthProps = useCallback(
+        // eslint-disable-next-line no-shadow
         (month: Month) => {
             const monthselected = isSameMonth(activeMonth, month.date);
             return {

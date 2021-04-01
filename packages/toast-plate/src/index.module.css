@@ -71,7 +71,9 @@
 
 .children {
     @mixin paragraph_primary_small;
+}
 
+.title + .children {
     margin-top: var(--gap-2xs);
 }
 

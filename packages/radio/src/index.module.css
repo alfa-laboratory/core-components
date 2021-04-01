@@ -5,7 +5,7 @@
     --radio-label-color: var(--color-light-text-primary);
 
     /* unchecked */
-    --radio-bg-color: var(--color-light-bg-secondary);
+    --radio-bg-color: var(--color-light-graphic-secondary-inverted);
     --radio-border-color: var(--color-light-border-tertiary-inverted);
     --radio-hover-bg-color: var(--color-light-graphic-tertiary);
     --radio-hover-border-color: var(--color-light-border-tertiary-inverted);
@@ -13,20 +13,21 @@
     --radio-active-border-color: var(--color-light-border-key);
 
     /* checked */
-    --radio-checked-bg-color: var(--color-red-brand-85-flat); /* TODO */
-    --radio-checked-border-color: var(--color-red-dark); /* TODO */
-    --radio-checked-hover-bg-color: var(--color-light-bg-accent);
-    --radio-checked-hover-border-color: var(--color-red-dark); /* TODO */
-    --radio-checked-active-bg-color: var(--color-light-bg-accent);
-    --radio-checked-active-border-color: var(--color-light-border-key);
+    --radio-checked-bg-color: var(--color-light-graphic-accent);
+    --radio-checked-border-color: transparent;
+    --radio-checked-hover-bg-color: color-mod(var(--color-light-graphic-accent) shade(10%));
+    --radio-checked-hover-border-color: transparent;
+    --radio-checked-active-bg-color: color-mod(var(--color-light-graphic-accent) shade(30%));
+    --radio-checked-active-border-color: transparent;
 
     /* disabled */
-    --radio-disabled-bg-color: var(--color-light-bg-neutral);
-    --radio-disabled-border-color: var(--color-light-border-primary);
+    --radio-disabled-color: var(--color-light-text-tertiary);
+    --radio-disabled-bg-color: var(--color-light-graphic-primary-inverted);
+    --radio-disabled-border-color: var(--color-light-graphic-neutral);
 
     /* disabled and checked */
-    --radio-checked-disabled-bg-color: var(--color-red-brand-30-flat); /* TODO */
-    --radio-checked-disabled-border-color: var(--color-red-brand-30-flat); /* TODO */
+    --radio-checked-disabled-bg-color: var(--color-light-graphic-neutral);
+    --radio-checked-disabled-border-color: transparent;
 }
 
 .container {
@@ -57,6 +58,14 @@
         & .circle {
             background-color: var(--radio-disabled-bg-color);
             border: 1px solid var(--radio-disabled-border-color);
+        }
+
+        & .label {
+            color: var(--radio-disabled-color);
+        }
+
+        & .hint {
+            color: var(--radio-disabled-color);
         }
     }
 
@@ -100,13 +109,12 @@
 
 .circle {
     flex-shrink: 0;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     box-sizing: border-box;
     border-radius: var(--border-radius-m);
     position: relative;
-    margin-right: var(--gap-xs);
-    margin-top: var(--gap-2xs);
+    margin: var(--gap-3xs);
     transition: background-color 0.2s ease, border 0.2s ease;
 
     &:before {
@@ -126,17 +134,21 @@
     }
 }
 
-.m .circle {
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
-    margin-right: var(--gap-m);
-    margin-top: var(--gap-3xs);
+.s .circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    margin: var(--gap-2xs) var(--gap-3xs);
 }
 
 .content {
     display: flex;
     flex-direction: column;
+    margin-left: var(--gap-s);
+}
+
+.s .content {
+    margin-left: var(--gap-xs);
 }
 
 .start {

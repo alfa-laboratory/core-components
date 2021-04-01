@@ -6,9 +6,14 @@
 }
 
 .component {
-    width: var(--calendar-width);
+    display: inline-block;
     outline: none;
     position: relative;
+}
+
+.popover {
+    /* TODO: перейти на систему */
+    z-index: 9999;
 }
 
 .block {
