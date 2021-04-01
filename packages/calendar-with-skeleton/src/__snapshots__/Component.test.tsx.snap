@@ -6,7 +6,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
     class="component"
   >
     <div
-      class="component"
+      class="component sixWeeks"
       tabindex="-1"
     >
       <div
@@ -31,7 +31,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               <span
                 class="buttonContent"
               >
-                Март
+                Ноябрь
                 <span
                   class="upDownIcon"
                 />
@@ -48,7 +48,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               <span
                 class="buttonContent"
               >
-                2021
+                2020
                 <span
                   class="upDownIcon"
                 />
@@ -109,11 +109,18 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
           </thead>
           <tbody>
             <tr>
+              <td />
+              <td />
+              <td />
+              <td />
+              <td />
+              <td />
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day firstDay"
-                  data-date="1614556800000"
-                  tabindex="0"
+                  data-date="1604188800000"
+                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -123,10 +130,13 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
+            </tr>
+            <tr>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1614643200000"
+                  data-date="1604275200000"
                   tabindex="-1"
                   type="button"
                 >
@@ -139,8 +149,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1614729600000"
+                  data-date="1604361600000"
                   tabindex="-1"
                   type="button"
                 >
@@ -153,8 +164,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1614816000000"
+                  data-date="1604448000000"
                   tabindex="-1"
                   type="button"
                 >
@@ -167,8 +179,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1614902400000"
+                  data-date="1604534400000"
                   tabindex="-1"
                   type="button"
                 >
@@ -181,8 +194,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1614988800000"
+                  data-date="1604620800000"
                   tabindex="-1"
                   type="button"
                 >
@@ -195,8 +209,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1615075200000"
+                  data-date="1604707200000"
                   tabindex="-1"
                   type="button"
                 >
@@ -207,12 +222,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-            </tr>
-            <tr>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1615161600000"
+                  data-date="1604793600000"
                   tabindex="-1"
                   type="button"
                 >
@@ -223,10 +237,13 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
+            </tr>
+            <tr>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1615248000000"
+                  data-date="1604880000000"
                   tabindex="-1"
                   type="button"
                 >
@@ -239,8 +256,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1615334400000"
+                  data-date="1604966400000"
                   tabindex="-1"
                   type="button"
                 >
@@ -253,8 +271,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1615420800000"
+                  data-date="1605052800000"
                   tabindex="-1"
                   type="button"
                 >
@@ -267,8 +286,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1615507200000"
+                  data-date="1605139200000"
                   tabindex="-1"
                   type="button"
                 >
@@ -281,8 +301,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1615593600000"
+                  data-date="1605225600000"
                   tabindex="-1"
                   type="button"
                 >
@@ -295,8 +316,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1615680000000"
+                  data-date="1605312000000"
                   tabindex="-1"
                   type="button"
                 >
@@ -307,12 +329,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-            </tr>
-            <tr>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1615766400000"
+                  data-date="1605398400000"
                   tabindex="-1"
                   type="button"
                 >
@@ -323,10 +344,13 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
+            </tr>
+            <tr>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1615852800000"
+                  data-date="1605484800000"
                   tabindex="-1"
                   type="button"
                 >
@@ -339,8 +363,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1615939200000"
+                  data-date="1605571200000"
                   tabindex="-1"
                   type="button"
                 >
@@ -353,8 +378,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1616025600000"
+                  data-date="1605657600000"
                   tabindex="-1"
                   type="button"
                 >
@@ -367,8 +393,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1616112000000"
+                  data-date="1605744000000"
                   tabindex="-1"
                   type="button"
                 >
@@ -381,8 +408,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1616198400000"
+                  data-date="1605830400000"
                   tabindex="-1"
                   type="button"
                 >
@@ -395,8 +423,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1616284800000"
+                  data-date="1605916800000"
                   tabindex="-1"
                   type="button"
                 >
@@ -407,12 +436,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-            </tr>
-            <tr>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1616371200000"
+                  data-date="1606003200000"
                   tabindex="-1"
                   type="button"
                 >
@@ -423,10 +451,13 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
+            </tr>
+            <tr>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1616457600000"
+                  data-date="1606089600000"
                   tabindex="-1"
                   type="button"
                 >
@@ -439,8 +470,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
               <td>
                 <button
-                  class="component ghost xs day today"
-                  data-date="1616544000000"
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1606176000000"
                   tabindex="-1"
                   type="button"
                 >
@@ -453,8 +485,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1616630400000"
+                  data-date="1606262400000"
                   tabindex="-1"
                   type="button"
                 >
@@ -467,8 +500,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1616716800000"
+                  data-date="1606348800000"
                   tabindex="-1"
                   type="button"
                 >
@@ -481,8 +515,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1616803200000"
+                  data-date="1606435200000"
                   tabindex="-1"
                   type="button"
                 >
@@ -495,8 +530,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1616889600000"
+                  data-date="1606521600000"
                   tabindex="-1"
                   type="button"
                 >
@@ -507,12 +543,11 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-            </tr>
-            <tr>
               <td>
                 <button
+                  aria-selected="false"
                   class="component ghost xs day"
-                  data-date="1616976000000"
+                  data-date="1606608000000"
                   tabindex="-1"
                   type="button"
                 >
@@ -523,11 +558,14 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
+            </tr>
+            <tr>
               <td>
                 <button
-                  class="component ghost xs day"
-                  data-date="1617062400000"
-                  tabindex="-1"
+                  aria-selected="true"
+                  class="component ghost xs day selected lastDay"
+                  data-date="1606694400000"
+                  tabindex="0"
                   type="button"
                 >
                   <span
@@ -537,20 +575,8 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
-                <button
-                  class="component ghost xs day lastDay"
-                  data-date="1617148800000"
-                  tabindex="-1"
-                  type="button"
-                >
-                  <span
-                    class="text stretchText"
-                  >
-                    31
-                  </span>
-                </button>
-              </td>
+              <td />
+              <td />
               <td />
               <td />
               <td />
