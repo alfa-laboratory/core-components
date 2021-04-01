@@ -12,6 +12,7 @@ describe('CalendarInput | interactions tests', () => {
             knobs: {
                 value: '25.03.2021',
                 label: 'Дата регистрации',
+                defaultMonth: 1613310391747,
             },
         });
 
