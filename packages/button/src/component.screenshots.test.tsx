@@ -75,8 +75,8 @@ describe(
         }),
         evaluate: (page: Page) => page.waitForTimeout(300),
         matchImageSnapshotOptions: {
-            failureThresholdType: 'pixel',
-            failureThreshold: 5,
+            failureThresholdType: 'percent',
+            failureThreshold: 0.1,
         },
         screenshotOpts: { clip },
     }),

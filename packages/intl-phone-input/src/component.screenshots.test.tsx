@@ -21,12 +21,12 @@ describe('IntlPhoneInput | interactions tests', () => {
         const { browser, context, page, css } = await openBrowserPage(pageUrl);
 
         try {
-            await page.waitForLoadState('load');
+            await page.waitForLoadState('networkidle');
 
             /**
              * Ждем, пока библиотека libphonenumber-js отформатирует номер телефона
              */
-            await page.waitForTimeout(300);
+            await page.waitForTimeout(500);
 
             await matchHtml({ page, expect, css });
 
