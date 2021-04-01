@@ -23,7 +23,16 @@ describe('CalendarInput | interactions tests', () => {
 
             await page.click('input');
 
-            await matchHtml({ page, expect, css });
+            await matchHtml({
+                page,
+                expect,
+                css,
+                matchImageSnapshotOptions: {
+                    failureThresholdType: 'percent',
+                    // TODO:
+                    failureThreshold: 2,
+                },
+            });
         } catch (error) {
             // eslint-disable-next-line no-console
             console.error(error.message);
