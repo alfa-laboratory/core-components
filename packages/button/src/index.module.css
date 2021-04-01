@@ -101,7 +101,6 @@ a.loading {
     min-height: var(--size-xs-height);
     padding: 0 var(--gap-m);
     font-size: 14px;
-    font-weight: 400;
 
     &.iconOnly {
         min-width: var(--size-xs-height);
