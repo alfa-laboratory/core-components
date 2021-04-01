@@ -127,16 +127,9 @@ Object {
           <input
             type="checkbox"
           />
-          <svg
-            class="indeterminateIcon"
-            focusable="false"
-            viewBox="0 0 18 18"
-          >
-            <path
-              d="M4 8h10v2H4z"
-              fill="#fff"
-            />
-          </svg>
+          <span
+            class="indeterminateLine"
+          />
         </span>
         <span
           class="content"
@@ -165,16 +158,9 @@ Object {
         <input
           type="checkbox"
         />
-        <svg
-          class="indeterminateIcon"
-          focusable="false"
-          viewBox="0 0 18 18"
-        >
-          <path
-            d="M4 8h10v2H4z"
-            fill="#fff"
-          />
-        </svg>
+        <span
+          class="indeterminateLine"
+        />
       </span>
       <span
         class="content"

@@ -55,6 +55,7 @@
 }
 
 .box {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,12 +63,17 @@
     width: 20px;
     height: 20px;
     margin: var(--gap-3xs);
+    color: var(--color-light-graphic-primary-inverted);
     background-color: var(--checkbox-bg-color);
     border: 1px solid var(--checkbox-border-color);
     border-radius: var(--border-radius-s);
     transition: background-color 0.2s ease, border-color 0.2s ease;
     box-sizing: border-box;
     overflow: hidden;
+}
+
+.checkedIcon {
+    position: absolute;
 }
 
 .s .box {
@@ -172,9 +178,11 @@
     color: var(--checkbox-hint-color);
 }
 
-.indeterminateIcon {
-    width: 16px;
-    height: 16px;
+.indeterminateLine {
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background-color: var(--color-light-graphic-primary-inverted);
 }
 
 .component input {

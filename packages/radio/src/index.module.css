@@ -112,7 +112,7 @@
     width: 20px;
     height: 20px;
     box-sizing: border-box;
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-circle);
     position: relative;
     margin: var(--gap-3xs);
     transition: background-color 0.2s ease, border 0.2s ease;
@@ -137,7 +137,6 @@
 .s .circle {
     width: 16px;
     height: 16px;
-    border-radius: 8px;
     margin: var(--gap-2xs) var(--gap-3xs);
 }
 
