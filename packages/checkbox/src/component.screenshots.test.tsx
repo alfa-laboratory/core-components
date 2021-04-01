@@ -1,10 +1,6 @@
 import { Page } from 'playwright';
 import {
     setupScreenshotTesting,
-    createStorybookUrl,
-    openBrowserPage,
-    matchHtml,
-    closeBrowser,
     createSpriteStorybookUrl,
     generateTestCases,
 } from '../../screenshot-utils';

@@ -142,8 +142,8 @@ describe(
             fullPage: true,
         },
         matchImageSnapshotOptions: {
-            failureThresholdType: 'pixel',
-            failureThreshold: 5,
+            failureThresholdType: 'percent',
+            failureThreshold: 0.005,
         },
     }),
 );
