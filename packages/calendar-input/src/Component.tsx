@@ -369,6 +369,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                         offset={[0, 8]}
                         withTransition={false}
                         preventFlip={preventFlip}
+                        className={styles.popover}
                     >
                         {renderCalendar()}
                     </Popover>

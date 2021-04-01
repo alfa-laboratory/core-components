@@ -1,4 +1,12 @@
-import React, { forwardRef, useCallback, MouseEvent, useRef, useEffect, useState } from 'react';
+import React, {
+    forwardRef,
+    useCallback,
+    MouseEvent,
+    useRef,
+    useEffect,
+    useState,
+    Fragment,
+} from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
 import { useSwipeable, LEFT, RIGHT, UP } from 'react-swipeable';
@@ -26,6 +34,11 @@ export type NotificationProps = ToastPlateProps & {
     autoCloseDelay?: number;
 
     /**
+     * Использовать портал
+     */
+    usePortal?: boolean;
+
+    /**
      * Обработчик события истечения времени до закрытия компонента
      */
     onCloseTimeout?: () => void;
@@ -43,6 +56,7 @@ export type NotificationProps = ToastPlateProps & {
     /**
      * Обработчик клика вне компонента
      */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onClickOutside?: (event?: MouseEvent<any>) => void;
 };
 
@@ -57,6 +71,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
             offset = 108,
             hasCloser = true,
             autoCloseDelay = 5000,
+            usePortal = true,
             onClose,
             onCloseTimeout,
             onMouseEnter,
@@ -157,8 +172,10 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
             trackMouse: true,
         });
 
+        const Wrapper = usePortal ? Portal : Fragment;
+
         return (
-            <Portal>
+            <Wrapper>
                 <div {...swipeableHandlers}>
                     <ToastPlate
                         className={cn(
@@ -185,7 +202,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                         {children}
                     </ToastPlate>
                 </div>
-            </Portal>
+            </Wrapper>
         );
     },
 );
@@ -197,4 +214,5 @@ Notification.defaultProps = {
     autoCloseDelay: 5000,
     offset: 108,
     hasCloser: true,
+    usePortal: true,
 };

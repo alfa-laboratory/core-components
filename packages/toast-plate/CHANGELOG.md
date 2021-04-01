@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@2.2.7...@alfalab/core-components-toast-plate@2.2.8) (2021-03-30)
+
+
+### Bug Fixes
+
+* **toast-plate:** fix children margin ([#583](https://github.com/alfa-laboratory/core-components/issues/583)) ([3b2a964](https://github.com/alfa-laboratory/core-components/commit/3b2a96408c56a08eb8796c83a344df20bd4ae032))
+
+
+
+
+
+## [2.2.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@2.2.6...@alfalab/core-components-toast-plate@2.2.7) (2021-03-30)
+
+**Note:** Version bump only for package @alfalab/core-components-toast-plate
+
+
+
+
+
+## [2.2.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@2.2.5...@alfalab/core-components-toast-plate@2.2.6) (2021-03-24)
+
+**Note:** Version bump only for package @alfalab/core-components-toast-plate
+
+
+
+
+
 ## [2.2.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@2.2.4...@alfalab/core-components-toast-plate@2.2.5) (2021-03-19)
 
 **Note:** Version bump only for package @alfalab/core-components-toast-plate

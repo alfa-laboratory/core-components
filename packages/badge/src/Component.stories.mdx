@@ -1,5 +1,5 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { select, number } from '@storybook/addon-knobs';
+import { select, number, boolean } from '@storybook/addon-knobs';
 import { Container, Row, Col } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 
@@ -23,11 +23,33 @@ import { name, version } from '../package.json';
 <!-- Canvas -->
 
 <Story name='Badge'>
-    <Badge
-        size={select('size', ['s', 'm', 'l'], 'm')}
-        content={number('content', 1)}
-        view='count'
-    />
+    {React.createElement(() => {
+        const view = select('view', ['count', 'icon'], 'count');
+        const props = view === 'count' ?
+            {
+                view,
+                content: number('content', 1),
+                size: select('size', ['s', 'm', 'l'], 'm'),
+            } : {
+                view,
+                content: <AlertCircleMIcon />,
+                visibleIconOutline: boolean('visibleIconOutline', false),
+                iconColor: select(
+                    'iconColor',
+                    ['positive', 'attention', 'negative', 'tertiary', 'secondary', 'primary'],
+                    'positive'
+                )
+            }
+        return (
+            <div style={{
+                display: 'inline-flex',
+                padding: '5px',
+                backgroundColor: '#233549',
+            }}>
+                <Badge {...props} />
+            </div>
+        )
+    })}
 </Story>
 
 

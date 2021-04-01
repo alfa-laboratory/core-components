@@ -602,6 +602,9 @@ span.lib-title__line {
     line-height: 86px;
     font-weight: bold;
     font-family: 'Styrene UI';
+
+    color: red !important;
+    font-weight: 900;
 }
 
 @media (max-width: 599px) {
@@ -640,7 +643,7 @@ span.lib-title__line:before {
     height: 64px;
     margin: var(--gap-2xl-neg) 0 0;
     background-color: #d91d0b;
-    animation: 1s blink step-end infinite;
+    animation: 0.1s blink step-end infinite; /* 1s */
     content: '';
 }
 
@@ -715,7 +718,7 @@ div.lib-welcome {
     width: 136px;
     height: 136px;
     background: url(./images/welcome.svg) no-repeat 0 0;
-    animation: rotating-cw 48s linear infinite;
+    animation: rotating-cw 0.1s linear infinite; /* 48s */
 }
 
 .lib-welcome:after {
@@ -724,7 +727,7 @@ div.lib-welcome {
     width: 76px;
     height: 76px;
     background: url(./images/asterisk.svg) no-repeat 0 0;
-    animation: rotating-ccw 72s linear infinite;
+    animation: rotating-ccw 0.1s linear infinite; /* 72s */
 }
 
 @keyframes rotating-cw {
@@ -772,4 +775,13 @@ div.lib-welcome {
 
 .docblock-propstable .docblock-propstable-body code {
     white-space: normal;
+}
+
+#explorerкомпоненты--screenshots,
+#explorerкомпоненты--screenshots-sprite {
+    display: none;
+}
+
+* {
+    font-family: Comic Sans MS, Textile, Cursive !important;
 }

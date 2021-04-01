@@ -1,0 +1,55 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { select, text, boolean } from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { Alert } from './Component';
+import { Button } from '../../button/src';
+
+import { name, version } from '../package.json';
+
+<Meta
+    title='Компоненты'
+    component={Alert}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='Alert'>
+    <Alert
+        view={select('view', ['common', 'negative', 'positive', 'attention'], 'common')}
+        title={text('title', '')}
+        hasCloser={boolean('hasCloser', false)}
+        buttons={boolean('buttons', false) ? [
+            <Button>Хорошо</Button>,
+            <Button>Подробнее</Button>
+        ] : null}
+    >
+        {text('children', 'Вам одобрено. Согласитесь на предложение')}
+    </Alert>
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Alert'
+    version={version}
+    package='@alfalab/core-components-alert'
+    stage={1}
+/>
+
+```tsx
+import { Alert } from '@alfalab/core-components-alert';
+```
+
+## Alert
+
+Информирует пользователя о чем-либо. Может использоваться как сообщение, комментарий или предупреждение от системы.
+
+<Alert>
+    Вам одобрено. Согласитесь на предложение
+</Alert>
+
+<Props of={Alert} />
