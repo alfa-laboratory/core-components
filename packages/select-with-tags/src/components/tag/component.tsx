@@ -29,7 +29,10 @@ export const Tag: TagComponent = ({
             <span className={styles.tagContentWrap}>
                 {content}
                 {handleDeleteTag && (
-                    <CrossCompactMIcon onClick={handleClick} className={styles.tagCross} />
+                    // eslint-disable-next-line
+                    <span className={styles.tagCross} onClick={handleClick}>
+                        <CrossCompactMIcon />
+                    </span>
                 )}
             </span>
         </CoreTag>

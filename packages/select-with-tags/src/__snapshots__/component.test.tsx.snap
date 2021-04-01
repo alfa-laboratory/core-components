@@ -93,18 +93,21 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                       class="tagContentWrap"
                     >
                       H
-                      <svg
+                      <span
                         class="tagCross"
-                        fill="currentColor"
-                        focusable="false"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        width="24"
                       >
-                        <path
-                          d="M10.586 12L8 14.5 9.5 16l2.5-2.586L14.5 16l1.5-1.5-2.586-2.5L16 9.5 14.5 8 12 10.586 9.5 8 8 9.5l2.586 2.5z"
-                        />
-                      </svg>
+                        <svg
+                          fill="currentColor"
+                          focusable="false"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          width="24"
+                        >
+                          <path
+                            d="M10.586 12L8 14.5 9.5 16l2.5-2.586L14.5 16l1.5-1.5-2.586-2.5L16 9.5 14.5 8 12 10.586 9.5 8 8 9.5l2.586 2.5z"
+                          />
+                        </svg>
+                      </span>
                     </span>
                   </span>
                 </button>
@@ -117,18 +120,21 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                       class="tagContentWrap"
                     >
                       Li
-                      <svg
+                      <span
                         class="tagCross"
-                        fill="currentColor"
-                        focusable="false"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        width="24"
                       >
-                        <path
-                          d="M10.586 12L8 14.5 9.5 16l2.5-2.586L14.5 16l1.5-1.5-2.586-2.5L16 9.5 14.5 8 12 10.586 9.5 8 8 9.5l2.586 2.5z"
-                        />
-                      </svg>
+                        <svg
+                          fill="currentColor"
+                          focusable="false"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          width="24"
+                        >
+                          <path
+                            d="M10.586 12L8 14.5 9.5 16l2.5-2.586L14.5 16l1.5-1.5-2.586-2.5L16 9.5 14.5 8 12 10.586 9.5 8 8 9.5l2.586 2.5z"
+                          />
+                        </svg>
+                      </span>
                     </span>
                   </span>
                 </button>
@@ -141,18 +147,21 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                       class="tagContentWrap"
                     >
                       Na
-                      <svg
+                      <span
                         class="tagCross"
-                        fill="currentColor"
-                        focusable="false"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        width="24"
                       >
-                        <path
-                          d="M10.586 12L8 14.5 9.5 16l2.5-2.586L14.5 16l1.5-1.5-2.586-2.5L16 9.5 14.5 8 12 10.586 9.5 8 8 9.5l2.586 2.5z"
-                        />
-                      </svg>
+                        <svg
+                          fill="currentColor"
+                          focusable="false"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          width="24"
+                        >
+                          <path
+                            d="M10.586 12L8 14.5 9.5 16l2.5-2.586L14.5 16l1.5-1.5-2.586-2.5L16 9.5 14.5 8 12 10.586 9.5 8 8 9.5l2.586 2.5z"
+                          />
+                        </svg>
+                      </span>
                     </span>
                   </span>
                 </button>
