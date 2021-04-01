@@ -108,10 +108,15 @@ export const matchHtml = async ({
         },
     );
 
-    expect(image.data).toMatchImageSnapshot({
-        customSnapshotIdentifier,
-        ...matchImageSnapshotOptions,
-    });
+    try {
+        expect(image.data).toMatchImageSnapshot({
+            customSnapshotIdentifier,
+            ...matchImageSnapshotOptions,
+        });
+    } catch (e) {
+        console.error(page.url());
+        throw e;
+    }
 };
 
 export const openBrowserPage = async (

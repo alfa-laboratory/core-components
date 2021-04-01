@@ -11,7 +11,7 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
-describe.skip('Modal | ModalMobile', () => {
+describe('Modal | ModalMobile', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
             cases: generateTestCases({

@@ -6,6 +6,8 @@ import {
 } from '../../screenshot-utils';
 
 describe('SelectWithTags | interactions tests', () => {
+    jest.setTimeout(60000);
+
     ['default', 'click'].map(async (theme: string) =>
         test(`${theme} — main scenario`, async () => {
             const pageUrl = createStorybookUrl({
