@@ -5,6 +5,10 @@
     border-radius: var(--modal-border-radius);
 }
 
+.fullscreen {
+    border-radius: 0;
+}
+
 .s {
     width: var(--modal-s-width);
 }

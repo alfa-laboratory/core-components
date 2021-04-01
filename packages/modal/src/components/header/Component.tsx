@@ -47,7 +47,7 @@ export const Header: FC<HeaderProps> = ({ className, children, hasCloser = true,
             {children && (
                 <div
                     className={cn(styles.content, {
-                        [styles.withTitle]: typeof children === 'string',
+                        [styles.withTitle]: Boolean(children),
                     })}
                 >
                     {children}
