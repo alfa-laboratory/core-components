@@ -1,3 +1,10 @@
+## [15.0.1](https://github.com/alfa-laboratory/core-components/compare/v15.0.0...v15.0.1) (2021-04-01)
+
+
+### Reverts
+
+* Revert "comic thursday" ([708304e](https://github.com/alfa-laboratory/core-components/commit/708304e3be6f096137d04346872a2e1c95e3154a))
+
 # [15.0.0](https://github.com/alfa-laboratory/core-components/compare/v14.0.2...v15.0.0) (2021-04-01)
 
 
