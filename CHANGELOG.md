@@ -1,3 +1,23 @@
+# [15.0.0](https://github.com/alfa-laboratory/core-components/compare/v14.0.2...v15.0.0) (2021-04-01)
+
+
+### Bug Fixes
+
+* radio/checkbox ([#594](https://github.com/alfa-laboratory/core-components/issues/594)) ([4c9c13f](https://github.com/alfa-laboratory/core-components/commit/4c9c13fdf4ab3db9a6b176aeaba529c9b23f971b))
+* **modal:** fullscreen & header title styles ([#580](https://github.com/alfa-laboratory/core-components/issues/580)) ([39fa494](https://github.com/alfa-laboratory/core-components/commit/39fa4940223b6187a391ff6c0b6706ae8a333dc0))
+* **select-with-tags:** tag box-sizing issue ([#589](https://github.com/alfa-laboratory/core-components/issues/589)) ([9bc9a44](https://github.com/alfa-laboratory/core-components/commit/9bc9a4484b1e46372bce5fc16663f3ac05378310))
+
+
+### Features
+
+* **button:** updated xs button font-weight ([#599](https://github.com/alfa-laboratory/core-components/issues/599)) ([b05a554](https://github.com/alfa-laboratory/core-components/commit/b05a5547c97afba0d66489eca83a7a04d6c24283))
+* **mq:** change mobile-s to mobile-xs ([9abf5ba](https://github.com/alfa-laboratory/core-components/commit/9abf5bada45287a786610dd6cce7cc047d779012))
+
+
+### BREAKING CHANGES
+
+* **mq:** mobile-s теперь 360
+
 ## [14.0.2](https://github.com/alfa-laboratory/core-components/compare/v14.0.1...v14.0.2) (2021-03-31)
 
 
