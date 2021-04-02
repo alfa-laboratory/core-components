@@ -1,16 +1,21 @@
 :root {
     --color-static-graphic-amethyst: #a489aa;
+    --color-static-graphic-blackberry: #bfafc6;
     --color-static-graphic-blue-maya: #7eb3ff;
     --color-static-graphic-blue-moody: #7879cf;
     --color-static-graphic-botticelli: #cee5e5;
     --color-static-graphic-gallery: #eee;
     --color-static-graphic-green-jungle: #2fc26e;
     --color-static-graphic-lavender: #8888ad;
+    --color-static-graphic-peach: #fcc99b;
     --color-static-graphic-persimmon: #ff5c5c;
+    --color-static-graphic-raspberry: #dfb2bb;
     --color-static-graphic-salomie: #fee984;
     --color-static-graphic-sand: #f6bf65;
     --color-static-graphic-soft-peach: #f3eaeb;
     --color-static-graphic-solitude: #e8f2fe;
+    --color-static-graphic-strawberry: #f8b6a9;
+    --color-static-local-light-blue: #f5f7f9;
     --color-static-overlay-black-high: rgba(0, 0, 0, 0.32);
     --color-static-overlay-black-low: rgba(0, 0, 0, 0.16);
     --color-static-overlay-black-normal: rgba(0, 0, 0, 0.24);

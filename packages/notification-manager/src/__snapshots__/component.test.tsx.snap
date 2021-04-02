@@ -54,6 +54,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="24"
+                  role="img"
                   viewBox="0 0 24 24"
                   width="24"
                 >
@@ -99,6 +100,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="24"
+                  role="img"
                   viewBox="0 0 24 24"
                   width="24"
                 >
@@ -144,6 +146,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="24"
+                  role="img"
                   viewBox="0 0 24 24"
                   width="24"
                 >
