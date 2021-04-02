@@ -15,7 +15,7 @@ export const parseKnobs = () =>
 
 function parseValue(value: string) {
     const isBoolean = () => ['true', 'false'].includes(value);
-    const isNumeric = () => !Number.isNaN(value) && !Number.isNaN(parseFloat(value));
+    const isNumeric = () => !Number.isNaN(+value) && !Number.isNaN(parseFloat(value));
 
     if (!value) return undefined;
 
