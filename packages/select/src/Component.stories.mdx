@@ -144,9 +144,7 @@ import { Select } from '@alfalab/core-components-select';
 
 Компонент выпадающего списка.
 
-<div style={{ width: 240 }}>
-    <Select options={options} block={true} />
-</div>
+<Select options={options} placeholder='Выберите элемент' />
 
 <!-- Spacer -->
 <div style={{height: 32}} />
@@ -176,15 +174,12 @@ import { Select } from '@alfalab/core-components-select';
 Изменить это поведение можно с помощью `closeOnSelect`.
 
 <Preview>
-    <div style={{ width: 240 }}>
-        <Select
-            block={true}
-            options={options}
-            multiple={true}
-            placeholder='Выберите элемент'
-            allowUnselect={true}
-        />
-    </div>
+    <Select
+        options={options}
+        multiple={true}
+        placeholder='Выберите элемент'
+        allowUnselect={true}
+    />
 </Preview>
 
 ### Controlled-way
@@ -192,25 +187,22 @@ import { Select } from '@alfalab/core-components-select';
 Компонент может быть использован как controlled с помощью `onChange` и `selected`:
 
 <Preview>
-    <div style={{ width: 240 }}>
-        {React.createElement(() => {
-            const [selected, setSelected] = React.useState([options[8].key, options[9].key]);
-            const handleChange = ({ selectedMultiple }) => {
-                setSelected(selectedMultiple.map(option => option.key));
-            };
-            return (
-                <Select
-                    block={true}
-                    options={options}
-                    placeholder='Выберите элемент'
-                    label='controlled'
-                    multiple={true}
-                    onChange={handleChange}
-                    selected={selected}
-                />
-            );
-        })}
-    </div>
+    {React.createElement(() => {
+        const [selected, setSelected] = React.useState([options[8].key, options[9].key]);
+        const handleChange = ({ selectedMultiple }) => {
+            setSelected(selectedMultiple.map(option => option.key));
+        };
+        return (
+            <Select
+                options={options}
+                placeholder='Выберите элемент'
+                label='controlled'
+                multiple={true}
+                onChange={handleChange}
+                selected={selected}
+            />
+        );
+    })}
 </Preview>
 
 #### OptionShape вместо ключей для выбранных пунктов
@@ -219,25 +211,22 @@ import { Select } from '@alfalab/core-components-select';
 В этом случае просто передавайте их через свойство `selected`.
 
 <Preview>
-    <div style={{ width: 240 }}>
-        {React.createElement(() => {
-            const [selected, setSelected] = React.useState([options[8], options[9]]);
-            const handleChange = ({ selectedMultiple }) => {
-                setSelected(selectedMultiple);
-            };
-            return (
-                <Select
-                    block={true}
-                    options={options}
-                    placeholder='Выберите элемент'
-                    label='controlled'
-                    multiple={true}
-                    onChange={handleChange}
-                    selected={selected}
-                />
-            );
-        })}
-    </div>
+    {React.createElement(() => {
+        const [selected, setSelected] = React.useState([options[8], options[9]]);
+        const handleChange = ({ selectedMultiple }) => {
+            setSelected(selectedMultiple);
+        };
+        return (
+            <Select
+                options={options}
+                placeholder='Выберите элемент'
+                label='controlled'
+                multiple={true}
+                onChange={handleChange}
+                selected={selected}
+            />
+        );
+    })}
 </Preview>
 
 ### Использование в форме
@@ -245,43 +234,40 @@ import { Select } from '@alfalab/core-components-select';
 Чтобы использовать селект внутри формы - следует указать атрибут `name`
 
 <Preview>
-    <div style={{ width: 240 }}>
-        {React.createElement(() => {
-            const options = [
-                { key: '1', content: 'Neptunium' },
-                { key: '2', content: 'Plutonium' },
-                { key: '3', content: 'Americium' },
-            ];
-            const [serialized, setSerialized] = React.useState();
-            const onSubmit = (event) => {
-                event.preventDefault();
-                const form = event.target;
-                const formData = new FormData(form);
-                setSerialized(new URLSearchParams(formData).toString());
-            };
-            const [selected, setSelected] = React.useState([]);
-            const handleChange = ({ selectedMultiple }) => {
-                setSelected(selectedMultiple.map(option => option.key));
-            };
-            return (
-                <div>
-                    <form onSubmit={onSubmit}>
-                        <Select
-                            block={true}
-                            options={options}
-                            placeholder='Выберите элемент'
-                            name='select'
-                            multiple={true}
-                            onChange={handleChange}
-                            selected={selected}
-                        />
-                        <button type='submit'>Отправить</button>
-                    </form>
-                    <div>serialized: {serialized}</div>
-                </div>
-            );
-        })}
-    </div>
+    {React.createElement(() => {
+        const options = [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+            { key: '3', content: 'Americium' },
+        ];
+        const [serialized, setSerialized] = React.useState();
+        const onSubmit = (event) => {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            setSerialized(new URLSearchParams(formData).toString());
+        };
+        const [selected, setSelected] = React.useState([]);
+        const handleChange = ({ selectedMultiple }) => {
+            setSelected(selectedMultiple.map(option => option.key));
+        };
+        return (
+            <div>
+                <form onSubmit={onSubmit}>
+                    <Select
+                        options={options}
+                        placeholder='Выберите элемент'
+                        name='select'
+                        multiple={true}
+                        onChange={handleChange}
+                        selected={selected}
+                    />
+                    <button type='submit'>Отправить</button>
+                </form>
+                <div>serialized: {serialized}</div>
+            </div>
+        );
+    })}
 </Preview>
 
 ## Настройка рендера
@@ -328,72 +314,60 @@ import { Select } from '@alfalab/core-components-select';
 Стандартный компонент **Field** позволяет управлять рендером выбранных пунктов с помощью `valueRenderer`
 
 <Preview>
-    <div style={{ width: 240 }}>
-        {React.createElement(() => {
-            const OptionWithIcon = ({ content }) => (
-                <span style={{ display: 'flex' }} key={content}>
-                    <Icon />
-                    {content.toUpperCase()}
-                </span>
-            );
-            const valueRenderer = ({ selected }) => selected ? <OptionWithIcon {...selected} /> : null;
-            return (
-                <Select
-                    block={true}
-                    options={options}
-                    label='С иконкой'
-                    valueRenderer={valueRenderer}
-                />
-            );
-        })}
-    </div>
+    {React.createElement(() => {
+        const OptionWithIcon = ({ content }) => (
+            <span style={{ display: 'flex' }} key={content}>
+                <Icon />
+                {content.toUpperCase()}
+            </span>
+        );
+        const valueRenderer = ({ selected }) => selected ? <OptionWithIcon {...selected} /> : null;
+        return (
+            <Select
+                options={options}
+                label='С иконкой'
+                valueRenderer={valueRenderer}
+            />
+        );
+    })}
 </Preview>
 
 Селект позволяет заменять или кастомизировать компоненты **Field**, **Option**, **OptionsList**, **Optgroup**, **Arrow**
 
 <Preview>
-    <div style={{ width: 240 }}>
-        {React.createElement(() => {
-            const BoldOption = (props) => (
-                <Option {...props}><b>{props.option.content}</b></Option>
-            );
-            return (
-                <Select
-                    block={true}
-                    options={options}
-                    label='Bold options'
-                    Option={BoldOption}
-                />
-            );
-        })}
-    </div>
+    {React.createElement(() => {
+        const BoldOption = (props) => (
+            <Option {...props}><b>{props.option.content}</b></Option>
+        );
+        return (
+            <Select
+                options={options}
+                label='Bold options'
+                Option={BoldOption}
+            />
+        );
+    })}
 </Preview>
 
 <Preview>
-    <div style={{ width: 240 }}>
-        <Select
-            block={true}
-            options={options}
-            label='With addons'
-            Field={(props) => <Field {...props} leftAddons={props.selected && <Icon/>} />}
-        />
-    </div>
+    <Select
+        options={options}
+        label='With addons'
+        Field={(props) => <Field {...props} leftAddons={props.selected && <Icon/>} />}
+    />
 </Preview>
 
 <Preview>
-    <div style={{ width: 240 }}>
-        <Select
-            block={true}
-            options={options}
-            allowUnselect={true}
-            popoverPosition='bottom-start'
-            Field={({ selected, innerProps, ...restProps }) => (
-                <Button {...innerProps} size='xs'>
-                    {selected ? selected.content : 'Pick'}
-                </Button>
-            )}
-        />
-    </div>
+    <Select
+        options={options}
+        allowUnselect={true}
+        popoverPosition='bottom-start'
+        Field={({ selected, innerProps, ...restProps }) => (
+            <Button {...innerProps} size='xs'>
+                {selected ? selected.content : 'Pick'}
+            </Button>
+        )}
+    />
 </Preview>
 
 ## Управление размером пунктов меню
@@ -401,19 +375,16 @@ import { Select } from '@alfalab/core-components-select';
 По умолчанию размер пунктов меню совпадает с размером селекта, но с помощью свойства `optionsSize` можно задать размер отдельно.
 
 <Preview>
-    <div style={{ width: 240 }}>
-        {React.createElement(() => {
-            return (
-                <Select
-                    block={true}
-                    size='l'
-                    options={options}
-                    label='optionsSize'
-                    optionsSize='s'
-                />
-            );
-        })}
-    </div>
+    {React.createElement(() => {
+        return (
+            <Select
+                size='l'
+                options={options}
+                label='optionsSize'
+                optionsSize='s'
+            />
+        );
+    })}
 </Preview>
 
 
@@ -428,14 +399,11 @@ import { Select } from '@alfalab/core-components-select';
             </div>
         );
         return (
-            <div style={{ width: 240 }}>
-                <Select
-                    block={true}
-                    label='With header'
-                    options={options}
-                    OptionsList={renderList}
-                />
-            </div>
+            <Select
+                label='With header'
+                options={options}
+                OptionsList={renderList}
+            />
         );
     })}
 </Preview>
@@ -495,14 +463,11 @@ const groups = [{
 ```
 
 <Preview>
-    <div style={{ width: 240 }}>
-        <Select
-            block={true}
-            options={groups}
-            label='Optgroup'
-            multiple={true}
-        />
-    </div>
+    <Select
+        options={groups}
+        label='Optgroup'
+        multiple={true}
+    />
 </Preview>
 
 ## Нативный селект
@@ -510,14 +475,11 @@ const groups = [{
 Рендерит нативный селект вместо выпадающего меню. (стоит использовать только для мобильных устройств)
 
 <Preview>
-    <div style={{ width: 240 }}>
-        <Select
-            block={true}
-            options={groups}
-            label='native'
-            nativeSelect={true}
-        />
-    </div>
+    <Select
+        options={groups}
+        label='native'
+        nativeSelect={true}
+    />
 </Preview>
 
 ## Рендер длинных списков
@@ -525,59 +487,54 @@ const groups = [{
 Используйте `OptionsList={VirtualOptionsList}` для рендера большого количества данных
 
 <Preview>
-    <div style={{ width: 240 }}>
-        {React.createElement(() => {
-            const options = new Array(10000).fill().map((_, index) => {
-                const variableSizeText = `Вы восхитительны! `.repeat(
-                    Math.round(Math.random() * 10),
-                );
-                return {
-                    key: index,
-                    content: `${index}. ${variableSizeText}`,
-                };
-            });
-            return (
+    {React.createElement(() => {
+        const options = new Array(10000).fill().map((_, index) => {
+            const variableSizeText = `Вы восхитительны! `.repeat(
+                Math.round(Math.random() * 10),
+            );
+            return {
+                key: index,
+                content: `${index}. ${variableSizeText}`,
+            };
+        });
+        return (
+            <div style={{ width: 320 }}>
                 <Select
-                    label='virtual 10k'
                     block={true}
+                    label='virtual 10k'
                     options={options}
                     circularNavigation={true}
                     OptionsList={VirtualOptionsList}
                     allowUnselect={true}
                     visibleOptions={3}
                 />
-            );
-        })}
-    </div>
+            </div>
+        );
+    })}
 </Preview>
 
 <Preview>
-    <div style={{ width: 240 }}>
-        {React.createElement(() => {
-            return (
-                <Select
-                    label='virtual with groups'
-                    block={true}
-                    options={groups}
-                    multiple={true}
-                    allowUnselect={true}
-                    circularNavigation={true}
-                    OptionsList={VirtualOptionsList}
-                />
-            );
-        })}
-    </div>
+    {React.createElement(() => {
+        return (
+            <Select
+                label='virtual with groups'
+                options={groups}
+                multiple={true}
+                allowUnselect={true}
+                circularNavigation={true}
+                OptionsList={VirtualOptionsList}
+            />
+        );
+    })}
 </Preview>
 
 
 ## Открытие вверх, если места недостаточно
 
 <Preview>
-    <div style={{ width: 240 }}>
-        <Select
-            block={true}
-            options={groups}
-            preventFlip={false}
-        />
-    </div>
+    <Select
+        options={groups}
+        preventFlip={false}
+        label='preventFlip'
+    />
 </Preview>

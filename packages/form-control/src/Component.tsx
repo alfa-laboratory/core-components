@@ -144,9 +144,14 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
 
                     <div className={styles.inputWrapper}>
                         {label && (
-                            <div className={cn(styles.label, labelClassName)}>
-                                <span className={styles.labelInner}>{label}</span>
-                            </div>
+                            <React.Fragment>
+                                <span className={styles.hiddenLabel} aria-hidden={true}>
+                                    {label}
+                                </span>
+                                <div className={cn(styles.label, labelClassName)}>
+                                    <span className={styles.labelInner}>{label}</span>
+                                </div>
+                            </React.Fragment>
                         )}
 
                         <div className={styles.input}>{children}</div>
