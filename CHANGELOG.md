@@ -1,3 +1,10 @@
+# [15.1.0](https://github.com/alfa-laboratory/core-components/compare/v15.0.1...v15.1.0) (2021-04-06)
+
+
+### Features
+
+* **vars:** fresh colors ([10907ec](https://github.com/alfa-laboratory/core-components/commit/10907eca0f5556795529a90b41d2bc663ea01dfe))
+
 ## [15.0.1](https://github.com/alfa-laboratory/core-components/compare/v15.0.0...v15.0.1) (2021-04-01)
 
 
