@@ -1,4 +1,11 @@
-import React, { forwardRef, useRef, InputHTMLAttributes, useCallback, ChangeEvent } from 'react';
+import React, {
+    forwardRef,
+    useRef,
+    InputHTMLAttributes,
+    useCallback,
+    ChangeEvent,
+    ReactNode,
+} from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
 import { useFocus } from '@alfalab/hooks';
@@ -27,6 +34,11 @@ export type SliderProps = NativeProps & {
     step?: number;
 
     /**
+     * Слот для возможности рендера шагов
+     */
+    steps?: ReactNode;
+
+    /**
      * Значение инпута
      */
     value?: number;
@@ -44,7 +56,17 @@ export type SliderProps = NativeProps & {
 
 export const Slider = forwardRef<HTMLInputElement, SliderProps>(
     (
-        { min = 0, max = 100, step = 1, value = 0, className, onChange, dataTestId, ...restProps },
+        {
+            min = 0,
+            max = 100,
+            step = 1,
+            value = 0,
+            steps,
+            className,
+            onChange,
+            dataTestId,
+            ...restProps
+        },
         ref,
     ) => {
         const inputRef = useRef<HTMLInputElement>(null);
@@ -88,6 +110,7 @@ export const Slider = forwardRef<HTMLInputElement, SliderProps>(
                         ref={mergeRefs([ref, inputRef])}
                         onChange={handleInputChange}
                     />
+                    {steps}
                 </div>
                 <progress {...progressProps} />
             </div>
