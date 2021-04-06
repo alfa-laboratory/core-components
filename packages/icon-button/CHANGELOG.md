@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@1.1.9...@alfalab/core-components-icon-button@1.2.0) (2021-04-06)
+
+
+### Features
+
+* **vars:** fresh colors ([10907ec](https://github.com/alfa-laboratory/core-components/commit/10907eca0f5556795529a90b41d2bc663ea01dfe))
+
+
+
+
+
 ## [1.1.9](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@1.1.8...@alfalab/core-components-icon-button@1.1.9) (2021-04-01)
 
 **Note:** Version bump only for package @alfalab/core-components-icon-button

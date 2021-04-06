@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@2.5.2...@alfalab/core-components-vars@2.6.0) (2021-04-06)
+
+
+### Features
+
+* **vars:** fresh colors ([10907ec](https://github.com/alfa-laboratory/core-components/commit/10907eca0f5556795529a90b41d2bc663ea01dfe))
+
+
+
+
+
 ## [2.5.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@2.5.0...@alfalab/core-components-vars@2.5.2) (2021-03-18)
 
 
