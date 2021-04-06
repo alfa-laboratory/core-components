@@ -20,7 +20,7 @@
         "@alfalab/core-components-keyboard-focusable": "^1.2.10",
         "@alfalab/core-components-progress-bar": "^1.1.5",
         "@alfalab/icons-classic": "^1.7.0",
-        "@alfalab/utils": "^1.0.1",
+        "@alfalab/utils": "^1.1.1",
         "classnames": "^2.2.6",
         "react-merge-refs": "^1.1.0"
     }

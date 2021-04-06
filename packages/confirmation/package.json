@@ -17,7 +17,7 @@
         "@alfalab/core-components-link": "^1.7.0",
         "@alfalab/core-components-loader": "^1.1.5",
         "@alfalab/hooks": "^1.0.0",
-        "@alfalab/utils": "^1.0.1",
+        "@alfalab/utils": "^1.1.1",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {

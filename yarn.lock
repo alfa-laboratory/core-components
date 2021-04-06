@@ -75,10 +75,10 @@
     react-merge-refs "^1.1.0"
     react-virtual "^2.2.0"
 
-"@alfalab/data@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-0.3.0.tgz#0c424ed39186bcd05d0f76d93a70610e01d9a38a"
-  integrity sha512-8+dlxoOGe/2X3MirHCca9//PtYwBkyakzMcLKNMRC9P0jNzrz+IUVkxSab5UPwWOaXKWm81c70EvQfu6W9wXUw==
+"@alfalab/data@^0.4.0":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-0.4.2.tgz#688c82d1e0d66cdfadfc7bf2d470560b8fe52a69"
+  integrity sha512-ftVNhWRsjmzx9ZsoiWkz9TtErpTsP4u/0EN71SEoOKGGjePPGoMjRgdQ6h+QKAhrJ3onzPk4Zvp76Ar82EhoeA==
 
 "@alfalab/hooks@^0.9.0":
   version "0.9.0"
@@ -151,10 +151,10 @@
   resolved "https://registry.yarnpkg.com/@alfalab/stylelint-core-vars/-/stylelint-core-vars-0.0.4.tgz#f9ba0ea20b8a2d77646d3a65b34631659d6073ea"
   integrity sha512-KMaN6A4QGwLDeD5aVTPl6zozDUPgB5WeumcWib4zdzv7zfnFtOnUFfpyLguFXCi9geg4/gC2hf4MCNH8uNe8Dg==
 
-"@alfalab/utils@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.0.1.tgz#6af0cc51229bbd1243c8480a535845fc51811d71"
-  integrity sha512-2PEWKVvctknYgMZei0o09BxbJ53fZDnpBl7Nfcy0vureiwwAe/IuwNZOjqwfzEbHAiLnx5CN4ZbXtOur1n06oA==
+"@alfalab/utils@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.1.1.tgz#1f14fc91b03d9e99049a59daff009cc8e4a70f95"
+  integrity sha512-JdMNq3WXVwhU3z4cxlkWutbY8C6QIj5PbO3IhAWpe506rhSaZPJIUY+SMoV+BJ5pADD0eiseraQPHaQtIkmGTQ==
 
 "@babel/code-frame@7.5.5":
   version "7.5.5"
