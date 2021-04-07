@@ -17,6 +17,7 @@ exports[`Toast Snapshots tests should match snapshot when open 1`] = `
   >
     <div
       class="component fixed toastPlate"
+      style="z-index: 1000;"
     >
       <div
         class="contentWrap"
@@ -44,8 +45,8 @@ exports[`Toast Snapshots tests should math snapshot when prop \`anchorElement\` 
     alfa-portal-container=""
   >
     <div
-      class="component popover"
-      style="position: absolute; left: 0px; top: 0px;"
+      class="component"
+      style="z-index: 1000; position: absolute; left: 0px; top: 0px;"
     >
       <div
         class="inner popoverInner"

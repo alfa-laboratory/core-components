@@ -1,0 +1,168 @@
+import { useState } from 'react';
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Button } from '../../button/src';
+import { Portal } from '../../portal/src';
+import { ModalDesktop } from '../../modal/src/desktop';
+import { Tooltip } from '../../tooltip/src';
+
+import { Stack } from '.';
+import { name, version } from '../package.json';
+
+<Meta title='Компоненты' component={Stack} />
+
+<!-- Canvas -->
+
+<Story name='Stack' />
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Stack'
+    version={version}
+    package='@alfalab/core-components-stack'
+    stage={2}
+/>
+
+```tsx
+import { Stack } from '@alfalab/core-components-stack';
+```
+
+Компонент для управления [порядком наложения](https://developer.mozilla.org/ru/docs/Web/CSS/z-index).
+
+Если в стилях компонента используется свойство z-index, то скорее всего этот компонент должен использовать компонент Stack.
+
+## Проблема
+
+Допустим, у нас есть два абсолютно позиционируемых компонента: тултип и модальное окно.
+
+### Без Stack
+
+У компонента Tooltip установлен z-index равный 50, у Modal z-index равен 100, все они рендерятся в Portal.
+Если поместить Tooltip в Modal, то Modal будет перекрывать Tooltip, тем самым пользователь не увидит подсказку.
+
+<Preview>
+    {React.createElement(() => {
+        const [modalOpen, setModalOpen] = useState(false);
+        const [tooltipOpen, setTooltipOpen] = useState(false);
+        return (
+            <div>
+                <Button onClick={() => { setModalOpen(true) }}>Открыть модал</Button>
+                {modalOpen && (
+                    <Portal>
+                        <div
+                            style={{
+                                zIndex: 100,
+                                position: 'fixed',
+                                top: 0,
+                                right: 0,
+                                bottom: 0,
+                                left: 0,
+                                minHeight: '100vh',
+                                overflowY: 'auto',
+                                overscrollBehaviorY: 'contain',
+                                backgroundColor: 'rgba(11,31,53,.6)',
+                                display: 'flex'
+                            }}
+                        >
+                            <div
+                                style={{
+                                    position: 'relative',
+                                    width: 800,
+                                    margin: 'auto',
+                                    padding: 30,
+                                    backgroundColor: 'white',
+                                    border: '1px solid black',
+                                }}
+                            >
+                                <button
+                                    onClick={() => {
+                                        setModalOpen(false);
+                                        setTooltipOpen(false);
+                                    }}
+                                    style={{
+                                        position: 'absolute',
+                                        top: 10,
+                                        right: 10,
+                                    }}
+                                >
+                                    X
+                                </button>
+                                <Button onClick={() => { setTooltipOpen(true) }}>Открыть тултип</Button>
+                                {tooltipOpen && (
+                                    <Portal>
+                                        <div
+                                            style={{
+                                                position: 'fixed',
+                                                top: '50%',
+                                                left: '50%',
+                                                zIndex: 50,
+                                                display: 'flex',
+                                                transform: 'translate(-50%, -50%)'
+                                            }}
+                                        >
+                                            <div style={{
+                                                margin: 'auto',
+                                                padding: '10px',
+                                                borderRadius: '10px',
+                                                boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)'
+                                            }}>
+                                                Tooltip
+                                            </div>
+                                        </div>
+                                    </Portal>
+                                )}
+                            </div>
+                        </div>
+                    </Portal>
+                )}
+            </div>
+        );
+    })}
+</Preview>
+
+Если мы установим z-index у тултипа больший чем у модального окна, то имеем обратную проблему: тултип,
+который должен отображаться под модальным окном, будет поверх модального окна.
+
+Также использование z-index напрямую в коде компонента создает конфликты — нет централизованного контроля над наложением плавующих компонентов.
+Разработчик при создании нового «плавующего» компонента, который должен всегда отображаться поверх, например, модального окна,
+должен иметь ввиду значение z-index-а для модального окна.
+
+### Со Stack
+
+Все вышеперечисленные проблемы решаются с помощью компонента Stack.
+
+<Preview>
+    {React.createElement(() => {
+        const [modalOpen, setModalOpen] = useState(false);
+        return (
+            <div>
+                <Button onClick={() => { setModalOpen(true) }}>Открыть модал</Button>
+                <ModalDesktop open={modalOpen} onClose={() => { setModalOpen(false) }}>
+                    <ModalDesktop.Header>
+                        Модал
+                    </ModalDesktop.Header>
+                    <ModalDesktop.Content>
+                        <Tooltip content={<div>Tooltip</div>} trigger="click">
+                            <Button>Открыть тултип</Button>
+                        </Tooltip>
+                    </ModalDesktop.Content>
+                </ModalDesktop>
+            </div>
+        )
+    })}
+</Preview>
+
+**stackingOrder** — это словарь с возможными значениями z-index для разных видов «плавающих» компонентов.
+Например, это POPOVER для тултипов.
+Если тултип находится внутри модального окна, то z-index будет равен z-index-у модального окна плюс единица.
+
+Константы из словаря stackingOrder:
+
+-   FOCUSED — Для компонентов с возможностью фокуса: кнопки, поля ввода
+-   DEFAULT — Значение по-умолчанию
+-   POPOVER — Компоненты, которые управляют своей позицией, например, поповер, тултип
+-   MODAL — Для модальных окон с оверлеем
+-   TOAST - Для тостов и нотификаций
+
+<Props of={Stack} />
