@@ -4,7 +4,6 @@
     position: fixed;
     top: 0;
     right: var(--gap-s);
-    z-index: 9999;
     display: flex;
     flex-direction: column;
 }

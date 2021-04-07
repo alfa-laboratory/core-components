@@ -9,5 +9,5 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../notification" }, { "path": "../portal" }]
+    "references": [{ "path": "../notification" }, { "path": "../portal" }, { "path": "../stack" }]
 }
