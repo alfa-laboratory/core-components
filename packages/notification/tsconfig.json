@@ -9,5 +9,5 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../portal" }, { "path": "../toast-plate" }]
+    "references": [{ "path": "../portal" }, { "path": "../toast-plate" }, { "path": "../stack" }]
 }

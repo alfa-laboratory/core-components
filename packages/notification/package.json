@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-portal": "^1.4.5",
+        "@alfalab/core-components-stack": "^1.0.0",
         "@alfalab/core-components-toast-plate": "^2.2.9",
         "classnames": "^2.2.6",
         "react-merge-refs": "^1.1.0",
