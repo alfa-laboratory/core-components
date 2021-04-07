@@ -2,12 +2,10 @@
 
 :root {
     --popover-border-color: transparent;
-    --popover-z-index: 2;
 }
 
 .component {
     background-color: transparent;
-    z-index: var(--popover-z-index);
 }
 
 .inner {
