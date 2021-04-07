@@ -1,9 +1,29 @@
 @import '../../vars.css';
 
 .header {
+    composes: header from 'index.module.css';
+
     text-align: center;
     flex-direction: row-reverse;
     justify-content: flex-end;
     padding-right: var(--gap-4xl);
     padding-left: 0;
+}
+
+.sticky {
+    composes: sticky from 'index.module.css';
+
+    top: 0;
+}
+
+.highlighted {
+    composes: highlighted from 'index.module.css';
+}
+
+.content {
+    composes: content from 'index.module.css';
+}
+
+.title {
+    composes: title from 'index.module.css';
 }

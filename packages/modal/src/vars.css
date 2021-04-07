@@ -1,10 +1,7 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --modal-z-index: 1300;
     --modal-border-radius: var(--border-radius-m);
-    --modal-backdrop-visible-background: var(--color-light-bg-overlay);
-    --modal-backdrop-hidden-background: transparent;
     --modal-vertical-padding: var(--gap-3xl);
     --modal-header-background: var(--color-light-bg-primary);
     --modal-footer-background: var(--color-light-bg-primary);
@@ -13,7 +10,7 @@
     --modal-s-width: 476px;
     --modal-m-width: 600px;
     --modal-l-width: 800px;
-    --modal-header-min-height: 48px;
+    --modal-header-min-height: 72px;
 
     /* paddings */
     --modal-s-header-paddings: 0 0 0 var(--gap-4xl);

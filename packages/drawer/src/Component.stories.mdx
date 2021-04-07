@@ -41,15 +41,17 @@ export const Header = () => {
 }
 
 export const Footer = () => {
-    const { setHasFooter } = React.useContext(DrawerContext);
+    const { setHasFooter, footerHighlighted } = React.useContext(DrawerContext);
     React.useEffect(() => setHasFooter(true), [setHasFooter]);
     return (
         <div style={{
             padding: '16px 32px',
             background: '#feebea',
+            position: 'sticky',
+            bottom: 0,
         }}>
             <Typography.Title view="small">
-                Футер
+                {footerHighlighted ? 'Футер при скролле' : 'Футер'}
             </Typography.Title>
         </div>
     );
@@ -132,7 +134,7 @@ import { Drawer } from '@alfalab/core-components-drawer';
 
 ## Компонент Drawer
 
-Компонент, представляющим собой заготовку для реализации сайд-панелей. В основе компонента лежит `Modal`.
+Компонент, представляющим собой заготовку для реализации сайд-панелей. В основе компонента лежит `BaseModal`.
 
 <Props of={Drawer} />
 

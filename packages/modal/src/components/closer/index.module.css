@@ -17,3 +17,17 @@
         opacity: 0.5;
     }
 }
+
+.left,
+.right {
+    position: sticky;
+    top: calc(var(--modal-vertical-padding) * -1);
+}
+
+.right {
+    margin-left: auto;
+}
+
+.fullscreen {
+    top: 0;
+}
