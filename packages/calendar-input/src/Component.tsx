@@ -244,7 +244,13 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                 const newValue = event.target.value;
                 const newDate = parseDateString(newValue);
 
-                changeHandler(event, newValue, newDate, 'input', isCompleteDateInput(newValue));
+                changeHandler(
+                    event,
+                    newValue,
+                    newDate,
+                    'input',
+                    !newValue || isCompleteDateInput(newValue),
+                );
             },
             [changeHandler],
         );
