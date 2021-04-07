@@ -11,11 +11,6 @@
     position: relative;
 }
 
-.popover {
-    /* TODO: перейти на систему */
-    z-index: 9999;
-}
-
 .block {
     width: 100%;
 }
