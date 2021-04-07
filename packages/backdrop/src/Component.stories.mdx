@@ -1,0 +1,43 @@
+import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
+import {boolean, select, text} from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { Backdrop } from './Component';
+import { version } from '../package.json';
+
+<Meta
+    title='Компоненты'
+    component={Backdrop}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+<Story name="Backdrop">
+    <Backdrop
+        open={boolean('open', false)}
+        invisible={boolean('invisible', false)}
+        unmountOnExit={boolean('unmountOnExit', false)}
+    >
+        {text('children', '')}
+    </Backdrop>
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Backdrop'
+    version={version}
+    package='@alfalab/core-components-backdrop'
+    stage={1}
+/>
+
+
+```tsx
+import { Backdrop } from '@alfalab/core-components-backdrop';
+```
+
+Компонент для затемнения фона.
+Поддерживает все параметры из [CSSTransition](http://reactcommunity.org/react-transition-group/css-transition).
+
+<Props of={Backdrop} />

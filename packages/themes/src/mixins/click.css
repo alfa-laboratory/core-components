@@ -16,6 +16,7 @@
 @import './toast-plate/click.css';
 @import './list/click.css';
 @import './skeleton/click.css';
+@import './backdrop/click.css';
 @import './slider/click.css';
 
 @define-mixin theme-click {
@@ -40,5 +41,6 @@
     @mixin toast-plate-click;
     @mixin list-click;
     @mixin skeleton-click;
+    @mixin backdrop-click;
     @mixin slider-click;
 }

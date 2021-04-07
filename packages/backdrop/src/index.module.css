@@ -1,0 +1,42 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --backdrop-visible-background: var(--color-light-bg-overlay);
+    --backdrop-hidden-background: transparent;
+}
+
+.backdrop {
+    z-index: -1;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    -webkit-tap-highlight-color: transparent; /* убирает хайлайт */
+}
+
+.appear,
+.enter {
+    background-color: var(--backdrop-hidden-background);
+}
+
+.appearActive,
+.enterActive,
+.enterDone {
+    background-color: var(--backdrop-visible-background);
+    transition: background-color 200ms ease-in;
+}
+
+.exit {
+    background-color: var(--backdrop-visible-background);
+}
+
+.exitActive,
+.exitDone {
+    background-color: var(--backdrop-hidden-background);
+    transition: background-color 200ms ease-out;
+}
+
+.invisible {
+    opacity: 0;
+}
