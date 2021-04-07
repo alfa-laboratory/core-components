@@ -2,7 +2,6 @@
 
 :root {
     --tooltip-border-color: var(--color-light-border-primary);
-    --tooltip-z-index: 1;
 }
 
 .component {
