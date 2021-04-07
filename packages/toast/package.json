@@ -18,6 +18,7 @@
     "dependencies": {
         "@alfalab/core-components-popover": "^1.4.0",
         "@alfalab/core-components-portal": "^1.4.5",
+        "@alfalab/core-components-stack": "^1.0.0",
         "@alfalab/core-components-toast-plate": "^2.2.9",
         "@alfalab/hooks": "^1.1.1",
         "classnames": "^2.2.6",

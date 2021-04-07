@@ -13,6 +13,7 @@ import { useClickOutside, usePrevious } from '@alfalab/hooks';
 import { ToastPlate, ToastPlateProps } from '@alfalab/core-components-toast-plate';
 import { Popover, PopoverProps } from '@alfalab/core-components-popover';
 import { Portal } from '@alfalab/core-components-portal';
+import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 
 import styles from './index.module.css';
 
@@ -48,6 +49,11 @@ export type ToastProps = ToastPlateProps &
          * Отступ снизу (при fixed-позиционировании).
          */
         bottomOffset?: number;
+
+        /**
+         * z-index компонента
+         */
+        zIndex?: number;
     };
 
 export const Toast = forwardRef<HTMLDivElement, ToastProps>(
@@ -62,6 +68,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
             bottomOffset,
             style = {},
             block,
+            zIndex = stackingOrder.TOAST,
             onMouseEnter,
             onMouseLeave,
             onTouchStart,
@@ -148,9 +155,10 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
                     position={position}
                     offset={offset}
                     popperClassName={styles.popoverInner}
-                    className={cn(styles.popover, { [styles.block]: block })}
+                    className={cn({ [styles.block]: block })}
                     transition={{ timeout: 150 }}
                     getPortalContainer={getPortalContainer}
+                    zIndex={zIndex}
                 >
                     <ToastPlate {...restProps} style={style} className={className} {...props} />
                 </Popover>
@@ -158,24 +166,29 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
         }
 
         return (
-            <Portal getPortalContainer={getPortalContainer}>
-                <CSSTransition
-                    unmountOnExit={true}
-                    in={open}
-                    timeout={150}
-                    classNames={CSS_TRANSITION_CLASS_NAMES}
-                >
-                    <ToastPlate
-                        {...restProps}
-                        className={cn(styles.fixed, styles.toastPlate, className)}
-                        style={{
-                            ...style,
-                            bottom: bottomOffset && `${bottomOffset}px`,
-                        }}
-                        {...props}
-                    />
-                </CSSTransition>
-            </Portal>
+            <Stack value={zIndex}>
+                {computedZIndex => (
+                    <Portal getPortalContainer={getPortalContainer}>
+                        <CSSTransition
+                            unmountOnExit={true}
+                            in={open}
+                            timeout={150}
+                            classNames={CSS_TRANSITION_CLASS_NAMES}
+                        >
+                            <ToastPlate
+                                {...restProps}
+                                className={cn(styles.fixed, styles.toastPlate, className)}
+                                style={{
+                                    ...style,
+                                    bottom: bottomOffset && `${bottomOffset}px`,
+                                    zIndex: computedZIndex,
+                                }}
+                                {...props}
+                            />
+                        </CSSTransition>
+                    </Portal>
+                )}
+            </Stack>
         );
     },
 );
