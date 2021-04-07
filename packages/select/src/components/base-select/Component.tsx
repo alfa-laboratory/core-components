@@ -367,7 +367,6 @@ export const BaseSelect = forwardRef(
                         position={popoverPosition}
                         preventFlip={preventFlip}
                         popperClassName={styles.popoverInner}
-                        className={styles.popover}
                         update={updatePopover}
                     >
                         {needRenderOptionsList && (
