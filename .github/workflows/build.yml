@@ -30,6 +30,7 @@ jobs:
 
             - name: Coveralls
               uses: coverallsapp/github-action@master
+              run: coveralls --service=github
               with:
                 github-token: ${{ secrets.BOT_AUTH_TOKEN }}
 
