@@ -30,9 +30,10 @@ jobs:
 
             - name: Coveralls
               uses: coverallsapp/github-action@master
-              run: coveralls --service=github
               with:
                 github-token: ${{ secrets.BOT_AUTH_TOKEN }}
+                COVERALLS_SERVICE_NAME: github
+                COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
 
     build:
         name: build packages
