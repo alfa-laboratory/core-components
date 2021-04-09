@@ -22,6 +22,7 @@
 
 .appearActive,
 .enterActive,
+.appearDone,
 .enterDone {
     background-color: var(--backdrop-visible-background);
     transition: background-color 200ms ease-in;
