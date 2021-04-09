@@ -307,8 +307,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                     handleScroll();
                 }
 
-                if (transitionProps.onEnter) {
-                    transitionProps.onEnter(node, isAppearing);
+                if (transitionProps.onEntered) {
+                    transitionProps.onEntered(node, isAppearing);
                 }
 
                 if (onMount) onMount();
