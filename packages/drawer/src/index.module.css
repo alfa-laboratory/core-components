@@ -44,7 +44,9 @@
 }
 
 .backdropAppearActive,
-.backdropEnterActive {
+.backdropEnterActive,
+.backdropAppearDone,
+.backdropEnterDone {
     transition: background 200ms ease-in-out;
     background-color: var(--backdrop-visible-background);
 }
@@ -53,7 +55,8 @@
     background-color: var(--backdrop-visible-background);
 }
 
-.backdropExitActive {
+.backdropExitActive,
+.backdropExitDone {
     transition: background 200ms ease-in-out 400ms;
     background-color: var(--backdrop-hidden-background);
 }
