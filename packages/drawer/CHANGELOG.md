@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-drawer@1.2.0...@alfalab/core-components-drawer@1.2.1) (2021-04-09)
+
+
+### Bug Fixes
+
+* **drawer:** backdrop styles ([04da4fa](https://github.com/alfa-laboratory/core-components/commit/04da4fac310dbe2634ea4130ead480a88d47ee8e))
+
+
+
+
+
 # [1.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-drawer@1.1.15...@alfalab/core-components-drawer@1.2.0) (2021-04-09)
 
 
