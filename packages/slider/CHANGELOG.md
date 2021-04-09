@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@1.2.5...@alfalab/core-components-slider@1.3.0) (2021-04-09)
+
+
+### Features
+
+* **slider:** click theme ([15c308a](https://github.com/alfa-laboratory/core-components/commit/15c308a50e9fbcd8e40a8681f32aefea5b3d5cf9))
+
+
+
+
+
 ## [1.2.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@1.2.4...@alfalab/core-components-slider@1.2.5) (2021-04-01)
 
 **Note:** Version bump only for package @alfalab/core-components-slider

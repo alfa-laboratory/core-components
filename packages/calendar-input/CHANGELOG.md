@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@2.4.4...@alfalab/core-components-calendar-input@2.5.0) (2021-04-09)
+
+
+### Bug Fixes
+
+* **calendar-input:** call onchange with empty value ([3fbc73a](https://github.com/alfa-laboratory/core-components/commit/3fbc73a1d32586161b6fe527f76ca27cd54abebb))
+
+
+### Features
+
+* **calendar-with-skeleton:** add component ([e940c88](https://github.com/alfa-laboratory/core-components/commit/e940c88703a7434e0db4ce0efc27a234455b449c))
+
+
+
+
+
 ## [2.4.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@2.4.3...@alfalab/core-components-calendar-input@2.4.4) (2021-04-06)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar-input
