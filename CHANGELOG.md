@@ -1,3 +1,12 @@
+## [15.2.1](https://github.com/alfa-laboratory/core-components/compare/v15.2.0...v15.2.1) (2021-04-09)
+
+
+### Bug Fixes
+
+* **backdrop:** styles ([82bdfa7](https://github.com/alfa-laboratory/core-components/commit/82bdfa7759240755f74bf12906c395d633f464e4))
+* **base-modal:** correct cb ([256a142](https://github.com/alfa-laboratory/core-components/commit/256a142398a9ada34386e92d012185763cedef5a))
+* **drawer:** backdrop styles ([04da4fa](https://github.com/alfa-laboratory/core-components/commit/04da4fac310dbe2634ea4130ead480a88d47ee8e))
+
 # [15.2.0](https://github.com/alfa-laboratory/core-components/compare/v15.1.0...v15.2.0) (2021-04-09)
 
 
