@@ -82,7 +82,7 @@ export const renderModalStory = (ModalComponent, props = {}) => {
                     />
                 )}
                 {!header && hasCloser && (
-                    <ModalDesktop.Closer align="right" />
+                    <ModalDesktop.Closer align='right' />
                 )}
                 <ModalComponent.Content flex={flexContent}>
                     <Content />
@@ -147,24 +147,24 @@ import { ModalResponsive } from '@alfalab/core-components-modal/responsive';
                 <ModalDesktop
                     open={open}
                     onClose={handleModalOpen}
-                    size="m"
+                    size='m'
                 >
-                    <ModalDesktop.Closer align="right" />
+                    <ModalDesktop.Closer align='right' />
                     <ModalDesktop.Content>
-                        <Typography.Title tag="div" view="small">
+                        <Typography.Title tag='div' view='small'>
                             Почему банк проверяет мои операции?
                         </Typography.Title>
                         <br/>
-                        <Typography.Text tag="p">
+                        <Typography.Text tag='p'>
                             Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона 115-ФЗ «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма».
                         </Typography.Text>
                         <br/>
-                        <Typography.Text tag="p">
+                        <Typography.Text tag='p'>
                             Ознакомиться с требованиями ЦБ РФ можно на официальном сайте. Банки обязаны предотвращать проведение таких операций и поэтому могут запросить дополнительную информацию и документы, ограничить доступ к платежам через интернет-банк или даже отказать в исполнении платежа.
                         </Typography.Text>
                     </ModalDesktop.Content>
                     <ModalDesktop.Footer>
-                        <Button view="primary" size="s" onClick={handleModalOpen}>Понятно</Button>
+                        <Button view='primary' size='s' onClick={handleModalOpen}>Понятно</Button>
                     </ModalDesktop.Footer>
                 </ModalDesktop>
             </React.Fragment>
@@ -193,7 +193,7 @@ import { ModalResponsive } from '@alfalab/core-components-modal/responsive';
                     open={open}
                     onClose={handleModalOpen}
                 >
-                    <ModalDesktop.Closer align="right" />
+                    <ModalDesktop.Closer align='right' />
                     <ModalDesktop.Content>
                         <Content />
                     </ModalDesktop.Content>
@@ -240,17 +240,17 @@ export type ModalContext = {
             return (
                 <>
                     <div style={{
-                        display: "flex",
-                        alignItems: "center",
-                        height: "60px",
-                        padding: "0 var(--gap-4xl)",
-                        marginBottom: "var(--gap-xl)",
-                        background: "var(--color-light-bg-secondary-inverted)",
-                        fontSize: "22px",
-                        fontWeight: "bold",
-                        color: "var(--color-light-text-primary-inverted)",
-                        borderTopLeftRadius: "var(--modal-border-radius)",
-                        borderTopRightRadius: "var(--modal-border-radius)",
+                        display: 'flex',
+                        alignItems: 'center',
+                        height: '60px',
+                        padding: '0 var(--gap-4xl)',
+                        marginBottom: 'var(--gap-xl)',
+                        background: 'var(--color-light-bg-secondary-inverted)',
+                        fontSize: '22px',
+                        fontWeight: 'bold',
+                        color: 'var(--color-light-text-primary-inverted)',
+                        borderTopLeftRadius: 'var(--modal-border-radius)',
+                        borderTopRightRadius: 'var(--modal-border-radius)',
                     }}>
                         Шапка
                     </div>
@@ -262,6 +262,7 @@ export type ModalContext = {
                     }}>
                         <ModalDesktop.Closer
                             rightAddons={<CrossMIcon/>}
+                            align='right'
                             style={{
                                 background: '#fff',
                                 borderRadius: '50%',
