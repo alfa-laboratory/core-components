@@ -17,11 +17,6 @@
     padding: var(--gap-m);
     outline: none;
 
-    &.hasCloser,
-    &.foldable {
-        padding-right: var(--gap-4xl);
-    }
-
     &.isFolded {
         cursor: pointer;
     }
@@ -33,6 +28,13 @@
 
 .focused {
     @mixin focus-outline;
+}
+
+.inner {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .common {
@@ -62,17 +64,23 @@
 .leftAddons {
     flex-shrink: 0;
     min-width: 24px;
-    margin-right: var(--gap-xs);
+    margin-right: var(--gap-s);
 }
 
 .title {
     @mixin accent_primary_large;
+
+    word-break: break-word;
 }
 
 .content {
+    @mixin paragraph_primary_small;
+
     max-height: 300vh;
     overflow: hidden;
     transition: max-height 2s ease-in-out;
+    padding: var(--gap-2xs);
+    margin: var(--gap-2xs-neg);
 
     &.isFolded {
         max-height: 0;
@@ -81,6 +89,10 @@
 }
 
 .contentContainer {
+    flex: 1;
+    max-width: 586px;
+    margin-right: auto;
+
     &.withoutTitle {
         padding-top: var(--gap-3xs);
     }
@@ -90,22 +102,22 @@
     padding-top: var(--gap-xs);
 }
 
-.additional {
-    position: absolute;
-    top: var(--gap-s);
-    right: var(--gap-s);
-}
-
 .closer,
 .folder {
-    height: 32px;
-    width: 32px;
-    opacity: 0.6;
-    transition: opacity 0.1s ease-out;
+    display: block;
+    height: 24px;
+    width: 24px;
+    opacity: 1;
+    transition: opacity 0.2s ease;
     cursor: pointer;
+    margin-left: var(--gap-m);
 
     &:hover {
-        opacity: 1;
+        opacity: 0.7;
+    }
+
+    &:active {
+        opacity: 0.5;
     }
 }
 
@@ -120,5 +132,17 @@
 
     &.isFolded {
         transform: rotate(0deg);
+    }
+}
+
+.buttons {
+    margin-top: var(--gap-xl);
+}
+
+.button {
+    margin-right: var(--gap-s);
+
+    &:last-child {
+        margin-right: 0;
     }
 }

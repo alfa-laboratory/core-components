@@ -7,6 +7,7 @@ import React, {
     KeyboardEvent,
     FocusEvent,
     useEffect,
+    useLayoutEffect,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
@@ -43,10 +44,12 @@ export const BaseSelect = forwardRef(
             defaultOpen = false,
             popoverPosition = 'bottom-start',
             preventFlip = true,
+            optionsListWidth = 'content',
             name,
             id,
             selected,
             size = 's',
+            optionsSize = size,
             error,
             hint,
             block,
@@ -73,6 +76,7 @@ export const BaseSelect = forwardRef(
     ) => {
         const rootRef = useRef<HTMLLabelElement>(null);
         const fieldRef = useRef<HTMLInputElement>(null);
+        const listRef = useRef<HTMLDivElement>(null);
 
         const itemToString = (option: OptionShape) => (option ? option.key : '');
 
@@ -185,14 +189,10 @@ export const BaseSelect = forwardRef(
         });
 
         const menuProps = (getMenuProps as (options: object, additional: object) => void)(
-            {},
+            { ref: listRef },
             { suppressRefError: true },
         );
         const inputProps = getInputProps(getDropdownProps({ ref: mergeRefs([ref, fieldRef]) }));
-
-        const optionsListMinWidth = rootRef.current
-            ? rootRef.current.getBoundingClientRect().width
-            : 0;
 
         const handleFieldFocus = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
             if (onFocus) onFocus(event);
@@ -259,7 +259,7 @@ export const BaseSelect = forwardRef(
                         }),
                         index,
                         option,
-                        size,
+                        size: optionsSize,
                         disabled: option.disabled,
                         highlighted: index === highlightedIndex,
                         selected: selectedItems.includes(option),
@@ -269,12 +269,12 @@ export const BaseSelect = forwardRef(
             ),
             [
                 Option,
-                getItemProps,
-                highlightedIndex,
                 optionProps,
                 optionClassName,
+                getItemProps,
+                optionsSize,
+                highlightedIndex,
                 selectedItems,
-                size,
                 dataTestId,
             ],
         );
@@ -282,6 +282,18 @@ export const BaseSelect = forwardRef(
         useEffect(() => {
             if (defaultOpen) openMenu();
         }, [defaultOpen, openMenu]);
+
+        useLayoutEffect(() => {
+            if (listRef.current) {
+                const widthAttr = optionsListWidth === 'field' ? 'width' : 'minWidth';
+
+                const optionsListMinWidth = rootRef.current
+                    ? rootRef.current.getBoundingClientRect().width
+                    : 0;
+
+                listRef.current.style[widthAttr] = `${optionsListMinWidth}px`;
+            }
+        }, [open, optionsListWidth, options, selectedItems]);
 
         const renderValue = useCallback(
             () =>
@@ -372,9 +384,6 @@ export const BaseSelect = forwardRef(
                             <div
                                 {...menuProps}
                                 className={cn(optionsListClassName, styles.optionsList)}
-                                style={{
-                                    minWidth: optionsListMinWidth,
-                                }}
                             >
                                 <OptionsList
                                     {...optionsListProps}

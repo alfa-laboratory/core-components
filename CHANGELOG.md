@@ -1,3 +1,124 @@
+## [15.2.1](https://github.com/alfa-laboratory/core-components/compare/v15.2.0...v15.2.1) (2021-04-09)
+
+
+### Bug Fixes
+
+* **backdrop:** styles ([82bdfa7](https://github.com/alfa-laboratory/core-components/commit/82bdfa7759240755f74bf12906c395d633f464e4))
+* **base-modal:** correct cb ([256a142](https://github.com/alfa-laboratory/core-components/commit/256a142398a9ada34386e92d012185763cedef5a))
+* **drawer:** backdrop styles ([04da4fa](https://github.com/alfa-laboratory/core-components/commit/04da4fac310dbe2634ea4130ead480a88d47ee8e))
+
+# [15.2.0](https://github.com/alfa-laboratory/core-components/compare/v15.1.0...v15.2.0) (2021-04-09)
+
+
+### Bug Fixes
+
+* **calendar-input:** call onchange with empty value ([3fbc73a](https://github.com/alfa-laboratory/core-components/commit/3fbc73a1d32586161b6fe527f76ca27cd54abebb))
+* **select:** options list width calc ([5294af7](https://github.com/alfa-laboratory/core-components/commit/5294af78ef61b50edde42ed255e66e6ea004c0fd))
+* **select:** virtual list wrong height ([8708228](https://github.com/alfa-laboratory/core-components/commit/8708228749acdeed0d1dfe4b9538dc22683e7f28))
+* **slider-input:** label + info + error issue ([147bb71](https://github.com/alfa-laboratory/core-components/commit/147bb716ab6dc500aaf0923d5442560c743e6b66))
+
+
+### Features
+
+* **backdrop:** add component ([948a6c2](https://github.com/alfa-laboratory/core-components/commit/948a6c2fb5ec58edb2d087691ce4713d75da6e35))
+* **backdrop:** add component ([2b87958](https://github.com/alfa-laboratory/core-components/commit/2b87958e51449645c58bbd02552ce7a908c6bab8))
+* **calendar-with-skeleton:** add component ([e940c88](https://github.com/alfa-laboratory/core-components/commit/e940c88703a7434e0db4ce0efc27a234455b449c))
+* **form-control:** add hidden label instead min-width ([a40ffcf](https://github.com/alfa-laboratory/core-components/commit/a40ffcf149282c83a834587a9486bc09b2929f90))
+* **slider:** click theme ([15c308a](https://github.com/alfa-laboratory/core-components/commit/15c308a50e9fbcd8e40a8681f32aefea5b3d5cf9))
+
+# [15.1.0](https://github.com/alfa-laboratory/core-components/compare/v15.0.1...v15.1.0) (2021-04-06)
+
+
+### Features
+
+* **vars:** fresh colors ([10907ec](https://github.com/alfa-laboratory/core-components/commit/10907eca0f5556795529a90b41d2bc663ea01dfe))
+
+## [15.0.1](https://github.com/alfa-laboratory/core-components/compare/v15.0.0...v15.0.1) (2021-04-01)
+
+
+### Reverts
+
+* Revert "comic thursday" ([708304e](https://github.com/alfa-laboratory/core-components/commit/708304e3be6f096137d04346872a2e1c95e3154a))
+
+# [15.0.0](https://github.com/alfa-laboratory/core-components/compare/v14.0.2...v15.0.0) (2021-04-01)
+
+
+### Bug Fixes
+
+* radio/checkbox ([#594](https://github.com/alfa-laboratory/core-components/issues/594)) ([4c9c13f](https://github.com/alfa-laboratory/core-components/commit/4c9c13fdf4ab3db9a6b176aeaba529c9b23f971b))
+* **modal:** fullscreen & header title styles ([#580](https://github.com/alfa-laboratory/core-components/issues/580)) ([39fa494](https://github.com/alfa-laboratory/core-components/commit/39fa4940223b6187a391ff6c0b6706ae8a333dc0))
+* **select-with-tags:** tag box-sizing issue ([#589](https://github.com/alfa-laboratory/core-components/issues/589)) ([9bc9a44](https://github.com/alfa-laboratory/core-components/commit/9bc9a4484b1e46372bce5fc16663f3ac05378310))
+
+
+### Features
+
+* **button:** updated xs button font-weight ([#599](https://github.com/alfa-laboratory/core-components/issues/599)) ([b05a554](https://github.com/alfa-laboratory/core-components/commit/b05a5547c97afba0d66489eca83a7a04d6c24283))
+* **mq:** change mobile-s to mobile-xs ([9abf5ba](https://github.com/alfa-laboratory/core-components/commit/9abf5bada45287a786610dd6cce7cc047d779012))
+
+
+### BREAKING CHANGES
+
+* **mq:** mobile-s теперь 360
+
+## [14.0.2](https://github.com/alfa-laboratory/core-components/compare/v14.0.1...v14.0.2) (2021-03-31)
+
+
+### Bug Fixes
+
+* **calendar-input:** z-index increased ([8e0df44](https://github.com/alfa-laboratory/core-components/commit/8e0df445a1be317291f2d35e2f4d4afb9d24609c))
+
+## [14.0.1](https://github.com/alfa-laboratory/core-components/compare/v14.0.0...v14.0.1) (2021-03-30)
+
+
+### Bug Fixes
+
+* **themes:** fixed button corp theme ([4dec71c](https://github.com/alfa-laboratory/core-components/commit/4dec71ccc9bd321a9d7a50dba221b13267b092f9))
+
+# [14.0.0](https://github.com/alfa-laboratory/core-components/compare/v13.3.1...v14.0.0) (2021-03-30)
+
+
+### Bug Fixes
+
+* **toast-plate:** fix children margin ([#583](https://github.com/alfa-laboratory/core-components/issues/583)) ([3b2a964](https://github.com/alfa-laboratory/core-components/commit/3b2a96408c56a08eb8796c83a344df20bd4ae032))
+
+
+### Features
+
+* **tooltip:** add wrapper around children component ([#587](https://github.com/alfa-laboratory/core-components/issues/587)) ([a2ecbb6](https://github.com/alfa-laboratory/core-components/commit/a2ecbb67bd517b583284ec0b8365de9e58e753ed))
+
+
+### BREAKING CHANGES
+
+* **tooltip:** add wrapper around children component
+
+* feat(tooltip): add target className prop
+
+* feat(tooltip): fix passed classNames
+
+## [13.3.1](https://github.com/alfa-laboratory/core-components/compare/v13.3.0...v13.3.1) (2021-03-30)
+
+
+### Bug Fixes
+
+* subComponentName ([8064ac6](https://github.com/alfa-laboratory/core-components/commit/8064ac67af83750673ac2dde4794b2ec8fc04f2e))
+
+# [13.3.0](https://github.com/alfa-laboratory/core-components/compare/v13.2.0...v13.3.0) (2021-03-24)
+
+
+### Features
+
+* **alert:** add component ([#548](https://github.com/alfa-laboratory/core-components/issues/548)) ([264cbf8](https://github.com/alfa-laboratory/core-components/commit/264cbf8f7465d2ecaf043bf0f67530e040fc83f6))
+* **calendar-input:** remove input width ([#576](https://github.com/alfa-laboratory/core-components/issues/576)) ([f0954b0](https://github.com/alfa-laboratory/core-components/commit/f0954b0724ead52ea0a60ab8baebd5dfa3638a01))
+* **select:** add options-list width ([#578](https://github.com/alfa-laboratory/core-components/issues/578)) ([6f1c12b](https://github.com/alfa-laboratory/core-components/commit/6f1c12b9196d3ebf87e1ea3e0610f73b8832b771))
+* **select:** add optionsSize ([#577](https://github.com/alfa-laboratory/core-components/issues/577)) ([12f3b43](https://github.com/alfa-laboratory/core-components/commit/12f3b4342a3dada9db97eb80839a3d7adb9e3747))
+
+# [13.2.0](https://github.com/alfa-laboratory/core-components/compare/v13.1.4...v13.2.0) (2021-03-24)
+
+
+### Features
+
+* **notification-manager:** add component ([#565](https://github.com/alfa-laboratory/core-components/issues/565)) ([ad6ffab](https://github.com/alfa-laboratory/core-components/commit/ad6ffabb0f9665cd453b862279e96b7a1a6f359b))
+
 ## [13.1.4](https://github.com/alfa-laboratory/core-components/compare/v13.1.3...v13.1.4) (2021-03-19)
 
 

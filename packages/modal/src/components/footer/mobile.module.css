@@ -1,9 +1,17 @@
 @import '../../vars.css';
 
-.s {
-    padding: var(--gap-m);
+.footer {
+    composes: footer from 'index.module.css';
+
+    padding: var(--gap-xl) var(--gap-m);
 }
 
-.m {
-    padding: var(--gap-m) var(--gap-2xl) var(--gap-2xl);
+.highlighted {
+    composes: highlighted from 'index.module.css';
+}
+
+.sticky {
+    composes: sticky from 'index.module.css';
+
+    bottom: 0;
 }

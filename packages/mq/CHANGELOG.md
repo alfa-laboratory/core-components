@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-mq@1.1.6...@alfalab/core-components-mq@2.0.0) (2021-04-01)
+
+
+### Features
+
+* **mq:** change mobile-s to mobile-xs ([9abf5ba](https://github.com/alfa-laboratory/core-components/commit/9abf5bada45287a786610dd6cce7cc047d779012))
+
+
+### BREAKING CHANGES
+
+* **mq:** mobile-s теперь 360
+
+
+
+
+
 ## [1.1.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-mq@1.1.4...@alfalab/core-components-mq@1.1.6) (2021-03-18)
 
 

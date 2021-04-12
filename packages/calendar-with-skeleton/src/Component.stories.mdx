@@ -1,0 +1,91 @@
+import { text, boolean } from '@storybook/addon-knobs';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { CalendarWithSkeleton } from '.';
+import { name, version } from '../package.json';
+
+import { CalendarInput } from '../../calendar-input/src';
+import { CalendarRange } from '../../calendar-range/src';
+import { Button } from '../../button/src';
+
+
+<Meta
+    title='Компоненты'
+    component={CalendarWithSkeleton}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='CalendarWithSkeleton'>
+    {React.createElement(() => {
+        const [visible, setVisible] = React.useState(false);
+        return (
+            <>
+                <CalendarWithSkeleton calendarVisible={ visible }/>
+                <Button size="xs" onClick={() => setVisible(!visible)}>toggle</Button>
+            </>
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='CalendarWithSkeleton'
+    version={version}
+    package='@alfalab/core-components-calendar-with-skeleton'
+    stage={1}
+    design='https://www.figma.com/file/uGndMZufgvqxaNQTaNTEjG/B2B-Web-Components?node-id=3911%3A22929'
+/>
+
+```tsx
+import { CalendarWithSkeleton } from '@alfalab/core-components-calendar-with-skeleton';
+```
+
+Календарь с возможностью скелетной загрузки
+
+<Preview>
+    {React.createElement(() => {
+        const [visible, setVisible] = React.useState(false);
+        return (
+            <>
+                <CalendarWithSkeleton calendarVisible={ visible }/>
+                <Button size="xs" onClick={() => setVisible(!visible)}>toggle</Button>
+            </>
+        );
+    })}
+</Preview>
+
+<Props of={CalendarWithSkeleton} />
+
+## Использование с другими компонентами
+
+<Preview>
+    {React.createElement(() => {
+        return (
+            <CalendarInput
+                Calendar={CalendarWithSkeleton}
+                calendarProps={{ calendarVisible: false }}
+            />
+        );
+    })}
+</Preview>
+
+<Preview>
+    {React.createElement(() => {
+        return (
+            <CalendarRange
+                inputFromProps={{
+                    Calendar: CalendarWithSkeleton,
+                    disabled: true,
+                    calendarProps: {calendarVisible: false }
+                }}
+            />
+        );
+    })}
+</Preview>

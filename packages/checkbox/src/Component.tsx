@@ -3,8 +3,7 @@ import cn from 'classnames';
 import { useFocus } from '@alfalab/hooks';
 import mergeRefs from 'react-merge-refs';
 
-import CheckedIcon from '@alfalab/icons-classic/TickXsWhiteIcon';
-import IndeterminateIcon from '@alfalab/icons-classic/CheckIndeterminateSWhiteIcon';
+import CheckedIcon from '@alfalab/icons-glyph/CheckmarkCompactMIcon';
 
 import styles from './index.module.css';
 
@@ -121,11 +120,9 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                         {...restProps}
                     />
 
-                    {checked && <CheckedIcon />}
+                    {checked && <CheckedIcon className={styles.checkedIcon} />}
 
-                    {indeterminate && !checked && (
-                        <IndeterminateIcon className={styles.indeterminateIcon} />
-                    )}
+                    {indeterminate && !checked && <span className={styles.indeterminateLine} />}
                 </span>
 
                 {(label || hint) && (

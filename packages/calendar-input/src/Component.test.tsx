@@ -441,6 +441,25 @@ describe('CalendarInput', () => {
 
             expect(cb).toBeCalledTimes(1);
         });
+
+        it('should call onChange if empty date is entered', async () => {
+            const cb = jest.fn();
+            const { queryByRole } = render(
+                <CalendarInput calendarPosition='static' defaultValue='1' onChange={cb} />,
+            );
+
+            const input = queryByRole('textbox') as HTMLInputElement;
+
+            input.setSelectionRange(0, 2);
+            await userEvent.type(input, '{backspace}');
+
+            expect(cb).toBeCalledTimes(1);
+
+            const { date, value } = cb.mock.calls[0][1];
+
+            expect(value).toBe('');
+            expect((date as Date).getTime()).toBeNaN();
+        });
     });
 
     describe('Render tests', () => {

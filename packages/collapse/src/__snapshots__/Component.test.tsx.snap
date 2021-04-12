@@ -26,6 +26,7 @@ exports[`Collapse Display tests should display radio group with one child correc
         <svg
           focusable="false"
           height="24"
+          role="img"
           viewBox="0 0 24 24"
           width="24"
         >
@@ -75,6 +76,7 @@ exports[`Collapse Display tests should display with children like boolean or str
         <svg
           focusable="false"
           height="24"
+          role="img"
           viewBox="0 0 24 24"
           width="24"
         >

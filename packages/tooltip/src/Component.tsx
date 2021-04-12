@@ -1,6 +1,5 @@
 import React, {
     FC,
-    cloneElement,
     HTMLAttributes,
     ReactElement,
     useState,
@@ -8,8 +7,8 @@ import React, {
     useCallback,
     ReactNode,
     useRef,
+    Fragment,
 } from 'react';
-import NodeResolver from 'react-node-resolver';
 import cn from 'classnames';
 
 import { Popover, Position, PopoverProps } from '@alfalab/core-components-popover';
@@ -98,6 +97,11 @@ export type TooltipProps = {
     popoverClassName?: string;
 
     /**
+     * Дополнительный класс для обертки над дочерними элементами
+     */
+    targetClassName?: string;
+
+    /**
      * Хранит функцию, с помощью которой можно обновить положение компонента
      */
     updatePopover?: PopoverProps['update'];
@@ -110,16 +114,17 @@ export const Tooltip: FC<TooltipProps> = ({
     onCloseDelay = 300,
     onOpenDelay = 300,
     dataTestId,
-    onClose,
-    onOpen,
     open: forcedOpen,
-    getPortalContainer,
     offset = [0, 10],
     position,
     contentClassName,
     arrowClassName,
     popoverClassName,
     updatePopover,
+    targetClassName,
+    onClose,
+    onOpen,
+    getPortalContainer,
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
     const [target, setTarget] = useState<RefElement>(null);
@@ -187,19 +192,11 @@ export const Tooltip: FC<TooltipProps> = ({
         };
     }, [close]);
 
-    const handleTargetClick = (event: React.MouseEvent<HTMLElement>) => {
-        if (children.props.onClick) {
-            children.props.onClick(event);
-        }
-
+    const handleTargetClick = () => {
         toggle();
     };
 
-    const handleMouseOver = (event: React.MouseEvent<HTMLElement>) => {
-        if (children.props.onMouseOver) {
-            children.props.onMouseOver(event);
-        }
-
+    const handleMouseOver = () => {
         clearTimeout(timer.current);
 
         timer.current = window.setTimeout(() => {
@@ -207,11 +204,7 @@ export const Tooltip: FC<TooltipProps> = ({
         }, onOpenDelay);
     };
 
-    const handleMouseOut = (event: React.MouseEvent<HTMLElement>) => {
-        if (children.props.onMouseOut) {
-            children.props.onMouseOut(event);
-        }
-
+    const handleMouseOut = () => {
         clearTimeout(timer.current);
 
         timer.current = window.setTimeout(() => {
@@ -220,10 +213,6 @@ export const Tooltip: FC<TooltipProps> = ({
     };
 
     const handleTouchStart = (event: React.TouchEvent<HTMLElement>) => {
-        if (children.props.onTouchStart) {
-            children.props.onTouchStart(event);
-        }
-
         const eventTarget = event.target as Element;
 
         clearTimeout(timer.current);
@@ -245,11 +234,9 @@ export const Tooltip: FC<TooltipProps> = ({
         onTouchStart: handleTouchStart,
     };
 
-    const getTargetProps = (
-        targetProps: HTMLAttributes<HTMLElement>,
-    ): HTMLAttributes<HTMLElement> => {
+    const getTargetProps = (): HTMLAttributes<HTMLElement> => {
         const props = {
-            className: cn(styles.target, targetProps.className),
+            className: cn(styles.target, targetClassName),
         };
 
         switch (trigger) {
@@ -286,29 +273,19 @@ export const Tooltip: FC<TooltipProps> = ({
         }
     };
 
-    const renderTarget = () => {
-        const props = getTargetProps(children.props);
-
-        return cloneElement(children, props);
-    };
-
-    const renderContent = () => {
-        const props = getContentProps();
-
-        return <div {...props}>{content}</div>;
-    };
-
-    const show = forcedOpen === undefined ? visible : forcedOpen;
-
     const handleTargetRef = useCallback((ref: RefElement) => {
         targetRef.current = ref;
 
         setTarget(targetRef.current);
     }, []);
 
+    const show = forcedOpen === undefined ? visible : forcedOpen;
+
     return (
-        <React.Fragment>
-            <NodeResolver innerRef={handleTargetRef}>{renderTarget()}</NodeResolver>
+        <Fragment>
+            <div ref={handleTargetRef} {...getTargetProps()}>
+                {children}
+            </div>
 
             {target && (
                 <Popover
@@ -316,15 +293,16 @@ export const Tooltip: FC<TooltipProps> = ({
                     open={show}
                     getPortalContainer={getPortalContainer}
                     arrowClassName={arrowClassName}
-                    popperClassName={cn(styles.popper, popoverClassName)}
+                    popperClassName={styles.popper}
+                    className={popoverClassName}
                     offset={offset}
                     withArrow={true}
                     position={position}
                     update={updatePopover}
                 >
-                    {renderContent()}
+                    <div {...getContentProps()}>{content}</div>
                 </Popover>
             )}
-        </React.Fragment>
+        </Fragment>
     );
 };

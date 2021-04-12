@@ -15,9 +15,4 @@
 
 .sticky {
     position: sticky;
-    bottom: calc(var(--modal-vertical-padding) * -1);
-}
-
-.fullscreen.sticky {
-    bottom: 0;
 }

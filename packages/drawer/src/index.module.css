@@ -5,9 +5,16 @@
 }
 
 .component {
-    width: var(--drawer-width);
-    right: 0;
+    position: fixed;
     top: 0;
+    right: 0;
+    height: 100%;
+    width: var(--drawer-width);
+    flex: 1;
+    align-self: flex-end;
+    display: flex;
+    align-items: stretch;
+    overflow: auto;
     will-change: transform;
 }
 
@@ -26,28 +33,30 @@
     transform: translateX(0);
 }
 
-.exitActive,
-.exitDone {
+.exitActive {
     transition: transform 400ms ease-in-out;
     transform: translateX(100%);
 }
 
 .backdropAppear,
 .backdropEnter {
-    background-color: var(--modal-backdrop-hidden-background);
+    background-color: var(--backdrop-hidden-background);
 }
 
 .backdropAppearActive,
-.backdropEnterActive {
+.backdropEnterActive,
+.backdropAppearDone,
+.backdropEnterDone {
     transition: background 200ms ease-in-out;
-    background-color: var(--modal-backdrop-visible-background);
+    background-color: var(--backdrop-visible-background);
 }
 
 .backdropExit {
-    background-color: var(--modal-backdrop-visible-background);
+    background-color: var(--backdrop-visible-background);
 }
 
-.backdropExitActive {
+.backdropExitActive,
+.backdropExitDone {
     transition: background 200ms ease-in-out 400ms;
-    background-color: var(--modal-backdrop-hidden-background);
+    background-color: var(--backdrop-hidden-background);
 }

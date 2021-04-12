@@ -1,11 +1,17 @@
 @import '../../themes/src/default.css';
 
 :root {
+    --slider-progress-color: var(--color-red-dark);
+    --slider-progress-hover-color: var(--color-red-dark);
     --slider-thumb-color: var(--color-light-graphic-accent);
-    --slider-progress-color: var(--color-red-dark); /* TODO */
+    --slider-thumb-hover-color: var(--color-light-graphic-accent);
     --slider-thumb-size: 18px;
+    --slider-thumb-border: 0;
+    --slider-thumb-box-shadow: 0 2px 10px color-mod(var(--slider-thumb-color) alpha(30%));
     --slider-progress-height: 2px;
     --slider-progress-background: transparent;
+    --slider-progress-hover-background: transparent;
+    --slider-progress-border-radius: 0;
 }
 
 /* Не работают префиксные селекторы через запятую - пришлось вынести в миксины */
@@ -31,10 +37,19 @@
     height: var(--slider-thumb-size);
     border: 0;
     appearance: none;
+    box-sizing: border-box;
     background: var(--slider-thumb-color);
     border-radius: var(--border-radius-circle);
-    box-shadow: 0 2px 10px color-mod(var(--slider-thumb-color) alpha(30%));
+    box-shadow: var(--slider-thumb-box-shadow);
+    border: var(--slider-thumb-border);
     cursor: grab;
+    transition: background 0.15s;
+}
+
+@define-mixin _slider-progress {
+    background: var(--slider-progress-color);
+    border-radius: var(--slider-progress-border-radius);
+    transition: background 0.15s;
 }
 
 .component {
@@ -53,22 +68,24 @@
     display: block;
     width: 100%;
     height: var(--slider-progress-height);
+    border-radius: var(--slider-progress-border-radius);
     border: 0;
     -webkit-appearance: none;
     -moz-appearance: none;
     background: var(--slider-progress-background);
+    transition: background 0.15s;
 }
 
 .progress::-moz-progress-bar {
-    background: var(--slider-progress-color);
+    @mixin _slider-progress;
 }
 
 .progress::-ms-fill {
-    background: var(--slider-progress-color);
+    @mixin _slider-progress;
 }
 
 .progress::-webkit-progress-value {
-    background: var(--slider-progress-color);
+    @mixin _slider-progress;
 }
 
 .progress::-webkit-progress-bar {
@@ -77,6 +94,7 @@
 
 .rangeWrapper {
     position: absolute;
+    z-index: 1;
     top: 0;
     right: calc(var(--slider-thumb-size) / 2 * -1);
     left: calc(var(--slider-thumb-size) / 2 * -1);
@@ -163,4 +181,38 @@
 
 .range:disabled::-moz-range-thumb {
     cursor: var(--disabled-cursor);
+}
+
+/* hover */
+
+.component:hover {
+    & .progress {
+        background: var(--slider-progress-hover-background);
+
+        &::-moz-progress-bar {
+            background: var(--slider-progress-hover-color);
+        }
+
+        &::-ms-fill {
+            background: var(--slider-progress-hover-color);
+        }
+
+        &::-webkit-progress-value {
+            background: var(--slider-progress-hover-color);
+        }
+    }
+
+    & .range {
+        &::-webkit-slider-thumb {
+            background: var(--slider-thumb-hover-color);
+        }
+
+        &::-ms-thumb {
+            background: var(--slider-thumb-hover-color);
+        }
+
+        &::-moz-range-thumb {
+            background: var(--slider-thumb-hover-color);
+        }
+    }
 }

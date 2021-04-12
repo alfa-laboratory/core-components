@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.13](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast@1.1.12...@alfalab/core-components-toast@1.1.13) (2021-04-01)
+
+**Note:** Version bump only for package @alfalab/core-components-toast
+
+
+
+
+
+## [1.1.12](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast@1.1.11...@alfalab/core-components-toast@1.1.12) (2021-03-30)
+
+**Note:** Version bump only for package @alfalab/core-components-toast
+
+
+
+
+
+## [1.1.11](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast@1.1.10...@alfalab/core-components-toast@1.1.11) (2021-03-30)
+
+**Note:** Version bump only for package @alfalab/core-components-toast
+
+
+
+
+
+## [1.1.10](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast@1.1.9...@alfalab/core-components-toast@1.1.10) (2021-03-24)
+
+**Note:** Version bump only for package @alfalab/core-components-toast
+
+
+
+
+
 ## [1.1.9](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast@1.1.8...@alfalab/core-components-toast@1.1.9) (2021-03-19)
 
 **Note:** Version bump only for package @alfalab/core-components-toast

@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-drawer@1.2.0...@alfalab/core-components-drawer@1.2.1) (2021-04-09)
+
+
+### Bug Fixes
+
+* **drawer:** backdrop styles ([04da4fa](https://github.com/alfa-laboratory/core-components/commit/04da4fac310dbe2634ea4130ead480a88d47ee8e))
+
+
+
+
+
+# [1.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-drawer@1.1.15...@alfalab/core-components-drawer@1.2.0) (2021-04-09)
+
+
+### Features
+
+* **backdrop:** add component ([948a6c2](https://github.com/alfa-laboratory/core-components/commit/948a6c2fb5ec58edb2d087691ce4713d75da6e35))
+
+
+
+
+
+## [1.1.15](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-drawer@1.1.14...@alfalab/core-components-drawer@1.1.15) (2021-04-01)
+
+**Note:** Version bump only for package @alfalab/core-components-drawer
+
+
+
+
+
+## [1.1.14](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-drawer@1.1.13...@alfalab/core-components-drawer@1.1.14) (2021-03-30)
+
+**Note:** Version bump only for package @alfalab/core-components-drawer
+
+
+
+
+
+## [1.1.13](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-drawer@1.1.12...@alfalab/core-components-drawer@1.1.13) (2021-03-24)
+
+**Note:** Version bump only for package @alfalab/core-components-drawer
+
+
+
+
+
 ## [1.1.12](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-drawer@1.1.11...@alfalab/core-components-drawer@1.1.12) (2021-03-19)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer

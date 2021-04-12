@@ -3,14 +3,17 @@
 :root {
     --switch-label-color: var(--color-light-text-primary);
     --switch-hint-color: var(--color-light-text-secondary);
-    --switch-bg-color: var(--color-light-graphic-tertiary);
-    --switch-border-color: var(--color-light-graphic-tertiary);
-    --switch-checked-bg-color: var(--color-light-graphic-negative);
-    --switch-checked-border-color: var(--color-light-graphic-negative);
+    --switch-bg-color: var(--color-light-graphic-secondary);
+    --switch-border-color: var(--color-light-graphic-secondary);
+
+    /* checked */
+    --switch-checked-bg-color: var(--color-light-graphic-accent);
+    --switch-checked-border-color: var(--color-light-graphic-accent);
+
+    /* disabled */
+    --switch-disabled-color: var(--color-light-text-tertiary);
     --switch-disabled-bg-color: var(--color-light-graphic-neutral);
     --switch-disabled-border-color: var(--color-light-graphic-neutral);
-    --switch-checked-disabled-bg-color: var(--color-red-brand-30-flat); /* TODO */
-    --switch-checked-disabled-border-color: var(--color-red-brand-30-flat); /* TODO */
 }
 
 .component {
@@ -49,8 +52,9 @@
 .switch {
     position: relative;
     border-radius: var(--border-radius-xl);
-    width: 40px;
-    height: 24px;
+    width: 36px;
+    height: 20px;
+    margin: var(--gap-3xs);
     flex-shrink: 0;
     background-color: var(--switch-bg-color);
     border: 2px solid var(--switch-border-color);
@@ -64,18 +68,16 @@
     top: 0;
     left: 0;
     display: block;
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     border-radius: var(--border-radius-circle);
-    background-color: #fff;
-    border: 0.5px solid color-mod(var(--color-light-border-key) alpha(5%));
-    box-shadow: 0 2px 4px color-mod(var(--color-light-border-key) alpha(30%));
+    background-color: var(--color-light-graphic-primary-inverted);
     box-sizing: border-box;
     transition: transform 0.2s ease;
 }
 
 .content {
-    margin-left: var(--gap-m);
+    margin-left: var(--gap-s);
     flex-grow: 1;
 }
 
@@ -136,13 +138,12 @@
     border-color: var(--switch-disabled-border-color);
 }
 
-.disabled .switch:before {
-    box-shadow: none;
+.disabled .label {
+    color: var(--switch-disabled-color);
 }
 
-.disabled.checked .switch {
-    background-color: var(--switch-checked-disabled-bg-color);
-    border-color: var(--switch-checked-disabled-border-color);
+.disabled .hint {
+    color: var(--switch-disabled-color);
 }
 
 /* Focused state */

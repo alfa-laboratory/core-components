@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-switch@1.7.5...@alfalab/core-components-switch@1.7.6) (2021-04-01)
+
+**Note:** Version bump only for package @alfalab/core-components-switch
+
+
+
+
+
+## [1.7.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-switch@1.7.4...@alfalab/core-components-switch@1.7.5) (2021-03-24)
+
+**Note:** Version bump only for package @alfalab/core-components-switch
+
+
+
+
+
 ## [1.7.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-switch@1.7.2...@alfalab/core-components-switch@1.7.4) (2021-03-18)
 
 

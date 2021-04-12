@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@2.0.0...@alfalab/core-components-tooltip@2.0.1) (2021-04-01)
+
+**Note:** Version bump only for package @alfalab/core-components-tooltip
+
+
+
+
+
+# [2.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@1.7.4...@alfalab/core-components-tooltip@2.0.0) (2021-03-30)
+
+
+### Features
+
+* **tooltip:** add wrapper around children component ([#587](https://github.com/alfa-laboratory/core-components/issues/587)) ([a2ecbb6](https://github.com/alfa-laboratory/core-components/commit/a2ecbb67bd517b583284ec0b8365de9e58e753ed))
+
+
+### BREAKING CHANGES
+
+* **tooltip:** add wrapper around children component
+
+* feat(tooltip): add target className prop
+
+* feat(tooltip): fix passed classNames
+
+
+
+
+
 ## [1.7.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@1.7.2...@alfalab/core-components-tooltip@1.7.4) (2021-03-18)
 
 

@@ -141,7 +141,7 @@ export const TagList: FC<FieldProps & FormControlProps & TagListOwnProps> = ({
     const toggleShowMoreLessButton = useCallback(
         event => {
             event.stopPropagation();
-            setShowMoreEnabled(value => !value);
+            setShowMoreEnabled(v => !v);
             if (handleUpdatePopover) {
                 handleUpdatePopover();
             }

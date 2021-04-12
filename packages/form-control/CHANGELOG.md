@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-form-control@6.0.5...@alfalab/core-components-form-control@6.1.0) (2021-04-09)
+
+
+### Features
+
+* **form-control:** add hidden label instead min-width ([a40ffcf](https://github.com/alfa-laboratory/core-components/commit/a40ffcf149282c83a834587a9486bc09b2929f90))
+
+
+
+
+
 ## [6.0.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-form-control@6.0.3...@alfalab/core-components-form-control@6.0.5) (2021-03-18)
 
 

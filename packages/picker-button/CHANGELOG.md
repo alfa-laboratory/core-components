@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@3.2.22...@alfalab/core-components-picker-button@3.3.0) (2021-04-09)
+
+
+### Bug Fixes
+
+* **select:** options list width calc ([5294af7](https://github.com/alfa-laboratory/core-components/commit/5294af78ef61b50edde42ed255e66e6ea004c0fd))
+
+
+### Features
+
+* **vars:** fresh colors ([10907ec](https://github.com/alfa-laboratory/core-components/commit/10907eca0f5556795529a90b41d2bc663ea01dfe))
+
+
+
+
+
+## [3.2.22](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@3.2.21...@alfalab/core-components-picker-button@3.2.22) (2021-04-01)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
+## [3.2.21](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@3.2.20...@alfalab/core-components-picker-button@3.2.21) (2021-03-30)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
+## [3.2.20](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@3.2.19...@alfalab/core-components-picker-button@3.2.20) (2021-03-24)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
+## [3.2.19](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@3.2.18...@alfalab/core-components-picker-button@3.2.19) (2021-03-24)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
 ## [3.2.18](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@3.2.17...@alfalab/core-components-picker-button@3.2.18) (2021-03-19)
 
 **Note:** Version bump only for package @alfalab/core-components-picker-button

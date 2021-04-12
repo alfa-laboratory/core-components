@@ -1,5 +1,6 @@
 {
-    "--mobile-s": "(min-width: 320px)",
+    "--mobile-xs": "(min-width: 320px)",
+    "--mobile-s": "(min-width: 360px)",
     "--mobile-m": "(min-width: 375px)",
     "--mobile-l": "(min-width: 412px)",
     "--mobile": "(max-width: 599px)",

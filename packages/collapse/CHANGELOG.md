@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@1.0.8...@alfalab/core-components-collapse@1.1.0) (2021-04-06)
+
+
+### Features
+
+* **vars:** fresh colors ([10907ec](https://github.com/alfa-laboratory/core-components/commit/10907eca0f5556795529a90b41d2bc663ea01dfe))
+
+
+
+
+
+## [1.0.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@1.0.7...@alfalab/core-components-collapse@1.0.8) (2021-04-01)
+
+**Note:** Version bump only for package @alfalab/core-components-collapse
+
+
+
+
+
 ## [1.0.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@1.0.5...@alfalab/core-components-collapse@1.0.7) (2021-03-18)
 
 

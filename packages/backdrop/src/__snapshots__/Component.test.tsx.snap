@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Backdrop should match snapshot 1`] = `
+<div
+  aria-hidden="true"
+  class="backdrop appear appearActive"
+  data-test-id="Backdrop"
+>
+  <span>
+    children
+  </span>
+</div>
+`;
+
+exports[`Backdrop should match snapshot 2`] = `
+<div
+  aria-hidden="true"
+  class="backdrop appearDone enterDone"
+  data-test-id="Backdrop"
+>
+  <span>
+    children
+  </span>
+</div>
+`;
+
+exports[`Backdrop should match snapshot 3`] = `
+<div
+  aria-hidden="true"
+  class="backdrop exit exitActive"
+  data-test-id="Backdrop"
+>
+  <span>
+    children
+  </span>
+</div>
+`;
+
+exports[`Backdrop should match snapshot 4`] = `null`;

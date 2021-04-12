@@ -9,10 +9,15 @@ import React, {
     MouseEvent,
     KeyboardEvent,
     useEffect,
+    ElementType,
 } from 'react';
 import cn from 'classnames';
 import { MaskedInput, MaskedInputProps } from '@alfalab/core-components-masked-input';
-import { Calendar, CalendarProps, dateInLimits } from '@alfalab/core-components-calendar';
+import {
+    Calendar as DefaultCalendar,
+    CalendarProps,
+    dateInLimits,
+} from '@alfalab/core-components-calendar';
 import { Popover } from '@alfalab/core-components-popover';
 import mergeRefs from 'react-merge-refs';
 import {
@@ -97,6 +102,11 @@ export type CalendarInputProps = Omit<
     mobileMode?: 'native' | 'popover' | 'input';
 
     /**
+     * Компонент календаря
+     */
+    Calendar?: ElementType<CalendarProps>;
+
+    /**
      * Обработчик изменения значения
      */
     onChange?: (
@@ -146,6 +156,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             onInputChange,
             onCalendarChange,
             readOnly,
+            Calendar = DefaultCalendar,
             ...restProps
         },
         ref,
@@ -244,7 +255,13 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                 const newValue = event.target.value;
                 const newDate = parseDateString(newValue);
 
-                changeHandler(event, newValue, newDate, 'input', isCompleteDateInput(newValue));
+                changeHandler(
+                    event,
+                    newValue,
+                    newDate,
+                    'input',
+                    !newValue || isCompleteDateInput(newValue),
+                );
             },
             [changeHandler],
         );
@@ -358,6 +375,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                         offset={[0, 8]}
                         withTransition={false}
                         preventFlip={preventFlip}
+                        className={styles.popover}
                     >
                         {renderCalendar()}
                     </Popover>

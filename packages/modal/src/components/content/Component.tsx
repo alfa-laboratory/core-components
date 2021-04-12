@@ -1,9 +1,7 @@
 import React, { FC, ReactNode, Ref, useContext } from 'react';
 import cn from 'classnames';
 
-import { ModalContext } from '../../Component';
-
-import styles from './index.module.css';
+import { ModalContext } from '../../Context';
 
 export type ContentProps = {
     /**
@@ -22,7 +20,12 @@ export type ContentProps = {
     flex?: boolean;
 };
 
-export const Content: FC<ContentProps> = ({ children, flex, className }) => {
+export const Content: FC<ContentProps & { styles: Record<string, string> }> = ({
+    children,
+    flex,
+    className,
+    styles,
+}) => {
     const { contentRef } = useContext(ModalContext);
 
     return (

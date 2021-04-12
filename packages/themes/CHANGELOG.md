@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.8.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.7.7...@alfalab/core-components-themes@3.8.0) (2021-04-09)
+
+
+### Features
+
+* **backdrop:** add component ([2b87958](https://github.com/alfa-laboratory/core-components/commit/2b87958e51449645c58bbd02552ce7a908c6bab8))
+* **slider:** click theme ([15c308a](https://github.com/alfa-laboratory/core-components/commit/15c308a50e9fbcd8e40a8681f32aefea5b3d5cf9))
+
+
+
+
+
+## [3.7.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.7.6...@alfalab/core-components-themes@3.7.7) (2021-03-30)
+
+
+### Bug Fixes
+
+* **themes:** fixed button corp theme ([4dec71c](https://github.com/alfa-laboratory/core-components/commit/4dec71ccc9bd321a9d7a50dba221b13267b092f9))
+
+
+
+
+
+## [3.7.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.7.5...@alfalab/core-components-themes@3.7.6) (2021-03-24)
+
+**Note:** Version bump only for package @alfalab/core-components-themes
+
+
+
+
+
 ## [3.7.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.7.3...@alfalab/core-components-themes@3.7.5) (2021-03-18)
 
 

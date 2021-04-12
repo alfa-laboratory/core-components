@@ -39,6 +39,7 @@ exports[`Snapshots tests should display correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="24"
+            role="img"
             viewBox="0 0 24 24"
             width="24"
           >
@@ -82,6 +83,7 @@ exports[`Snapshots tests should display opened correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="24"
+            role="img"
             viewBox="0 0 24 24"
             width="24"
           >
@@ -115,7 +117,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
         class="optionsList"
         id="downshift-3-menu"
         role="listbox"
-        style="min-width: 0;"
+        style="min-width: 0px;"
       >
         <div
           class="optionsList m"

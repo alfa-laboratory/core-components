@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.10](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@4.1.9...@alfalab/core-components-confirmation@4.1.10) (2021-04-09)
+
+**Note:** Version bump only for package @alfalab/core-components-confirmation
+
+
+
+
+
+## [4.1.9](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@4.1.8...@alfalab/core-components-confirmation@4.1.9) (2021-04-06)
+
+**Note:** Version bump only for package @alfalab/core-components-confirmation
+
+
+
+
+
+## [4.1.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@4.1.7...@alfalab/core-components-confirmation@4.1.8) (2021-04-01)
+
+**Note:** Version bump only for package @alfalab/core-components-confirmation
+
+
+
+
+
+## [4.1.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@4.1.6...@alfalab/core-components-confirmation@4.1.7) (2021-03-30)
+
+**Note:** Version bump only for package @alfalab/core-components-confirmation
+
+
+
+
+
+## [4.1.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@4.1.5...@alfalab/core-components-confirmation@4.1.6) (2021-03-24)
+
+**Note:** Version bump only for package @alfalab/core-components-confirmation
+
+
+
+
+
 ## [4.1.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@4.1.4...@alfalab/core-components-confirmation@4.1.5) (2021-03-19)
 
 **Note:** Version bump only for package @alfalab/core-components-confirmation

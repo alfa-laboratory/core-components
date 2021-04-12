@@ -39,6 +39,12 @@ exports[`BankCard Snapshots tests should match snapshots 1`] = `
             <div
               class="inputWrapper"
             >
+              <span
+                aria-hidden="true"
+                class="hiddenLabel"
+              >
+                Номер карты или счёта
+              </span>
               <div
                 class="label label"
               >
@@ -148,6 +154,12 @@ exports[`BankCard Snapshots tests should match snapshots 2`] = `
             <div
               class="inputWrapper"
             >
+              <span
+                aria-hidden="true"
+                class="hiddenLabel"
+              >
+                Номер карты или счёта
+              </span>
               <div
                 class="label label"
               >
@@ -255,6 +267,12 @@ exports[`BankCard Snapshots tests should match snapshots 3`] = `
             <div
               class="inputWrapper"
             >
+              <span
+                aria-hidden="true"
+                class="hiddenLabel"
+              >
+                Номер карты или счёта
+              </span>
               <div
                 class="label label"
               >
@@ -362,6 +380,12 @@ exports[`BankCard Snapshots tests should match snapshots 4`] = `
             <div
               class="inputWrapper"
             >
+              <span
+                aria-hidden="true"
+                class="hiddenLabel"
+              >
+                Номер карты или счёта
+              </span>
               <div
                 class="label label"
               >
