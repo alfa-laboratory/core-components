@@ -9,6 +9,7 @@
 .component {
     position: relative;
     display: inline-block;
+    vertical-align: middle;
     color: transparent;
     border-radius: var(--skeleton-border-radius);
     overflow: hidden;
