@@ -93,6 +93,55 @@ describe('CalendarInput', () => {
                 expect(document.querySelector('.calendar')).not.toBeInTheDocument();
             });
         });
+
+        it('should close calendar on escape', async () => {
+            const { container } = render(
+                <CalendarInput calendarProps={{ className: 'calendar' }} />,
+            );
+            const component = container.firstElementChild as HTMLDivElement;
+
+            await waitFor(() => {
+                fireEvent.focus(component);
+                expect(document.querySelector('.calendar')).toBeInTheDocument();
+            });
+
+            fireEvent.keyDown(component, { key: 'Escape' });
+
+            await waitFor(() => {
+                expect(document.querySelector('.calendar')).not.toBeInTheDocument();
+            });
+        });
+
+        it('should toggle calendar on enter if input focused', async () => {
+            const { container, queryByRole } = render(
+                <CalendarInput calendarProps={{ className: 'calendar' }} />,
+            );
+            const component = container.firstElementChild as HTMLDivElement;
+            const input = queryByRole('textbox') as HTMLInputElement;
+
+            await waitFor(() => {
+                fireEvent.focus(component);
+                expect(document.querySelector('.calendar')).toBeInTheDocument();
+            });
+
+            fireEvent.keyDown(component, { key: 'Enter' });
+
+            await waitFor(() => {
+                expect(document.querySelector('.calendar')).toBeInTheDocument();
+            });
+
+            fireEvent.keyDown(input, { key: 'Enter' });
+
+            await waitFor(() => {
+                expect(document.querySelector('.calendar')).not.toBeInTheDocument();
+            });
+
+            fireEvent.keyDown(input, { key: 'Enter' });
+
+            await waitFor(() => {
+                expect(document.querySelector('.calendar')).toBeInTheDocument();
+            });
+        });
     });
 
     describe('Controlled-way', () => {
@@ -270,7 +319,7 @@ describe('CalendarInput', () => {
             expect(nonDisabledDays[nonDisabledDays.length - 1]).toHaveTextContent('25');
         });
 
-        it('should set calendar value only if value in [minDate, maxDate]', () => {
+        it('should set calendar value if value in [minDate, maxDate]', () => {
             const value = '01.12.2020';
             const minDate = new Date('November 10, 2020 00:00:00').getTime();
             const maxDate = new Date('November 25, 2020 00:00:00').getTime();
