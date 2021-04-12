@@ -101,9 +101,9 @@ describe('Select', () => {
         });
 
         it('should render label', () => {
-            const { getByText } = render(<Select {...baseProps} label={LABEL_TEXT} />);
+            const { getAllByText } = render(<Select {...baseProps} label={LABEL_TEXT} />);
 
-            expect(getByText(LABEL_TEXT)).toBeInTheDocument();
+            expect(getAllByText(LABEL_TEXT)[1]).toBeInTheDocument();
         });
 
         it('should render hint', () => {
@@ -164,13 +164,13 @@ describe('Select', () => {
             const expectedResult = optionsToSelect.join(', ');
             const expectedResultTruncated = optionsToSelect.slice(0, 2).join(', ');
 
-            const { getByText } = render(
+            const { getByText, getAllByText } = render(
                 <Select {...baseProps} label={LABEL_TEXT} options={options} multiple={true} />,
             );
 
             const clickOption = async (index: number) =>
                 waitFor(() => {
-                    getByText(LABEL_TEXT).click();
+                    getAllByText(LABEL_TEXT)[1].click();
                     getByText(optionsToSelect[index]).click();
                 });
 
@@ -181,7 +181,7 @@ describe('Select', () => {
             expect(getByText(expectedResult)).toBeInTheDocument();
 
             await waitFor(() => {
-                getByText(LABEL_TEXT).click();
+                getAllByText(LABEL_TEXT)[1].click();
                 getByText(optionsToSelect[2]).click();
             });
 
@@ -189,11 +189,11 @@ describe('Select', () => {
         });
 
         it('should not allow unselect by default', async () => {
-            const { getByText, findByText } = render(
+            const { getByText, getAllByText, findByText } = render(
                 <Select {...baseProps} label={LABEL_TEXT} options={options} />,
             );
 
-            const label = getByText(LABEL_TEXT);
+            const label = getAllByText(LABEL_TEXT)[1];
 
             label.click();
             getByText(optionContent).click();
@@ -208,11 +208,11 @@ describe('Select', () => {
         });
 
         it('should allow unselect', async () => {
-            const { getByText, queryByText, findByText } = render(
+            const { getByText, getAllByText, queryByText, findByText } = render(
                 <Select {...baseProps} label={LABEL_TEXT} options={options} allowUnselect={true} />,
             );
 
-            const label = getByText(LABEL_TEXT);
+            const label = getAllByText(LABEL_TEXT)[1];
 
             label.click();
             getByText(optionContent).click();
@@ -227,7 +227,7 @@ describe('Select', () => {
         });
 
         it('should not close on select', () => {
-            const { getByText, getByRole } = render(
+            const { getByText, getAllByText, getByRole } = render(
                 <Select
                     {...baseProps}
                     label={LABEL_TEXT}
@@ -235,7 +235,7 @@ describe('Select', () => {
                     closeOnSelect={false}
                 />,
             );
-            getByText(LABEL_TEXT).click();
+            getAllByText(LABEL_TEXT)[1].click();
             getByText(optionContent).click();
 
             expect(getByRole(ROLE_LISTBOX)).toBeInTheDocument();
@@ -277,11 +277,11 @@ describe('Select', () => {
 
         describe('Open/close tests', () => {
             it('should open list on click, close on click outside', async () => {
-                const { getByText, queryByRole } = render(
+                const { getAllByText, queryByRole } = render(
                     <Select {...baseProps} options={options} label={LABEL_TEXT} />,
                 );
 
-                getByText(LABEL_TEXT).click();
+                getAllByText(LABEL_TEXT)[1].click();
                 expect(queryByRole(ROLE_LISTBOX)).toBeInTheDocument();
 
                 userEvent.click(document.firstElementChild as HTMLElement);
@@ -289,11 +289,11 @@ describe('Select', () => {
             });
 
             it('should not open if disabled', async () => {
-                const { getByText, queryByRole } = render(
+                const { getAllByText, queryByRole } = render(
                     <Select {...baseProps} label={LABEL_TEXT} options={options} disabled={true} />,
                 );
 
-                getByText(LABEL_TEXT).click();
+                getAllByText(LABEL_TEXT)[1].click();
                 expect(queryByRole(ROLE_LISTBOX)).not.toBeInTheDocument();
             });
 
@@ -393,7 +393,7 @@ describe('Select', () => {
             const spy = jest.spyOn(optionsListModule, 'OptionsList');
 
             const optionsListProps: Partial<OptionsListProps> = {
-                emptyPlaceholder: `list-placeholder`,
+                emptyPlaceholder: 'list-placeholder',
             };
 
             const expectedProps: Partial<OptionsListProps> = {
@@ -557,7 +557,7 @@ describe('Select', () => {
 
         it('should call valueRenderer', async () => {
             const valueRenderer = jest.fn();
-            const { getByText } = render(
+            const { getByText, getAllByText } = render(
                 <Select
                     {...baseProps}
                     options={options}
@@ -566,7 +566,7 @@ describe('Select', () => {
                 />,
             );
 
-            getByText(LABEL_TEXT).click();
+            getAllByText(LABEL_TEXT)[1].click();
             getByText(options[0].content).click();
 
             expect(valueRenderer).toBeCalled();
@@ -574,7 +574,7 @@ describe('Select', () => {
 
         it('should call custom value renderer', async () => {
             const valueRenderer = jest.fn();
-            const { getByText } = render(
+            const { getByText, getAllByText } = render(
                 <Select
                     {...baseProps}
                     options={options}
@@ -590,7 +590,7 @@ describe('Select', () => {
                 selectedMultiple: [optionToSelect],
             };
 
-            getByText(LABEL_TEXT).click();
+            getAllByText(LABEL_TEXT)[1].click();
             getByText(optionToSelect.content).click();
 
             expect(valueRenderer).toHaveBeenLastCalledWith(expectedCallArgument);
