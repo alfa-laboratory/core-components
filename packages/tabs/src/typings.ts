@@ -126,7 +126,7 @@ export type TabListProps = Pick<
         disabled?: boolean;
         rightAddons?: ReactNode;
     }>;
-};
+} & ResponsiveComponentProps;
 
 export type SecondaryTabListProps = TabListProps & {
     tagSize?: TagProps['size'];
@@ -136,4 +136,9 @@ export type UseTabsProps = TabListProps;
 
 export type Styles = {
     styles: { [key: string]: string };
+};
+
+// TODO: вынести в какое-то общее место, чтобы переиспользовать для других компонентов
+export type ResponsiveComponentProps = {
+    defaultMatch?: 'mobile' | 'desktop';
 };

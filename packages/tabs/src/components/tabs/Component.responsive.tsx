@@ -1,5 +1,5 @@
 import React from 'react';
-import { TabsProps } from '../../typings';
+import { TabsProps, ResponsiveComponentProps } from '../../typings';
 import { PrimaryTabListResponsive } from '../primary-tablist/Component.responsive';
 import { SecondaryTabListResponsive } from '../secondary-tablist/Component.responsive';
 import { Tabs } from './Component';
@@ -9,7 +9,7 @@ const views = {
     secondary: SecondaryTabListResponsive,
 };
 
-export type TabsResponsiveProps = Omit<TabsProps, 'TabList'>;
+export type TabsResponsiveProps = Omit<TabsProps, 'TabList'> & ResponsiveComponentProps;
 
 export const TabsResponsive = ({
     view = 'primary',

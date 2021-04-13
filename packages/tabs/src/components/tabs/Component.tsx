@@ -1,5 +1,5 @@
 import React, { cloneElement } from 'react';
-import { TabsProps } from '../../typings';
+import { TabsProps, ResponsiveComponentProps } from '../../typings';
 
 export const Tabs = ({
     TabList,
@@ -11,8 +11,9 @@ export const Tabs = ({
     scrollable,
     keepMounted = false,
     dataTestId,
+    defaultMatch,
     onChange,
-}: Omit<TabsProps, 'view'>) => {
+}: Omit<TabsProps, 'view'> & ResponsiveComponentProps) => {
     const tabsArray = React.Children.toArray(children) as TabsProps['children'];
     const titles = tabsArray.map(({ props: { title, id, rightAddons, disabled } }) => ({
         title,
@@ -34,6 +35,7 @@ export const Tabs = ({
                 scrollable={scrollable}
                 onChange={onChange}
                 dataTestId={dataTestId}
+                defaultMatch={defaultMatch}
             />
 
             {tabs.map(tab => cloneElement(tab, { hidden: tab.props.id !== selectedId }))}
