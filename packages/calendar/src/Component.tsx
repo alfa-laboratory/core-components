@@ -1,12 +1,13 @@
 import React, { forwardRef, useCallback, useMemo, useState } from 'react';
 import cn from 'classnames';
 import { startOfMonth } from 'date-fns';
+import { useDidUpdateEffect } from '@alfalab/hooks';
 import { Header } from './components/header';
 import { DaysTable } from './components/days-table';
 import { MonthsTable } from './components/months-table';
 import { YearsTable } from './components/years-table';
 import { useCalendar } from './useCalendar';
-import { monthName, useDidUpdateEffect } from './utils';
+import { monthName } from './utils';
 import { View, SelectorView } from './typings';
 
 import styles from './index.module.css';
