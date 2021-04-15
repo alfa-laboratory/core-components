@@ -90,6 +90,11 @@
   resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.1.1.tgz#c61e839983cb915e2e4de730bf9c9b0f1c0aea45"
   integrity sha512-4NBh/BzFE/W7Wxgxa0SByodjpDgUQT5RHzc/9wLbMlhljpo+S145mavFdtK+YcJ2Sg4GK6OZon61KqV5w7Nafw==
 
+"@alfalab/hooks@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.2.0.tgz#729ae06c5c3ebe02a9ca0f98bcc01c8713c5c54b"
+  integrity sha512-AHrMhlC3AxL085T/NnCjYsiERUFkfh9MtvXAAs954w2RZdhQFlLpevESv0lzjoVSnYfrV4yOzQyUbb/WGDQFGA==
+
 "@alfalab/icons-classic@^1.56.0":
   version "1.63.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-classic/-/icons-classic-1.63.0.tgz#e0612c27c4332263d7f72932f0e4406cd4921417"
@@ -110,7 +115,7 @@
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.124.0.tgz#a20bff957e83b58b765b67cada35a1e343519db2"
   integrity sha512-oMvQgvsrVVOjej32LXm2cLnaZMcY+Y3MnYNQgoBYbM2rkzmyHUSphajDEMkmQ4NYhCl7ZC83RdBwLlhN8UW3/A==
 
-"@alfalab/icons-glyph@^1.26.0", "@alfalab/icons-glyph@^1.70.0", "@alfalab/icons-glyph@^1.71.0":
+"@alfalab/icons-glyph@^1.26.0", "@alfalab/icons-glyph@^1.70.0":
   version "1.99.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.99.0.tgz#6c39d80750644b739fa8c599344404697e8d4920"
   integrity sha512-iA23rxX/DEJYdzuG92GbORJLAg3HAQtL8xjg8n3wk573VLftJuPV8nQHPKtXSTX2V2bfH+LE0BRS6x2Y8F1TnQ==
@@ -155,6 +160,11 @@
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.1.1.tgz#1f14fc91b03d9e99049a59daff009cc8e4a70f95"
   integrity sha512-JdMNq3WXVwhU3z4cxlkWutbY8C6QIj5PbO3IhAWpe506rhSaZPJIUY+SMoV+BJ5pADD0eiseraQPHaQtIkmGTQ==
+
+"@alfalab/utils@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.2.0.tgz#604411c6bd266b663c6cc251d593ca4e8bc3a9a4"
+  integrity sha512-P/nfoDPIdmhk0LrrFP8rEtKsmyTwUs3OHTI/F8iOiJjGWzWFzTzE5fE48ztRRj/rUuWQ/FJHU3zazQ19Q9EepQ==
 
 "@babel/code-frame@7.5.5":
   version "7.5.5"
