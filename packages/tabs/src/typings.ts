@@ -3,6 +3,8 @@ import { TagProps } from '@alfalab/core-components-tag';
 
 export type SelectedId = string | number;
 
+export type TabsView = 'desktop' | 'mobile';
+
 export type TabsProps = {
     /**
      * Дополнительный класс
@@ -33,6 +35,11 @@ export type TabsProps = {
      * Высота заголовков табов
      */
     size?: 's' | 'm' | 'l' | 'xl';
+
+    /**
+     * Режим отображения по умолчанию
+     */
+    defaultView?: TabsView;
 
     /**
      * Мобильный вид
@@ -112,6 +119,7 @@ export type TabListProps = Pick<
     | 'className'
     | 'containerClassName'
     | 'size'
+    | 'defaultView'
     | 'selectedId'
     | 'scrollable'
     | 'onChange'
