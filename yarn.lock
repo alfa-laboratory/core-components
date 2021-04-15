@@ -110,7 +110,7 @@
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.124.0.tgz#a20bff957e83b58b765b67cada35a1e343519db2"
   integrity sha512-oMvQgvsrVVOjej32LXm2cLnaZMcY+Y3MnYNQgoBYbM2rkzmyHUSphajDEMkmQ4NYhCl7ZC83RdBwLlhN8UW3/A==
 
-"@alfalab/icons-glyph@^1.26.0", "@alfalab/icons-glyph@^1.70.0", "@alfalab/icons-glyph@^1.71.0":
+"@alfalab/icons-glyph@^1.26.0", "@alfalab/icons-glyph@^1.70.0":
   version "1.99.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.99.0.tgz#6c39d80750644b739fa8c599344404697e8d4920"
   integrity sha512-iA23rxX/DEJYdzuG92GbORJLAg3HAQtL8xjg8n3wk573VLftJuPV8nQHPKtXSTX2V2bfH+LE0BRS6x2Y8F1TnQ==
@@ -146,10 +146,10 @@
     string-hash "^1.1.3"
     style-inject "^0.3.0"
 
-"@alfalab/stylelint-core-vars@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@alfalab/stylelint-core-vars/-/stylelint-core-vars-0.0.4.tgz#f9ba0ea20b8a2d77646d3a65b34631659d6073ea"
-  integrity sha512-KMaN6A4QGwLDeD5aVTPl6zozDUPgB5WeumcWib4zdzv7zfnFtOnUFfpyLguFXCi9geg4/gC2hf4MCNH8uNe8Dg==
+"@alfalab/stylelint-core-vars@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/stylelint-core-vars/-/stylelint-core-vars-1.0.0.tgz#b528f9d6680c92082d27f6bc791a750a7886ac0d"
+  integrity sha512-3dMccnEuKZ84r6GNqb5sp50GQ8TBcrS6JvLA8nmO0XREFXFxOs+GrbxWxH7AGQlkiiATLlLeT/fm9+C0uaCoxg==
 
 "@alfalab/utils@^1.1.1":
   version "1.1.1"
