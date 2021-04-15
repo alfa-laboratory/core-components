@@ -5,7 +5,6 @@ import postcss, { addCssImports, generateClassNameHash } from '@alfalab/rollup-p
 import typescript from '@wessberg/rollup-plugin-ts';
 import copy from 'rollup-plugin-copy';
 import json from '@rollup/plugin-json';
-
 import {
     coreComponentsRootPackageResolver,
     coreComponentsResolver,
@@ -15,6 +14,7 @@ import ignoreCss from './tools/rollup/ignore-css';
 import processCss from './tools/rollup/process-css';
 import coreComponentsTypingsResolver from './tools/rollup/core-components-typings-resolver';
 import createPackageJson from './tools/rollup/create-package-json';
+import globby from 'globby';
 
 const currentPackageDir = process.cwd();
 const currentPkg = path.join(currentPackageDir, 'package.json');
@@ -208,9 +208,13 @@ const root = {
 
 const configs = [es5, modern, cssm, esm, root];
 
-const themes = pkg.buildThemes;
+const themes = globby
+    .sync(
+        path.join(__dirname, 'packages', 'themes', 'src', 'mixins', currentComponentName, '*.css'),
+    )
+    .map(theme => path.basename(theme).replace('.css', ''));
 
-if (themes && themes.length > 0) {
+if (themes.length > 0) {
     const output = themes.map(theme => ({
         dir: `dist/themes/${theme}`,
     }));
