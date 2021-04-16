@@ -206,7 +206,7 @@ const root = {
     ],
 };
 
-const configs = [es5, modern, cssm, esm, root];
+const configs = [es5, modern, cssm, esm];
 
 const themes = globby
     .sync(
@@ -241,5 +241,7 @@ if (themes.length > 0) {
         output,
     });
 }
+
+configs.push(root);
 
 export default configs;

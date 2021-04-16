@@ -40,6 +40,8 @@ lerna exec --concurrency $CONCURRENCY \
     --ignore @alfalab/core-components-themes \
     -- node $(pwd)/bin/inject-themes.js
 
+node $(pwd)/bin/inject-themes.js root
+
 # копирую package.json в сборку корневого пакета
 cp package.json dist/package.json
 

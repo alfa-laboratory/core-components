@@ -7,6 +7,8 @@ const postcss = require('postcss');
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
+const isRoot = process.argv[2] === 'root';
+
 const cssClassNameHashes = new Set();
 
 const getTheme = filePath => {
@@ -22,7 +24,10 @@ async function compileCssVars(filePath) {
         const css = await readFile(filePath, 'utf-8');
 
         const result = await postcss([
-            postcssCustomProperties({ preserve: false, importFrom: `../themes/dist/${theme}.css` }),
+            postcssCustomProperties({
+                preserve: false,
+                importFrom: `${isRoot ? './packages/' : '../'}themes/dist/${theme}.css`,
+            }),
         ]).process(css, { from: css });
 
         const match = result.css.match(/^\/\* hash: (\w+) \*\/$/m);
@@ -65,8 +70,8 @@ async function changeClassNames(filePath) {
 async function inject() {
     try {
         const [cssPaths, jsPaths] = await Promise.all([
-            globby('dist/themes/**/*.css'),
-            globby('dist/themes/**/*.js'),
+            globby(`${isRoot ? 'dist/*/' : 'dist/'}themes/**/*.css`),
+            globby(`${isRoot ? 'dist/*/' : 'dist/'}themes/**/*.js`),
         ]);
 
         await Promise.all(cssPaths.map(compileCssVars));
