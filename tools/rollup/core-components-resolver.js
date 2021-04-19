@@ -1,4 +1,5 @@
 import path from 'path';
+import globby from 'globby';
 
 import { requireRegExp } from './common';
 
@@ -69,6 +70,18 @@ export const coreComponentsThemesResolver = () => ({
 
         const packagesDir = path.join(process.env.LERNA_ROOT_PATH, 'packages');
 
+        const themeExists = componentName =>
+            globby.sync(
+                path.join(
+                    packagesDir,
+                    'themes',
+                    'src',
+                    'mixins',
+                    componentName,
+                    `${themeName}.css`,
+                ),
+            ).length > 0;
+
         Object.keys(bundles).forEach(bundleName => {
             let code = bundles[bundleName].code;
 
@@ -80,17 +93,15 @@ export const coreComponentsThemesResolver = () => ({
 
             /**
              * Заменяет обычные импорты, например:
-             * require('@alfalab/core-components-loader') заменит на
-             * require('@alfalab/core-components-loader/dist/themes/:themeName')
+             * require('@alfalab/core-components-form-control') заменит на
+             * require('@alfalab/core-components-form-control/dist/themes/:themeName')
              */
             while (match) {
                 const componentName = match[3];
-                const pkg = require(path.join(packagesDir, componentName, 'package.json'));
-
                 /**
                  * Если у компонента есть нужная тема, то заменяем импорт
                  */
-                if (pkg && pkg.buildThemes && pkg.buildThemes.includes(themeName)) {
+                if (themeExists(componentName)) {
                     const newImport = match[0].replace(
                         /(.+)(@alfalab\/core-components-[^\/\n\'\"]+)(.+)/,
                         `$1$2/dist/themes/${themeName}$3`,
@@ -112,17 +123,15 @@ export const coreComponentsThemesResolver = () => ({
 
             /**
              * Заменяет импорты из modern/cssm/esm, например:
-             * require('@alfalab/core-components-loader/dist/esm') заменит на
-             * require('@alfalab/core-components-loader/dist/themes/:themeName/esm')
+             * require('@alfalab/core-components-form-control/dist/esm') заменит на
+             * require('@alfalab/core-components-form-control/dist/themes/:themeName/esm')
              */
             while (match) {
                 const componentName = match[3];
-                const pkg = require(path.join(packagesDir, componentName, 'package.json'));
-
                 /**
                  * Если у компонента есть нужная тема, то заменяем импорт
                  */
-                if (pkg && pkg.buildThemes && pkg.buildThemes.includes(themeName)) {
+                if (themeExists(componentName)) {
                     const newImport = match[0].replace(
                         /(.+)(@alfalab\/core-components-[\w\-]+\/dist)(\/(?!themes).+)/,
                         `$1$2/themes/${themeName}$3`,

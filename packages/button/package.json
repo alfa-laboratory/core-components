@@ -21,9 +21,5 @@
         "@alfalab/hooks": "^1.0.0",
         "classnames": "^2.2.6",
         "react-merge-refs": "^1.1.0"
-    },
-    "buildThemes": [
-        "site",
-        "site-inverted"
-    ]
+    }
 }
