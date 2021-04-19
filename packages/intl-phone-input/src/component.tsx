@@ -4,10 +4,12 @@ import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
 import { AsYouType, CountryCode } from 'libphonenumber-js';
 
-import { Input, InputProps } from '@alfalab/core-components-input';
-import { SelectProps } from '@alfalab/core-components-select';
+import { OptionShape, SelectProps } from '@alfalab/core-components-select';
 import { getCountries, getCountriesHash } from '@alfalab/utils';
-
+import {
+    InputAutocomplete,
+    InputAutocompleteProps,
+} from '@alfalab/core-components-input-autocomplete';
 import { CountriesSelect } from './components';
 
 import styles from './index.module.css';
@@ -17,7 +19,10 @@ const countriesHash = getCountriesHash();
 
 const MAX_DIAL_CODE_LENGTH = 4;
 
-export type IntlPhoneInputProps = Omit<InputProps, 'value' | 'onChange' | 'type' | 'defaultValue'> &
+export type IntlPhoneInputProps = Omit<
+    InputAutocompleteProps,
+    'value' | 'onChange' | 'type' | 'defaultValue'
+> &
     Pick<SelectProps, 'preventFlip'> & {
         /**
          * Значение
@@ -46,12 +51,14 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             disabled = false,
             readOnly = false,
             size = 'm',
+            options = [],
             className,
             value,
             onChange,
             onCountryChange,
             defaultCountryIso2 = 'ru',
             preventFlip,
+            inputProps,
             ...restProps
         },
         ref,
@@ -184,6 +191,22 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             [setCountryByIso2, handleCountryChange],
         );
 
+        const handleChange = useCallback(
+            (payload: {
+                selected: OptionShape | null;
+                selectedMultiple: OptionShape[];
+                name?: string;
+            }) => {
+                const { selected } = payload;
+                if (!selected) return;
+                if (selected.key.length < MAX_DIAL_CODE_LENGTH) {
+                    setCountryByDialCode(selected.key);
+                }
+                setValue(selected.key);
+            },
+            [setValue, setCountryByDialCode],
+        );
+
         useEffect(() => {
             if (!phoneLibUtils.current) {
                 loadPhoneUtils().then(() => {
@@ -193,32 +216,38 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         }, [loadPhoneUtils, setCountryByDialCode, value]);
 
         return (
-            <Input
+            <InputAutocomplete
                 {...restProps}
-                onChange={handleInputChange}
-                value={value}
-                type='tel'
                 ref={mergeRefs([inputRef, ref])}
-                wrapperRef={inputWrapperRef}
-                className={cn(className, styles[size])}
-                addonsClassName={styles.addons}
-                size={size}
+                inputProps={{
+                    ...inputProps,
+                    ref: { inputWrapperRef },
+                    type: 'tel' as const,
+                    className: cn(className, styles[size]),
+                    addonsClassName: styles.addons,
+                    leftAddons: (
+                        <CountriesSelect
+                            disabled={disabled || readOnly}
+                            size={size}
+                            selected={countryIso2}
+                            countries={countries}
+                            onChange={handleSelectChange}
+                            fieldWidth={
+                                inputWrapperRef.current &&
+                                inputWrapperRef.current.getBoundingClientRect().width
+                            }
+                            preventFlip={preventFlip}
+                        />
+                    ),
+                }}
+                onInput={handleInputChange}
+                onChange={handleChange}
+                options={options}
                 disabled={disabled}
                 readOnly={readOnly}
-                leftAddons={
-                    <CountriesSelect
-                        disabled={disabled || readOnly}
-                        size={size}
-                        selected={countryIso2}
-                        countries={countries}
-                        onChange={handleSelectChange}
-                        fieldWidth={
-                            inputWrapperRef.current &&
-                            inputWrapperRef.current.getBoundingClientRect().width
-                        }
-                        preventFlip={preventFlip}
-                    />
-                }
+                size={size}
+                className={className}
+                value={value}
             />
         );
     },

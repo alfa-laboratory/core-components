@@ -9,5 +9,5 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../input" }, { "path": "../select" }]
+    "references": [{ "path": "../input-autocomplete" }, { "path": "../select" }]
 }
