@@ -51,25 +51,25 @@
     visibility: hidden;
 }
 
-.s.hasLabel .info {
+.s.hasLabel .info:first-child {
     padding: var(--form-control-labeled-s-paddings);
     padding-left: 0;
     padding-right: 0;
 }
 
-.m.hasLabel .info {
+.m.hasLabel .info:first-child {
     padding: var(--form-control-labeled-m-paddings);
     padding-left: 0;
     padding-right: 0;
 }
 
-.l.hasLabel .info {
+.l.hasLabel .info:first-child {
     padding: var(--form-control-labeled-l-paddings);
     padding-left: 0;
     padding-right: 0;
 }
 
-.xl.hasLabel .info {
+.xl.hasLabel .info:first-child {
     padding: var(--form-control-labeled-xl-paddings);
     padding-left: 0;
     padding-right: 0;

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@3.0.11...@alfalab/core-components-slider-input@3.1.0) (2021-04-09)
+
+
+### Bug Fixes
+
+* **slider-input:** label + info + error issue ([147bb71](https://github.com/alfa-laboratory/core-components/commit/147bb716ab6dc500aaf0923d5442560c743e6b66))
+
+
+### Features
+
+* **form-control:** add hidden label instead min-width ([a40ffcf](https://github.com/alfa-laboratory/core-components/commit/a40ffcf149282c83a834587a9486bc09b2929f90))
+
+
+
+
+
 ## [3.0.11](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@3.0.10...@alfalab/core-components-slider-input@3.0.11) (2021-04-01)
 
 **Note:** Version bump only for package @alfalab/core-components-slider-input

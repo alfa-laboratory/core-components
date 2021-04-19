@@ -1,3 +1,31 @@
+## [15.2.1](https://github.com/alfa-laboratory/core-components/compare/v15.2.0...v15.2.1) (2021-04-09)
+
+
+### Bug Fixes
+
+* **backdrop:** styles ([82bdfa7](https://github.com/alfa-laboratory/core-components/commit/82bdfa7759240755f74bf12906c395d633f464e4))
+* **base-modal:** correct cb ([256a142](https://github.com/alfa-laboratory/core-components/commit/256a142398a9ada34386e92d012185763cedef5a))
+* **drawer:** backdrop styles ([04da4fa](https://github.com/alfa-laboratory/core-components/commit/04da4fac310dbe2634ea4130ead480a88d47ee8e))
+
+# [15.2.0](https://github.com/alfa-laboratory/core-components/compare/v15.1.0...v15.2.0) (2021-04-09)
+
+
+### Bug Fixes
+
+* **calendar-input:** call onchange with empty value ([3fbc73a](https://github.com/alfa-laboratory/core-components/commit/3fbc73a1d32586161b6fe527f76ca27cd54abebb))
+* **select:** options list width calc ([5294af7](https://github.com/alfa-laboratory/core-components/commit/5294af78ef61b50edde42ed255e66e6ea004c0fd))
+* **select:** virtual list wrong height ([8708228](https://github.com/alfa-laboratory/core-components/commit/8708228749acdeed0d1dfe4b9538dc22683e7f28))
+* **slider-input:** label + info + error issue ([147bb71](https://github.com/alfa-laboratory/core-components/commit/147bb716ab6dc500aaf0923d5442560c743e6b66))
+
+
+### Features
+
+* **backdrop:** add component ([948a6c2](https://github.com/alfa-laboratory/core-components/commit/948a6c2fb5ec58edb2d087691ce4713d75da6e35))
+* **backdrop:** add component ([2b87958](https://github.com/alfa-laboratory/core-components/commit/2b87958e51449645c58bbd02552ce7a908c6bab8))
+* **calendar-with-skeleton:** add component ([e940c88](https://github.com/alfa-laboratory/core-components/commit/e940c88703a7434e0db4ce0efc27a234455b449c))
+* **form-control:** add hidden label instead min-width ([a40ffcf](https://github.com/alfa-laboratory/core-components/commit/a40ffcf149282c83a834587a9486bc09b2929f90))
+* **slider:** click theme ([15c308a](https://github.com/alfa-laboratory/core-components/commit/15c308a50e9fbcd8e40a8681f32aefea5b3d5cf9))
+
 # [15.1.0](https://github.com/alfa-laboratory/core-components/compare/v15.0.1...v15.1.0) (2021-04-06)
 
 

@@ -1,12 +1,22 @@
 @import './vars.css';
-@import './vars.css';
+
+.wrapper {
+    padding-top: var(--modal-vertical-padding);
+    padding-bottom: var(--modal-vertical-padding);
+}
 
 .component {
     border-radius: var(--modal-border-radius);
 }
 
 .fullscreen {
-    border-radius: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    & .component {
+        flex: 1;
+        border-radius: 0;
+    }
 }
 
 .s {

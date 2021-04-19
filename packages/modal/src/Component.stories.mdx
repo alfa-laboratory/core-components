@@ -2,11 +2,12 @@ import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
 import {boolean, select, text} from '@storybook/addon-knobs';
 import { Container, Row, Col } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
+import { CrossMIcon } from '@alfalab/icons-glyph';
 
 import { Button } from '../../button/src';
 import { Typography } from '../../typography/src';
 
-import { Modal, ModalContext } from './Component';
+import { ModalContext } from './Context';
 import { ModalMobile } from './Component.mobile';
 import { ModalDesktop } from './Component.desktop';
 import { ModalResponsive } from './Component.responsive';
@@ -16,13 +17,11 @@ import { version } from '../package.json';
 
 <Meta
     title='Компоненты/Modal'
-    component={Modal}
     parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
-<!-- Canvas -->
 
-export const footerContent = (
+export const Footer = () => (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
         <Button size='s' view='primary' style={{ marginBottom: '24px' }}>Сохранить</Button>
         <Button size='s' view='secondary'>Отмена</Button>
@@ -32,7 +31,7 @@ export const footerContent = (
 export const Content = () => {
     const [showMore, setShowMore] = React.useState(false);
     const Text = () => (
-        <p>
+        <p style={{ margin: '0 0 16px' }}>
             Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка.
             Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов,
             потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов,
@@ -50,143 +49,70 @@ export const Content = () => {
                 </>
             )}
             <Button size='xs' type='Button' onClick={() => setShowMore(!showMore)}>
-                {showMore ? 'Hide' : 'Show'} more
+                {showMore ? 'Скрыть' : 'Показать еще'}
             </Button>
         </>
     );
 };
 
+export const renderModalStory = (ModalComponent, props = {}) => {
+    const [open, setOpen] = React.useState(false);
+    const handleModalOpen = () => setOpen(!open);
+    const header = boolean('header', false);
+    const headerTitle = text('header.title');
+    const hasCloser = boolean('header.hasCloser', true);
+    const stickyHeader = boolean('header.sticky', false);
+    const footer = boolean('footer', false);
+    const stickyFooter = boolean('footer.sticky', false);
+    const flexContent = boolean('content.flex', false);
+    return (
+        <React.Fragment>
+            <Button type='button' size='xs' onClick={handleModalOpen}>Открыть модалку</Button>
+            <ModalComponent
+                open={open || boolean('open')}
+                onClose={handleModalOpen}
+                keepMounted={boolean('keepMounted', false)}
+                {...props}
+            >
+                {header && (
+                    <ModalComponent.Header
+                        sticky={stickyHeader}
+                        hasCloser={hasCloser}
+                        title={headerTitle}
+                    />
+                )}
+                {!header && hasCloser && (
+                    <ModalDesktop.Closer align='right' />
+                )}
+                <ModalComponent.Content flex={flexContent}>
+                    <Content />
+                </ModalComponent.Content>
+                {footer && (
+                    <ModalComponent.Footer sticky={stickyFooter}>
+                        <Footer />
+                    </ModalComponent.Footer>
+                )}
+            </ModalComponent>
+        </React.Fragment>
+    );
+}
+
 <Story name='ModalMobile'>
-    {React.createElement(() => {
-        const [open, setOpen] = React.useState(false);
-        const handleModalOpen = () => setOpen(!open);
-        const headerTitle = text('header.children');
-        const hasCloser = boolean('header.hasCloser', true);
-        const stickyHeader = boolean('header.sticky', false);
-        const footer = boolean('footer', false);
-        const stickyFooter = boolean('footer.sticky', false);
-        const flexContent = boolean('content.flex', false)
-        return (
-            <React.Fragment>
-                <Button type='button' size='xs' onClick={handleModalOpen}>Open Modal</Button>
-                <ModalMobile
-                    open={open || boolean('open')}
-                    onClose={handleModalOpen}
-                    keepMounted={boolean('keepMounted', false)}
-                    disableBackdropClick={boolean('disableBackdropClick', false)}
-                    disableEscapeKeyDown={boolean('disableEscapeKeyDown', false)}
-                    disableRestoreFocus={boolean('disableRestoreFocus', false)}
-                    disableFocusLock={boolean('disableFocusLock', false)}
-                    disableAutoFocus={boolean('disableAutoFocus', false)}
-                >
-                    {(headerTitle || hasCloser) && (
-                        <ModalMobile.Header sticky={stickyHeader} hasCloser={hasCloser}>
-                            {headerTitle}
-                        </ModalMobile.Header>
-                    )}
-                    <ModalMobile.Content flex={flexContent}>
-                        <h3>Заголовок контента</h3>
-                        <Content />
-                    </ModalMobile.Content>
-                    {footer && (
-                        <ModalMobile.Footer sticky={stickyFooter}>
-                            {footerContent}
-                        </ModalMobile.Footer>
-                    )}
-                </ModalMobile>
-            </React.Fragment>
-        );
-    })}
+    {renderModalStory(ModalMobile)}
 </Story>
 
 
 <Story name='ModalDesktop'>
-    {React.createElement(() => {
-        const [open, setOpen] = React.useState(false);
-        const handleModalOpen = () => setOpen(!open);
-        const headerTitle = text('header.children');
-        const hasCloser = boolean('header.hasCloser', true);
-        const stickyHeader = boolean('header.sticky', false);
-        const footer = boolean('footer', false);
-        const stickyFooter = boolean('footer.sticky', false);
-        const flexContent = boolean('content.flex', false)
-        return (
-            <React.Fragment>
-                <Button type='button' size='xs' onClick={handleModalOpen}>Open Modal</Button>
-                <ModalDesktop
-                    open={open || boolean('open')}
-                    onClose={handleModalOpen}
-                    fullscreen={boolean('fullscreen', false)}
-                    size={select('size', ['s', 'm', 'l'], 's')}
-                    keepMounted={boolean('keepMounted', false)}
-                    disableBackdropClick={boolean('disableBackdropClick', false)}
-                    disableEscapeKeyDown={boolean('disableEscapeKeyDown', false)}
-                    disableRestoreFocus={boolean('disableRestoreFocus', false)}
-                    disableFocusLock={boolean('disableFocusLock', false)}
-                    disableAutoFocus={boolean('disableAutoFocus', false)}
-                >
-                    {(headerTitle || hasCloser) && (
-                        <ModalDesktop.Header sticky={stickyHeader} hasCloser={hasCloser}>
-                            {headerTitle}
-                        </ModalDesktop.Header>
-                    )}
-                    <ModalDesktop.Content flex={flexContent}>
-                        <h3>Заголовок контента</h3>
-                        <Content />
-                    </ModalDesktop.Content>
-                    {footer && (
-                        <ModalDesktop.Footer sticky={stickyFooter}>
-                            {footerContent}
-                        </ModalDesktop.Footer>
-                    )}
-                </ModalDesktop>
-            </React.Fragment>
-        );
+    {renderModalStory(ModalDesktop, {
+        size: select('size', ['s', 'm', 'l'], 's'),
+        fullscreen: boolean('fullscreen', false),
     })}
 </Story>
 
 <Story name='ModalResponsive'>
-    {React.createElement(() => {
-        const [open, setOpen] = React.useState(false);
-        const handleModalOpen = () => setOpen(!open);
-        const headerTitle = text('header.children');
-        const hasCloser = boolean('header.hasCloser', true);
-        const stickyHeader = boolean('header.sticky', false);
-        const footer = boolean('footer', false);
-        const stickyFooter = boolean('footer.sticky', false);
-        const flexContent = boolean('content.flex', false)
-        return (
-            <React.Fragment>
-                <Button type='button' size='xs' onClick={handleModalOpen}>Open Modal</Button>
-                <ModalResponsive
-                    open={open || boolean('open')}
-                    onClose={handleModalOpen}
-                    fullscreen={boolean('fullscreen', false)}
-                    size={select('size', ['s', 'm', 'l'], 's')}
-                    keepMounted={boolean('keepMounted', false)}
-                    disableBackdropClick={boolean('disableBackdropClick', false)}
-                    disableEscapeKeyDown={boolean('disableEscapeKeyDown', false)}
-                    disableRestoreFocus={boolean('disableRestoreFocus', false)}
-                    disableFocusLock={boolean('disableFocusLock', false)}
-                    disableAutoFocus={boolean('disableAutoFocus', false)}
-                >
-                    {(headerTitle || hasCloser) && (
-                        <ModalResponsive.Header sticky={stickyHeader} hasCloser={hasCloser}>
-                            {headerTitle}
-                        </ModalResponsive.Header>
-                    )}
-                    <ModalResponsive.Content flex={flexContent}>
-                        <h3>Заголовок контента</h3>
-                        <Content />
-                    </ModalResponsive.Content>
-                    {footer && (
-                        <ModalResponsive.Footer sticky={stickyFooter}>
-                            {footerContent}
-                        </ModalResponsive.Footer>
-                    )}
-                </ModalResponsive>
-            </React.Fragment>
-        );
+    {renderModalStory(ModalResponsive, {
+        size: select('size', ['s', 'm', 'l'], 's'),
+        fullscreen: boolean('fullscreen', false),
     })}
 </Story>
 
@@ -202,10 +128,50 @@ export const Content = () => {
 
 
 ```tsx
-import { Modal } from '@alfalab/core-components-modal';
+import { ModalDesktop } from '@alfalab/core-components-modal/desktop';
+import { ModalMobile } from '@alfalab/core-components-modal/mobile';
+import { ModalResponsive } from '@alfalab/core-components-modal/responsive';
 ```
 
-Компонент `Modal`.
+Компонент модального окна, построенный как Compound Components.
+
+Предоставляет стандартные компоненты `Header`, `Closer`, `Content`, `Footer`, а также доступ к контексту.
+
+<Preview>
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        const handleModalOpen = () => setOpen(!open);
+        return (
+            <React.Fragment>
+                <Button type='button' size='xs' onClick={handleModalOpen}>Открыть модалку</Button>
+                <ModalDesktop
+                    open={open}
+                    onClose={handleModalOpen}
+                    size='m'
+                >
+                    <ModalDesktop.Closer align='right' />
+                    <ModalDesktop.Content>
+                        <Typography.Title tag='div' view='small'>
+                            Почему банк проверяет мои операции?
+                        </Typography.Title>
+                        <br/>
+                        <Typography.Text tag='p'>
+                            Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона 115-ФЗ «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма».
+                        </Typography.Text>
+                        <br/>
+                        <Typography.Text tag='p'>
+                            Ознакомиться с требованиями ЦБ РФ можно на официальном сайте. Банки обязаны предотвращать проведение таких операций и поэтому могут запросить дополнительную информацию и документы, ограничить доступ к платежам через интернет-банк или даже отказать в исполнении платежа.
+                        </Typography.Text>
+                    </ModalDesktop.Content>
+                    <ModalDesktop.Footer>
+                        <Button view='primary' size='s' onClick={handleModalOpen}>Понятно</Button>
+                    </ModalDesktop.Footer>
+                </ModalDesktop>
+            </React.Fragment>
+        );
+    })}
+</Preview>
+
 
 <Props components={{
     ModalDesktop,
@@ -214,272 +180,111 @@ import { Modal } from '@alfalab/core-components-modal';
 }} />
 
 
-<Preview>
-    <Container>
-        <Row>
-            <Typography.Title view="small">Шапка</Typography.Title>
-        </Row>
-        <Row>
-            <Col>
-                {React.createElement(() => {
-                    const [open, setOpen] = React.useState(false);
-                    const handleModalOpen = () => setOpen(!open);
-                    return (
-                        <React.Fragment>
-                            <Button type='button' size='xs' onClick={handleModalOpen}>С заголовком</Button>
-                            <ModalResponsive
-                                open={open}
-                                onClose={handleModalOpen}
-                            >
-                                <ModalResponsive.Header>
-                                    Заголовок окна
-                                </ModalResponsive.Header>
-                                <ModalResponsive.Content>
-                                    <Content />
-                                </ModalResponsive.Content>
-                            </ModalResponsive>
-                        </React.Fragment>
-                    );
-                })}
-            </Col>
-            <Col>
-                {React.createElement(() => {
-                    const [open, setOpen] = React.useState(false);
-                    const handleModalOpen = () => setOpen(!open);
-                    return (
-                        <React.Fragment>
-                            <Button type='button' size='xs' onClick={handleModalOpen}>Без заголовка</Button>
-                            <ModalResponsive
-                                open={open}
-                                onClose={handleModalOpen}
-                            >
-                                <ModalResponsive.Header />
-                                <ModalResponsive.Content>
-                                    <Content />
-                                </ModalResponsive.Content>
-                            </ModalResponsive>
-                        </React.Fragment>
-                    );
-                })}
-            </Col>
-            <Col>
-                {React.createElement(() => {
-                    const [open, setOpen] = React.useState(false);
-                    const handleModalOpen = () => setOpen(!open);
-                    return (
-                        <React.Fragment>
-                            <Button type='button' size='xs' onClick={handleModalOpen}>Без шапки</Button>
-                            <ModalResponsive
-                                open={open}
-                                onClose={handleModalOpen}
-                            >
-                                <ModalResponsive.Content>
-                                    <Content />
-                                </ModalResponsive.Content>
-                            </ModalResponsive>
-                        </React.Fragment>
-                    );
-                })}
-            </Col>
-            <Col>
-                {React.createElement(() => {
-                    const [open, setOpen] = React.useState(false);
-                    const handleModalOpen = () => setOpen(!open);
-                    return (
-                        <React.Fragment>
-                            <Button type='button' size='xs' onClick={handleModalOpen}>Sticky шапка</Button>
-                            <ModalResponsive
-                                open={open}
-                                onClose={handleModalOpen}
-                            >
-                                <ModalResponsive.Header sticky={true}>
-                                    Заголовок окна
-                                </ModalResponsive.Header>
-                                <ModalResponsive.Content>
-                                    <Content />
-                                </ModalResponsive.Content>
-                            </ModalResponsive>
-                        </React.Fragment>
-                    );
-                })}
-            </Col>
-            <Col>
-                {React.createElement(() => {
-                    const [open, setOpen] = React.useState(false);
-                    const handleModalOpen = () => setOpen(!open);
-                    return (
-                        <React.Fragment>
-                            <Button type='button' size='xs' onClick={handleModalOpen}>Sticky шапка (только крестик)</Button>
-                            <ModalResponsive
-                                open={open}
-                                onClose={handleModalOpen}
-                            >
-                                <ModalResponsive.Header sticky={true} />
-                                <ModalResponsive.Content>
-                                    <Content />
-                                </ModalResponsive.Content>
-                            </ModalResponsive>
-                        </React.Fragment>
-                    );
-                })}
-            </Col>
-        </Row>
-        <Row>
-            <Typography.Title view="small">Футер</Typography.Title>
-        </Row>
-        <Row>
-            <Col>
-                {React.createElement(() => {
-                    const [open, setOpen] = React.useState(false);
-                    const handleModalOpen = () => setOpen(!open);
-                    return (
-                        <React.Fragment>
-                            <Button type='button' size='xs' onClick={handleModalOpen}>С футером</Button>
-                            <ModalResponsive
-                                open={open}
-                                onClose={handleModalOpen}
-                            >
-                                <ModalResponsive.Content>
-                                    <Content />
-                                </ModalResponsive.Content>
-                                <ModalResponsive.Footer>
-                                    {footerContent}
-                                </ModalResponsive.Footer>
-                            </ModalResponsive>
-                        </React.Fragment>
-                    );
-                })}
-            </Col>
-            <Col>
-                {React.createElement(() => {
-                    const [open, setOpen] = React.useState(false);
-                    const handleModalOpen = () => setOpen(!open);
-                    return (
-                        <React.Fragment>
-                            <Button type='button' size='xs' onClick={handleModalOpen}>Sticky футер</Button>
-                            <ModalResponsive
-                                open={open}
-                                onClose={handleModalOpen}
-                            >
-                                <ModalResponsive.Content>
-                                    <Content />
-                                </ModalResponsive.Content>
-                                <ModalResponsive.Footer sticky={true}>
-                                    {footerContent}
-                                </ModalResponsive.Footer>
-                            </ModalResponsive>
-                        </React.Fragment>
-                    );
-                })}
-            </Col>
-            <Col>
-                {React.createElement(() => {
-                    const [open, setOpen] = React.useState(false);
-                    const handleModalOpen = () => setOpen(!open);
-                    return (
-                        <React.Fragment>
-                            <Button type='button' size='xs' onClick={handleModalOpen}>Sticky футер и шапка</Button>
-                            <ModalResponsive
-                                open={open}
-                                onClose={handleModalOpen}
-                            >
-                                <ModalResponsive.Header sticky={true}>
-                                    Заголовок окна
-                                </ModalResponsive.Header>
-                                <ModalResponsive.Content>
-                                    <Content />
-                                </ModalResponsive.Content>
-                                <ModalResponsive.Footer sticky={true}>
-                                    {footerContent}
-                                </ModalResponsive.Footer>
-                            </ModalResponsive>
-                        </React.Fragment>
-                    );
-                })}
-            </Col>
-        </Row>
-        <Row>
-            <Typography.Title view="small">Fullscreen</Typography.Title>
-        </Row>
-        <Row>
-            <Col>
-                {React.createElement(() => {
-                    const [open, setOpen] = React.useState(false);
-                    const handleModalOpen = () => setOpen(!open);
-                    return (
-                        <React.Fragment>
-                            <Button type='button' size='xs' onClick={handleModalOpen}>С футером</Button>
-                            <ModalResponsive
-                                open={open}
-                                onClose={handleModalOpen}
-                                fullscreen={true}
-                            >
-                                <ModalResponsive.Content>
-                                    <Content />
-                                </ModalResponsive.Content>
-                                <ModalResponsive.Footer>
-                                    {footerContent}
-                                </ModalResponsive.Footer>
-                            </ModalResponsive>
-                        </React.Fragment>
-                    );
-                })}
-            </Col>
-            <Col>
-                {React.createElement(() => {
-                    const [open, setOpen] = React.useState(false);
-                    const handleModalOpen = () => setOpen(!open);
-                    return (
-                        <React.Fragment>
-                            <Button type='button' size='xs' onClick={handleModalOpen}>Без футера</Button>
-                            <ModalResponsive
-                                open={open}
-                                onClose={handleModalOpen}
-                                fullscreen={true}
-                            >
-                                <ModalResponsive.Content>
-                                    <Content />
-                                </ModalResponsive.Content>
-                            </ModalResponsive>
-                        </React.Fragment>
-                    );
-                })}
-            </Col>
-        </Row>
-    </Container>
-</Preview>
-
-## Использование контекста
+### Плавающий крестик без шапки
 
 <Preview>
     {React.createElement(() => {
         const [open, setOpen] = React.useState(false);
         const handleModalOpen = () => setOpen(!open);
-        const Footer = () => {
-            const { footerHighlighted, hasScroll, setHasFooter } = React.useContext(ModalContext);
-            React.useEffect(() => setHasFooter(true), [setHasFooter]);
-            return (
-                <div style={{ position: 'sticky', bottom: -40, background: '#fff', padding: 32 }}>
-                    <div>
-                        hasScroll: {hasScroll ? 'true' : 'false'}
-                    </div>
-                    <div>
-                        footerHighlighted: {footerHighlighted ? 'true' : 'false'}
-                    </div>
-                </div>
-            );
-        }
         return (
             <React.Fragment>
-                <Button type='button' size='xs' onClick={handleModalOpen}>Открыть</Button>
+                <Button type='button' size='xs' onClick={handleModalOpen}>Открыть модалку</Button>
                 <ModalDesktop
                     open={open}
                     onClose={handleModalOpen}
                 >
+                    <ModalDesktop.Closer align='right' />
                     <ModalDesktop.Content>
                         <Content />
                     </ModalDesktop.Content>
-                    <Footer/>
+                </ModalDesktop>
+            </React.Fragment>
+        );
+    })}
+</Preview>
+
+## Использование контекста и кастомные компоненты
+
+Компонент модального окна предоставляет доступ к контекту, что позволяет гибко настраивать и расширять компонент, а также упрощает использование.
+
+```tsx
+export type ModalContext = {
+    // Указаывает, используется ли футер
+    hasFooter?: boolean;
+    // Указаывает, используется ли шапка (например, позволяет гибко настраивать отступы)
+    hasHeader?: boolean;
+    // Указаывает наличие скролла
+    hasScroll?: boolean;
+    // Указаывает, что контент прокручен
+    headerHighlighted?: boolean;
+    // Указаывает, что контент прокручен не до конца
+    footerHighlighted?: boolean;
+    // Коллбэк, который должна вызвать кастомная шапка
+    setHasHeader: (exists: boolean) => void;
+    // Коллбэк, который должна вызвать кастомный футер
+    setHasFooter: (exists: boolean) => void;
+    // Позволяет закрыть модальное окно
+    onClose: (event: MouseEvent<HTMLElement>) => void;
+    // Реф, который должен быть установлен контентой области
+    contentRef: Ref<HTMLElement>;
+};
+```
+
+<Preview>
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        const handleModalOpen = () => setOpen(!open);
+        const Header = () => {
+            const { headerHighlighted, hasScroll, setHasHeader } = React.useContext(ModalContext);
+            React.useEffect(() => setHasHeader(true), [setHasHeader]);
+            return (
+                <>
+                    <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        height: '60px',
+                        padding: '0 var(--gap-4xl)',
+                        marginBottom: 'var(--gap-xl)',
+                        background: 'var(--color-light-bg-secondary-inverted)',
+                        fontSize: '22px',
+                        fontWeight: 'bold',
+                        color: 'var(--color-light-text-primary-inverted)',
+                        borderTopLeftRadius: 'var(--modal-border-radius)',
+                        borderTopRightRadius: 'var(--modal-border-radius)',
+                    }}>
+                        Шапка
+                    </div>
+                    <div style={{
+                        position: 'absolute',
+                        height: '100%',
+                        right: '10px',
+                        paddingTop: '6px'
+                    }}>
+                        <ModalDesktop.Closer
+                            rightAddons={<CrossMIcon/>}
+                            align='right'
+                            style={{
+                                background: '#fff',
+                                borderRadius: '50%',
+                                backgroundClip: 'content-box',
+                                padding: '8px',
+                            }}
+                        />
+                    </div>
+                </>
+            );
+        }
+        return (
+            <React.Fragment>
+                <Button type='button' size='xs' onClick={handleModalOpen}>Открыть модалку</Button>
+                <ModalDesktop
+                    open={open}
+                    onClose={handleModalOpen}
+                >
+                    <Header />
+                    <ModalDesktop.Content>
+                        <Content />
+                    </ModalDesktop.Content>
                 </ModalDesktop>
             </React.Fragment>
         );

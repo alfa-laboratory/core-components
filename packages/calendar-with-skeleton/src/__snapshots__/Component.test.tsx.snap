@@ -1,0 +1,625 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Calendar Render tests should render calendar when calendarVisible=\`true\` 1`] = `
+<div>
+  <div
+    class="component"
+  >
+    <div
+      class="component sixWeeks"
+      tabindex="-1"
+    >
+      <div
+        aria-live="polite"
+        class="header"
+      >
+        <div
+          class="inner"
+        >
+          <button
+            aria-label="Предыдущий месяц"
+            class="component ghost m iconOnly arrow"
+            type="button"
+          />
+          <button
+            class="component ghost xs button filled button month"
+            type="button"
+          >
+            <span
+              class="text stretchText"
+            >
+              <span
+                class="buttonContent"
+              >
+                Ноябрь
+                <span
+                  class="upDownIcon"
+                />
+              </span>
+            </span>
+          </button>
+          <button
+            class="component ghost xs button filled button year"
+            type="button"
+          >
+            <span
+              class="text stretchText"
+            >
+              <span
+                class="buttonContent"
+              >
+                2020
+                <span
+                  class="upDownIcon"
+                />
+              </span>
+            </span>
+          </button>
+          <button
+            aria-label="Следующий месяц"
+            class="component ghost m iconOnly arrow"
+            type="button"
+          />
+        </div>
+      </div>
+      <div
+        class="container"
+      >
+        <table
+          class="daysTable"
+        >
+          <thead>
+            <tr>
+              <th
+                class="dayName"
+              >
+                Пн
+              </th>
+              <th
+                class="dayName"
+              >
+                Вт
+              </th>
+              <th
+                class="dayName"
+              >
+                Ср
+              </th>
+              <th
+                class="dayName"
+              >
+                Чт
+              </th>
+              <th
+                class="dayName"
+              >
+                Пт
+              </th>
+              <th
+                class="dayName"
+              >
+                Сб
+              </th>
+              <th
+                class="dayName"
+              >
+                Вс
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td />
+              <td />
+              <td />
+              <td />
+              <td />
+              <td />
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day firstDay"
+                  data-date="1604188800000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    1
+                  </span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1604275200000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    2
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1604361600000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    3
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1604448000000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    4
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1604534400000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    5
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1604620800000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    6
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1604707200000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    7
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1604793600000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    8
+                  </span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1604880000000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    9
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1604966400000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    10
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1605052800000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    11
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1605139200000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    12
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1605225600000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    13
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1605312000000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    14
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1605398400000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    15
+                  </span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1605484800000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    16
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1605571200000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    17
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1605657600000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    18
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1605744000000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    19
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1605830400000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    20
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1605916800000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    21
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1606003200000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    22
+                  </span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1606089600000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    23
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1606176000000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    24
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1606262400000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    25
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1606348800000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    26
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1606435200000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    27
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1606521600000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    28
+                  </span>
+                </button>
+              </td>
+              <td>
+                <button
+                  aria-selected="false"
+                  class="component ghost xs day"
+                  data-date="1606608000000"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    29
+                  </span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button
+                  aria-selected="true"
+                  class="component ghost xs day selected lastDay"
+                  data-date="1606694400000"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="text stretchText"
+                  >
+                    30
+                  </span>
+                </button>
+              </td>
+              <td />
+              <td />
+              <td />
+              <td />
+              <td />
+              <td />
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Calendar Render tests should render skeleton when calendarVisible=\`false\` 1`] = `
+<div>
+  <div
+    class="component"
+  >
+    <div
+      class="skeleton"
+    >
+      <div
+        class="component animate header"
+      />
+      <div
+        class="component animate weekDays"
+      />
+      <div
+        class="component animate row"
+      />
+      <div
+        class="component animate row"
+      />
+      <div
+        class="component animate row"
+      />
+      <div
+        class="component animate row"
+      />
+      <div
+        class="component animate row"
+      />
+    </div>
+  </div>
+</div>
+`;

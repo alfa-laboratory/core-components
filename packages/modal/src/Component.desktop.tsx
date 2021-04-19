@@ -1,21 +1,26 @@
 import React, { cloneElement, forwardRef, isValidElement } from 'react';
 import cn from 'classnames';
 
-import { Modal, ModalProps } from './Component';
+import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
 import { HeaderDesktop } from './components/header/Component.desktop';
 import { ContentDesktop } from './components/content/Component.desktop';
 import { FooterDesktop } from './components/footer/Component.desktop';
 import { Closer } from './components/closer/Component';
 
 import styles from './desktop.module.css';
-import transitions from './transitions/content.module.css';
+import transitions from './transitions.module.css';
 
-export type ModalDesktopProps = ModalProps & {
+export type ModalDesktopProps = BaseModalProps & {
     /**
      * Ширина модального окна
      * @default "m"
      */
     size?: 's' | 'm' | 'l';
+
+    /**
+     * Растягивает модальное окно на весь экран
+     */
+    fullscreen?: boolean;
 
     /**
      * Управление наличием закрывающего крестика
@@ -25,15 +30,17 @@ export type ModalDesktopProps = ModalProps & {
 };
 
 const ModalDesktopComponent = forwardRef<HTMLDivElement, ModalDesktopProps>(
-    ({ size = 's', fullscreen, children, className, ...restProps }, ref) => (
-        <Modal
+    ({ size = 's', fullscreen, children, className, wrapperClassName, ...restProps }, ref) => (
+        <BaseModal
             {...restProps}
             ref={ref}
-            className={cn(styles.component, className, !fullscreen && styles[size], {
+            wrapperClassName={cn(styles.wrapper, wrapperClassName, {
                 [styles.fullscreen]: fullscreen,
             })}
-            hideBackdrop={fullscreen}
-            fullscreen={fullscreen}
+            className={cn(styles.component, className, !fullscreen && styles[size])}
+            backdropProps={{
+                invisible: fullscreen,
+            }}
             transitionProps={{
                 classNames: transitions,
                 ...restProps.transitionProps,
@@ -41,10 +48,10 @@ const ModalDesktopComponent = forwardRef<HTMLDivElement, ModalDesktopProps>(
         >
             {React.Children.map(children, child =>
                 isValidElement(child)
-                    ? cloneElement(child, { size: child.props.size || size })
+                    ? cloneElement(child, { size: child.props.size || size, fullscreen })
                     : child,
             )}
-        </Modal>
+        </BaseModal>
     ),
 );
 

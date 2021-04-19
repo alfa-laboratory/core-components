@@ -1,6 +1,8 @@
 @import '../../vars.css';
 
 .header {
+    composes: header from 'index.module.css';
+
     min-height: var(--modal-header-min-height);
     border-top-left-radius: var(--modal-border-radius);
     border-top-right-radius: var(--modal-border-radius);
@@ -16,4 +18,26 @@
 
 .l {
     padding: var(--modal-l-header-paddings);
+}
+
+.sticky {
+    composes: sticky from 'index.module.css';
+
+    top: calc(var(--modal-vertical-padding) * -1);
+}
+
+.fullscreen {
+    top: 0;
+}
+
+.highlighted {
+    composes: highlighted from 'index.module.css';
+}
+
+.content {
+    composes: content from 'index.module.css';
+}
+
+.title {
+    composes: title from 'index.module.css';
 }

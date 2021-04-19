@@ -1,0 +1,7 @@
+@import '../../../../themes/src/default.css';
+
+@define-mixin backdrop-click {
+    /* core vars */
+    --color-light-graphic-primary: #0b1f35;
+    --backdrop-visible-background: color-mod(var(--color-light-graphic-primary) alpha(50%));
+}

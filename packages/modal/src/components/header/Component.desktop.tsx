@@ -9,8 +9,22 @@ export type HeaderDesktopProps = HeaderProps & {
      * Размер
      */
     size?: 's' | 'm' | 'l';
+
+    /**
+     * Флаг, что модальное окно открыто на весь экран
+     */
+    fullscreen?: boolean;
 };
 
-export const HeaderDesktop: FC<HeaderDesktopProps> = ({ size, className, ...restProps }) => (
-    <Header className={cn(className, styles.header, size && styles[size])} {...restProps} />
+export const HeaderDesktop: FC<HeaderDesktopProps> = ({
+    size,
+    className,
+    fullscreen,
+    ...restProps
+}) => (
+    <Header
+        className={cn(className, size && styles[size], fullscreen && styles.fullscreen)}
+        styles={styles}
+        {...restProps}
+    />
 );

@@ -7,27 +7,30 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
-describe(
-    'Slider | main props',
-    screenshotTesting({
-        cases: [
-            [
-                'sprite',
-                createSpriteStorybookUrl({
-                    componentName: 'Slider',
-                    knobs: {
-                        value: [0, 50, 100],
-                    },
-                    size: { width: 200, height: 30 },
-                }),
+describe('Slider | main props', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    theme,
+                    createSpriteStorybookUrl({
+                        componentName: 'Slider',
+                        knobs: {
+                            value: [0, 50, 100],
+                        },
+                        size: { width: 200, height: 30 },
+                    }),
+                ],
             ],
-        ],
-        screenshotOpts: {
-            fullPage: true,
-        },
-        viewport: {
-            width: 300,
-            height: 100,
-        },
-    }),
-);
+            screenshotOpts: {
+                fullPage: true,
+            },
+            viewport: {
+                width: 300,
+                height: 100,
+            },
+            theme,
+        })();
+
+    ['default', 'click'].map(testCase);
+});

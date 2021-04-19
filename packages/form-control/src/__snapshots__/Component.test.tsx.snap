@@ -521,6 +521,14 @@ Object {
           <div
             class="inputWrapper"
           >
+            <span
+              aria-hidden="true"
+              class="hiddenLabel"
+            >
+              <span>
+                This is label
+              </span>
+            </span>
             <div
               class="label"
             >
@@ -551,6 +559,14 @@ Object {
         <div
           class="inputWrapper"
         >
+          <span
+            aria-hidden="true"
+            class="hiddenLabel"
+          >
+            <span>
+              This is label
+            </span>
+          </span>
           <div
             class="label"
           >

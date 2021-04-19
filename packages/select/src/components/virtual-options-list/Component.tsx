@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import React, { useRef, useEffect, useMemo } from 'react';
+import React, { useRef, useEffect, useMemo, useState } from 'react';
 import cn from 'classnames';
 import { useVirtual } from 'react-virtual';
 import { OptionsListProps, GroupShape, OptionShape } from '../../typings';
@@ -32,6 +32,7 @@ export const VirtualOptionsList = ({
 }: VirtualOptionsList) => {
     const listRef = useRef<HTMLDivElement>(null);
     const parentRef = useRef<HTMLDivElement>(null);
+    const [visibleOptionsInvalidateKey, setVisibleOptionsInvalidateKey] = useState(0);
     const prevHighlightedIndex = usePrevious(highlightedIndex) || -1;
 
     const rowVirtualizer = useVirtual({
@@ -74,9 +75,20 @@ export const VirtualOptionsList = ({
         }
     }, [prevHighlightedIndex, highlightedIndex]);
 
+    useEffect(() => {
+        setVisibleOptionsInvalidateKey(
+            /**
+             * react-virtual может несколько раз отрендерить список с одним элементом,
+             * поэтому нужно еще раз пересчитать высоту, когда список ВИДИМЫХ пунктов будет отрендерен полностью
+             * Также, высоту нужно пересчитывать при изменении ОБЩЕГО кол-ва пунктов меню
+             */
+            rowVirtualizer.virtualItems.length > 1 ? flatOptions.length : 1,
+        );
+    }, [rowVirtualizer.virtualItems.length, flatOptions.length]);
+
     useVisibleOptions({
         visibleOptions,
-        invalidate: listRef.current,
+        invalidate: visibleOptionsInvalidateKey,
         listRef,
         styleTargetRef: parentRef,
         open,

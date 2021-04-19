@@ -1,9 +1,7 @@
 import React, { FC, ReactNode, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
-import { ModalContext } from '../../Component';
-
-import styles from './index.module.css';
+import { ModalContext } from '../../Context';
 
 export type FooterProps = {
     /**
@@ -22,8 +20,13 @@ export type FooterProps = {
     sticky?: boolean;
 };
 
-export const Footer: FC<FooterProps> = ({ children, className, sticky }) => {
-    const { footerHighlighted, fullscreen, setHasFooter } = useContext(ModalContext);
+export const Footer: FC<FooterProps & { styles: Record<string, string> }> = ({
+    children,
+    className,
+    sticky,
+    styles,
+}) => {
+    const { footerHighlighted, setHasFooter } = useContext(ModalContext);
 
     useEffect(() => {
         setHasFooter(true);
@@ -34,7 +37,6 @@ export const Footer: FC<FooterProps> = ({ children, className, sticky }) => {
             className={cn(styles.footer, className, {
                 [styles.highlighted]: sticky && footerHighlighted,
                 [styles.sticky]: sticky,
-                [styles.fullscreen]: fullscreen,
             })}
         >
             {children}

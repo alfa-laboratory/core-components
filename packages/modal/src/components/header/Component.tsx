@@ -1,10 +1,9 @@
 import React, { FC, ReactNode, useContext, useEffect } from 'react';
 import cn from 'classnames';
 
-import { Closer } from '../closer/Component';
-import { ModalContext } from '../../Component';
+import { ModalContext } from '../../Context';
 
-import styles from './index.module.css';
+import { Closer } from '../closer/Component';
 
 export type HeaderProps = {
     /**
@@ -23,13 +22,27 @@ export type HeaderProps = {
     className?: string;
 
     /**
+     * Заголовок шапки
+     */
+    title?: string;
+
+    /**
      * Фиксирует шапку
      */
     sticky?: boolean;
 };
 
-export const Header: FC<HeaderProps> = ({ className, children, hasCloser = true, sticky }) => {
-    const { headerHighlighted, setHasHeader, fullscreen } = useContext(ModalContext);
+export const Header: FC<HeaderProps & { styles: Record<string, string> }> = ({
+    className,
+    children,
+    title,
+    hasCloser = true,
+    sticky,
+    styles,
+}) => {
+    const { headerHighlighted, setHasHeader } = useContext(ModalContext);
+
+    const hasContent = title || Boolean(children);
 
     useEffect(() => {
         setHasHeader(true);
@@ -39,18 +52,13 @@ export const Header: FC<HeaderProps> = ({ className, children, hasCloser = true,
         <div
             className={cn(styles.header, className, {
                 [styles.highlighted]: sticky && headerHighlighted,
-                [styles.onlyCloser]: hasCloser && !children,
                 [styles.sticky]: sticky,
-                [styles.fullscreen]: fullscreen,
             })}
         >
-            {children && (
-                <div
-                    className={cn(styles.content, {
-                        [styles.withTitle]: Boolean(children),
-                    })}
-                >
+            {hasContent && (
+                <div className={styles.content}>
                     {children}
+                    {title && <div className={styles.title}>{title}</div>}
                 </div>
             )}
 

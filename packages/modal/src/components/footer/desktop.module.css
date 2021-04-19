@@ -1,8 +1,24 @@
 @import '../../vars.css';
 
 .footer {
+    composes: footer from 'index.module.css';
+
     border-bottom-left-radius: var(--modal-border-radius);
     border-bottom-right-radius: var(--modal-border-radius);
+}
+
+.highlighted {
+    composes: highlighted from 'index.module.css';
+}
+
+.sticky {
+    composes: sticky from 'index.module.css';
+
+    bottom: calc(var(--modal-vertical-padding) * -1);
+}
+
+.fullscreen {
+    bottom: 0;
 }
 
 .s {

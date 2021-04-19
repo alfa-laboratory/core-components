@@ -1,0 +1,63 @@
+@import '../../themes/src/default.css';
+
+:root {
+    /* TODO: заюзать Stack */
+    --modal-z-index: 1300;
+}
+
+.component {
+    position: relative;
+    box-sizing: border-box;
+    background: var(--color-light-bg-primary);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: var(--modal-z-index);
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    outline: 0;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+.appear,
+.enter {
+    opacity: 0;
+}
+
+.appearActive,
+.enterActive {
+    opacity: 1;
+    transition: opacity 200ms ease-in;
+}
+
+.exit {
+    opacity: 1;
+}
+
+.exitActive,
+.exitDone {
+    opacity: 0;
+    transition: opacity 200ms ease-out;
+}

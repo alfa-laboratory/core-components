@@ -307,6 +307,18 @@
     transform: scaleY(2);
 }
 
+.hiddenLabel {
+    opacity: 0;
+    height: 0;
+    padding: var(--form-control-paddings);
+    display: block;
+    box-sizing: border-box;
+}
+
+.l .hiddenLabel {
+    padding: var(--form-control-l-paddings);
+}
+
 /* min-height and width: max-content; fix for IE */
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {

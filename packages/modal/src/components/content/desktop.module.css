@@ -1,5 +1,13 @@
 @import '../../vars.css';
 
+.content {
+    composes: content from 'index.module.css';
+}
+
+.flex {
+    composes: flex from 'index.module.css';
+}
+
 .s {
     padding: var(--modal-s-content-paddings);
 }

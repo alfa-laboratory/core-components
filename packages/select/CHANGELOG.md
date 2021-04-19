@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@7.2.2...@alfalab/core-components-select@7.3.0) (2021-04-09)
+
+
+### Bug Fixes
+
+* **select:** options list width calc ([5294af7](https://github.com/alfa-laboratory/core-components/commit/5294af78ef61b50edde42ed255e66e6ea004c0fd))
+* **select:** virtual list wrong height ([8708228](https://github.com/alfa-laboratory/core-components/commit/8708228749acdeed0d1dfe4b9538dc22683e7f28))
+
+
+### Features
+
+* **form-control:** add hidden label instead min-width ([a40ffcf](https://github.com/alfa-laboratory/core-components/commit/a40ffcf149282c83a834587a9486bc09b2929f90))
+
+
+
+
+
 ## [7.2.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@7.2.1...@alfalab/core-components-select@7.2.2) (2021-04-01)
 
 **Note:** Version bump only for package @alfalab/core-components-select

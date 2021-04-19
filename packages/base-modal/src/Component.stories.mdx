@@ -1,0 +1,78 @@
+import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { Button } from '../../button/src';
+
+import { BaseModal } from './Component';
+import { version } from '../package.json';
+
+
+<Meta
+    title='Компоненты/Modal'
+    component={BaseModal}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+<Story name="BaseModal">
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        const handleModalOpen = () => setOpen(!open);
+        return (
+            <React.Fragment>
+                <Button type='button' size='xs' onClick={handleModalOpen}>
+                    Open Modal
+                </Button>
+                <BaseModal
+                    open={open}
+                    onClose={handleModalOpen}
+                >
+                    <div style={{ padding: '100px' }}>BaseModal</div>
+                </BaseModal>
+            </React.Fragment>
+        )
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='BaseModal'
+    version={version}
+    package='@alfalab/core-components-base-modal'
+    stage={1}
+/>
+
+
+```tsx
+import { BaseModal } from '@alfalab/core-components-base-modal';
+```
+
+Базовый компонент для построения модальных окон, сайд-панелей и пр.
+
+<Props of={BaseModal} />
+
+## Использование контекста
+
+```tsx
+export type ModalContext = {
+    // Указаывает, используется ли футер
+    hasFooter?: boolean;
+    // Указаывает, используется ли шапка (например, позволяет гибко настраивать отступы)
+    hasHeader?: boolean;
+    // Указаывает наличие скролла
+    hasScroll?: boolean;
+    // Указаывает, что контент прокручен
+    headerHighlighted?: boolean;
+    // Указаывает, что контент прокручен не до конца
+    footerHighlighted?: boolean;
+    // Коллбэк, который должна вызвать кастомная шапка
+    setHasHeader: (exists: boolean) => void;
+    // Коллбэк, который должна вызвать кастомный футер
+    setHasFooter: (exists: boolean) => void;
+    // Позволяет закрыть модальное окно
+    onClose: (event: MouseEvent<HTMLElement>) => void;
+    // Реф, который должен быть установлен контентой области
+    contentRef: Ref<HTMLElement>;
+};
+```
