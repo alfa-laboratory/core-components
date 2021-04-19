@@ -20,6 +20,7 @@ import FocusLock from 'react-focus-lock';
 
 import { Portal, PortalProps } from '@alfalab/core-components-portal';
 import { Backdrop, BackdropProps } from '@alfalab/core-components-backdrop';
+import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 
 import { handleContainer, hasScrollbar, isScrolledToBottom, isScrolledToTop } from './utils';
 
@@ -140,6 +141,11 @@ export type BaseModalProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * z-index компонента
+     */
+    zIndex?: number;
 };
 
 export type BaseModalContext = {
@@ -190,6 +196,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             onMount,
             onUnmount,
             dataTestId,
+            zIndex = stackingOrder.MODAL,
         },
         ref,
     ) => {
@@ -380,49 +387,59 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         if (!shouldRender) return null;
 
         return (
-            <Portal getPortalContainer={container}>
-                <BaseModalContext.Provider value={contextValue}>
-                    <FocusLock
-                        autoFocus={!disableAutoFocus}
-                        disabled={disableFocusLock || !open}
-                        returnFocus={!disableRestoreFocus}
-                    >
-                        <div
-                            role='dialog'
-                            className={cn(styles.wrapper, wrapperClassName, {
-                                [styles.hidden]: !open && exited,
-                            })}
-                            ref={mergeRefs([ref, wrapperRef])}
-                            onKeyDown={handleKeyDown}
-                            tabIndex={-1}
-                            data-test-id={dataTestId}
-                        >
-                            {Backdrop && (
-                                <Backdrop
-                                    {...backdropProps}
-                                    open={open}
-                                    onClick={handleBackdropClick}
-                                />
-                            )}
-                            <CSSTransition
-                                appear={true}
-                                timeout={200}
-                                classNames={styles}
-                                {...transitionProps}
-                                in={open}
-                                onEntered={handleEntered}
-                                onExited={handleExited}
+            <Stack value={zIndex}>
+                {computedZIndex => (
+                    <Portal getPortalContainer={container}>
+                        <BaseModalContext.Provider value={contextValue}>
+                            <FocusLock
+                                autoFocus={!disableAutoFocus}
+                                disabled={disableFocusLock || !open}
+                                returnFocus={!disableRestoreFocus}
                             >
-                                <div className={cn(styles.component, className)} ref={componentRef}>
-                                    <div className={cn(styles.content, contentClassName)}>
-                                        {children}
-                                    </div>
+                                <div
+                                    role='dialog'
+                                    className={cn(styles.wrapper, wrapperClassName, {
+                                        [styles.hidden]: !open && exited,
+                                    })}
+                                    ref={mergeRefs([ref, wrapperRef])}
+                                    onKeyDown={handleKeyDown}
+                                    tabIndex={-1}
+                                    data-test-id={dataTestId}
+                                    style={{
+                                        zIndex: computedZIndex,
+                                    }}
+                                >
+                                    {Backdrop && (
+                                        <Backdrop
+                                            {...backdropProps}
+                                            open={open}
+                                            onClick={handleBackdropClick}
+                                        />
+                                    )}
+                                    <CSSTransition
+                                        appear={true}
+                                        timeout={200}
+                                        classNames={styles}
+                                        {...transitionProps}
+                                        in={open}
+                                        onEntered={handleEntered}
+                                        onExited={handleExited}
+                                    >
+                                        <div
+                                            className={cn(styles.component, className)}
+                                            ref={componentRef}
+                                        >
+                                            <div className={cn(styles.content, contentClassName)}>
+                                                {children}
+                                            </div>
+                                        </div>
+                                    </CSSTransition>
                                 </div>
-                            </CSSTransition>
-                        </div>
-                    </FocusLock>
-                </BaseModalContext.Provider>
-            </Portal>
+                            </FocusLock>
+                        </BaseModalContext.Provider>
+                    </Portal>
+                )}
+            </Stack>
         );
     },
 );
