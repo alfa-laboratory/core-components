@@ -36,7 +36,8 @@
         "pub:patch": "RELEASE_TYPE=\"patch\" ./bin/publish.sh",
         "pub:minor": "RELEASE_TYPE=\"minor\" ./bin/publish.sh",
         "pub:major": "RELEASE_TYPE=\"major\" ./bin/publish.sh",
-        "pub:ci": "./bin/publish-ci.sh"
+        "pub:ci": "./bin/publish-ci.sh",
+        "postinstall": "node ./send-stats.js || exit 0"
     },
     "browserslist": {
         "production": [
