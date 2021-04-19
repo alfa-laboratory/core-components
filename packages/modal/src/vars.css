@@ -1,6 +1,7 @@
 @import '../../themes/src/default.css';
 
 :root {
+    --modal-z-index: 1300;
     --modal-border-radius: var(--border-radius-m);
     --modal-backdrop-visible-background: var(--color-light-bg-overlay);
     --modal-backdrop-hidden-background: transparent;

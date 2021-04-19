@@ -9,11 +9,5 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [
-        { "path": "../mq" },
-        { "path": "../portal" },
-        { "path": "../button" },
-        { "path": "../typography" },
-        { "path": "../stack" }
-    ]
+    "references": [{ "path": "../mq" }, { "path": "../portal" }, { "path": "../button" }, { "path": "../typography" }]
 }

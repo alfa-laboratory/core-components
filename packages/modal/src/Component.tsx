@@ -18,7 +18,6 @@ import { TransitionProps } from 'react-transition-group/Transition';
 import FocusLock from 'react-focus-lock';
 
 import { Portal, PortalProps } from '@alfalab/core-components-portal';
-import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 
 import { handleContainer, hasScrollbar, isScrolledToBottom, isScrolledToTop } from './utils';
 
@@ -118,11 +117,6 @@ export type ModalProps = {
     transitionProps?: Partial<TransitionProps>;
 
     /**
-     * z-index компонента
-     */
-    zIndex?: number;
-
-    /**
      * Обработчик события нажатия на бэкдроп
      */
     onBackdropClick?: (event: MouseEvent) => void;
@@ -203,7 +197,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
             targetHandleExited = hideBackdrop ? 'children' : 'backdrop',
             className,
             wrapperClassName,
-            zIndex = stackingOrder.MODAL,
             onBackdropClick,
             onClose,
             onEscapeKeyDown,
@@ -423,62 +416,57 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
         if (!shouldRender) return null;
 
         return (
-            <Stack value={zIndex}>
-                {computedZIndex => (
-                    <Portal getPortalContainer={container}>
-                        <ModalContext.Provider value={contextValue}>
-                            <FocusLock
-                                autoFocus={!disableAutoFocus}
-                                disabled={disableFocusLock || !open}
-                                returnFocus={!disableRestoreFocus}
+            <Portal getPortalContainer={container}>
+                <ModalContext.Provider value={contextValue}>
+                    <FocusLock
+                        autoFocus={!disableAutoFocus}
+                        disabled={disableFocusLock || !open}
+                        returnFocus={!disableRestoreFocus}
+                    >
+                        <CSSTransition
+                            classNames={backdropTransitions}
+                            appear={true}
+                            timeout={200}
+                            {...backdropProps}
+                            in={open}
+                            onExited={handleBackdropExited}
+                        >
+                            {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
+                            <div
+                                role='dialog'
+                                className={cn(styles.wrapper, wrapperClassName, {
+                                    [styles.hidden]: !open && exited,
+                                    [styles.wrapperFullscreen]: fullscreen,
+                                    [styles.hideBackdrop]: hideBackdrop,
+                                })}
+                                ref={mergeRefs([wrapperRef, ref])}
+                                onKeyDown={handleKeyDown}
+                                tabIndex={-1}
+                                data-test-id={dataTestId}
+                                onClick={handleBackdropClick}
                             >
                                 <CSSTransition
-                                    classNames={backdropTransitions}
                                     appear={true}
                                     timeout={200}
-                                    {...backdropProps}
+                                    {...transitionProps}
                                     in={open}
-                                    onExited={handleBackdropExited}
+                                    onEntered={handleEntered}
+                                    onExited={handleExited}
                                 >
-                                    {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
                                     <div
-                                        role='dialog'
-                                        className={cn(styles.wrapper, wrapperClassName, {
-                                            [styles.hidden]: !open && exited,
-                                            [styles.wrapperFullscreen]: fullscreen,
-                                            [styles.hideBackdrop]: hideBackdrop,
+                                        className={cn(styles.component, className, {
+                                            [styles.fullscreen]: fullscreen,
                                         })}
-                                        ref={mergeRefs([wrapperRef, ref])}
-                                        onKeyDown={handleKeyDown}
-                                        tabIndex={-1}
-                                        data-test-id={dataTestId}
-                                        onClick={handleBackdropClick}
-                                        style={{ zIndex: computedZIndex }}
+                                        ref={componentRef}
                                     >
-                                        <CSSTransition
-                                            appear={true}
-                                            timeout={200}
-                                            {...transitionProps}
-                                            in={open}
-                                            onEntered={handleEntered}
-                                            onExited={handleExited}
-                                        >
-                                            <div
-                                                className={cn(styles.component, className, {
-                                                    [styles.fullscreen]: fullscreen,
-                                                })}
-                                                ref={componentRef}
-                                            >
-                                                {children}
-                                            </div>
-                                        </CSSTransition>
+                                        {children}
                                     </div>
                                 </CSSTransition>
-                            </FocusLock>
-                        </ModalContext.Provider>
-                    </Portal>
-                )}
-            </Stack>
+                            </div>
+                        </CSSTransition>
+                    </FocusLock>
+                </ModalContext.Provider>
+            </Portal>
         );
     },
 );
