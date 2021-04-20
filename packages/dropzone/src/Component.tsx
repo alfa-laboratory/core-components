@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useRef, useState } from 'react';
 import cn from 'classnames';
-import { EnvelopOpenTextMIcon } from '@alfalab/icons-glyph';
+import { ContainerMIcon } from '@alfalab/icons-glyph';
 import { preventAndStopEvent } from './utils';
 
 import styles from './index.module.css';
@@ -139,7 +139,7 @@ export const Dropzone: FC<DropzoneProps> = ({
         >
             {children}
             <div className={styles.overlay}>
-                <EnvelopOpenTextMIcon />
+                <ContainerMIcon />
                 <span className={styles.text}>{text}</span>
             </div>
         </div>
