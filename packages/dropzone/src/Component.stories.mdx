@@ -26,7 +26,7 @@ export const Container = ({ children }) => (
 <!-- Canvas -->
 
 <Story name='Dropzone'>
-    <Dropzone error={boolean('error', false)}>
+    <Dropzone error={boolean('error', false)} overlayVisible={boolean('overlayVisible', false)}>
         <Container>
             <span>children</span>
         </Container>

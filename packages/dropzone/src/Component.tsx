@@ -22,6 +22,11 @@ export type DropzoneProps = {
     error?: boolean;
 
     /**
+     * Позволяет вручную управлять видимостью заглушки
+     */
+    overlayVisible?: boolean;
+
+    /**
      * Обработчик события 'drop'
      */
     onDrop?: (files: FileList) => void;
@@ -52,6 +57,7 @@ export const Dropzone: FC<DropzoneProps> = ({
     children,
     text = 'Перетащите файлы',
     error = false,
+    overlayVisible = false,
     onDragEnter,
     onDragLeave,
     onDragOver,
@@ -128,7 +134,7 @@ export const Dropzone: FC<DropzoneProps> = ({
     return (
         <div
             className={cn(styles.component, className, {
-                [styles.dragOver]: dragOver,
+                [styles.dragOver]: dragOver || overlayVisible,
                 [styles.error]: error,
             })}
             onDragEnter={handleDragEnter}
