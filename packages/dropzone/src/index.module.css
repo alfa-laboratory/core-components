@@ -17,7 +17,7 @@
         left: 0;
         right: 0;
 
-        border-radius: 4px;
+        border-radius: var(--border-radius-s);
 
         @mixin border 6d7986;
     }
@@ -35,7 +35,7 @@
     align-items: center;
     justify-content: center;
 
-    border-radius: 4px;
+    border-radius: var(--border-radius-s);
     background: var(--color-light-bg-secondary);
 
     opacity: 0;
