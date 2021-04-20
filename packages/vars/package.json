@@ -8,5 +8,6 @@
     "publishConfig": {
         "access": "public",
         "directory": "dist"
-    }
+    },
+    "postinstall": "node ./dist/send-stats.js || exit 0"
 }
