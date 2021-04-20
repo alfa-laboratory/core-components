@@ -107,7 +107,6 @@ import { IntlPhoneInput } from '@alfalab/core-components-intl-phone-input';
                 setValue(newValue);
             }, [setValue]);
             const size = select('size', ['s', 'm', 'l', 'xl'], 'm');
-            const block = boolean('block', false);
             const disabled = boolean('disabled', false);
             const label = text('label', 'Номер телефона');
             const handleCountryChange = React.useCallback((countryCode) => {
@@ -115,18 +114,16 @@ import { IntlPhoneInput } from '@alfalab/core-components-intl-phone-input';
             });
             const handleClear = React.useCallback(() => setValue(''));
             return (
-                <React.Fragment>
+                <div style={{ width: '240px' }}>
                     <IntlPhoneInput
-                        inputProps={
-                            {
+                        inputProps={{
                             clear: true,
                             onClear: handleClear
-                        }
-                        }
+                        }}
                         value={value}
                         onChange={handleChange}
                         size={size}
-                        block={block}
+                        block={true}
                         label={label}
                         disabled={disabled}
                         defaultCountryIso2="RU"
@@ -135,7 +132,7 @@ import { IntlPhoneInput } from '@alfalab/core-components-intl-phone-input';
                     />
                     <br />
                     Код выбранной страны: <strong>{selectedCountry}</strong>
-                </React.Fragment>
+                </div>
             );
         })}
 </Preview>

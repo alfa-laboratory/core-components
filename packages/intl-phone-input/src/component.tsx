@@ -66,7 +66,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         const [countryIso2, setCountryIso2] = useState(defaultCountryIso2.toLowerCase());
 
         const inputRef = useRef<HTMLInputElement>(null);
-        const inputWrapperRef = useRef<HTMLDivElement>(null);
+        const [inputWrapperRef, setInputWrapperRef] = useState<HTMLDivElement | null>(null);
 
         const phoneLibUtils = useRef<typeof AsYouType>();
 
@@ -218,10 +218,11 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         return (
             <InputAutocomplete
                 {...restProps}
-                ref={mergeRefs([inputRef, ref])}
+                ref={ref}
                 inputProps={{
                     ...inputProps,
-                    ref: { inputWrapperRef },
+                    ref: inputRef,
+                    wrapperRef: setInputWrapperRef,
                     type: 'tel' as const,
                     className: cn(className, styles[size]),
                     addonsClassName: styles.addons,
@@ -233,13 +234,14 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                             countries={countries}
                             onChange={handleSelectChange}
                             fieldWidth={
-                                inputWrapperRef.current &&
-                                inputWrapperRef.current.getBoundingClientRect().width
+                                inputWrapperRef &&
+                                inputWrapperRef.getBoundingClientRect().width
                             }
                             preventFlip={preventFlip}
                         />
                     ),
                 }}
+                closeOnSelect={true}
                 onInput={handleInputChange}
                 onChange={handleChange}
                 options={options}

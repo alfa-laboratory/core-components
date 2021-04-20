@@ -1,6 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 import { Input as DefaultInput } from '@alfalab/core-components-input';
 import { FieldProps } from '@alfalab/core-components-select';
+import mergeRefs from 'react-merge-refs';
 import { InputAutocompleteProps } from '../Component';
 
 export type AutocompleteFieldProps = FieldProps &
@@ -43,8 +44,8 @@ export const AutocompleteField = ({
         <Input
             {...inputProps}
             {...innerProps}
-            wrapperRef={innerProps.ref}
-            ref={inputRef}
+            wrapperRef={mergeRefs([innerProps.ref, inputProps.wrapperRef])}
+            ref={mergeRefs([inputRef, inputProps.ref])}
             disabled={disabled}
             readOnly={readOnly}
             block={true}

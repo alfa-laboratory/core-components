@@ -52,16 +52,17 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
     );
 
     return (
-        <Select
-            disabled={disabled}
-            size={size}
-            options={options}
-            selected={selected}
-            onChange={onChange}
-            Field={SelectField}
-            OptionsList={renderOptionsList}
-            preventFlip={preventFlip}
-            className={styles.component}
-        />
+        <div className={styles.component} onClick={event => event.stopPropagation()}>
+            <Select
+                disabled={disabled}
+                size={size}
+                options={options}
+                selected={selected}
+                onChange={onChange}
+                Field={SelectField}
+                OptionsList={renderOptionsList}
+                preventFlip={preventFlip}
+            />
+        </div>
     );
 };
