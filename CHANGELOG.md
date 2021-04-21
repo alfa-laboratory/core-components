@@ -1,3 +1,10 @@
+## [15.2.2](https://github.com/alfa-laboratory/core-components/compare/v15.2.1...v15.2.2) (2021-04-20)
+
+
+### Bug Fixes
+
+* **amount-input:** fix float in amount input ([a9e1802](https://github.com/alfa-laboratory/core-components/commit/a9e180285073e29a05703a991c946e2c1247177a))
+
 ## [15.2.1](https://github.com/alfa-laboratory/core-components/compare/v15.2.0...v15.2.1) (2021-04-09)
 
 

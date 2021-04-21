@@ -36,5 +36,7 @@ export function getFormattedValue(enteredValue: string, currency: CurrencyCodes,
 }
 
 export function getAmountValueFromStr(str: string, minority: number) {
-    return str === '' ? null : Number(str.replace(',', '.').replace(/[^0-9.]/g, '')) * minority;
+    return str === ''
+        ? null
+        : Math.round(Number(str.replace(',', '.').replace(/[^0-9.]/g, '')) * minority);
 }

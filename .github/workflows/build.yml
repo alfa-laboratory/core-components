@@ -1,8 +1,11 @@
 name: Tests & Build
 
 on:
+  pull_request:
+    branches:
+      - master
   push:
-    branches-ignore:
+    branches:
       - master
 
 jobs:
@@ -26,7 +29,12 @@ jobs:
                 timezone: Europe/Moscow
 
             - name: Run test
-              run: yarn test
+              run: yarn test --coverage
+
+            - name: Coveralls
+              uses: coverallsapp/github-action@master
+              with:
+                github-token: ${{ secrets.GITHUB_TOKEN }}
 
     build:
         name: build packages

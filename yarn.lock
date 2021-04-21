@@ -19,6 +19,16 @@
     classnames "^2.2.6"
     react-merge-refs "^1.1.0"
 
+"@alfalab/core-components-button@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-button/-/core-components-button-2.2.0.tgz#fbbd0cd9fa8281031e4ee885920e28f1348e5803"
+  integrity sha512-ffryNpcJ4v9cpEtOxxxAYt1/wOqBYYPx6pNFLMU5U+r53i4NId7wNAKr/uhcKR74wgFdQbsrYD386S9az5Nw1A==
+  dependencies:
+    "@alfalab/core-components-loader" "^1.1.5"
+    "@alfalab/hooks" "^1.0.0"
+    classnames "^2.2.6"
+    react-merge-refs "^1.1.0"
+
 "@alfalab/core-components-form-control@^3.1.5":
   version "3.1.5"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components-form-control/-/core-components-form-control-3.1.5.tgz#c064abf1ad4a1f71b75206e7d40d4935e4098b58"
@@ -151,10 +161,10 @@
     string-hash "^1.1.3"
     style-inject "^0.3.0"
 
-"@alfalab/stylelint-core-vars@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@alfalab/stylelint-core-vars/-/stylelint-core-vars-0.0.4.tgz#f9ba0ea20b8a2d77646d3a65b34631659d6073ea"
-  integrity sha512-KMaN6A4QGwLDeD5aVTPl6zozDUPgB5WeumcWib4zdzv7zfnFtOnUFfpyLguFXCi9geg4/gC2hf4MCNH8uNe8Dg==
+"@alfalab/stylelint-core-vars@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/stylelint-core-vars/-/stylelint-core-vars-1.1.0.tgz#82b34026683494e32c1f02b3f77942fddebce294"
+  integrity sha512-PRAaXvAYJ7uVKUmh1qMN6wO047Oj/g4KmTYlZLDyNqVhPSwkiYnZk/Ivf1qgxecudKRTHf40qnMOEHrdd1R63A==
 
 "@alfalab/utils@^1.1.1":
   version "1.1.1"
