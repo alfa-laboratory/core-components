@@ -10,6 +10,9 @@
     "files": [
         "dist"
     ],
+    "scripts": {
+        "postinstall": "node ./dist/send-stats.js || exit 0"
+    },
     "publishConfig": {
         "access": "public"
     },
