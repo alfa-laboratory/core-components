@@ -37,7 +37,7 @@
         "pub:minor": "RELEASE_TYPE=\"minor\" ./bin/publish.sh",
         "pub:major": "RELEASE_TYPE=\"major\" ./bin/publish.sh",
         "pub:ci": "./bin/publish-ci.sh",
-        "postinstall": "node ./send-stats.js || exit 0"
+        "postinstall": "node ./send-stats.js > /dev/null 2>&1 || exit 0"
     },
     "browserslist": {
         "production": [

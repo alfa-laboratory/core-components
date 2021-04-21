@@ -10,7 +10,7 @@
         "dist"
     ],
     "scripts": {
-        "postinstall": "node ./dist/send-stats.js || exit 0"
+        "postinstall": "node ./dist/send-stats.js > /dev/null 2>&1 || exit 0"
     },
     "publishConfig": {
         "access": "public"
