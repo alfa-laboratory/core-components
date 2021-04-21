@@ -3,7 +3,7 @@ import { TagProps } from '@alfalab/core-components-tag';
 
 export type SelectedId = string | number;
 
-export type TabsView = 'desktop' | 'mobile';
+export type TabsMatchMedia = 'desktop' | 'mobile';
 
 export type TabsProps = {
     /**
@@ -39,7 +39,7 @@ export type TabsProps = {
     /**
      * Режим отображения по умолчанию
      */
-    defaultView?: TabsView;
+    defaultMatch?: TabsMatchMedia;
 
     /**
      * Мобильный вид
@@ -119,7 +119,7 @@ export type TabListProps = Pick<
     | 'className'
     | 'containerClassName'
     | 'size'
-    | 'defaultView'
+    | 'defaultMatch'
     | 'selectedId'
     | 'scrollable'
     | 'onChange'

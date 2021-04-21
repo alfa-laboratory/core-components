@@ -2,19 +2,19 @@ import React from 'react';
 import { useMedia } from '@alfalab/hooks';
 import { SecondaryTabListDesktop } from './Component.desktop';
 import { SecondaryTabListMobile } from './Component.mobile';
-import { SecondaryTabListProps, TabsView } from '../../typings';
+import { SecondaryTabListProps, TabsMatchMedia } from '../../typings';
 
 export const SecondaryTabListResponsive = ({
     size,
-    defaultView = 'desktop',
+    defaultMatch = 'desktop',
     ...restProps
 }: SecondaryTabListProps) => {
-    const [view] = useMedia<TabsView>(
+    const [view] = useMedia<TabsMatchMedia>(
         [
             ['mobile', '(max-width: 767px)'],
             ['desktop', '(min-width: 768px)'],
         ],
-        defaultView,
+        defaultMatch,
     );
 
     return view === 'desktop' ? (
