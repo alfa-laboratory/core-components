@@ -42,6 +42,7 @@ lerna exec --concurrency $CONCURRENCY \
 
 # копирую package.json в сборку корневого пакета
 cp package.json dist/package.json
+cp bin/send-stats.js dist/send-stats.js
 
 # делаю корневой пакет публичным
 yarn json -f dist/package.json -I -e "delete this.private" -e "delete this.workspaces"
