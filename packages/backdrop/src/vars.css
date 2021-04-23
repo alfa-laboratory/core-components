@@ -1,0 +1,6 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --backdrop-visible-background: var(--color-light-bg-overlay);
+    --backdrop-hidden-background: transparent;
+}
