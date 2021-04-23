@@ -39,12 +39,15 @@ export const AutocompleteField = ({
         },
         [onClick],
     );
-
     return (
         <Input
             {...inputProps}
             {...innerProps}
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore
             wrapperRef={mergeRefs([innerProps.ref, inputProps.wrapperRef])}
+            // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+            // @ts-ignore
             ref={mergeRefs([inputRef, inputProps.ref])}
             disabled={disabled}
             readOnly={readOnly}
