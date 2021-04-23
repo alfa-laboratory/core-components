@@ -13938,8 +13938,8 @@ libphonenumber-js@^1.8.4:
 
 libphonenumber-js@^1.9.16:
   version "1.9.16"
-  resolved "http://binary:80/artifactory/api/npm/npm/libphonenumber-js/-/libphonenumber-js-1.9.16.tgz#84fcadf834a1e4234dab3399b5798cf8ff809683"
-  integrity sha1-hPyt+DSh5CNNqzOZtXmM+P+AloM=
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.9.16.tgz#84fcadf834a1e4234dab3399b5798cf8ff809683"
+  integrity sha512-PaHT7nTtnejZ0HHekAaA0olv6BUTKZGtKM4SCQS0yE3XjFuVo/tjePMHUAr32FKwIZfyPky1ExMUuaiBAUmV6w==
 
 lines-and-columns@^1.1.6:
   version "1.1.6"
