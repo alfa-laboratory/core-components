@@ -83,11 +83,7 @@ export const Dropzone: FC<DropzoneProps> = ({
         (event: React.DragEvent<HTMLElement>) => {
             preventAndStopEvent(event);
 
-            dragCounter.current += 1;
-
-            if (event.dataTransfer.items && event.dataTransfer.items.length > 0) {
-                setDragOver(true);
-            }
+            setDragOver(true);
 
             if (onDragEnter) {
                 onDragEnter(event);
