@@ -39,11 +39,10 @@
     --button-ghost-active-color: color-mod(var(--button-ghost-base-color) tint(50%));
     --button-ghost-disabled-color: color-mod(var(--button-ghost-base-color) alpha(30%));
 
-    /* font */
+    /* misc */
     --button-font-family: var(--font-family);
-
-    /* radius */
     --button-border-radius: var(--border-radius-s);
+    --button-active-transform: none;
 }
 
 .component {
@@ -69,8 +68,13 @@
     box-shadow: none;
     user-select: none;
     cursor: pointer;
-    transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
+    transition: background 0.2s ease, border 0.2s ease, color 0.2s ease, transform 0.12s ease;
     box-sizing: border-box;
+    will-change: transform;
+
+    &:active {
+        transform: var(--button-active-transform);
+    }
 }
 
 .focused {
