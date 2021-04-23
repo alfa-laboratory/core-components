@@ -62,6 +62,7 @@
     position: absolute;
     width: 24px;
     height: 24px;
+    top: 8px;
     background: var(--calendar-arrow-background);
 
     &:first-child {
