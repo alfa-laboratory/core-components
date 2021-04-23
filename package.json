@@ -80,7 +80,7 @@
         "text-mask-core": "^5.1.2"
     },
     "devDependencies": {
-        "@alfalab/rollup-plugin-postcss": "^3.5.0",
+        "@alfalab/rollup-plugin-postcss": "^3.6.0",
         "@babel/plugin-proposal-class-properties": "^7.12.1",
         "@babel/preset-typescript": "^7.9.0",
         "@commitlint/config-conventional": "^8.3.4",
