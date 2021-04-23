@@ -1,7 +1,6 @@
 import React, { forwardRef, useState, useEffect, useCallback, ChangeEvent, useRef } from 'react';
 import cn from 'classnames';
 
-import mergeRefs from 'react-merge-refs';
 import { AsYouType, CountryCode } from 'libphonenumber-js';
 
 import { OptionShape, SelectProps } from '@alfalab/core-components-select';
@@ -11,7 +10,6 @@ import {
     InputAutocompleteProps,
 } from '@alfalab/core-components-input-autocomplete';
 import { CountriesSelect } from './components';
-
 import styles from './index.module.css';
 
 const countries = getCountries();
@@ -19,10 +17,7 @@ const countriesHash = getCountriesHash();
 
 const MAX_DIAL_CODE_LENGTH = 4;
 
-export type IntlPhoneInputProps = Omit<
-    InputAutocompleteProps,
-    'value' | 'onChange' | 'type' | 'defaultValue'
-> &
+export type IntlPhoneInputProps = Partial<InputAutocompleteProps> &
     Pick<SelectProps, 'preventFlip'> & {
         /**
          * Значение
@@ -94,10 +89,11 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
                     newValue = utils.input(inputValue);
                 }
-
-                onChange(newValue);
+                if (newValue !== value) {
+                    onChange(newValue);
+                }
             },
-            [onChange, countryIso2],
+            [value, countryIso2, onChange],
         );
 
         const handleCountryChange = useCallback(
@@ -159,19 +155,15 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 const {
                     target: { value: targetValue },
                 } = event;
+                const country = countriesHash[countryIso2];
 
                 const newValue =
-                    targetValue.length === 1 && targetValue !== '+'
-                        ? `+${targetValue}`
+                    targetValue.substr(1).length < country.dialCode.length
+                        ? `+${country.dialCode}`
                         : targetValue;
-
                 setValue(newValue);
-
-                if (value.length < MAX_DIAL_CODE_LENGTH) {
-                    setCountryByDialCode(newValue);
-                }
             },
-            [setValue, setCountryByDialCode, value.length],
+            [countryIso2, setValue],
         );
 
         const handleSelectChange = useCallback<Required<SelectProps>['onChange']>(
@@ -210,10 +202,11 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         useEffect(() => {
             if (!phoneLibUtils.current) {
                 loadPhoneUtils().then(() => {
-                    setCountryByDialCode(value);
+                    const country = countriesHash[countryIso2];
+                    setCountryByDialCode(value || `+${country.dialCode}`);
                 });
             }
-        }, [loadPhoneUtils, setCountryByDialCode, value]);
+        }, [countryIso2, loadPhoneUtils, setCountryByDialCode, value]);
 
         return (
             <InputAutocomplete
@@ -223,7 +216,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     ...inputProps,
                     ref: inputRef,
                     wrapperRef: setInputWrapperRef,
-                    type: 'tel' as const,
+                    type: 'tel',
                     className: cn(className, styles[size]),
                     addonsClassName: styles.addons,
                     leftAddons: (
@@ -234,8 +227,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                             countries={countries}
                             onChange={handleSelectChange}
                             fieldWidth={
-                                inputWrapperRef &&
-                                inputWrapperRef.getBoundingClientRect().width
+                                inputWrapperRef && inputWrapperRef.getBoundingClientRect().width
                             }
                             preventFlip={preventFlip}
                         />

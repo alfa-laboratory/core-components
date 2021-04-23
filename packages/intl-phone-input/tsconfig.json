@@ -6,8 +6,12 @@
         "rootDirs": ["src"],
         "baseUrl": ".",
         "paths": {
-            "@alfalab/core-components-*": ["../*/src"]
+            "@alfalab/core-components-input-autocomplete": ["../input-autocomplete/src"],
+            "@alfalab/core-components-select": ["../select/src"]
         }
     },
-    "references": [{ "path": "../input-autocomplete" }, { "path": "../select" }]
+    "references": [
+        { "path": "../input-autocomplete" },
+        { "path": "../select" },
+    ]
 }
