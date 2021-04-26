@@ -1,0 +1,85 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { boolean } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { Dropzone } from './Component';
+import { name, version } from '../package.json';
+
+<Meta
+    title='Компоненты'
+    component={Dropzone}
+/>
+
+export const Container = ({ children }) => (
+    <div
+        style={{
+            width: 400,
+            height: 200,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+        }}>
+            {children}
+        </div>
+);
+
+<!-- Canvas -->
+
+<Story name='Dropzone'>
+    <Dropzone
+        error={boolean('error', false)}
+        overlayVisible={boolean('overlayVisible', false)}
+        onDrop={action('onDrop')}
+    >
+        <Container>
+            <span>children</span>
+        </Container>
+    </Dropzone>
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Dropzone'
+    version={version}
+    package='@alfalab/core-components-dropzone'
+    stage={1}
+/>
+
+```tsx
+import { Dropzone } from '@alfalab/core-components-dropzone';
+```
+
+Компонент drag-and-drop контейнер для прикрепления файлов.
+
+
+<Props of={Dropzone} />
+
+
+<Preview>
+    {React.createElement(() => {
+        const [filesList, setFilesList] = React.useState([]);
+        const handleDrop = (files) => {
+            setFilesList(
+                Array.from(files)
+                    .map(file => file.name)
+                    .filter(Boolean)
+            );
+        };
+        return (
+            <Dropzone onDrop={handleDrop}>
+                <Container>
+                    {filesList.length > 0 ? (
+                        <ul>
+                            { filesList.map(file => <li key={ file }>{ file }</li>) }
+                        </ul>
+                    ) : (
+                        <span>children</span>
+                    )}
+                </Container>
+            </Dropzone>
+        );
+    })}
+</Preview>

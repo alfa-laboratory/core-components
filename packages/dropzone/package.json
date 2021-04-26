@@ -1,0 +1,22 @@
+{
+    "name": "@alfalab/core-components-dropzone",
+    "version": "1.0.0",
+    "description": "",
+    "keywords": [],
+    "license": "MIT",
+    "main": "dist/index.js",
+    "module": "./dist/esm/index.js",
+    "files": [
+        "dist"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "peerDependencies": {
+        "react": "^16.9.0 || ^17.0.1"
+    },
+    "dependencies": {
+        "@alfalab/icons-glyph": "^1.129.0",
+        "classnames": "^2.2.6"
+    }
+}
