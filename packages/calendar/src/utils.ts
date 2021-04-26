@@ -19,7 +19,6 @@ import {
     subDays,
     subMonths,
 } from 'date-fns';
-import { useRef, useEffect } from 'react';
 import { DateShift, Day, Month, SpecialDays } from './typings';
 
 export const DAYS_IN_WEEK = 7;
@@ -245,18 +244,4 @@ export function simulateTab(node: HTMLElement) {
 
         node.dispatchEvent(event);
     }
-}
-
-// TODO: перенести в @alfalab/hooks?
-export function useDidUpdateEffect(fn: () => void, deps: unknown[]) {
-    const didMountRef = useRef(false);
-
-    useEffect(() => {
-        if (didMountRef.current) {
-            fn();
-        } else {
-            didMountRef.current = true;
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, deps);
 }

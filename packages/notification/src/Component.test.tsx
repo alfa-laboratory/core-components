@@ -141,6 +141,39 @@ describe('Notification', () => {
 
             expect(cb).toBeCalledTimes(1);
         });
+
+        it('should not call `onClickOutside` if clicked inside', async () => {
+            const cb = jest.fn();
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <Notification onClickOutside={cb} visible={true} dataTestId={dataTestId} />,
+            );
+
+            const el = getByTestId(dataTestId);
+
+            fireEvent.click(el);
+            fireEvent.click(el.firstElementChild as HTMLElement);
+
+            expect(cb).toBeCalledTimes(0);
+        });
+
+        it('should not call `onClickOutside` if clicked inside another', async () => {
+            const cb = jest.fn();
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <div>
+                    <Notification visible={true} dataTestId={dataTestId} />
+                    <Notification onClickOutside={cb} visible={true} />
+                </div>,
+            );
+
+            const el = getByTestId(dataTestId);
+
+            fireEvent.click(el);
+            fireEvent.click(el.firstElementChild as HTMLElement);
+
+            expect(cb).toBeCalledTimes(0);
+        });
     });
 
     it('should unmount without errors', () => {

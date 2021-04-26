@@ -206,10 +206,9 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         );
 
         const handleBlur = useCallback((event: FocusEvent<HTMLDivElement>) => {
-            if (
-                calendarRef.current &&
-                calendarRef.current.contains(event.relatedTarget as HTMLElement) === false
-            ) {
+            const target = (event.relatedTarget || document.activeElement) as HTMLElement;
+
+            if (calendarRef.current && calendarRef.current.contains(target) === false) {
                 setOpen(false);
             }
         }, []);
