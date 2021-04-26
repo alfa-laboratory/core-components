@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@7.3.1...@alfalab/core-components-select@7.4.0) (2021-04-26)
+
+
+### Features
+
+* **select:** label + placeholder ([#535](https://github.com/alfa-laboratory/core-components/issues/535)) ([e821c41](https://github.com/alfa-laboratory/core-components/commit/e821c41e65d01ad517dab983685506614df0db89))
+
+
+
+
+
 ## [7.3.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@7.3.0...@alfalab/core-components-select@7.3.1) (2021-04-26)
 
 **Note:** Version bump only for package @alfalab/core-components-select

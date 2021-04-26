@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@1.3.2...@alfalab/core-components-modal@1.4.0) (2021-04-26)
+
+
+### Features
+
+* **modal:** fixed position ([#617](https://github.com/alfa-laboratory/core-components/issues/617)) ([77db054](https://github.com/alfa-laboratory/core-components/commit/77db054b18c1dba6713d9a9d99c95a1ef5c98e8e))
+
+
+
+
+
 ## [1.3.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@1.3.1...@alfalab/core-components-modal@1.3.2) (2021-04-26)
 
 **Note:** Version bump only for package @alfalab/core-components-modal
