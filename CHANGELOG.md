@@ -1,3 +1,14 @@
+# [15.4.0](https://github.com/alfa-laboratory/core-components/compare/v15.3.0...v15.4.0) (2021-04-26)
+
+
+### Features
+
+* **calendar-input:** toggle calendar on enter ([#618](https://github.com/alfa-laboratory/core-components/issues/618)) ([110e836](https://github.com/alfa-laboratory/core-components/commit/110e8369dffa9576ec07a517076a11d6ba2e80fa))
+* **dropzone:** add component ([#566](https://github.com/alfa-laboratory/core-components/issues/566)) ([693a720](https://github.com/alfa-laboratory/core-components/commit/693a720202d78d47e39954edff7b72335904d714))
+* **file-upload-item:** add component ([#571](https://github.com/alfa-laboratory/core-components/issues/571)) ([e627350](https://github.com/alfa-laboratory/core-components/commit/e627350b3eabfb36aaa67c17411a9b98b551867d))
+* **modal:** fixed position ([#617](https://github.com/alfa-laboratory/core-components/issues/617)) ([77db054](https://github.com/alfa-laboratory/core-components/commit/77db054b18c1dba6713d9a9d99c95a1ef5c98e8e))
+* **select:** label + placeholder ([#535](https://github.com/alfa-laboratory/core-components/issues/535)) ([e821c41](https://github.com/alfa-laboratory/core-components/commit/e821c41e65d01ad517dab983685506614df0db89))
+
 # [15.3.0](https://github.com/alfa-laboratory/core-components/compare/v15.2.2...v15.3.0) (2021-04-26)
 
 
