@@ -1,0 +1,212 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FileUploadItem Snapshots tests should match snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="component success"
+      >
+        <div
+          class="info"
+        >
+          <svg
+            class="successIcon"
+            fill="currentColor"
+            focusable="false"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-1.5-6L17 9.5 15.5 8l-5 5-2-2L7 12.5l3.5 3.5z"
+              fill-rule="evenodd"
+            />
+          </svg>
+          <div
+            class="name"
+          >
+            <a
+              class="component primary pseudo"
+              href="/link"
+            >
+              <span
+                class="text"
+              >
+                Довольно длинное название файла.pdf
+              </span>
+            </a>
+          </div>
+          <div
+            class="meta"
+          >
+            <span>
+              22.01.2018
+            </span>
+            <span
+              class="size"
+            >
+              43.95 KB
+            </span>
+          </div>
+        </div>
+        <button
+          aria-label="удалить"
+          class="component ghost s iconOnly delete primary"
+          type="button"
+        >
+          <span
+            class="addons"
+          >
+            <span
+              class="iconWrapper xxs"
+            >
+              <svg
+                class="icon"
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="component success"
+    >
+      <div
+        class="info"
+      >
+        <svg
+          class="successIcon"
+          fill="currentColor"
+          focusable="false"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-1.5-6L17 9.5 15.5 8l-5 5-2-2L7 12.5l3.5 3.5z"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <div
+          class="name"
+        >
+          <a
+            class="component primary pseudo"
+            href="/link"
+          >
+            <span
+              class="text"
+            >
+              Довольно длинное название файла.pdf
+            </span>
+          </a>
+        </div>
+        <div
+          class="meta"
+        >
+          <span>
+            22.01.2018
+          </span>
+          <span
+            class="size"
+          >
+            43.95 KB
+          </span>
+        </div>
+      </div>
+      <button
+        aria-label="удалить"
+        class="component ghost s iconOnly delete primary"
+        type="button"
+      >
+        <span
+          class="addons"
+        >
+          <span
+            class="iconWrapper xxs"
+          >
+            <svg
+              class="icon"
+              fill="currentColor"
+              focusable="false"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <path
+                d="M10.586 12L6 16.5 7.5 18l4.5-4.586L16.5 18l1.5-1.5-4.586-4.5L18 7.5 16.5 6 12 10.586 7.5 6 6 7.5l4.586 4.5z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
