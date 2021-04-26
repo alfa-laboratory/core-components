@@ -185,10 +185,14 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         const calendarRef = useRef<HTMLDivElement>(null);
 
         const handleKeyDown = useCallback((event: KeyboardEvent<HTMLDivElement>) => {
+            if ((event.target as HTMLElement).tagName === 'INPUT' && event.key === 'Enter') {
+                setOpen(!open);
+            }
+
             if (event.key === 'Escape') {
                 setOpen(false);
             }
-        }, []);
+        }, [open]);
 
         const handleClick = useCallback(() => {
             if (!open) setOpen(true);
