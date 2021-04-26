@@ -5,6 +5,7 @@ import { ComponentHeader } from 'storybook/blocks/component-header';
 import { CrossMIcon } from '@alfalab/icons-glyph';
 
 import { Button } from '../../button/src';
+import { Spinner } from '../../spinner/src';
 import { Typography } from '../../typography/src';
 
 import { ModalContext } from './Context';
@@ -20,6 +21,14 @@ import { version } from '../package.json';
     parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
+export const Text = () => (
+    <p style={{ margin: '0 0 16px' }}>
+        Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка.
+        Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов,
+        потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов,
+        полученных преступным путем, и финансированию терроризма» — 115-ФЗ
+    </p>
+);
 
 export const Footer = () => (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -30,14 +39,6 @@ export const Footer = () => (
 
 export const Content = () => {
     const [showMore, setShowMore] = React.useState(false);
-    const Text = () => (
-        <p style={{ margin: '0 0 16px' }}>
-            Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка.
-            Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов,
-            потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов,
-            полученных преступным путем, и финансированию терроризма» — 115-ФЗ
-        </p>
-    );
     return (
         <>
             <Text/>
@@ -197,6 +198,73 @@ import { ModalResponsive } from '@alfalab/core-components-modal/responsive';
                     <ModalDesktop.Content>
                         <Content />
                     </ModalDesktop.Content>
+                </ModalDesktop>
+            </React.Fragment>
+        );
+    })}
+</Preview>
+
+### Плавающий крестик без шапки
+
+<Preview>
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        const handleModalOpen = () => setOpen(!open);
+        return (
+            <React.Fragment>
+                <Button type='button' size='xs' onClick={handleModalOpen}>Открыть модалку</Button>
+                <ModalDesktop
+                    open={open}
+                    onClose={handleModalOpen}
+                >
+                    <ModalDesktop.Closer align="right" />
+                    <ModalDesktop.Content>
+                        <Content />
+                    </ModalDesktop.Content>
+                </ModalDesktop>
+            </React.Fragment>
+        );
+    })}
+</Preview>
+
+### Фиксации верхнего края
+
+<Preview>
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        const [loaded, setLoaded] = React.useState(false);
+        const handleModalOpen = () => setOpen(!open);
+        React.useEffect(() => {
+            let timer;
+            if (open) {
+                setLoaded(false);
+                timer = setTimeout(() => setLoaded(true), 1500);
+            }
+            return () => {
+                clearTimeout(timer);
+            }
+        }, [open]);
+        return (
+            <React.Fragment>
+                <Button type='button' size='xs' onClick={handleModalOpen}>Открыть модалку</Button>
+                <ModalDesktop
+                    open={open}
+                    onClose={handleModalOpen}
+                    fixedPosition={true}
+                >
+                    <ModalDesktop.Content>
+                        <p>Сейчас появится контент, который изменит высоту модального окна</p>
+                        {loaded ? (
+                            <Text />
+                        ) : (
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <Spinner visible={true} />
+                            </div>
+                        )}
+                    </ModalDesktop.Content>
+                    <ModalDesktop.Footer>
+                        <Button view="primary" size="s" onClick={handleModalOpen}>Понятно</Button>
+                    </ModalDesktop.Footer>
                 </ModalDesktop>
             </React.Fragment>
         );
