@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@2.5.0...@alfalab/core-components-calendar-input@2.5.1) (2021-04-26)
+
+
+### Bug Fixes
+
+* **calendar:** ie fixes ([#628](https://github.com/alfa-laboratory/core-components/issues/628)) ([983509c](https://github.com/alfa-laboratory/core-components/commit/983509cd1cfe5be64a8627fed44ec55d989eb8a2))
+
+
+
+
+
 # [2.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@2.4.4...@alfalab/core-components-calendar-input@2.5.0) (2021-04-09)
 
 

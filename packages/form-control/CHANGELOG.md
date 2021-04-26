@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-form-control@6.1.0...@alfalab/core-components-form-control@6.1.1) (2021-04-26)
+
+**Note:** Version bump only for package @alfalab/core-components-form-control
+
+
+
+
+
 # [6.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-form-control@6.0.5...@alfalab/core-components-form-control@6.1.0) (2021-04-09)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-space@1.0.7...@alfalab/core-components-space@1.1.0) (2021-04-26)
+
+
+### Features
+
+* **space:** fix dataTestId ([#625](https://github.com/alfa-laboratory/core-components/issues/625)) ([a33ca6b](https://github.com/alfa-laboratory/core-components/commit/a33ca6ba791a43252b09c5a6d81dbd206aaec2d7))
+
+
+
+
+
 ## [1.0.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-space@1.0.5...@alfalab/core-components-space@1.0.7) (2021-03-18)
 
 

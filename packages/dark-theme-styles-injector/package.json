@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-dark-theme-styles-injector",
-    "version": "1.4.19",
+    "version": "1.4.20",
     "description": "Inject dark theme styles in page",
     "keywords": [],
     "license": "MIT",
@@ -19,6 +19,6 @@
         "react-dom": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-themes": "^3.8.0"
+        "@alfalab/core-components-themes": "^3.8.1"
     }
 }

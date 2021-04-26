@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.9](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@4.0.8...@alfalab/core-components-tabs@4.0.9) (2021-04-26)
+
+
+### Bug Fixes
+
+* **tabs:** fix ssr rendering ([#621](https://github.com/alfa-laboratory/core-components/issues/621)) ([e45efe7](https://github.com/alfa-laboratory/core-components/commit/e45efe78ff2583b92393e9c271f07fe3718b9d40))
+
+
+
+
+
 ## [4.0.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@4.0.7...@alfalab/core-components-tabs@4.0.8) (2021-04-01)
 
 **Note:** Version bump only for package @alfalab/core-components-tabs

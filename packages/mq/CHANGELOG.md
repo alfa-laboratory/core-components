@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-mq@2.0.0...@alfalab/core-components-mq@2.0.1) (2021-04-26)
+
+**Note:** Version bump only for package @alfalab/core-components-mq
+
+
+
+
+
 # [2.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-mq@1.1.6...@alfalab/core-components-mq@2.0.0) (2021-04-01)
 
 
