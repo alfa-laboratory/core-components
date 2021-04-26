@@ -17,6 +17,7 @@
     "dependencies": {
         "@alfalab/core-components-backdrop": "^1.1.2",
         "@alfalab/core-components-portal": "^1.4.6",
+        "@alfalab/core-components-stack": "^1.0.0",
         "classnames": "^2.2.6",
         "react-focus-lock": "^2.5.0",
         "react-merge-refs": "^1.1.0",

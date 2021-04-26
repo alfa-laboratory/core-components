@@ -8,10 +8,6 @@
     box-shadow: var(--toast-box-shadow);
 }
 
-.popover {
-    z-index: 9999;
-}
-
 .popoverInner {
     border: none;
     border-radius: var(--toast-plate-border-radius);
@@ -25,7 +21,6 @@
 
 .fixed {
     position: fixed;
-    z-index: 9999;
     bottom: var(--gap-2xl);
     transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
 

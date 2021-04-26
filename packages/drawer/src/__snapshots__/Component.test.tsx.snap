@@ -5,6 +5,7 @@ exports[`Drawer should match snapshot 1`] = `
   class="wrapper"
   data-test-id="drawer"
   role="dialog"
+  style="z-index: 100;"
   tabindex="-1"
 >
   <div

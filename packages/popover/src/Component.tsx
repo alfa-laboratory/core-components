@@ -5,6 +5,7 @@ import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
 import { usePopper } from 'react-popper';
 import { BasePlacement, VariationPlacement, Obj } from '@popperjs/core';
 
+import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 import { Portal } from '@alfalab/core-components-portal';
 
 import styles from './index.module.css';
@@ -96,6 +97,11 @@ export type PopoverProps = {
      * Дополнительный класс
      */
     className?: string;
+
+    /**
+     * z-index компонента
+     */
+    zIndex?: number;
 };
 
 const DEFAULT_TRANSITION = {
@@ -126,6 +132,7 @@ export const Popover: React.FC<PopoverProps> = ({
     dataTestId,
     update,
     transitionDuration = `${transition.timeout}ms`,
+    zIndex = stackingOrder.POPOVER,
 }) => {
     const [referenceElement, setReferenceElement] = useState<RefElement>(anchorElement);
     const [popperElement, setPopperElement] = useState<RefElement>(null);
@@ -171,11 +178,14 @@ export const Popover: React.FC<PopoverProps> = ({
         }
     }, [updatePopper, update]);
 
-    const renderContent = (style?: CSSProperties) => {
+    const renderContent = (computedZIndex: number, style?: CSSProperties) => {
         return (
             <div
                 ref={setPopperElement}
-                style={popperStyles.popper}
+                style={{
+                    zIndex: computedZIndex,
+                    ...popperStyles.popper,
+                }}
                 data-test-id={dataTestId}
                 className={cn(styles.component, className)}
                 {...attributes.popper}
@@ -195,19 +205,23 @@ export const Popover: React.FC<PopoverProps> = ({
     };
 
     return (
-        <Portal getPortalContainer={getPortalContainer}>
-            {withTransition ? (
-                <CSSTransition
-                    unmountOnExit={true}
-                    classNames={CSS_TRANSITION_CLASS_NAMES}
-                    {...transition}
-                    in={open}
-                >
-                    {renderContent({ transitionDuration })}
-                </CSSTransition>
-            ) : (
-                open && renderContent()
+        <Stack value={zIndex}>
+            {computedZIndex => (
+                <Portal getPortalContainer={getPortalContainer}>
+                    {withTransition ? (
+                        <CSSTransition
+                            unmountOnExit={true}
+                            classNames={CSS_TRANSITION_CLASS_NAMES}
+                            {...transition}
+                            in={open}
+                        >
+                            {renderContent(computedZIndex, { transitionDuration })}
+                        </CSSTransition>
+                    ) : (
+                        open && renderContent(computedZIndex)
+                    )}
+                </Portal>
             )}
-        </Portal>
+        </Stack>
     );
 };

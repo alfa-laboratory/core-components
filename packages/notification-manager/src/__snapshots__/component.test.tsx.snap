@@ -8,6 +8,7 @@ exports[`NotificationManager Snapshots tests should match empty snapshot 1`] = `
   >
     <div
       class="component"
+      style="z-index: 1000;"
     />
   </div>
 </body>
@@ -20,13 +21,14 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
   >
     <div
       class="component"
+      style="z-index: 1000;"
     >
       <div>
         <div
           class="component hasCloser notificationComponent isVisible notification"
           id="1"
           role="alert"
-          style="top: 0px;"
+          style="top: 0px; z-index: 1001;"
         >
           <div
             class="contentWrap"
@@ -72,7 +74,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
           class="component hasCloser notificationComponent isVisible notification"
           id="2"
           role="alert"
-          style="top: 0px;"
+          style="top: 0px; z-index: 1001;"
         >
           <div
             class="contentWrap"
@@ -118,7 +120,7 @@ exports[`NotificationManager Snapshots tests should match snapshot 1`] = `
           class="component hasCloser notificationComponent isVisible notification"
           id="3"
           role="alert"
-          style="top: 0px;"
+          style="top: 0px; z-index: 1001;"
         >
           <div
             class="contentWrap"

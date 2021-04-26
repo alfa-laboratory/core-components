@@ -10,9 +10,11 @@ import React, {
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
 import { useSwipeable } from 'react-swipeable';
+import elementClosest from 'element-closest';
+
 import { Portal } from '@alfalab/core-components-portal';
 import { ToastPlate, ToastPlateProps } from '@alfalab/core-components-toast-plate';
-import elementClosest from 'element-closest';
+import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 
 import { useClickOutside } from './utils';
 
@@ -40,6 +42,11 @@ export type NotificationProps = ToastPlateProps & {
      * Использовать портал
      */
     usePortal?: boolean;
+
+    /**
+     * z-index компонента
+     */
+    zIndex?: number;
 
     /**
      * Обработчик события истечения времени до закрытия компонента
@@ -75,12 +82,13 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
             hasCloser = true,
             autoCloseDelay = 5000,
             usePortal = true,
+            zIndex = stackingOrder.TOAST,
+            style,
             onClose,
             onCloseTimeout,
             onMouseEnter,
             onMouseLeave,
             onClickOutside,
-            style,
             ...restProps
         },
         ref,
@@ -178,34 +186,39 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         const Wrapper = usePortal ? Portal : Fragment;
 
         return (
-            <Wrapper>
-                <div {...swipeableHandlers}>
-                    <ToastPlate
-                        className={cn(
-                            styles.notificationComponent,
-                            {
-                                [styles.isVisible]: visible,
-                                [styles.isClosing]: isClosing,
-                            },
-                            className,
-                        )}
-                        contentClassName={styles.toastContent}
-                        style={{
-                            top: offset,
-                            ...style,
-                        }}
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}
-                        ref={mergeRefs([ref, notificationRef])}
-                        role={visible ? 'alert' : undefined}
-                        hasCloser={hasCloser}
-                        onClose={onClose}
-                        {...restProps}
-                    >
-                        {children}
-                    </ToastPlate>
-                </div>
-            </Wrapper>
+            <Stack value={zIndex}>
+                {computedZIndex => (
+                    <Wrapper>
+                        <div {...swipeableHandlers}>
+                            <ToastPlate
+                                className={cn(
+                                    styles.notificationComponent,
+                                    {
+                                        [styles.isVisible]: visible,
+                                        [styles.isClosing]: isClosing,
+                                    },
+                                    className,
+                                )}
+                                contentClassName={styles.toastContent}
+                                style={{
+                                    top: offset,
+                                    zIndex: computedZIndex,
+                                    ...style,
+                                }}
+                                onMouseEnter={handleMouseEnter}
+                                onMouseLeave={handleMouseLeave}
+                                ref={mergeRefs([ref, notificationRef])}
+                                role={visible ? 'alert' : undefined}
+                                hasCloser={hasCloser}
+                                onClose={onClose}
+                                {...restProps}
+                            >
+                                {children}
+                            </ToastPlate>
+                        </div>
+                    </Wrapper>
+                )}
+            </Stack>
         );
     },
 );

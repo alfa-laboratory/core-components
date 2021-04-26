@@ -9,7 +9,7 @@ exports[`Notification Snapshots tests should match snapshot 1`] = `
     <div>
       <div
         class="component hasCloser notificationComponent"
-        style="top: 108px;"
+        style="top: 108px; z-index: 1000;"
       >
         <div
           class="contentWrap"

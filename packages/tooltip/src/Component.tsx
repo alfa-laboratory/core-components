@@ -105,6 +105,11 @@ export type TooltipProps = {
      * Хранит функцию, с помощью которой можно обновить положение компонента
      */
     updatePopover?: PopoverProps['update'];
+
+    /**
+     * z-index компонента
+     */
+     zIndex?: number;
 };
 
 export const Tooltip: FC<TooltipProps> = ({
@@ -122,6 +127,7 @@ export const Tooltip: FC<TooltipProps> = ({
     popoverClassName,
     updatePopover,
     targetClassName,
+    zIndex,
     onClose,
     onOpen,
     getPortalContainer,
@@ -299,6 +305,7 @@ export const Tooltip: FC<TooltipProps> = ({
                     withArrow={true}
                     position={position}
                     update={updatePopover}
+                    zIndex={zIndex}
                 >
                     <div {...getContentProps()}>{content}</div>
                 </Popover>

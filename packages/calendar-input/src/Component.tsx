@@ -184,15 +184,18 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         const componentRef = useRef<HTMLDivElement>(null);
         const calendarRef = useRef<HTMLDivElement>(null);
 
-        const handleKeyDown = useCallback((event: KeyboardEvent<HTMLDivElement>) => {
-            if ((event.target as HTMLElement).tagName === 'INPUT' && event.key === 'Enter') {
-                setOpen(!open);
-            }
+        const handleKeyDown = useCallback(
+            (event: KeyboardEvent<HTMLDivElement>) => {
+                if ((event.target as HTMLElement).tagName === 'INPUT' && event.key === 'Enter') {
+                    setOpen(!open);
+                }
 
-            if (event.key === 'Escape') {
-                setOpen(false);
-            }
-        }, [open]);
+                if (event.key === 'Escape') {
+                    setOpen(false);
+                }
+            },
+            [open],
+        );
 
         const handleClick = useCallback(() => {
             if (!open) setOpen(true);
@@ -378,7 +381,6 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                         offset={[0, 8]}
                         withTransition={false}
                         preventFlip={preventFlip}
-                        className={styles.popover}
                     >
                         {renderCalendar()}
                     </Popover>

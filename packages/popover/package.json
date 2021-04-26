@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-portal": "^1.4.6",
+        "@alfalab/core-components-stack": "^1.0.0",
         "@popperjs/core": "^2.3.3",
         "classnames": "^2.2.6",
         "react-popper": "^2.2.2",
