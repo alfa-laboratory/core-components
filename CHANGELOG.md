@@ -1,3 +1,20 @@
+# [15.3.0](https://github.com/alfa-laboratory/core-components/compare/v15.2.2...v15.3.0) (2021-04-26)
+
+
+### Bug Fixes
+
+* **calendar:** ie fixes ([#628](https://github.com/alfa-laboratory/core-components/issues/628)) ([983509c](https://github.com/alfa-laboratory/core-components/commit/983509cd1cfe5be64a8627fed44ec55d989eb8a2))
+* **drawer:** lost vars ([#632](https://github.com/alfa-laboratory/core-components/issues/632)) ([82a8e46](https://github.com/alfa-laboratory/core-components/commit/82a8e461fc16d4ae8b6d3d268c92f7dc969e81f8))
+* **notification:** ie fixes ([#633](https://github.com/alfa-laboratory/core-components/issues/633)) ([decbf8f](https://github.com/alfa-laboratory/core-components/commit/decbf8f4d55cb48a5f3a6430e30e750104907552))
+* update plugin ([#627](https://github.com/alfa-laboratory/core-components/issues/627)) ([5bb78f2](https://github.com/alfa-laboratory/core-components/commit/5bb78f231e525d0f86ec7fb8ccd8af65121c5169))
+* **skeleton:** remove extra bottom margin ([#619](https://github.com/alfa-laboratory/core-components/issues/619)) ([8f83022](https://github.com/alfa-laboratory/core-components/commit/8f83022c5a89e2f0b63449970437d0ca00129e5d))
+* **tabs:** fix ssr rendering ([#621](https://github.com/alfa-laboratory/core-components/issues/621)) ([e45efe7](https://github.com/alfa-laboratory/core-components/commit/e45efe78ff2583b92393e9c271f07fe3718b9d40))
+
+
+### Features
+
+* **space:** fix dataTestId ([#625](https://github.com/alfa-laboratory/core-components/issues/625)) ([a33ca6b](https://github.com/alfa-laboratory/core-components/commit/a33ca6ba791a43252b09c5a6d81dbd206aaec2d7))
+
 ## [15.2.2](https://github.com/alfa-laboratory/core-components/compare/v15.2.1...v15.2.2) (2021-04-20)
 
 
