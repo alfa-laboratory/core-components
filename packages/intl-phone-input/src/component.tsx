@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { AsYouType, CountryCode } from 'libphonenumber-js';
 
 import { OptionShape, SelectProps } from '@alfalab/core-components-select';
-import { getCountries, getCountriesHash } from '@alfalab/utils';
+import { Country, getCountries, getCountriesHash } from '@alfalab/utils';
 import {
     InputAutocomplete,
     InputAutocompleteProps,
@@ -12,7 +12,6 @@ import {
 import { CountriesSelect } from './components';
 import styles from './index.module.css';
 
-const countries = getCountries();
 const countriesHash = getCountriesHash();
 
 const MAX_DIAL_CODE_LENGTH = 4;
@@ -38,6 +37,16 @@ export type IntlPhoneInputProps = Partial<InputAutocompleteProps> &
          * Обработчик события изменения страны
          */
         onCountryChange?: (countryCode: CountryCode) => void;
+
+        /**
+         * Список стран
+         */
+        countries?: Country[];
+
+        /**
+         * Возможность стереть код страны
+         */
+        clearableCountryCode?: boolean;
     };
 
 export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
@@ -47,6 +56,8 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             readOnly = false,
             size = 'm',
             options = [],
+            countries = getCountries(),
+            clearableCountryCode = true,
             className,
             value,
             onChange,
@@ -89,11 +100,9 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
                     newValue = utils.input(inputValue);
                 }
-                if (newValue !== value) {
-                    onChange(newValue);
-                }
+                onChange(newValue);
             },
-            [value, countryIso2, onChange],
+            [countryIso2, onChange],
         );
 
         const handleCountryChange = useCallback(
@@ -138,7 +147,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     }
                 }
             },
-            [countryIso2, setValue, handleCountryChange],
+            [countries, countryIso2, setValue, handleCountryChange],
         );
 
         const loadPhoneUtils = useCallback(() => {
@@ -157,13 +166,28 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 } = event;
                 const country = countriesHash[countryIso2];
 
-                const newValue =
-                    targetValue.substr(1).length < country.dialCode.length
-                        ? `+${country.dialCode}`
-                        : targetValue;
-                setValue(newValue);
+                if (clearableCountryCode) {
+                    const newValue =
+                        targetValue.length === 1 && targetValue !== '+'
+                            ? `+${targetValue}`
+                            : targetValue;
+
+                    setValue(newValue);
+
+                    if (value.length < MAX_DIAL_CODE_LENGTH) {
+                        setCountryByDialCode(newValue);
+                    }
+                }
+
+                if (!clearableCountryCode) {
+                    const newValue =
+                        targetValue.substr(1).length < country.dialCode.length
+                            ? `+${country.dialCode}`
+                            : targetValue;
+                    setValue(newValue);
+                }
             },
-            [countryIso2, setValue],
+            [clearableCountryCode, countryIso2, setCountryByDialCode, setValue, value.length],
         );
 
         const handleSelectChange = useCallback<Required<SelectProps>['onChange']>(
@@ -202,8 +226,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         useEffect(() => {
             if (!phoneLibUtils.current) {
                 loadPhoneUtils().then(() => {
-                    const country = countriesHash[countryIso2];
-                    setCountryByDialCode(value || `+${country.dialCode}`);
+                    setCountryByDialCode(value);
                 });
             }
         }, [countryIso2, loadPhoneUtils, setCountryByDialCode, value]);

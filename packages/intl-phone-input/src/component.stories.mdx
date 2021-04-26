@@ -72,6 +72,7 @@ import { IntlPhoneInput } from '@alfalab/core-components-intl-phone-input';
             const block = boolean('block', false);
             const disabled = boolean('disabled', false);
             const label = text('label', 'Номер телефона');
+            const clearableCountryCode = boolean('clearableCountryCode', true);
             const handleCountryChange = React.useCallback((countryCode) => {
                 setSelectedCountry(countryCode);
             })
@@ -87,6 +88,7 @@ import { IntlPhoneInput } from '@alfalab/core-components-intl-phone-input';
                         defaultCountryIso2="RU"
                         readOnly={boolean('readOnly', false)}
                         onCountryChange={handleCountryChange}
+                        clearableCountryCode={clearableCountryCode}
                     />
                     <br />
                     Код выбранной страны: <strong>{selectedCountry}</strong>
