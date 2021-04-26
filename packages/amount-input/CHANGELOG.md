@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.14](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount-input@4.0.13...@alfalab/core-components-amount-input@4.0.14) (2021-04-26)
+
+**Note:** Version bump only for package @alfalab/core-components-amount-input
+
+
+
+
+
+## [4.0.13](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount-input@4.0.12...@alfalab/core-components-amount-input@4.0.13) (2021-04-20)
+
+
+### Bug Fixes
+
+* **amount-input:** fix float in amount input ([a9e1802](https://github.com/alfa-laboratory/core-components/commit/a9e180285073e29a05703a991c946e2c1247177a))
+
+
+
+
+
 ## [4.0.12](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount-input@4.0.11...@alfalab/core-components-amount-input@4.0.12) (2021-04-09)
 
 **Note:** Version bump only for package @alfalab/core-components-amount-input

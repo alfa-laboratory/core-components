@@ -25,10 +25,6 @@
     color: var(--color-light-text-secondary);
 }
 
-.hasLabel .placeholder {
-    color: var(--color-light-text-tertiary);
-}
-
 .contentWrapper {
     @mixin system_16-20_regular;
 

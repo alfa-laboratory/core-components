@@ -9,7 +9,9 @@ import React, {
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
-import { useSwipeable, LEFT, RIGHT, UP } from 'react-swipeable';
+import { useSwipeable } from 'react-swipeable';
+import elementClosest from 'element-closest';
+
 import { Portal } from '@alfalab/core-components-portal';
 import { ToastPlate, ToastPlateProps } from '@alfalab/core-components-toast-plate';
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
@@ -17,6 +19,8 @@ import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 import { useClickOutside } from './utils';
 
 import styles from './index.module.css';
+
+elementClosest(window);
 
 export type NotificationProps = ToastPlateProps & {
     /**
@@ -166,7 +170,7 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
 
         const swipeableHandlers = useSwipeable({
             onSwiped: ({ dir }) => {
-                if (onClose && [LEFT, RIGHT, UP].includes(dir)) {
+                if (onClose && ['Left', 'Right', 'Up'].includes(dir)) {
                     setIsClosing(true);
 
                     closeTimeoutRef.current = window.setTimeout(() => {

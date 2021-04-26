@@ -1,0 +1,108 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { text, number, select, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { FileUploadItem } from './Component';
+
+import { version } from '../package.json';
+
+<Meta title='Компоненты' component={FileUploadItem} />
+
+<!-- Canvas -->
+
+<Story name='FileUploadItem'>
+    <div style={{ width: 500 }}>
+        <FileUploadItem
+            name={text('name', 'Довольно длинное название файла.pdf')}
+            uploadDate={text('uploadDate', '22.01.2018')}
+            downloadLink={text('downloadLink', '')}
+            error={text('error', '')}
+            size={ number('size', 500000000) }
+            uploadStatus={select('uploadStatus', ['ERROR', 'SUCCESS', 'LOADING', 'UPLOADING'], undefined)}
+            uploadPercent={number('uploadPercent', undefined)}
+            showDelete={boolean('showDelete', false)}
+            showRestore={boolean('showRestore', false)}
+        />
+    </div>
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='FileUploadItem'
+    version={version}
+    package='@alfalab/core-components-file-upload-item'
+    stage={1}
+    design='https://www.figma.com/file/uGndMZufgvqxaNQTaNTEjG/B2B-Web-Components?node-id=9591%3A75058'
+/>
+
+```tsx
+import { FileUploadItem } from '@alfalab/core-components-file-upload-item';
+```
+
+Компонент иконки, которая запрашивается с сервера.
+
+<Preview>
+    <div>
+        <FileUploadItem
+            name='Довольно длинное название файла.pdf'
+            uploadDate='22.01.2018'
+            size={ 500000000 }
+            showDelete={false}
+            showRestore={true}
+        />
+        <FileUploadItem
+            name='Название файла.pdf'
+            uploadDate='22.01.2018'
+            size={ 45000 }
+            showDelete={true}
+        />
+        <FileUploadItem
+            name='Название файла.pdf'
+            uploadDate='22.01.2018'
+            size={ 50000000 }
+            showDelete={true}
+        />
+        <FileUploadItem
+            name='Название файла.txt'
+            uploadDate='22.01.2018'
+            size={ 45000 }
+            downloadLink='/link'
+            uploadStatus='SUCCESS'
+            showDelete={true}
+        />
+        <FileUploadItem
+            name='Название файла.jpg'
+            uploadDate='22.01.2018'
+            size={ 45000 }
+            uploadStatus='ERROR'
+            showDelete={true}
+        />
+        <FileUploadItem
+            name='Название файла.png'
+            uploadDate='22.01.2018'
+            size={ 45000 }
+            uploadStatus='UPLOADING'
+            uploadPercent={ 23.5678 }
+            showDelete={true}
+        />
+        <FileUploadItem
+            name='Название файла.pdf'
+            uploadDate='22.01.2018'
+            size={ '' }
+            uploadStatus='LOADING'
+            showDelete={false}
+            />
+        <FileUploadItem
+            name='Название файла.png'
+            uploadDate='22.01.2018'
+            size={ 450000000 }
+            uploadStatus='ERROR'
+            error='размер больше 20 МБ'
+            showDelete={false}
+        />
+    </div>
+</Preview>
+
+
+<Props of={FileUploadItem} />

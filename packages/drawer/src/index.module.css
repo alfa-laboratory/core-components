@@ -1,4 +1,5 @@
 @import '../../themes/src/default.css';
+@import '../../backdrop/src/vars.css';
 
 :root {
     --drawer-width: 500px;

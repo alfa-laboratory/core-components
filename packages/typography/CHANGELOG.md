@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-typography@1.4.6...@alfalab/core-components-typography@1.4.7) (2021-04-26)
+
+**Note:** Version bump only for package @alfalab/core-components-typography
+
+
+
+
+
 ## [1.4.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-typography@1.4.5...@alfalab/core-components-typography@1.4.6) (2021-04-01)
 
 **Note:** Version bump only for package @alfalab/core-components-typography

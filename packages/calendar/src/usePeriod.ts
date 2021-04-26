@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { useDidUpdateEffect } from './utils';
+import { useDidUpdateEffect } from '@alfalab/hooks';
 
 type usePeriodProps = {
     /**

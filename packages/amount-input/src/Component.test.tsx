@@ -272,6 +272,57 @@ describe('AmountInput', () => {
         expect(input.value).toBe('0,01');
     });
 
+    describe('should emit value in minority on change event', () => {
+        const dataTestId = 'test-id';
+
+        const testCases = [
+            {
+                minority: 100,
+                userInput: '1',
+                expectedValue: 100,
+            },
+            {
+                minority: 100,
+                userInput: '1,1',
+                expectedValue: 110,
+            },
+            {
+                minority: 1000,
+                userInput: '2',
+                expectedValue: 2000,
+            },
+            {
+                minority: 1000,
+                userInput: '2,2',
+                expectedValue: 2200,
+            },
+            {
+                minority: 100,
+                userInput: '9,12',
+                expectedValue: 912,
+            },
+        ];
+
+        testCases.forEach(({ minority, userInput, expectedValue }) => {
+            it(`should emit event with value=${expectedValue} when minority=${minority} and userInput=${userInput}`, async () => {
+                const handleChangeMock = jest.fn();
+                const { getByTestId } = render(
+                    <AmountInput
+                        minority={minority}
+                        dataTestId={dataTestId}
+                        onChange={handleChangeMock}
+                    />,
+                );
+                const input = getByTestId(dataTestId) as HTMLInputElement;
+                await userEvent.paste(input, userInput);
+                expect(handleChangeMock).toBeCalledWith(expect.anything(), {
+                    value: expectedValue,
+                    valueString: userInput,
+                });
+            });
+        });
+    });
+
     /**
      * + тест на адекватность (снапшот)
      * + тест на дефолтные значения (нужно разобраться про label)

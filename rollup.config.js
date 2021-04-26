@@ -80,6 +80,9 @@ const es5 = {
         json(),
         postcssPlugin,
         copyPlugin('dist'),
+        copy({
+            targets: [{ src: ['../../bin/send-stats.js'], dest: 'dist' }],
+        }),
     ],
 };
 

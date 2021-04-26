@@ -184,11 +184,18 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         const componentRef = useRef<HTMLDivElement>(null);
         const calendarRef = useRef<HTMLDivElement>(null);
 
-        const handleKeyDown = useCallback((event: KeyboardEvent<HTMLDivElement>) => {
-            if (event.key === 'Escape') {
-                setOpen(false);
-            }
-        }, []);
+        const handleKeyDown = useCallback(
+            (event: KeyboardEvent<HTMLDivElement>) => {
+                if ((event.target as HTMLElement).tagName === 'INPUT' && event.key === 'Enter') {
+                    setOpen(!open);
+                }
+
+                if (event.key === 'Escape') {
+                    setOpen(false);
+                }
+            },
+            [open],
+        );
 
         const handleClick = useCallback(() => {
             if (!open) setOpen(true);
@@ -206,10 +213,9 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         );
 
         const handleBlur = useCallback((event: FocusEvent<HTMLDivElement>) => {
-            if (
-                calendarRef.current &&
-                calendarRef.current.contains(event.relatedTarget as HTMLElement) === false
-            ) {
+            const target = (event.relatedTarget || document.activeElement) as HTMLElement;
+
+            if (calendarRef.current && calendarRef.current.contains(target) === false) {
                 setOpen(false);
             }
         }, []);

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-skeleton@1.3.5...@alfalab/core-components-skeleton@1.3.6) (2021-04-26)
+
+
+### Bug Fixes
+
+* **skeleton:** remove extra bottom margin ([#619](https://github.com/alfa-laboratory/core-components/issues/619)) ([8f83022](https://github.com/alfa-laboratory/core-components/commit/8f83022c5a89e2f0b63449970437d0ca00129e5d))
+
+
+
+
+
 ## [1.3.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-skeleton@1.3.4...@alfalab/core-components-skeleton@1.3.5) (2021-04-01)
 
 **Note:** Version bump only for package @alfalab/core-components-skeleton

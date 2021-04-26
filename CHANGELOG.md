@@ -1,3 +1,38 @@
+# [15.4.0](https://github.com/alfa-laboratory/core-components/compare/v15.3.0...v15.4.0) (2021-04-26)
+
+
+### Features
+
+* **calendar-input:** toggle calendar on enter ([#618](https://github.com/alfa-laboratory/core-components/issues/618)) ([110e836](https://github.com/alfa-laboratory/core-components/commit/110e8369dffa9576ec07a517076a11d6ba2e80fa))
+* **dropzone:** add component ([#566](https://github.com/alfa-laboratory/core-components/issues/566)) ([693a720](https://github.com/alfa-laboratory/core-components/commit/693a720202d78d47e39954edff7b72335904d714))
+* **file-upload-item:** add component ([#571](https://github.com/alfa-laboratory/core-components/issues/571)) ([e627350](https://github.com/alfa-laboratory/core-components/commit/e627350b3eabfb36aaa67c17411a9b98b551867d))
+* **modal:** fixed position ([#617](https://github.com/alfa-laboratory/core-components/issues/617)) ([77db054](https://github.com/alfa-laboratory/core-components/commit/77db054b18c1dba6713d9a9d99c95a1ef5c98e8e))
+* **select:** label + placeholder ([#535](https://github.com/alfa-laboratory/core-components/issues/535)) ([e821c41](https://github.com/alfa-laboratory/core-components/commit/e821c41e65d01ad517dab983685506614df0db89))
+
+# [15.3.0](https://github.com/alfa-laboratory/core-components/compare/v15.2.2...v15.3.0) (2021-04-26)
+
+
+### Bug Fixes
+
+* **calendar:** ie fixes ([#628](https://github.com/alfa-laboratory/core-components/issues/628)) ([983509c](https://github.com/alfa-laboratory/core-components/commit/983509cd1cfe5be64a8627fed44ec55d989eb8a2))
+* **drawer:** lost vars ([#632](https://github.com/alfa-laboratory/core-components/issues/632)) ([82a8e46](https://github.com/alfa-laboratory/core-components/commit/82a8e461fc16d4ae8b6d3d268c92f7dc969e81f8))
+* **notification:** ie fixes ([#633](https://github.com/alfa-laboratory/core-components/issues/633)) ([decbf8f](https://github.com/alfa-laboratory/core-components/commit/decbf8f4d55cb48a5f3a6430e30e750104907552))
+* update plugin ([#627](https://github.com/alfa-laboratory/core-components/issues/627)) ([5bb78f2](https://github.com/alfa-laboratory/core-components/commit/5bb78f231e525d0f86ec7fb8ccd8af65121c5169))
+* **skeleton:** remove extra bottom margin ([#619](https://github.com/alfa-laboratory/core-components/issues/619)) ([8f83022](https://github.com/alfa-laboratory/core-components/commit/8f83022c5a89e2f0b63449970437d0ca00129e5d))
+* **tabs:** fix ssr rendering ([#621](https://github.com/alfa-laboratory/core-components/issues/621)) ([e45efe7](https://github.com/alfa-laboratory/core-components/commit/e45efe78ff2583b92393e9c271f07fe3718b9d40))
+
+
+### Features
+
+* **space:** fix dataTestId ([#625](https://github.com/alfa-laboratory/core-components/issues/625)) ([a33ca6b](https://github.com/alfa-laboratory/core-components/commit/a33ca6ba791a43252b09c5a6d81dbd206aaec2d7))
+
+## [15.2.2](https://github.com/alfa-laboratory/core-components/compare/v15.2.1...v15.2.2) (2021-04-20)
+
+
+### Bug Fixes
+
+* **amount-input:** fix float in amount input ([a9e1802](https://github.com/alfa-laboratory/core-components/commit/a9e180285073e29a05703a991c946e2c1247177a))
+
 ## [15.2.1](https://github.com/alfa-laboratory/core-components/compare/v15.2.0...v15.2.1) (2021-04-09)
 
 

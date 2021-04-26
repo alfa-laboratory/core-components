@@ -38,6 +38,7 @@ export const Field = ({
     const value = valueRenderer({ selected, selectedMultiple });
 
     const filled = Boolean(value);
+    const showLabel = !!label && filled;
 
     return (
         <div
@@ -48,7 +49,6 @@ export const Field = ({
         >
             <FormControl
                 fieldClassName={cn(styles.field, fieldClassName, {
-                    [styles.hasLabel]: label,
                     [styles.disabled]: disabled,
                     [styles.focusVisible]: focusVisible,
                 })}
@@ -56,8 +56,8 @@ export const Field = ({
                 size={size}
                 focused={open || focused}
                 disabled={disabled}
-                filled={filled || !!placeholder}
-                label={label}
+                filled={filled}
+                label={showLabel && label}
                 error={error}
                 hint={hint}
                 rightAddons={

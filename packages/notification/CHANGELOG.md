@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@2.1.3...@alfalab/core-components-notification@2.2.0) (2021-04-26)
+
+
+### Bug Fixes
+
+* **notification:** ie fixes ([#633](https://github.com/alfa-laboratory/core-components/issues/633)) ([decbf8f](https://github.com/alfa-laboratory/core-components/commit/decbf8f4d55cb48a5f3a6430e30e750104907552))
+
+
+### Features
+
+* **vars:** fresh colors ([10907ec](https://github.com/alfa-laboratory/core-components/commit/10907eca0f5556795529a90b41d2bc663ea01dfe))
+
+
+
+
+
 ## [2.1.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@2.1.2...@alfalab/core-components-notification@2.1.3) (2021-04-01)
 
 **Note:** Version bump only for package @alfalab/core-components-notification

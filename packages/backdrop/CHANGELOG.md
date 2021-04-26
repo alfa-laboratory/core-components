@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-backdrop@1.1.1...@alfalab/core-components-backdrop@1.1.2) (2021-04-26)
+
+
+### Bug Fixes
+
+* **drawer:** lost vars ([#632](https://github.com/alfa-laboratory/core-components/issues/632)) ([82a8e46](https://github.com/alfa-laboratory/core-components/commit/82a8e461fc16d4ae8b6d3d268c92f7dc969e81f8))
+
+
+
+
+
 ## [1.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-backdrop@1.1.0...@alfalab/core-components-backdrop@1.1.1) (2021-04-09)
 
 

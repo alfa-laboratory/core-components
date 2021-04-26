@@ -266,7 +266,13 @@ export function useCalendar({
                 setMonthByDate(new Date(+date));
             }
 
-            if (rootRef.current) rootRef.current.focus();
+            /**
+             * Возвращаем фокус внутрь компонента после переключения
+             * Но только если фокус и раньше был внутри
+             */
+            if (rootRef.current && rootRef.current.contains(document.activeElement)) {
+                rootRef.current.focus();
+            }
         },
         [setMonthByDate],
     );
@@ -279,7 +285,9 @@ export function useCalendar({
                 setMonthByDate(setYear(activeMonth, new Date(+date).getFullYear()));
             }
 
-            if (rootRef.current) rootRef.current.focus();
+            if (rootRef.current && rootRef.current.contains(document.activeElement)) {
+                rootRef.current.focus();
+            }
         },
         [activeMonth, setMonthByDate],
     );

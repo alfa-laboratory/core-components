@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.17](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-intl-phone-input@4.0.16...@alfalab/core-components-intl-phone-input@4.0.17) (2021-04-26)
+
+**Note:** Version bump only for package @alfalab/core-components-intl-phone-input
+
+
+
+
+
+## [4.0.16](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-intl-phone-input@4.0.15...@alfalab/core-components-intl-phone-input@4.0.16) (2021-04-26)
+
+**Note:** Version bump only for package @alfalab/core-components-intl-phone-input
+
+
+
+
+
 ## [4.0.15](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-intl-phone-input@4.0.14...@alfalab/core-components-intl-phone-input@4.0.15) (2021-04-09)
 
 **Note:** Version bump only for package @alfalab/core-components-intl-phone-input

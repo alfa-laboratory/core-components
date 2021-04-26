@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Snapshots tests should match snapshot 1`] = `
+exports[`Select Snapshots tests should match snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -152,4 +152,106 @@ Object {
   "rerender": [Function],
   "unmount": [Function],
 }
+`;
+
+exports[`Select Snapshots tests should match snapshot with fatal error 1`] = `
+<div>
+  <div
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    aria-owns="downshift-3-menu"
+    class="component"
+    role="combobox"
+    tabindex="-1"
+  >
+    <div
+      class="component"
+    >
+      <div
+        class="component s block hasRightAddons"
+      >
+        <div
+          aria-controls="downshift-3-menu"
+          aria-labelledby="downshift-3-label"
+          class="field inner hasError"
+          id="downshift-2-input"
+          tabindex="0"
+        >
+          <div
+            class="inputWrapper"
+          >
+            <div
+              class="input"
+            >
+              <div
+                class="contentWrapper"
+              />
+            </div>
+          </div>
+          <div
+            class="addons rightAddons"
+          >
+            <span
+              class="arrow arrow"
+            />
+          </div>
+        </div>
+        <span
+          class="sub error"
+        >
+          Error
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select Snapshots tests should match snapshot with visibleOptions 1`] = `
+<div>
+  <div
+    aria-expanded="true"
+    aria-haspopup="listbox"
+    aria-owns="downshift-5-menu"
+    class="component"
+    role="combobox"
+    tabindex="-1"
+  >
+    <div
+      class="component"
+    >
+      <div
+        class="component s block hasRightAddons"
+      >
+        <div
+          aria-controls="downshift-5-menu"
+          aria-labelledby="downshift-5-label"
+          class="field inner focused"
+          id="downshift-4-input"
+          tabindex="0"
+        >
+          <div
+            class="inputWrapper"
+          >
+            <div
+              class="input"
+            >
+              <div
+                class="contentWrapper"
+              />
+            </div>
+          </div>
+          <div
+            class="addons rightAddons"
+          >
+            <span
+              class="arrow arrow open"
+            />
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
 `;
