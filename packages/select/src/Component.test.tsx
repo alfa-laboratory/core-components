@@ -100,8 +100,10 @@ describe('Select', () => {
             expect(container.firstElementChild).toHaveClass(className);
         });
 
-        it('should render label', () => {
-            const { getAllByText } = render(<Select {...baseProps} label={LABEL_TEXT} />);
+        it('should render label, if selected value', () => {
+            const { getAllByText } = render(
+                <Select {...baseProps} label={LABEL_TEXT} selected='1' options={options} />,
+            );
 
             expect(getAllByText(LABEL_TEXT)[1]).toBeInTheDocument();
         });
@@ -164,13 +166,19 @@ describe('Select', () => {
             const expectedResult = optionsToSelect.join(', ');
             const expectedResultTruncated = optionsToSelect.slice(0, 2).join(', ');
 
-            const { getByText, getAllByText } = render(
-                <Select {...baseProps} label={LABEL_TEXT} options={options} multiple={true} />,
+            const { getByText, getByTestId } = render(
+                <Select
+                    {...baseProps}
+                    label={LABEL_TEXT}
+                    options={options}
+                    multiple={true}
+                    dataTestId='select'
+                />,
             );
 
             const clickOption = async (index: number) =>
                 waitFor(() => {
-                    getAllByText(LABEL_TEXT)[1].click();
+                    getByTestId('select-field').click();
                     getByText(optionsToSelect[index]).click();
                 });
 
@@ -181,7 +189,7 @@ describe('Select', () => {
             expect(getByText(expectedResult)).toBeInTheDocument();
 
             await waitFor(() => {
-                getAllByText(LABEL_TEXT)[1].click();
+                getByTestId('select-field').click();
                 getByText(optionsToSelect[2]).click();
             });
 
@@ -189,18 +197,18 @@ describe('Select', () => {
         });
 
         it('should not allow unselect by default', async () => {
-            const { getByText, getAllByText, findByText } = render(
-                <Select {...baseProps} label={LABEL_TEXT} options={options} />,
+            const { getByText, findByText, getByTestId } = render(
+                <Select {...baseProps} label={LABEL_TEXT} options={options} dataTestId='select' />,
             );
 
-            const label = getAllByText(LABEL_TEXT)[1];
+            const field = getByTestId('select-field');
 
-            label.click();
+            field.click();
             getByText(optionContent).click();
 
             expect(getByText(optionContent)).toBeInTheDocument();
 
-            label.click();
+            field.click();
             const option = await findByText(optionContent, { selector: '[role="option"] *' });
             option.click();
 
@@ -208,18 +216,24 @@ describe('Select', () => {
         });
 
         it('should allow unselect', async () => {
-            const { getByText, getAllByText, queryByText, findByText } = render(
-                <Select {...baseProps} label={LABEL_TEXT} options={options} allowUnselect={true} />,
+            const { getByText, getByTestId, queryByText, findByText } = render(
+                <Select
+                    {...baseProps}
+                    label={LABEL_TEXT}
+                    options={options}
+                    allowUnselect={true}
+                    dataTestId='select'
+                />,
             );
 
-            const label = getAllByText(LABEL_TEXT)[1];
+            const field = getByTestId('select-field');
 
-            label.click();
+            field.click();
             getByText(optionContent).click();
 
             expect(getByText(optionContent)).toBeInTheDocument();
 
-            label.click();
+            field.click();
             const option = await findByText(optionContent, { selector: '[role="option"] *' });
             option.click();
 
@@ -227,15 +241,16 @@ describe('Select', () => {
         });
 
         it('should not close on select', () => {
-            const { getByText, getAllByText, getByRole } = render(
+            const { getByText, getByTestId, getByRole } = render(
                 <Select
                     {...baseProps}
                     label={LABEL_TEXT}
                     options={options}
                     closeOnSelect={false}
+                    dataTestId='select'
                 />,
             );
-            getAllByText(LABEL_TEXT)[1].click();
+            getByTestId('select-field').click();
             getByText(optionContent).click();
 
             expect(getByRole(ROLE_LISTBOX)).toBeInTheDocument();
@@ -277,11 +292,16 @@ describe('Select', () => {
 
         describe('Open/close tests', () => {
             it('should open list on click, close on click outside', async () => {
-                const { getAllByText, queryByRole } = render(
-                    <Select {...baseProps} options={options} label={LABEL_TEXT} />,
+                const { getByTestId, queryByRole } = render(
+                    <Select
+                        {...baseProps}
+                        options={options}
+                        label={LABEL_TEXT}
+                        dataTestId='select'
+                    />,
                 );
 
-                getAllByText(LABEL_TEXT)[1].click();
+                getByTestId('select-field').click();
                 expect(queryByRole(ROLE_LISTBOX)).toBeInTheDocument();
 
                 userEvent.click(document.firstElementChild as HTMLElement);
@@ -289,11 +309,17 @@ describe('Select', () => {
             });
 
             it('should not open if disabled', async () => {
-                const { getAllByText, queryByRole } = render(
-                    <Select {...baseProps} label={LABEL_TEXT} options={options} disabled={true} />,
+                const { getByTestId, queryByRole } = render(
+                    <Select
+                        {...baseProps}
+                        label={LABEL_TEXT}
+                        options={options}
+                        disabled={true}
+                        dataTestId='select'
+                    />,
                 );
 
-                getAllByText(LABEL_TEXT)[1].click();
+                getByTestId('select-field').click();
                 expect(queryByRole(ROLE_LISTBOX)).not.toBeInTheDocument();
             });
 
@@ -557,16 +583,17 @@ describe('Select', () => {
 
         it('should call valueRenderer', async () => {
             const valueRenderer = jest.fn();
-            const { getByText, getAllByText } = render(
+            const { getByText, getByTestId } = render(
                 <Select
                     {...baseProps}
                     options={options}
                     label={LABEL_TEXT}
                     valueRenderer={valueRenderer}
+                    dataTestId='select'
                 />,
             );
 
-            getAllByText(LABEL_TEXT)[1].click();
+            getByTestId('select-field').click();
             getByText(options[0].content).click();
 
             expect(valueRenderer).toBeCalled();
@@ -574,12 +601,13 @@ describe('Select', () => {
 
         it('should call custom value renderer', async () => {
             const valueRenderer = jest.fn();
-            const { getByText, getAllByText } = render(
+            const { getByText, getByTestId } = render(
                 <Select
                     {...baseProps}
                     options={options}
                     label={LABEL_TEXT}
                     valueRenderer={valueRenderer}
+                    dataTestId='select'
                 />,
             );
 
@@ -590,7 +618,7 @@ describe('Select', () => {
                 selectedMultiple: [optionToSelect],
             };
 
-            getAllByText(LABEL_TEXT)[1].click();
+            getByTestId('select-field').click();
             getByText(optionToSelect.content).click();
 
             expect(valueRenderer).toHaveBeenLastCalledWith(expectedCallArgument);

@@ -16,6 +16,7 @@ Object {
             fill="currentColor"
             focusable="false"
             height="24"
+            role="img"
             viewBox="0 0 24 24"
             width="24"
           >
@@ -68,6 +69,7 @@ Object {
                 fill="currentColor"
                 focusable="false"
                 height="24"
+                role="img"
                 viewBox="0 0 24 24"
                 width="24"
               >
@@ -93,6 +95,7 @@ Object {
           fill="currentColor"
           focusable="false"
           height="24"
+          role="img"
           viewBox="0 0 24 24"
           width="24"
         >
@@ -145,6 +148,7 @@ Object {
               fill="currentColor"
               focusable="false"
               height="24"
+              role="img"
               viewBox="0 0 24 24"
               width="24"
             >
