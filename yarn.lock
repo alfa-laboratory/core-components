@@ -19,6 +19,16 @@
     classnames "^2.2.6"
     react-merge-refs "^1.1.0"
 
+"@alfalab/core-components-button@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-button/-/core-components-button-2.2.0.tgz#fbbd0cd9fa8281031e4ee885920e28f1348e5803"
+  integrity sha512-ffryNpcJ4v9cpEtOxxxAYt1/wOqBYYPx6pNFLMU5U+r53i4NId7wNAKr/uhcKR74wgFdQbsrYD386S9az5Nw1A==
+  dependencies:
+    "@alfalab/core-components-loader" "^1.1.5"
+    "@alfalab/hooks" "^1.0.0"
+    classnames "^2.2.6"
+    react-merge-refs "^1.1.0"
+
 "@alfalab/core-components-form-control@^3.1.5":
   version "3.1.5"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components-form-control/-/core-components-form-control-3.1.5.tgz#c064abf1ad4a1f71b75206e7d40d4935e4098b58"
@@ -90,6 +100,11 @@
   resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.1.1.tgz#c61e839983cb915e2e4de730bf9c9b0f1c0aea45"
   integrity sha512-4NBh/BzFE/W7Wxgxa0SByodjpDgUQT5RHzc/9wLbMlhljpo+S145mavFdtK+YcJ2Sg4GK6OZon61KqV5w7Nafw==
 
+"@alfalab/hooks@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.2.0.tgz#729ae06c5c3ebe02a9ca0f98bcc01c8713c5c54b"
+  integrity sha512-AHrMhlC3AxL085T/NnCjYsiERUFkfh9MtvXAAs954w2RZdhQFlLpevESv0lzjoVSnYfrV4yOzQyUbb/WGDQFGA==
+
 "@alfalab/icons-classic@^1.56.0":
   version "1.63.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-classic/-/icons-classic-1.63.0.tgz#e0612c27c4332263d7f72932f0e4406cd4921417"
@@ -155,6 +170,11 @@
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.1.1.tgz#1f14fc91b03d9e99049a59daff009cc8e4a70f95"
   integrity sha512-JdMNq3WXVwhU3z4cxlkWutbY8C6QIj5PbO3IhAWpe506rhSaZPJIUY+SMoV+BJ5pADD0eiseraQPHaQtIkmGTQ==
+
+"@alfalab/utils@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.2.0.tgz#604411c6bd266b663c6cc251d593ca4e8bc3a9a4"
+  integrity sha512-P/nfoDPIdmhk0LrrFP8rEtKsmyTwUs3OHTI/F8iOiJjGWzWFzTzE5fE48ztRRj/rUuWQ/FJHU3zazQ19Q9EepQ==
 
 "@babel/code-frame@7.5.5":
   version "7.5.5"
