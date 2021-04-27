@@ -177,14 +177,24 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     if (value.length < MAX_DIAL_CODE_LENGTH) {
                         setCountryByDialCode(newValue);
                     }
+                    return;
                 }
 
                 if (!clearableCountryCode) {
-                    const newValue =
-                        targetValue.substr(1).length < country.dialCode.length
-                            ? `+${country.dialCode}`
-                            : targetValue;
-                    setValue(newValue);
+                    let newValue;
+
+                    if (targetValue[0] === '8') {
+                        newValue = `+${country.dialCode}${targetValue.substr(1)}`;
+                        setValue(newValue);
+                        return;
+                    }
+
+                    if (targetValue.substr(1) < country.dialCode) {
+                        newValue = `+${country.dialCode}`;
+                        setValue(newValue);
+                        return;
+                    }
+                    setValue(targetValue);
                 }
             },
             [clearableCountryCode, countryIso2, setCountryByDialCode, setValue, value.length],

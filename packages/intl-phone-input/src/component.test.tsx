@@ -57,6 +57,24 @@ describe('IntlPhoneInput', () => {
         expect(onChange).toHaveBeenCalledWith('+74957888878');
     });
 
+    it('should call `onChange` callback after input was changed with whole russian number', async () => {
+        const onChange = jest.fn();
+        render(
+            <IntlPhoneInput
+                value=''
+                onChange={onChange}
+                dataTestId={testId}
+                clearableCountryCode={false}
+            />,
+        );
+
+        const input = await screen.getByDisplayValue('');
+        fireEvent.change(input, { target: { value: '84957888878' } });
+
+        expect(onChange).toHaveBeenCalled();
+        expect(onChange).toHaveBeenCalledWith('+74957888878');
+    });
+
     it('should have default country flag icon', () => {
         const { container } = render(<IntlPhoneInput value='' onChange={jest.fn()} />);
 
