@@ -74,7 +74,7 @@ export type ButtonProps = Partial<AnchorButtonProps | NativeButtonProps>;
  * Минимальное время отображения лоадера - 500мс,
  * чтобы при быстрых ответах от сервера кнопка не «моргала».
  */
-const LOADER_MIN_DISPLAY_INTERVAL = 500;
+export const LOADER_MIN_DISPLAY_INTERVAL = 500;
 
 export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
     (
