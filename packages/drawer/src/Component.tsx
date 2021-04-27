@@ -30,6 +30,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
                     enterDone: styles.backdropEnterDone,
                     appear: styles.backdropAppear,
                     appearActive: styles.backdropAppearActive,
+                    appearDone: styles.backdropAppearDone,
                     exit: styles.backdropExit,
                     exitActive: styles.backdropExitActive,
                     exitDone: styles.backdropExitDone,

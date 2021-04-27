@@ -19,6 +19,16 @@
     classnames "^2.2.6"
     react-merge-refs "^1.1.0"
 
+"@alfalab/core-components-button@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-button/-/core-components-button-2.2.0.tgz#fbbd0cd9fa8281031e4ee885920e28f1348e5803"
+  integrity sha512-ffryNpcJ4v9cpEtOxxxAYt1/wOqBYYPx6pNFLMU5U+r53i4NId7wNAKr/uhcKR74wgFdQbsrYD386S9az5Nw1A==
+  dependencies:
+    "@alfalab/core-components-loader" "^1.1.5"
+    "@alfalab/hooks" "^1.0.0"
+    classnames "^2.2.6"
+    react-merge-refs "^1.1.0"
+
 "@alfalab/core-components-form-control@^3.1.5":
   version "3.1.5"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components-form-control/-/core-components-form-control-3.1.5.tgz#c064abf1ad4a1f71b75206e7d40d4935e4098b58"
@@ -90,6 +100,11 @@
   resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.1.1.tgz#c61e839983cb915e2e4de730bf9c9b0f1c0aea45"
   integrity sha512-4NBh/BzFE/W7Wxgxa0SByodjpDgUQT5RHzc/9wLbMlhljpo+S145mavFdtK+YcJ2Sg4GK6OZon61KqV5w7Nafw==
 
+"@alfalab/hooks@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.2.0.tgz#729ae06c5c3ebe02a9ca0f98bcc01c8713c5c54b"
+  integrity sha512-AHrMhlC3AxL085T/NnCjYsiERUFkfh9MtvXAAs954w2RZdhQFlLpevESv0lzjoVSnYfrV4yOzQyUbb/WGDQFGA==
+
 "@alfalab/icons-classic@^1.56.0":
   version "1.63.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-classic/-/icons-classic-1.63.0.tgz#e0612c27c4332263d7f72932f0e4406cd4921417"
@@ -125,10 +140,10 @@
   resolved "https://registry.yarnpkg.com/@alfalab/icons-logotype/-/icons-logotype-1.12.0.tgz#50319f2249099588f6c47aa7e49d8e7b298d0373"
   integrity sha512-Jt1BSnVFEEYOfPJnHRNF+VoA4VsRTKn0qTbAHT1Tlv+dje3TRej/6XicabvYvwIzkyoIRNFlm2V1LkuKEkFArw==
 
-"@alfalab/rollup-plugin-postcss@^3.5.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/rollup-plugin-postcss/-/rollup-plugin-postcss-3.5.0.tgz#ed6717d4c00d94f7d60afa9765fdd105e53ce638"
-  integrity sha512-j+mPh89C5ns5OxcYaXGvzn1tdnRoJbXmUSadTR4VuoNzI6ugRxLgWd7cqGe6CbbKzOtDRAYTqRaWcl8La9oR1w==
+"@alfalab/rollup-plugin-postcss@^3.6.0":
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/rollup-plugin-postcss/-/rollup-plugin-postcss-3.6.0.tgz#1385d7215f34e5af7d6c806f205a86c629d5a668"
+  integrity sha512-q8yP23qxf4H6k7B6v1qydv1izsmdQTZR2vbdYJHr4uLcjtx/O4PRzYJ7JXGKr9/Yzq76PVVouzlJem1GYGiZSg==
   dependencies:
     chalk "^4.0.0"
     concat-with-sourcemaps "^1.1.0"
@@ -155,6 +170,11 @@
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.1.1.tgz#1f14fc91b03d9e99049a59daff009cc8e4a70f95"
   integrity sha512-JdMNq3WXVwhU3z4cxlkWutbY8C6QIj5PbO3IhAWpe506rhSaZPJIUY+SMoV+BJ5pADD0eiseraQPHaQtIkmGTQ==
+
+"@alfalab/utils@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.2.0.tgz#604411c6bd266b663c6cc251d593ca4e8bc3a9a4"
+  integrity sha512-P/nfoDPIdmhk0LrrFP8rEtKsmyTwUs3OHTI/F8iOiJjGWzWFzTzE5fE48ztRRj/rUuWQ/FJHU3zazQ19Q9EepQ==
 
 "@babel/code-frame@7.5.5":
   version "7.5.5"
@@ -3885,6 +3905,11 @@
   version "2.2.11"
   resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.11.tgz#2521cc86f69d15c5b90664e4829d84566052c1cf"
   integrity sha512-2koNhpWm3DgWRp5tpkiJ8JGc1xTn2q0l+jUNUE7oMKXUf5NpI9AIdC4kbjGNFBdHtcxBD18LAksoudAVhFKCjw==
+
+"@types/element-closest@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/element-closest/-/element-closest-3.0.0.tgz#8a5d3a19b0c3fa6668ffbdfc7c70e656fa204237"
+  integrity sha512-f13G85NYudfxE5wJyELhGKNxgWEAJTREeAIpcxYUcBQt0YrrdADe+9Y59gTBYY0aEqspUTqi8i2FChnDNfxIyg==
 
 "@types/eslint-visitor-keys@^1.0.0":
   version "1.0.0"
@@ -8830,6 +8855,11 @@ electron-to-chromium@^1.3.247, electron-to-chromium@^1.3.378, electron-to-chromi
   version "1.3.633"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.633.tgz#16dd5aec9de03894e8d14a1db4cda8a369b9b7fe"
   integrity sha512-bsVCsONiVX1abkWdH7KtpuDAhsQ3N3bjPYhROSAXE78roJKet0Y5wznA14JE9pzbwSZmSMAW6KiKYf1RvbTJkA==
+
+element-closest@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/element-closest/-/element-closest-3.0.2.tgz#3814a69a84f30e48e63eaf57341f4dbf4227d2aa"
+  integrity sha512-JxKQiJKX0Zr5Q2/bCaTx8P+UbfyMET1OQd61qu5xQFeWr1km3fGaxelSJtnfT27XQ5Uoztn2yIyeamAc/VX13g==
 
 element-resize-detector@^1.2.1:
   version "1.2.1"
@@ -18424,10 +18454,12 @@ react-sizeme@^2.6.7:
     shallowequal "^1.1.0"
     throttle-debounce "^2.1.0"
 
-react-swipeable@^6.0.0:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-6.0.1.tgz#14246e798c25a00da3279632a87811411756f652"
-  integrity sha512-69nonicgjT4ofeHxZSpjuz37BoIiWMEbUYkX0mdTCY2mX1U53XDzDUIOVKRg6vVBNGL+pxYjbRzmylXWORh1xQ==
+react-swipeable@^5.5.0:
+  version "5.5.1"
+  resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-5.5.1.tgz#48ae6182deaf62f21d4b87469b60281dbd7c4a76"
+  integrity sha512-EQObuU3Qg3JdX3WxOn5reZvOSCpU4fwpUAs+NlXSN3y+qtsO2r8VGkVnOQzmByt3BSYj9EWYdUOUfi7vaMdZZw==
+  dependencies:
+    prop-types "^15.6.2"
 
 react-syntax-highlighter@^11.0.2:
   version "11.0.2"

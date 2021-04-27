@@ -6,6 +6,7 @@ export const Tabs = ({
     className,
     containerClassName,
     size,
+    defaultMatch,
     children,
     selectedId,
     scrollable,
@@ -34,6 +35,7 @@ export const Tabs = ({
                 scrollable={scrollable}
                 onChange={onChange}
                 dataTestId={dataTestId}
+                defaultMatch={defaultMatch}
             />
 
             {tabs.map(tab => cloneElement(tab, { hidden: tab.props.id !== selectedId }))}

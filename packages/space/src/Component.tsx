@@ -75,6 +75,7 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
         wrap = false,
         divider = false,
         fullWidth = false,
+        dataTestId,
     } = props;
 
     const [horizontalSize, verticalSize] = React.useMemo(
@@ -128,6 +129,7 @@ export const Space = forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
     return (
         <div
+            data-test-id={dataTestId}
             className={containerClassName}
             style={{
                 ...(wrap && { flexWrap: 'wrap', marginBottom: -verticalSize }),
