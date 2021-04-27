@@ -270,29 +270,39 @@ import { Button } from '@alfalab/core-components-button';
 
 С помощью свойства `loading` можно отобразить состояние загрузки.
 
+Минимальное время отображения лоадера - 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».
+
 <Preview>
     {React.createElement(() => {
         const [loading, setLoading] = React.useState({
             primary: false,
             secondary: false
         });
-        const handleClick = (buttonName) => {
+        const handleClick = (buttonName, timeout) => {
             setLoading({...loading, [buttonName]: true});
             setTimeout(() => {
                 setLoading({...loading, [buttonName]: false});
-            }, 500)
+            }, timeout)
         }
         return (
             <Container>
                 <Row align="middle">
                     <Col>
-                        <Button view="primary" loading={loading.primary} onClick={() => handleClick('primary')}>
-                            Отправить запрос
+                        <Button
+                            view="primary"
+                            loading={loading.primary}
+                            onClick={() => handleClick('primary', 30)}
+                        >
+                            Отправить быстрый запрос (30мс)
                         </Button>
                     </Col>
                     <Col>
-                        <Button view="secondary" loading={loading.secondary} onClick={() => handleClick('secondary')}>
-                            Отправить запрос
+                        <Button
+                            view="secondary"
+                            loading={loading.secondary}
+                            onClick={() => handleClick('secondary', 1500)}
+                        >
+                            Отправить долгий запрос (1500мс)
                         </Button>
                     </Col>
                 </Row>
