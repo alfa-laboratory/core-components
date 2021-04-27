@@ -1,22 +1,25 @@
-import { screenshotTesting, getComponentScreenshotTestCases } from '../../utils';
+import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
 
 const clip = { x: 0, y: 0, width: 540, height: 50 };
+
+const screenshotTesting = setupScreenshotTesting({
+    it,
+    beforeAll,
+    afterAll,
+    expect,
+});
 
 describe(
     'FileUploadItem | name with statuses',
     screenshotTesting({
-        cases: getComponentScreenshotTestCases({
-            componentName: 'file-upload-item',
+        cases: generateTestCases({
+            componentName: 'FileUploadItem',
             knobs: {
                 name: ['photo.jpg'],
                 uploadStatus: ['ERROR', 'SUCCESS', 'LOADING', 'UPLOADING'],
                 showDelete: [true],
             },
         }),
-        it,
-        beforeAll,
-        afterAll,
-        expect,
         matchImageSnapshotOptions: {
             failureThresholdType: 'pixel',
             failureThreshold: 20,
@@ -28,8 +31,8 @@ describe(
 describe(
     'FileUploadItem | meta',
     screenshotTesting({
-        cases: getComponentScreenshotTestCases({
-            componentName: 'file-upload-item',
+        cases: generateTestCases({
+            componentName: 'FileUploadItem',
             knobs: {
                 name: ['photo.jpg'],
                 uploadDate: ['22.01.2018'],
@@ -39,10 +42,6 @@ describe(
                 showDelete: [true],
             },
         }),
-        it,
-        beforeAll,
-        afterAll,
-        expect,
         screenshotOpts: { clip },
     }),
 );
@@ -50,8 +49,8 @@ describe(
 describe(
     'FileUploadItem | hide meta when uploadStatus !== SUCCESS',
     screenshotTesting({
-        cases: getComponentScreenshotTestCases({
-            componentName: 'file-upload-item',
+        cases: generateTestCases({
+            componentName: 'FileUploadItem',
             knobs: {
                 name: ['photo.jpg'],
                 uploadDate: ['22.01.2018'],
@@ -60,10 +59,6 @@ describe(
                 uploadStatus: ['ERROR', 'LOADING', 'UPLOADING'],
             },
         }),
-        it,
-        beforeAll,
-        afterAll,
-        expect,
         matchImageSnapshotOptions: {
             failureThresholdType: 'pixel',
             failureThreshold: 20,
@@ -75,8 +70,8 @@ describe(
 describe(
     'FileUploadItem | hide meta when showRestore === true',
     screenshotTesting({
-        cases: getComponentScreenshotTestCases({
-            componentName: 'file-upload-item',
+        cases: generateTestCases({
+            componentName: 'FileUploadItem',
             knobs: {
                 name: ['photo.jpg'],
                 uploadDate: ['22.01.2018'],
@@ -84,10 +79,6 @@ describe(
                 showRestore: [true],
             },
         }),
-        it,
-        beforeAll,
-        afterAll,
-        expect,
         screenshotOpts: { clip },
     }),
 );
