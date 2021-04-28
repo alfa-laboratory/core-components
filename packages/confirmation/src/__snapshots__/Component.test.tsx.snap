@@ -58,7 +58,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
         
       </div>
       <div
-        class="countdown"
+        class="countdown countdown"
       >
         <div
           class="component left"
@@ -226,7 +226,7 @@ exports[`Confirmation Snapshot tests should match snapshot with masked phone 1`]
         
       </div>
       <div
-        class="countdown"
+        class="countdown countdown"
       >
         <div
           class="component left"
@@ -369,7 +369,7 @@ exports[`Confirmation Snapshot tests should match snapshot with nonFatal error 1
         </div>
       </div>
       <div
-        class="countdown"
+        class="countdown countdown"
       >
         <div
           class="component left hasError"
@@ -504,7 +504,7 @@ exports[`Confirmation Snapshot tests should match snapshot with unmasked phone 1
         
       </div>
       <div
-        class="countdown"
+        class="countdown countdown"
       >
         <div
           class="component left"

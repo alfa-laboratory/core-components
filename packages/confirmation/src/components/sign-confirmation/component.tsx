@@ -127,7 +127,7 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
             )}
 
             {hasSmsCountdown && (
-                <div className={cn('countdown', { [styles.hidden]: processing })}>
+                <div className={cn('countdown', styles.countdown, { [styles.hidden]: processing })}>
                     <Countdown
                         duration={countdownDuration}
                         phone={phone}
