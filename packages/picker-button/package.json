@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-picker-button",
-    "version": "4.0.0",
+    "version": "4.0.1",
     "description": "Picker button component",
     "keywords": [],
     "license": "MIT",
@@ -20,7 +20,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-button": "^2.2.0",
-        "@alfalab/core-components-select": "^8.0.0",
+        "@alfalab/core-components-select": "^8.0.1",
         "@alfalab/icons-glyph": "^1.70.0",
         "classnames": "^2.2.6"
     }
