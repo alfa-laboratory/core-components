@@ -1,3 +1,10 @@
+# [16.1.0](https://github.com/alfa-laboratory/core-components/compare/v16.0.0...v16.1.0) (2021-04-28)
+
+
+### Features
+
+* **button:** experimental active transform (site theme) ([a741e4f](https://github.com/alfa-laboratory/core-components/commit/a741e4fb73716902e6a72957e672921c21e7696b))
+
 # [16.0.0](https://github.com/alfa-laboratory/core-components/compare/v15.4.0...v16.0.0) (2021-04-26)
 
 
