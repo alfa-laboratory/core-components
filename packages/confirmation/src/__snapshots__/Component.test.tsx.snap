@@ -61,7 +61,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
         class="countdown"
       >
         <div
-          class="component left countdown"
+          class="component left"
         >
           
           <div>
@@ -120,7 +120,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
         class="smsComeLinkWrap"
       >
         <a
-          class="component secondary smsComeLink"
+          class="component secondary pseudo smsComeLink"
         >
           <span
             class="text"
@@ -154,7 +154,7 @@ exports[`Confirmation Snapshot tests should match snapshot with fatal error 1`] 
         Выполните операцию с самого начала
       </span>
       <button
-        class="component secondary s block"
+        class="component secondary xs"
         type="button"
       >
         <span
@@ -229,7 +229,7 @@ exports[`Confirmation Snapshot tests should match snapshot with masked phone 1`]
         class="countdown"
       >
         <div
-          class="component left countdown"
+          class="component left"
         >
           <div>
             Код отправлен на
@@ -292,7 +292,7 @@ exports[`Confirmation Snapshot tests should match snapshot with masked phone 1`]
         class="smsComeLinkWrap"
       >
         <a
-          class="component secondary smsComeLink"
+          class="component secondary pseudo smsComeLink"
         >
           <span
             class="text"
@@ -372,7 +372,7 @@ exports[`Confirmation Snapshot tests should match snapshot with nonFatal error 1
         class="countdown"
       >
         <div
-          class="component left countdown"
+          class="component left hasError"
         >
           
           <div>
@@ -431,7 +431,7 @@ exports[`Confirmation Snapshot tests should match snapshot with nonFatal error 1
         class="smsComeLinkWrap"
       >
         <a
-          class="component secondary smsComeLink"
+          class="component secondary pseudo smsComeLink"
         >
           <span
             class="text"
@@ -507,7 +507,7 @@ exports[`Confirmation Snapshot tests should match snapshot with unmasked phone 1
         class="countdown"
       >
         <div
-          class="component left countdown"
+          class="component left"
         >
           <div>
             Код отправлен на
@@ -570,7 +570,7 @@ exports[`Confirmation Snapshot tests should match snapshot with unmasked phone 1
         class="smsComeLinkWrap"
       >
         <a
-          class="component secondary smsComeLink"
+          class="component secondary pseudo smsComeLink"
         >
           <span
             class="text"
@@ -646,7 +646,7 @@ exports[`Confirmation Snapshot tests should math snapshot without smsCountdown 1
         class="smsComeLinkWrap"
       >
         <a
-          class="component secondary smsComeLink"
+          class="component secondary pseudo smsComeLink"
         >
           <span
             class="text"

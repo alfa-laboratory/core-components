@@ -1,6 +1,5 @@
 @import '../../vars.css';
-
-.component {
+@import '../../../../vars/src/index.css' .component {
     display: flex;
 }
 
@@ -29,6 +28,10 @@
 
     &.center {
         margin: 0 var(--gap-2xs);
+    }
+
+    &.disabled {
+        color: var(--color-light-text-tertiary);
     }
 }
 

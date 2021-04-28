@@ -5,16 +5,29 @@
 
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    margin-top: var(--gap-3xl);
     color: var(--confirmation-text-color);
 }
 
+.hasError {
+    & .getCodeButton {
+        margin-top: 0;
+    }
+
+    & .info {
+        margin-top: 0;
+    }
+}
+
 .info {
-    margin-bottom: var(--gap-xs);
+    margin: var(--gap-2xs) 0;
 }
 
 .loaderWrap {
     display: flex;
     align-items: center;
+    margin-bottom: var(--gap-xs);
 }
 
 .loader {
@@ -22,6 +35,8 @@
 }
 
 .center {
+    align-items: center;
+
     & .loaderWrap {
         justify-content: center;
     }
@@ -37,5 +52,5 @@
 }
 
 .noAttemptsLeftMessage {
-    margin-top: var(--gap-l);
+    margin: var(--gap-2xs) 0 var(--gap-xs);
 }

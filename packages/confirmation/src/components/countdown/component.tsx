@@ -48,9 +48,9 @@ export type CountdownProps = {
     duration: number;
     hasPhoneMask: boolean;
     phone?: string;
-    className?: string;
     alignContent: string;
     noAttemptsLeftMessage?: string;
+    hasError: boolean;
     onCountdownFinished?: () => void;
     onRepeatSms: (event: MouseEvent) => void;
 };
@@ -60,8 +60,8 @@ export const Countdown: FC<CountdownProps> = ({
     phone = '',
     hasPhoneMask = true,
     alignContent,
-    className,
     noAttemptsLeftMessage,
+    hasError,
     onRepeatSms,
     onCountdownFinished,
 }) => {
@@ -136,8 +136,10 @@ export const Countdown: FC<CountdownProps> = ({
     const formattedPhone = phoneNumber.format(phone);
 
     return (
-        <div className={cn(styles.component, styles[alignContent], className)}>
-            {phone && (
+        <div
+            className={cn(styles.component, styles[alignContent], { [styles.hasError]: hasError })}
+        >
+            {phone && !hasError && (
                 <div>
                     Код отправлен на
                     {' '}
@@ -150,9 +152,8 @@ export const Countdown: FC<CountdownProps> = ({
                 <div className={styles.noAttemptsLeftMessage}>{noAttemptsLeftMessage}</div>
             ) : repeatSmsButtonShow ? (
                 <Button
-                    size='s'
+                    size='xs'
                     view='secondary'
-                    block={true}
                     onClick={handleRepeatSmsButtonClick}
                     className={styles.getCodeButton}
                 >

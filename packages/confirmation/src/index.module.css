@@ -10,6 +10,7 @@
 .error {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
 .errorHeader {
@@ -29,12 +30,13 @@
 .phoneHintWrap {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
 .phoneHintText {
     @mixin _confirmation-text;
 
-    margin-bottom: var(--gap-2xl);
+    margin-bottom: var(--gap-xl);
     color: var(--confirmation-text-color);
 }
 
@@ -43,7 +45,7 @@
 
     display: flex;
     flex-direction: column;
-    margin-bottom: var(--gap-2xl);
+    margin-bottom: var(--gap-4xl);
 }
 
 .phoneWrap {
@@ -60,4 +62,14 @@
 
 .component.center {
     text-align: center;
+}
+
+.center {
+    & .phoneHintWrap {
+        align-items: center;
+    }
+
+    & .error {
+        align-items: center;
+    }
 }

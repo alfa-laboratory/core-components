@@ -281,12 +281,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
 
                         <span className={styles.errorText}>{errorText}</span>
 
-                        <Button
-                            size='s'
-                            view='secondary'
-                            onClick={handleErrorSmsRetryClick}
-                            block={true}
-                        >
+                        <Button size='xs' view='secondary' onClick={handleErrorSmsRetryClick}>
                             {buttonErrorText}
                         </Button>
                     </div>
@@ -327,9 +322,8 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
 
                         <Button
                             className={styles.repeatButton}
-                            size='s'
+                            size='xs'
                             view='secondary'
-                            block={true}
                             onClick={handleSmsRetryFromHintClick}
                         >
                             {buttonRetryText}

@@ -1,4 +1,5 @@
 @import '../../vars.css';
+@import '../../../../vars/src/index.css';
 
 .component {
     display: flex;
@@ -8,14 +9,13 @@
 .header {
     @mixin _confirmation-title;
 
-    margin-bottom: var(--gap-2xl);
+    margin-bottom: var(--gap-3xl);
     color: var(--confirmation-title-color);
 }
 
 .inputContainer {
     display: flex;
     flex-direction: column;
-    margin-bottom: var(--gap-2xl);
 }
 
 .hidden {
@@ -23,23 +23,24 @@
 }
 
 .smsComeLinkWrap {
-    margin-top: var(--gap-xl);
+    margin-top: var(--gap-l);
 }
 
 .smsComeLink {
-    @mixin _confirmation-text;
+    @mixin paragraph_primary_small;
 }
 
 .error {
-    @mixin _confirmation-text;
+    @mixin paragraph_primary_small;
 
-    margin-top: var(--gap-s);
+    margin-top: var(--gap-xs);
     color: var(--confirmation-error-color);
 }
 
 .loaderWrap {
     display: flex;
     align-items: center;
+    margin-top: var(--gap-3xl);
 }
 
 .loaderText {
