@@ -157,7 +157,7 @@ export const Countdown: FC<CountdownProps> = ({
                     onClick={handleRepeatSmsButtonClick}
                     className={styles.getCodeButton}
                 >
-                    Запросить код повторно
+                    Запросить новый код
                 </Button>
             ) : (
                 <div>
