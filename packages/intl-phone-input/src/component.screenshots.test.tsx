@@ -37,7 +37,7 @@ describe('IntlPhoneInput | interactions tests', () => {
 
             await matchHtml({ page, expect, css, matchImageSnapshotOptions });
 
-            await page.click('[role="combobox"]');
+            await page.click('[role="combobox"] >> span');
 
             await matchHtml({ page, expect, css, matchImageSnapshotOptions });
 
