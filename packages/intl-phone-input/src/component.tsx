@@ -16,7 +16,7 @@ const countriesHash = getCountriesHash();
 
 const MAX_DIAL_CODE_LENGTH = 4;
 
-export type IntlPhoneInputProps = Partial<InputAutocompleteProps> &
+export type IntlPhoneInputProps = Partial<Omit<InputAutocompleteProps, 'onChange'>> &
     Pick<SelectProps, 'preventFlip'> & {
         /**
          * Значение
