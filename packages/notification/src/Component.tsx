@@ -20,8 +20,6 @@ import { useClickOutside } from './utils';
 
 import styles from './index.module.css';
 
-elementClosest(window);
-
 export type NotificationProps = ToastPlateProps & {
     /**
      * Управление видимостью компонента
@@ -117,6 +115,10 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
             },
             [],
         );
+
+        useEffect(() => {
+            elementClosest(window);
+        }, []);
 
         useEffect(() => {
             if (visible) {
