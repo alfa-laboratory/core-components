@@ -1,3 +1,10 @@
+## [16.1.1](https://github.com/alfa-laboratory/core-components/compare/v16.1.0...v16.1.1) (2021-05-04)
+
+
+### Bug Fixes
+
+* **notification:** move closest polyfill to mount ([#639](https://github.com/alfa-laboratory/core-components/issues/639)) ([364a9f6](https://github.com/alfa-laboratory/core-components/commit/364a9f69b632428394ce8571333d8f0e6dc11f1e))
+
 # [16.1.0](https://github.com/alfa-laboratory/core-components/compare/v16.0.0...v16.1.0) (2021-04-28)
 
 
