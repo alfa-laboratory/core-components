@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@3.0.0...@alfalab/core-components-notification@3.0.1) (2021-05-04)
+
+
+### Bug Fixes
+
+* **notification:** move closest polyfill to mount ([#639](https://github.com/alfa-laboratory/core-components/issues/639)) ([364a9f6](https://github.com/alfa-laboratory/core-components/commit/364a9f69b632428394ce8571333d8f0e6dc11f1e))
+
+
+
+
+
 # [3.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@2.2.0...@alfalab/core-components-notification@3.0.0) (2021-04-26)
 
 
