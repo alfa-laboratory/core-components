@@ -1,0 +1,30 @@
+{
+    "name": "@alfalab/core-components-bottom-sheet",
+    "version": "1.0.0",
+    "description": "Bottom sheet mobile component",
+    "keywords": [],
+    "license": "MIT",
+    "main": "dist/index.js",
+    "module": "./dist/esm/index.js",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "postinstall": "node ./dist/send-stats.js > /dev/null 2>&1 || exit 0"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "peerDependencies": {
+        "react": "^16.9.0 || ^17.0.1",
+        "react-dom": "^16.9.0 || ^17.0.1"
+    },
+    "dependencies": {
+        "@alfalab/core-components-backdrop": "^1.1.2",
+        "@alfalab/core-components-portal": "^1.4.6",
+        "@alfalab/core-components-stack": "^2.0.0",
+        "@alfalab/core-components-typography": "^1.4.7",
+        "classnames": "^2.2.6",
+        "react-transition-group": "^4.3.0"
+    }
+}

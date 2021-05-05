@@ -1,0 +1,59 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Button } from '@alfalab/core-components-button';
+
+import { BottomSheet } from './';
+import { name, version } from '../package.json';
+
+<Meta
+    title='Компоненты'
+    component={BottomSheet}
+/>
+
+<!-- Canvas -->
+
+<Story name='BottomSheet'>
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        const handleClose = React.useCallback(() => {
+            setOpen(false);
+        }, []);
+        return (
+            <>
+                <Button onClick={() => { setOpen(true); }}>Окрыть шторку</Button>
+                <BottomSheet
+                    open={open}
+                    title={text('title', 'Альфа-Бизнес')}
+                    actionButton={<Button view="outlined" block={true} size="s" onClick={handleClose}>Понятно</Button>}
+                    onClose={handleClose}
+                >
+                    {text(
+                        'children',
+                        'Пользуйтесь сразу: реквизиты виртуальной и пластиковой карты будут доступны уже через ' +
+                        '60 секунд после после оформления. А пластик можно забрать в отделении через несколько дней'
+                    )}
+                </BottomSheet>
+            </>
+        )
+    })}
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='BottomSheet'
+    version={version}
+    package={name}
+    stage={2}
+    design='https://www.figma.com/file/uGndMZufgvqxaNQTaNTEjG/B2B-Web-Components?node-id=16366%3A143'
+/>
+
+```tsx
+import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
+```
+
+Шторка используется только в мобильной версии. Является адаптивом тултипа и списка с небольшим выбором.
+Вызывается при нажатии на кнопку или иконку. Выезжает снизу вверх.
+
+<Props of={BottomSheet} />
