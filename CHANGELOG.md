@@ -1,3 +1,10 @@
+## [16.1.2](https://github.com/alfa-laboratory/core-components/compare/v16.1.1...v16.1.2) (2021-05-05)
+
+
+### Bug Fixes
+
+* **toast-plate:** fix cross color ([#642](https://github.com/alfa-laboratory/core-components/issues/642)) ([96a17fd](https://github.com/alfa-laboratory/core-components/commit/96a17fdcd28a37519845d5a0c40809f107e3031f))
+
 ## [16.1.1](https://github.com/alfa-laboratory/core-components/compare/v16.1.0...v16.1.1) (2021-05-04)
 
 
