@@ -1,0 +1,75 @@
+@import '../../vars.css';
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+        margin-bottom: var(--modal-footer-default-gap);
+    }
+
+    & > *:last-child,
+    & > *:only-child {
+        margin-bottom: 0;
+    }
+
+    &.gap-16 > * {
+        margin-bottom: var(--gap-m);
+    }
+
+    &.gap-24 > * {
+        margin-bottom: var(--gap-xl);
+    }
+
+    &.gap-32 > * {
+        margin-bottom: var(--gap-2xl);
+    }
+}
+
+.left {
+    justify-content: flex-start;
+}
+
+.center {
+    justify-content: center;
+}
+
+.full-width {
+    justify-content: space-between;
+
+    & > * {
+        flex-grow: 1;
+    }
+}
+
+.right {
+    justify-content: flex-end;
+}
+
+.left,
+.center,
+.right,
+.full-width {
+    display: flex;
+
+    & > * {
+        margin-right: var(--modal-footer-default-gap);
+    }
+
+    & > *:last-child,
+    & > *:only-child {
+        margin-right: 0;
+    }
+
+    &.gap-16 > * {
+        margin-right: var(--gap-m);
+    }
+
+    &.gap-24 > * {
+        margin-right: var(--gap-xl);
+    }
+
+    &.gap-32 > * {
+        margin-right: var(--gap-2xl);
+    }
+}

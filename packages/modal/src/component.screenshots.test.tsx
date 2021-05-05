@@ -106,3 +106,58 @@ describe('Modal | ModalDesktop', () => {
 
     ['default', 'click'].map(testCase);
 });
+
+describe('Modal | Footer layout', () => {
+    const testCase = (theme: string) => {
+        return screenshotTesting({
+            cases: [
+                ...generateTestCases({
+                    componentName: 'Modal',
+                    subComponentName: 'ModalDesktop',
+                    testStory: false,
+                    knobs: {
+                        open: true,
+                        header: false,
+                        footer: true,
+                    },
+                }),
+                ...generateTestCases({
+                    componentName: 'Modal',
+                    subComponentName: 'ModalDesktop',
+                    testStory: false,
+                    knobs: {
+                        open: true,
+                        header: false,
+                        footer: true,
+                        'footer.gap': [16, 24, 32],
+                    },
+                }),
+                ...generateTestCases({
+                    componentName: 'Modal',
+                    subComponentName: 'ModalDesktop',
+                    testStory: false,
+                    knobs: {
+                        open: true,
+                        header: false,
+                        footer: true,
+                        'footer.layout': ['left', 'center', 'right', 'full-width', 'vertical'],
+                    },
+                }),
+            ],
+            viewport: {
+                width: 700,
+                height: 700,
+            },
+            screenshotOpts: {
+                fullPage: true,
+            },
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+            theme,
+        })();
+    };
+
+    ['default', 'click'].map(testCase);
+});

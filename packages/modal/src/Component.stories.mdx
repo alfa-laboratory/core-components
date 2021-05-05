@@ -31,10 +31,10 @@ export const Text = () => (
 );
 
 export const Footer = () => (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Button size='s' view='primary' style={{ marginBottom: '24px' }}>Сохранить</Button>
+    <>
+        <Button size='s' view='primary'>Сохранить</Button>
         <Button size='s' view='secondary'>Отмена</Button>
-    </div>
+    </>
 );
 
 export const Content = () => {
@@ -65,6 +65,8 @@ export const renderModalStory = (ModalComponent, props = {}) => {
     const stickyHeader = boolean('header.sticky', false);
     const footer = boolean('footer', false);
     const stickyFooter = boolean('footer.sticky', false);
+    const footerLayout = select('footer.layout', ['left', 'center', 'right', 'full-width', 'vertical'], 'left');
+    const footerGap = select('footer.gap', [false, 16, 24, 32], false);
     const flexContent = boolean('content.flex', false);
     return (
         <React.Fragment>
@@ -89,7 +91,7 @@ export const renderModalStory = (ModalComponent, props = {}) => {
                     <Content />
                 </ModalComponent.Content>
                 {footer && (
-                    <ModalComponent.Footer sticky={stickyFooter}>
+                    <ModalComponent.Footer sticky={stickyFooter} layout={footerLayout} gap={footerGap}>
                         <Footer />
                     </ModalComponent.Footer>
                 )}
@@ -180,29 +182,6 @@ import { ModalResponsive } from '@alfalab/core-components-modal/responsive';
     ModalResponsive
 }} />
 
-
-### Плавающий крестик без шапки
-
-<Preview>
-    {React.createElement(() => {
-        const [open, setOpen] = React.useState(false);
-        const handleModalOpen = () => setOpen(!open);
-        return (
-            <React.Fragment>
-                <Button type='button' size='xs' onClick={handleModalOpen}>Открыть модалку</Button>
-                <ModalDesktop
-                    open={open}
-                    onClose={handleModalOpen}
-                >
-                    <ModalDesktop.Closer align='right' />
-                    <ModalDesktop.Content>
-                        <Content />
-                    </ModalDesktop.Content>
-                </ModalDesktop>
-            </React.Fragment>
-        );
-    })}
-</Preview>
 
 ### Плавающий крестик без шапки
 

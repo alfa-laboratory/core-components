@@ -16,6 +16,7 @@
     --modal-header-min-height: 84px;
     --modal-backdrop-visible-background: color-mod(var(--color-light-graphic-primary) alpha(50%));
     --modal-vertical-padding: var(--gap-4xl);
+    --modal-footer-default-gap: var(--gap-xl);
 
     /* paddings */
     --modal-s-header-paddings: var(--gap-xl) var(--gap-2xl) var(--gap-s) var(--gap-4xl);
