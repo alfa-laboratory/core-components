@@ -9,6 +9,7 @@ import React, {
     useEffect,
     useLayoutEffect,
 } from 'react';
+import { ResizeObserver } from 'resize-observer';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import { Popover } from '@alfalab/core-components-popover';
@@ -283,7 +284,7 @@ export const BaseSelect = forwardRef(
             if (defaultOpen) openMenu();
         }, [defaultOpen, openMenu]);
 
-        useLayoutEffect(() => {
+        const calcOptionsListWidth = () => {
             if (listRef.current) {
                 const widthAttr = optionsListWidth === 'field' ? 'width' : 'minWidth';
 
@@ -293,7 +294,17 @@ export const BaseSelect = forwardRef(
 
                 listRef.current.style[widthAttr] = `${optionsListMinWidth}px`;
             }
-        }, [open, optionsListWidth, options, selectedItems]);
+        };
+
+        const resizeObserver = useRef(new ResizeObserver(calcOptionsListWidth));
+
+        useEffect(() => {
+            if (!rootRef.current || !resizeObserver.current) return;
+
+            resizeObserver.current[open ? 'observe' : 'unobserve'](rootRef.current);
+        }, [open]);
+
+        useLayoutEffect(calcOptionsListWidth, [open, optionsListWidth, options, selectedItems]);
 
         const renderValue = useCallback(
             () =>
