@@ -10,23 +10,27 @@ exports[`Drawer should match snapshot 1`] = `
 >
   <div
     aria-hidden="true"
-    class="backdrop backdropAppear backdropAppearActive"
+    class="backdrop backdropEnter backdropEnterActive"
   />
   <div
-    class="component appear appearActive"
+    class="component enter enterActive"
   >
     <div
       class="content"
     >
-      <span>
-        header
-      </span>
-      <span>
-        content
-      </span>
-      <span>
-        footer
-      </span>
+      <div
+        class="content contentEnter contentEnterActive"
+      >
+        <span>
+          header
+        </span>
+        <span>
+          content
+        </span>
+        <span>
+          footer
+        </span>
+      </div>
     </div>
   </div>
 </div>
