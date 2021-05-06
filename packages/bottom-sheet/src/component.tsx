@@ -1,7 +1,8 @@
-import React, { forwardRef, ReactNode, useCallback, useEffect, useState } from 'react';
+import React, { forwardRef, ReactNode, RefCallback, useCallback, useEffect, useState } from 'react';
 import cn from 'classnames';
 import { CSSTransition } from 'react-transition-group';
 import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
+import { useSwipeable } from 'react-swipeable';
 
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 import { Portal } from '@alfalab/core-components-portal';
@@ -56,10 +57,19 @@ export type BottomSheetProps = {
     zIndex?: number;
 
     /**
+     * Минимальная скорость смахивания, при которой шторка закроется
+     * https://github.com/FormidableLabs/react-swipeable#swipe-event-data
+     * @default 0.5
+     */
+    swipeCloseVelocity?: number;
+
+    /**
      * Обработчик закрытия
      */
     onClose: () => void;
 };
+
+export const SWIPE_CLOSE_VELOCITY = 0.3;
 
 export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
     (
@@ -73,11 +83,23 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             zIndex = stackingOrder.MODAL,
             transition = DEFAULT_TRANSITION,
             dataTestId,
+            swipeCloseVelocity = SWIPE_CLOSE_VELOCITY,
             onClose,
         },
         ref,
     ) => {
         const [exited, setExited] = useState(!open);
+
+        const { ref: swipeableRef } = useSwipeable({
+            onSwiped: ({ dir, velocity }) => {
+                const shouldClose = dir === 'Down' && velocity > swipeCloseVelocity;
+
+                if (shouldClose) {
+                    onClose();
+                }
+            },
+            delta: 100,
+        }) as { ref: RefCallback<Document> };
 
         const handleBackdropClick = useCallback(() => {
             onClose();
@@ -97,6 +119,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         useEffect(() => {
             if (open) setExited(false);
         }, [open]);
+
+        useEffect(() => {
+            swipeableRef(document);
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, []);
 
         const shouldRender = open || !exited;
 
@@ -158,3 +185,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         );
     },
 );
+
+BottomSheet.defaultProps = {
+    swipeCloseVelocity: SWIPE_CLOSE_VELOCITY,
+};
