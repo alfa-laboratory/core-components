@@ -1,3 +1,10 @@
+## [16.1.3](https://github.com/alfa-laboratory/core-components/compare/v16.1.2...v16.1.3) (2021-05-06)
+
+
+### Bug Fixes
+
+* update popover versions ([#646](https://github.com/alfa-laboratory/core-components/issues/646)) ([199cf80](https://github.com/alfa-laboratory/core-components/commit/199cf80cd60e6edf0ac5d41c7eb258ab05d3b534))
+
 ## [16.1.2](https://github.com/alfa-laboratory/core-components/compare/v16.1.1...v16.1.2) (2021-05-05)
 
 
