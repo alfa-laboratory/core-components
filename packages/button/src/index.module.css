@@ -1,44 +1,6 @@
 @import '../../themes/src/default.css';
 
 :root {
-    /* primary */
-    --button-primary-base-bg-color: var(--color-light-bg-accent);
-    --button-primary-hover-bg-color: color-mod(var(--button-primary-base-bg-color) shade(7%));
-    --button-primary-active-bg-color: color-mod(var(--button-primary-base-bg-color) shade(15%));
-    --button-primary-disabled-bg-color: color-mod(var(--button-primary-base-bg-color) alpha(30%));
-    --button-primary-color: var(--color-light-text-primary-inverted);
-    --button-primary-disabled-color: var(--color-light-text-primary-inverted);
-
-    /* secondary */
-    --button-secondary-base-bg-color: var(--color-light-bg-neutral);
-    --button-secondary-hover-bg-color: color-mod(var(--button-secondary-base-bg-color) shade(7%));
-    --button-secondary-active-bg-color: color-mod(var(--button-secondary-base-bg-color) shade(15%));
-    --button-secondary-disabled-bg-color: color-mod(
-        var(--button-secondary-base-bg-color) alpha(30%)
-    );
-    --button-secondary-base-border-color: transparent;
-    --button-secondary-disabled-border-color: transparent;
-    --button-secondary-color: var(--color-light-text-primary);
-    --button-secondary-disabled-color: color-mod(var(--color-light-text-primary) alpha(30%));
-
-    /* outlined */
-    --button-outlined-base-bg-color: transparent;
-    --button-outlined-hover-bg-color: rgba(0, 0, 0, 0.07);
-    --button-outlined-active-bg-color: rgba(0, 0, 0, 0.15);
-    --button-outlined-disabled-bg-color: transparent;
-    --button-outlined-base-border-color: var(--color-light-border-tertiary-inverted);
-    --button-outlined-disabled-border-color: color-mod(
-        var(--color-light-border-tertiary-inverted) alpha(30%)
-    );
-    --button-outlined-color: var(--color-light-text-primary);
-    --button-outlined-disabled-color: color-mod(var(--color-light-text-primary) alpha(30%));
-
-    /* ghost */
-    --button-ghost-base-color: var(--color-light-text-primary);
-    --button-ghost-hover-color: color-mod(var(--button-ghost-base-color) tint(30%));
-    --button-ghost-active-color: color-mod(var(--button-ghost-base-color) tint(50%));
-    --button-ghost-disabled-color: color-mod(var(--button-ghost-base-color) alpha(30%));
-
     /* misc */
     --button-font-family: var(--font-family);
     --button-border-radius: var(--border-radius-s);
@@ -155,105 +117,16 @@ a.loading {
     }
 }
 
-/* View */
-
-.primary {
-    color: var(--button-primary-color);
-    background-color: var(--button-primary-base-bg-color);
-
-    &:hover {
-        background-color: var(--button-primary-hover-bg-color);
-    }
-
-    &:active {
-        background-color: var(--button-primary-active-bg-color);
-    }
-}
-
-.secondary {
-    color: var(--button-secondary-color);
-    background-color: var(--button-secondary-base-bg-color);
-    border: 1px solid var(--button-secondary-base-border-color);
-
-    &:hover {
-        background-color: var(--button-secondary-hover-bg-color);
-    }
-
-    &:active {
-        background-color: var(--button-secondary-active-bg-color);
-    }
-}
-
-.outlined {
-    color: var(--button-outlined-color);
-    background-color: var(--button-outlined-base-bg-color);
-    border: 1px solid var(--button-outlined-base-border-color);
-
-    &:hover {
-        background-color: var(--button-outlined-hover-bg-color);
-    }
-
-    &:active {
-        background-color: var(--button-outlined-active-bg-color);
-    }
-}
-
-.filled {
-    color: var(--color-light-text-primary);
-    background-color: var(--color-light-bg-neutral);
-
-    &:hover {
-        background-color: color-mod(var(--color-light-bg-neutral) shade(7%));
-    }
-
-    &:active {
-        background-color: color-mod(var(--color-light-bg-neutral) shade(15%));
-    }
-}
-
-.transparent {
-    color: var(--color-light-text-primary);
-    background-color: color-mod(var(--color-light-bg-primary-inverted) alpha(10%));
-
-    &:hover {
-        background-color: color-mod(var(--color-light-bg-primary-inverted) alpha(20%));
-    }
-
-    &:active {
-        background-color: color-mod(var(--color-light-bg-primary-inverted) alpha(40%));
-    }
-}
-
 .link {
     min-width: 0;
-    color: var(--color-light-text-primary);
-    background-color: transparent;
-
-    &:hover {
-        background-color: var(--color-light-specialbg-component);
-    }
-
-    &:active {
-        background-color: color-mod(var(--color-light-specialbg-component) blenda(black 7%));
-    }
 }
 
 .ghost {
     min-width: 0;
     min-height: 0;
     padding: 0;
-    color: var(--button-ghost-base-color);
     border: none;
-    background-color: transparent;
     appearance: none;
-
-    &:hover {
-        color: var(--button-ghost-hover-color);
-    }
-
-    &:active {
-        color: var(--button-ghost-active-color);
-    }
 
     &.iconOnly {
         min-width: 0;
@@ -264,75 +137,6 @@ a.loading {
 
 .component:disabled {
     cursor: var(--disabled-cursor);
-
-    &.primary {
-        color: var(--button-primary-disabled-color);
-        background-color: var(--button-primary-disabled-bg-color);
-
-        &.loading {
-            background-color: var(--button-primary-base-bg-color);
-        }
-    }
-
-    &.secondary {
-        color: var(--button-secondary-disabled-color);
-        background-color: var(--button-secondary-disabled-bg-color);
-        border-color: var(--button-secondary-disabled-border-color);
-
-        &.loading {
-            color: var(--button-secondary-color);
-            background-color: var(--button-secondary-base-bg-color);
-            border-color: var(--button-secondary-base-border-color);
-        }
-    }
-
-    &.outlined {
-        color: var(--button-outlined-disabled-color);
-        background-color: var(--button-outlined-disabled-bg-color);
-        border-color: var(--button-outlined-disabled-border-color);
-
-        &.loading {
-            color: var(--button-outlined-color);
-            border-color: var(--button-outlined-border-color);
-        }
-    }
-
-    &.filled {
-        color: color-mod(var(--color-light-text-primary) alpha(30%));
-        background-color: color-mod(var(--color-light-bg-neutral) alpha(30%));
-
-        &.loading {
-            color: var(--color-light-text-primary);
-            background-color: var(--color-light-bg-neutral);
-        }
-    }
-
-    &.transparent {
-        color: color-mod(var(--color-light-text-primary) alpha(30%));
-        background-color: color-mod(var(--color-light-bg-primary-inverted) alpha(3%));
-
-        &.loading {
-            color: var(--color-light-text-primary);
-            background-color: color-mod(var(--color-light-bg-primary-inverted) alpha(10%));
-        }
-    }
-
-    &.link {
-        color: color-mod(var(--color-light-text-primary) alpha(30%));
-        background-color: transparent;
-
-        &.loading {
-            color: var(--color-light-text-primary);
-        }
-    }
-
-    &.ghost {
-        color: var(--button-ghost-disabled-color);
-
-        &.loading {
-            color: var(--button-ghost-base-color);
-        }
-    }
 }
 
 /* Addons */

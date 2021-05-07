@@ -23,20 +23,36 @@ export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
 <!-- Canvas -->
 
 <Story name='Button'>
-    <Button
-        view={select('view', VIEWS, 'primary')}
-        size={select('size', SIZES, 'm')}
-        href={text('href', '')}
-        loading={boolean('loading')}
-        disabled={boolean('disabled', false)}
-        block={boolean('block', false)}
-        nowrap={boolean('nowrap', false)}
-        onClick={action('click')}
-        leftAddons={boolean('leftAddons', false) && <IconM />}
-        rightAddons={boolean('rightAddons', false) && <IconM />}
-    >
-        {text('label', 'Оплатить')}
-    </Button>
+    {React.createElement(() => {
+        const inverted = boolean('inverted', false);
+        return (
+            <div style={{
+                backgroundColor: inverted ? 'var(--color-light-bg-primary-inverted)' : '#fff',
+                padding: '8px',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+            }}>
+                <Button
+                    view={select('view', VIEWS, 'primary')}
+                    inverted={inverted}
+                    size={select('size', SIZES, 'm')}
+                    href={text('href', '')}
+                    loading={boolean('loading')}
+                    disabled={boolean('disabled', false)}
+                    block={boolean('block', false)}
+                    nowrap={boolean('nowrap', false)}
+                    onClick={action('click')}
+                    leftAddons={boolean('leftAddons', false) && <IconM />}
+                    rightAddons={boolean('rightAddons', false) && <IconM />}
+                >
+                    {text('label', 'Оплатить')}
+                </Button>
+            </div>
+        )
+    })}
 </Story>
 
 

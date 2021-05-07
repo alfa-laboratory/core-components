@@ -12,6 +12,8 @@ import { useFocus } from '@alfalab/hooks';
 import { Loader } from '@alfalab/core-components-loader';
 
 import styles from './index.module.css';
+import defaultColors from './default.module.css';
+import invertedColors from './inverted.module.css';
 
 export type ComponentProps = {
     /**
@@ -63,6 +65,11 @@ export type ComponentProps = {
      * Не переносить текст кнопки на новую строку
      */
     nowrap?: boolean;
+
+    /**
+     * Использует инвертированные цвета для компонента
+     */
+    inverted?: boolean;
 };
 
 type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
@@ -90,10 +97,13 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
             href,
             loading = false,
             nowrap = false,
+            inverted = false,
             ...restProps
         },
         ref,
     ) => {
+        const colorStyles = inverted ? invertedColors : defaultColors;
+
         const buttonRef = useRef<HTMLElement>(null);
 
         const [focused] = useFocus(buttonRef, 'keyboard');
@@ -109,6 +119,8 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                 styles.component,
                 styles[view],
                 styles[size],
+                colorStyles.component,
+                colorStyles[view],
                 {
                     [styles.focused]: focused,
                     [styles.block]: block,
