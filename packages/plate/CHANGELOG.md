@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-plate@1.7.1...@alfalab/core-components-plate@1.7.2) (2021-05-07)
+
+**Note:** Version bump only for package @alfalab/core-components-plate
+
+
+
+
+
 ## [1.7.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-plate@1.7.0...@alfalab/core-components-plate@1.7.1) (2021-04-28)
 
 **Note:** Version bump only for package @alfalab/core-components-plate
