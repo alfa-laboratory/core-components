@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
 import { IntlPhoneInput } from './index';
 
@@ -22,13 +22,11 @@ describe('IntlPhoneInput', () => {
         expect(unmount).not.toThrowError();
     });
 
-    it('should call `onChange` callback after input was changed with dial code of country without priority', () => {
+    it('should call `onChange` callback after input was changed with dial code of country without priority', async () => {
         const onChange = jest.fn();
-        const { getByTestId } = render(
-            <IntlPhoneInput value='' onChange={onChange} dataTestId={testId} />,
-        );
+        render(<IntlPhoneInput value='' onChange={onChange} dataTestId={testId} />);
 
-        const input = getByTestId(testId);
+        const input = await screen.getByDisplayValue('');
 
         fireEvent.change(input, { target: { value: '+54' } });
 
@@ -36,27 +34,42 @@ describe('IntlPhoneInput', () => {
         expect(onChange).toHaveBeenCalledWith('+54');
     });
 
-    it('should call `onChange` callback after input was changed with dial code of country from NANP', () => {
+    it('should call `onChange` callback after input was changed with dial code of country from NANP', async () => {
         const onChange = jest.fn();
-        const { getByTestId } = render(
-            <IntlPhoneInput value='' onChange={onChange} dataTestId={testId} />,
-        );
+        render(<IntlPhoneInput value='' onChange={onChange} dataTestId={testId} />);
 
-        const input = getByTestId(testId);
+        const input = await screen.getByDisplayValue('');
+
         fireEvent.change(input, { target: { value: '+1868' } });
 
         expect(onChange).toHaveBeenCalled();
         expect(onChange).toHaveBeenCalledWith('+1868');
     });
 
-    it('should call `onChange` callback after input was changed with whole russian number', () => {
+    it('should call `onChange` callback after input was changed with whole russian number', async () => {
         const onChange = jest.fn();
-        const { getByTestId } = render(
-            <IntlPhoneInput value='' onChange={onChange} dataTestId={testId} />,
+        render(<IntlPhoneInput value='' onChange={onChange} dataTestId={testId} />);
+
+        const input = await screen.getByDisplayValue('');
+        fireEvent.change(input, { target: { value: '+74957888878' } });
+
+        expect(onChange).toHaveBeenCalled();
+        expect(onChange).toHaveBeenCalledWith('+74957888878');
+    });
+
+    it('should call `onChange` callback after input was changed with whole russian number', async () => {
+        const onChange = jest.fn();
+        render(
+            <IntlPhoneInput
+                value=''
+                onChange={onChange}
+                dataTestId={testId}
+                clearableCountryCode={false}
+            />,
         );
 
-        const input = getByTestId(testId);
-        fireEvent.change(input, { target: { value: '+74957888878' } });
+        const input = await screen.getByDisplayValue('');
+        fireEvent.change(input, { target: { value: '84957888878' } });
 
         expect(onChange).toHaveBeenCalled();
         expect(onChange).toHaveBeenCalledWith('+74957888878');
@@ -94,32 +107,27 @@ describe('IntlPhoneInput', () => {
         const flagComponent = container.querySelector('.flagIcon');
 
         fireEvent.click(flagComponent as HTMLSpanElement);
-
         const option = getAllByRole('option')[0];
-
         fireEvent.click(option);
 
-        expect(onChange).toHaveBeenCalled();
+        waitFor(() => {
+            expect(onChange).toHaveBeenCalled();
+        });
     });
 
-    it('should focus on input after select was changed', () => {
-        const onChange = jest.fn();
-
-        const { container, getAllByRole, getByTestId } = render(
-            <IntlPhoneInput value='' onChange={onChange} dataTestId={testId} />,
+    it('should focus on input after select was changed', async () => {
+        const { container, getAllByRole } = render(
+            <IntlPhoneInput value='+7' onChange={() => null} dataTestId={testId} />,
         );
-
-        const input = getByTestId(testId);
-
+        const input = await screen.findByDisplayValue('+7');
         const flagComponent = container.querySelector('.flagIcon');
 
         fireEvent.click(flagComponent as HTMLSpanElement);
+        fireEvent.click(getAllByRole('option')[0]);
 
-        const option = getAllByRole('option')[0];
-
-        fireEvent.click(option);
-
-        expect(document.activeElement).toBe(input);
+        waitFor(() => {
+            expect(document.activeElement).toBe(input);
+        });
     });
 
     it('should call `onCountryChange` callback after country was changed', () => {
@@ -137,13 +145,15 @@ describe('IntlPhoneInput', () => {
         fireEvent.click(flagComponent as HTMLSpanElement);
         fireEvent.click(getAllByRole('option')[0]);
 
-        expect(onCountryChange).toBeCalledWith('AU');
-        expect(onCountryChange).toHaveBeenCalledTimes(1);
+        waitFor(() => {
+            expect(onCountryChange).toBeCalledWith('AU');
+            expect(onCountryChange).toHaveBeenCalledTimes(1);
+        });
     });
 
-    it('should call `onCountryChange` callback after input was changed', () => {
+    it('should call `onCountryChange` callback after input was changed', async () => {
         const onCountryChange = jest.fn();
-        const { getByTestId } = render(
+        render(
             <IntlPhoneInput
                 value=''
                 onChange={() => null}
@@ -152,11 +162,37 @@ describe('IntlPhoneInput', () => {
                 defaultCountryIso2='ru'
             />,
         );
-        const input = getByTestId(testId);
+        const input = await screen.getByDisplayValue('');
 
         fireEvent.change(input, { target: { value: '+998 12 345 67 89' } });
 
         expect(onCountryChange).toBeCalledWith('UZ');
         expect(onCountryChange).toHaveBeenCalledTimes(1);
+    });
+
+    it('should remove country code', async () => {
+        const onChange = jest.fn();
+        render(<IntlPhoneInput value='+7' onChange={onChange} />);
+
+        const input = await screen.findByDisplayValue('+7');
+        fireEvent.change(input, { target: { value: '+' } });
+
+        waitFor(() => {
+            expect(onChange).toHaveBeenCalledWith('+');
+            expect(input).toHaveValue('+');
+        });
+    });
+
+    it('should not remove country code', async () => {
+        const onChange = jest.fn();
+        render(<IntlPhoneInput value='+7' onChange={onChange} clearableCountryCode={false} />);
+
+        const input = await screen.findByDisplayValue('+7');
+        fireEvent.change(input, { target: { value: '+' } });
+
+        waitFor(() => {
+            expect(onChange).not.toHaveBeenCalled();
+            expect(input).toHaveValue('+7');
+        });
     });
 });
