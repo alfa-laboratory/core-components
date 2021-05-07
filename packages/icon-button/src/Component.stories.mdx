@@ -23,7 +23,7 @@ import { name, version } from '../package.json';
 <Story name='IconButton'>
     <IconButton
         size={select('size', ['xxs', 'xs', 's'], 's')}
-        view={select('view', ['primary', 'secondary', 'transparent'], 'primary')}
+        view={select('view', ['primary', 'secondary', 'transparent', 'negative'], 'primary')}
         icon={StarMIcon}
     />
 </Story>
@@ -103,6 +103,21 @@ import { IconButton } from '@alfalab/core-components-icon-button';
             </Col>
             <Col>
                 <IconButton view='transparent' icon={BankAlfaXxlBlackIcon} />
+            </Col>
+        </Row>
+    </Container>
+</Preview>
+
+- <b>Negative</b>
+
+<Preview>
+    <Container>
+        <Row>
+            <Col>
+                <IconButton view='negative' icon={StarMIcon} />
+            </Col>
+            <Col>
+                <IconButton view='negative' icon={BankAlfaXxlBlackIcon} />
             </Col>
         </Row>
     </Container>
