@@ -1,3 +1,11 @@
+# [16.3.0](https://github.com/alfa-laboratory/core-components/compare/v16.2.0...v16.3.0) (2021-05-07)
+
+
+### Features
+
+* **button:** fix version ([#648](https://github.com/alfa-laboratory/core-components/issues/648)) ([ec51599](https://github.com/alfa-laboratory/core-components/commit/ec5159910a7fdc103d4f4e8d3d4198db3ffbdcc8))
+* **intl-phone-input:** add autocomplete ([#630](https://github.com/alfa-laboratory/core-components/issues/630)) ([18b5714](https://github.com/alfa-laboratory/core-components/commit/18b57143ede6bf5e9fcd7d460b4859c6d86c026b))
+
 # [16.2.0](https://github.com/alfa-laboratory/core-components/compare/v16.1.3...v16.2.0) (2021-05-07)
 
 
