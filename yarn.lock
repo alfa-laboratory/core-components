@@ -60,7 +60,7 @@
   resolved "https://registry.yarnpkg.com/@alfalab/core-components-mq/-/core-components-mq-1.0.0.tgz#7bb1eb6651962178d05b63afb5cf65cf14156a49"
   integrity sha512-8IzpRffooGggKdfIU82I5kv1mmlIE7u/PYLsjABINJ24+QI49WBHeGM4Rz7GnP+dVfBGxPWSaWMWSrzaUNdCyQ==
 
-"@alfalab/core-components-popover@^1.3.1", "@alfalab/core-components-popover@^1.4.0":
+"@alfalab/core-components-popover@^1.3.1":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components-popover/-/core-components-popover-1.4.0.tgz#b32a9785a4ff574cd87e90e88250012ba356836e"
   integrity sha512-Rt75fwznzyCMDTsq/UxAXbac8TmJS4V7D/YGReSU5t1VjDS/MQV7editwR+bYhtkcnmzTq/JjK+dKQuCKoBY5g==
@@ -13598,10 +13598,10 @@ json5@^1.0.1:
   dependencies:
     minimist "^1.2.0"
 
-json@^9.0.6:
-  version "9.0.6"
-  resolved "https://registry.yarnpkg.com/json/-/json-9.0.6.tgz#7972c2a5a48a42678db2730c7c2c4ee6e4e24585"
-  integrity sha1-eXLCpaSKQmeNsnMMfCxO5uTiRYU=
+json@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/json/-/json-10.0.0.tgz#c49a939d4abc7067cc225419d5dd17ab7bf2f66c"
+  integrity sha512-iK7tAZtpoghibjdB1ncCWykeBMmke3JThUe+rnkD4qkZaglOIQ70Pw7r5UJ4lyUT+7gnw7ehmmLUHDuhqzQD+g==
 
 jsonfile@^2.1.0:
   version "2.4.0"
