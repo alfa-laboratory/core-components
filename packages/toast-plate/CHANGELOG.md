@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@2.3.0...@alfalab/core-components-toast-plate@2.3.1) (2021-05-05)
+
+
+### Bug Fixes
+
+* **toast-plate:** fix cross color ([#642](https://github.com/alfa-laboratory/core-components/issues/642)) ([96a17fd](https://github.com/alfa-laboratory/core-components/commit/96a17fdcd28a37519845d5a0c40809f107e3031f))
+
+
+
+
+
 # [2.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@2.2.9...@alfalab/core-components-toast-plate@2.3.0) (2021-04-26)
 
 

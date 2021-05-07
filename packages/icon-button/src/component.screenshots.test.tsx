@@ -16,7 +16,7 @@ describe(
         cases: generateTestCases({
             componentName: 'IconButton',
             knobs: {
-                view: ['primary', 'secondary', 'transparent'],
+                view: ['primary', 'secondary', 'transparent', 'negative'],
                 size: ['xxs', 'xs', 's'],
             },
             testStory: false,
@@ -33,7 +33,7 @@ describe(
         cases: generateTestCases({
             componentName: 'IconButton',
             knobs: {
-                view: ['primary', 'secondary', 'transparent'],
+                view: ['primary', 'secondary', 'transparent', 'negative'],
                 size: ['s'],
             },
             testStory: false,
@@ -51,7 +51,7 @@ describe(
         cases: generateTestCases({
             componentName: 'IconButton',
             knobs: {
-                view: ['primary', 'secondary', 'transparent'],
+                view: ['primary', 'secondary', 'transparent', 'negative'],
                 size: ['s'],
             },
             testStory: false,

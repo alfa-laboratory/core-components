@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@3.0.0...@alfalab/core-components-calendar-input@3.0.1) (2021-05-06)
+
+
+### Bug Fixes
+
+* update popover versions ([#646](https://github.com/alfa-laboratory/core-components/issues/646)) ([199cf80](https://github.com/alfa-laboratory/core-components/commit/199cf80cd60e6edf0ac5d41c7eb258ab05d3b534))
+
+
+
+
+
 # [3.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@2.6.0...@alfalab/core-components-calendar-input@3.0.0) (2021-04-26)
 
 

@@ -14,7 +14,7 @@ export type IconButtonProps = {
     /**
      * Тип кнопки
      */
-    view?: 'primary' | 'secondary' | 'transparent';
+    view?: 'primary' | 'secondary' | 'transparent' | 'negative';
 
     /**
      * Размер компонента
