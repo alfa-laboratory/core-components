@@ -1,3 +1,19 @@
+# [16.3.0](https://github.com/alfa-laboratory/core-components/compare/v16.2.0...v16.3.0) (2021-05-07)
+
+
+### Features
+
+* **button:** fix version ([#648](https://github.com/alfa-laboratory/core-components/issues/648)) ([ec51599](https://github.com/alfa-laboratory/core-components/commit/ec5159910a7fdc103d4f4e8d3d4198db3ffbdcc8))
+* **intl-phone-input:** add autocomplete ([#630](https://github.com/alfa-laboratory/core-components/issues/630)) ([18b5714](https://github.com/alfa-laboratory/core-components/commit/18b57143ede6bf5e9fcd7d460b4859c6d86c026b))
+
+# [16.2.0](https://github.com/alfa-laboratory/core-components/compare/v16.1.3...v16.2.0) (2021-05-07)
+
+
+### Features
+
+* **button:** add loader minimal display interval ([#634](https://github.com/alfa-laboratory/core-components/issues/634)) ([d2f7edc](https://github.com/alfa-laboratory/core-components/commit/d2f7edc52c3e43ce3f5db8250446227b869ab731))
+* **icon-button:** add negative view ([#635](https://github.com/alfa-laboratory/core-components/issues/635)) ([7006116](https://github.com/alfa-laboratory/core-components/commit/70061167d1e00a786e28c53ebb26e4e174d03311))
+
 ## [16.1.3](https://github.com/alfa-laboratory/core-components/compare/v16.1.2...v16.1.3) (2021-05-06)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-input-autocomplete@6.0.19...@alfalab/core-components-input-autocomplete@6.1.0) (2021-05-07)
+
+
+### Features
+
+* **intl-phone-input:** add autocomplete ([#630](https://github.com/alfa-laboratory/core-components/issues/630)) ([18b5714](https://github.com/alfa-laboratory/core-components/commit/18b57143ede6bf5e9fcd7d460b4859c6d86c026b))
+
+
+
+
+
 ## [6.0.19](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-input-autocomplete@6.0.18...@alfalab/core-components-input-autocomplete@6.0.19) (2021-04-28)
 
 **Note:** Version bump only for package @alfalab/core-components-input-autocomplete

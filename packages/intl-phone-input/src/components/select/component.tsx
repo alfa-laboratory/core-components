@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { FC, useCallback, useMemo } from 'react';
 
 import { OptionsList, Select, SelectProps } from '@alfalab/core-components-select';
@@ -52,16 +54,17 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
     );
 
     return (
-        <Select
-            disabled={disabled}
-            size={size}
-            options={options}
-            selected={selected}
-            onChange={onChange}
-            Field={SelectField}
-            OptionsList={renderOptionsList}
-            preventFlip={preventFlip}
-            className={styles.component}
-        />
+        <div className={styles.component} onClick={event => event.stopPropagation()}>
+            <Select
+                disabled={disabled}
+                size={size}
+                options={options}
+                selected={selected}
+                onChange={onChange}
+                Field={SelectField}
+                OptionsList={renderOptionsList}
+                preventFlip={preventFlip}
+            />
+        </div>
     );
 };

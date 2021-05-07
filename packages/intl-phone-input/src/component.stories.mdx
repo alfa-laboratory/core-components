@@ -1,10 +1,36 @@
 import { Meta, Story, Preview, Props, Description, Title } from '@storybook/addon-docs/blocks';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import { action } from '@storybook/addon-actions';
-import { text, select, boolean } from '@storybook/addon-knobs';
+import { text, select, boolean, object } from '@storybook/addon-knobs';
 
 import { IntlPhoneInput } from './component';
 import { name, version } from '../package.json';
+
+export const options = [
+            {
+                key: '+7 921 681 53 98',
+                content: '+7 921 681 53 98'
+            },
+            {
+                key: '+7 921 681 52 97',
+                content: '+7 921 681 52 97'
+            },
+            {
+                key: '+7 921 681 52 96',
+                content: '+7 921 681 52 96'
+            },
+            {
+                key: '+7 921 681 52 95',
+                content: '+7 921 681 52 95'
+            },
+            {
+                key: '+7 921 681 52 94',
+                content: '+7 921 681 52 94'
+            },
+        ];
+
+export const matchOption = (option, inputValue) =>
+    option.key.toLowerCase().includes((inputValue || '').toLowerCase());
 
 <Meta
     title='Компоненты'
@@ -46,7 +72,8 @@ import { IntlPhoneInput } from '@alfalab/core-components-intl-phone-input';
             const block = boolean('block', false);
             const disabled = boolean('disabled', false);
             const label = text('label', 'Номер телефона');
-            const handleCountryChange = React.useCallback((countryCode) => { 
+            const clearableCountryCode = boolean('clearableCountryCode', true);
+            const handleCountryChange = React.useCallback((countryCode) => {
                 setSelectedCountry(countryCode);
             })
             return (
@@ -61,6 +88,7 @@ import { IntlPhoneInput } from '@alfalab/core-components-intl-phone-input';
                         defaultCountryIso2="RU"
                         readOnly={boolean('readOnly', false)}
                         onCountryChange={handleCountryChange}
+                        clearableCountryCode={clearableCountryCode}
                     />
                     <br />
                     Код выбранной страны: <strong>{selectedCountry}</strong>
@@ -70,3 +98,83 @@ import { IntlPhoneInput } from '@alfalab/core-components-intl-phone-input';
 </Story>
 
 <Props of={IntlPhoneInput} />
+
+### Кейс с очисткой поля
+
+<Preview>
+    {React.createElement(() => {
+            const [value, setValue] = React.useState('+7');
+            const [selectedCountry, setSelectedCountry] = React.useState('RU');
+            const handleChange = React.useCallback((newValue) => {
+                setValue(newValue);
+            }, [setValue]);
+            const size = select('size', ['s', 'm', 'l', 'xl'], 'm');
+            const disabled = boolean('disabled', false);
+            const label = text('label', 'Номер телефона');
+            const handleCountryChange = React.useCallback((countryCode) => {
+                setSelectedCountry(countryCode);
+            });
+            const handleClear = React.useCallback(() => setValue(''));
+            return (
+                <div style={{ width: '240px' }}>
+                    <IntlPhoneInput
+                        inputProps={{
+                            clear: true,
+                            onClear: handleClear
+                        }}
+                        value={value}
+                        onChange={handleChange}
+                        size={size}
+                        block={true}
+                        label={label}
+                        disabled={disabled}
+                        defaultCountryIso2="RU"
+                        readOnly={boolean('readOnly', false)}
+                        onCountryChange={handleCountryChange}
+                    />
+                    <br />
+                    Код выбранной страны: <strong>{selectedCountry}</strong>
+                </div>
+            );
+        })}
+</Preview>
+
+
+### Кейс с автокомплитом
+
+<Preview>
+    {React.createElement(() => {
+            const [value, setValue] = React.useState('+7');
+            const [selectedCountry, setSelectedCountry] = React.useState('RU');
+            const handleChange = React.useCallback((newValue) => {
+                setValue(newValue);
+            }, [setValue]);
+            const size = select('size', ['s', 'm', 'l', 'xl'], 'm');
+            const block = boolean('block', false);
+            const disabled = boolean('disabled', false);
+            const label = text('label', 'Номер телефона');
+            const handleCountryChange = React.useCallback((countryCode) => {
+                setSelectedCountry(countryCode);
+            });
+            const handleClear = React.useCallback(() => setValue(''));
+            const filteredOptions = options.filter(option => matchOption(option, value));
+            return (
+                <React.Fragment>
+                    <IntlPhoneInput
+                        value={value}
+                        onChange={handleChange}
+                        size={size}
+                        options={filteredOptions}
+                        block={block}
+                        label={label}
+                        disabled={disabled}
+                        defaultCountryIso2="RU"
+                        readOnly={boolean('readOnly', false)}
+                        onCountryChange={handleCountryChange}
+                    />
+                    <br />
+                    Код выбранной страны: <strong>{selectedCountry}</strong>
+                </React.Fragment>
+            );
+        })}
+</Preview>

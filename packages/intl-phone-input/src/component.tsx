@@ -1,23 +1,22 @@
 import React, { forwardRef, useState, useEffect, useCallback, ChangeEvent, useRef } from 'react';
 import cn from 'classnames';
 
-import mergeRefs from 'react-merge-refs';
 import { AsYouType, CountryCode } from 'libphonenumber-js';
 
-import { Input, InputProps } from '@alfalab/core-components-input';
-import { SelectProps } from '@alfalab/core-components-select';
-import { getCountries, getCountriesHash } from '@alfalab/utils';
-
+import { OptionShape, SelectProps } from '@alfalab/core-components-select';
+import { Country, getCountries, getCountriesHash } from '@alfalab/utils';
+import {
+    InputAutocomplete,
+    InputAutocompleteProps,
+} from '@alfalab/core-components-input-autocomplete';
 import { CountriesSelect } from './components';
-
 import styles from './index.module.css';
 
-const countries = getCountries();
 const countriesHash = getCountriesHash();
 
 const MAX_DIAL_CODE_LENGTH = 4;
 
-export type IntlPhoneInputProps = Omit<InputProps, 'value' | 'onChange' | 'type' | 'defaultValue'> &
+export type IntlPhoneInputProps = Partial<Omit<InputAutocompleteProps, 'onChange'>> &
     Pick<SelectProps, 'preventFlip'> & {
         /**
          * Значение
@@ -38,6 +37,16 @@ export type IntlPhoneInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'
          * Обработчик события изменения страны
          */
         onCountryChange?: (countryCode: CountryCode) => void;
+
+        /**
+         * Список стран
+         */
+        countries?: Country[];
+
+        /**
+         * Возможность стереть код страны
+         */
+        clearableCountryCode?: boolean;
     };
 
 export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
@@ -46,12 +55,16 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             disabled = false,
             readOnly = false,
             size = 'm',
+            options = [],
+            countries = getCountries(),
+            clearableCountryCode = true,
             className,
             value,
             onChange,
             onCountryChange,
             defaultCountryIso2 = 'ru',
             preventFlip,
+            inputProps,
             ...restProps
         },
         ref,
@@ -59,7 +72,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         const [countryIso2, setCountryIso2] = useState(defaultCountryIso2.toLowerCase());
 
         const inputRef = useRef<HTMLInputElement>(null);
-        const inputWrapperRef = useRef<HTMLDivElement>(null);
+        const [inputWrapperRef, setInputWrapperRef] = useState<HTMLDivElement | null>(null);
 
         const phoneLibUtils = useRef<typeof AsYouType>();
 
@@ -87,10 +100,9 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
 
                     newValue = utils.input(inputValue);
                 }
-
                 onChange(newValue);
             },
-            [onChange, countryIso2],
+            [countryIso2, onChange],
         );
 
         const handleCountryChange = useCallback(
@@ -135,7 +147,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     }
                 }
             },
-            [countryIso2, setValue, handleCountryChange],
+            [countries, countryIso2, setValue, handleCountryChange],
         );
 
         const loadPhoneUtils = useCallback(() => {
@@ -152,19 +164,40 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 const {
                     target: { value: targetValue },
                 } = event;
+                const country = countriesHash[countryIso2];
 
-                const newValue =
-                    targetValue.length === 1 && targetValue !== '+'
-                        ? `+${targetValue}`
-                        : targetValue;
+                if (clearableCountryCode) {
+                    const newValue =
+                        targetValue.length === 1 && targetValue !== '+'
+                            ? `+${targetValue}`
+                            : targetValue;
 
-                setValue(newValue);
+                    setValue(newValue);
 
-                if (value.length < MAX_DIAL_CODE_LENGTH) {
-                    setCountryByDialCode(newValue);
+                    if (value.length < MAX_DIAL_CODE_LENGTH) {
+                        setCountryByDialCode(newValue);
+                    }
+                    return;
+                }
+
+                if (!clearableCountryCode) {
+                    let newValue;
+
+                    if (targetValue[0] === '8') {
+                        newValue = `+${country.dialCode}${targetValue.substr(1)}`;
+                        setValue(newValue);
+                        return;
+                    }
+
+                    if (targetValue.substr(1) < country.dialCode) {
+                        newValue = `+${country.dialCode}`;
+                        setValue(newValue);
+                        return;
+                    }
+                    setValue(targetValue);
                 }
             },
-            [setValue, setCountryByDialCode, value.length],
+            [clearableCountryCode, countryIso2, setCountryByDialCode, setValue, value.length],
         );
 
         const handleSelectChange = useCallback<Required<SelectProps>['onChange']>(
@@ -184,41 +217,64 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             [setCountryByIso2, handleCountryChange],
         );
 
+        const handleChange = useCallback(
+            (payload: {
+                selected: OptionShape | null;
+                selectedMultiple: OptionShape[];
+                name?: string;
+            }) => {
+                const { selected } = payload;
+                if (!selected) return;
+                if (selected.key.length < MAX_DIAL_CODE_LENGTH) {
+                    setCountryByDialCode(selected.key);
+                }
+                setValue(selected.key);
+            },
+            [setValue, setCountryByDialCode],
+        );
+
         useEffect(() => {
             if (!phoneLibUtils.current) {
                 loadPhoneUtils().then(() => {
                     setCountryByDialCode(value);
                 });
             }
-        }, [loadPhoneUtils, setCountryByDialCode, value]);
+        }, [countryIso2, loadPhoneUtils, setCountryByDialCode, value]);
 
         return (
-            <Input
+            <InputAutocomplete
                 {...restProps}
-                onChange={handleInputChange}
-                value={value}
-                type='tel'
-                ref={mergeRefs([inputRef, ref])}
-                wrapperRef={inputWrapperRef}
-                className={cn(className, styles[size])}
-                addonsClassName={styles.addons}
-                size={size}
+                ref={ref}
+                inputProps={{
+                    ...inputProps,
+                    ref: inputRef,
+                    wrapperRef: setInputWrapperRef,
+                    type: 'tel',
+                    className: cn(className, styles[size]),
+                    addonsClassName: styles.addons,
+                    leftAddons: (
+                        <CountriesSelect
+                            disabled={disabled || readOnly}
+                            size={size}
+                            selected={countryIso2}
+                            countries={countries}
+                            onChange={handleSelectChange}
+                            fieldWidth={
+                                inputWrapperRef && inputWrapperRef.getBoundingClientRect().width
+                            }
+                            preventFlip={preventFlip}
+                        />
+                    ),
+                }}
+                closeOnSelect={true}
+                onInput={handleInputChange}
+                onChange={handleChange}
+                options={options}
                 disabled={disabled}
                 readOnly={readOnly}
-                leftAddons={
-                    <CountriesSelect
-                        disabled={disabled || readOnly}
-                        size={size}
-                        selected={countryIso2}
-                        countries={countries}
-                        onChange={handleSelectChange}
-                        fieldWidth={
-                            inputWrapperRef.current &&
-                            inputWrapperRef.current.getBoundingClientRect().width
-                        }
-                        preventFlip={preventFlip}
-                    />
-                }
+                size={size}
+                className={className}
+                value={value}
             />
         );
     },
