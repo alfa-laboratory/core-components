@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@1.2.1...@alfalab/core-components-icon-button@1.3.0) (2021-05-07)
+
+
+### Features
+
+* **icon-button:** add negative view ([#635](https://github.com/alfa-laboratory/core-components/issues/635)) ([7006116](https://github.com/alfa-laboratory/core-components/commit/70061167d1e00a786e28c53ebb26e4e174d03311))
+
+
+
+
+
 ## [1.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@1.2.0...@alfalab/core-components-icon-button@1.2.1) (2021-04-26)
 
 **Note:** Version bump only for package @alfalab/core-components-icon-button
