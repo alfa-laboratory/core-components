@@ -38,6 +38,11 @@ export type BackdropProps = Partial<TransitionProps> & {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Прозрачность бэкдропа
+     */
+    opacity?: number;
 };
 
 export const Backdrop: React.FC<BackdropProps> = ({
@@ -49,6 +54,7 @@ export const Backdrop: React.FC<BackdropProps> = ({
     onClose,
     dataTestId,
     transitionClassNames = styles,
+    opacity = 1,
     ...restProps
 }) => {
     return (
@@ -67,6 +73,7 @@ export const Backdrop: React.FC<BackdropProps> = ({
                 className={cn(styles.backdrop, className, {
                     [styles.invisible]: invisible,
                 })}
+                style={{ opacity }}
             >
                 {children}
             </div>

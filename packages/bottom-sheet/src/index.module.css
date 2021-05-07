@@ -21,9 +21,8 @@
     border-top-right-radius: 16px;
     border-top-left-radius: 16px;
     background: var(--color-light-bg-primary);
-    transition-timing-function: ease-in-out;
-    transition-property: opacity, transform;
     overflow: auto;
+    will-change: transform;
 }
 
 .marker {
@@ -59,23 +58,19 @@
 
 .enter,
 .appear {
-    opacity: 0;
     transform: translateY(100%);
 }
 
 .enterActive,
 .appearActive {
-    opacity: 1;
     transform: translateY(0);
 }
 
 .exit {
-    opacity: 1;
     transform: translateY(0);
 }
 
 .exitActive,
 .exitDone {
-    opacity: 0;
     transform: translateY(100%);
 }
