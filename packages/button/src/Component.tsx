@@ -1,4 +1,10 @@
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, useRef } from 'react';
+import React, {
+    AnchorHTMLAttributes,
+    ButtonHTMLAttributes,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
 
@@ -61,7 +67,14 @@ export type ComponentProps = {
 
 type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
 type NativeButtonProps = ComponentProps & ButtonHTMLAttributes<HTMLButtonElement>;
+
 export type ButtonProps = Partial<AnchorButtonProps | NativeButtonProps>;
+
+/**
+ * Минимальное время отображения лоадера - 500мс,
+ * чтобы при быстрых ответах от сервера кнопка не «моргала».
+ */
+export const LOADER_MIN_DISPLAY_INTERVAL = 500;
 
 export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
     (
@@ -85,6 +98,12 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
 
         const [focused] = useFocus(buttonRef, 'keyboard');
 
+        const [loaderTimePassed, setLoaderTimePassed] = useState(true);
+
+        const timerId = useRef(0);
+
+        const showLoader = loading || !loaderTimePassed;
+
         const componentProps = {
             className: cn(
                 styles.component,
@@ -95,7 +114,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                     [styles.block]: block,
                     [styles.iconOnly]: !children,
                     [styles.nowrap]: nowrap,
-                    [styles.loading]: loading,
+                    [styles.loading]: showLoader,
                 },
                 className,
             ),
@@ -114,10 +133,28 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                         {children}
                     </span>
                 )}
-                {loading && <Loader className={styles.loader} />}
+
+                {showLoader && <Loader className={styles.loader} />}
+
                 {rightAddons && <span className={styles.addons}>{rightAddons}</span>}
             </React.Fragment>
         );
+
+        useEffect(() => {
+            if (loading) {
+                setLoaderTimePassed(false);
+
+                timerId.current = window.setTimeout(() => {
+                    setLoaderTimePassed(true);
+                }, LOADER_MIN_DISPLAY_INTERVAL);
+            }
+        }, [loading]);
+
+        useEffect(() => {
+            return () => {
+                window.clearTimeout(timerId.current);
+            };
+        }, []);
 
         if (href) {
             const { target } = restProps as AnchorHTMLAttributes<HTMLAnchorElement>;
@@ -146,7 +183,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                 {...restButtonProps}
                 // eslint-disable-next-line react/button-has-type
                 type={type}
-                disabled={disabled || loading}
+                disabled={disabled || showLoader}
                 ref={mergeRefs([buttonRef, ref])}
             >
                 {buttonChildren}
