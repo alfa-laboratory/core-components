@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
+<body
+  style="padding-right: 0px; overflow: hidden;"
+>
+  <div />
+  <div
+    alfa-portal-container=""
+  >
+    <div
+      class="wrapper"
+      role="dialog"
+      style="z-index: 100;"
+      tabindex="-1"
+    >
+      <div
+        style="opacity: 1;"
+      >
+        <div
+          aria-hidden="true"
+          class="backdrop"
+        />
+      </div>
+      <div
+        class="component"
+        style="transition: transform 200ms ease-in-out;"
+      >
+        <div
+          class="marker"
+        />
+        <div
+          class="scrollableContainer withPadding"
+        >
+          <div
+            class="content"
+          >
+            Bottom sheet content
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Bottom sheet Snapshots tests should match snapshot with action button 1`] = `
+<body
+  style="padding-right: 0px; overflow: hidden;"
+>
+  <div
+    alfa-portal-container=""
+  >
+    <div
+      class="wrapper"
+      role="dialog"
+      style="z-index: 100;"
+      tabindex="-1"
+    >
+      <div
+        style="opacity: 1;"
+      >
+        <div
+          aria-hidden="true"
+          class="backdrop"
+        />
+      </div>
+      <div
+        class="component"
+        style="transition: transform 200ms ease-in-out;"
+      >
+        <div
+          class="marker"
+        />
+        <div
+          class="scrollableContainer"
+        >
+          <div
+            class="content"
+          >
+            Bottom sheet content
+          </div>
+          <div
+            class="footer"
+          >
+            <div />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div />
+</body>
+`;

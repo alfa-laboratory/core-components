@@ -1,10 +1,15 @@
 import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
-import { text, select, boolean } from '@storybook/addon-knobs';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Button } from '@alfalab/core-components-button';
 
 import { BottomSheet } from './';
 import { name, version } from '../package.json';
+
+export const shortText =
+    'Пользуйтесь сразу: реквизиты виртуальной и пластиковой карты будут доступны уже через 60 секунд после после оформления.';
+
+export const longText = Array(10).fill(shortText).join('\n\n');
 
 <Meta
     title='Компоненты'
@@ -19,22 +24,46 @@ import { name, version } from '../package.json';
         const handleClose = React.useCallback(() => {
             setOpen(false);
         }, []);
+        const [textContent, setTextContent] = React.useState('');
+        const renderActionButton = boolean('renderActionButton', true);
         return (
-            <>
-                <Button onClick={() => { setOpen(true); }}>Окрыть шторку</Button>
+            <div>
+                <Button
+                    onClick={() => {
+                        setTextContent(shortText);
+                        setOpen(true);
+                    }}
+                    style={{ margin: '15px'}}
+                    id="button-1"
+                >
+                    Окрыть шторку
+                </Button>
+                <Button
+                    onClick={() => {
+                        setTextContent(longText);
+                        setOpen(true);
+                    }}
+                    style={{ margin: '15px'}}
+                    id="button-2"
+                >
+                    Окрыть шторку с длинным контентом
+                </Button>
                 <BottomSheet
+                    key={textContent}
                     open={open}
                     title={text('title', 'Альфа-Бизнес')}
-                    actionButton={<Button view="outlined" block={true} size="s" onClick={handleClose}>Понятно</Button>}
+                    actionButton={renderActionButton &&
+                        <Button view="outlined" block={true} size="s" onClick={handleClose}>Понятно</Button>}
                     onClose={handleClose}
+                    desktopSwipeable={boolean('desktopSwipeable', true)}
+                    swipeCloseVelocity={number('swipeCloseVelocity', 0.3)}
+                    closeOffset={number('closeOffset', 0.33)}
                 >
-                    {text(
-                        'children',
-                        'Пользуйтесь сразу: реквизиты виртуальной и пластиковой карты будут доступны уже через ' +
-                        '60 секунд после после оформления. А пластик можно забрать в отделении через несколько дней'
-                    )}
+                    <div style={{whiteSpace: 'pre-wrap'}}>
+                        {textContent}
+                    </div>
                 </BottomSheet>
-            </>
+            </div>
         )
     })}
 </Story>

@@ -2,26 +2,28 @@
 
 .wrapper {
     position: fixed;
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
     overflow: auto;
     outline: 0;
 }
 
 .component {
+    position: relative;
     display: flex;
     flex-direction: column;
+    width: 100%;
     max-height: calc(100vh - 72px);
     max-width: 600px;
-    padding-top: var(--gap-2xl);
     border-top-right-radius: 16px;
     border-top-left-radius: 16px;
     background: var(--color-light-bg-primary);
-    overflow: auto;
     will-change: transform;
 }
 
@@ -36,6 +38,15 @@
     background-color: var(--color-light-graphic-neutral);
 }
 
+.scrollableContainer {
+    overflow: auto;
+    padding-top: var(--gap-2xl);
+}
+
+.withPadding {
+    padding-bottom: var(--gap-3xl);
+}
+
 .content {
     display: flex;
     flex-direction: column;
@@ -44,16 +55,24 @@
     will-change: transform;
 }
 
-.actionButtonWrapper {
+.footer {
     position: sticky;
     bottom: 0;
     padding: var(--gap-2xl) var(--gap-m) var(--gap-3xl);
     background-color: var(--color-light-bg-primary);
 }
 
+.highlighted {
+    box-shadow: var(--shadow-s-up);
+}
+
 .title {
     margin-bottom: var(--gap-xl);
     padding: 0 var(--gap-m);
+}
+
+.scrollLocked {
+    overflow: hidden;
 }
 
 .enter,

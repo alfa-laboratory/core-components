@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-backdrop": "^1.1.2",
+        "@alfalab/core-components-base-modal": "^2.0.0",
         "@alfalab/core-components-portal": "^1.4.6",
         "@alfalab/core-components-stack": "^2.0.0",
         "@alfalab/core-components-typography": "^1.4.7",
