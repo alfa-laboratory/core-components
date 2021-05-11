@@ -54,7 +54,7 @@ export const Backdrop: React.FC<BackdropProps> = ({
     onClose,
     dataTestId,
     transitionClassNames = styles,
-    opacity = 1,
+    opacity,
     ...restProps
 }) => {
     return (
@@ -73,7 +73,7 @@ export const Backdrop: React.FC<BackdropProps> = ({
                 className={cn(styles.backdrop, className, {
                     [styles.invisible]: invisible,
                 })}
-                style={{ opacity }}
+                style={opacity === undefined ? {} : { opacity }}
             >
                 {children}
             </div>

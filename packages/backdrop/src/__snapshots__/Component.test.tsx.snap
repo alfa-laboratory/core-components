@@ -5,7 +5,6 @@ exports[`Backdrop should match snapshot 1`] = `
   aria-hidden="true"
   class="backdrop appear appearActive"
   data-test-id="Backdrop"
-  style="opacity: 1;"
 >
   <span>
     children
@@ -18,7 +17,6 @@ exports[`Backdrop should match snapshot 2`] = `
   aria-hidden="true"
   class="backdrop appearDone enterDone"
   data-test-id="Backdrop"
-  style="opacity: 1;"
 >
   <span>
     children
@@ -31,7 +29,6 @@ exports[`Backdrop should match snapshot 3`] = `
   aria-hidden="true"
   class="backdrop exit exitActive"
   data-test-id="Backdrop"
-  style="opacity: 1;"
 >
   <span>
     children
