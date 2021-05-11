@@ -1,5 +1,5 @@
 import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
-import { text, select, boolean } from '@storybook/addon-knobs';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Button } from '@alfalab/core-components-button';
 
@@ -20,13 +20,16 @@ import { name, version } from '../package.json';
             setOpen(false);
         }, []);
         return (
-            <>
+            <div>
                 <Button onClick={() => { setOpen(true); }}>Окрыть шторку</Button>
                 <BottomSheet
                     open={open}
                     title={text('title', 'Альфа-Бизнес')}
                     actionButton={<Button view="outlined" block={true} size="s" onClick={handleClose}>Понятно</Button>}
                     onClose={handleClose}
+                    desktopSwipeable={boolean('desktopSwipeable', true)}
+                    swipeCloseVelocity={number('swipeCloseVelocity', 0.3)}
+                    closeOffset={number('closeOffset', 0.33)}
                 >
                     {text(
                         'children',
@@ -34,7 +37,7 @@ import { name, version } from '../package.json';
                         '60 секунд после после оформления. А пластик можно забрать в отделении через несколько дней'
                     )}
                 </BottomSheet>
-            </>
+            </div>
         )
     })}
 </Story>

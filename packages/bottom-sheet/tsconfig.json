@@ -13,6 +13,7 @@
         { "path": "../portal" },
         { "path": "../backdrop" },
         { "path": "../stack" },
-        { "path": "../typography" }
+        { "path": "../typography" },
+        { "path": "../base-modal" }
     ]
 }

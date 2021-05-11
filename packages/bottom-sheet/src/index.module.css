@@ -2,26 +2,27 @@
 
 .wrapper {
     position: fixed;
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
     overflow: auto;
     outline: 0;
 }
 
 .component {
+    position: relative;
     display: flex;
     flex-direction: column;
     max-height: calc(100vh - 72px);
     max-width: 600px;
-    padding-top: var(--gap-2xl);
     border-top-right-radius: 16px;
     border-top-left-radius: 16px;
     background: var(--color-light-bg-primary);
-    overflow: auto;
     will-change: transform;
 }
 
@@ -34,6 +35,11 @@
     border-radius: 20px;
     transform: translateX(-50%);
     background-color: var(--color-light-graphic-neutral);
+}
+
+.scrollableContainer {
+    overflow: auto;
+    padding-top: var(--gap-2xl);
 }
 
 .content {

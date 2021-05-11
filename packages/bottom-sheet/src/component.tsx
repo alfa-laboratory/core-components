@@ -2,18 +2,15 @@ import React, { forwardRef, ReactNode, useCallback, useEffect, useRef, useState 
 import cn from 'classnames';
 import { CSSTransition } from 'react-transition-group';
 import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
-import { useSwipeable } from 'react-swipeable';
+import { SwipeCallback, useSwipeable } from 'react-swipeable';
 
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 import { Portal } from '@alfalab/core-components-portal';
 import { Backdrop } from '@alfalab/core-components-backdrop';
 import { Typography } from '@alfalab/core-components-typography';
+import { handleContainer } from '@alfalab/core-components-base-modal';
 
 import styles from './index.module.css';
-
-const DEFAULT_TRANSITION: CSSTransitionProps<HTMLDivElement> = {
-    timeout: 200,
-};
 
 export type BottomSheetProps = {
     /**
@@ -70,13 +67,24 @@ export type BottomSheetProps = {
     closeOffset?: number;
 
     /**
+     * Будет ли свайпаться на десктопе
+     * @default false
+     */
+    desktopSwipeable?: boolean;
+
+    /**
      * Обработчик закрытия
      */
     onClose: () => void;
 };
 
-export const SWIPE_CLOSE_VELOCITY = 0.3;
-export const CLOSE_OFFSET = 0.33;
+const DEFAULT_TRANSITION: CSSTransitionProps<HTMLDivElement> = {
+    timeout: 200,
+};
+
+const SWIPE_CLOSE_VELOCITY = 0.3;
+const CLOSE_OFFSET = 0.33;
+const MIN_BACKDROP_OPACITY = 0.2;
 
 export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
     (
@@ -92,39 +100,82 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             dataTestId,
             swipeCloseVelocity = SWIPE_CLOSE_VELOCITY,
             closeOffset = CLOSE_OFFSET,
+            desktopSwipeable: trackMouse = false,
             onClose,
         },
         ref,
     ) => {
         const [exited, setExited] = useState(!open);
-        const [offset, setOffset] = useState(0);
-        const height = useRef(0);
+        const [sheetOffset, setSheetOffset] = useState(0);
+        const [backdropOpacity, setBackdropOpacity] = useState(1);
+
+        const sheetHeight = useRef(0);
+        const scrollableContainer = useRef<HTMLDivElement | null>(null);
+        const restoreContainerStylesFn = useRef<Function | null>(null);
+        const scrolled = useRef(false);
+
+        const getBackdropOpacity = (offset: number): number =>
+            1 - (1 - MIN_BACKDROP_OPACITY) * (offset / sheetHeight.current);
+
+        const getSheetOffset = (deltaY: number): number => (deltaY > 0 ? 0 : -deltaY);
+
+        const shouldSkipSwiping = (): boolean => {
+            if (scrollableContainer.current && scrollableContainer.current.scrollTop !== 0) {
+                scrolled.current = true;
+            }
+
+            return scrolled.current;
+        };
+
+        const handleBackdropSwipedDown: SwipeCallback = ({ velocity }) => {
+            if (velocity > swipeCloseVelocity) {
+                onClose();
+            }
+        };
+
+        const handleSheetSwipedDown: SwipeCallback = () => {
+            if (shouldSkipSwiping()) {
+                return;
+            }
+
+            if (sheetOffset > sheetHeight.current * closeOffset) {
+                onClose();
+            } else {
+                setSheetOffset(0);
+                setBackdropOpacity(1);
+            }
+        };
+
+        const handleSheetSwiped: SwipeCallback = () => {
+            scrolled.current = false;
+        };
+
+        const handleSheetSwiping: SwipeCallback = ({ deltaY }) => {
+            if (shouldSkipSwiping()) {
+                return;
+            }
+
+            const offset = getSheetOffset(deltaY);
+            const opacity = getBackdropOpacity(offset);
+
+            setSheetOffset(offset);
+            setBackdropOpacity(Number(opacity.toFixed(2)));
+        };
 
         const backdropSwipeablehandlers = useSwipeable({
-            onSwipedDown: ({ velocity }) => {
-                if (velocity > swipeCloseVelocity) {
-                    onClose();
-                }
-            },
+            onSwipedDown: handleBackdropSwipedDown,
             delta: 100,
+            trackMouse,
         });
 
         const sheetSwipeablehandlers = useSwipeable({
-            onSwiping: ({ deltaY }) => {
-                setOffset(deltaY > 0 ? 0 : -deltaY);
-            },
-            onSwipedDown: ({ velocity }) => {
-                const shouldClose =
-                    offset > height.current * closeOffset || velocity > swipeCloseVelocity;
-
-                if (shouldClose) {
-                    onClose();
-                } else {
-                    setOffset(0);
-                }
-            },
+            onSwiping: handleSheetSwiping,
+            onSwipedDown: handleSheetSwipedDown,
+            onSwiped: handleSheetSwiped,
             delta: 5,
+            trackMouse,
         });
+
         const handleBackdropClick = useCallback(() => {
             onClose();
         }, [onClose]);
@@ -132,6 +183,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const handleExited = useCallback(
             node => {
                 setExited(true);
+
+                setBackdropOpacity(1);
 
                 if (transition.onExited) {
                     transition.onExited(node);
@@ -142,9 +195,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         const handleEntered = useCallback(
             (node, isAppearing) => {
-                if (!height.current) {
-                    height.current = node.getBoundingClientRect().height;
+                if (!sheetHeight.current) {
+                    sheetHeight.current = node.getBoundingClientRect().height;
                 }
+
+                setBackdropOpacity(1);
 
                 if (transition.onEntered) {
                     transition.onEntered(node, isAppearing);
@@ -157,16 +212,24 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             if (open) {
                 setExited(false);
             } else {
-                setOffset(0);
+                setSheetOffset(0);
             }
         }, [open]);
 
-        const shouldRender = open || !exited;
-        const backdropOpacity = height.current === 0 ? 1 : 1 - offset / height.current;
+        useEffect(() => {
+            if (open) {
+                restoreContainerStylesFn.current = handleContainer(document.body);
+            }
 
-        if (!shouldRender) return null;
+            return () => {
+                if (restoreContainerStylesFn.current) {
+                    restoreContainerStylesFn.current();
+                    restoreContainerStylesFn.current = null;
+                }
+            };
+        }, [open]);
 
-        return (
+        return open || !exited ? (
             <Stack value={zIndex}>
                 {computedZIndex => (
                     <Portal>
@@ -197,46 +260,54 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                                 <div
                                     className={cn(styles.component, className)}
                                     style={{
-                                        transform: offset ? `translateY(${offset}px)` : '',
-                                        transition: offset
+                                        transform: sheetOffset
+                                            ? `translateY(${sheetOffset}px)`
+                                            : '',
+                                        transition: sheetOffset
                                             ? 'none'
                                             : `transform ${transition.timeout}ms ease-in-out`,
                                     }}
                                     {...sheetSwipeablehandlers}
                                 >
-                                    {title && (
-                                        <Typography.Title
-                                            view='small'
-                                            font='system'
-                                            tag='h2'
-                                            className={styles.title}
-                                        >
-                                            {title}
-                                        </Typography.Title>
-                                    )}
-
                                     <div className={styles.marker} />
 
-                                    <div className={cn(styles.content, contentClassName)}>
-                                        {children}
-                                    </div>
+                                    <div
+                                        className={styles.scrollableContainer}
+                                        ref={scrollableContainer}
+                                    >
+                                        {title && (
+                                            <Typography.Title
+                                                view='small'
+                                                font='system'
+                                                tag='h2'
+                                                className={styles.title}
+                                            >
+                                                {title}
+                                            </Typography.Title>
+                                        )}
 
-                                    {actionButton && (
-                                        <div className={styles.actionButtonWrapper}>
-                                            {actionButton}
+                                        <div className={cn(styles.content, contentClassName)}>
+                                            {children}
                                         </div>
-                                    )}
+
+                                        {actionButton && (
+                                            <div className={styles.actionButtonWrapper}>
+                                                {actionButton}
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
                             </CSSTransition>
                         </div>
                     </Portal>
                 )}
             </Stack>
-        );
+        ) : null;
     },
 );
 
 BottomSheet.defaultProps = {
     swipeCloseVelocity: SWIPE_CLOSE_VELOCITY,
     closeOffset: CLOSE_OFFSET,
+    desktopSwipeable: false,
 };
