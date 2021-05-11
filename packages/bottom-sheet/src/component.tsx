@@ -120,7 +120,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const getSheetOffset = (deltaY: number): number => (deltaY > 0 ? 0 : -deltaY);
 
         const shouldSkipSwiping = (): boolean => {
-            if (scrollableContainer.current && scrollableContainer.current.scrollTop !== 0) {
+            if (scrollableContainer.current && scrollableContainer.current.scrollTop > 0) {
                 scrolled.current = true;
             }
 
