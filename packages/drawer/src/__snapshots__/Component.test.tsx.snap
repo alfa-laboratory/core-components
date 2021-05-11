@@ -11,6 +11,7 @@ exports[`Drawer should match snapshot 1`] = `
   <div
     aria-hidden="true"
     class="backdrop backdropAppear backdropAppearActive"
+    style="opacity: 1;"
   />
   <div
     class="component appear appearActive"
