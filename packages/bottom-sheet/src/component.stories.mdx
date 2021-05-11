@@ -46,6 +46,7 @@ export const longText = Array(10).fill(shortText).join('\n\n');
                     Окрыть шторку с длинным контентом
                 </Button>
                 <BottomSheet
+                    key={textContent}
                     open={open}
                     title={text('title', 'Альфа-Бизнес')}
                     actionButton={<Button view="outlined" block={true} size="s" onClick={handleClose}>Понятно</Button>}
