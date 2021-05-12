@@ -190,6 +190,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
              */
             if (offset > 0) {
                 setScrollLocked(true);
+            } else {
+                setScrollLocked(false);
             }
         };
 
@@ -244,6 +246,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         const handleScroll = () => {
             if (!scrollableContainer.current) return;
+
+            if (scrollLocked) {
+                scrollableContainer.current.scrollTop = 0;
+            }
 
             setFooterHighlighted(!isScrolledToBottom(scrollableContainer.current));
         };
@@ -311,9 +317,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                                     <div className={styles.marker} />
 
                                     <div
-                                        className={cn(styles.scrollableContainer, {
-                                            [styles.scrollLocked]: scrollLocked,
-                                        })}
+                                        className={styles.scrollableContainer}
                                         ref={scrollableContainer}
                                         onScroll={handleScroll}
                                     >
