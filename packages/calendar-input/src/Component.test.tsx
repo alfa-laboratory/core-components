@@ -319,6 +319,28 @@ describe('CalendarInput', () => {
             expect(nonDisabledDays[nonDisabledDays.length - 1]).toHaveTextContent('25');
         });
 
+        it('should set min and max dates to calendar via calendarProps', () => {
+            const defaultMonth = new Date('November 01, 2020 00:00:00').getTime();
+            const minDate = new Date('November 10, 2020 00:00:00').getTime();
+            const maxDate = new Date('November 25, 2020 00:00:00').getTime();
+            const { container } = render(
+                <CalendarInput
+                    calendarPosition='static'
+                    calendarProps={{
+                        minDate,
+                        maxDate,
+                    }}
+                    defaultMonth={defaultMonth}
+                />,
+            );
+
+            const nonDisabledDays = container.querySelectorAll('button[data-date]:not(:disabled)');
+
+            expect(nonDisabledDays).toHaveLength(16);
+            expect(nonDisabledDays[0]).toHaveTextContent('10');
+            expect(nonDisabledDays[nonDisabledDays.length - 1]).toHaveTextContent('25');
+        });
+
         it('should set calendar value if value in [minDate, maxDate]', () => {
             const value = '01.12.2020';
             const minDate = new Date('November 10, 2020 00:00:00').getTime();
@@ -395,6 +417,52 @@ describe('CalendarInput', () => {
 
             expect(queryByText('Октябрь')).not.toBeInTheDocument();
             expect(queryByText('Ноябрь')).toBeInTheDocument();
+        });
+    });
+
+    describe('offdays', () => {
+        it('should set offDays', () => {
+            const defaultMonth = new Date('November 01, 2020 00:00:00').getTime();
+            const offDays = [
+                new Date('November 10, 2020 00:00:00').getTime(),
+                new Date('November 25, 2020 00:00:00').getTime(),
+            ];
+            const { container } = render(
+                <CalendarInput
+                    calendarPosition='static'
+                    offDays={offDays}
+                    defaultMonth={defaultMonth}
+                />,
+            );
+
+            const disabledDays = container.querySelectorAll('button[data-date]:disabled');
+
+            expect(disabledDays).toHaveLength(2);
+            expect(disabledDays[0]).toHaveTextContent('10');
+            expect(disabledDays[1]).toHaveTextContent('25');
+        });
+
+        it('should set offDays via calendarProps', () => {
+            const defaultMonth = new Date('November 01, 2020 00:00:00').getTime();
+            const offDays = [
+                new Date('November 10, 2020 00:00:00').getTime(),
+                new Date('November 25, 2020 00:00:00').getTime(),
+            ];
+            const { container } = render(
+                <CalendarInput
+                    calendarPosition='static'
+                    calendarProps={{
+                        offDays,
+                    }}
+                    defaultMonth={defaultMonth}
+                />,
+            );
+
+            const disabledDays = container.querySelectorAll('button[data-date]:disabled');
+
+            expect(disabledDays).toHaveLength(2);
+            expect(disabledDays[0]).toHaveTextContent('10');
+            expect(disabledDays[1]).toHaveTextContent('25');
         });
     });
 

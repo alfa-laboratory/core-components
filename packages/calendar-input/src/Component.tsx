@@ -86,6 +86,11 @@ export type CalendarInputProps = Omit<
     maxDate?: number;
 
     /**
+     * Список выходных
+     */
+    offDays?: Array<Date | number>;
+
+    /**
      * Определяет, как рендерить календарь — в поповере или снизу инпута
      */
     calendarPosition?: 'static' | 'popover';
@@ -145,9 +150,10 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             calendarPosition = 'popover',
             value,
             dataTestId,
-            minDate,
-            maxDate,
             calendarProps = {},
+            minDate = calendarProps.minDate,
+            maxDate = calendarProps.maxDate,
+            offDays = calendarProps.offDays || [],
             preventFlip,
             mobileMode = 'popover',
             wrapperRef = null,
@@ -175,7 +181,10 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         const inputValue = uncontrolled ? stateValue : value;
         const calendarValue = inputValue ? parseDateString(inputValue).getTime() : undefined;
 
-        const isCalendarValueValid = dateInLimits(calendarValue, minDate, maxDate);
+        const isCalendarValueValid =
+            calendarValue &&
+            dateInLimits(calendarValue, minDate, maxDate) &&
+            !offDays.includes(calendarValue);
 
         const inputDisabled = disabled || readOnly;
 
@@ -311,6 +320,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                         onChange={handleCalendarChange}
                         minDate={minDate}
                         maxDate={maxDate}
+                        offDays={offDays}
                     />
                 </div>
             ),
@@ -323,6 +333,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                 isCalendarValueValid,
                 maxDate,
                 minDate,
+                offDays,
             ],
         );
 
