@@ -8,7 +8,11 @@ import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 import { Portal } from '@alfalab/core-components-portal';
 import { Backdrop } from '@alfalab/core-components-backdrop';
 import { Typography } from '@alfalab/core-components-typography';
-import { handleContainer } from '@alfalab/core-components-base-modal';
+import {
+    handleContainer,
+    hasScrollbar,
+    isScrolledToBottom,
+} from '@alfalab/core-components-base-modal';
 
 import styles from './index.module.css';
 
@@ -109,6 +113,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const [sheetOffset, setSheetOffset] = useState(0);
         const [backdropOpacity, setBackdropOpacity] = useState(1);
         const [scrollLocked, setScrollLocked] = useState(false);
+        const [footerHighlighted, setFooterHighlighted] = useState(false);
 
         const sheetHeight = useRef(0);
         const scrollableContainer = useRef<HTMLDivElement | null>(null);
@@ -224,6 +229,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     sheetHeight.current = node.getBoundingClientRect().height;
                 }
 
+                if (scrollableContainer.current && hasScrollbar(scrollableContainer.current)) {
+                    setFooterHighlighted(true);
+                }
+
                 setBackdropOpacity(1);
 
                 if (transition.onEntered) {
@@ -232,6 +241,12 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             },
             [transition],
         );
+
+        const handleScroll = () => {
+            if (!scrollableContainer.current) return;
+
+            setFooterHighlighted(!isScrolledToBottom(scrollableContainer.current));
+        };
 
         useEffect(() => {
             if (open) {
@@ -266,12 +281,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             tabIndex={-1}
                             data-test-id={dataTestId}
                         >
-                            <div {...backdropSwipeablehandlers}>
-                                <Backdrop
-                                    open={open}
-                                    onClick={handleBackdropClick}
-                                    opacity={backdropOpacity}
-                                />
+                            <div
+                                {...backdropSwipeablehandlers}
+                                style={{ opacity: backdropOpacity }}
+                            >
+                                <Backdrop open={open} onClick={handleBackdropClick} />
                             </div>
 
                             <CSSTransition
@@ -301,6 +315,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                                             [styles.scrollLocked]: scrollLocked,
                                         })}
                                         ref={scrollableContainer}
+                                        onScroll={handleScroll}
                                     >
                                         {title && (
                                             <Typography.Title
@@ -318,7 +333,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                                         </div>
 
                                         {actionButton && (
-                                            <div className={styles.actionButtonWrapper}>
+                                            <div
+                                                className={cn(styles.footer, {
+                                                    [styles.highlighted]: footerHighlighted,
+                                                })}
+                                            >
                                                 {actionButton}
                                             </div>
                                         )}

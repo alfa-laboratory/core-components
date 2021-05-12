@@ -50,11 +50,15 @@
     will-change: transform;
 }
 
-.actionButtonWrapper {
+.footer {
     position: sticky;
     bottom: 0;
     padding: var(--gap-2xl) var(--gap-m) var(--gap-3xl);
     background-color: var(--color-light-bg-primary);
+}
+
+.highlighted {
+    box-shadow: var(--shadow-s-up);
 }
 
 .title {
