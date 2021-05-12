@@ -108,18 +108,27 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const [exited, setExited] = useState(!open);
         const [sheetOffset, setSheetOffset] = useState(0);
         const [backdropOpacity, setBackdropOpacity] = useState(1);
+        const [scrollLocked, setScrollLocked] = useState(false);
 
         const sheetHeight = useRef(0);
         const scrollableContainer = useRef<HTMLDivElement | null>(null);
         const restoreContainerStylesFn = useRef<Function | null>(null);
 
-        const getBackdropOpacity = (offset: number): number =>
-            1 - (1 - MIN_BACKDROP_OPACITY) * (offset / sheetHeight.current);
+        const getBackdropOpacity = (offset: number): number => {
+            const opacity = 1 - (1 - MIN_BACKDROP_OPACITY) * (offset / sheetHeight.current);
 
-        const getSheetOffset = (deltaY: number): number => (deltaY > 0 ? 0 : -deltaY);
+            return Number(opacity.toFixed(2));
+        };
 
-        const shouldSkipSwiping = () =>
-            scrollableContainer.current && scrollableContainer.current.scrollTop > 0;
+        const getSheetOffset = (deltaY: number): number => {
+            const offset = deltaY > 0 ? 0 : -deltaY;
+
+            return Math.floor(offset);
+        };
+
+        const shouldSkipSwiping = () => {
+            return scrollableContainer.current && scrollableContainer.current.scrollTop > 0;
+        };
 
         const handleBackdropSwipedDown: SwipeCallback = ({ velocity }) => {
             if (velocity > swipeCloseVelocity) {
@@ -141,7 +150,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         };
 
         const handleSheetSwiped: SwipeCallback = () => {
-            //
+            setScrollLocked(false);
         };
 
         const handleSheetSwiping: SwipeCallback = ({ deltaY }) => {
@@ -153,7 +162,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             const opacity = getBackdropOpacity(offset);
 
             setSheetOffset(offset);
-            setBackdropOpacity(Number(opacity.toFixed(2)));
+            setBackdropOpacity(opacity);
+
+            if (offset > 0) {
+                setScrollLocked(true);
+            }
         };
 
         const backdropSwipeablehandlers = useSwipeable({
@@ -266,7 +279,9 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                                     <div className={styles.marker} />
 
                                     <div
-                                        className={styles.scrollableContainer}
+                                        className={cn(styles.scrollableContainer, {
+                                            [styles.scrollLocked]: scrollLocked,
+                                        })}
                                         ref={scrollableContainer}
                                     >
                                         {title && (
