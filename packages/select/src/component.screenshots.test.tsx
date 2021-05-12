@@ -72,6 +72,34 @@ describe('Select', () => {
     ['default', 'click'].map(testCase);
 });
 
+describe.only(
+    'Select',
+    screenshotTesting({
+        cases: [
+            [
+                'placeholder + label',
+                createSpriteStorybookUrl({
+                    componentName: 'Select',
+                    knobs: {
+                        options: JSON.stringify(options.slice(0, 1)),
+                        selected: [undefined, options[0].key],
+                        placeholder: ['', 'Выберите элемент'],
+                        label: ['', 'Элемент'],
+                    },
+                    size: { width: 300, height: 120 },
+                }),
+            ],
+        ],
+        screenshotOpts: {
+            fullPage: true,
+        },
+        viewport: {
+            width: 700,
+            height: 100,
+        },
+    }),
+);
+
 describe('Select | interactions tests', () => {
     const testCase = async (theme: string) =>
         test(`${theme} - open select, select one item`, async () => {

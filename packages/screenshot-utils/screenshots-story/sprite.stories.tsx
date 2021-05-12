@@ -42,19 +42,26 @@ export const ScreenshotsSprite = () => {
 
     return (
         <div className={styles.container}>
-            {propsList.map((props, index) => (
-                <div
-                    // eslint-disable-next-line react/no-array-index-key
-                    key={index}
-                    className={styles.item}
-                >
-                    <span className={styles.title}>{propsToTitle(props)}</span>
+            {propsList.map((props, index) => {
+                // TODO:
+                if (getQueryParam('component') === 'Select' && props.options) {
+                    // eslint-disable-next-line no-param-reassign
+                    props.options = JSON.parse(props.options as string);
+                }
+                return (
+                    <div
+                        // eslint-disable-next-line react/no-array-index-key
+                        key={index}
+                        className={styles.item}
+                    >
+                        <span className={styles.title}>{propsToTitle(props)}</span>
 
-                    <div id={ids[index]} style={componentStyles}>
-                        <Component {...props} />
+                        <div id={ids[index]} style={componentStyles}>
+                            <Component {...props} />
+                        </div>
                     </div>
-                </div>
-            ))}
+                );
+            })}
         </div>
     );
 };
