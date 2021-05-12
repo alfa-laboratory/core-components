@@ -112,20 +112,14 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const sheetHeight = useRef(0);
         const scrollableContainer = useRef<HTMLDivElement | null>(null);
         const restoreContainerStylesFn = useRef<Function | null>(null);
-        const scrolled = useRef(false);
 
         const getBackdropOpacity = (offset: number): number =>
             1 - (1 - MIN_BACKDROP_OPACITY) * (offset / sheetHeight.current);
 
         const getSheetOffset = (deltaY: number): number => (deltaY > 0 ? 0 : -deltaY);
 
-        const shouldSkipSwiping = (): boolean => {
-            if (scrollableContainer.current && scrollableContainer.current.scrollTop > 0) {
-                scrolled.current = true;
-            }
-
-            return scrolled.current;
-        };
+        const shouldSkipSwiping = () =>
+            scrollableContainer.current && scrollableContainer.current.scrollTop > 0;
 
         const handleBackdropSwipedDown: SwipeCallback = ({ velocity }) => {
             if (velocity > swipeCloseVelocity) {
@@ -147,7 +141,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         };
 
         const handleSheetSwiped: SwipeCallback = () => {
-            scrolled.current = false;
+            //
         };
 
         const handleSheetSwiping: SwipeCallback = ({ deltaY }) => {
