@@ -113,6 +113,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const sheetHeight = useRef(0);
         const scrollableContainer = useRef<HTMLDivElement | null>(null);
         const restoreContainerStylesFn = useRef<Function | null>(null);
+        const scrollableContainerScrollValue = useRef(0);
 
         const getBackdropOpacity = (offset: number): number => {
             const opacity = 1 - (1 - MIN_BACKDROP_OPACITY) * (offset / sheetHeight.current);
@@ -121,13 +122,27 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         };
 
         const getSheetOffset = (deltaY: number): number => {
-            const offset = deltaY > 0 ? 0 : -deltaY;
+            let offset = deltaY > 0 ? 0 : -deltaY;
+            offset -= scrollableContainerScrollValue.current;
 
-            return Math.floor(offset);
+            return Math.floor(Math.max(0, offset));
         };
 
+        /**
+         * Если контент внутри шторки скроллится - то шторка не должна свайпаться
+         */
         const shouldSkipSwiping = () => {
-            return scrollableContainer.current && scrollableContainer.current.scrollTop > 0;
+            if (!scrollableContainer.current) {
+                return false;
+            }
+
+            if (!scrollableContainerScrollValue.current) {
+                scrollableContainerScrollValue.current = Math.floor(
+                    scrollableContainer.current.scrollTop,
+                );
+            }
+
+            return scrollableContainer.current.scrollTop > 0;
         };
 
         const handleBackdropSwipedDown: SwipeCallback = ({ velocity }) => {
@@ -151,6 +166,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         const handleSheetSwiped: SwipeCallback = () => {
             setScrollLocked(false);
+            scrollableContainerScrollValue.current = 0;
         };
 
         const handleSheetSwiping: SwipeCallback = ({ deltaY }) => {
@@ -164,6 +180,9 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             setSheetOffset(offset);
             setBackdropOpacity(opacity);
 
+            /**
+             * Если шторка начинает свайпаться, то блокируем скролл внутри нее
+             */
             if (offset > 0) {
                 setScrollLocked(true);
             }
@@ -190,7 +209,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const handleExited = useCallback(
             node => {
                 setExited(true);
-
                 setBackdropOpacity(1);
 
                 if (transition.onExited) {
