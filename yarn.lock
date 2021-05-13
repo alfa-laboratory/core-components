@@ -19,16 +19,6 @@
     classnames "^2.2.6"
     react-merge-refs "^1.1.0"
 
-"@alfalab/core-components-button@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/core-components-button/-/core-components-button-2.2.0.tgz#fbbd0cd9fa8281031e4ee885920e28f1348e5803"
-  integrity sha512-ffryNpcJ4v9cpEtOxxxAYt1/wOqBYYPx6pNFLMU5U+r53i4NId7wNAKr/uhcKR74wgFdQbsrYD386S9az5Nw1A==
-  dependencies:
-    "@alfalab/core-components-loader" "^1.1.5"
-    "@alfalab/hooks" "^1.0.0"
-    classnames "^2.2.6"
-    react-merge-refs "^1.1.0"
-
 "@alfalab/core-components-form-control@^3.1.5":
   version "3.1.5"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components-form-control/-/core-components-form-control-3.1.5.tgz#c064abf1ad4a1f71b75206e7d40d4935e4098b58"
