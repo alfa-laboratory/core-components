@@ -1,5 +1,3 @@
-import { chromium } from 'playwright';
-
 import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
