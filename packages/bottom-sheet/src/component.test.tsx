@@ -1,11 +1,7 @@
 import React, { useState, forwardRef } from 'react';
-import { render } from '@testing-library/react';
+import { fireEvent, render, waitForElementToBeRemoved } from '@testing-library/react';
 
 import { BottomSheet, BottomSheetProps } from '.';
-
-jest.mock('react-transition-group', () => {
-    return { CSSTransition: jest.fn(props => (props.in ? props.children : null)) };
-});
 
 const BottomSheetWrapper = forwardRef<HTMLDivElement, Partial<BottomSheetProps>>((props, ref) => {
     const [open, setOpen] = useState(props.open === undefined ? true : props.open);
@@ -25,6 +21,8 @@ const BottomSheetWrapper = forwardRef<HTMLDivElement, Partial<BottomSheetProps>>
     );
 });
 
+const dataTestId = 'test-id';
+
 describe('Bottom sheet', () => {
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
@@ -41,8 +39,6 @@ describe('Bottom sheet', () => {
     });
 
     describe('Props tests', () => {
-        const dataTestId = 'test-id';
-
         it('should set `data-test-id` attribute', () => {
             const { getByTestId } = render(<BottomSheetWrapper dataTestId={dataTestId} />);
 
@@ -128,6 +124,26 @@ describe('Bottom sheet', () => {
             const component = getByTestId(dataTestId);
 
             expect(+getComputedStyle(component).zIndex).toBe(zIndex);
+        });
+    });
+
+    describe('Interactions tests', () => {
+        it('should close if on backdrop click', async () => {
+            const { getByTestId, queryByTestId } = render(
+                <BottomSheetWrapper dataTestId={dataTestId} />,
+            );
+
+            const backdrop = document.querySelector('.backdrop');
+
+            if (backdrop) {
+                fireEvent.click(backdrop);
+            }
+
+            await waitForElementToBeRemoved(() => getByTestId(dataTestId));
+
+            const component = await queryByTestId(dataTestId);
+
+            expect(component).not.toBeInTheDocument();
         });
     });
 });

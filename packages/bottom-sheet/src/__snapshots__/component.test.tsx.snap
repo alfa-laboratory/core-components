@@ -19,11 +19,11 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
       >
         <div
           aria-hidden="true"
-          class="backdrop"
+          class="backdrop appear appearActive"
         />
       </div>
       <div
-        class="component"
+        class="component appear appearActive"
         style="transition: transform 200ms ease-in-out;"
       >
         <div
@@ -62,11 +62,11 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
       >
         <div
           aria-hidden="true"
-          class="backdrop"
+          class="backdrop appear appearActive"
         />
       </div>
       <div
-        class="component"
+        class="component appear appearActive"
         style="transition: transform 200ms ease-in-out;"
       >
         <div
