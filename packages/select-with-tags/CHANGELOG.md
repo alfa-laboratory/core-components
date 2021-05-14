@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.9](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@2.0.8...@alfalab/core-components-select-with-tags@2.0.9) (2021-05-14)
+
+
+### Bug Fixes
+
+* **select-with-tags:** changed includes method for IE11 support ([#651](https://github.com/alfa-laboratory/core-components/issues/651)) ([254bca3](https://github.com/alfa-laboratory/core-components/commit/254bca3df02107dfffc5175f74e35162453c20d0))
+
+
+
+
+
 ## [2.0.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@2.0.7...@alfalab/core-components-select-with-tags@2.0.8) (2021-04-26)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags
