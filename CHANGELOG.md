@@ -1,3 +1,10 @@
+## [16.3.1](https://github.com/alfa-laboratory/core-components/compare/v16.3.0...v16.3.1) (2021-05-14)
+
+
+### Bug Fixes
+
+* **select-with-tags:** changed includes method for IE11 support ([#651](https://github.com/alfa-laboratory/core-components/issues/651)) ([254bca3](https://github.com/alfa-laboratory/core-components/commit/254bca3df02107dfffc5175f74e35162453c20d0))
+
 # [16.3.0](https://github.com/alfa-laboratory/core-components/compare/v16.2.0...v16.3.0) (2021-05-07)
 
 
