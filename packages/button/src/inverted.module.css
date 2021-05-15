@@ -3,41 +3,49 @@
 :root {
     /* primary */
     --button-inverted-primary-base-bg-color: var(--color-dark-bg-accent);
-    --button-inverted-primary-hover-bg-color: color-mod(var(--button-inverted-primary-base-bg-color) shade(7%));
-    --button-inverted-primary-active-bg-color: color-mod(var(--button-inverted-primary-base-bg-color) shade(15%));
-    --button-inverted-primary-disabled-bg-color: color-mod(var(--button-inverted-primary-base-bg-color) alpha(30%));
-    --button-inverted-primary-color: var(--color-dark-text-primary-inverted);
-    --button-inverted-primary-disabled-color: var(--color-dark-text-primary-inverted);
+    --button-inverted-primary-hover-bg-color: color-mod(var(--color-dark-bg-accent) tint(15%));
+    --button-inverted-primary-active-bg-color: color-mod(var(--color-dark-bg-accent) shade(15%));
+    --button-inverted-primary-disabled-bg-color: color-mod(var(--color-dark-bg-accent) alpha(30%));
+    --button-inverted-primary-color: var(--color-light-text-primary-inverted);
+    --button-inverted-primary-disabled-color: var(--color-light-text-primary-inverted);
 
     /* secondary */
     --button-inverted-secondary-base-bg-color: var(--color-dark-bg-neutral);
-    --button-inverted-secondary-hover-bg-color: color-mod(var(--button-inverted-secondary-base-bg-color) shade(7%));
-    --button-inverted-secondary-active-bg-color: color-mod(var(--button-inverted-secondary-base-bg-color) shade(15%));
+    --button-inverted-secondary-hover-bg-color: color-mod(var(--color-dark-bg-neutral) tint(15%));
+    --button-inverted-secondary-active-bg-color: color-mod(var(--color-dark-bg-neutral) shade(15%));
     --button-inverted-secondary-disabled-bg-color: color-mod(
-        var(--button-inverted-secondary-base-bg-color) alpha(30%)
+        var(--color-dark-bg-neutral) alpha(30%)
     );
     --button-inverted-secondary-base-border-color: transparent;
     --button-inverted-secondary-disabled-border-color: transparent;
     --button-inverted-secondary-color: var(--color-dark-text-primary);
-    --button-inverted-secondary-disabled-color: color-mod(var(--color-dark-text-primary) alpha(30%));
+    --button-inverted-secondary-disabled-color: color-mod(
+        var(--color-dark-text-primary) alpha(30%)
+    );
 
     /* outlined */
     --button-inverted-outlined-base-bg-color: transparent;
-    --button-inverted-outlined-hover-bg-color: rgba(0, 0, 0, 0.07);
+    --button-inverted-outlined-hover-bg-color: rgba(255, 255, 255, 0.15);
     --button-inverted-outlined-active-bg-color: rgba(0, 0, 0, 0.15);
     --button-inverted-outlined-disabled-bg-color: transparent;
-    --button-inverted-outlined-base-border-color: var(--color-dark-border-tertiary-inverted);
+    --button-inverted-outlined-base-border-color: var(--color-light-border-tertiary-inverted);
     --button-inverted-outlined-disabled-border-color: color-mod(
-        var(--color-dark-border-tertiary-inverted) alpha(30%)
+        var(--color-dark-border-tertiary) alpha(30%)
     );
     --button-inverted-outlined-color: var(--color-dark-text-primary);
     --button-inverted-outlined-disabled-color: color-mod(var(--color-dark-text-primary) alpha(30%));
 
     /* ghost */
-    --button-inverted-ghost-base-color: var(--color-dark-text-primary);
-    --button-inverted-ghost-hover-color: color-mod(var(--button-inverted-ghost-base-color) tint(30%));
-    --button-inverted-ghost-active-color: color-mod(var(--button-inverted-ghost-base-color) tint(50%));
-    --button-inverted-ghost-disabled-color: color-mod(var(--button-inverted-ghost-base-color) alpha(30%));
+    --button-inverted-ghost-base-color: var(--color-light-text-primary-inverted);
+    --button-inverted-ghost-hover-color: color-mod(
+        var(--button-inverted-ghost-base-color) shade(30%)
+    );
+    --button-inverted-ghost-active-color: color-mod(
+        var(--button-inverted-ghost-base-color) shade(50%)
+    );
+    --button-inverted-ghost-disabled-color: color-mod(
+        var(--button-inverted-ghost-base-color) alpha(30%)
+    );
 }
 
 .primary {
@@ -86,7 +94,7 @@
     background-color: var(--color-dark-bg-neutral);
 
     &:hover {
-        background-color: color-mod(var(--color-dark-bg-neutral) shade(7%));
+        background-color: color-mod(var(--color-dark-bg-neutral) tint(15%));
     }
 
     &:active {
@@ -95,28 +103,30 @@
 }
 
 .transparent {
-    color: var(--color-dark-text-primary);
-    background-color: color-mod(var(--color-dark-bg-primary-inverted) alpha(10%));
+    color: var(--color-light-text-primary-inverted);
+    background-color: color-mod(var(--color-light-bg-primary) alpha(10%));
 
     &:hover {
-        background-color: color-mod(var(--color-dark-bg-primary-inverted) alpha(20%));
+        background-color: color-mod(var(--color-light-bg-primary) alpha(20%));
     }
 
     &:active {
-        background-color: color-mod(var(--color-dark-bg-primary-inverted) alpha(40%));
+        /* TODO: какой цвет? */
+        background-color: color-mod(var(--color-light-bg-primary) alpha(5%));
     }
 }
 
 .link {
-    color: var(--color-dark-text-primary);
+    color: var(--color-light-text-primary-inverted);
     background-color: transparent;
 
     &:hover {
-        background-color: var(--color-dark-specialbg-component);
+        background-color: var(--color-light-specialbg-component-inverted);
     }
 
     &:active {
-        background-color: color-mod(var(--color-dark-specialbg-component) blenda(black 7%));
+        /* TODO: какой цвет? */
+        background-color: color-mod(var(--color-light-specialbg-component-inverted) shade(30%));
     }
 }
 
@@ -131,8 +141,6 @@
         color: var(--button-inverted-ghost-active-color);
     }
 }
-
-/* Disabled */
 
 .component:disabled {
     &.primary {
@@ -170,29 +178,31 @@
     &.filled {
         color: color-mod(var(--color-dark-text-primary) alpha(30%));
         background-color: color-mod(var(--color-dark-bg-neutral) alpha(30%));
+        border-color: transparent;
 
         &.loading {
             color: var(--color-dark-text-primary);
             background-color: var(--color-dark-bg-neutral);
+            border-color: transparent;
         }
     }
 
     &.transparent {
-        color: color-mod(var(--color-dark-text-primary) alpha(30%));
-        background-color: color-mod(var(--color-dark-bg-primary-inverted) alpha(3%));
+        color: color-mod(var(--color-light-text-primary-inverted) alpha(30%));
+        background-color: color-mod(var(--color-light-bg-primary) alpha(3%));
 
         &.loading {
-            color: var(--color-dark-text-primary);
-            background-color: color-mod(var(--color-dark-bg-primary-inverted) alpha(10%));
+            color: var(--color-light-text-primary-inverted);
+            background-color: color-mod(var(--color-light-bg-primary) alpha(10%));
         }
     }
 
     &.link {
-        color: color-mod(var(--color-dark-text-primary) alpha(30%));
+        color: color-mod(var(--color-light-text-primary-inverted) alpha(30%));
         background-color: transparent;
 
         &.loading {
-            color: var(--color-dark-text-primary);
+            color: var(--color-light-text-primary-inverted);
         }
     }
 
