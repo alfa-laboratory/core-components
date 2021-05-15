@@ -55,7 +55,7 @@ Object {
         </div>
         <button
           aria-label="удалить"
-          class="component ghost s iconOnly delete primary"
+          class="component ghost s component ghost iconOnly delete primary"
           type="button"
         >
           <span
@@ -134,7 +134,7 @@ Object {
       </div>
       <button
         aria-label="удалить"
-        class="component ghost s iconOnly delete primary"
+        class="component ghost s component ghost iconOnly delete primary"
         type="button"
       >
         <span

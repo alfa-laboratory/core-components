@@ -154,7 +154,7 @@ exports[`Confirmation Snapshot tests should match snapshot with fatal error 1`] 
         Выполните операцию с самого начала
       </span>
       <button
-        class="component secondary s block"
+        class="component secondary s component secondary block"
         type="button"
       >
         <span
