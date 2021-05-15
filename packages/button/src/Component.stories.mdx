@@ -16,7 +16,7 @@ export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
 <Meta
     title='Компоненты'
     component={Button}
-    parameters={{ 'theme-switcher': { themes: ['click', 'corp', 'corp-inverted', 'site', 'site-inverted', 'mobile'] } }}
+    parameters={{ 'theme-switcher': { themes: ['click', 'corp', 'site', 'mobile'] } }}
 />
 
 
@@ -349,37 +349,37 @@ import { Button } from '@alfalab/core-components-button';
 
 ## Темы
 
-`site` и `site-inverted`
+`site`
 
 <div style={{border: '1px solid #e5e5e5', borderRadius: '4px', overflow: 'hidden'}}>
-<div data-theme='site' style={{padding: '24px', backgroundColor: '#fff'}}>
-    <Container>
-        <Row align='middle'>
-            <Col>
-                <Button view='primary'>Primary</Button>
-            </Col>
-            <Col>
-                <Button view='secondary'>Secondary</Button>
-            </Col>
-            <Col>
-                <Button view='outlined'>Outlined</Button>
-            </Col>
-        </Row>
-    </Container>
-</div>
-<div data-theme='site-inverted' style={{padding: '24px', backgroundColor: '#0b1f35'}}>
-    <Container>
-        <Row align='middle'>
-            <Col>
-                <Button view='primary'>Primary</Button>
-            </Col>
-            <Col>
-                <Button view='secondary'>Secondary</Button>
-            </Col>
-            <Col>
-                <Button view='outlined'>Outlined</Button>
-            </Col>
-        </Row>
-    </Container>
-</div>
+    <div data-theme='site' style={{padding: '24px', backgroundColor: '#fff'}}>
+        <Container>
+            <Row align='middle'>
+                <Col>
+                    <Button view='primary'>Primary</Button>
+                </Col>
+                <Col>
+                    <Button view='secondary'>Secondary</Button>
+                </Col>
+                <Col>
+                    <Button view='outlined'>Outlined</Button>
+                </Col>
+            </Row>
+        </Container>
+    </div>
+    <div data-theme='site' style={{padding: '24px', backgroundColor: '#0b1f35'}}>
+        <Container>
+            <Row align='middle'>
+                <Col>
+                    <Button inverted={true} view='primary'>Primary</Button>
+                </Col>
+                <Col>
+                    <Button inverted={true} view='secondary'>Secondary</Button>
+                </Col>
+                <Col>
+                    <Button inverted={true} view='outlined'>Outlined</Button>
+                </Col>
+            </Row>
+        </Container>
+    </div>
 </div>

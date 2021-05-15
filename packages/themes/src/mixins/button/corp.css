@@ -4,6 +4,10 @@
     /* core vars */
     --color-light-specialbg-component: rgba(11, 31, 53, 0.07);
     --color-light-border-tertiary-inverted: #6d7986;
+    --color-light-text-primary-inverted: #fff;
+    --color-light-border-key-inverted: #fff;
+    --color-light-bg-primary: #fff;
+    --color-static-bg-primary-dark: #000;
 
     /* secondary */
     --button-secondary-base-bg-color: transparent;
@@ -15,5 +19,23 @@
     --button-secondary-base-border-color: var(--color-light-border-tertiary-inverted);
     --button-secondary-disabled-border-color: color-mod(
         var(--color-light-border-tertiary-inverted) alpha(30%)
+    );
+
+    /* inverted-secondary */
+    --button-inverted-secondary-color: var(--color-light-text-primary-inverted);
+    --button-inverted-secondary-base-bg-color: transparent;
+    --button-inverted-secondary-base-border-color: var(--color-light-border-key-inverted);
+    --button-inverted-secondary-hover-bg-color: color-mod(
+        var(--color-static-bg-primary-dark) alpha(10%)
+    );
+    --button-inverted-secondary-active-bg-color: color-mod(
+        var(--color-static-bg-primary-dark) alpha(20%)
+    );
+    --button-inverted-secondary-disabled-bg-color: color-mod(
+        var(--color-light-bg-primary) alpha(8%)
+    );
+    --button-inverted-secondary-disabled-border-color: transparent;
+    --button-inverted-secondary-disabled-color: color-mod(
+        var(--color-light-text-primary-inverted) alpha(40%)
     );
 }

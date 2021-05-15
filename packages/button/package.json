@@ -26,7 +26,6 @@
         "react-merge-refs": "^1.1.0"
     },
     "buildThemes": [
-        "site",
-        "site-inverted"
+        "site"
     ]
 }
