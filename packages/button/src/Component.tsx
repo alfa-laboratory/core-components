@@ -127,6 +127,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                     [styles.iconOnly]: !children,
                     [styles.nowrap]: nowrap,
                     [styles.loading]: showLoader,
+                    [colorStyles.loading]: showLoader,
                 },
                 className,
             ),
