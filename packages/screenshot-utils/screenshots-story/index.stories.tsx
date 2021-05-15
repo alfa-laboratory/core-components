@@ -9,7 +9,20 @@ export const Screenshots = () => {
         getQueryParam('subComponent'),
     );
 
-    return Component ? <Component {...parseKnobs()} /> : null;
+    const props = parseKnobs();
+
+    return (
+        <div
+            // TODO:
+            style={{
+                backgroundColor: (props as any).inverted
+                    ? 'var(--color-light-bg-primary-inverted)'
+                    : 'transparent',
+            }}
+        >
+            {Component ? <Component {...props} /> : null}
+        </div>
+    );
 };
 
 export default {
