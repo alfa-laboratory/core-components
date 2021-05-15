@@ -23,7 +23,7 @@ import { name, version } from '../package.json';
                 hasCloser={boolean('hasCloser', true)}
                 block={boolean('block', false)}
                 onClose={Function.prototype}
-                actionButton={boolean('renderActionButton', false) ? <Button view="ghost" size="s">Action Button</Button> : null }
+                actionButton={boolean('renderActionButton', false) ? <Button view="ghost" inverted={true} size="s">Action Button</Button> : null }
             >
                 {text('children', '')}
             </ToastPlate>
@@ -54,7 +54,7 @@ import { ToastPlate } from '@alfalab/core-components-toast-plate';
         hasCloser={true}
         block={true}
         onClose={Function.prototype}
-        actionButton={<Button view="ghost" size="s">Восстановить</Button> }
+        actionButton={<Button inverted={true} view="ghost" size="s">Восстановить</Button> }
     />
 </Preview>
 

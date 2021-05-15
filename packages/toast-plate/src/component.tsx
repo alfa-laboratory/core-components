@@ -163,6 +163,7 @@ export const ToastPlate = forwardRef<HTMLDivElement, ToastPlateProps>(
 
                     {hasCloser && (
                         <Button
+                            inverted={true}
                             className={cn(styles.closeButton)}
                             view='ghost'
                             onClick={handleClose}
