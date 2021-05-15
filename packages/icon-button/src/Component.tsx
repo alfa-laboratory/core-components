@@ -4,6 +4,8 @@ import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
 
 import styles from './index.module.css';
+import defaultColors from './default.module.css';
+import invertedColors from './inverted.module.css';
 
 export type IconButtonProps = {
     /**
@@ -30,16 +32,26 @@ export type IconButtonProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Использует инвертированные цвета для компонента
+     */
+    inverted?: boolean;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'size'>;
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-    ({ className, icon: Icon, view = 'primary', size = 's', ...restProps }, ref) => {
+    (
+        { className, icon: Icon, view = 'primary', size = 's', inverted = false, ...restProps },
+        ref,
+    ) => {
+        const colorStyles = inverted ? invertedColors : defaultColors;
+
         return (
             <Button
                 {...restProps}
                 ref={ref}
                 view='ghost'
-                className={cn(className, styles[view])}
+                className={cn(className, colorStyles[view])}
                 size='s'
                 leftAddons={
                     <span className={cn(styles.iconWrapper, styles[size])}>
