@@ -8,7 +8,7 @@ import styles from './index.module.css';
 
 export type CollapseProps = {
     /**
-     * Первоначальное состояние компонента
+     * Состояние компонента
      *
      */
     expanded?: boolean;
@@ -67,6 +67,10 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props: Collap
     const contentCaseRef = useRef<HTMLDivElement>(null);
     const [isExpanded, setIsExpanded] = useState(expanded);
 
+    useEffect(() => {
+        setIsExpanded(expanded);
+    }, [expanded]);
+
     const recalculate = useCallback(() => {
         let contentHeight;
 
@@ -97,6 +101,8 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props: Collap
         [styles.expandedContent]: isExpanded,
     });
 
+    const labelClassName = isExpanded ? styles.expandedLabel : '';
+
     const ToggledIcon = isExpanded ? ArrowUpMBlackIcon : ArrowDownMBlackIcon;
 
     const handleExpandedChange = useCallback(() => {
@@ -109,9 +115,16 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props: Collap
             <div ref={contentRef} className={contentClassName}>
                 <div ref={contentCaseRef}>{children}</div>
             </div>
-            <Link pseudo={true} onClick={handleExpandedChange} rightAddons={<ToggledIcon />}>
-                {isExpanded ? expandedLabel : collapsedLabel}
-            </Link>
+            {(expandedLabel || collapsedLabel) && (
+                <Link
+                    className={labelClassName}
+                    pseudo={true}
+                    onClick={handleExpandedChange}
+                    rightAddons={<ToggledIcon />}
+                >
+                    {isExpanded ? expandedLabel : collapsedLabel}
+                </Link>
+            )}
         </div>
     );
 });
