@@ -65,7 +65,7 @@ export const renderModalStory = (ModalComponent, props = {}) => {
     const stickyHeader = boolean('header.sticky', false);
     const footer = boolean('footer', false);
     const stickyFooter = boolean('footer.sticky', false);
-    const footerLayout = select('footer.layout', ['left', 'center', 'right', 'full-width', 'vertical'], 'left');
+    const footerLayout = select('footer.layout', ['start', 'center', 'space-between', 'row'], 'start');
     const footerGap = select('footer.gap', [false, 16, 24, 32], false);
     const flexContent = boolean('content.flex', false);
     return (

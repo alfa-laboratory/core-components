@@ -21,8 +21,14 @@ export type FooterProps = {
      */
     sticky?: boolean;
 
-    layout?: 'left' | 'center' | 'right' | 'full-width' | 'vertical';
+    /**
+     * Выравнивание элементов футера
+     */
+    layout?: 'start' | 'center' | 'space-between' | 'row';
 
+    /**
+     * Отступы между элементами футера
+     */
     gap?: 16 | 24 | 32;
 };
 
@@ -30,7 +36,7 @@ export const Footer: FC<FooterProps & { styles: Record<string, string> }> = ({
     children,
     className,
     sticky,
-    layout = 'left',
+    layout = 'start',
     gap,
     styles,
 }) => {

@@ -1,6 +1,6 @@
 @import '../../vars.css';
 
-.vertical {
+.row {
     display: flex;
     flex-direction: column;
 
@@ -26,7 +26,7 @@
     }
 }
 
-.left {
+.start {
     justify-content: flex-start;
 }
 
@@ -34,22 +34,17 @@
     justify-content: center;
 }
 
-.full-width {
+.space-between {
     justify-content: space-between;
 
     & > * {
-        flex-grow: 1;
+        flex: 1;
     }
 }
 
-.right {
-    justify-content: flex-end;
-}
-
-.left,
+.start,
 .center,
-.right,
-.full-width {
+.space-between {
     display: flex;
 
     & > * {
