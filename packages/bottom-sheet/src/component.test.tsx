@@ -29,7 +29,39 @@ const BottomSheetWrapper = forwardRef<HTMLDivElement, Partial<BottomSheetProps>>
 
 const dataTestId = 'test-id';
 
+let getBoundingClientRect: () => DOMRect;
+
+const mockGetBoundingClientRect = (height: number) => {
+    if (!getBoundingClientRect) {
+        getBoundingClientRect = HTMLElement.prototype.getBoundingClientRect;
+    }
+
+    HTMLElement.prototype.getBoundingClientRect = () => ({
+        height,
+        width: 0,
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        x: 0,
+        y: 0,
+        toJSON: () => '',
+    });
+};
+
+const clearGetBoundingClientRect = () => {
+    HTMLElement.prototype.getBoundingClientRect = getBoundingClientRect;
+};
+
 describe('Bottom sheet', () => {
+    beforeAll(() => {
+        mockGetBoundingClientRect(100);
+    });
+
+    afterAll(() => {
+        clearGetBoundingClientRect();
+    });
+
     describe('Snapshots tests', () => {
         it('should match snapshot', () => {
             const { baseElement } = render(<BottomSheetWrapper />);
@@ -198,6 +230,97 @@ describe('Bottom sheet', () => {
             expect(getComputedStyle(swipeableBottomSheet).transform).toBe(
                 `translateY(${swipeDelta}px)`,
             );
+        });
+
+        it('should return up, if swiped less then passed closeOffset', async () => {
+            const className = 'className';
+
+            const onEntered = jest.fn();
+            const onExited = jest.fn();
+            const closeOffset = 0.5;
+
+            render(
+                <BottomSheetWrapper
+                    dataTestId={dataTestId}
+                    className={className}
+                    transition={{
+                        timeout: 0,
+                        onEntered,
+                        onExited,
+                    }}
+                    closeOffset={closeOffset}
+                />,
+            );
+
+            await waitFor(() => expect(onEntered).toBeCalledTimes(1));
+
+            const swipeableBottomSheet = document.querySelector(`.${className}`) as HTMLElement;
+
+            const { top, left, height } = swipeableBottomSheet.getBoundingClientRect();
+
+            const initial = { x: left + 10, y: top + 10 };
+
+            const swipeDelta = height * closeOffset - 20;
+
+            fireEvent.touchStart(swipeableBottomSheet, {
+                touches: [{ clientX: initial.x, clientY: initial.y }],
+            });
+
+            fireEvent.touchMove(swipeableBottomSheet, {
+                touches: [{ clientX: initial.x, clientY: initial.y + swipeDelta }],
+            });
+
+            fireEvent.touchEnd(swipeableBottomSheet);
+
+            expect(onExited).not.toBeCalled();
+            expect(getComputedStyle(swipeableBottomSheet).transform).toBe('');
+        });
+
+        it('should close, if swiped more then passed closeOffset', async () => {
+            const className = 'className';
+
+            const onEntered = jest.fn();
+            const onExited = jest.fn();
+            const closeOffset = 0.5;
+
+            const { queryByTestId } = render(
+                <BottomSheetWrapper
+                    dataTestId={dataTestId}
+                    className={className}
+                    transition={{
+                        timeout: 0,
+                        onEntered,
+                        onExited,
+                    }}
+                    closeOffset={closeOffset}
+                />,
+            );
+
+            await waitFor(() => expect(onEntered).toBeCalledTimes(1));
+
+            const swipeableBottomSheet = document.querySelector(`.${className}`) as HTMLElement;
+
+            const { top, left, height } = swipeableBottomSheet.getBoundingClientRect();
+
+            const initial = { x: left + 10, y: top + 10 };
+
+            const swipeDelta = height * closeOffset + 20;
+
+            fireEvent.touchStart(swipeableBottomSheet, {
+                touches: [{ clientX: initial.x, clientY: initial.y }],
+            });
+
+            fireEvent.touchMove(swipeableBottomSheet, {
+                touches: [{ clientX: initial.x, clientY: initial.y + swipeDelta }],
+            });
+
+            fireEvent.touchEnd(swipeableBottomSheet);
+
+            await waitFor(() => expect(onExited).toBeCalledTimes(1));
+
+            const component = await queryByTestId(dataTestId);
+
+            expect(component).not.toBeInTheDocument();
         });
     });
 });
