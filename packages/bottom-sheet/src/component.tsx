@@ -126,6 +126,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const scrollableContainerScrollValue = useRef(0);
 
         const getBackdropOpacity = (offset: number): number => {
+            if (sheetHeight.current === 0) return MIN_BACKDROP_OPACITY;
+
             const opacity = 1 - (1 - MIN_BACKDROP_OPACITY) * (offset / sheetHeight.current);
 
             return Number(opacity.toFixed(2));

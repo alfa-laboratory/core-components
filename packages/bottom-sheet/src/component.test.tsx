@@ -1,5 +1,5 @@
 import React, { useState, forwardRef } from 'react';
-import { fireEvent, render, waitForElementToBeRemoved } from '@testing-library/react';
+import { fireEvent, render, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
 
 import { BottomSheet, BottomSheetProps } from '.';
 
@@ -15,8 +15,14 @@ const BottomSheetWrapper = forwardRef<HTMLDivElement, Partial<BottomSheetProps>>
     };
 
     return (
-        <BottomSheet open={open} onClose={handleClose} ref={ref} {...props}>
-            {props.children || 'Bottom sheet content'}
+        <BottomSheet
+            open={open}
+            onClose={handleClose}
+            ref={ref}
+            title='Bottom sheet title'
+            {...props}
+        >
+            {props.children || <div>Bottom sheet content</div>}
         </BottomSheet>
     );
 });
@@ -144,6 +150,54 @@ describe('Bottom sheet', () => {
             const component = await queryByTestId(dataTestId);
 
             expect(component).not.toBeInTheDocument();
+        });
+
+        it('should swiping on touchmove', async () => {
+            const className = 'className';
+
+            const onEntered = jest.fn();
+
+            render(
+                <BottomSheetWrapper
+                    dataTestId={dataTestId}
+                    className={className}
+                    transition={{
+                        timeout: 0,
+                        onEntered,
+                    }}
+                />,
+            );
+
+            await waitFor(() => expect(onEntered).toBeCalledTimes(1));
+
+            const swipeableBottomSheet = document.querySelector(`.${className}`) as HTMLElement;
+
+            const { top, left } = swipeableBottomSheet.getBoundingClientRect();
+
+            const initial = { x: left + 10, y: top + 10 };
+
+            let swipeDelta = 20;
+
+            fireEvent.touchStart(swipeableBottomSheet, {
+                touches: [{ clientX: initial.x, clientY: initial.y }],
+            });
+            fireEvent.touchMove(swipeableBottomSheet, {
+                touches: [{ clientX: initial.x, clientY: initial.y + swipeDelta }],
+            });
+
+            expect(getComputedStyle(swipeableBottomSheet).transform).toBe(
+                `translateY(${swipeDelta}px)`,
+            );
+
+            swipeDelta = 40;
+
+            fireEvent.touchMove(swipeableBottomSheet, {
+                touches: [{ clientX: initial.x, clientY: initial.y + swipeDelta }],
+            });
+
+            expect(getComputedStyle(swipeableBottomSheet).transform).toBe(
+                `translateY(${swipeDelta}px)`,
+            );
         });
     });
 });

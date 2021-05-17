@@ -32,10 +32,17 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
         <div
           class="scrollableContainer withPadding"
         >
+          <h2
+            class="component title system-small bold"
+          >
+            Bottom sheet title
+          </h2>
           <div
             class="content"
           >
-            Bottom sheet content
+            <div>
+              Bottom sheet content
+            </div>
           </div>
         </div>
       </div>
@@ -75,10 +82,17 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
         <div
           class="scrollableContainer"
         >
+          <h2
+            class="component title system-small bold"
+          >
+            Bottom sheet title
+          </h2>
           <div
             class="content"
           >
-            Bottom sheet content
+            <div>
+              Bottom sheet content
+            </div>
           </div>
           <div
             class="footer"
