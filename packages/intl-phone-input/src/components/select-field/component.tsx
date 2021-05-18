@@ -31,7 +31,7 @@ export const SelectField: FC<FieldProps> = ({
         >
             <div {...innerProps} className={styles.inner}>
                 {selected && (
-                    <span>
+                    <span className={styles.flagIconContainer}>
                         <FlagIcon country={selected.value} size={size} />
                     </span>
                 )}

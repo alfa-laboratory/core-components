@@ -1,5 +1,9 @@
 import { Description } from '@storybook/addon-docs/blocks';
 
+import { Plate } from '../packages/plate/src';
+import { Badge } from '../packages/badge/src';
+import { AlertCircleMIcon } from '@alfalab/icons-glyph';
+
 <Meta title='Гайдлайны|Иконки' />
 
 ## Иконки
@@ -12,3 +16,13 @@ import { Description } from '@storybook/addon-docs/blocks';
 Для удобства воспользуйтесь [витриной иконок с поиском](https://alfa-laboratory.github.io/icons-demo/).
 
 Иконки из пакета [icons-glyph](https://github.com/alfa-laboratory/icons) одноцветные и легко могут быть перекрашены с помощью `color`.
+
+<div style={{marginTop: 24}}>
+<Plate view='attention' leftAddons={<Badge view='icon' iconColor='attention' content={<AlertCircleMIcon />} />}>
+
+Проверьте, что `alfabank.st` добавлен в список разрешённых источников:
+
+<p style={{marginBottom: 8}}><code>'img-src': `'self' click.alfabank.ru alfabank.st data: 'self'`</code></p>
+
+</Plate>
+</div>

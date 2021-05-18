@@ -3,59 +3,80 @@
 exports[`IntlPhoneInput should match snapshot 1`] = `
 <div>
   <div
-    class="component m m hasLeftAddons"
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    aria-owns="downshift-1-menu"
+    class="component"
+    role="combobox"
+    tabindex="-1"
   >
     <div
-      class="inner filled"
+      class="component m m block hasLeftAddons"
     >
       <div
-        class="addons leftAddons addons"
+        class="inner filled"
       >
         <div
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="downshift-1-menu"
-          class="component component"
-          role="combobox"
-          tabindex="-1"
+          class="addons leftAddons addons"
         >
           <div
-            class="component m"
+            class="component"
           >
             <div
-              aria-controls="downshift-1-menu"
-              aria-labelledby="downshift-1-label"
-              class="inner"
-              id="downshift-0-input"
-              tabindex="0"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="downshift-3-menu"
+              class="component"
+              role="combobox"
+              tabindex="-1"
             >
-              <span>
-                <span
-                  class="flagIcon m ru"
-                />
-              </span>
-              <span
-                class="arrow"
-              />
+              <div
+                class="component m"
+              >
+                <div
+                  aria-controls="downshift-3-menu"
+                  aria-labelledby="downshift-3-label"
+                  class="inner"
+                  id="downshift-2-input"
+                  tabindex="0"
+                >
+                  <span
+                    class="flagIconContainer"
+                  >
+                    <span
+                      class="flagIcon m ru"
+                    />
+                  </span>
+                  <span
+                    class="arrow"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="inputWrapper"
-      >
         <div
-          class="input"
+          class="inputWrapper"
         >
-          <input
+          <div
             class="input"
-            type="tel"
-            value="+7 111 111 11 11"
-          />
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="downshift-1-menu"
+              aria-labelledby="downshift-1-label"
+              autocomplete="off"
+              class="input"
+              id="downshift-0-input"
+              tabindex="0"
+              type="tel"
+              value="+7 111 111 11 11"
+            />
+          </div>
         </div>
       </div>
+      
     </div>
-    
   </div>
 </div>
 `;

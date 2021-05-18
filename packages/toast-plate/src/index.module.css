@@ -87,6 +87,7 @@
     padding: var(--gap-2xs);
     transition: opacity 0.2s ease-out;
     cursor: pointer;
+    color: var(--color-light-text-primary-inverted);
 
     &:hover .closeIcon {
         opacity: 0.7;

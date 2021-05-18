@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-select",
-    "version": "8.0.0",
+    "version": "8.0.3",
     "description": "Select component",
     "keywords": [],
     "license": "MIT",
@@ -21,12 +21,13 @@
     },
     "dependencies": {
         "@alfalab/core-components-form-control": "^6.1.1",
-        "@alfalab/core-components-input": "^6.0.13",
+        "@alfalab/core-components-input": "^6.1.0",
         "@alfalab/core-components-popover": "^4.0.0",
         "@alfalab/hooks": "^1.0.0",
         "classnames": "^2.2.6",
         "downshift": "5.4.7",
         "react-merge-refs": "^1.1.0",
-        "react-virtual": "^2.2.0"
+        "react-virtual": "^2.2.0",
+        "resize-observer": "^1.0.0"
     }
 }

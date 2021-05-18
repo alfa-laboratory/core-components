@@ -1,3 +1,72 @@
+# [16.4.0](https://github.com/alfa-laboratory/core-components/compare/v16.3.1...v16.4.0) (2021-05-18)
+
+
+### Bug Fixes
+
+* **button:** loader position in ie ([#661](https://github.com/alfa-laboratory/core-components/issues/661)) ([6f0ddab](https://github.com/alfa-laboratory/core-components/commit/6f0ddab3a3e59672f20b0f2239a4de6ba548edb1))
+* **calendar-input:** allow to pass all props via calendarProps ([#653](https://github.com/alfa-laboratory/core-components/issues/653)) ([82c4675](https://github.com/alfa-laboratory/core-components/commit/82c4675e2f64b282f9d9772825874a6e1854704b))
+* **modal:** click theme sticky footer bg ([#641](https://github.com/alfa-laboratory/core-components/issues/641)) ([215a155](https://github.com/alfa-laboratory/core-components/commit/215a155030d9966508afa1b8ee8059cc422a2765))
+* **select:** add aria-disabled when disabled ([#662](https://github.com/alfa-laboratory/core-components/issues/662)) ([bd93614](https://github.com/alfa-laboratory/core-components/commit/bd93614530567515af8e9bee3a7e0e08c8528b4c))
+* **select:** fix hidden label ([#652](https://github.com/alfa-laboratory/core-components/issues/652)) ([a5fecfc](https://github.com/alfa-laboratory/core-components/commit/a5fecfc16db2a7bad73282706c2c588b235acf8a))
+* **select:** recalc options-list width when open ([#640](https://github.com/alfa-laboratory/core-components/issues/640)) ([1a7a3c2](https://github.com/alfa-laboratory/core-components/commit/1a7a3c2f596e438686a59999411ef7a437dc00fe))
+
+
+### Features
+
+* **drawer:** update animtaion ([#643](https://github.com/alfa-laboratory/core-components/issues/643)) ([3a3cfc5](https://github.com/alfa-laboratory/core-components/commit/3a3cfc5be89908df476f77a35bcf6b9460ecb92a))
+* **input:** pretty webkit autofill ([#660](https://github.com/alfa-laboratory/core-components/issues/660)) ([d50e83e](https://github.com/alfa-laboratory/core-components/commit/d50e83e627e1641c3634ace505b9abe163ef6530))
+
+## [16.3.1](https://github.com/alfa-laboratory/core-components/compare/v16.3.0...v16.3.1) (2021-05-14)
+
+
+### Bug Fixes
+
+* **select-with-tags:** changed includes method for IE11 support ([#651](https://github.com/alfa-laboratory/core-components/issues/651)) ([254bca3](https://github.com/alfa-laboratory/core-components/commit/254bca3df02107dfffc5175f74e35162453c20d0))
+
+# [16.3.0](https://github.com/alfa-laboratory/core-components/compare/v16.2.0...v16.3.0) (2021-05-07)
+
+
+### Features
+
+* **button:** fix version ([#648](https://github.com/alfa-laboratory/core-components/issues/648)) ([ec51599](https://github.com/alfa-laboratory/core-components/commit/ec5159910a7fdc103d4f4e8d3d4198db3ffbdcc8))
+* **intl-phone-input:** add autocomplete ([#630](https://github.com/alfa-laboratory/core-components/issues/630)) ([18b5714](https://github.com/alfa-laboratory/core-components/commit/18b57143ede6bf5e9fcd7d460b4859c6d86c026b))
+
+# [16.2.0](https://github.com/alfa-laboratory/core-components/compare/v16.1.3...v16.2.0) (2021-05-07)
+
+
+### Features
+
+* **button:** add loader minimal display interval ([#634](https://github.com/alfa-laboratory/core-components/issues/634)) ([d2f7edc](https://github.com/alfa-laboratory/core-components/commit/d2f7edc52c3e43ce3f5db8250446227b869ab731))
+* **icon-button:** add negative view ([#635](https://github.com/alfa-laboratory/core-components/issues/635)) ([7006116](https://github.com/alfa-laboratory/core-components/commit/70061167d1e00a786e28c53ebb26e4e174d03311))
+
+## [16.1.3](https://github.com/alfa-laboratory/core-components/compare/v16.1.2...v16.1.3) (2021-05-06)
+
+
+### Bug Fixes
+
+* update popover versions ([#646](https://github.com/alfa-laboratory/core-components/issues/646)) ([199cf80](https://github.com/alfa-laboratory/core-components/commit/199cf80cd60e6edf0ac5d41c7eb258ab05d3b534))
+
+## [16.1.2](https://github.com/alfa-laboratory/core-components/compare/v16.1.1...v16.1.2) (2021-05-05)
+
+
+### Bug Fixes
+
+* **toast-plate:** fix cross color ([#642](https://github.com/alfa-laboratory/core-components/issues/642)) ([96a17fd](https://github.com/alfa-laboratory/core-components/commit/96a17fdcd28a37519845d5a0c40809f107e3031f))
+
+## [16.1.1](https://github.com/alfa-laboratory/core-components/compare/v16.1.0...v16.1.1) (2021-05-04)
+
+
+### Bug Fixes
+
+* **notification:** move closest polyfill to mount ([#639](https://github.com/alfa-laboratory/core-components/issues/639)) ([364a9f6](https://github.com/alfa-laboratory/core-components/commit/364a9f69b632428394ce8571333d8f0e6dc11f1e))
+
+# [16.1.0](https://github.com/alfa-laboratory/core-components/compare/v16.0.0...v16.1.0) (2021-04-28)
+
+
+### Features
+
+* **button:** experimental active transform (site theme) ([a741e4f](https://github.com/alfa-laboratory/core-components/commit/a741e4fb73716902e6a72957e672921c21e7696b))
+
 # [16.0.0](https://github.com/alfa-laboratory/core-components/compare/v15.4.0...v16.0.0) (2021-04-26)
 
 

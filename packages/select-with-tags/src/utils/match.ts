@@ -3,7 +3,7 @@ import { GroupShape, OptionShape, isGroup } from '@alfalab/core-components-selec
 import { OptionMatcher, SelectWithTagsProps } from '../types';
 
 const defaultMatch: OptionMatcher = (option, inputValue) =>
-    option.value.toLowerCase().includes((inputValue || '').toLowerCase());
+    option.value.toLowerCase().indexOf((inputValue || '').toLowerCase(), 0) !== -1;
 
 const optionsIsGroupShapes = (options: SelectWithTagsProps['options']): options is GroupShape[] => {
     const item = options[0];

@@ -3,6 +3,50 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@2.3.0...@alfalab/core-components-button@2.3.1) (2021-05-18)
+
+
+### Bug Fixes
+
+* **button:** loader position in ie ([#661](https://github.com/alfa-laboratory/core-components/issues/661)) ([6f0ddab](https://github.com/alfa-laboratory/core-components/commit/6f0ddab3a3e59672f20b0f2239a4de6ba548edb1))
+
+
+
+
+
+# [2.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@2.2.0-beta.4...@alfalab/core-components-button@2.3.0) (2021-05-07)
+
+
+### Features
+
+* **button:** fix version ([#648](https://github.com/alfa-laboratory/core-components/issues/648)) ([ec51599](https://github.com/alfa-laboratory/core-components/commit/ec5159910a7fdc103d4f4e8d3d4198db3ffbdcc8))
+
+
+
+
+
+# [2.2.0-beta.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@2.2.0-beta.3...@alfalab/core-components-button@2.2.0-beta.4) (2021-05-07)
+
+
+### Features
+
+* **button:** add loader minimal display interval ([#634](https://github.com/alfa-laboratory/core-components/issues/634)) ([d2f7edc](https://github.com/alfa-laboratory/core-components/commit/d2f7edc52c3e43ce3f5db8250446227b869ab731))
+
+
+
+
+
+# [2.2.0-beta.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@2.2.0-beta.2...@alfalab/core-components-button@2.2.0-beta.3) (2021-04-28)
+
+
+### Features
+
+* **button:** experimental active transform (site theme) ([a741e4f](https://github.com/alfa-laboratory/core-components/commit/a741e4fb73716902e6a72957e672921c21e7696b))
+
+
+
+
+
 # [2.2.0-beta.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@2.2.0...@alfalab/core-components-button@2.2.0-beta.2) (2021-04-26)
 
 **Note:** Version bump only for package @alfalab/core-components-button

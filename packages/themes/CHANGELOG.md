@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.9.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.9.0...@alfalab/core-components-themes@3.9.1) (2021-05-18)
+
+
+### Bug Fixes
+
+* **modal:** click theme sticky footer bg ([#641](https://github.com/alfa-laboratory/core-components/issues/641)) ([215a155](https://github.com/alfa-laboratory/core-components/commit/215a155030d9966508afa1b8ee8059cc422a2765))
+
+
+
+
+
+# [3.9.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.8.1...@alfalab/core-components-themes@3.9.0) (2021-04-28)
+
+
+### Features
+
+* **button:** experimental active transform (site theme) ([a741e4f](https://github.com/alfa-laboratory/core-components/commit/a741e4fb73716902e6a72957e672921c21e7696b))
+
+
+
+
+
 ## [3.8.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.8.0...@alfalab/core-components-themes@3.8.1) (2021-04-26)
 
 **Note:** Version bump only for package @alfalab/core-components-themes

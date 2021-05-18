@@ -25,7 +25,7 @@ export function combosToProps(combos: Array<Array<[unknown, number]>>, names: st
                     ...props,
                     [names[nameIndex]]: value,
                 }),
-                [],
+                {} as Record<string, unknown>,
             ),
         [],
     );

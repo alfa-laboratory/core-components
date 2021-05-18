@@ -36,6 +36,13 @@
     --icon-button-transparent-disabled-color: color-mod(
         var(--icon-button-transparent-base-color) alpha(40%)
     );
+
+    /* negative */
+    --icon-button-negative-base-color: var(--color-light-graphic-negative);
+    --icon-button-negative-hover-color: color-mod(var(--icon-button-negative-base-color) tint(30%));
+    --icon-button-negative-active-color: color-mod(
+        var(--icon-button-negative-base-color) tint(50%)
+    );
 }
 
 .primary {
@@ -71,6 +78,18 @@
 
     &:active {
         color: var(--icon-button-transparent-active-color);
+    }
+}
+
+.negative {
+    color: var(--icon-button-negative-base-color);
+
+    &:hover {
+        color: var(--icon-button-negative-hover-color);
+    }
+
+    &:active {
+        color: var(--icon-button-negative-active-color);
     }
 }
 

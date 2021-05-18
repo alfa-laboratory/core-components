@@ -9,6 +9,7 @@
 
     /* theme */
     --button-border-radius: var(--border-radius-m);
+    --button-active-transform: scale(0.97);
 
     /* primary */
     --button-primary-base-bg-color: var(--color-dark-bg-accent);

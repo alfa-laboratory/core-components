@@ -1,7 +1,29 @@
-import React, { MouseEvent } from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import React, { MouseEvent, useState, FC } from 'react';
+import { render, fireEvent, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
 
-import { Button } from './index';
+import { Button, ButtonProps, LOADER_MIN_DISPLAY_INTERVAL } from './index';
+
+const dataTestId = 'test-id';
+
+const ButtonWithLoader: FC<ButtonProps & { timeout: number }> = ({ timeout, ...restProps }) => {
+    const [loading, setLoading] = useState(false);
+
+    return (
+        <Button
+            {...restProps}
+            loading={loading}
+            onClick={() => {
+                setLoading(true);
+
+                setTimeout(() => {
+                    setLoading(false);
+                }, timeout);
+            }}
+        >
+            Button
+        </Button>
+    );
+};
 
 describe('Button', () => {
     describe('Snapshots tests', () => {
@@ -36,7 +58,6 @@ describe('Button', () => {
 
     describe('Attributes tests', () => {
         it('should set `data-test-id` attribute', () => {
-            const dataTestId = 'test-id';
             const { getByTestId } = render(<Button dataTestId={dataTestId} />);
 
             expect(getByTestId(dataTestId).tagName).toBe('BUTTON');
@@ -106,7 +127,7 @@ describe('Button', () => {
     describe('Callbacks tests', () => {
         it('should call `onClick` prop', () => {
             const cb = jest.fn();
-            const dataTestId = 'test-id';
+
             const { getByTestId } = render(<Button onClick={cb} dataTestId={dataTestId} />);
 
             fireEvent.click(getByTestId(dataTestId));
@@ -116,7 +137,7 @@ describe('Button', () => {
 
         it('should not call `onClick` prop if disabled', () => {
             const cb = jest.fn();
-            const dataTestId = 'test-id';
+
             const { getByTestId } = render(
                 <Button onClick={cb} dataTestId={dataTestId} disabled={true} />,
             );
@@ -131,7 +152,6 @@ describe('Button', () => {
          * Если тест скомпилился - то все ок.
          */
         it('target should contain button element', () => {
-            const dataTestId = 'test-id';
             const { getByTestId } = render(<Button onClick={cb} dataTestId={dataTestId} />);
 
             const buttonNode = getByTestId(dataTestId);
@@ -148,7 +168,6 @@ describe('Button', () => {
          * Если тест скомпилился - то все ок.
          */
         it('target should contain anchor element', () => {
-            const dataTestId = 'test-id';
             const { getByTestId } = render(
                 <Button onClick={cb} dataTestId={dataTestId} href='#' />,
             );
@@ -160,6 +179,52 @@ describe('Button', () => {
             }
 
             fireEvent.click(anchorNode, { target: anchorNode });
+        });
+    });
+
+    describe('Loader tests', () => {
+        it('should keep loader during LOADER_MIN_DISPLAY_INTERVAL ms', async () => {
+            const { getByTestId, container } = render(
+                <ButtonWithLoader timeout={100} dataTestId={dataTestId} />,
+            );
+
+            const button = getByTestId(dataTestId);
+            const getLoader = () => container.querySelector('svg');
+
+            const start = Date.now();
+
+            fireEvent.click(button);
+
+            await waitFor(() => expect(getLoader()).toBeInTheDocument());
+
+            await waitForElementToBeRemoved(getLoader());
+
+            const duration = Date.now() - start;
+
+            expect(duration).toBeGreaterThanOrEqual(LOADER_MIN_DISPLAY_INTERVAL);
+        });
+
+        it('should keep loader during TIMEOUT ms, if TIMEOUT > LOADER_MIN_DISPLAY_INTERVAL', async () => {
+            const TIMEOUT = LOADER_MIN_DISPLAY_INTERVAL + 500;
+
+            const { getByTestId, container } = render(
+                <ButtonWithLoader timeout={TIMEOUT} dataTestId={dataTestId} />,
+            );
+
+            const button = getByTestId(dataTestId);
+            const getLoader = () => container.querySelector('svg');
+
+            const start = Date.now();
+
+            fireEvent.click(button);
+
+            await waitFor(() => expect(getLoader()).toBeInTheDocument());
+
+            await waitForElementToBeRemoved(getLoader());
+
+            const duration = Date.now() - start;
+
+            expect(duration).toBeGreaterThanOrEqual(TIMEOUT);
         });
     });
 
