@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@1.4.2...@alfalab/core-components-modal@1.4.3) (2021-05-18)
+
+
+### Bug Fixes
+
+* **modal:** click theme sticky footer bg ([#641](https://github.com/alfa-laboratory/core-components/issues/641)) ([215a155](https://github.com/alfa-laboratory/core-components/commit/215a155030d9966508afa1b8ee8059cc422a2765))
+
+
+
+
+
 ## [1.4.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@1.4.1...@alfalab/core-components-modal@1.4.2) (2021-05-07)
 
 **Note:** Version bump only for package @alfalab/core-components-modal
