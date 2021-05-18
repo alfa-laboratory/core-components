@@ -7,6 +7,7 @@ import React, {
     MouseEvent,
     useRef,
     ReactNode,
+    AnimationEvent,
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
@@ -185,6 +186,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             onClick,
             onMouseDown,
             onMouseUp,
+            onAnimationStart,
             rightAddons,
             value,
             defaultValue,
@@ -204,6 +206,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         const [stateValue, setStateValue] = useState(defaultValue || '');
 
         const filled = Boolean(uncontrolled ? stateValue : value);
+        const [autofilled, setAutofilled] = useState(false);
+
         // отображаем крестик только для заполненного и активного инпута
         const clearButtonVisible = clear && filled && !disabled && !readOnly;
 
@@ -263,6 +267,17 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             [clearButtonVisible, focused, onClear, uncontrolled],
         );
 
+        const handleAnimationStart = useCallback(
+            (event: AnimationEvent<HTMLInputElement>) => {
+                if (onAnimationStart) {
+                    onAnimationStart(event);
+                }
+
+                setAutofilled(event.animationName.includes('start'));
+            },
+            [onAnimationStart],
+        );
+
         const renderRightAddons = () => {
             const addonsVisible = clearButtonVisible || rightAddons || error || success;
 
@@ -301,7 +316,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 size={size}
                 block={block}
                 disabled={disabled}
-                filled={filled || focused}
+                filled={filled || autofilled || focused}
                 focused={focused}
                 error={error}
                 label={label}
@@ -326,6 +341,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     onBlur={handleInputBlur}
                     onFocus={handleInputFocus}
                     onChange={handleInputChange}
+                    onAnimationStart={handleAnimationStart}
                     ref={mergeRefs([ref, inputRef])}
                     type={type}
                     value={uncontrolled ? stateValue : value}

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@3.0.2...@alfalab/core-components-calendar-input@3.0.3) (2021-05-18)
+
+
+### Bug Fixes
+
+* **calendar-input:** allow to pass all props via calendarProps ([#653](https://github.com/alfa-laboratory/core-components/issues/653)) ([82c4675](https://github.com/alfa-laboratory/core-components/commit/82c4675e2f64b282f9d9772825874a6e1854704b))
+
+
+
+
+
 ## [3.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@3.0.1...@alfalab/core-components-calendar-input@3.0.2) (2021-05-07)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar-input

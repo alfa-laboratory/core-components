@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@8.0.2...@alfalab/core-components-select@8.0.3) (2021-05-18)
+
+
+### Bug Fixes
+
+* **select:** add aria-disabled when disabled ([#662](https://github.com/alfa-laboratory/core-components/issues/662)) ([bd93614](https://github.com/alfa-laboratory/core-components/commit/bd93614530567515af8e9bee3a7e0e08c8528b4c))
+* **select:** fix hidden label ([#652](https://github.com/alfa-laboratory/core-components/issues/652)) ([a5fecfc](https://github.com/alfa-laboratory/core-components/commit/a5fecfc16db2a7bad73282706c2c588b235acf8a))
+* **select:** recalc options-list width when open ([#640](https://github.com/alfa-laboratory/core-components/issues/640)) ([1a7a3c2](https://github.com/alfa-laboratory/core-components/commit/1a7a3c2f596e438686a59999411ef7a437dc00fe))
+
+
+
+
+
 ## [8.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@8.0.1...@alfalab/core-components-select@8.0.2) (2021-05-07)
 
 **Note:** Version bump only for package @alfalab/core-components-select
