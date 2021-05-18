@@ -256,10 +256,15 @@ describe('Select', () => {
             expect(getByRole(ROLE_LISTBOX)).toBeInTheDocument();
         });
 
-        it('should add disabled class', () => {
-            render(<Select {...baseProps} label={LABEL_TEXT} options={options} disabled={true} />);
+        it('should add disabled class and aria-disabled', () => {
+            const { getByRole } = render(
+                <Select {...baseProps} label={LABEL_TEXT} options={options} disabled={true} />,
+            );
 
             expect(document.querySelector('.disabled') as HTMLElement).toBeInTheDocument();
+
+            const combobox = getByRole(ROLE_COMBOBOX);
+            expect(combobox).toHaveAttribute('aria-disabled');
         });
 
         it('should add `focused` class', () => {

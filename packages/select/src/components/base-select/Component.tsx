@@ -339,6 +339,7 @@ export const BaseSelect = forwardRef(
             <div
                 {...getComboboxProps({
                     ref: rootRef,
+                    ...(disabled && { 'aria-disabled': true }),
                     className: cn(styles.component, { [styles.block]: block }, className),
                 })}
                 onKeyDown={disabled ? undefined : handleFieldKeyDown}
