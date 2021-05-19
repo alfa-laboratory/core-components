@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-input@6.0.14...@alfalab/core-components-input@6.1.0) (2021-05-18)
+
+
+### Features
+
+* **input:** pretty webkit autofill ([#660](https://github.com/alfa-laboratory/core-components/issues/660)) ([d50e83e](https://github.com/alfa-laboratory/core-components/commit/d50e83e627e1641c3634ace505b9abe163ef6530))
+
+
+
+
+
 ## [6.0.14](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-input@6.0.13...@alfalab/core-components-input@6.0.14) (2021-05-07)
 
 **Note:** Version bump only for package @alfalab/core-components-input

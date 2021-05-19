@@ -19,45 +19,69 @@
     will-change: transform;
 }
 
-.appear,
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* enter */
+
 .enter {
     transform: translateX(100%);
 }
 
-.appearActive,
-.enterActive {
-    transition: transform 400ms ease-in-out 200ms;
-    transform: translateX(0);
+.contentEnter {
+    opacity: 0;
 }
 
-.exit {
-    transform: translateX(0);
-}
-
-.exitActive {
-    transition: transform 400ms ease-in-out;
-    transform: translateX(100%);
-}
-
-.backdropAppear,
 .backdropEnter {
     background-color: var(--backdrop-hidden-background);
 }
 
-.backdropAppearActive,
+.enterActive {
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(0);
+}
+
 .backdropEnterActive,
-.backdropAppearDone,
 .backdropEnterDone {
-    transition: background 200ms ease-in-out;
+    transition: background 0.3s ease-in-out;
     background-color: var(--backdrop-visible-background);
+}
+
+.contentEnterActive {
+    transition: opacity 0.2s ease-in-out 0.3s;
+    opacity: 1;
+}
+
+/* exit */
+
+.exit {
+    transform: translateX(0);
 }
 
 .backdropExit {
     background-color: var(--backdrop-visible-background);
 }
 
+.contentExit {
+    opacity: 1;
+}
+
+.exitActive {
+    transition: transform 0.25s ease-in-out 0.1s;
+    transform: translateX(100%);
+}
+
 .backdropExitActive,
 .backdropExitDone {
-    transition: background 200ms ease-in-out 400ms;
+    transition: background 0.25s ease-in-out 0.1s;
     background-color: var(--backdrop-hidden-background);
+}
+
+.contentExitActive {
+    opacity: 0;
+    transition: opacity 0.12s ease-in-out;
 }

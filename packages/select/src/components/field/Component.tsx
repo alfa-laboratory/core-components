@@ -38,7 +38,7 @@ export const Field = ({
     const value = valueRenderer({ selected, selectedMultiple });
 
     const filled = Boolean(value);
-    const showLabel = !!label && filled;
+    const showLabel = !!label && (filled || !placeholder);
 
     return (
         <div

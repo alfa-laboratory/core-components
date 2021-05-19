@@ -139,7 +139,40 @@
     &:-webkit-autofill:hover,
     &:-webkit-autofill:focus,
     &:-webkit-autofill:active {
+        &:first-line {
+            @mixin system_16-20_regular;
+            font-family: var(--form-control-font-family);
+        }
+
         /* Hack from http://stackoverflow.com/a/29350537 */
         transition: background-color 999999s ease-in-out 0s;
+    }
+}
+
+.input {
+    &:-webkit-autofill {
+        animation: onautofillstart 999999s forwards;
+    }
+
+    &:not(:-webkit-autofill) {
+        /* Позволяет отслеживать autofill через js */
+        animation: onautofillcancel 999999s;
+    }
+}
+
+@keyframes onautofillstart {
+    from {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    to {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.01);
+    }
+}
+@keyframes onautofillcancel {
+    from {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    to {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.01);
     }
 }

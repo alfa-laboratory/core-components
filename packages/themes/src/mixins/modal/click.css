@@ -28,6 +28,10 @@
     /* closer */
     --modal-closer-icon: url('https://alfabank.st/icons/glyph_cross-heavy_m.svg');
 
+    /* sticky */
+    --modal-footer-sticky-box-shadow: none;
+    --modal-footer-sticky-background: var(--color-light-bg-secondary);
+
     /* scroll */
     --modal-header-highlight-box-shadow: none;
     --modal-header-highlight-background: var(--color-light-bg-primary);

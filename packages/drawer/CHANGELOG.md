@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-drawer@2.0.0...@alfalab/core-components-drawer@2.1.0) (2021-05-18)
+
+
+### Features
+
+* **drawer:** update animtaion ([#643](https://github.com/alfa-laboratory/core-components/issues/643)) ([3a3cfc5](https://github.com/alfa-laboratory/core-components/commit/3a3cfc5be89908df476f77a35bcf6b9460ecb92a))
+
+
+
+
+
 # [2.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-drawer@1.2.2...@alfalab/core-components-drawer@2.0.0) (2021-04-26)
 
 

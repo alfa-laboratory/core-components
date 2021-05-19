@@ -1,3 +1,21 @@
+# [16.4.0](https://github.com/alfa-laboratory/core-components/compare/v16.3.1...v16.4.0) (2021-05-18)
+
+
+### Bug Fixes
+
+* **button:** loader position in ie ([#661](https://github.com/alfa-laboratory/core-components/issues/661)) ([6f0ddab](https://github.com/alfa-laboratory/core-components/commit/6f0ddab3a3e59672f20b0f2239a4de6ba548edb1))
+* **calendar-input:** allow to pass all props via calendarProps ([#653](https://github.com/alfa-laboratory/core-components/issues/653)) ([82c4675](https://github.com/alfa-laboratory/core-components/commit/82c4675e2f64b282f9d9772825874a6e1854704b))
+* **modal:** click theme sticky footer bg ([#641](https://github.com/alfa-laboratory/core-components/issues/641)) ([215a155](https://github.com/alfa-laboratory/core-components/commit/215a155030d9966508afa1b8ee8059cc422a2765))
+* **select:** add aria-disabled when disabled ([#662](https://github.com/alfa-laboratory/core-components/issues/662)) ([bd93614](https://github.com/alfa-laboratory/core-components/commit/bd93614530567515af8e9bee3a7e0e08c8528b4c))
+* **select:** fix hidden label ([#652](https://github.com/alfa-laboratory/core-components/issues/652)) ([a5fecfc](https://github.com/alfa-laboratory/core-components/commit/a5fecfc16db2a7bad73282706c2c588b235acf8a))
+* **select:** recalc options-list width when open ([#640](https://github.com/alfa-laboratory/core-components/issues/640)) ([1a7a3c2](https://github.com/alfa-laboratory/core-components/commit/1a7a3c2f596e438686a59999411ef7a437dc00fe))
+
+
+### Features
+
+* **drawer:** update animtaion ([#643](https://github.com/alfa-laboratory/core-components/issues/643)) ([3a3cfc5](https://github.com/alfa-laboratory/core-components/commit/3a3cfc5be89908df476f77a35bcf6b9460ecb92a))
+* **input:** pretty webkit autofill ([#660](https://github.com/alfa-laboratory/core-components/issues/660)) ([d50e83e](https://github.com/alfa-laboratory/core-components/commit/d50e83e627e1641c3634ace505b9abe163ef6530))
+
 ## [16.3.1](https://github.com/alfa-laboratory/core-components/compare/v16.3.0...v16.3.1) (2021-05-14)
 
 
