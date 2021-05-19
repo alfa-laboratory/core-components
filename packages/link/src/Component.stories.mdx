@@ -21,17 +21,33 @@ export const VIEWS = ['primary', 'secondary', 'default'];
 <!-- Canvas -->
 
 <Story name='Link'>
-    <Typography.Text view='primary-medium'>
-        <Link
-            view={select('view', VIEWS, 'primary')}
-            pseudo={boolean('pseudo', false)}
-            href={text('href', '')}
-            leftAddons={boolean('leftAddons', false) && <Icon />}
-            rightAddons={boolean('rightAddons', false) && <Icon />}
-        >
-            {text('text', 'Вернуться в интернет-банк')}
-        </Link>
-    </Typography.Text>
+    {React.createElement(() => {
+        const inverted = boolean('inverted', false);
+        return (
+            <div style={{
+                backgroundColor: inverted ? 'var(--color-light-bg-primary-inverted)' : '#fff',
+                padding: '8px',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+            }}>
+                <Typography.Text view='primary-medium'>
+                    <Link
+                        view={select('view', VIEWS, 'primary')}
+                        pseudo={boolean('pseudo', false)}
+                        href={text('href', '')}
+                        leftAddons={boolean('leftAddons', false) && <Icon />}
+                        rightAddons={boolean('rightAddons', false) && <Icon />}
+                        inverted={inverted}
+                    >
+                        {text('text', 'Вернуться в интернет-банк')}
+                    </Link>
+                </Typography.Text>
+            </div>
+        );
+    })}
 </Story>
 
 

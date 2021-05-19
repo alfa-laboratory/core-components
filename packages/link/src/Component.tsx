@@ -4,6 +4,8 @@ import mergeRefs from 'react-merge-refs';
 import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
+import defaultColors from './default.module.css';
+import invertedColors from './inverted.module.css';
 
 type NativeProps = AnchorHTMLAttributes<HTMLAnchorElement>;
 
@@ -52,6 +54,11 @@ export type LinkProps = NativeProps & {
      * Дочерние элементы (native prop)
      */
     children: ReactNode;
+
+    /**
+     * Использует инвертированные цвета для компонента
+     */
+    inverted?: boolean;
 };
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
@@ -64,10 +71,13 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             className,
             dataTestId,
             children,
+            inverted = false,
             ...restProps
         },
         ref,
     ) => {
+        const colorStyles = inverted ? invertedColors : defaultColors;
+
         const linkRef = useRef<HTMLAnchorElement>(null);
 
         const [focused] = useFocus(linkRef, 'keyboard');
@@ -75,7 +85,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
         const componentProps = {
             className: cn(
                 styles.component,
-                styles[view],
+                colorStyles[view],
                 {
                     [styles.pseudo]: pseudo,
                     [styles.focused]: focused,
