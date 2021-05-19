@@ -21,10 +21,10 @@ import { name, version } from '../package.json';
 
 <Story name='IconButton'>
     {React.createElement(() => {
-        const inverted = boolean('inverted', false);
+        const colors = select('colors', ['default', 'inverted'], 'default');
         return (
             <div style={{
-                backgroundColor: inverted ? 'var(--color-light-bg-primary-inverted)' : '#fff',
+                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : '#fff',
                 padding: '8px',
                 position: 'absolute',
                 top: 0,
@@ -36,7 +36,7 @@ import { name, version } from '../package.json';
                     size={select('size', ['xxs', 'xs', 's'], 's')}
                     view={select('view', ['primary', 'secondary', 'transparent', 'negative'], 'primary')}
                     icon={StarMIcon}
-                    inverted={inverted}
+                    colors={colors}
                 />
             </div>
         )

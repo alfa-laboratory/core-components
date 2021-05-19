@@ -15,6 +15,11 @@ import styles from './index.module.css';
 import defaultColors from './default.module.css';
 import invertedColors from './inverted.module.css';
 
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
+
 export type ComponentProps = {
     /**
      * Тип кнопки
@@ -67,9 +72,9 @@ export type ComponentProps = {
     nowrap?: boolean;
 
     /**
-     * Использует инвертированные цвета для компонента
+     * Набор цветов для компонента
      */
-    inverted?: boolean;
+    colors?: 'default' | 'inverted';
 };
 
 type AnchorButtonProps = ComponentProps & AnchorHTMLAttributes<HTMLAnchorElement>;
@@ -97,13 +102,11 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
             href,
             loading = false,
             nowrap = false,
-            inverted = false,
+            colors = 'default',
             ...restProps
         },
         ref,
     ) => {
-        const colorStyles = inverted ? invertedColors : defaultColors;
-
         const buttonRef = useRef<HTMLElement>(null);
 
         const [focused] = useFocus(buttonRef, 'keyboard');
@@ -119,15 +122,15 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                 styles.component,
                 styles[view],
                 styles[size],
-                colorStyles.component,
-                colorStyles[view],
+                colorStyles[colors].component,
+                colorStyles[colors][view],
                 {
                     [styles.focused]: focused,
                     [styles.block]: block,
                     [styles.iconOnly]: !children,
                     [styles.nowrap]: nowrap,
                     [styles.loading]: showLoader,
-                    [colorStyles.loading]: showLoader,
+                    [colorStyles[colors].loading]: showLoader,
                 },
                 className,
             ),

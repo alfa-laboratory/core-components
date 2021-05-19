@@ -15,9 +15,10 @@ export const Screenshots = () => {
         <div
             // TODO:
             style={{
-                backgroundColor: (props as any).inverted
-                    ? 'var(--color-light-bg-primary-inverted)'
-                    : 'transparent',
+                backgroundColor:
+                    (props as any).colors === 'inverted'
+                        ? 'var(--color-light-bg-primary-inverted)'
+                        : 'transparent',
             }}
         >
             {Component ? <Component {...props} /> : null}

@@ -61,9 +61,10 @@ export const ScreenshotsSprite = () => {
                                 ...componentStyles,
                                 // TODO:
                                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                                backgroundColor: (props as any).inverted
-                                    ? 'var(--color-light-bg-primary-inverted)'
-                                    : 'transparent',
+                                backgroundColor:
+                                    (props as any).colors === 'inverted'
+                                        ? 'var(--color-light-bg-primary-inverted)'
+                                        : 'transparent',
                             }}
                         >
                             <Component {...props} />

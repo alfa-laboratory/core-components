@@ -22,10 +22,10 @@ export const VIEWS = ['primary', 'secondary', 'default'];
 
 <Story name='Link'>
     {React.createElement(() => {
-        const inverted = boolean('inverted', false);
+        const colors = select('colors', ['default', 'inverted'], 'default');
         return (
             <div style={{
-                backgroundColor: inverted ? 'var(--color-light-bg-primary-inverted)' : '#fff',
+                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : '#fff',
                 padding: '8px',
                 position: 'absolute',
                 top: 0,
@@ -40,7 +40,7 @@ export const VIEWS = ['primary', 'secondary', 'default'];
                         href={text('href', '')}
                         leftAddons={boolean('leftAddons', false) && <Icon />}
                         rightAddons={boolean('rightAddons', false) && <Icon />}
-                        inverted={inverted}
+                        colors={colors}
                     >
                         {text('text', 'Вернуться в интернет-банк')}
                     </Link>

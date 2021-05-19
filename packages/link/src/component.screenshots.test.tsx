@@ -26,7 +26,7 @@ describe(
                         view: ['primary', 'secondary', 'default'],
                         pseudo: [true, false],
                         children: 'Вернуться в интернет-банк',
-                        inverted: [false, true],
+                        colors: ['default', 'inverted'],
                     },
                 }),
             ],

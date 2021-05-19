@@ -80,7 +80,7 @@ describe('Button | inverted views & themes', () => {
                             children: 'Оплатить',
                             view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
                             disabled: [false, true],
-                            inverted: true,
+                            colors: 'inverted',
                         },
                         size: { width: 150, height: 80 },
                     }),
@@ -150,7 +150,7 @@ describe(
             knobs: {
                 children: 'Оплатить',
                 view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
-                inverted: [false, true],
+                colors: ['default', 'inverted'],
             },
         }),
         screenshotOpts: { clip },
@@ -169,7 +169,7 @@ describe(
             knobs: {
                 children: 'Оплатить',
                 view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
-                inverted: [false, true],
+                colors: ['default', 'inverted'],
             },
         }),
         screenshotOpts: { clip },

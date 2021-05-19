@@ -7,6 +7,11 @@ import styles from './index.module.css';
 import defaultColors from './default.module.css';
 import invertedColors from './inverted.module.css';
 
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
+
 export type IconButtonProps = {
     /**
      * Компонент иконки
@@ -34,24 +39,22 @@ export type IconButtonProps = {
     dataTestId?: string;
 
     /**
-     * Использует инвертированные цвета для компонента
+     * Набор цветов для компонента
      */
-    inverted?: boolean;
+    colors?: 'default' | 'inverted';
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'size'>;
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     (
-        { className, icon: Icon, view = 'primary', size = 's', inverted = false, ...restProps },
+        { className, icon: Icon, view = 'primary', size = 's', colors = 'default', ...restProps },
         ref,
     ) => {
-        const colorStyles = inverted ? invertedColors : defaultColors;
-
         return (
             <Button
                 {...restProps}
                 ref={ref}
                 view='ghost'
-                className={cn(className, colorStyles[view])}
+                className={cn(className, colorStyles[colors][view])}
                 size='s'
                 leftAddons={
                     <span className={cn(styles.iconWrapper, styles[size])}>

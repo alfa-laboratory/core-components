@@ -24,10 +24,10 @@ export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
 
 <Story name='Button'>
     {React.createElement(() => {
-        const inverted = boolean('inverted', false);
+        const colors = select('colors', ['default', 'inverted'], 'default');
         return (
             <div style={{
-                backgroundColor: inverted ? 'var(--color-light-bg-primary-inverted)' : '#fff',
+                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : '#fff',
                 padding: '8px',
                 position: 'absolute',
                 top: 0,
@@ -37,7 +37,7 @@ export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
             }}>
                 <Button
                     view={select('view', VIEWS, 'primary')}
-                    inverted={inverted}
+                    colors={colors}
                     size={select('size', SIZES, 'm')}
                     href={text('href', '')}
                     loading={boolean('loading')}
@@ -371,13 +371,13 @@ import { Button } from '@alfalab/core-components-button';
         <Container>
             <Row align='middle'>
                 <Col>
-                    <Button inverted={true} view='primary'>Primary</Button>
+                    <Button colors='inverted' view='primary'>Primary</Button>
                 </Col>
                 <Col>
-                    <Button inverted={true} view='secondary'>Secondary</Button>
+                    <Button colors='inverted' view='secondary'>Secondary</Button>
                 </Col>
                 <Col>
-                    <Button inverted={true} view='outlined'>Outlined</Button>
+                    <Button colors='inverted' view='outlined'>Outlined</Button>
                 </Col>
             </Row>
         </Container>

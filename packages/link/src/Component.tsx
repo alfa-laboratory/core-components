@@ -7,6 +7,11 @@ import styles from './index.module.css';
 import defaultColors from './default.module.css';
 import invertedColors from './inverted.module.css';
 
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
+
 type NativeProps = AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export type LinkProps = NativeProps & {
@@ -56,9 +61,9 @@ export type LinkProps = NativeProps & {
     children: ReactNode;
 
     /**
-     * Использует инвертированные цвета для компонента
+     * Набор цветов для компонента
      */
-    inverted?: boolean;
+    colors?: 'default' | 'inverted';
 };
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
@@ -71,13 +76,11 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             className,
             dataTestId,
             children,
-            inverted = false,
+            colors = 'default',
             ...restProps
         },
         ref,
     ) => {
-        const colorStyles = inverted ? invertedColors : defaultColors;
-
         const linkRef = useRef<HTMLAnchorElement>(null);
 
         const [focused] = useFocus(linkRef, 'keyboard');
@@ -85,7 +88,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
         const componentProps = {
             className: cn(
                 styles.component,
-                colorStyles[view],
+                colorStyles[colors][view],
                 {
                     [styles.pseudo]: pseudo,
                     [styles.focused]: focused,

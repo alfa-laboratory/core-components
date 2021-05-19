@@ -34,7 +34,7 @@ describe(
             componentName: 'IconButton',
             knobs: {
                 view: ['primary', 'secondary', 'transparent', 'negative'],
-                inverted: true,
+                colors: 'inverted',
             },
             testStory: false,
         }),
@@ -51,7 +51,7 @@ describe(
             componentName: 'IconButton',
             knobs: {
                 view: ['primary', 'secondary', 'transparent', 'negative'],
-                inverted: [false, true],
+                colors: ['default', 'inverted'],
                 size: 's',
             },
             testStory: false,
@@ -70,7 +70,7 @@ describe(
             componentName: 'IconButton',
             knobs: {
                 view: ['primary', 'secondary', 'transparent', 'negative'],
-                inverted: [false, true],
+                colors: ['default', 'inverted'],
                 size: 's',
             },
             testStory: false,
