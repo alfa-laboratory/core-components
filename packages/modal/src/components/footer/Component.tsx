@@ -24,7 +24,7 @@ export type FooterProps = {
     /**
      * Выравнивание элементов футера
      */
-    layout?: 'start' | 'center' | 'space-between' | 'row';
+    layout?: 'start' | 'center' | 'space-between' | 'column';
 
     /**
      * Отступы между элементами футера

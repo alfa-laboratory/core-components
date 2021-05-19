@@ -1,6 +1,6 @@
 @import '../../vars.css';
 
-.row {
+.column {
     display: flex;
     flex-direction: column;
 

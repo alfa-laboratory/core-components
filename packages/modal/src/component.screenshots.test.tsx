@@ -140,7 +140,7 @@ describe('Modal | Footer layout', () => {
                         open: true,
                         header: false,
                         footer: true,
-                        'footer.layout': ['start', 'center', 'space-between', 'row'],
+                        'footer.layout': ['start', 'center', 'space-between', 'column'],
                     },
                 }),
             ],
