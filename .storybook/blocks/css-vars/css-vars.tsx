@@ -5,11 +5,17 @@ import styles from './styles.css';
 
 type Props = {
     css: string;
+    title?: string;
+    keepValues?: boolean;
 };
 
 const rootBlockRegexp = /:root {([^}]*)}/g;
 
-export const CssVars: FC<Props> = ({ css }) => {
+export const CssVars: FC<Props> = ({
+    css = '',
+    title = 'Список css-переменных в компоненте:',
+    keepValues = false,
+}) => {
     const [vars, setVars] = useState('');
 
     useEffect(() => {
@@ -25,10 +31,13 @@ export const CssVars: FC<Props> = ({ css }) => {
         const result = rootBlocks.reduce((acc, item, index) => {
             const isLast = index === rootBlocks.length - 1;
 
-            const cssVarsList = item
-                .replace(/:[^;]+;/g, ';')
-                .replace(/^ +/gm, '')
-                .replace(/^\s+/, '');
+            let cssVarsList = item;
+
+            if (!keepValues) {
+                cssVarsList = cssVarsList.replace(/:[^;]+;/g, ';');
+            }
+
+            cssVarsList = cssVarsList.replace(/^ +/gm, '').replace(/^\s+/, '');
 
             return `${acc}${cssVarsList}${isLast ? '' : '\n'}`;
         }, '');
@@ -38,7 +47,7 @@ export const CssVars: FC<Props> = ({ css }) => {
 
     return (
         <div>
-            <h2 className={cn('sbdocs', 'sbdocs-h2')}>Список css-переменных в компоненте:</h2>
+            <h2 className={cn('sbdocs', 'sbdocs-h2')}>{title}</h2>
             <div className={styles.cssVarsList}>{vars}</div>
         </div>
     );
