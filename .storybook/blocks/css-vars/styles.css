@@ -1,0 +1,8 @@
+.list {
+    font-family: Consolas, Liberation Mono, Menlo, monospace;
+    font-size: 13px;
+}
+
+.listItem {
+    padding: var(--gap-2xs) 0;
+}

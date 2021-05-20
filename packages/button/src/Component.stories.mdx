@@ -3,11 +3,13 @@ import { action } from '@storybook/addon-actions';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { Container, Row, Col } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
+import { CssVars } from 'storybook/blocks/css-vars';
 import IconM from '@alfalab/icons-glyph/StarMIcon';
 import IconS from '@alfalab/icons-glyph/FlashCircleSIcon';
 
 import { Button } from './Component';
 import { name, version } from '../package.json';
+import styles from '!!raw-loader!./index.module.css';
 
 export const VIEWS = ['primary', 'secondary', 'outlined', 'filled', 'transparent', 'link', 'ghost'];
 export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
@@ -88,6 +90,8 @@ import { Button } from '@alfalab/core-components-button';
 
 
 <Props of={Button} />
+
+<CssVars css={styles} />
 
 
 ## Виды кнопок
