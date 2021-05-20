@@ -1,8 +1,9 @@
-.list {
-    font-family: Consolas, Liberation Mono, Menlo, monospace;
+.cssVarsList {
+    overflow: hidden;
+    padding: var(--gap-l);
+    white-space: pre-wrap;
     font-size: 13px;
-}
-
-.listItem {
-    padding: var(--gap-2xs) 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #333;
+    border-radius: var(--border-radius-s);
 }

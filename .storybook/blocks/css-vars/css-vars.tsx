@@ -7,34 +7,39 @@ type Props = {
     css: string;
 };
 
-const cssVarDefinitionRegexp = /(--[\w\-]+):/g;
+const rootBlockRegexp = /:root {([^}]*)}/g;
 
 export const CssVars: FC<Props> = ({ css }) => {
-    const [vars, setVars] = useState<Set<string>>(new Set());
+    const [vars, setVars] = useState('');
 
     useEffect(() => {
-        let match = cssVarDefinitionRegexp.exec(css);
+        let rootBlockMatch = rootBlockRegexp.exec(css);
 
-        const varsArr = [];
+        const rootBlocks = [];
 
-        while (match) {
-            varsArr.push(match[1]);
-            match = cssVarDefinitionRegexp.exec(css);
+        while (rootBlockMatch) {
+            rootBlocks.push(rootBlockMatch[1]);
+            rootBlockMatch = rootBlockRegexp.exec(css);
         }
 
-        setVars(new Set(varsArr));
+        const result = rootBlocks.reduce((acc, item, index) => {
+            const isLast = index === rootBlocks.length - 1;
+
+            const cssVarsList = item
+                .replace(/:[^;]+;/g, ';')
+                .replace(/^ +/gm, '')
+                .replace(/^\s+/, '');
+
+            return `${acc}${cssVarsList}${isLast ? '' : '\n'}`;
+        }, '');
+
+        setVars(result);
     }, []);
 
     return (
         <div>
             <h2 className={cn('sbdocs', 'sbdocs-h2')}>Список css-переменных в компоненте:</h2>
-            <ul className={styles.list}>
-                {Array.from(vars).map((cssVar, index) => (
-                    <li key={index} className={cn(styles.listItem, 'token', 'string')}>
-                        {cssVar}
-                    </li>
-                ))}
-            </ul>
+            <div className={styles.cssVarsList}>{vars}</div>
         </div>
     );
 };
