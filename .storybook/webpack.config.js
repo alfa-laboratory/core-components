@@ -121,6 +121,11 @@ module.exports = ({ config }) => ({
                 ],
             },
             {
+                test: /\.mdx$/,
+                exclude: /\.(stories|story)\.mdx$/,
+                use: ['babel-loader', '@mdx-js/loader'],
+            },
+            {
                 test: /\.(stories|story)\.[tj]sx?$/,
                 loader: require.resolve('@storybook/source-loader'),
                 exclude: [/node_modules/],

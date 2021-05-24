@@ -13,7 +13,7 @@ type Props = {
 
 const rootBlockRegexp = /:root {([^}]*)}/g;
 
-export const CssVars: FC<Props> = ({ css = '', title = 'Список css-переменных в компоненте:' }) => {
+export const CssVars: FC<Props> = ({ css, title }) => {
     const [vars, setVars] = useState('');
 
     useEffect(() => {
@@ -38,7 +38,8 @@ export const CssVars: FC<Props> = ({ css = '', title = 'Список css-пер�
 
     return (
         <div>
-            <h2 className={cn('sbdocs', 'sbdocs-h2')}>{title}</h2>
+            {title && <h2 className={cn('sbdocs', 'sbdocs-h2')}>{title}</h2>}
+
             <div className={styles.cssVarsList}>
                 <Highlight language='css'>{vars}</Highlight>
             </div>
