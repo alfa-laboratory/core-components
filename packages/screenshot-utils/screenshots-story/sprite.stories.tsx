@@ -55,8 +55,18 @@ export const ScreenshotsSprite = () => {
                         className={styles.item}
                     >
                         <span className={styles.title}>{propsToTitle(props)}</span>
-
-                        <div id={ids[index]} style={componentStyles}>
+                        <div
+                            id={ids[index]}
+                            style={{
+                                ...componentStyles,
+                                // TODO:
+                                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                backgroundColor:
+                                    (props as any).colors === 'inverted'
+                                        ? 'var(--color-light-bg-primary-inverted)'
+                                        : 'transparent',
+                            }}
+                        >
                             <Component {...props} />
                         </div>
                     </div>

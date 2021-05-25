@@ -6,14 +6,14 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component secondary m iconOnly"
+        class="component secondary m component secondary iconOnly"
         type="button"
       />
     </div>
   </body>,
   "container": <div>
     <button
-      class="component secondary m iconOnly"
+      class="component secondary m component secondary iconOnly"
       type="button"
     />
   </div>,
@@ -77,14 +77,14 @@ Object {
   "baseElement": <body>
     <div>
       <a
-        class="component secondary m iconOnly"
+        class="component secondary m component secondary iconOnly"
         href="https://some-url"
       />
     </div>
   </body>,
   "container": <div>
     <a
-      class="component secondary m iconOnly"
+      class="component secondary m component secondary iconOnly"
       href="https://some-url"
     />
   </div>,
@@ -148,14 +148,14 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component secondary m iconOnly"
+        class="component secondary m component secondary iconOnly"
         type="button"
       />
     </div>
   </body>,
   "container": <div>
     <button
-      class="component secondary m iconOnly"
+      class="component secondary m component secondary iconOnly"
       type="button"
     />
   </div>,
@@ -219,7 +219,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component secondary m iconOnly"
+        class="component secondary m component secondary iconOnly"
         type="button"
       >
         <span
@@ -234,7 +234,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component secondary m iconOnly"
+      class="component secondary m component secondary iconOnly"
       type="button"
     >
       <span
@@ -306,7 +306,7 @@ Object {
   "baseElement": <body>
     <div>
       <a
-        class="component secondary m iconOnly loading"
+        class="component secondary m component secondary iconOnly loading"
         href="https://some-url"
       >
         <svg
@@ -336,7 +336,7 @@ Object {
   </body>,
   "container": <div>
     <a
-      class="component secondary m iconOnly loading"
+      class="component secondary m component secondary iconOnly loading"
       href="https://some-url"
     >
       <svg
@@ -423,7 +423,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component secondary m iconOnly loading"
+        class="component secondary m component secondary iconOnly loading"
         disabled=""
         type="button"
       >
@@ -454,7 +454,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component secondary m iconOnly loading"
+      class="component secondary m component secondary iconOnly loading"
       disabled=""
       type="button"
     >
@@ -542,7 +542,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component secondary m iconOnly"
+        class="component secondary m component secondary iconOnly"
         type="button"
       >
         <span
@@ -557,7 +557,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component secondary m iconOnly"
+      class="component secondary m component secondary iconOnly"
       type="button"
     >
       <span

@@ -6,7 +6,7 @@ exports[`Attach Snapshots tests should match snapshot 1`] = `
     class="component s"
   >
     <button
-      class="component outlined s"
+      class="component outlined s component outlined"
       type="button"
     >
       <span

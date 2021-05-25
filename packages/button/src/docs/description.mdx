@@ -282,7 +282,7 @@ export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
 
 ## Темы
 
-`site` и `site-inverted`
+`site`
 
 <div style={{border: '1px solid #e5e5e5', borderRadius: '4px', overflow: 'hidden'}}>
     <div data-theme='site' style={{padding: '24px', backgroundColor: '#fff'}}>
@@ -300,18 +300,17 @@ export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
             </Row>
         </Container>
     </div>
-
-    <div data-theme='site-inverted' style={{padding: '24px', backgroundColor: '#0b1f35'}}>
+    <div data-theme='site' style={{padding: '24px', backgroundColor: '#0b1f35'}}>
         <Container>
             <Row align='middle'>
                 <Col>
-                    <Button view='primary'>Primary</Button>
+                    <Button colors='inverted' view='primary'>Primary</Button>
                 </Col>
                 <Col>
-                    <Button view='secondary'>Secondary</Button>
+                    <Button colors='inverted' view='secondary'>Secondary</Button>
                 </Col>
                 <Col>
-                    <Button view='outlined'>Outlined</Button>
+                    <Button colors='inverted' view='outlined'>Outlined</Button>
                 </Col>
             </Row>
         </Container>

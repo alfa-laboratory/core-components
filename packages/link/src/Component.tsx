@@ -4,6 +4,13 @@ import mergeRefs from 'react-merge-refs';
 import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
+import defaultColors from './default.module.css';
+import invertedColors from './inverted.module.css';
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
 
 type NativeProps = AnchorHTMLAttributes<HTMLAnchorElement>;
 
@@ -52,6 +59,11 @@ export type LinkProps = NativeProps & {
      * Дочерние элементы (native prop)
      */
     children: ReactNode;
+
+    /**
+     * Набор цветов для компонента
+     */
+    colors?: 'default' | 'inverted';
 };
 
 export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
@@ -64,6 +76,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             className,
             dataTestId,
             children,
+            colors = 'default',
             ...restProps
         },
         ref,
@@ -75,7 +88,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
         const componentProps = {
             className: cn(
                 styles.component,
-                styles[view],
+                colorStyles[colors][view],
                 {
                     [styles.pseudo]: pseudo,
                     [styles.focused]: focused,

@@ -1,9 +1,6 @@
-@import '../../../packages/themes/src/mixins/default-inverted.css';
 @import '../../../packages/themes/src/mixins/click.css';
 @import '../../../packages/themes/src/mixins/site.css';
-@import '../../../packages/themes/src/mixins/site-inverted.css';
 @import '../../../packages/themes/src/mixins/corp.css';
-@import '../../../packages/themes/src/mixins/corp-inverted.css';
 @import '../../../packages/themes/src/mixins/mobile.css';
 
 .tool {
@@ -13,12 +10,8 @@
 
 .label {
     display: inline-block;
-    margin-right: 8px;
+    margin-right: var(--gap-xs);
     font-size: 13px;
-}
-
-[data-theme='default-inverted'] {
-    @mixin theme-default-inverted;
 }
 
 [data-theme='click'] {
@@ -29,16 +22,8 @@
     @mixin theme-site;
 }
 
-[data-theme='site-inverted'] {
-    @mixin theme-site-inverted;
-}
-
 [data-theme='corp'] {
     @mixin theme-corp;
-}
-
-[data-theme='corp-inverted'] {
-    @mixin theme-corp-inverted;
 }
 
 [data-theme='mobile'] {

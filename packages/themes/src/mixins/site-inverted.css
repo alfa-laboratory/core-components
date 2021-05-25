@@ -1,5 +1,0 @@
-@import './button/site-inverted.css';
-
-@define-mixin theme-site-inverted {
-    @mixin button-site-inverted;
-}
