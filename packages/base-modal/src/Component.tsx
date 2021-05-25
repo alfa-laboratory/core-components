@@ -410,6 +410,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                     {Backdrop && (
                                         <Backdrop
                                             {...backdropProps}
+                                            className={cn(backdropProps.className, styles.backdrop)}
                                             open={open}
                                             onClick={handleBackdropClick}
                                         />
