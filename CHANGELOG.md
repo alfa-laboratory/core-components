@@ -1,3 +1,15 @@
+# [17.0.0](https://github.com/alfa-laboratory/core-components/compare/v16.5.0...v17.0.0) (2021-05-25)
+
+
+### Features
+
+* **button:** add inverted ([#649](https://github.com/alfa-laboratory/core-components/issues/649)) ([be321b0](https://github.com/alfa-laboratory/core-components/commit/be321b07e99d20824138ad65141f3fbed1b6e315)), closes [#658](https://github.com/alfa-laboratory/core-components/issues/658) [#657](https://github.com/alfa-laboratory/core-components/issues/657)
+
+
+### BREAKING CHANGES
+
+* **button:** remove inverted themes
+
 # [16.5.0](https://github.com/alfa-laboratory/core-components/compare/v16.4.0...v16.5.0) (2021-05-25)
 
 
