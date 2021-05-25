@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.24](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@1.4.23...@alfalab/core-components-attach@1.4.24) (2021-05-25)
+
+**Note:** Version bump only for package @alfalab/core-components-attach
+
+
+
+
+
 ## [1.4.23](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@1.4.22...@alfalab/core-components-attach@1.4.23) (2021-05-18)
 
 **Note:** Version bump only for package @alfalab/core-components-attach

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-drawer@2.1.0...@alfalab/core-components-drawer@2.1.1) (2021-05-25)
+
+
+### Bug Fixes
+
+* **modal:** fix styles ([#665](https://github.com/alfa-laboratory/core-components/issues/665)) ([06f3615](https://github.com/alfa-laboratory/core-components/commit/06f3615c532f8ec2932d8a4d1fcbb1f5ee6b6a30))
+
+
+
+
+
 # [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-drawer@2.0.0...@alfalab/core-components-drawer@2.1.0) (2021-05-18)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@5.0.1...@alfalab/core-components-confirmation@5.1.0) (2021-05-25)
+
+
+### Features
+
+* **confirmation:** styles updates ([#636](https://github.com/alfa-laboratory/core-components/issues/636)) ([da00fc5](https://github.com/alfa-laboratory/core-components/commit/da00fc5bf80251f5104452ba326711788c2f7240)), closes [#1](https://github.com/alfa-laboratory/core-components/issues/1)
+
+
+
+
+
 ## [5.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@5.0.0...@alfalab/core-components-confirmation@5.0.1) (2021-05-18)
 
 **Note:** Version bump only for package @alfalab/core-components-confirmation

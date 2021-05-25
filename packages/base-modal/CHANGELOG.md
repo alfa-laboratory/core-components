@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-base-modal@2.0.0...@alfalab/core-components-base-modal@2.0.1) (2021-05-25)
+
+
+### Bug Fixes
+
+* **modal:** fix styles ([#665](https://github.com/alfa-laboratory/core-components/issues/665)) ([06f3615](https://github.com/alfa-laboratory/core-components/commit/06f3615c532f8ec2932d8a4d1fcbb1f5ee6b6a30))
+* **modal:** restore styles after exited ([#663](https://github.com/alfa-laboratory/core-components/issues/663)) ([48a8d69](https://github.com/alfa-laboratory/core-components/commit/48a8d6986dcde6c191d8411d51f28e6f399e26e6))
+
+
+
+
+
 # [2.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-base-modal@1.1.2...@alfalab/core-components-base-modal@2.0.0) (2021-04-26)
 
 

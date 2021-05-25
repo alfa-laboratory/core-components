@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.10.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.9.1...@alfalab/core-components-themes@3.10.0) (2021-05-25)
+
+
+### Features
+
+* **confirmation:** styles updates ([#636](https://github.com/alfa-laboratory/core-components/issues/636)) ([da00fc5](https://github.com/alfa-laboratory/core-components/commit/da00fc5bf80251f5104452ba326711788c2f7240)), closes [#1](https://github.com/alfa-laboratory/core-components/issues/1)
+* **modal:** add layout to footer ([#644](https://github.com/alfa-laboratory/core-components/issues/644)) ([eb5a66e](https://github.com/alfa-laboratory/core-components/commit/eb5a66ef928df663f4ad0fe048b5d3097b4f4b72))
+
+
+
+
+
 ## [3.9.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.9.0...@alfalab/core-components-themes@3.9.1) (2021-05-18)
 
 
