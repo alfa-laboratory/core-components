@@ -1,3 +1,18 @@
+# [16.5.0](https://github.com/alfa-laboratory/core-components/compare/v16.4.0...v16.5.0) (2021-05-25)
+
+
+### Bug Fixes
+
+* **modal:** fix styles ([#665](https://github.com/alfa-laboratory/core-components/issues/665)) ([06f3615](https://github.com/alfa-laboratory/core-components/commit/06f3615c532f8ec2932d8a4d1fcbb1f5ee6b6a30))
+* **modal:** restore styles after exited ([#663](https://github.com/alfa-laboratory/core-components/issues/663)) ([48a8d69](https://github.com/alfa-laboratory/core-components/commit/48a8d6986dcde6c191d8411d51f28e6f399e26e6))
+
+
+### Features
+
+* **collapse:** add ability to change state using prop expanded ([#659](https://github.com/alfa-laboratory/core-components/issues/659)) ([809c835](https://github.com/alfa-laboratory/core-components/commit/809c8356f6dec0eeb9167bca8483f36bf5845455))
+* **confirmation:** styles updates ([#636](https://github.com/alfa-laboratory/core-components/issues/636)) ([da00fc5](https://github.com/alfa-laboratory/core-components/commit/da00fc5bf80251f5104452ba326711788c2f7240)), closes [#1](https://github.com/alfa-laboratory/core-components/issues/1)
+* **modal:** add layout to footer ([#644](https://github.com/alfa-laboratory/core-components/issues/644)) ([eb5a66e](https://github.com/alfa-laboratory/core-components/commit/eb5a66ef928df663f4ad0fe048b5d3097b4f4b72))
+
 # [16.4.0](https://github.com/alfa-laboratory/core-components/compare/v16.3.1...v16.4.0) (2021-05-18)
 
 
