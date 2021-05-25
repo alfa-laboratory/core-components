@@ -26,12 +26,14 @@ export const CssVars: FC<Props> = ({ css, title }) => {
             rootBlockMatch = rootBlockRegexp.exec(css);
         }
 
-        const result = rootBlocks.reduce((acc, item, index) => {
+        let result = rootBlocks.reduce((acc, item, index) => {
             const isLast = index === rootBlocks.length - 1;
             const divider = isLast ? '' : '\n';
 
-            return `:root {${acc}${item}${divider}}`;
-        }, '');
+            return `${acc}${item}${divider}`;
+        }, ':root {');
+
+        result += '}';
 
         setVars(result);
     }, []);
