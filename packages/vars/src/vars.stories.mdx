@@ -1,0 +1,33 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { CssVars } from 'storybook/blocks/css-vars';
+
+import { name, version } from '../package.json';
+
+import colorsIndigo from '!!raw-loader!./colors-indigo.css';
+import colorsBluetint from '!!raw-loader!./colors-bluetint.css';
+import colorsAddons from '!!raw-loader!./colors-addons.css';
+import colorsTransparent from '!!raw-loader!./colors-transparent.css';
+import borderRadius from '!!raw-loader!./border-radius.css';
+import gaps from '!!raw-loader!./gaps.css';
+import shadowsIndigo from '!!raw-loader!./shadows-indigo.css';
+
+<Meta title='Компоненты|CSS-переменные' />
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='@alfalab/core-components-vars'
+    version={version}
+    package='@alfalab/core-components-vars'
+    stage={3}
+/>
+
+<CssVars css={gaps} title='Отступы' />
+<CssVars css={borderRadius} title='Скругления' />
+<CssVars css={shadowsIndigo} title='Тени' />
+<CssVars css={colorsIndigo} title='Цвета indigo' />
+<CssVars css={colorsBluetint} title='Цвета bluetint' />
+<CssVars css={colorsAddons} title='Цвета addons' />
+<CssVars css={colorsTransparent} title='Цвета transparent' />
