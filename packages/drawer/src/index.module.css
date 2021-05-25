@@ -13,8 +13,6 @@
     width: var(--drawer-width);
     flex: 1;
     align-self: flex-end;
-    display: flex;
-    align-items: stretch;
     overflow: auto;
     will-change: transform;
 }

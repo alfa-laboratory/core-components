@@ -127,14 +127,14 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
             )}
 
             {hasSmsCountdown && (
-                <div className={cn('countdown', { [styles.hidden]: processing })}>
+                <div className={cn('countdown', styles.countdown, { [styles.hidden]: processing })}>
                     <Countdown
                         duration={countdownDuration}
                         phone={phone}
                         hasPhoneMask={hasPhoneMask}
-                        className={styles.countdown}
                         alignContent={alignContent}
                         noAttemptsLeftMessage={noAttemptsLeftMessage}
+                        hasError={Boolean(displayedError)}
                         onRepeatSms={onSmsRetryClick}
                         onCountdownFinished={onCountdownFinished}
                     />
@@ -147,6 +147,7 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
                         onClick={onSmsHintLinkClick}
                         className={styles.smsComeLink}
                         view='secondary'
+                        pseudo={true}
                     >
                         Не приходит сообщение?
                     </Link>

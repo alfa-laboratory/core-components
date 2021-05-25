@@ -23,7 +23,7 @@ describe(
                 'sprite',
                 createSpriteStorybookUrl({
                     componentName: 'Confirmation',
-                    size: { width: 350, height: 350 },
+                    size: { width: 450, height: 450 },
                     knobs: {
                         code: ['', '1234'],
                         alignContent: ['left', 'center'],
@@ -50,7 +50,7 @@ describe(
                 'sprite',
                 createSpriteStorybookUrl({
                     componentName: 'Confirmation',
-                    size: { width: 350, height: 350 },
+                    size: { width: 450, height: 450 },
                     knobs: {
                         code: ['12345'],
                         phone: '+7 000 000 00 42',
@@ -78,7 +78,7 @@ describe(
                 'sprite',
                 createSpriteStorybookUrl({
                     componentName: 'Confirmation',
-                    size: { width: 350, height: 350 },
+                    size: { width: 450, height: 450 },
                     knobs: {
                         code: ['12345'],
                         codeChecking: [true, false],
@@ -106,7 +106,7 @@ describe(
                 'sprite',
                 createSpriteStorybookUrl({
                     componentName: 'Confirmation',
-                    size: { width: 350, height: 350 },
+                    size: { width: 450, height: 450 },
                     knobs: {
                         code: ['12345'],
                         error: true,
@@ -135,7 +135,7 @@ describe(
                 'sprite',
                 createSpriteStorybookUrl({
                     componentName: 'Confirmation',
-                    size: { width: 350, height: 350 },
+                    size: { width: 450, height: 450 },
                     knobs: {
                         code: ['12345'],
                         error: true,
@@ -172,7 +172,7 @@ describe('Confirmation | interactions tests', () => {
                 page,
                 expect,
                 css,
-                screenshotOpts: { clip: { x: 0, y: 60, width: 500, height: 350 } },
+                screenshotOpts: { clip: { x: 0, y: 60, width: 500, height: 450 } },
             });
         } catch (error) {
             // eslint-disable-next-line no-console

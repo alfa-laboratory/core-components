@@ -63,7 +63,7 @@ module.exports = ({ config }) => ({
     ...config,
     watchOptions: {
         ...config.watchOptions,
-        ignored: /__image_snapshots__/
+        ignored: /__image_snapshots__/,
     },
     resolve: {
         plugins: [componentsResolver],
@@ -121,6 +121,11 @@ module.exports = ({ config }) => ({
                 ],
             },
             {
+                test: /\.mdx$/,
+                exclude: /\.(stories|story)\.mdx$/,
+                use: ['babel-loader', '@mdx-js/loader'],
+            },
+            {
                 test: /\.(stories|story)\.[tj]sx?$/,
                 loader: require.resolve('@storybook/source-loader'),
                 exclude: [/node_modules/],
@@ -144,7 +149,7 @@ module.exports = ({ config }) => ({
             },
             {
                 test: /\.css$/,
-                exclude: /global/,
+                exclude: [/global/, /node_modules/],
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
@@ -164,6 +169,24 @@ module.exports = ({ config }) => ({
                     },
                     {
                         loader: 'postcss-loader',
+                    },
+                ],
+            },
+            {
+                test: /\.css$/,
+                include: /node_modules/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            hmr: true,
+                        },
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                        },
                     },
                 ],
             },

@@ -21,5 +21,8 @@
 .expandedContent {
     visibility: visible;
     height: auto;
-    margin-bottom: 15px;
+}
+
+.expandedLabel {
+    margin-top: 15px;
 }

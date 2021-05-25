@@ -1,73 +1,11 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { action } from '@storybook/addon-actions';
-import { text, select, boolean } from '@storybook/addon-knobs';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Preview } from '@storybook/addon-docs/blocks';
+import { Container, Row, Col } from 'storybook/blocks';
 import IconM from '@alfalab/icons-glyph/StarMIcon';
 import IconS from '@alfalab/icons-glyph/FlashCircleSIcon';
 
-import { Button } from './Component';
-import { name, version } from '../package.json';
+import { Button } from '../';
 
-export const VIEWS = ['primary', 'secondary', 'outlined', 'filled', 'transparent', 'link', 'ghost'];
 export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
-
-
-<Meta
-    title='Компоненты'
-    component={Button}
-    parameters={{ 'theme-switcher': { themes: ['click', 'corp', 'site', 'mobile'] } }}
-/>
-
-
-<!-- Canvas -->
-
-<Story name='Button'>
-    {React.createElement(() => {
-        const colors = select('colors', ['default', 'inverted'], 'default');
-        return (
-            <div style={{
-                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : '#fff',
-                padding: '8px',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-            }}>
-                <Button
-                    view={select('view', VIEWS, 'primary')}
-                    colors={colors}
-                    size={select('size', SIZES, 'm')}
-                    href={text('href', '')}
-                    loading={boolean('loading')}
-                    disabled={boolean('disabled', false)}
-                    block={boolean('block', false)}
-                    nowrap={boolean('nowrap', false)}
-                    onClick={action('click')}
-                    leftAddons={boolean('leftAddons', false) && <IconM />}
-                    rightAddons={boolean('rightAddons', false) && <IconM />}
-                >
-                    {text('label', 'Оплатить')}
-                </Button>
-            </div>
-        )
-    })}
-</Story>
-
-
-<!-- Docs -->
-
-<ComponentHeader
-    name='Button'
-    version={version}
-    stage={3}
-    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=1%3A2'
-/>
-
-```tsx
-import { Button } from '@alfalab/core-components-button';
-```
 
 Кнопка используется как триггер для выполнения определённого действия. Кнопка однозначно сообщает пользователю, что произойдёт после нажатия на неё.
 
@@ -100,11 +38,6 @@ import { Button } from '@alfalab/core-components-button';
         </Row>
     </Container>
 </Preview>
-
-
-
-<Props of={Button} />
-
 
 ## Виды кнопок
 

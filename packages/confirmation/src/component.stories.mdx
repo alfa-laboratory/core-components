@@ -19,38 +19,47 @@ import { Select } from '../../select/src/Component';
 
 <Story name='Confirmation'>
     {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
         const [variant, setVariant] = useState({ key: 'success', content: 'Успешный сценарий'});
-        const [value, setValue] = useState({'success': '', 'error': '', 'fatal': ''});
-        const [codeChecking, setCodeChecking] = useState({'success': false, 'error': false, 'fatal': false});
-        const [codeSending, setCodeSending] = useState({'success': false, 'error': false, 'fatal': false});
-        const [error, setError] = useState({'success': '', 'error': '', 'fatal': ''});
-        const [noAttemptsLeftMessage, setNoAttemptsLeftMessage] = useState('');
-        const setCode = (variant, code) => {
-            setValue({...value, [variant]: code});
-            setError({...error, [variant]: ''});
-        }
-        const handleSubmit = (variant) => {
-            setCodeChecking({...codeChecking, [variant]: true});
-            setError({...error, [variant]: ''});
+        const [value, setValue] = React.useState('');
+        const [codeChecking, setCodeChecking] = React.useState(false);
+        const [codeSending, setCodeSending] = React.useState(false);
+        const [error, setError] = React.useState("");
+        const [errorIsFatal, setErrorIsFatal] = React.useState(false);
+        const [noAttemptsLeftMessage, setNoAttemptsLeftMessage] = React.useState("");
+        const setCode = (code) => {
+            setValue(code);
+            setError("");
+        };
+        const handleSubmit = () => {
+            setCodeChecking(true);
+            setError("");
             setTimeout(() => {
-                setCodeChecking({...codeChecking, [variant]: false});
-                if (variant === 'error') {
-                    setError({...error, 'error': 'Неправильный код'});
-                } else if (variant === 'fatal') {
-                    setError({...error, 'fatal': 'Выполните операцию с самого начала'});
-                } else if (variant === 'attempts-left') {
-                    setNoAttemptsLeftMessage('Не осталось попыток запроса кода');
+                setCodeChecking(false);
+                switch (variant.key) {
+                    case "success":
+                        break;
+                    case "error":
+                        setError("Неправильный код");
+                        break;
+                    case "fatal":
+                        setError("Выполните операцию с самого начала");
+                        setErrorIsFatal(true);
+                        break;
+                    case "attempts-left":
+                        setNoAttemptsLeftMessage("Не осталось попыток запроса кода");
+                        break;
                 }
-            }, 1000);
-        }
-        const handleSmsRetryClick = (variant) => {
-            setCodeSending({...codeSending, [variant]: true});
-            setError({...error, [variant]: ''});
-            setCode(variant, '')
+            }, 300);
+        };
+        const handleSmsRetryClick = () => {
+            setCodeSending(true);
+            setError("");
+            setCode("");
             setTimeout(() => {
-                setCodeSending({...codeSending, [variant]: false});
-            }, 1000);
-        }
+                setCodeSending(false);
+            }, 300);
+        };
         const alignContent = select('alignContent', ['center', 'left'], 'center');
         const phone = '+7 000 000 00 42';
         const countdownDuration = 10000;
@@ -70,89 +79,34 @@ import { Select } from '../../select/src/Component';
                     selected={variant.key}
                 />
                 <div style={{display: 'flex'}}>
-                    {variant.key === 'success' &&
-                        <div
-                            style={{
-                                display: 'flex',
-                                width: '100%',
-                                maxWidth: '375px',
-                                margin: '16px 0 0',
-                                padding: '16px',
-                                border: '1px solid #eeeff1',
-                                boxSizing: 'border-box'
-                            }}
-                        >
-                            <Confirmation
-                                phone={phone}
-                                onInputFinished={() => handleSubmit('success')}
-                                onSmsRetryClick={() => handleSmsRetryClick('success')}
-                                codeSending={codeSending['success']}
-                                codeChecking={codeChecking['success']}
-                                countdownDuration={countdownDuration}
-                                code={value['success']}
-                                onInputChange={({ code }) => setCode('success', code)}
-                                alignContent={alignContent}
-                                requiredCharAmount={requiredCharAmount}
-                            />
-                        </div>
-                    }
-                    {variant.key === 'error' &&
-                        <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
-                            <Confirmation
-                                phone={phone}
-                                onInputFinished={( ) => handleSubmit('error')}
-                                onSmsRetryClick={() => handleSmsRetryClick('error')}
-                                codeSending={codeSending['error']}
-                                codeChecking={codeChecking['error']}
-                                error={!!error['error']}
-                                errorText={error['error']}
-                                countdownDuration={countdownDuration}
-                                code={value['error']}
-                                onInputChange={({ code }) => setCode('error', code)}
-                                alignContent={alignContent}
-                                requiredCharAmount={requiredCharAmount}
-                            />
-                        </div>
-                    }
-                    {variant.key === 'fatal' &&
-                        <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
-                            <Confirmation
-                                phone={phone}
-                                onInputFinished={() => handleSubmit('fatal')}
-                                onSmsRetryClick={() => handleSmsRetryClick('fatal')}
-                                codeSending={codeSending['fatal']}
-                                codeChecking={codeChecking['fatal']}
-                                error={!!error['fatal']}
-                                errorText={error['fatal']}
-                                errorIsFatal={true}
-                                countdownDuration={countdownDuration}
-                                code={value['fatal']}
-                                onInputChange={({ code }) => setCode('fatal', code)}
-                                alignContent={alignContent}
-                                requiredCharAmount={requiredCharAmount}
-                            />
-                        </div>
-                    }
-                    {variant.key === 'attempts-left' &&
-                        <div style={{display: 'flex', width: '100%', maxWidth: '375px', padding: '15px', boxSizing: 'border-box'}}>
-                            <Confirmation
-                                phone={phone}
-                                onInputFinished={() => handleSubmit('attempts-left')}
-                                onSmsRetryClick={() => handleSmsRetryClick('attempts-left')}
-                                codeSending={codeSending['attempts-left']}
-                                codeChecking={codeChecking['attempts-left']}
-                                error={!!error['attempts-left']}
-                                errorText={error['attempts-left']}
-                                errorIsFatal={true}
-                                countdownDuration={countdownDuration}
-                                code={value['attempts-left']}
-                                onInputChange={({ code }) => setCode('attempts-left', code)}
-                                alignContent={alignContent}
-                                requiredCharAmount={requiredCharAmount}
-                                noAttemptsLeftMessage={noAttemptsLeftMessage}
-                            />
-                        </div>
-                    }
+                    <div
+                        style={{
+                            display: 'flex',
+                            width: '100%',
+                            maxWidth: '375px',
+                            margin: '16px 0 0',
+                            padding: '16px',
+                            border: '1px solid #eeeff1',
+                            boxSizing: 'border-box'
+                        }}
+                    >
+                        <Confirmation
+                            phone={phone}
+                            onInputFinished={handleSubmit}
+                            onSmsRetryClick={handleSmsRetryClick}
+                            codeSending={codeSending}
+                            codeChecking={codeChecking}
+                            countdownDuration={countdownDuration}
+                            code={value}
+                            onInputChange={({ code }) => setCode(code)}
+                            alignContent={alignContent}
+                            requiredCharAmount={requiredCharAmount}
+                            error={Boolean(error)}
+                            errorText={error}
+                            errorIsFatal={errorIsFatal}
+                            noAttemptsLeftMessage={noAttemptsLeftMessage}
+                        />
+                    </div>
                 </div>
             </div>
         );

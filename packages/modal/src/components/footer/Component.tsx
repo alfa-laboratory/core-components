@@ -3,6 +3,8 @@ import cn from 'classnames';
 
 import { ModalContext } from '../../Context';
 
+import layoutStyles from './layout.module.css';
+
 export type FooterProps = {
     /**
      * Контент футера
@@ -18,12 +20,24 @@ export type FooterProps = {
      * Фиксирует футер
      */
     sticky?: boolean;
+
+    /**
+     * Выравнивание элементов футера
+     */
+    layout?: 'start' | 'center' | 'space-between' | 'column';
+
+    /**
+     * Отступы между элементами футера
+     */
+    gap?: 16 | 24 | 32;
 };
 
 export const Footer: FC<FooterProps & { styles: Record<string, string> }> = ({
     children,
     className,
     sticky,
+    layout = 'start',
+    gap,
     styles,
 }) => {
     const { footerHighlighted, setHasFooter } = useContext(ModalContext);
@@ -34,10 +48,16 @@ export const Footer: FC<FooterProps & { styles: Record<string, string> }> = ({
 
     return (
         <div
-            className={cn(styles.footer, className, {
-                [styles.highlighted]: sticky && footerHighlighted,
-                [styles.sticky]: sticky,
-            })}
+            className={cn(
+                styles.footer,
+                className,
+                layoutStyles[layout],
+                gap && layoutStyles[`gap-${gap}`],
+                {
+                    [styles.highlighted]: sticky && footerHighlighted,
+                    [styles.sticky]: sticky,
+                },
+            )}
         >
             {children}
         </div>

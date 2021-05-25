@@ -22,7 +22,9 @@ describe('Collapse', () => {
         });
 
         it('should display radio group with one child correctly', () => {
-            const { container } = render(<Collapse>{paragraph}</Collapse>);
+            const { container } = render(
+                <Collapse collapsedLabel='Показать'>{paragraph}</Collapse>,
+            );
 
             expect(container).toMatchSnapshot();
         });
