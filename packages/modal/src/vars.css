@@ -5,6 +5,7 @@
     --modal-vertical-padding: var(--gap-3xl);
     --modal-header-background: var(--color-light-bg-primary);
     --modal-footer-background: var(--color-light-bg-primary);
+    --modal-footer-default-gap: var(--gap-m);
 
     /* sizes */
     --modal-s-width: 476px;
