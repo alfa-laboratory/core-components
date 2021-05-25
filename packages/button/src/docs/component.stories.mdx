@@ -8,6 +8,7 @@ import { Button } from '../';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
 import styles from '!!raw-loader!../index.module.css';
+import colorsStyles from '!!raw-loader!../default.module.css';
 
 export const VIEWS = ['primary', 'secondary', 'outlined', 'filled', 'transparent', 'link', 'ghost'];
 export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
@@ -73,5 +74,5 @@ import { Button } from '@alfalab/core-components/button';
 <Tabs
     description={<Description />}
     prpos={<Props of={Button} /> }
-    cssVars={<CssVars css={styles} />}
+    cssVars={<CssVars css={`${styles}${colorsStyles}`} />}
 />
