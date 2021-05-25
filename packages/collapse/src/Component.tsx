@@ -51,80 +51,91 @@ export type CollapseProps = {
     dataTestId?: string;
 };
 
-export const Collapse = forwardRef<HTMLDivElement, CollapseProps>((props: CollapseProps, ref) => {
-    const {
-        expanded,
-        collapsedLabel,
-        expandedLabel,
-        children,
-        className,
-        id,
-        onExpandedChange,
-        dataTestId,
-    } = props;
+export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
+    (
+        {
+            expanded,
+            collapsedLabel,
+            expandedLabel,
+            children,
+            className,
+            id,
+            onExpandedChange,
+            dataTestId,
+        },
+        ref,
+    ) => {
+        const uncontrolled = expanded === undefined;
 
-    const contentRef = useRef<HTMLDivElement>(null);
-    const contentCaseRef = useRef<HTMLDivElement>(null);
-    const [isExpanded, setIsExpanded] = useState(expanded);
+        const contentRef = useRef<HTMLDivElement>(null);
+        const contentCaseRef = useRef<HTMLDivElement>(null);
+        const [expandedState, setExpandedState] = useState(expanded);
 
-    useEffect(() => {
-        setIsExpanded(expanded);
-    }, [expanded]);
+        const isExpanded = uncontrolled ? expandedState : expanded;
 
-    const recalculate = useCallback(() => {
-        let contentHeight;
+        const recalculate = useCallback(() => {
+            let contentHeight;
 
-        if (!contentCaseRef.current || !contentRef.current) {
-            return;
-        }
+            if (!contentCaseRef.current || !contentRef.current) {
+                return;
+            }
 
-        if (isExpanded) {
-            contentHeight = contentCaseRef.current.offsetHeight;
-        } else {
-            contentHeight = 0;
-        }
+            if (isExpanded) {
+                contentHeight = contentCaseRef.current.offsetHeight;
+            } else {
+                contentHeight = 0;
+            }
 
-        contentRef.current.style.height = `${contentHeight}px`;
-    }, [isExpanded]);
+            contentRef.current.style.height = `${contentHeight}px`;
+        }, [isExpanded]);
 
-    useEffect(() => {
-        const handleResize = debounce(() => recalculate(), 300);
+        useEffect(() => {
+            const handleResize = debounce(() => recalculate(), 300);
 
-        window.addEventListener('resize', handleResize);
+            window.addEventListener('resize', handleResize);
 
-        return () => window.removeEventListener('resize', handleResize);
-    }, [recalculate]);
+            return () => window.removeEventListener('resize', handleResize);
+        }, [recalculate]);
 
-    useEffect(() => recalculate(), [isExpanded, recalculate]);
+        useEffect(() => recalculate(), [isExpanded, recalculate]);
 
-    const contentClassName = cn(styles.content, {
-        [styles.expandedContent]: isExpanded,
-    });
+        const contentClassName = cn(styles.content, {
+            [styles.expandedContent]: isExpanded,
+        });
 
-    const labelClassName = isExpanded ? styles.expandedLabel : '';
+        const labelClassName = isExpanded ? styles.expandedLabel : '';
 
-    const ToggledIcon = isExpanded ? ArrowUpMBlackIcon : ArrowDownMBlackIcon;
+        const ToggledIcon = isExpanded ? ArrowUpMBlackIcon : ArrowDownMBlackIcon;
 
-    const handleExpandedChange = useCallback(() => {
-        setIsExpanded(!isExpanded);
-        if (onExpandedChange) onExpandedChange();
-    }, [isExpanded, onExpandedChange]);
+        const handleExpandedChange = useCallback(() => {
+            if (uncontrolled) {
+                setExpandedState(!isExpanded);
+            }
 
-    return (
-        <div ref={ref} className={cn(className, styles.collapse)} id={id} data-test-id={dataTestId}>
-            <div ref={contentRef} className={contentClassName}>
-                <div ref={contentCaseRef}>{children}</div>
+            if (onExpandedChange) onExpandedChange();
+        }, [isExpanded, onExpandedChange, uncontrolled]);
+
+        return (
+            <div
+                ref={ref}
+                className={cn(className, styles.collapse)}
+                id={id}
+                data-test-id={dataTestId}
+            >
+                <div ref={contentRef} className={contentClassName}>
+                    <div ref={contentCaseRef}>{children}</div>
+                </div>
+                {(expandedLabel || collapsedLabel) && (
+                    <Link
+                        className={labelClassName}
+                        pseudo={true}
+                        onClick={handleExpandedChange}
+                        rightAddons={<ToggledIcon />}
+                    >
+                        {isExpanded ? expandedLabel : collapsedLabel}
+                    </Link>
+                )}
             </div>
-            {(expandedLabel || collapsedLabel) && (
-                <Link
-                    className={labelClassName}
-                    pseudo={true}
-                    onClick={handleExpandedChange}
-                    rightAddons={<ToggledIcon />}
-                >
-                    {isExpanded ? expandedLabel : collapsedLabel}
-                </Link>
-            )}
-        </div>
-    );
-});
+        );
+    },
+);
