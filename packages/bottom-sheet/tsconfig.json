@@ -10,10 +10,8 @@
         }
     },
     "references": [
-        { "path": "../portal" },
         { "path": "../backdrop" },
-        { "path": "../stack" },
-        { "path": "../typography" },
-        { "path": "../base-modal" }
+        { "path": "../base-modal" },
+        { "path": "../typography" }
     ]
 }
