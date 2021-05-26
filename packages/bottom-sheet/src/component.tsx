@@ -91,7 +91,7 @@ const DEFAULT_TRANSITION: CSSTransitionProps<HTMLDivElement> = {
     timeout: 200,
 };
 
-const SWIPE_CLOSE_VELOCITY = 0.3;
+const SWIPE_CLOSE_VELOCITY = 0.2;
 const CLOSE_OFFSET = 0.33;
 const MIN_BACKDROP_OPACITY = 0.2;
 
@@ -163,12 +163,15 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             }
         };
 
-        const handleSheetSwipedDown: SwipeCallback = () => {
+        const handleSheetSwipedDown: SwipeCallback = ({ velocity }) => {
             if (shouldSkipSwiping()) {
                 return;
             }
 
-            if (sheetOffset > sheetHeight.current * closeOffset) {
+            const shouldClose =
+                sheetOffset > sheetHeight.current * closeOffset || velocity > swipeCloseVelocity;
+
+            if (shouldClose) {
                 onClose();
             } else {
                 setSheetOffset(0);
