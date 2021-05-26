@@ -271,20 +271,16 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component s"
+        class="component s iconOnly"
         type="button"
-      >
-        <span />
-      </button>
+      />
     </div>
   </body>,
   "container": <div>
     <button
-      class="component s"
+      class="component s iconOnly"
       type="button"
-    >
-      <span />
-    </button>
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
