@@ -193,7 +193,7 @@ describe('Bottom sheet', () => {
                 <BottomSheetWrapper
                     dataTestId={dataTestId}
                     className={className}
-                    transition={{
+                    transitionProps={{
                         timeout: 0,
                         onEntered,
                     }}
@@ -243,7 +243,7 @@ describe('Bottom sheet', () => {
                 <BottomSheetWrapper
                     dataTestId={dataTestId}
                     className={className}
-                    transition={{
+                    transitionProps={{
                         timeout: 0,
                         onEntered,
                         onExited,
@@ -287,7 +287,7 @@ describe('Bottom sheet', () => {
                 <BottomSheetWrapper
                     dataTestId={dataTestId}
                     className={className}
-                    transition={{
+                    transitionProps={{
                         timeout: 0,
                         onEntered,
                         onExited,

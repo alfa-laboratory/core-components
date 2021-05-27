@@ -1,30 +1,26 @@
 @import '../../themes/src/default.css';
 
-.wrapper {
+.modal {
+    background-color: transparent;
     position: fixed;
-    top: 0;
-    right: 0;
     bottom: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    overflow: auto;
-    outline: 0;
+    width: 100%;
+    max-width: 600px;
 }
 
 .component {
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100%;
     max-height: calc(100vh - 72px);
-    max-width: 600px;
     border-top-right-radius: 16px;
     border-top-left-radius: 16px;
     background: var(--color-light-bg-primary);
-    will-change: transform;
+    transform: translateY(100%);
+}
+
+.withTransition {
+    transition: 0.3s ease-in-out;
 }
 
 .marker {
@@ -52,18 +48,6 @@
     flex-direction: column;
     flex: 1;
     padding: 0 var(--gap-m);
-    will-change: transform;
-}
-
-.footer {
-    position: sticky;
-    bottom: 0;
-    padding: var(--gap-2xl) var(--gap-m) var(--gap-3xl);
-    background-color: var(--color-light-bg-primary);
-}
-
-.highlighted {
-    box-shadow: var(--shadow-s-up);
 }
 
 .title {
@@ -75,21 +59,37 @@
     overflow: hidden;
 }
 
-.enter,
-.appear {
-    transform: translateY(100%);
+.appear,
+.enter {
+    & .component {
+        transition: none;
+    }
 }
 
-.enterActive,
-.appearActive {
-    transform: translateY(0);
+.appearActive,
+.enterActive {
+    & .component {
+        transition: 0.3s ease-in-out;
+        transform: translateY(0);
+    }
+}
+
+.enterDone,
+.appearDone {
+    & .component {
+        transform: translateY(0);
+    }
 }
 
 .exit {
-    transform: translateY(0);
+    & .component {
+        transform: translateY(0);
+    }
 }
 
-.exitActive,
-.exitDone {
-    transform: translateY(100%);
+.exitActive {
+    & .component {
+        transition: 0.3s ease-in-out;
+        transform: translateY(100%);
+    }
 }

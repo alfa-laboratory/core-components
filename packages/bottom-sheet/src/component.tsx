@@ -1,18 +1,20 @@
-import React, { forwardRef, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import React, {
+    CSSProperties,
+    forwardRef,
+    ReactNode,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 import cn from 'classnames';
-import { CSSTransition } from 'react-transition-group';
-import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
+import { TransitionProps } from 'react-transition-group/Transition';
 import { SwipeCallback, useSwipeable } from 'react-swipeable';
-
-import { Stack, stackingOrder } from '@alfalab/core-components-stack';
-import { Portal } from '@alfalab/core-components-portal';
-import { Backdrop } from '@alfalab/core-components-backdrop';
+import { BaseModal } from '@alfalab/core-components-base-modal';
 import { Typography } from '@alfalab/core-components-typography';
-import {
-    handleContainer,
-    hasScrollbar,
-    isScrolledToBottom,
-} from '@alfalab/core-components-base-modal';
+
+import { Footer } from './components/footer/Component';
+import { SwipeableBackdrop } from './components/swipeable-backdrop/Component';
 
 import styles from './index.module.css';
 
@@ -48,9 +50,9 @@ export type BottomSheetProps = {
     contentClassName?: string;
 
     /**
-     * CSSTransitionProps, прокидываются в компонент CSSTransitionProps.
+     * TransitionProps, прокидываются в компонент CSSTransitionProps.
      */
-    transition?: CSSTransitionProps;
+    transitionProps?: Partial<TransitionProps>;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -87,10 +89,7 @@ export type BottomSheetProps = {
     onClose: () => void;
 };
 
-const DEFAULT_TRANSITION: CSSTransitionProps<HTMLDivElement> = {
-    timeout: 200,
-};
-
+const TIMEOUT = 300;
 const SWIPE_CLOSE_VELOCITY = 0.2;
 const CLOSE_OFFSET = 0.33;
 const MIN_BACKDROP_OPACITY = 0.2;
@@ -104,8 +103,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             contentClassName,
             className,
             children,
-            zIndex = stackingOrder.MODAL,
-            transition = DEFAULT_TRANSITION,
+            zIndex,
+            transitionProps = {},
             dataTestId,
             swipeCloseVelocity = SWIPE_CLOSE_VELOCITY,
             closeOffset = CLOSE_OFFSET,
@@ -114,15 +113,12 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         },
         ref,
     ) => {
-        const [exited, setExited] = useState(!open);
         const [sheetOffset, setSheetOffset] = useState(0);
         const [backdropOpacity, setBackdropOpacity] = useState(1);
         const [scrollLocked, setScrollLocked] = useState(false);
-        const [footerHighlighted, setFooterHighlighted] = useState(false);
 
         const sheetHeight = useRef(0);
         const scrollableContainer = useRef<HTMLDivElement | null>(null);
-        const restoreContainerStylesFn = useRef<Function | null>(null);
         const scrollableContainerScrollValue = useRef(0);
 
         const getBackdropOpacity = (offset: number): number => {
@@ -217,20 +213,15 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             trackMouse,
         });
 
-        const handleBackdropClick = useCallback(() => {
-            onClose();
-        }, [onClose]);
-
         const handleExited = useCallback(
             node => {
-                setExited(true);
                 setBackdropOpacity(1);
 
-                if (transition.onExited) {
-                    transition.onExited(node);
+                if (transitionProps.onExited) {
+                    transitionProps.onExited(node);
                 }
             },
-            [transition],
+            [transitionProps],
         );
 
         const handleEntered = useCallback(
@@ -239,127 +230,84 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     sheetHeight.current = node.getBoundingClientRect().height;
                 }
 
-                if (scrollableContainer.current && hasScrollbar(scrollableContainer.current)) {
-                    setFooterHighlighted(true);
-                }
-
                 setBackdropOpacity(1);
 
-                if (transition.onEntered) {
-                    transition.onEntered(node, isAppearing);
+                if (transitionProps.onEntered) {
+                    transitionProps.onEntered(node, isAppearing);
                 }
             },
-            [transition],
+            [transitionProps],
         );
 
-        const handleScroll = () => {
-            if (!scrollableContainer.current) return;
-
-            setFooterHighlighted(!isScrolledToBottom(scrollableContainer.current));
-        };
-
         useEffect(() => {
-            if (open) {
-                setExited(false);
-            } else {
+            if (!open) {
                 setSheetOffset(0);
             }
         }, [open]);
 
-        useEffect(() => {
-            if (open) {
-                restoreContainerStylesFn.current = handleContainer(document.body);
-            }
+        const getSwipeStyles = (): CSSProperties => ({
+            transform: sheetOffset ? `translateY(${sheetOffset}px)` : '',
+        });
 
-            return () => {
-                if (restoreContainerStylesFn.current) {
-                    restoreContainerStylesFn.current();
-                    restoreContainerStylesFn.current = null;
-                }
-            };
-        }, [open]);
+        return (
+            <BaseModal
+                open={open}
+                ref={ref}
+                dataTestId={dataTestId}
+                zIndex={zIndex}
+                onClose={onClose}
+                onBackdropClick={onClose}
+                scrollHandler={scrollableContainer}
+                Backdrop={SwipeableBackdrop}
+                backdropProps={{
+                    opacity: backdropOpacity,
+                    handlers: backdropSwipeablehandlers,
+                    opacityTimeout: TIMEOUT,
+                }}
+                className={styles.modal}
+                transitionProps={{
+                    appear: true,
+                    timeout: TIMEOUT,
+                    classNames: styles,
+                    ...transitionProps,
+                    onExited: handleExited,
+                    onEntered: handleEntered,
+                }}
+            >
+                <div
+                    className={cn(styles.component, className, {
+                        [styles.withTransition]: !sheetOffset,
+                    })}
+                    style={getSwipeStyles()}
+                    {...sheetSwipeablehandlers}
+                >
+                    <div className={styles.marker} />
 
-        return open || !exited ? (
-            <Stack value={zIndex}>
-                {computedZIndex => (
-                    <Portal>
-                        <div
-                            role='dialog'
-                            ref={ref}
-                            style={{ zIndex: computedZIndex }}
-                            className={styles.wrapper}
-                            tabIndex={-1}
-                            data-test-id={dataTestId}
-                        >
-                            <div
-                                {...backdropSwipeablehandlers}
-                                style={{ opacity: backdropOpacity }}
+                    <div
+                        className={cn(styles.scrollableContainer, {
+                            [styles.scrollLocked]: scrollLocked,
+                            [styles.withPadding]: !actionButton,
+                        })}
+                        ref={scrollableContainer}
+                    >
+                        {title && (
+                            <Typography.Title
+                                view='small'
+                                font='system'
+                                tag='h2'
+                                className={styles.title}
                             >
-                                <Backdrop open={open} onClick={handleBackdropClick} />
-                            </div>
+                                {title}
+                            </Typography.Title>
+                        )}
 
-                            <CSSTransition
-                                appear={true}
-                                classNames={styles}
-                                {...transition}
-                                in={open}
-                                onExited={handleExited}
-                                onEntered={handleEntered}
-                            >
-                                <div
-                                    className={cn(styles.component, className)}
-                                    style={{
-                                        transform: sheetOffset
-                                            ? `translateY(${sheetOffset}px)`
-                                            : '',
-                                        transition: sheetOffset
-                                            ? 'none'
-                                            : `transform ${transition.timeout}ms ease-in-out`,
-                                    }}
-                                    {...sheetSwipeablehandlers}
-                                >
-                                    <div className={styles.marker} />
+                        <div className={cn(styles.content, contentClassName)}>{children}</div>
 
-                                    <div
-                                        className={cn(styles.scrollableContainer, {
-                                            [styles.scrollLocked]: scrollLocked,
-                                            [styles.withPadding]: !actionButton,
-                                        })}
-                                        ref={scrollableContainer}
-                                        onScroll={handleScroll}
-                                    >
-                                        {title && (
-                                            <Typography.Title
-                                                view='small'
-                                                font='system'
-                                                tag='h2'
-                                                className={styles.title}
-                                            >
-                                                {title}
-                                            </Typography.Title>
-                                        )}
-
-                                        <div className={cn(styles.content, contentClassName)}>
-                                            {children}
-                                        </div>
-
-                                        {actionButton && (
-                                            <div
-                                                className={cn(styles.footer, {
-                                                    [styles.highlighted]: footerHighlighted,
-                                                })}
-                                            >
-                                                {actionButton}
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            </CSSTransition>
-                        </div>
-                    </Portal>
-                )}
-            </Stack>
-        ) : null;
+                        {actionButton && <Footer>{actionButton}</Footer>}
+                    </div>
+                </div>
+            </BaseModal>
+        );
     },
 );
 
