@@ -1,4 +1,12 @@
-import React, { forwardRef, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import React, {
+    CSSProperties,
+    forwardRef,
+    ReactNode,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
+} from 'react';
 import cn from 'classnames';
 import { TransitionProps } from 'react-transition-group/Transition';
 import { SwipeCallback, useSwipeable } from 'react-swipeable';
@@ -237,7 +245,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             }
         }, [open]);
 
-        const getSwipeStyles = () => ({
+        const getSwipeStyles = (): CSSProperties => ({
             transform: sheetOffset ? `translateY(${sheetOffset}px)` : '',
         });
 
