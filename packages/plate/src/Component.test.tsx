@@ -100,6 +100,32 @@ describe('Plate', () => {
 
             expect(cb).toBeCalledTimes(1);
         });
+
+        it('should hide, if clicked on closer and prop `open` dont`t passed', () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(<Plate hasCloser={true} dataTestId={dataTestId} />);
+
+            const el = getByTestId(dataTestId);
+            const closeEl = el.querySelector('.closer') as Element;
+
+            fireEvent.click(closeEl);
+
+            expect(el).toHaveClass('isHidden');
+        });
+
+        it('should don`t hide, if clicked on closer and prop `open` is passed (controlled)', () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <Plate hasCloser={true} dataTestId={dataTestId} open={true} />,
+            );
+
+            const el = getByTestId(dataTestId);
+            const closeEl = el.querySelector('.closer') as Element;
+
+            fireEvent.click(closeEl);
+
+            expect(el).not.toHaveClass('isHidden');
+        });
     });
 
     it('should unmount without errors', () => {
