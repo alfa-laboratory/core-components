@@ -9,7 +9,6 @@ import json from '@rollup/plugin-json';
 import {
     coreComponentsRootPackageResolver,
     coreComponentsResolver,
-    coreComponentsThemesResolver,
 } from './tools/rollup/core-components-resolver';
 import ignoreCss from './tools/rollup/ignore-css';
 import processCss from './tools/rollup/process-css';
@@ -209,36 +208,4 @@ const root = {
     ],
 };
 
-const configs = [es5, modern, cssm, esm, root];
-
-const themes = pkg.buildThemes;
-
-if (themes && themes.length > 0) {
-    const output = themes.map(theme => ({
-        dir: `dist/themes/${theme}`,
-    }));
-
-    const dest = themes.map(theme => `dist/themes/${theme}`);
-
-    /**
-     * Копирование собранных пакетов в отдельные папки с темами.
-     * В этих папках css-переменные будут заменены на соответствующие значения (после сборки).
-     */
-    configs.push({
-        input: ['dist/**/*.js'], // TODO: убрать cssm
-        external: baseConfig.external,
-        plugins: [
-            multiInput({
-                relative: 'dist',
-            }),
-            copy({
-                flatten: false,
-                targets: [{ src: ['dist/**/*', '!**/*.js'], dest }],
-            }),
-            coreComponentsThemesResolver(),
-        ],
-        output,
-    });
-}
-
-export default configs;
+export default [es5, modern, cssm, esm, root];
