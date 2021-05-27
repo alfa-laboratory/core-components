@@ -10,7 +10,10 @@ import mergeRefs from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
 import cn from 'classnames';
 import { useClickOutside, usePrevious } from '@alfalab/hooks';
-import { ToastPlate, ToastPlateProps } from '@alfalab/core-components-toast-plate';
+import {
+    ToastPlate as ToastPlateComponent,
+    ToastPlateProps,
+} from '@alfalab/core-components-toast-plate';
 import { Popover, PopoverProps } from '@alfalab/core-components-popover';
 import { Portal } from '@alfalab/core-components-portal';
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
@@ -41,11 +44,6 @@ export type ToastProps = ToastPlateProps &
         autoCloseDelay?: number;
 
         /**
-         * Обработчик закрытия компонента.
-         */
-        onClose: () => void;
-
-        /**
          * Отступ снизу (при fixed-позиционировании).
          */
         bottomOffset?: number;
@@ -54,7 +52,22 @@ export type ToastProps = ToastPlateProps &
          * z-index компонента
          */
         zIndex?: number;
+
+        /**
+         * Обработчик закрытия компонента.
+         */
+        onClose: () => void;
+
+        /**
+         * Плашка тоста.
+         * По-дефолту рендерит компонент ToastPlate
+         */
+        ToastPlate?: typeof ToastPlateComponent;
     };
+
+const DefaultToastPlate: ToastProps['ToastPlate'] = forwardRef((props, ref) => (
+    <ToastPlateComponent ref={ref} {...props} />
+));
 
 export const Toast = forwardRef<HTMLDivElement, ToastProps>(
     (
@@ -69,6 +82,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
             style = {},
             block,
             zIndex = stackingOrder.TOAST,
+            ToastPlate = DefaultToastPlate,
             onMouseEnter,
             onMouseLeave,
             onTouchStart,

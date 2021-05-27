@@ -1,8 +1,8 @@
-import React from 'react';
-import { fireEvent, render } from '@testing-library/react';
+import React, { forwardRef } from 'react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import * as popoverModule from '@alfalab/core-components-popover';
-import { Toast } from './index';
+import { Toast, ToastProps } from './index';
 
 describe('Toast', () => {
     jest.useFakeTimers();
@@ -189,6 +189,27 @@ describe('Toast', () => {
             jest.advanceTimersByTime(5000);
 
             expect(onClose).not.toBeCalled();
+        });
+
+        it('should render custom toast plate', async () => {
+            const dataTestId = 'testId';
+            const onClose = jest.fn();
+
+            const CustomToastPlate: ToastProps['ToastPlate'] = forwardRef((props, ref) => (
+                <div {...props} ref={ref} data-test-id={dataTestId} />
+            ));
+
+            const { getByTestId } = render(
+                <Toast
+                    onClose={onClose}
+                    open={true}
+                    autoCloseDelay={3000}
+                    getPortalContainer={getPortalContainer}
+                    ToastPlate={CustomToastPlate}
+                />,
+            );
+
+            await waitFor(() => expect(getByTestId(dataTestId)).toBeInTheDocument());
         });
     });
 
