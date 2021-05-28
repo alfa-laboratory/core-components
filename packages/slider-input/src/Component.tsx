@@ -125,6 +125,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             Input = DefaultInput,
             customInputProps = {},
             dataTestId,
+            error,
             ...restProps
         },
         ref,
@@ -180,17 +181,20 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                     focusedClassName={styles.focused}
                     inputMode='numeric'
                     pattern='[0-9]*'
+                    error={error}
                     bottomAddons={
-                        <Slider
-                            min={min}
-                            max={max}
-                            step={step}
-                            onChange={handleSliderChange}
-                            ref={ref}
-                            value={Number.isNaN(sliderValue) ? 0 : sliderValue}
-                            disabled={disabled || readOnly}
-                            className={cn(styles.slider, sliderClassName)}
-                        />
+                        !disabled && (
+                            <Slider
+                                min={min}
+                                max={max}
+                                step={step}
+                                onChange={handleSliderChange}
+                                ref={ref}
+                                value={Number.isNaN(sliderValue) ? 0 : sliderValue}
+                                disabled={disabled || readOnly}
+                                className={cn(styles.slider, sliderClassName)}
+                            />
+                        )
                     }
                     rightAddons={
                         (info || rightAddons) && (
@@ -202,7 +206,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                     }
                 />
 
-                {steps.length > 0 && (
+                {steps.length > 0 && !error && (
                     <div className={cn(styles.steps, stepsClassName)}>
                         {steps.map((stepLabel, i) =>
                             isValidElement(stepLabel) ? (

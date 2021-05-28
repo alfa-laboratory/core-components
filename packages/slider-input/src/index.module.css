@@ -30,6 +30,10 @@
         font-weight: 700;
         font-variant-numeric: tabular-nums;
     }
+
+    & input::placeholder {
+        font-weight: 400;
+    }
 }
 
 .steps {
