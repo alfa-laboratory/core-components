@@ -363,6 +363,10 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         useEffect(() => {
             return () => {
                 resizeObserver.disconnect();
+
+                if (restoreContainerStyles.current) {
+                    restoreContainerStyles.current();
+                }
             };
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
