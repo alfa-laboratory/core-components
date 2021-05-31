@@ -17,6 +17,7 @@
 }
 
 .l {
+    min-height: var(--modal-header-l-min-height);
     padding: var(--modal-l-header-paddings);
 }
 

@@ -11,7 +11,8 @@
     --modal-s-width: 476px;
     --modal-m-width: 600px;
     --modal-l-width: 800px;
-    --modal-header-min-height: 72px;
+    --modal-header-min-height: 48px;
+    --modal-header-l-min-height: 72px;
 
     /* paddings */
     --modal-s-header-paddings: 0 0 0 var(--gap-4xl);
