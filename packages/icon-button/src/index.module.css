@@ -75,8 +75,8 @@
 }
 
 .xxs {
-    width: var(--icon-button-xss-size);
-    height: var(--icon-button-xss-size);
+    width: var(--icon-button-xxs-size);
+    height: var(--icon-button-xxs-size);
 }
 
 .xs {
