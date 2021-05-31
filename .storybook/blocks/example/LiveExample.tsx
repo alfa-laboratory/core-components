@@ -27,7 +27,11 @@ export const LiveExample: FC<LiveExampleProps> = ({
     const handleChange = (value: string) => setCode(value.trim());
 
     const handleShare = () => {
-        window.open(`/?path=/docs/гайдлайны-песочница--page/code=${encodeURIComponent(code)}`);
+        window.open(
+            `${
+                window.parent.location.pathname
+            }?path=/docs/гайдлайны-песочница--page/code=${encodeURIComponent(code)}`,
+        );
     };
 
     const actionItems = [

@@ -11,7 +11,7 @@ export const ErrorSection: FC<ErrorSectionProps> = ({ className }) => {
     let error = context.error;
 
     if (error === 'SyntaxError: No-Inline evaluations must call `render`.') {
-        error = `SyntaxError: Оберните компонент в функцию render:\nrender(\n\t<Component />\n)`;
+        error = `SyntaxError: Оберните компонент в функцию render:\n\nrender(\n    <Component />\n)`;
     }
 
     return error ? <pre className={className}>{error}</pre> : null;

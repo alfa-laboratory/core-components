@@ -64,6 +64,10 @@
     font-family: var(--example-font-family) !important;
     padding: 10px;
     margin: 0;
-    background-color: var(--color-light-bg-accent);
-    color: var(--color-light-text-primary-inverted);
+    background-color: var(--color-light-bg-negative-muted);
+    color: var(--color-light-text-accent);
+
+    &:nth-child(2) {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
 }
