@@ -1,9 +1,0 @@
-.cssVarsList {
-    overflow: hidden;
-    padding: var(--gap-l);
-    white-space: pre-wrap;
-    font-size: 13px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    color: #333;
-    border-radius: var(--border-radius-s);
-}
