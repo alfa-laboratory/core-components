@@ -1,3 +1,10 @@
+# [17.1.0](https://github.com/alfa-laboratory/core-components/compare/v17.0.1...v17.1.0) (2021-05-31)
+
+
+### Features
+
+* **confirmation:** set up signTitle prop as slot ([#672](https://github.com/alfa-laboratory/core-components/issues/672)) ([85e4786](https://github.com/alfa-laboratory/core-components/commit/85e47862689f373fd1904495ae7b86d998ad7cec))
+
 ## [17.0.1](https://github.com/alfa-laboratory/core-components/compare/v17.0.0...v17.0.1) (2021-05-28)
 
 
