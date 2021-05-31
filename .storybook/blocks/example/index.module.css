@@ -1,0 +1,69 @@
+@import '../../../packages/vars/src/mixins.css';
+
+:root {
+    --example-font-family: Monaco, Menlo, monospace;
+}
+
+.component {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 25px 0 var(--gap-3xl);
+    border-radius: var(--border-radius-s);
+    font-family: var(--font-family) !important;
+}
+
+.preview {
+    position: relative;
+    padding: 30px var(--gap-l);
+}
+
+.editor {
+    @mixin paragraph_primary_small;
+
+    font-family: var(--example-font-family) !important;
+    outline: 0;
+
+    & textarea {
+        outline: none !important;
+    }
+}
+
+.static {
+    border-radius: var(--border-radius-s);
+
+    & pre,
+    & textarea {
+        padding: var(--gap-xl) !important;
+    }
+}
+
+.actionBar {
+    & > div {
+        background-color: transparent;
+    }
+
+    & button {
+        justify-content: center;
+        min-width: 110px;
+        transition: 0.2s ease;
+
+        &:focus {
+            box-shadow: none;
+        }
+
+        &:hover {
+            box-shadow: var(--color-light-bg-accent) 0 -3px 0 0 inset;
+        }
+    }
+}
+
+.error {
+    @mixin paragraph_primary_small;
+
+    font-family: var(--example-font-family) !important;
+    padding: 10px;
+    margin: 0;
+    background-color: var(--color-light-bg-accent);
+    color: var(--color-light-text-primary-inverted);
+}
