@@ -22,7 +22,7 @@ export type SignConfirmationProps = {
     code: string;
     errorText: string;
     error: boolean;
-    title: string;
+    title: string | React.ReactNode;
     codeCheckingText: string;
     codeSendingText: string;
     hasSmsCountdown: boolean;
@@ -98,7 +98,7 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>
-            <span className={styles.header}>{title}</span>
+            {typeof title === 'string' ? <span className={styles.header}>{title}</span> : title}
 
             <div className={styles.inputContainer}>
                 <CodeInput

@@ -54,6 +54,29 @@ describe('Confirmation', () => {
             expect(container).toMatchSnapshot();
         });
 
+        it('should match snapshot with signTitle as string', () => {
+            const { container } = render(
+                <Confirmation {...baseProps} signTitle='Кастомный заголовок как текст' />,
+            );
+
+            expect(container).toMatchSnapshot();
+        });
+
+        it('should match snapshot with signTitle as react node', () => {
+            const { container } = render(
+                <Confirmation
+                    {...baseProps}
+                    signTitle={
+                        <div>
+                            <h1>Кастомный заголовок как react node</h1>
+                        </div>
+                    }
+                />,
+            );
+
+            expect(container).toMatchSnapshot();
+        });
+
         it('should math snapshot without smsCountdown', () => {
             const { container } = render(<Confirmation {...baseProps} hasSmsCountdown={false} />);
 
