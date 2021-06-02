@@ -23,9 +23,31 @@ export type AmountProps = {
     view?: 'default' | 'withZeroMinorPart';
 
     /**
+     * Делает мажорную часть жирной
+     */
+    majorBold?: boolean;
+
+    /**
+     * Делает минорную часть жирной
+     */
+    minorBold?: boolean;
+
+    /**
+     * Вид минорной части
+     * inherit — наследует стили мажорной части
+     * transparent — делает минорную часть прозрачной
+     */
+    minorColor?: 'inherit' | 'transparent';
+
+    /**
      * Дополнительный класс
      */
     className?: string;
+
+    /**
+     * Дополнительный класс для минорной части
+     */
+    minorClassName?: string;
 
     /**
      * Идентификатор для систем автоматизированного тестирования

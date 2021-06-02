@@ -11,6 +11,25 @@
 }
 
 .minorPartAndCurrency {
-    opacity: 0.6;
     font-weight: var(--amount-minor-part-font-weight);
+}
+
+.majorRegular {
+    font-weight: normal;
+}
+
+.minorRegular {
+    font-weight: normal;
+}
+
+.majorBold {
+    font-weight: bold;
+}
+
+.minorBold {
+    font-weight: bold;
+}
+
+.minorTransparent {
+    opacity: 0.6;
 }

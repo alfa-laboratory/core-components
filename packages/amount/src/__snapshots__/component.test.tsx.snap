@@ -7,7 +7,7 @@ exports[`Amount should match snapshots for base and Pure components 1`] = `
   >
     1
     <span
-      class="minorPartAndCurrency"
+      class="minorPartAndCurrency minorTransparent"
     >
       
       

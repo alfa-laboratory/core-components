@@ -25,6 +25,9 @@ import { name, version } from '../package.json';
         const currency = select('currency', currencyCodes, 'RUR');
         const minority = number('minority', 100);
         const view = select('view', ['default', 'withZeroMinorPart'], 'default');
+        const majorBold = select('majorBold', [undefined, true, false], undefined);
+        const minorBold = select('minorBold', [undefined, true, false], undefined);
+        const minorColor = select('minorColor', ['transparent', 'inherit'], 'transparent');
         const className = select('className', '');
         const dataTestId = text('dataTestId', '');
         return (
@@ -41,6 +44,9 @@ import { name, version } from '../package.json';
                             minority={minority}
                             view={view}
                             className={className}
+                            majorBold={majorBold}
+                            minorBold={minorBold}
+                            minorColor={minorColor}
                             dataTestId={dataTestId}
                         />
                     </Col>

@@ -15,6 +15,10 @@ export const Amount: React.FC<AmountProps> = ({
     currency,
     view = 'default',
     className,
+    minorClassName,
+    majorBold,
+    minorBold,
+    minorColor = 'transparent',
     dataTestId,
 }) => {
     const { majorPart, minorPart, currencySymbol } = formatAmount({
@@ -25,9 +29,29 @@ export const Amount: React.FC<AmountProps> = ({
     });
 
     return (
-        <span className={cn(styles.component, className)} data-test-id={dataTestId}>
+        <span
+            className={cn(
+                styles.component,
+                className,
+                /**
+                 * Для обратной совместимости.
+                 * TODO: Можно будет убрать, после того, как выпилим переменные и все обновятся
+                 */
+                typeof majorBold === 'boolean' &&
+                    (majorBold ? styles.majorBold : styles.majorRegular),
+            )}
+            data-test-id={dataTestId}
+        >
             {majorPart}
-            <span className={styles.minorPartAndCurrency}>
+            <span
+                className={cn(
+                    styles.minorPartAndCurrency,
+                    minorClassName,
+                    minorColor === 'transparent' && styles.minorTransparent,
+                    typeof minorBold === 'boolean' &&
+                        (minorBold ? styles.minorBold : styles.minorRegular),
+                )}
+            >
                 {minorPart && AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR}
                 {minorPart}
                 {THINSP}
