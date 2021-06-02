@@ -44,7 +44,11 @@ export const ScreenshotsSprite = () => {
         <div className={styles.container}>
             {propsList.map((props, index) => {
                 // TODO:
-                if (getQueryParam('component') === 'Select' && props.options) {
+                if (
+                    getQueryParam('component') === 'Select' &&
+                    props.options &&
+                    typeof props.options === 'string'
+                ) {
                     // eslint-disable-next-line no-param-reassign
                     props.options = JSON.parse(props.options as string);
                 }

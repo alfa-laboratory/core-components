@@ -124,6 +124,7 @@ export const POSITION_OPTIONS = [
         visibleOptions={number('visibleOptions', 5)}
         onChange={action('change')}
         onOpen={action('open')}
+        defaultOpen={boolean('defaultOpen', false)}
         popoverPosition={selectKnob('popoverPosition', POSITION_OPTIONS, 'bottom-start')}
         optionsListWidth={selectKnob('optionsListWidth', ['field', 'content'], 'field')}
     />
