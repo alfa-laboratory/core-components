@@ -9,7 +9,8 @@
             "ignoreChanges": [
                 "*.stories.*",
                 "**/__snapshots__/**",
-                "*.test.*"
+                "*.test.*",
+                "**/codemode/**"
             ]
 
         }
