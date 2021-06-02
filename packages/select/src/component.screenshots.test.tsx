@@ -239,7 +239,7 @@ describe('Select | optgroup', () => {
             cases: [
                 [
                     `${theme}`,
-                    createSpriteStorybookUrl({
+                    createStorybookUrl({
                         componentName: 'Select',
                         knobs: {
                             options: JSON.stringify(groups),
@@ -249,16 +249,11 @@ describe('Select | optgroup', () => {
                             block: true,
                             placeholder: 'Выберите элемент',
                         },
-                        size: { width: 400, height: 300 },
                     }),
                 ],
             ],
             screenshotOpts: {
                 fullPage: true,
-            },
-            viewport: {
-                width: 400,
-                height: 100,
             },
             theme,
         })();
