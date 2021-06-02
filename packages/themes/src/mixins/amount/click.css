@@ -1,4 +1,5 @@
 @define-mixin amount-click {
+    /* deprecated */
     --amount-major-part-font-weight: bold;
     --amount-minor-part-font-weight: bold;
 }

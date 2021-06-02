@@ -1,6 +1,7 @@
 @import '../../themes/src/default.css';
 
 :root {
+    /* deprecated */
     --amount-major-part-font-weight: bold;
     --amount-minor-part-font-weight: normal;
 }
