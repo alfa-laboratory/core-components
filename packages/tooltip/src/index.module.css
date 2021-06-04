@@ -2,9 +2,7 @@
 
 :root {
     --tooltip-border-color: var(--color-light-border-primary);
-
-    /* Local variables, not used in theming */
-    --hint-bg-color: var(--color-static-bg-primary-dark);
+    --tooltip-hint-bg-color: var(--color-static-bg-primary-dark);
 }
 
 .component {
@@ -18,7 +16,7 @@
 
 .hint {
     border-radius: var(--border-radius-s);
-    background-color: var(--hint-bg-color);
+    background-color: var(--tooltip-hint-bg-color);
 }
 
 .hint .component {
@@ -30,8 +28,8 @@
 .hint .arrow:after {
     width: 9px;
     height: 9px;
-    background-color: var(--hint-bg-color);
-    border-color: var(--hint-bg-color);
+    background-color: var(--tooltip-hint-bg-color);
+    border-color: var(--tooltip-hint-bg-color);
 }
 
 .target {
