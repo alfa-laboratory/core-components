@@ -284,7 +284,7 @@ export const BaseSelect = forwardRef(
             if (defaultOpen) openMenu();
         }, [defaultOpen, openMenu]);
 
-        const calcOptionsListWidth = () => {
+        const calcOptionsListWidth = useCallback(() => {
             if (listRef.current) {
                 const widthAttr = optionsListWidth === 'field' ? 'width' : 'minWidth';
 
@@ -292,17 +292,21 @@ export const BaseSelect = forwardRef(
                     ? rootRef.current.getBoundingClientRect().width
                     : 0;
 
+                listRef.current.setAttribute('style', '');
                 listRef.current.style[widthAttr] = `${optionsListMinWidth}px`;
             }
-        };
-
-        const resizeObserver = useRef(new ResizeObserver(calcOptionsListWidth));
+        }, [optionsListWidth]);
 
         useEffect(() => {
-            if (!rootRef.current || !resizeObserver.current) return;
+            const observer = new ResizeObserver(calcOptionsListWidth);
+            if (rootRef.current) {
+                observer.observe(rootRef.current);
+            }
 
-            resizeObserver.current[open ? 'observe' : 'unobserve'](rootRef.current);
-        }, [open]);
+            return () => {
+                observer.disconnect();
+            };
+        }, [calcOptionsListWidth, open, optionsListWidth]);
 
         useLayoutEffect(calcOptionsListWidth, [open, optionsListWidth, options, selectedItems]);
 
