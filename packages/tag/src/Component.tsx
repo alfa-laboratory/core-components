@@ -72,6 +72,7 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
                 {
                     [styles.checked]: checked,
                     [styles.focused]: focused,
+                    [styles.iconOnly]: !children,
                 },
                 className,
             ),
@@ -94,7 +95,7 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
             >
                 {leftAddons ? <span className={styles.addons}>{leftAddons}</span> : null}
 
-                <span>{children}</span>
+                {children && <span>{children}</span>}
 
                 {rightAddons ? <span className={styles.addons}>{rightAddons}</span> : null}
             </button>
