@@ -13,10 +13,6 @@ export type SkeletonProps = {
      */
     animate?: boolean;
     /**
-     * Вариант анимации
-     */
-    animation?: 'gradient' | 'bg';
-    /**
      * Дополнительный класс
      */
     className?: string;
@@ -29,7 +25,6 @@ export type SkeletonProps = {
 export const Skeleton: React.FC<SkeletonProps> = ({
     visible,
     animate = true,
-    animation = 'gradient',
     className,
     dataTestId,
     children,
@@ -37,12 +32,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({
     if (visible) {
         return (
             <div
-                className={cn(
-                    styles.component,
-                    { [styles.animate]: animate },
-                    animation === 'bg' && styles.animateBg,
-                    className,
-                )}
+                className={cn(styles.component, { [styles.animate]: animate }, className)}
                 data-test-id={dataTestId}
             >
                 {children}

@@ -4,6 +4,12 @@
     --skeleton-default-color: var(--color-light-specialbg-component);
     --skeleton-border-radius: var(--border-radius-m);
     --skeleton-backdrop-filter: none;
+
+    /* experimental animation switcher */
+    --skeleton-gradient-animation-display: block;
+    --skeleton-bg-animation-display: none;
+    --skeleton-bg-animation-color-from: rgb(182, 188, 195);
+    --skeleton-bg-animation-color-to: rgb(198, 205, 214);
 }
 
 .component {
@@ -33,7 +39,25 @@
     background: var(--skeleton-default-color);
 }
 
+.animate:before {
+    display: var(--skeleton-bg-animation-display);
+    animation-name: background;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    animation-play-state: running;
+    opacity: 0.5;
+}
+
+@supports (backdrop-filter: blur(1px)) {
+    .animate:before {
+        opacity: 0.4;
+    }
+}
+
 .animate:after {
+    display: var(--skeleton-gradient-animation-display);
     content: '';
     position: absolute;
     top: 0;
@@ -45,7 +69,8 @@
     animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    background: linear-gradient(
+    background: var(--skeleton-default-color);
+    background-image: linear-gradient(
         to left,
         rgba(0, 0, 0, 0),
         rgba(0, 0, 0, 0) 40%,
@@ -67,33 +92,11 @@
     }
 }
 
-/* experimental bg animation */
-
-.animate.animateBg:before {
-    animation-name: background;
-    animation-duration: 0.5s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: ease-in-out;
-    animation-play-state: running;
-    opacity: 0.5;
-}
-
-@supports ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
-    .animate.animateBg:before {
-        opacity: 0.4;
-    }
-}
-
-.animateBg:after {
-    display: none;
-}
-
 @keyframes background {
     0% {
-        background: rgb(182, 188, 195);
+        background: var(--skeleton-bg-animation-color-from);
     }
     100% {
-        background: rgb(198, 205, 214);
+        background: var(--skeleton-bg-animation-color-to);
     }
 }

@@ -26,7 +26,6 @@ import styles from './stories.module.css';
                 className={ text('className', '') }
                 dataTestId={ text('dataTestId', '') }
                 animate={ boolean('animate', true) }
-                animation={ select('animation', ['gradient', 'bg'], 'gradient') }
             >
                 <img
                     width={ 150 }
@@ -100,20 +99,6 @@ import { Skeleton } from '@alfalab/core-components-skeleton';
             <Skeleton className={styles['example-4']} visible={true} />
             <Skeleton className={styles['example-5']} visible={true} />
             <Skeleton className={styles['example-6']} visible={true} />
-        </div>
-    </Container>
-</Preview>
-
-`animation='bg'`
-
-<Preview>
-    <Container>
-        <div className={styles.wrapper}>
-            <Skeleton className={styles['example-2']} animation='bg' visible={true} />
-            <Skeleton className={styles['example-3']} animation='bg' visible={true} />
-            <Skeleton className={styles['example-4']} animation='bg' visible={true} />
-            <Skeleton className={styles['example-5']} animation='bg' visible={true} />
-            <Skeleton className={styles['example-6']} animation='bg' visible={true} />
         </div>
     </Container>
 </Preview>
