@@ -2,6 +2,9 @@
 
 :root {
     --tooltip-border-color: var(--color-light-border-primary);
+
+    /* Local variables, not used in theming */
+    --hint-bg-color: var(--color-static-bg-primary-dark);
 }
 
 .component {
@@ -11,6 +14,24 @@
 
 .popper {
     border-radius: var(--border-radius-m);
+}
+
+.hint {
+    border-radius: var(--border-radius-s);
+    background-color: var(--hint-bg-color);
+}
+
+.hint .component {
+    @mixin paragraph_secondary_large;
+    padding: var(--gap-xs);
+    color: var(--color-light-text-primary-inverted);
+}
+
+.hint .arrow:after {
+    width: 9px;
+    height: 9px;
+    background-color: var(--hint-bg-color);
+    border-color: var(--hint-bg-color);
 }
 
 .target {
