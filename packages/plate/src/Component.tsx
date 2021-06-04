@@ -71,6 +71,11 @@ export type PlateProps = {
     contentClassName?: string;
 
     /**
+     * Управление видимостью компонента (controlled)
+     */
+    open?: boolean;
+
+    /**
      * Обработчик клика по плашке
      */
     onClick?: (event?: MouseEvent<HTMLDivElement>) => void;
@@ -100,14 +105,17 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             className,
             buttonsClassName,
             contentClassName,
+            open,
+            dataTestId,
             onClick,
             onClose,
-            dataTestId,
         },
         ref,
     ) => {
         const plateRef = useRef<HTMLDivElement>(null);
         const buttonsRef = useRef<HTMLDivElement>(null);
+
+        const uncontrolled = open === undefined;
 
         const [focused] = useFocus(plateRef, 'keyboard');
 
@@ -142,13 +150,15 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
 
         const handleClose = useCallback(
             event => {
-                setIsHidden(true);
+                if (uncontrolled) {
+                    setIsHidden(true);
+                }
 
                 if (onClose) {
                     onClose(event);
                 }
             },
-            [onClose],
+            [onClose, uncontrolled],
         );
 
         const renderButtons = useCallback(
