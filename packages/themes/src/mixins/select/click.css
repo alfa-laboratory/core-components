@@ -13,7 +13,7 @@
 
     /* checkmark */
 
-    --select-checkmark-margin: 0 0 0 auto;
+    --select-checkmark-margin: 0 0 0 var(--gap-m);
     --select-checkmark-size: 24px;
     --select-checkmark-order: 1;
     --select-checkmark-background: url('https://alfabank.st/icons/glyph_checkmark-circle_m_color.svg');
