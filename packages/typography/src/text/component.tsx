@@ -1,11 +1,14 @@
+import React, { HTMLAttributes, FC } from 'react';
 import cn from 'classnames';
-import React from 'react';
+
 import { Color } from '../colors';
 
 import styles from './index.module.css';
 import colors from '../colors.module.css';
 
-export type TextProps = {
+type NativeProps = HTMLAttributes<HTMLSpanElement>;
+
+export type TextProps = Omit<NativeProps, 'color'> & {
     /**
      * [Вариант начертания](https://alfa-laboratory.github.io/core-components/master/?path=/docs/гайдлайны-типографика--page)
      */
@@ -35,7 +38,7 @@ export type TextProps = {
     tag?: 'p' | 'span' | 'div';
 
     /**
-     * Css-класс для стилизации
+     * Css-класс для стилизации (native prop)
      */
     className?: string;
 
@@ -45,12 +48,12 @@ export type TextProps = {
     dataTestId?: string;
 
     /**
-     * Контент
+     * Контент (native prop)
      */
     children?: React.ReactNode;
 };
 
-export const Text: React.FC<TextProps> = ({
+export const Text: FC<TextProps> = ({
     view = 'primary-medium',
     tag: Component = 'span',
     weight = 'regular',
@@ -58,7 +61,8 @@ export const Text: React.FC<TextProps> = ({
     className,
     dataTestId,
     children,
-}: TextProps): React.ReactElement => (
+    ...restProps
+}) => (
     <Component
         className={cn(
             { [styles.paragraph]: Component === 'p' },
@@ -68,6 +72,7 @@ export const Text: React.FC<TextProps> = ({
             styles[weight],
         )}
         data-test-id={dataTestId}
+        {...restProps}
     >
         {children}
     </Component>
