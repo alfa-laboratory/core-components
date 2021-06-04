@@ -79,7 +79,7 @@
     opacity: 0.5;
 }
 
-@supports ((-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px))) {
+@supports (backdrop-filter: blur(1px)) {
     .animate.animateBg:before {
         opacity: 0.4;
     }

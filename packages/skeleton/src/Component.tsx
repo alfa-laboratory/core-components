@@ -39,8 +39,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({
             <div
                 className={cn(
                     styles.component,
-                    { [styles.animate]: animate },
-                    animation === 'bg' && styles.animateBg,
+                    { [styles.animate]: animate, [styles.animateBg]: animation === 'bg' },
                     className,
                 )}
                 data-test-id={dataTestId}
