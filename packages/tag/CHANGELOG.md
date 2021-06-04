@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tag@2.1.6...@alfalab/core-components-tag@2.2.0) (2021-06-04)
+
+
+### Features
+
+* **tag:** adjusted colors ([#667](https://github.com/alfa-laboratory/core-components/issues/667)) ([ded4ac4](https://github.com/alfa-laboratory/core-components/commit/ded4ac4a4e02ee8ec4efdc6d990455caa3ab94bb))
+
+
+
+
+
 ## [2.1.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tag@2.1.5...@alfalab/core-components-tag@2.1.6) (2021-04-26)
 
 **Note:** Version bump only for package @alfalab/core-components-tag

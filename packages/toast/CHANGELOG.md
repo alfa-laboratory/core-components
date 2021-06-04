@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast@2.0.7...@alfalab/core-components-toast@2.1.0) (2021-06-04)
+
+
+### Features
+
+* **plate:** update vars ([#668](https://github.com/alfa-laboratory/core-components/issues/668)) ([cbecef5](https://github.com/alfa-laboratory/core-components/commit/cbecef55e4cfc7231dcaa16b9220cc920547ff18))
+
+
+
+
+
 ## [2.0.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast@2.0.6...@alfalab/core-components-toast@2.0.7) (2021-05-31)
 
 **Note:** Version bump only for package @alfalab/core-components-toast
