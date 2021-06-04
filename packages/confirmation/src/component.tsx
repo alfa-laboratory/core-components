@@ -80,7 +80,7 @@ export type ConfirmationProps = {
     /**
      * Заголовок экрана подписания
      */
-    signTitle?: string;
+    signTitle?: string | React.ReactNode;
 
     /**
      * Заголовок экрана блокирующей ошибки

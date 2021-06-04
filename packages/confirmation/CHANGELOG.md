@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@6.0.0...@alfalab/core-components-confirmation@6.1.0) (2021-05-31)
+
+
+### Features
+
+* **confirmation:** set up signTitle prop as slot ([#672](https://github.com/alfa-laboratory/core-components/issues/672)) ([85e4786](https://github.com/alfa-laboratory/core-components/commit/85e47862689f373fd1904495ae7b86d998ad7cec))
+
+
+
+
+
 # [6.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@5.1.0...@alfalab/core-components-confirmation@6.0.0) (2021-05-25)
 
 

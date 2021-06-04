@@ -1,10 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import cn from 'classnames';
-import Highlight from 'react-highlight.js';
 
-import 'highlight.js/styles/vs.css';
-
-import styles from './styles.css';
+import { Example } from '../example';
 
 type Props = {
     css: string;
@@ -42,9 +39,7 @@ export const CssVars: FC<Props> = ({ css, title }) => {
         <div>
             {title && <h2 className={cn('sbdocs', 'sbdocs-h2')}>{title}</h2>}
 
-            <div className={styles.cssVarsList}>
-                <Highlight language='css'>{vars}</Highlight>
-            </div>
+            <Example language='css' code={vars} />
         </div>
     );
 };

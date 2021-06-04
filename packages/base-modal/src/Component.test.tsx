@@ -270,4 +270,33 @@ describe('BaseModal', () => {
 
         expect(container2).toContainElement(getByTestId('BaseModal'));
     });
+
+    describe('Body styles restore', () => {
+        it('should restore styles after close', async () => {
+            const { rerender } = render(<BaseModal open={false} />);
+            expect(document.body.style.overflow).toBe('');
+
+            rerender(<BaseModal open={true} />);
+            expect(document.body.style.overflow).toBe('hidden');
+
+            rerender(<BaseModal open={false} />);
+            await waitFor(() => {
+                expect(document.body.style.overflow).toBe('');
+            });
+        });
+
+        it('should restore styles after unmount', async () => {
+            const { rerender, unmount } = render(<BaseModal open={false} />);
+            expect(document.body.style.overflow).toBe('');
+
+            rerender(<BaseModal open={true} />);
+            expect(document.body.style.overflow).toBe('hidden');
+
+            unmount();
+
+            await waitFor(() => {
+                expect(document.body.style.overflow).toBe('');
+            });
+        });
+    });
 });
