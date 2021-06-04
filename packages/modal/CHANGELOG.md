@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@1.5.3...@alfalab/core-components-modal@1.5.4) (2021-06-04)
+
+
+### Bug Fixes
+
+* **modal:** header height & paddings ([#676](https://github.com/alfa-laboratory/core-components/issues/676)) ([d8945c6](https://github.com/alfa-laboratory/core-components/commit/d8945c6839b059325ad2a90ca4fc6eda2da3b4c2))
+
+
+
+
+
 ## [1.5.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@1.5.2...@alfalab/core-components-modal@1.5.3) (2021-05-31)
 
 **Note:** Version bump only for package @alfalab/core-components-modal

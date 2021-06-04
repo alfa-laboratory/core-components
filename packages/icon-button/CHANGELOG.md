@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@2.0.1...@alfalab/core-components-icon-button@2.0.2) (2021-06-04)
+
+
+### Bug Fixes
+
+* **icon-button:** fix typo in css variable ([#675](https://github.com/alfa-laboratory/core-components/issues/675)) ([b227d07](https://github.com/alfa-laboratory/core-components/commit/b227d073797f995baf2474a52f4f6df7c6555e91))
+
+
+
+
+
 ## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@2.0.0...@alfalab/core-components-icon-button@2.0.1) (2021-05-31)
 
 **Note:** Version bump only for package @alfalab/core-components-icon-button

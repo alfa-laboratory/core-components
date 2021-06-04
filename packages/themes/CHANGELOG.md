@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@4.0.0...@alfalab/core-components-themes@4.0.1) (2021-06-04)
+
+
+### Bug Fixes
+
+* **modal:** header height & paddings ([#676](https://github.com/alfa-laboratory/core-components/issues/676)) ([d8945c6](https://github.com/alfa-laboratory/core-components/commit/d8945c6839b059325ad2a90ca4fc6eda2da3b4c2))
+* **select:** fix checkmark ([#681](https://github.com/alfa-laboratory/core-components/issues/681)) ([71a51dc](https://github.com/alfa-laboratory/core-components/commit/71a51dc0204165827724fd444d3279f8cc6ccfcd))
+
+
+
+
+
 # [4.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.10.0...@alfalab/core-components-themes@4.0.0) (2021-05-25)
 
 
