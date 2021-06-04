@@ -8,7 +8,7 @@
     --input-with-label-placeholder-color: var(--color-light-text-tertiary);
     --input-error-icon-display: flex;
     --input-success-icon-display: flex;
-    --input-error-icon: url('https://alfabank.st/icons/icon_error_s_color.svg');
+    --input-error-icon: url('https://alfabank.st/icons/glyph_alert-circle_m_negative.svg');
     --input-success-icon: url('https://alfabank.st/icons/icon_ok_s_color.svg');
 
     /* disabled */
