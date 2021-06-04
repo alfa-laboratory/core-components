@@ -16,6 +16,11 @@
     padding: var(--modal-m-content-paddings);
 }
 
-.l {
+.l,
+.fullscreen {
     padding: var(--modal-l-content-paddings);
+
+    &:last-child {
+        padding-bottom: var(--modal-l-content-no-footer-bottom-padding);
+    }
 }

@@ -29,6 +29,7 @@
     padding: var(--modal-m-footer-paddings);
 }
 
-.l {
+.l,
+.fullscreen {
     padding: var(--modal-l-footer-paddings);
 }
