@@ -1,3 +1,14 @@
+## [17.1.1](https://github.com/alfa-laboratory/core-components/compare/v17.1.0...v17.1.1) (2021-06-04)
+
+
+### Bug Fixes
+
+* **dropzone:** add pointer-events none to overlay ([#677](https://github.com/alfa-laboratory/core-components/issues/677)) ([5f9077a](https://github.com/alfa-laboratory/core-components/commit/5f9077a7c6c88272c7e9e67ec243488249cc5ded))
+* **icon-button:** fix typo in css variable ([#675](https://github.com/alfa-laboratory/core-components/issues/675)) ([b227d07](https://github.com/alfa-laboratory/core-components/commit/b227d073797f995baf2474a52f4f6df7c6555e91))
+* **modal:** header height & paddings ([#676](https://github.com/alfa-laboratory/core-components/issues/676)) ([d8945c6](https://github.com/alfa-laboratory/core-components/commit/d8945c6839b059325ad2a90ca4fc6eda2da3b4c2))
+* **select:** fix checkmark ([#681](https://github.com/alfa-laboratory/core-components/issues/681)) ([71a51dc](https://github.com/alfa-laboratory/core-components/commit/71a51dc0204165827724fd444d3279f8cc6ccfcd))
+* **select:** optionsListWidth prop ([#685](https://github.com/alfa-laboratory/core-components/issues/685)) ([3b87e73](https://github.com/alfa-laboratory/core-components/commit/3b87e73fdba18c0d41883e47fe4c13976988f2e6))
+
 # [17.1.0](https://github.com/alfa-laboratory/core-components/compare/v17.0.1...v17.1.0) (2021-05-31)
 
 
