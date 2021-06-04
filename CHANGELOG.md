@@ -1,3 +1,12 @@
+# [17.2.0](https://github.com/alfa-laboratory/core-components/compare/v17.1.1...v17.2.0) (2021-06-04)
+
+
+### Features
+
+* **plate:** update vars ([#668](https://github.com/alfa-laboratory/core-components/issues/668)) ([cbecef5](https://github.com/alfa-laboratory/core-components/commit/cbecef55e4cfc7231dcaa16b9220cc920547ff18))
+* **tag:** adjusted colors ([#667](https://github.com/alfa-laboratory/core-components/issues/667)) ([ded4ac4](https://github.com/alfa-laboratory/core-components/commit/ded4ac4a4e02ee8ec4efdc6d990455caa3ab94bb))
+* **typography:** add rest props ([#682](https://github.com/alfa-laboratory/core-components/issues/682)) ([51e1cf8](https://github.com/alfa-laboratory/core-components/commit/51e1cf89028c788bfcdbc21ea16acbbe190b5db9))
+
 ## [17.1.1](https://github.com/alfa-laboratory/core-components/compare/v17.1.0...v17.1.1) (2021-06-04)
 
 
