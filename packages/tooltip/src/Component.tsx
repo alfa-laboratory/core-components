@@ -102,6 +102,11 @@ export type TooltipProps = {
     targetClassName?: string;
 
     /**
+     * Вид тултипа
+     */
+    view?: 'tooltip' | 'hint';
+
+    /**
      * Хранит функцию, с помощью которой можно обновить положение компонента
      */
     updatePopover?: PopoverProps['update'];
@@ -109,7 +114,7 @@ export type TooltipProps = {
     /**
      * z-index компонента
      */
-     zIndex?: number;
+    zIndex?: number;
 };
 
 export const Tooltip: FC<TooltipProps> = ({
@@ -131,6 +136,7 @@ export const Tooltip: FC<TooltipProps> = ({
     onClose,
     onOpen,
     getPortalContainer,
+    view = 'tooltip',
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
     const [target, setTarget] = useState<RefElement>(null);
@@ -298,8 +304,8 @@ export const Tooltip: FC<TooltipProps> = ({
                     anchorElement={target}
                     open={show}
                     getPortalContainer={getPortalContainer}
-                    arrowClassName={arrowClassName}
-                    popperClassName={styles.popper}
+                    arrowClassName={cn(arrowClassName, styles.arrow)}
+                    popperClassName={cn(styles.popper, styles[view])}
                     className={popoverClassName}
                     offset={offset}
                     withArrow={true}

@@ -1,3 +1,10 @@
+# [17.3.0](https://github.com/alfa-laboratory/core-components/compare/v17.2.0...v17.3.0) (2021-06-07)
+
+
+### Features
+
+* **tooltip:** add hint view ([#688](https://github.com/alfa-laboratory/core-components/issues/688)) ([9f03cd5](https://github.com/alfa-laboratory/core-components/commit/9f03cd5956dd8b17025ee9947a10bc059a339846))
+
 # [17.2.0](https://github.com/alfa-laboratory/core-components/compare/v17.1.1...v17.2.0) (2021-06-04)
 
 
