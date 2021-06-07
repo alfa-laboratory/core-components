@@ -133,7 +133,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
               class="checkmark"
             />
             <div
-              class="content"
+              class="content textContent"
             >
               Neptunium
             </div>
@@ -148,7 +148,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
               class="checkmark"
             />
             <div
-              class="content"
+              class="content textContent"
             >
               Plutonium
             </div>
@@ -163,7 +163,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
               class="checkmark"
             />
             <div
-              class="content"
+              class="content textContent"
             >
               Americium
             </div>
@@ -178,7 +178,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
               class="checkmark"
             />
             <div
-              class="content"
+              class="content textContent"
             >
               Curium
             </div>
@@ -193,7 +193,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
               class="checkmark"
             />
             <div
-              class="content"
+              class="content textContent"
             >
               Berkelium
             </div>
@@ -208,7 +208,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
               class="checkmark"
             />
             <div
-              class="content"
+              class="content textContent"
             >
               Californium
             </div>
@@ -223,7 +223,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
               class="checkmark"
             />
             <div
-              class="content"
+              class="content textContent"
             >
               Einsteinium
             </div>
@@ -238,7 +238,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
               class="checkmark"
             />
             <div
-              class="content"
+              class="content textContent"
             >
               Fermium
             </div>
@@ -253,7 +253,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
               class="checkmark"
             />
             <div
-              class="content"
+              class="content textContent"
             >
               Mendelevium
             </div>
@@ -268,7 +268,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
               class="checkmark"
             />
             <div
-              class="content"
+              class="content textContent"
             >
               Nobelium
             </div>
@@ -283,7 +283,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
               class="checkmark"
             />
             <div
-              class="content"
+              class="content textContent"
             >
               Lawrencium
             </div>
@@ -298,7 +298,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
               class="checkmark"
             />
             <div
-              class="content"
+              class="content textContent"
             >
               Rutherfordium
             </div>
@@ -313,7 +313,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
               class="checkmark"
             />
             <div
-              class="content"
+              class="content textContent"
             >
               Dubnium
             </div>
@@ -328,7 +328,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
               class="checkmark"
             />
             <div
-              class="content"
+              class="content textContent"
             >
               Seaborgium
             </div>
@@ -343,7 +343,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
               class="checkmark"
             />
             <div
-              class="content"
+              class="content textContent"
             >
               Bohrium
             </div>

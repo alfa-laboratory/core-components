@@ -87,10 +87,13 @@
 }
 
 .content {
-    margin-top: 14px;
-    margin-bottom: 14px;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.textContent {
+    margin-top: var(--gap-s);
+    margin-bottom: var(--gap-s);
 }
 
 /* IE min-height fix */
