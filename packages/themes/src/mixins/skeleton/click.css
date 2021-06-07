@@ -3,7 +3,7 @@
 @define-mixin skeleton-click {
     /* core vars */
     --color-light-graphic-neutral: #dbdee1;
-    --border-radius-m: 4px;
+    --border-radius-s: 4px;
 
     /* theme */
     --skeleton-default-color: var(--color-light-graphic-neutral);
