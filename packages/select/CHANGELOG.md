@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@8.0.7...@alfalab/core-components-select@8.0.8) (2021-06-08)
+
+
+### Bug Fixes
+
+* **select:** calc height in effect ([#689](https://github.com/alfa-laboratory/core-components/issues/689)) ([83f8745](https://github.com/alfa-laboratory/core-components/commit/83f87454bcacfbb3473c688e222af3185daef5a9))
+* **select:** fix top bottom paddings ([#683](https://github.com/alfa-laboratory/core-components/issues/683)) ([866bc3b](https://github.com/alfa-laboratory/core-components/commit/866bc3bee9428f0f67f443b3be0ae23342213b0d))
+* **select:** update optgroup styles ([#679](https://github.com/alfa-laboratory/core-components/issues/679)) ([63a06ce](https://github.com/alfa-laboratory/core-components/commit/63a06ce4776e22f9374fe689b62e949772443fda))
+
+
+
+
+
 ## [8.0.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@8.0.6...@alfalab/core-components-select@8.0.7) (2021-06-04)
 
 
