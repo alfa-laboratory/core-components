@@ -1,3 +1,11 @@
+# [17.4.0](https://github.com/alfa-laboratory/core-components/compare/v17.3.0...v17.4.0) (2021-06-08)
+
+
+### Features
+
+* **skeleton:** bg animation ([3dac97d](https://github.com/alfa-laboratory/core-components/commit/3dac97d18b9c7b2f63f55e2139a1adfb84710b88))
+* **skeleton:** bg animation ([37a52ad](https://github.com/alfa-laboratory/core-components/commit/37a52ad3e49f2873aaff86a768599d947a17c754))
+
 # [17.3.0](https://github.com/alfa-laboratory/core-components/compare/v17.2.0...v17.3.0) (2021-06-07)
 
 
