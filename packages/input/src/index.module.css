@@ -78,14 +78,14 @@
     @mixin _input-icon;
 
     display: var(--input-error-icon-display);
-    background-image: url('https://alfabank.st/icons/icon_error_s_color.svg');
+    background-image: var(--input-error-icon);
 }
 
 .successIcon {
     @mixin _input-icon;
 
     display: var(--input-success-icon-display);
-    background-image: url('https://alfabank.st/icons/icon_ok_s_color.svg');
+    background-image: var(--input-success-icon);
 }
 
 /* DISABLED STATE */
