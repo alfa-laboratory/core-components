@@ -1,0 +1,54 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { select, text, boolean } from '@storybook/addon-knobs';
+import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
+import { CheckmarkOnCircleMIcon } from '@alfalab/icons-glyph';
+
+import { Plate } from '../';
+import { Button } from '../../../button/src';
+import Description from './description.mdx';
+import styles from '!!raw-loader!../index.module.css';
+
+import { name, version } from '../../package.json';
+
+<Meta
+    title='Компоненты'
+    component={Plate}
+/>
+
+<!-- Canvas -->
+
+<Story name='Plate'>
+    <Plate
+        view={select('view', ['common', 'negative', 'positive', 'attention'], 'positive')}
+        title={text('title', 'Поздравляем, полный успех')}
+        foldable={boolean('foldable', false)}
+        hasCloser={boolean('hasCloser', false)}
+        leftAddons={boolean('leftAddons', true) ? <CheckmarkOnCircleMIcon /> : null}
+        buttons={boolean('buttons', false) ? [
+            <Button>Хорошо</Button>,
+            <Button>Подробнее</Button>
+        ] : null}
+    >
+        {text('children', 'Вам одобрено. Согласитесь на предложение')}
+    </Plate>
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Plate'
+    version={version}
+    package='@alfalab/core-components-plate'
+    stage={2}
+/>
+
+```tsx
+import { Plate } from '@alfalab/core-components-plate';
+```
+
+<Tabs
+    description={<Description />}
+    prpos={<Props of={Plate} /> }
+    cssVars={<CssVars css={styles} />}
+/>
+

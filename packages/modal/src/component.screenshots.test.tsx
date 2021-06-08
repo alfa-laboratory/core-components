@@ -107,6 +107,37 @@ describe('Modal | ModalDesktop', () => {
     ['default', 'click'].map(testCase);
 });
 
+describe('Modal | ModalDesktop sizes', () => {
+    const testCase = (theme: string) => {
+        return screenshotTesting({
+            cases: generateTestCases({
+                componentName: 'Modal',
+                subComponentName: 'ModalDesktop',
+                testStory: false,
+                knobs: {
+                    open: true,
+                    header: true,
+                    size: ['s', 'm', 'l'],
+                },
+            }),
+            viewport: {
+                width: 960,
+                height: 700,
+            },
+            screenshotOpts: {
+                fullPage: true,
+            },
+            matchImageSnapshotOptions: {
+                customSnapshotIdentifier: (...args) =>
+                    `${theme}-${customSnapshotIdentifier(...args)}`,
+            },
+            theme,
+        })();
+    };
+
+    ['default', 'click'].map(testCase);
+});
+
 describe('Modal | Footer layout', () => {
     const testCase = (theme: string) => {
         return screenshotTesting({

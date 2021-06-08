@@ -1,3 +1,30 @@
+# [17.3.0](https://github.com/alfa-laboratory/core-components/compare/v17.2.0...v17.3.0) (2021-06-07)
+
+
+### Features
+
+* **tooltip:** add hint view ([#688](https://github.com/alfa-laboratory/core-components/issues/688)) ([9f03cd5](https://github.com/alfa-laboratory/core-components/commit/9f03cd5956dd8b17025ee9947a10bc059a339846))
+
+# [17.2.0](https://github.com/alfa-laboratory/core-components/compare/v17.1.1...v17.2.0) (2021-06-04)
+
+
+### Features
+
+* **plate:** update vars ([#668](https://github.com/alfa-laboratory/core-components/issues/668)) ([cbecef5](https://github.com/alfa-laboratory/core-components/commit/cbecef55e4cfc7231dcaa16b9220cc920547ff18))
+* **tag:** adjusted colors ([#667](https://github.com/alfa-laboratory/core-components/issues/667)) ([ded4ac4](https://github.com/alfa-laboratory/core-components/commit/ded4ac4a4e02ee8ec4efdc6d990455caa3ab94bb))
+* **typography:** add rest props ([#682](https://github.com/alfa-laboratory/core-components/issues/682)) ([51e1cf8](https://github.com/alfa-laboratory/core-components/commit/51e1cf89028c788bfcdbc21ea16acbbe190b5db9))
+
+## [17.1.1](https://github.com/alfa-laboratory/core-components/compare/v17.1.0...v17.1.1) (2021-06-04)
+
+
+### Bug Fixes
+
+* **dropzone:** add pointer-events none to overlay ([#677](https://github.com/alfa-laboratory/core-components/issues/677)) ([5f9077a](https://github.com/alfa-laboratory/core-components/commit/5f9077a7c6c88272c7e9e67ec243488249cc5ded))
+* **icon-button:** fix typo in css variable ([#675](https://github.com/alfa-laboratory/core-components/issues/675)) ([b227d07](https://github.com/alfa-laboratory/core-components/commit/b227d073797f995baf2474a52f4f6df7c6555e91))
+* **modal:** header height & paddings ([#676](https://github.com/alfa-laboratory/core-components/issues/676)) ([d8945c6](https://github.com/alfa-laboratory/core-components/commit/d8945c6839b059325ad2a90ca4fc6eda2da3b4c2))
+* **select:** fix checkmark ([#681](https://github.com/alfa-laboratory/core-components/issues/681)) ([71a51dc](https://github.com/alfa-laboratory/core-components/commit/71a51dc0204165827724fd444d3279f8cc6ccfcd))
+* **select:** optionsListWidth prop ([#685](https://github.com/alfa-laboratory/core-components/issues/685)) ([3b87e73](https://github.com/alfa-laboratory/core-components/commit/3b87e73fdba18c0d41883e47fe4c13976988f2e6))
+
 # [17.1.0](https://github.com/alfa-laboratory/core-components/compare/v17.0.1...v17.1.0) (2021-05-31)
 
 

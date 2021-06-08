@@ -1,10 +1,13 @@
+import React, { HTMLAttributes } from 'react';
 import cn from 'classnames';
-import React from 'react';
+
 import { Color } from '../colors';
 
 import colors from '../colors.module.css';
 
-export type TitleProps = {
+type NativeProps = HTMLAttributes<HTMLHeadingElement>;
+
+export type TitleProps = Omit<NativeProps, 'color'> & {
     /**
      * HTML тег
      */
@@ -36,7 +39,7 @@ export type TitleProps = {
     defaultMargins?: boolean;
 
     /**
-     * Css-класс для стилизации
+     * Css-класс для стилизации (native prop)
      */
     className?: string;
 
@@ -46,7 +49,7 @@ export type TitleProps = {
     dataTestId?: string;
 
     /**
-     * Контент
+     * Контент (native prop)
      */
     children?: React.ReactNode;
 };
@@ -68,6 +71,7 @@ export const Title: React.FC<TitleProps & Styles> = ({
     dataTestId,
     children,
     styles,
+    ...restProps
 }) => (
     <Component
         className={cn(
@@ -79,6 +83,7 @@ export const Title: React.FC<TitleProps & Styles> = ({
             color && colors[color],
         )}
         data-test-id={dataTestId}
+        {...restProps}
     >
         {children}
     </Component>

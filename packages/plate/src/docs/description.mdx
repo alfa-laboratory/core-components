@@ -1,55 +1,12 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import {select, text, boolean} from '@storybook/addon-knobs';
-import { Container, Row } from 'storybook/blocks/grid';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-
+import { Preview } from '@storybook/addon-docs/blocks';
 import { CheckmarkOnCircleMIcon } from '@alfalab/icons-glyph';
 import { AlertCircleMIcon } from '@alfalab/icons-glyph';
 import { InformationCircleMIcon } from '@alfalab/icons-glyph';
 
+import { Container, Row } from 'storybook/blocks/grid';
 
-import { Plate } from './Component';
-import { Button } from '../../button/src';
-import { Badge } from '../../badge/src';
-
-import { name, version } from '../package.json';
-
-
-<Meta
-    title='Компоненты'
-    component={Plate}
-/>
-
-<!-- Canvas -->
-
-<Story name='Plate'>
-    <Plate
-        view={select('view', ['common', 'negative', 'positive', 'attention'], 'positive')}
-        title={text('title', 'Поздравляем, полный успех')}
-        foldable={boolean('foldable', false)}
-        hasCloser={boolean('hasCloser', false)}
-        leftAddons={boolean('leftAddons', true) ? <CheckmarkOnCircleMIcon /> : null}
-        buttons={boolean('buttons', false) ? [
-            <Button>Хорошо</Button>,
-            <Button>Подробнее</Button>
-        ] : null}
-    >
-        {text('children', 'Вам одобрено. Согласитесь на предложение')}
-    </Plate>
-</Story>
-
-<!-- Docs -->
-
-<ComponentHeader
-    name='Plate'
-    version={version}
-    package='@alfalab/core-components-plate'
-    stage={2}
-/>
-
-```tsx
-import { Plate } from '@alfalab/core-components-plate';
-```
+import { Plate } from '../';
+import { Badge } from '../../../badge/src';
 
 Компонент плашки.
 
@@ -101,5 +58,3 @@ import { Plate } from '@alfalab/core-components-plate';
         </Row>
     </>
 </Preview>
-
-<Props of={Plate} />
