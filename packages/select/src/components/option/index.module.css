@@ -92,8 +92,8 @@
 }
 
 .textContent {
-    margin-top: var(--gap-s);
-    margin-bottom: var(--gap-s);
+    padding-top: var(--gap-s);
+    padding-bottom: var(--gap-s);
 }
 
 /* IE min-height fix */
