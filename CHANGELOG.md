@@ -1,3 +1,13 @@
+## [17.4.1](https://github.com/alfa-laboratory/core-components/compare/v17.4.0...v17.4.1) (2021-06-08)
+
+
+### Bug Fixes
+
+* **masked-input:** inline module types ([#692](https://github.com/alfa-laboratory/core-components/issues/692)) ([004e60a](https://github.com/alfa-laboratory/core-components/commit/004e60ab61f51251b9d65d4d04fd9562eda5e766))
+* **select:** calc height in effect ([#689](https://github.com/alfa-laboratory/core-components/issues/689)) ([83f8745](https://github.com/alfa-laboratory/core-components/commit/83f87454bcacfbb3473c688e222af3185daef5a9))
+* **select:** fix top bottom paddings ([#683](https://github.com/alfa-laboratory/core-components/issues/683)) ([866bc3b](https://github.com/alfa-laboratory/core-components/commit/866bc3bee9428f0f67f443b3be0ae23342213b0d))
+* **select:** update optgroup styles ([#679](https://github.com/alfa-laboratory/core-components/issues/679)) ([63a06ce](https://github.com/alfa-laboratory/core-components/commit/63a06ce4776e22f9374fe689b62e949772443fda))
+
 # [17.4.0](https://github.com/alfa-laboratory/core-components/compare/v17.3.0...v17.4.0) (2021-06-08)
 
 
