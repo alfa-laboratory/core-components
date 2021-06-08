@@ -1,9 +1,15 @@
 @import '../../vars/src/colors-indigo.css';
 
 :root {
-    --skeleton-background-filter: none;
     --skeleton-default-color: var(--color-light-specialbg-component);
     --skeleton-border-radius: var(--border-radius-m);
+    --skeleton-backdrop-filter: none;
+
+    /* experimental animation switcher */
+    --skeleton-gradient-animation-display: block;
+    --skeleton-bg-animation-display: none;
+    --skeleton-bg-animation-color-from: rgb(182, 188, 195);
+    --skeleton-bg-animation-color-to: rgb(198, 205, 214);
 }
 
 .component {
@@ -13,6 +19,7 @@
     color: transparent;
     border-radius: var(--skeleton-border-radius);
     overflow: hidden;
+    backdrop-filter: var(--skeleton-backdrop-filter);
 
     /* Safari overflow fix https://gist.github.com/ayamflow/b602ab436ac9f05660d9c15190f4fd7b */
     -webkit-mask-image: -webkit-radial-gradient(white, black);
@@ -30,10 +37,27 @@
     right: 0;
     bottom: 0;
     background: var(--skeleton-default-color);
-    backdrop-filter: var(--skeleton-background-filter);
+}
+
+.animate:before {
+    display: var(--skeleton-bg-animation-display);
+    animation-name: background;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    animation-play-state: running;
+    opacity: 0.5;
+}
+
+@supports (backdrop-filter: blur(1px)) {
+    .animate:before {
+        opacity: 0.4;
+    }
 }
 
 .animate:after {
+    display: var(--skeleton-gradient-animation-display);
     content: '';
     position: absolute;
     top: 0;
@@ -41,11 +65,12 @@
     width: 500%;
     height: 100%;
     transform: translateX(-80%);
-    animation-name: animation;
+    animation-name: gradient;
     animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-    background: linear-gradient(
+    background: var(--skeleton-default-color);
+    background-image: linear-gradient(
         to left,
         rgba(0, 0, 0, 0),
         rgba(0, 0, 0, 0) 40%,
@@ -55,7 +80,7 @@
     );
 }
 
-@keyframes animation {
+@keyframes gradient {
     0% {
         transform: translateX(-80%);
     }
@@ -64,5 +89,14 @@
     }
     100% {
         transform: translateX(0);
+    }
+}
+
+@keyframes background {
+    0% {
+        background: var(--skeleton-bg-animation-color-from);
+    }
+    100% {
+        background: var(--skeleton-bg-animation-color-to);
     }
 }
