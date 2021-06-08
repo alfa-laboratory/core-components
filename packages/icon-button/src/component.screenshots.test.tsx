@@ -8,7 +8,7 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
-const clip = { x: 0, y: 0, width: 50, height: 50 };
+const clip = { x: 0, y: 0, width: 100, height: 100 };
 
 describe(
     'IconButton | screenshots views and sizes',
@@ -28,13 +28,31 @@ describe(
 );
 
 describe(
+    'IconButton | inverted views',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'IconButton',
+            knobs: {
+                view: ['primary', 'secondary', 'transparent', 'negative'],
+                colors: 'inverted',
+            },
+            testStory: false,
+        }),
+        screenshotOpts: {
+            clip,
+        },
+    }),
+);
+
+describe(
     'IconButton | hover',
     screenshotTesting({
         cases: generateTestCases({
             componentName: 'IconButton',
             knobs: {
                 view: ['primary', 'secondary', 'transparent', 'negative'],
-                size: ['s'],
+                colors: ['default', 'inverted'],
+                size: 's',
             },
             testStory: false,
         }),
@@ -52,7 +70,8 @@ describe(
             componentName: 'IconButton',
             knobs: {
                 view: ['primary', 'secondary', 'transparent', 'negative'],
-                size: ['s'],
+                colors: ['default', 'inverted'],
+                size: 's',
             },
             testStory: false,
         }),

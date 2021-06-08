@@ -131,7 +131,10 @@ const Input = ({
 
     return (
         <input
-            className={cn(styles.input, styles[alignContent], { [styles.hasError]: error })}
+            className={cn(styles.input, styles[alignContent], {
+                [styles.hasError]: error,
+                [styles.disabled]: processing,
+            })}
             disabled={processing}
             value={splittedValue[index] || ''}
             autoComplete={index === 0 ? 'one-time-code' : ''}

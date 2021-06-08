@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup, fireEvent, RenderResult } from '@testing-library/react';
+import { render, cleanup, fireEvent, RenderResult, waitFor } from '@testing-library/react';
 
 import { BaseModal, BaseModalProps } from './Component';
 
@@ -82,7 +82,7 @@ describe('BaseModal', () => {
             const backdrop = getByRole('dialog').firstChild as HTMLElement;
             fireEvent.click(backdrop);
 
-            expect(onClose.mock.calls.length).toStrictEqual(1);
+            expect(onClose.mock.calls.length).toBe(1);
         });
 
         it('should let the user disable backdrop click triggering onClose', () => {
@@ -91,7 +91,7 @@ describe('BaseModal', () => {
             const backdrop = getByRole('dialog').firstChild as HTMLElement;
             fireEvent.click(backdrop);
 
-            expect(onClose.mock.calls.length).toStrictEqual(0);
+            expect(onClose.mock.calls.length).toBe(0);
         });
 
         it('should call through to the user specified onBackdropClick callback', () => {
@@ -100,7 +100,7 @@ describe('BaseModal', () => {
             const backdrop = getByRole('dialog').firstChild as HTMLElement;
             fireEvent.click(backdrop);
 
-            expect(onBackdropClick.mock.calls.length).toStrictEqual(1);
+            expect(onBackdropClick.mock.calls.length).toBe(1);
         });
     });
 
@@ -137,10 +137,10 @@ describe('BaseModal', () => {
             }
 
             // should have the element in the DOM
-            expect(container.tagName.toLowerCase()).toStrictEqual('div');
-            expect(heading.tagName.toLowerCase()).toStrictEqual('h1');
-            expect(portalLayer?.contains(container)).toStrictEqual(true);
-            expect(portalLayer?.contains(heading)).toStrictEqual(true);
+            expect(container.tagName.toLowerCase()).toBe('div');
+            expect(heading.tagName.toLowerCase()).toBe('h1');
+            expect(portalLayer?.contains(container)).toBeTruthy();
+            expect(portalLayer?.contains(heading)).toBeTruthy();
         });
     });
 
@@ -171,21 +171,21 @@ describe('BaseModal', () => {
 
         it('when mounted, TopBaseModal and event not esc should not call given functions', () => {
             fireEvent.keyDown(modalWrapper, { key: 'J' }); // Not escape
-            expect(onEscapeKeyDownSpy.mock.calls.length).toStrictEqual(0);
-            expect(onCloseSpy.mock.calls.length).toStrictEqual(0);
+            expect(onEscapeKeyDownSpy.mock.calls.length).toBe(0);
+            expect(onCloseSpy.mock.calls.length).toBe(0);
         });
 
         it('should call onEscapeKeyDown and onClose', () => {
             fireEvent.keyDown(modalWrapper, { key: 'Escape' });
-            expect(onEscapeKeyDownSpy.mock.calls.length).toStrictEqual(1);
-            expect(onCloseSpy.mock.calls.length).toStrictEqual(1);
+            expect(onEscapeKeyDownSpy.mock.calls.length).toBe(1);
+            expect(onCloseSpy.mock.calls.length).toBe(1);
         });
 
         it('when disableEscapeKeyDown should not call onClose and onEscapeKeyDown', () => {
             wrapper.rerender(modal({ disableEscapeKeyDown: true }));
             fireEvent.keyDown(modalWrapper, { key: 'Escape' });
-            expect(onEscapeKeyDownSpy.mock.calls.length).toStrictEqual(0);
-            expect(onCloseSpy.mock.calls.length).toStrictEqual(0);
+            expect(onEscapeKeyDownSpy.mock.calls.length).toBe(0);
+            expect(onCloseSpy.mock.calls.length).toBe(0);
         });
     });
 
@@ -220,7 +220,7 @@ describe('BaseModal', () => {
     });
 
     describe('two modal at the same time', () => {
-        it('should open and close', () => {
+        it('should open and close', async () => {
             const TestCase = (props?: Partial<BaseModalProps>) => {
                 const defaultProps = { open: false, ...props };
                 return (
@@ -236,11 +236,13 @@ describe('BaseModal', () => {
             };
 
             const { rerender } = render(<TestCase open={false} />);
-            expect(document.body.style.overflow).toStrictEqual('');
+            expect(document.body.style.overflow).toBe('');
             rerender(<TestCase open={true} />);
-            expect(document.body.style.overflow).toStrictEqual('hidden');
+            expect(document.body.style.overflow).toBe('hidden');
             rerender(<TestCase open={false} />);
-            expect(document.body.style.overflow).toStrictEqual('');
+            await waitFor(() => {
+                expect(document.body.style.overflow).toBe('');
+            });
         });
     });
 
@@ -267,5 +269,34 @@ describe('BaseModal', () => {
         rerender(modal({ open: true, container: () => container2 as HTMLElement }));
 
         expect(container2).toContainElement(getByTestId('BaseModal'));
+    });
+
+    describe('Body styles restore', () => {
+        it('should restore styles after close', async () => {
+            const { rerender } = render(<BaseModal open={false} />);
+            expect(document.body.style.overflow).toBe('');
+
+            rerender(<BaseModal open={true} />);
+            expect(document.body.style.overflow).toBe('hidden');
+
+            rerender(<BaseModal open={false} />);
+            await waitFor(() => {
+                expect(document.body.style.overflow).toBe('');
+            });
+        });
+
+        it('should restore styles after unmount', async () => {
+            const { rerender, unmount } = render(<BaseModal open={false} />);
+            expect(document.body.style.overflow).toBe('');
+
+            rerender(<BaseModal open={true} />);
+            expect(document.body.style.overflow).toBe('hidden');
+
+            unmount();
+
+            await waitFor(() => {
+                expect(document.body.style.overflow).toBe('');
+            });
+        });
     });
 });

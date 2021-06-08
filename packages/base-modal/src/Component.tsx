@@ -354,6 +354,11 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 }
 
                 if (onUnmount) onUnmount();
+
+                if (restoreContainerStyles.current) {
+                    restoreContainerStyles.current();
+                    restoreContainerStyles.current = null;
+                }
             },
             [handleScroll, onUnmount, removeResizeHandle, transitionProps],
         );
@@ -364,13 +369,6 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                     (container ? container() : document.body) as HTMLElement,
                 );
             }
-
-            return () => {
-                if (restoreContainerStyles.current) {
-                    restoreContainerStyles.current();
-                    restoreContainerStyles.current = null;
-                }
-            };
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [open]);
 
@@ -381,6 +379,10 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         useEffect(() => {
             return () => {
                 resizeObserver.disconnect();
+
+                if (restoreContainerStyles.current) {
+                    restoreContainerStyles.current();
+                }
             };
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
@@ -428,6 +430,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                     {Backdrop && (
                                         <Backdrop
                                             {...backdropProps}
+                                            className={cn(backdropProps.className, styles.backdrop)}
                                             open={open}
                                             onClick={handleBackdropClick}
                                         />

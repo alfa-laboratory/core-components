@@ -55,6 +55,7 @@ import { name, version } from '../package.json';
                 position={select('position', POSITION_OPTIONS, 'left')}
                 onCloseDelay={number('onCloseDelay (in ms)', 300)}
                 onOpenDelay={number('onOpenDelay (in ms)', 300)}
+                view={select('view', ['tooltip', 'hint'], 'tooltip')}
                 dataTestId='test-id'
             >
                 <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
@@ -135,6 +136,35 @@ import { Tooltip } from '@alfalab/core-components-tooltip';
         </div>
         );
     })}
+</Preview>
+
+Также возможен вид `Hint`.
+
+<Preview>
+    <div
+        style={{
+            width: '700px',
+            height: '300px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+        }}
+    >
+        <Tooltip
+            content={
+                <div>
+                    Редактировать
+                </div>
+            }
+            position='left'
+            view='hint'
+            dataTestId='test-id-hint'
+        >
+            <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
+                Hover me
+            </div>
+        </Tooltip>
+    </div>
 </Preview>
 
 

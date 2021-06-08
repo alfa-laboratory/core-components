@@ -54,6 +54,29 @@ describe('Confirmation', () => {
             expect(container).toMatchSnapshot();
         });
 
+        it('should match snapshot with signTitle as string', () => {
+            const { container } = render(
+                <Confirmation {...baseProps} signTitle='Кастомный заголовок как текст' />,
+            );
+
+            expect(container).toMatchSnapshot();
+        });
+
+        it('should match snapshot with signTitle as react node', () => {
+            const { container } = render(
+                <Confirmation
+                    {...baseProps}
+                    signTitle={
+                        <div>
+                            <h1>Кастомный заголовок как react node</h1>
+                        </div>
+                    }
+                />,
+            );
+
+            expect(container).toMatchSnapshot();
+        });
+
         it('should math snapshot without smsCountdown', () => {
             const { container } = render(<Confirmation {...baseProps} hasSmsCountdown={false} />);
 
@@ -109,7 +132,7 @@ describe('Confirmation', () => {
 
     describe('Fatal error tests', () => {
         const errorText = 'Выполните операцию с самого начала';
-        const defaultButtonErrorText = 'Понятно';
+        const defaultButtonErrorText = Confirmation.defaultProps?.buttonErrorText;
         const customButtonErrorText = 'custom text';
         const customErrorTitle = 'custom error title';
 
@@ -153,7 +176,7 @@ describe('Confirmation', () => {
                 />,
             );
 
-            const buttonError = getByText(defaultButtonErrorText);
+            const buttonError = getByText(defaultButtonErrorText as string);
             buttonError.click();
 
             expect(onSmsRetryClick).not.toBeCalled();
@@ -172,7 +195,7 @@ describe('Confirmation', () => {
                 />,
             );
 
-            const buttonError = getByText(defaultButtonErrorText);
+            const buttonError = getByText(defaultButtonErrorText as string);
             buttonError.click();
 
             expect(onSmsRetryClick).toBeCalled();
@@ -180,8 +203,8 @@ describe('Confirmation', () => {
     });
 
     describe('Sms retry tests', () => {
-        const buttonRetryInHintText = 'Попробовать заново';
-        const buttonRetryText = 'Запросить код повторно';
+        const buttonRetryInHintText = Confirmation.defaultProps?.buttonRetryText;
+        const buttonRetryText = 'Запросить новый код';
         const hintLinkText = 'Не приходит сообщение?';
 
         it('should display retry button', async () => {
@@ -247,7 +270,7 @@ describe('Confirmation', () => {
             const smsHintButton = await findByText(hintLinkText);
             smsHintButton.click();
 
-            const buttonRetryInHint = await findByText(buttonRetryInHintText);
+            const buttonRetryInHint = await findByText(buttonRetryInHintText as string);
             buttonRetryInHint.click();
 
             expect(onSmsRetryClick).toBeCalled();
@@ -275,13 +298,13 @@ describe('Confirmation', () => {
     });
 
     describe('Code cheсking tests', () => {
-        const defaultCodeCheckingText = 'Проверка кода';
+        const defaultCodeCheckingText = Confirmation.defaultProps?.codeCheckingText;
         const customCodeCheckingText = 'Идет проверка кода';
 
         it('should display default codeCheсkingText if codeChecking is true', () => {
             const { getByText } = render(<Confirmation {...baseProps} codeChecking={true} />);
 
-            expect(getByText(defaultCodeCheckingText)).toBeInTheDocument();
+            expect(getByText(defaultCodeCheckingText as string)).toBeInTheDocument();
         });
 
         it('should display custom passed codeCheсkingText if codeChecking is true', () => {
@@ -298,13 +321,13 @@ describe('Confirmation', () => {
     });
 
     describe('Code sending tests', () => {
-        const defaultCodeSendingText = 'Отправляем код';
+        const defaultCodeSendingText = Confirmation.defaultProps?.codeSendingText;
         const customCodeSendingText = 'Идет отправка кода';
 
         it('should display default codeSendingText if codeSending is true', () => {
             const { getByText } = render(<Confirmation {...baseProps} codeSending={true} />);
 
-            expect(getByText(defaultCodeSendingText)).toBeInTheDocument();
+            expect(getByText(defaultCodeSendingText as string)).toBeInTheDocument();
         });
 
         it('should display custom passed codeSendingText if codeSending is true', () => {

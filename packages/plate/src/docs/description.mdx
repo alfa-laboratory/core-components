@@ -1,0 +1,60 @@
+import { Preview } from '@storybook/addon-docs/blocks';
+import { CheckmarkOnCircleMIcon } from '@alfalab/icons-glyph';
+import { AlertCircleMIcon } from '@alfalab/icons-glyph';
+import { InformationCircleMIcon } from '@alfalab/icons-glyph';
+
+import { Container, Row } from 'storybook/blocks/grid';
+
+import { Plate } from '../';
+import { Badge } from '../../../badge/src';
+
+Компонент плашки.
+
+<Preview>
+    <>
+        <Row>
+            <Plate
+                view='common'
+                title='Компонент плашки'
+                leftAddons={
+                    <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon/>} />
+                }
+            >
+                Самая обыкновенная плашка
+            </Plate>
+        </Row>
+        <Row>
+            <Plate
+                view='positive'
+                title='Компонент плашки'
+                leftAddons={
+                    <Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon/>} />
+                }
+            >
+                Самая обыкновенная плашка
+            </Plate>
+        </Row>
+        <Row>
+            <Plate
+                view='negative'
+                title='Компонент плашки'
+                leftAddons={
+                    <Badge view='icon' iconColor='negative' content={<AlertCircleMIcon/>} />
+                }
+            >
+                Самая обыкновенная плашка
+            </Plate>
+        </Row>
+        <Row>
+            <Plate
+                view='attention'
+                title='Компонент плашки'
+                leftAddons={
+                    <Badge view='icon' iconColor='attention' content={<AlertCircleMIcon/>} />
+                }
+            >
+                Самая обыкновенная плашка
+            </Plate>
+        </Row>
+    </>
+</Preview>

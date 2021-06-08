@@ -45,6 +45,17 @@ describe('Display tests', () => {
 
         expect(component).toMatchSnapshot();
     });
+
+    it('should display correctly if tooltip open with view `hint`', async () => {
+        const component = await renderTooltip({
+            children: <div>Hover me</div>,
+            content: <div>I am tooltip</div>,
+            open: true,
+            view: 'hint',
+        });
+
+        expect(component).toMatchSnapshot();
+    });
 });
 
 describe('Attributes tests', () => {

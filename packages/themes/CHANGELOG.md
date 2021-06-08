@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@4.0.1...@alfalab/core-components-themes@4.1.0) (2021-06-04)
+
+
+### Features
+
+* **tag:** adjusted colors ([#667](https://github.com/alfa-laboratory/core-components/issues/667)) ([ded4ac4](https://github.com/alfa-laboratory/core-components/commit/ded4ac4a4e02ee8ec4efdc6d990455caa3ab94bb))
+
+
+
+
+
+## [4.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@4.0.0...@alfalab/core-components-themes@4.0.1) (2021-06-04)
+
+
+### Bug Fixes
+
+* **modal:** header height & paddings ([#676](https://github.com/alfa-laboratory/core-components/issues/676)) ([d8945c6](https://github.com/alfa-laboratory/core-components/commit/d8945c6839b059325ad2a90ca4fc6eda2da3b4c2))
+* **select:** fix checkmark ([#681](https://github.com/alfa-laboratory/core-components/issues/681)) ([71a51dc](https://github.com/alfa-laboratory/core-components/commit/71a51dc0204165827724fd444d3279f8cc6ccfcd))
+
+
+
+
+
+# [4.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.10.0...@alfalab/core-components-themes@4.0.0) (2021-05-25)
+
+
+### Features
+
+* **button:** add inverted ([#649](https://github.com/alfa-laboratory/core-components/issues/649)) ([be321b0](https://github.com/alfa-laboratory/core-components/commit/be321b07e99d20824138ad65141f3fbed1b6e315)), closes [#658](https://github.com/alfa-laboratory/core-components/issues/658) [#657](https://github.com/alfa-laboratory/core-components/issues/657)
+
+
+### BREAKING CHANGES
+
+* **button:** remove inverted themes
+
+
+
+
+
+# [3.10.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.9.1...@alfalab/core-components-themes@3.10.0) (2021-05-25)
+
+
+### Features
+
+* **confirmation:** styles updates ([#636](https://github.com/alfa-laboratory/core-components/issues/636)) ([da00fc5](https://github.com/alfa-laboratory/core-components/commit/da00fc5bf80251f5104452ba326711788c2f7240)), closes [#1](https://github.com/alfa-laboratory/core-components/issues/1)
+* **modal:** add layout to footer ([#644](https://github.com/alfa-laboratory/core-components/issues/644)) ([eb5a66e](https://github.com/alfa-laboratory/core-components/commit/eb5a66ef928df663f4ad0fe048b5d3097b4f4b72))
+
+
+
+
+
 ## [3.9.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@3.9.0...@alfalab/core-components-themes@3.9.1) (2021-05-18)
 
 

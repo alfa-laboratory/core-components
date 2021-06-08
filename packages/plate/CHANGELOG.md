@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-plate@1.7.6...@alfalab/core-components-plate@1.8.0) (2021-06-04)
+
+
+### Features
+
+* **plate:** update vars ([#668](https://github.com/alfa-laboratory/core-components/issues/668)) ([cbecef5](https://github.com/alfa-laboratory/core-components/commit/cbecef55e4cfc7231dcaa16b9220cc920547ff18))
+
+
+
+
+
+## [1.7.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-plate@1.7.5...@alfalab/core-components-plate@1.7.6) (2021-05-31)
+
+**Note:** Version bump only for package @alfalab/core-components-plate
+
+
+
+
+
+## [1.7.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-plate@1.7.4...@alfalab/core-components-plate@1.7.5) (2021-05-25)
+
+**Note:** Version bump only for package @alfalab/core-components-plate
+
+
+
+
+
+## [1.7.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-plate@1.7.3...@alfalab/core-components-plate@1.7.4) (2021-05-25)
+
+**Note:** Version bump only for package @alfalab/core-components-plate
+
+
+
+
+
 ## [1.7.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-plate@1.7.2...@alfalab/core-components-plate@1.7.3) (2021-05-18)
 
 **Note:** Version bump only for package @alfalab/core-components-plate

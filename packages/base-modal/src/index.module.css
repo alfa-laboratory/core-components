@@ -5,9 +5,7 @@
     box-sizing: border-box;
     background: var(--color-light-bg-primary);
     margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
+    flex-shrink: 0;
 }
 
 .wrapper {
@@ -26,6 +24,7 @@
 
 .content {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -33,6 +32,10 @@
 
 .hidden {
     display: none;
+}
+
+.backdrop {
+    z-index: -1;
 }
 
 .appear,

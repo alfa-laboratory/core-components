@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component ghost s iconOnly primary"
+        class="component ghost s component ghost iconOnly primary"
         type="button"
       >
         <span
@@ -35,7 +35,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component ghost s iconOnly primary"
+      class="component ghost s component ghost iconOnly primary"
       type="button"
     >
       <span

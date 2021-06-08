@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@1.2.0...@alfalab/core-components-collapse@1.2.1) (2021-05-25)
+
+**Note:** Version bump only for package @alfalab/core-components-collapse
+
+
+
+
+
+# [1.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@1.1.1...@alfalab/core-components-collapse@1.2.0) (2021-05-25)
+
+
+### Features
+
+* **collapse:** add ability to change state using prop expanded ([#659](https://github.com/alfa-laboratory/core-components/issues/659)) ([809c835](https://github.com/alfa-laboratory/core-components/commit/809c8356f6dec0eeb9167bca8483f36bf5845455))
+
+
+
+
+
 ## [1.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@1.1.0...@alfalab/core-components-collapse@1.1.1) (2021-04-26)
 
 **Note:** Version bump only for package @alfalab/core-components-collapse

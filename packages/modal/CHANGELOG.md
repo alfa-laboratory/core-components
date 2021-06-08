@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@1.5.3...@alfalab/core-components-modal@1.5.4) (2021-06-04)
+
+
+### Bug Fixes
+
+* **modal:** header height & paddings ([#676](https://github.com/alfa-laboratory/core-components/issues/676)) ([d8945c6](https://github.com/alfa-laboratory/core-components/commit/d8945c6839b059325ad2a90ca4fc6eda2da3b4c2))
+
+
+
+
+
+## [1.5.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@1.5.2...@alfalab/core-components-modal@1.5.3) (2021-05-31)
+
+**Note:** Version bump only for package @alfalab/core-components-modal
+
+
+
+
+
+## [1.5.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@1.5.1...@alfalab/core-components-modal@1.5.2) (2021-05-28)
+
+**Note:** Version bump only for package @alfalab/core-components-modal
+
+
+
+
+
+## [1.5.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@1.5.0...@alfalab/core-components-modal@1.5.1) (2021-05-25)
+
+**Note:** Version bump only for package @alfalab/core-components-modal
+
+
+
+
+
+# [1.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@1.4.3...@alfalab/core-components-modal@1.5.0) (2021-05-25)
+
+
+### Bug Fixes
+
+* **modal:** fix styles ([#665](https://github.com/alfa-laboratory/core-components/issues/665)) ([06f3615](https://github.com/alfa-laboratory/core-components/commit/06f3615c532f8ec2932d8a4d1fcbb1f5ee6b6a30))
+
+
+### Features
+
+* **modal:** add layout to footer ([#644](https://github.com/alfa-laboratory/core-components/issues/644)) ([eb5a66e](https://github.com/alfa-laboratory/core-components/commit/eb5a66ef928df663f4ad0fe048b5d3097b4f4b72))
+
+
+
+
+
 ## [1.4.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@1.4.2...@alfalab/core-components-modal@1.4.3) (2021-05-18)
 
 

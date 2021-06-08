@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@8.0.6...@alfalab/core-components-select@8.0.7) (2021-06-04)
+
+
+### Bug Fixes
+
+* **select:** optionsListWidth prop ([#685](https://github.com/alfa-laboratory/core-components/issues/685)) ([3b87e73](https://github.com/alfa-laboratory/core-components/commit/3b87e73fdba18c0d41883e47fe4c13976988f2e6))
+
+
+
+
+
+## [8.0.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@8.0.5...@alfalab/core-components-select@8.0.6) (2021-05-31)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [8.0.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@8.0.4...@alfalab/core-components-select@8.0.5) (2021-05-25)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [8.0.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@8.0.3...@alfalab/core-components-select@8.0.4) (2021-05-25)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
 ## [8.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@8.0.2...@alfalab/core-components-select@8.0.3) (2021-05-18)
 
 

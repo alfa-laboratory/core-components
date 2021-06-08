@@ -1,6 +1,11 @@
 @import '../../themes/src/default.css';
 
 :root {
+    /* border */
+    --plate-border: 1px solid;
+    --plate-border-radius: var(--border-radius-m);
+
+    /* icons */
     --plate-closer-icon: url('https://alfabank.st/icons/glyph_cross_m.svg');
     --plate-arrow-icon: url('https://alfabank.st/icons/glyph_chevron-down_m.svg');
 }
@@ -9,8 +14,8 @@
     position: relative;
     display: inline-flex;
     box-sizing: border-box;
-    border-radius: var(--border-radius-m);
-    border: 1px solid;
+    border-radius: var(--plate-border-radius);
+    border: var(--plate-border);
     color: var(--color-light-text-primary);
     width: 100%;
     min-height: 56px;

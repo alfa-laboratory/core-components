@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar@2.0.0...@alfalab/core-components-calendar@2.0.1) (2021-05-31)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar
+
+
+
+
+
+# [2.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar@1.2.12...@alfalab/core-components-calendar@2.0.0) (2021-05-25)
+
+
+### Features
+
+* **button:** add inverted ([#649](https://github.com/alfa-laboratory/core-components/issues/649)) ([be321b0](https://github.com/alfa-laboratory/core-components/commit/be321b07e99d20824138ad65141f3fbed1b6e315)), closes [#658](https://github.com/alfa-laboratory/core-components/issues/658) [#657](https://github.com/alfa-laboratory/core-components/issues/657)
+
+
+### BREAKING CHANGES
+
+* **button:** remove inverted themes
+
+
+
+
+
+## [1.2.12](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar@1.2.11...@alfalab/core-components-calendar@1.2.12) (2021-05-25)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar
+
+
+
+
+
 ## [1.2.11](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar@1.2.10...@alfalab/core-components-calendar@1.2.11) (2021-05-18)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar

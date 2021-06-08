@@ -14,24 +14,40 @@ export const VIEWS = ['primary', 'secondary', 'default'];
 <Meta
     title='Компоненты'
     component={Link}
-    parameters={{ 'theme-switcher': { themes: ['click', 'default-inverted', 'corp-inverted'] } }}
+    parameters={{ 'theme-switcher': { themes: ['click' ] } }}
 />
 
 
 <!-- Canvas -->
 
 <Story name='Link'>
-    <Typography.Text view='primary-medium'>
-        <Link
-            view={select('view', VIEWS, 'primary')}
-            pseudo={boolean('pseudo', false)}
-            href={text('href', '')}
-            leftAddons={boolean('leftAddons', false) && <Icon />}
-            rightAddons={boolean('rightAddons', false) && <Icon />}
-        >
-            {text('text', 'Вернуться в интернет-банк')}
-        </Link>
-    </Typography.Text>
+    {React.createElement(() => {
+        const colors = select('colors', ['default', 'inverted'], 'default');
+        return (
+            <div style={{
+                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : '#fff',
+                padding: '8px',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+            }}>
+                <Typography.Text view='primary-medium'>
+                    <Link
+                        view={select('view', VIEWS, 'primary')}
+                        pseudo={boolean('pseudo', false)}
+                        href={text('href', '')}
+                        leftAddons={boolean('leftAddons', false) && <Icon />}
+                        rightAddons={boolean('rightAddons', false) && <Icon />}
+                        colors={colors}
+                    >
+                        {text('text', 'Вернуться в интернет-банк')}
+                    </Link>
+                </Typography.Text>
+            </div>
+        );
+    })}
 </Story>
 
 

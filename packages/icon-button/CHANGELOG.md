@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@2.0.1...@alfalab/core-components-icon-button@2.0.2) (2021-06-04)
+
+
+### Bug Fixes
+
+* **icon-button:** fix typo in css variable ([#675](https://github.com/alfa-laboratory/core-components/issues/675)) ([b227d07](https://github.com/alfa-laboratory/core-components/commit/b227d073797f995baf2474a52f4f6df7c6555e91))
+
+
+
+
+
+## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@2.0.0...@alfalab/core-components-icon-button@2.0.1) (2021-05-31)
+
+**Note:** Version bump only for package @alfalab/core-components-icon-button
+
+
+
+
+
+# [2.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@1.3.3...@alfalab/core-components-icon-button@2.0.0) (2021-05-25)
+
+
+### Features
+
+* **button:** add inverted ([#649](https://github.com/alfa-laboratory/core-components/issues/649)) ([be321b0](https://github.com/alfa-laboratory/core-components/commit/be321b07e99d20824138ad65141f3fbed1b6e315)), closes [#658](https://github.com/alfa-laboratory/core-components/issues/658) [#657](https://github.com/alfa-laboratory/core-components/issues/657)
+
+
+### BREAKING CHANGES
+
+* **button:** remove inverted themes
+
+
+
+
+
+## [1.3.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@1.3.2...@alfalab/core-components-icon-button@1.3.3) (2021-05-25)
+
+**Note:** Version bump only for package @alfalab/core-components-icon-button
+
+
+
+
+
 ## [1.3.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@1.3.1...@alfalab/core-components-icon-button@1.3.2) (2021-05-18)
 
 **Note:** Version bump only for package @alfalab/core-components-icon-button

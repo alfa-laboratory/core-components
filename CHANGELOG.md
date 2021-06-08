@@ -1,3 +1,71 @@
+# [17.3.0](https://github.com/alfa-laboratory/core-components/compare/v17.2.0...v17.3.0) (2021-06-07)
+
+
+### Features
+
+* **tooltip:** add hint view ([#688](https://github.com/alfa-laboratory/core-components/issues/688)) ([9f03cd5](https://github.com/alfa-laboratory/core-components/commit/9f03cd5956dd8b17025ee9947a10bc059a339846))
+
+# [17.2.0](https://github.com/alfa-laboratory/core-components/compare/v17.1.1...v17.2.0) (2021-06-04)
+
+
+### Features
+
+* **plate:** update vars ([#668](https://github.com/alfa-laboratory/core-components/issues/668)) ([cbecef5](https://github.com/alfa-laboratory/core-components/commit/cbecef55e4cfc7231dcaa16b9220cc920547ff18))
+* **tag:** adjusted colors ([#667](https://github.com/alfa-laboratory/core-components/issues/667)) ([ded4ac4](https://github.com/alfa-laboratory/core-components/commit/ded4ac4a4e02ee8ec4efdc6d990455caa3ab94bb))
+* **typography:** add rest props ([#682](https://github.com/alfa-laboratory/core-components/issues/682)) ([51e1cf8](https://github.com/alfa-laboratory/core-components/commit/51e1cf89028c788bfcdbc21ea16acbbe190b5db9))
+
+## [17.1.1](https://github.com/alfa-laboratory/core-components/compare/v17.1.0...v17.1.1) (2021-06-04)
+
+
+### Bug Fixes
+
+* **dropzone:** add pointer-events none to overlay ([#677](https://github.com/alfa-laboratory/core-components/issues/677)) ([5f9077a](https://github.com/alfa-laboratory/core-components/commit/5f9077a7c6c88272c7e9e67ec243488249cc5ded))
+* **icon-button:** fix typo in css variable ([#675](https://github.com/alfa-laboratory/core-components/issues/675)) ([b227d07](https://github.com/alfa-laboratory/core-components/commit/b227d073797f995baf2474a52f4f6df7c6555e91))
+* **modal:** header height & paddings ([#676](https://github.com/alfa-laboratory/core-components/issues/676)) ([d8945c6](https://github.com/alfa-laboratory/core-components/commit/d8945c6839b059325ad2a90ca4fc6eda2da3b4c2))
+* **select:** fix checkmark ([#681](https://github.com/alfa-laboratory/core-components/issues/681)) ([71a51dc](https://github.com/alfa-laboratory/core-components/commit/71a51dc0204165827724fd444d3279f8cc6ccfcd))
+* **select:** optionsListWidth prop ([#685](https://github.com/alfa-laboratory/core-components/issues/685)) ([3b87e73](https://github.com/alfa-laboratory/core-components/commit/3b87e73fdba18c0d41883e47fe4c13976988f2e6))
+
+# [17.1.0](https://github.com/alfa-laboratory/core-components/compare/v17.0.1...v17.1.0) (2021-05-31)
+
+
+### Features
+
+* **confirmation:** set up signTitle prop as slot ([#672](https://github.com/alfa-laboratory/core-components/issues/672)) ([85e4786](https://github.com/alfa-laboratory/core-components/commit/85e47862689f373fd1904495ae7b86d998ad7cec))
+
+## [17.0.1](https://github.com/alfa-laboratory/core-components/compare/v17.0.0...v17.0.1) (2021-05-28)
+
+
+### Bug Fixes
+
+* **base-modal:** restore body styles on unmount ([#671](https://github.com/alfa-laboratory/core-components/issues/671)) ([963a6b1](https://github.com/alfa-laboratory/core-components/commit/963a6b18b13924a09cda672a662d0b402d00e75b))
+
+# [17.0.0](https://github.com/alfa-laboratory/core-components/compare/v16.5.0...v17.0.0) (2021-05-25)
+
+
+### Features
+
+* **button:** add inverted ([#649](https://github.com/alfa-laboratory/core-components/issues/649)) ([be321b0](https://github.com/alfa-laboratory/core-components/commit/be321b07e99d20824138ad65141f3fbed1b6e315)), closes [#658](https://github.com/alfa-laboratory/core-components/issues/658) [#657](https://github.com/alfa-laboratory/core-components/issues/657)
+
+
+### BREAKING CHANGES
+
+* **button:** remove inverted themes
+
+# [16.5.0](https://github.com/alfa-laboratory/core-components/compare/v16.4.0...v16.5.0) (2021-05-25)
+
+
+### Bug Fixes
+
+* **modal:** fix styles ([#665](https://github.com/alfa-laboratory/core-components/issues/665)) ([06f3615](https://github.com/alfa-laboratory/core-components/commit/06f3615c532f8ec2932d8a4d1fcbb1f5ee6b6a30))
+* **modal:** restore styles after exited ([#663](https://github.com/alfa-laboratory/core-components/issues/663)) ([48a8d69](https://github.com/alfa-laboratory/core-components/commit/48a8d6986dcde6c191d8411d51f28e6f399e26e6))
+
+
+### Features
+
+* **collapse:** add ability to change state using prop expanded ([#659](https://github.com/alfa-laboratory/core-components/issues/659)) ([809c835](https://github.com/alfa-laboratory/core-components/commit/809c8356f6dec0eeb9167bca8483f36bf5845455))
+* **confirmation:** styles updates ([#636](https://github.com/alfa-laboratory/core-components/issues/636)) ([da00fc5](https://github.com/alfa-laboratory/core-components/commit/da00fc5bf80251f5104452ba326711788c2f7240)), closes [#1](https://github.com/alfa-laboratory/core-components/issues/1)
+* **modal:** add layout to footer ([#644](https://github.com/alfa-laboratory/core-components/issues/644)) ([eb5a66e](https://github.com/alfa-laboratory/core-components/commit/eb5a66ef928df663f4ad0fe048b5d3097b4f4b72))
+
 # [16.4.0](https://github.com/alfa-laboratory/core-components/compare/v16.3.1...v16.4.0) (2021-05-18)
 
 

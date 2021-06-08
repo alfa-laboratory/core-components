@@ -16,7 +16,9 @@
     padding: var(--modal-m-header-paddings);
 }
 
-.l {
+.l,
+.fullscreen {
+    min-height: var(--modal-header-l-min-height);
     padding: var(--modal-l-header-paddings);
 }
 

@@ -1,0 +1,347 @@
+import { Container, Row, Col } from 'storybook/blocks';
+
+import { Button } from '../';
+
+Кнопка используется как триггер для выполнения определённого действия. Кнопка однозначно сообщает пользователю, что произойдёт после нажатия на неё.
+
+☝️ В зависимости от используемой темы кнопка `secondary` может соответствовать `filled` (по умолчанию) или `outlined`.
+
+```tsx live
+<Container>
+    <Row align='middle'>
+        <Col>
+            <Button view='primary'>Primary</Button>
+        </Col>
+        <Col>
+            <Button view='secondary'>Secondary</Button>
+        </Col>
+        <Col>
+            <Button view='outlined'>Outlined</Button>
+        </Col>
+        <Col>
+            <Button view='filled'>Filled</Button>
+        </Col>
+        <Col>
+            <Button view='transparent'>Transparent</Button>
+        </Col>
+        <Col>
+            <Button view='link'>Link</Button>
+        </Col>
+        <Col>
+            <Button view='ghost'>Ghost</Button>
+        </Col>
+    </Row>
+</Container>
+```
+
+## Виды кнопок
+
+В библиотеке доступно несколько видов кнопок (view).
+
+- <b>Primary</b>. Обозначает ключевое действие. На экране может быть только одна главная кнопка.
+
+```tsx live
+const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+
+render(
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <Button size={size} view="primary">
+                        Кнопка
+                    </Button>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+)
+```
+
+- <b>Secondary</b>. Второстепенная кнопка. Может использоваться для любых действий.
+
+```tsx live
+const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+
+render(
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <Button size={size} view="secondary">
+                        Кнопка
+                    </Button>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+)
+```
+
+- <b>Outlined</b>. Дополнительная кнопка.
+
+```tsx live
+const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+
+render(
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <Button size={size} view="outlined">
+                        Кнопка
+                    </Button>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+)
+```
+
+- <b>Filled</b>. Дополнительная кнопка.
+
+```tsx live
+const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+
+render(
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <Button size={size} view="filled">
+                        Кнопка
+                    </Button>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+)
+```
+
+- <b>Transparent</b>. Кнопка с прозрачностью.
+
+```tsx live
+const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+
+render(
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <Button size={size} view="transparent">
+                        Кнопка
+                    </Button>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+)
+```
+
+- <b>Link</b>. Прозрачная кнопка-ссылка. Для получения ссылки, нужно установить пропс `href`.
+
+```tsx live
+const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+
+render(
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <Button size={size} view="link">
+                        Кнопка
+                    </Button>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+)
+```
+
+- <b>Ghost</b>. Прозрачная кнопка без отступов.
+
+```tsx live
+const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+
+render(
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <Button size={size} view="ghost">
+                        Кнопка
+                    </Button>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+)
+```
+
+## Ссылка
+
+Любую кнопку можно превратить в ссылку, передав компоненту пропс `href`.
+
+```tsx live
+<Container>
+    <Row align="middle">
+        <Col>
+            <Button href="https://alfabank.ru" target="_blank" >
+                Ссылка
+            </Button>
+        </Col>
+        <Col>
+            <Button view="outlined" href="https://alfabank.ru" target="_blank" >
+                Ссылка
+            </Button>
+        </Col>
+    </Row>
+</Container>
+```
+
+## Ширина кнопки
+
+С помощью свойства `block` можно заставить кнопку занимать всю ширину контейнера.
+
+```tsx live
+<Button block={true} size="s" >
+    Кнопка
+</Button>
+```
+
+## Слоты для кастомизации
+
+С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать кнопку. Например, добавить иконку.
+
+Переданный контент будет отрисован слева или справа от текста кнопки. Если текста нет — будет отрисована квадратная кнопка.
+
+```tsx live
+<Container>
+    <Row>
+        <Col>
+            <Button leftAddons={<StarMIcon/>} rightAddons={<StarMIcon/>}>
+                Кнопка
+            </Button>
+        </Col>
+        <Col>
+            <Button rightAddons={<StarMIcon/>} view="outlined"/>
+        </Col>
+        <Col>
+            <Button size="xs" leftAddons={<FlashCircleSIcon/>}>
+                Кнопка
+            </Button>
+        </Col>
+        <Col>
+            <Button size="xs" rightAddons={<FlashCircleSIcon/>} view="outlined"/>
+        </Col>
+    </Row>
+</Container>
+```
+
+## Состояние загрузки
+
+С помощью свойства `loading` можно отобразить состояние загрузки.
+
+Минимальное время отображения лоадера - 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».
+
+```tsx live expanded
+function Example() {
+    const [loading, setLoading] = React.useState({
+        primary: false,
+        secondary: false
+    });
+
+    const handleClick = (buttonName, timeout) => {
+        setLoading({...loading, [buttonName]: true});
+        setTimeout(() => {
+            setLoading({...loading, [buttonName]: false});
+        }, timeout)
+    }
+
+    return (
+        <Container>
+            <Row align="middle">
+                <Col>
+                    <Button
+                        view="primary"
+                        loading={loading.primary}
+                        onClick={() => handleClick('primary', 30)}
+                    >
+                        Отправить быстрый запрос (30мс)
+                    </Button>
+                </Col>
+                <Col>
+                    <Button
+                        view="secondary"
+                        loading={loading.secondary}
+                        onClick={() => handleClick('secondary', 1500)}
+                    >
+                        Отправить долгий запрос (1500мс)
+                    </Button>
+                </Col>
+            </Row>
+        </Container>
+    );
+}
+
+render(
+    <Example />
+);
+```
+
+## Перенос текста
+
+С помощью свойства `nowrap` можно запретить перенос строки в кнопке.
+```tsx live
+<div style={{ width: '240px' }}>
+    <Row align="middle">
+        <Col>
+            <Button view="secondary" nowrap={true}>
+                Кнопка без переноса текста
+            </Button>
+        </Col>
+        <Col>
+            <Button view="ghost">
+                Кнопка с{'\u00A0'}переносом текста
+            </Button>
+        </Col>
+    </Row>
+</div>
+```
+
+## Темы
+
+`site`
+
+<div style={{border: '1px solid #e5e5e5', borderRadius: '4px', overflow: 'hidden'}}>
+    <div data-theme='site' style={{padding: '24px', backgroundColor: '#fff'}}>
+        <Container>
+            <Row align='middle'>
+                <Col>
+                    <Button view='primary'>Primary</Button>
+                </Col>
+                <Col>
+                    <Button view='secondary'>Secondary</Button>
+                </Col>
+                <Col>
+                    <Button view='outlined'>Outlined</Button>
+                </Col>
+            </Row>
+        </Container>
+    </div>
+    <div data-theme='site' style={{padding: '24px', backgroundColor: '#0b1f35'}}>
+        <Container>
+            <Row align='middle'>
+                <Col>
+                    <Button colors='inverted' view='primary'>Primary</Button>
+                </Col>
+                <Col>
+                    <Button colors='inverted' view='secondary'>Secondary</Button>
+                </Col>
+                <Col>
+                    <Button colors='inverted' view='outlined'>Outlined</Button>
+                </Col>
+            </Row>
+        </Container>
+    </div>
+</div>

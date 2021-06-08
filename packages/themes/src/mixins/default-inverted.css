@@ -1,9 +1,0 @@
-@import './link/default-inverted.css';
-@import './button/default-inverted.css';
-@import './icon-button/default-inverted.css';
-
-@define-mixin theme-default-inverted {
-    @mixin link-default-inverted;
-    @mixin button-default-inverted;
-    @mixin icon-button-default-inverted;
-}

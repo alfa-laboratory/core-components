@@ -1,0 +1,61 @@
+@import '../../themes/src/default.css';
+
+:root {
+    /* primary */
+    --link-inverted-primary-color: var(--color-light-text-primary-inverted);
+    --link-inverted-primary-hover-color: color-mod(var(--link-inverted-primary-color) shade(20%));
+    --link-inverted-primary-active-color: color-mod(var(--link-inverted-primary-color) shade(40%));
+
+    /* secondary */
+    --link-inverted-secondary-color: var(--color-light-text-secondary-inverted);
+    --link-inverted-secondary-hover-color: color-mod(
+        var(--link-inverted-secondary-color) shade(20%)
+    );
+    --link-inverted-secondary-active-color: color-mod(
+        var(--link-inverted-secondary-color) shade(40%)
+    );
+
+    /* default */
+    --link-inverted-default-color: var(--color-light-text-link);
+    --link-inverted-default-hover-color: color-mod(var(--link-inverted-default-color) shade(20%));
+    --link-inverted-default-active-color: color-mod(var(--link-inverted-default-color) shade(40%));
+}
+
+.primary {
+    color: var(--link-inverted-primary-color);
+    border-bottom-color: var(--link-inverted-primary-color);
+
+    &:hover {
+        color: var(--link-inverted-primary-hover-color);
+    }
+
+    &:active {
+        color: var(--link-inverted-primary-active-color);
+    }
+}
+
+.secondary {
+    color: var(--link-inverted-secondary-color);
+    border-bottom-color: var(--link-inverted-secondary-color);
+
+    &:hover {
+        color: var(--link-inverted-secondary-hover-color);
+    }
+
+    &:active {
+        color: var(--link-inverted-secondary-active-color);
+    }
+}
+
+.default {
+    color: var(--link-inverted-default-color);
+    border-bottom-color: var(--link-inverted-default-color);
+
+    &:hover {
+        color: var(--link-inverted-default-hover-color);
+    }
+
+    &:active {
+        color: var(--link-inverted-default-active-color);
+    }
+}
