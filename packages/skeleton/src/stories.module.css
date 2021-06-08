@@ -15,38 +15,38 @@
     position: absolute;
     width: 48px;
     height: 48px;
-    left: 10px;
-    top: 10px;
+    left: 0;
+    top: 0;
 }
 
 .example-3 {
     position: absolute;
     width: 200px;
     height: 24px;
-    left: 82px;
-    top: 10px;
+    left: 72px;
+    top: 0;
 }
 
 .example-4 {
     position: absolute;
     width: 124px;
     height: 16px;
-    left: 82px;
-    top: 54px;
+    left: 72px;
+    top: 44px;
 }
 
 .example-5 {
     position: absolute;
     width: 228px;
     height: 16px;
-    left: 222px;
-    top: 54px;
+    left: 212px;
+    top: 44px;
 }
 
 .example-6 {
     position: absolute;
     width: 260px;
     height: 16px;
-    left: 82px;
-    top: 86px;
+    left: 72px;
+    top: 76px;
 }

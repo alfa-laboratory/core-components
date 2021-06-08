@@ -3,8 +3,12 @@
 @define-mixin skeleton-click {
     /* core vars */
     --color-light-graphic-neutral: #dbdee1;
+    --border-radius-s: 4px;
 
     /* theme */
     --skeleton-default-color: var(--color-light-graphic-neutral);
-    --skeleton-border-radius: 4px;
+    --skeleton-border-radius: var(--border-radius-s);
+    --skeleton-backdrop-filter: blur(20px);
+    --skeleton-gradient-animation-display: none;
+    --skeleton-bg-animation-display: block;
 }
