@@ -13,23 +13,23 @@
 1. Установить к себе на проект:
 
 ```bash
-$ yarn add --dev @alfalab/core-components-codemode
+$ yarn add --dev @alfalab/core-components-codemod
 ```
 
-2. Заменить компоненты:s
+2. Заменить компоненты:
 
 Можно заменить сразу все доступные компоненты:
 
 ```bash
-$ ./node_modules/.bin/core-components-codemode src/**/*.tsx
+$ ./node_modules/.bin/core-components-codemod src/**/*.tsx
 ```
 
 Можно заменять компоненты частично. Например только Label и Paragraph:
 
 ```bash
-$ ./node_modules/.bin/core-components-codemode --components=Label,Paragraph src/**/*.tsx
+$ ./node_modules/.bin/core-components-codemod --components=Label,Paragraph src/**/*.tsx
 ```
 
-В большинстве случаев можно заменить один компонент на другой и однозначно поменять ему пропсы. Но это не всегда возможно. В таких случаях вы увидете предупреждение, и должны будете руками поменять пропсы у компонента.
+В большинстве случаев можно заменить один компонент на другой и однозначно поменять ему пропсы. Но это не всегда возможно. В таких случаях вы увидите предупреждение, и должны будете руками поменять пропсы у компонента.
 
 Сейчас замена компонентов доступна только для кода, написанного на `typescript`. Если кому-то нужно мигрировать с `js` - дайте знать, докрутим.

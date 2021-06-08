@@ -14,7 +14,7 @@ echo "start build on $CONCURRENCY parallel process"
 lerna exec --concurrency $CONCURRENCY \
     --ignore @alfalab/core-components-vars \
     --ignore @alfalab/core-components-themes \
-    --ignore @alfalab/core-components-codemode \
+    --ignore @alfalab/core-components-codemod \
     -- $(pwd)/bin/rollup.sh
 
 # собираю css пакеты

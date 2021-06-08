@@ -27,7 +27,7 @@
         "lint:js": "eslint ./packages --ext .ts,.tsx,.js,.jsx",
         "test": "jest --watchAll=false --env=jsdom-sixteen",
         "test:screenshots": "jest --config=jest.screenshots.config.js",
-        "test:codemode": "jest --config=jest.codemode.config.js packages/codemode/",
+        "test:codemod": "jest --config=jest.codemod.config.js packages/codemod/",
         "format": "prettier --write \"./{packages,bin}/**/*.{ts,tsx,js,jsx,css,json}\"",
         "clean": "rimraf packages/*/{tsconfig.tsbuildinfo,dist} && rimraf {dist,build}",
         "cm": "git-cz",
