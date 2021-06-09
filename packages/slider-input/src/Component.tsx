@@ -160,6 +160,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                         [styles.block]: block,
                         [styles.filled]: Boolean(value),
                         [styles.hasLabel]: label,
+                        [styles.hasError]: Boolean(error),
                     },
                     styles[size],
                     className,
@@ -200,7 +201,9 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                         (info || rightAddons) && (
                             <Fragment>
                                 {info && <span className={styles.info}>{info}</span>}
-                                {rightAddons}
+                                {rightAddons && (
+                                    <span className={styles.rightAddons}>{rightAddons}</span>
+                                )}
                             </Fragment>
                         )
                     }

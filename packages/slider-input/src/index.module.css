@@ -48,11 +48,20 @@
 .info {
     @mixin system_16-20_regular;
 
+    margin-right: var(--gap-s);
     color: var(--slider-input-info-color);
     box-sizing: border-box;
     opacity: 0;
     transition: 0.2s ease;
     visibility: hidden;
+}
+
+.info:only-child {
+    margin-right: 0;
+}
+
+.hasError .rightAddons {
+    margin-right: var(--gap-2xs);
 }
 
 .s.hasLabel .info:first-child {
