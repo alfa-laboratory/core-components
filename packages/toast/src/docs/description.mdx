@@ -108,10 +108,10 @@ import { Plate } from '../../../plate/src';
                         getPortalContainer={() => containerRef.current}
                         block={true}
                         hasCloser={true}
-                        ToastPlate={React.forwardRef((prpos, ref) => {
+                        ToastPlate={React.forwardRef((props, ref) => {
                             return (
                                 <Plate
-                                    {...prpos}
+                                    {...props}
                                     ref={ref}
                                     view="positive"
                                     open={true}

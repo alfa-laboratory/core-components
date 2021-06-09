@@ -23,7 +23,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
         const uncontrolled = passwordVisible === undefined;
 
         const [statePasswordVisible, setStatePasswordVisible] = useState(
-            uncontrolled ? false : (passwordVisible as boolean),
+            uncontrolled ? false : passwordVisible,
         );
 
         const handleButtonClick = useCallback(() => {
@@ -36,9 +36,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             }
         }, [passwordVisible, uncontrolled, onPasswordVisibleChange]);
 
-        const isPasswordVisible = uncontrolled
-            ? statePasswordVisible
-            : (passwordVisible as boolean);
+        const isPasswordVisible = uncontrolled ? statePasswordVisible : passwordVisible;
 
         return (
             <Input
