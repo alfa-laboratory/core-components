@@ -8,8 +8,6 @@
     /* experimental animation switcher */
     --skeleton-gradient-animation-display: block;
     --skeleton-bg-animation-display: none;
-    --skeleton-bg-animation-color-from: rgb(182, 188, 195);
-    --skeleton-bg-animation-color-to: rgb(198, 205, 214);
 }
 
 .component {
@@ -94,9 +92,9 @@
 
 @keyframes background {
     0% {
-        background: var(--skeleton-bg-animation-color-from);
+        background: rgb(182, 188, 195);
     }
     100% {
-        background: var(--skeleton-bg-animation-color-to);
+        background: rgb(198, 205, 214);
     }
 }
