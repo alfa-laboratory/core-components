@@ -54,6 +54,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
                     />
                 }
                 addonsClassName={styles.addons}
+                inputClassName={styles.input}
             />
         );
     },
