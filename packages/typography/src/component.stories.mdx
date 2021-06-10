@@ -81,12 +81,13 @@ import { colors } from './colors';
         const color = select('color', colors, '');
         const tag = select('tag', ['div', 'p', 'span'], 'p');
         const weight = select('weight', ['regular', 'medium', 'bold'], 'regular');
+        const monospace = boolean('monospaceNumbers', false);
         const className = text('className', '');
         return VIEW_TYPES.map(view => (
-            <Typography.Text view={view} color={color} tag={tag} weight={weight} className={className} key={view}>
+            <Typography.Text view={view} color={color} tag={tag} weight={weight} monospaceNumbers={monospace} className={className} key={view}>
                 {view}. Космологи́ческая сингуля́рность — состояния Вселенной в определённый момент времени в прошлом,
                 когда плотность энергии (материи) и кривизна пространства-времени были очень велики — порядка
-                планковских значений.
+                планковских значений. 1234567890, например.
             </Typography.Text>
         ));
     })}
