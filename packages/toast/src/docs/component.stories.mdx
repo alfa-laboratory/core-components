@@ -9,91 +9,122 @@ import Description from './description.mdx';
 import styles from '!!raw-loader!../index.module.css';
 
 <Meta
-    title='Компоненты'
+    title='Компоненты/Toast'
     component={Toast}
     parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
 <!-- Canvas -->
 
-<Story name='Toast'>
-    {React.createElement(() => {
-        const POSITION_OPTIONS = [
-            'top',
-            'top-start',
-            'top-end',
-            'bottom',
-            'bottom-start',
-            'bottom-end',
-            'right',
-            'right-start',
-            'right-end',
-            'left',
-            'left-start',
-            'left-end',
-        ];
-        const [anchorToastOpen, setAnchorToastOpen] = React.useState(false);
-        const [fixedToastOpen, setFixedToastOpen] = React.useState(false);
-        const [buttonElement, setButtonElement] = React.useState(null);
-        const handleButtonRef = node => {
-            setButtonElement(node);
-        };
-        const containerRef = React.useRef();
-        return (
+export function ToastExample() {
+    const POSITION_OPTIONS = [
+        'top',
+        'top-start',
+        'top-end',
+        'bottom',
+        'bottom-start',
+        'bottom-end',
+        'right',
+        'right-start',
+        'right-end',
+        'left',
+        'left-start',
+        'left-end',
+    ];
+    const [anchorToastOpen, setAnchorToastOpen] = React.useState(false);
+    const [fixedToastOpen, setFixedToastOpen] = React.useState(false);
+    const [buttonElement, setButtonElement] = React.useState(null);
+    const handleButtonRef = node => {
+        setButtonElement(node);
+    };
+    const containerRef = React.useRef();
+    return (
+        <div
+            style={{
+                width: '100vw',
+                height: '100vh',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                boxSizing: 'border-box',
+            }}
+        >
             <div
+                ref={containerRef}
                 style={{
-                    width: '100vw',
-                    height: '100vh',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    boxSizing: 'border-box'
+                    position: 'relative',
+                    padding: '100px',
+                    border: '1px dashed black',
                 }}
             >
-                <div
-                    ref={containerRef}
-                    style={{
-                        position: 'relative',
-                        padding: '100px',
-                        border: '1px dashed black'
+                <Toast
+                    open={anchorToastOpen}
+                    position={select('position', POSITION_OPTIONS, 'left')}
+                    offset={[number('offset[0]', 0), number('offset[1]', 8)]}
+                    badge={select(
+                        'badge',
+                        ['negative', 'positive', 'attention', undefined],
+                        'positive',
+                    )}
+                    title={text('title', 'Скопировано')}
+                    hasCloser={boolean('hasCloser', true)}
+                    block={boolean('block', false)}
+                    onClose={() => {
+                        setAnchorToastOpen(false);
+                    }}
+                    autoCloseDelay={number('autoCloseDelay', 3000)}
+                />
+                <Toast
+                    open={fixedToastOpen}
+                    badge={select(
+                        'badge',
+                        ['negative', 'positive', 'attention', undefined],
+                        'positive',
+                    )}
+                    title='Ваша карта удалена'
+                    hasCloser={boolean('hasCloser', true)}
+                    onClose={() => {
+                        setFixedToastOpen(false);
+                    }}
+                    autoCloseDelay={number('autoCloseDelay', 3000)}
+                    actionButton={
+                        <Button
+                            size='s'
+                            view='ghost'
+                            onClick={() => {
+                                setFixedToastOpen(false);
+                            }}
+                        >
+                            Восстановить
+                        </Button>
+                    }
+                    position='bottom-start'
+                    offset={[0, 16]}
+                    block={true}
+                />
+                <Button
+                    ref={handleButtonRef}
+                    onClick={() => {
+                        setAnchorToastOpen(true);
                     }}
                 >
-                    <Toast
-                        open={anchorToastOpen}
-                        anchorElement={buttonElement}
-                        position={select('position', POSITION_OPTIONS, 'left')}
-                        offset={[number('offset[0]', 0), number('offset[1]', 8)]}
-                        badge={select('badge', ['negative', 'positive', 'attention', undefined], 'positive')}
-                        title={text('title', 'Скопировано')}
-                        hasCloser={boolean('hasCloser', true)}
-                        block={boolean('block', false)}
-                        onClose={() => { setAnchorToastOpen(false); }}
-                        autoCloseDelay={number('autoCloseDelay', 3000)}
-                    />
-                    <Toast
-                        open={fixedToastOpen}
-                        badge={select('badge', ['negative', 'positive', 'attention', undefined], 'positive')}
-                        title="Ваша карта удалена"
-                        hasCloser={boolean('hasCloser', true)}
-                        onClose={() => { setFixedToastOpen(false); }}
-                        autoCloseDelay={number('autoCloseDelay', 3000)}
-                        actionButton={<Button size="s" view="ghost" onClick={() => { setFixedToastOpen(false) }}>Восстановить</Button>}
-                        anchorElement={containerRef.current}
-                        position="bottom-start"
-                        offset={[0, 16]}
-                        block={true}
-                        getPortalContainer={() => containerRef.current}
-                    />
-                    <Button ref={handleButtonRef} onClick={() => { setAnchorToastOpen(true); }}>
-                        Скопировать
-                    </Button>
-                    <Button onClick={() => { setFixedToastOpen(true) }} style={{marginLeft: '20px'}}>
-                        Удалить
-                    </Button>
-                </div>
+                    Скопировать
+                </Button>
+                <Button
+                    onClick={() => {
+                        setFixedToastOpen(true);
+                    }}
+                    style={{ marginLeft: '20px' }}
+                >
+                    Удалить
+                </Button>
             </div>
-        );
-    })}
+        </div>
+    );
+}
+
+<Story name='Toast'>
+    <ToastExample />
 </Story>
 
 <!-- Docs -->
@@ -112,6 +143,8 @@ import { Toast } from '@alfalab/core-components-toast';
 
 <Tabs
     description={<Description />}
-    prpos={<Props of={Toast} /> }
-    cssVars={<CssVars css={styles} />}
+prpos={
+<Props of={Toast} /> }
+cssVars={
+<CssVars css={styles} />}
 />
