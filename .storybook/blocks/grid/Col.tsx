@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes, useCallback, ChangeEvent, ReactNode } from 'react';
 import cn from 'classnames';
 
-import styles from './Col.css';
+import styles from './Col.module.css';
 
 type ColProps = {
     children?: ReactNode;

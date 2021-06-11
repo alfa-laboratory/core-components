@@ -22,7 +22,8 @@ module.exports = {
     stories: ['../packages/**/*.stories.@(ts|md)x'],
     addons: [
         '@storybook/addon-knobs',
-        '@storybook/addon-essentials',
+        '@storybook/addon-docs',
+        '@storybook/addon-actions',
         '@storybook/preset-create-react-app',
     ],
     webpackFinal: async config => {
