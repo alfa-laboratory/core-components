@@ -40,7 +40,7 @@
 }
 
 .withPadding {
-    padding-bottom: var(--gap-3xl);
+    padding-bottom: var(--gap-xl);
 }
 
 .content {
