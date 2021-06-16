@@ -65,19 +65,6 @@ export type BottomSheetProps = {
     zIndex?: number;
 
     /**
-     * Минимальная скорость смахивания, при которой шторка закроется
-     * https://github.com/FormidableLabs/react-swipeable#swipe-event-data
-     * @default 0.3
-     */
-    swipeCloseVelocity?: number;
-
-    /**
-     * Минимальное смещение шторки, при котором она закроется (от нуля до единицы)
-     * @default 0.33
-     */
-    closeOffset?: number;
-
-    /**
      * Будет ли свайпаться на десктопе
      * @default false
      */
@@ -90,9 +77,10 @@ export type BottomSheetProps = {
 };
 
 const TIMEOUT = 300;
-const SWIPE_CLOSE_VELOCITY = 0.2;
-const CLOSE_OFFSET = 0.33;
+const SWIPE_CLOSE_VELOCITY = 0.4;
 const MIN_BACKDROP_OPACITY = 0.2;
+
+export const CLOSE_OFFSET = 0.2;
 
 export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
     (
@@ -106,8 +94,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             zIndex,
             transitionProps = {},
             dataTestId,
-            swipeCloseVelocity = SWIPE_CLOSE_VELOCITY,
-            closeOffset = CLOSE_OFFSET,
             desktopSwipeable: trackMouse = false,
             onClose,
         },
@@ -154,7 +140,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         };
 
         const handleBackdropSwipedDown: SwipeCallback = ({ velocity }) => {
-            if (velocity > swipeCloseVelocity) {
+            if (velocity > SWIPE_CLOSE_VELOCITY) {
                 onClose();
             }
         };
@@ -165,7 +151,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             }
 
             const shouldClose =
-                sheetOffset > sheetHeight.current * closeOffset || velocity > swipeCloseVelocity;
+                sheetOffset > sheetHeight.current * CLOSE_OFFSET || velocity > SWIPE_CLOSE_VELOCITY;
 
             if (shouldClose) {
                 onClose();
@@ -296,6 +282,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                                 font='system'
                                 tag='h2'
                                 className={styles.title}
+                                color='primary'
                             >
                                 {title}
                             </Typography.Title>
@@ -310,9 +297,3 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         );
     },
 );
-
-BottomSheet.defaultProps = {
-    swipeCloseVelocity: SWIPE_CLOSE_VELOCITY,
-    closeOffset: CLOSE_OFFSET,
-    desktopSwipeable: false,
-};

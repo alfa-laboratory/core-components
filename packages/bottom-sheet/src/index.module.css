@@ -47,7 +47,8 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 0 var(--gap-m);
+    padding: 0 var(--gap-m) var(--gap-m);
+    color: var(--color-light-text-primary);
 }
 
 .title {

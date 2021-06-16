@@ -1,7 +1,7 @@
 import React, { useState, forwardRef } from 'react';
 import { fireEvent, render, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
 
-import { BottomSheet, BottomSheetProps } from '.';
+import { BottomSheet, BottomSheetProps, CLOSE_OFFSET } from '.';
 
 const BottomSheetWrapper = forwardRef<HTMLDivElement, Partial<BottomSheetProps>>((props, ref) => {
     const [open, setOpen] = useState(props.open === undefined ? true : props.open);
@@ -232,12 +232,11 @@ describe('Bottom sheet', () => {
             );
         });
 
-        it('should return up, if swiped less then passed closeOffset', async () => {
+        it('should return up, if swiped less then default closeOffset', async () => {
             const className = 'className';
 
             const onEntered = jest.fn();
             const onExited = jest.fn();
-            const closeOffset = 0.5;
 
             render(
                 <BottomSheetWrapper
@@ -248,7 +247,6 @@ describe('Bottom sheet', () => {
                         onEntered,
                         onExited,
                     }}
-                    closeOffset={closeOffset}
                 />,
             );
 
@@ -260,7 +258,7 @@ describe('Bottom sheet', () => {
 
             const initial = { x: left + 10, y: top + 10 };
 
-            const swipeDelta = height * closeOffset - 20;
+            const swipeDelta = height * CLOSE_OFFSET - 20;
 
             fireEvent.touchStart(swipeableBottomSheet, {
                 touches: [{ clientX: initial.x, clientY: initial.y }],
@@ -276,12 +274,11 @@ describe('Bottom sheet', () => {
             expect(getComputedStyle(swipeableBottomSheet).transform).toBe('');
         });
 
-        it('should close, if swiped more then passed closeOffset', async () => {
+        it('should close, if swiped more then default closeOffset', async () => {
             const className = 'className';
 
             const onEntered = jest.fn();
             const onExited = jest.fn();
-            const closeOffset = 0.5;
 
             const { queryByTestId } = render(
                 <BottomSheetWrapper
@@ -292,7 +289,6 @@ describe('Bottom sheet', () => {
                         onEntered,
                         onExited,
                     }}
-                    closeOffset={closeOffset}
                 />,
             );
 
@@ -304,7 +300,7 @@ describe('Bottom sheet', () => {
 
             const initial = { x: left + 10, y: top + 10 };
 
-            const swipeDelta = height * closeOffset + 20;
+            const swipeDelta = height * CLOSE_OFFSET + 20;
 
             fireEvent.touchStart(swipeableBottomSheet, {
                 touches: [{ clientX: initial.x, clientY: initial.y }],

@@ -56,8 +56,6 @@ export const longText = Array(10).fill(shortText).join('\n\n');
                         <Button view="outlined" block={true} size="s" onClick={handleClose}>Понятно</Button>}
                     onClose={handleClose}
                     desktopSwipeable={boolean('desktopSwipeable', true)}
-                    swipeCloseVelocity={number('swipeCloseVelocity', 0.3)}
-                    closeOffset={number('closeOffset', 0.33)}
                 >
                     <div style={{whiteSpace: 'pre-wrap'}}>
                         {textContent}

@@ -51,7 +51,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
                 class="scrollableContainer withPadding"
               >
                 <h2
-                  class="component title system-small bold"
+                  class="component title system-small bold primary"
                 >
                   Bottom sheet title
                 </h2>
@@ -127,7 +127,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
                 class="scrollableContainer"
               >
                 <h2
-                  class="component title system-small bold"
+                  class="component title system-small bold primary"
                 >
                   Bottom sheet title
                 </h2>
