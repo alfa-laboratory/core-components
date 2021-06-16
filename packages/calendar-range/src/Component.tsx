@@ -235,7 +235,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
         <div className={cn(styles.component, className)} data-test-id={dataTestId}>
             <CalendarInput
                 {...inputFromProps}
-                calendarPosition='static'
+                calendarPosition={(inputFromProps && inputFromProps.calendarPosition) || 'static'}
                 onInputChange={handleInputFromChange}
                 onCalendarChange={handleCalendarChange}
                 value={inputValueFrom.value}
@@ -257,7 +257,8 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
             <div onMouseOver={handleCalendarToMouseOver}>
                 <CalendarInput
                     {...inputToProps}
-                    calendarPosition='static'
+                    calendarPosition={(inputToProps && inputToProps.calendarPosition) || 'static'}
+                    popoverPosition='bottom-end'
                     onInputChange={handleInputToChange}
                     onCalendarChange={handleCalendarChange}
                     value={inputValueTo.value}
