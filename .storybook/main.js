@@ -26,6 +26,12 @@ module.exports = {
         '@storybook/addon-actions',
         '@storybook/preset-create-react-app',
     ],
+    typescript: {
+        check: true,
+        checkOptions: {
+            tsconfig: path.resolve(__dirname, '../tsconfig.json'),
+        }
+    },
     webpackFinal: async config => {
         addPackagesDir(config);
 
