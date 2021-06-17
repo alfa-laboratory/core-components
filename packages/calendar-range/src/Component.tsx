@@ -69,6 +69,11 @@ export type CalendarRangeProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Определяет, как рендерить календарь — в поповере или снизу инпута
+     */
+    calendarPosition?: CalendarInputProps['calendarPosition'];
 };
 
 export const CalendarRange: FC<CalendarRangeProps> = ({
@@ -82,6 +87,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
     onDateToChange,
     inputFromProps = {},
     inputToProps = {},
+    calendarPosition = 'static',
     dataTestId,
 }) => {
     const uncontrolled = valueFrom === undefined && valueTo === undefined;
@@ -235,7 +241,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
         <div className={cn(styles.component, className)} data-test-id={dataTestId}>
             <CalendarInput
                 {...inputFromProps}
-                calendarPosition={(inputFromProps && inputFromProps.calendarPosition) || 'static'}
+                calendarPosition={calendarPosition}
                 onInputChange={handleInputFromChange}
                 onCalendarChange={handleCalendarChange}
                 value={inputValueFrom.value}
@@ -257,7 +263,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
             <div onMouseOver={handleCalendarToMouseOver}>
                 <CalendarInput
                     {...inputToProps}
-                    calendarPosition={(inputToProps && inputToProps.calendarPosition) || 'static'}
+                    calendarPosition={calendarPosition}
                     popoverPosition='bottom-end'
                     onInputChange={handleInputToChange}
                     onCalendarChange={handleCalendarChange}
