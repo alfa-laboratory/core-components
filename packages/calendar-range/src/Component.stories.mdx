@@ -20,7 +20,9 @@ import { parseDateString } from '../../calendar-input/src/utils';
 <!-- Canvas -->
 
 <Story name='CalendarRange'>
-    <CalendarRange />
+    <CalendarRange 
+        calendarPosition={select('calendarPosition', ['static', 'popover'], 'static')}
+    />
 </Story>
 
 <!-- Docs -->
@@ -110,6 +112,7 @@ import { CalendarRange } from '@alfalab/core-components-calendar-range';
                     onBlur: handleToBlur,
                     onFocus: handleToFocus
                 }}
+                calendarPosition={select('calendarPosition', ['static', 'popover'], 'static')}
             />
         );
     })}
