@@ -11,7 +11,6 @@ import cn from 'classnames';
 import TextareaAutosize from 'react-textarea-autosize';
 import mergeRefs from 'react-merge-refs';
 import { useFocus } from '@alfalab/hooks';
-import { pluralize } from '@alfalab/utils';
 import { FormControl } from '@alfalab/core-components-form-control';
 
 import styles from './index.module.css';
@@ -144,7 +143,7 @@ export type TextareaProps = Omit<
 };
 
 export const getDefaultCounterText = (textLength: number, maxLength = 0): string =>
-    `${textLength}/${maxLength} ${pluralize(maxLength, 'символ', 'символа', 'символов')}`;
+    `${textLength}/${maxLength} символов`;
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     (
