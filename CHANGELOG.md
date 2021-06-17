@@ -1,3 +1,10 @@
+## [17.4.2](https://github.com/alfa-laboratory/core-components/compare/v17.4.1...v17.4.2) (2021-06-09)
+
+
+### Bug Fixes
+
+* **skeleton:** remove vars that purge kills ([886d1b2](https://github.com/alfa-laboratory/core-components/commit/886d1b24b144d9d277821d3264f71a93c7a1b146))
+
 ## [17.4.1](https://github.com/alfa-laboratory/core-components/compare/v17.4.0...v17.4.1) (2021-06-08)
 
 
