@@ -20,9 +20,7 @@ import { parseDateString } from '../../calendar-input/src/utils';
 <!-- Canvas -->
 
 <Story name='CalendarRange'>
-    <CalendarRange 
-        calendarPosition={select('calendarPosition', ['static', 'popover'], 'static')}
-    />
+    <CalendarRange />
 </Story>
 
 <!-- Docs -->
@@ -116,4 +114,10 @@ import { CalendarRange } from '@alfalab/core-components-calendar-range';
             />
         );
     })}
+</Preview>
+
+### Рендерит календари в поповере
+
+<Preview>
+    <CalendarRange calendarPosition='popover'/>
 </Preview>
