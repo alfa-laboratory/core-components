@@ -26,7 +26,7 @@ exports[`PasswordInput snapshots tests should match snapshot 1`] = `
           class="addons rightAddons addons"
         >
           <button
-            class="component ghost s component ghost iconOnly primary"
+            class="component ghost s component ghost iconOnly secondary"
             type="button"
           >
             <span

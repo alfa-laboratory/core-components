@@ -46,7 +46,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
                 ref={ref}
                 rightAddons={
                     <IconButton
-                        view='primary'
+                        view='secondary'
                         size='s'
                         icon={isPasswordVisible ? EyeMIcon : EyeOffMIcon}
                         onClick={handleButtonClick}
