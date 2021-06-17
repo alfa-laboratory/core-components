@@ -1,3 +1,16 @@
+# [17.5.0](https://github.com/alfa-laboratory/core-components/compare/v17.4.2...v17.5.0) (2021-06-17)
+
+
+### Bug Fixes
+
+* **select:** fix checkmark position on click theme ([#699](https://github.com/alfa-laboratory/core-components/issues/699)) ([0a3bab5](https://github.com/alfa-laboratory/core-components/commit/0a3bab52278b4db8f327a8bf5da97cfb5acecc6a))
+
+
+### Features
+
+* **notification:** add null autoCloseDelay ([#698](https://github.com/alfa-laboratory/core-components/issues/698)) ([6c2f0e0](https://github.com/alfa-laboratory/core-components/commit/6c2f0e083ec94797e8193b19d8bbafd042a5c2a5))
+* **select:** add useSelectWithLoading preset ([#693](https://github.com/alfa-laboratory/core-components/issues/693)) ([12d542f](https://github.com/alfa-laboratory/core-components/commit/12d542f11dddcd022c1ba895e4105115be0b98b2))
+
 ## [17.4.2](https://github.com/alfa-laboratory/core-components/compare/v17.4.1...v17.4.2) (2021-06-09)
 
 

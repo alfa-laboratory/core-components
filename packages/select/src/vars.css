@@ -42,7 +42,7 @@
 
     /* optgroup */
 
-    --select-optgroup-color: var(--color-light-text-tertiary);
+    --select-optgroup-color: var(--color-light-text-secondary);
     --select-optgroup-background: var(--color-light-bg-primary);
     --select-optgroup-left-padding: var(--gap-s);
     --select-optgroup-right-padding: var(--gap-s);
