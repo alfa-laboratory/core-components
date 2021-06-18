@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, act } from '@testing-library/react';
+import { render, waitFor, fireEvent, act } from '@testing-library/react';
 import { setMonth, startOfMonth, addMonths, setDate, endOfMonth, startOfDay } from 'date-fns';
 import { MONTHS } from '../../calendar/src/utils';
 import { formatDate } from '../../calendar-input/src/utils';
@@ -194,6 +194,60 @@ describe('CalendarRange', () => {
 
         expect(container).toHaveTextContent('Май');
         expect(container).toHaveTextContent('Июнь');
+    });
+
+    describe('isPopover', () => {
+        it('should open same month for empty input in popover', async () => {
+            const { queryAllByRole } = render(
+                <CalendarRange
+                    inputFromProps={{ calendarProps: { className: 'from-calendar' } }}
+                    inputToProps={{ calendarProps: { className: 'to-calendar' } }}
+                    isPopover={true}
+                />,
+            );
+
+            const [inputFrom, inputTo] = queryAllByRole('textbox') as HTMLInputElement[];
+
+            await waitFor(() => {
+                fireEvent.focus(inputFrom);
+                expect(
+                    document.querySelector('.from-calendar .button.month .buttonContent'),
+                ).toHaveTextContent(currentMonthName);
+            });
+
+            await waitFor(() => {
+                fireEvent.focus(inputTo);
+                expect(
+                    document.querySelector('.to-calendar .button.month .buttonContent'),
+                ).toHaveTextContent(currentMonthName);
+            });
+        });
+
+        it('should fill "to input" when pick date in "to calendar"', async () => {
+            const { queryAllByRole } = render(
+                <CalendarRange
+                    inputToProps={{ calendarProps: { className: 'to-calendar' } }}
+                    isPopover={true}
+                />,
+            );
+
+            const [inputFrom, inputTo] = queryAllByRole('textbox') as HTMLInputElement[];
+
+            await waitFor(() => {
+                fireEvent.focus(inputTo);
+
+                expect(document.querySelector('.to-calendar')).toBeInTheDocument();
+            });
+
+            const days = document.querySelectorAll('*[data-date]');
+
+            act(() => {
+                (days[0] as HTMLButtonElement).click();
+            });
+
+            expect(inputTo.value).toBeDefined();
+            expect(inputFrom.value).toBe('');
+        });
     });
 
     describe('Period selection', () => {
