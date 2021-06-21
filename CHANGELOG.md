@@ -1,3 +1,10 @@
+## [17.5.1](https://github.com/alfa-laboratory/core-components/compare/v17.5.0...v17.5.1) (2021-06-21)
+
+
+### Bug Fixes
+
+* **calendar-with-skeleton:** ref & six weeks height issues ([#705](https://github.com/alfa-laboratory/core-components/issues/705)) ([907ebe1](https://github.com/alfa-laboratory/core-components/commit/907ebe18641ee2e7e91fc4622527404c20867a54))
+
 # [17.5.0](https://github.com/alfa-laboratory/core-components/compare/v17.4.2...v17.5.0) (2021-06-17)
 
 
