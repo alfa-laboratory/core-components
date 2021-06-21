@@ -7,6 +7,7 @@ import withThemeSwitcher from './addons/theme-switcher/index';
 addDecorator(withThemeSwitcher);
 
 addParameters({
+    viewMode: 'docs',
     docs: {
         components: {
             code: Example,
