@@ -197,7 +197,7 @@ describe('CalendarRange', () => {
     });
 
     describe('isPopover', () => {
-        it('should open same month for empty input in popover', async () => {
+        it('should open empty input calendar with month from filled input', async () => {
             const { queryAllByRole } = render(
                 <CalendarRange
                     inputFromProps={{ calendarProps: { className: 'from-calendar' } }}
@@ -245,7 +245,7 @@ describe('CalendarRange', () => {
                 (days[0] as HTMLButtonElement).click();
             });
 
-            expect(inputTo.value).toBeDefined();
+            expect(inputTo.value.length).not.toBe('');
             expect(inputFrom.value).toBe('');
         });
     });
