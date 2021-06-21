@@ -245,7 +245,7 @@ describe('CalendarRange', () => {
                 (days[0] as HTMLButtonElement).click();
             });
 
-            expect(inputTo.value.length).not.toBe('');
+            expect(inputTo.value).not.toBe('');
             expect(inputFrom.value).toBe('');
         });
     });
