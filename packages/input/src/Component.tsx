@@ -296,9 +296,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                                 <span className={styles.clearIcon} />
                             </Button>
                         )}
+                        {rightAddons}
                         {error && <span className={styles.errorIcon} />}
                         {success && !error && <span className={styles.successIcon} />}
-                        {rightAddons}
                     </Fragment>
                 )
             );
