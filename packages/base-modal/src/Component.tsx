@@ -9,7 +9,6 @@ import React, {
     ReactNode,
     useEffect,
     useMemo,
-    Ref,
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
@@ -154,7 +153,7 @@ export type BaseModalContext = {
     hasScroll?: boolean;
     headerHighlighted?: boolean;
     footerHighlighted?: boolean;
-    contentRef: Ref<HTMLElement>;
+    contentRef: (node: HTMLElement) => void;
     setHasHeader: (exists: boolean) => void;
     setHasFooter: (exists: boolean) => void;
     onClose: Required<BaseModalProps>['onClose'];
@@ -206,29 +205,36 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         const [hasFooter, setHasFooter] = useState(false);
         const [headerHighlighted, setHeaderHighlighted] = useState(false);
         const [footerHighlighted, setFooterHighlighted] = useState(false);
+        const [contentRect, setContentRect] = useState<null | ClientRect>(null);
 
         const componentRef = useRef<HTMLDivElement>(null);
-        const contentRef = useRef<HTMLDivElement>(null);
         const wrapperRef = useRef<HTMLDivElement>(null);
         const scrollableNodeRef = useRef<HTMLDivElement | null>(null);
         const restoreContainerStyles = useRef<null | Function>(null);
 
-        const shouldRender = keepMounted || open || !exited;
+        const checkToHasScrollBar = () => {
+            if (scrollableNodeRef.current) {
+                const scrollExists = hasScrollbar(scrollableNodeRef.current);
+                setFooterHighlighted(scrollExists);
+                setHasScroll(scrollExists);
+            }
+        };
 
-        const resizeObserver = useMemo(() => {
-            return new ResizeObserver(() => {
-                if (scrollableNodeRef.current) {
-                    const scrollExists = hasScrollbar(scrollableNodeRef.current);
-                    setFooterHighlighted(scrollExists);
-                    setHasScroll(scrollExists);
-                }
-            });
+        const contentRef = useCallback(node => {
+            if (node !== null) {
+                setContentRect(node.getBoundingClientRect());
+                checkToHasScrollBar();
+            }
         }, []);
 
+        const shouldRender = keepMounted || open || !exited;
+
+        // TODO: could be done with Ref
+        const resizeObserver = useMemo(() => new ResizeObserver(checkToHasScrollBar), []);
+
         const addResizeHandle = useCallback(() => {
-            if (scrollableNodeRef.current && contentRef.current) {
+            if (scrollableNodeRef.current) {
                 resizeObserver.observe(scrollableNodeRef.current);
-                resizeObserver.observe(contentRef.current);
             }
         }, [resizeObserver]);
 
@@ -240,22 +246,20 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             if (!scrollableNodeRef.current) return;
 
             if (componentRef.current) {
-                if (hasHeader) {
+                if (hasHeader && contentRect) {
                     setHeaderHighlighted(
-                        isScrolledToTop(scrollableNodeRef.current) === false &&
-                            componentRef.current.getBoundingClientRect().top <= 0,
+                        !isScrolledToTop(scrollableNodeRef.current) && contentRect.top <= 0,
                     );
                 }
 
-                if (hasFooter) {
+                if (hasFooter && contentRect) {
                     setFooterHighlighted(
-                        isScrolledToBottom(scrollableNodeRef.current) === false &&
-                            componentRef.current.getBoundingClientRect().bottom >=
-                                window.innerHeight,
+                        !isScrolledToBottom(scrollableNodeRef.current) &&
+                            contentRect.bottom >= window.innerHeight,
                     );
                 }
             }
-        }, [hasFooter, hasHeader]);
+        }, [contentRect, hasFooter, hasHeader]);
 
         const handleClose = useCallback<Required<BaseModalProps>['onClose']>(
             (event, reason) => {
@@ -383,7 +387,15 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 setHasFooter,
                 onClose: handleClose,
             }),
-            [hasHeader, hasFooter, hasScroll, headerHighlighted, footerHighlighted, handleClose],
+            [
+                contentRef,
+                hasHeader,
+                hasFooter,
+                hasScroll,
+                headerHighlighted,
+                footerHighlighted,
+                handleClose,
+            ],
         );
 
         if (!shouldRender) return null;
