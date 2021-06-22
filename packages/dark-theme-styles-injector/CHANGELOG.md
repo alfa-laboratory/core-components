@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-dark-theme-styles-injector@1.4.27...@alfalab/core-components-dark-theme-styles-injector@1.5.0) (2021-06-22)
+
+
+### Features
+
+* **dark-theme-styles-injector:** add prop for selector ([#709](https://github.com/alfa-laboratory/core-components/issues/709)) ([f74cdc7](https://github.com/alfa-laboratory/core-components/commit/f74cdc7b312321fcb111f1c64f21714ee403e513))
+
+
+
+
+
 ## [1.4.27](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-dark-theme-styles-injector@1.4.26...@alfalab/core-components-dark-theme-styles-injector@1.4.27) (2021-06-08)
 
 **Note:** Version bump only for package @alfalab/core-components-dark-theme-styles-injector

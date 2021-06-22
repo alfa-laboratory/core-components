@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-with-skeleton@2.0.3...@alfalab/core-components-calendar-with-skeleton@2.0.4) (2021-06-22)
+
+
+### Bug Fixes
+
+* **calendar-with-skeleton:** ref & six weeks height issues ([#705](https://github.com/alfa-laboratory/core-components/issues/705)) ([907ebe1](https://github.com/alfa-laboratory/core-components/commit/907ebe18641ee2e7e91fc4622527404c20867a54))
+
+
+
+
+
 ## [2.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-with-skeleton@2.0.2...@alfalab/core-components-calendar-with-skeleton@2.0.3) (2021-06-09)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar-with-skeleton
