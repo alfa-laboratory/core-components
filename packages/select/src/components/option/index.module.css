@@ -89,6 +89,12 @@
 .content {
     overflow: hidden;
     text-overflow: ellipsis;
+    flex: 1;
+}
+
+.textContent {
+    padding-top: var(--gap-s);
+    padding-bottom: var(--gap-s);
 }
 
 /* IE min-height fix */

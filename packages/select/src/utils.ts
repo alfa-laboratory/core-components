@@ -1,12 +1,4 @@
-import {
-    useRef,
-    useEffect,
-    ReactNode,
-    isValidElement,
-    cloneElement,
-    useLayoutEffect,
-    RefObject,
-} from 'react';
+import { useRef, useEffect, ReactNode, isValidElement, cloneElement, RefObject } from 'react';
 import { OptionShape, GroupShape, BaseSelectProps } from './typings';
 
 export const isGroup = (item: OptionShape | GroupShape): item is GroupShape =>
@@ -106,7 +98,7 @@ export function useVisibleOptions({
     open,
     invalidate,
 }: useVisibleOptionsArgs) {
-    useLayoutEffect(() => {
+    useEffect(() => {
         const list = listRef.current;
         const styleTarget = styleTargetRef.current;
 

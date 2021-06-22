@@ -9,18 +9,35 @@ const colorsMap = {
 };
 
 export type DarkThemeStylesInjectorProps = {
+    /**
+     * Какие цвета необходимо инвертировать
+     */
     colors: 'indigo' | 'bluetint';
+
+    /**
+     * Дополнительные стили для инвертированного режима
+     */
     styles?: string;
+
+    /**
+     * Селектор, в котором будут переопределяться переменные
+     */
+    selector?: string;
 };
 
 export const DarkThemeStylesInjector: FC<DarkThemeStylesInjectorProps> = ({
     colors,
     styles = '',
+    selector = ':root',
 }) => {
     return (
         <style>
-            {colorsMap[colors]}
-            {styles}
+            {`
+                ${selector} {
+                    ${colorsMap[colors]}
+                    ${styles}
+                }
+            `}
         </style>
     );
 };

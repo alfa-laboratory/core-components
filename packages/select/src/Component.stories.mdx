@@ -33,7 +33,6 @@ export const options = [
     { key: '13', content: 'Dubnium' },
     { key: '14', content: 'Seaborgium' },
     { key: '15', content: 'Bohrium' },
-    { key: '16', content: 'Очень длинный текст Очень длинный текст Очень длинный текст' },
 ];
 
 export const groups = [
@@ -124,6 +123,7 @@ export const POSITION_OPTIONS = [
         visibleOptions={number('visibleOptions', 5)}
         onChange={action('change')}
         onOpen={action('open')}
+        defaultOpen={boolean('defaultOpen', false)}
         popoverPosition={selectKnob('popoverPosition', POSITION_OPTIONS, 'bottom-start')}
         optionsListWidth={selectKnob('optionsListWidth', ['field', 'content'], 'field')}
     />
@@ -540,3 +540,49 @@ const groups = [{
         label='preventFlip'
     />
 </Preview>
+
+
+## Пресеты
+
+### Селект со скелетной загрузкой
+
+```tsx live
+const options = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+];
+
+function Example() {
+    const [loading, setLoading] = React.useState(true);
+
+    const loadingProps = useSelectWithLoading({
+        visibleOptions: 6,
+        loading,
+    });
+
+    const handleOpen = () => {
+        setLoading(true);
+        setTimeout(() => setLoading(false), 2000);
+    };
+
+    return (
+        <Select
+            options={options}
+            label='select with loading'
+            size='l'
+            block={true}
+            onOpen={handleOpen}
+            {...loadingProps}
+        />
+    );
+}
+
+render(
+    <Example />
+)
+```

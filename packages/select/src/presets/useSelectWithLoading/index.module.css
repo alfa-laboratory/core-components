@@ -1,0 +1,7 @@
+.skeleton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 16px;
+    width: 50%;
+}

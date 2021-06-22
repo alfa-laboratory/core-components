@@ -1,10 +1,27 @@
 import React, { useEffect, useRef, useCallback, ChangeEvent, useState, MouseEvent } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
-import { createTextMaskInputElement, TextMaskConfig, TextMaskInputElement } from 'text-mask-core';
+import { createTextMaskInputElement, TextMaskInputElement } from 'text-mask-core';
 import { Input, InputProps } from '@alfalab/core-components-input';
 
 import styles from './index.module.css';
+
+// TODO: заставить rollup добавлять кастомные декларации в сборку
+type Mask = Array<string | RegExp>;
+type TextMaskConfig = {
+    currentCaretPosition: number;
+    rawValue: string;
+    previousConformedValue: string;
+    mask?: Mask | ((rawValue: string) => Mask);
+    guide?: boolean;
+    showMask?: boolean;
+    placeholderChar?: string;
+    keepCharPositions?: boolean;
+    pipe?: (
+        conformedValue: string,
+        config: TextMaskConfig,
+    ) => false | string | { value: string; indexesOfPipedChars: number[] };
+};
 
 export type MaskedInputProps = InputProps & {
     /**
