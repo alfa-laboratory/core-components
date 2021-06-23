@@ -1,5 +1,10 @@
 @import '../../themes/src/default.css';
 
+:root {
+    --bottom-sheet-in-transition: 0.7s cubic-bezier(0.09, 0.91, 0.18, 0.99);
+    --bottom-sheet-out-transition: 0.3s ease;
+}
+
 .modal {
     background-color: transparent;
     position: fixed;
@@ -20,7 +25,7 @@
 }
 
 .withTransition {
-    transition: 0.3s ease-in-out;
+    transition: var(--bottom-sheet-out-transition);
 }
 
 .marker {
@@ -70,7 +75,7 @@
 .appearActive,
 .enterActive {
     & .component {
-        transition: 0.3s ease-in-out;
+        transition: var(--bottom-sheet-in-transition);
         transform: translateY(0);
     }
 }
@@ -90,7 +95,7 @@
 
 .exitActive {
     & .component {
-        transition: 0.3s ease-in-out;
+        transition: var(--bottom-sheet-out-transition);
         transform: translateY(100%);
     }
 }
