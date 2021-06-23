@@ -1,0 +1,47 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { text, select, number } from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { Tabs } from 'storybook/blocks/tabs';
+
+import Description from './description.mdx';
+import styles from '!!raw-loader!../index.module.css';
+import { CssVars } from 'storybook/blocks/css-vars';
+
+import { name, version } from '../../package.json';
+import { ProgressBar } from '../Component';
+
+<Meta
+    title='Компоненты/ProgressBar'
+    component={ProgressBar}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='ProgressBar'>
+    <ProgressBar
+        value={number('value', 40)}
+        view={select('view', ['positive', 'negative'])}
+    />
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='ProgressBar'
+    version={version}
+    package='@alfalab/core-components-progress-bar'
+    stage={2}
+/>
+
+```tsx
+import { ProgressBar } from '@alfalab/core-components-progress-bar';
+```
+
+<Tabs
+  description={<Description />}
+  props={<Props of={ProgressBar} />}
+  cssVars={<CssVars css={styles} />}
+/>

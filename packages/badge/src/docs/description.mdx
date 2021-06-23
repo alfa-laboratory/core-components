@@ -1,0 +1,120 @@
+import { Preview } from '@storybook/addon-docs/blocks';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+
+import { Badge } from '../Component'
+
+Бывает двух видов: бейдж и стикер.
+
+### Бейдж
+
+`view="count"`
+
+Счётчик действий, уведомлений или сообщений. Если `content` не передан, то отображается точка.
+Если `content` больше 99, то отображается 99+.
+
+<Preview>
+    <Container>
+        <Row>
+            <Col>
+                <Badge view='count' />
+            </Col>
+            <Col>
+                <Badge view='count' content={1} />
+            </Col>
+            <Col>
+                <Badge view='count' content={100} />
+            </Col>
+        </Row>
+    </Container>
+</Preview>
+
+### Стикер
+`view="icon"`
+
+Отражает иконку статуса. Внутри стикера используется любая круглая одноцветная иконка.
+Для управления цветом иконки используется проп `iconColor`, для управления цветом подложки используется css-переменная
+`--badge-icon-bg-color` (по дефолту белый).
+
+<Preview>
+    <Container>
+        <Row style={{margin: 0, padding: 12}}>
+            <Col>
+                <Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' iconColor='attention' content={<AlertCircleMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' iconColor='negative' content={<AlertCircleMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' iconColor='negative' content={<CrossCircleMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' iconColor='negative' content={<StopCircleMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' iconColor='secondary' content={<ClockMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' iconColor='secondary' content={<CrossCircleMIcon/>} />
+            </Col>
+        </Row>
+        <Row style={{margin: 0, padding: 12, backgroundColor: '#DBDEE1'}}>
+            <Col>
+                <Badge view='icon' iconColor='positive' content={<CheckmarkOnCircleMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' iconColor='attention' content={<AlertCircleMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' iconColor='negative' content={<AlertCircleMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' iconColor='negative' content={<CrossCircleMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' iconColor='negative' content={<StopCircleMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' iconColor='secondary' content={<ClockMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' iconColor='secondary' content={<CrossCircleMIcon/>} />
+            </Col>
+        </Row>
+        <Row style={{margin: 0, padding: 12, paddingTop: 0, backgroundColor: '#DBDEE1'}}>
+            <Col>
+                <Badge view='icon' visibleIconOutline={true} iconColor='positive' content={<CheckmarkOnCircleMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' visibleIconOutline={true} iconColor='attention' content={<AlertCircleMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' visibleIconOutline={true} iconColor='negative' content={<AlertCircleMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' visibleIconOutline={true} iconColor='negative' content={<CrossCircleMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' visibleIconOutline={true} iconColor='negative' content={<StopCircleMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' visibleIconOutline={true} iconColor='secondary' content={<InformationCircleMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' visibleIconOutline={true} iconColor='secondary' content={<ClockMIcon/>} />
+            </Col>
+            <Col>
+                <Badge view='icon' visibleIconOutline={true} iconColor='secondary' content={<CrossCircleMIcon/>} />
+            </Col>
+        </Row>
+    </Container>
+</Preview>
+

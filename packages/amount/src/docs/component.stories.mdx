@@ -1,0 +1,84 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Tabs } from 'storybook/blocks/tabs';
+import { CssVars } from 'storybook/blocks/css-vars';
+
+import { Amount } from '../.';
+import { getAllCurrencyCodes } from '@alfalab/utils';
+import { name, version } from '../../package.json';
+import Description from './description.mdx'
+import styles from '!!raw-loader!../index.module.css';
+
+
+<Meta
+    title='Компоненты/Amount'
+    component={Amount}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='Amount'>
+    {React.createElement(() => {
+        const currencyCodes = getAllCurrencyCodes();
+        const value = number('value', 12300);
+        const currency = select('currency', currencyCodes, 'RUR');
+        const minority = number('minority', 100);
+        const view = select('view', ['default', 'withZeroMinorPart'], 'default');
+        const className = select('className', '');
+        const dataTestId = text('dataTestId', '');
+        return (
+            <React.Fragment>
+                <Row>
+                    <Col>Amount</Col>
+                    <Col>Amount.Pure (Без стилей)</Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Amount
+                            value={value}
+                            currency={currency}
+                            minority={minority}
+                            view={view}
+                            className={className}
+                            dataTestId={dataTestId}
+                        />
+                    </Col>
+                    <Col>
+                        <Amount.Pure
+                            value={value}
+                            currency={currency}
+                            minority={minority}
+                            view={view}
+                            className={className}
+                            dataTestId={dataTestId}
+                        />
+                    </Col>
+                </Row>
+            </React.Fragment>
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Amount'
+    version={version}
+    package='@alfalab/core-components-amount'
+    stage={3}
+/>
+
+```tsx
+import { Amount } from '@alfalab/core-components-amount';
+```
+
+<Tabs 
+    description={<Description />}
+    props={<Props of={Amount} />}
+    cssVars={<CssVars css={styles} />}
+/>

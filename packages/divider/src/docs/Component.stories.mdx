@@ -1,0 +1,41 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Tabs } from 'storybook/blocks/tabs';
+
+import Description from './description.mdx';
+import { Divider } from '../Component';
+import { name, version } from '../../package.json';
+
+
+<Meta
+    title='Компоненты/Divider'
+    component={Divider}
+/>
+
+<!-- Canvas -->
+
+<Story name='Divider'>
+    <div>
+        <div style={{height: 24, margin: '8px 0', backgroundColor: '#eeeff1'}} />
+        <Divider />
+        <div style={{height: 24, margin: '8px 0', backgroundColor: '#eeeff1'}} />
+    </div>
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Divider'
+    version={version}
+    package='@alfalab/core-components-divider'
+    stage={2}
+/>
+
+```tsx
+import { Divider } from '@alfalab/core-components-divider';
+```
+
+<Tabs
+  description={<Description />}
+  props={<Props of={Divider} />}
+/>

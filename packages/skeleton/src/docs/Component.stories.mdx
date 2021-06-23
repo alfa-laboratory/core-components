@@ -1,0 +1,62 @@
+import { text, boolean } from '@storybook/addon-knobs';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Tabs } from 'storybook/blocks/tabs';
+
+import Description from './description.mdx';
+import styles from '!!raw-loader!../index.module.css';
+import { CssVars } from 'storybook/blocks/css-vars';
+import { Skeleton } from '..';
+import { name, version } from '../../package.json';
+import { Typography } from '../../../typography/src';
+
+<Meta
+    title='Компоненты/Skeleton'
+    component={Skeleton}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='Skeleton'>
+    {React.createElement(() => {
+        return (
+            <Skeleton
+                visible={ boolean('visible', true) }
+                className={ text('className', '') }
+                dataTestId={ text('dataTestId', '') }
+                animate={ boolean('animate', true) }
+            >
+                <img
+                    width={ 150 }
+                    height={ 150 }
+                    alt="Фижер"
+                    src="https://rawgit.com/alfa-laboratory/arui-feather/master/logo.svg"
+                />
+            </Skeleton>
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Skeleton'
+    version={version}
+    package='@alfalab/core-components-skeleton'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=13404%3A5'
+/>
+
+```tsx
+import { Skeleton } from '@alfalab/core-components-skeleton';
+```
+
+<Tabs
+  description={<Description />}
+  props={<Props of={Skeleton} />}
+  cssVars={<CssVars css={styles} />}
+/>

@@ -1,0 +1,32 @@
+
+import { Preview } from '@storybook/addon-docs/blocks';
+import { Container, Row } from 'storybook/blocks/grid';
+import { Typography } from '@alfalab/core-components-typography';
+
+import { List } from '../Component';
+
+<Preview>
+    <Container>
+        <Row>
+            <List tag='ul'>
+                <Typography.Text view='primary-medium'>1 item</Typography.Text>
+                <Typography.Text view='primary-medium'>2 item</Typography.Text>
+                <Typography.Text view='primary-medium'>3 item</Typography.Text>
+            </List>
+        </Row>
+        <Row>
+            <List tag='ul' marker='•'>
+                <Typography.Text view='primary-medium'>1 item</Typography.Text>
+                <Typography.Text view='primary-medium'>2 item</Typography.Text>
+                <Typography.Text view='primary-medium'>3 item</Typography.Text>
+            </List>
+        </Row>
+        <Row>
+            <List tag='ol'>
+                <Typography.Text view='primary-medium'>1 item</Typography.Text>
+                <Typography.Text view='primary-medium'>2 item</Typography.Text>
+                <Typography.Text view='primary-medium'>3 item</Typography.Text>
+            </List>
+        </Row>
+    </Container>
+</Preview>

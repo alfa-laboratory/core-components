@@ -1,0 +1,63 @@
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Tabs } from 'storybook/blocks/tabs';
+
+import Description from './description.mdx';
+import styles from '!!raw-loader!../index.module.css';
+
+import { AmountInput } from '../Component';
+import { name, version } from '../../package.json';
+
+<Meta
+    title='Компоненты/AmountInput'
+    component={AmountInput}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+<!-- Canvas -->
+
+<Story name='AmountInput'>
+    <AmountInput
+        value={number('value', null)}
+        currency={text('currency', 'RUR')}
+        integerLength={number('integerLength', 9)}
+        minority={number('minority', 100)}
+        bold={boolean('bold', true)}
+        block={boolean('block', false)}
+        size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+        disabled={boolean('disabled', false)}
+        placeholder={text('placeholder', undefined)}
+        label={text('label', '')}
+        hint={text('hint', '')}
+        error={text('error', '')}
+        leftAddons={boolean('leftAddons', false) && <Icon />}
+        bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
+        onChange={action('change')}
+        clear={boolean('clear', false)}
+        readOnly={boolean('readOnly', false)}
+    />
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='AmountInput'
+    version={version}
+    package='@alfalab/core-components-amount-input'
+    stage={2}
+    design='https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=532%3A544'
+/>
+
+```tsx
+import { AmountInput } from '@alfalab/core-components-amount-input';
+```
+
+<Tabs
+    description={<Description />}
+    props={<Props of={AmountInput} />}
+    cssVars={<CssVars css={styles} />}
+/>

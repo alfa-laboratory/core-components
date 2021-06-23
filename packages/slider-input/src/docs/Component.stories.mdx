@@ -1,0 +1,75 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { Tabs } from 'storybook/blocks/tabs';
+
+import Description from './description.mdx';
+import styles from '!!raw-loader!../index.module.css';
+import { CssVars } from 'storybook/blocks/css-vars';
+import { SliderInput } from '../Component';
+import { AmountInput } from '../../../amount-input/src';
+import { Input } from '../../../input/src';
+import { withSuffix } from '../../../with-suffix/src';
+import { name, version } from '../../package.json';
+
+
+<Meta
+    title='Компоненты/SliderInput'
+    component={SliderInput}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='SliderInput'>
+{React.createElement(() => {
+    const [value, setValue] = React.useState('50');
+    const handleChange = (event, { value }) => setValue(value);
+    return (
+        <SliderInput
+            value={value}
+            onChange={handleChange}
+            min={number('min', 0)}
+            max={number('max', 100)}
+            step={number('step', 1)}
+            steps={boolean('steps', false) && ['36 мес', '180 мес', '360 мес']}
+            block={boolean('block', false)}
+            size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+            disabled={boolean('disabled', false)}
+            placeholder={text('placeholder', '')}
+            label={text('label', '')}
+            hint={text('hint', '')}
+            info={text('info', '')}
+            error={text('error', '')}
+            rightAddons={boolean('rightAddons', false) && !text('error') && <Icon />}
+            leftAddons={boolean('leftAddons', false) && <Icon />}
+            readOnly={boolean('readOnly', false)}
+        />
+    );
+})}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='SliderInput'
+    version={version}
+    package='@alfalab/core-components-slider-input'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=719%3A1'
+/>
+
+```tsx
+import { SliderInput } from '@alfalab/core-components-slider-input';
+```
+
+<Tabs
+  description={<Description />}
+  props={<Props of={SliderInput} />}
+  cssVars={<CssVars css={styles} />}
+/>
