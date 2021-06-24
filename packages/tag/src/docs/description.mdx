@@ -1,0 +1,40 @@
+import Icon from '@alfalab/icons-glyph/CopyMIcon';
+
+import { Tag } from '../';
+
+### Тэг с иконкой
+
+<Preview>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleClick = () => setChecked(!checked);
+        return (
+            <Tag
+                checked={checked}
+                onClick={handleClick}
+                rightAddons={<Icon />}
+            >
+                Нажми меня
+            </Tag>
+        );
+    })}
+</Preview>
+
+### Тэг высотой 40px (используется в теме mobile)
+
+<Preview>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleClick = () => setChecked(!checked);
+        return (
+            <Tag
+                checked={checked}
+                onClick={handleClick}
+                size="xs"
+                style={{ minHeight: '40px' }}
+            >
+                Нажми меня
+            </Tag>
+        );
+    })}
+</Preview>
