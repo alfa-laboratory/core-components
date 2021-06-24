@@ -28,6 +28,8 @@
     /* disabled and checked */
     --checkbox-checked-disabled-bg-color: var(--color-light-graphic-neutral);
     --checkbox-checked-disabled-border-color: transparent;
+
+    --checkbox-icon-color: var(--color-light-bg-primary);
 }
 
 .component {
@@ -74,6 +76,7 @@
 
 .checkedIcon {
     position: absolute;
+    color: var(--checkbox-icon-color);
 }
 
 .s .box {
