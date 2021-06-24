@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-
+import cn from 'classnames';
 import { CSSTransition } from 'react-transition-group';
 
 import { Skeleton } from '@alfalab/core-components-skeleton';
@@ -24,7 +24,11 @@ export const CalendarWithSkeleton = forwardRef<HTMLDivElement, CalendarWithSkele
         const skeletonProps = { visible: true, animate };
 
         return (
-            <div className={styles.component}>
+            <div
+                className={cn(styles.component, {
+                    [styles.calendarVisible]: calendarVisible,
+                })}
+            >
                 {calendarVisible && <Calendar ref={ref} {...restProps} />}
 
                 <CSSTransition
@@ -33,7 +37,7 @@ export const CalendarWithSkeleton = forwardRef<HTMLDivElement, CalendarWithSkele
                     unmountOnExit={true}
                     classNames={styles}
                 >
-                    <div className={styles.skeleton} ref={ref}>
+                    <div className={styles.skeleton} ref={calendarVisible ? undefined : ref}>
                         <Skeleton {...skeletonProps} className={styles.header} />
 
                         <Skeleton {...skeletonProps} className={styles.weekDays} />
