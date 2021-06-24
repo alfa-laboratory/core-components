@@ -19,7 +19,7 @@ import { Badge } from '../Component'
 Счётчик действий, уведомлений или сообщений. Если `content` не передан, то отображается точка.
 Если `content` больше 99, то отображается 99+.
 
-<Preview>
+```tsx live
     <Container>
         <Row>
             <Col>
@@ -33,7 +33,7 @@ import { Badge } from '../Component'
             </Col>
         </Row>
     </Container>
-</Preview>
+```
 
 ### Стикер
 `view="icon"`
@@ -42,7 +42,7 @@ import { Badge } from '../Component'
 Для управления цветом иконки используется проп `iconColor`, для управления цветом подложки используется css-переменная
 `--badge-icon-bg-color` (по дефолту белый).
 
-<Preview>
+```tsx live
     <Container>
         <Row style={{margin: 0, padding: 12}}>
             <Col>
@@ -123,5 +123,5 @@ import { Badge } from '../Component'
             </Col>
         </Row>
     </Container>
-</Preview>
+```
 

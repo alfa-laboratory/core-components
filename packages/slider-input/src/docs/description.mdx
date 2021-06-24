@@ -18,8 +18,8 @@ export const normalizeValue = (value, min, max) => {
     return value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
 }
 
-<Preview>
-{React.createElement(() => {
+```tsx live
+render(() => {
     const min = 0;
     const max = 10;
     const step = 1;
@@ -36,11 +36,11 @@ export const normalizeValue = (value, min, max) => {
             steps={['0', '5', '10']}
         />
     );
-})}
-</Preview>
+})
+```
 
-<Preview>
-{React.createElement(() => {
+```tsx live
+render(() => {
     // import { withSuffix } from '@alfalab/core-components-with-suffix';
     // import { Input } from '@alfalab/core-components-input';
     const SuffixInput = React.useMemo(() => withSuffix(Input), []);
@@ -66,12 +66,12 @@ export const normalizeValue = (value, min, max) => {
             }}
         />
     );
-})}
-</Preview>
+})
+```
 
 
-<Preview>
-{React.createElement(() => {
+```tsx live
+render(() => {
     // import { withSuffix } from '@alfalab/core-components-with-suffix';
     // import { Input } from '@alfalab/core-components-input';
     const SuffixInput = React.useMemo(() => withSuffix(Input), []);
@@ -109,10 +109,10 @@ export const normalizeValue = (value, min, max) => {
         />
     );
 })}
-</Preview>
+```
 
-<Preview>
-{React.createElement(() => {
+```tsx live
+render(() => {
     // import { withSuffix } from '@alfalab/core-components-with-suffix';
     // import { Input } from '@alfalab/core-components-input';
     const SuffixInput = React.useMemo(() => withSuffix(Input), []);
@@ -143,12 +143,12 @@ export const normalizeValue = (value, min, max) => {
         />
     );
 })}
-</Preview>
+```
 
 ## AmountSliderInput
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const min = 100000;
         const max = 600000;
         const step = 1000;
@@ -180,11 +180,11 @@ export const normalizeValue = (value, min, max) => {
             />
         );
     })}
-</Preview>
+```
 
 
-<Preview>
-{React.createElement(() => {
+```tsx live
+render(() => {
     const min = 100000;
     const max = 22000000;
     const step = 1000;
@@ -221,4 +221,4 @@ export const normalizeValue = (value, min, max) => {
         />
     );
 })}
-</Preview>
+```

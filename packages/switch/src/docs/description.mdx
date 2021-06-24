@@ -11,8 +11,8 @@ import { name, version } from '../../package.json';
 
 Компонент переключателя.
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [checked, setChecked] = React.useState(false);
         const handleChange = () => setChecked(!checked);
         return (
@@ -27,14 +27,14 @@ import { name, version } from '../../package.json';
                 onChange={handleChange}
             />
         );
-    })}
-</Preview>
+    })
+```
 
 
 ### Переключатель без текста
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [checked, setChecked] = React.useState(false);
         const handleChange = () => setChecked(!checked);
         return (
@@ -43,13 +43,13 @@ import { name, version } from '../../package.json';
                 onChange={handleChange}
             />
         );
-    })}
-</Preview>
+    })
+```
 
 ### Кастомный контент
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [checked, setChecked] = React.useState(false);
         const handleChange = () => setChecked(!checked);
         return (
@@ -69,13 +69,13 @@ import { name, version } from '../../package.json';
                 }
             />
         );
-    })}
-</Preview>
+    })
+```
 
 ### Переключатель справа от контента
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [checked, setChecked] = React.useState(false);
         const handleChange = () => setChecked(!checked);
         return (
@@ -87,5 +87,5 @@ import { name, version } from '../../package.json';
                 hint='Описание пункта'
             />
         );
-    })}
-</Preview>
+    })
+```

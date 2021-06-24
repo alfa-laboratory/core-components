@@ -15,8 +15,8 @@ import { options, matchOption } from './options';
 
 ### Кейс с очисткой поля
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
             const [value, setValue] = React.useState('+7');
             const [selectedCountry, setSelectedCountry] = React.useState('RU');
             const handleChange = React.useCallback((newValue) => {
@@ -50,14 +50,14 @@ import { options, matchOption } from './options';
                     Код выбранной страны: <strong>{selectedCountry}</strong>
                 </div>
             );
-        })}
-</Preview>
+        })
+```
 
 
 ### Кейс с автокомплитом
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
             const [value, setValue] = React.useState('+7');
             const [selectedCountry, setSelectedCountry] = React.useState('RU');
             const handleChange = React.useCallback((newValue) => {
@@ -90,5 +90,5 @@ import { options, matchOption } from './options';
                     Код выбранной страны: <strong>{selectedCountry}</strong>
                 </React.Fragment>
             );
-        })}
-</Preview>
+        })
+```

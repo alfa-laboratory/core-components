@@ -6,8 +6,8 @@ import { Tag } from '../../../tag/src';
 
 Компонент группы чекбоксов.
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [value, setValue] = React.useState({ one: false, two: false, three: false });
         const onChange = (_, payload) => {
             setValue({ ...value, [payload.name]: payload.checked });
@@ -22,13 +22,13 @@ import { Tag } from '../../../tag/src';
                 <Checkbox label='Третий вариант' name='three' checked={value.three} />
             </CheckboxGroup>
         );
-    })}
-</Preview>
+    })
+```
 
 ### Группа чекбоксов, использующая компонент `Tag`
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [value, setValue] = React.useState({ one: false, two: false, three: false });
         const onChange = (_, payload) => {
             setValue({ ...value, [payload.name]: payload.checked });
@@ -51,5 +51,5 @@ import { Tag } from '../../../tag/src';
                 </Tag>
             </CheckboxGroup>
         );
-    })}
-</Preview>
+    })
+```

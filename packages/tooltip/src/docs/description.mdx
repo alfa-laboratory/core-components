@@ -9,8 +9,8 @@ import { name, version } from '../../package.json';
 
 Компонент `Tooltip`.
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const POSITION_OPTIONS = [
             'top',
             'top-start',
@@ -60,12 +60,12 @@ import { name, version } from '../../package.json';
             </Tooltip>
         </div>
         );
-    })}
-</Preview>
+    })
+```
 
 Также возможен вид `Hint`.
 
-<Preview>
+```tsx live
     <div
         style={{
             width: '700px',
@@ -90,4 +90,4 @@ import { name, version } from '../../package.json';
             </div>
         </Tooltip>
     </div>
-</Preview>
+```

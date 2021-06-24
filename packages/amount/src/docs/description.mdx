@@ -8,9 +8,11 @@ import { Amount } from '../.';
 Компонент для отображения суммы, согласно гайдлайну:
 https://design.alfabank.ru/patterns/amount
 
+```tsx live
 <Typography.Title font='system'>
     <Amount value={100000000} minority={100} view='withZeroMinorPart' />
 </Typography.Title>
+```
 
 
 ## Контекст использования
@@ -19,7 +21,7 @@ https://design.alfabank.ru/patterns/amount
 
 - `view="withZeroMinorPart"`: показывает минорную часть, даже если её значение равно 0
 
-<Preview>
+```tsx live
     <Container>
         <Row>
             <Col>
@@ -57,44 +59,44 @@ https://design.alfabank.ru/patterns/amount
             </Col>
         </Row>
     </Container>
-</Preview>
+```
 
 - Внутри заголовка
 
-<Preview>
+```tsx live
     <Container>
         <h3>
             <Amount value={1234500} currency='RUR' minority={100} />
         </h3>
     </Container>
-</Preview>
+```
 
 - Внутри параграфа
 
-<Preview>
+```tsx live
     <Container>
         <p>
             <Amount value={1234500} currency='RUR' minority={100} />
         </p>
     </Container>
-</Preview>
+```
 
 - Внутри красного текста
 
-<Preview>
+```tsx live
     <Container>
         <span style={{ color: 'red' }}>
             <Amount value={1234500} currency='RUR' minority={100} />
         </span>
     </Container>
-</Preview>
+```
 
 - Без стилей
 
-<Preview>
+```tsx live
     <Container>
         <span>
             <Amount.Pure value={1234500} currency='RUR' minority={100} />
         </span>
     </Container>
-</Preview>
+```

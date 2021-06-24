@@ -8,8 +8,8 @@ import { CalendarWithSkeleton } from '../Component';
 
 Календарь с возможностью скелетной загрузки
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render((() => {
         const [visible, setVisible] = React.useState(false);
         return (
             <>
@@ -17,34 +17,25 @@ import { CalendarWithSkeleton } from '../Component';
                 <Button size="xs" onClick={() => setVisible(!visible)}>toggle</Button>
             </>
         );
-    })}
-</Preview>
+    })
+```
 
-<Props of={CalendarWithSkeleton} />
 
 ## Использование с другими компонентами
 
-<Preview>
-    {React.createElement(() => {
-        return (
-            <CalendarInput
-                Calendar={CalendarWithSkeleton}
-                calendarProps={{ calendarVisible: false }}
-            />
-        );
-    })}
-</Preview>
+```tsx live
+<CalendarInput
+    Calendar={CalendarWithSkeleton}
+    calendarProps={{ calendarVisible: false }}
+/>
+```
 
-<Preview>
-    {React.createElement(() => {
-        return (
-            <CalendarRange
-                inputFromProps={{
-                    Calendar: CalendarWithSkeleton,
-                    disabled: true,
-                    calendarProps: {calendarVisible: false }
-                }}
-            />
-        );
-    })}
-</Preview>
+```tsx live
+<CalendarRange
+    inputFromProps={{
+        Calendar: CalendarWithSkeleton,
+        disabled: true,
+        calendarProps: {calendarVisible: false }
+    }}
+/>
+```

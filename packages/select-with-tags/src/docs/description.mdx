@@ -15,8 +15,8 @@ import { options } from './constants';
 
 Размеры `s` и `m` пока лучше не использовать, так как еще нет актуальных макетов.
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [value, setValue] = React.useState('');
         const handleInput = event => {
             setValue(event.target.value);
@@ -32,6 +32,6 @@ import { options } from './constants';
                 />
             </div>
         );
-    })}
-</Preview>
+    })
+```
 

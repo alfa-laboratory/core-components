@@ -13,8 +13,8 @@ import { usePeriod } from '../usePeriod';
 
 Задать границы можно с помощью свойств `minDate` и `maxDate`
 
-<Preview>
-      {React.createElement(() => {
+```tsx live
+      render(() => {
         const [value, setValue] = React.useState();
         const minDate = startOfDay(new Date());
         minDate.setDate(10);
@@ -29,13 +29,13 @@ import { usePeriod } from '../usePeriod';
                 maxDate={maxDate.getTime()}
             />
         );
-    })}
-</Preview>
+    })
+```
 
 ## Скрытие выбора года и месяца
 
-<Preview>
-      {React.createElement(() => {
+```tsx live
+      render(() => {
         const [value, setValue] = React.useState(new Date().setMonth(6));
         const minDate = startOfDay(new Date());
         minDate.setMonth(5);
@@ -50,8 +50,8 @@ import { usePeriod } from '../usePeriod';
                 maxDate={maxDate.getTime()}
             />
         );
-    })}
-</Preview>
+    })
+```
 
 
 ## Недоступные даты
@@ -60,8 +60,8 @@ import { usePeriod } from '../usePeriod';
 
 Задать недоступные даты можно, передав массив дат в свойство `offDays`
 
-<Preview>
-      {React.createElement(() => {
+```tsx live
+      render(() => {
         const [value, setValue] = React.useState();
         const offDays = [new Date().setDate(1), new Date().setDate(7), new Date().setDate(28)];
         return (
@@ -71,8 +71,8 @@ import { usePeriod } from '../usePeriod';
                 offDays={offDays}
             />
         );
-    })}
-</Preview>
+    })
+```
 
 
 ## Отметка о событии
@@ -81,8 +81,8 @@ import { usePeriod } from '../usePeriod';
 
 Задать события можно, передав массив дат в свойство `events`
 
-<Preview>
-      {React.createElement(() => {
+```tsx live
+      render(() => {
         const [value, setValue] = React.useState();
         const events = [
             new Date().setDate(3),
@@ -97,8 +97,8 @@ import { usePeriod } from '../usePeriod';
                 events={events}
             />
         );
-    })}
-</Preview>
+    })
+```
 
 
 ## Выделение периода
@@ -109,8 +109,8 @@ import { usePeriod } from '../usePeriod';
 
 Для автоматического управления выделением можно воспользоваться хуком `usePeriod`
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         // import { usePeriod } from '@alfalab/core-components/calendar';
         const [value, setValue] = React.useState();
         const onPeriodChange = (selectedFrom, selectedTo) => {
@@ -130,5 +130,5 @@ import { usePeriod } from '../usePeriod';
                 onChange={handleChange}
             />
         );
-    })}
-</Preview>
+    })
+```

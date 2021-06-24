@@ -8,13 +8,13 @@ import { Typography } from '../../../typography/src';
 Ссылка — элемент навигации, который обозначает возможность перехода на другую страницу
 или вызова нового информационного слоя.
 
-<Preview>
+```tsx live
     <Typography.Text view='primary-medium'>
         <Link view='default' href='https://alfabank.ru/get-money/credit-cards/100-days/'>
             Заказать карту
         </Link>
     </Typography.Text>
-</Preview>
+```
 
 
 
@@ -23,7 +23,7 @@ import { Typography } from '../../../typography/src';
 ### Обычная ссылка
 Нестареющая классика. Ссылка может вести как на страницу внутри системы, так и на внешний ресурс.
 
-<Preview>
+```tsx live
     <Container>
         <Row>
             <Link view="primary">
@@ -41,12 +41,12 @@ import { Typography } from '../../../typography/src';
             </Link>
         </Row>
     </Container>
-</Preview>
+```
 
 ### Псевдоссылка
 Вызывает информационный слой (collapse, dropdown, popup) без перехода на другую страницу.
 
-<Preview>
+```tsx live
     <Container>
         <Row>
             <Link view="primary" pseudo={true}>
@@ -64,13 +64,13 @@ import { Typography } from '../../../typography/src';
             </Link>
         </Row>
     </Container>
-</Preview>
+```
 
 ### Слоты для кастомизации
 Добавляет слоты `leftAddons` и `rightAddons` для кастомизации ссылок.
 Переданный контент будет отрисован слева или справа от текста ссылки.
 
-<Preview>
+```tsx live
     <Container>
         <Row>
             <Link
@@ -90,4 +90,4 @@ import { Typography } from '../../../typography/src';
             </Link>
         </Row>
     </Container>
-</Preview>
+```

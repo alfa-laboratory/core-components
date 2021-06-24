@@ -26,8 +26,8 @@ import { name, version } from '../../package.json';
 
 ### TabsDesktop
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [selectedId, setSelectedId] = React.useState('tab-1');
         const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
         return (
@@ -56,13 +56,13 @@ import { name, version } from '../../package.json';
                 </Tab>
             </TabsDesktop>
         );
-    })}
-</Preview>
+    })
+```
 
 ### TabsMobile
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [selectedId, setSelectedId] = React.useState('tab-1');
         const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
         return (
@@ -90,15 +90,15 @@ import { name, version } from '../../package.json';
                 </Tab>
             </TabsMobile>
         );
-    })}
-</Preview>
+    })
+```
 
 ### TabsResponsive
 
 Адаптивная версия табов, перестраивается при 768px
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [selectedId, setSelectedId] = React.useState('tab-1');
         const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
         return (
@@ -127,15 +127,15 @@ import { name, version } from '../../package.json';
                 </Tab>
             </TabsResponsive>
         );
-    })}
-</Preview>
+    })
+```
 
 ### Табы со слотом справа
 
 В заголовки табов можно добавлять дополнительные элементы с помощью свойства `rightAddons`
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [selectedId, setSelectedId] = React.useState('tab-1');
         const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
         return (
@@ -154,5 +154,5 @@ import { name, version } from '../../package.json';
                 </Tab>
             </TabsDesktop>
         );
-    })}
-</Preview>
+    })
+```

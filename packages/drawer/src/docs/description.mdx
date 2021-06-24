@@ -6,8 +6,8 @@ import { Button } from '../../../button/src';
 
 Компонент, представляющим собой заготовку для реализации сайд-панелей. В основе компонента лежит `BaseModal`.
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [open, setOpen] = React.useState(false);
         const handleModalOpen = () => setOpen(!open);
         return (
@@ -23,14 +23,14 @@ import { Button } from '../../../button/src';
                 </Drawer>
             </React.Fragment>
         );
-    })}
-</Preview>
+    })
+```
 
 
 ## Кастомные шапка и футер
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [open, setOpen] = React.useState(false);
         const handleModalOpen = () => setOpen(!open);
         return (
@@ -48,8 +48,8 @@ import { Button } from '../../../button/src';
                 </Drawer>
             </React.Fragment>
         );
-    })}
-</Preview>
+    })
+```
 
 
 export const Header = () => {

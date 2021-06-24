@@ -4,14 +4,16 @@ import { BankCard } from '@alfalab/core-components-bank-card';
 
 Компонент в виде карты для ввода номера карты или банковского счета.
 
+```tsx live
 <BankCard />
+```
 
 ### Controlled-way
 
 Компонент может быть использован как controlled с помощью `onChange` и `value`:
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [value, setValue] = React.useState('');
         const handleChange = (event, payload) => setValue(payload.value);
         return (
@@ -21,6 +23,6 @@ import { BankCard } from '@alfalab/core-components-bank-card';
                 <button type="button" onClick={() => setValue('')}>Очистить</button>
             </div>
         );
-    })}
-</Preview>
+    })
+```
 

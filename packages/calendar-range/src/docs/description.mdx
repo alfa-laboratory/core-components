@@ -12,8 +12,8 @@ import { CalendarRange } from '../Component'
 
 ### Controlled-way
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [valueFrom, setValueFrom] = React.useState('10.10.2020');
         const [valueTo, setValueTo] = React.useState('10.11.2020');
         return (
@@ -24,8 +24,8 @@ import { CalendarRange } from '../Component'
                 onDateToChange={({ value }) => setValueTo(value)}
             />
         );
-    })}
-</Preview>
+    })
+```
 
 ### Min/Max даты
 

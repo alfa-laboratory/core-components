@@ -8,13 +8,13 @@ import Icon from '@alfalab/icons-glyph/StarMIcon';
 import { Slider } from '../Component';
 import { name, version } from '../../package.json';
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [value, setValue] = React.useState(50);
         const handleChange = (event, { value }) => setValue(value);
         return (
             <Slider value={value} onChange={handleChange} />
         );
-    })}
-</Preview>
+    })
+```
 

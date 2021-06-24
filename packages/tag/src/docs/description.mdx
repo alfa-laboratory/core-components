@@ -10,8 +10,8 @@ export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
 
 Компонент тэг (чипсы).
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [checked, setChecked] = React.useState(false);
         const handleClick = () => setChecked(!checked);
         return (
@@ -24,13 +24,13 @@ export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
                 {text('label', 'Оплатить')}
             </Tag>
         );
-    })}
-</Preview>
+    })
+```
 
 ### Тэг с иконкой
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [checked, setChecked] = React.useState(false);
         const handleClick = () => setChecked(!checked);
         return (
@@ -42,5 +42,5 @@ export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
                 Нажми меня
             </Tag>
         );
-    })}
-</Preview>
+    })
+```

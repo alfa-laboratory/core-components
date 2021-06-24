@@ -10,8 +10,8 @@ import { options, matchOption } from './options'
 
 Компонент поля для ввода с автокомплитом
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [value, setValue] = React.useState('');
         const handleInput = event => {
             setValue(event.target.value);
@@ -30,14 +30,14 @@ import { options, matchOption } from './options'
                 value={value}
             />
         );
-    })}
-</Preview>
+    })
+```
 
 
 ### Кейс с очисткой поля
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [value, setValue] = React.useState('');
         const handleInput = event => {
             setValue(event.target.value);
@@ -65,14 +65,14 @@ import { options, matchOption } from './options'
                 }}
             />
         );
-    })}
-</Preview>
+    })
+```
 
 
 ### Автокомплит с тэгами
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [value, setValue] = React.useState('');
         const [selectedTags, setSelectedTags] = React.useState([]);
         const handleInput = event => {
@@ -109,14 +109,14 @@ import { options, matchOption } from './options'
                 </div>
             </React.Fragment>
         );
-    })}
-</Preview>
+    })
+```
 
 
 ### Ошибка при пустом значении
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [dirty, setDirty] = React.useState(false);
         const [value, setValue] = React.useState('');
         const handleInput = event => {
@@ -138,14 +138,14 @@ import { options, matchOption } from './options'
                 error={dirty && !value}
             />
         );
-    })}
-</Preview>
+    })
+```
 
 
 ### Поле с маской
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const mask = [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/];
         const cards = [
             {
@@ -201,14 +201,14 @@ import { options, matchOption } from './options'
                 }}
             />
         );
-    })}
-</Preview>
+    })
+```
 
 
 ### Multiple
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [value, setValue] = React.useState('');
         const handleInput = event => {
             setValue(event.target.value);
@@ -241,14 +241,15 @@ import { options, matchOption } from './options'
                 value={value}
             />
         );
-    })}
-</Preview>
+    })
+```
 
 
 ### Автокомплит со стрелкой
 
-```tsx
+```tsx live
 import { Arrow } from '@alfalab/core-components/select';
+
 <InputAutocomplete Arrow={Arrow} />
 ```
 

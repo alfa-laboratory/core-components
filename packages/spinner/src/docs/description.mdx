@@ -10,7 +10,9 @@ import { name, version } from '../../package.json';
 
 Компонент спиннера.
 
+```tsx live
 <Spinner visible={ true } size='s' />
+```
 
 <!-- Spacer -->
 <div style={{height: 32}} />
@@ -27,15 +29,20 @@ import { name, version } from '../../package.json';
 
 ## Примеры
 Spinner `size=s`:
+```tsx live
 <Spinner size='s' visible={ true }/>
+```
 <div style={{height: 32}} />
 
 Spinner `size=m`:
+```tsx live
 <Spinner size='m' visible={ true }/>
+```
 <div style={{height: 32}} />
 
 Spinner `size=s` in button:
 
+```tsx live
 <Button
     leftAddons={
         <Spinner
@@ -46,4 +53,5 @@ Spinner `size=s` in button:
 >
     Документы загружаются...
 </Button>
+```
 

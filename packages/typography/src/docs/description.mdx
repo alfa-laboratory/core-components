@@ -16,11 +16,12 @@ import { colors } from '../colors';
 
 ## Typography.Title
 
+```tsx live
 <Typography.Title>Стандартный заголовок для шрифта styrene</Typography.Title>
 <Typography.Title font='system'>Стандартный заголовок для шрифта system</Typography.Title>
-
-<Preview>
-    {React.createElement(() => {
+```
+```tsx live
+    render(() => {
         const VIEW_TYPES = [
             'xlarge',
             'large',
@@ -36,16 +37,18 @@ import { colors } from '../colors';
                 заголовок view='{view}'
             </Typography.Title>
         ))
-    })}
-</Preview>
+    })
+```
 
 ## Typography.TitleResponsive
 
+```tsx live
 <Typography.TitleResponsive>Адаптивный заголовок для шрифта styrene</Typography.TitleResponsive>
 <Typography.TitleResponsive font='system'>Адаптивный заголовок для шрифта system</Typography.TitleResponsive>
+```
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const VIEW_TYPES = [
             'xlarge',
             'large',
@@ -61,15 +64,15 @@ import { colors } from '../colors';
                 заголовок view='{view}'
             </Typography.TitleResponsive>
         ))
-    })}
-</Preview>
+    })
+```
 
 ## Typography.Text
 
 Компонент для оформления текста. Позволяет задать внешний вид, тэг и цвет текста.
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const VIEW_TYPES = [
             'primary-large',
             'primary-medium',
@@ -91,5 +94,5 @@ import { colors } from '../colors';
                 планковских значений.
             </Typography.Text>
         ));
-    })}
-</Preview>
+    })
+```

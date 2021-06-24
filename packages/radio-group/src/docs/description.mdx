@@ -11,8 +11,8 @@ import { Tag } from '../../../tag/src';
 
 Компонент группы радио.
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [value, setValue] = React.useState({ one: false, two: false, three: false });
         const onChange = (_, payload) => {
             setValue({ ...value, [payload.name]: payload.checked });
@@ -35,14 +35,14 @@ import { Tag } from '../../../tag/src';
                 <Radio label='Третий вариант' value='third' />
             </RadioGroup>
         );
-    })}
-</Preview>
+    })
+```
 
 
 ### Группа радио, использующая компонент `Tag`
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [value, setValue] = React.useState({ one: false, two: false, three: false });
         const onChange = (_, payload) => {
             setValue({ ...value, [payload.name]: payload.checked });
@@ -66,5 +66,5 @@ import { Tag } from '../../../tag/src';
                 </Tag>
             </RadioGroup>
         );
-    })}
-</Preview>
+    })
+```

@@ -20,8 +20,8 @@ import { version } from '../../package.json';
 
 Предоставляет стандартные компоненты `Header`, `Closer`, `Content`, `Footer`, а также доступ к контексту.
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [open, setOpen] = React.useState(false);
         const handleModalOpen = () => setOpen(!open);
         return (
@@ -52,13 +52,13 @@ import { version } from '../../package.json';
                 </ModalDesktop>
             </React.Fragment>
         );
-    })}
-</Preview>
+    })
+```
 
 ### Плавающий крестик без шапки
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [open, setOpen] = React.useState(false);
         const handleModalOpen = () => setOpen(!open);
         return (
@@ -70,18 +70,20 @@ import { version } from '../../package.json';
                 >
                     <ModalDesktop.Closer align="right" />
                     <ModalDesktop.Content>
-                        <Content />
+                        <Typography.Text tag='p'>
+                            Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона 115-ФЗ «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма».
+                        </Typography.Text>
                     </ModalDesktop.Content>
                 </ModalDesktop>
             </React.Fragment>
         );
-    })}
-</Preview>
+    })
+```
 
 ### Фиксации верхнего края
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [open, setOpen] = React.useState(false);
         const [loaded, setLoaded] = React.useState(false);
         const handleModalOpen = () => setOpen(!open);
@@ -119,8 +121,8 @@ import { version } from '../../package.json';
                 </ModalDesktop>
             </React.Fragment>
         );
-    })}
-</Preview>
+    })
+```
 
 ## Использование контекста и кастомные компоненты
 

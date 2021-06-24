@@ -7,7 +7,7 @@ import { Button } from '../../../button/src';
 
 ### Стандартный Collapse
 
-<Preview name='Collapse'>
+```tsx live name='Collapse'>
     <Collapse
         collapsedLabel='Подробнее'
         expandedLabel='Скрыть'
@@ -19,15 +19,15 @@ import { Button } from '../../../button/src';
             клиентов, инвестиционный банковский бизнес, торговое финансирование и т.д.
         </p>
     </Collapse>
-</Preview>
+```
 
 ### Collapse с кастомным контролом
 
 Управлять состоянием компонента можно снаружи используя любой контрол (например кнопку) и передавать
 текущее значение состояния через проп expanded
 
-<Preview name='Collapse with custom control'>
-    {React.createElement(() => {
+```tsx live name='Collapse with custom control'>
+    render(() => {
         const [expanded, setExpanded] = React.useState(false)
         return <>
             <Button onClick={() => setExpanded(!expanded)}>
@@ -44,5 +44,5 @@ import { Button } from '../../../button/src';
                 </p>
             </Collapse>
         </>
-    })}
-</Preview>
+    })
+```

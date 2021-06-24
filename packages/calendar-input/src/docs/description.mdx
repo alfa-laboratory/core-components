@@ -7,22 +7,22 @@ import styles from '../stories.module.css';
 
 Компонент для ввода даты.
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const defaultMonth = new Date('December 1, 2010 00:00:00');
         return (
             <CalendarInput label='Дата регистрации' defaultMonth={defaultMonth} />
         );
-    })}
-</Preview>
+    })
+```
 
 
 ### Controlled-way
 
 Компонент может быть использован как controlled с помощью `onChange` и `selected`:
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [value, setValue] = React.useState('');
         const handleChange = (event, { value }) => setValue(value);
         return (
@@ -32,16 +32,16 @@ import styles from '../stories.module.css';
                 label='Дата регистрации'
             />
         );
-    })}
-</Preview>
+    })
+```
 
 
 ### Рендер календаря под инпутом
 
 Календарь может рендериться как в поповере, так и под инпутом
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [value, setValue] = React.useState('');
         const handleChange = (event, { value }) => setValue(value);
         return (
@@ -52,16 +52,16 @@ import styles from '../stories.module.css';
                 calendarPosition='static'
             />
         );
-    })}
-</Preview>
+    })
+```
 
 
 ### Минимальная и максимальная дата
 
 Календарь может рендериться как в поповере, так и под инпутом
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const minDate = subMonths(startOfDay(new Date()), 2).getTime();
         const maxDate = addMonths(startOfDay(new Date()), 2).getTime();
         const [error, setError] = React.useState('');
@@ -88,8 +88,8 @@ import styles from '../stories.module.css';
                 error={error}
             />
         );
-    })}
-</Preview>
+    })
+```
 
 
 ### Инпут по ширине календаря

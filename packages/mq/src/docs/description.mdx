@@ -18,7 +18,7 @@ import { Mq, useMatchMedia } from '../';
 1. `matchMedia()` накладнее для браузера, чем матчинг элемента в CSS;
 2. Этот способ работает только на клиенте, и, при использовании SSR, может усилить различие серверной и финальной разметки, и добавить сложности к тестированию.
 
-<Preview>
+```tsx live
     <div>
         <Mq query="--mobile">
             <Button>Mobile button</Button>
@@ -27,15 +27,15 @@ import { Mq, useMatchMedia } from '../';
             <Button>Desktop button</Button>
         </Mq>
     </div>
-</Preview>
+```
 
 Помимо компонента, в пакете доступен хук `useMatchMedia`:
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const query = '(min-width: 600px)'
         const [matches] = useMatchMedia(query);
         return `Matches ${query}: ${matches}`;
-    })}
-</Preview>
+    })
+```
 

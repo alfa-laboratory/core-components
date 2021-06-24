@@ -3,8 +3,8 @@ import { Checkbox } from '../Component';
 
 Компонент чекбокса.
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [checked, setChecked] = React.useState(false);
         const handleChange = () => setChecked(!checked);
         return (
@@ -15,13 +15,13 @@ import { Checkbox } from '../Component';
                 hint='Соглашайтесь, будьте любезны'
             />
         );
-    })}
-</Preview>
+    })
+```
 
 ### Чекбокс c неопределенным (indeterminate) состоянием
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [checked, setChecked] = React.useState(false);
         const handleChange = () => setChecked(!checked);
         return (
@@ -32,5 +32,5 @@ import { Checkbox } from '../Component';
                 indeterminate={true}
             />
         );
-    })}
-</Preview>
+    })
+```

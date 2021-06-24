@@ -1,4 +1,5 @@
 
+import cn from 'classnames';
 import { Preview } from '@storybook/addon-docs/blocks';
 
 import { useFocus } from '@alfalab/hooks';
@@ -14,20 +15,23 @@ import { KeyboardFocusable } from '../Component';
 
 ## Компонент KeyboardFocusable
 
-export const focusOutlineStyles = {
-    outline: '2px solid var(--focus-color)',
-    outlineOffset: '2px',
-};
 
-<Preview>
+```tsx live
     <KeyboardFocusable>
-        {(ref, focused) => (
-            <button ref={ref} style={focused ? focusOutlineStyles : {}}>
-                focus me by keyboard
-            </button>
-        )}
+        {(ref, focused) => {
+            const focusOutlineStyles = {
+                outline: '2px solid var(--focus-color)',
+                outlineOffset: '2px',
+            };
+
+            return (
+                <button ref={ref} style={focused ? focusOutlineStyles : {}}>
+                    focus me by keyboard
+                </button>
+            )
+        }}
     </KeyboardFocusable>
-</Preview>
+```
 
 ```tsx
 // Нативный элемент
@@ -53,10 +57,10 @@ export const focusOutlineStyles = {
 ## Хук @alfalab/hooks/useFocus
 
 ```tsx
-const ref = useRef<HTMLButtonElement>(null);
-const { focused } = useFocus(ref, 'keyboard');
+    const ref = useRef<HTMLButtonElement>(null);
+    const { focused } = useFocus(ref, 'keyboard');
 
-return (
-    <button ref={ref} className={cn({ [styles.focused]: focused })}>focus me</button>
-);
+    return (
+        <button ref={ref} className={cn({ [styles.focused]: focused })}>focus me</button>
+    );
 ```

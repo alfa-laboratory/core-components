@@ -9,8 +9,8 @@ import { name, version } from '../../package.json';
 
 Компонент `Popover`. Под капотом использует `popper.js` и `react-transition-group`.
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const POSITION_OPTIONS = [
             'top',
             'top-start',
@@ -60,14 +60,14 @@ import { name, version } from '../../package.json';
                 </Button>
             </div>
         );
-    })}
-</Preview>
+    })
+```
 
 В редких случаях, если положение поповера не пересчитывается (например, при измененнии размера элемента-якоря),
 то можно воспользоваться методом `update`:
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [buttonElement, setButtonElement] = React.useState(null);
         const [count, setCount] = React.useState(1);
         const onClick = () => {
@@ -112,5 +112,5 @@ import { name, version } from '../../package.json';
                 </Button>
             </div>
         );
-    })}
-</Preview>
+    })
+```

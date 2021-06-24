@@ -9,8 +9,8 @@ import { name, version } from '../../package.json';
 
 Порталы позволяют рендерить дочерние элементы в DOM-узел, который находится вне DOM-иерархии родительского компонента.
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [show, setShow] = React.useState(false);
         const handleClick = () => setShow(!show);
         const styles = { border: '1px solid lightgray', marginTop: '10px' };
@@ -29,5 +29,5 @@ import { name, version } from '../../package.json';
                 </div>
             </div>
         );
-    })}
-</Preview>
+    })
+```

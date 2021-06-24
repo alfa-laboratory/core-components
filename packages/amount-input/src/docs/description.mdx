@@ -7,23 +7,25 @@ import { AmountInput } from '../Component';
 
 ☝️ В приложениях Клика используйте обёртку [newclick-composite-components/amount-input](http://digital/demo/newclick-composite-components/master/?path=/docs/form-amountinput--basic).
 
+```tsx live
 <AmountInput bold={false} />
+```
 
 
 ### Uncontrolled-way
 
 Можно ничего не передавать в компонент и реагировать на 'onChange'
 
-<Preview>
+```tsx live
     <AmountInput />
-</Preview>
+```
 
 ### Controlled-way
 
 Компонент может быть использован как controlled с помощью `onChange` и `selected`:
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [value, setValue] = React.useState(10000);
         const [suggests] = React.useState([
             { currency: 'RUR', minorUnits: 100, value: 15600 },
@@ -56,5 +58,5 @@ import { AmountInput } from '../Component';
                 </Row>
             </Container>
         );
-    })}
-</Preview>
+    })
+```

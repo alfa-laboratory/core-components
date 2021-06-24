@@ -28,8 +28,8 @@ const removeNotification = React.useCallback(id => {
 }, []);
 ```
 
-<Preview>
-    {React.createElement(() => {
+```tsx live
+    render(() => {
         const [notifications, setNotifications] = React.useState([]);
         const [count, setCount] = React.useState(0);
         const addNotification = () => {
@@ -64,5 +64,5 @@ const removeNotification = React.useCallback(id => {
                 />
             </div>
         );
-    })}
-</Preview>
+    })
+```

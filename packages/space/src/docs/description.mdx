@@ -15,27 +15,27 @@ import { name, version } from '../../package.json';
 
 Просто карточки.
 
-<Preview>
+```tsx live
     <Space>
         <CardImage cardId='EG' />
         <CardImage cardId='GQ' />
         <CardImage cardId='SU' />
     </Space>
-</Preview>
+```
 
 Пользовательское расстояние между карточками.
 
-<Preview>
+```tsx live
     <Space direction="horizontal" size={32}>
         <CardImage cardId='EG' />
         <CardImage cardId='GQ' />
         <CardImage cardId='SU' />
     </Space>
-</Preview>
+```
 
 Пользовательское расстояние между карточками в виде массива [64, 32].
 
-<Preview>
+```tsx live
     <div style={{ width: '700px' }}>
         <Space direction="horizontal" size={[64, 32]} wrap>
             <CardImage cardId='EG' />
@@ -43,21 +43,21 @@ import { name, version } from '../../package.json';
             <CardImage cardId='SU' />
         </Space>
     </div>
-</Preview>
+```
 
 С адаптивом.
 
-<Preview>
+```tsx live
     <Space direction="horizontal" size={32} wrap>
         <CardImage cardId='EG' />
         <CardImage cardId='GQ' />
         <CardImage cardId='SU' />
     </Space>
-</Preview>
+```
 
 С разделителем.
 
-<Preview>
+```tsx live
     <Space
         direction="vertical"
         divider={<Divider />}
@@ -67,11 +67,11 @@ import { name, version } from '../../package.json';
         <CardImage cardId='GQ' />
         <CardImage cardId='SU' />
     </Space>
-</Preview>
+```
 
 Группа для полей ввода. Каждое поле ввода с аттрибутом block. Space c fullWidth.
 
-<Preview>
+```tsx live
     <Space
         direction="horizontal"
         fullWidth
@@ -81,11 +81,11 @@ import { name, version } from '../../package.json';
         <Input block placeholder='Скромница луна.' />
         <Input block placeholder='(с) Мацуо Басе' />
     </Space>
-</Preview>
+```
 
 Автоматический перенос строки.
 
-<Preview>
+```tsx live
     <Space
         direction="horizontal"
         wrap
@@ -101,11 +101,11 @@ import { name, version } from '../../package.json';
         <Button>Над вишней в цвету</Button>
         <Button>Спряталась за облака</Button>
     </Space>
-</Preview>
+```
 
 Выравнивание.
 
-<Preview>
+```tsx live
     <Space direction="horizontal">
         <Space
             align="center"
@@ -122,9 +122,9 @@ import { name, version } from '../../package.json';
             <CardImage cardId='SU' />
         </Space>
     </Space>
-</Preview>
+```
 
-<Preview>
+```tsx live
     <Space direction="vertical">
         <Space
             direction="horizontal"
@@ -143,4 +143,4 @@ import { name, version } from '../../package.json';
             <CardImage cardId='SU' />
         </Space>
     </Space>
-</Preview>
+```

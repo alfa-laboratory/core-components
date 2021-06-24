@@ -15,7 +15,7 @@ import styles from '../stories.module.css';
 
 С контентом:
 
-<Preview>
+```tsx live
     <Container>
         <Skeleton
             visible={true}
@@ -39,11 +39,11 @@ import styles from '../stories.module.css';
             <Typography.Text view='primary-large' tag='tag'>Какой-то текст</Typography.Text>
         </Skeleton>
     </Container>
-</Preview>
+```
 
 С заданными размерами:
 
-<Preview>
+```tsx live
     <Container>
         <div className={styles.wrapper}>
             <Skeleton className={styles['example-2']} visible={true} />
@@ -53,4 +53,4 @@ import styles from '../stories.module.css';
             <Skeleton className={styles['example-6']} visible={true} />
         </div>
     </Container>
-</Preview>
+```
