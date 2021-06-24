@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, isValidElement } from 'react';
 import cn from 'classnames';
 import { Checkmark as DefaultCheckMark } from '../checkmark';
 import { OptionProps } from '../../typings';
@@ -16,17 +16,27 @@ export const Option: FC<OptionProps> = ({
     Checkmark = DefaultCheckMark,
     innerProps,
     dataTestId,
-}) => (
-    <div
-        {...innerProps}
-        className={cn(styles.option, styles[size], className, {
-            [styles.highlighted]: highlighted,
-            [styles.selected]: selected,
-            [styles.disabled]: disabled,
-        })}
-        data-test-id={dataTestId}
-    >
-        {Checkmark && <Checkmark selected={selected} />}
-        <div className={styles.content}>{children || option.content || option.key}</div>
-    </div>
-);
+}) => {
+    const content = children || option.content || option.key;
+
+    return (
+        <div
+            {...innerProps}
+            className={cn(styles.option, styles[size], className, {
+                [styles.highlighted]: highlighted,
+                [styles.selected]: selected,
+                [styles.disabled]: disabled,
+            })}
+            data-test-id={dataTestId}
+        >
+            {Checkmark && <Checkmark selected={selected} />}
+            <div
+                className={cn(styles.content, {
+                    [styles.textContent]: !isValidElement(content),
+                })}
+            >
+                {content}
+            </div>
+        </div>
+    );
+};
