@@ -37,6 +37,19 @@ describe('Textarea | sprite', () => {
                         size: { width: 240, height: 100 },
                     }),
                 ],
+                [
+                    `${theme} - counter`,
+                    createSpriteStorybookUrl({
+                        componentName: 'Textarea',
+                        knobs: {
+                            value: 'Компонент текстового поля ввода.',
+                            block: true,
+                            showCounter: true,
+                            maxLength: 500,
+                        },
+                        size: { width: 240, height: 100 },
+                    }),
+                ],
             ],
             screenshotOpts: {
                 fullPage: true,

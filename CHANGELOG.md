@@ -1,3 +1,24 @@
+# [17.6.0](https://github.com/alfa-laboratory/core-components/compare/v17.5.1...v17.6.0) (2021-06-22)
+
+
+### Bug Fixes
+
+* **intl-phone-input:** format input value ([#703](https://github.com/alfa-laboratory/core-components/issues/703)) ([b5e91ed](https://github.com/alfa-laboratory/core-components/commit/b5e91edf03867f5dc93fab78425f7c1a128afd9b))
+
+
+### Features
+
+* **dark-theme-styles-injector:** add prop for selector ([#709](https://github.com/alfa-laboratory/core-components/issues/709)) ([f74cdc7](https://github.com/alfa-laboratory/core-components/commit/f74cdc7b312321fcb111f1c64f21714ee403e513))
+* **slider-input:** design updates ([#673](https://github.com/alfa-laboratory/core-components/issues/673)) ([794e3cc](https://github.com/alfa-laboratory/core-components/commit/794e3cc99a3b61ec4faa630469dae7e49a56ee0a))
+* **textarea:** add value counter ([#695](https://github.com/alfa-laboratory/core-components/issues/695)) ([cbc6bd3](https://github.com/alfa-laboratory/core-components/commit/cbc6bd3eaa48e3df2791d23e156c7c664d67ff49))
+
+## [17.5.1](https://github.com/alfa-laboratory/core-components/compare/v17.5.0...v17.5.1) (2021-06-21)
+
+
+### Bug Fixes
+
+* **calendar-with-skeleton:** ref & six weeks height issues ([#705](https://github.com/alfa-laboratory/core-components/issues/705)) ([907ebe1](https://github.com/alfa-laboratory/core-components/commit/907ebe18641ee2e7e91fc4622527404c20867a54))
+
 # [17.5.0](https://github.com/alfa-laboratory/core-components/compare/v17.4.2...v17.5.0) (2021-06-17)
 
 

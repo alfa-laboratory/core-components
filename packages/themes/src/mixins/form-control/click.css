@@ -17,6 +17,7 @@
     /* focus */
     --form-control-focus-shadow: none;
     --form-control-focus-border-bottom: 0;
+    --form-control-focus-bg-color: var(--color-light-bg-tertiary);
     --form-control-hover-bg-color: var(--color-light-bg-tertiary);
 
     /* error */
