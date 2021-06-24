@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.27](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-masked-input@3.2.26...@alfalab/core-components-masked-input@3.2.27) (2021-06-22)
+
+**Note:** Version bump only for package @alfalab/core-components-masked-input
+
+
+
+
+
+## [3.2.26](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-masked-input@3.2.25...@alfalab/core-components-masked-input@3.2.26) (2021-06-08)
+
+
+### Bug Fixes
+
+* **masked-input:** inline module types ([#692](https://github.com/alfa-laboratory/core-components/issues/692)) ([004e60a](https://github.com/alfa-laboratory/core-components/commit/004e60ab61f51251b9d65d4d04fd9562eda5e766))
+
+
+
+
+
 ## [3.2.25](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-masked-input@3.2.24...@alfalab/core-components-masked-input@3.2.25) (2021-05-31)
 
 **Note:** Version bump only for package @alfalab/core-components-masked-input

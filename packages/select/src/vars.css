@@ -42,10 +42,10 @@
 
     /* optgroup */
 
-    --select-optgroup-color: var(--color-light-text-tertiary);
+    --select-optgroup-color: var(--color-light-text-secondary);
     --select-optgroup-background: var(--color-light-bg-primary);
-    --select-optgroup-left-padding: var(--gap-m);
-    --select-optgroup-right-padding: var(--gap-m);
-    --select-optgroup-l-left-padding: var(--gap-l);
-    --select-optgroup-l-right-padding: var(--gap-l);
+    --select-optgroup-left-padding: var(--gap-s);
+    --select-optgroup-right-padding: var(--gap-s);
+    --select-optgroup-l-left-padding: var(--gap-m);
+    --select-optgroup-l-right-padding: var(--gap-m);
 }

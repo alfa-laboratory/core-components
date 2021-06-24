@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@4.2.0...@alfalab/core-components-themes@4.3.0) (2021-06-22)
+
+
+### Features
+
+* **slider-input:** design updates ([#673](https://github.com/alfa-laboratory/core-components/issues/673)) ([794e3cc](https://github.com/alfa-laboratory/core-components/commit/794e3cc99a3b61ec4faa630469dae7e49a56ee0a))
+
+
+
+
+
+# [4.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@4.1.0...@alfalab/core-components-themes@4.2.0) (2021-06-08)
+
+
+### Features
+
+* **skeleton:** bg animation ([3dac97d](https://github.com/alfa-laboratory/core-components/commit/3dac97d18b9c7b2f63f55e2139a1adfb84710b88))
+* **skeleton:** bg animation ([37a52ad](https://github.com/alfa-laboratory/core-components/commit/37a52ad3e49f2873aaff86a768599d947a17c754))
+
+
+
+
+
 # [4.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@4.0.1...@alfalab/core-components-themes@4.1.0) (2021-06-04)
 
 

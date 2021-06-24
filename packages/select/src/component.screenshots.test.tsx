@@ -23,6 +23,25 @@ const options = [
     { key: '6', content: 'Californium' },
 ];
 
+const groups = [
+    {
+        label: 'Группа №1',
+        options: [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+            { key: '3', content: 'Berkelium' },
+            { key: '4', content: 'Californium' },
+        ],
+    },
+    {
+        label: 'Группа №2',
+        options: [
+            { key: '5', content: 'Americium' },
+            { key: '6', content: 'Curium' },
+        ],
+    },
+];
+
 describe('Select', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
@@ -72,7 +91,7 @@ describe('Select', () => {
     ['default', 'click'].map(testCase);
 });
 
-describe.only(
+describe(
     'Select',
     screenshotTesting({
         cases: [
@@ -212,4 +231,32 @@ describe('Select | interactions tests', () => {
             await closeBrowser({ browser, context, page });
         }
     });
+});
+
+describe('Select | optgroup', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme}`,
+                    createStorybookUrl({
+                        componentName: 'Select',
+                        knobs: {
+                            options: JSON.stringify(groups),
+                            selected: groups[0].options[1].key,
+                            size: 'l',
+                            defaultOpen: true,
+                            block: true,
+                            placeholder: 'Выберите элемент',
+                        },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            theme,
+        })();
+
+    ['default', 'click'].map(testCase);
 });

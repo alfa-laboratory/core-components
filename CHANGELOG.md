@@ -1,3 +1,62 @@
+# [17.6.0](https://github.com/alfa-laboratory/core-components/compare/v17.5.1...v17.6.0) (2021-06-22)
+
+
+### Bug Fixes
+
+* **intl-phone-input:** format input value ([#703](https://github.com/alfa-laboratory/core-components/issues/703)) ([b5e91ed](https://github.com/alfa-laboratory/core-components/commit/b5e91edf03867f5dc93fab78425f7c1a128afd9b))
+
+
+### Features
+
+* **dark-theme-styles-injector:** add prop for selector ([#709](https://github.com/alfa-laboratory/core-components/issues/709)) ([f74cdc7](https://github.com/alfa-laboratory/core-components/commit/f74cdc7b312321fcb111f1c64f21714ee403e513))
+* **slider-input:** design updates ([#673](https://github.com/alfa-laboratory/core-components/issues/673)) ([794e3cc](https://github.com/alfa-laboratory/core-components/commit/794e3cc99a3b61ec4faa630469dae7e49a56ee0a))
+* **textarea:** add value counter ([#695](https://github.com/alfa-laboratory/core-components/issues/695)) ([cbc6bd3](https://github.com/alfa-laboratory/core-components/commit/cbc6bd3eaa48e3df2791d23e156c7c664d67ff49))
+
+## [17.5.1](https://github.com/alfa-laboratory/core-components/compare/v17.5.0...v17.5.1) (2021-06-21)
+
+
+### Bug Fixes
+
+* **calendar-with-skeleton:** ref & six weeks height issues ([#705](https://github.com/alfa-laboratory/core-components/issues/705)) ([907ebe1](https://github.com/alfa-laboratory/core-components/commit/907ebe18641ee2e7e91fc4622527404c20867a54))
+
+# [17.5.0](https://github.com/alfa-laboratory/core-components/compare/v17.4.2...v17.5.0) (2021-06-17)
+
+
+### Bug Fixes
+
+* **select:** fix checkmark position on click theme ([#699](https://github.com/alfa-laboratory/core-components/issues/699)) ([0a3bab5](https://github.com/alfa-laboratory/core-components/commit/0a3bab52278b4db8f327a8bf5da97cfb5acecc6a))
+
+
+### Features
+
+* **notification:** add null autoCloseDelay ([#698](https://github.com/alfa-laboratory/core-components/issues/698)) ([6c2f0e0](https://github.com/alfa-laboratory/core-components/commit/6c2f0e083ec94797e8193b19d8bbafd042a5c2a5))
+* **select:** add useSelectWithLoading preset ([#693](https://github.com/alfa-laboratory/core-components/issues/693)) ([12d542f](https://github.com/alfa-laboratory/core-components/commit/12d542f11dddcd022c1ba895e4105115be0b98b2))
+
+## [17.4.2](https://github.com/alfa-laboratory/core-components/compare/v17.4.1...v17.4.2) (2021-06-09)
+
+
+### Bug Fixes
+
+* **skeleton:** remove vars that purge kills ([886d1b2](https://github.com/alfa-laboratory/core-components/commit/886d1b24b144d9d277821d3264f71a93c7a1b146))
+
+## [17.4.1](https://github.com/alfa-laboratory/core-components/compare/v17.4.0...v17.4.1) (2021-06-08)
+
+
+### Bug Fixes
+
+* **masked-input:** inline module types ([#692](https://github.com/alfa-laboratory/core-components/issues/692)) ([004e60a](https://github.com/alfa-laboratory/core-components/commit/004e60ab61f51251b9d65d4d04fd9562eda5e766))
+* **select:** calc height in effect ([#689](https://github.com/alfa-laboratory/core-components/issues/689)) ([83f8745](https://github.com/alfa-laboratory/core-components/commit/83f87454bcacfbb3473c688e222af3185daef5a9))
+* **select:** fix top bottom paddings ([#683](https://github.com/alfa-laboratory/core-components/issues/683)) ([866bc3b](https://github.com/alfa-laboratory/core-components/commit/866bc3bee9428f0f67f443b3be0ae23342213b0d))
+* **select:** update optgroup styles ([#679](https://github.com/alfa-laboratory/core-components/issues/679)) ([63a06ce](https://github.com/alfa-laboratory/core-components/commit/63a06ce4776e22f9374fe689b62e949772443fda))
+
+# [17.4.0](https://github.com/alfa-laboratory/core-components/compare/v17.3.0...v17.4.0) (2021-06-08)
+
+
+### Features
+
+* **skeleton:** bg animation ([3dac97d](https://github.com/alfa-laboratory/core-components/commit/3dac97d18b9c7b2f63f55e2139a1adfb84710b88))
+* **skeleton:** bg animation ([37a52ad](https://github.com/alfa-laboratory/core-components/commit/37a52ad3e49f2873aaff86a768599d947a17c754))
+
 # [17.3.0](https://github.com/alfa-laboratory/core-components/compare/v17.2.0...v17.3.0) (2021-06-07)
 
 
