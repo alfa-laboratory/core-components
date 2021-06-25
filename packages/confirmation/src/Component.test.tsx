@@ -203,8 +203,8 @@ describe('Confirmation', () => {
     });
 
     describe('Sms retry tests', () => {
-        const buttonRetryInHintText = Confirmation.defaultProps?.buttonRetryText;
-        const buttonRetryText = 'Запросить новый код';
+        const buttonReturnInHintText = Confirmation.defaultProps?.buttonReturnText as string;
+        const buttonRetryText = Confirmation.defaultProps?.buttonRetryText as string;
         const hintLinkText = 'Не приходит сообщение?';
 
         it('should display retry button', async () => {
@@ -214,14 +214,30 @@ describe('Confirmation', () => {
             expect(buttonRetry).toBeInTheDocument();
         });
 
-        it('should set custom buttonRetryText in hint', async () => {
-            const customButtonRetryTextInHint = 'Send code again';
+        it('should set custom buttonRetryText', async () => {
+            const customButtonRetryText = 'Запросить код повторно';
+
+            const { findByText } = render(
+                <Confirmation
+                    {...baseProps}
+                    buttonRetryText={customButtonRetryText}
+                    countdownDuration={0}
+                />,
+            );
+
+            const buttonRetry = await findByText(customButtonRetryText);
+
+            expect(buttonRetry).toBeInTheDocument();
+        });
+
+        it('should set custom buttonReturnText in hint', async () => {
+            const customButtonReturnTextInHint = 'Send code again';
 
             const { findByText } = render(
                 <Confirmation
                     {...baseProps}
                     countdownDuration={0}
-                    buttonRetryText={customButtonRetryTextInHint}
+                    buttonReturnText={customButtonReturnTextInHint}
                 />,
             );
 
@@ -231,7 +247,7 @@ describe('Confirmation', () => {
             const smsHintButton = await findByText(hintLinkText);
             smsHintButton.click();
 
-            const buttonWithCustomText = await findByText(customButtonRetryTextInHint);
+            const buttonWithCustomText = await findByText(customButtonReturnTextInHint);
 
             expect(buttonWithCustomText).toBeInTheDocument();
         });
@@ -270,7 +286,7 @@ describe('Confirmation', () => {
             const smsHintButton = await findByText(hintLinkText);
             smsHintButton.click();
 
-            const buttonRetryInHint = await findByText(buttonRetryInHintText as string);
+            const buttonRetryInHint = await findByText(buttonReturnInHintText);
             buttonRetryInHint.click();
 
             expect(onSmsRetryClick).toBeCalled();
