@@ -29,6 +29,7 @@
     --radio-checked-disabled-bg-color: var(--color-light-graphic-neutral);
     --radio-checked-disabled-border-color: transparent;
 
+    /* icon */
     --radio-icon-color: var(--color-light-bg-primary);
 }
 

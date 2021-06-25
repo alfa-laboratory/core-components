@@ -7,7 +7,6 @@
     --color-light-graphic-primary-inverted: #f3f4f5;
     --color-light-border-key: #000;
 
-    /* theme */
     /* unchecked */
     --checkbox-bg-color: var(--color-light-graphic-primary-inverted);
     --checkbox-border-color: var(--color-light-graphic-secondary);
@@ -23,5 +22,6 @@
     --checkbox-checked-active-bg-color: color-mod(var(--color-light-graphic-primary) shade(30%));
     --checkbox-checked-bg-color: var(--color-light-graphic-primary);
 
+    /* icon */
     --checkbox-icon-color: var(--color-light-graphic-primary-inverted);
 }

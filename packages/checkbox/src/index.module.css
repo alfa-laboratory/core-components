@@ -29,6 +29,7 @@
     --checkbox-checked-disabled-bg-color: var(--color-light-graphic-neutral);
     --checkbox-checked-disabled-border-color: transparent;
 
+    /* icon */
     --checkbox-icon-color: var(--color-light-bg-primary);
 }
 
