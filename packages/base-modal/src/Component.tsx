@@ -10,6 +10,8 @@ import React, {
     useEffect,
     useMemo,
     Ref,
+    FC,
+    MutableRefObject,
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
@@ -19,7 +21,7 @@ import { TransitionProps } from 'react-transition-group/Transition';
 import FocusLock from 'react-focus-lock';
 
 import { Portal, PortalProps } from '@alfalab/core-components-portal';
-import { Backdrop, BackdropProps } from '@alfalab/core-components-backdrop';
+import { Backdrop as DefaultBackdrop, BackdropProps } from '@alfalab/core-components-backdrop';
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 
 import { handleContainer, hasScrollbar, isScrolledToBottom, isScrolledToTop } from './utils';
@@ -31,6 +33,11 @@ export type BaseModalProps = {
      * Контент
      */
     children?: ReactNode;
+
+    /**
+     * Компонент бэкдропа
+     */
+    Backdrop?: FC<BackdropProps>;
 
     /**
      * Свойства для Бэкдропа
@@ -100,7 +107,10 @@ export type BaseModalProps = {
      */
     wrapperClassName?: string;
 
-    scrollHandler?: 'wrapper' | 'content';
+    /**
+     * Обработчик скролла контента
+     */
+    scrollHandler?: 'wrapper' | 'content' | MutableRefObject<HTMLElement | null>;
 
     /**
      * Пропсы для анимации (CSSTransition)
@@ -179,6 +189,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             container,
             children,
             scrollHandler = 'wrapper',
+            Backdrop = DefaultBackdrop,
             backdropProps = {},
             transitionProps = {},
             disableBackdropClick,
@@ -210,7 +221,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         const componentRef = useRef<HTMLDivElement>(null);
         const contentRef = useRef<HTMLDivElement>(null);
         const wrapperRef = useRef<HTMLDivElement>(null);
-        const scrollableNodeRef = useRef<HTMLDivElement | null>(null);
+        const scrollableNodeRef = useRef<HTMLElement | null>(null);
         const restoreContainerStyles = useRef<null | Function>(null);
 
         const shouldRender = keepMounted || open || !exited;
@@ -302,10 +313,15 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             [disableEscapeKeyDown, handleClose],
         );
 
+        const getScrollHandler = useCallback(() => {
+            if (scrollHandler === 'wrapper') return wrapperRef.current;
+            if (scrollHandler === 'content') return componentRef.current;
+            return scrollHandler.current || wrapperRef.current;
+        }, [scrollHandler]);
+
         const handleEntered: Required<TransitionProps>['onEntered'] = useCallback(
             (node, isAppearing) => {
-                scrollableNodeRef.current =
-                    scrollHandler === 'content' ? componentRef.current : wrapperRef.current;
+                scrollableNodeRef.current = getScrollHandler();
 
                 addResizeHandle();
 
@@ -320,7 +336,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
                 if (onMount) onMount();
             },
-            [addResizeHandle, handleScroll, onMount, scrollHandler, transitionProps],
+            [addResizeHandle, getScrollHandler, handleScroll, onMount, transitionProps],
         );
 
         const handleExited: Required<TransitionProps>['onExited'] = useCallback(
