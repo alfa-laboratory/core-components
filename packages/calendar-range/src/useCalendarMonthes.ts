@@ -16,9 +16,10 @@ export function useCalendarMonthes({
     defaultMonth,
     isPopover,
 }: useMonthProps) {
-    const initialMonthFrom = !inputValueFrom.value
-        ? defaultMonth
-        : startOfMonth(inputValueFrom.date!).getTime();
+    const initialMonthFrom =
+        !inputValueFrom.value || !inputValueFrom.date
+            ? defaultMonth
+            : startOfMonth(inputValueFrom.date).getTime();
 
     const initialMonthTo = isPopover ? initialMonthFrom : addMonths(initialMonthFrom, 1).getTime();
 

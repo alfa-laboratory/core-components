@@ -12,9 +12,10 @@ import {
 } from '@alfalab/core-components-calendar-input';
 import { isDayButton, ValueState, getCorrectValueState, initialValueState } from './utils';
 
-import styles from './index.module.css';
 import { useCalendarMonthes } from './useCalendarMonthes';
 import { useCalendarMaxMinDates } from './useCalendarMaxMinDates';
+
+import styles from './index.module.css';
 
 export type CalendarRangeProps = {
     /**
@@ -75,7 +76,7 @@ export type CalendarRangeProps = {
     /**
      * Определяет, как рендерить календарь — в поповере или снизу инпута
      */
-    isPopover?: boolean;
+    calendarPosition?: 'static' | 'popover';
 };
 
 export const CalendarRange: FC<CalendarRangeProps> = ({
@@ -89,10 +90,11 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
     onDateToChange,
     inputFromProps = {},
     inputToProps = {},
-    isPopover = false,
+    calendarPosition = 'static',
     dataTestId,
 }) => {
     const uncontrolled = valueFrom === undefined && valueTo === undefined;
+    const isPopover = calendarPosition === 'popover';
 
     const period = usePeriod({
         initialSelectedFrom: valueFrom ? parseDateString(valueFrom).getTime() : undefined,
@@ -262,7 +264,6 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
         [nextMonthHighlighted],
     );
 
-    const calendarPosition = isPopover ? 'popover' : 'static';
     const selectorView = isPopover ? 'full' : 'month-only';
     const calendarSelectedTo = selectedTo || (nextMonthHighlighted ? monthTo : undefined);
     const maxMinDates = useCalendarMaxMinDates({

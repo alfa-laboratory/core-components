@@ -202,7 +202,7 @@ describe('CalendarRange', () => {
                 <CalendarRange
                     inputFromProps={{ calendarProps: { className: 'from-calendar' } }}
                     inputToProps={{ calendarProps: { className: 'to-calendar' } }}
-                    isPopover={true}
+                    calendarPosition='popover'
                 />,
             );
 
@@ -227,7 +227,7 @@ describe('CalendarRange', () => {
             const { queryAllByRole } = render(
                 <CalendarRange
                     inputToProps={{ calendarProps: { className: 'to-calendar' } }}
-                    isPopover={true}
+                    calendarPosition='popover'
                 />,
             );
 
