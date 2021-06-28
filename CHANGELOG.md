@@ -1,3 +1,27 @@
+# [18.0.0](https://github.com/alfa-laboratory/core-components/compare/v17.6.0...v18.0.0) (2021-06-28)
+
+
+### Bug Fixes
+
+* **base-modal:** fix has scroll bug ([#712](https://github.com/alfa-laboratory/core-components/issues/712)) ([a6749a1](https://github.com/alfa-laboratory/core-components/commit/a6749a149d511b28cc59aaec188d59c380c64243))
+* **space:** remove last element margin ([#713](https://github.com/alfa-laboratory/core-components/issues/713)) ([bc36cf7](https://github.com/alfa-laboratory/core-components/commit/bc36cf7db35cbd7c5d36c178a50bbd27d2f11b0c))
+* **typography:** add missing weight styles ([#719](https://github.com/alfa-laboratory/core-components/issues/719)) ([6b855aa](https://github.com/alfa-laboratory/core-components/commit/6b855aa97eff918e0e16f957c4c05bb7f2d8f4fe))
+
+
+### Features
+
+* **bottom-sheet:** new component (PDS-228) ([#645](https://github.com/alfa-laboratory/core-components/issues/645)) ([1f7391d](https://github.com/alfa-laboratory/core-components/commit/1f7391df16a270d8a3a28b8ebaf98d0ed0928bc8)), closes [#642](https://github.com/alfa-laboratory/core-components/issues/642) [#642](https://github.com/alfa-laboratory/core-components/issues/642) [#646](https://github.com/alfa-laboratory/core-components/issues/646) [#646](https://github.com/alfa-laboratory/core-components/issues/646) [#634](https://github.com/alfa-laboratory/core-components/issues/634) [#635](https://github.com/alfa-laboratory/core-components/issues/635) [#634](https://github.com/alfa-laboratory/core-components/issues/634) [#635](https://github.com/alfa-laboratory/core-components/issues/635) [#648](https://github.com/alfa-laboratory/core-components/issues/648) [#647](https://github.com/alfa-laboratory/core-components/issues/647) [#630](https://github.com/alfa-laboratory/core-components/issues/630) [#648](https://github.com/alfa-laboratory/core-components/issues/648) [#630](https://github.com/alfa-laboratory/core-components/issues/630) [#669](https://github.com/alfa-laboratory/core-components/issues/669)
+* **confirmation:** add property for change retry button text ([#720](https://github.com/alfa-laboratory/core-components/issues/720)) ([c0f7688](https://github.com/alfa-laboratory/core-components/commit/c0f76888cffff8ad4169769bc4615429663352a5))
+* **skeleton:** add display var, change default to block ([#718](https://github.com/alfa-laboratory/core-components/issues/718)) ([27aaa60](https://github.com/alfa-laboratory/core-components/commit/27aaa605a958d932a52904556ac2fe1dd59356af))
+
+
+### BREAKING CHANGES
+
+* **skeleton:** inline-block changes to block
+* **confirmation:** buttonRetryText renamed to buttonReturnText
+
+Co-authored-by: Alexander Soldatov <aesoldatov@alfabank.ru>
+
 # [17.6.0](https://github.com/alfa-laboratory/core-components/compare/v17.5.1...v17.6.0) (2021-06-22)
 
 
