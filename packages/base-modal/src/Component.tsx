@@ -9,6 +9,7 @@ import React, {
     ReactNode,
     useEffect,
     useMemo,
+    Ref,
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
@@ -153,7 +154,7 @@ export type BaseModalContext = {
     hasScroll?: boolean;
     headerHighlighted?: boolean;
     footerHighlighted?: boolean;
-    contentRef: (node: HTMLDivElement) => void;
+    contentRef: Ref<HTMLElement>;
     setHasHeader: (exists: boolean) => void;
     setHasFooter: (exists: boolean) => void;
     onClose: Required<BaseModalProps>['onClose'];
