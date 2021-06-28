@@ -113,7 +113,7 @@ export type ConfirmationProps = {
     buttonReturnText?: string;
 
     /**
-     * Текст кнопки "Запросить код"
+     * Текст кнопки "Запросить новый код"
      */
     buttonRetryText?: string;
 
