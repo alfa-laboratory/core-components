@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@6.1.0...@alfalab/core-components-confirmation@7.0.0) (2021-06-28)
+
+
+### Features
+
+* **confirmation:** add property for change retry button text ([#720](https://github.com/alfa-laboratory/core-components/issues/720)) ([c0f7688](https://github.com/alfa-laboratory/core-components/commit/c0f76888cffff8ad4169769bc4615429663352a5))
+
+
+### BREAKING CHANGES
+
+* **confirmation:** buttonRetryText renamed to buttonReturnText
+
+Co-authored-by: Alexander Soldatov <aesoldatov@alfabank.ru>
+
+
+
+
+
 # [6.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@6.0.0...@alfalab/core-components-confirmation@6.1.0) (2021-05-31)
 
 
