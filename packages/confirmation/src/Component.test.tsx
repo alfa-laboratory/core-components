@@ -220,8 +220,8 @@ describe('Confirmation', () => {
             const { findByText } = render(
                 <Confirmation
                     {...baseProps}
-                    buttonRetryText={customButtonRetryText}
                     countdownDuration={0}
+                    buttonRetryText={customButtonRetryText}
                 />,
             );
 
