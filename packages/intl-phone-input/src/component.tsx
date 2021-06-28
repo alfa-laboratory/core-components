@@ -11,6 +11,7 @@ import {
 } from '@alfalab/core-components-input-autocomplete';
 import { CountriesSelect } from './components';
 import styles from './index.module.css';
+import { formatPhoneWithUnclearableCountryCode } from './utils/format-phone-with-unclearable-country-code';
 
 const countriesHash = getCountriesHash();
 
@@ -181,21 +182,12 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 }
 
                 if (!clearableCountryCode) {
-                    let newValue;
+                    const newValue = formatPhoneWithUnclearableCountryCode(targetValue, country);
 
-                    if (targetValue[0] === '8') {
-                        newValue = `+${country.dialCode}${targetValue.substr(1)}`;
-                        setValue(newValue);
-                        return;
-                    }
-
-                    if (targetValue.substr(1) < country.dialCode) {
-                        newValue = `+${country.dialCode}`;
-                        setValue(newValue);
-                        return;
-                    }
-                    setValue(targetValue);
+                    setValue(newValue);
+                    return;
                 }
+                setValue(targetValue);
             },
             [clearableCountryCode, countryIso2, setCountryByDialCode, setValue, value.length],
         );

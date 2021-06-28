@@ -6,6 +6,10 @@
     position: relative;
 }
 
+.calendarVisible {
+    height: auto;
+}
+
 .skeleton {
     display: flex;
     flex-direction: column;

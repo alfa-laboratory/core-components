@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-keyboard-focusable@1.2.11...@alfalab/core-components-keyboard-focusable@1.3.0) (2021-06-22)
+
+
+### Features
+
+* **slider-input:** design updates ([#673](https://github.com/alfa-laboratory/core-components/issues/673)) ([794e3cc](https://github.com/alfa-laboratory/core-components/commit/794e3cc99a3b61ec4faa630469dae7e49a56ee0a))
+
+
+
+
+
 ## [1.2.11](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-keyboard-focusable@1.2.10...@alfalab/core-components-keyboard-focusable@1.2.11) (2021-04-26)
 
 **Note:** Version bump only for package @alfalab/core-components-keyboard-focusable

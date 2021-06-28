@@ -91,7 +91,7 @@ const processPostCss = async (content, cssFile) =>
         fs.writeFileSync(`../css/colors/${path.basename(file)}`, css);
         fs.writeFileSync(
             `../css/colors/${path.basename(file).replace(/\.css$/, '.js')}`,
-            `module.exports = \`${css}\``,
+            `module.exports = \`${vars}\``,
         );
     });
 
