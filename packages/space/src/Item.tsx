@@ -29,12 +29,12 @@ const Item = (props: ItemProps) => {
     let style: React.CSSProperties = {};
 
     if (direction === 'vertical') {
-        if (index < length) {
+        if (index < length - 1) {
             style = { marginBottom: horizontalSize / (divider ? 2 : 1) };
         }
     } else {
         style = {
-            ...(index < length && { marginRight: horizontalSize / (divider ? 2 : 1) }),
+            ...(index < length - 1 && { marginRight: horizontalSize / (divider ? 2 : 1) }),
             ...(wrap && { paddingBottom: verticalSize }),
         };
     }
