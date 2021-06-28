@@ -49,6 +49,7 @@ export type CountdownProps = {
     hasPhoneMask: boolean;
     phone?: string;
     alignContent: string;
+    buttonRetryText: string;
     noAttemptsLeftMessage?: string;
     hasError: boolean;
     onCountdownFinished?: () => void;
@@ -59,6 +60,7 @@ export const Countdown: FC<CountdownProps> = ({
     duration = 5000,
     phone = '',
     hasPhoneMask = true,
+    buttonRetryText,
     alignContent,
     noAttemptsLeftMessage,
     hasError,
@@ -157,7 +159,7 @@ export const Countdown: FC<CountdownProps> = ({
                     onClick={handleRepeatSmsButtonClick}
                     className={styles.getCodeButton}
                 >
-                    Запросить новый код
+                    {buttonRetryText}
                 </Button>
             ) : (
                 <div>
