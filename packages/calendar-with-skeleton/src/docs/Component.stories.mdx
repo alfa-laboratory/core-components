@@ -4,6 +4,7 @@ import { Tabs } from 'storybook/blocks/tabs';
 
 import styles from '!!raw-loader!../index.module.css';
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import { name, version } from '../../package.json';
 import { Button } from '../../../button/src';
 import { CalendarWithSkeleton } from '../.';
@@ -46,6 +47,7 @@ import { CalendarWithSkeleton } from '@alfalab/core-components-calendar-with-ske
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={CalendarWithSkeleton} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props of={CalendarWithSkeleton} />}
 />

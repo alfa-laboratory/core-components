@@ -3,6 +3,7 @@ import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import { Button } from '../../../button/src';
 import { Portal } from '../Component';
 import { name, version } from '../../package.json';
@@ -30,5 +31,6 @@ import { Portal } from '@alfalab/core-components-portal';
 
 <Tabs
   description={<Description />}
+  changelog={changelog}
   props={<Props of={Portal} />}
 />

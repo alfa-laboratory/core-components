@@ -5,6 +5,7 @@ import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import { Confirmation } from '../component';
 import { name, version } from '../../package.json';
 import { Select } from '../../../select/src/Component';
@@ -131,6 +132,7 @@ import { Confirmation } from '@alfalab/core-components-confirmation';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={Confirmation} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props of={Confirmation} />}
 />

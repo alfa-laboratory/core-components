@@ -5,6 +5,7 @@ import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 import { CssVars } from 'storybook/blocks/css-vars';
 
@@ -42,6 +43,7 @@ import { ProgressBar } from '@alfalab/core-components-progress-bar';
 
 <Tabs
   description={<Description />}
+  changelog={changelog}
   props={<Props of={ProgressBar} />}
   cssVars={<CssVars css={styles} />}
 />

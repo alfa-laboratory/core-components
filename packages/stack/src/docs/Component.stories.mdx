@@ -7,6 +7,7 @@ import { Portal } from '../../../portal/src';
 import { ModalDesktop } from '../../../modal/src/desktop';
 import { Tooltip } from '../../../tooltip/src';
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import { Stack } from '../';
 import { name, version } from '../../package.json';
 
@@ -35,5 +36,6 @@ import { Stack } from '@alfalab/core-components-stack';
 
 <Tabs
   description={<Description />}
+  changelog={changelog}
   props={<Props of={Stack} />}
 />

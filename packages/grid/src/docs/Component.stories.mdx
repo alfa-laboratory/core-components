@@ -3,6 +3,7 @@ import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import { Grid } from '../Component';
 import { name, version } from '../../package.json';
 
@@ -51,6 +52,7 @@ import { Grid } from '@alfalab/core-components-grid';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props components={Grid} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props components={Grid} />}
 />

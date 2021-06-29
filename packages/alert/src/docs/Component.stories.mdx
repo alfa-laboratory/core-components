@@ -6,7 +6,8 @@ import { ComponentHeader } from 'storybook/blocks/component-header';
 
 import { Alert } from '../Component';
 import { Button } from '../../../button/src';
-import Description from './description.mdx'
+import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 
 import { name, version } from '../../package.json';
 
@@ -49,4 +50,5 @@ import { Alert } from '@alfalab/core-components-alert';
 <Tabs 
     description={<Description />}
     props={<Props of={Alert} />}
+    changelog={changelog}
 />

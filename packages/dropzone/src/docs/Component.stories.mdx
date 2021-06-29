@@ -7,6 +7,7 @@ import { Tabs } from 'storybook/blocks/tabs';
 import Description, { Container } from './description.mdx';
 import { Dropzone } from '../Component';
 import { name, version } from '../../package.json';
+import changelog from '../../CHANGELOG.md';
 
 <Meta
     title='Компоненты/Dropzone'
@@ -43,6 +44,7 @@ import { Dropzone } from '@alfalab/core-components-dropzone';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={Dropzone} />}
+    description={<Description />}
+    props={<Props of={Dropzone} />}
+    changelog={changelog}
 />

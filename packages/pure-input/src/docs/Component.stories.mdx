@@ -4,6 +4,7 @@ import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import { PureInput } from '../Component';
 import { name, version } from '../../package.json';
 
@@ -47,6 +48,7 @@ import { PureInput } from '@alfalab/core-components-pure-input';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={PureInput} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props of={PureInput} />}
 />

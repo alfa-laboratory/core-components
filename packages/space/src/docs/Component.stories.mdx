@@ -8,6 +8,7 @@ import { Divider } from '@alfalab/core-components-divider';
 import { Tabs } from 'storybook/blocks/tabs';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import { Space } from '../Component';
 import { name, version } from '../../package.json';
 
@@ -54,6 +55,7 @@ import { Space } from '@alfalab/core-components-space';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={Space} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props of={Space} />}
 />

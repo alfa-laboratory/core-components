@@ -5,6 +5,7 @@ import { Button } from "@alfalab/core-components-button";
 import { Tabs } from 'storybook/blocks/tabs';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 import { CssVars } from 'storybook/blocks/css-vars';
 import { Notification } from '../Component';
@@ -46,7 +47,8 @@ import { Notification } from '@alfalab/core-components-notification';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={Notification} />}
-  cssVars={<CssVars css={styles} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props of={Notification} />}
+    cssVars={<CssVars css={styles} />}
 />

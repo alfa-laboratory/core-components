@@ -1,0 +1,6 @@
+import { Description } from '@storybook/addon-docs/blocks';
+import changelog from '../CHANGELOG.md';
+
+<Meta title='Гайдлайны/Changelog' />
+
+<Description>{changelog.replace(/^# \[/gm, '## [')}</Description>

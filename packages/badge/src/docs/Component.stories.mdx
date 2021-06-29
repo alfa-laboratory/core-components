@@ -13,6 +13,7 @@ import { InformationCircleMIcon } from '@alfalab/icons-glyph';
 import { ClockMIcon } from '@alfalab/icons-glyph';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 import { Badge } from '../Component';
 import { name, version } from '../../package.json';
@@ -71,7 +72,8 @@ import { Badge } from '@alfalab/core-components-badge';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={Badge} />}
-  cssVars={<CssVars css={styles} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props of={Badge} />}
+    cssVars={<CssVars css={styles} />}
 />

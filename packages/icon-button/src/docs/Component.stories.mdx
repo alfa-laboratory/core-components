@@ -6,6 +6,7 @@ import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { Tabs } from 'storybook/blocks/tabs';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import defaultStyles from '!!raw-loader!../default.module.css';
 import styles from '!!raw-loader!../index.module.css';
 import { CssVars } from 'storybook/blocks/css-vars';
@@ -63,9 +64,10 @@ import { IconButton } from '@alfalab/core-components-icon-button';
 
 
 <Tabs
-  description={<Description />}
-  props={<Props of={IconButton} />}
-  cssVars={<CssVars css={`${styles}${defaultStyles}`} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props of={IconButton} />}
+    cssVars={<CssVars css={`${styles}${defaultStyles}`} />}
 />
 
 

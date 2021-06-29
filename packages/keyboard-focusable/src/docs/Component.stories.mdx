@@ -3,6 +3,7 @@ import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import { KeyboardFocusable } from '../Component';
 import { name, version } from '../../package.json';
 
@@ -29,5 +30,6 @@ import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
 
 <Tabs
   description={<Description />}
+  changelog={changelog}
   props={<Props of={KeyboardFocusable} />}
 />

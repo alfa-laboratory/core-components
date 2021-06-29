@@ -11,6 +11,7 @@ import { MaskedInput } from '@alfalab/core-components-masked-input';
 import { Arrow, Option } from '@alfalab/core-components-select';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import { InputAutocomplete } from '../Component';
 import { name, version } from '../../package.json';
 import { options, matchOption } from './options'
@@ -75,6 +76,7 @@ import { InputAutocomplete } from '@alfalab/core-components-input-autocomplete';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={InputAutocomplete} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props of={InputAutocomplete} />}
 />

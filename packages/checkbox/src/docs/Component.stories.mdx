@@ -6,6 +6,7 @@ import { CssVars } from 'storybook/blocks/css-vars';
 import styles from '!!raw-loader!../index.module.css';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import { Checkbox } from '../Component';
 import { name, version } from '../../package.json';
 
@@ -64,7 +65,8 @@ import { Checkbox } from '@alfalab/core-components-checkbox';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={Checkbox} />}
-  cssVars={<CssVars css={styles} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props of={Checkbox} />}
+    cssVars={<CssVars css={styles} />}
 />

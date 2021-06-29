@@ -9,8 +9,7 @@ import styles from '!!raw-loader!../index.module.css';
 import { CssVars } from 'storybook/blocks/css-vars';
 import { Tag } from '../Component';
 import { name, version } from '../../package.json';
-
-
+import changelog from '../../CHANGELOG.md';
 
 <Meta
     title='Компоненты/Tag'
@@ -58,4 +57,5 @@ import { Tag } from '@alfalab/core-components-tag';
   description={<Description />}
   props={<Props of={Tag} />}
   cssVars={<CssVars css={styles} />}
+  changelog={changelog}
 />

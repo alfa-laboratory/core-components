@@ -9,6 +9,7 @@ import { Button } from '../../../button/src';
 import { Typography } from '../../../typography/src';
 import { Drawer } from '../Component';
 import { name, version } from '../../package.json';
+import changelog from '../../CHANGELOG.md';
 
 
 <Meta
@@ -57,6 +58,7 @@ import { Drawer } from '@alfalab/core-components-drawer';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={Drawer} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props of={Drawer} />}
 />

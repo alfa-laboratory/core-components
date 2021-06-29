@@ -3,6 +3,7 @@ import { text, boolean, select, number } from '@storybook/addon-knobs';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import { Typography } from '../component';
 import { name, version } from '../../package.json';
 import { colors } from '../colors';
@@ -112,6 +113,7 @@ import { Typography } from '@alfalab/core-components-typography';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props components={Typography} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props components={Typography} />}
 />

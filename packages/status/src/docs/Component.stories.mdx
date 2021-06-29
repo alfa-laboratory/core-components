@@ -5,6 +5,7 @@ import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import { Status, colors } from '../Component';
 import { name, version } from '../../package.json';
 
@@ -40,6 +41,7 @@ import { Status } from '@alfalab/core-components-status';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={Status} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props of={Status} />}
 />

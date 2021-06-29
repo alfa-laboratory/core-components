@@ -5,6 +5,7 @@ import { CssVars } from 'storybook/blocks/css-vars';
 import { Tabs } from 'storybook/blocks/tabs';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import vars from '!!raw-loader!../vars.css';
 import { Tab, TabsDesktop, PrimaryTabListDesktop, SecondaryTabListDesktop } from '../desktop';
 import { TabsMobile, PrimaryTabListMobile, SecondaryTabListMobile } from '../mobile';
@@ -144,16 +145,17 @@ import { TabsMobile, Tab } from '@alfalab/core-components-tabs/mobile';
 ```
 
 <Tabs
-  description={<Description />}
-  cssVars={<CssVars css={vars} />}
-  props={
-      <Props
-        components={{
-            TabsDesktop,
-            TabsMobile,
-            TabsResponsive,
-            Tab,
-        }}
-    />
-  }
+    description={<Description />}
+    changelog={changelog}
+    cssVars={<CssVars css={vars} />}
+    props={
+        <Props
+            components={{
+                TabsDesktop,
+                TabsMobile,
+                TabsResponsive,
+                Tab,
+            }}
+        />
+    }
 />

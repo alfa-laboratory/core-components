@@ -5,6 +5,7 @@ import { Button } from '@alfalab/core-components-button';
 import { Tabs } from 'storybook/blocks/tabs';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 import { CssVars } from 'storybook/blocks/css-vars';
 
@@ -51,7 +52,8 @@ import { ToastPlate } from '@alfalab/core-components-toast-plate';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={ToastPlate} />}
-  cssVars={<CssVars css={styles} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props of={ToastPlate} />}
+    cssVars={<CssVars css={styles} />}
 />

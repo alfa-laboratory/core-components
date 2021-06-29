@@ -7,6 +7,7 @@ import { Tabs } from 'storybook/blocks/tabs';
 import styles from '!!raw-loader!../index.module.css';
 import { CssVars } from 'storybook/blocks/css-vars';
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import { Input } from '../Component';
 import { name, version } from '../../package.json';
 
@@ -59,7 +60,8 @@ import { Input } from '@alfalab/core-components-input';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={Input} />}
-  cssVars={<CssVars css={styles} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props of={Input} />}
+    cssVars={<CssVars css={styles} />}
 />

@@ -4,6 +4,7 @@ import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 import { CssVars } from 'storybook/blocks/css-vars';
 import { Radio } from '../Component';
@@ -60,7 +61,8 @@ import { Radio } from '@alfalab/core-components-radio';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={Radio} />}
-  cssVars={<CssVars css={styles} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props of={Radio} />}
+    cssVars={<CssVars css={styles} />}
 />

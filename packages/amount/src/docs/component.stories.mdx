@@ -8,7 +8,8 @@ import { CssVars } from 'storybook/blocks/css-vars';
 import { Amount } from '../.';
 import { getAllCurrencyCodes } from '@alfalab/utils';
 import { name, version } from '../../package.json';
-import Description from './description.mdx'
+import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
 
@@ -79,6 +80,7 @@ import { Amount } from '@alfalab/core-components-amount';
 
 <Tabs 
     description={<Description />}
+    changelog={changelog}
     props={<Props of={Amount} />}
     cssVars={<CssVars css={styles} />}
 />

@@ -9,6 +9,7 @@ import styles from '!!raw-loader!../index.module.css';
 import vars from '!!raw-loader!../vars.css';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import { Calendar } from '../';
 
 import { name, version } from '../../package.json';
@@ -54,8 +55,9 @@ import { Calendar } from '@alfalab/core-components-calendar';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={Calendar} />}
-  cssVars={<CssVars css={`${styles}${vars}`} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props of={Calendar} />}
+    cssVars={<CssVars css={`${styles}${vars}`} />}
 />
 

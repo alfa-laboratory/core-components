@@ -12,6 +12,7 @@ import { Arrow, Option } from '@alfalab/core-components-select';
 
 import { SelectWithTags } from '../component';
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import { options } from './constants';
 
 
@@ -79,6 +80,7 @@ import { SelectWithTags } from '@alfalab/core-components-select-with-tags';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={SelectWithTags} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props of={SelectWithTags} />}
 />

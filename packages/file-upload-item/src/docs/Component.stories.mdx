@@ -4,6 +4,7 @@ import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import { FileUploadItem } from '../Component';
 
 import { version } from '../../package.json';
@@ -46,6 +47,7 @@ import { FileUploadItem } from '@alfalab/core-components-file-upload-item';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={FileUploadItem} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props of={FileUploadItem} />}
 />

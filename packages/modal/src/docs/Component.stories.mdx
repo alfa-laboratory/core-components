@@ -6,6 +6,7 @@ import { CrossMIcon } from '@alfalab/icons-glyph';
 import { Tabs } from 'storybook/blocks/tabs';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import vars from '!!raw-loader!../vars.css';
 import { CssVars } from 'storybook/blocks/css-vars';
 
@@ -142,7 +143,8 @@ import { ModalResponsive } from '@alfalab/core-components-modal/responsive';
 ```
 
 <Tabs
-  description={<Description />}
-  cssVars={<CssVars css={vars} />}
-  props={<Props components={{ModalDesktop, ModalMobile, ModalResponsive}} />}
+    description={<Description />}
+    changelog={changelog}
+    cssVars={<CssVars css={vars} />}
+    props={<Props components={{ModalDesktop, ModalMobile, ModalResponsive}} />}
 />

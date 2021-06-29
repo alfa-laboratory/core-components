@@ -1,29 +1,44 @@
 import React, { FC, useState, useMemo, useCallback, ReactNode } from 'react';
 import { TabsResponsive, Tab, TabsResponsiveProps } from '@alfalab/core-components-tabs';
+import { Description } from '@storybook/addon-docs/blocks';
 
 enum TabName {
     DESCRIPTION = 'DESCRIPTION',
     PROPS = 'PROPS',
     CSS_VARS = 'CSS_VARS',
+    CHANGELOG = 'CHANGELOG',
 }
 
 const TabTitle = {
     [TabName.DESCRIPTION]: 'Описание',
     [TabName.PROPS]: 'Свойства',
     [TabName.CSS_VARS]: 'CSS-переменные',
+    [TabName.CHANGELOG]: 'Changelog',
 };
 
 type Props = {
     description: ReactNode;
     props: ReactNode;
     cssVars?: ReactNode;
+    changelog?: string;
     defaultSelected?: TabName;
 };
+
+const formatChangelog = (changelog: string): string =>
+    changelog
+        .replace(/^# \[/gm, '## [')
+        .replace('# Change Log', '')
+        .replace('All notable changes to this project will be documented in this file.', '')
+        .replace(
+            'See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.',
+            '',
+        );
 
 export const Tabs: FC<Props> = ({
     description,
     props,
     cssVars,
+    changelog,
     defaultSelected = TabName.DESCRIPTION,
 }) => {
     const [selected, setSelected] = useState(defaultSelected);
@@ -49,6 +64,16 @@ export const Tabs: FC<Props> = ({
             result.push(
                 <Tab title={TabTitle[TabName.CSS_VARS]} id={TabName.CSS_VARS}>
                     <div style={{ marginTop: '40px' }}>{cssVars}</div>
+                </Tab>,
+            );
+        }
+
+        if (changelog) {
+            result.push(
+                <Tab title={TabTitle[TabName.CHANGELOG]} id={TabName.CHANGELOG}>
+                    <div style={{ marginTop: '40px' }}>
+                        <Description>{formatChangelog(changelog)}</Description>
+                    </div>
                 </Tab>,
             );
         }

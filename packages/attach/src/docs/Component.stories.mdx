@@ -4,6 +4,7 @@ import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import { Attach } from '../Component';
 import { name, version } from '../../package.json';
 
@@ -46,6 +47,7 @@ import { Attach } from '@alfalab/core-components-attach';
 
 <Tabs
     description={<Description />}
+    changelog={changelog}
     props={<Props of={Attach} />}
 />
 

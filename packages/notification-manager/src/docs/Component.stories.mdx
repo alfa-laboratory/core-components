@@ -6,6 +6,7 @@ import { Notification } from '@alfalab/core-components-notification';
 import { Tabs } from 'storybook/blocks/tabs';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import { NotificationManager } from '../component';
 import { name, version } from '../../package.json';
 
@@ -69,6 +70,7 @@ import { NotificationManager } from '@alfalab/core-components-notification-manag
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={NotificationManager} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props of={NotificationManager} />}
 />

@@ -9,6 +9,7 @@ import { CssVars } from 'storybook/blocks/css-vars';
 import styles from '!!raw-loader!../index.module.css';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import { CalendarInput } from '../Component';
 import { formatDate } from '../utils';
 
@@ -62,7 +63,8 @@ import { CalendarInput } from '@alfalab/core-components-calendar-input';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={CalendarInput} />}
-  cssVars={<CssVars css={styles} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props of={CalendarInput} />}
+    cssVars={<CssVars css={styles} />}
 />

@@ -6,6 +6,7 @@ import { Button } from '@alfalab/core-components-button';
 import { Toast } from '../';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
 <Meta
@@ -143,6 +144,7 @@ import { Toast } from '@alfalab/core-components-toast';
 
 <Tabs
     description={<Description />}
+    changelog={changelog}
     props={<Props of={Toast} />}
     cssVars={<CssVars css={styles} />}
 />

@@ -5,6 +5,7 @@ import { text, select, boolean, object } from '@storybook/addon-knobs';
 import { Tabs } from 'storybook/blocks/tabs';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import { options, matchOption } from './options';
 import { IntlPhoneInput } from '../component';
 import { name, version } from '../../package.json';
@@ -68,6 +69,7 @@ import { IntlPhoneInput } from '@alfalab/core-components-intl-phone-input';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={IntlPhoneInput} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props of={IntlPhoneInput} />}
 />

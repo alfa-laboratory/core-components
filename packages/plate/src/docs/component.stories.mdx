@@ -6,6 +6,7 @@ import { CheckmarkOnCircleMIcon } from '@alfalab/icons-glyph';
 import { Plate } from '../';
 import { Button } from '../../../button/src';
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
 import { name, version } from '../../package.json';
@@ -48,6 +49,7 @@ import { Plate } from '@alfalab/core-components-plate';
 
 <Tabs
     description={<Description />}
+    changelog={changelog}
     props={<Props of={Plate} /> }
     cssVars={<CssVars css={styles} />}
 />

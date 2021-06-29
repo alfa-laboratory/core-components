@@ -4,6 +4,7 @@ import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 import { CssVars } from 'storybook/blocks/css-vars';
 import { ListHeader } from '../Component';
@@ -42,6 +43,7 @@ import { ListHeader } from '@alfalab/core-components-list-header';
 
 <Tabs
   description={<Description />}
+  changelog={changelog}
   props={<Props of={ListHeader} />}
   cssVars={<CssVars css={styles} />}
 />

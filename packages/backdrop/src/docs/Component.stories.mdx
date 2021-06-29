@@ -8,6 +8,7 @@ import vars from '!!raw-loader!../vars.css';
 import { Backdrop } from '../Component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 
 <Meta
     title='Компоненты/Backdrop'
@@ -43,6 +44,7 @@ import { Backdrop } from '@alfalab/core-components-backdrop';
 
 <Tabs
     description={<Description />}
+    changelog={changelog}
     props={<Props of={Backdrop} />}
     cssProps={<CssVars css={vars}/>}
 />

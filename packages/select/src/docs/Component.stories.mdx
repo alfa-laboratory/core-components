@@ -6,6 +6,7 @@ import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import vars from '!!raw-loader!../vars.css';
 import { CssVars } from 'storybook/blocks/css-vars';
 import { Select } from '../Component';
@@ -73,6 +74,7 @@ import { Select } from '@alfalab/core-components-select';
 
 <Tabs
   description={<Description />}
+  changelog={changelog}
   props={<Props of={Select} />}
   cssVars={<CssVars css={vars} />}
 />

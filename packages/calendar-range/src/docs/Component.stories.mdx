@@ -3,6 +3,7 @@ import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 
 import Description from './description.mdx';
+import changelog from '../../CHANGELOG.md';
 import { CalendarRange } from '../Component';
 import { name, version } from '../../package.json';
 
@@ -33,6 +34,7 @@ import { CalendarRange } from '@alfalab/core-components-calendar-range';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={CalendarRange} />}
+    description={<Description />}
+    changelog={changelog}
+    props={<Props of={CalendarRange} />}
 />
