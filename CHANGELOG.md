@@ -1,3 +1,10 @@
+# [18.1.0](https://github.com/alfa-laboratory/core-components/compare/v18.0.0...v18.1.0) (2021-06-29)
+
+
+### Features
+
+* **password-input:** add password input (PDS-233) ([#691](https://github.com/alfa-laboratory/core-components/issues/691)) ([d872e4d](https://github.com/alfa-laboratory/core-components/commit/d872e4dd18fd5db472864fbc2676749b812da00f))
+
 # [18.0.0](https://github.com/alfa-laboratory/core-components/compare/v17.6.0...v18.0.0) (2021-06-28)
 
 
