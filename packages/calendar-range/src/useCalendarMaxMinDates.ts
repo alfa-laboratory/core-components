@@ -21,10 +21,10 @@ export function useCalendarMaxMinDates({
     maxDate,
     minDate,
 }: useMaxMinDatesProps) {
-    const popoverFromMaxDate = selectedTo;
+    const popoverFromMaxDate = selectedTo || maxDate;
     const fromMaxDate = limitDate(endOfMonth(monthFrom), minDate, maxDate).getTime();
 
-    const popoverToMinDate = selectedFrom;
+    const popoverToMinDate = selectedFrom || minDate;
     const toMinDate = limitDate(startOfMonth(monthTo), minDate, maxDate).getTime();
 
     return {
