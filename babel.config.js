@@ -2,6 +2,7 @@ module.exports = {
     plugins: [
         '@babel/plugin-transform-modules-commonjs',
         '@babel/plugin-proposal-class-properties',
+        'babel-plugin-array-includes',
     ],
     presets: [
         '@babel/preset-react',
@@ -12,5 +13,6 @@ module.exports = {
                 allExtensions: true,
             },
         ],
+        '@babel/preset-env',
     ],
 };

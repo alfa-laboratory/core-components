@@ -2,7 +2,7 @@ import { ScriptTarget } from 'typescript';
 import path from 'path';
 import multiInput from 'rollup-plugin-multi-input';
 import postcss, { addCssImports, generateClassNameHash } from '@alfalab/rollup-plugin-postcss';
-import typescript from '@wessberg/rollup-plugin-ts';
+import typescript from 'rollup-plugin-ts';
 import copy from 'rollup-plugin-copy';
 import json from '@rollup/plugin-json';
 
@@ -15,6 +15,8 @@ import ignoreCss from './tools/rollup/ignore-css';
 import processCss from './tools/rollup/process-css';
 import coreComponentsTypingsResolver from './tools/rollup/core-components-typings-resolver';
 import createPackageJson from './tools/rollup/create-package-json';
+
+const babelConfig = '../../babel.config.js';
 
 const currentPackageDir = process.cwd();
 const currentPkg = path.join(currentPackageDir, 'package.json');
@@ -76,6 +78,8 @@ const es5 = {
                 ...resolvedConfig,
                 tsBuildInfoFile: 'tsconfig.tsbuildinfo',
             }),
+            transpiler: 'babel',
+            babelConfig,
         }),
         json(),
         postcssPlugin,
@@ -139,6 +143,8 @@ const cssm = {
                 ...resolvedConfig,
                 tsBuildInfoFile: 'tsconfig.tsbuildinfo',
             }),
+            transpiler: 'babel',
+            babelConfig,
         }),
         json(),
         processCss(),
@@ -169,6 +175,8 @@ const esm = {
                 ...resolvedConfig,
                 tsBuildInfoFile: 'tsconfig.tsbuildinfo',
             }),
+            transpiler: 'babel',
+            babelConfig,
         }),
         json(),
         postcssPlugin,
