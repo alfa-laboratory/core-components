@@ -4,13 +4,17 @@ import { Tabs } from 'storybook/blocks/tabs';
 
 import Description from './description.mdx';
 import { MaskedInput } from '../Component';
-import { name, version } from '../../package.json';
 import { masks, placeholders } from './constants';
+
+import { name, version } from '../../package.json';
 
 <Meta
     title='Компоненты/MaskedInput'
     component={MaskedInput}
-    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+    parameters={{
+      'theme-switcher': { themes: ['click'] },
+      previewTabs: { canvas: { hidden: true }}
+    }}
 />
 
 <!-- Docs -->
