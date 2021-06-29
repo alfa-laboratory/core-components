@@ -1,0 +1,11 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { text, select, number } from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { name, version } from '../../package.json';
+import { ProgressBar } from '../Component';
+
+
+Отображает линейный индикатор прогресса (0-100%).
+
+<ProgressBar value={40} />

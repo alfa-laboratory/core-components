@@ -1,0 +1,53 @@
+import { Preview } from '@storybook/addon-docs/blocks';
+import { MaskedInput } from '../Component';
+import { masks, placeholders } from './constants';
+
+Компонент текстового поля для ввода текста по указанной маске.
+
+☝️ В приложениях Клика используйте обёртку [newclick-composite-components/masked-input](http://digital/demo/newclick-composite-components/master/?path=/docs/form-maskedinput--basic).
+
+<div style={{ width: '240px' }}>
+    <MaskedInput mask={masks.phone} placeholder={placeholders.phone} block={true} />
+    <br/>
+    <br/>
+    <MaskedInput mask={masks.card} placeholder={placeholders.card} block={true} />
+</div>
+
+
+### Uncontrolled-way
+
+Можно ничего не передавать в компонент и реагировать на `onChange`
+
+<div style={{ width: '240px' }}>
+    <MaskedInput
+        defaultValue="5555111122224444"
+        mask={masks.card}
+        placeholder={placeholders.card}
+        block={true}
+    />
+</div>
+
+### Controlled-way
+
+Компонент может быть использован как controlled с помощью `onChange` и `value`
+
+<Preview>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('');
+        const handleChange = React.useCallback((event) => {
+            setValue(event.target.value);
+        }, []);
+        return (
+            <div style={{ width: '240px' }}>
+                <MaskedInput
+                    value={value}
+                    onChange={handleChange}
+                    mask={masks.card}
+                    placeholder={placeholders.card}
+                    block={true}
+                />
+                <button type="button" onClick={() => setValue('5555111122224444')}>Установить неотформатированный номер</button>
+            </div>
+        );
+    })}
+</Preview>

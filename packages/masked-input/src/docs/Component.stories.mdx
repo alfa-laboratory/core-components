@@ -1,0 +1,36 @@
+import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Tabs } from 'storybook/blocks/tabs';
+
+import Description from './description.mdx';
+import { MaskedInput } from '../Component';
+import { masks, placeholders } from './constants';
+
+import { name, version } from '../../package.json';
+
+<Meta
+    title='Компоненты/MaskedInput'
+    component={MaskedInput}
+    parameters={{
+      'theme-switcher': { themes: ['click'] },
+      previewTabs: { canvas: { hidden: true }}
+    }}
+/>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='MaskedInput'
+    version={version}
+    package='@alfalab/core-components-masked-input'
+    stage={2}
+/>
+
+```tsx
+import { MaskedInput } from '@alfalab/core-components-masked-input';
+```
+
+<Tabs
+  description={<Description />}
+  props={<Props of={MaskedInput} />}
+/>

@@ -1,0 +1,78 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { text, boolean, number, select as selectKnob } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Tabs } from 'storybook/blocks/tabs';
+
+import Description from './description.mdx';
+import vars from '!!raw-loader!../vars.css';
+import { CssVars } from 'storybook/blocks/css-vars';
+import { Select } from '../Component';
+import { Field } from '../components/field';
+import { Arrow } from '../components/arrow';
+import { OptionsList } from '../components/options-list';
+import { VirtualOptionsList } from '../components/virtual-options-list';
+import { Optgroup } from '../components/optgroup';
+import { Option } from '../components/option';
+import { Button } from '../../../button/src';
+import { joinOptions } from '../utils';
+import { name, version } from '../../package.json';
+
+import Icon from '@alfalab/icons-classic/BankAlfaSBlackIcon';
+import { options, POSITION_OPTIONS } from './constants'
+
+<Meta
+    title='Компоненты/Select'
+    component={Select}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='Select'>
+    <Select
+        block={boolean('block', false)}
+        size={selectKnob('size', ['s', 'm', 'l', 'xl'], 's')}
+        disabled={boolean('disabled', false)}
+        error={text('error', '')}
+        hint={text('hint', '')}
+        options={options}
+        multiple={boolean('multiple', false)}
+        allowUnselect={boolean('allowUnselect', true)}
+        closeOnSelect={boolean('closeOnSelect', true)}
+        Arrow={boolean('Arrow', true) ? Arrow : () => null}
+        circularNavigation={boolean('circularNavigation', false)}
+        nativeSelect={boolean('nativeSelect', false)}
+        placeholder={text('placeholder', 'Выберите элемент')}
+        label={text('label', 'Элемент')}
+        visibleOptions={number('visibleOptions', 5)}
+        onChange={action('change')}
+        onOpen={action('open')}
+        defaultOpen={boolean('defaultOpen', false)}
+        popoverPosition={selectKnob('popoverPosition', POSITION_OPTIONS, 'bottom-start')}
+        optionsListWidth={selectKnob('optionsListWidth', ['field', 'content'], 'field')}
+    />
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Select'
+    version={version}
+    package='@alfalab/core-components-select'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=719%3A0'
+/>
+
+```tsx
+import { Select } from '@alfalab/core-components-select';
+```
+
+<Tabs
+  description={<Description />}
+  props={<Props of={Select} />}
+  cssVars={<CssVars css={vars} />}
+/>

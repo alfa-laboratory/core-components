@@ -1,0 +1,58 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { Tabs } from 'storybook/blocks/tabs';
+import { CssVars } from 'storybook/blocks/css-vars';
+
+import Description from './description.mdx';
+import styles from '!!raw-loader!../index.module.css';
+import { FormControl } from '../Component';
+import { name, version } from '../../package.json';
+
+
+<Meta
+    title='Компоненты/FormControl'
+    component={FormControl}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='FormControl'>
+    <FormControl
+        block={boolean('block', true)}
+        size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+        disabled={boolean('disabled', false)}
+        filled={boolean('filled', false)}
+        focused={boolean('focused', false)}
+        label={text('label', '')}
+        hint={text('hint', '')}
+        error={text('error', '')}
+        rightAddons={boolean('rightAddons', false) && !text('error') && <Icon />}
+        leftAddons={boolean('leftAddons', false) && <Icon />}
+        bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
+    />
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='FormControl'
+    version={version}
+    package='@alfalab/core-components-form-control'
+    stage={3}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=49%3A0'
+/>
+
+```tsx
+import { FormControl } from '@alfalab/core-components-form-control';
+```
+
+<Tabs
+  description={<Description />}
+  props={<Props of={FormControl} />}
+  cssVars={<CssVars css={styles} />}
+/>

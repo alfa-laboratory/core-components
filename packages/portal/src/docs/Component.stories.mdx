@@ -1,0 +1,34 @@
+import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Tabs } from 'storybook/blocks/tabs';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+import Description from './description.mdx';
+import { Button } from '../../../button/src';
+import { Portal } from '../Component';
+import { name, version } from '../../package.json';
+
+
+<Meta
+  title='Компоненты/Portal'
+  component={Portal}
+  parameters={{ previewTabs: { canvas: { hidden: true }} }}
+/>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+  name='Portal'
+  version={version}
+  package='@alfalab/core-components-portal'
+  stage={2}
+/>
+
+```tsx
+import { Portal } from '@alfalab/core-components-portal';
+```
+
+<Tabs
+  description={<Description />}
+  props={<Props of={Portal} />}
+/>

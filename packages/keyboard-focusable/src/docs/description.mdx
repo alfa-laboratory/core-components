@@ -1,0 +1,60 @@
+import { Preview } from '@storybook/addon-docs/blocks';
+import { useFocus } from '@alfalab/hooks';
+
+import { KeyboardFocusable } from '../Component';
+
+В соответствии с дизайн-системой все интерактивные элементы должны иметь определенную обводку при фокусе, но только при переключении с клавиатуры.
+При клике мышки обводки быть не должно.
+
+Для получения такого поведения — можно воспользоваться компонентом `<KeyboardFocusable />` или хуком `@alfalab/hooks/useFocus`.
+
+Стили для фокусной обводки доступны через миксин `focus-outline`.
+
+## Компонент KeyboardFocusable
+
+export const focusOutlineStyles = {
+    outline: '2px solid var(--focus-color)',
+    outlineOffset: '2px',
+};
+
+<Preview>
+    <KeyboardFocusable>
+        {(ref, focused) => (
+            <button ref={ref} style={focused ? focusOutlineStyles : {}}>
+                focus me by keyboard
+            </button>
+        )}
+    </KeyboardFocusable>
+</Preview>
+
+```tsx
+// Нативный элемент
+<KeyboardFocusable>
+    {(ref, focused) => <button type='button' ref={ref} className={cn({ [styles.focused]: focused })} />}
+</KeyboardFocusable>
+
+// Компонент, поддерживающий проброс рефа
+<KeyboardFocusable>
+    {(ref, focused) => <ForwardRefComponent ref={ref} className={cn({ [styles.focused]: focused })} />}
+</KeyboardFocusable>
+
+// Если компонент не пробрасывает реф, то можно использовать обертку
+<KeyboardFocusable>
+    {(ref, focused) => (
+        <div ref={ref} className={cn({ [styles.focused]: focused })}>
+            <ComponentWithoutForwardRef />
+        </div>
+    )}
+</KeyboardFocusable>
+```
+
+## Хук @alfalab/hooks/useFocus
+
+```tsx
+const ref = useRef<HTMLButtonElement>(null);
+const { focused } = useFocus(ref, 'keyboard');
+
+return (
+    <button ref={ref} className={cn({ [styles.focused]: focused })}>focus me</button>
+);
+```

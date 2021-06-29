@@ -1,0 +1,84 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Tabs } from 'storybook/blocks/tabs';
+
+import { Tag } from '@alfalab/core-components-tag';
+import { Input } from '@alfalab/core-components-input';
+import { MaskedInput } from '@alfalab/core-components-masked-input';
+import { Arrow, Option } from '@alfalab/core-components-select';
+
+import { SelectWithTags } from '../component';
+import Description from './description.mdx';
+import { options } from './constants';
+
+
+<Meta
+    title='Компоненты/SelectWithTags'
+    component={SelectWithTags}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='SelectWithTags'>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('');
+        const [selected, setSelected] = React.useState([]);
+        const handleInput = event => {
+            setValue(event.target.value);
+        };
+        const handleChange = React.useCallback(({ selectedMultiple }) => {
+            setSelected(selectedMultiple);
+        }, []);
+        const transformCollapsedTagText = (collapsedCount) => {
+            return `+${collapsedCount} element`;
+        };
+        return (
+            <div style={{width: '400px'}}>
+                <SelectWithTags
+                    collapseTagList={boolean('collapseTagList', true)}
+                    moveInputToNewLine={boolean('moveInputToNewLine', true)}
+                    options={options}
+                    block={boolean('block', true)}
+                    size={select('size', ['s', 'm', 'l', 'xl'], 'xl')}
+                    disabled={boolean('disabled', false)}
+                    error={text('error', '')}
+                    success={boolean('success', false)}
+                    hint={text('hint', '')}
+                    Arrow={boolean('Arrow', false) ? Arrow : undefined}
+                    circularNavigation={boolean('circularNavigation', false)}
+                    placeholder={text('placeholder', 'Элемент')}
+                    label={text('label', '')}
+                    autocomplete={boolean('autocomplete', true)}
+                    onInput={handleInput}
+                    transformCollapsedTagText={transformCollapsedTagText}
+                    value={value}
+                    onChange={handleChange}
+                    selected={selected}
+                    emptyListPlaceholder={text('emptyListPlaceholder', 'Ничего не найдено.')}
+                />
+            </div>
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='SelectWithTags'
+    stage={2}
+/>
+
+```tsx
+import { SelectWithTags } from '@alfalab/core-components-select-with-tags';
+```
+
+<Tabs
+  description={<Description />}
+  props={<Props of={SelectWithTags} />}
+/>

@@ -1,0 +1,80 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Tabs } from 'storybook/blocks/tabs';
+
+import { Tag } from '@alfalab/core-components-tag';
+import { Input } from '@alfalab/core-components-input';
+import { MaskedInput } from '@alfalab/core-components-masked-input';
+import { Arrow, Option } from '@alfalab/core-components-select';
+
+import Description from './description.mdx';
+import { InputAutocomplete } from '../Component';
+import { name, version } from '../../package.json';
+import { options, matchOption } from './options'
+
+
+<Meta
+    title='Компоненты/InputAutocomplete'
+    component={InputAutocomplete}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='InputAutocomplete'>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('');
+        const handleInput = event => {
+            setValue(event.target.value);
+        };
+        const handleChange = ({ selected }) => {
+            setValue(selected ? selected.key : '');
+        };
+        const filteredOptions = options.filter(option => matchOption(option, value));
+        return (
+            <InputAutocomplete
+                options={filteredOptions}
+                selected={boolean('prevent select', true) ? [] : undefined}
+                block={boolean('block', false)}
+                size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+                disabled={boolean('disabled', false)}
+                error={text('error', '')}
+                success={boolean('success', false)}
+                hint={text('hint', '')}
+                allowUnselect={boolean('allowUnselect', true)}
+                closeOnSelect={boolean('closeOnSelect', false)}
+                Arrow={boolean('Arrow', false) ? Arrow : undefined}
+                circularNavigation={boolean('circularNavigation', false)}
+                placeholder={text('placeholder', 'Введите элемент')}
+                label={text('label', 'Элемент')}
+                onOpen={action('open')}
+                onChange={handleChange}
+                onInput={handleInput}
+                value={value}
+            />
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='InputAutocomplete'
+    version={version}
+    package='@alfalab/core-components-input-autocomplete'
+    stage={2}
+/>
+
+```tsx
+import { InputAutocomplete } from '@alfalab/core-components-input-autocomplete';
+```
+
+<Tabs
+  description={<Description />}
+  props={<Props of={InputAutocomplete} />}
+/>

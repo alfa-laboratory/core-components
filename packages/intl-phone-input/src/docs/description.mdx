@@ -1,0 +1,94 @@
+import { Preview } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
+
+import { IntlPhoneInput } from '../component';
+import { options, matchOption } from './options';
+
+Компонент текстового поля для ввода международных номеров телефонов.
+
+**Жирный компонент. Для форматирования номера телефона используется библиотека `libphonenumber-js` весом в 140KB.**
+
+**Библиотека собирается в отдельный чанк. При сборке вашего проекта убедитесь, что у вас она тоже собралась отдельным чанком.**
+
+**Если вы используете `arui-scripts` для сборки, версия `arui-scripts` должна быть не ниже 9.7.0.**
+
+
+### Кейс с очисткой поля
+
+<Preview>
+    {React.createElement(() => {
+            const [value, setValue] = React.useState('+7');
+            const [selectedCountry, setSelectedCountry] = React.useState('RU');
+            const handleChange = React.useCallback((newValue) => {
+                setValue(newValue);
+            }, [setValue]);
+            const size = select('size', ['s', 'm', 'l', 'xl'], 'm');
+            const disabled = boolean('disabled', false);
+            const label = text('label', 'Номер телефона');
+            const handleCountryChange = React.useCallback((countryCode) => {
+                setSelectedCountry(countryCode);
+            });
+            const handleClear = React.useCallback(() => setValue(''));
+            return (
+                <div style={{ width: '240px' }}>
+                    <IntlPhoneInput
+                        inputProps={{
+                            clear: true,
+                            onClear: handleClear
+                        }}
+                        value={value}
+                        onChange={handleChange}
+                        size={size}
+                        block={true}
+                        label={label}
+                        disabled={disabled}
+                        defaultCountryIso2="RU"
+                        readOnly={boolean('readOnly', false)}
+                        onCountryChange={handleCountryChange}
+                    />
+                    <br />
+                    Код выбранной страны: <strong>{selectedCountry}</strong>
+                </div>
+            );
+        })}
+</Preview>
+
+
+### Кейс с автокомплитом
+
+<Preview>
+    {React.createElement(() => {
+            const [value, setValue] = React.useState('+7');
+            const [selectedCountry, setSelectedCountry] = React.useState('RU');
+            const handleChange = React.useCallback((newValue) => {
+                setValue(newValue);
+            }, [setValue]);
+            const size = select('size', ['s', 'm', 'l', 'xl'], 'm');
+            const block = boolean('block', false);
+            const disabled = boolean('disabled', false);
+            const label = text('label', 'Номер телефона');
+            const handleCountryChange = React.useCallback((countryCode) => {
+                setSelectedCountry(countryCode);
+            });
+            const handleClear = React.useCallback(() => setValue(''));
+            const filteredOptions = options.filter(option => matchOption(option, value));
+            return (
+                <React.Fragment>
+                    <IntlPhoneInput
+                        value={value}
+                        onChange={handleChange}
+                        size={size}
+                        options={filteredOptions}
+                        block={block}
+                        label={label}
+                        disabled={disabled}
+                        defaultCountryIso2="RU"
+                        readOnly={boolean('readOnly', false)}
+                        onCountryChange={handleCountryChange}
+                    />
+                    <br />
+                    Код выбранной страны: <strong>{selectedCountry}</strong>
+                </React.Fragment>
+            );
+        })}
+</Preview>

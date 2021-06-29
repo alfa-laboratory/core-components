@@ -1,0 +1,54 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { text, boolean, select } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { Tabs } from 'storybook/blocks/tabs';
+
+import Description from './description.mdx';
+import { options } from './options'
+import { OptionsList } from '../../../select/src/components/options-list';
+import { Button } from '../../../button/src';
+import { PickerButton } from '../Component';
+import { name, version } from '../../package.json';
+
+<Meta
+    title='Компоненты/PickerButton'
+    component={PickerButton}
+    parameters={{ 'theme-switcher': { themes: ['corp'] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='PickerButton'>
+    <PickerButton
+        options={options}
+        label={text('label', 'some label')}
+        size={select('size', ['xs', 's', 'm'], 'm')}
+        view={select('view', ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost'], 'secondary')}
+        disabled={boolean('disabled', false)}
+        loading={boolean('loading', false)}
+        leftAddons={boolean('has left icon', false) ? <Icon/> : null}
+    />
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='PickerButton'
+    version={version}
+    package='@alfalab/core-components-picker-button'
+    stage={1}
+/>
+
+```tsx
+import { PickerButton } from '@alfalab/core-components-picker-button';
+```
+
+<Tabs
+  description={<Description />}
+  props={<Props of={PickerButton} />}
+/>

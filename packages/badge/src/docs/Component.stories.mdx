@@ -1,0 +1,77 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { select, number, boolean } from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Tabs } from 'storybook/blocks/tabs';
+import { CssVars } from 'storybook/blocks/css-vars';
+
+import { CheckmarkOnCircleMIcon } from '@alfalab/icons-glyph';
+import { AlertCircleMIcon } from '@alfalab/icons-glyph';
+import { CrossCircleMIcon } from '@alfalab/icons-glyph';
+import { StopCircleMIcon } from '@alfalab/icons-glyph';
+import { InformationCircleMIcon } from '@alfalab/icons-glyph';
+import { ClockMIcon } from '@alfalab/icons-glyph';
+
+import Description from './description.mdx';
+import styles from '!!raw-loader!../index.module.css';
+import { Badge } from '../Component';
+import { name, version } from '../../package.json';
+
+
+<Meta
+    title='Компоненты/Badge'
+    component={Badge}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='Badge'>
+    {React.createElement(() => {
+        const view = select('view', ['count', 'icon'], 'count');
+        const props = view === 'count' ?
+            {
+                view,
+                content: number('content', 1),
+                size: select('size', ['s', 'm', 'l'], 'm'),
+            } : {
+                view,
+                content: <AlertCircleMIcon />,
+                visibleIconOutline: boolean('visibleIconOutline', false),
+                iconColor: select(
+                    'iconColor',
+                    ['positive', 'attention', 'negative', 'tertiary', 'secondary', 'primary'],
+                    'positive'
+                )
+            }
+        return (
+            <div style={{
+                display: 'inline-flex',
+                padding: '5px',
+                backgroundColor: '#233549',
+            }}>
+                <Badge {...props} />
+            </div>
+        )
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Badge'
+    version={version}
+    package='@alfalab/core-components-badge'
+    stage={3}
+/>
+
+```tsx
+import { Badge } from '@alfalab/core-components-badge';
+```
+
+<Tabs
+  description={<Description />}
+  props={<Props of={Badge} />}
+  cssVars={<CssVars css={styles} />}
+/>
