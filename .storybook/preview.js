@@ -12,6 +12,11 @@ addParameters({
             code: Example,
         },
     },
+    options: {
+        storySort: {
+            method: 'alphabetical',
+        },
+    },
 });
 
 configure(
