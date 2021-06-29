@@ -1,0 +1,51 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { Tabs } from 'storybook/blocks';
+
+import { PasswordInput } from '..';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+
+<Meta
+    title='Компоненты'
+    component={PasswordInput}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+<!-- Canvas -->
+
+<Story name='PasswordInput'>
+    <PasswordInput
+        block={boolean('block', false)}
+        size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+        disabled={boolean('disabled', false)}
+        placeholder={text('placeholder', '')}
+        label={text('label', '')}
+        hint={text('hint', '')}
+        error={text('error', '')}
+        success={boolean('success', false)}
+        leftAddons={boolean('leftAddons', false) && <Icon />}
+        bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
+        readOnly={boolean('readOnly', false)}
+    />
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='PasswordInput'
+    version={version}
+    package='@alfalab/core-components-password-input'
+    stage={2}
+    design='https://www.figma.com/file/uGndMZufgvqxaNQTaNTEjG/B2B-Web-Components?node-id=17757%3A0'
+/>
+
+```tsx
+import { PasswordInput } from '@alfalab/core-components/password-input';
+```
+
+<Tabs
+    description={<Description />}
+    props={<Props of={PasswordInput} /> }
+/>
