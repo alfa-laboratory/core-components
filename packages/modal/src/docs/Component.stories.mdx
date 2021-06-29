@@ -1,0 +1,148 @@
+import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
+import { boolean, select, text } from '@storybook/addon-knobs';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { CrossMIcon } from '@alfalab/icons-glyph';
+import { Tabs } from 'storybook/blocks/tabs';
+
+import Description from './description.mdx';
+import vars from '!!raw-loader!../vars.css';
+import { CssVars } from 'storybook/blocks/css-vars';
+
+import { Button } from '../../../button/src';
+import { Spinner } from '../../../spinner/src';
+import { Typography } from '../../../typography/src';
+
+import { ModalContext } from '../Context';
+import { ModalMobile } from '../Component.mobile';
+import { ModalDesktop } from '../Component.desktop';
+import { ModalResponsive } from '../Component.responsive';
+
+import { version } from '../../package.json';
+
+
+<Meta
+    title='Компоненты/Modal'
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+export const Text = () => (
+    <p style={{ margin: '0 0 16px' }}>
+        Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка.
+        Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов,
+        потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов,
+        полученных преступным путем, и финансированию терроризма» — 115-ФЗ
+    </p>
+);
+
+export const Footer = () => (
+    <>
+        <Button size='s' view='primary'>Сохранить</Button>
+        <Button size='s' view='secondary'>Отмена</Button>
+    </>
+);
+
+export const Content = () => {
+    const [showMore, setShowMore] = React.useState(false);
+    return (
+        <>
+            <Text/>
+            {(showMore || boolean('showMore')) && (
+                <>
+                    <Text/>
+                    <Text/>
+                    <Text/>
+                </>
+            )}
+            <Button size='xs' type='Button' onClick={() => setShowMore(!showMore)}>
+                {showMore ? 'Скрыть' : 'Показать еще'}
+            </Button>
+        </>
+    );
+};
+
+export const renderModalStory = (ModalComponent, props = {}) => {
+    const [open, setOpen] = React.useState(false);
+    const handleModalOpen = () => setOpen(!open);
+    const header = boolean('header', false);
+    const headerTitle = text('header.title');
+    const hasCloser = boolean('header.hasCloser', true);
+    const stickyHeader = boolean('header.sticky', false);
+    const footer = boolean('footer', false);
+    const stickyFooter = boolean('footer.sticky', false);
+    const footerLayout = select('footer.layout', ['start', 'center', 'space-between', 'column'], 'start');
+    const footerGap = select('footer.gap', [false, 16, 24, 32], false);
+    const flexContent = boolean('content.flex', false);
+    return (
+        <React.Fragment>
+            <Button type='button' size='xs' onClick={handleModalOpen}>Открыть модалку</Button>
+            <ModalComponent
+                open={open || boolean('open')}
+                onClose={handleModalOpen}
+                keepMounted={boolean('keepMounted', false)}
+                {...props}
+            >
+                {header && (
+                    <ModalComponent.Header
+                        sticky={stickyHeader}
+                        hasCloser={hasCloser}
+                        title={headerTitle}
+                    />
+                )}
+                {!header && hasCloser && (
+                    <ModalDesktop.Closer align='right' />
+                )}
+                <ModalComponent.Content flex={flexContent}>
+                    <Content />
+                </ModalComponent.Content>
+                {footer && (
+                    <ModalComponent.Footer sticky={stickyFooter} layout={footerLayout} gap={footerGap}>
+                        <Footer />
+                    </ModalComponent.Footer>
+                )}
+            </ModalComponent>
+        </React.Fragment>
+    );
+}
+
+<Story name='ModalMobile'>
+    {renderModalStory(ModalMobile)}
+</Story>
+
+
+<Story name='ModalDesktop'>
+    {renderModalStory(ModalDesktop, {
+        size: select('size', ['s', 'm', 'l'], 's'),
+        fullscreen: boolean('fullscreen', false),
+    })}
+</Story>
+
+<Story name='ModalResponsive'>
+    {renderModalStory(ModalResponsive, {
+        size: select('size', ['s', 'm', 'l'], 's'),
+        fullscreen: boolean('fullscreen', false),
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Modal'
+    version={version}
+    package='@alfalab/core-components-modal'
+    stage={1}
+/>
+
+
+```tsx
+import { ModalDesktop } from '@alfalab/core-components-modal/desktop';
+import { ModalMobile } from '@alfalab/core-components-modal/mobile';
+import { ModalResponsive } from '@alfalab/core-components-modal/responsive';
+```
+
+<Tabs
+  description={<Description />}
+  cssVars={<CssVars css={vars} />}
+  props={<Props components={{ModalDesktop, ModalMobile, ModalResponsive}} />}
+/>

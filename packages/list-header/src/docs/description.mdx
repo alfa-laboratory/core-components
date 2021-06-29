@@ -1,0 +1,33 @@
+
+import { Preview } from '@storybook/addon-docs/blocks';
+import { ListHeader } from '../Component';
+
+ListHeader используется для разделения ячеек списка по смысловым группам.
+
+<ListHeader
+    title='Заголовок'
+    description='дополнительный текст с описанием'
+/>
+
+
+Компонент с серой подложкой используется для «бесконечных списков». Например, для истории операций или списка писем.
+
+<Preview>
+    <div>
+        <ListHeader title='Сегодня' />
+        <div>В Санкт-Петербурге ожидаются дожди, ливни с грозой, градом и шквалистым ветром до 20 м/с.</div>
+        <ListHeader title='23 мая' description='среда' />
+        <div>Ясно, без осадков.</div>
+    </div>
+</Preview>
+
+Компонент без подложки используется для «фиксированных списков».
+
+<Preview>
+    <div>
+        <ListHeader title='Сегодня' filled={false} />
+        <div>В Санкт-Петербурге ожидаются дожди, ливни с грозой, градом и шквалистым ветром до 20 м/с.</div>
+        <ListHeader title='23 мая' description='среда' filled={false} />
+        <div>Ясно, без осадков.</div>
+    </div>
+</Preview>

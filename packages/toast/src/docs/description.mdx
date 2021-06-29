@@ -28,36 +28,60 @@ export function Example() {
                 justifyContent: 'center',
                 alignItems: 'flex-start',
                 padding: '200px',
-                boxSizing: 'border-box'
+                boxSizing: 'border-box',
             }}
         >
             <Toast
                 open={anchorToastOpen}
                 anchorElement={buttonElement}
-                position="left"
+                position='left'
                 offset={[0, 8]}
-                badge="positive"
-                title="Скопировано"
+                badge='positive'
+                title='Скопировано'
                 hasCloser={false}
                 block={false}
-                onClose={() => { setAnchorToastOpen(false); }}
+                onClose={() => {
+                    setAnchorToastOpen(false);
+                }}
                 autoCloseDelay={1500}
             />
             <Toast
                 open={fixedToastOpen}
-                badge="positive"
-                title="Ваша карта удалена"
+                badge='positive'
+                title='Ваша карта удалена'
                 hasCloser={true}
                 block={true}
-                onClose={() => { setFixedToastOpen(false); }}
+                onClose={() => {
+                    setFixedToastOpen(false);
+                }}
                 autoCloseDelay={3000}
-                actionButton={<Button size="s" view="ghost" onClick={() => { setFixedToastOpen(false) }}>Восстановить</Button>}
-                style={{maxWidth: 'calc(100vw - 150px)'}}
+                actionButton={
+                    <Button
+                        size='s'
+                        view='ghost'
+                        onClick={() => {
+                            setFixedToastOpen(false);
+                        }}
+                    >
+                        Восстановить
+                    </Button>
+                }
+                style={{ maxWidth: 'calc(100vw - 150px)' }}
             />
-            <Button ref={handleButtonRef} onClick={() => { setAnchorToastOpen(true); }}>
+            <Button
+                ref={handleButtonRef}
+                onClick={() => {
+                    setAnchorToastOpen(true);
+                }}
+            >
                 Скопировать
             </Button>
-            <Button onClick={() => { setFixedToastOpen(true) }} style={{marginLeft: '20px'}}>
+            <Button
+                onClick={() => {
+                    setFixedToastOpen(true);
+                }}
+                style={{ marginLeft: '20px' }}
+            >
                 Удалить
             </Button>
         </div>
@@ -65,7 +89,7 @@ export function Example() {
 }
 
 <Preview>
-    <Example/>
+    <Example />
 </Preview>
 
 В качестве плашки можно использовать любой компонент.
@@ -92,7 +116,7 @@ export function PlateExample() {
             }}
         >
             <div
-                id="toast-container"
+                id='toast-container'
                 style={{
                     position: 'relative',
                     padding: '100px',
@@ -102,27 +126,26 @@ export function PlateExample() {
                 <Toast
                     open={anchorToastOpen}
                     anchorElement={containerRef.current}
-                    position="bottom-start"
+                    position='bottom-start'
                     offset={[0, 8]}
-                    onClose={() => { setAnchorToastOpen(false); }}
+                    onClose={() => {
+                        setAnchorToastOpen(false);
+                    }}
                     autoCloseDelay={3000}
                     getPortalContainer={() => containerRef.current}
                     block={true}
                     hasCloser={true}
-                    ToastPlate={React.forwardRef((prpos, ref) => {
-                        return (
-                            <Plate
-                                {...prpos}
-                                ref={ref}
-                                view="positive"
-                                open={true}
-                            />
-                        )
+                    ToastPlate={React.forwardRef((pros, ref) => {
+                        return <Plate {...props} ref={ref} view='positive' open={true} />;
                     })}
                 >
                     Скопировано
                 </Toast>
-                <Button onClick={() => { setAnchorToastOpen(true); }}>
+                <Button
+                    onClick={() => {
+                        setAnchorToastOpen(true);
+                    }}
+                >
                     Скопировать
                 </Button>
             </div>
@@ -131,5 +154,5 @@ export function PlateExample() {
 }
 
 <Preview>
-    <PlateExample/>
+    <PlateExample />
 </Preview>

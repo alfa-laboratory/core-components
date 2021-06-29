@@ -1,38 +1,41 @@
 import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
-import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { text, select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 import { Tabs } from 'storybook/blocks/tabs';
-import { CssVars } from 'storybook/blocks/css-vars';
 
-import Description from './description.mdx';
 import styles from '!!raw-loader!../index.module.css';
-import { Textarea } from '../Component';
+import { CssVars } from 'storybook/blocks/css-vars';
+import Description from './description.mdx';
+import { Input } from '../Component';
 import { name, version } from '../../package.json';
 
+
 <Meta
-    title='Компоненты/Textarea'
-    component={Textarea}
-    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+    title='Компоненты/Input'
+    component={Input}
+    parameters={{ 'theme-switcher': { themes: ['click', 'site'] } }}
 />
 
 
 <!-- Canvas -->
 
-<Story name='Textarea'>
-    <Textarea
-        autosize={boolean('autosize', true)}
+<Story name='Input'>
+    <Input
+        type={select(
+            'type',
+            ['number', 'card', 'email', 'money', 'password', 'tel', 'text'],
+            'text',
+        )}
         block={boolean('block', false)}
+        clear={boolean('clear', false)}
         size={select('size', ['s', 'm', 'l', 'xl'], 's')}
         disabled={boolean('disabled', false)}
         placeholder={text('placeholder', '')}
-        resize={select('resize', ['none', 'vertical'], 'none')}
-        minRows={number('minRows', undefined)}
-        maxRows={number('maxRows', undefined)}
-        maxHeight={number('maxHeight', undefined)}
         label={text('label', '')}
         hint={text('hint', '')}
         error={text('error', '')}
+        success={boolean('success', false)}
         rightAddons={boolean('rightAddons', false) && !text('error') && <Icon />}
         leftAddons={boolean('leftAddons', false) && <Icon />}
         bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
@@ -44,19 +47,19 @@ import { name, version } from '../../package.json';
 <!-- Docs -->
 
 <ComponentHeader
-    name='Textarea'
+    name='Input'
     version={version}
-    package='@alfalab/core-components-textarea'
-    stage={2}
+    package='@alfalab/core-components-input'
+    stage={3}
     design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=49%3A0'
 />
 
 ```tsx
-import { Textarea } from '@alfalab/core-components-textarea';
+import { Input } from '@alfalab/core-components-input';
 ```
 
 <Tabs
   description={<Description />}
-  props={<Props of={Textarea} />}
+  props={<Props of={Input} />}
   cssVars={<CssVars css={styles} />}
 />

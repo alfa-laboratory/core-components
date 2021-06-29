@@ -1,0 +1,36 @@
+import { Preview } from '@storybook/addon-docs/blocks';
+import { Checkbox } from '../Component';
+
+Компонент чекбокса.
+
+<Preview>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleChange = () => setChecked(!checked);
+        return (
+            <Checkbox
+                onChange={handleChange}
+                checked={checked}
+                label='Согласен с условиями'
+                hint='Соглашайтесь, будьте любезны'
+            />
+        );
+    })}
+</Preview>
+
+### Чекбокс c неопределенным (indeterminate) состоянием
+
+<Preview>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleChange = () => setChecked(!checked);
+        return (
+            <Checkbox
+                onChange={handleChange}
+                checked={checked}
+                label="Выберите опции"
+                indeterminate={true}
+            />
+        );
+    })}
+</Preview>

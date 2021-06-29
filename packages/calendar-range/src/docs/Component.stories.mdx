@@ -1,0 +1,38 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Tabs } from 'storybook/blocks/tabs';
+
+import Description from './description.mdx';
+import { CalendarRange } from '../Component';
+import { name, version } from '../../package.json';
+
+<Meta
+    title='Компоненты/CalendarRange'
+    component={CalendarRange}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+<!-- Canvas -->
+
+<Story name='CalendarRange'>
+    <CalendarRange />
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='CalendarRange'
+    version={version}
+    package='@alfalab/core-components-calendar-range'
+    stage={1}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=13931%3A20767'
+/>
+
+```tsx
+import { CalendarRange } from '@alfalab/core-components-calendar-range';
+```
+
+<Tabs
+  description={<Description />}
+  props={<Props of={CalendarRange} />}
+/>

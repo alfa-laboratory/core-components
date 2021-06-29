@@ -1,0 +1,51 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { text, number, select, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Tabs } from 'storybook/blocks/tabs';
+
+import Description from './description.mdx';
+import { FileUploadItem } from '../Component';
+
+import { version } from '../../package.json';
+
+<Meta
+    title='Компоненты/FileUploadItem'
+    component={FileUploadItem}
+/>
+
+<!-- Canvas -->
+
+<Story name='FileUploadItem'>
+    <div style={{ width: 500 }}>
+        <FileUploadItem
+            name={text('name', 'Довольно длинное название файла.pdf')}
+            uploadDate={text('uploadDate', '22.01.2018')}
+            downloadLink={text('downloadLink', '')}
+            error={text('error', '')}
+            size={ number('size', 500000000) }
+            uploadStatus={select('uploadStatus', ['ERROR', 'SUCCESS', 'LOADING', 'UPLOADING'], undefined)}
+            uploadPercent={number('uploadPercent', undefined)}
+            showDelete={boolean('showDelete', false)}
+            showRestore={boolean('showRestore', false)}
+        />
+    </div>
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='FileUploadItem'
+    version={version}
+    package='@alfalab/core-components-file-upload-item'
+    stage={1}
+    design='https://www.figma.com/file/uGndMZufgvqxaNQTaNTEjG/B2B-Web-Components?node-id=9591%3A75058'
+/>
+
+```tsx
+import { FileUploadItem } from '@alfalab/core-components-file-upload-item';
+```
+
+<Tabs
+  description={<Description />}
+  props={<Props of={FileUploadItem} />}
+/>

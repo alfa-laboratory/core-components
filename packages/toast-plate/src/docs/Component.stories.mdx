@@ -1,0 +1,57 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Button } from '@alfalab/core-components-button';
+import { Tabs } from 'storybook/blocks/tabs';
+
+import Description from './description.mdx';
+import styles from '!!raw-loader!../index.module.css';
+import { CssVars } from 'storybook/blocks/css-vars';
+
+import { ToastPlate } from '../';
+import { name, version } from '../../package.json';
+
+<Meta
+    title='Компоненты/ToastPlate'
+    component={ToastPlate}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+<!-- Canvas -->
+
+<Story name='ToastPlate'>
+    {React.createElement(() => {
+        return (
+            <ToastPlate
+                badge={select('badge', ['negative', 'positive', 'attention', undefined], 'positive')}
+                title={text('title', 'Toast Title')}
+                hasCloser={boolean('hasCloser', true)}
+                block={boolean('block', false)}
+                onClose={Function.prototype}
+                actionButton={boolean('renderActionButton', false) ? <Button view='ghost' colors='inverted' size='s'>Action Button</Button> : null }
+            >
+                {text('children', '')}
+            </ToastPlate>
+        )
+    })}
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='ToastPlate'
+    version={version}
+    package={name}
+    stage={2}
+    design='https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=15915%3A56409'
+/>
+
+```tsx
+import { ToastPlate } from '@alfalab/core-components-toast-plate';
+```
+
+<Tabs
+  description={<Description />}
+  props={<Props of={ToastPlate} />}
+  cssVars={<CssVars css={styles} />}
+/>

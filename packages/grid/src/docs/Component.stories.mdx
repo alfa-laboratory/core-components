@@ -1,0 +1,56 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Tabs } from 'storybook/blocks/tabs';
+
+import Description from './description.mdx';
+import { Grid } from '../Component';
+import { name, version } from '../../package.json';
+
+<Meta
+    title='Компоненты/Grid'
+    component={Grid}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='Grid'>
+    {React.createElement(() => {
+        const style = {
+            height: 30,
+            background: '#ff5c5c'
+        };
+        return (
+            <Grid.Row gutter={{ mobile: 0, tablet: 16, desktop: 24}}>
+                <Grid.Col>
+                    <div style={ style } />
+                </Grid.Col>
+                <Grid.Col>
+                    <div style={ { ...style, background: '#f04539' } } />
+                </Grid.Col>
+                <Grid.Col>
+                    <div style={ style } />
+                </Grid.Col>
+            </Grid.Row>
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Grid'
+    version={version}
+    package='@alfalab/core-components-grid'
+    stage={1}
+/>
+
+```tsx
+import { Grid } from '@alfalab/core-components-grid';
+```
+
+<Tabs
+  description={<Description />}
+  props={<Props components={Grid} />}
+/>

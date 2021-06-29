@@ -1,0 +1,66 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { text, boolean, select } from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Tabs } from 'storybook/blocks/tabs';
+
+import Description from './description.mdx';
+import styles from '!!raw-loader!../index.module.css';
+import { CssVars } from 'storybook/blocks/css-vars';
+import { Radio } from '../Component';
+import { name, version } from '../../package.json';
+
+<Meta
+    title='Компоненты/Radio'
+    component={Radio}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='Radio'>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleChange = () => setChecked(!checked);
+        const size = select('size', ['s', 'm'], 's');
+        const disabled = boolean('disabled', false);
+        const block = boolean('block', false);
+        const label = text('label', 'Text label')
+        const hint = text('hint', 'Hint');
+        const align = select('align', ['start', 'center'], 'start');
+        const addons = text('addons');
+        return (
+            <Radio
+                disabled={disabled}
+                addons={addons}
+                block={block}
+                size={size}
+                align={align}
+                onChange={handleChange}
+                checked={checked}
+                hint={hint}
+                label={label}
+            />
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Radio'
+    version={version}
+    package='@alfalab/core-components-radio'
+    stage={2}
+/>
+
+```tsx
+import { Radio } from '@alfalab/core-components-radio';
+```
+
+<Tabs
+  description={<Description />}
+  props={<Props of={Radio} />}
+  cssVars={<CssVars css={styles} />}
+/>

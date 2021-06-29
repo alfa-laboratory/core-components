@@ -1,0 +1,62 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Tabs } from 'storybook/blocks/tabs';
+
+import Description, { ContentWrapper, Content } from './description.mdx';
+import { Button } from '../../../button/src';
+import { Typography } from '../../../typography/src';
+import { Drawer } from '../Component';
+import { name, version } from '../../package.json';
+
+
+<Meta
+    title='Компоненты/Drawer'
+    component={Drawer}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+<!-- Canvas -->
+
+
+<Story name='Drawer'>
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        const handleModalOpen = () => setOpen(!open);
+        return (
+            <React.Fragment>
+                <Button size="xs" onClick={handleModalOpen}>Open Drawer</Button>
+                <Drawer
+                    open={open}
+                    onClose={handleModalOpen}
+                    keepMounted={boolean('keepMounted', false)}
+                >
+                    <ContentWrapper>
+                        <Content/>
+                    </ContentWrapper>
+                </Drawer>
+            </React.Fragment>
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Drawer'
+    version={version}
+    package='@alfalab/core-components-drawer'
+    stage={1}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=16215%3A0'
+/>
+
+```tsx
+import { Drawer } from '@alfalab/core-components-drawer';
+```
+
+<Tabs
+  description={<Description />}
+  props={<Props of={Drawer} />}
+/>
