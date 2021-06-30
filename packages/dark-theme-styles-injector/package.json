@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-dark-theme-styles-injector",
-    "version": "1.5.0",
+    "version": "1.5.1",
     "description": "Inject dark theme styles in page",
     "keywords": [],
     "license": "MIT",
