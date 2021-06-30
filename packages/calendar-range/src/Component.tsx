@@ -1,8 +1,8 @@
 /* eslint-disable multiline-comment-style */
 import React, { useCallback, useState, MouseEvent, FC } from 'react';
 import cn from 'classnames';
-import { startOfMonth, subMonths, addMonths, endOfMonth } from 'date-fns';
-import { usePeriod, dateInLimits, limitDate } from '@alfalab/core-components-calendar';
+import { startOfMonth, subMonths } from 'date-fns';
+import { usePeriod, dateInLimits } from '@alfalab/core-components-calendar';
 import {
     CalendarInput,
     CalendarInputProps,
@@ -11,6 +11,9 @@ import {
     parseDateString,
 } from '@alfalab/core-components-calendar-input';
 import { isDayButton, ValueState, getCorrectValueState, initialValueState } from './utils';
+
+import { useCalendarMonthes } from './useCalendarMonthes';
+import { useCalendarMaxMinDates } from './useCalendarMaxMinDates';
 
 import styles from './index.module.css';
 
@@ -69,6 +72,11 @@ export type CalendarRangeProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Определяет, как рендерить календарь — в поповере или снизу инпута
+     */
+    calendarPosition?: 'static' | 'popover';
 };
 
 export const CalendarRange: FC<CalendarRangeProps> = ({
@@ -82,9 +90,11 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
     onDateToChange,
     inputFromProps = {},
     inputToProps = {},
+    calendarPosition = 'static',
     dataTestId,
 }) => {
     const uncontrolled = valueFrom === undefined && valueTo === undefined;
+    const isPopover = calendarPosition === 'popover';
 
     const period = usePeriod({
         initialSelectedFrom: valueFrom ? parseDateString(valueFrom).getTime() : undefined,
@@ -96,16 +106,6 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
 
     if (!dateInLimits(selectedFrom, minDate, maxDate)) selectedFrom = undefined;
     if (!dateInLimits(selectedTo, minDate, maxDate)) selectedTo = undefined;
-
-    const [nextMonthHighlighted, setNextMonthHighlighted] = useState(false);
-
-    const initialMonth =
-        uncontrolled || !valueFrom
-            ? defaultMonth
-            : startOfMonth(parseDateString(valueFrom)).getTime();
-
-    const [month, setMonth] = useState(initialMonth);
-    const monthTo = addMonths(month, 1).getTime();
 
     const [stateFrom, setStateFrom] = useState<ValueState>(initialValueState);
     const [stateTo, setStateTo] = useState<ValueState>(initialValueState);
@@ -129,6 +129,13 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
         [onDateToChange, uncontrolled],
     );
 
+    const { monthFrom, monthTo, handleMonthFromChange, handleMonthToChange } = useCalendarMonthes({
+        inputValueFrom,
+        inputValueTo,
+        defaultMonth,
+        isPopover,
+    });
+
     const handleInputFromChange = useCallback<Required<CalendarInputProps>['onInputChange']>(
         (_, { value, date }) => {
             if (value === '') {
@@ -136,18 +143,20 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                 handleStateFromChange(initialValueState);
             }
 
-            if (isCompleteDateInput(value)) {
-                if (dateInLimits(date, minDate, maxDate)) {
-                    setStart(date.getTime());
-                    setMonth(startOfMonth(date).getTime());
-                    handleStateFromChange({ date: date.getTime(), value });
-                } else {
-                    setStart(undefined);
-                    handleStateFromChange({ date: null, value });
-                }
+            if (!isCompleteDateInput(value)) {
+                return;
+            }
+
+            if (dateInLimits(date, minDate, maxDate)) {
+                setStart(date.getTime());
+                handleMonthFromChange(startOfMonth(date).getTime());
+                handleStateFromChange({ date: date.getTime(), value });
+            } else {
+                setStart(undefined);
+                handleStateFromChange({ date: null, value });
             }
         },
-        [handleStateFromChange, maxDate, minDate, setStart],
+        [handleMonthFromChange, handleStateFromChange, maxDate, minDate, setStart],
     );
 
     const handleInputToChange = useCallback<Required<CalendarInputProps>['onInputChange']>(
@@ -157,18 +166,20 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                 handleStateToChange(initialValueState);
             }
 
-            if (isCompleteDateInput(value)) {
-                if (dateInLimits(date, minDate, maxDate)) {
-                    setEnd(date.getTime());
-                    setMonth(subMonths(startOfMonth(date), 1).getTime());
-                    handleStateToChange({ date: date.getTime(), value });
-                } else {
-                    setEnd(undefined);
-                    handleStateToChange({ date: null, value });
-                }
+            if (!isCompleteDateInput(value)) {
+                return;
+            }
+
+            if (dateInLimits(date, minDate, maxDate)) {
+                setEnd(date.getTime());
+                handleMonthToChange(subMonths(startOfMonth(date), 1).getTime());
+                handleStateToChange({ date: date.getTime(), value });
+            } else {
+                setEnd(undefined);
+                handleStateToChange({ date: null, value });
             }
         },
-        [handleStateToChange, maxDate, minDate, setEnd],
+        [handleMonthToChange, handleStateToChange, maxDate, minDate, setEnd],
     );
 
     const handleCalendarChange = useCallback(
@@ -211,13 +222,35 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
         ],
     );
 
-    const handleMonthFromChange = useCallback((value: number) => {
-        setMonth(value);
-    }, []);
+    const handleFromCalendarChange = useCallback(
+        (date: number) => {
+            if (!isPopover) {
+                handleCalendarChange(date);
 
-    const handleMonthToChange = useCallback((value: number) => {
-        setMonth(subMonths(value, 1).getTime());
-    }, []);
+                return;
+            }
+
+            setStart(date);
+            handleStateFromChange({ date, value: formatDate(date) });
+        },
+        [handleCalendarChange, handleStateFromChange, isPopover, setStart],
+    );
+
+    const handleToCalendarChange = useCallback(
+        (date: number) => {
+            if (!isPopover) {
+                handleCalendarChange(date);
+
+                return;
+            }
+
+            handleStateToChange({ date, value: formatDate(date) });
+            setEnd(date);
+        },
+        [handleCalendarChange, handleStateToChange, isPopover, setEnd],
+    );
+
+    const [nextMonthHighlighted, setNextMonthHighlighted] = useState(false);
 
     const handleCalendarToMouseOver = useCallback(
         (event: MouseEvent<HTMLDivElement>) => {
@@ -231,23 +264,35 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
         [nextMonthHighlighted],
     );
 
+    const selectorView = isPopover ? 'full' : 'month-only';
+    const calendarSelectedTo = selectedTo || (nextMonthHighlighted ? monthTo : undefined);
+    const maxMinDates = useCalendarMaxMinDates({
+        isPopover,
+        monthTo,
+        monthFrom,
+        selectedFrom,
+        selectedTo: calendarSelectedTo,
+        maxDate,
+        minDate,
+    });
+
     return (
         <div className={cn(styles.component, className)} data-test-id={dataTestId}>
             <CalendarInput
                 {...inputFromProps}
-                calendarPosition='static'
+                calendarPosition={calendarPosition}
                 onInputChange={handleInputFromChange}
-                onCalendarChange={handleCalendarChange}
+                onCalendarChange={handleFromCalendarChange}
                 value={inputValueFrom.value}
-                minDate={minDate}
-                maxDate={limitDate(endOfMonth(month), minDate, maxDate).getTime()}
+                minDate={maxMinDates.fromMinDate}
+                maxDate={maxMinDates.fromMaxDate}
                 calendarProps={{
                     ...inputFromProps.calendarProps,
-                    month,
+                    month: monthFrom,
                     onMonthChange: handleMonthFromChange,
-                    selectorView: 'month-only',
+                    selectorView,
                     selectedFrom,
-                    selectedTo: selectedTo || (nextMonthHighlighted ? monthTo : undefined),
+                    selectedTo: calendarSelectedTo,
                 }}
             />
 
@@ -257,17 +302,18 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
             <div onMouseOver={handleCalendarToMouseOver}>
                 <CalendarInput
                     {...inputToProps}
-                    calendarPosition='static'
+                    calendarPosition={calendarPosition}
+                    popoverPosition='bottom-end'
                     onInputChange={handleInputToChange}
-                    onCalendarChange={handleCalendarChange}
+                    onCalendarChange={handleToCalendarChange}
                     value={inputValueTo.value}
-                    minDate={limitDate(startOfMonth(monthTo), minDate, maxDate).getTime()}
-                    maxDate={maxDate}
+                    minDate={maxMinDates.toMinDate}
+                    maxDate={maxMinDates.toMaxDate}
                     calendarProps={{
                         ...inputToProps.calendarProps,
                         month: monthTo,
                         onMonthChange: handleMonthToChange,
-                        selectorView: 'month-only',
+                        selectorView,
                         selectedFrom,
                         selectedTo,
                     }}
