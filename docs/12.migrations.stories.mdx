@@ -3,4 +3,30 @@ import migrationsReadme from '../packages/codemod/README.md';
 
 <Meta title='Гайдлайны|Миграция со старых компонентов' />
 
+## Миграция со старых компонентов
+
+Таблица соответствий:
+
+| Старый                   | Замена                                                         |
+| ------------------------ | -------------------------------------------------------------- |
+| Dropdown                 | Dropdown                                                       |
+| FormField                | Space                                                          |
+| GeneralConfirmationModal | ConfirmationModal                                              |
+| Heading                  | Typography.Title<br/>Typography.TitleResponsive                |
+| Icon                     | Один из вариантов                                              |
+| IconButton               | IconButton<br/>Button view='ghost' rightAddons={&lt;Icon/&gt;} |
+| InputGroup               | Space                                                          |
+| Label                    | Typography.Text                                                |
+| MobileSheet              | BottomSheet                                                    |
+| MoneyInput               | AmountInput                                                    |
+| Paragraph                | Typography.Text                                                |
+| Popup                    | Popover                                                        |
+| RangeSlider              | SliderInput                                                    |
+| SliderField              | SliderInput                                                    |
+| Spin                     | Spinner                                                        |
+| TagButton                | Tag                                                            |
+| Toggle                   | Switch                                                         |
+
+<!-- | Sidebar | SidePanel | -->
+
 <Description>{migrationsReadme}</Description>
