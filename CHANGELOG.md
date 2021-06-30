@@ -1,3 +1,15 @@
+# [18.2.0](https://github.com/alfa-laboratory/core-components/compare/v18.1.0...v18.2.0) (2021-06-30)
+
+
+### Bug Fixes
+
+* **dark-theme-styles-injector:** fix rendering passed styles ([#723](https://github.com/alfa-laboratory/core-components/issues/723)) ([882841c](https://github.com/alfa-laboratory/core-components/commit/882841c1c43d5570652ab3fcc199958060b92c57))
+
+
+### Features
+
+* **calendar-range:** pass props to render calendar in popper ([#702](https://github.com/alfa-laboratory/core-components/issues/702)) ([4369e46](https://github.com/alfa-laboratory/core-components/commit/4369e462116dc1d240f95f811be67639b10dedb6))
+
 # [18.1.0](https://github.com/alfa-laboratory/core-components/compare/v18.0.0...v18.1.0) (2021-06-29)
 
 
