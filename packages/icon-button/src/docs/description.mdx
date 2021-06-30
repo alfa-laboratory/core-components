@@ -9,7 +9,7 @@ import { IconButton } from '../Component';
 
 ### Размеры
 
-```tsx live
+<Preview>
     <Container>
         <Row>
             <Col>
@@ -23,13 +23,13 @@ import { IconButton } from '../Component';
             </Col>
         </Row>
     </Container>
-```
+</Preview>
 
 ### Виды кнопок
 
 - <b>Primary</b>
 
-```tsx live
+<Preview>
     <Container>
         <Row>
             <Col>
@@ -40,11 +40,11 @@ import { IconButton } from '../Component';
             </Col>
         </Row>
     </Container>
-```
+</Preview>
 
 - <b>Secondary</b>
 
-```tsx live
+<Preview>
     <Container>
         <Row>
             <Col>
@@ -55,11 +55,11 @@ import { IconButton } from '../Component';
             </Col>
         </Row>
     </Container>
-```
+</Preview>
 
 - <b>Transparent</b>
 
-```tsx live style={{ background: '#ef3124'}}>
+<Preview style={{ background: '#ef3124'}}>
     <Container>
         <Row>
             <Col>
@@ -70,11 +70,11 @@ import { IconButton } from '../Component';
             </Col>
         </Row>
     </Container>
-```
+</Preview>
 
 - <b>Negative</b>
 
-```tsx live
+<Preview>
     <Container>
         <Row>
             <Col>
@@ -85,23 +85,23 @@ import { IconButton } from '../Component';
             </Col>
         </Row>
     </Container>
-```
+</Preview>
+
+<Props of={IconButton} />
 
 ## Темы
 
 `default-inverted`
 
-```tsx live
-    <div data-theme='default-inverted' style={{padding: '24px', borderRadius: '4px', backgroundColor: '#0b1f35'}}>
-        <Container>
-            <Row>
-                <Col>
-                    <IconButton view='primary' icon={StarMIcon} />
-                </Col>
-                <Col>
-                    <IconButton view='primary' icon={BankAlfaXxlBlackIcon} />
-                </Col>
-            </Row>
-        </Container>
-    </div>
-```
+<div data-theme='default-inverted' style={{padding: '24px', borderRadius: '4px', backgroundColor: '#0b1f35'}}>
+    <Container>
+        <Row>
+            <Col>
+                <IconButton view='primary' icon={StarMIcon} />
+            </Col>
+            <Col>
+                <IconButton view='primary' icon={BankAlfaXxlBlackIcon} />
+            </Col>
+        </Row>
+    </Container>
+</div>
