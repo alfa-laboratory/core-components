@@ -177,4 +177,30 @@ describe('IntlPhoneInput', () => {
             expect(input).toHaveValue('+7');
         });
     });
+
+    it('should ignore changing country code', async () => {
+        const onChange = jest.fn();
+        render(<IntlPhoneInput value='+7' onChange={onChange} clearableCountryCode={false} />);
+
+        const input = await screen.findByDisplayValue('+7');
+        fireEvent.change(input, { target: { value: '+17' } });
+
+        waitFor(() => {
+            expect(onChange).not.toHaveBeenCalled();
+            expect(input).toHaveValue('+71');
+        });
+    });
+
+    it('should move chars before country code', async () => {
+        const onChange = jest.fn();
+        render(<IntlPhoneInput value='+7' onChange={onChange} clearableCountryCode={false} />);
+
+        const input = await screen.findByDisplayValue('+7');
+        fireEvent.change(input, { target: { value: '9+7' } });
+
+        waitFor(() => {
+            expect(onChange).not.toHaveBeenCalled();
+            expect(input).toHaveValue('+79');
+        });
+    });
 });
