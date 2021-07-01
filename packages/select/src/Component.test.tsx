@@ -291,7 +291,7 @@ describe('Select', () => {
             const input = document.querySelector('.input') as HTMLElement;
             await pressArrowDownNTimes(input, options.length + 1);
             expect((document.querySelector('.highlighted div') as HTMLElement).innerHTML).toBe(
-                options[1].content,
+                options[0].content,
             );
         });
 
@@ -425,7 +425,7 @@ describe('Select', () => {
             const expectedProps: Partial<OptionsListProps> = {
                 options,
                 flatOptions: options,
-                highlightedIndex: 0,
+                highlightedIndex: -1,
                 open: true,
                 size: 'l',
                 visibleOptions: 3,
