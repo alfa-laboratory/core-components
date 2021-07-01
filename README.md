@@ -29,7 +29,10 @@ yarn add @alfalab/core-components-button
 ## Использование
 
 ```jsx
+// При использовании общего пакета (рекомендуемый вариант):
 import { Button } from '@alfalab/core-components/button';
+
+// При использовании отдельных пакетов
 import { Button } from '@alfalab/core-components-button';
 ```
 
