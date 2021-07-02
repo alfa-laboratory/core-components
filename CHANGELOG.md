@@ -1,3 +1,10 @@
+## [18.2.1](https://github.com/alfa-laboratory/core-components/compare/v18.2.0...v18.2.1) (2021-07-02)
+
+
+### Bug Fixes
+
+* **base-modal:** resubscribe observer when content node changed ([2fef06e](https://github.com/alfa-laboratory/core-components/commit/2fef06eea01354f58663a5f4470606123d31f9d4))
+
 # [18.2.0](https://github.com/alfa-laboratory/core-components/compare/v18.1.0...v18.2.0) (2021-06-30)
 
 
