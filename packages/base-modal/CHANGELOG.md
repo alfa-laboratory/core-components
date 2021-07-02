@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-base-modal@2.1.0...@alfalab/core-components-base-modal@2.1.1) (2021-07-02)
+
+
+### Bug Fixes
+
+* **base-modal:** resubscribe observer when content node changed ([2fef06e](https://github.com/alfa-laboratory/core-components/commit/2fef06eea01354f58663a5f4470606123d31f9d4))
+
+
+
+
+
 # [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-base-modal@2.0.2...@alfalab/core-components-base-modal@2.1.0) (2021-06-28)
 
 
