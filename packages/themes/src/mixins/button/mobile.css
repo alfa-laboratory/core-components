@@ -2,15 +2,17 @@
 
 @define-mixin button-mobile {
     /* core vars */
-    --color-light-bg-secondary-inverted: #1c1c1e;
-    --color-light-bg-primary-inverted: #000;
+    --color-light-bg-secondary-inverted: #202022;
+    --color-light-bg-primary-inverted: #121212;
     --color-light-text-tertiary-inverted: #464649;
     --color-light-bg-secondary: #f3f4f5;
     --color-light-bg-tertiary: #e9e9eb;
     --color-light-text-disabled: #dcdcdd;
+    --border-radius-l: 12px;
 
     /* theme */
     --button-border-radius: var(--border-radius-l);
+    --button-font-weight: bold;
 
     /* primary */
     --button-primary-base-bg-color: var(--color-light-bg-secondary-inverted);

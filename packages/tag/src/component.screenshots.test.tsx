@@ -12,6 +12,8 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
+const availableThemes = ['default', 'click', 'mobile'];
+
 describe('Tag | main props', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
@@ -37,7 +39,7 @@ describe('Tag | main props', () => {
             theme,
         })();
 
-    ['default', 'click'].map(testCase);
+    availableThemes.map(testCase);
 });
 
 describe('Tag | right addons', () => {
@@ -63,5 +65,5 @@ describe('Tag | right addons', () => {
             theme,
         })();
 
-    ['default', 'click'].map(testCase);
+    availableThemes.map(testCase);
 });
