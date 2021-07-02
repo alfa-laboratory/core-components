@@ -232,13 +232,6 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             }
         };
 
-        const contentRef = useCallback((node: HTMLDivElement) => {
-            if (node !== null) {
-                contentNodeRef.current = node;
-                checkToHasScrollBar();
-            }
-        }, []);
-
         const shouldRender = keepMounted || open || !exited;
 
         const resizeObserver = useMemo(() => new ResizeObserver(checkToHasScrollBar), []);
@@ -251,6 +244,17 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         const removeResizeHandle = useCallback(() => {
             resizeObserver.disconnect();
         }, [resizeObserver]);
+
+        const contentRef = useCallback(
+            (node: HTMLDivElement) => {
+                if (node !== null) {
+                    contentNodeRef.current = node;
+                    resizeObserver.observe(node);
+                    checkToHasScrollBar();
+                }
+            },
+            [resizeObserver],
+        );
 
         const handleScroll = useCallback(() => {
             if (!scrollableNodeRef.current || !componentRef.current) return;
