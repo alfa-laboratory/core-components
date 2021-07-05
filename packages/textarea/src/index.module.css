@@ -1,19 +1,25 @@
 @import '../../themes/src/default.css';
 
 :root {
-    /* Local variables, not used in theming */
+    /* min-height */
     --textarea-s-min-height: var(--form-control-s-min-height);
     --textarea-m-min-height: var(--form-control-m-min-height);
     --textarea-l-min-height: var(--form-control-l-min-height);
     --textarea-xl-min-height: var(--form-control-xl-min-height);
+
+    /* padding-top */
     --textarea-s-padding-top: 14px;
     --textarea-m-padding-top: 18px;
     --textarea-l-padding-top: 22px;
     --textarea-xl-padding-top: 24px;
+
+    /* filled margin-top */
     --textarea-s-filled-margin-top: 23px;
     --textarea-m-filled-margin-top: 28px;
     --textarea-l-filled-margin-top: 32px;
     --textarea-xl-filled-margin-top: 34px;
+
+    /* filled min-height */
     --textarea-s-filled-min-height: calc(
         var(--textarea-s-min-height) - var(--textarea-s-filled-margin-top)
     );

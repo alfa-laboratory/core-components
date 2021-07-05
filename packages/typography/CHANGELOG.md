@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-typography@1.5.0...@alfalab/core-components-typography@1.5.1) (2021-06-28)
+
+
+### Bug Fixes
+
+* **typography:** add missing weight styles ([#719](https://github.com/alfa-laboratory/core-components/issues/719)) ([6b855aa](https://github.com/alfa-laboratory/core-components/commit/6b855aa97eff918e0e16f957c4c05bb7f2d8f4fe))
+
+
+
+
+
 # [1.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-typography@1.4.7...@alfalab/core-components-typography@1.5.0) (2021-06-04)
 
 

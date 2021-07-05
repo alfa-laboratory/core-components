@@ -34,7 +34,7 @@ export type NotificationProps = ToastPlateProps & {
     /**
      * Время до закрытия компонента
      */
-    autoCloseDelay?: number;
+    autoCloseDelay?: number | null;
 
     /**
      * Использовать портал
@@ -98,11 +98,13 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
         const [isClosing, setIsClosing] = useState(false);
 
         const startAutoCloseTimer = useCallback(() => {
-            autoCloseTimeoutRef.current = window.setTimeout(() => {
-                if (onCloseTimeout) {
-                    onCloseTimeout();
-                }
-            }, autoCloseDelay);
+            if (autoCloseDelay !== null) {
+                autoCloseTimeoutRef.current = window.setTimeout(() => {
+                    if (onCloseTimeout) {
+                        onCloseTimeout();
+                    }
+                }, autoCloseDelay);
+            }
         }, [autoCloseDelay, onCloseTimeout]);
 
         const stopAutoCloseTimer = useCallback(() => {

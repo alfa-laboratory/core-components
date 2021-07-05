@@ -19,6 +19,7 @@ module.exports = {
         '\\.css$': 'identity-obj-proxy',
     },
     testMatch: ['**/*.test.ts?(x)', '!**/*.screenshots.test.ts?(x)'],
+    testPathIgnorePatterns: ['codemod'],
     coverageReporters: ['lcov', 'text', 'text-summary', 'clover'],
     coveragePathIgnorePatterns: ['index.ts'],
 };

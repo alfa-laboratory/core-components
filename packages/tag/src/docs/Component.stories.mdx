@@ -3,21 +3,21 @@ import { text, select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import Icon from '@alfalab/icons-glyph/CopyMIcon';
 import { Tabs } from 'storybook/blocks/tabs';
-
 import Description, { SIZES } from './description.mdx';
-import styles from '!!raw-loader!../index.module.css';
 import { CssVars } from 'storybook/blocks/css-vars';
 import { Tag } from '../Component';
 import { name, version } from '../../package.json';
 
-
+import styles from '!!raw-loader!../index.module.css';
 
 <Meta
     title='Компоненты/Tag'
     component={Tag}
     parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
+
 <!-- Canvas -->
+
 <Story name='Tag'>
     {React.createElement(() => {
         const [checked, setChecked] = React.useState(false);

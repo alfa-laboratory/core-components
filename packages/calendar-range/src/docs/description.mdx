@@ -78,7 +78,14 @@ import { CalendarRange } from '../Component'
                     onBlur: handleToBlur,
                     onFocus: handleToFocus
                 }}
+                calendarPosition={select('calendarPosition', ['static', 'popover'], 'static')}
             />
         );
     })}
+</Preview>
+
+### Рендерит календари в поповере
+
+<Preview>
+    <CalendarRange calendarPosition="popover"/>
 </Preview>

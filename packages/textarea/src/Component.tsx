@@ -5,6 +5,7 @@ import React, {
     useRef,
     TextareaHTMLAttributes,
     ChangeEvent,
+    forwardRef,
 } from 'react';
 import cn from 'classnames';
 import TextareaAutosize from 'react-textarea-autosize';
@@ -14,8 +15,10 @@ import { FormControl } from '@alfalab/core-components-form-control';
 
 import styles from './index.module.css';
 
+type NativeProps = TextareaHTMLAttributes<HTMLTextAreaElement>;
+
 export type TextareaProps = Omit<
-    TextareaHTMLAttributes<HTMLTextAreaElement>,
+    NativeProps,
     'size' | 'style' | 'value' | 'defaultValue' | 'onChange'
 > & {
     /**
@@ -122,9 +125,27 @@ export type TextareaProps = Omit<
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Максимальное количество символов (native prop)
+     */
+    maxLength?: number;
+
+    /**
+     * Показывать счетчик введенных символов
+     */
+    showCounter?: boolean;
+
+    /**
+     * Функция, возвращающая текст для счетчика
+     */
+    getCounterText?: (textLength: number, maxLength?: number) => string;
 };
 
-export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+export const getDefaultCounterText = (textLength: number, maxLength = 0): string =>
+    `${textLength}/${maxLength} символов`;
+
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     (
         {
             autoComplete = 'on',
@@ -153,6 +174,9 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             value,
             defaultValue,
             rows = autosize ? 1 : 3,
+            showCounter = false,
+            getCounterText = getDefaultCounterText,
+            maxLength,
             ...restProps
         },
         ref,
@@ -210,6 +234,22 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             [onChange, uncontrolled],
         );
 
+        const getValueLength = (): number => {
+            if (uncontrolled) {
+                return stateValue.length;
+            }
+
+            return (value as string).length;
+        };
+
+        const getHint = () => {
+            if (showCounter) {
+                return getCounterText(getValueLength(), maxLength);
+            }
+
+            return hint;
+        };
+
         const textareaProps = {
             ...restProps,
             className: cn(
@@ -231,6 +271,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             rows,
             ref: mergeRefs([ref, textareaRef]),
             'data-test-id': dataTestId,
+            maxLength,
         };
 
         return (
@@ -246,7 +287,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
                 focused={focused}
                 error={error}
                 label={label}
-                hint={hint}
+                hint={getHint()}
                 leftAddons={leftAddons}
                 rightAddons={rightAddons}
                 bottomAddons={bottomAddons}
