@@ -39,7 +39,15 @@ export const OptionsList = ({
         visibleOptions,
         listRef,
         open,
-        invalidate: options.length,
+        invalidate: JSON.stringify(
+            options.map(option => {
+                if ('key' in option) {
+                    return option.key;
+                }
+
+                return option.options.map(({ key }) => key);
+            }),
+        ),
     });
 
     if (options.length === 0 && !emptyPlaceholder) {
