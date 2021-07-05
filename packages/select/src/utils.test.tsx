@@ -1,5 +1,5 @@
 import React from 'react';
-import { joinOptions, processOptions } from './utils';
+import { getOptionsFingerprint, joinOptions, processOptions } from './utils';
 import { OptionShape } from './typings';
 
 describe('joinOptions', () => {
@@ -123,5 +123,39 @@ describe('processOptions', () => {
             options[1],
             options[2],
         ]);
+    });
+
+    describe('getOptionsFingerprint', () => {
+        it('should have different fingerprints for different options', () => {
+            const optionsLength = options.length / 2;
+
+            const headFingerprint = getOptionsFingerprint(options.slice(0, optionsLength));
+            const tailFingerprint = getOptionsFingerprint(options.slice(optionsLength));
+
+            expect(headFingerprint).not.toEqual(tailFingerprint);
+        });
+
+        it('should have different fingerprints for different groups', () => {
+            const groupsLength = groups.length / 2;
+
+            const headFingerprint = getOptionsFingerprint(groups.slice(0, groupsLength));
+            const tailFingerprint = getOptionsFingerprint(groups.slice(groupsLength));
+
+            expect(headFingerprint).not.toEqual(tailFingerprint);
+        });
+
+        it('should have same fingerprint for the same options', () => {
+            const originalFingerprint = getOptionsFingerprint(options);
+            const cloneFingerprint = getOptionsFingerprint([...options]);
+
+            expect(originalFingerprint).toEqual(cloneFingerprint);
+        });
+
+        it('should have same fingerprint for the same groups', () => {
+            const originalFingerprint = getOptionsFingerprint(groups);
+            const cloneFingerprint = getOptionsFingerprint([...groups]);
+
+            expect(originalFingerprint).toEqual(cloneFingerprint);
+        });
     });
 });

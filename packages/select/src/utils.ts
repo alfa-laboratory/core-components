@@ -141,3 +141,15 @@ export const lastIndexOf = <T>(array: T[], predicate: (item: T) => boolean) => {
     }
     return -1;
 };
+
+export function getOptionsFingerprint(options: Array<OptionShape | GroupShape>) {
+    return JSON.stringify(
+        options.map(option => {
+            if ('key' in option) {
+                return option.key;
+            }
+
+            return option.options.map(({ key }) => key);
+        }),
+    );
+}
