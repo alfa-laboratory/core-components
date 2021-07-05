@@ -32,7 +32,14 @@ export type BadgeProps = {
     /**
      * Цветовое оформление иконки
      */
-    iconColor?: 'positive' | 'attention' | 'negative' | 'tertiary' | 'secondary' | 'primary';
+    iconColor?:
+        | 'positive'
+        | 'attention'
+        | 'neutral'
+        | 'negative'
+        | 'tertiary'
+        | 'secondary'
+        | 'primary';
 
     /**
      * Идентификатор для систем автоматизированного тестирования

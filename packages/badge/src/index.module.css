@@ -56,6 +56,10 @@
         color: var(--color-light-graphic-negative);
     }
 
+    &.neutral {
+        color: var(--color-light-graphic-link);
+    }
+
     &.tertiary {
         color: var(--color-light-graphic-tertiary);
     }
