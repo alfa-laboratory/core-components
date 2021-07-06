@@ -1,0 +1,588 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { text, boolean, number, select as selectKnob } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader } from 'storybook/blocks/component-header';
+
+import { Select } from './Component';
+import { Field } from './components/field';
+import { Arrow } from './components/arrow';
+import { OptionsList } from './components/options-list';
+import { VirtualOptionsList } from './components/virtual-options-list';
+import { Optgroup } from './components/optgroup';
+import { Option } from './components/option';
+import { Button } from '../../button/src';
+import { joinOptions } from './utils';
+import { name, version } from '../package.json';
+
+import Icon from '@alfalab/icons-classic/BankAlfaSBlackIcon';
+
+export const options = [
+    { key: '1', content: 'Neptunium'},
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+    { key: '9', content: 'Mendelevium' },
+    { key: '10', content: 'Nobelium' },
+    { key: '11', content: 'Lawrencium' },
+    { key: '12', content: 'Rutherfordium' },
+    { key: '13', content: 'Dubnium' },
+    { key: '14', content: 'Seaborgium' },
+    { key: '15', content: 'Bohrium' },
+];
+
+export const groups = [
+    {
+        label: 'Группа №1',
+        options: [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+            { key: '3', content: 'Americium' },
+            { key: '4', content: 'Curium' },
+        ]
+    },
+    {
+        label: 'Группа №2',
+        options: [
+            { key: '5', content: 'Berkelium' },
+            { key: '6', content: 'Californium' },
+            { key: '7', content: 'Einsteinium' },
+            { key: '8', content: 'Fermium' },
+            { key: '9', content: 'Mendelevium' },
+            { key: '10', content: 'Nobelium' },
+        ]
+    },
+    {
+        label: 'Группа №3',
+        options: [
+            { key: '11', content: 'Lawrencium' },
+            { key: '12', content: 'Rutherfordium' },
+            { key: '13', content: 'Dubnium' },
+            { key: '14', content: 'Seaborgium' },
+            { key: '15', content: 'Bohrium' },
+        ]
+    },
+];
+
+export const optionsWithHtml = options.map(option => {
+    return {
+        ...option,
+        content: (<span style={{ fontWeight: 'bold' }}>{option.content}</span>),
+    };
+});
+
+export const renderUppercased = (options) => {
+    return options.map(option => option.content.toUpperCase()).join(', ');
+};
+
+export const POSITION_OPTIONS = [
+    'top',
+    'top-start',
+    'top-end',
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+    'right',
+    'right-start',
+    'right-end',
+    'left',
+    'left-start',
+    'left-end',
+];
+
+
+<Meta
+    title='Компоненты'
+    component={Select}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='Select'>
+    <Select
+        block={boolean('block', false)}
+        size={selectKnob('size', ['s', 'm', 'l', 'xl'], 's')}
+        disabled={boolean('disabled', false)}
+        error={text('error', '')}
+        hint={text('hint', '')}
+        options={options}
+        multiple={boolean('multiple', false)}
+        allowUnselect={boolean('allowUnselect', true)}
+        closeOnSelect={boolean('closeOnSelect', true)}
+        Arrow={boolean('Arrow', true) ? Arrow : () => null}
+        circularNavigation={boolean('circularNavigation', false)}
+        nativeSelect={boolean('nativeSelect', false)}
+        placeholder={text('placeholder', 'Выберите элемент')}
+        label={text('label', 'Элемент')}
+        visibleOptions={number('visibleOptions', 5)}
+        onChange={action('change')}
+        onOpen={action('open')}
+        defaultOpen={boolean('defaultOpen', false)}
+        popoverPosition={selectKnob('popoverPosition', POSITION_OPTIONS, 'bottom-start')}
+        optionsListWidth={selectKnob('optionsListWidth', ['field', 'content'], 'field')}
+    />
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Select'
+    version={version}
+    package='@alfalab/core-components-select'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=719%3A0'
+/>
+
+```tsx
+import { Select } from '@alfalab/core-components-select';
+```
+
+Компонент выпадающего списка.
+
+<Select options={options} placeholder='Выберите элемент' />
+
+<!-- Spacer -->
+<div style={{height: 32}} />
+
+
+<Props components={{
+    Select,
+    Field,
+    OptionsList,
+    Optgroup,
+    Option
+}} />
+
+
+## Использование
+
+В случае, если нужно собрать селект под очень специфичный кейс - за основу стоит взять компонент `BaseSelect`,
+который содержит только основные пропсы и позволяет заменить или настроить почти что угодно.
+
+Компонент `Select` является преднастроенной оберткой над `BaseSelect`
+
+---
+
+### Управление закрытием
+
+По умолчанию - селект `multiple=false` закрывается после выбора, а при `multiple=true` - остается открытым.
+Изменить это поведение можно с помощью `closeOnSelect`.
+
+<Preview>
+    <Select
+        options={options}
+        multiple={true}
+        placeholder='Выберите элемент'
+        allowUnselect={true}
+    />
+</Preview>
+
+### Controlled-way
+
+Компонент может быть использован как controlled с помощью `onChange` и `selected`:
+
+<Preview>
+    {React.createElement(() => {
+        const [selected, setSelected] = React.useState([options[8].key, options[9].key]);
+        const handleChange = ({ selectedMultiple }) => {
+            setSelected(selectedMultiple.map(option => option.key));
+        };
+        return (
+            <Select
+                options={options}
+                placeholder='Выберите элемент'
+                label='controlled'
+                multiple={true}
+                onChange={handleChange}
+                selected={selected}
+            />
+        );
+    })}
+</Preview>
+
+#### OptionShape вместо ключей для выбранных пунктов
+
+Иногда может быть удобнее использовать в качестве выбранных значений не ключи, а сами объекты.
+В этом случае просто передавайте их через свойство `selected`.
+
+<Preview>
+    {React.createElement(() => {
+        const [selected, setSelected] = React.useState([options[8], options[9]]);
+        const handleChange = ({ selectedMultiple }) => {
+            setSelected(selectedMultiple);
+        };
+        return (
+            <Select
+                options={options}
+                placeholder='Выберите элемент'
+                label='controlled'
+                multiple={true}
+                onChange={handleChange}
+                selected={selected}
+            />
+        );
+    })}
+</Preview>
+
+### Использование в форме
+
+Чтобы использовать селект внутри формы - следует указать атрибут `name`
+
+<Preview>
+    {React.createElement(() => {
+        const options = [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+            { key: '3', content: 'Americium' },
+        ];
+        const [serialized, setSerialized] = React.useState();
+        const onSubmit = (event) => {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            setSerialized(new URLSearchParams(formData).toString());
+        };
+        const [selected, setSelected] = React.useState([]);
+        const handleChange = ({ selectedMultiple }) => {
+            setSelected(selectedMultiple.map(option => option.key));
+        };
+        return (
+            <div>
+                <form onSubmit={onSubmit}>
+                    <Select
+                        options={options}
+                        placeholder='Выберите элемент'
+                        name='select'
+                        multiple={true}
+                        onChange={handleChange}
+                        selected={selected}
+                    />
+                    <button type='submit'>Отправить</button>
+                </form>
+                <div>serialized: {serialized}</div>
+            </div>
+        );
+    })}
+</Preview>
+
+## Настройка рендера
+
+Помимо текста, компонент позволяет использовать html в качестве поля `content` у вариантов выбора
+
+<Preview>
+    <div style={{ width: 480 }}>
+        {React.createElement(() => {
+            const [selected, setSelected] = React.useState(null);
+            const handleChange = ({ selected }) => {
+                setSelected(selected ? selected.key : null);
+            };
+            const Card = ({ name, balance }) => (
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <div style={{ width: '76px', height: '48px', marginRight: '16px', background: '#E7E9EB' }} />
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <span style={{ fontSize: '14px' }}>{name}</span>
+                        <span style={{ fontSize: '16px' }}>{balance}</span>
+                    </div>
+                </div>
+            );
+            return (
+                <Select
+                    block={true}
+                    selected={selected}
+                    onChange={handleChange}
+                    size='l'
+                    options={[
+                        { key: 'Account1', content: <Card name='Account1 Name ··0000' balance='100 000,00 ₽' /> },
+                        { key: 'Account2', content: <Card name='Account2 Name ··0000' balance='150 000,00 ₽' /> },
+                        { key: 'Account3', content: <Card name='Account3 Name ··0000' balance='230 000,00 ₽' /> },
+                        { key: 'Account4', content: <Card name='Account4 Name ··0000' balance='12 000,00 ₽' /> },
+                    ]}
+                    multiple={false}
+                    placeholder='Выберите карту'
+                    allowUnselect={true}
+                />
+            );
+        })}
+    </div>
+</Preview>
+
+Стандартный компонент **Field** позволяет управлять рендером выбранных пунктов с помощью `valueRenderer`
+
+<Preview>
+    {React.createElement(() => {
+        const OptionWithIcon = ({ content }) => (
+            <span style={{ display: 'flex' }} key={content}>
+                <Icon />
+                {content.toUpperCase()}
+            </span>
+        );
+        const valueRenderer = ({ selected }) => selected ? <OptionWithIcon {...selected} /> : null;
+        return (
+            <Select
+                options={options}
+                label='С иконкой'
+                valueRenderer={valueRenderer}
+            />
+        );
+    })}
+</Preview>
+
+Селект позволяет заменять или кастомизировать компоненты **Field**, **Option**, **OptionsList**, **Optgroup**, **Arrow**
+
+<Preview>
+    {React.createElement(() => {
+        const BoldOption = (props) => (
+            <Option {...props}><b>{props.option.content}</b></Option>
+        );
+        return (
+            <Select
+                options={options}
+                label='Bold options'
+                Option={BoldOption}
+            />
+        );
+    })}
+</Preview>
+
+<Preview>
+    <Select
+        options={options}
+        label='With addons'
+        Field={(props) => <Field {...props} leftAddons={props.selected && <Icon/>} />}
+    />
+</Preview>
+
+<Preview>
+    <Select
+        options={options}
+        allowUnselect={true}
+        popoverPosition='bottom-start'
+        Field={({ selected, innerProps, ...restProps }) => (
+            <Button {...innerProps} size='xs'>
+                {selected ? selected.content : 'Pick'}
+            </Button>
+        )}
+    />
+</Preview>
+
+## Управление размером пунктов меню
+
+По умолчанию размер пунктов меню совпадает с размером селекта, но с помощью свойства `optionsSize` можно задать размер отдельно.
+
+<Preview>
+    {React.createElement(() => {
+        return (
+            <Select
+                size='l'
+                options={options}
+                label='optionsSize'
+                optionsSize='s'
+            />
+        );
+    })}
+</Preview>
+
+
+## Селект с заголовком меню
+
+<Preview>
+    {React.createElement(() => {
+        const renderList = (props) => (
+            <div>
+                <b>Header</b>
+                <OptionsList {...props} />
+            </div>
+        );
+        return (
+            <Select
+                label='With header'
+                options={options}
+                OptionsList={renderList}
+            />
+        );
+    })}
+</Preview>
+
+## Ширина выпадающего меню
+
+По умолчанию ширину выпадающего меню задает контент пунктов.
+Если контент слишком длинный, то может понадобиться изменить это поведение.
+
+Это можно сделать с помощью свойства `optionsListWidth='field'` — в этом случае ширина выпадающего меню будет равна ширине поля, а лишний контент обрежется.
+
+<Preview>
+    {React.createElement(() => {
+        const LongContent = ({ text }) => (
+            <span style={{ whiteSpace: 'nowrap' }} title={text}>
+                {text}
+            </span>
+        );
+        const longOptions = [
+            { key: '1', content: <LongContent text='Великий Новгород' /> },
+            { key: '2', content: <LongContent text='Гусь-Хрустальный' /> },
+            { key: '3', content: <LongContent text='Каменск-Шахтинский' /> },
+            { key: '4', content: <LongContent text='Очень длинное название' /> },
+        ];
+        return (
+            <div style={{ width: 160 }}>
+                <Select
+                    block={true}
+                    label='Города'
+                    options={longOptions}
+                    optionsListWidth='field'
+                />
+            </div>
+        );
+    })}
+</Preview>
+
+## Группы
+
+Группированный селект
+
+```jsx
+const groups = [{
+    label: 'Группа №1',
+    options: [
+        { key: '1', content: 'Neptunium' },
+        { key: '2', content: 'Plutonium' },
+    ]
+},
+{
+    label: 'Группа №2',
+    options: [
+        { key: '3', content: 'Berkelium' },
+        { key: '4', content: 'Californium' },
+    ]
+}]
+```
+
+<Preview>
+    <Select
+        options={groups}
+        label='Optgroup'
+        multiple={true}
+    />
+</Preview>
+
+## Нативный селект
+
+Рендерит нативный селект вместо выпадающего меню. (стоит использовать только для мобильных устройств)
+
+<Preview>
+    <Select
+        options={groups}
+        label='native'
+        nativeSelect={true}
+    />
+</Preview>
+
+## Рендер длинных списков
+
+Используйте `OptionsList={VirtualOptionsList}` для рендера большого количества данных
+
+<Preview>
+    {React.createElement(() => {
+        const options = new Array(10000).fill().map((_, index) => {
+            const variableSizeText = `Вы восхитительны! `.repeat(
+                Math.round(Math.random() * 10),
+            );
+            return {
+                key: index,
+                content: `${index}. ${variableSizeText}`,
+            };
+        });
+        return (
+            <div style={{ width: 320 }}>
+                <Select
+                    block={true}
+                    label='virtual 10k'
+                    options={options}
+                    circularNavigation={true}
+                    OptionsList={VirtualOptionsList}
+                    allowUnselect={true}
+                    visibleOptions={3}
+                />
+            </div>
+        );
+    })}
+</Preview>
+
+<Preview>
+    {React.createElement(() => {
+        return (
+            <Select
+                label='virtual with groups'
+                options={groups}
+                multiple={true}
+                allowUnselect={true}
+                circularNavigation={true}
+                OptionsList={VirtualOptionsList}
+            />
+        );
+    })}
+</Preview>
+
+
+## Открытие вверх, если места недостаточно
+
+<Preview>
+    <Select
+        options={groups}
+        preventFlip={false}
+        label='preventFlip'
+    />
+</Preview>
+
+
+## Пресеты
+
+### Селект со скелетной загрузкой
+
+```tsx live
+const options = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+];
+
+function Example() {
+    const [loading, setLoading] = React.useState(true);
+
+    const loadingProps = useSelectWithLoading({
+        visibleOptions: 6,
+        loading,
+    });
+
+    const handleOpen = () => {
+        setLoading(true);
+        setTimeout(() => setLoading(false), 2000);
+    };
+
+    return (
+        <Select
+            options={options}
+            label='select with loading'
+            size='l'
+            block={true}
+            onOpen={handleOpen}
+            {...loadingProps}
+        />
+    );
+}
+
+render(
+    <Example />
+)
+```
