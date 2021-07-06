@@ -21,6 +21,7 @@ import { name, version } from '../package.json';
         const handleChange = () => setChecked(!checked);
         const size = select('size', ['s', 'm'], 's');
         const disabled = boolean('disabled', false);
+        const checkedKnob = boolean('checked', false);
         const label = text('label', 'Согласен с условиями');
         const indeterminate = boolean('indeterminate', false);
         const hint = text('hint', 'Дополнительная информация');
@@ -35,7 +36,7 @@ import { name, version } from '../package.json';
                 addons={addons}
                 align={align}
                 onChange={handleChange}
-                checked={checked}
+                checked={checked || checkedKnob}
                 label={label}
                 indeterminate={indeterminate}
                 hint={hint}
