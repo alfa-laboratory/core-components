@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@4.0.1...@alfalab/core-components-notification@4.1.0) (2021-06-22)
+
+
+### Features
+
+* **notification:** add null autoCloseDelay ([#698](https://github.com/alfa-laboratory/core-components/issues/698)) ([6c2f0e0](https://github.com/alfa-laboratory/core-components/commit/6c2f0e083ec94797e8193b19d8bbafd042a5c2a5))
+
+
+
+
+
 ## [4.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@4.0.0...@alfalab/core-components-notification@4.0.1) (2021-05-31)
 
 **Note:** Version bump only for package @alfalab/core-components-notification

@@ -29,6 +29,7 @@ export type SignConfirmationProps = {
     inputRef: MutableRefObject<HTMLInputElement | null>;
     alignContent: ContentAlign;
     noAttemptsLeftMessage?: string;
+    buttonRetryText: string;
     onInputFinished: ({ code }: { code: string }) => void;
     onInputChange: ({ code }: { code: string }) => void;
     onSmsRetryClick: (event: React.MouseEvent) => void;
@@ -55,6 +56,7 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
     codeSendingText,
     alignContent,
     noAttemptsLeftMessage,
+    buttonRetryText,
     onInputFinished,
     onInputChange,
     onSmsRetryClick,
@@ -135,6 +137,7 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
                         alignContent={alignContent}
                         noAttemptsLeftMessage={noAttemptsLeftMessage}
                         hasError={Boolean(displayedError)}
+                        buttonRetryText={buttonRetryText}
                         onRepeatSms={onSmsRetryClick}
                         onCountdownFinished={onCountdownFinished}
                     />

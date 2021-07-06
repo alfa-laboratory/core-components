@@ -1,0 +1,12 @@
+@import '../../../../themes/src/default.css';
+
+.footer {
+    position: sticky;
+    bottom: 0;
+    padding: var(--gap-m) var(--gap-m) var(--gap-3xl);
+    background-color: var(--color-light-bg-primary);
+}
+
+.highlighted {
+    box-shadow: var(--shadow-s-up);
+}

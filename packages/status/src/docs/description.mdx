@@ -1,12 +1,3 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { select, text } from '@storybook/addon-knobs';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-
-import { Status, colors } from '../Component';
-import { name, version } from '../../package.json';
-
-
 Статус испольнения/подключения или маркетингового выделения
 
 ### Статус исполнения/подключения
@@ -16,17 +7,15 @@ import { name, version } from '../../package.json';
 Применяется в таблицах и др. компонентах, отображает статус исполнения или подключения чего-либо.
 (Исполнено, Отменено, На подпись и т.д)
 
-<Preview>
-    <Container>
-        <Row>
-            {colors.map(color => (
-                <Col key={color}>
-                    <Status view='soft' color={color}>Label</Status>
-                </Col>
-            ))}
-        </Row>
-    </Container>
-</Preview>
+```tsx live
+<Space direction='horizontal'>
+    {colors.map(color => (
+        <Status view='soft' color={color} key={color}>
+            Label
+        </Status>
+    ))}
+</Space>
+```
 
 ### Статус лейбл
 
@@ -34,14 +23,12 @@ import { name, version } from '../../package.json';
 
 Применяется для отображения маркетингового статуса продукта/услуги (Акция, Скидка, Новинка и т.д)
 
-<Preview>
-    <Container>
-        <Row>
-            {colors.map(color => (
-                <Col key={color}>
-                    <Status view='contrast' color={color}>Label</Status>
-                </Col>
-            ))}
-        </Row>
-    </Container>
-</Preview>
+```tsx live
+<Space direction='horizontal'>
+    {colors.map(color => (
+        <Status view='contrast' color={color} key={color}>
+            Label
+        </Status>
+    ))}
+</Space>
+```

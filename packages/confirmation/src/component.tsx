@@ -108,7 +108,12 @@ export type ConfirmationProps = {
     buttonErrorText?: string;
 
     /**
-     * Текст кнопки "Запросить код"
+     * Текст кнопки "Вернуться назад" на экране помощи
+     */
+    buttonReturnText?: string;
+
+    /**
+     * Текст кнопки "Запросить новый код"
      */
     buttonRetryText?: string;
 
@@ -177,7 +182,8 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
             codeCheckingText = 'Проверка кода',
             codeSendingText = 'Отправляем код',
             buttonErrorText = 'Понятно',
-            buttonRetryText = 'Вернуться назад',
+            buttonReturnText = 'Вернуться назад',
+            buttonRetryText = 'Запросить новый код',
             alignContent = 'left',
             noAttemptsLeftMessage,
             onInputFinished,
@@ -262,6 +268,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                         errorText={nonFatalError || ''}
                         error={error}
                         title={signTitle}
+                        buttonRetryText={buttonRetryText}
                         inputRef={inputRef}
                         codeCheckingText={codeCheckingText}
                         codeSendingText={codeSendingText}
@@ -326,7 +333,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                             view='secondary'
                             onClick={handleSmsRetryFromHintClick}
                         >
-                            {buttonRetryText}
+                            {buttonReturnText}
                         </Button>
                     </div>
                 )}
@@ -350,6 +357,7 @@ Confirmation.defaultProps = {
     codeCheckingText: 'Проверка кода',
     codeSendingText: 'Отправляем код',
     buttonErrorText: 'Понятно',
-    buttonRetryText: 'Вернуться назад',
+    buttonReturnText: 'Вернуться назад',
+    buttonRetryText: 'Запросить новый код',
     alignContent: 'left',
 };

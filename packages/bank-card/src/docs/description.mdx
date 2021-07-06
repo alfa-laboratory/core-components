@@ -1,26 +1,22 @@
-import { Preview } from '@storybook/addon-docs/blocks';
-import { BankCard } from '@alfalab/core-components-bank-card';
-
-
 Компонент в виде карты для ввода номера карты или банковского счета.
 
-<BankCard />
+```tsx live
+render(() => {
+    const [value, setValue] = React.useState('');
 
-### Controlled-way
+    const handleChange = (event, payload) => setValue(payload.value);
 
-Компонент может быть использован как controlled с помощью `onChange` и `value`:
+    return (
+        <>
+            <BankCard value={value} onChange={handleChange} />
 
-<Preview>
-    {React.createElement(() => {
-        const [value, setValue] = React.useState('');
-        const handleChange = (event, payload) => setValue(payload.value);
-        return (
-            <div>
-                <BankCard value={value} onChange={handleChange} />
-                <button type="button" onClick={() => setValue('4111111111111111')}>Вставить номер карты</button>
-                <button type="button" onClick={() => setValue('')}>Очистить</button>
-            </div>
-        );
-    })}
-</Preview>
-
+            <Button size='xs' onClick={() => setValue('4111111111111111')}>
+                Вставить номер карты
+            </Button>
+            <Button size='xs' onClick={() => setValue('')}>
+                Очистить
+            </Button>
+        </>
+    );
+});
+```

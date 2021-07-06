@@ -11,6 +11,27 @@ describe('Textarea', () => {
 
             expect(container).toMatchSnapshot();
         });
+
+        it('should match snapshot with default counter', () => {
+            const { container } = render(
+                <Textarea value='value' showCounter={true} maxLength={500} />,
+            );
+
+            expect(container).toMatchSnapshot();
+        });
+
+        it('should match snapshot with custom counter', () => {
+            const { container } = render(
+                <Textarea
+                    value='value'
+                    showCounter={true}
+                    maxLength={500}
+                    getCounterText={() => 'Custom counter'}
+                />,
+            );
+
+            expect(container).toMatchSnapshot();
+        });
     });
 
     it('should forward ref to textarea', () => {

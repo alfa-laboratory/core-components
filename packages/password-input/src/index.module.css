@@ -1,0 +1,7 @@
+.addons {
+    padding: 0;
+}
+
+.input::-ms-reveal {
+    display: none;
+}

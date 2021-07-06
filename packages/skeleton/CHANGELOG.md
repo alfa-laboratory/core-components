@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-skeleton@1.4.1...@alfalab/core-components-skeleton@2.0.0) (2021-06-28)
+
+
+### Features
+
+* **skeleton:** add display var, change default to block ([#718](https://github.com/alfa-laboratory/core-components/issues/718)) ([27aaa60](https://github.com/alfa-laboratory/core-components/commit/27aaa605a958d932a52904556ac2fe1dd59356af))
+
+
+### BREAKING CHANGES
+
+* **skeleton:** inline-block changes to block
+
+
+
+
+
+## [1.4.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-skeleton@1.4.0...@alfalab/core-components-skeleton@1.4.1) (2021-06-09)
+
+
+### Bug Fixes
+
+* **skeleton:** remove vars that purge kills ([886d1b2](https://github.com/alfa-laboratory/core-components/commit/886d1b24b144d9d277821d3264f71a93c7a1b146))
+
+
+
+
+
 # [1.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-skeleton@1.3.6...@alfalab/core-components-skeleton@1.4.0) (2021-06-08)
 
 

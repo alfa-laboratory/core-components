@@ -1,15 +1,12 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, boolean } from '@storybook/addon-knobs';
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
+import { Skeleton } from '../';
+import { name, version } from '../../package.json';
 import Description from './description.mdx';
 import styles from '!!raw-loader!../index.module.css';
-import { CssVars } from 'storybook/blocks/css-vars';
-import { Skeleton } from '..';
-import { name, version } from '../../package.json';
-import { Typography } from '../../../typography/src';
+
 
 <Meta
     title='Компоненты/Skeleton'
@@ -21,23 +18,24 @@ import { Typography } from '../../../typography/src';
 <!-- Canvas -->
 
 <Story name='Skeleton'>
-    {React.createElement(() => {
-        return (
-            <Skeleton
-                visible={ boolean('visible', true) }
-                className={ text('className', '') }
-                dataTestId={ text('dataTestId', '') }
-                animate={ boolean('animate', true) }
-            >
-                <img
-                    width={ 150 }
-                    height={ 150 }
-                    alt="Фижер"
-                    src="https://rawgit.com/alfa-laboratory/arui-feather/master/logo.svg"
-                />
-            </Skeleton>
-        );
-    })}
+    <div style={{
+        width: 150,
+        height: 150,
+    }}>
+        <Skeleton
+            visible={ boolean('visible', true) }
+            className={ text('className', '') }
+            dataTestId={ text('dataTestId', '') }
+            animate={ boolean('animate', true) }
+        >
+            <img
+                width={ 150 }
+                height={ 150 }
+                alt="Фижер"
+                src="https://rawgit.com/alfa-laboratory/arui-feather/master/logo.svg"
+            />
+        </Skeleton>
+    </div>
 </Story>
 
 
@@ -56,7 +54,7 @@ import { Skeleton } from '@alfalab/core-components-skeleton';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={Skeleton} />}
-  cssVars={<CssVars css={styles} />}
+    description={<Description />}
+    props={<Props of={Skeleton} />}
+    cssVars={<CssVars css={styles} />}
 />

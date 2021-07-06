@@ -18,7 +18,7 @@ import {
     CalendarProps,
     dateInLimits,
 } from '@alfalab/core-components-calendar';
-import { Popover } from '@alfalab/core-components-popover';
+import { Popover, PopoverProps } from '@alfalab/core-components-popover';
 import mergeRefs from 'react-merge-refs';
 import {
     NATIVE_DATE_FORMAT,
@@ -136,6 +136,11 @@ export type CalendarInputProps = Omit<
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Позиционирование поповера с календарем
+     */
+    popoverPosition?: PopoverProps['position'];
 };
 
 export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
@@ -163,6 +168,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             onCalendarChange,
             readOnly,
             Calendar = DefaultCalendar,
+            popoverPosition = 'bottom-start',
             ...restProps
         },
         ref,
@@ -388,7 +394,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                         open={open}
                         anchorElement={inputWrapperRef.current as HTMLElement}
                         popperClassName={styles.calendarContainer}
-                        position='bottom-start'
+                        position={popoverPosition}
                         offset={[0, 8]}
                         withTransition={false}
                         preventFlip={preventFlip}

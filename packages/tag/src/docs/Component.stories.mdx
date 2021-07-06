@@ -1,15 +1,14 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import Icon from '@alfalab/icons-glyph/CopyMIcon';
-import { Tabs } from 'storybook/blocks/tabs';
 
-import Description, { SIZES } from './description.mdx';
-import styles from '!!raw-loader!../index.module.css';
-import { CssVars } from 'storybook/blocks/css-vars';
 import { Tag } from '../Component';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import styles from '!!raw-loader!../index.module.css';
 
+export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
 
 
 <Meta
@@ -17,7 +16,6 @@ import { name, version } from '../../package.json';
     component={Tag}
     parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
-
 
 <!-- Canvas -->
 
@@ -39,7 +37,6 @@ import { name, version } from '../../package.json';
     })}
 </Story>
 
-
 <!-- Docs -->
 
 <ComponentHeader
@@ -55,7 +52,7 @@ import { Tag } from '@alfalab/core-components-tag';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={Tag} />}
-  cssVars={<CssVars css={styles} />}
+    description={<Description />}
+    props={<Props of={Tag} />}
+    cssVars={<CssVars css={styles} />}
 />

@@ -1,21 +1,29 @@
-import { Meta, Props, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Props, Story } from '@storybook/addon-docs/blocks';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 
-import Description from './description.mdx';
 import { MaskedInput } from '../Component';
-import { masks, placeholders } from './constants';
-
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+
+export const mask = [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/];
+
 
 <Meta
     title='Компоненты/MaskedInput'
     component={MaskedInput}
     parameters={{
-      'theme-switcher': { themes: ['click'] },
-      previewTabs: { canvas: { hidden: true }}
+        'theme-switcher': { themes: ['click'] }
     }}
 />
+
+<!-- Canvas -->
+
+<Story name='MaskedInput'>
+    <div style={{ width: '240px' }}>
+        <MaskedInput mask={mask} placeholder='0000 0000 0000 0000' block={true} />
+    </div>
+</Story>
 
 <!-- Docs -->
 
@@ -31,6 +39,6 @@ import { MaskedInput } from '@alfalab/core-components-masked-input';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={MaskedInput} />}
+    description={<Description />}
+    props={<Props of={MaskedInput} />}
 />

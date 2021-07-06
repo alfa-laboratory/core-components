@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@8.1.0...@alfalab/core-components-select@8.1.1) (2021-06-28)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+# [8.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@8.0.8...@alfalab/core-components-select@8.1.0) (2021-06-22)
+
+
+### Bug Fixes
+
+* **select:** fix checkmark position on click theme ([#699](https://github.com/alfa-laboratory/core-components/issues/699)) ([0a3bab5](https://github.com/alfa-laboratory/core-components/commit/0a3bab52278b4db8f327a8bf5da97cfb5acecc6a))
+
+
+### Features
+
+* **select:** add useSelectWithLoading preset ([#693](https://github.com/alfa-laboratory/core-components/issues/693)) ([12d542f](https://github.com/alfa-laboratory/core-components/commit/12d542f11dddcd022c1ba895e4105115be0b98b2))
+
+
+
+
+
 ## [8.0.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@8.0.7...@alfalab/core-components-select@8.0.8) (2021-06-08)
 
 

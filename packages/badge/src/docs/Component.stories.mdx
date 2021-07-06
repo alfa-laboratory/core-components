@@ -1,6 +1,5 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { select, number, boolean } from '@storybook/addon-knobs';
-import { Container, Row, Col } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 import { CssVars } from 'storybook/blocks/css-vars';
@@ -12,10 +11,10 @@ import { StopCircleMIcon } from '@alfalab/icons-glyph';
 import { InformationCircleMIcon } from '@alfalab/icons-glyph';
 import { ClockMIcon } from '@alfalab/icons-glyph';
 
-import Description from './description.mdx';
-import styles from '!!raw-loader!../index.module.css';
 import { Badge } from '../Component';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import styles from '!!raw-loader!../index.module.css';
 
 
 <Meta
@@ -43,7 +42,7 @@ import { name, version } from '../../package.json';
                     ['positive', 'attention', 'negative', 'tertiary', 'secondary', 'primary'],
                     'positive'
                 )
-            }
+            };
         return (
             <div style={{
                 display: 'inline-flex',

@@ -3,7 +3,7 @@
 exports[`Calendar Render tests should render calendar when calendarVisible=\`true\` 1`] = `
 <div>
   <div
-    class="component"
+    class="component calendarVisible"
   >
     <div
       class="component sixWeeks"

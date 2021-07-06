@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@2.0.3...@alfalab/core-components-calendar-range@2.1.0) (2021-06-30)
+
+
+### Features
+
+* **calendar-range:** pass props to render calendar in popper ([#702](https://github.com/alfa-laboratory/core-components/issues/702)) ([4369e46](https://github.com/alfa-laboratory/core-components/commit/4369e462116dc1d240f95f811be67639b10dedb6))
+
+
+
+
+
+## [2.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@2.0.2...@alfalab/core-components-calendar-range@2.0.3) (2021-06-22)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar-range
+
+
+
+
+
 ## [2.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@2.0.1...@alfalab/core-components-calendar-range@2.0.2) (2021-06-08)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar-range

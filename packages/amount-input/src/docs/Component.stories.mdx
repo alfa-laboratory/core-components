@@ -1,17 +1,15 @@
-import Icon from '@alfalab/icons-glyph/StarMIcon';
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { Container, Row, Col } from 'storybook/blocks/grid';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import { CssVars } from 'storybook/blocks/css-vars';
 import { Tabs } from 'storybook/blocks/tabs';
 
-import Description from './description.mdx';
-import styles from '!!raw-loader!../index.module.css';
-
 import { AmountInput } from '../Component';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import styles from '!!raw-loader!../index.module.css';
 
 <Meta
     title='Компоненты/AmountInput'

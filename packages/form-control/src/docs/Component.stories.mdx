@@ -1,14 +1,14 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 import { Tabs } from 'storybook/blocks/tabs';
 import { CssVars } from 'storybook/blocks/css-vars';
 
-import Description from './description.mdx';
-import styles from '!!raw-loader!../index.module.css';
 import { FormControl } from '../Component';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import styles from '!!raw-loader!../index.module.css';
 
 
 <Meta
@@ -52,7 +52,7 @@ import { FormControl } from '@alfalab/core-components-form-control';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={FormControl} />}
-  cssVars={<CssVars css={styles} />}
+    description={<Description />}
+    props={<Props of={FormControl} />}
+    cssVars={<CssVars css={styles} />}
 />

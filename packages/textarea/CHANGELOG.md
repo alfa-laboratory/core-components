@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-textarea@5.0.8...@alfalab/core-components-textarea@5.1.0) (2021-06-22)
+
+
+### Features
+
+* **textarea:** add value counter ([#695](https://github.com/alfa-laboratory/core-components/issues/695)) ([cbc6bd3](https://github.com/alfa-laboratory/core-components/commit/cbc6bd3eaa48e3df2791d23e156c7c664d67ff49))
+
+
+
+
+
 ## [5.0.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-textarea@5.0.7...@alfalab/core-components-textarea@5.0.8) (2021-04-26)
 
 **Note:** Version bump only for package @alfalab/core-components-textarea

@@ -4,11 +4,11 @@ import { Container, Row, Col } from 'storybook/blocks/grid';
 import { Tabs } from 'storybook/blocks/tabs';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 
-import { Alert } from '../Component';
 import { Button } from '../../../button/src';
-import Description from './description.mdx'
 
+import { Alert } from '../Component';
 import { name, version } from '../../package.json';
+import Description from './description.mdx'
 
 <Meta
     title='Компоненты/Alert'
@@ -46,7 +46,7 @@ import { name, version } from '../../package.json';
 import { Alert } from '@alfalab/core-components-alert';
 ```
 
-<Tabs 
+<Tabs
     description={<Description />}
     props={<Props of={Alert} />}
 />

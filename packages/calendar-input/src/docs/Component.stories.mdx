@@ -1,18 +1,15 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { action } from '@storybook/addon-actions';
-import { text, select, boolean, number } from '@storybook/addon-knobs';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-import { ComponentHeader } from 'storybook/blocks/component-header';
+import { text, select, boolean } from '@storybook/addon-knobs';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 import { CssVars } from 'storybook/blocks/css-vars';
-import styles from '!!raw-loader!../index.module.css';
 
-import Description from './description.mdx';
 import { CalendarInput } from '../Component';
 import { formatDate } from '../utils';
-
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import styles from '!!raw-loader!../index.module.css';
 
 
 <Meta
@@ -62,7 +59,7 @@ import { CalendarInput } from '@alfalab/core-components-calendar-input';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={CalendarInput} />}
-  cssVars={<CssVars css={styles} />}
+    description={<Description />}
+    props={<Props of={CalendarInput} />}
+    cssVars={<CssVars css={styles} />}
 />

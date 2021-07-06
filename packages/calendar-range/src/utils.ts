@@ -17,7 +17,7 @@ export const getCorrectValueState = (
     const state: ValueState =
         propValue === undefined
             ? stateValue
-            : { value: propValue, date: parseDateString(propValue as string).getTime() };
+            : { value: propValue, date: parseDateString(propValue).getTime() };
 
     if (!dateInLimits(state.date, minDate, maxDate)) {
         state.date = null;

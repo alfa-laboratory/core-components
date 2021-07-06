@@ -1,14 +1,16 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { action } from '@storybook/addon-actions';
-import { text, select, boolean } from '@storybook/addon-knobs';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { boolean } from '@storybook/addon-knobs';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
+import { CssVars } from 'storybook/blocks/css-vars';
 
-import Description, { ContentWrapper, Content } from './description.mdx';
 import { Button } from '../../../button/src';
 import { Typography } from '../../../typography/src';
-import { Drawer } from '../Component';
+
+import { Drawer, DrawerContext } from '../Component';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import styles from '!!raw-loader!../index.module.css';
 
 
 <Meta
@@ -26,15 +28,13 @@ import { name, version } from '../../package.json';
         const handleModalOpen = () => setOpen(!open);
         return (
             <React.Fragment>
-                <Button size="xs" onClick={handleModalOpen}>Open Drawer</Button>
+                <Button size="xs" onClick={handleModalOpen}>Открыть Drawer</Button>
                 <Drawer
                     open={open}
                     onClose={handleModalOpen}
                     keepMounted={boolean('keepMounted', false)}
                 >
-                    <ContentWrapper>
-                        <Content/>
-                    </ContentWrapper>
+                    <Content/>
                 </Drawer>
             </React.Fragment>
         );
@@ -57,6 +57,37 @@ import { Drawer } from '@alfalab/core-components-drawer';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={Drawer} />}
+    description={<Description />}
+    props={<Props of={Drawer} />}
+    cssVars={<CssVars css={styles} />}
 />
+
+
+export function Content() {
+    const { contentRef } = React.useContext(DrawerContext);
+    const [showMore, setShowMore] = React.useState(false);
+    const Text = () => (
+        <p>
+            Сейчас много говорят об отказах банков в проведении операций, блокировках
+            интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять
+            операции своих клиентов, потенциально нарушающие требования Федерального закона «О
+            противодействии легализации (отмыванию) доходов, полученных преступным путем, и
+            финансированию терроризма» — 115-ФЗ
+        </p>
+    );
+    return (
+        <div style={{ padding: '16px 32px' }} ref={contentRef}>
+            <Text />
+            {showMore && (
+                <>
+                    <Text />
+                    <Text />
+                    <Text />
+                </>
+            )}
+            <Button size='xs' type='button' onClick={() => setShowMore(!showMore)}>
+                {showMore ? 'Скрыть' : 'Показать еще'}
+            </Button>
+        </div>
+    );
+}

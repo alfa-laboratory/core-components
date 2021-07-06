@@ -1,14 +1,13 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, select, number } from '@storybook/addon-knobs';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 import { CssVars } from 'storybook/blocks/css-vars';
-import styles from '!!raw-loader!../index.module.css';
 
-import Description from './description.mdx';
-
-import { name, version } from '../../package.json';
 import { CircularProgressBar } from '../Component';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import styles from '!!raw-loader!../index.module.css';
 
 
 <Meta
@@ -71,7 +70,7 @@ import { CircularProgressBar } from '@alfalab/core-components-circular-progress-
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={CircularProgressBar} />}
-  cssVars={<CssVars css={styles} />}
+    description={<Description />}
+    props={<Props of={CircularProgressBar} />}
+    cssVars={<CssVars css={styles} />}
 />

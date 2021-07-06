@@ -1,13 +1,14 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { select, text, boolean, number } from '@storybook/addon-knobs';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Button } from '@alfalab/core-components-button';
 import { Notification } from '@alfalab/core-components-notification';
+
 import { Tabs } from 'storybook/blocks/tabs';
 
-import Description from './description.mdx';
 import { NotificationManager } from '../component';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+
 
 <Meta
     title='Компоненты/NotificationManager'
@@ -69,6 +70,6 @@ import { NotificationManager } from '@alfalab/core-components-notification-manag
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={NotificationManager} />}
+    description={<Description />}
+    props={<Props of={NotificationManager} />}
 />

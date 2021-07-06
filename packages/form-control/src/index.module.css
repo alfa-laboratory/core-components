@@ -29,6 +29,7 @@
 
     /* focus */
     --form-control-focus-border-bottom: 1px solid var(--color-light-border-key);
+    --form-control-focus-bg-color: color-mod(var(--color-light-bg-primary-inverted) alpha(15%));
 
     /* hover */
     --form-control-hover-bg-color: color-mod(var(--color-light-bg-primary-inverted) alpha(15%));
@@ -280,6 +281,10 @@
 
 .filled .label {
     transform: translateY(-100%) scale(0.875);
+}
+
+.focused.inner {
+    background-color: var(--form-control-focus-bg-color);
 }
 
 /* HOVER STATE */

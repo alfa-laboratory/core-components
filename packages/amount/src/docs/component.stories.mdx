@@ -1,12 +1,12 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { getAllCurrencyCodes } from '@alfalab/utils';
 import { Container, Row, Col } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 import { CssVars } from 'storybook/blocks/css-vars';
 
-import { Amount } from '../.';
-import { getAllCurrencyCodes } from '@alfalab/utils';
+import { Amount } from '../component';
 import { name, version } from '../../package.json';
 import Description from './description.mdx'
 import styles from '!!raw-loader!../index.module.css';
@@ -77,7 +77,7 @@ import styles from '!!raw-loader!../index.module.css';
 import { Amount } from '@alfalab/core-components-amount';
 ```
 
-<Tabs 
+<Tabs
     description={<Description />}
     props={<Props of={Amount} />}
     cssVars={<CssVars css={styles} />}

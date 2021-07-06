@@ -19,7 +19,7 @@ const addPackagesDir = config => {
 };
 
 module.exports = {
-    stories: ['../packages/**/*.stories.@(ts|md)x'],
+    stories: ['../packages/**/*.stories.@(ts|md)x', '../docs/**/*.stories.@(ts|md)x'],
     addons: [
         '@storybook/addon-knobs',
         '@storybook/addon-docs',
