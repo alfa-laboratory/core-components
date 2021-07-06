@@ -1,12 +1,11 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { select, text } from '@storybook/addon-knobs';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
-import Description from './description.mdx';
 import { Status, colors } from '../Component';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+
 
 <Meta
     title='Компоненты/Status'
@@ -40,6 +39,6 @@ import { Status } from '@alfalab/core-components-status';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={Status} />}
+    description={<Description />}
+    props={<Props of={Status} />}
 />

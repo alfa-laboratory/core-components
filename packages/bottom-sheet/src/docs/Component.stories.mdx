@@ -1,13 +1,14 @@
 import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Button } from '@alfalab/core-components-button';
+import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs'
 import { CssVars } from 'storybook/blocks/css-vars';
-import vars from '!!raw-loader!../index.module.css';
+
 import { BottomSheet } from '../';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
+import vars from '!!raw-loader!../index.module.css';
 
 export const shortText =
     'Пользуйтесь сразу: реквизиты виртуальной и пластиковой карты будут доступны уже через 60 секунд после после оформления.';
@@ -23,7 +24,6 @@ export const longText = Array(10).fill(shortText).join('\n\n');
 
 <Story name='BottomSheet'>
     {React.createElement(() => {
-        console.log(vars);
         const [open, setOpen] = React.useState(false);
         const handleClose = React.useCallback(() => {
             setOpen(false);
@@ -84,7 +84,6 @@ export const longText = Array(10).fill(shortText).join('\n\n');
 ```tsx
 import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
 ```
-
 
 <Tabs
     description={<Description />}

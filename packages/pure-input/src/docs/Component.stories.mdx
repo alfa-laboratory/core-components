@@ -1,11 +1,10 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
-import Description from './description.mdx';
 import { PureInput } from '../Component';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
 
 
 <Meta
@@ -47,6 +46,6 @@ import { PureInput } from '@alfalab/core-components-pure-input';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={PureInput} />}
+    description={<Description />}
+    props={<Props of={PureInput} />}
 />

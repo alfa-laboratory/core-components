@@ -4,9 +4,9 @@ import { action } from '@storybook/addon-actions';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 
-import Description, { Container } from './description.mdx';
 import { Dropzone } from '../Component';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
 
 <Meta
     title='Компоненты/Dropzone'
@@ -17,15 +17,43 @@ import { name, version } from '../../package.json';
 <!-- Canvas -->
 
 <Story name='Dropzone'>
-    <Dropzone
-        error={boolean('error', false)}
-        overlayVisible={boolean('overlayVisible', false)}
-        onDrop={action('onDrop')}
-    >
-        <Container>
-            <span>children</span>
-        </Container>
-    </Dropzone>
+    {React.createElement(() => {
+        const [filesList, setFilesList] = React.useState([]);
+        const handleDrop = files => {
+            setFilesList(
+                Array.from(files)
+                    .map(file => file.name)
+                    .filter(Boolean),
+            );
+        };
+        return (
+            <Dropzone
+                error={boolean('error', false)}
+                overlayVisible={boolean('overlayVisible', false)}
+                onDrop={handleDrop}
+            >
+                <div
+                    style={{
+                        width: 400,
+                        height: 200,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}
+                >
+                    {filesList.length > 0 ? (
+                        <ul>
+                            {filesList.map(file => (
+                                <li key={file}>{file}</li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <span>children</span>
+                    )}
+                </div>
+            </Dropzone>
+        );
+    })}
 </Story>
 
 
@@ -43,6 +71,6 @@ import { Dropzone } from '@alfalab/core-components-dropzone';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={Dropzone} />}
+    description={<Description />}
+    props={<Props of={Dropzone} />}
 />

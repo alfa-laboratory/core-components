@@ -1,9 +1,3 @@
-import { Preview } from '@storybook/addon-docs/blocks';
-
-import { Toast } from '../';
-import { Button } from '../../../button/src';
-import { Plate } from '../../../plate/src';
-
 Компонент `Toast`. Cообщает пользователю о результате выполнения его команды.
 
 `Toast` привязан либо к элементу, который спровоцировал его появление, либо появляется снизу экрана.
@@ -13,13 +7,17 @@ import { Plate } from '../../../plate/src';
 Если `anchorElement` не передавать, то тост появится снизу экрана.
 
 ```tsx live
-function Example() {
+render(() => {
     const [anchorToastOpen, setAnchorToastOpen] = React.useState(false);
+
     const [fixedToastOpen, setFixedToastOpen] = React.useState(false);
+
     const [buttonElement, setButtonElement] = React.useState(null);
+
     const handleButtonRef = node => {
         setButtonElement(node);
     };
+
     return (
         <div
             style={{
@@ -87,9 +85,7 @@ function Example() {
             </Button>
         </div>
     );
-}
-
-render(<Example />)
+});
 ```
 
 В качестве плашки можно использовать любой компонент.
@@ -99,12 +95,15 @@ render(<Example />)
 Например, компонент `Plate`:
 
 ```tsx live
-function PlateExample() {
+render(() => {
     const [anchorToastOpen, setAnchorToastOpen] = React.useState(false);
+
     const containerRef = React.useRef();
+
     React.useLayoutEffect(() => {
         containerRef.current = document.querySelector('#toast-container');
     }, []);
+
     return (
         <div
             style={{
@@ -136,7 +135,7 @@ function PlateExample() {
                     getPortalContainer={() => containerRef.current}
                     block={true}
                     hasCloser={true}
-                    ToastPlate={React.forwardRef((pros, ref) => {
+                    ToastPlate={React.forwardRef((props, ref) => {
                         return <Plate {...props} ref={ref} view='positive' open={true} />;
                     })}
                 >
@@ -152,7 +151,5 @@ function PlateExample() {
             </div>
         </div>
     );
-}
-
-render(<PlateExample />)
+});
 ```

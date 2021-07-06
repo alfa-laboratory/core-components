@@ -1,11 +1,3 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
-import { text, select, boolean } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tag } from '../Component';
-import { name, version } from '../../package.json';
-
-export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
-
 Компонент тэг (чипсы).
 
 ```tsx live
@@ -13,7 +5,9 @@ render(() => {
     const SIZES = ['xs', 's', 'm', 'l', 'xl'];
 
     const [checked, setChecked] = React.useState(false);
+
     const handleClick = () => setChecked(!checked);
+
     return (
         <Tag
             size={select('size', SIZES, 'm')}
@@ -35,7 +29,9 @@ render(() => {
     const SIZES = ['xs', 's', 'm', 'l', 'xl'];
 
     const [checked, setChecked] = React.useState(false);
+
     const handleClick = () => setChecked(!checked);
+
     return (
         <Tag checked={checked} onClick={handleClick} rightAddons={<CopyMIcon />}>
             Нажми меня

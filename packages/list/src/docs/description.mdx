@@ -1,32 +1,23 @@
-
-import { Preview } from '@storybook/addon-docs/blocks';
-import { Container, Row } from 'storybook/blocks/grid';
-import { Typography } from '@alfalab/core-components-typography';
-
-import { List } from '../Component';
-
 ```tsx live
-    <Container>
-        <Row>
-            <List tag='ul'>
-                <Typography.Text view='primary-medium'>1 item</Typography.Text>
-                <Typography.Text view='primary-medium'>2 item</Typography.Text>
-                <Typography.Text view='primary-medium'>3 item</Typography.Text>
-            </List>
-        </Row>
-        <Row>
-            <List tag='ul' marker='•'>
-                <Typography.Text view='primary-medium'>1 item</Typography.Text>
-                <Typography.Text view='primary-medium'>2 item</Typography.Text>
-                <Typography.Text view='primary-medium'>3 item</Typography.Text>
-            </List>
-        </Row>
-        <Row>
-            <List tag='ol'>
-                <Typography.Text view='primary-medium'>1 item</Typography.Text>
-                <Typography.Text view='primary-medium'>2 item</Typography.Text>
-                <Typography.Text view='primary-medium'>3 item</Typography.Text>
-            </List>
-        </Row>
-    </Container>
+<Space>
+    <List tag='ul'>
+        <Typography.Text view='primary-medium'>Накопительные счета</Typography.Text>
+        <Typography.Text view='primary-medium'>Депозиты</Typography.Text>
+        <Typography.Text view='primary-medium'>Кредиты</Typography.Text>
+    </List>
+
+    <List tag='ul' marker='•'>
+        <Typography.Text view='primary-medium'>
+            Индивидуальное обслуживание в любом отделении в России
+        </Typography.Text>
+        <Typography.Text view='primary-medium'>Повышенные % ставки по депозитам</Typography.Text>
+        <Typography.Text view='primary-medium'>Льготная конвертация валют.</Typography.Text>
+    </List>
+
+    <List tag='ol'>
+        <Typography.Text view='primary-medium'>Ипотечный кредит</Typography.Text>
+        <Typography.Text view='primary-medium'>Потребительский кредит</Typography.Text>
+        <Typography.Text view='primary-medium'>Бесплатные сервисы для накоплений</Typography.Text>
+    </List>
+</Space>
 ```

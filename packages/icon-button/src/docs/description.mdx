@@ -1,107 +1,106 @@
-
-import { Preview } from '@storybook/addon-docs/blocks';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
-import { BankAlfaXxlBlackIcon } from '@alfalab/icons-classic/BankAlfaXxlBlackIcon';
-
-import { IconButton } from '../Component';
-
-
 ### Размеры
 
-<Preview>
-    <Container>
-        <Row>
-            <Col>
-                <IconButton view='primary' size='xxs' icon={StarMIcon} style={{ border: '1px solid rgba(0,0,0,0.1) '}} />
-            </Col>
-            <Col>
-                <IconButton view='primary' size='xs' icon={StarMIcon} style={{ border: '1px solid rgba(0,0,0,0.1) '}} />
-            </Col>
-            <Col>
-                <IconButton view='primary' size='s' icon={StarMIcon} style={{ border: '1px solid rgba(0,0,0,0.1) '}} />
-            </Col>
-        </Row>
-    </Container>
-</Preview>
+```jsx live
+<Container>
+    <Row>
+        <Col>
+            <IconButton
+                view='primary'
+                size='xxs'
+                icon={StarMIcon}
+                style={{ border: '1px solid rgba(0,0,0,0.1) ' }}
+            />
+        </Col>
+        <Col>
+            <IconButton
+                view='primary'
+                size='xs'
+                icon={StarMIcon}
+                style={{ border: '1px solid rgba(0,0,0,0.1) ' }}
+            />
+        </Col>
+        <Col>
+            <IconButton
+                view='primary'
+                size='s'
+                icon={StarMIcon}
+                style={{ border: '1px solid rgba(0,0,0,0.1) ' }}
+            />
+        </Col>
+    </Row>
+</Container>
+```
 
 ### Виды кнопок
 
-- <b>Primary</b>
+-   <b>Primary</b>
 
-<Preview>
-    <Container>
-        <Row>
-            <Col>
-                <IconButton view='primary' icon={StarMIcon} />
-            </Col>
-            <Col>
-                <IconButton view='primary' icon={BankAlfaXxlBlackIcon} />
-            </Col>
-        </Row>
-    </Container>
-</Preview>
+```jsx live
+<Container>
+    <Row>
+        <Col>
+            <IconButton view='primary' icon={StarMIcon} />
+        </Col>
+        <Col>
+            <IconButton view='primary' icon={SfFaceIdXxlIcon} />
+        </Col>
+    </Row>
+</Container>
+```
 
-- <b>Secondary</b>
+-   <b>Secondary</b>
 
-<Preview>
-    <Container>
-        <Row>
-            <Col>
-                <IconButton view='secondary' icon={StarMIcon} />
-            </Col>
-            <Col>
-                <IconButton view='secondary' icon={BankAlfaXxlBlackIcon} />
-            </Col>
-        </Row>
-    </Container>
-</Preview>
+```jsx live
+<Container>
+    <Row>
+        <Col>
+            <IconButton view='secondary' icon={StarMIcon} />
+        </Col>
+        <Col>
+            <IconButton view='secondary' icon={SfFaceIdXxlIcon} />
+        </Col>
+    </Row>
+</Container>
+```
 
-- <b>Transparent</b>
+-   <b>Transparent</b>
 
-<Preview style={{ background: '#ef3124'}}>
+```jsx live
+<>
+    <div
+        style={{
+            background: '#ef3124',
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
+        }}
+    />
     <Container>
         <Row>
             <Col>
                 <IconButton view='transparent' icon={StarMIcon} />
             </Col>
             <Col>
-                <IconButton view='transparent' icon={BankAlfaXxlBlackIcon} />
+                <IconButton view='transparent' icon={SfFaceIdXxlIcon} />
             </Col>
         </Row>
     </Container>
-</Preview>
+</>
+```
 
-- <b>Negative</b>
+-   <b>Negative</b>
 
-<Preview>
-    <Container>
-        <Row>
-            <Col>
-                <IconButton view='negative' icon={StarMIcon} />
-            </Col>
-            <Col>
-                <IconButton view='negative' icon={BankAlfaXxlBlackIcon} />
-            </Col>
-        </Row>
-    </Container>
-</Preview>
-
-<Props of={IconButton} />
-
-## Темы
-
-`default-inverted`
-
-<div data-theme='default-inverted' style={{padding: '24px', borderRadius: '4px', backgroundColor: '#0b1f35'}}>
-    <Container>
-        <Row>
-            <Col>
-                <IconButton view='primary' icon={StarMIcon} />
-            </Col>
-            <Col>
-                <IconButton view='primary' icon={BankAlfaXxlBlackIcon} />
-            </Col>
-        </Row>
-    </Container>
-</div>
+```jsx live
+<Container>
+    <Row>
+        <Col>
+            <IconButton view='negative' icon={StarMIcon} />
+        </Col>
+        <Col>
+            <IconButton view='negative' icon={SfFaceIdXxlIcon} />
+        </Col>
+    </Row>
+</Container>
+```

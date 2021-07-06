@@ -1,14 +1,14 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { select, text, boolean, number } from '@storybook/addon-knobs';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Button } from "@alfalab/core-components-button";
 import { Tabs } from 'storybook/blocks/tabs';
-
-import Description from './description.mdx';
-import styles from '!!raw-loader!../index.module.css';
 import { CssVars } from 'storybook/blocks/css-vars';
+
 import { Notification } from '../Component';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import styles from '!!raw-loader!../index.module.css';
 
 
 <Meta
@@ -20,9 +20,9 @@ import { name, version } from '../../package.json';
 
 <Story name='Notification'>
     <Notification
+        visible={boolean('visible', false)}
         badge={select('badge', ['negative', 'positive', 'attention', undefined], 'positive')}
         title={text('title', 'Поздравляем, полный успех')}
-        visible={boolean('visible', true)}
         hasCloser={boolean('hasCloser', true)}
         actionButton={boolean('renderActionButton', false) ? <Button view="ghost" size="s">Action Button</Button> : null }
         offset={number('offset', 48)}
@@ -46,7 +46,7 @@ import { Notification } from '@alfalab/core-components-notification';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={Notification} />}
-  cssVars={<CssVars css={styles} />}
+    description={<Description />}
+    props={<Props of={Notification} />}
+    cssVars={<CssVars css={styles} />}
 />

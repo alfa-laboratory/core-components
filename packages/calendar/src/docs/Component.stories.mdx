@@ -1,17 +1,15 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
 import { select, number } from '@storybook/addon-knobs';
-import { Container, Row, Col } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 import { CssVars } from 'storybook/blocks/css-vars';
+
+import { Calendar } from '../';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
 import styles from '!!raw-loader!../index.module.css';
 import vars from '!!raw-loader!../vars.css';
-
-import Description from './description.mdx';
-import { Calendar } from '../';
-
-import { name, version } from '../../package.json';
 
 
 <Meta
@@ -54,8 +52,8 @@ import { Calendar } from '@alfalab/core-components-calendar';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={Calendar} />}
-  cssVars={<CssVars css={`${styles}${vars}`} />}
+    description={<Description />}
+    props={<Props of={Calendar} />}
+    cssVars={<CssVars css={`${styles}${vars}`} />}
 />
 

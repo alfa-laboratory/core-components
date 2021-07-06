@@ -3,17 +3,15 @@ import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 
-import Description from './description.mdx';
 import { Attach } from '../Component';
 import { name, version } from '../../package.json';
-
+import Description from './description.mdx';
 
 <Meta
     title='Компоненты/Attach'
     component={Attach}
     parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
-
 
 <!-- Canvas -->
 
@@ -29,7 +27,6 @@ import { name, version } from '../../package.json';
     />
 </Story>
 
-
 <!-- Docs -->
 
 <ComponentHeader
@@ -43,9 +40,7 @@ import { name, version } from '../../package.json';
 import { Attach } from '@alfalab/core-components-attach';
 ```
 
-
 <Tabs
     description={<Description />}
     props={<Props of={Attach} />}
 />
-

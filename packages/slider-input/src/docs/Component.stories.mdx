@@ -1,19 +1,15 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { action } from '@storybook/addon-actions';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import Icon from '@alfalab/icons-glyph/StarMIcon';
-import { Tabs } from 'storybook/blocks/tabs';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
-import Description from './description.mdx';
-import styles from '!!raw-loader!../index.module.css';
-import { CssVars } from 'storybook/blocks/css-vars';
-import { SliderInput } from '../Component';
 import { AmountInput } from '../../../amount-input/src';
 import { Input } from '../../../input/src';
 import { withSuffix } from '../../../with-suffix/src';
+
+import { SliderInput } from '../Component';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import styles from '!!raw-loader!../index.module.css';
 
 
 <Meta
@@ -45,8 +41,6 @@ import { name, version } from '../../package.json';
             hint={text('hint', '')}
             info={text('info', '')}
             error={text('error', '')}
-            rightAddons={boolean('rightAddons', false) && !text('error') && <Icon />}
-            leftAddons={boolean('leftAddons', false) && <Icon />}
             readOnly={boolean('readOnly', false)}
         />
     );
@@ -69,7 +63,7 @@ import { SliderInput } from '@alfalab/core-components-slider-input';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={SliderInput} />}
-  cssVars={<CssVars css={styles} />}
+    description={<Description />}
+    props={<Props of={SliderInput} />}
+    cssVars={<CssVars css={styles} />}
 />

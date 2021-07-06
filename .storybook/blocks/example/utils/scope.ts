@@ -19,9 +19,9 @@ const isComponentsMap = (component: any) =>
 
 const components = req.keys().reduce((acc: Record<string, ComponentType<unknown>>, key) => {
     Object.entries(req(key)).forEach(([componentName, component]: [string, any]) => {
-        if (isComponent(component) || isComponentsMap(component)) {
+        // if (isComponent(component) || isComponentsMap(component)) {
             acc[componentName] = component;
-        }
+        // }
     });
 
     return acc;

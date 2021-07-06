@@ -1,20 +1,11 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { action } from '@storybook/addon-actions';
-import { text, select, boolean, number } from '@storybook/addon-knobs';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import Icon from '@alfalab/icons-glyph/StarMIcon';
-
-import { Slider } from '../Component';
-import { name, version } from '../../package.json';
+Компонент слайдера
 
 ```tsx live
-    render(() => {
-        const [value, setValue] = React.useState(50);
-        const handleChange = (event, { value }) => setValue(value);
-        return (
-            <Slider value={value} onChange={handleChange} />
-        );
-    })
-```
+render(() => {
+    const [value, setValue] = React.useState(50);
 
+    const handleChange = (event, { value }) => setValue(value);
+
+    return <Slider value={value} onChange={handleChange} />;
+});
+```

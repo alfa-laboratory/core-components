@@ -1,15 +1,13 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Button } from '@alfalab/core-components-button';
-import { Tabs } from 'storybook/blocks/tabs';
-
-import Description from './description.mdx';
-import styles from '!!raw-loader!../index.module.css';
-import { CssVars } from 'storybook/blocks/css-vars';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
 import { ToastPlate } from '../';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+
+import styles from '!!raw-loader!../index.module.css';
 
 <Meta
     title='Компоненты/ToastPlate'
@@ -36,6 +34,7 @@ import { name, version } from '../../package.json';
     })}
 </Story>
 
+
 <!-- Docs -->
 
 <ComponentHeader
@@ -51,7 +50,7 @@ import { ToastPlate } from '@alfalab/core-components-toast-plate';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={ToastPlate} />}
-  cssVars={<CssVars css={styles} />}
+    description={<Description />}
+    props={<Props of={ToastPlate} />}
+    cssVars={<CssVars css={styles} />}
 />

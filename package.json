@@ -171,7 +171,7 @@
         "raw-loader": "^4.0.1",
         "react-docgen-typescript-loader": "^3.6.0",
         "react-github-btn": "^1.2.0",
-        "react-live": "^2.2.3",
+        "react-live": "^2.3.0",
         "react-scripts": "^3.3.1",
         "replace-in-file": "^5.0.2",
         "rimraf": "^3.0.2",

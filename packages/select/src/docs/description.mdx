@@ -1,41 +1,19 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { text, boolean, number, select as selectKnob } from '@storybook/addon-knobs';
-import { action } from '@storybook/addon-actions';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-
-import { Select } from '../Component';
-import { Field } from '../components/field';
-import { Arrow } from '../components/arrow';
-import { OptionsList } from '../components/options-list';
-import { VirtualOptionsList } from '../components/virtual-options-list';
-import { Optgroup } from '../components/optgroup';
-import { Option } from '../components/option';
-import { Button } from '../../../button/src';
-import { joinOptions } from '../utils';
-import { name, version } from '../../package.json';
-
-import Icon from '@alfalab/icons-classic/BankAlfaSBlackIcon';
-import { options, groups, POSITION_OPTIONS } from './constants';
-
-export const optionsWithHtml = options.map(option => {
-    return {
-        ...option,
-        content: (<span style={{ fontWeight: 'bold' }}>{option.content}</span>),
-    };
-});
-
-export const renderUppercased = (options) => {
-    return options.map(option => option.content.toUpperCase()).join(', ');
-};
-
-
 Компонент выпадающего списка.
 
-<Select options={options} placeholder='Выберите элемент' />
+```tsx live
+const options = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+];
 
-<!-- Spacer -->
-<div style={{height: 32}} />
+render(<Select options={options} placeholder='Выберите элемент' />);
+```
 
 ## Использование
 
@@ -51,240 +29,306 @@ export const renderUppercased = (options) => {
 По умолчанию - селект `multiple=false` закрывается после выбора, а при `multiple=true` - остается открытым.
 Изменить это поведение можно с помощью `closeOnSelect`.
 
-<Preview>
+```tsx live
+const options = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+];
+
+render(
     <Select
         options={options}
         multiple={true}
         placeholder='Выберите элемент'
         allowUnselect={true}
-    />
-</Preview>
+    />,
+);
+```
 
 ### Controlled-way
 
 Компонент может быть использован как controlled с помощью `onChange` и `selected`:
 
-<Preview>
-    {React.createElement(() => {
-        const [selected, setSelected] = React.useState([options[8].key, options[9].key]);
-        const handleChange = ({ selectedMultiple }) => {
-            setSelected(selectedMultiple.map(option => option.key));
-        };
-        return (
-            <Select
-                options={options}
-                placeholder='Выберите элемент'
-                label='controlled'
-                multiple={true}
-                onChange={handleChange}
-                selected={selected}
-            />
-        );
-    })}
-</Preview>
+```tsx live
+const options = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+];
+
+render(() => {
+    const [selected, setSelected] = React.useState([options[2].key, options[3].key]);
+
+    const handleChange = ({ selectedMultiple }) => {
+        setSelected(selectedMultiple.map(option => option.key));
+    };
+
+    return (
+        <Select
+            options={options}
+            placeholder='Выберите элемент'
+            label='controlled'
+            multiple={true}
+            onChange={handleChange}
+            selected={selected}
+        />
+    );
+});
+```
 
 #### OptionShape вместо ключей для выбранных пунктов
 
 Иногда может быть удобнее использовать в качестве выбранных значений не ключи, а сами объекты.
 В этом случае просто передавайте их через свойство `selected`.
 
-<Preview>
-    {React.createElement(() => {
-        const [selected, setSelected] = React.useState([options[8], options[9]]);
-        const handleChange = ({ selectedMultiple }) => {
-            setSelected(selectedMultiple);
-        };
-        return (
-            <Select
-                options={options}
-                placeholder='Выберите элемент'
-                label='controlled'
-                multiple={true}
-                onChange={handleChange}
-                selected={selected}
-            />
-        );
-    })}
-</Preview>
+```tsx live
+const options = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+];
+
+render(() => {
+    const [selected, setSelected] = React.useState([options[2], options[3]]);
+
+    const handleChange = ({ selectedMultiple }) => {
+        setSelected(selectedMultiple);
+    };
+
+    return (
+        <Select
+            options={options}
+            placeholder='Выберите элемент'
+            label='controlled'
+            multiple={true}
+            onChange={handleChange}
+            selected={selected}
+        />
+    );
+});
+```
 
 ### Использование в форме
 
 Чтобы использовать селект внутри формы - следует указать атрибут `name`
 
-<Preview>
-    {React.createElement(() => {
-        const options = [
-            { key: '1', content: 'Neptunium' },
-            { key: '2', content: 'Plutonium' },
-            { key: '3', content: 'Americium' },
-        ];
-        const [serialized, setSerialized] = React.useState();
-        const onSubmit = (event) => {
-            event.preventDefault();
-            const form = event.target;
-            const formData = new FormData(form);
-            setSerialized(new URLSearchParams(formData).toString());
-        };
-        const [selected, setSelected] = React.useState([]);
-        const handleChange = ({ selectedMultiple }) => {
-            setSelected(selectedMultiple.map(option => option.key));
-        };
-        return (
-            <div>
-                <form onSubmit={onSubmit}>
-                    <Select
-                        options={options}
-                        placeholder='Выберите элемент'
-                        name='select'
-                        multiple={true}
-                        onChange={handleChange}
-                        selected={selected}
-                    />
-                    <button type='submit'>Отправить</button>
-                </form>
+```tsx live
+const options = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+];
+
+render(() => {
+    const [serialized, setSerialized] = React.useState();
+    const [selected, setSelected] = React.useState([]);
+
+    const onSubmit = event => {
+        event.preventDefault();
+
+        const form = event.target;
+        const formData = new FormData(form);
+
+        setSerialized(new URLSearchParams(formData).toString());
+    };
+
+    const handleChange = ({ selectedMultiple }) => {
+        setSelected(selectedMultiple.map(option => option.key));
+    };
+
+    return (
+        <form onSubmit={onSubmit}>
+            <Space>
+                <Select
+                    options={options}
+                    placeholder='Выберите элемент'
+                    name='select'
+                    multiple={true}
+                    onChange={handleChange}
+                    selected={selected}
+                />
+
+                <Button size='xs' type='submit'>
+                    Отправить
+                </Button>
+
                 <div>serialized: {serialized}</div>
-            </div>
-        );
-    })}
-</Preview>
+            </Space>
+        </form>
+    );
+});
+```
 
 ## Настройка рендера
 
 Помимо текста, компонент позволяет использовать html в качестве поля `content` у вариантов выбора
 
-<Preview>
-    <div style={{ width: 480 }}>
-        {React.createElement(() => {
-            const [selected, setSelected] = React.useState(null);
-            const handleChange = ({ selected }) => {
-                setSelected(selected ? selected.key : null);
-            };
-            const Card = ({ name, balance }) => (
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <div style={{ width: '76px', height: '48px', marginRight: '16px', background: '#E7E9EB' }} />
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <span style={{ fontSize: '14px' }}>{name}</span>
-                        <span style={{ fontSize: '16px' }}>{balance}</span>
-                    </div>
-                </div>
-            );
-            return (
-                <Select
-                    block={true}
-                    selected={selected}
-                    onChange={handleChange}
-                    size='l'
-                    options={[
-                        { key: 'Account1', content: <Card name='Account1 Name ··0000' balance='100 000,00 ₽' /> },
-                        { key: 'Account2', content: <Card name='Account2 Name ··0000' balance='150 000,00 ₽' /> },
-                        { key: 'Account3', content: <Card name='Account3 Name ··0000' balance='230 000,00 ₽' /> },
-                        { key: 'Account4', content: <Card name='Account4 Name ··0000' balance='12 000,00 ₽' /> },
-                    ]}
-                    multiple={false}
-                    placeholder='Выберите карту'
-                    allowUnselect={true}
-                />
-            );
-        })}
+```tsx live
+const Card = ({ name, balance }) => (
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+        <div
+            style={{ width: '76px', height: '48px', marginRight: '16px', background: '#E7E9EB' }}
+        />
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span style={{ fontSize: '14px' }}>{name}</span>
+            <span style={{ fontSize: '16px' }}>{balance}</span>
+        </div>
     </div>
-</Preview>
+);
+
+const options = [
+    { key: 'Account1', content: <Card name='Account1 Name ··0000' balance='100 000,00 ₽' /> },
+    { key: 'Account2', content: <Card name='Account2 Name ··0000' balance='150 000,00 ₽' /> },
+    { key: 'Account3', content: <Card name='Account3 Name ··0000' balance='230 000,00 ₽' /> },
+    { key: 'Account4', content: <Card name='Account4 Name ··0000' balance='12 000,00 ₽' /> },
+];
+
+render(() => {
+    const [selected, setSelected] = React.useState(null);
+
+    const handleChange = ({ selected }) => {
+        setSelected(selected ? selected.key : null);
+    };
+
+    return (
+        <div style={{ width: 420 }}>
+            <Select
+                block={true}
+                size='l'
+                placeholder='Выберите карту'
+                multiple={false}
+                allowUnselect={true}
+                options={options}
+                selected={selected}
+                onChange={handleChange}
+            />
+        </div>
+    );
+});
+```
 
 Стандартный компонент **Field** позволяет управлять рендером выбранных пунктов с помощью `valueRenderer`
 
-<Preview>
-    {React.createElement(() => {
-        const OptionWithIcon = ({ content }) => (
-            <span style={{ display: 'flex' }} key={content}>
-                <Icon />
-                {content.toUpperCase()}
-            </span>
-        );
-        const valueRenderer = ({ selected }) => selected ? <OptionWithIcon {...selected} /> : null;
-        return (
-            <Select
-                options={options}
-                label='С иконкой'
-                valueRenderer={valueRenderer}
-            />
-        );
-    })}
-</Preview>
+```tsx live
+const OptionWithIcon = ({ content }) => (
+    <span style={{ display: 'flex', alignItems: 'center' }} key={content}>
+        <StarMIcon />
+        {content.toUpperCase()}
+    </span>
+);
+
+const options = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+];
+
+const valueRenderer = ({ selected }) => (selected ? <OptionWithIcon {...selected} /> : null);
+
+render(<Select options={options} valueRenderer={valueRenderer} size='m' label='С иконкой' />);
+```
 
 Селект позволяет заменять или кастомизировать компоненты **Field**, **Option**, **OptionsList**, **Optgroup**, **Arrow**
 
-<Preview>
-    {React.createElement(() => {
-        const BoldOption = (props) => (
-            <Option {...props}><b>{props.option.content}</b></Option>
-        );
-        return (
-            <Select
-                options={options}
-                label='Bold options'
-                Option={BoldOption}
-            />
-        );
-    })}
-</Preview>
+```tsx live
+const BoldOption = props => (
+    <Option {...props}>
+        <b>{props.option.content}</b>
+    </Option>
+);
 
-<Preview>
-    <Select
-        options={options}
-        label='With addons'
-        Field={(props) => <Field {...props} leftAddons={props.selected && <Icon/>} />}
-    />
-</Preview>
+const options = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+];
 
-<Preview>
+render(<Select options={options} label='Bold options' Option={BoldOption} />);
+```
+
+```tsx live
+const CustomField = props => <Field {...props} leftAddons={props.selected && <StarMIcon />} />;
+
+const options = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+];
+
+render(<Select label='With addons' options={options} Field={CustomField} />);
+```
+
+```tsx live
+const CustomField = ({ selected, innerProps, ...restProps }) => (
+    <Button {...innerProps} size='xs'>
+        {selected ? selected.content : 'Pick'}
+    </Button>
+);
+
+const options = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+];
+
+render(
     <Select
-        options={options}
         allowUnselect={true}
         popoverPosition='bottom-start'
-        Field={({ selected, innerProps, ...restProps }) => (
-            <Button {...innerProps} size='xs'>
-                {selected ? selected.content : 'Pick'}
-            </Button>
-        )}
-    />
-</Preview>
+        options={options}
+        Field={CustomField}
+    />,
+);
+```
 
 ## Управление размером пунктов меню
 
 По умолчанию размер пунктов меню совпадает с размером селекта, но с помощью свойства `optionsSize` можно задать размер отдельно.
 
-<Preview>
-    {React.createElement(() => {
-        return (
-            <Select
-                size='l'
-                options={options}
-                label='optionsSize'
-                optionsSize='s'
-            />
-        );
-    })}
-</Preview>
+```tsx live
+const options = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+];
 
+render(<Select size='l' options={options} label='optionsSize' optionsSize='s' />);
+```
 
 ## Селект с заголовком меню
 
-<Preview>
-    {React.createElement(() => {
-        const renderList = (props) => (
-            <div>
-                <b>Header</b>
-                <OptionsList {...props} />
-            </div>
-        );
-        return (
-            <Select
-                label='With header'
-                options={options}
-                OptionsList={renderList}
-            />
-        );
-    })}
-</Preview>
+```tsx live
+const options = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+];
+
+const CustomOptionsList = props => (
+    <div>
+        <span style={{ padding: 'var(--gap-xs)', display: 'block' }}>Заголовок меню</span>
+        <OptionsList {...props} />
+    </div>
+);
+
+render(<Select label='С заголовком меню' options={options} OptionsList={CustomOptionsList} />);
+```
 
 ## Ширина выпадающего меню
 
@@ -293,130 +337,138 @@ export const renderUppercased = (options) => {
 
 Это можно сделать с помощью свойства `optionsListWidth='field'` — в этом случае ширина выпадающего меню будет равна ширине поля, а лишний контент обрежется.
 
-<Preview>
-    {React.createElement(() => {
-        const LongContent = ({ text }) => (
-            <span style={{ whiteSpace: 'nowrap' }} title={text}>
-                {text}
-            </span>
-        );
-        const longOptions = [
-            { key: '1', content: <LongContent text='Великий Новгород' /> },
-            { key: '2', content: <LongContent text='Гусь-Хрустальный' /> },
-            { key: '3', content: <LongContent text='Каменск-Шахтинский' /> },
-            { key: '4', content: <LongContent text='Очень длинное название' /> },
-        ];
-        return (
-            <div style={{ width: 160 }}>
-                <Select
-                    block={true}
-                    label='Города'
-                    options={longOptions}
-                    optionsListWidth='field'
-                />
-            </div>
-        );
-    })}
-</Preview>
+```tsx live
+const LongContent = ({ text }) => (
+    <span style={{ whiteSpace: 'nowrap' }} title={text}>
+        {text}
+    </span>
+);
 
-## Группы
+const longOptions = [
+    { key: '1', content: <LongContent text='Великий Новгород' /> },
+    { key: '2', content: <LongContent text='Гусь-Хрустальный' /> },
+    { key: '3', content: <LongContent text='Каменск-Шахтинский' /> },
+    { key: '4', content: <LongContent text='Очень длинное название' /> },
+];
 
-Группированный селект
-
-```jsx
-const groups = [{
-    label: 'Группа №1',
-    options: [
-        { key: '1', content: 'Neptunium' },
-        { key: '2', content: 'Plutonium' },
-    ]
-},
-{
-    label: 'Группа №2',
-    options: [
-        { key: '3', content: 'Berkelium' },
-        { key: '4', content: 'Californium' },
-    ]
-}]
+render(
+    <div style={{ width: 160 }}>
+        <Select block={true} label='Города' options={longOptions} optionsListWidth='field' />
+    </div>,
+);
 ```
 
-<Preview>
-    <Select
-        options={groups}
-        label='Optgroup'
-        multiple={true}
-    />
-</Preview>
+## Группированный селект
+
+```tsx live
+const groups = [
+    {
+        label: 'Группа №1',
+        options: [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+        ],
+    },
+    {
+        label: 'Группа №2',
+        options: [
+            { key: '3', content: 'Berkelium' },
+            { key: '4', content: 'Californium' },
+        ],
+    },
+];
+
+render(<Select options={groups} label='Группированный селект' multiple={true} />);
+```
 
 ## Нативный селект
 
 Рендерит нативный селект вместо выпадающего меню. (стоит использовать только для мобильных устройств)
 
-<Preview>
-    <Select
-        options={groups}
-        label='native'
-        nativeSelect={true}
-    />
-</Preview>
+```tsx live
+const groups = [
+    {
+        label: 'Группа №1',
+        options: [
+            { key: '1', content: 'Neptunium' },
+            { key: '2', content: 'Plutonium' },
+        ],
+    },
+    {
+        label: 'Группа №2',
+        options: [
+            { key: '3', content: 'Berkelium' },
+            { key: '4', content: 'Californium' },
+        ],
+    },
+];
+
+render(<Select options={groups} label='Нативный селект' nativeSelect={true} />);
+```
 
 ## Рендер длинных списков
 
 Используйте `OptionsList={VirtualOptionsList}` для рендера большого количества данных
 
-<Preview>
-    {React.createElement(() => {
-        const options = new Array(10000).fill().map((_, index) => {
-            const variableSizeText = `Вы восхитительны! `.repeat(
-                Math.round(Math.random() * 10),
-            );
-            return {
-                key: index,
-                content: `${index}. ${variableSizeText}`,
-            };
-        });
-        return (
-            <div style={{ width: 320 }}>
-                <Select
-                    block={true}
-                    label='virtual 10k'
-                    options={options}
-                    circularNavigation={true}
-                    OptionsList={VirtualOptionsList}
-                    allowUnselect={true}
-                    visibleOptions={3}
-                />
-            </div>
-        );
-    })}
-</Preview>
+```tsx live
+const options = new Array(10000).fill().map((_, index) => {
+    const variableSizeText = `Вы восхитительны! `.repeat(Math.round(Math.random() * 10));
 
-<Preview>
-    {React.createElement(() => {
-        return (
-            <Select
-                label='virtual with groups'
-                options={groups}
-                multiple={true}
-                allowUnselect={true}
-                circularNavigation={true}
-                OptionsList={VirtualOptionsList}
-            />
-        );
-    })}
-</Preview>
+    return {
+        key: index,
+        content: `${index}. ${variableSizeText}`,
+    };
+});
 
+render(
+    <div style={{ width: 320 }}>
+        <Select
+            block={true}
+            label='10 тысяч пунктов'
+            options={options}
+            OptionsList={VirtualOptionsList}
+            circularNavigation={true}
+            allowUnselect={true}
+            visibleOptions={3}
+        />
+    </div>,
+);
+```
+
+```tsx live
+const groups = new Array(100).fill().reduce((acc, _, groupIndex) => {
+    return acc.concat({
+        label: `Группа №${groupIndex + 1}`,
+        options: new Array(5).fill().map((_, index) => ({
+            key: index,
+            content: `Пункт ${groupIndex + 1}.${index + 1}`,
+        })),
+    });
+}, []);
+
+render(
+    <Select
+        label='Длинный сгруппированный список'
+        multiple={true}
+        allowUnselect={true}
+        circularNavigation={true}
+        options={groups}
+        OptionsList={VirtualOptionsList}
+    />,
+);
+```
 
 ## Открытие вверх, если места недостаточно
 
-<Preview>
-    <Select
-        options={groups}
-        preventFlip={false}
-        label='preventFlip'
-    />
-</Preview>
+```tsx live
+const options = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+];
 
+render(<Select options={options} preventFlip={false} label='preventFlip = false' />);
+```
 
 ## Пресеты
 
@@ -433,7 +485,7 @@ const options = [
     { key: '7', content: 'Einsteinium' },
 ];
 
-function Example() {
+render(() => {
     const [loading, setLoading] = React.useState(true);
 
     const loadingProps = useSelectWithLoading({
@@ -447,18 +499,16 @@ function Example() {
     };
 
     return (
-        <Select
-            options={options}
-            label='select with loading'
-            size='l'
-            block={true}
-            onOpen={handleOpen}
-            {...loadingProps}
-        />
+        <div style={{ width: 320 }}>
+            <Select
+                label='Селект со скелетной загрузкой'
+                block={true}
+                size='l'
+                options={options}
+                onOpen={handleOpen}
+                {...loadingProps}
+            />
+        </div>
     );
-}
-
-render(
-    <Example />
-)
+});
 ```

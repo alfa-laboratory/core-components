@@ -1,15 +1,16 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { select, number } from '@storybook/addon-knobs';
 import { Container, Row, Col } from 'storybook/blocks/grid';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 
-import Description from './description.mdx';
 import { Button } from '../../../button/src';
-
-import { Mq, useMatchMedia } from '../';
+import { Space } from '../../../space/src';
+import { Typography } from '../../../typography/src';
 
 import { name, version } from '../../package.json';
+import { Mq, useMatchMedia } from '../';
+import Description from './description.mdx';
 
 
 <Meta
@@ -21,14 +22,17 @@ import { name, version } from '../../package.json';
 <!-- Canvas -->
 
 <Story name='Mq'>
-    <div>
-        <Mq query="--mobile">
-            <Button>Mobile button</Button>
+    <Space>
+        <Typography.Title view='small'>
+            Сожми экран
+        </Typography.Title>
+        <Mq query='--mobile'>
+            <Button>Mobile кнопка</Button>
         </Mq>
-        <Mq query="--tablet-s">
-            <Button>Desktop button</Button>
+        <Mq query='--tablet-s'>
+            <Button>Desktop кнопка</Button>
         </Mq>
-    </div>
+    </Space>
 </Story>
 
 
@@ -46,6 +50,6 @@ import { Mq, useMatchMedia } from '@alfalab/core-components-mq';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={Mq} />}
+    description={<Description />}
+    props={<Props of={Mq} />}
 />

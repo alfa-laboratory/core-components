@@ -1,69 +1,63 @@
-
-import { Preview } from '@storybook/addon-docs/blocks';
-import { FileUploadItem } from '../Component';
-
-
-Компонент иконки, которая запрашивается с сервера.
+Компонент загружаемого файла
 
 ```tsx live
-    <div>
-        <FileUploadItem
-            name='Довольно длинное название файла.pdf'
-            uploadDate='22.01.2018'
-            size={ 500000000 }
-            showDelete={false}
-            showRestore={true}
-        />
-        <FileUploadItem
-            name='Название файла.pdf'
-            uploadDate='22.01.2018'
-            size={ 45000 }
-            showDelete={true}
-        />
-        <FileUploadItem
-            name='Название файла.pdf'
-            uploadDate='22.01.2018'
-            size={ 50000000 }
-            showDelete={true}
-        />
-        <FileUploadItem
-            name='Название файла.txt'
-            uploadDate='22.01.2018'
-            size={ 45000 }
-            downloadLink='/link'
-            uploadStatus='SUCCESS'
-            showDelete={true}
-        />
-        <FileUploadItem
-            name='Название файла.jpg'
-            uploadDate='22.01.2018'
-            size={ 45000 }
-            uploadStatus='ERROR'
-            showDelete={true}
-        />
-        <FileUploadItem
-            name='Название файла.png'
-            uploadDate='22.01.2018'
-            size={ 45000 }
-            uploadStatus='UPLOADING'
-            uploadPercent={ 23.5678 }
-            showDelete={true}
-        />
-        <FileUploadItem
-            name='Название файла.pdf'
-            uploadDate='22.01.2018'
-            size={ '' }
-            uploadStatus='LOADING'
-            showDelete={false}
-            />
-        <FileUploadItem
-            name='Название файла.png'
-            uploadDate='22.01.2018'
-            size={ 450000000 }
-            uploadStatus='ERROR'
-            error='размер больше 20 МБ'
-            showDelete={false}
-        />
-    </div>
+<>
+    <FileUploadItem
+        name='Довольно длинное название файла.pdf'
+        uploadDate='22.01.2018'
+        size={500000000}
+        showDelete={false}
+        showRestore={true}
+    />
+    <FileUploadItem
+        name='Название файла.pdf'
+        uploadDate='22.01.2018'
+        size={45000}
+        showDelete={true}
+    />
+    <FileUploadItem
+        name='Название файла.pdf'
+        uploadDate='22.01.2018'
+        size={50000000}
+        showDelete={true}
+    />
+    <FileUploadItem
+        name='Название файла.txt'
+        uploadDate='22.01.2018'
+        size={45000}
+        downloadLink='/link'
+        uploadStatus='SUCCESS'
+        showDelete={true}
+    />
+    <FileUploadItem
+        name='Название файла.jpg'
+        uploadDate='22.01.2018'
+        size={45000}
+        uploadStatus='ERROR'
+        showDelete={true}
+    />
+    <FileUploadItem
+        name='Название файла.png'
+        uploadDate='22.01.2018'
+        size={45000}
+        uploadStatus='UPLOADING'
+        uploadPercent={23.5678}
+        showDelete={true}
+    />
+    <FileUploadItem
+        name='Название файла.pdf'
+        uploadDate='22.01.2018'
+        size={''}
+        uploadStatus='LOADING'
+        showDelete={false}
+    />
+    <FileUploadItem
+        name='Название файла.png'
+        uploadDate='22.01.2018'
+        size={450000000}
+        uploadStatus='ERROR'
+        error='размер больше 20 МБ'
+        showDelete={false}
+    />
+</>
 ```
-

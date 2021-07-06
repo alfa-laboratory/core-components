@@ -1,10 +1,10 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, boolean, select, number } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
-import Description from './description.mdx';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
 import { Typography } from '../component';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
 import { colors } from '../colors';
 
 
@@ -82,9 +82,8 @@ import { colors } from '../colors';
         const color = select('color', colors, '');
         const tag = select('tag', ['div', 'p', 'span'], 'p');
         const weight = select('weight', ['regular', 'medium', 'bold'], 'regular');
-        const className = text('className', '');
         return VIEW_TYPES.map(view => (
-            <Typography.Text view={view} color={color} tag={tag} weight={weight} className={className} key={view}>
+            <Typography.Text view={view} color={color} tag={tag} weight={weight} key={view}>
                 {view}. Космологи́ческая сингуля́рность — состояния Вселенной в определённый момент времени в прошлом,
                 когда плотность энергии (материи) и кривизна пространства-времени были очень велики — порядка
                 планковских значений.
@@ -109,6 +108,6 @@ import { Typography } from '@alfalab/core-components-typography';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props components={Typography} />}
+    description={<Description />}
+    props={<Props components={Typography} />}
 />

@@ -1,30 +1,19 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { action } from '@storybook/addon-actions';
-import { text, select, boolean, number } from '@storybook/addon-knobs';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import Icon from '@alfalab/icons-glyph/StarMIcon';
-
-import { SliderInput } from '../Component';
-import { AmountInput } from '../../../amount-input/src';
-import { Input } from '../../../input/src';
-import { withSuffix } from '../../../with-suffix/src';
-import { name, version } from '../../package.json';
-
-
 Поле ввода, совмещенное со слайдером
 
-export const normalizeValue = (value, min, max) => {
-    return value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
-}
-
 ```tsx live
+const min = 0;
+const max = 10;
+const step = 1;
+const steps = ['0', '5', '10'];
+
+const normalizeValue = (value, min, max) =>
+    value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
+
 render(() => {
-    const min = 0;
-    const max = 10;
-    const step = 1;
     const [value, setValue] = React.useState('');
+
     const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
+
     return (
         <SliderInput
             value={value}
@@ -33,22 +22,31 @@ render(() => {
             step={step}
             onChange={handleChange}
             block={true}
-            steps={['0', '5', '10']}
+            steps={steps}
         />
     );
-})
+});
 ```
 
 ```tsx live
+// import { withSuffix } from '@alfalab/core-components-with-suffix';
+// import { Input } from '@alfalab/core-components-input';
+
+const SuffixInput = withSuffix(Input);
+
+const min = 36;
+const max = 360;
+const step = 1;
+const steps = ['36 мес', '180 мес', '360 мес'];
+
+const normalizeValue = (value, min, max) =>
+    value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
+
 render(() => {
-    // import { withSuffix } from '@alfalab/core-components-with-suffix';
-    // import { Input } from '@alfalab/core-components-input';
-    const SuffixInput = React.useMemo(() => withSuffix(Input), []);
-    const min = 36;
-    const max = 360;
-    const step = 1;
     const [value, setValue] = React.useState('');
+
     const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
+
     return (
         <SliderInput
             value={value}
@@ -59,33 +57,42 @@ render(() => {
             onChange={handleChange}
             block={true}
             label='Оставшийся срок по кредиту'
-            steps={['36 мес', '180 мес', '360 мес']}
+            steps={steps}
             Input={SuffixInput}
             customInputProps={{
-                suffix: ' мес'
+                suffix: ' мес',
             }}
         />
     );
-})
+});
 ```
 
-
 ```tsx live
+// import { withSuffix } from '@alfalab/core-components-with-suffix';
+// import { Input } from '@alfalab/core-components-input';
+
+const SuffixInput = withSuffix(Input);
+
+const min = 1;
+const max = 5;
+const step = 1;
+const steps = ['1 год', '2 года', '3 года', '4 года', '5 лет'];
+
+const normalizeValue = (value, min, max) =>
+    value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
+
+const getSuffix = years => {
+    if (years <= 0) return '';
+    if (years === 1) return ' год';
+    if (years > 1 && years < 5) return ' года';
+    if (years >= 5) return ' лет';
+};
+
 render(() => {
-    // import { withSuffix } from '@alfalab/core-components-with-suffix';
-    // import { Input } from '@alfalab/core-components-input';
-    const SuffixInput = React.useMemo(() => withSuffix(Input), []);
-    const min = 1;
-    const max = 5;
-    const step = 1;
     const [value, setValue] = React.useState('');
-    const getSuffix = (years) => {
-        if (years <= 0) return '';
-        if (years === 1) return ' год';
-        if (years > 1 && years < 5) return ' года';
-        if (years >= 5) return ' лет';
-    }
+
     const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
+
     return (
         <SliderInput
             value={value}
@@ -95,32 +102,40 @@ render(() => {
             onChange={handleChange}
             block={true}
             label='Срок кредита'
-            steps={[
-                '1 год',
-                '2 года',
-                '3 года',
-                '4 года',
-                '5 лет',
-            ]}
+            steps={steps}
             Input={SuffixInput}
             customInputProps={{
                 suffix: getSuffix(value),
             }}
         />
     );
-})}
+});
 ```
 
 ```tsx live
+// import { withSuffix } from '@alfalab/core-components-with-suffix';
+// import { Input } from '@alfalab/core-components-input';
+
+const SuffixInput = withSuffix(Input);
+
+const min = 0;
+const max = 100;
+const step = 1;
+const steps = [
+    <span style={{ flexBasis: '19%' }}>0%</span>,
+    <span style={{ flexBasis: '62%' }}>20%</span>,
+    <span style={{ flexBasis: '18%' }}>80%</span>,
+    <span style={{}}>100%</span>,
+];
+
+const normalizeValue = (value, min, max) =>
+    value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
+
 render(() => {
-    // import { withSuffix } from '@alfalab/core-components-with-suffix';
-    // import { Input } from '@alfalab/core-components-input';
-    const SuffixInput = React.useMemo(() => withSuffix(Input), []);
-    const min = 0;
-    const max = 100;
-    const step = 1;
     const [value, setValue] = React.useState('');
+
     const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
+
     return (
         <SliderInput
             value={value}
@@ -130,76 +145,88 @@ render(() => {
             onChange={handleChange}
             block={true}
             label='Процент по кредиту'
-            steps={[
-                <span style={{flexBasis: '19%'}}>0%</span>,
-                <span style={{flexBasis: '62%'}}>20%</span>,
-                <span style={{flexBasis: '18%'}}>80%</span>,
-                <span style={{}}>100%</span>,
-            ]}
+            steps={steps}
             Input={SuffixInput}
             customInputProps={{
-                suffix: ' %'
+                suffix: ' %',
             }}
         />
     );
-})}
+});
 ```
 
 ## AmountSliderInput
 
 ```tsx live
-    render(() => {
-        const min = 100000;
-        const max = 600000;
-        const step = 1000;
-        const [value, setValue] = React.useState('');
-        const handleInputChange = (event, { value }) => {
-            setValue(Math.round(+value / 100));
-        };
-        const handleSliderChange = (event, { value }) => {
-            setValue(value);
-        };
-        const handleBlur = () => {
-            if (value !== '') {
-                setValue(Math.max(min, Math.min(max, +value)));
-            }
-        }
-        return (
-            <SliderInput
-                value={value !== '' ? value * 100 : ''}
-                sliderValue={value}
-                onInputChange={handleInputChange}
-                onSliderChange={handleSliderChange}
-                onBlur={handleBlur}
-                min={min}
-                max={max}
-                step={step}
-                Input={AmountInput}
-                steps={['100 тыс.', '600 тыс.']}
-                label={'Сумма кредита'}
-            />
-        );
-    })}
-```
+// import { AmountInput } from '@alfalab/core-components/amount-input';
 
+const min = 100000;
+const max = 600000;
+const step = 1000;
+const steps = ['100 тыс.', '600 тыс.'];
 
-```tsx live
+const normalizeValue = (value, min, max) =>
+    value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
+
 render(() => {
-    const min = 100000;
-    const max = 22000000;
-    const step = 1000;
     const [value, setValue] = React.useState('');
+
     const handleInputChange = (event, { value }) => {
         setValue(Math.round(+value / 100));
     };
+
     const handleSliderChange = (event, { value }) => {
         setValue(value);
     };
+
     const handleBlur = () => {
         if (value !== '') {
             setValue(Math.max(min, Math.min(max, +value)));
         }
-    }
+    };
+
+    return (
+        <SliderInput
+            value={value !== '' ? value * 100 : ''}
+            sliderValue={value}
+            onInputChange={handleInputChange}
+            onSliderChange={handleSliderChange}
+            onBlur={handleBlur}
+            min={min}
+            max={max}
+            step={step}
+            Input={AmountInput}
+            steps={steps}
+            label='Сумма кредита'
+        />
+    );
+});
+```
+
+```tsx live
+// import { AmountInput } from '@alfalab/core-components/amount-input';
+
+const min = 100000;
+const max = 22000000;
+const step = 1000;
+
+render(() => {
+    const [value, setValue] = React.useState('');
+
+    const handleInputChange = (event, { value }) => {
+        setValue(Math.round(+value / 100));
+    };
+
+    const handleSliderChange = (event, { value }) => {
+        setValue(value);
+    };
+
+    const handleBlur = () => {
+        if (value !== '') {
+            setValue(Math.max(min, Math.min(max, +value)));
+        }
+    };
+
     return (
         <SliderInput
             value={value !== '' ? value * 100 : ''}
@@ -220,5 +247,5 @@ render(() => {
             }
         />
     );
-})}
+});
 ```

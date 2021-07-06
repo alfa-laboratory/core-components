@@ -2,9 +2,9 @@ import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 
-import Description from './description.mdx';
 import { Loader } from '../Component';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
 
 <Meta
     title='Компоненты/Loader'
@@ -15,11 +15,7 @@ import { name, version } from '../../package.json';
 <!-- Canvas -->
 
 <Story name='Loader'>
-    {React.createElement(() => {
-        return (
-            <Loader />
-        );
-    })}
+    <Loader />
 </Story>
 
 
@@ -37,6 +33,6 @@ import { Loader } from '@alfalab/core-components-loader';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={Loader} />}
+    description={<Description />}
+    props={<Props of={Loader} />}
 />

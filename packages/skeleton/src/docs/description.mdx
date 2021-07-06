@@ -1,56 +1,88 @@
-import { text, boolean } from '@storybook/addon-knobs';
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-
-import { Skeleton } from '..';
-import { name, version } from '../../package.json';
-import { Typography } from '../../../typography/src';
-import styles from '../stories.module.css';
-
 Компонент скелетной загрузки.
 
-
-## Использование
-
-С контентом:
-
 ```tsx live
-    <Container>
-        <Skeleton
-            visible={true}
-            animate={true}
-            className={styles['example-1']}
-        >
-            Заголовок
-        </Skeleton>
-        <Skeleton
-            visible={true}
-            animate={true}
-            className={styles['example-1']}
-        >
+<Space>
+    <Skeleton visible={true} animate={true}>
+        Заголовок
+    </Skeleton>
+    <Skeleton visible={true} animate={true}>
+        Какой-то текст
+    </Skeleton>
+    <Skeleton visible={true} animate={true}>
+        <Typography.Text view='primary-large' tag='tag'>
             Какой-то текст
-        </Skeleton>
-        <Skeleton
-            visible={true}
-            animate={true}
-            className={styles['example-1']}
-        >
-            <Typography.Text view='primary-large' tag='tag'>Какой-то текст</Typography.Text>
-        </Skeleton>
-    </Container>
+        </Typography.Text>
+    </Skeleton>
+</Space>
 ```
 
+<!-- TODO: разрешить прокидывать стили в скелетон
 С заданными размерами:
 
 ```tsx live
-    <Container>
-        <div className={styles.wrapper}>
-            <Skeleton className={styles['example-2']} visible={true} />
-            <Skeleton className={styles['example-3']} visible={true} />
-            <Skeleton className={styles['example-4']} visible={true} />
-            <Skeleton className={styles['example-5']} visible={true} />
-            <Skeleton className={styles['example-6']} visible={true} />
+const wrapperStyles = {
+    position: 'relative',
+    height: 92,
+    width: 440,
+};
+
+render(
+    <div style={wrapperStyles}>
+        <div
+            style={{
+                position: 'absolute',
+                width: 48,
+                height: 48,
+                left: 0,
+                top: 0,
+            }}
+        >
+            <Skeleton visible={true} />
         </div>
-    </Container>
-```
+        <div
+            style={{
+                position: 'absolute',
+                width: 200,
+                height: 24,
+                left: 72,
+                top: 0,
+            }}
+        >
+            <Skeleton visible={true} />
+        </div>
+        <div
+            style={{
+                position: 'absolute',
+                width: 124,
+                height: 16,
+                left: 72,
+                top: 44,
+            }}
+        >
+            <Skeleton visible={true} />
+        </div>
+        <div
+            style={{
+                position: 'absolute',
+                width: 228,
+                height: 16,
+                left: 212,
+                top: 44,
+            }}
+        >
+            <Skeleton visible={true} />
+        </div>
+        <div
+            style={{
+                position: 'absolute',
+                width: 260,
+                height: 16,
+                left: 72,
+                top: 76,
+            }}
+        >
+            <Skeleton visible={true} />
+        </div>
+    </div>,
+);
+``` -->

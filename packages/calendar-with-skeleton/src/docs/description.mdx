@@ -1,33 +1,24 @@
-import { text, boolean } from '@storybook/addon-knobs';
-import { Preview } from '@storybook/addon-docs/blocks';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-
-import { CalendarInput } from '../../../calendar-input/src';
-import { CalendarRange } from '../../../calendar-range/src';
-import { CalendarWithSkeleton } from '../Component';
-
 Календарь с возможностью скелетной загрузки
 
 ```tsx live
-    render(() => {
-        const [visible, setVisible] = React.useState(false);
-        return (
-            <>
-                <CalendarWithSkeleton calendarVisible={ visible }/>
-                <Button size="xs" onClick={() => setVisible(!visible)}>toggle</Button>
-            </>
-        );
-    })
-```
+render(() => {
+    const [visible, setVisible] = React.useState(false);
+    return (
+        <>
+            <CalendarWithSkeleton calendarVisible={visible} />
 
+            <Button size='xs' onClick={() => setVisible(!visible)}>
+                toggle
+            </Button>
+        </>
+    );
+});
+```
 
 ## Использование с другими компонентами
 
 ```tsx live
-<CalendarInput
-    Calendar={CalendarWithSkeleton}
-    calendarProps={{ calendarVisible: false }}
-/>
+<CalendarInput Calendar={CalendarWithSkeleton} calendarProps={{ calendarVisible: false }} />
 ```
 
 ```tsx live
@@ -35,7 +26,7 @@ import { CalendarWithSkeleton } from '../Component';
     inputFromProps={{
         Calendar: CalendarWithSkeleton,
         disabled: true,
-        calendarProps: {calendarVisible: false }
+        calendarProps: { calendarVisible: false },
     }}
 />
 ```

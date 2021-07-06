@@ -1,14 +1,15 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, boolean, select, number } from '@storybook/addon-knobs';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
-
-import Description from './description.mdx';
-import styles from '!!raw-loader!../index.module.css';
 import { CssVars } from 'storybook/blocks/css-vars';
-import {Button} from '../../../button/src';
+
+import { Button } from '../../../button/src';
+
 import { Popover } from '../Component';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import styles from '!!raw-loader!../index.module.css';
 
 
 <Meta
@@ -47,7 +48,7 @@ import { name, version } from '../../package.json';
         return (
             <div
                 style={{
-                    width: '700px',
+                    width: '100%',
                     height: '300px',
                     display: 'flex',
                     justifyContent: 'center',
@@ -66,7 +67,7 @@ import { name, version } from '../../package.json';
                     <div style={{ padding: '15px', width: '156px' }}>I am popover</div>
                 </Popover>
                 <Button ref={handleButtonRef} onClick={toggle}>
-                    Show/Hide popover
+                    {open ? 'Скрыть' : 'Показать'} Popover
                 </Button>
             </div>
         );
@@ -88,7 +89,7 @@ import { Popover } from '@alfalab/core-components-popover';
 ```
 
 <Tabs
-  description={<Description />}
-  props={<Props of={Popover} />}
-  cssVars={<CssVars css={styles} />}
+    description={<Description />}
+    props={<Props of={Popover} />}
+    cssVars={<CssVars css={styles} />}
 />

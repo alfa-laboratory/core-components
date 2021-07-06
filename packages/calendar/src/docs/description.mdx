@@ -1,9 +1,3 @@
-import startOfDay from 'date-fns/startOfDay';
-import { Preview } from '@storybook/addon-docs/blocks';
-
-import { Calendar } from '../Component';
-import { usePeriod } from '../usePeriod';
-
 ## Выбор даты из ограниченного интервала
 
 Календарь с заданными левой и правой границей.
@@ -14,45 +8,53 @@ import { usePeriod } from '../usePeriod';
 Задать границы можно с помощью свойств `minDate` и `maxDate`
 
 ```tsx live
-      render(() => {
-        const [value, setValue] = React.useState();
-        const minDate = startOfDay(new Date());
-        minDate.setDate(10);
-        const maxDate = startOfDay(new Date());
-        maxDate.setDate(20);
-        return (
-            <Calendar
-                value={value}
-                onChange={setValue}
-                selectorView="month-only"
-                minDate={minDate.getTime()}
-                maxDate={maxDate.getTime()}
-            />
-        );
-    })
+render(() => {
+    // import startOfDay from 'date-fns/startOfDay';
+    const [value, setValue] = React.useState();
+
+    const minDate = startOfDay(new Date());
+    minDate.setDate(10);
+
+    const maxDate = startOfDay(new Date());
+    maxDate.setDate(20);
+
+    return (
+        <Calendar
+            value={value}
+            onChange={setValue}
+            selectorView='month-only'
+            minDate={minDate.getTime()}
+            maxDate={maxDate.getTime()}
+        />
+    );
+});
 ```
 
 ## Скрытие выбора года и месяца
 
 ```tsx live
-      render(() => {
-        const [value, setValue] = React.useState(new Date().setMonth(6));
-        const minDate = startOfDay(new Date());
-        minDate.setMonth(5);
-        const maxDate = startOfDay(new Date());
-        maxDate.setMonth(7);
-        return (
-            <Calendar
-                value={value}
-                onChange={setValue}
-                selectorView="month-only"
-                minDate={minDate.getTime()}
-                maxDate={maxDate.getTime()}
-            />
-        );
-    })
-```
+render(() => {
+    // import startOfDay from 'date-fns/startOfDay';
 
+    const [value, setValue] = React.useState(new Date().setMonth(6));
+
+    const minDate = startOfDay(new Date());
+    minDate.setMonth(5);
+
+    const maxDate = startOfDay(new Date());
+    maxDate.setMonth(7);
+
+    return (
+        <Calendar
+            value={value}
+            onChange={setValue}
+            selectorView='month-only'
+            minDate={minDate.getTime()}
+            maxDate={maxDate.getTime()}
+        />
+    );
+});
+```
 
 ## Недоступные даты
 
@@ -61,19 +63,14 @@ import { usePeriod } from '../usePeriod';
 Задать недоступные даты можно, передав массив дат в свойство `offDays`
 
 ```tsx live
-      render(() => {
-        const [value, setValue] = React.useState();
-        const offDays = [new Date().setDate(1), new Date().setDate(7), new Date().setDate(28)];
-        return (
-            <Calendar
-                value={value}
-                onChange={setValue}
-                offDays={offDays}
-            />
-        );
-    })
-```
+render(() => {
+    const [value, setValue] = React.useState();
 
+    const offDays = [new Date().setDate(1), new Date().setDate(7), new Date().setDate(28)];
+
+    return <Calendar value={value} onChange={setValue} offDays={offDays} />;
+});
+```
 
 ## Отметка о событии
 
@@ -82,24 +79,19 @@ import { usePeriod } from '../usePeriod';
 Задать события можно, передав массив дат в свойство `events`
 
 ```tsx live
-      render(() => {
-        const [value, setValue] = React.useState();
-        const events = [
-            new Date().setDate(3),
-            new Date().setDate(15),
-            new Date().setDate(17),
-            new Date().setDate(21)
-        ];
-        return (
-            <Calendar
-                value={value}
-                onChange={setValue}
-                events={events}
-            />
-        );
-    })
-```
+render(() => {
+    const [value, setValue] = React.useState();
 
+    const events = [
+        new Date().setDate(3),
+        new Date().setDate(15),
+        new Date().setDate(17),
+        new Date().setDate(21),
+    ];
+
+    return <Calendar value={value} onChange={setValue} events={events} />;
+});
+```
 
 ## Выделение периода
 
@@ -110,25 +102,31 @@ import { usePeriod } from '../usePeriod';
 Для автоматического управления выделением можно воспользоваться хуком `usePeriod`
 
 ```tsx live
-    render(() => {
-        // import { usePeriod } from '@alfalab/core-components/calendar';
-        const [value, setValue] = React.useState();
-        const onPeriodChange = (selectedFrom, selectedTo) => {
-            console.log('selected', selectedFrom, selectedTo);
-        }
-        const { selectedFrom, selectedTo, updatePeriod } = usePeriod({ onPeriodChange });
-        const handleChange = (date) => {
-            const newDate = date === selectedFrom ? undefined : date;
-            setValue(newDate);
-            updatePeriod(newDate);
-        }
-        return (
-            <Calendar
-                value={value}
-                selectedFrom={selectedFrom}
-                selectedTo={selectedTo}
-                onChange={handleChange}
-            />
-        );
-    })
+render(() => {
+    // import { usePeriod } from '@alfalab/core-components/calendar';
+
+    const [value, setValue] = React.useState();
+
+    const onPeriodChange = (selectedFrom, selectedTo) => {
+        console.log('selected', selectedFrom, selectedTo);
+    };
+
+    const { selectedFrom, selectedTo, updatePeriod } = usePeriod({ onPeriodChange });
+
+    const handleChange = date => {
+        const newDate = date === selectedFrom ? undefined : date;
+
+        setValue(newDate);
+        updatePeriod(newDate);
+    };
+
+    return (
+        <Calendar
+            value={value}
+            selectedFrom={selectedFrom}
+            selectedTo={selectedTo}
+            onChange={handleChange}
+        />
+    );
+});
 ```

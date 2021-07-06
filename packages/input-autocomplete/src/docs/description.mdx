@@ -6,251 +6,416 @@ import { MaskedInput } from '@alfalab/core-components-masked-input';
 import { Arrow, Option } from '@alfalab/core-components-select';
 
 import { InputAutocomplete } from '../Component';
-import { options, matchOption } from './options'
 
 Компонент поля для ввода с автокомплитом
 
 ```tsx live
-    render(() => {
-        const [value, setValue] = React.useState('');
-        const handleInput = event => {
-            setValue(event.target.value);
-        };
-        const handleChange = ({ selected }) => {
-            setValue(selected ? selected.key : '');
-        };
-        const filteredOptions = options.filter(option => matchOption(option, value));
-        return (
-            <InputAutocomplete
-                options={filteredOptions}
-                placeholder='Введите элемент'
-                label='Элемент'
-                onChange={handleChange}
-                onInput={handleInput}
-                value={value}
-            />
-        );
-    })
-```
+render(() => {
+    const options = [
+        { key: 'Neptunium' },
+        { key: 'Plutonium' },
+        { key: 'Americium' },
+        { key: 'Curium' },
+        { key: 'Berkelium' },
+        { key: 'Californium' },
+        { key: 'Einsteinium' },
+        { key: 'Fermium' },
+        { key: 'Mendelevium' },
+        { key: 'Nobelium' },
+        { key: 'Lawrencium' },
+        { key: 'Rutherfordium' },
+        { key: 'Dubnium' },
+        { key: 'Seaborgium' },
+        { key: 'Bohrium' },
+    ];
 
+    const matchOption = (option, inputValue) =>
+        option.key.toLowerCase().includes((inputValue || '').toLowerCase());
+
+    const [value, setValue] = React.useState('');
+
+    const handleInput = event => {
+        setValue(event.target.value);
+    };
+
+    const handleChange = ({ selected }) => {
+        setValue(selected ? selected.key : '');
+    };
+
+    const filteredOptions = options.filter(option => matchOption(option, value));
+
+    return (
+        <InputAutocomplete
+            options={filteredOptions}
+            placeholder='Введите элемент'
+            label='Элемент'
+            onChange={handleChange}
+            onInput={handleInput}
+            value={value}
+        />
+    );
+});
+```
 
 ### Кейс с очисткой поля
 
 ```tsx live
-    render(() => {
-        const [value, setValue] = React.useState('');
-        const handleInput = event => {
-            setValue(event.target.value);
-        };
-        const handleChange = ({ selected }) => {
-            setValue(selected ? selected.key : '');
-        };
-        const handleClear = (event) => {
-            setValue('');
-        };
-        const filteredOptions = options.filter(option => matchOption(option, value));
-        return (
-            <InputAutocomplete
-                options={filteredOptions}
-                selected={[]}
-                closeOnSelect={false}
-                label='Элемент'
-                placeholder='Введите элемент'
-                onChange={handleChange}
-                onInput={handleInput}
-                value={value}
-                inputProps={{
-                    clear: true,
-                    onClear: handleClear
-                }}
-            />
-        );
-    })
-```
+render(() => {
+    const options = [
+        { key: 'Neptunium' },
+        { key: 'Plutonium' },
+        { key: 'Americium' },
+        { key: 'Curium' },
+        { key: 'Berkelium' },
+        { key: 'Californium' },
+        { key: 'Einsteinium' },
+        { key: 'Fermium' },
+        { key: 'Mendelevium' },
+        { key: 'Nobelium' },
+        { key: 'Lawrencium' },
+        { key: 'Rutherfordium' },
+        { key: 'Dubnium' },
+        { key: 'Seaborgium' },
+        { key: 'Bohrium' },
+    ];
 
+    const matchOption = (option, inputValue) =>
+        option.key.toLowerCase().includes((inputValue || '').toLowerCase());
+
+    const [value, setValue] = React.useState('');
+
+    const handleInput = event => {
+        setValue(event.target.value);
+    };
+
+    const handleChange = ({ selected }) => {
+        setValue(selected ? selected.key : '');
+    };
+
+    const handleClear = event => {
+        setValue('');
+    };
+
+    const filteredOptions = options.filter(option => matchOption(option, value));
+
+    return (
+        <InputAutocomplete
+            options={filteredOptions}
+            selected={[]}
+            closeOnSelect={false}
+            label='Элемент'
+            placeholder='Введите элемент'
+            onChange={handleChange}
+            onInput={handleInput}
+            value={value}
+            inputProps={{
+                clear: true,
+                onClear: handleClear,
+            }}
+        />
+    );
+});
+```
 
 ### Автокомплит с тэгами
 
 ```tsx live
-    render(() => {
-        const [value, setValue] = React.useState('');
-        const [selectedTags, setSelectedTags] = React.useState([]);
-        const handleInput = event => {
-            setValue(event.target.value);
-        };
-        const handleChange = ({ selected }) => {
-            setValue('');
-            if (selected && !selectedTags.includes(selected.key)) {
-                setSelectedTags(selectedTags.concat([selected.key]));
-            }
-        };
-        const renderTags = () => selectedTags.length > 0 ?
-            selectedTags.map(item => <Tag key={item} size='xs'>{item}</Tag>) :
-            null;
-        const filteredOptions = options
-            .filter(option => !selectedTags.includes(option.content))
-            .filter(option => matchOption(option, value));
-        if (filteredOptions.length === 0 && value) {
-            filteredOptions.push({ key: value, content: value });
-        }
-        return (
-            <React.Fragment>
-                <InputAutocomplete
-                    options={filteredOptions}
-                    selected={[]}
-                    closeOnSelect={true}
-                    label='Элемент'
-                    onChange={handleChange}
-                    onInput={handleInput}
-                    value={value}
-                />
-                <div style={ { marginTop: '4px' } }>
-                    {renderTags()}
-                </div>
-            </React.Fragment>
-        );
-    })
-```
+// import { Tag } from '@alfalab/core-components/tag';
 
+render(() => {
+    const options = [
+        { key: 'Neptunium' },
+        { key: 'Plutonium' },
+        { key: 'Americium' },
+        { key: 'Curium' },
+        { key: 'Berkelium' },
+        { key: 'Californium' },
+        { key: 'Einsteinium' },
+        { key: 'Fermium' },
+        { key: 'Mendelevium' },
+        { key: 'Nobelium' },
+        { key: 'Lawrencium' },
+        { key: 'Rutherfordium' },
+        { key: 'Dubnium' },
+        { key: 'Seaborgium' },
+        { key: 'Bohrium' },
+    ];
+
+    const matchOption = (option, inputValue) =>
+        option.key.toLowerCase().includes((inputValue || '').toLowerCase());
+
+    const [value, setValue] = React.useState('');
+
+    const [selectedTags, setSelectedTags] = React.useState([]);
+
+    const handleInput = event => {
+        setValue(event.target.value);
+    };
+
+    const handleChange = ({ selected }) => {
+        setValue('');
+        if (selected && !selectedTags.includes(selected.key)) {
+            setSelectedTags(selectedTags.concat([selected.key]));
+        }
+    };
+
+    const renderTags = () =>
+        selectedTags.length > 0
+            ? selectedTags.map(item => (
+                  <Tag key={item} size='xs'>
+                      {item}
+                  </Tag>
+              ))
+            : null;
+
+    const filteredOptions = options
+        .filter(option => !selectedTags.includes(option.content))
+        .filter(option => matchOption(option, value));
+
+    if (filteredOptions.length === 0 && value) {
+        filteredOptions.push({ key: value, content: value });
+    }
+
+    return (
+        <React.Fragment>
+            <InputAutocomplete
+                options={filteredOptions}
+                selected={[]}
+                closeOnSelect={true}
+                label='Элемент'
+                onChange={handleChange}
+                onInput={handleInput}
+                value={value}
+            />
+            <div style={{ marginTop: '4px' }}>{renderTags()}</div>
+        </React.Fragment>
+    );
+});
+```
 
 ### Ошибка при пустом значении
 
 ```tsx live
-    render(() => {
-        const [dirty, setDirty] = React.useState(false);
-        const [value, setValue] = React.useState('');
-        const handleInput = event => {
-            if (!dirty) setDirty(true);
-            setValue(event.target.value);
-        };
-        const handleChange = ({ selected }) => {
-            setValue(selected ? selected.key : '');
-        };
-        const filteredOptions = options.filter(option => matchOption(option, value));
-        return (
-            <InputAutocomplete
-                options={filteredOptions}
-                selected={[]}
-                label='Элемент'
-                value={value}
-                onChange={handleChange}
-                onInput={handleInput}
-                error={dirty && !value}
-            />
-        );
-    })
-```
+render(() => {
+    const options = [
+        { key: 'Neptunium' },
+        { key: 'Plutonium' },
+        { key: 'Americium' },
+        { key: 'Curium' },
+        { key: 'Berkelium' },
+        { key: 'Californium' },
+        { key: 'Einsteinium' },
+        { key: 'Fermium' },
+        { key: 'Mendelevium' },
+        { key: 'Nobelium' },
+        { key: 'Lawrencium' },
+        { key: 'Rutherfordium' },
+        { key: 'Dubnium' },
+        { key: 'Seaborgium' },
+        { key: 'Bohrium' },
+    ];
 
+    const matchOption = (option, inputValue) =>
+        option.key.toLowerCase().includes((inputValue || '').toLowerCase());
+
+    const [dirty, setDirty] = React.useState(false);
+    const [value, setValue] = React.useState('');
+
+    const handleInput = event => {
+        if (!dirty) setDirty(true);
+        setValue(event.target.value);
+    };
+
+    const handleChange = ({ selected }) => {
+        setValue(selected ? selected.key : '');
+    };
+
+    const filteredOptions = options.filter(option => matchOption(option, value));
+
+    return (
+        <InputAutocomplete
+            options={filteredOptions}
+            selected={[]}
+            label='Элемент'
+            value={value}
+            onChange={handleChange}
+            onInput={handleInput}
+            error={dirty && !value}
+        />
+    );
+});
+```
 
 ### Поле с маской
 
 ```tsx live
-    render(() => {
-        const mask = [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/];
-        const cards = [
-            {
-                key: 'Карта 1',
-                content: '4035 5010 0000 0008',
-            },
-            {
-                key: 'Карта 2',
-                content: '4360 0000 0100 0005',
-            },
-            {
-                key: 'Карта 3',
-                content: '8171 9999 2766 0000',
-            },
-            {
-                key: 'Карта 4',
-                content: '5204 2477 5000 1471',
-            },
-            {
-                key: 'Карта 5',
-                content: '4111 1111 1111 1111',
-            },
-        ];
-        const CardOption = (props) => (
-            <Option {...props}>
-                <div>
-                    {props.option.key}
-                    <br />
-                    <sub>{props.option.content}</sub>
-                </div>
-            </Option>
-        );
-        const [value, setValue] = React.useState('');
-        const handleInput = (event) => {
-            setValue(event.target.value);
-        };
-        const handleChange = ({ selected }) => {
-            setValue(selected ? selected.content : null);
-        };
-        const filteredOptions = cards.filter(option => matchOption(option, value));
-        return (
-            <InputAutocomplete
-                options={filteredOptions}
-                selected={[]}
-                label='Номер карты'
-                onInput={handleInput}
-                onChange={handleChange}
-                value={value}
-                Option={CardOption}
-                Input={MaskedInput}
-                inputProps={{
-                    mask,
-                }}
-            />
-        );
-    })
-```
+render(() => {
+    const matchOption = (option, inputValue) =>
+        option.content.toLowerCase().includes((inputValue || '').toLowerCase());
 
+    const mask = [
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+        ' ',
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+        ' ',
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+        ' ',
+        /\d/,
+        /\d/,
+        /\d/,
+        /\d/,
+    ];
+
+    const cards = [
+        {
+            key: 'Карта 1',
+            content: '4035 5010 0000 0008',
+        },
+        {
+            key: 'Карта 2',
+            content: '4360 0000 0100 0005',
+        },
+        {
+            key: 'Карта 3',
+            content: '8171 9999 2766 0000',
+        },
+        {
+            key: 'Карта 4',
+            content: '5204 2477 5000 1471',
+        },
+        {
+            key: 'Карта 5',
+            content: '4111 1111 1111 1111',
+        },
+    ];
+
+    const CardOption = props => (
+        <Option {...props}>
+            <div>
+                {props.option.key}
+                <br />
+                <sub>{props.option.content}</sub>
+            </div>
+        </Option>
+    );
+
+    const [value, setValue] = React.useState('');
+
+    const handleInput = event => {
+        setValue(event.target.value);
+    };
+
+    const handleChange = ({ selected }) => {
+        setValue(selected ? selected.content : null);
+    };
+
+    const filteredOptions = cards.filter(option => matchOption(option, value));
+
+    return (
+        <InputAutocomplete
+            options={filteredOptions}
+            selected={[]}
+            size='l'
+            label='Номер карты'
+            onInput={handleInput}
+            onChange={handleChange}
+            value={value}
+            Option={CardOption}
+            Input={MaskedInput}
+            inputProps={{
+                mask,
+            }}
+        />
+    );
+});
+```
 
 ### Multiple
 
 ```tsx live
-    render(() => {
-        const [value, setValue] = React.useState('');
-        const handleInput = event => {
-            setValue(event.target.value);
-        };
-        const handleChange = ({ selectedMultiple }) => {
-            const value = selectedMultiple.length
-                ? selectedMultiple.map(option => option.key).join(', ') + ', '
-                : '';
-            setValue(value);
-        };
-        const inputValues = value.split(',').map(v => v.trim()).filter(v => v);
-        const selectedOptions = options
-            .filter(option => inputValues.includes(option.content.trim()));
-        const selected = selectedOptions.map(option => option.key);
-        const filteredOptions = inputValues.length === selected.length ?
-            options :
-            options.filter(option => {
-                return selectedOptions.includes(option) || matchOption(option, inputValues[inputValues.length - 1])
-            });
-        return (
-            <InputAutocomplete
-                options={filteredOptions}
-                selected={selected}
-                label='Элемент'
-                closeOnSelect={false}
-                multiple={true}
-                onChange={handleChange}
-                onInput={handleInput}
-                allowUnselect={true}
-                value={value}
-            />
-        );
-    })
-```
+render(() => {
+    const options = [
+        { key: 'Neptunium' },
+        { key: 'Plutonium' },
+        { key: 'Americium' },
+        { key: 'Curium' },
+        { key: 'Berkelium' },
+        { key: 'Californium' },
+        { key: 'Einsteinium' },
+        { key: 'Fermium' },
+        { key: 'Mendelevium' },
+        { key: 'Nobelium' },
+        { key: 'Lawrencium' },
+        { key: 'Rutherfordium' },
+        { key: 'Dubnium' },
+        { key: 'Seaborgium' },
+        { key: 'Bohrium' },
+    ];
 
+    const matchOption = (option, inputValue) =>
+        option.key.toLowerCase().includes((inputValue || '').toLowerCase());
+
+    const [value, setValue] = React.useState('');
+
+    const handleInput = event => {
+        setValue(event.target.value);
+    };
+
+    const handleChange = ({ selectedMultiple }) => {
+        const value = selectedMultiple.length
+            ? selectedMultiple.map(option => option.key).join(', ') + ', '
+            : '';
+        setValue(value);
+    };
+
+    const inputValues = value
+        .split(',')
+        .map(v => v.trim())
+        .filter(v => v);
+
+    const selectedOptions = options.filter(option => inputValues.includes(option.key.trim()));
+
+    const selected = selectedOptions.map(option => option.key);
+
+    const filteredOptions =
+        inputValues.length === selected.length
+            ? options
+            : options.filter(option => {
+                  return (
+                      selectedOptions.includes(option) ||
+                      matchOption(option, inputValues[inputValues.length - 1])
+                  );
+              });
+
+    return (
+        <InputAutocomplete
+            options={filteredOptions}
+            selected={selected}
+            label='Элемент'
+            closeOnSelect={false}
+            multiple={true}
+            onChange={handleChange}
+            onInput={handleInput}
+            allowUnselect={true}
+            value={value}
+        />
+    );
+});
+```
 
 ### Автокомплит со стрелкой
 
 ```tsx live
-import { Arrow } from '@alfalab/core-components/select';
+// import { Arrow } from '@alfalab/core-components/select';
 
-<InputAutocomplete Arrow={Arrow} />
+render(<InputAutocomplete options={[]} Arrow={Arrow} />);
 ```
-
-
