@@ -16,6 +16,7 @@ addParameters({
     options: {
         storySort: {
             method: 'alphabetical',
+            order: ['Гайдлайны', ['Начало работы', 'FAQ'], 'Компоненты'],
         },
     },
 });

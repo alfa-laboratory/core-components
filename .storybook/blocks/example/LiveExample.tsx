@@ -29,7 +29,7 @@ export const LiveExample: FC<LiveExampleProps> = ({
         window.open(
             `${
                 window.parent.location.pathname
-            }?path=/docs/гайдлайны-песочница--page/code=${encodeURIComponent(code)}`,
+            }?path=/docs/компоненты-песочница--page/code=${encodeURIComponent(code)}`,
         );
     };
 
