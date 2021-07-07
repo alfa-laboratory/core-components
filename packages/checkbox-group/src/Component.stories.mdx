@@ -19,16 +19,18 @@ import { Tag } from '../../tag/src';
         const onChange = (_, payload) => {
             setValue({ ...value, [payload.name]: payload.checked });
         };
+        const label = text('label', 'Заголовок группы');
         const direction = select('direction', ['vertical', 'horizontal'], 'vertical');
         const error = text('error', '');
+        const hint = text('hint', '');
         const disabled = boolean('disabled', false);
-        const label = text('label', 'Заголовок группы');
         return (
             <CheckboxGroup
                 label={label}
                 onChange={onChange}
                 direction={direction}
                 error={error}
+                hint={hint}
                 disabled={disabled}
             >
                 <Checkbox label='Первый вариант' name='one' checked={value.one} />
