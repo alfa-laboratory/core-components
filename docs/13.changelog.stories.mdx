@@ -1,6 +1,11 @@
-import { Description } from '@storybook/addon-docs/blocks';
-import changelog from '../CHANGELOG.md';
+import { Changelog as ChangelogComponent } from 'storybook/blocks';
+import Changelog from '../CHANGELOG.md';
 
-<Meta title='Гайдлайны/Changelog' />
+<Meta
+    title='Гайдлайны/Changelog'
+    parameters={{ previewTabs: { canvas: { hidden: true } }}}
+/>
 
-<Description>{changelog.replace(/^# \[/gm, '## [')}</Description>
+## Changelog
+
+<ChangelogComponent content={<Changelog />} />
