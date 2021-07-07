@@ -1,4 +1,5 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { select } from '@storybook/addon-knobs';
 import { ComponentHeader } from 'storybook/blocks/component-header';
 import { Tabs } from 'storybook/blocks/tabs';
 
@@ -15,7 +16,9 @@ import Description from './description.mdx';
 <!-- Canvas -->
 
 <Story name='CalendarRange'>
-    <CalendarRange />
+    <CalendarRange
+        calendarPosition={select('calendarPosition', ['static', 'popover'], 'static')}
+    />
 </Story>
 
 <!-- Docs -->
