@@ -45,50 +45,62 @@ body.sb-show-main {
 /* Manager */
 
 div.sidebar-header {
-    padding: var(--gap-m) 10px 18px;
+    display: flex;
+    align-items: center;
 }
 
-div.sidebar-header > div:first-child {
-    margin-top: var(--gap-3xs-neg);
-    padding-top: 0;
-    padding-bottom: 0;
-    padding-right: 6px;
+div.sidebar-header > div:first-child a {
+    padding: 0;
+    margin: 0;
+    border: 0;
 }
 
 div.sidebar-header img {
     max-height: 32px;
 }
 
-nav.sidebar-container form {
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: var(--gap-m);
+.search-field {
+    margin-left: -10px;
+}
+
+.search-field svg:first-child {
+    top: 7px;
+}
+
+.search-field input {
     border: 0;
+    border-radius: 0;
+    padding-top: 0;
+    padding-bottom: var(--gap-2xs);
+    padding-left: var(--gap-2xl);
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 400;
 }
 
-nav.sidebar-container section {
-    border-top: 1px solid rgba(0, 0, 0, 0.07);
-    margin-top: 0;
-    padding-top: 10px;
-    padding-bottom: var(--gap-s);
-}
-
-div.sidebar-header button:after {
+.search-field code {
+    /* иконка слэша */
     display: none;
 }
 
-svg.sidebar-svg-icon {
+.sidebar-header button:after {
+    /* пипка у кнопки с тремя точками */
     display: none;
 }
 
-span.sidebar-expander {
-    width: 5px;
+.sidebar-container .sidebar-subheading-action {
+    /* кнопка раскрытия подпунктов */
+    display: none;
+}
+
+.sidebar-container .sidebar-item svg {
+    /* иконки страниц */
+    display: none;
 }
 
 div.sidebar-subheading {
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    padding: 10px 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.07);
     color: var(--color-light-text-tertiary-transparent);
     font-size: 12px;
     line-height: 1.2;
@@ -96,57 +108,52 @@ div.sidebar-subheading {
     letter-spacing: 1.25px;
 }
 
-div.sidebar-item {
+a.sidebar-item,
+button.sidebar-item {
     padding-top: 6px;
     padding-bottom: 6px;
     color: rgba(11, 31, 53, 0.9);
     font-size: 14px;
     line-height: 1.2;
     font-weight: 400;
+    background: transparent !important;
 }
 
-div.sidebar-item[class*='inlineGlow'] span.sidebar-expander {
+button.sidebar-item[aria-expanded='true'] {
+    background: transparent !important;
+}
+
+a.sidebar-item:hover,
+a.sidebar-item:focus,
+a.sidebar-item[data-selected='true'],
+button.sidebar-item:hover,
+button.sidebar-item:focus {
+    color: var(--color-light-text-primary);
+    font-weight: normal;
+    background-color: rgba(11, 31, 53, 0.1) !important;
+}
+
+/* a.sidebar-item[class*='inlineGlow'] span.sidebar-expander,
+button.sidebar-item[class*='inlineGlow'] span.sidebar-expander {
     width: 14px;
 }
 
-div.sidebar-item[class*='inlineGlow'] > svg + span {
+a.sidebar-item[class*='inlineGlow'] > svg + span,
+button.sidebar-item[class*='inlineGlow'] > svg + span {
     border-radius: 99px;
     background-color: var(--color-light-bg-tertiary);
+} */
+
+button[data-action='collapse-root']:focus {
+    box-shadow: none;
+    color: inherit;
 }
 
-div.sidebar-item.selected {
-    color: var(--color-light-text-primary);
-    background-color: rgba(11, 31, 53, 0.1);
+button[data-action='collapse-root']:focus span:first-of-type {
+    color: inherit;
 }
 
-/* Скрываем Story из Docs */
-
-div[id*='story--'] {
-    display: none;
-}
-
-a + div.css-0 div.sidebar-item {
-    padding-left: var(--gap-l);
-}
-
-#storybook-explorer-searchfield {
-    padding-top: 0;
-    padding-bottom: var(--gap-2xs);
-    font-size: 14px;
-    line-height: 1.2;
-    font-weight: 400;
-}
-
-#storybook-explorer-searchfield + svg {
-    top: 2px;
-    transform: none;
-}
-
-a[href='/?path=/settings/about'] {
-    display: none;
-}
-
-.simplebar-content select {
+select.select {
     position: relative;
     padding-left: var(--gap-xs);
     padding-right: var(--gap-xl);
