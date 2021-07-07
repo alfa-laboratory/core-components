@@ -1,19 +1,9 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
-import { text, select, boolean } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import Icon from '@alfalab/icons-glyph/StarMIcon';
-
-import { Input } from '@alfalab/core-components-input';
-import { withSuffix as WithSuffix } from '../Component';
-import { name, version } from '../../package.json';
-
 HOC, позволяющий закрепить определенный текст после значения инпута.
 
 Добавляет в переданный инпут доп. пропсу `suffix?: ReactNode`
 
-<Preview>
-    {React.createElement(() => {
-        const SuffixInput = WithSuffix(Input);
-        return <SuffixInput suffix={<b> мес</b>} />;
-    })}
-</Preview>
+```tsx live
+const SuffixInput = withSuffix(Input);
+
+render(<SuffixInput suffix={<b> мес</b>} />);
+```

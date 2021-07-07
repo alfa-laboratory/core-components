@@ -22,9 +22,13 @@ module.exports = {
     stories: ['../packages/**/*.stories.@(ts|md)x', '../docs/**/*.stories.@(ts|md)x'],
     addons: [
         '@storybook/addon-knobs',
-        '@storybook/addon-docs',
+        {
+            name: '@storybook/addon-docs',
+            options: { transcludeMarkdown: true },
+        },
         '@storybook/addon-actions',
         '@storybook/preset-create-react-app',
+        './addons/theme-switcher/register.js',
     ],
     webpackFinal: async config => {
         addPackagesDir(config);
