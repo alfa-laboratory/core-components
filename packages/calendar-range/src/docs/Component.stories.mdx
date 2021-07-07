@@ -1,11 +1,12 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { select } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { CalendarRange } from '../Component';
 import { name, version } from '../../package.json';
+import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
+
 
 <Meta
     title='Компоненты/CalendarRange'
@@ -37,5 +38,6 @@ import { CalendarRange } from '@alfalab/core-components/calendar-range';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={CalendarRange} />}
 />

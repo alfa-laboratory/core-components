@@ -7,8 +7,9 @@ import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
 import { Select } from '../Component';
 import { name, version } from '../../package.json';
-import Description from './description.mdx';
 import { Arrow } from '../components/arrow';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 import vars from '!!raw-loader!../vars.css';
 
 export const options = [
@@ -91,4 +92,5 @@ import { Select } from '@alfalab/core-components/select';
     description={<Description />}
     props={<Props of={Select} />}
     cssVars={<CssVars css={vars} />}
+    changelog={<Changelog />}
 />

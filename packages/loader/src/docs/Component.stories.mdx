@@ -1,10 +1,11 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Loader } from '../Component';
 import { name, version } from '../../package.json';
+import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
+
 
 <Meta
     title='Компоненты/Loader'
@@ -34,5 +35,6 @@ import { Loader } from '@alfalab/core-components/loader';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={Loader} />}
 />

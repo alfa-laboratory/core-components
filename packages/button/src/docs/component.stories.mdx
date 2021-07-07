@@ -7,6 +7,7 @@ import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
 import { Button } from '../';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 import colorsStyles from '!!raw-loader!../default.module.css';
 
@@ -73,6 +74,7 @@ import { Button } from '@alfalab/core-components/button';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={Button} /> }
     cssVars={<CssVars css={`${styles}${colorsStyles}`} />}
 />

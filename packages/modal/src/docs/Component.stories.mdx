@@ -1,8 +1,6 @@
 import { Meta, Props, Story } from '@storybook/addon-docs/blocks';
 import { boolean, select, text } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
-import { CssVars } from 'storybook/blocks/css-vars';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
 import { Button } from '../../../button/src';
 
@@ -11,6 +9,7 @@ import { ModalDesktop } from '../Component.desktop';
 import { ModalResponsive } from '../Component.responsive';
 import { version } from '../../package.json';
 import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 import vars from '!!raw-loader!../vars.css';
 
 
@@ -132,6 +131,7 @@ import { ModalMobile } from '@alfalab/core-components/modal/mobile';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     cssVars={<CssVars css={vars} />}
     props={<Props components={{ModalDesktop, ModalMobile, ModalResponsive}} />}
 />

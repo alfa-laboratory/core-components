@@ -1,13 +1,13 @@
-import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Props, Story } from '@storybook/addon-docs/blocks';
 import {boolean, select, text} from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs'
-import { CssVars } from 'storybook/blocks/css-vars';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
 import { Backdrop } from '../Component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
-import vars from '!!raw-loader!../vars.css';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../vars.css';
+
 
 <Meta
     title='Компоненты/Backdrop'
@@ -42,7 +42,8 @@ import { Backdrop } from '@alfalab/core-components/backdrop';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={Backdrop} />}
-    cssVars={<CssVars css={vars}/>}
+    cssVars={<CssVars css={styles}/>}
 />
 

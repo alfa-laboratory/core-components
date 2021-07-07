@@ -1,8 +1,6 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { boolean } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
-import { CssVars } from 'storybook/blocks/css-vars';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
 import { Button } from '../../../button/src';
 import { Typography } from '../../../typography/src';
@@ -10,6 +8,7 @@ import { Typography } from '../../../typography/src';
 import { Drawer, DrawerContext } from '../Component';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
 
@@ -58,36 +57,7 @@ import { Drawer } from '@alfalab/core-components/drawer';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={Drawer} />}
     cssVars={<CssVars css={styles} />}
 />
-
-
-export function Content() {
-    const { contentRef } = React.useContext(DrawerContext);
-    const [showMore, setShowMore] = React.useState(false);
-    const Text = () => (
-        <p>
-            Сейчас много говорят об отказах банков в проведении операций, блокировках
-            интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять
-            операции своих клиентов, потенциально нарушающие требования Федерального закона «О
-            противодействии легализации (отмыванию) доходов, полученных преступным путем, и
-            финансированию терроризма» — 115-ФЗ
-        </p>
-    );
-    return (
-        <div style={{ padding: '16px 32px' }} ref={contentRef}>
-            <Text />
-            {showMore && (
-                <>
-                    <Text />
-                    <Text />
-                    <Text />
-                </>
-            )}
-            <Button size='xs' type='button' onClick={() => setShowMore(!showMore)}>
-                {showMore ? 'Скрыть' : 'Показать еще'}
-            </Button>
-        </div>
-    );
-}

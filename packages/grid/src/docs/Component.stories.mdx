@@ -1,10 +1,11 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Grid } from '../Component';
 import { name, version } from '../../package.json';
+import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
+
 
 <Meta
     title='Компоненты/Grid'
@@ -52,5 +53,6 @@ import { Grid } from '@alfalab/core-components/grid';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props components={Grid} />}
 />

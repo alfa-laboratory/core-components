@@ -1,14 +1,13 @@
 
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { select, number } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
-import { CssVars } from 'storybook/blocks/css-vars';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
 import { Select } from '../../../select/src/Component';
 
 import { Confirmation } from '../component';
 import { name, version } from '../../package.json';
+import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
 import vars from '!!raw-loader!../vars.css';
 
@@ -135,6 +134,7 @@ import { Confirmation } from '@alfalab/core-components/confirmation';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={Confirmation} />}
     cssVars={<CssVars css={vars} />}
 />

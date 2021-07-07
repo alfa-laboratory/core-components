@@ -1,11 +1,12 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, number, select, boolean } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { FileUploadItem } from '../Component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+
 
 <Meta
     title='Компоненты/FileUploadItem'
@@ -46,5 +47,6 @@ import { FileUploadItem } from '@alfalab/core-components/file-upload-item';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={FileUploadItem} />}
 />

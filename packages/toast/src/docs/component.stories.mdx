@@ -6,6 +6,7 @@ import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
 import { Toast } from '../';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
 
@@ -145,6 +146,7 @@ import { Toast } from '@alfalab/core-components/toast';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={Toast} />}
     cssVars={<CssVars css={styles} />}
 />

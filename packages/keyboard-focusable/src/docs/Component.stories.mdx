@@ -1,9 +1,9 @@
 import { Meta, Preview, Props } from '@storybook/addon-docs/blocks';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { KeyboardFocusable } from '../Component';
 import { name, version } from '../../package.json';
+import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
 
 
@@ -30,5 +30,6 @@ import { KeyboardFocusable } from '@alfalab/core-components/keyboard-focusable';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={KeyboardFocusable} />}
 />

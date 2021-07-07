@@ -5,6 +5,7 @@ import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Status, colors } from '../Component';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 
 
 <Meta
@@ -40,5 +41,6 @@ import { Status } from '@alfalab/core-components/status';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={Status} />}
 />

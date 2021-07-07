@@ -6,6 +6,7 @@ import Icon from '@alfalab/icons-glyph/CopyMIcon';
 import { Tag } from '../Component';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
 export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
@@ -55,4 +56,5 @@ import { Tag } from '@alfalab/core-components/tag';
     description={<Description />}
     props={<Props of={Tag} />}
     cssVars={<CssVars css={styles} />}
+    changelog={<Changelog />}
 />

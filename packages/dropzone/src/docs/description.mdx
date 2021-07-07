@@ -2,15 +2,16 @@
 
 ```tsx live
 render(() => {
-    {React.createElement(() => {
-        const [filesList, setFilesList] = React.useState([]);
-        const handleDrop = files => {
-            setFilesList(
-                Array.from(files)
-                    .map(file => file.name)
-                    .filter(Boolean),
-            );
-        };
+    const [filesList, setFilesList] = React.useState([]);
+
+    const handleDrop = files => {
+        setFilesList(
+            Array.from(files)
+                .map(file => file.name)
+                .filter(Boolean),
+        );
+    };
+
     return (
         <Dropzone
             error={boolean('error', false)}
@@ -37,6 +38,6 @@ render(() => {
                 )}
             </div>
         </Dropzone>
-    )})}
+    );
 });
 ```

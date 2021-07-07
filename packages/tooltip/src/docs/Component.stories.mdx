@@ -7,6 +7,7 @@ import { Button } from '../../../button/src';
 import { Tooltip } from '../Component';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
 
@@ -90,6 +91,7 @@ import { Tooltip } from '@alfalab/core-components/tooltip';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={Tooltip} />}
     cssVars={<CssVars css={styles} />}
 />

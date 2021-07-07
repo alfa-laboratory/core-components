@@ -3,11 +3,12 @@ import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 
-import { Textarea } from '..';
+import { Textarea } from '../Component';
 import { name, version } from '../../package.json';
-
-import styles from '!!raw-loader!../index.module.css';
 import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../index.module.css';
+
 
 <Meta
     title='Компоненты/Textarea'
@@ -61,6 +62,7 @@ import { Textarea } from '@alfalab/core-components/textarea';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={Textarea} />}
     cssVars={<CssVars css={styles} />}
 />

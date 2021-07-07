@@ -5,6 +5,7 @@ import { Input } from '@alfalab/core-components-input';
 
 import { Space } from '../Component';
 import { name, version } from '../../package.json';
+import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
 
 export const DIRECTIONS = ['horizontal', 'vertical'];
@@ -52,5 +53,6 @@ import { Space } from '@alfalab/core-components/space';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={Space} />}
 />

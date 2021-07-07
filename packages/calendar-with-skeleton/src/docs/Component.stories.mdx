@@ -1,12 +1,12 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
-import styles from '!!raw-loader!../index.module.css';
-import Description from './description.mdx';
-import { name, version } from '../../package.json';
 import { Button } from '../../../button/src';
+
+import { name, version } from '../../package.json';
 import { CalendarWithSkeleton } from '../.';
+import Changelog from '../../CHANGELOG.md';
+import Description from './description.mdx';
 
 
 <Meta
@@ -47,5 +47,6 @@ import { CalendarWithSkeleton } from '@alfalab/core-components/calendar-with-ske
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={CalendarWithSkeleton} />}
 />

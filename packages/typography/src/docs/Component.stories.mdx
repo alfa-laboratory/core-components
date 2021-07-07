@@ -5,6 +5,7 @@ import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Typography } from '../component';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 import { colors } from '../colors';
 
 
@@ -109,5 +110,6 @@ import { Typography } from '@alfalab/core-components/typography';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props components={Typography} />}
 />

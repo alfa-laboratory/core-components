@@ -1,9 +1,9 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { CDNIcon } from '../Component';
 import { version } from '../../package.json';
+import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
 
 
@@ -36,5 +36,6 @@ import { CDNIcon } from '@alfalab/core-components/cdn-icon';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={CDNIcon} />}
 />

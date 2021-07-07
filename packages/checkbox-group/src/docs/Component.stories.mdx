@@ -1,13 +1,10 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, boolean, select } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
-
-import { Tag } from '../../../tag/src';
-import { Checkbox } from '../../../checkbox/src';
+import { ComponentHeader, Tabs} from 'storybook/blocks';
 
 import { CheckboxGroup } from '../Component';
 import { name, version } from '../../package.json';
+import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
 
 
@@ -62,5 +59,6 @@ import { CheckboxGroup } from '@alfalab/core-components/checkbox-group';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={CheckboxGroup} />}
 />

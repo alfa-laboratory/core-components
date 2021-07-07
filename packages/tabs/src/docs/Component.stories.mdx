@@ -7,6 +7,7 @@ import { TabsMobile, PrimaryTabListMobile, SecondaryTabListMobile } from '../mob
 import { TabsResponsive } from '../responsive';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 import vars from '!!raw-loader!../vars.css';
 
 
@@ -90,6 +91,7 @@ import { TabsMobile, Tab } from '@alfalab/core-components/tabs/mobile';
 <Tabs
     description={<Description />}
     cssVars={<CssVars css={vars} />}
+    changelog={<Changelog />}
     props={
         <Props
             components={{

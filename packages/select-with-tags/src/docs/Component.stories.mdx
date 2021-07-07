@@ -10,6 +10,7 @@ import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { SelectWithTags } from '../component';
 import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 
 export const options = [
     { key: '1', content: 'H', value: 'H' },
@@ -95,5 +96,6 @@ import { SelectWithTags } from '@alfalab/core-components/select-with-tags';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={SelectWithTags} />}
 />

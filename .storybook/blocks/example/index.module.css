@@ -49,7 +49,7 @@
         transition: box-shadow 0.2s ease;
 
         &:focus {
-            @mixin focus-outline;
+            outline: 0;
             box-shadow: none;
         }
 

@@ -9,6 +9,7 @@ import { withSuffix } from '../../../with-suffix/src';
 import { SliderInput } from '../Component';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
 
@@ -64,6 +65,7 @@ import { SliderInput } from '@alfalab/core-components/slider-input';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={SliderInput} />}
     cssVars={<CssVars css={styles} />}
 />

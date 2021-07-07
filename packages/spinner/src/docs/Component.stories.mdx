@@ -5,6 +5,7 @@ import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { Spinner } from '../Component';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
 
@@ -42,4 +43,5 @@ import { Spinner } from '@alfalab/core-components/spinner';
     description={<Description />}
     props={<Props of={Spinner} />}
     cssVars={<CssVars css={styles} />}
+    changelog={<Changelog />}
 />

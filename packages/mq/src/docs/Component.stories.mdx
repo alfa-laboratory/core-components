@@ -1,8 +1,6 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { select, number } from '@storybook/addon-knobs';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Button } from '../../../button/src';
 import { Space } from '../../../space/src';
@@ -11,6 +9,7 @@ import { Typography } from '../../../typography/src';
 import { name, version } from '../../package.json';
 import { Mq, useMatchMedia } from '../';
 import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 
 
 <Meta
@@ -51,5 +50,6 @@ import { Mq, useMatchMedia } from '@alfalab/core-components/mq';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={Mq} />}
 />

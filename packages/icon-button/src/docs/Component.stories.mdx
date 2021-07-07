@@ -1,14 +1,12 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { select, boolean } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
-import { CssVars } from 'storybook/blocks/css-vars';
-
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
 import { IconButton } from '../Component';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 import defaultStyles from '!!raw-loader!../default.module.css';
 import styles from '!!raw-loader!../index.module.css';
 
@@ -63,8 +61,7 @@ import { IconButton } from '@alfalab/core-components/icon-button';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={IconButton} />}
     cssVars={<CssVars css={`${styles}${defaultStyles}`} />}
 />
-
-

@@ -8,6 +8,7 @@ import { Space } from '../../../space/src';
 import { Portal } from '../Component';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 
 
 <Meta
@@ -66,4 +67,5 @@ import { Portal } from '@alfalab/core-components/portal';
 <Tabs
     description={<Description />}
     props={<Props of={Portal} />}
+    changelog={<Changelog />}
 />
