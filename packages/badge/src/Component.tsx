@@ -35,7 +35,7 @@ export type BadgeProps = {
     iconColor?:
         | 'positive'
         | 'attention'
-        | 'neutral'
+        | 'link'
         | 'negative'
         | 'tertiary'
         | 'secondary'

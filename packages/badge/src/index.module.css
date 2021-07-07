@@ -56,7 +56,7 @@
         color: var(--color-light-graphic-negative);
     }
 
-    &.neutral {
+    &.link {
         color: var(--color-light-graphic-link);
     }
 
