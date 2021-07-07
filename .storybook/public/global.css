@@ -39,7 +39,13 @@ body.sb-show-main {
 }
 
 #docs-root > .sbdocs-wrapper {
-    padding: var(--gap-5xl) var(--gap-xs);
+    padding: var(--gap-5xl) var(--gap-m);
+}
+
+/* Скрываем Story из Docs */
+
+div[id*='story--'] {
+    display: none;
 }
 
 /* Manager */
