@@ -1,0 +1,20 @@
+{
+    "name": "@alfalab/core-components-codemod",
+    "version": "1.0.0",
+    "description": "Codemod tools for migrating from feather to core-components",
+    "keywords": [],
+    "license": "MIT",
+    "scripts": {
+        "postinstall": "npm i -g jscodeshift @types/jscodeshift lodash > /dev/null 2>&1 || exit 0"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "bin": "./bin/index.js",
+    "dependencies": {
+        "chalk": "^4.1.1",
+        "lodash.kebabcase": "^4.1.1",
+        "shelljs": "^0.8.4",
+        "yargs": "^17.0.1"
+    }
+}

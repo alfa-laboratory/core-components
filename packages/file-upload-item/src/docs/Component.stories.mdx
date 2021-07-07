@@ -1,13 +1,12 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, number, select, boolean } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
-import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
 import { FileUploadItem } from '../Component';
-
 import { version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+
 
 <Meta
     title='Компоненты/FileUploadItem'
@@ -37,17 +36,17 @@ import { version } from '../../package.json';
 <ComponentHeader
     name='FileUploadItem'
     version={version}
-    package='@alfalab/core-components-file-upload-item'
+    package='@alfalab/core-components/file-upload-item'
     stage={1}
     design='https://www.figma.com/file/uGndMZufgvqxaNQTaNTEjG/B2B-Web-Components?node-id=9591%3A75058'
 />
 
 ```tsx
-import { FileUploadItem } from '@alfalab/core-components-file-upload-item';
+import { FileUploadItem } from '@alfalab/core-components/file-upload-item';
 ```
 
 <Tabs
     description={<Description />}
-    changelog={changelog}
+    changelog={<Changelog />}
     props={<Props of={FileUploadItem} />}
 />

@@ -1,0 +1,101 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --bottom-sheet-in-transition: 0.7s cubic-bezier(0.09, 0.91, 0.18, 0.99);
+    --bottom-sheet-out-transition: 0.3s ease;
+}
+
+.modal {
+    background-color: transparent;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 600px;
+}
+
+.component {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 72px);
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+    background: var(--color-light-bg-primary);
+    transform: translateY(100%);
+}
+
+.withTransition {
+    transition: var(--bottom-sheet-out-transition);
+}
+
+.marker {
+    position: absolute;
+    top: var(--gap-2xs);
+    left: 50%;
+    width: 36px;
+    height: 4px;
+    border-radius: 20px;
+    transform: translateX(-50%);
+    background-color: var(--color-light-graphic-neutral);
+}
+
+.scrollableContainer {
+    overflow: auto;
+    padding-top: var(--gap-2xl);
+}
+
+.withPadding {
+    padding-bottom: var(--gap-xl);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 0 var(--gap-m) var(--gap-m);
+    color: var(--color-light-text-primary);
+}
+
+.title {
+    margin-bottom: var(--gap-xl);
+    padding: 0 var(--gap-m);
+}
+
+.scrollLocked {
+    overflow: hidden;
+}
+
+.appear,
+.enter {
+    & .component {
+        transition: none;
+    }
+}
+
+.appearActive,
+.enterActive {
+    & .component {
+        transition: var(--bottom-sheet-in-transition);
+        transform: translateY(0);
+    }
+}
+
+.enterDone,
+.appearDone {
+    & .component {
+        transform: translateY(0);
+    }
+}
+
+.exit {
+    & .component {
+        transform: translateY(0);
+    }
+}
+
+.exitActive {
+    & .component {
+        transition: var(--bottom-sheet-out-transition);
+        transform: translateY(100%);
+    }
+}

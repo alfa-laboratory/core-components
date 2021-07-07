@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-space@1.1.0...@alfalab/core-components-space@1.1.1) (2021-06-28)
+
+
+### Bug Fixes
+
+* **space:** remove last element margin ([#713](https://github.com/alfa-laboratory/core-components/issues/713)) ([bc36cf7](https://github.com/alfa-laboratory/core-components/commit/bc36cf7db35cbd7c5d36c178a50bbd27d2f11b0c))
+
+
+
+
+
 # [1.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-space@1.0.7...@alfalab/core-components-space@1.1.0) (2021-04-26)
 
 

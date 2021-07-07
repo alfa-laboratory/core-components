@@ -1,16 +1,16 @@
 import { Meta, Preview, Props } from '@storybook/addon-docs/blocks';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
-import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
 import { KeyboardFocusable } from '../Component';
 import { name, version } from '../../package.json';
+import Changelog from '../../CHANGELOG.md';
+import Description from './description.mdx';
+
 
 <Meta
-  title='Компоненты/KeyboardFocusable'
-  component={KeyboardFocusable}
-  parameters={{ previewTabs: { canvas: { hidden: true }} }}
+    title='Компоненты/KeyboardFocusable'
+    component={KeyboardFocusable}
+    parameters={{ previewTabs: { canvas: { hidden: true }} }}
 />
 
 
@@ -19,17 +19,17 @@ import { name, version } from '../../package.json';
 <ComponentHeader
     name='KeyboardFocusable'
     version={version}
-    package='@alfalab/core-components-keyboard-focusable'
+    package='@alfalab/core-components/keyboard-focusable'
     stage={3}
     design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=4165%3A8950'
 />
 
 ```tsx
-import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
+import { KeyboardFocusable } from '@alfalab/core-components/keyboard-focusable';
 ```
 
 <Tabs
-  description={<Description />}
-  changelog={changelog}
-  props={<Props of={KeyboardFocusable} />}
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props of={KeyboardFocusable} />}
 />

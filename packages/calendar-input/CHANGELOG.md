@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@3.0.8...@alfalab/core-components-calendar-input@3.1.0) (2021-06-30)
+
+
+### Features
+
+* **calendar-range:** pass props to render calendar in popper ([#702](https://github.com/alfa-laboratory/core-components/issues/702)) ([4369e46](https://github.com/alfa-laboratory/core-components/commit/4369e462116dc1d240f95f811be67639b10dedb6))
+
+
+
+
+
+## [3.0.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@3.0.7...@alfalab/core-components-calendar-input@3.0.8) (2021-06-22)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar-input
+
+
+
+
+
 ## [3.0.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@3.0.6...@alfalab/core-components-calendar-input@3.0.7) (2021-06-08)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar-input

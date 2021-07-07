@@ -140,7 +140,7 @@ describe('Select', () => {
         expect(getByText(selectedOption.content)).toBeInTheDocument();
     });
 
-    describe('Behavior tests', async () => {
+    describe('Behavior tests', () => {
         const optionContent = options[1].content;
 
         const pressArrowDownNTimes = async (target: HTMLElement, n: number) => {
@@ -390,7 +390,6 @@ describe('Select', () => {
         it('should transfer props to Field', () => {
             const spy = jest.spyOn(fieldModule, 'Field');
 
-            const Element = () => <span />;
             const propPrefix = 'field';
 
             const fieldProps: Partial<BaseFieldProps> = {
@@ -400,8 +399,6 @@ describe('Select', () => {
                 multiple: true,
                 open: true,
                 disabled: true,
-                label: Element,
-                success: true,
                 className: `${propPrefix}-classname`,
                 placeholder: `${propPrefix}-placeholder`,
                 error: `${propPrefix}-error`,
@@ -415,9 +412,7 @@ describe('Select', () => {
 
             render(<Select {...baseProps} fieldProps={fieldProps} />);
 
-            const mockCalls = spy.mock.calls;
-            const lastMockCall = mockCalls[mockCalls.length - 1];
-            expect(lastMockCall[0]).toMatchObject(fieldProps);
+            expect(spy.mock.calls[0][0]).toMatchObject(fieldProps);
         });
 
         it('should transfer props to OptionsList', () => {

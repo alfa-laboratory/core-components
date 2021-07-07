@@ -1,15 +1,14 @@
 import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
+import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
-import { Tabs } from 'storybook/blocks/tabs';
-import { CssVars } from 'storybook/blocks/css-vars';
 
-import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
-import styles from '!!raw-loader!../index.module.css';
 import { Textarea } from '../Component';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../index.module.css';
+
 
 <Meta
     title='Компоненты/Textarea'
@@ -17,48 +16,53 @@ import { name, version } from '../../package.json';
     parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
-
 <!-- Canvas -->
 
 <Story name='Textarea'>
-    <Textarea
-        autosize={boolean('autosize', true)}
-        block={boolean('block', false)}
-        size={select('size', ['s', 'm', 'l', 'xl'], 's')}
-        disabled={boolean('disabled', false)}
-        placeholder={text('placeholder', '')}
-        resize={select('resize', ['none', 'vertical'], 'none')}
-        minRows={number('minRows', undefined)}
-        maxRows={number('maxRows', undefined)}
-        maxHeight={number('maxHeight', undefined)}
-        label={text('label', '')}
-        hint={text('hint', '')}
-        error={text('error', '')}
-        rightAddons={boolean('rightAddons', false) && !text('error') && <Icon />}
-        leftAddons={boolean('leftAddons', false) && <Icon />}
-        bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
-        readOnly={boolean('readOnly', false)}
-    />
+    {React.createElement(() => {
+        const showCounter = boolean('showCounter', false);
+        return (
+            <Textarea
+                autosize={boolean('autosize', true)}
+                block={boolean('block', false)}
+                size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+                disabled={boolean('disabled', false)}
+                placeholder={text('placeholder', '')}
+                resize={select('resize', ['none', 'vertical'], 'none')}
+                minRows={number('minRows', undefined)}
+                maxRows={number('maxRows', undefined)}
+                maxHeight={number('maxHeight', undefined)}
+                label={text('label', '')}
+                hint={text('hint', '')}
+                error={text('error', '')}
+                rightAddons={boolean('rightAddons', false) && !text('error') && <Icon />}
+                leftAddons={boolean('leftAddons', false) && <Icon />}
+                bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
+                readOnly={boolean('readOnly', false)}
+                showCounter={showCounter}
+                maxLength={showCounter && 500}
+            />
+        );
+    })}
 </Story>
-
 
 <!-- Docs -->
 
 <ComponentHeader
     name='Textarea'
     version={version}
-    package='@alfalab/core-components-textarea'
+    package='@alfalab/core-components/textarea'
     stage={2}
     design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=49%3A0'
 />
 
 ```tsx
-import { Textarea } from '@alfalab/core-components-textarea';
+import { Textarea } from '@alfalab/core-components/textarea';
 ```
 
 <Tabs
     description={<Description />}
-    changelog={changelog}
+    changelog={<Changelog />}
     props={<Props of={Textarea} />}
     cssVars={<CssVars css={styles} />}
 />

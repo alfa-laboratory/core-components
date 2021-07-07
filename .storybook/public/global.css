@@ -530,13 +530,15 @@ body[data-theme$='-inverted'] .sbdocs-preview {
 }
 
 div.lib {
-    margin: var(--gap-6xl-neg) var(--gap-m-neg) 0;
+    position: relative;
+    margin: 0 var(--gap-m-neg) 0;
 }
 
 .lib-header {
     position: relative;
 }
 
+.lib:before,
 .lib-header:before,
 .lib-header:after {
     display: block;

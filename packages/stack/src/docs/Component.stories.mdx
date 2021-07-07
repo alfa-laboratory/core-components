@@ -1,41 +1,39 @@
-import { useState } from 'react';
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
-import { Button } from '../../../button/src';
-import { Portal } from '../../../portal/src';
-import { ModalDesktop } from '../../../modal/src/desktop';
-import { Tooltip } from '../../../tooltip/src';
-import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
 import { Stack } from '../';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+
 
 <Meta
-  title='Компоненты/Stack'
-  component={Stack}
-  parameters={{ previewTabs: { canvas: { hidden: true }} }}
+    title='Компоненты/Stack'
+    component={Stack}
+    parameters={{ previewTabs: { canvas: { hidden: true }} }}
 />
+
 
 <!-- Canvas -->
 
 <Story name='Stack' />
 
+
 <!-- Docs -->
 
 <ComponentHeader
-  name='Stack'
-  version={version}
-  package='@alfalab/core-components-stack'
-  stage={2}
+    name='Stack'
+    version={version}
+    package='@alfalab/core-components/stack'
+    stage={2}
 />
 
 ```tsx
-import { Stack } from '@alfalab/core-components-stack';
+import { Stack } from '@alfalab/core-components/stack';
 ```
 
 <Tabs
-  description={<Description />}
-  changelog={changelog}
-  props={<Props of={Stack} />}
+    description={<Description />}
+    props={<Props of={Stack} />}
+    changelog={<Changelog />}
 />

@@ -1,12 +1,11 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
-import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
 import { Collapse } from '../Component';
-import { Button } from '../../../button/src';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+
 
 <Meta
     title='Компоненты/Collapse'
@@ -35,16 +34,16 @@ import { name, version } from '../../package.json';
 <ComponentHeader
     name='Collapse'
     version={version}
-    package='@alfalab/core-components-collapse'
+    package='@alfalab/core-components/collapse'
     stage={1}
 />
 
 ```tsx
-import { Collapse } from '@alfalab/core-components-collase';
+import { Collapse } from '@alfalab/core-components/collase';
 ```
 
 <Tabs
-  description={<Description />}
-changelog={changelog}
-  props={<Props of={Collapse} />}
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props of={Collapse} />}
 />

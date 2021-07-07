@@ -1,9 +1,9 @@
 export function isScrolledToTop(target: HTMLElement) {
-    return target.scrollTop === 0;
+    return target.scrollTop <= 0;
 }
 
 export function isScrolledToBottom(target: HTMLElement) {
-    return target.scrollHeight - target.offsetHeight === target.scrollTop;
+    return target.scrollHeight - target.offsetHeight <= target.scrollTop;
 }
 
 export function hasScrollbar(target: HTMLElement) {

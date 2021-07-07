@@ -1,6 +1,14 @@
-import React, { FC, useState, useMemo, useCallback, ReactNode } from 'react';
+import React, {
+    FC,
+    useState,
+    useMemo,
+    useCallback,
+    ReactNode,
+    isValidElement,
+    ReactElement,
+} from 'react';
 import { TabsResponsive, Tab, TabsResponsiveProps } from '@alfalab/core-components-tabs';
-import { Description } from '@storybook/addon-docs/blocks';
+import { Changelog } from '../changelog';
 
 enum TabName {
     DESCRIPTION = 'DESCRIPTION',
@@ -13,7 +21,7 @@ const TabTitle = {
     [TabName.DESCRIPTION]: 'Описание',
     [TabName.PROPS]: 'Свойства',
     [TabName.CSS_VARS]: 'CSS-переменные',
-    [TabName.CHANGELOG]: 'Changelog',
+    [TabName.CHANGELOG]: 'Что нового',
 };
 
 type Props = {
@@ -23,16 +31,6 @@ type Props = {
     changelog?: string;
     defaultSelected?: TabName;
 };
-
-const formatChangelog = (changelog: string): string =>
-    changelog
-        .replace(/^# \[/gm, '## [')
-        .replace('# Change Log', '')
-        .replace('All notable changes to this project will be documented in this file.', '')
-        .replace(
-            'See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.',
-            '',
-        );
 
 export const Tabs: FC<Props> = ({
     description,
@@ -51,34 +49,28 @@ export const Tabs: FC<Props> = ({
     );
 
     const renderTabs = (): TabsResponsiveProps['children'] => {
-        const result = [
+        return [
             <Tab title={TabTitle[TabName.DESCRIPTION]} id={TabName.DESCRIPTION}>
                 <div style={{ marginTop: '40px' }}>{description}</div>
             </Tab>,
-            <Tab title={TabTitle[TabName.PROPS]} id={TabName.PROPS}>
-                {props}
-            </Tab>,
-        ];
-
-        if (cssVars) {
-            result.push(
+            props ? (
+                <Tab title={TabTitle[TabName.PROPS]} id={TabName.PROPS}>
+                    {props}
+                </Tab>
+            ) : null,
+            cssVars ? (
                 <Tab title={TabTitle[TabName.CSS_VARS]} id={TabName.CSS_VARS}>
                     <div style={{ marginTop: '40px' }}>{cssVars}</div>
-                </Tab>,
-            );
-        }
-
-        if (changelog) {
-            result.push(
+                </Tab>
+            ) : null,
+            changelog ? (
                 <Tab title={TabTitle[TabName.CHANGELOG]} id={TabName.CHANGELOG}>
                     <div style={{ marginTop: '40px' }}>
-                        <Description>{formatChangelog(changelog)}</Description>
+                        <Changelog content={changelog} />
                     </div>
-                </Tab>,
-            );
-        }
-
-        return result;
+                </Tab>
+            ) : null,
+        ].filter(isValidElement) as ReactElement[];
     };
 
     const tabs = useMemo(() => renderTabs(), [description, props, cssVars]);

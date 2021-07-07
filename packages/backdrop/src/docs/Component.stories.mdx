@@ -1,14 +1,13 @@
-import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Props, Story } from '@storybook/addon-docs/blocks';
 import {boolean, select, text} from '@storybook/addon-knobs';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs'
-import { CssVars } from 'storybook/blocks/css-vars';
-import vars from '!!raw-loader!../vars.css';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+
 import { Backdrop } from '../Component';
 import { version } from '../../package.json';
 import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../vars.css';
+
 
 <Meta
     title='Компоненты/Backdrop'
@@ -32,20 +31,19 @@ import changelog from '../../CHANGELOG.md';
 <ComponentHeader
     name='Backdrop'
     version={version}
-    package='@alfalab/core-components-backdrop'
+    package='@alfalab/core-components/backdrop'
     stage={1}
 />
 
 
 ```tsx
-import { Backdrop } from '@alfalab/core-components-backdrop';
+import { Backdrop } from '@alfalab/core-components/backdrop';
 ```
-
 
 <Tabs
     description={<Description />}
-    changelog={changelog}
+    changelog={<Changelog />}
     props={<Props of={Backdrop} />}
-    cssProps={<CssVars css={vars}/>}
+    cssVars={<CssVars css={styles}/>}
 />
 

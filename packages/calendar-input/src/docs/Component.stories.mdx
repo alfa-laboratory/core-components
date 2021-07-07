@@ -1,19 +1,14 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { action } from '@storybook/addon-actions';
-import { text, select, boolean, number } from '@storybook/addon-knobs';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-import { ComponentHeader } from 'storybook/blocks/component-header';
+import { text, select, boolean } from '@storybook/addon-knobs';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
-import { Tabs } from 'storybook/blocks/tabs';
-import { CssVars } from 'storybook/blocks/css-vars';
-import styles from '!!raw-loader!../index.module.css';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
-import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
 import { CalendarInput } from '../Component';
 import { formatDate } from '../utils';
-
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../index.module.css';
 
 
 <Meta
@@ -53,18 +48,18 @@ import { name, version } from '../../package.json';
 <ComponentHeader
     name='CalendarInput'
     version={version}
-    package='@alfalab/core-components-calendar-input'
+    package='@alfalab/core-components/calendar-input'
     stage={2}
     design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=13931%3A20767'
 />
 
 ```tsx
-import { CalendarInput } from '@alfalab/core-components-calendar-input';
+import { CalendarInput } from '@alfalab/core-components/calendar-input';
 ```
 
 <Tabs
     description={<Description />}
-    changelog={changelog}
+    changelog={<Changelog />}
     props={<Props of={CalendarInput} />}
     cssVars={<CssVars css={styles} />}
 />

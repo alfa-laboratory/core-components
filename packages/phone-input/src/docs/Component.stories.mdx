@@ -1,14 +1,13 @@
-import Icon from '@alfalab/icons-glyph/StarMIcon';
-import { Meta, Props, Story, Title } from '@storybook/addon-docs/blocks';
-import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { Meta, Props, Story } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
-import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
 import { PhoneInput } from '../Component';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 
 
 <Meta
@@ -39,18 +38,18 @@ import { name, version } from '../../package.json';
 <ComponentHeader
     name='PhoneInput'
     version={version}
-    package='@alfalab/core-components-phone-input'
+    package='@alfalab/core-components/phone-input'
     stage={2}
 />
 
 ```tsx
-import { PhoneInput } from '@alfalab/core-components-phone-input';
+import { PhoneInput } from '@alfalab/core-components/phone-input';
 ```
 
 
 <Tabs
-  description={<Description />}
-  changelog={changelog}
-  props={<Props of={PhoneInput} />}
+    description={<Description />}
+    props={<Props of={PhoneInput} />}
+    changelog={<Changelog />}
 />
 

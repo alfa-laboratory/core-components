@@ -1,11 +1,11 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
-import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
 import { Grid } from '../Component';
 import { name, version } from '../../package.json';
+import Changelog from '../../CHANGELOG.md';
+import Description from './description.mdx';
+
 
 <Meta
     title='Компоненты/Grid'
@@ -43,16 +43,16 @@ import { name, version } from '../../package.json';
 <ComponentHeader
     name='Grid'
     version={version}
-    package='@alfalab/core-components-grid'
+    package='@alfalab/core-components/grid'
     stage={1}
 />
 
 ```tsx
-import { Grid } from '@alfalab/core-components-grid';
+import { Grid } from '@alfalab/core-components/grid';
 ```
 
 <Tabs
     description={<Description />}
-    changelog={changelog}
+    changelog={<Changelog />}
     props={<Props components={Grid} />}
 />

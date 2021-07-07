@@ -1,18 +1,15 @@
-import Icon from '@alfalab/icons-glyph/StarMIcon';
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { CssVars } from 'storybook/blocks/css-vars';
-import { Tabs } from 'storybook/blocks/tabs';
-
-import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
-import styles from '!!raw-loader!../index.module.css';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
 import { AmountInput } from '../Component';
 import { name, version } from '../../package.json';
+import Changelog from '../../CHANGELOG.md';
+import Description from './description.mdx';
+import styles from '!!raw-loader!../index.module.css';
+
 
 <Meta
     title='Компоненты/AmountInput'
@@ -49,18 +46,18 @@ import { name, version } from '../../package.json';
 <ComponentHeader
     name='AmountInput'
     version={version}
-    package='@alfalab/core-components-amount-input'
+    package='@alfalab/core-components/amount-input'
     stage={2}
     design='https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=532%3A544'
 />
 
 ```tsx
-import { AmountInput } from '@alfalab/core-components-amount-input';
+import { AmountInput } from '@alfalab/core-components/amount-input';
 ```
 
 <Tabs
     description={<Description />}
-    changelog={changelog}
+    changelog={<Changelog />}
     props={<Props of={AmountInput} />}
     cssVars={<CssVars css={styles} />}
 />

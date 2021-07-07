@@ -6,7 +6,7 @@ import { CheckmarkOnCircleMIcon } from '@alfalab/icons-glyph';
 import { Plate } from '../';
 import { Button } from '../../../button/src';
 import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
 import { name, version } from '../../package.json';
@@ -39,17 +39,17 @@ import { name, version } from '../../package.json';
 <ComponentHeader
     name='Plate'
     version={version}
-    package='@alfalab/core-components-plate'
+    package='@alfalab/core-components/plate'
     stage={2}
 />
 
 ```tsx
-import { Plate } from '@alfalab/core-components-plate';
+import { Plate } from '@alfalab/core-components/plate';
 ```
 
 <Tabs
     description={<Description />}
-    changelog={changelog}
+    changelog={<Changelog />}
     props={<Props of={Plate} /> }
     cssVars={<CssVars css={styles} />}
 />

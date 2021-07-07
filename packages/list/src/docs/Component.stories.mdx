@@ -1,18 +1,16 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, select } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Container, Row } from 'storybook/blocks/grid';
 import { Typography } from '@alfalab/core-components-typography';
-import { Tabs } from 'storybook/blocks/tabs';
-import { CssVars } from 'storybook/blocks/css-vars';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
-import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
-import styles from '!!raw-loader!../index.module.css';
 import { List } from '../Component';
 import { version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../index.module.css';
 
 export const TAG = ['ul', 'ol'];
+
 
 <Meta
     title='Компоненты/List'
@@ -49,16 +47,16 @@ export const TAG = ['ul', 'ol'];
     name='List'
     version={version}
     stage={2}
-    package='@alfalab/core-components-list'
+    package='@alfalab/core-components/list'
 />
 
 ```tsx
-import { List } from '@alfalab/core-components-list';
+import { List } from '@alfalab/core-components/list';
 ```
 
 <Tabs
     description={<Description />}
-    changelog={changelog}
+    changelog={<Changelog />}
     props={<Props of={List} />}
     cssVars={<CssVars css={styles} />}
 />

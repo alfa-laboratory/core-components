@@ -1,14 +1,12 @@
-import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, boolean, number } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
-import { CssVars } from 'storybook/blocks/css-vars';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
-import styles from '!!raw-loader!../index.module.css';
-import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
 import { CardImage } from '../Component';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../index.module.css';
 
 
 <Meta
@@ -35,17 +33,17 @@ import { name, version } from '../../package.json';
 <ComponentHeader
     name='CardImage'
     version={version}
-    package='@alfalab/core-components-card-image'
+    package='@alfalab/core-components/card-image'
     stage={1}
 />
 
 ```tsx
-import { CardImage } from '@alfalab/core-components-card-image';
+import { CardImage } from '@alfalab/core-components/card-image';
 ```
 
 <Tabs
     description={<Description />}
-    changelog={changelog}
+    changelog={<Changelog />}
     props={<Props of={CardImage} />}
     cssVars={<CssVars css={styles} />}
 />

@@ -1,17 +1,13 @@
-import { Container, Row, Col } from 'storybook/blocks/grid';
-
-import { Preview } from '@storybook/addon-docs/blocks';
-
-import { Typography } from '../../../typography/src';
-import { Amount } from '../.';
-
 Компонент для отображения суммы, согласно гайдлайну:
 https://design.alfabank.ru/patterns/amount
+
+```tsx live
+// import { Typography } from '@alfalab/core-components/typography';
 
 <Typography.Title font='system'>
     <Amount value={100000000} minority={100} view='withZeroMinorPart' />
 </Typography.Title>
-
+```
 
 ## Контекст использования
 
@@ -19,82 +15,62 @@ https://design.alfabank.ru/patterns/amount
 
 - `view="withZeroMinorPart"`: показывает минорную часть, даже если её значение равно 0
 
-<Preview>
-    <Container>
-        <Row>
-            <Col>
-                <Row>
-                    Значение
-                </Row>
-                <Row>
-                    1234500
-                </Row>
-                <Row>
-                    1234567
-                </Row>
-            </Col>
-            <Col>
-                <Row>
-                    view="default"
-                </Row>
-                <Row>
-                    <Amount value={1234500} currency='RUR' minority={100} />
-                </Row>
-                <Row>
-                    <Amount value={1234567} currency='RUR' minority={100} />
-                </Row>
-            </Col>
-            <Col>
-                <Row>
-                    view="withZeroMinorPart"
-                </Row>
-                <Row>
-                    <Amount view="withZeroMinorPart" value={1234500} currency='RUR' minority={100} />
-                </Row>
-                <Row>
-                    <Amount view="withZeroMinorPart" value={1234567} currency='RUR' minority={100} />
-                </Row>
-            </Col>
-        </Row>
-    </Container>
-</Preview>
+```tsx live
+<Container>
+    <Row>
+        <Col>
+            <Row>Значение</Row>
+            <Row>1234500</Row>
+            <Row>1234567</Row>
+        </Col>
+        <Col>
+            <Row>view="default"</Row>
+            <Row>
+                <Amount value={1234500} currency='RUR' minority={100} />
+            </Row>
+            <Row>
+                <Amount value={1234567} currency='RUR' minority={100} />
+            </Row>
+        </Col>
+        <Col>
+            <Row>view="withZeroMinorPart"</Row>
+            <Row>
+                <Amount view='withZeroMinorPart' value={1234500} currency='RUR' minority={100} />
+            </Row>
+            <Row>
+                <Amount view='withZeroMinorPart' value={1234567} currency='RUR' minority={100} />
+            </Row>
+        </Col>
+    </Row>
+</Container>
+```
 
 - Внутри заголовка
 
-<Preview>
-    <Container>
-        <h3>
-            <Amount value={1234500} currency='RUR' minority={100} />
-        </h3>
-    </Container>
-</Preview>
+```tsx live
+<h3>
+    <Amount value={1234500} currency='RUR' minority={100} />
+</h3>
+```
 
 - Внутри параграфа
 
-<Preview>
-    <Container>
-        <p>
-            <Amount value={1234500} currency='RUR' minority={100} />
-        </p>
-    </Container>
-</Preview>
+```tsx live
+<p>
+    <Amount value={1234500} currency='RUR' minority={100} />
+</p>
+```
 
 - Внутри красного текста
 
-<Preview>
-    <Container>
-        <span style={{ color: 'red' }}>
-            <Amount value={1234500} currency='RUR' minority={100} />
-        </span>
-    </Container>
-</Preview>
+```tsx live
+<span style={{ color: 'red' }}>
+    <Amount value={1234500} currency='RUR' minority={100} />
+</span>
+```
 
 - Без стилей
 
-<Preview>
-    <Container>
-        <span>
-            <Amount.Pure value={1234500} currency='RUR' minority={100} />
-        </span>
-    </Container>
-</Preview>
+```tsx live
+<Amount.Pure value={1234500} currency='RUR' minority={100} />
+```

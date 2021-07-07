@@ -1,27 +1,43 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, boolean, number, select as selectKnob } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
-
-import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
-import vars from '!!raw-loader!../vars.css';
-import { CssVars } from 'storybook/blocks/css-vars';
-import { Select } from '../Component';
-import { Field } from '../components/field';
-import { Arrow } from '../components/arrow';
-import { OptionsList } from '../components/options-list';
-import { VirtualOptionsList } from '../components/virtual-options-list';
-import { Optgroup } from '../components/optgroup';
-import { Option } from '../components/option';
-import { Button } from '../../../button/src';
-import { joinOptions } from '../utils';
-import { name, version } from '../../package.json';
-
 import Icon from '@alfalab/icons-classic/BankAlfaSBlackIcon';
-import { options, POSITION_OPTIONS } from './constants'
+
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+
+import { Select } from '../Component';
+import { name, version } from '../../package.json';
+import { Arrow } from '../components/arrow';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import vars from '!!raw-loader!../vars.css';
+
+export const options = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+];
+
+export const POSITION_OPTIONS = [
+    'top',
+    'top-start',
+    'top-end',
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+    'right',
+    'right-start',
+    'right-end',
+    'left',
+    'left-start',
+    'left-end',
+];
+
 
 <Meta
     title='Компоненты/Select'
@@ -63,18 +79,18 @@ import { options, POSITION_OPTIONS } from './constants'
 <ComponentHeader
     name='Select'
     version={version}
-    package='@alfalab/core-components-select'
+    package='@alfalab/core-components/select'
     stage={2}
     design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=719%3A0'
 />
 
 ```tsx
-import { Select } from '@alfalab/core-components-select';
+import { Select } from '@alfalab/core-components/select';
 ```
 
 <Tabs
-  description={<Description />}
-  changelog={changelog}
-  props={<Props of={Select} />}
-  cssVars={<CssVars css={vars} />}
+    description={<Description />}
+    props={<Props of={Select} />}
+    cssVars={<CssVars css={vars} />}
+    changelog={<Changelog />}
 />

@@ -1,21 +1,19 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
-import { Tabs } from 'storybook/blocks/tabs';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
-import styles from '!!raw-loader!../index.module.css';
-import { CssVars } from 'storybook/blocks/css-vars';
-import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
 import { Input } from '../Component';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../index.module.css';
 
 
 <Meta
     title='Компоненты/Input'
     component={Input}
-    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+    parameters={{ 'theme-switcher': { themes: ['click', 'site'] } }}
 />
 
 
@@ -50,18 +48,18 @@ import { name, version } from '../../package.json';
 <ComponentHeader
     name='Input'
     version={version}
-    package='@alfalab/core-components-input'
+    package='@alfalab/core-components/input'
     stage={3}
     design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=49%3A0'
 />
 
 ```tsx
-import { Input } from '@alfalab/core-components-input';
+import { Input } from '@alfalab/core-components/input';
 ```
 
 <Tabs
     description={<Description />}
-    changelog={changelog}
+    changelog={<Changelog />}
     props={<Props of={Input} />}
     cssVars={<CssVars css={styles} />}
 />

@@ -1,14 +1,15 @@
-import { useState } from 'react';
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
-import { text, select, number, boolean } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
 
-import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { select, number } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+
+import { Select } from '../../../select/src/Component';
+
 import { Confirmation } from '../component';
 import { name, version } from '../../package.json';
-import { Select } from '../../../select/src/Component';
+import Changelog from '../../CHANGELOG.md';
+import Description from './description.mdx';
+import vars from '!!raw-loader!../vars.css';
 
 
 <Meta
@@ -23,42 +24,42 @@ import { Select } from '../../../select/src/Component';
 <Story name='Confirmation'>
     {React.createElement(() => {
         const [open, setOpen] = React.useState(false);
-        const [variant, setVariant] = useState({ key: 'success', content: 'Успешный сценарий'});
+        const [variant, setVariant] = React.useState({ key: 'success', content: 'Успешный сценарий'});
         const [value, setValue] = React.useState('');
         const [codeChecking, setCodeChecking] = React.useState(false);
         const [codeSending, setCodeSending] = React.useState(false);
-        const [error, setError] = React.useState("");
+        const [error, setError] = React.useState('');
         const [errorIsFatal, setErrorIsFatal] = React.useState(false);
-        const [noAttemptsLeftMessage, setNoAttemptsLeftMessage] = React.useState("");
+        const [noAttemptsLeftMessage, setNoAttemptsLeftMessage] = React.useState('');
         const setCode = (code) => {
             setValue(code);
-            setError("");
+            setError('');
         };
         const handleSubmit = () => {
             setCodeChecking(true);
-            setError("");
+            setError('');
             setTimeout(() => {
                 setCodeChecking(false);
                 switch (variant.key) {
-                    case "success":
+                    case 'success':
                         break;
-                    case "error":
-                        setError("Неправильный код");
+                    case 'error':
+                        setError('Неправильный код');
                         break;
-                    case "fatal":
-                        setError("Выполните операцию с самого начала");
+                    case 'fatal':
+                        setError('Выполните операцию с самого начала');
                         setErrorIsFatal(true);
                         break;
-                    case "attempts-left":
-                        setNoAttemptsLeftMessage("Не осталось попыток запроса кода");
+                    case 'attempts-left':
+                        setNoAttemptsLeftMessage('Не осталось попыток запроса кода');
                         break;
                 }
             }, 300);
         };
         const handleSmsRetryClick = () => {
             setCodeSending(true);
-            setError("");
-            setCode("");
+            setError('');
+            setCode('');
             setTimeout(() => {
                 setCodeSending(false);
             }, 300);
@@ -122,17 +123,18 @@ import { Select } from '../../../select/src/Component';
 <ComponentHeader
     name='Confirmation'
     version={version}
-    package='@alfalab/core-components-confirmation'
+    package='@alfalab/core-components/confirmation'
     stage={3}
     design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=8558%3A22'
 />
 
 ```tsx
-import { Confirmation } from '@alfalab/core-components-confirmation';
+import { Confirmation } from '@alfalab/core-components/confirmation';
 ```
 
 <Tabs
     description={<Description />}
-    changelog={changelog}
+    changelog={<Changelog />}
     props={<Props of={Confirmation} />}
+    cssVars={<CssVars css={vars} />}
 />

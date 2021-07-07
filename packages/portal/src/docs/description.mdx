@@ -1,32 +1,36 @@
-import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import Icon from '@alfalab/icons-glyph/StarMIcon';
-import { Button } from '../../../button/src';
-import { Portal } from '../Component';
-import { name, version } from '../../package.json';
-
-
 Порталы позволяют рендерить дочерние элементы в DOM-узел, который находится вне DOM-иерархии родительского компонента.
 
-<Preview>
-    {React.createElement(() => {
-        const [show, setShow] = React.useState(false);
-        const handleClick = () => setShow(!show);
-        const styles = { border: '1px solid lightgray', marginTop: '10px' };
-        return (
+```tsx live
+render(() => {
+    const [show, setShow] = React.useState(false);
+
+    const handleClick = () => setShow(!show);
+
+    const styles = {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        height: 60,
+        border: '1px solid var(--color-light-border-secondary)',
+        padding: 'var(--gap-m)',
+    };
+
+    return (
+        <Space>
+            <Button onClick={handleClick}>{show ? 'Unmount children' : 'Mount children'}</Button>
             <div>
-                <Button onClick={handleClick}>{show ? 'Unmount children' : 'Mount children'}</Button>
-                <div>
-                    {show && (
-                        <Portal getPortalContainer={() => document.getElementById('portal-container')}>
-                            <Icon />
-                        </Portal>
-                    )}
-                </div>
-                <div id='portal-container' style={styles}>
-                    <div>Контейнер для контента портала</div>
-                </div>
+                {show && (
+                    <Portal getPortalContainer={() => document.getElementById('portal-container')}>
+                        <StarMIcon />
+                    </Portal>
+                )}
             </div>
-        );
-    })}
-</Preview>
+
+            <div id='portal-container' style={styles}>
+                <div>Контейнер для контента портала</div>
+            </div>
+        </Space>
+    );
+});
+```

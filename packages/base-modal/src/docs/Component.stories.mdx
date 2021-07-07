@@ -5,11 +5,12 @@ import { Button } from '../../../button/src';
 
 import { BaseModal } from '../Component';
 import { version } from '../../package.json';
-import changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
 
+
 <Meta
-    title='Компоненты/Modal'
+    title='Компоненты/BaseModal'
     component={BaseModal}
     parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
@@ -21,7 +22,7 @@ import Description from './description.mdx';
         return (
             <React.Fragment>
                 <Button type='button' size='xs' onClick={handleModalOpen}>
-                    Open Modal
+                    Открыть
                 </Button>
                 <BaseModal
                     open={open}
@@ -40,17 +41,17 @@ import Description from './description.mdx';
 <ComponentHeader
     name='BaseModal'
     version={version}
-    package='@alfalab/core-components-base-modal'
+    package='@alfalab/core-components/base-modal'
     stage={1}
 />
 
 
 ```tsx
-import { BaseModal } from '@alfalab/core-components-base-modal';
+import { BaseModal } from '@alfalab/core-components/base-modal';
 ```
 
 <Tabs
     description={<Description />}
-    changelog={changelog}
+    changelog={<Changelog />}
     props={<Props of={BaseModal} />}
 />

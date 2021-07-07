@@ -1,84 +1,93 @@
-import { Preview } from '@storybook/addon-docs/blocks';
-import { text, select, boolean, number } from '@storybook/addon-knobs';
-import { action } from '@storybook/addon-actions';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-
-import { startOfMonth, startOfDay, subMonths, addMonths } from 'date-fns';
-import { parseDateString } from '../../../calendar-input/src/utils';
-
-import { CalendarRange } from '../Component'
-
 Компонент для ввода даты.
 
 ### Controlled-way
 
-<Preview>
-    {React.createElement(() => {
-        const [valueFrom, setValueFrom] = React.useState('10.10.2020');
-        const [valueTo, setValueTo] = React.useState('10.11.2020');
-        return (
-            <CalendarRange
-                valueFrom={valueFrom}
-                valueTo={valueTo}
-                onDateFromChange={({ value }) => setValueFrom(value)}
-                onDateToChange={({ value }) => setValueTo(value)}
-            />
-        );
-    })}
-</Preview>
+```tsx live
+render(() => {
+    const [valueFrom, setValueFrom] = React.useState('10.10.2020');
+    const [valueTo, setValueTo] = React.useState('10.11.2020');
+
+    return (
+        <CalendarRange
+            valueFrom={valueFrom}
+            valueTo={valueTo}
+            onDateFromChange={({ value }) => setValueFrom(value)}
+            onDateToChange={({ value }) => setValueTo(value)}
+        />
+    );
+});
+```
 
 ### Min/Max даты
 
-<Preview>
-    {React.createElement(() => {
-        const defaultDate = '10.11.2020';
-        const [valueFrom, setValueFrom] = React.useState(defaultDate);
-        const [valueTo, setValueTo] = React.useState('');
-        const minDate = subMonths(startOfDay(parseDateString(defaultDate)), 2).getTime();
-        const maxDate = addMonths(startOfDay(parseDateString(defaultDate)), 2).getTime();
-        const [fromError, setFromError] = React.useState('');
-        const [toError, setToError] = React.useState('');
-        const valid = (value) => {
-            const date = parseDateString(value);
-            return !value || (!Number.isNaN(date.getTime()) && date >= minDate && date <= maxDate);
+```tsx live
+// import { startOfDay, subMonths, addMonths } from 'date-fns';
+// import { parseDateString } from '@alfalab/core-components/calendar-input';
+
+render(() => {
+    const defaultDate = '10.11.2020';
+
+    const [valueFrom, setValueFrom] = React.useState(defaultDate);
+    const [valueTo, setValueTo] = React.useState('');
+
+    const minDate = subMonths(startOfDay(parseDateString(defaultDate)), 2).getTime();
+    const maxDate = addMonths(startOfDay(parseDateString(defaultDate)), 2).getTime();
+
+    const [fromError, setFromError] = React.useState('');
+    const [toError, setToError] = React.useState('');
+
+    const valid = value => {
+        const date = parseDateString(value);
+        return !value || (!Number.isNaN(date.getTime()) && date >= minDate && date <= maxDate);
+    };
+
+    const handleFromBlur = event => {
+        if (!valid(event.target.value)) {
+            setFromError(true);
         }
-        const handleFromBlur = (event) => {
-            if (!valid(event.target.value)) {
-                setFromError(true);
-            }
+    };
+
+    const handleFromFocus = () => setFromError('');
+
+    const handleToBlur = event => {
+        if (!valid(event.target.value)) {
+            setToError(true);
         }
-        const handleFromFocus = () => setFromError('');
-        const handleToBlur = (event) => {
-            if (!valid(event.target.value)) {
-                setToError(true);
-            }
-        }
-        const handleToFocus = () => setToError('');
-        return (
-            <CalendarRange
-                minDate={minDate}
-                maxDate={maxDate}
-                valueFrom={valueFrom}
-                valueTo={valueTo}
-                onDateFromChange={({ value }) => {
-                    setFromError(false)
-                    setValueFrom(value)
-                }}
-                onDateToChange={({ value }) => {
-                    setToError(false);
-                    setValueTo(value)
-                }}
-                inputFromProps={{
-                    error: fromError,
-                    onBlur: handleFromBlur,
-                    onFocus: handleFromFocus
-                }}
-                inputToProps={{
-                    error: toError,
-                    onBlur: handleToBlur,
-                    onFocus: handleToFocus
-                }}
-            />
-        );
-    })}
-</Preview>
+    };
+
+    const handleToFocus = () => setToError('');
+
+    return (
+        <CalendarRange
+            minDate={minDate}
+            maxDate={maxDate}
+            valueFrom={valueFrom}
+            valueTo={valueTo}
+            onDateFromChange={({ value }) => {
+                setFromError(false);
+                setValueFrom(value);
+            }}
+            onDateToChange={({ value }) => {
+                setToError(false);
+                setValueTo(value);
+            }}
+            inputFromProps={{
+                error: fromError,
+                onBlur: handleFromBlur,
+                onFocus: handleFromFocus,
+            }}
+            inputToProps={{
+                error: toError,
+                onBlur: handleToBlur,
+                onFocus: handleToFocus,
+            }}
+        />
+    );
+});
+```
+
+### Рендерит календари в поповере
+
+```tsx live
+<CalendarRange calendarPosition='popover' />
+```

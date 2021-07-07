@@ -1,12 +1,11 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
-import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
 import { PureInput } from '../Component';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 
 
 <Meta
@@ -38,17 +37,17 @@ import { name, version } from '../../package.json';
 <ComponentHeader
     name='PureInput'
     version={version}
-    package='@alfalab/core-components-pure-input'
+    package='@alfalab/core-components/pure-input'
     stage={2}
     design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=49%3A0'
 />
 
 ```tsx
-import { PureInput } from '@alfalab/core-components-pure-input';
+import { PureInput } from '@alfalab/core-components/pure-input';
 ```
 
 <Tabs
     description={<Description />}
-    changelog={changelog}
+    changelog={<Changelog />}
     props={<Props of={PureInput} />}
 />

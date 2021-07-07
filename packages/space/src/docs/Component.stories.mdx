@@ -1,20 +1,17 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { select, boolean, text } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Input } from '@alfalab/core-components-input';
-import { CardImage } from '@alfalab/core-components-card-image';
-import { Button } from '@alfalab/core-components-button';
-import { Divider } from '@alfalab/core-components-divider';
-import { Tabs } from 'storybook/blocks/tabs';
 
-import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
 import { Space } from '../Component';
 import { name, version } from '../../package.json';
+import Changelog from '../../CHANGELOG.md';
+import Description from './description.mdx';
 
 export const DIRECTIONS = ['horizontal', 'vertical'];
 export const ALIGNES = ['start', 'end', 'center'];
 export const SIZES = ['s', 'm', 'l', 8, 72];
+
 
 <Meta
     title='Компоненты/Space'
@@ -46,16 +43,16 @@ export const SIZES = ['s', 'm', 'l', 8, 72];
 <ComponentHeader
     name='Space'
     version={version}
-    package='@alfalab/core-components-space'
+    package='@alfalab/core-components/space'
     stage={1}
 />
 
 ```tsx
-import { Space } from '@alfalab/core-components-space';
+import { Space } from '@alfalab/core-components/space';
 ```
 
 <Tabs
     description={<Description />}
-    changelog={changelog}
+    changelog={<Changelog />}
     props={<Props of={Space} />}
 />

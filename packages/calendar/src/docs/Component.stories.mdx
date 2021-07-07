@@ -1,18 +1,14 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
 import { select, number } from '@storybook/addon-knobs';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
-import { CssVars } from 'storybook/blocks/css-vars';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+
+import { Calendar } from '../';
+import { name, version } from '../../package.json';
+import Changelog from '../../CHANGELOG.md';
+import Description from './description.mdx';
 import styles from '!!raw-loader!../index.module.css';
 import vars from '!!raw-loader!../vars.css';
-
-import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
-import { Calendar } from '../';
-
-import { name, version } from '../../package.json';
 
 
 <Meta
@@ -45,18 +41,18 @@ import { name, version } from '../../package.json';
 <ComponentHeader
     name='Calendar'
     version={version}
-    package='@alfalab/core-components-calendar'
+    package='@alfalab/core-components/calendar'
     stage={2}
     design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=3423%3A6'
 />
 
 ```tsx
-import { Calendar } from '@alfalab/core-components-calendar';
+import { Calendar } from '@alfalab/core-components/calendar';
 ```
 
 <Tabs
     description={<Description />}
-    changelog={changelog}
+    changelog={<Changelog />}
     props={<Props of={Calendar} />}
     cssVars={<CssVars css={`${styles}${vars}`} />}
 />

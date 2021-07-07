@@ -1,7 +1,5 @@
 import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-
-import { CssVars } from 'storybook/blocks/css-vars';
+import { ComponentHeader, CssVars } from 'storybook/blocks';
 
 import { name, version } from '../package.json';
 
@@ -13,8 +11,9 @@ import borderRadius from '!!raw-loader!./border-radius.css';
 import gaps from '!!raw-loader!./gaps.css';
 import shadowsIndigo from '!!raw-loader!./shadows-indigo.css';
 
+
 <Meta
-    title='Компоненты/CSS-переменные'
+    title='Гайдлайны/CSS-переменные'
     parameters={{ previewTabs: { canvas: { hidden: true }} }}
 />
 
@@ -23,7 +22,7 @@ import shadowsIndigo from '!!raw-loader!./shadows-indigo.css';
 <ComponentHeader
     name='@alfalab/core-components-vars'
     version={version}
-    package='@alfalab/core-components-vars'
+    package='@alfalab/core-components/vars'
     stage={3}
 />
 

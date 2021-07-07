@@ -1,16 +1,13 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
-import { text, select, number } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { select, number } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
-import { Tabs } from 'storybook/blocks/tabs';
-
-import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
-import styles from '!!raw-loader!../index.module.css';
-import { CssVars } from 'storybook/blocks/css-vars';
-
-import { name, version } from '../../package.json';
 import { ProgressBar } from '../Component';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../index.module.css';
+
 
 <Meta
     title='Компоненты/ProgressBar'
@@ -33,17 +30,17 @@ import { ProgressBar } from '../Component';
 <ComponentHeader
     name='ProgressBar'
     version={version}
-    package='@alfalab/core-components-progress-bar'
+    package='@alfalab/core-components/progress-bar'
     stage={2}
 />
 
 ```tsx
-import { ProgressBar } from '@alfalab/core-components-progress-bar';
+import { ProgressBar } from '@alfalab/core-components/progress-bar';
 ```
 
 <Tabs
-  description={<Description />}
-  changelog={changelog}
-  props={<Props of={ProgressBar} />}
-  cssVars={<CssVars css={styles} />}
+    description={<Description />}
+    props={<Props of={ProgressBar} />}
+    cssVars={<CssVars css={styles} />}
+    changelog={<Changelog />}
 />

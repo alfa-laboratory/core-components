@@ -1,17 +1,12 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { action } from '@storybook/addon-actions';
-import { text, select, boolean, number } from '@storybook/addon-knobs';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import Icon from '@alfalab/icons-glyph/StarMIcon';
-import { Tabs } from 'storybook/blocks/tabs';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { number } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
-import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
-import styles from '!!raw-loader!../index.module.css';
-import { CssVars } from 'storybook/blocks/css-vars';
 import { Slider } from '../Component';
 import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../index.module.css';
 
 
 <Meta
@@ -45,19 +40,19 @@ import { name, version } from '../../package.json';
 <ComponentHeader
     name='Slider'
     version={version}
-    package='@alfalab/core-components-slider'
+    package='@alfalab/core-components/slider'
     stage={2}
     design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=11780%3A5392'
 />
 
 ```tsx
-import { Slider } from '@alfalab/core-components-slider';
+import { Slider } from '@alfalab/core-components/slider';
 ```
 
 
 <Tabs
     description={<Description />}
-    changelog={changelog}
+    changelog={<Changelog />}
     props={<Props of={Slider} />}
     cssVars={<CssVars css={styles} />}
 />

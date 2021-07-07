@@ -1,15 +1,13 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import { Tabs } from 'storybook/blocks/tabs';
-import { CssVars } from 'storybook/blocks/css-vars';
-
-import { Amount } from '../.';
 import { getAllCurrencyCodes } from '@alfalab/utils';
+import { Container, Row, Col } from 'storybook/blocks/grid';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+
+import { Amount } from '../component';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
 
@@ -32,7 +30,7 @@ import styles from '!!raw-loader!../index.module.css';
         const className = select('className', '');
         const dataTestId = text('dataTestId', '');
         return (
-            <React.Fragment>
+            <Container>
                 <Row>
                     <Col>Amount</Col>
                     <Col>Amount.Pure (Без стилей)</Col>
@@ -59,7 +57,7 @@ import styles from '!!raw-loader!../index.module.css';
                         />
                     </Col>
                 </Row>
-            </React.Fragment>
+            </Container>
         );
     })}
 </Story>
@@ -70,17 +68,17 @@ import styles from '!!raw-loader!../index.module.css';
 <ComponentHeader
     name='Amount'
     version={version}
-    package='@alfalab/core-components-amount'
+    package='@alfalab/core-components/amount'
     stage={3}
 />
 
 ```tsx
-import { Amount } from '@alfalab/core-components-amount';
+import { Amount } from '@alfalab/core-components/amount';
 ```
 
-<Tabs 
+<Tabs
     description={<Description />}
-    changelog={changelog}
+    changelog={<Changelog />}
     props={<Props of={Amount} />}
     cssVars={<CssVars css={styles} />}
 />

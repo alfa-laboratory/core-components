@@ -1,46 +1,41 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
-import { text, select, boolean } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-import Icon from '@alfalab/icons-glyph/CopyMIcon';
-
-import { Tag } from '../Component';
-import { name, version } from '../../package.json';
-
-export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
-
 Компонент тэг (чипсы).
 
-<Preview>
-    {React.createElement(() => {
-        const [checked, setChecked] = React.useState(false);
-        const handleClick = () => setChecked(!checked);
-        return (
-            <Tag
-                size={select('size', SIZES, 'm')}
-                disabled={boolean('disabled', false)}
-                checked={checked || boolean('checked', false)}
-                onClick={handleClick}
-            >
-                {text('label', 'Оплатить')}
-            </Tag>
-        );
-    })}
-</Preview>
+```tsx live
+render(() => {
+    const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+
+    const [checked, setChecked] = React.useState(false);
+
+    const handleClick = () => setChecked(!checked);
+
+    return (
+        <Tag
+            size={select('size', SIZES, 'm')}
+            disabled={boolean('disabled', false)}
+            checked={checked || boolean('checked', false)}
+            rightAddons={boolean('rightAddons', false) && <CopyMIcon />}
+            onClick={handleClick}
+        >
+            {text('label', 'Оплатить')}
+        </Tag>
+    );
+});
+```
 
 ### Тэг с иконкой
 
-<Preview>
-    {React.createElement(() => {
-        const [checked, setChecked] = React.useState(false);
-        const handleClick = () => setChecked(!checked);
-        return (
-            <Tag
-                checked={checked}
-                onClick={handleClick}
-                rightAddons={<Icon />}
-            >
-                Нажми меня
-            </Tag>
-        );
-    })}
-</Preview>
+```tsx live
+render(() => {
+    const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+
+    const [checked, setChecked] = React.useState(false);
+
+    const handleClick = () => setChecked(!checked);
+
+    return (
+        <Tag checked={checked} onClick={handleClick} rightAddons={<CopyMIcon />}>
+            Нажми меня
+        </Tag>
+    );
+});
+```

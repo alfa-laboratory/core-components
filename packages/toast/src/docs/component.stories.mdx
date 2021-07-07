@@ -1,13 +1,14 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
-import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
 import { Button } from '@alfalab/core-components-button';
+import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Toast } from '../';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
-import changelog from '../../CHANGELOG.md';
+import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
+
 
 <Meta
     title='Компоненты/Toast'
@@ -128,6 +129,7 @@ export function ToastExample() {
     <ToastExample />
 </Story>
 
+
 <!-- Docs -->
 
 <ComponentHeader
@@ -139,12 +141,12 @@ export function ToastExample() {
 />
 
 ```tsx
-import { Toast } from '@alfalab/core-components-toast';
+import { Toast } from '@alfalab/core-components/toast';
 ```
 
 <Tabs
     description={<Description />}
-    changelog={changelog}
+    changelog={<Changelog />}
     props={<Props of={Toast} />}
     cssVars={<CssVars css={styles} />}
 />

@@ -1,11 +1,3 @@
-
-import { Preview } from '@storybook/addon-docs/blocks';
-import { ComponentHeader } from 'storybook/blocks/component-header';
-
-import { Button } from '../../../button/src';
-
-import { Mq, useMatchMedia } from '../';
-
 Компонент, имплементирующий поддержку медиа запросов в шаблонах с помощью `window.matchMedia`.
 Рендерит внутренние компоненты/разметку исходя из соответствия условиям запроса.
 
@@ -18,24 +10,24 @@ import { Mq, useMatchMedia } from '../';
 1. `matchMedia()` накладнее для браузера, чем матчинг элемента в CSS;
 2. Этот способ работает только на клиенте, и, при использовании SSR, может усилить различие серверной и финальной разметки, и добавить сложности к тестированию.
 
-<Preview>
-    <div>
-        <Mq query="--mobile">
-            <Button>Mobile button</Button>
-        </Mq>
-        <Mq query="--tablet-s">
-            <Button>Desktop button</Button>
-        </Mq>
-    </div>
-</Preview>
+```tsx live
+<div>
+    <Mq query='--mobile'>
+        <Button>Mobile кнопка</Button>
+    </Mq>
+    <Mq query='--tablet-s'>
+        <Button>Desktop кнопка</Button>
+    </Mq>
+</div>
+```
 
 Помимо компонента, в пакете доступен хук `useMatchMedia`:
 
-<Preview>
-    {React.createElement(() => {
-        const query = '(min-width: 600px)'
-        const [matches] = useMatchMedia(query);
-        return `Matches ${query}: ${matches}`;
-    })}
-</Preview>
+```tsx live
+render(() => {
+    const query = '(min-width: 600px)';
+    const [matches] = useMatchMedia(query);
 
+    return `Matches ${query}: ${matches}`;
+});
+```

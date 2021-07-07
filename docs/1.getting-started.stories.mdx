@@ -1,10 +1,9 @@
-import { Description } from '@storybook/addon-docs/blocks';
 import GitHubButton from 'react-github-btn'
-import readme from '../README.md';
+import Readme from '../README.md';
 import { version } from '../package.json';
 
 <Meta
-  title='Гайдлайны/Начало работы'   
+  title='Гайдлайны/Начало работы'
   parameters={{ previewTabs: { canvas: { hidden: true } }}}
 />
 
@@ -57,6 +56,4 @@ import { version } from '../package.json';
   </div>
 </div>
 
-<Description>
-  { readme }
-</Description>
+<Readme />

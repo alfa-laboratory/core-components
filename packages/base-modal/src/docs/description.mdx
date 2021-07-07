@@ -1,5 +1,25 @@
 Базовый компонент для построения модальных окон, сайд-панелей и пр.
 
+```tsx live
+render(() => {
+    const [open, setOpen] = React.useState(false);
+
+    const handleModalOpen = () => setOpen(!open);
+
+    return (
+        <>
+            <Button type='button' size='xs' onClick={handleModalOpen}>
+                Открыть
+            </Button>
+
+            <BaseModal open={open} onClose={handleModalOpen}>
+                <div style={{ padding: '100px' }}>BaseModal</div>
+            </BaseModal>
+        </>
+    );
+});
+```
+
 ## Использование контекста
 
 ```tsx

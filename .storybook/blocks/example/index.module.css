@@ -46,9 +46,10 @@
     & button {
         justify-content: center;
         min-width: 110px;
-        transition: 0.2s ease;
+        transition: box-shadow 0.2s ease;
 
         &:focus {
+            outline: 0;
             box-shadow: none;
         }
 
