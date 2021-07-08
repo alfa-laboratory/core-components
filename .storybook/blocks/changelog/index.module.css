@@ -3,11 +3,13 @@
 @import '../../../packages/vars/src/index.css';
 
 .changelog {
-    & h1:global(.sbdocs):first-child {
-        display: none;
-
-        & + p {
+    &:not(.root) {
+        & h1:global(.sbdocs):first-child {
             display: none;
+
+            & + p {
+                display: none;
+            }
         }
     }
 
