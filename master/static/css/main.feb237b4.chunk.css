@@ -16254,13 +16254,13 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 
 /* stylelint-disable selector-pseudo-class-no-unknown */
 
-.changelog_1uMiQ h1.sbdocs:first-child {
-        display: none
-    }
-
-.changelog_1uMiQ h1.sbdocs:first-child + p {
-            display: none;
+.changelog_1uMiQ:not(.root_2AL04) h1.sbdocs:first-child {
+            display: none
         }
+
+.changelog_1uMiQ:not(.root_2AL04) h1.sbdocs:first-child + p {
+                display: none;
+            }
 
 .changelog_1uMiQ h1.sbdocs {
         font-size: 32px;
@@ -16899,4 +16899,4 @@ pre.cssExample {
 }
 
 
-/*# sourceMappingURL=main.19c9e00f.chunk.css.map */
+/*# sourceMappingURL=main.feb237b4.chunk.css.map */
