@@ -4,7 +4,7 @@ import { OptionsListProps, GroupShape } from '../../typings';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 
 import styles from './index.module.css';
-import { isGroup, useVisibleOptions, getOptionsFingerprint } from '../../utils';
+import { isGroup, useVisibleOptions } from '../../utils';
 
 const createCounter = () => {
     let count = 0;
@@ -39,7 +39,7 @@ export const OptionsList = ({
         visibleOptions,
         listRef,
         open,
-        invalidate: getOptionsFingerprint(options),
+        invalidate: options,
     });
 
     if (options.length === 0 && !emptyPlaceholder) {
