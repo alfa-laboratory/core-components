@@ -1,0 +1,36 @@
+Порталы позволяют рендерить дочерние элементы в DOM-узел, который находится вне DOM-иерархии родительского компонента.
+
+```tsx live
+render(() => {
+    const [show, setShow] = React.useState(false);
+
+    const handleClick = () => setShow(!show);
+
+    const styles = {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        height: 60,
+        border: '1px solid var(--color-light-border-secondary)',
+        padding: 'var(--gap-m)',
+    };
+
+    return (
+        <Space>
+            <Button onClick={handleClick}>{show ? 'Unmount children' : 'Mount children'}</Button>
+            <div>
+                {show && (
+                    <Portal getPortalContainer={() => document.getElementById('portal-container')}>
+                        <StarMIcon />
+                    </Portal>
+                )}
+            </div>
+
+            <div id='portal-container' style={styles}>
+                <div>Контейнер для контента портала</div>
+            </div>
+        </Space>
+    );
+});
+```

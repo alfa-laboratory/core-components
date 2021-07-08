@@ -2,7 +2,6 @@ import React, { FC, useState } from 'react';
 import { LiveProvider, LiveEditor, LivePreview } from 'react-live';
 import { ActionBar } from '@storybook/components';
 import { PrismTheme } from 'prism-react-renderer';
-
 import { ErrorSection } from './ErrorSection';
 import globalScope from './utils/scope';
 
@@ -30,7 +29,7 @@ export const LiveExample: FC<LiveExampleProps> = ({
         window.open(
             `${
                 window.parent.location.pathname
-            }?path=/docs/гайдлайны-песочница--page/code=${encodeURIComponent(code)}`,
+            }?path=/docs/компоненты-песочница--page/code=${encodeURIComponent(code)}`,
         );
     };
 
@@ -45,10 +44,16 @@ export const LiveExample: FC<LiveExampleProps> = ({
         },
     ];
 
+    const code2 = code
+        .split('\n')
+        .filter(line => line.startsWith('//') === false)
+        .join('\n')
+        .trim();
+
     return (
         <LiveProvider
             code={code}
-            noInline={code.startsWith('<') === false}
+            noInline={code2.startsWith('<') === false && code2.startsWith('//') === false}
             theme={theme}
             scope={{
                 ...globalScope,

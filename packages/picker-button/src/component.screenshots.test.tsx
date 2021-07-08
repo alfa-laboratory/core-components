@@ -15,7 +15,7 @@ const options = [
 
 describe('PickerButton', () => {
     test('test positioning', async () => {
-        jest.setTimeout(60000);
+        jest.setTimeout(120000);
 
         const cases = generateTestCases({
             componentName: 'PickerButton',

@@ -1,0 +1,57 @@
+import { Meta, Props, Preview, Story } from '@storybook/addon-docs/blocks';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
+import { Button } from '@alfalab/core-components-button';
+
+import { BaseModal } from '../Component';
+import { version } from '../../package.json';
+import Changelog from '../../CHANGELOG.md';
+import Description from './description.mdx';
+
+
+<Meta
+    title='Компоненты/BaseModal'
+    component={BaseModal}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+<Story name="BaseModal">
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        const handleModalOpen = () => setOpen(!open);
+        return (
+            <React.Fragment>
+                <Button type='button' size='xs' onClick={handleModalOpen}>
+                    Открыть
+                </Button>
+                <BaseModal
+                    open={open}
+                    onClose={handleModalOpen}
+                >
+                    <div style={{ padding: '100px' }}>BaseModal</div>
+                </BaseModal>
+            </React.Fragment>
+        )
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='BaseModal'
+    version={version}
+    package='@alfalab/core-components/base-modal'
+    stage={1}
+/>
+
+
+```tsx
+import { BaseModal } from '@alfalab/core-components/base-modal';
+```
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props of={BaseModal} />}
+/>

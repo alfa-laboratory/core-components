@@ -1,0 +1,48 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { text, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+
+import { ListHeader } from '../Component';
+import { version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../index.module.css';
+
+
+export const TAG = ['ul', 'ol'];
+
+<Meta
+    title='Компоненты/ListHeader'
+    component={ListHeader}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+<!-- Canvas -->
+
+<Story name='ListHeader'>
+    <ListHeader
+        title={text('title', 'Заголовок')}
+        description={text('description', 'Описание')}
+        filled={boolean('filled', true)}
+    />
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='ListHeader'
+    version={version}
+    package='@alfalab/core-components/list-header'
+    stage={2}
+/>
+
+```tsx
+import { ListHeader } from '@alfalab/core-components/list-header';
+```
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props of={ListHeader} />}
+    cssVars={<CssVars css={styles} />}
+/>

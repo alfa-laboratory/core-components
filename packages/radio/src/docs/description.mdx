@@ -1,0 +1,18 @@
+### Компонент Radio
+
+```tsx live
+render(() => {
+    const [checked, setChecked] = React.useState(false);
+
+    const handleChange = () => setChecked(!checked);
+
+    return (
+        <Radio
+            onChange={handleChange}
+            checked={checked}
+            hint='Описание пункта'
+            label='Вариант выбора у радиобатона'
+        />
+    );
+});
+```

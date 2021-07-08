@@ -1,6 +1,8 @@
-import { Description } from '@storybook/addon-docs/blocks';
-import migrationsReadme from '../packages/codemod/README.md';
+import MigrationsReadme from '../packages/codemod/README.md';
 
-<Meta title='Гайдлайны|Миграция со старых компонентов' />
+<Meta
+    title='Гайдлайны/Миграция со старых компонентов'
+    parameters={{ previewTabs: { canvas: { hidden: true } }}}
+/>
 
-<Description>{migrationsReadme}</Description>
+<MigrationsReadme />
