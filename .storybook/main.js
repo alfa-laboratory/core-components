@@ -26,7 +26,6 @@ module.exports = {
             name: '@storybook/addon-docs',
             options: { transcludeMarkdown: true },
         },
-        '@storybook/addon-actions',
         '@storybook/preset-create-react-app',
         './addons/theme-switcher/register.js',
     ],

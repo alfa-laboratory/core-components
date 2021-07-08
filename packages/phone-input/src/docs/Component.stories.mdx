@@ -1,6 +1,5 @@
 import { Meta, Props, Story } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import { action } from '@storybook/addon-actions';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
@@ -28,7 +27,6 @@ import Changelog from '../../CHANGELOG.md';
         leftAddons={boolean('leftAddons', false) && <Icon />}
         rightAddons={boolean('rightAddons', false) && <Icon />}
         bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
-        onChange={action('change')}
     />
 </Story>
 
