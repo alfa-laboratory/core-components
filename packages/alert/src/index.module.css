@@ -1,7 +1,7 @@
 @import '../../themes/src/default.css';
 
 .component {
-    border-radius: 2px 0 0 2px;
+    border-radius: var(--border-radius-xs) 0 0 var(--border-radius-xs);
     border-top: 0;
     border-right: 0;
     border-bottom: 0;
