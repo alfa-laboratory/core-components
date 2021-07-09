@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@8.1.1...@alfalab/core-components-select@9.0.0) (2021-07-08)
+
+
+### Features
+
+* upgrade storybook ([#696](https://github.com/alfa-laboratory/core-components/issues/696))
+
 ## [8.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@8.1.0...@alfalab/core-components-select@8.1.1) (2021-06-28)
 
 **Note:** Version bump only for package @alfalab/core-components-select

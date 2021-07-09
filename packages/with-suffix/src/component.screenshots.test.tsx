@@ -13,7 +13,7 @@ describe('WithSuffix', () => {
         const pageUrl = createStorybookUrl({
             componentName: 'WithSuffix',
             testStory: false,
-        }).replace('--', '-hocs--');
+        });
 
         const { browser, context, page, css } = await openBrowserPage(pageUrl);
 

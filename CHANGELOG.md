@@ -1,3 +1,10 @@
+# [19.0.0](https://github.com/alfa-laboratory/core-components/compare/v18.2.1...v19.0.0) (2021-07-08)
+
+
+### Features
+
+* upgrade storybook ([#696](https://github.com/alfa-laboratory/core-components/issues/696))
+
 ## [18.2.1](https://github.com/alfa-laboratory/core-components/compare/v18.2.0...v18.2.1) (2021-07-02)
 
 

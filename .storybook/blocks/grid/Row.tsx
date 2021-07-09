@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes, useCallback, ChangeEvent, ReactNode } from 'react';
 import cn from 'classnames';
 
-import styles from './Row.css';
+import styles from './Row.module.css';
 
 type RowProps = {
     children?: ReactNode;

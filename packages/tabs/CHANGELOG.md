@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@4.1.1...@alfalab/core-components-tabs@5.0.0) (2021-07-08)
+
+
+### Features
+
+* upgrade storybook ([#696](https://github.com/alfa-laboratory/core-components/issues/696))
+
 ## [4.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@4.1.0...@alfalab/core-components-tabs@4.1.1) (2021-06-22)
 
 **Note:** Version bump only for package @alfalab/core-components-tabs

@@ -17,9 +17,9 @@ addons.register('TitleAddon', api => {
             title = libName;
         } else {
             let kind = storyData.kind;
-            kind = kind.replace('Компоненты', '');
+            kind = kind.replace('Компоненты/', '').replace('Гайдлайны/', '');
             kind = kind.includes('|') ? kind.match(/\|(.*)/)[1] : kind;
-            
+
             let name = storyData.name;
             name = name === 'Page' ? '' : name;
 
@@ -40,5 +40,4 @@ addons.register('TitleAddon', api => {
 
 addons.setConfig({
     theme: alfaTheme,
-    sortStoriesByKind: false,
 });

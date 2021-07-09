@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-progress-bar@1.1.6...@alfalab/core-components-progress-bar@2.0.0) (2021-07-08)
+
+
+### Features
+
+* upgrade storybook ([#696](https://github.com/alfa-laboratory/core-components/issues/696))
+
 ## [1.1.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-progress-bar@1.1.5...@alfalab/core-components-progress-bar@1.1.6) (2021-04-26)
 
 **Note:** Version bump only for package @alfalab/core-components-progress-bar

@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-spinner@1.0.9...@alfalab/core-components-spinner@2.0.0) (2021-07-08)
+
+
+### Features
+
+* upgrade storybook ([#696](https://github.com/alfa-laboratory/core-components/issues/696))
+
 ## [1.0.9](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-spinner@1.0.8...@alfalab/core-components-spinner@1.0.9) (2021-04-26)
 
 **Note:** Version bump only for package @alfalab/core-components-spinner

@@ -1,0 +1,76 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
+import { IntlPhoneInput } from '../component';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+
+
+<Meta
+    title='Компоненты/IntlPhoneInput'
+    component={IntlPhoneInput}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+<!-- Canvas -->
+
+<Story name='IntlPhoneInput'>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('+79647820725');
+        const [selectedCountry, setSelectedCountry] = React.useState('RU');
+        const handleChange = React.useCallback(
+            newValue => {
+                setValue(newValue);
+            },
+            [setValue],
+        );
+        const size = select('size', ['s', 'm', 'l', 'xl'], 'm');
+        const block = boolean('block', false);
+        const disabled = boolean('disabled', false);
+        const label = text('label', 'Номер телефона');
+        const clearableCountryCode = boolean('clearableCountryCode', true);
+        const handleCountryChange = React.useCallback(countryCode => {
+            setSelectedCountry(countryCode);
+        });
+        return (
+            <React.Fragment>
+                <IntlPhoneInput
+                    value={value}
+                    onChange={handleChange}
+                    size={size}
+                    block={block}
+                    label={label}
+                    disabled={disabled}
+                    defaultCountryIso2='RU'
+                    readOnly={boolean('readOnly', false)}
+                    onCountryChange={handleCountryChange}
+                    clearableCountryCode={clearableCountryCode}
+                />
+                <br />
+                Код выбранной страны: <strong>{selectedCountry}</strong>
+            </React.Fragment>
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='IntlPhoneInput'
+    version={version}
+    package='@alfalab/core-components/intl-phone-input'
+    stage={1}
+/>
+
+```tsx
+import { IntlPhoneInput } from '@alfalab/core-components/intl-phone-input';
+```
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props of={IntlPhoneInput} />}
+/>

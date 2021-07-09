@@ -1,0 +1,75 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { Button } from '@alfalab/core-components-button';
+import { Notification } from '@alfalab/core-components-notification';
+
+import { NotificationManager } from '../component';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+
+
+<Meta
+    title='Компоненты/NotificationManager'
+    component={NotificationManager}
+/>
+
+<!-- Canvas -->
+
+<Story name='NotificationManager'>
+    {React.createElement(() => {
+        const [notifications, setNotifications] = React.useState([]);
+        const [count, setCount] = React.useState(0);
+        const addNotification = () => {
+            const newNotification = (
+                <Notification
+                    badge='positive'
+                    title={`Нотификация #${count}`}
+                    autoCloseDelay={3000}
+                    id={count.toString()}
+                    key={count.toString()}
+                />
+            );
+            notifications.unshift(newNotification);
+            setNotifications([...notifications]);
+            setCount(val => val + 1);
+        };
+        const removeNotification = React.useCallback(id => {
+            /**
+             * Обратите внимание, что актуальный массив нотификаций
+             * нужно брать из аргументов функции обновления состояния.
+             */
+            setNotifications(actualNotifications =>
+                actualNotifications.filter(notification => notification.props.id !== id),
+            );
+        }, []);
+        return (
+            <div>
+                <Button onClick={addNotification}>Добавить нотификацию</Button>
+                <NotificationManager
+                    notifications={notifications}
+                    onRemoveNotification={removeNotification}
+                />
+            </div>
+        );
+    })}
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='NotificationManager'
+    version={version}
+    package='@alfalab/core-components/notification-manager'
+    stage={2}
+/>
+
+```tsx
+import { NotificationManager } from '@alfalab/core-components/notification-manager';
+```
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props of={NotificationManager} />}
+/>

@@ -1,0 +1,61 @@
+Компонент текстового поля для ввода текста по указанной маске.
+
+☝️ В приложениях Клика используйте обёртку [newclick-composite-components/masked-input](http://digital/demo/newclick-composite-components/master/?path=/docs/form-maskedinput--basic).
+
+```jsx live
+const masks = {
+    // prettier-ignore
+    phone: ['+', /\d/, ' ', '(', /\d/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/],
+    // prettier-ignore
+    card: [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/]
+};
+
+const placeholders = {
+    phone: '+7 (000) 000-00-00',
+    card: '0000 0000 0000 0000',
+};
+
+render(
+    <div style={{ width: '240px' }}>
+        <MaskedInput mask={masks.phone} placeholder={placeholders.phone} block={true} />
+        <br />
+        <br />
+        <MaskedInput mask={masks.card} placeholder={placeholders.card} block={true} />
+    </div>,
+);
+```
+
+### Controlled-way
+
+Компонент может быть использован как controlled с помощью `onChange` и `value`
+
+```jsx live
+render(() => {
+    // prettier-ignore
+    const mask = [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/];
+
+    const [value, setValue] = React.useState('');
+
+    const handleChange = React.useCallback(event => {
+        setValue(event.target.value);
+    }, []);
+
+    return (
+        <Space>
+            <div style={{ width: '240px' }}>
+                <MaskedInput
+                    value={value}
+                    onChange={handleChange}
+                    mask={mask}
+                    placeholder='0000 0000 0000 0000'
+                    block={true}
+                />
+            </div>
+
+            <Button size='xs' onClick={() => setValue('5555111122224444')}>
+                Установить неотформатированный номер
+            </Button>
+        </Space>
+    );
+});
+```

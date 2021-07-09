@@ -1,0 +1,53 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { select, text, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
+import { Button } from '@alfalab/core-components-button';
+
+import { Alert } from '../Component';
+import { name, version } from '../../package.json';
+import Description from './description.mdx'
+import Changelog from '../../CHANGELOG.md';
+
+
+<Meta
+    title='Компоненты/Alert'
+    component={Alert}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='Alert'>
+    <Alert
+        view={select('view', ['common', 'negative', 'positive', 'attention'], 'common')}
+        title={text('title', '')}
+        hasCloser={boolean('hasCloser', false)}
+        buttons={boolean('buttons', false) ? [
+            <Button>Хорошо</Button>,
+            <Button>Подробнее</Button>
+        ] : null}
+    >
+        {text('children', 'Вам одобрено. Согласитесь на предложение')}
+    </Alert>
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Alert'
+    version={version}
+    package='@alfalab/core-components/alert'
+    stage={1}
+/>
+
+```tsx
+import { Alert } from '@alfalab/core-components/alert';
+```
+
+<Tabs
+    description={<Description />}
+    props={<Props of={Alert} />}
+    changelog={<Changelog />}
+/>
