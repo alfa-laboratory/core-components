@@ -1784,6 +1784,9 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 .icon_3eNAJ.negative_3sPvi {
         color: var(--color-light-graphic-negative);
     }
+.icon_3eNAJ.link_2IbEV {
+        color: var(--color-light-graphic-link);
+    }
 .icon_3eNAJ.tertiary_1LzD1 {
         color: var(--color-light-graphic-tertiary);
     }
@@ -16917,4 +16920,4 @@ pre.cssExample {
 }
 
 
-/*# sourceMappingURL=main.9e8ca33a.chunk.css.map */
+/*# sourceMappingURL=main.c83dbf62.chunk.css.map */
