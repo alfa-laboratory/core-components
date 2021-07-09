@@ -1,3 +1,23 @@
+# [19.1.0](https://github.com/alfa-laboratory/core-components/compare/v19.0.0...v19.1.0) (2021-07-09)
+
+
+### Bug Fixes
+
+* **badge:** fix name ([207d3d3](https://github.com/alfa-laboratory/core-components/commit/207d3d30171a84ff4021cd119c0da1316a92d14c))
+* **calendar:** fix select-button disabled+selected state ([4f54c01](https://github.com/alfa-laboratory/core-components/commit/4f54c01451a2532fd377d3590869dfa52c968dcf))
+* **calendar:** limit defaultMonth ([636fa5b](https://github.com/alfa-laboratory/core-components/commit/636fa5b1363fbdea8516b95ac758aee65b8cffba))
+* **input-autocomplete:** popover height with dynamic height options ([da24758](https://github.com/alfa-laboratory/core-components/commit/da247589a35ba33742f95fc96ed63b0ba65cdf11))
+
+
+### Features
+
+* **badge:** add icon color ([d9e9065](https://github.com/alfa-laboratory/core-components/commit/d9e906596d157a5e3d7844bbecfb96f64d9f44e1))
+* **badge:** add screenshots ([3bbc8d0](https://github.com/alfa-laboratory/core-components/commit/3bbc8d032b0a267e9e6e949af5db6c955e25fb50))
+* **select:** dont highlight first option on open ([015a084](https://github.com/alfa-laboratory/core-components/commit/015a084be6e5d837b6368afe6ca63a0a4c325435))
+* **themes:** confirmation mobile theme ([a85233c](https://github.com/alfa-laboratory/core-components/commit/a85233c1e859e933e1c51997678c8a8c6134e353))
+* **vars:** add border-radius-xs ([a4bd8ff](https://github.com/alfa-laboratory/core-components/commit/a4bd8ff44d9ed7cf68ca2b0994ab61a80ed358e2))
+* **vars:** fresh colors from alfa-ui-primitives ([2051a0c](https://github.com/alfa-laboratory/core-components/commit/2051a0ce3caee3c1a70f36e8c84e575bcd528bab))
+
 # [19.0.0](https://github.com/alfa-laboratory/core-components/compare/v18.2.1...v19.0.0) (2021-07-08)
 
 
