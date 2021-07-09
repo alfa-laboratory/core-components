@@ -21,3 +21,37 @@
     </List>
 </Space>
 ```
+
+## Использование в Webview
+
+[Описание компонента для Webview](https://www.figma.com/file/sg7PXgmiiFjLXC6YJfoCKD/%D0%A0%D0%B0%D0%B7%D0%B1%D0%BE%D1%80-%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B5%D0%B2-%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D0%B4%D0%BE%D0%B1%D1%80%D0%B5%D0%BD%D0%BD%D1%8B%D1%85-%D0%BA%D0%B0%D1%80%D1%82-%D0%92%D0%BE%D0%BB%D0%B3%D0%B0?node-id=2778%3A1002)
+
+При использовании списков в Webview можно использовать следующий сниппет.
+
+Чтобы избежать дублирования и упростить ипользование компонента — можно создать на основе `List` преднастроенный компонент в своей локальной библиотеке.
+
+
+```tsx live
+// import { Space } from '@alfalab/core-components/space';
+// import { Typography } from '@alfalab/core-components/typography';
+
+<List tag='ul' marker='–'>
+    <Space size={2}>
+        <Typography.Text tag='div' view='primary-medium'>
+            Накопительные счета
+        </Typography.Text>
+        <Typography.Text tag='div' color='secondary' view='primary-small'>
+            Индивидуальное обслуживание в любом отделении в России
+        </Typography.Text>
+    </Space>
+
+    <Space size={2}>
+        <Typography.Text tag='div' view='primary-medium'>
+            Депозиты
+        </Typography.Text>
+        <Typography.Text tag='div' color='secondary' view='primary-small'>
+            Повышенные % ставки по депозитам
+        </Typography.Text>
+    </Space>
+</List>
+```
