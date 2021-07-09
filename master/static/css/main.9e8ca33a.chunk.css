@@ -2615,31 +2615,32 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     background-color: transparent;
     border-radius: var(--border-radius-s)
 }
-.button_235_J:not(.disabled_rCcrb):hover {
+.button_235_J:not(:disabled):hover {
         background-color: var(--color-light-bg-tertiary);
         color: var(--color-light-text-primary);
     }
+.button_235_J.filled_23r4p {
+        background-color: var(--color-light-bg-tertiary)
+    }
+.button_235_J.filled_23r4p:not(:disabled):hover {
+            background-color: rgb(215, 217, 219);
+        }
+.button_235_J.outlined_zigT1 {
+        border: 1px solid var(--calendar-selector-button-outline-border-color);
+    }
+.button_235_J.selected_ctQc_,
+    .button_235_J.selected_ctQc_:disabled {
+        background-color: var(--color-light-bg-primary-inverted);
+        color: var(--color-light-text-primary-inverted)
+    }
+.button_235_J.selected_ctQc_:not(:disabled):hover, .button_235_J.selected_ctQc_:disabled:not(:disabled):hover {
+            background-color: var(--color-light-bg-primary-inverted);
+            color: var(--color-light-text-primary-inverted);
+        }
 .button_235_J > * {
         -webkit-box-flex: 1;
             -ms-flex-positive: 1;
                 flex-grow: 1;
-    }
-.filled_23r4p {
-    background-color: var(--color-light-bg-tertiary)
-}
-.filled_23r4p:not(.disabled_rCcrb):hover {
-        background-color: rgb(215, 217, 219);
-    }
-.outlined_zigT1 {
-    border: 1px solid var(--calendar-selector-button-outline-border-color);
-}
-.selected_ctQc_ {
-    background-color: var(--color-light-bg-primary-inverted);
-    color: var(--color-light-text-primary-inverted)
-}
-.selected_ctQc_:not(.disabled_rCcrb):hover {
-        background-color: var(--color-light-bg-primary-inverted);
-        color: var(--color-light-text-primary-inverted);
     }
 .header_2dBzW {
     width: 100%;
@@ -16250,6 +16251,11 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --button-secondary-active-bg-color: var(--color-light-bg-tertiary);
     --button-secondary-disabled-bg-color: var(--color-light-bg-secondary);
     --button-secondary-disabled-color: var(--color-light-text-disabled);
+    /* theme */
+    --confirmation-title-font-size: 18px;
+    --confirmation-title-line-height: 22px;
+    --confirmation-text-font-size: 14px;
+    --confirmation-text-line-height: 20px;
 }
 
 /* stylelint-disable selector-pseudo-class-no-unknown */
@@ -16911,4 +16917,4 @@ pre.cssExample {
 }
 
 
-/*# sourceMappingURL=main.b4e547f5.chunk.css.map */
+/*# sourceMappingURL=main.9e8ca33a.chunk.css.map */
