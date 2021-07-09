@@ -16,6 +16,7 @@ exports[`Attach Snapshots tests should match snapshot 1`] = `
           class="icon"
           focusable="false"
           height="18"
+          role="img"
           viewBox="0 0 17 18"
           width="17"
         >
