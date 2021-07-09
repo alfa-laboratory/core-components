@@ -828,7 +828,7 @@ a.loading_1jKXs {
         margin-right: 0;
     }
 .component_1CmCm {
-    border-radius: 2px 0 0 2px;
+    border-radius: var(--border-radius-xs) 0 0 var(--border-radius-xs);
     border-top: 0;
     border-right: 0;
     border-bottom: 0;
@@ -16875,6 +16875,7 @@ pre.cssExample {
         'Helvetica Neue', Helvetica, sans-serif;
 }
 :root {
+    --border-radius-xs: 2px;
     --border-radius-s: 4px;
     --border-radius-m: 8px;
     --border-radius-l: 12px;
