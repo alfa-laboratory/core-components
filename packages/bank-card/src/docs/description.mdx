@@ -1,0 +1,22 @@
+Компонент в виде карты для ввода номера карты или банковского счета.
+
+```tsx live
+render(() => {
+    const [value, setValue] = React.useState('');
+
+    const handleChange = (event, payload) => setValue(payload.value);
+
+    return (
+        <>
+            <BankCard value={value} onChange={handleChange} />
+
+            <Button size='xs' onClick={() => setValue('4111111111111111')}>
+                Вставить номер карты
+            </Button>
+            <Button size='xs' onClick={() => setValue('')}>
+                Очистить
+            </Button>
+        </>
+    );
+});
+```

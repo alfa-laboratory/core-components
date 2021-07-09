@@ -29,7 +29,7 @@ const Addon = () => {
     return (
         themes.length > 0 && (
             <div className='tool'>
-                <span className='label'>Theme:</span>
+                <span className='label'>Выбор темы: </span>
                 <Form.Select size={1} onChange={handleChange} className='select' value={theme}>
                     {['default'].concat(themes).map(themeName => (
                         <option
@@ -48,7 +48,7 @@ const Addon = () => {
 addons.register(ADDON_ID, () => {
     addons.add(ADDON_ID, {
         type: types.TOOL,
-        match: ({ viewMode }) => viewMode === 'story',
+        match: () => true,
         render: () => <Addon />,
         paramKey: ADDON_ID,
     });

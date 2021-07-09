@@ -1,0 +1,101 @@
+Компонент текстового поля для ввода международных номеров телефонов.
+
+**Жирный компонент. Для форматирования номера телефона используется библиотека `libphonenumber-js` весом в 140KB.**
+
+**Библиотека собирается в отдельный чанк. При сборке вашего проекта убедитесь, что у вас она тоже собралась отдельным чанком.**
+
+**Если вы используете `arui-scripts` для сборки, версия `arui-scripts` должна быть не ниже 9.7.0.**
+
+### Кейс с очисткой поля
+
+```tsx live
+render(() => {
+    const [value, setValue] = React.useState('+7');
+    const [selectedCountry, setSelectedCountry] = React.useState('RU');
+
+    const handleChange = React.useCallback(
+        newValue => {
+            setValue(newValue);
+        },
+        [setValue],
+    );
+
+    const handleCountryChange = React.useCallback(countryCode => {
+        setSelectedCountry(countryCode);
+    });
+
+    const handleClear = React.useCallback(() => setValue(''));
+
+    return (
+        <div style={{ width: '320px' }}>
+            <IntlPhoneInput
+                inputProps={{
+                    clear: true,
+                    onClear: handleClear,
+                }}
+                value={value}
+                onChange={handleChange}
+                block={true}
+                label='Номер телефона'
+                defaultCountryIso2='RU'
+                readOnly={boolean('readOnly', false)}
+                onCountryChange={handleCountryChange}
+            />
+            <br />
+            Код выбранной страны: <strong>{selectedCountry}</strong>
+        </div>
+    );
+});
+```
+
+### Кейс с автокомплитом
+
+```tsx live
+render(() => {
+    const options = [
+        { key: '+7 921 681 53 98' },
+        { key: '+7 921 681 52 97' },
+        { key: '+7 921 681 52 96' },
+        { key: '+7 921 681 52 95' },
+        { key: '+7 921 681 52 94' },
+    ];
+
+    const matchOption = (option, inputValue) =>
+        option.key.toLowerCase().includes((inputValue || '').toLowerCase());
+
+    const [value, setValue] = React.useState('+7');
+    const [selectedCountry, setSelectedCountry] = React.useState('RU');
+
+    const handleChange = React.useCallback(
+        newValue => {
+            setValue(newValue);
+        },
+        [setValue],
+    );
+
+    const handleCountryChange = React.useCallback(countryCode => {
+        setSelectedCountry(countryCode);
+    });
+
+    const handleClear = React.useCallback(() => setValue(''));
+
+    const filteredOptions = options.filter(option => matchOption(option, value));
+
+    return (
+        <div style={{ width: '320px' }}>
+            <IntlPhoneInput
+                value={value}
+                onChange={handleChange}
+                options={filteredOptions}
+                block={true}
+                label='Номер телефона'
+                defaultCountryIso2='RU'
+                readOnly={boolean('readOnly', false)}
+                onCountryChange={handleCountryChange}
+            />
+            <br />
+            Код выбранной страны: <strong>{selectedCountry}</strong>
+        </div>
+    );
+});
+```

@@ -1,0 +1,104 @@
+import styles from '../stories.module.css';
+
+Компонент для ввода даты.
+
+```tsx live
+render(() => {
+    const defaultMonth = new Date('December 1, 2010 00:00:00');
+
+    return <CalendarInput label='Дата регистрации' defaultMonth={defaultMonth} />;
+});
+```
+
+### Controlled-way
+
+Компонент может быть использован как controlled с помощью `onChange` и `selected`:
+
+```tsx live
+render(() => {
+    const [value, setValue] = React.useState('');
+
+    const handleChange = (event, { value }) => setValue(value);
+
+    return <CalendarInput value={value} onChange={handleChange} label='Дата регистрации' />;
+});
+```
+
+### Рендер календаря под инпутом
+
+Календарь может рендериться как в поповере, так и под инпутом
+
+```tsx live
+render(() => {
+    const [value, setValue] = React.useState('');
+
+    const handleChange = (event, { value }) => setValue(value);
+
+    return (
+        <CalendarInput
+            value={value}
+            onChange={handleChange}
+            label='Дата регистрации'
+            calendarPosition='static'
+        />
+    );
+});
+```
+
+### Минимальная и максимальная дата
+
+Календарь может рендериться как в поповере, так и под инпутом
+
+```tsx live
+// import { startOfDay, subMonths, addMonths } from 'date-fns';
+// import { parseDateString } from '@alfalab/core-components/calendar-input';
+
+render(() => {
+    const minDate = subMonths(startOfDay(new Date()), 2).getTime();
+    const maxDate = addMonths(startOfDay(new Date()), 2).getTime();
+
+    const [error, setError] = React.useState('');
+    const [value, setValue] = React.useState('');
+
+    const handleChange = (event, { value }) => {
+        setValue(value);
+    };
+
+    const handleBlur = event => {
+        if (value) {
+            const date = parseDateString(value);
+            if (Number.isNaN(date.getTime()) || date < minDate || date > maxDate)
+                setError('Некорректная дата');
+        }
+    };
+
+    const handleFocus = () => setError('');
+
+    return (
+        <CalendarInput
+            label='Дата регистрации'
+            value={value}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            onFocus={handleFocus}
+            minDate={minDate}
+            maxDate={maxDate}
+            error={error}
+        />
+    );
+});
+```
+
+### Инпут по ширине календаря
+
+Используя css-переменную `--calendar-width` можно задать инпуту такую же ширину, как у компонента календаря
+
+```tsx
+/*
+.calendarWidth {
+    width: var(--calendar-width);
+}
+*/
+
+<CalendarInput className={styles.calendarWidth} />
+```

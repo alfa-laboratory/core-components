@@ -1,0 +1,65 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+
+import { CalendarInput } from '../Component';
+import { formatDate } from '../utils';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../index.module.css';
+
+
+<Meta
+    title='Компоненты/CalendarInput'
+    component={CalendarInput}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='CalendarInput'>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState(formatDate(new Date()));
+        const handleChange = (event, { value }) => setValue(value);
+        return (
+            <CalendarInput
+                value={value}
+                onChange={handleChange}
+                label={text('label', 'Дата регистрации')}
+                placeholder={text('placeholder', '')}
+                mobileMode={select('mobileMode', ['native', 'input', 'popover'], 'popover')}
+                preventFlip={boolean('preventFlip', false)}
+                block={boolean('block', false)}
+                success={boolean('success', false)}
+                error={boolean('error', false)}
+                disabled={boolean('disabled', false)}
+                readOnly={boolean('readOnly', false)}
+            />
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='CalendarInput'
+    version={version}
+    package='@alfalab/core-components/calendar-input'
+    stage={2}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=13931%3A20767'
+/>
+
+```tsx
+import { CalendarInput } from '@alfalab/core-components/calendar-input';
+```
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props of={CalendarInput} />}
+    cssVars={<CssVars css={styles} />}
+/>

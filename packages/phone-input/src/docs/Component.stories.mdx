@@ -1,0 +1,53 @@
+import { Meta, Props, Story } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
+import { PhoneInput } from '../Component';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+
+
+<Meta
+    title='Компоненты/PhoneInput'
+    component={PhoneInput}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='PhoneInput'>
+    <PhoneInput
+        block={boolean('block', false)}
+        size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+        error={text('error', '')}
+        hint={text('hint', '')}
+        label={text('label', '')}
+        leftAddons={boolean('leftAddons', false) && <Icon />}
+        rightAddons={boolean('rightAddons', false) && <Icon />}
+        bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
+    />
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='PhoneInput'
+    version={version}
+    package='@alfalab/core-components/phone-input'
+    stage={2}
+/>
+
+```tsx
+import { PhoneInput } from '@alfalab/core-components/phone-input';
+```
+
+
+<Tabs
+    description={<Description />}
+    props={<Props of={PhoneInput} />}
+    changelog={<Changelog />}
+/>
+

@@ -1,0 +1,50 @@
+Компонент группы радио.
+
+```tsx live
+render(() => {
+    const [value, setValue] = React.useState({ one: false, two: false, three: false });
+
+    const onChange = (_, payload) => {
+        setValue({ ...value, [payload.name]: payload.checked });
+    };
+
+    return (
+        <RadioGroup
+            label='Заголовок группы'
+            direction='vertical'
+            name='radioGroup'
+            onChange={onChange}
+        >
+            <Radio label='Первый вариант' value='first' />
+            <Radio label='Второй вариант' value='second' />
+            <Radio label='Третий вариант' value='third' />
+        </RadioGroup>
+    );
+});
+```
+
+### Группа радио, использующая компонент `Tag`
+
+```tsx live
+render(() => {
+    const [value, setValue] = React.useState({ one: false, two: false, three: false });
+
+    const onChange = (_, payload) => {
+        setValue({ ...value, [payload.name]: payload.checked });
+    };
+
+    return (
+        <RadioGroup
+            label='Заголовок группы'
+            onChange={onChange}
+            direction='horizontal'
+            type='tag'
+            name='tagRadioGroup'
+        >
+            <Tag value='one'>Первый вариант</Tag>
+            <Tag value='two'>Второй вариант</Tag>
+            <Tag value='three'>Третий вариант</Tag>
+        </RadioGroup>
+    );
+});
+```

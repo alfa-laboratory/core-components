@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-input@6.2.0...@alfalab/core-components-input@7.0.0) (2021-07-08)
+
+
+### Features
+
+* upgrade storybook ([#696](https://github.com/alfa-laboratory/core-components/issues/696))
+
 # [6.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-input@6.1.3...@alfalab/core-components-input@6.2.0) (2021-06-22)
 
 

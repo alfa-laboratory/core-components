@@ -1,0 +1,52 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { select, text, boolean, number } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+import { Button } from "@alfalab/core-components-button";
+
+import { Notification } from '../Component';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../index.module.css';
+
+
+<Meta
+    title='Компоненты/Notification'
+    component={Notification}
+/>
+
+<!-- Canvas -->
+
+<Story name='Notification'>
+    <Notification
+        visible={boolean('visible', false)}
+        badge={select('badge', ['negative', 'positive', 'attention', undefined], 'positive')}
+        title={text('title', 'Поздравляем, полный успех')}
+        hasCloser={boolean('hasCloser', true)}
+        actionButton={boolean('renderActionButton', false) ? <Button view="ghost" size="s">Action Button</Button> : null }
+        offset={number('offset', 48)}
+        onClose={() => {}}
+    >
+        {text('children', 'Вам одобрено. Согласитесь на предложение')}
+    </Notification>
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Notification'
+    version={version}
+    package='@alfalab/core-components/notification'
+    stage={2}
+/>
+
+```tsx
+import { Notification } from '@alfalab/core-components/notification';
+```
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props of={Notification} />}
+    cssVars={<CssVars css={styles} />}
+/>

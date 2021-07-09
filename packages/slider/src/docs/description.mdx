@@ -1,0 +1,11 @@
+Компонент слайдера
+
+```tsx live
+render(() => {
+    const [value, setValue] = React.useState(50);
+
+    const handleChange = (event, { value }) => setValue(value);
+
+    return <Slider value={value} onChange={handleChange} />;
+});
+```

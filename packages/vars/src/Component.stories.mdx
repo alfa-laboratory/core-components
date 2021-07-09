@@ -1,0 +1,95 @@
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { ComponentHeader, CssVars } from 'storybook/blocks';
+
+import { name, version } from '../package.json';
+
+import colorsIndigo from '!!raw-loader!./colors-indigo.css';
+import colorsBluetint from '!!raw-loader!./colors-bluetint.css';
+import colorsAddons from '!!raw-loader!./colors-addons.css';
+import colorsTransparent from '!!raw-loader!./colors-transparent.css';
+import borderRadius from '!!raw-loader!./border-radius.css';
+import gaps from '!!raw-loader!./gaps.css';
+import shadowsIndigo from '!!raw-loader!./shadows-indigo.css';
+
+
+<Meta
+    title='Гайдлайны/CSS-переменные'
+    parameters={{ previewTabs: { canvas: { hidden: true }} }}
+/>
+
+<!-- Docs -->
+
+## CSS-переменные
+
+<ComponentHeader
+    name='vars'
+    version={version}
+    package='@alfalab/core-components/vars'
+    stage={3}
+/>
+
+```css
+@import '@alfalab/core-components/vars';
+```
+
+## Отступы
+
+```css
+@import '@alfalab/core-components/vars/gaps.css';
+```
+
+<CssVars css={gaps} />
+
+
+## Скругления
+
+```css
+@import '@alfalab/core-components/vars/border-radius.css';
+```
+
+<CssVars css={borderRadius} />
+
+
+## Тени
+
+```css
+@import '@alfalab/core-components/vars/shadows-indigo.css';
+```
+
+<CssVars css={shadowsIndigo} />
+
+
+## Цвета indigo
+
+```css
+@import '@alfalab/core-components/vars/colors-indigo.css';
+```
+
+<CssVars css={colorsIndigo} />
+
+
+## Цвета bluetint
+
+```css
+@import '@alfalab/core-components/vars/colors-bluetint.css';
+```
+
+<CssVars css={colorsBluetint} />
+
+
+## Цвета addons
+
+```css
+@import '@alfalab/core-components/vars/colors-addons.css';
+```
+
+<CssVars css={colorsAddons} />
+
+
+## Цвета transparent
+
+```css
+@import '@alfalab/core-components/vars/colors-transparent.css';
+```
+
+<CssVars css={colorsTransparent} />

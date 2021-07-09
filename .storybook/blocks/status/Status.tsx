@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import cn from 'classnames';
 
-import styles from './Status.css';
+import styles from './Status.module.css';
 
 const STATUS = {
     1: 'Draft',
