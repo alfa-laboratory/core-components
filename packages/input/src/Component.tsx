@@ -333,6 +333,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     className={cn(
                         styles.input,
                         {
+                            [styles.error]: error,
                             [styles.hasLabel]: label,
                         },
                         inputClassName,
