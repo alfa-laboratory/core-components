@@ -1,7 +1,16 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { subDays, addDays, setDate, endOfMonth, setMonth, addMonths, endOfYear } from 'date-fns';
+import {
+    subDays,
+    addDays,
+    setDate,
+    endOfMonth,
+    setMonth,
+    addMonths,
+    endOfYear,
+    subMonths,
+} from 'date-fns';
 import { act } from 'react-dom/test-utils';
 import { monthName, MONTHS } from './utils';
 import { View, SelectorView } from './typings';
@@ -75,6 +84,27 @@ describe('Calendar', () => {
         expect(queryByText(defaultYear)).toBeInTheDocument();
         expect(queryByText(defaultMonth)).toBeInTheDocument();
         expect(queryByText(defaultDateOfMonth)).toBeInTheDocument();
+    });
+
+    it('should limit defaultMonth by min/max dates', () => {
+        const { queryByText, rerender } = render(
+            <Calendar
+                defaultMonth={defaultDate.getTime()}
+                minDate={addMonths(defaultDate.getTime(), 1).getTime()}
+            />,
+        );
+
+        expect(queryByText('Декабрь')).toBeInTheDocument();
+
+        rerender(
+            <Calendar
+                defaultMonth={defaultDate.getTime()}
+                maxDate={subMonths(defaultDate.getTime(), 1).getTime()}
+                key="2"
+            />,
+        );
+
+        expect(queryByText('Октябрь')).toBeInTheDocument();
     });
 
     it('should open month of date passed by value', () => {

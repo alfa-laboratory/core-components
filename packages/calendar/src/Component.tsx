@@ -7,7 +7,7 @@ import { DaysTable } from './components/days-table';
 import { MonthsTable } from './components/months-table';
 import { YearsTable } from './components/years-table';
 import { useCalendar } from './useCalendar';
-import { monthName } from './utils';
+import { limitDate, monthName } from './utils';
 import { View, SelectorView } from './typings';
 
 import styles from './index.module.css';
@@ -97,9 +97,9 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             selectorView = 'full',
             value,
             month: monthTimestamp,
-            defaultMonth: defaultMonthTimestamp = +new Date(),
             minDate: minDateTimestamp,
             maxDate: maxDateTimestamp,
+            defaultMonth: defaultMonthTimestamp = +new Date(),
             selectedFrom,
             selectedTo,
             offDays,
@@ -115,8 +115,15 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
 
         const selected = useMemo(() => (value ? new Date(value) : undefined), [value]);
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        const defaultMonth = useMemo(() => startOfMonth(selected || defaultMonthTimestamp), []);
+        const defaultMonth = useMemo(
+            () =>
+                startOfMonth(
+                    selected ||
+                        limitDate(defaultMonthTimestamp, minDateTimestamp, maxDateTimestamp),
+                ),
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            [],
+        );
 
         const month = useMemo(() => (monthTimestamp ? new Date(monthTimestamp) : undefined), [
             monthTimestamp,
