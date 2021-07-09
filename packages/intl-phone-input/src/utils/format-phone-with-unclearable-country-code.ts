@@ -1,5 +1,7 @@
 import { Country } from '@alfalab/utils';
-import { getPhoneDiff } from './get-phone-diff';
+
+const RUSSIAN_DIAL_CODE = '7';
+const RUSSIAN_ALTERNATIVE_DIAL_CODE = '8';
 
 /**
  * Форматирует телефон с неудаляемым кодом страны
@@ -7,19 +9,13 @@ import { getPhoneDiff } from './get-phone-diff';
 export const formatPhoneWithUnclearableCountryCode = (phone: string, country: Country) => {
     const countryPrefix = `+${country.dialCode}`;
 
-    // При попытке стереть код страны возвращаем дефолтное значение
-    if (phone.length < countryPrefix.length) {
-        return countryPrefix;
-    }
-
-    const diffInCountryCode = getPhoneDiff(phone, country);
-
-    // Если код страны совпадает, даем вводить значение
-    if (!diffInCountryCode) {
+    if (phone.startsWith(countryPrefix)) {
         return phone;
     }
 
-    const numberTail = phone.slice(countryPrefix.length + diffInCountryCode.length);
+    if (country.dialCode === RUSSIAN_DIAL_CODE && phone.startsWith(RUSSIAN_ALTERNATIVE_DIAL_CODE)) {
+        return phone.replace(RUSSIAN_ALTERNATIVE_DIAL_CODE, countryPrefix);
+    }
 
-    return `${countryPrefix}${diffInCountryCode}${numberTail}`;
+    return countryPrefix;
 };
