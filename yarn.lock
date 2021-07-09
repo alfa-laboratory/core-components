@@ -45,6 +45,13 @@
     classnames "^2.2.6"
     react-merge-refs "^1.1.0"
 
+"@alfalab/core-components-loader@^1.1.1":
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-loader/-/core-components-loader-1.1.6.tgz#a781934a7ee86012b122c545250d5e0a6a51d0f8"
+  integrity sha512-qWLKIwsQRLFGqW1QEhKsKPRu+HHzhW9gsN0lrvwBFu7v1Ko0B3QY+usbyQ71tUK8j/Qytw0Fyulo5yvL5qdFHQ==
+  dependencies:
+    classnames "^2.2.6"
+
 "@alfalab/core-components-mq@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components-mq/-/core-components-mq-1.0.0.tgz#7bb1eb6651962178d05b63afb5cf65cf14156a49"
@@ -60,6 +67,11 @@
     classnames "^2.2.6"
     react-popper "^2.2.2"
     react-transition-group "^4.3.0"
+
+"@alfalab/core-components-portal@^1.4.0":
+  version "1.4.6"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-portal/-/core-components-portal-1.4.6.tgz#8c28768951df565844a8e9cd187409d20ebb4a03"
+  integrity sha512-92GqAuebFzd4jqS11BzL0HugYYZu2aXkQHN4tk1faUPBCKctQSJqU8wXpOKsTawd3qeCSEsYXgR2SQWORv7ihQ==
 
 "@alfalab/core-components-select@^4.3.1":
   version "4.4.0"
