@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@4.3.0...@alfalab/core-components-themes@4.4.0) (2021-07-09)
+
+
+### Features
+
+* **themes:** confirmation mobile theme ([a85233c](https://github.com/alfa-laboratory/core-components/commit/a85233c1e859e933e1c51997678c8a8c6134e353))
+
+
+
+
+
 # [4.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@4.2.0...@alfalab/core-components-themes@4.3.0) (2021-06-22)
 
 

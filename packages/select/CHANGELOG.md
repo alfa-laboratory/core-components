@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.0.0...@alfalab/core-components-select@9.1.0) (2021-07-09)
+
+
+### Bug Fixes
+
+* **input-autocomplete:** popover height with dynamic height options ([da24758](https://github.com/alfa-laboratory/core-components/commit/da247589a35ba33742f95fc96ed63b0ba65cdf11))
+
+
+### Features
+
+* **select:** dont highlight first option on open ([015a084](https://github.com/alfa-laboratory/core-components/commit/015a084be6e5d837b6368afe6ca63a0a4c325435))
+
+
+
+
+
 # [9.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@8.1.1...@alfalab/core-components-select@9.0.0) (2021-07-08)
 
 
