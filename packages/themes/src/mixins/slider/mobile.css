@@ -1,0 +1,5 @@
+@import '../../../../themes/src/default.css';
+
+@define-mixin slider-mobile {
+    --slider-range-offest: 0;
+}
