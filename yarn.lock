@@ -95,11 +95,6 @@
   resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.2.0.tgz#729ae06c5c3ebe02a9ca0f98bcc01c8713c5c54b"
   integrity sha512-AHrMhlC3AxL085T/NnCjYsiERUFkfh9MtvXAAs954w2RZdhQFlLpevESv0lzjoVSnYfrV4yOzQyUbb/WGDQFGA==
 
-"@alfalab/icons-classic@^1.7.0":
-  version "1.43.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-classic/-/icons-classic-1.43.0.tgz#c26df73436e2e97f6572283c95ab44f8280e8601"
-  integrity sha512-SqnpPxrtp50A1zYcGf6IZcl7Da2AF1Ol1z2HsapM7XOAAc3uObLtdfk02vk+kw/+fECrTVnDexhp8bLfq4lnzA==
-
 "@alfalab/icons-classic@^1.74.0":
   version "1.74.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-classic/-/icons-classic-1.74.0.tgz#d0150a0c31dfe98dd88bb1ecf47d1073589321f6"
@@ -110,22 +105,12 @@
   resolved "https://registry.yarnpkg.com/@alfalab/icons-flag/-/icons-flag-1.9.0.tgz#4c9a4b9738a00694253803cb36fc243bcf3daa7a"
   integrity sha512-JA41pz/OVc0a2CRYPTNl++q5kLJWEH3il9+utDuTMm25d2v81Z0bWcOgYwu6uRBQaFOuKbbui5Wl+vdjZgC7Lg==
 
-"@alfalab/icons-glyph@^1.102.0":
-  version "1.124.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.124.0.tgz#a20bff957e83b58b765b67cada35a1e343519db2"
-  integrity sha512-oMvQgvsrVVOjej32LXm2cLnaZMcY+Y3MnYNQgoBYbM2rkzmyHUSphajDEMkmQ4NYhCl7ZC83RdBwLlhN8UW3/A==
-
-"@alfalab/icons-glyph@^1.129.0":
-  version "1.129.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.129.0.tgz#f2a3054a394fb0a9bc453c48b71fd486c932c194"
-  integrity sha512-DN6o6v6Rp8X5kYYxzFCGY2Lhq5FIEvOuLHu0MlpPPJ+qsuz80tGAs9kNNbQR2vlCynm4y7H1S3LDQNIczoj0bQ==
-
-"@alfalab/icons-glyph@^1.141.0", "@alfalab/icons-glyph@^1.150.0":
+"@alfalab/icons-glyph@^1.150.0":
   version "1.150.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.150.0.tgz#8982226948895bc9cb8f8655887124d6b84838a3"
   integrity sha512-+l2n+VAZZ34llOaGnP67TI5mSjeMiSQmrWNflZOXm1ujE6qmi+aY1wg+XmwLxaZ3h7f7gqsasWrX81z7rDPFqg==
 
-"@alfalab/icons-glyph@^1.26.0", "@alfalab/icons-glyph@^1.70.0":
+"@alfalab/icons-glyph@^1.26.0":
   version "1.99.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.99.0.tgz#6c39d80750644b739fa8c599344404697e8d4920"
   integrity sha512-iA23rxX/DEJYdzuG92GbORJLAg3HAQtL8xjg8n3wk573VLftJuPV8nQHPKtXSTX2V2bfH+LE0BRS6x2Y8F1TnQ==
@@ -134,11 +119,6 @@
   version "1.19.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-logotype/-/icons-logotype-1.19.0.tgz#5ba485ce7fa8029afe2b4e066b13ff55178685a0"
   integrity sha512-AxlF6Jyw8bqILtrBRCkpaEZkjdXcVxJNxAR3CQU4kewH5S2D5LluVmjT+gY752a6biuIs/OvHi7VWjDDtCp7Rg==
-
-"@alfalab/icons-logotype@^1.4.0":
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-logotype/-/icons-logotype-1.8.0.tgz#b81e4aa24767172af498043688c0bd853e3e743f"
-  integrity sha512-+KezJJRVQefF1vooTWgMf+kHm6MtWHf5egOhkHVmh8Js5OpPUlwZcrsEeAxAjs+1aoX/ZOglzhhMyTFPbZjxMw==
 
 "@alfalab/rollup-plugin-postcss@^3.6.0":
   version "3.6.0"

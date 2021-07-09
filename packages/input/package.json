@@ -22,7 +22,7 @@
         "@alfalab/core-components-button": "^3.0.1",
         "@alfalab/core-components-form-control": "^6.2.0",
         "@alfalab/hooks": "^1.0.0",
-        "@alfalab/icons-glyph": "^1.26.0",
+        "@alfalab/icons-glyph": "^1.150.0",
         "classnames": "^2.2.6",
         "react-merge-refs": "^1.1.0"
     }
