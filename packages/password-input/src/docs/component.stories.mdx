@@ -1,14 +1,15 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import { Tabs } from 'storybook/blocks';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { PasswordInput } from '..';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+
 
 <Meta
-    title='Компоненты'
+    title='Компоненты/PasswordInput'
     component={PasswordInput}
     parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
@@ -36,7 +37,7 @@ import Description from './description.mdx';
 <ComponentHeader
     name='PasswordInput'
     version={version}
-    package='@alfalab/core-components-password-input'
+    package='@alfalab/core-components/password-input'
     stage={2}
     design='https://www.figma.com/file/uGndMZufgvqxaNQTaNTEjG/B2B-Web-Components?node-id=17757%3A0'
 />
@@ -47,5 +48,6 @@ import { PasswordInput } from '@alfalab/core-components/password-input';
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={PasswordInput} /> }
 />

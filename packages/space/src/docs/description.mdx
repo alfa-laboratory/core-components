@@ -1,0 +1,115 @@
+Компонент для установки расстояния между компонентами.
+
+### Примеры
+
+Просто карточки.
+
+```tsx live
+<Space>
+    <CardImage cardId='EG' />
+    <CardImage cardId='GQ' />
+    <CardImage cardId='SU' />
+</Space>
+```
+
+Пользовательское расстояние между карточками.
+
+```tsx live
+<Space direction='horizontal' size={32}>
+    <CardImage cardId='EG' />
+    <CardImage cardId='GQ' />
+    <CardImage cardId='SU' />
+</Space>
+```
+
+Пользовательское расстояние между карточками в виде массива [64, 32].
+
+```tsx live
+<div style={{ width: '700px' }}>
+    <Space direction='horizontal' size={[64, 32]} wrap>
+        <CardImage cardId='EG' />
+        <CardImage cardId='GQ' />
+        <CardImage cardId='SU' />
+    </Space>
+</div>
+```
+
+С адаптивом.
+
+```tsx live
+<Space direction='horizontal' size={32} wrap>
+    <CardImage cardId='EG' />
+    <CardImage cardId='GQ' />
+    <CardImage cardId='SU' />
+</Space>
+```
+
+С разделителем.
+
+```tsx live
+<Space direction='vertical' divider={<Divider />} size='l'>
+    <CardImage cardId='EG' />
+    <CardImage cardId='GQ' />
+    <CardImage cardId='SU' />
+</Space>
+```
+
+Группа для полей ввода. Каждое поле ввода с аттрибутом block. Space c fullWidth.
+
+```tsx live
+<Space direction='horizontal' fullWidth>
+    <Input block placeholder='Над вишней в цвету' />
+    <Input block placeholder='Спряталась за облака' />
+    <Input block placeholder='Скромница луна.' />
+    <Input block placeholder='(с) Мацуо Басе' />
+</Space>
+```
+
+Автоматический перенос строки.
+
+```tsx live
+<Space direction='horizontal' wrap>
+    <Button>Над вишней в цвету</Button>
+    <Button>Спряталась за облака</Button>
+    <Button>Скромница луна.</Button>
+    <Button>(с) Мацуо Басе</Button>
+    <Button>Над вишней в цвету</Button>
+    <Button>Спряталась за облака</Button>
+    <Button>Скромница луна.</Button>
+    <Button>(с) Мацуо Басе</Button>
+    <Button>Над вишней в цвету</Button>
+    <Button>Спряталась за облака</Button>
+</Space>
+```
+
+Выравнивание.
+
+```tsx live
+<Space direction='horizontal'>
+    <Space align='center'>
+        <Button>Над вишней в цвету</Button>
+        <Button>Спряталась за облака</Button>
+        <CardImage cardId='SU' />
+    </Space>
+    <Space align='end'>
+        <Button>Над вишней в цвету</Button>
+        <Button>Спряталась за облака</Button>
+        <CardImage cardId='SU' />
+    </Space>
+</Space>
+```
+
+```tsx live
+<Space direction='vertical'>
+    <Space direction='horizontal' align='start'>
+        <Button>Над вишней в цвету</Button>
+        <Button>Спряталась за облака</Button>
+        <CardImage cardId='SU' />
+    </Space>
+    <Space direction='horizontal' align='end'>
+        <Button>Над вишней в цвету</Button>
+        <Button>Спряталась за облака</Button>
+        <CardImage cardId='SU' />
+    </Space>
+</Space>
+```

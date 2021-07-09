@@ -1,0 +1,82 @@
+Компонент переключателя.
+
+```tsx live
+render(() => {
+    const [checked, setChecked] = React.useState(false);
+
+    const handleChange = () => setChecked(!checked);
+
+    return (
+        <Switch
+            checked={checked}
+            disabled={boolean('disabled', false)}
+            reversed={boolean('reversed', false)}
+            className={text('className', '')}
+            dataTestId={text('dataTestId', '')}
+            label={text('label', 'Условие тоггла')}
+            hint={text('hint', 'Описание пункта')}
+            onChange={handleChange}
+        />
+    );
+});
+```
+
+### Переключатель без текста
+
+```tsx live
+render(() => {
+    const [checked, setChecked] = React.useState(false);
+
+    const handleChange = () => setChecked(!checked);
+
+    return <Switch checked={checked} onChange={handleChange} />;
+});
+```
+
+### Кастомный контент
+
+```tsx live
+render(() => {
+    const [checked, setChecked] = React.useState(false);
+
+    const handleChange = () => setChecked(!checked);
+
+    return (
+        <Switch
+            checked={checked}
+            onChange={handleChange}
+            label={
+                <span style={{ display: 'flex' }}>
+                    <span style={{ marginRight: '8px' }}>Согласен</span>
+                    <StarMIcon />
+                </span>
+            }
+            hint={
+                <span>
+                    вы соглашаетесь с <Button view='ghost'>условиями</Button>
+                </span>
+            }
+        />
+    );
+});
+```
+
+### Переключатель справа от контента
+
+```tsx live
+render(() => {
+    const [checked, setChecked] = React.useState(false);
+
+    const handleChange = () => setChecked(!checked);
+
+    return (
+        <Switch
+            checked={checked}
+            onChange={handleChange}
+            reversed={true}
+            label='Условие тоггла'
+            hint='Описание пункта'
+        />
+    );
+});
+```

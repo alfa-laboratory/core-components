@@ -1,0 +1,45 @@
+import { Meta, Props, Story } from '@storybook/addon-docs/blocks';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
+import { MaskedInput } from '../Component';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+
+export const mask = [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/];
+
+
+<Meta
+    title='Компоненты/MaskedInput'
+    component={MaskedInput}
+    parameters={{
+        'theme-switcher': { themes: ['click'] }
+    }}
+/>
+
+<!-- Canvas -->
+
+<Story name='MaskedInput'>
+    <div style={{ width: '240px' }}>
+        <MaskedInput mask={mask} placeholder='0000 0000 0000 0000' block={true} />
+    </div>
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='MaskedInput'
+    version={version}
+    package='@alfalab/core-components/masked-input'
+    stage={2}
+/>
+
+```tsx
+import { MaskedInput } from '@alfalab/core-components/masked-input';
+```
+
+<Tabs
+    description={<Description />}
+    props={<Props of={MaskedInput} />}
+    changelog={<Changelog />}
+/>

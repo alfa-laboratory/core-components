@@ -1,21 +1,9 @@
-import { Container } from 'storybook/blocks';
+Компонент ввода пароля
 
-import { PasswordInput } from '../';
-
-Компонент ввода пароля.
-
-Uncontrolled-way:
+### Управление видимостью пароля
 
 ```tsx live
-<Container>
-    <PasswordInput />
-</Container>
-```
-
-Controlled-way:
-
-```tsx live
-const ControlledPasswordInput = () => {
+render(() => {
     const [passwordVisible, setPasswordVisible] = React.useState(false);
 
     return (
@@ -26,11 +14,5 @@ const ControlledPasswordInput = () => {
             }}
         />
     );
-};
-
-render(
-    <Container>
-        <ControlledPasswordInput />
-    </Container>,
-);
+});
 ```

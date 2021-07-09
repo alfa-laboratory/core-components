@@ -1,6 +1,9 @@
 import { Description } from '@storybook/addon-docs/blocks';
 
-<Meta title='Гайдлайны|Доступность / Аудио и видео' />
+<Meta
+  title='Гайдлайны/Доступность/Аудио и видео'
+  parameters={{ previewTabs: { canvas: { hidden: true } }}}
+/>
 
 ## Аудио и видео
 
@@ -14,7 +17,7 @@ import { Description } from '@storybook/addon-docs/blocks';
 
 ### Пример: Реклама карты World of Warships
 
-<iframe aria-describedby="video-description" src="//coub.com/embed/vdmae?muted=false&autostart=false&originalSize=false&startWithHD=false" frameborder="0" width="640" height="360" allow="autoplay"></iframe>
+<iframe aria-describedby="video-description" src="//coub.com/embed/vdmae?muted=false&autostart=false&originalSize=false&startWithHD=false" frameBorder="0" width="640" height="360" allow="autoplay"></iframe>
 <br/>
 <br/>
 <p id="video-description">Видео-реклама банковской карты World of Warships от Альфа-Банк.</p>
@@ -22,7 +25,7 @@ import { Description } from '@storybook/addon-docs/blocks';
 ```tsx
 <h3>Реклама карты World of Warships</h3>
 
-<iframe aria-describedby="video-description" src="//coub.com/embed/vdmae?muted=false&autostart=false&originalSize=false&startWithHD=false" frameborder="0" width="640" height="360" allow="autoplay"></iframe>
+<iframe aria-describedby="video-description" src="//coub.com/embed/vdmae?muted=false&autostart=false&originalSize=false&startWithHD=false" frameBorder="0" width="640" height="360" allow="autoplay"></iframe>
 
 <p id="video-description">Видео-реклама банковской карты World of Warships от Альфа-Банк.</p>
 ```

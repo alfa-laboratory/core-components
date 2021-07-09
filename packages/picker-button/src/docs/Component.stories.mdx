@@ -1,0 +1,58 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { text, boolean, select } from '@storybook/addon-knobs';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
+import { PickerButton } from '../Component';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+
+export const options = [
+    { key: 'Заказать карту' },
+    { key: 'Выписка по счёту' },
+    { key: 'Выпустить карту' },
+    { key: 'Скопировать реквизиты' },
+];
+
+
+<Meta
+    title='Компоненты/PickerButton'
+    component={PickerButton}
+    parameters={{ 'theme-switcher': { themes: ['corp'] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='PickerButton'>
+    <PickerButton
+        options={options}
+        label={text('label', 'Действие')}
+        size={select('size', ['xs', 's', 'm'], 'm')}
+        view={select('view', ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost'], 'secondary')}
+        disabled={boolean('disabled', false)}
+        loading={boolean('loading', false)}
+        leftAddons={boolean('Иконка слева', false) ? <Icon/> : null}
+    />
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='PickerButton'
+    version={version}
+    package='@alfalab/core-components/picker-button'
+    stage={1}
+/>
+
+```tsx
+import { PickerButton } from '@alfalab/core-components/picker-button';
+```
+
+<Tabs
+    description={<Description />}
+    props={<Props of={PickerButton} />}
+    changelog={<Changelog />}
+/>

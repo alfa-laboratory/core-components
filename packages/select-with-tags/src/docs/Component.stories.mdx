@@ -1,0 +1,100 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { pluralize } from '@alfalab/utils';
+import { Tag } from '@alfalab/core-components-tag';
+import { Input } from '@alfalab/core-components-input';
+import { MaskedInput } from '@alfalab/core-components-masked-input';
+import { Arrow, Option } from '@alfalab/core-components-select';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
+import { SelectWithTags } from '../component';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+
+export const options = [
+    { key: '1', content: 'H', value: 'H' },
+    { key: '2', content: 'Li', value: 'Li' },
+    { key: '3', content: 'Na', value: 'Na' },
+    { key: '4', content: 'Curium', value: 'Curium' },
+    { key: '5', content: 'Berkelium', value: 'Berkelium' },
+    { key: '6', content: 'Californium', value: 'Californium' },
+    { key: '7', content: 'Einsteinium', value: 'Einsteinium' },
+    { key: '8', content: 'Fermium', value: 'Fermium' },
+    { key: '9', content: 'Mendelevium', value: 'Mendelevium' },
+    { key: '10', content: 'Nobelium', value: 'Nobelium' },
+    { key: '11', content: 'Lawrencium', value: 'Lawrencium' },
+    { key: '12', content: 'Rutherfordium', value: 'Rutherfordium' },
+    { key: '13', content: 'Dubnium', value: 'Dubnium' },
+    { key: '14', content: 'Seaborgium', value: 'Seaborgium' },
+    { key: '15', content: 'Bohrium', value: 'Bohrium' },
+];
+
+
+<Meta
+    title='Компоненты/SelectWithTags'
+    component={SelectWithTags}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='SelectWithTags'>
+    {React.createElement(() => {
+        const [value, setValue] = React.useState('');
+        const [selected, setSelected] = React.useState([]);
+        const handleInput = event => {
+            setValue(event.target.value);
+        };
+        const handleChange = React.useCallback(({ selectedMultiple }) => {
+            setSelected(selectedMultiple);
+        }, []);
+        const transformCollapsedTagText = (count) => {
+            return `+${count} ${pluralize(count, 'элемент', 'элемента', 'элементов')}`;
+        };
+        return (
+            <div style={{width: '400px'}}>
+                <SelectWithTags
+                    collapseTagList={boolean('collapseTagList', true)}
+                    moveInputToNewLine={boolean('moveInputToNewLine', true)}
+                    options={options}
+                    block={boolean('block', true)}
+                    size={select('size', ['s', 'm', 'l', 'xl'], 'xl')}
+                    disabled={boolean('disabled', false)}
+                    error={text('error', '')}
+                    success={boolean('success', false)}
+                    hint={text('hint', '')}
+                    Arrow={boolean('Arrow', false) ? Arrow : undefined}
+                    circularNavigation={boolean('circularNavigation', false)}
+                    placeholder={text('placeholder', 'Элемент')}
+                    label={text('label', '')}
+                    autocomplete={boolean('autocomplete', true)}
+                    onInput={handleInput}
+                    transformCollapsedTagText={transformCollapsedTagText}
+                    value={value}
+                    onChange={handleChange}
+                    selected={selected}
+                    emptyListPlaceholder={text('emptyListPlaceholder', 'Ничего не найдено.')}
+                />
+            </div>
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='SelectWithTags'
+    stage={2}
+/>
+
+```tsx
+import { SelectWithTags } from '@alfalab/core-components/select-with-tags';
+```
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props of={SelectWithTags} />}
+/>

@@ -1,0 +1,17 @@
+Компонент для затемнения фона.
+Поддерживает все параметры из [CSSTransition](http://reactcommunity.org/react-transition-group/css-transition).
+
+```tsx live
+render(() => {
+    const [open, setOpen] = React.useState(false);
+
+    return (
+        <div style={{ zIndex: 1, position: 'relative' }}>
+            <Button onClick={() => setOpen(!open)} size='xs'>
+                {open ? 'Закрыть' : 'Открыть'}
+            </Button>
+            <Backdrop open={open} onClick={() => setOpen(false)} />
+        </div>
+    );
+});
+```

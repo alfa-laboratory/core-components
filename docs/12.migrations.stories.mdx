@@ -1,32 +1,34 @@
-import { Description } from '@storybook/addon-docs/blocks';
-import migrationsReadme from '../packages/codemod/README.md';
+import MigrationsReadme from '../packages/codemod/README.md';
 
-<Meta title='Гайдлайны|Миграция со старых компонентов' />
+<Meta
+    title='Гайдлайны/Миграция со старых компонентов'
+    parameters={{ previewTabs: { canvas: { hidden: true } } }}
+/>
 
 ## Миграция со старых компонентов
 
 Таблица соответствий:
 
-| Старый                   | Замена                                                         |
-| ------------------------ | -------------------------------------------------------------- |
-| Dropdown                 | Dropdown                                                       |
-| FormField                | Space                                                          |
-| GeneralConfirmationModal | ConfirmationModal                                              |
-| Heading                  | Typography.Title<br/>Typography.TitleResponsive                |
-| Icon                     | Один из вариантов                                              |
-| IconButton               | IconButton<br/>Button view='ghost' rightAddons={&lt;Icon/&gt;} |
-| InputGroup               | Space                                                          |
-| Label                    | Typography.Text                                                |
-| MobileSheet              | BottomSheet                                                    |
-| MoneyInput               | AmountInput                                                    |
-| Paragraph                | Typography.Text                                                |
-| Popup                    | Popover                                                        |
-| RangeSlider              | SliderInput                                                    |
-| SliderField              | SliderInput                                                    |
-| Spin                     | Spinner                                                        |
-| TagButton                | Tag                                                            |
-| Toggle                   | Switch                                                         |
+| Старый                   | Замена                                                                                       |
+| ------------------------ | -------------------------------------------------------------------------------------------- |
+| Dropdown                 | Tooltip                                                                                      |
+| FormField                | Space                                                                                        |
+| GeneralConfirmationModal | [ConfirmationModal](https://digital.alfabank.ru/demo/arui-private/#!/Core/ConfirmationModal) |
+| Heading                  | Typography.Title<br/>Typography.TitleResponsive                                              |
+| Icon                     | Один из вариантов                                                                            |
+| IconButton               | IconButton<br/>Button view='ghost' rightAddons={&lt;Icon/&gt;}                               |
+| InputGroup               | Space                                                                                        |
+| Label                    | Typography.Text                                                                              |
+| MobileSheet              | BottomSheet                                                                                  |
+| MoneyInput               | AmountInput                                                                                  |
+| Paragraph                | Typography.Text                                                                              |
+| Popup                    | Popover                                                                                      |
+| RangeSlider              | SliderInput                                                                                  |
+| SliderField              | SliderInput                                                                                  |
+| Spin                     | Spinner                                                                                      |
+| TagButton                | Tag                                                                                          |
+| Toggle                   | Switch                                                                                       |
 
 <!-- | Sidebar | SidePanel | -->
 
-<Description>{migrationsReadme}</Description>
+<MigrationsReadme />

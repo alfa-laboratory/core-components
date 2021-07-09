@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@3.1.0...@alfalab/core-components-calendar-input@4.0.0) (2021-07-08)
+
+
+### Features
+
+* upgrade storybook ([#696](https://github.com/alfa-laboratory/core-components/issues/696))
+
 # [3.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@3.0.8...@alfalab/core-components-calendar-input@3.1.0) (2021-06-30)
 
 
