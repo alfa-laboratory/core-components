@@ -48,6 +48,7 @@ describe(
                     'tertiary',
                     'secondary',
                     'primary',
+                    'link',
                 ],
             },
             testStory: false,
