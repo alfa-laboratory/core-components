@@ -1,0 +1,251 @@
+Поле ввода, совмещенное со слайдером
+
+```tsx live
+const min = 0;
+const max = 10;
+const step = 1;
+const steps = ['0', '5', '10'];
+
+const normalizeValue = (value, min, max) =>
+    value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
+
+render(() => {
+    const [value, setValue] = React.useState('');
+
+    const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
+
+    return (
+        <SliderInput
+            value={value}
+            min={min}
+            max={max}
+            step={step}
+            onChange={handleChange}
+            block={true}
+            steps={steps}
+        />
+    );
+});
+```
+
+```tsx live
+// import { withSuffix } from '@alfalab/core-components/with-suffix';
+// import { Input } from '@alfalab/core-components/input';
+
+const SuffixInput = withSuffix(Input);
+
+const min = 36;
+const max = 360;
+const step = 1;
+const steps = ['36 мес', '180 мес', '360 мес'];
+
+const normalizeValue = (value, min, max) =>
+    value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
+
+render(() => {
+    const [value, setValue] = React.useState('');
+
+    const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
+
+    return (
+        <SliderInput
+            value={value}
+            sliderValue={+value}
+            min={min}
+            max={max}
+            step={step}
+            onChange={handleChange}
+            block={true}
+            label='Оставшийся срок по кредиту'
+            steps={steps}
+            Input={SuffixInput}
+            customInputProps={{
+                suffix: ' мес',
+            }}
+        />
+    );
+});
+```
+
+```tsx live
+// import { withSuffix } from '@alfalab/core-components/with-suffix';
+// import { Input } from '@alfalab/core-components/input';
+
+const SuffixInput = withSuffix(Input);
+
+const min = 1;
+const max = 5;
+const step = 1;
+const steps = ['1 год', '2 года', '3 года', '4 года', '5 лет'];
+
+const normalizeValue = (value, min, max) =>
+    value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
+
+const getSuffix = years => {
+    if (years <= 0) return '';
+    if (years === 1) return ' год';
+    if (years > 1 && years < 5) return ' года';
+    if (years >= 5) return ' лет';
+};
+
+render(() => {
+    const [value, setValue] = React.useState('');
+
+    const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
+
+    return (
+        <SliderInput
+            value={value}
+            min={min}
+            max={max}
+            step={step}
+            onChange={handleChange}
+            block={true}
+            label='Срок кредита'
+            steps={steps}
+            Input={SuffixInput}
+            customInputProps={{
+                suffix: getSuffix(value),
+            }}
+        />
+    );
+});
+```
+
+```tsx live
+// import { withSuffix } from '@alfalab/core-components/with-suffix';
+// import { Input } from '@alfalab/core-components/input';
+
+const SuffixInput = withSuffix(Input);
+
+const min = 0;
+const max = 100;
+const step = 1;
+const steps = [
+    <span style={{ flexBasis: '19%' }}>0%</span>,
+    <span style={{ flexBasis: '62%' }}>20%</span>,
+    <span style={{ flexBasis: '18%' }}>80%</span>,
+    <span style={{}}>100%</span>,
+];
+
+const normalizeValue = (value, min, max) =>
+    value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
+
+render(() => {
+    const [value, setValue] = React.useState('');
+
+    const handleChange = (event, { value }) => setValue(normalizeValue(value, min, max));
+
+    return (
+        <SliderInput
+            value={value}
+            min={min}
+            max={max}
+            step={step}
+            onChange={handleChange}
+            block={true}
+            label='Процент по кредиту'
+            steps={steps}
+            Input={SuffixInput}
+            customInputProps={{
+                suffix: ' %',
+            }}
+        />
+    );
+});
+```
+
+## AmountSliderInput
+
+```tsx live
+// import { AmountInput } from '@alfalab/core-components/amount-input';
+
+const min = 100000;
+const max = 600000;
+const step = 1000;
+const steps = ['100 тыс.', '600 тыс.'];
+
+const normalizeValue = (value, min, max) =>
+    value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
+
+render(() => {
+    const [value, setValue] = React.useState('');
+
+    const handleInputChange = (event, { value }) => {
+        setValue(Math.round(+value / 100));
+    };
+
+    const handleSliderChange = (event, { value }) => {
+        setValue(value);
+    };
+
+    const handleBlur = () => {
+        if (value !== '') {
+            setValue(Math.max(min, Math.min(max, +value)));
+        }
+    };
+
+    return (
+        <SliderInput
+            value={value !== '' ? value * 100 : ''}
+            sliderValue={value}
+            onInputChange={handleInputChange}
+            onSliderChange={handleSliderChange}
+            onBlur={handleBlur}
+            min={min}
+            max={max}
+            step={step}
+            Input={AmountInput}
+            steps={steps}
+            label='Сумма кредита'
+        />
+    );
+});
+```
+
+```tsx live
+// import { AmountInput } from '@alfalab/core-components/amount-input';
+
+const min = 100000;
+const max = 22000000;
+const step = 1000;
+
+render(() => {
+    const [value, setValue] = React.useState('');
+
+    const handleInputChange = (event, { value }) => {
+        setValue(Math.round(+value / 100));
+    };
+
+    const handleSliderChange = (event, { value }) => {
+        setValue(value);
+    };
+
+    const handleBlur = () => {
+        if (value !== '') {
+            setValue(Math.max(min, Math.min(max, +value)));
+        }
+    };
+
+    return (
+        <SliderInput
+            value={value !== '' ? value * 100 : ''}
+            sliderValue={value}
+            onInputChange={handleInputChange}
+            onSliderChange={handleSliderChange}
+            onBlur={handleBlur}
+            min={min}
+            max={max}
+            step={step}
+            label='Первоначальный взнос'
+            Input={AmountInput}
+            size='l'
+            hint={
+                <span style={{ color: '#6D7986', fontSize: '14px', lineHeight: '18px' }}>
+                    Снизьте ставку 8,49% ➝ 6,19%, увеличив первоначальный взнос до 22 млн ₽
+                </span>
+            }
+        />
+    );
+});
+```

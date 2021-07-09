@@ -1,0 +1,9 @@
+HOC, позволяющий закрепить определенный текст после значения инпута.
+
+Добавляет в переданный инпут доп. пропсу `suffix?: ReactNode`
+
+```tsx live
+const SuffixInput = withSuffix(Input);
+
+render(<SuffixInput suffix={<b> мес</b>} />);
+```

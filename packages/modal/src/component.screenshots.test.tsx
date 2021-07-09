@@ -16,29 +16,28 @@ describe('Modal | ModalMobile', () => {
         const getKnobs = () => {
             if (theme === 'click') {
                 return {
-                    open: true,
-                    header: [true, false],
                     'header.title': 'Заголовок',
                     'header.hasCloser': [false, true],
-                    footer: [false, true],
                 };
             }
 
             return {
-                open: true,
-                header: [true, false],
                 'header.title': '',
                 'header.hasCloser': true,
-                footer: [false, true],
             };
         };
 
         return screenshotTesting({
             cases: generateTestCases({
                 componentName: 'Modal',
-                subComponentName: 'ModalMobile',
                 testStory: false,
-                knobs: getKnobs(),
+                knobs: {
+                    ...getKnobs(),
+                    open: true,
+                    header: [true, false],
+                    footer: [false, true],
+                    ModalComponent: 'ModalMobile',
+                },
             }),
             viewport: {
                 width: 700,
@@ -63,31 +62,29 @@ describe('Modal | ModalDesktop', () => {
         const getKnobs = () => {
             if (theme === 'click') {
                 return {
-                    open: true,
                     header: [true, false],
                     'header.title': 'Заголовок',
-                    'header.hasCloser': [false, true],
-                    footer: [false, true],
-                    fullscreen: [false, true],
                 };
             }
 
             return {
-                open: true,
                 header: false,
                 'header.title': '',
-                'header.hasCloser': [false, true],
-                footer: [false, true],
-                fullscreen: [false, true],
             };
         };
 
         return screenshotTesting({
             cases: generateTestCases({
                 componentName: 'Modal',
-                subComponentName: 'ModalDesktop',
                 testStory: false,
-                knobs: getKnobs(),
+                knobs: {
+                    ...getKnobs(),
+                    open: true,
+                    footer: [false, true],
+                    fullscreen: [false, true],
+                    'header.hasCloser': [false, true],
+                    ModalComponent: 'ModalDesktop',
+                },
             }),
             viewport: {
                 width: 700,
@@ -112,12 +109,12 @@ describe('Modal | ModalDesktop sizes', () => {
         return screenshotTesting({
             cases: generateTestCases({
                 componentName: 'Modal',
-                subComponentName: 'ModalDesktop',
                 testStory: false,
                 knobs: {
                     open: true,
                     header: true,
                     size: ['s', 'm', 'l'],
+                    ModalComponent: 'ModalDesktop',
                 },
             }),
             viewport: {
@@ -144,9 +141,9 @@ describe('Modal | Footer layout', () => {
             cases: [
                 ...generateTestCases({
                     componentName: 'Modal',
-                    subComponentName: 'ModalDesktop',
                     testStory: false,
                     knobs: {
+                        ModalComponent: 'ModalDesktop',
                         open: true,
                         header: false,
                         footer: true,
@@ -154,9 +151,9 @@ describe('Modal | Footer layout', () => {
                 }),
                 ...generateTestCases({
                     componentName: 'Modal',
-                    subComponentName: 'ModalDesktop',
                     testStory: false,
                     knobs: {
+                        ModalComponent: 'ModalDesktop',
                         open: true,
                         header: false,
                         footer: true,
@@ -165,9 +162,9 @@ describe('Modal | Footer layout', () => {
                 }),
                 ...generateTestCases({
                     componentName: 'Modal',
-                    subComponentName: 'ModalDesktop',
                     testStory: false,
                     knobs: {
+                        ModalComponent: 'ModalDesktop',
                         open: true,
                         header: false,
                         footer: true,

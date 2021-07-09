@@ -1,0 +1,49 @@
+import { Meta, Props, Story } from '@storybook/addon-docs/blocks';
+import {boolean, select, text} from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+
+import { Backdrop } from '../Component';
+import { version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../vars.css';
+
+
+<Meta
+    title='Компоненты/Backdrop'
+    component={Backdrop}
+    parameters={{ 'theme-switcher': { themes: ['click'], previewTabs: { canvas: { hidden: true } } } }}
+/>
+
+<Story name="Backdrop">
+    <Backdrop
+        open={boolean('open', false)}
+        invisible={boolean('invisible', false)}
+        unmountOnExit={boolean('unmountOnExit', false)}
+    >
+        {text('children', '')}
+    </Backdrop>
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Backdrop'
+    version={version}
+    package='@alfalab/core-components/backdrop'
+    stage={1}
+/>
+
+
+```tsx
+import { Backdrop } from '@alfalab/core-components/backdrop';
+```
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props of={Backdrop} />}
+    cssVars={<CssVars css={styles}/>}
+/>
+

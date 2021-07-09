@@ -1,0 +1,41 @@
+Компонент тэг (чипсы).
+
+```tsx live
+render(() => {
+    const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+
+    const [checked, setChecked] = React.useState(false);
+
+    const handleClick = () => setChecked(!checked);
+
+    return (
+        <Tag
+            size={select('size', SIZES, 'm')}
+            disabled={boolean('disabled', false)}
+            checked={checked || boolean('checked', false)}
+            rightAddons={boolean('rightAddons', false) && <CopyMIcon />}
+            onClick={handleClick}
+        >
+            {text('label', 'Оплатить')}
+        </Tag>
+    );
+});
+```
+
+### Тэг с иконкой
+
+```tsx live
+render(() => {
+    const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+
+    const [checked, setChecked] = React.useState(false);
+
+    const handleClick = () => setChecked(!checked);
+
+    return (
+        <Tag checked={checked} onClick={handleClick} rightAddons={<CopyMIcon />}>
+            Нажми меня
+        </Tag>
+    );
+});
+```

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-dark-theme-styles-injector@1.5.1...@alfalab/core-components-dark-theme-styles-injector@1.5.2) (2021-07-09)
+
+**Note:** Version bump only for package @alfalab/core-components-dark-theme-styles-injector
+
+
+
+
+
 ## [1.5.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-dark-theme-styles-injector@1.5.0...@alfalab/core-components-dark-theme-styles-injector@1.5.1) (2021-06-30)
 
 
