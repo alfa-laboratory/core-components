@@ -12,6 +12,7 @@ import React, {
     Ref,
     FC,
     MutableRefObject,
+    RefObject,
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
@@ -165,6 +166,7 @@ export type BaseModalContext = {
     headerHighlighted?: boolean;
     footerHighlighted?: boolean;
     contentRef: Ref<HTMLElement>;
+    scrollableNodeRef: RefObject<HTMLDivElement | null>;
     setHasHeader: (exists: boolean) => void;
     setHasFooter: (exists: boolean) => void;
     onClose: Required<BaseModalProps>['onClose'];
@@ -177,6 +179,7 @@ export const BaseModalContext = React.createContext<BaseModalContext>({
     headerHighlighted: false,
     footerHighlighted: false,
     contentRef: () => null,
+    scrollableNodeRef: { current: null },
     setHasHeader: () => null,
     setHasFooter: () => null,
     onClose: () => null,
@@ -401,6 +404,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 headerHighlighted,
                 footerHighlighted,
                 contentRef,
+                scrollableNodeRef,
                 setHasHeader,
                 setHasFooter,
                 onClose: handleClose,
