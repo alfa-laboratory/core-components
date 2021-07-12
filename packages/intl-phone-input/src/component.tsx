@@ -237,7 +237,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         useEffect(() => {
             const input = inputRef.current;
 
-            if (!input) {
+            if (!input || clearableCountryCode) {
                 return;
             }
 
@@ -247,6 +247,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 permitCaretOnCountryCode(input, `+${country.dialCode}`.length);
             }
         });
+
         return (
             <InputAutocomplete
                 {...restProps}

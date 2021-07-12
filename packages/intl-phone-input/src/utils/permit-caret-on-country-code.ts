@@ -8,6 +8,6 @@ export function permitCaretOnCountryCode(input: HTMLInputElement, countryCodeLen
         }
     }
 
-    input.addEventListener('input', resetCaret);
+    input.addEventListener('keyup', resetCaret);
     input.addEventListener('click', resetCaret);
 }
