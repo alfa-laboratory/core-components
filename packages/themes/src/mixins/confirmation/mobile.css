@@ -1,0 +1,9 @@
+@import '../../../../themes/src/default.css';
+
+@define-mixin confirmation-mobile {
+    /* theme */
+    --confirmation-title-font-size: 18px;
+    --confirmation-title-line-height: 22px;
+    --confirmation-text-font-size: 14px;
+    --confirmation-text-line-height: 20px;
+}

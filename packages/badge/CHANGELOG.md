@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-badge@3.0.0...@alfalab/core-components-badge@3.1.0) (2021-07-09)
+
+
+### Bug Fixes
+
+* **badge:** fix name ([207d3d3](https://github.com/alfa-laboratory/core-components/commit/207d3d30171a84ff4021cd119c0da1316a92d14c))
+
+
+### Features
+
+* **badge:** add icon color ([d9e9065](https://github.com/alfa-laboratory/core-components/commit/d9e906596d157a5e3d7844bbecfb96f64d9f44e1))
+* **badge:** add screenshots ([3bbc8d0](https://github.com/alfa-laboratory/core-components/commit/3bbc8d032b0a267e9e6e949af5db6c955e25fb50))
+
+
+
+
+
 # [3.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-badge@2.3.0...@alfalab/core-components-badge@3.0.0) (2021-07-08)
 
 

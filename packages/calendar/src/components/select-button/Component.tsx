@@ -17,16 +17,13 @@ export type SelectButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 export const SelectButton = forwardRef<HTMLButtonElement, SelectButtonProps>(
-    ({ className, children, disabled, view = 'default', ...restProps }, ref) => (
+    ({ className, children, view = 'default', ...restProps }, ref) => (
         <Button
             {...restProps}
             ref={ref}
             view='ghost'
             size='xs'
-            disabled={disabled}
-            className={cn(styles.button, styles[view], className, {
-                [styles.disabled]: disabled,
-            })}
+            className={cn(styles.button, styles[view], className)}
         >
             {children}
         </Button>
