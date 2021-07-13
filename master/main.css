@@ -16406,24 +16406,24 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     text-decoration: none;
 }
 
-div.themeExample {
+div.themeExample_3M4Fx {
     margin: 0 0 24px;
 }
 
-div.container {
+div.container_Y0uGQ {
     margin: 24px 0 0;
     padding: 20px 24px 24px;
 }
 
-div.title {
+div.title_1PSH7 {
     margin: 0 0 12px;
 }
 
-pre.cssExample {
+pre.cssExample_3Mm-Q {
     opacity: 0.6;
 }
 
-.dark {
+.dark_OpHRS {
     --checkbox-label-color: var(--color-dark-text-primary);
     --checkbox-bg-color: var(--color-dark-bg-secondary);
     --checkbox-border-color: var(--color-dark-border-secondary-inverted);
@@ -16441,7 +16441,7 @@ pre.cssExample {
     color: var(--color-dark-text-primary);
 }
 
-.light {
+.light_1XjxL {
     --checkbox-label-color: var(--color-light-text-primary);
     --checkbox-bg-color: var(--color-light-bg-secondary);
     --checkbox-border-color: var(--color-light-border-secondary-inverted);
@@ -16459,7 +16459,7 @@ pre.cssExample {
     color: var(--color-light-text-primary);
 }
 
-.redEye {
+.redEye_3z3JV {
     --checkbox-label-color: var(--color-dark-text-accent);
     --checkbox-bg-color: transparent;
     --checkbox-border-color: var(--color-dark-border-accent);
