@@ -1,12 +1,12 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import { action } from '@storybook/addon-actions';
+import IconM from '@alfalab/icons-glyph/StarMIcon';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
-import IconM from '@alfalab/icons-glyph/StarMIcon';
 
 import { Button } from '../';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 import colorsStyles from '!!raw-loader!../default.module.css';
 
@@ -15,9 +15,9 @@ export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
 
 
 <Meta
-    title='Компоненты'
+    title='Компоненты/Button'
     component={Button}
-    parameters={{ 'theme-switcher': { themes: ['click', 'corp', 'corp-inverted', 'site', 'site-inverted', 'mobile'] } }}
+    parameters={{ 'theme-switcher': { themes: ['click', 'corp', 'site', 'mobile'] } }}
 />
 
 
@@ -46,7 +46,6 @@ export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
                     disabled={boolean('disabled', false)}
                     block={boolean('block', false)}
                     nowrap={boolean('nowrap', false)}
-                    onClick={action('click')}
                     leftAddons={boolean('leftAddons', false) && <IconM />}
                     rightAddons={boolean('rightAddons', false) && <IconM />}
                 >
@@ -73,6 +72,7 @@ import { Button } from '@alfalab/core-components/button';
 
 <Tabs
     description={<Description />}
-    prpos={<Props of={Button} /> }
+    changelog={<Changelog />}
+    props={<Props of={Button} /> }
     cssVars={<CssVars css={`${styles}${colorsStyles}`} />}
 />

@@ -10,7 +10,6 @@ Object {
       >
         <div
           class="spaceItem"
-          style="margin-bottom: 16px;"
         >
           <div
             class="cardImage rounded"
@@ -35,7 +34,6 @@ Object {
     >
       <div
         class="spaceItem"
-        style="margin-bottom: 16px;"
       >
         <div
           class="cardImage rounded"
@@ -123,7 +121,6 @@ Object {
         </div>
         <div
           class="spaceItem"
-          style="margin-bottom: 16px;"
         />
       </div>
     </div>
@@ -140,7 +137,6 @@ Object {
       </div>
       <div
         class="spaceItem"
-        style="margin-bottom: 16px;"
       />
     </div>
   </div>,

@@ -1,0 +1,39 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
+import { Stack } from '../';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+
+
+<Meta
+    title='Компоненты/Stack'
+    component={Stack}
+    parameters={{ previewTabs: { canvas: { hidden: true }} }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='Stack' />
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Stack'
+    version={version}
+    package='@alfalab/core-components/stack'
+    stage={2}
+/>
+
+```tsx
+import { Stack } from '@alfalab/core-components/stack';
+```
+
+<Tabs
+    description={<Description />}
+    props={<Props of={Stack} />}
+    changelog={<Changelog />}
+/>

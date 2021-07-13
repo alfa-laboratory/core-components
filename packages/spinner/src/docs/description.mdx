@@ -1,0 +1,39 @@
+Компонент спиннера.
+
+```tsx live
+<Spinner visible={true} size='s' />
+```
+
+<!-- Spacer -->
+
+## Кастомизация
+
+Для указания размера следует задать класс с указанием одинаковых width, height.
+
+Переменные для кастомизации:
+
+-   --spinner-display-visible
+-   --spinner-animation-duration
+-   --spinner-animation-timing-function
+
+## Примеры
+
+Spinner `size=s`:
+
+```tsx live
+<Spinner size='s' visible={true} />
+```
+
+Spinner `size=m`:
+
+```tsx live
+<Spinner size='m' visible={true} />
+```
+
+Spinner `size=s` in button:
+
+```tsx live
+<Button leftAddons={<Spinner visible={true} />} size='s'>
+    Документы загружаются...
+</Button>
+```

@@ -1,0 +1,46 @@
+Компонент `Tooltip`.
+
+```tsx live
+<div
+    style={{
+        width: '100%',
+        height: '300px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    }}
+>
+    <Tooltip
+        trigger='click'
+        content={
+            <div style={{ width: '215px' }}>
+                Теперь вам можно снимать наличные в кассе и банкоматах, если ваш тариф это позволяет
+            </div>
+        }
+    >
+        <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
+            Нажми на меня
+        </div>
+    </Tooltip>
+</div>
+```
+
+Также возможен вид `Hint`.
+
+```tsx live
+<div
+    style={{
+        width: '100%',
+        height: '300px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    }}
+>
+    <Tooltip content={<div>Редактировать</div>} position='left' view='hint' trigger='click'>
+        <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
+            Нажми на меня
+        </div>
+    </Tooltip>
+</div>
+```

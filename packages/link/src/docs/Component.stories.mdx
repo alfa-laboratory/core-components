@@ -1,0 +1,79 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+
+import { Typography } from '@alfalab/core-components-typography';
+
+import { Link } from '../Component';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../index.module.css';
+import defaultStyles from '!!raw-loader!../default.module.css';
+import invertedStyles from '!!raw-loader!../inverted.module.css';
+
+export const VIEWS = ['primary', 'secondary', 'default'];
+
+
+<Meta
+    title='Компоненты/Link'
+    component={Link}
+    parameters={{ 'theme-switcher': { themes: ['click' ] } }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='Link'>
+    {React.createElement(() => {
+        const colors = select('colors', ['default', 'inverted'], 'default');
+        return (
+            <div style={{
+                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : '#fff',
+                padding: '8px',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+            }}>
+                <Typography.Text view='primary-medium'>
+                    <Link
+                        view={select('view', VIEWS, 'primary')}
+                        pseudo={boolean('pseudo', false)}
+                        href={text('href', '')}
+                        leftAddons={boolean('leftAddons', false) && <Icon />}
+                        rightAddons={boolean('rightAddons', false) && <Icon />}
+                        colors={colors}
+                    >
+                        {text('text', 'Вернуться в интернет-банк')}
+                    </Link>
+                </Typography.Text>
+            </div>
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Link'
+    version={version}
+    package='@alfalab/core-components/link'
+    stage={3}
+    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=719%3A1'
+/>
+
+```tsx
+import { Link } from '@alfalab/core-components/link';
+```
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props of={Link} />}
+    cssVars={<CssVars css={`${styles}${defaultStyles}${invertedStyles}`} />}
+/>
+

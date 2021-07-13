@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@6.0.0...@alfalab/core-components-picker-button@6.1.0) (2021-07-09)
+
+
+### Features
+
+* **select:** dont highlight first option on open ([015a084](https://github.com/alfa-laboratory/core-components/commit/015a084be6e5d837b6368afe6ca63a0a4c325435))
+
+
+
+
+
+# [6.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@5.0.5...@alfalab/core-components-picker-button@6.0.0) (2021-07-08)
+
+
+### Features
+
+* upgrade storybook ([#696](https://github.com/alfa-laboratory/core-components/issues/696))
+
+## [5.0.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@5.0.4...@alfalab/core-components-picker-button@5.0.5) (2021-06-28)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
 ## [5.0.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@5.0.3...@alfalab/core-components-picker-button@5.0.4) (2021-06-22)
 
 **Note:** Version bump only for package @alfalab/core-components-picker-button

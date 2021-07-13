@@ -1,0 +1,18 @@
+Компонент ввода пароля
+
+### Управление видимостью пароля
+
+```tsx live
+render(() => {
+    const [passwordVisible, setPasswordVisible] = React.useState(false);
+
+    return (
+        <PasswordInput
+            passwordVisible={passwordVisible}
+            onPasswordVisibleChange={visible => {
+                setPasswordVisible(visible);
+            }}
+        />
+    );
+});
+```

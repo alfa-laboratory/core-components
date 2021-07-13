@@ -35,8 +35,9 @@ export const DarkThemeStylesInjector: FC<DarkThemeStylesInjectorProps> = ({
             {`
                 ${selector} {
                     ${colorsMap[colors]}
-                    ${styles}
                 }
+
+                ${styles}
             `}
         </style>
     );

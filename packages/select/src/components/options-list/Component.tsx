@@ -39,7 +39,7 @@ export const OptionsList = ({
         visibleOptions,
         listRef,
         open,
-        invalidate: options.length,
+        invalidate: options,
     });
 
     if (options.length === 0 && !emptyPlaceholder) {

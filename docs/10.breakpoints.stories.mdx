@@ -1,4 +1,7 @@
-<Meta title='Гайдлайны|Брейкпоинты' />
+<Meta
+  title='Гайдлайны/Брейкпоинты'
+  parameters={{ previewTabs: { canvas: { hidden: true } }}}
+/>
 
 ## Брейкпоинты
 
@@ -38,7 +41,7 @@
 При особой необходимости, для рендеринга по условию в шаблонах используйте компонент [Mq](https://alfa-laboratory.github.io/core-components/master/?path=/docs/компоненты--mq), который основан на `window.matchMedia API`:
 
 ```tsx
-import { Mq, useMatchMedia } from '@alfalab/core-components-mq';
+import { Mq, useMatchMedia } from '@alfalab/core-components/mq';
 
 const Component = () => (
     <Mq query='--mobile'>

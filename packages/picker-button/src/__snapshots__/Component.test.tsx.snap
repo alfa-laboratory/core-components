@@ -124,8 +124,8 @@ exports[`Snapshots tests should display opened correctly 2`] = `
           style="height: 0px;"
         >
           <div
-            aria-selected="true"
-            class="option m highlighted"
+            aria-selected="false"
+            class="option m"
             id="downshift-3-item-0"
             role="option"
           >

@@ -28,7 +28,7 @@
     --color-dark-graphic-neutral: #2a2a2c;
     --color-dark-graphic-positive: #2fc26e;
     --color-dark-graphic-primary: #fff;
-    --color-dark-graphic-primary-inverted: #1c1c1e;
+    --color-dark-graphic-primary-inverted: #121212;
     --color-dark-graphic-secondary: #8d8d93;
     --color-dark-graphic-tertiary: #464649;
     --color-dark-specialbg-nulled: rgba(255, 255, 255, 0);
@@ -81,7 +81,7 @@
     --color-light-graphic-neutral: #dcdcdd;
     --color-light-graphic-positive: #2fc26e;
     --color-light-graphic-primary: #000;
-    --color-light-graphic-primary-inverted: #f3f4f5;
+    --color-light-graphic-primary-inverted: #fff;
     --color-light-graphic-secondary: #8a8a8e;
     --color-light-graphic-tertiary: #c5c5c7;
     --color-light-specialbg-nulled: rgba(255, 255, 255, 0);
