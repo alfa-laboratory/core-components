@@ -12,7 +12,7 @@ import {
 import { CountriesSelect } from './components';
 import styles from './index.module.css';
 import { formatPhoneWithUnclearableCountryCode } from './utils/format-phone-with-unclearable-country-code';
-import { permitCaretOnCountryCode } from './utils/permit-caret-on-country-code';
+import { useCaretAvoidCountryCode } from './useCaretAvoidCountryCode';
 
 const countriesHash = getCountriesHash();
 
@@ -234,19 +234,10 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             }
         }, [countryIso2, loadPhoneUtils, setCountryByDialCode, value]);
 
-        useEffect(() => {
-            const input = inputRef.current;
+        const country = countriesHash[countryIso2];
+        const countryCodeLength = `+${country.dialCode}`.length;
 
-            if (!input || clearableCountryCode) {
-                return;
-            }
-
-            const country = countriesHash[countryIso2];
-
-            if (input) {
-                permitCaretOnCountryCode(input, `+${country.dialCode}`.length);
-            }
-        });
+        useCaretAvoidCountryCode({ inputRef, countryCodeLength, clearableCountryCode });
 
         return (
             <InputAutocomplete
