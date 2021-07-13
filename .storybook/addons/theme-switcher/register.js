@@ -15,7 +15,7 @@ const Addon = () => {
 
     const emit = useChannel({
         [STORY_RENDERED]: () => emit(`${ADDON_ID}/theme`, theme),
-    });
+    }, [theme]);
 
     const handleChange = useCallback(event => {
         const newTheme = event.target.value;
