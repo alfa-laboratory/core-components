@@ -180,6 +180,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                     readOnly={readOnly}
                     className={cn(inputClassName, styles.input)}
                     focusedClassName={styles.focused}
+                    fieldClassName={styles.field}
                     inputMode='numeric'
                     pattern='[0-9]*'
                     error={error}

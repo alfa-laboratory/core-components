@@ -20,6 +20,7 @@
     --form-control-labeled-m-paddings: 28px var(--gap-s) 8px;
     --form-control-labeled-l-paddings: 34px var(--gap-m) 10px;
     --form-control-labeled-xl-paddings: 38px var(--gap-m) 14px;
+    --form-control-sub-paddings: 0;
 
     /* disabled */
     --form-control-disabled-bg-color: color-mod(var(--color-light-bg-primary-inverted) alpha(15%));
@@ -136,6 +137,7 @@
 
     display: block;
     margin-top: var(--gap-2xs);
+    padding: var(--form-control-sub-paddings);
 }
 
 .hint {
