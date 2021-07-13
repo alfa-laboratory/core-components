@@ -12,6 +12,7 @@ import {
 import { CountriesSelect } from './components';
 import styles from './index.module.css';
 import { formatPhoneWithUnclearableCountryCode } from './utils/format-phone-with-unclearable-country-code';
+import { useCaretAvoidCountryCode } from './useCaretAvoidCountryCode';
 
 const countriesHash = getCountriesHash();
 
@@ -232,6 +233,11 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 });
             }
         }, [countryIso2, loadPhoneUtils, setCountryByDialCode, value]);
+
+        const country = countriesHash[countryIso2];
+        const countryCodeLength = `+${country.dialCode}`.length;
+
+        useCaretAvoidCountryCode({ inputRef, countryCodeLength, clearableCountryCode });
 
         return (
             <InputAutocomplete
