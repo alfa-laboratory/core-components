@@ -52,3 +52,7 @@
 .regular {
     font-weight: normal;
 }
+
+.monospace {
+    font-variant-numeric: tabular-nums;
+}
