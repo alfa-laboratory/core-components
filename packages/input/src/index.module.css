@@ -6,8 +6,11 @@
     --input-placeholder-color: var(--color-light-text-secondary);
     --input-focus-placeholder-color: var(--color-light-text-tertiary);
     --input-with-label-placeholder-color: var(--color-light-text-tertiary);
-    --input-error-icon-display: flex;
-    --input-success-icon-display: flex;
+    --input-error-icon-display: block;
+    --input-success-icon-display: block;
+
+    /* управляет видимостью иконки ошибки, если она стоит рядом с другой иконкой */
+    --input-error-icon-not-alone-display: block;
     --input-error-icon: url('https://alfabank.st/icons/glyph_alert-circle_m_negative.svg');
     --input-success-icon: url('https://alfabank.st/icons/icon_ok_s_color.svg');
 
@@ -79,6 +82,18 @@
 
     display: var(--input-error-icon-display);
     background-image: var(--input-error-icon);
+
+    &:not(:only-child) {
+        margin-left: var(--gap-2xs);
+    }
+}
+
+* + .errorIcon {
+    display: var(--input-error-icon-not-alone-display);
+}
+
+.clearButton + .errorIcon {
+    display: var(--input-error-icon-display);
 }
 
 .successIcon {
@@ -86,6 +101,10 @@
 
     display: var(--input-success-icon-display);
     background-image: var(--input-success-icon);
+
+    &:not(:only-child) {
+        margin-left: var(--gap-2xs);
+    }
 }
 
 /* DISABLED STATE */

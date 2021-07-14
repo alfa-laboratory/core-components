@@ -1,7 +1,9 @@
 @import './button/mobile.css';
 @import './confirmation/mobile.css';
+@import './input/mobile.css';
 
 @define-mixin theme-mobile {
     @mixin button-mobile;
     @mixin confirmation-mobile;
+    @mixin input-mobile;
 }

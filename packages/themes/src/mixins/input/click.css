@@ -6,6 +6,7 @@
 
     /* theme */
     --input-error-icon-display: none;
+    --input-error-icon-not-alone-display: none;
     --input-success-icon-display: none;
     --input-disabled-color: var(--color-light-text-primary);
 }
