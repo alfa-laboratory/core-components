@@ -90,6 +90,23 @@ exports[`SteppedProgressBar/Snapshots maxStep === 0 1`] = `
 </div>
 `;
 
+exports[`SteppedProgressBar/Snapshots no description 1`] = `
+<div>
+  <div
+    class="component"
+  >
+    <div
+      class="stepsContainer"
+    >
+      <span
+        class="bar done"
+      />
+    </div>
+    
+  </div>
+</div>
+`;
+
 exports[`SteppedProgressBar/Snapshots step < 0 1`] = `
 <div>
   <div
