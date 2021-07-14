@@ -79,14 +79,29 @@ console.log(`=> Commit changes with message: ${defaultConfig.commitMessage}`);
 shell.exec('git add .', execOptions);
 shell.exec(`git commit -m "${defaultConfig.commitMessage}"`, execOptions);
 
-const folder = sourceBranch === 'master' ? 'master' : tempOutputDir;
-const path = affectedComponent ? `?path=/story/компоненты--${affectedComponent}` : '';
-const storybookUrl = encodeURI(`${gitPagesUrl}/${folder}/${path}`);
+const storybookUrl = buildStorybookUrl();
 
 console.log(`=> Storybook deployed to: ${storybookUrl}`);
 
 // store storybook url
 shell.exec(`echo ::set-output name=storybook_url::${storybookUrl}`);
+
+function buildStorybookUrl() {
+    const branchFolder = sourceBranch === 'master' ? 'master' : tempOutputDir;
+
+    let url = `${gitPagesUrl}/${branchFolder}`;
+
+    if (affectedComponent) {
+        const getComponentFolder = () => {
+            if (affectedComponent.startsWith('typography')) return 'typography';
+            return affectedComponent.replace(/-/g, '');
+        };
+
+        url += `/?path=/docs/компоненты-${getComponentFolder()}--${affectedComponent}`;
+    }
+
+    return encodeURI(url);
+}
 
 function parseScopeFromCommit(message) {
     const matches = /^[^\(]*\(([^\)]*)\):.*$/.exec(message);
