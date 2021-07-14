@@ -27,15 +27,14 @@ export const getCode = () => {
 
 <Meta
     title='Компоненты/Песочница'
-    parameters={{ previewTabs: { canvas: { hidden: true }} }}
+    parameters={{
+        previewTabs: { canvas: { hidden: true } },
+        'theme-switcher': { themes: ['click', 'mobile', 'corp', 'site'] },
+    }}
 />
 
 ## Песочница
 
 <ThemeProvider theme={ensure(themes.light)}>
-    <Example
-        expanded={true}
-        live={true}
-        code={getCode()}
-    />
+    <Example expanded={true} live={true} code={getCode()} />
 </ThemeProvider>
