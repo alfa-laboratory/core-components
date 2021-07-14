@@ -1,0 +1,283 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SteppedProgressBar/Snapshots 0 < step <= maxStep 1`] = `
+<div>
+  <div
+    class="component"
+  >
+    <div
+      class="stepsContainer"
+    >
+      <span
+        class="bar done"
+      />
+      <span
+        class="bar done"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+    </div>
+    <div
+      class="description primary-small regular"
+    >
+      Шаг 1 из 10: Выбор карты
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SteppedProgressBar/Snapshots maxStep < 0 1`] = `
+<div>
+  <div
+    class="component"
+  >
+    <div
+      class="stepsContainer"
+    >
+      <span
+        class="bar done"
+      />
+    </div>
+    <div
+      class="description primary-small regular"
+    >
+      Шаг 1 из 10: Выбор карты
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SteppedProgressBar/Snapshots maxStep === 0 1`] = `
+<div>
+  <div
+    class="component"
+  >
+    <div
+      class="stepsContainer"
+    >
+      <span
+        class="bar done"
+      />
+    </div>
+    <div
+      class="description primary-small regular"
+    >
+      Шаг 1 из 10: Выбор карты
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SteppedProgressBar/Snapshots step < 0 1`] = `
+<div>
+  <div
+    class="component"
+  >
+    <div
+      class="stepsContainer"
+    >
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+    </div>
+    <div
+      class="description primary-small regular"
+    >
+      Шаг 1 из 10: Выбор карты
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SteppedProgressBar/Snapshots step === 0 1`] = `
+<div>
+  <div
+    class="component"
+  >
+    <div
+      class="stepsContainer"
+    >
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+      <span
+        class="bar"
+      />
+    </div>
+    <div
+      class="description primary-small regular"
+    >
+      Шаг 1 из 10: Выбор карты
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SteppedProgressBar/Snapshots step === maxStep 1`] = `
+<div>
+  <div
+    class="component"
+  >
+    <div
+      class="stepsContainer"
+    >
+      <span
+        class="bar done"
+      />
+      <span
+        class="bar done"
+      />
+      <span
+        class="bar done"
+      />
+      <span
+        class="bar done"
+      />
+      <span
+        class="bar done"
+      />
+      <span
+        class="bar done"
+      />
+      <span
+        class="bar done"
+      />
+      <span
+        class="bar done"
+      />
+      <span
+        class="bar done"
+      />
+      <span
+        class="bar done"
+      />
+    </div>
+    <div
+      class="description primary-small regular"
+    >
+      Шаг 1 из 10: Выбор карты
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SteppedProgressBar/Snapshots step > maxStep 1`] = `
+<div>
+  <div
+    class="component"
+  >
+    <div
+      class="stepsContainer"
+    >
+      <span
+        class="bar done"
+      />
+      <span
+        class="bar done"
+      />
+      <span
+        class="bar done"
+      />
+      <span
+        class="bar done"
+      />
+      <span
+        class="bar done"
+      />
+      <span
+        class="bar done"
+      />
+      <span
+        class="bar done"
+      />
+      <span
+        class="bar done"
+      />
+      <span
+        class="bar done"
+      />
+      <span
+        class="bar done"
+      />
+    </div>
+    <div
+      class="description primary-small regular"
+    >
+      Шаг 1 из 10: Выбор карты
+    </div>
+  </div>
+</div>
+`;
