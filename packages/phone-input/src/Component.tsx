@@ -2,7 +2,7 @@ import React, { useImperativeHandle, useCallback, useRef } from 'react';
 import { conformToMask, TextMaskConfig } from 'text-mask-core';
 import { MaskedInput, MaskedInputProps } from '@alfalab/core-components-masked-input';
 
-import { deleteFormatting } from './utils';
+import { deleteFormatting, setCaretPosition } from './utils';
 
 const mask = [
     '+',
@@ -23,10 +23,14 @@ const mask = [
     /\d/,
 ];
 
-export type PhoneInputProps = Omit<MaskedInputProps, 'onBeforeDisplay' | 'type' | 'mask'>;
+export type PhoneInputProps = Omit<MaskedInputProps, 'onBeforeDisplay' | 'type' | 'mask'> & {
+    clearableCountryCode?: boolean;
+};
+
+const countryPrefix = '+7 ';
 
 export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
-    ({ ...restProps }, ref) => {
+    ({ clearableCountryCode = true, ...restProps }, ref) => {
         const inputRef = useRef<HTMLInputElement>(null);
 
         // Оставляет возможность прокинуть ref извне
@@ -35,6 +39,17 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
         const handleBeforeDisplay = useCallback(
             (conformedValue: string, config: TextMaskConfig) => {
                 const { rawValue, previousConformedValue, currentCaretPosition } = config;
+
+                const abortCountryCodeClearing =
+                    !clearableCountryCode && !rawValue.startsWith(countryPrefix);
+
+                if (abortCountryCodeClearing) {
+                    setCaretPosition({ position: countryPrefix.length, inputRef });
+
+                    if (!rawValue.length) return countryPrefix;
+
+                    return false;
+                }
 
                 /*
                  * код ниже нужен для фикса следующих багов библиотеки text-mask:
@@ -59,17 +74,11 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                         ([7, 10, 13].includes(currentCaretPosition) &&
                             previousConformedValue.length > currentCaretPosition))
                 ) {
-                    const caret = currentCaretPosition;
-                    window.requestAnimationFrame(() => {
-                        if (inputRef !== null && inputRef.current) {
-                            inputRef.current.selectionStart = caret;
-                            inputRef.current.selectionEnd = caret;
-                        }
-                    });
+                    setCaretPosition({ position: countryPrefix.length, inputRef });
                 }
 
                 // Удаление цифры перед кодом страны удаляет только саму цифру, код остается ("+7 1" -> "+7 ")
-                if (rawValue === '+7 ') {
+                if (rawValue === countryPrefix) {
                     return rawValue;
                 }
 
@@ -90,17 +99,18 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
 
                 // Если ввод начат с 7 или 8 - выводит "+7 " и дает продолжить ввод со след. цифры
                 if (rawValue.length === 1 && ['7', '8'].includes(rawValue[0])) {
-                    return '+7 ';
+                    return countryPrefix;
                 }
 
                 return conformedValue;
             },
-            [],
+            [clearableCountryCode],
         );
 
         return (
             <MaskedInput
                 {...restProps}
+                value={clearableCountryCode ? undefined : countryPrefix}
                 mask={mask}
                 onBeforeDisplay={handleBeforeDisplay}
                 type='tel'
