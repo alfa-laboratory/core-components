@@ -25,7 +25,9 @@ export const Field = ({
     dataTestId,
     fieldClassName,
     ...restProps
-}: BaseFieldProps & FormControlProps) => {
+}: Omit<BaseFieldProps & FormControlProps, 'placeholder'> & {
+    placeholder?: string | JSX.Element;
+}) => {
     const [focused, setFocused] = useState(false);
 
     const wrapperRef = useRef<HTMLDivElement>(null);
