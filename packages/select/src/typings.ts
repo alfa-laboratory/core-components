@@ -129,7 +129,7 @@ export type BaseSelectProps = {
     /**
      * Плейсхолдер поля
      */
-    placeholder?: string;
+    placeholder?: string | JSX.Element;
 
     /**
      * Отображение ошибки
@@ -318,7 +318,7 @@ export type FieldProps = {
     /**
      * Плейсхолдер поля
      */
-    placeholder?: string;
+    placeholder?: string | JSX.Element;
 
     /**
      * Отображение ошибки
