@@ -84,7 +84,7 @@
     background-image: var(--input-error-icon);
 
     &:not(:only-child) {
-        margin-left: var(--gap-2xs);
+        margin-left: var(--gap-s);
     }
 }
 
@@ -103,7 +103,7 @@
     background-image: var(--input-success-icon);
 
     &:not(:only-child) {
-        margin-left: var(--gap-2xs);
+        margin-left: var(--gap-s);
     }
 }
 

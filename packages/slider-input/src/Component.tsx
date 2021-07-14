@@ -201,9 +201,7 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                         (info || rightAddons) && (
                             <Fragment>
                                 {info && <span className={styles.info}>{info}</span>}
-                                {rightAddons && (
-                                    <span className={styles.rightAddons}>{rightAddons}</span>
-                                )}
+                                {rightAddons}
                             </Fragment>
                         )
                     }
