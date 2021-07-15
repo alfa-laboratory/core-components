@@ -4,13 +4,33 @@ import cn from 'classnames';
 import { Typography } from '@alfalab/core-components-typography';
 
 import { StepBar } from './components/step-bar';
+
 import styles from './index.module.css';
 
 export type SteppedProgressBarProps = {
+    /**
+     * Общее количество шагов
+     */
     maxStep: number;
+
+    /**
+     * Описание под прогрессбаром
+     */
     description: string;
+
+    /**
+     * Количество пройденных шагов
+     */
     step?: number;
+
+    /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
     dataTestId?: string;
+
+    /**
+     * Дополнительный класс
+     */
     className?: string;
 };
 

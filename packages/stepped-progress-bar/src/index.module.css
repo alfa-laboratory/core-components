@@ -3,13 +3,12 @@
 .component {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    text-align: center;
 }
 
 .stepsContainer {
     width: 100%;
     display: flex;
-    flex-flow: row nowrap;
     margin-bottom: var(--gap-xs);
 }
 

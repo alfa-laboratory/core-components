@@ -10,13 +10,16 @@ import Changelog from '../../CHANGELOG.md';
 <Meta
     title='Компоненты/SteppedProgressBar'
     component={SteppedProgressBar}
-    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
 <!-- Canvas -->
 
 <Story name='SteppedProgressBar'>
-    <SteppedProgressBar step={number('step', 1)} maxStep={number('maxStep', 3)} description={text('description', "Шаг 1 из 3: Выбор карты")} />
+    <SteppedProgressBar
+        step={number('step', 1)}
+        maxStep={number('maxStep', 3)}
+        description={text('description', "Шаг 1 из 3: Выбор карты")}
+    />
 </Story>
 
 <!-- Docs -->
