@@ -16,7 +16,7 @@ export type SteppedProgressBarProps = {
     /**
      * Описание под прогрессбаром
      */
-    description: string;
+    description?: string;
 
     /**
      * Количество пройденных шагов
