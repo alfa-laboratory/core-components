@@ -8,5 +8,5 @@ type StepBarProps = {
 };
 
 export const StepBar: FC<StepBarProps> = memo(({ isDone }) => (
-    <span className={cn(styles.bar, isDone && styles.done)} />
+    <span data-test-id={isDone ? 'on' : 'off'} className={cn(styles.bar, isDone && styles.done)} />
 ));
