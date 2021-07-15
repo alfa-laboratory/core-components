@@ -74,7 +74,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                         ([7, 10, 13].includes(currentCaretPosition) &&
                             previousConformedValue.length > currentCaretPosition))
                 ) {
-                    setCaretPosition({ position: countryPrefix.length, inputRef });
+                    setCaretPosition({ position: currentCaretPosition, inputRef });
                 }
 
                 // Удаление цифры перед кодом страны удаляет только саму цифру, код остается ("+7 1" -> "+7 ")
