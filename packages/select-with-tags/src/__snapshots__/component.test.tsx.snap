@@ -100,6 +100,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                           fill="currentColor"
                           focusable="false"
                           height="24"
+                          role="img"
                           viewBox="0 0 24 24"
                           width="24"
                         >
@@ -127,6 +128,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                           fill="currentColor"
                           focusable="false"
                           height="24"
+                          role="img"
                           viewBox="0 0 24 24"
                           width="24"
                         >
@@ -154,6 +156,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                           fill="currentColor"
                           focusable="false"
                           height="24"
+                          role="img"
                           viewBox="0 0 24 24"
                           width="24"
                         >

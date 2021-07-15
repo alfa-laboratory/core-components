@@ -17,9 +17,9 @@ describe('Tabs | TabsDesktop', () => {
         screenshotTesting({
             cases: generateTestCases({
                 componentName: 'Tabs',
-                subComponentName: 'TabsDesktop',
                 testStory: false,
                 knobs: {
+                    TabsComponent: 'TabsDesktop',
                     view: ['primary', 'secondary'],
                     size: ['s', 'm', 'l', 'xl'],
                 },

@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { Title } from '@storybook/addon-docs/blocks';
 import { Status } from 'storybook/blocks/status';
 
-import styles from './ComponentHeader.css';
+import styles from './ComponentHeader.module.css';
 
 type ComponentHeaderProps = {
     name: string;

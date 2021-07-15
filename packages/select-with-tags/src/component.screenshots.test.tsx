@@ -6,7 +6,7 @@ import {
 } from '../../screenshot-utils';
 
 describe('SelectWithTags | interactions tests', () => {
-    jest.setTimeout(60000);
+    jest.setTimeout(120000);
 
     ['default', 'click'].map(async (theme: string) =>
         test(`${theme} — main scenario`, async () => {

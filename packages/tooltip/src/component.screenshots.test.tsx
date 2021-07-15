@@ -9,7 +9,7 @@ import {
 
 describe('Tooltip', () => {
     test('test positioning', async () => {
-        jest.setTimeout(60000);
+        jest.setTimeout(120000);
 
         const cases = generateTestCases({
             componentName: 'Tooltip',
@@ -62,7 +62,7 @@ describe('Tooltip', () => {
     });
 
     test('test hint view', async () => {
-        jest.setTimeout(60000);
+        jest.setTimeout(120000);
 
         const cases = generateTestCases({
             componentName: 'Tooltip',

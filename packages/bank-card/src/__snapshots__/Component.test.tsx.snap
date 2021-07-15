@@ -18,6 +18,7 @@ exports[`BankCard Snapshots tests should match snapshots 1`] = `
           <svg
             focusable="false"
             height="30"
+            role="img"
             viewBox="0 0 30 30"
             width="30"
           >
@@ -78,6 +79,7 @@ exports[`BankCard Snapshots tests should match snapshots 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="24"
+                  role="img"
                   viewBox="0 0 24 24"
                   width="24"
                 >
@@ -99,6 +101,7 @@ exports[`BankCard Snapshots tests should match snapshots 1`] = `
             fill="currentColor"
             focusable="false"
             height="18"
+            role="img"
             viewBox="0 0 48 18"
             width="48"
           >
@@ -133,6 +136,7 @@ exports[`BankCard Snapshots tests should match snapshots 2`] = `
           <svg
             focusable="false"
             height="30"
+            role="img"
             viewBox="0 0 30 30"
             width="30"
           >
@@ -193,6 +197,7 @@ exports[`BankCard Snapshots tests should match snapshots 2`] = `
                   fill="currentColor"
                   focusable="false"
                   height="24"
+                  role="img"
                   viewBox="0 0 24 24"
                   width="24"
                 >
@@ -214,6 +219,7 @@ exports[`BankCard Snapshots tests should match snapshots 2`] = `
             fill="currentColor"
             focusable="false"
             height="18"
+            role="img"
             viewBox="0 0 30 18"
             width="30"
           >
@@ -246,6 +252,7 @@ exports[`BankCard Snapshots tests should match snapshots 3`] = `
           <svg
             focusable="false"
             height="30"
+            role="img"
             viewBox="0 0 30 30"
             width="30"
           >
@@ -306,6 +313,7 @@ exports[`BankCard Snapshots tests should match snapshots 3`] = `
                   fill="currentColor"
                   focusable="false"
                   height="24"
+                  role="img"
                   viewBox="0 0 24 24"
                   width="24"
                 >
@@ -327,6 +335,7 @@ exports[`BankCard Snapshots tests should match snapshots 3`] = `
             fill="currentColor"
             focusable="false"
             height="18"
+            role="img"
             viewBox="0 0 48 18"
             width="48"
           >
@@ -359,6 +368,7 @@ exports[`BankCard Snapshots tests should match snapshots 4`] = `
           <svg
             focusable="false"
             height="30"
+            role="img"
             viewBox="0 0 30 30"
             width="30"
           >
@@ -419,6 +429,7 @@ exports[`BankCard Snapshots tests should match snapshots 4`] = `
                   fill="currentColor"
                   focusable="false"
                   height="24"
+                  role="img"
                   viewBox="0 0 24 24"
                   width="24"
                 >

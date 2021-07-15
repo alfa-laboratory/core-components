@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-skeleton@3.0.0...@alfalab/core-components-skeleton@3.0.1) (2021-07-09)
+
+**Note:** Version bump only for package @alfalab/core-components-skeleton
+
+
+
+
+
+# [3.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-skeleton@2.0.0...@alfalab/core-components-skeleton@3.0.0) (2021-07-08)
+
+
+### Features
+
+* upgrade storybook ([#696](https://github.com/alfa-laboratory/core-components/issues/696))
+
+# [2.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-skeleton@1.4.1...@alfalab/core-components-skeleton@2.0.0) (2021-06-28)
+
+
+### Features
+
+* **skeleton:** add display var, change default to block ([#718](https://github.com/alfa-laboratory/core-components/issues/718)) ([27aaa60](https://github.com/alfa-laboratory/core-components/commit/27aaa605a958d932a52904556ac2fe1dd59356af))
+
+
+### BREAKING CHANGES
+
+* **skeleton:** inline-block changes to block
+
+
+
+
+
 ## [1.4.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-skeleton@1.4.0...@alfalab/core-components-skeleton@1.4.1) (2021-06-09)
 
 

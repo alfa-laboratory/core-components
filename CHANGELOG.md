@@ -1,3 +1,80 @@
+# [19.1.0](https://github.com/alfa-laboratory/core-components/compare/v19.0.0...v19.1.0) (2021-07-09)
+
+
+### Bug Fixes
+
+* **badge:** fix name ([207d3d3](https://github.com/alfa-laboratory/core-components/commit/207d3d30171a84ff4021cd119c0da1316a92d14c))
+* **calendar:** fix select-button disabled+selected state ([4f54c01](https://github.com/alfa-laboratory/core-components/commit/4f54c01451a2532fd377d3590869dfa52c968dcf))
+* **calendar:** limit defaultMonth ([636fa5b](https://github.com/alfa-laboratory/core-components/commit/636fa5b1363fbdea8516b95ac758aee65b8cffba))
+* **input-autocomplete:** popover height with dynamic height options ([da24758](https://github.com/alfa-laboratory/core-components/commit/da247589a35ba33742f95fc96ed63b0ba65cdf11))
+
+
+### Features
+
+* **badge:** add icon color ([d9e9065](https://github.com/alfa-laboratory/core-components/commit/d9e906596d157a5e3d7844bbecfb96f64d9f44e1))
+* **badge:** add screenshots ([3bbc8d0](https://github.com/alfa-laboratory/core-components/commit/3bbc8d032b0a267e9e6e949af5db6c955e25fb50))
+* **select:** dont highlight first option on open ([015a084](https://github.com/alfa-laboratory/core-components/commit/015a084be6e5d837b6368afe6ca63a0a4c325435))
+* **themes:** confirmation mobile theme ([a85233c](https://github.com/alfa-laboratory/core-components/commit/a85233c1e859e933e1c51997678c8a8c6134e353))
+* **vars:** add border-radius-xs ([a4bd8ff](https://github.com/alfa-laboratory/core-components/commit/a4bd8ff44d9ed7cf68ca2b0994ab61a80ed358e2))
+* **vars:** fresh colors from alfa-ui-primitives ([2051a0c](https://github.com/alfa-laboratory/core-components/commit/2051a0ce3caee3c1a70f36e8c84e575bcd528bab))
+
+# [19.0.0](https://github.com/alfa-laboratory/core-components/compare/v18.2.1...v19.0.0) (2021-07-08)
+
+
+### Features
+
+* upgrade storybook ([#696](https://github.com/alfa-laboratory/core-components/issues/696))
+
+## [18.2.1](https://github.com/alfa-laboratory/core-components/compare/v18.2.0...v18.2.1) (2021-07-02)
+
+
+### Bug Fixes
+
+* **base-modal:** resubscribe observer when content node changed ([2fef06e](https://github.com/alfa-laboratory/core-components/commit/2fef06eea01354f58663a5f4470606123d31f9d4))
+
+# [18.2.0](https://github.com/alfa-laboratory/core-components/compare/v18.1.0...v18.2.0) (2021-06-30)
+
+
+### Bug Fixes
+
+* **dark-theme-styles-injector:** fix rendering passed styles ([#723](https://github.com/alfa-laboratory/core-components/issues/723)) ([882841c](https://github.com/alfa-laboratory/core-components/commit/882841c1c43d5570652ab3fcc199958060b92c57))
+
+
+### Features
+
+* **calendar-range:** pass props to render calendar in popper ([#702](https://github.com/alfa-laboratory/core-components/issues/702)) ([4369e46](https://github.com/alfa-laboratory/core-components/commit/4369e462116dc1d240f95f811be67639b10dedb6))
+
+# [18.1.0](https://github.com/alfa-laboratory/core-components/compare/v18.0.0...v18.1.0) (2021-06-29)
+
+
+### Features
+
+* **password-input:** add password input (PDS-233) ([#691](https://github.com/alfa-laboratory/core-components/issues/691)) ([d872e4d](https://github.com/alfa-laboratory/core-components/commit/d872e4dd18fd5db472864fbc2676749b812da00f))
+
+# [18.0.0](https://github.com/alfa-laboratory/core-components/compare/v17.6.0...v18.0.0) (2021-06-28)
+
+
+### Bug Fixes
+
+* **base-modal:** fix has scroll bug ([#712](https://github.com/alfa-laboratory/core-components/issues/712)) ([a6749a1](https://github.com/alfa-laboratory/core-components/commit/a6749a149d511b28cc59aaec188d59c380c64243))
+* **space:** remove last element margin ([#713](https://github.com/alfa-laboratory/core-components/issues/713)) ([bc36cf7](https://github.com/alfa-laboratory/core-components/commit/bc36cf7db35cbd7c5d36c178a50bbd27d2f11b0c))
+* **typography:** add missing weight styles ([#719](https://github.com/alfa-laboratory/core-components/issues/719)) ([6b855aa](https://github.com/alfa-laboratory/core-components/commit/6b855aa97eff918e0e16f957c4c05bb7f2d8f4fe))
+
+
+### Features
+
+* **bottom-sheet:** new component (PDS-228) ([#645](https://github.com/alfa-laboratory/core-components/issues/645)) ([1f7391d](https://github.com/alfa-laboratory/core-components/commit/1f7391df16a270d8a3a28b8ebaf98d0ed0928bc8)), closes [#642](https://github.com/alfa-laboratory/core-components/issues/642) [#642](https://github.com/alfa-laboratory/core-components/issues/642) [#646](https://github.com/alfa-laboratory/core-components/issues/646) [#646](https://github.com/alfa-laboratory/core-components/issues/646) [#634](https://github.com/alfa-laboratory/core-components/issues/634) [#635](https://github.com/alfa-laboratory/core-components/issues/635) [#634](https://github.com/alfa-laboratory/core-components/issues/634) [#635](https://github.com/alfa-laboratory/core-components/issues/635) [#648](https://github.com/alfa-laboratory/core-components/issues/648) [#647](https://github.com/alfa-laboratory/core-components/issues/647) [#630](https://github.com/alfa-laboratory/core-components/issues/630) [#648](https://github.com/alfa-laboratory/core-components/issues/648) [#630](https://github.com/alfa-laboratory/core-components/issues/630) [#669](https://github.com/alfa-laboratory/core-components/issues/669)
+* **confirmation:** add property for change retry button text ([#720](https://github.com/alfa-laboratory/core-components/issues/720)) ([c0f7688](https://github.com/alfa-laboratory/core-components/commit/c0f76888cffff8ad4169769bc4615429663352a5))
+* **skeleton:** add display var, change default to block ([#718](https://github.com/alfa-laboratory/core-components/issues/718)) ([27aaa60](https://github.com/alfa-laboratory/core-components/commit/27aaa605a958d932a52904556ac2fe1dd59356af))
+
+
+### BREAKING CHANGES
+
+* **skeleton:** inline-block changes to block
+* **confirmation:** buttonRetryText renamed to buttonReturnText
+
+Co-authored-by: Alexander Soldatov <aesoldatov@alfabank.ru>
+
 # [17.6.0](https://github.com/alfa-laboratory/core-components/compare/v17.5.1...v17.6.0) (2021-06-22)
 
 

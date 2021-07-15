@@ -1,40 +1,60 @@
 import Icon from '@alfalab/icons-glyph/CopyMIcon';
 
-import { Tag } from '../';
+Компонент тэг (чипсы).
+
+```tsx live
+render(() => {
+    const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+
+    const [checked, setChecked] = React.useState(false);
+
+    const handleClick = () => setChecked(!checked);
+
+    return (
+        <Tag
+            size={select('size', SIZES, 'm')}
+            disabled={boolean('disabled', false)}
+            checked={checked || boolean('checked', false)}
+            rightAddons={boolean('rightAddons', false) && <CopyMIcon />}
+            onClick={handleClick}
+        >
+            {text('label', 'Оплатить')}
+        </Tag>
+    );
+});
+```
 
 ### Тэг с иконкой
 
-<Preview>
-    {React.createElement(() => {
-        const [checked, setChecked] = React.useState(false);
-        const handleClick = () => setChecked(!checked);
-        return (
-            <Tag
-                checked={checked}
-                onClick={handleClick}
-                rightAddons={<Icon />}
-            >
-                Нажми меня
-            </Tag>
-        );
-    })}
-</Preview>
+```tsx live
+render(() => {
+    const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+
+    const [checked, setChecked] = React.useState(false);
+
+    const handleClick = () => setChecked(!checked);
+
+    return (
+        <Tag checked={checked} onClick={handleClick} rightAddons={<CopyMIcon />}>
+            Нажми меня
+        </Tag>
+    );
+});
+```
+
 
 ### Тэг высотой 40px (используется в теме mobile)
 
-<Preview>
-    {React.createElement(() => {
-        const [checked, setChecked] = React.useState(false);
-        const handleClick = () => setChecked(!checked);
-        return (
-            <Tag
-                checked={checked}
-                onClick={handleClick}
-                size="xs"
-                style={{ minHeight: '40px' }}
-            >
-                Нажми меня
-            </Tag>
-        );
-    })}
-</Preview>
+```tsx live
+render(() => {
+    const [checked, setChecked] = React.useState(false);
+
+    const handleClick = () => setChecked(!checked);
+
+    return (
+        <Tag checked={checked} onClick={handleClick} style={{ minHeight: '40px' }} size="xs">
+            Нажми меня
+        </Tag>
+    );
+});
+```

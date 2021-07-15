@@ -166,9 +166,9 @@ $ git push
 Импорт `ES5`:
 
 ```tsx
-import { Button } from '@alfalab/core-components-button';
-// или
 import { Button } from '@alfalab/core-components/button';
+// или
+import { Button } from '@alfalab/core-components-button';
 ```
 
 Импорт `ES5` с css-модулями:

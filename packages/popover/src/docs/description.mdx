@@ -1,0 +1,96 @@
+Компонент `Popover`. Под капотом использует `popper.js` и `react-transition-group`.
+
+```tsx live
+render(() => {
+    const [open, setOpen] = React.useState(false);
+
+    const [buttonElement, setButtonElement] = React.useState(null);
+
+    const toggle = () => {
+        setOpen(!open);
+    };
+
+    const handleButtonRef = node => {
+        setButtonElement(node);
+    };
+
+    return (
+        <div
+            style={{
+                width: '100%',
+                height: '300px',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}
+        >
+            <Popover anchorElement={buttonElement} open={open}>
+                <div style={{ padding: '15px', width: '156px' }}>I am popover</div>
+            </Popover>
+
+            <Button ref={handleButtonRef} size='xs' onClick={toggle}>
+                {open ? 'Скрыть' : 'Показать'} Popover
+            </Button>
+        </div>
+    );
+});
+```
+
+В редких случаях, если положение поповера не пересчитывается (например, при измененнии размера элемента-якоря),
+то можно воспользоваться методом `update`:
+
+```tsx live
+render(() => {
+    const [count, setCount] = React.useState(1);
+    const [buttonElement, setButtonElement] = React.useState(null);
+
+    // updatePopover - ref, который хранит функцию, с помощью которой можно обновить положение поповера
+    const updatePopover = React.useRef();
+
+    const onClick = () => {
+        setCount(count => count + 1);
+        if (updatePopover.current) {
+            // Обновляем положение поповера
+            updatePopover.current();
+        }
+    };
+
+    const handleButtonRef = node => {
+        setButtonElement(node);
+    };
+
+    const popoverChildren = React.useMemo(
+        () => <div style={{ padding: '15px', width: '156px' }}>I am popover</div>,
+        [],
+    );
+
+    return (
+        <div
+            style={{
+                width: '700px',
+                height: '300px',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}
+        >
+            <Popover
+                anchorElement={buttonElement}
+                position='bottom'
+                open={true}
+                update={updatePopover}
+            >
+                {popoverChildren}
+            </Popover>
+
+            <Button
+                ref={handleButtonRef}
+                onClick={onClick}
+                style={{ height: `${56 * count}px`, width: `${128 * count}px` }}
+            >
+                Нажми на меня
+            </Button>
+        </div>
+    );
+});
+```

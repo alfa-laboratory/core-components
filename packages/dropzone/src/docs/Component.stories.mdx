@@ -1,0 +1,76 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { boolean } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
+import { Dropzone } from '../Component';
+import { name, version } from '../../package.json';
+import Changelog from '../../CHANGELOG.md';
+import Description from './description.mdx';
+
+<Meta
+    title='Компоненты/Dropzone'
+    component={Dropzone}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='Dropzone'>
+    {React.createElement(() => {
+        const [filesList, setFilesList] = React.useState([]);
+        const handleDrop = files => {
+            setFilesList(
+                Array.from(files)
+                    .map(file => file.name)
+                    .filter(Boolean),
+            );
+        };
+        return (
+            <Dropzone
+                error={boolean('error', false)}
+                overlayVisible={boolean('overlayVisible', false)}
+                onDrop={handleDrop}
+            >
+                <div
+                    style={{
+                        width: 400,
+                        height: 200,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}
+                >
+                    {filesList.length > 0 ? (
+                        <ul>
+                            {filesList.map(file => (
+                                <li key={file}>{file}</li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <span>children</span>
+                    )}
+                </div>
+            </Dropzone>
+        );
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Dropzone'
+    version={version}
+    package='@alfalab/core-components/dropzone'
+    stage={1}
+/>
+
+```tsx
+import { Dropzone } from '@alfalab/core-components/dropzone';
+```
+
+<Tabs
+    description={<Description />}
+    props={<Props of={Dropzone} />}
+    changelog={<Changelog />}
+/>

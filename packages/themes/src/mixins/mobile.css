@@ -2,10 +2,12 @@
 @import './tag/mobile.css';
 @import './checkbox/mobile.css';
 @import './radio/mobile.css';
+@import './confirmation/mobile.css';
 
 @define-mixin theme-mobile {
     @mixin button-mobile;
     @mixin tag-mobile;
     @mixin checkbox-mobile;
     @mixin radio-mobile;
+    @mixin confirmation-mobile;
 }

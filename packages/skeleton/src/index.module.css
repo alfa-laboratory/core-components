@@ -1,6 +1,7 @@
 @import '../../vars/src/colors-indigo.css';
 
 :root {
+    --skeleton-display: block;
     --skeleton-default-color: var(--color-light-specialbg-component);
     --skeleton-border-radius: var(--border-radius-m);
     --skeleton-backdrop-filter: none;
@@ -12,7 +13,7 @@
 
 .component {
     position: relative;
-    display: inline-block;
+    display: var(--skeleton-display);
     vertical-align: middle;
     color: transparent;
     border-radius: var(--skeleton-border-radius);
