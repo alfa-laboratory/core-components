@@ -20,6 +20,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-input": "^7.0.1",
+        "@alfalab/core-components-input-autocomplete": "7.0.1",
         "@alfalab/core-components-select": "^9.1.0",
         "@alfalab/hooks": "^0.9.0",
         "@alfalab/utils": "^1.1.1",

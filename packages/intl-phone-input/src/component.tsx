@@ -10,8 +10,9 @@ import {
     InputAutocompleteProps,
 } from '@alfalab/core-components-input-autocomplete';
 import { CountriesSelect } from './components';
-import styles from './index.module.css';
 import { formatPhoneWithUnclearableCountryCode } from './utils/format-phone-with-unclearable-country-code';
+
+import styles from './index.module.css';
 
 const countriesHash = getCountriesHash();
 
