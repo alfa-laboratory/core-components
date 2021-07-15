@@ -1,0 +1,52 @@
+import { Meta, Props, Story } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+
+import { DateInput } from '../Component';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../index.module.css';
+
+
+<Meta
+    title='Компоненты/DateInput'
+    component={DateInput}
+    parameters={{ 'theme-switcher': { themes: ['click', 'mobile'] }, }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='DateInput'>
+    <DateInput
+        block={boolean('block', false)}
+        size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+        error={text('error', '')}
+        hint={text('hint', '')}
+        label={text('label', '')}
+    />
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='DateInput'
+    version={version}
+    package='@alfalab/core-components/date-input'
+    stage={1}
+/>
+
+```tsx
+import { DateInput } from '@alfalab/core-components/date-input';
+```
+
+
+<Tabs
+    description={<Description />}
+    props={<Props of={DateInput} />}
+    changelog={<Changelog />}
+    cssVars={<CssVars css={styles} />}
+/>
+
