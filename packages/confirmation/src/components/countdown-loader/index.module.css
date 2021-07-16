@@ -4,5 +4,4 @@
     fill: transparent;
     stroke: var(--color-light-graphic-tertiary);
     stroke-width: 2px;
-    transition: stroke-dashoffset linear;
 }
