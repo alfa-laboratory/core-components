@@ -1,39 +1,41 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import styles from './index.module.css';
 
 type Props = {
-    progress: number; // 0-1
+    duration: number;
     className: string;
 };
 
 const SIZE = 16;
+const STROKE_WIDTH = 2;
 
-const RADIUS = SIZE / 2;
+const CENTER = SIZE / 2;
+const RADIUS = CENTER - STROKE_WIDTH / 2;
 
-const FULL_TURN = Math.PI * 2;
+/** Длина окружности */
+const CIRCUMFERENCE = Math.PI * RADIUS * 2;
+const STROKE_DASH_ARRAY = CIRCUMFERENCE.toFixed(2);
 
-export const CountdownLoader: FC<Props> = ({ progress, className }) => {
-    const angle = progress < 1 ? progress * FULL_TURN : FULL_TURN;
+export const CountdownLoader: FC<Props> = ({ duration, className }) => {
+    const [animationStarted, setAnimationStarted] = useState(false);
 
-    const x = RADIUS - RADIUS * Math.sin(angle);
-    const y = RADIUS - RADIUS * Math.cos(angle);
+    useEffect(() => {
+        setAnimationStarted(true);
+    }, []);
 
     return (
         <svg width={SIZE} height={SIZE} viewBox={`0 0 ${SIZE} ${SIZE}`} className={className}>
-            <defs>
-                <mask id='cut'>
-                    <rect width='100%' height='100%' fill='white' />
-                    <circle r={RADIUS * 0.75} cx={RADIUS} cy={RADIUS} fill='black' />
-                    <path
-                        d={`M${RADIUS} 0 V${RADIUS} L${x} ${y} ${
-                            angle <= Math.PI ? 'H0' : `H${SIZE} V${SIZE} H0`
-                        } L0 0 Z`}
-                    />
-                </mask>
-            </defs>
-
-            <circle cx={RADIUS} cy={RADIUS} r={RADIUS} mask='url(#cut)' className={styles.circle} />
+            <circle
+                cx={CENTER}
+                cy={CENTER}
+                r={RADIUS}
+                strokeDasharray={STROKE_DASH_ARRAY}
+                strokeDashoffset={animationStarted ? STROKE_DASH_ARRAY : 0}
+                transform={`rotate(-90 ${CENTER} ${CENTER})`}
+                className={styles.circle}
+                style={{ transitionDuration: `${duration}ms` }}
+            />
         </svg>
     );
 };

@@ -10,20 +10,6 @@ import { CountdownLoader } from '../countdown-loader';
 import styles from './index.module.css';
 
 /**
- * TODO: Вынести это в utils (https://github.com/alfa-laboratory/utils/pull/51)
- * Маскирует номер телефона.
- *
- * @param {String} number Номер телефона
- * @returns {String}
- */
-export function formatMaskedPhone(number: string) {
-    const first = number.substr(0, 2);
-    const last = number.substr(number.length - 5, number.length);
-
-    return `${first} ··· ··· ${last}`;
-}
-
-/**
  * TODO: Вынести это в utils
  * Форматирование миллисекунд в mm:ss.
  *
@@ -35,8 +21,8 @@ export function formatMsAsMinutes(ms: number) {
     if (ms >= 6000000) {
         return 'более, чем 99:99';
     }
-    const totalSeconds = (ms - (ms % 1000)) / 1000;
-    const totalMinutes = (totalSeconds - (totalSeconds % 60)) / 60;
+    const totalSeconds = Math.ceil(ms / 1000);
+    const totalMinutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
     const paddedMinutes = `00${totalMinutes}`.slice(-2);
     const paddedSeconds = `00${seconds}`.slice(-2);
@@ -67,7 +53,7 @@ export const Countdown: FC<CountdownProps> = ({
     onRepeatSms,
     onCountdownFinished,
 }) => {
-    const requestId = useRef(0);
+    const timerId = useRef(0);
 
     const start = useRef(0);
 
@@ -78,17 +64,13 @@ export const Countdown: FC<CountdownProps> = ({
     const noAttemptsLeftMessagePrev = usePrevious(noAttemptsLeftMessage);
 
     const stopTimer = useCallback(() => {
-        window.cancelAnimationFrame(requestId.current);
+        window.clearInterval(timerId.current);
     }, []);
 
     const updateProgress = useCallback(() => {
         const passed = Date.now() - start.current;
 
-        setTimePassed(passed);
-
-        if (passed < duration) {
-            requestId.current = window.requestAnimationFrame(updateProgress);
-        } else {
+        if (passed >= duration) {
             setRepeatSmsButtonShow(true);
 
             if (onCountdownFinished) {
@@ -96,13 +78,17 @@ export const Countdown: FC<CountdownProps> = ({
             }
 
             stopTimer();
+        } else {
+            setTimePassed(passed);
         }
     }, [duration, onCountdownFinished, stopTimer]);
 
     const startTimer = useCallback(() => {
         start.current = Date.now();
 
-        requestId.current = window.requestAnimationFrame(updateProgress);
+        updateProgress();
+
+        timerId.current = window.setInterval(updateProgress, 1000);
     }, [updateProgress]);
 
     const handleRepeatSmsButtonClick = useCallback(
@@ -133,8 +119,6 @@ export const Countdown: FC<CountdownProps> = ({
         }
     }, [noAttemptsLeftMessage, noAttemptsLeftMessagePrev, stopTimer]);
 
-    const progress = timePassed / duration;
-
     const formattedPhone = phoneNumber.format(phone);
 
     return (
@@ -145,7 +129,7 @@ export const Countdown: FC<CountdownProps> = ({
                 <div>
                     Код отправлен на
                     {' '}
-                    {hasPhoneMask ? formatMaskedPhone(formattedPhone) : formattedPhone}
+                    {hasPhoneMask ? phoneNumber.mask(formattedPhone) : formattedPhone}
                 </div>
             )}
 
@@ -165,7 +149,7 @@ export const Countdown: FC<CountdownProps> = ({
                 <div>
                     <div className={styles.info}>Запросить повторно можно через</div>
                     <div className={styles.loaderWrap}>
-                        <CountdownLoader progress={progress} className={styles.loader} />
+                        <CountdownLoader duration={duration} className={styles.loader} />
 
                         <div className={styles.timePassed}>
                             {formatMsAsMinutes(duration - timePassed)}
