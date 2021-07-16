@@ -88,7 +88,7 @@ export const Countdown: FC<CountdownProps> = ({
 
         updateProgress();
 
-        timerId.current = window.setInterval(updateProgress, 1000);
+        timerId.current = window.setInterval(updateProgress, 50);
     }, [updateProgress]);
 
     const handleRepeatSmsButtonClick = useCallback(
@@ -118,6 +118,8 @@ export const Countdown: FC<CountdownProps> = ({
             stopTimer();
         }
     }, [noAttemptsLeftMessage, noAttemptsLeftMessagePrev, stopTimer]);
+
+    const progress = timePassed / duration;
 
     const formattedPhone = phoneNumber.format(phone);
 
@@ -149,7 +151,7 @@ export const Countdown: FC<CountdownProps> = ({
                 <div>
                     <div className={styles.info}>Запросить повторно можно через</div>
                     <div className={styles.loaderWrap}>
-                        <CountdownLoader duration={duration} className={styles.loader} />
+                        <CountdownLoader progress={progress} className={styles.loader} />
 
                         <div className={styles.timePassed}>
                             {formatMsAsMinutes(duration - timePassed)}

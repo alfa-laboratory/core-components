@@ -85,8 +85,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
                   cy="8"
                   r="7"
                   stroke-dasharray="43.98"
-                  stroke-dashoffset="43.98"
-                  style="transition-duration: 60000ms;"
+                  stroke-dashoffset="0.00"
                   transform="rotate(-90 8 8)"
                 />
               </svg>
@@ -240,8 +239,7 @@ exports[`Confirmation Snapshot tests should match snapshot with masked phone 1`]
                   cy="8"
                   r="7"
                   stroke-dasharray="43.98"
-                  stroke-dashoffset="43.98"
-                  style="transition-duration: 60000ms;"
+                  stroke-dashoffset="0.00"
                   transform="rotate(-90 8 8)"
                 />
               </svg>
@@ -362,8 +360,7 @@ exports[`Confirmation Snapshot tests should match snapshot with nonFatal error 1
                   cy="8"
                   r="7"
                   stroke-dasharray="43.98"
-                  stroke-dashoffset="43.98"
-                  style="transition-duration: 60000ms;"
+                  stroke-dashoffset="0.00"
                   transform="rotate(-90 8 8)"
                 />
               </svg>
@@ -480,8 +477,7 @@ exports[`Confirmation Snapshot tests should match snapshot with signTitle as rea
                   cy="8"
                   r="7"
                   stroke-dasharray="43.98"
-                  stroke-dashoffset="43.98"
-                  style="transition-duration: 60000ms;"
+                  stroke-dashoffset="0.00"
                   transform="rotate(-90 8 8)"
                 />
               </svg>
@@ -598,8 +594,7 @@ exports[`Confirmation Snapshot tests should match snapshot with signTitle as str
                   cy="8"
                   r="7"
                   stroke-dasharray="43.98"
-                  stroke-dashoffset="43.98"
-                  style="transition-duration: 60000ms;"
+                  stroke-dashoffset="0.00"
                   transform="rotate(-90 8 8)"
                 />
               </svg>
@@ -720,8 +715,7 @@ exports[`Confirmation Snapshot tests should match snapshot with unmasked phone 1
                   cy="8"
                   r="7"
                   stroke-dasharray="43.98"
-                  stroke-dashoffset="43.98"
-                  style="transition-duration: 60000ms;"
+                  stroke-dashoffset="0.00"
                   transform="rotate(-90 8 8)"
                 />
               </svg>
