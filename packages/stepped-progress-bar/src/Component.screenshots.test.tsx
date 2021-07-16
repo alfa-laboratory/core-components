@@ -17,7 +17,7 @@ describe(
                     componentName: 'SteppedProgressBar',
                     knobs: {
                         step: [0, 2, 10],
-                        maxStep: [0, 10],
+                        maxStep: 10,
                         description: 'Шаг 2 из 10: Выбор карты',
                     },
                 }),
