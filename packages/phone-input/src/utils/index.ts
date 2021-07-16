@@ -23,3 +23,21 @@ export function setCaretPosition({
         inputRef.current.setSelectionRange(position, position);
     });
 }
+
+export function getInsertedNumber({
+    rawValue,
+    clearableCountryCode,
+    countryPrefix,
+    previousConformedValue,
+}: {
+    rawValue: string;
+    clearableCountryCode: boolean;
+    countryPrefix: string;
+    previousConformedValue: string;
+}) {
+    if (!clearableCountryCode && previousConformedValue === countryPrefix) {
+        return rawValue.slice(countryPrefix.length);
+    }
+
+    return rawValue;
+}

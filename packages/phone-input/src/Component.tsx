@@ -2,7 +2,7 @@ import React, { useImperativeHandle, useCallback, useRef } from 'react';
 import { conformToMask, TextMaskConfig } from 'text-mask-core';
 import { MaskedInput, MaskedInputProps } from '@alfalab/core-components-masked-input';
 
-import { deleteFormatting, setCaretPosition } from './utils';
+import { deleteFormatting, setCaretPosition, getInsertedNumber } from './utils';
 
 const mask = [
     '+',
@@ -23,11 +23,11 @@ const mask = [
     /\d/,
 ];
 
+const countryPrefix = '+7 ';
+
 export type PhoneInputProps = Omit<MaskedInputProps, 'onBeforeDisplay' | 'type' | 'mask'> & {
     clearableCountryCode?: boolean;
 };
-
-const countryPrefix = '+7 ';
 
 export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
     ({ clearableCountryCode = true, ...restProps }, ref) => {
@@ -39,17 +39,6 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
         const handleBeforeDisplay = useCallback(
             (conformedValue: string, config: TextMaskConfig) => {
                 const { rawValue, previousConformedValue, currentCaretPosition } = config;
-
-                const abortCountryCodeClearing =
-                    !clearableCountryCode && !rawValue.startsWith(countryPrefix);
-
-                if (abortCountryCodeClearing) {
-                    setCaretPosition({ position: countryPrefix.length, inputRef });
-
-                    if (!rawValue.length) return countryPrefix;
-
-                    return false;
-                }
 
                 /*
                  * код ниже нужен для фикса следующих багов библиотеки text-mask:
@@ -88,18 +77,36 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                     return masked.conformedValue;
                 }
 
+                const insertedNumber = getInsertedNumber({
+                    rawValue,
+                    clearableCountryCode,
+                    countryPrefix,
+                    previousConformedValue,
+                });
+
                 // Вставка номера, начинающегося с 8 или 7: 89990313131, 71112223344
                 if (
                     conformedValue.length === mask.length &&
-                    (rawValue.startsWith('8') || rawValue.startsWith('7'))
+                    (insertedNumber.startsWith('8') || insertedNumber.startsWith('7'))
                 ) {
-                    const masked = conformToMask(`+7${rawValue.slice(1)}`, mask, config);
+                    const masked = conformToMask(`+7${insertedNumber.slice(1)}`, mask, config);
                     return masked.conformedValue;
                 }
 
                 // Если ввод начат с 7 или 8 - выводит "+7 " и дает продолжить ввод со след. цифры
                 if (rawValue.length === 1 && ['7', '8'].includes(rawValue[0])) {
                     return countryPrefix;
+                }
+
+                const abortCountryCodeClearing =
+                    !clearableCountryCode && !rawValue.startsWith(countryPrefix);
+
+                if (abortCountryCodeClearing) {
+                    setCaretPosition({ position: countryPrefix.length, inputRef });
+
+                    if (!rawValue.length) return countryPrefix;
+
+                    return false;
                 }
 
                 return conformedValue;
