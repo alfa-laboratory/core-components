@@ -3,11 +3,11 @@
 exports[`Amount should match snapshots for base and Pure components 1`] = `
 <div>
   <span
-    class="component"
+    class="component boldMajor"
   >
     1
     <span
-      class="minorPartAndCurrency"
+      class="minorPartAndCurrency transparentMinor normalMinor"
     >
       
       

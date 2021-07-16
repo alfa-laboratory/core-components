@@ -1,4 +1,3 @@
-@import './amount/click.css';
 @import './form-control/click.css';
 @import './input/click.css';
 @import './button/click.css';
@@ -23,7 +22,6 @@
     --disabled-cursor: not-allowed;
     --arrow-transform: rotate(-180deg);
 
-    @mixin amount-click;
     @mixin form-control-click;
     @mixin input-click;
     @mixin button-click;

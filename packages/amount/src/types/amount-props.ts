@@ -23,6 +23,16 @@ export type AmountProps = {
     view?: 'default' | 'withZeroMinorPart';
 
     /**
+     * Управление жирностью
+     */
+    bold?: 'full' | 'major' | 'none';
+
+    /**
+     * Делает минорную часть полупрозрачной
+     */
+    transparentMinor?: boolean;
+
+    /**
      * Дополнительный класс
      */
     className?: string;
