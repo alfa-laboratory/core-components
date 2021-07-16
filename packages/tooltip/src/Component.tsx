@@ -115,6 +115,11 @@ export type TooltipProps = {
      * z-index компонента
      */
     zIndex?: number;
+
+    /**
+     * Реф для обертки над дочерними элементами
+     */
+    targetRef?: React.MutableRefObject<HTMLElement | null>;
 };
 
 export const Tooltip: FC<TooltipProps> = ({
@@ -137,11 +142,12 @@ export const Tooltip: FC<TooltipProps> = ({
     onOpen,
     getPortalContainer,
     view = 'tooltip',
+    targetRef,
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
     const [target, setTarget] = useState<RefElement>(null);
 
-    const targetRef = React.useRef<RefElement>(null);
+    const targetInnerRef = React.useRef<RefElement>(null);
     const contentRef = React.useRef<RefElement>(null);
 
     const timer = useRef(0);
@@ -175,7 +181,7 @@ export const Tooltip: FC<TooltipProps> = ({
     };
 
     const clickedOutside = (node: Element): boolean => {
-        if (targetRef.current && targetRef.current.contains(node)) {
+        if (targetInnerRef.current && targetInnerRef.current.contains(node)) {
             return false;
         }
 
@@ -285,11 +291,19 @@ export const Tooltip: FC<TooltipProps> = ({
         }
     };
 
-    const handleTargetRef = useCallback((ref: RefElement) => {
-        targetRef.current = ref;
+    const handleTargetRef = useCallback(
+        (ref: RefElement) => {
+            targetInnerRef.current = ref;
 
-        setTarget(targetRef.current);
-    }, []);
+            if (targetRef) {
+                // eslint-disable-next-line no-param-reassign
+                targetRef.current = ref;
+            }
+
+            setTarget(targetInnerRef.current);
+        },
+        [targetRef],
+    );
 
     const show = forcedOpen === undefined ? visible : forcedOpen;
 
