@@ -1,3 +1,18 @@
+# [19.2.0](https://github.com/alfa-laboratory/core-components/compare/v19.1.0...v19.2.0) (2021-07-19)
+
+
+### Bug Fixes
+
+* **intl-phone-input:** remove changing unclearable country code ([#730](https://github.com/alfa-laboratory/core-components/issues/730)) ([6d219d6](https://github.com/alfa-laboratory/core-components/commit/6d219d622e4da60aada0e10d3c442510f597b1b9))
+
+
+### Features
+
+* **phone-input:** add 'clearableCountyCode' prop ([#749](https://github.com/alfa-laboratory/core-components/issues/749)) ([d110ae7](https://github.com/alfa-laboratory/core-components/commit/d110ae76594ccbf7f6d8a5764d3c2a72b1ae9a26))
+* **select:** add scroll handler ([#756](https://github.com/alfa-laboratory/core-components/issues/756)) ([b25351b](https://github.com/alfa-laboratory/core-components/commit/b25351b74913244fb131d4aa1bc09900be362258))
+* **tooltip:** add target ref property ([#755](https://github.com/alfa-laboratory/core-components/issues/755)) ([9aa962d](https://github.com/alfa-laboratory/core-components/commit/9aa962d8b280e8d6af8ac4324a78b4bdebbfc536))
+* **typography:** monospaceNumbers prop (PDS-255) ([#697](https://github.com/alfa-laboratory/core-components/issues/697)) ([42d16a6](https://github.com/alfa-laboratory/core-components/commit/42d16a62f6d0781eba44dc1e0b76b28cae37d89a))
+
 # [19.1.0](https://github.com/alfa-laboratory/core-components/compare/v19.0.0...v19.1.0) (2021-07-09)
 
 
