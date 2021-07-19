@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-phone-input@5.0.1...@alfalab/core-components-phone-input@5.1.0) (2021-07-19)
+
+
+### Features
+
+* **phone-input:** add 'clearableCountyCode' prop ([#749](https://github.com/alfa-laboratory/core-components/issues/749)) ([d110ae7](https://github.com/alfa-laboratory/core-components/commit/d110ae76594ccbf7f6d8a5764d3c2a72b1ae9a26))
+
+
+
+
+
 ## [5.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-phone-input@5.0.0...@alfalab/core-components-phone-input@5.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-phone-input
