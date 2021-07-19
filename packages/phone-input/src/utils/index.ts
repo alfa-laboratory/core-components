@@ -36,6 +36,10 @@ export function getInsertedNumber({
     previousConformedValue: string;
 }) {
     if (!clearableCountryCode && previousConformedValue === countryPrefix) {
+        if (rawValue.startsWith('7') || rawValue.startsWith('8')) {
+            return rawValue;
+        }
+
         return rawValue.slice(countryPrefix.length);
     }
 
