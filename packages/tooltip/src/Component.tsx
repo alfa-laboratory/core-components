@@ -8,6 +8,7 @@ import React, {
     ReactNode,
     useRef,
     Fragment,
+    MutableRefObject,
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
@@ -120,7 +121,7 @@ export type TooltipProps = {
     /**
      * Реф для обертки над дочерними элементами
      */
-    targetRef?: React.MutableRefObject<HTMLElement | null>;
+    targetRef?: MutableRefObject<HTMLElement | null>;
 };
 
 export const Tooltip: FC<TooltipProps> = ({
@@ -146,10 +147,9 @@ export const Tooltip: FC<TooltipProps> = ({
     targetRef = null,
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
+    const [target, setTarget] = useState<HTMLElement | null>(null);
 
-    const targetInnerRef = React.useRef<RefElement>(null);
-    const contentRef = React.useRef<RefElement>(null);
-
+    const contentRef = useRef<RefElement>(null);
     const timer = useRef(0);
 
     const open = () => {
@@ -180,17 +180,20 @@ export const Tooltip: FC<TooltipProps> = ({
         }
     };
 
-    const clickedOutside = (node: Element): boolean => {
-        if (targetInnerRef.current && targetInnerRef.current.contains(node)) {
-            return false;
-        }
+    const clickedOutside = useCallback(
+        (node: Element): boolean => {
+            if (target && target.contains(node)) {
+                return false;
+            }
 
-        if (contentRef.current && contentRef.current.contains(node)) {
-            return false;
-        }
+            if (contentRef.current && contentRef.current.contains(node)) {
+                return false;
+            }
 
-        return true;
-    };
+            return true;
+        },
+        [target],
+    );
 
     useEffect(() => {
         const handleBodyClick = (event: MouseEvent) => {
@@ -208,7 +211,7 @@ export const Tooltip: FC<TooltipProps> = ({
 
             clearTimeout(timer.current);
         };
-    }, [close]);
+    }, [clickedOutside, close]);
 
     const handleTargetClick = () => {
         toggle();
@@ -295,12 +298,12 @@ export const Tooltip: FC<TooltipProps> = ({
 
     return (
         <Fragment>
-            <div ref={mergeRefs([targetRef, targetInnerRef])} {...getTargetProps()}>
+            <div ref={mergeRefs([targetRef, setTarget])} {...getTargetProps()}>
                 {children}
             </div>
 
             <Popover
-                anchorElement={targetInnerRef.current}
+                anchorElement={target}
                 open={show}
                 getPortalContainer={getPortalContainer}
                 arrowClassName={cn(arrowClassName, styles.arrow)}
