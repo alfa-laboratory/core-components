@@ -143,7 +143,7 @@ export const Tooltip: FC<TooltipProps> = ({
     onOpen,
     getPortalContainer,
     view = 'tooltip',
-    targetRef,
+    targetRef = null,
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
 
@@ -295,10 +295,7 @@ export const Tooltip: FC<TooltipProps> = ({
 
     return (
         <Fragment>
-            <div
-                ref={targetRef ? mergeRefs([targetRef, targetInnerRef]) : targetInnerRef}
-                {...getTargetProps()}
-            >
+            <div ref={mergeRefs([targetRef, targetInnerRef])} {...getTargetProps()}>
                 {children}
             </div>
 
