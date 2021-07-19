@@ -14,7 +14,7 @@ export type SteppedProgressBarProps = {
     maxStep: number;
 
     /**
-     * Описание под прогрессбаром
+     * Постфикс описание под прогрессбаром
      */
     description?: string;
 
@@ -52,7 +52,7 @@ export const SteppedProgressBar: FC<SteppedProgressBarProps> = ({
             </div>
             {description && (
                 <Typography.Text tag='div' className={styles.description} view='primary-small'>
-                    {description}
+                    Шаг {step} из {maxStep}: {description}
                 </Typography.Text>
             )}
         </div>
