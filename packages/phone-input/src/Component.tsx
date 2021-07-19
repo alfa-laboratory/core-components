@@ -2,7 +2,7 @@ import React, { useImperativeHandle, useCallback, useRef } from 'react';
 import { conformToMask, TextMaskConfig } from 'text-mask-core';
 import { MaskedInput, MaskedInputProps } from '@alfalab/core-components-masked-input';
 
-import { deleteFormatting } from './utils';
+import { deleteFormatting, setCaretPosition, getInsertedNumber } from './utils';
 
 const mask = [
     '+',
@@ -23,10 +23,14 @@ const mask = [
     /\d/,
 ];
 
-export type PhoneInputProps = Omit<MaskedInputProps, 'onBeforeDisplay' | 'type' | 'mask'>;
+const countryPrefix = '+7 ';
+
+export type PhoneInputProps = Omit<MaskedInputProps, 'onBeforeDisplay' | 'type' | 'mask'> & {
+    clearableCountryCode?: boolean;
+};
 
 export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
-    ({ ...restProps }, ref) => {
+    ({ clearableCountryCode = true, ...restProps }, ref) => {
         const inputRef = useRef<HTMLInputElement>(null);
 
         // Оставляет возможность прокинуть ref извне
@@ -59,17 +63,11 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                         ([7, 10, 13].includes(currentCaretPosition) &&
                             previousConformedValue.length > currentCaretPosition))
                 ) {
-                    const caret = currentCaretPosition;
-                    window.requestAnimationFrame(() => {
-                        if (inputRef !== null && inputRef.current) {
-                            inputRef.current.selectionStart = caret;
-                            inputRef.current.selectionEnd = caret;
-                        }
-                    });
+                    setCaretPosition({ position: currentCaretPosition, inputRef });
                 }
 
                 // Удаление цифры перед кодом страны удаляет только саму цифру, код остается ("+7 1" -> "+7 ")
-                if (rawValue === '+7 ') {
+                if (rawValue === countryPrefix) {
                     return rawValue;
                 }
 
@@ -79,28 +77,47 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                     return masked.conformedValue;
                 }
 
+                const insertedNumber = getInsertedNumber({
+                    rawValue,
+                    clearableCountryCode,
+                    countryPrefix,
+                    previousConformedValue,
+                });
+
                 // Вставка номера, начинающегося с 8 или 7: 89990313131, 71112223344
                 if (
                     conformedValue.length === mask.length &&
-                    (rawValue.startsWith('8') || rawValue.startsWith('7'))
+                    (insertedNumber.startsWith('8') || insertedNumber.startsWith('7'))
                 ) {
-                    const masked = conformToMask(`+7${rawValue.slice(1)}`, mask, config);
+                    const masked = conformToMask(`+7${insertedNumber.slice(1)}`, mask, config);
                     return masked.conformedValue;
                 }
 
                 // Если ввод начат с 7 или 8 - выводит "+7 " и дает продолжить ввод со след. цифры
                 if (rawValue.length === 1 && ['7', '8'].includes(rawValue[0])) {
-                    return '+7 ';
+                    return countryPrefix;
+                }
+
+                const abortCountryCodeClearing =
+                    !clearableCountryCode && !rawValue.startsWith(countryPrefix);
+
+                if (abortCountryCodeClearing) {
+                    setCaretPosition({ position: countryPrefix.length, inputRef });
+
+                    if (!rawValue.length) return countryPrefix;
+
+                    return false;
                 }
 
                 return conformedValue;
             },
-            [],
+            [clearableCountryCode],
         );
 
         return (
             <MaskedInput
                 {...restProps}
+                value={clearableCountryCode ? undefined : countryPrefix}
                 mask={mask}
                 onBeforeDisplay={handleBeforeDisplay}
                 type='tel'
