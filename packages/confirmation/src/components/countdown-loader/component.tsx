@@ -16,7 +16,7 @@ const RADIUS = CENTER - STROKE_WIDTH / 2;
 const CIRCUMFERENCE = Math.PI * RADIUS * 2;
 
 export const CountdownLoader: FC<Props> = ({ progress, className }) => {
-    const value = progress > 1 ? 1 : progress;
+    const value = Math.min(progress, 1);
 
     const strokeDasharray = CIRCUMFERENCE.toFixed(2);
     const strokeDashoffset = (value * CIRCUMFERENCE).toFixed(2);
