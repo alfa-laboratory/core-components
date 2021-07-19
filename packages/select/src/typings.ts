@@ -263,6 +263,11 @@ export type BaseSelectProps = {
     onFocus?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
 
     /**
+     * Обработчик скрола
+     */
+    onScroll?: (event: MouseEvent<HTMLDivElement>) => void;
+
+    /**
      * Хранит функцию, с помощью которой можно обновить положение поповера
      */
     updatePopover?: PopoverProps['update'];
@@ -425,6 +430,11 @@ export type OptionsListProps = {
      * Количество видимых пунктов меню (5 = 5.5)
      */
     visibleOptions?: number;
+
+    /**
+     * Обработчик скрола
+     */
+    onScroll?: (event: MouseEvent<HTMLDivElement>) => void;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
