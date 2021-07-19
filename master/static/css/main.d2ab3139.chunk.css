@@ -2229,6 +2229,11 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 .regular_3hvTn {
     font-weight: normal;
 }
+.monospace_2Rw7k {
+    -webkit-font-feature-settings: "tnum";
+            font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+}
 /* TODO: поменять медиа-запросы на миксины */
 .styrene-xlarge_33vyx {
     font-size: 32px;
@@ -16921,4 +16926,4 @@ pre.cssExample_3Mm-Q {
 }
 
 
-/*# sourceMappingURL=main.4d7fc3fb.chunk.css.map */
+/*# sourceMappingURL=main.d2ab3139.chunk.css.map */
