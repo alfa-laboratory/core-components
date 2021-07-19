@@ -10,6 +10,7 @@ import React, {
     Fragment,
 } from 'react';
 import cn from 'classnames';
+import mergeRefs from 'react-merge-refs';
 
 import { Popover, Position, PopoverProps } from '@alfalab/core-components-popover';
 
@@ -17,7 +18,7 @@ import styles from './index.module.css';
 
 type Trigger = 'click' | 'hover';
 
-type RefElement = HTMLElement | null;
+type RefElement = HTMLDivElement | null;
 
 export type TooltipProps = {
     /**
@@ -145,7 +146,6 @@ export const Tooltip: FC<TooltipProps> = ({
     targetRef,
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
-    const [target, setTarget] = useState<RefElement>(null);
 
     const targetInnerRef = React.useRef<RefElement>(null);
     const contentRef = React.useRef<RefElement>(null);
@@ -291,45 +291,32 @@ export const Tooltip: FC<TooltipProps> = ({
         }
     };
 
-    const handleTargetRef = useCallback(
-        (ref: RefElement) => {
-            targetInnerRef.current = ref;
-
-            if (targetRef) {
-                // eslint-disable-next-line no-param-reassign
-                targetRef.current = ref;
-            }
-
-            setTarget(targetInnerRef.current);
-        },
-        [targetRef],
-    );
-
     const show = forcedOpen === undefined ? visible : forcedOpen;
 
     return (
         <Fragment>
-            <div ref={handleTargetRef} {...getTargetProps()}>
+            <div
+                ref={targetRef ? mergeRefs([targetRef, targetInnerRef]) : targetInnerRef}
+                {...getTargetProps()}
+            >
                 {children}
             </div>
 
-            {target && (
-                <Popover
-                    anchorElement={target}
-                    open={show}
-                    getPortalContainer={getPortalContainer}
-                    arrowClassName={cn(arrowClassName, styles.arrow)}
-                    popperClassName={cn(styles.popper, styles[view])}
-                    className={popoverClassName}
-                    offset={offset}
-                    withArrow={true}
-                    position={position}
-                    update={updatePopover}
-                    zIndex={zIndex}
-                >
-                    <div {...getContentProps()}>{content}</div>
-                </Popover>
-            )}
+            <Popover
+                anchorElement={targetInnerRef.current}
+                open={show}
+                getPortalContainer={getPortalContainer}
+                arrowClassName={cn(arrowClassName, styles.arrow)}
+                popperClassName={cn(styles.popper, styles[view])}
+                className={popoverClassName}
+                offset={offset}
+                withArrow={true}
+                position={position}
+                update={updatePopover}
+                zIndex={zIndex}
+            >
+                <div {...getContentProps()}>{content}</div>
+            </Popover>
         </Fragment>
     );
 };
