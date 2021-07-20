@@ -116,7 +116,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
         return (
             <MaskedInput
                 {...restProps}
-                defaultValue={clearableCountryCode ? undefined : countryPrefix}
+                defaultValue={clearableCountryCode ? restProps.defaultValue : countryPrefix}
                 mask={mask}
                 onBeforeDisplay={handleBeforeDisplay}
                 type='tel'
