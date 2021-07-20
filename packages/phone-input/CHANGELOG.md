@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-phone-input@5.1.0...@alfalab/core-components-phone-input@5.1.1) (2021-07-20)
+
+
+### Bug Fixes
+
+* **phone-input:** value prop ([#757](https://github.com/alfa-laboratory/core-components/issues/757)) ([3ba0168](https://github.com/alfa-laboratory/core-components/commit/3ba01686ffa950bd74d9ab28bfa961c6cf74a5d8))
+
+
+
+
+
 # [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-phone-input@5.0.1...@alfalab/core-components-phone-input@5.1.0) (2021-07-19)
 
 
