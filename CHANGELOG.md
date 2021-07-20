@@ -1,3 +1,10 @@
+## [19.2.1](https://github.com/alfa-laboratory/core-components/compare/v19.2.0...v19.2.1) (2021-07-20)
+
+
+### Bug Fixes
+
+* **phone-input:** value prop ([#757](https://github.com/alfa-laboratory/core-components/issues/757)) ([3ba0168](https://github.com/alfa-laboratory/core-components/commit/3ba01686ffa950bd74d9ab28bfa961c6cf74a5d8))
+
 # [19.2.0](https://github.com/alfa-laboratory/core-components/compare/v19.1.0...v19.2.0) (2021-07-19)
 
 
