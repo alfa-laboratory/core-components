@@ -152,8 +152,10 @@ export const Tooltip: FC<TooltipProps> = ({
     const contentRef = useRef<RefElement>(null);
     const timer = useRef(0);
 
+    const show = forcedOpen === undefined ? visible : forcedOpen;
+
     const open = () => {
-        if (!visible) {
+        if (!show) {
             setVisible(true);
 
             if (onOpen) {
@@ -163,17 +165,17 @@ export const Tooltip: FC<TooltipProps> = ({
     };
 
     const close = useCallback(() => {
-        if (visible) {
+        if (show) {
             setVisible(false);
 
             if (onClose) {
                 onClose();
             }
         }
-    }, [onClose, visible]);
+    }, [onClose, show]);
 
     const toggle = () => {
-        if (visible) {
+        if (show) {
             close();
         } else {
             open();
@@ -293,8 +295,6 @@ export const Tooltip: FC<TooltipProps> = ({
                 return props;
         }
     };
-
-    const show = forcedOpen === undefined ? visible : forcedOpen;
 
     return (
         <Fragment>
