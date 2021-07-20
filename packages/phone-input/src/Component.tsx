@@ -98,8 +98,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
                     return countryPrefix;
                 }
 
-                const abortCountryCodeClearing =
-                    !clearableCountryCode && !rawValue.startsWith(countryPrefix);
+                const abortCountryCodeClearing = !clearableCountryCode && !conformedValue;
 
                 if (abortCountryCodeClearing) {
                     setCaretPosition({ position: countryPrefix.length, inputRef });
@@ -117,7 +116,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
         return (
             <MaskedInput
                 {...restProps}
-                value={clearableCountryCode ? undefined : countryPrefix}
+                defaultValue={clearableCountryCode ? restProps.defaultValue : countryPrefix}
                 mask={mask}
                 onBeforeDisplay={handleBeforeDisplay}
                 type='tel'
