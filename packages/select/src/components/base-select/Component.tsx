@@ -205,20 +205,30 @@ export const BaseSelect = forwardRef(
         };
 
         const handleFieldBlur = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
-            if (onBlur) onBlur(event);
+            if (
+                !listRef.current?.contains(
+                    (event.relatedTarget || document.activeElement) as HTMLElement,
+                )
+            ) {
+                if (onBlur) onBlur(event);
 
-            inputProps.onBlur(event);
+                inputProps.onBlur(event);
+            }
         };
 
         const handleFieldKeyDown = (event: KeyboardEvent<HTMLDivElement | HTMLInputElement>) => {
             inputProps.onKeyDown(event);
-
             if (autocomplete && !open && event.key.length === 1) {
                 // Для автокомплита - открываем меню при начале ввода
                 openMenu();
             }
 
-            if ([' ', 'Enter'].includes(event.key) && !autocomplete && !nativeSelect) {
+            if (
+                [' ', 'Enter'].includes(event.key) &&
+                !autocomplete &&
+                !nativeSelect &&
+                (event.target as HTMLElement).tagName !== 'INPUT'
+            ) {
                 // Открываем\закрываем меню по нажатию enter или пробела
                 event.preventDefault();
                 if (!open || highlightedIndex === -1) toggleMenu();

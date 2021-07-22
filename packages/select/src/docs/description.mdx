@@ -573,10 +573,18 @@ const mockOptions = (offset, limit, queryString) => ({
 // Для корректной работы Input должен принимать в себя ...inputProps,
 // OptionsList должен принимать ref и остальные ...props
 const CustomOptionsList = React.forwardRef(({inputProps, ...props}, ref) => {
+    const inputRef = React.useRef();
+
+    React.useLayoutEffect(() => {
+        // Нужно для того, чтобы инпут фокусировался в поле уже после того, как OptionsList
+        // спозиционируется относительно инпута, и тогда не произойдет скачка экрана
+        setTimeout(() => inputRef.current.focus(), 0);
+    }, []);
+
     return (
         <div>
             <div style={{padding: '5px'}}>
-                <Input label='Поиск' {...inputProps} block={true} />
+                <Input label='Поиск' {...inputProps} block={true} ref={inputRef}/>
             </div>
             <OptionsList {...props} ref={ref} />
         </div>
