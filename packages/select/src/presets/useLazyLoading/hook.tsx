@@ -43,6 +43,9 @@ const actions = {
     fetchOptionsStart() {
         return { type: 'FETCH_OPTIONS_START' } as const;
     },
+    fetchOptionsBreak() {
+        return { type: 'FETCH_OPTIONS_BREAK' } as const;
+    },
     fetchOptionsSuccess(payload: { options: OptionShape[]; hasMore: boolean }) {
         return { type: 'FETCH_OPTIONS_SUCCESS', payload } as const;
     },
@@ -84,6 +87,12 @@ export function useLazyLoading({
                 return {
                     ...state,
                     loading: true,
+                };
+            }
+            case 'FETCH_OPTIONS_BREAK': {
+                return {
+                    ...state,
+                    loading: false,
                 };
             }
             case 'FETCH_OPTIONS_SUCCESS': {
@@ -143,14 +152,16 @@ export function useLazyLoading({
         dispatch(actions.fetchOptionsStart());
 
         new Promise<OptionsFetcherResponse>((resolve, reject) => {
+            // eslint-disable-next-line no-unused-expressions
+            abortFetchingOptionsRef.current?.();
             abortFetchingOptionsRef.current = reject;
             optionsFetcher(offset, limit, queryString).then(res => {
                 resolve(res);
-                abortFetchingOptionsRef.current = undefined;
             });
         })
             .then(res => {
                 dispatch(actions.fetchOptionsSuccess(res));
+                abortFetchingOptionsRef.current = undefined;
             })
             .catch(
                 // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -192,6 +203,10 @@ export function useLazyLoading({
                 if (options.length === initialOptions.length) {
                     fetchNextOffsetOptions();
                 }
+            } else {
+                // eslint-disable-next-line no-unused-expressions
+                abortFetchingOptionsRef.current?.();
+                dispatch(actions.fetchOptionsBreak());
             }
 
             dispatch(actions.setIsOpened(payload.open ?? false));
