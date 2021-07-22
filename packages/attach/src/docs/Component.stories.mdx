@@ -67,7 +67,7 @@ render(() => {
             formData.append(`file${  i}`, file);
         });
 
-        fetch('http://httpbin.org/post', {
+        fetch('https://httpbin.org/post', {
             method: 'POST',
             body: formData,
         })
