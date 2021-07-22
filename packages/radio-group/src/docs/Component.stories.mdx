@@ -11,20 +11,15 @@ import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
-
-<Meta
-    title='Компоненты/RadioGroup'
-    component={RadioGroup}
-/>
-
+<Meta title='Компоненты/RadioGroup' component={RadioGroup} />
 
 <!-- Canvas -->
 
 <Story name='RadioGroup'>
     {React.createElement(() => {
-        const [value, setValue] = React.useState({ one: false, two: false, three: false });
+        const [value, setValue] = React.useState('one');
         const onChange = (_, payload) => {
-            setValue({ ...value, [payload.name]: payload.checked });
+            setValue(payload.value);
         };
         const direction = select('direction', ['vertical', 'horizontal'], 'vertical');
         const error = text('error', '');
@@ -38,15 +33,15 @@ import styles from '!!raw-loader!../index.module.css';
                 error={error}
                 disabled={disabled}
                 name='radioGroup'
+                value={value}
             >
-                <Radio label='Первый вариант' value='first' />
-                <Radio label='Второй вариант' value='second' />
-                <Radio label='Третий вариант' value='third' />
+                <Radio label='Первый вариант' value='one' />
+                <Radio label='Второй вариант' value='two' />
+                <Radio label='Третий вариант' value='three' />
             </RadioGroup>
         );
     })}
 </Story>
-
 
 <!-- Docs -->
 
@@ -63,7 +58,10 @@ import { RadioGroup } from '@alfalab/core-components/radio-group';
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
-    props={<Props of={RadioGroup} />}
-    cssVars={<CssVars css={styles} />}
+changelog={
+<Changelog />}
+props={
+<Props of={RadioGroup} />}
+cssVars={
+<CssVars css={styles} />}
 />
