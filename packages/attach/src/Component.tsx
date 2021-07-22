@@ -6,6 +6,7 @@ import React, {
     useRef,
     ChangeEvent,
     useEffect,
+    MouseEvent,
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
@@ -21,7 +22,7 @@ import styles from './index.module.css';
 
 export type AttachProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'size' | 'type' | 'value' | 'defaultValue' | 'onChange'
+    'size' | 'type' | 'value' | 'defaultValue' | 'onChange' | 'multiple'
 > & {
     /**
      * Содержимое кнопки для выбора файла
@@ -59,6 +60,11 @@ export type AttachProps = Omit<
     size?: 'xs' | 's' | 'm' | 'l';
 
     /**
+     * Возможность прикрепления нескольких файлов
+     */
+    multiple?: boolean;
+
+    /**
      * Содержимое поля ввода. Принимает массив объектов типа File или null.
      */
     value?: File[] | null;
@@ -72,6 +78,11 @@ export type AttachProps = Omit<
      * Обработчик поля ввода
      */
     onChange?: (event: ChangeEvent<HTMLInputElement>, payload: { files: File[] }) => void;
+
+    /**
+     * Обработчик нажатия на кнопку очистки
+     */
+    onClear?: (event: MouseEvent<HTMLButtonElement>) => void;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -99,6 +110,7 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
             defaultValue,
             value,
             onChange,
+            onClear,
             ...restProps
         },
         ref,
@@ -142,15 +154,22 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
             [buttonProps],
         );
 
-        const handleClearClick = useCallback(() => {
-            if (uncontrolled) {
-                if (inputRef.current) {
-                    inputRef.current.value = '';
+        const handleClearClick = useCallback(
+            ev => {
+                if (uncontrolled) {
+                    if (inputRef.current) {
+                        inputRef.current.value = '';
+                    }
+
+                    setFiles([]);
                 }
 
-                setFiles([]);
-            }
-        }, [uncontrolled]);
+                if (onClear) {
+                    onClear(ev);
+                }
+            },
+            [onClear, uncontrolled],
+        );
 
         const Icon = size === 'xs' ? AttachmentSBlackIcon : AttachmentMBlackIcon;
 
