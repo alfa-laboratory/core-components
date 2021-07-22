@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import addons, { makeDecorator } from '@storybook/addons';
 import { ADDON_ID } from './register';
-import { DarkThemeStylesInjector } from '../../../packages/dark-theme-styles-injector';
+import { DarkThemeStylesInjector } from '../../../packages/dark-theme-styles-injector/src/index';
 
 export default makeDecorator({
     name: 'withModeSwitcher',
