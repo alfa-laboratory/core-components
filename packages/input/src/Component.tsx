@@ -192,7 +192,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             defaultValue,
             wrapperRef,
             readOnly,
-            autoFocus,
             ...restProps
         },
         ref,
@@ -201,13 +200,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
         const inputRef = useRef<HTMLInputElement>(null);
 
-        let [focusVisible] = useFocus(inputRef, 'keyboard');
+        const [focusVisible] = useFocus(inputRef, 'keyboard');
 
-        if (inputRef.current === null) {
-            focusVisible = Boolean(autoFocus);
-        }
-
-        const [focused, setFocused] = useState(autoFocus);
+        const [focused, setFocused] = useState(restProps.autoFocus);
         const [stateValue, setStateValue] = useState(defaultValue || '');
 
         const filled = Boolean(uncontrolled ? stateValue : value);
