@@ -46,3 +46,53 @@ import { Attach } from '@alfalab/core-components/attach';
     changelog={<Changelog />}
     props={<Props of={Attach} />}
 />
+
+## Controlled Attach
+К сожалению, можно только эмулировать контролируемое поведение
+(https://ru.reactjs.org/docs/uncontrolled-components.html#the-file-input-tag)
+
+```tsx live
+render(() => {
+    const [response, setResponse] = React.useState(null);
+    const [files, setFiles] = React.useState([]);
+
+    const handleChange = (event, payload) => {
+        setFiles([...files, ...payload.files]);
+    };
+
+    const handleSubmit = () => {
+        const formData = new FormData();
+
+        files.forEach((file, i) => {
+            formData.append(`file${  i}`, file);
+        });
+
+        fetch('http://httpbin.org/post', {
+            method: 'POST',
+            body: formData,
+        })
+            .then(r => r.json())
+            .then(r => setResponse(r));
+    };
+
+    return (
+        <Space>
+            <Attach
+                value={files}
+                onChange={handleChange}
+                multiple={true}
+                name='file'
+                onClear={() => setFiles([])}
+            />
+            <Button size='xs' type='button' onClick={handleSubmit}>
+                Отправить
+            </Button>
+
+            {response &&
+                Object.entries(response.files).map(([fileName, base64]) => (
+                    <img src={base64} key={fileName} width={100} />
+                ))}
+        </Space>
+    );
+});
+```
