@@ -11,20 +11,15 @@ import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
-
-<Meta
-    title='Компоненты/RadioGroup'
-    component={RadioGroup}
-/>
-
+<Meta title='Компоненты/RadioGroup' component={RadioGroup} />
 
 <!-- Canvas -->
 
 <Story name='RadioGroup'>
     {React.createElement(() => {
-        const [value, setValue] = React.useState({ one: false, two: false, three: false });
+        const [value, setValue] = React.useState('one');
         const onChange = (_, payload) => {
-            setValue({ ...value, [payload.name]: payload.checked });
+            setValue(payload.value);
         };
         const direction = select('direction', ['vertical', 'horizontal'], 'vertical');
         const error = text('error', '');
@@ -41,15 +36,15 @@ import styles from '!!raw-loader!../index.module.css';
                 error={error}
                 disabled={disabled}
                 name='radioGroup'
+                value={value}
             >
-                <Radio size={size} label='Первый вариант' value='first' />
-                <Radio size={size} label='Второй вариант' value='second' />
-                <Radio size={size} label='Третий вариант' value='third' />
+                <Radio size={size} label='Первый вариант' value='one' />
+                <Radio size={size} label='Второй вариант' value='two' />
+                <Radio size={size} label='Третий вариант' value='three' />
             </RadioGroup>
         );
     })}
 </Story>
-
 
 <!-- Docs -->
 
