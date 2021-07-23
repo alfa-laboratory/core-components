@@ -1,3 +1,5 @@
+import 'intersection-observer';
+
 import React, { Reducer, useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
 import { Skeleton } from '@alfalab/core-components-skeleton';
 import { InputProps } from '@alfalab/core-components-input';
