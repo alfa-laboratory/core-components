@@ -170,6 +170,7 @@
     --button-font-family: var(--font-family);
     --button-border-radius: var(--border-radius-s);
     --button-active-transform: none;
+    --button-font-weight: 500;
 }
 .component_2wtkW {
     position: relative;
@@ -194,7 +195,7 @@
     margin: 0;
     padding: 0 var(--gap-xl);
     line-height: 20px;
-    font-weight: 500;
+    font-weight: var(--button-font-weight);
     font-family: var(--font-family);
     text-align: center;
     text-decoration: none;
@@ -3552,6 +3553,9 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     /* disabled and checked */
     --checkbox-checked-disabled-bg-color: var(--color-light-graphic-neutral);
     --checkbox-checked-disabled-border-color: transparent;
+
+    /* icon */
+    --checkbox-icon-color: var(--color-light-bg-primary);
 }
 .component_1w1qA {
     display: -webkit-inline-box;
@@ -3608,6 +3612,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 }
 .checkedIcon_3K2av {
     position: absolute;
+    color: var(--checkbox-icon-color);
 }
 .s_33cDw .box_2ftoA {
     width: 16px;
@@ -14189,6 +14194,9 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     /* disabled and checked */
     --radio-checked-disabled-bg-color: var(--color-light-graphic-neutral);
     --radio-checked-disabled-border-color: transparent;
+
+    /* icon */
+    --radio-icon-color: var(--color-light-bg-primary);
 }
 .container_2hTts {
     display: -webkit-inline-box;
@@ -14268,7 +14276,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 }
 .circle_10ktA:before {
         content: '';
-        background-color: white;
+        background-color: var(--radio-icon-color);
         position: absolute;
         width: 6px;
         height: 6px;
@@ -14340,6 +14348,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --tag-border-color-checked: var(--color-light-border-key);
     --tag-border-color-disabled: var(--color-light-border-primary);
     --tag-border-color-checked-disabled: transparent;
+    --tag-border-radius: var(--border-radius-pill);
 
     /* background-color */
     --tag-background-color: transparent;
@@ -14371,7 +14380,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     text-decoration: none;
     color: var(--tag-text-color);
     border: var(--tag-border-width) solid var(--tag-border-color);
-    border-radius: var(--border-radius-pill);
+    border-radius: var(--tag-border-radius);
     background-color: var(--tag-background-color);
     -webkit-transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
     transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
@@ -16239,14 +16248,13 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 }
 [data-theme='mobile'] {
     /* core vars */
-    --color-light-bg-secondary-inverted: #1c1c1e;
-    --color-light-bg-primary-inverted: #000;
+    --color-light-bg-primary-inverted: #121212;
     --color-light-text-tertiary-inverted: #464649;
-    --color-light-bg-secondary: #f3f4f5;
     --color-light-bg-tertiary: #e9e9eb;
     --color-light-text-disabled: #dcdcdd;
     /* theme */
     --button-border-radius: var(--border-radius-l);
+    --button-font-weight: bold;
     /* primary */
     --button-primary-base-bg-color: var(--color-light-bg-secondary-inverted);
     --button-primary-hover-bg-color: var(--color-light-bg-secondary-inverted);
@@ -16259,6 +16267,56 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --button-secondary-active-bg-color: var(--color-light-bg-tertiary);
     --button-secondary-disabled-bg-color: var(--color-light-bg-secondary);
     --button-secondary-disabled-color: var(--color-light-text-disabled);
+    /* core vars */
+    --border-radius-l: 12px;
+    --color-light-bg-secondary: #f3f4f5;
+    --color-light-bg-secondary-inverted: #202022;
+    /* theme */
+    --tag-border-radius: var(--border-radius-l);
+    --tag-background-color: var(--color-light-bg-secondary);
+    --tag-background-color-hover: var(--color-light-bg-secondary);
+    --tag-background-color-checked: var(--color-light-bg-secondary-inverted);
+    --tag-background-color-active: rgba(35, 53, 73, 0.07);
+    --tag-background-color-checked-disabled: rgba(35, 53, 73, 0.15);
+    --tag-border-color: transparent;
+    --tag-border-color-hover: transparent;
+    --tag-border-color-active: transparent;
+    --tag-border-color-checked: transparent;
+    --tag-border-color-disabled: transparent;
+    /* core vars */
+    /* unchecked */
+    --checkbox-bg-color: var(--color-light-graphic-primary-inverted);
+    --checkbox-border-color: var(--color-light-graphic-secondary);
+    --checkbox-hover-bg-color: var(--color-light-graphic-primary-inverted);
+    --checkbox-hover-border-color: var(--color-light-graphic-secondary);
+    /* active */
+    --checkbox-active-bg-color: var(--color-light-graphic-primary-inverted);
+    --checkbox-active-border-color: var(--color-light-border-key);
+    /* checked */
+    --checkbox-checked-hover-bg-color: rgb(10, 28, 48);
+    --checkbox-checked-active-bg-color: rgb(8, 22, 37);
+    --checkbox-checked-bg-color: var(--color-light-graphic-primary);
+    /* icon */
+    --checkbox-icon-color: var(--color-light-graphic-primary-inverted);
+    /* core vars */
+    --color-light-graphic-secondary: #8a8a8e;
+    --color-light-graphic-primary: #000;
+    --color-light-graphic-primary-inverted: #f3f4f5;
+    --color-light-border-key: #000;
+    /* unchecked */
+    --radio-bg-color: var(--color-light-graphic-primary-inverted);
+    --radio-border-color: var(--color-light-graphic-secondary);
+    --radio-hover-bg-color: var(--color-light-graphic-primary-inverted);
+    --radio-hover-border-color: var(--color-light-graphic-secondary);
+    /* active */
+    --radio-active-bg-color: var(--color-light-graphic-primary-inverted);
+    --radio-active-border-color: var(--color-light-border-key);
+    /* checked */
+    --radio-checked-hover-bg-color: rgb(10, 28, 48);
+    --radio-checked-active-bg-color: rgb(8, 22, 37);
+    --radio-checked-bg-color: var(--color-light-graphic-primary);
+    /* icon */
+    --radio-icon-color: var(--color-light-graphic-primary-inverted);
     /* theme */
     --confirmation-title-font-size: 18px;
     --confirmation-title-line-height: 22px;
@@ -16931,4 +16989,4 @@ pre.cssExample_3Mm-Q {
 }
 
 
-/*# sourceMappingURL=main.f8d2172f.chunk.css.map */
+/*# sourceMappingURL=main.094f8ed8.chunk.css.map */
