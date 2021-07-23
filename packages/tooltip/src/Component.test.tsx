@@ -333,3 +333,20 @@ describe('Child render tests', () => {
         expect(getByTestId(testId)).toHaveClass(childClassName);
     });
 });
+
+describe('Props test', () => {
+    it('should use `targetRef`', async () => {
+        const ref = {
+            current: null,
+        };
+
+        const { container } = await renderTooltip({
+            targetRef: ref,
+            children: <div>children</div>,
+            content: <div>I am tooltip</div>,
+            open: true,
+        });
+
+        expect(container.firstChild).toEqual(ref.current);
+    });
+});

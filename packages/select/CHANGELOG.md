@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.1.0...@alfalab/core-components-select@9.2.0) (2021-07-19)
+
+
+### Features
+
+* **select:** add scroll handler ([#756](https://github.com/alfa-laboratory/core-components/issues/756)) ([b25351b](https://github.com/alfa-laboratory/core-components/commit/b25351b74913244fb131d4aa1bc09900be362258))
+
+
+
+
+
 # [9.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.0.0...@alfalab/core-components-select@9.1.0) (2021-07-09)
 
 

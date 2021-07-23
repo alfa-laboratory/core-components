@@ -9,6 +9,7 @@
     --tag-border-color-checked: var(--color-light-border-key);
     --tag-border-color-disabled: var(--color-light-border-primary);
     --tag-border-color-checked-disabled: transparent;
+    --tag-border-radius: var(--border-radius-pill);
 
     /* background-color */
     --tag-background-color: transparent;
@@ -36,7 +37,7 @@
     text-decoration: none;
     color: var(--tag-text-color);
     border: var(--tag-border-width) solid var(--tag-border-color);
-    border-radius: var(--border-radius-pill);
+    border-radius: var(--tag-border-radius);
     background-color: var(--tag-background-color);
     transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
     box-sizing: border-box;
