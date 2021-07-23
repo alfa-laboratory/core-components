@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-password-input",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "description": "Input password",
     "keywords": [],
     "license": "MIT",
@@ -17,8 +17,8 @@
         "react-dom": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-icon-button": "^3.0.2",
-        "@alfalab/core-components-input": "^7.0.2",
+        "@alfalab/core-components-icon-button": "^3.0.3",
+        "@alfalab/core-components-input": "^7.1.0",
         "@alfalab/icons-glyph": "^1.150.0",
         "classnames": "^2.2.6"
     }

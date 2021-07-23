@@ -79,32 +79,14 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
                 viewBox="0 0 16 16"
                 width="16"
               >
-                <defs>
-                  <mask
-                    id="cut"
-                  >
-                    <rect
-                      fill="white"
-                      height="100%"
-                      width="100%"
-                    />
-                    <circle
-                      cx="8"
-                      cy="8"
-                      fill="black"
-                      r="6"
-                    />
-                    <path
-                      d="M8 0 V8 L8 0 H0 L0 0 Z"
-                    />
-                  </mask>
-                </defs>
                 <circle
                   class="circle"
                   cx="8"
                   cy="8"
-                  mask="url(#cut)"
-                  r="8"
+                  r="7"
+                  stroke-dasharray="43.98"
+                  stroke-dashoffset="0.00"
+                  transform="rotate(-90 8 8)"
                 />
               </svg>
               <div
@@ -251,32 +233,14 @@ exports[`Confirmation Snapshot tests should match snapshot with masked phone 1`]
                 viewBox="0 0 16 16"
                 width="16"
               >
-                <defs>
-                  <mask
-                    id="cut"
-                  >
-                    <rect
-                      fill="white"
-                      height="100%"
-                      width="100%"
-                    />
-                    <circle
-                      cx="8"
-                      cy="8"
-                      fill="black"
-                      r="6"
-                    />
-                    <path
-                      d="M8 0 V8 L8 0 H0 L0 0 Z"
-                    />
-                  </mask>
-                </defs>
                 <circle
                   class="circle"
                   cx="8"
                   cy="8"
-                  mask="url(#cut)"
-                  r="8"
+                  r="7"
+                  stroke-dasharray="43.98"
+                  stroke-dashoffset="0.00"
+                  transform="rotate(-90 8 8)"
                 />
               </svg>
               <div
@@ -390,32 +354,14 @@ exports[`Confirmation Snapshot tests should match snapshot with nonFatal error 1
                 viewBox="0 0 16 16"
                 width="16"
               >
-                <defs>
-                  <mask
-                    id="cut"
-                  >
-                    <rect
-                      fill="white"
-                      height="100%"
-                      width="100%"
-                    />
-                    <circle
-                      cx="8"
-                      cy="8"
-                      fill="black"
-                      r="6"
-                    />
-                    <path
-                      d="M8 0 V8 L8 0 H0 L0 0 Z"
-                    />
-                  </mask>
-                </defs>
                 <circle
                   class="circle"
                   cx="8"
                   cy="8"
-                  mask="url(#cut)"
-                  r="8"
+                  r="7"
+                  stroke-dasharray="43.98"
+                  stroke-dashoffset="0.00"
+                  transform="rotate(-90 8 8)"
                 />
               </svg>
               <div
@@ -525,32 +471,14 @@ exports[`Confirmation Snapshot tests should match snapshot with signTitle as rea
                 viewBox="0 0 16 16"
                 width="16"
               >
-                <defs>
-                  <mask
-                    id="cut"
-                  >
-                    <rect
-                      fill="white"
-                      height="100%"
-                      width="100%"
-                    />
-                    <circle
-                      cx="8"
-                      cy="8"
-                      fill="black"
-                      r="6"
-                    />
-                    <path
-                      d="M8 0 V8 L8 0 H0 L0 0 Z"
-                    />
-                  </mask>
-                </defs>
                 <circle
                   class="circle"
                   cx="8"
                   cy="8"
-                  mask="url(#cut)"
-                  r="8"
+                  r="7"
+                  stroke-dasharray="43.98"
+                  stroke-dashoffset="0.00"
+                  transform="rotate(-90 8 8)"
                 />
               </svg>
               <div
@@ -660,32 +588,14 @@ exports[`Confirmation Snapshot tests should match snapshot with signTitle as str
                 viewBox="0 0 16 16"
                 width="16"
               >
-                <defs>
-                  <mask
-                    id="cut"
-                  >
-                    <rect
-                      fill="white"
-                      height="100%"
-                      width="100%"
-                    />
-                    <circle
-                      cx="8"
-                      cy="8"
-                      fill="black"
-                      r="6"
-                    />
-                    <path
-                      d="M8 0 V8 L8 0 H0 L0 0 Z"
-                    />
-                  </mask>
-                </defs>
                 <circle
                   class="circle"
                   cx="8"
                   cy="8"
-                  mask="url(#cut)"
-                  r="8"
+                  r="7"
+                  stroke-dasharray="43.98"
+                  stroke-dashoffset="0.00"
+                  transform="rotate(-90 8 8)"
                 />
               </svg>
               <div
@@ -799,32 +709,14 @@ exports[`Confirmation Snapshot tests should match snapshot with unmasked phone 1
                 viewBox="0 0 16 16"
                 width="16"
               >
-                <defs>
-                  <mask
-                    id="cut"
-                  >
-                    <rect
-                      fill="white"
-                      height="100%"
-                      width="100%"
-                    />
-                    <circle
-                      cx="8"
-                      cy="8"
-                      fill="black"
-                      r="6"
-                    />
-                    <path
-                      d="M8 0 V8 L8 0 H0 L0 0 Z"
-                    />
-                  </mask>
-                </defs>
                 <circle
                   class="circle"
                   cx="8"
                   cy="8"
-                  mask="url(#cut)"
-                  r="8"
+                  r="7"
+                  stroke-dasharray="43.98"
+                  stroke-dashoffset="0.00"
+                  transform="rotate(-90 8 8)"
                 />
               </svg>
               <div

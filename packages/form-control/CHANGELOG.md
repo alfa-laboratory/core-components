@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-form-control@7.0.1...@alfalab/core-components-form-control@7.1.0) (2021-07-23)
+
+
+### Features
+
+* **input:** input mobile theme (PDS-241) ([#737](https://github.com/alfa-laboratory/core-components/issues/737)) ([88f6f7c](https://github.com/alfa-laboratory/core-components/commit/88f6f7c58968b9564970eaa3d759aa2bc275ca7e))
+
+
+
+
+
 ## [7.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-form-control@7.0.0...@alfalab/core-components-form-control@7.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-form-control

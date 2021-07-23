@@ -7,19 +7,36 @@ const screenshotTesting = setupScreenshotTesting({
     expect,
 });
 
-const clip = { x: 0, y: 0, width: 600, height: 250 };
+const clip = { x: 0, y: 0, width: 600, height: 200 };
 
 describe(
-    'CheckboxGroup',
+    'CheckboxGroup | main props',
     screenshotTesting({
         cases: generateTestCases({
             componentName: 'CheckboxGroup',
+            testStory: false,
             knobs: {
                 direction: ['horizontal', 'vertical'],
-                error: ['', 'Error'],
-                disabled: [true, false],
+                label: ['', 'Заголовок'],
+                error: ['', 'Ошибка'],
+                hint: ['', 'Подсказка'],
             },
+        }),
+        screenshotOpts: {
+            clip,
+        },
+    }),
+);
+
+describe(
+    'CheckboxGroup | disabled',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'CheckboxGroup',
             testStory: false,
+            knobs: {
+                disabled: true,
+            },
         }),
         screenshotOpts: {
             clip,

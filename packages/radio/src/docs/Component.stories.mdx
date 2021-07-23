@@ -25,6 +25,7 @@ import styles from '!!raw-loader!../index.module.css';
         const size = select('size', ['s', 'm'], 's');
         const disabled = boolean('disabled', false);
         const inactive = boolean('inactive', false);
+        const checkedKnob = boolean('checked', false);
         const block = boolean('block', false);
         const label = text('label', 'Text label')
         const hint = text('hint', 'Hint');
@@ -39,7 +40,7 @@ import styles from '!!raw-loader!../index.module.css';
                 size={size}
                 align={align}
                 onChange={handleChange}
-                checked={checked}
+                checked={checked || checkedKnob}
                 hint={hint}
                 label={label}
             />

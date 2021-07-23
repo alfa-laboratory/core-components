@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.1.0...@alfalab/core-components-tooltip@4.1.1) (2021-07-23)
+
+
+### Bug Fixes
+
+* **tooltip:** fix bug with controlled state ([#759](https://github.com/alfa-laboratory/core-components/issues/759)) ([dd0144e](https://github.com/alfa-laboratory/core-components/commit/dd0144e880e0dac6bac1ab9d15832341761993e9))
+
+
+
+
+
 # [4.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.0.1...@alfalab/core-components-tooltip@4.1.0) (2021-07-19)
 
 

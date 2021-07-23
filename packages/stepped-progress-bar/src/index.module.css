@@ -1,0 +1,17 @@
+@import '../../themes/src/default.css';
+
+.component {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.stepsContainer {
+    width: 100%;
+    display: flex;
+    margin-bottom: var(--gap-xs);
+}
+
+.description {
+    color: var(--color-light-text-secondary-transparent);
+}

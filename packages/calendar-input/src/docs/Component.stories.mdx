@@ -1,10 +1,10 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { formatDate } from '@alfalab/core-components-date-input';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
 import { CalendarInput } from '../Component';
-import { formatDate } from '../utils';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -14,7 +14,7 @@ import styles from '!!raw-loader!../index.module.css';
 <Meta
     title='Компоненты/CalendarInput'
     component={CalendarInput}
-    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+    parameters={{ 'theme-switcher': { themes: ['click', 'mobile'] } }}
 />
 
 

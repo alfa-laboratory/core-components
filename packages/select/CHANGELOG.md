@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.2.0...@alfalab/core-components-select@9.2.1) (2021-07-23)
+
+
+### Bug Fixes
+
+* select & calendar-input use glyph icons ([#742](https://github.com/alfa-laboratory/core-components/issues/742)) ([6b04ae4](https://github.com/alfa-laboratory/core-components/commit/6b04ae49fc4f3805ef362dcb68939b72fc99814b))
+
+
+
+
+
 # [9.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.1.0...@alfalab/core-components-select@9.2.0) (2021-07-19)
 
 

@@ -279,7 +279,7 @@ describe('CalendarInput', () => {
         });
 
         it('should not change calendar if entered invalid value', async () => {
-            const value = '20.20.2020';
+            const value = '20.11.20';
             const defaultMonth = new Date('November 01, 2020 00:00:00').getTime();
             const { container, queryByText, queryByRole } = render(
                 <CalendarInput calendarPosition='static' defaultMonth={defaultMonth} />,

@@ -12,7 +12,7 @@ import styles from '!!raw-loader!../index.module.css';
 <Meta
     title='Компоненты/Checkbox'
     component={Checkbox}
-    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+    parameters={{ 'theme-switcher': { themes: ['click', 'mobile'] } }}
 />
 
 
@@ -25,6 +25,7 @@ import styles from '!!raw-loader!../index.module.css';
         const size = select('size', ['s', 'm'], 's');
         const disabled = boolean('disabled', false);
         const inactive = boolean('inactive', false);
+        const checkedKnob = boolean('checked', false);
         const label = text('label', 'Согласен с условиями');
         const indeterminate = boolean('indeterminate', false);
         const hint = text('hint', 'Дополнительная информация');
@@ -40,6 +41,7 @@ import styles from '!!raw-loader!../index.module.css';
                 addons={addons}
                 align={align}
                 onChange={handleChange}
+                checked={checked || checkedKnob}
                 label={label}
                 indeterminate={indeterminate}
                 hint={hint}

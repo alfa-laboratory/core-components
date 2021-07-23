@@ -2,7 +2,8 @@
 
 :root {
     --radio-group-error-color: var(--color-light-text-negative);
-    --radio-group-label-color: var(--color-light-text-secondary);
+    --radio-group-hint-color: var(--color-light-text-secondary);
+    --radio-group-label-color: var(--color-light-text-primary);
 }
 
 .component {
@@ -11,7 +12,7 @@
 }
 
 .error {
-    padding-left: var(--gap-m);
+    padding-left: var(--gap-xs);
     border-left: 1px solid var(--radio-group-error-color);
 }
 
@@ -52,15 +53,22 @@
 }
 
 .label {
-    @mixin system_14-18_regular;
-    margin-bottom: var(--gap-m);
+    @mixin system_16-24_regular;
+    margin-bottom: var(--gap-s);
     color: var(--radio-group-label-color);
 }
 
-.errorMessage {
+.sub {
     @mixin system_14-18_regular;
-    margin-top: var(--gap-m);
+    margin-top: var(--gap-s);
+}
+
+.errorMessage {
     color: var(--radio-group-error-color);
+}
+
+.hint {
+    color: var(--radio-group-hint-color);
 }
 
 .hiddenInput {

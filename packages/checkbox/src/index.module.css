@@ -5,7 +5,7 @@
     --checkbox-label-color: var(--color-light-text-primary);
 
     /* unchecked */
-    --checkbox-bg-color: var(--color-light-graphic-secondary-inverted);
+    --checkbox-bg-color: var(--color-light-graphic-primary-inverted);
     --checkbox-border-color: var(--color-light-graphic-secondary);
     --checkbox-hover-bg-color: var(--color-light-graphic-tertiary);
     --checkbox-hover-border-color: var(--color-light-graphic-secondary);
@@ -21,7 +21,7 @@
     --checkbox-checked-active-border-color: transparent;
 
     /* disabled */
-    --checkbox-disabled-color: var(--color-light-text-tertiary);
+    --checkbox-disabled-color: var(--color-light-text-secondary);
     --checkbox-disabled-bg-color: var(--color-light-graphic-primary-inverted);
     --checkbox-disabled-border-color: var(--color-light-graphic-neutral);
 
@@ -32,6 +32,9 @@
     /* muted and checked */
     --checkbox-checked-muted-bg-color: var(--color-light-graphic-neutral);
     --checkbox-checked-muted-border-color: transparent;
+
+    /* icon */
+    --checkbox-icon-color: var(--color-light-bg-primary);
 }
 
 .component {
@@ -69,7 +72,7 @@
     margin: var(--gap-3xs);
     color: var(--color-light-graphic-primary-inverted);
     background-color: var(--checkbox-bg-color);
-    border: 1px solid var(--checkbox-border-color);
+    border: 1.5px solid var(--checkbox-border-color);
     border-radius: var(--border-radius-s);
     transition: background-color 0.2s ease, border-color 0.2s ease;
     box-sizing: border-box;
@@ -78,6 +81,7 @@
 
 .checkedIcon {
     position: absolute;
+    color: var(--checkbox-icon-color);
 }
 
 .s .box {

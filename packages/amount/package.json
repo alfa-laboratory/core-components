@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-amount",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -16,8 +16,8 @@
         "access": "public"
     },
     "dependencies": {
-        "@alfalab/data": "^0.4.0",
-        "@alfalab/utils": "^1.1.1",
+        "@alfalab/data": "^0.4.3",
+        "@alfalab/utils": "^1.3.0",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {
