@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-radio-group@2.0.1...@alfalab/core-components-radio-group@2.1.0) (2021-07-23)
+
+
+### Features
+
+* checkbox/radio/switch design updates (PDS-252) ([#735](https://github.com/alfa-laboratory/core-components/issues/735)) ([62f3c63](https://github.com/alfa-laboratory/core-components/commit/62f3c63279872a80ffb1c018b08addf897597b26))
+
+
+
+
+
 ## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-radio-group@2.0.0...@alfalab/core-components-radio-group@2.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-radio-group

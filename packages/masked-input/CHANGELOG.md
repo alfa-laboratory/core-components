@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-masked-input@4.0.2...@alfalab/core-components-masked-input@4.1.0) (2021-07-23)
+
+
+### Features
+
+* **date-input:** add component ([#751](https://github.com/alfa-laboratory/core-components/issues/751)) ([4b94bee](https://github.com/alfa-laboratory/core-components/commit/4b94beec36acc73ac6c62cf37f87061c0ada4b35))
+
+
+
+
+
 ## [4.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-masked-input@4.0.1...@alfalab/core-components-masked-input@4.0.2) (2021-07-19)
 
 **Note:** Version bump only for package @alfalab/core-components-masked-input
