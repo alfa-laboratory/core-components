@@ -31,6 +31,7 @@ import styles from '!!raw-loader!../index.module.css';
         const disabled = boolean('disabled', false);
         const label = text('label', '');
         const hint = text('hint', '');
+        const size = select('Radio.size', ['s', 'm'], 's');
         return (
             <RadioGroup
                 label={label}
@@ -41,9 +42,9 @@ import styles from '!!raw-loader!../index.module.css';
                 disabled={disabled}
                 name='radioGroup'
             >
-                <Radio label='Первый вариант' value='first' />
-                <Radio label='Второй вариант' value='second' />
-                <Radio label='Третий вариант' value='third' />
+                <Radio size={size} label='Первый вариант' value='first' />
+                <Radio size={size} label='Второй вариант' value='second' />
+                <Radio size={size} label='Третий вариант' value='third' />
             </RadioGroup>
         );
     })}
