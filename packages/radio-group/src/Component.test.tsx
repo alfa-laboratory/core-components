@@ -120,6 +120,24 @@ describe('RadioGroup', () => {
             expect(getByText(errorText)).toBeInTheDocument();
         });
 
+        it('should contain hint message', () => {
+            const hint = 'hint';
+
+            const { queryByText } = render(<Group hint={hint} />);
+
+            expect(queryByText(hint)).toBeInTheDocument();
+        });
+
+        it('should error instread hint', () => {
+            const errorText = 'I am error';
+            const hint = 'hint';
+
+            const { queryByText } = render(<Group error={errorText} hint={hint} />);
+
+            expect(queryByText(errorText)).toBeInTheDocument();
+            expect(queryByText(hint)).not.toBeInTheDocument();
+        });
+
         it('should disable all inputs if `disabled` prop is present', () => {
             const { container } = render(<Group disabled={true} />);
 
