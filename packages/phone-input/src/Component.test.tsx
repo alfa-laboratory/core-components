@@ -26,6 +26,34 @@ describe('PhoneInput', () => {
          */
     });
 
+    describe('should update input by value prop', () => {
+        it('with clearableCountryCode === true', () => {
+            const { getByTestId, rerender } = render(
+                <PhoneInput dataTestId={dataTestId} clearableCountryCode={true} />,
+            );
+            const inputElement = getByTestId(dataTestId) as HTMLInputElement;
+
+            expect(inputElement.value).toBe('');
+
+            rerender(<PhoneInput dataTestId={dataTestId} value='99' />);
+
+            expect(inputElement.value).toBe('+7 99');
+        });
+
+        it('with clearableCountryCode === false', () => {
+            const { getByTestId, rerender } = render(
+                <PhoneInput dataTestId={dataTestId} clearableCountryCode={false} />,
+            );
+            const inputElement = getByTestId(dataTestId) as HTMLInputElement;
+
+            expect(inputElement.value).toBe('+7 ');
+
+            rerender(<PhoneInput dataTestId={dataTestId} value='99' />);
+
+            expect(inputElement.value).toBe('+7 99');
+        });
+    });
+
     describe('should format a phone number according default to mask', () => {
         it('input "+" -> "+7 "', () => {
             const { getByTestId } = render(<PhoneInput dataTestId={dataTestId} />);

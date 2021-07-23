@@ -28,7 +28,7 @@ export type PopoverProps = {
     /**
      * Элемент, относительного которого появляется поповер
      */
-    anchorElement: HTMLElement;
+    anchorElement: RefElement;
 
     /**
      * Позиционирование поповера
