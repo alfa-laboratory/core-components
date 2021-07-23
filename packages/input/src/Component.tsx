@@ -202,7 +202,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
         const [focusVisible] = useFocus(inputRef, 'keyboard');
 
-        const [focused, setFocused] = useState(false);
+        const [focused, setFocused] = useState(restProps.autoFocus);
         const [stateValue, setStateValue] = useState(defaultValue || '');
 
         const filled = Boolean(uncontrolled ? stateValue : value);
