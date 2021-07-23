@@ -94,6 +94,27 @@ describe('Attach', () => {
             expect(cb).not.toBeCalled();
             expect(input.files && input.files.length).toEqual(0);
         });
+
+        it('should call `onClear` prop', async () => {
+            const cb = jest.fn();
+            const dataTestId = 'test-id';
+            const files = [
+                {
+                    name: 'test.txt',
+                    type: 'application/text',
+                },
+            ] as File[];
+            const { container } = render(
+                <Attach onClear={cb} value={files} dataTestId={dataTestId} />,
+            );
+
+            const clearButton = container.querySelector(
+                "[aria-label='очистить']",
+            ) as HTMLButtonElement;
+            clearButton.click();
+
+            expect(cb).toBeCalledTimes(1);
+        });
     });
 
     describe('Files tests', () => {
