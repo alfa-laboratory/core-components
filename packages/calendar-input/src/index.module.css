@@ -2,7 +2,7 @@
 @import '../../calendar/src/vars.css';
 
 :root {
-    --calendar-input-calendar-icon: url('https://alfabank.st/icons/glyph_calendar_m.svg');
+    --calendar-input-calendar-icon: url('https://alfabank.st/icons/glyph_calendar_m_primary.svg');
 }
 
 .component {
