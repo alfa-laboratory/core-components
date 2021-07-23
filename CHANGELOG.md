@@ -1,3 +1,26 @@
+# [19.3.0](https://github.com/alfa-laboratory/core-components/compare/v19.2.1...v19.3.0) (2021-07-23)
+
+
+### Bug Fixes
+
+* select & calendar-input use glyph icons ([#742](https://github.com/alfa-laboratory/core-components/issues/742)) ([6b04ae4](https://github.com/alfa-laboratory/core-components/commit/6b04ae49fc4f3805ef362dcb68939b72fc99814b))
+* **input:** autofocus ([#761](https://github.com/alfa-laboratory/core-components/issues/761)) ([e2880de](https://github.com/alfa-laboratory/core-components/commit/e2880de6cff33b156bea58286bb46e0803e254a5))
+* **tooltip:** fix bug with controlled state ([#759](https://github.com/alfa-laboratory/core-components/issues/759)) ([dd0144e](https://github.com/alfa-laboratory/core-components/commit/dd0144e880e0dac6bac1ab9d15832341761993e9))
+
+
+### Features
+
+* **attach:** simulate controlled state ([#760](https://github.com/alfa-laboratory/core-components/issues/760)) ([5d312bf](https://github.com/alfa-laboratory/core-components/commit/5d312bf632cc716bfc7ecb7b487c4af812838aa9)), closes [#743](https://github.com/alfa-laboratory/core-components/issues/743)
+* **bottom-sheet:** fix marker gap, fix animation duration ([#750](https://github.com/alfa-laboratory/core-components/issues/750)) ([cb04ed8](https://github.com/alfa-laboratory/core-components/commit/cb04ed8cc214fac9dba32a0ab39a4399743d5bfc))
+* **calendar-input:** uses date-input ([#752](https://github.com/alfa-laboratory/core-components/issues/752)) ([509dba2](https://github.com/alfa-laboratory/core-components/commit/509dba26913ccf6df859a200aa476eeef1df2ddc))
+* **confirmation:** fix timer, some loader refactoring ([#754](https://github.com/alfa-laboratory/core-components/issues/754)) ([187bb0e](https://github.com/alfa-laboratory/core-components/commit/187bb0e72a75c62b117a49917976903257d90bb7))
+* **date-input:** add component ([#751](https://github.com/alfa-laboratory/core-components/issues/751)) ([4b94bee](https://github.com/alfa-laboratory/core-components/commit/4b94beec36acc73ac6c62cf37f87061c0ada4b35))
+* **input:** input mobile theme (PDS-241) ([#737](https://github.com/alfa-laboratory/core-components/issues/737)) ([88f6f7c](https://github.com/alfa-laboratory/core-components/commit/88f6f7c58968b9564970eaa3d759aa2bc275ca7e))
+* **stepped-progress-bar:** add component ([#747](https://github.com/alfa-laboratory/core-components/issues/747)) ([f82e9af](https://github.com/alfa-laboratory/core-components/commit/f82e9af075e12e5a34751efc5c7f427283e75c1b))
+* add mobile theme for tag, radio, checkbox (PDS-244/247/248) ([#717](https://github.com/alfa-laboratory/core-components/issues/717)) ([36e2d99](https://github.com/alfa-laboratory/core-components/commit/36e2d99c716a03e7f319439df9ca47ec43ad4b71))
+* checkbox/radio/switch design updates (PDS-252) ([#735](https://github.com/alfa-laboratory/core-components/issues/735)) ([62f3c63](https://github.com/alfa-laboratory/core-components/commit/62f3c63279872a80ffb1c018b08addf897597b26))
+* slider input mobile theme (PDS-242) ([#738](https://github.com/alfa-laboratory/core-components/issues/738)) ([6e924aa](https://github.com/alfa-laboratory/core-components/commit/6e924aa90b63b914b6f5690766e41cddabe18e19))
+
 ## [19.2.1](https://github.com/alfa-laboratory/core-components/compare/v19.2.0...v19.2.1) (2021-07-20)
 
 
