@@ -1,7 +1,7 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --bottom-sheet-in-transition: 0.7s cubic-bezier(0.09, 0.91, 0.18, 0.99);
+    --bottom-sheet-in-transition: 0.5s cubic-bezier(0.09, 0.91, 0.18, 0.99);
     --bottom-sheet-out-transition: 0.3s ease;
 }
 
@@ -30,7 +30,7 @@
 
 .marker {
     position: absolute;
-    top: var(--gap-2xs);
+    top: var(--gap-xs);
     left: 50%;
     width: 36px;
     height: 4px;
