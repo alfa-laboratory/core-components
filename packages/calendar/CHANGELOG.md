@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar@3.0.1...@alfalab/core-components-calendar@3.0.2) (2021-07-19)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar
+
+
+
+
+
+## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar@3.0.0...@alfalab/core-components-calendar@3.0.1) (2021-07-09)
+
+
+### Bug Fixes
+
+* **calendar:** fix select-button disabled+selected state ([4f54c01](https://github.com/alfa-laboratory/core-components/commit/4f54c01451a2532fd377d3590869dfa52c968dcf))
+* **calendar:** limit defaultMonth ([636fa5b](https://github.com/alfa-laboratory/core-components/commit/636fa5b1363fbdea8516b95ac758aee65b8cffba))
+
+
+
+
+
+# [3.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar@2.0.1...@alfalab/core-components-calendar@3.0.0) (2021-07-08)
+
+
+### Features
+
+* upgrade storybook ([#696](https://github.com/alfa-laboratory/core-components/issues/696))
+
 ## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar@2.0.0...@alfalab/core-components-calendar@2.0.1) (2021-05-31)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar

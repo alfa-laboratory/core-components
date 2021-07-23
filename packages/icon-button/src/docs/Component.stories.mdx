@@ -1,0 +1,67 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { select, boolean } from '@storybook/addon-knobs';
+import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+
+import { IconButton } from '../Component';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import defaultStyles from '!!raw-loader!../default.module.css';
+import styles from '!!raw-loader!../index.module.css';
+
+
+<Meta
+    title='Компоненты/IconButton'
+    component={IconButton}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='IconButton'>
+    {React.createElement(() => {
+        const colors = select('colors', ['default', 'inverted'], 'default');
+        return (
+            <div style={{
+                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : '#fff',
+                padding: '8px',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+            }}>
+                <IconButton
+                    size={select('size', ['xxs', 'xs', 's'], 's')}
+                    view={select('view', ['primary', 'secondary', 'transparent', 'negative'], 'primary')}
+                    icon={StarMIcon}
+                    colors={colors}
+                />
+            </div>
+        )
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='IconButton'
+    version={version}
+    package='@alfalab/core-components/icon-button'
+    stage={2}
+    design='https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=21264%3A120061'
+/>
+
+```tsx
+import { IconButton } from '@alfalab/core-components/icon-button';
+```
+
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props of={IconButton} />}
+    cssVars={<CssVars css={`${styles}${defaultStyles}`} />}
+/>

@@ -1,0 +1,34 @@
+Статус испольнения/подключения или маркетингового выделения
+
+### Статус исполнения/подключения
+
+`view="soft"`
+
+Применяется в таблицах и др. компонентах, отображает статус исполнения или подключения чего-либо.
+(Исполнено, Отменено, На подпись и т.д)
+
+```tsx live
+<Space direction='horizontal'>
+    {colors.map(color => (
+        <Status view='soft' color={color} key={color}>
+            Label
+        </Status>
+    ))}
+</Space>
+```
+
+### Статус лейбл
+
+`view="contrast"`
+
+Применяется для отображения маркетингового статуса продукта/услуги (Акция, Скидка, Новинка и т.д)
+
+```tsx live
+<Space direction='horizontal'>
+    {colors.map(color => (
+        <Status view='contrast' color={color} key={color}>
+            Label
+        </Status>
+    ))}
+</Space>
+```

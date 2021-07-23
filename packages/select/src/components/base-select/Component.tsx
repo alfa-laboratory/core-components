@@ -64,6 +64,7 @@ export const BaseSelect = forwardRef(
             onOpen,
             onFocus,
             onBlur,
+            onScroll,
             Arrow,
             Field = () => null,
             OptionsList = () => null,
@@ -140,7 +141,7 @@ export const BaseSelect = forwardRef(
             circularNavigation,
             items: flatOptions,
             itemToString,
-            defaultHighlightedIndex: selectedItems.length === 0 ? 0 : undefined,
+            defaultHighlightedIndex: selectedItems.length === 0 ? -1 : undefined,
             onIsOpenChange: changes => {
                 if (onOpen) {
                     onOpen({
@@ -410,6 +411,7 @@ export const BaseSelect = forwardRef(
                                     Optgroup={Optgroup}
                                     Option={WrappedOption}
                                     visibleOptions={visibleOptions}
+                                    onScroll={onScroll}
                                     dataTestId={getDataTestId(dataTestId, 'options-list')}
                                 />
                             </div>

@@ -4,14 +4,15 @@ import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
 import { CheckmarkOnCircleMIcon } from '@alfalab/icons-glyph';
 
 import { Plate } from '../';
-import { Button } from '../../../button/src';
+import { Button } from '@alfalab/core-components-button';
 import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
 import { name, version } from '../../package.json';
 
 <Meta
-    title='Компоненты'
+    title='Компоненты/Plate'
     component={Plate}
 />
 
@@ -38,16 +39,17 @@ import { name, version } from '../../package.json';
 <ComponentHeader
     name='Plate'
     version={version}
-    package='@alfalab/core-components-plate'
+    package='@alfalab/core-components/plate'
     stage={2}
 />
 
 ```tsx
-import { Plate } from '@alfalab/core-components-plate';
+import { Plate } from '@alfalab/core-components/plate';
 ```
 
 <Tabs
     description={<Description />}
+    changelog={<Changelog />}
     props={<Props of={Plate} /> }
     cssVars={<CssVars css={styles} />}
 />

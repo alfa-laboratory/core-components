@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-drawer@3.0.0...@alfalab/core-components-drawer@3.0.1) (2021-07-09)
+
+**Note:** Version bump only for package @alfalab/core-components-drawer
+
+
+
+
+
+# [3.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-drawer@2.1.4...@alfalab/core-components-drawer@3.0.0) (2021-07-08)
+
+
+### Features
+
+* upgrade storybook ([#696](https://github.com/alfa-laboratory/core-components/issues/696))
+
 ## [2.1.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-drawer@2.1.3...@alfalab/core-components-drawer@2.1.4) (2021-07-02)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer

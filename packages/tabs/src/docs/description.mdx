@@ -1,0 +1,130 @@
+Компоненты для построения табов.
+
+### Tab
+
+Данный компонент используется для семантики в клиентском коде.
+
+Свойство `title` будет использовано для генерации заголовков, а `id` для переключения табов.
+
+С помощью свойства `disabled` таб можно заблокировать для выбора.
+
+По умолчанию в DOM рендерится контент только активного таба, с помощью `keepMounted` можно указать, контент каких табов нужно рендерить в любом случае.
+Контент в таком случае останется невидимым, но всегда будет находиться в DOM.
+
+### TabsDesktop
+
+```tsx live
+render(() => {
+    const [selectedId, setSelectedId] = React.useState('tab-1');
+
+    const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
+
+    return (
+        <TabsDesktop selectedId={selectedId} onChange={handleChange}>
+            <Tab title='Таб 1' id='tab-1'>
+                Таб 1
+            </Tab>
+            <Tab title='Таб 2' id='tab-2'>
+                Таб 2
+            </Tab>
+            <Tab title='Таб 3' id='tab-3'>
+                Таб 3
+            </Tab>
+            <Tab title='Таб 4' id='tab-4'>
+                Таб 4
+            </Tab>
+            <Tab title='Таб 5' id='tab-5'>
+                Таб 5
+            </Tab>
+        </TabsDesktop>
+    );
+});
+```
+
+### TabsMobile
+
+```tsx live
+render(() => {
+    const [selectedId, setSelectedId] = React.useState('tab-1');
+
+    const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
+
+    return (
+        <TabsMobile selectedId={selectedId} onChange={handleChange}>
+            <Tab title='Таб 1' id='tab-1'>
+                Таб 1
+            </Tab>
+            <Tab title='Таб 2' id='tab-2'>
+                Таб 2
+            </Tab>
+            <Tab title='Таб 3' id='tab-3'>
+                Таб 3
+            </Tab>
+            <Tab title='Таб 4' id='tab-4'>
+                Таб 4
+            </Tab>
+            <Tab title='Таб 5' id='tab-5'>
+                Таб 5
+            </Tab>
+        </TabsMobile>
+    );
+});
+```
+
+### TabsResponsive
+
+Адаптивная версия табов, перестраивается при 768px
+
+```tsx live
+render(() => {
+    const [selectedId, setSelectedId] = React.useState('tab-1');
+
+    const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
+
+    return (
+        <TabsResponsive selectedId={selectedId} onChange={handleChange}>
+            <Tab title='Таб 1' id='tab-1'>
+                Таб 1
+            </Tab>
+            <Tab title='Таб 2' id='tab-2'>
+                Таб 2
+            </Tab>
+            <Tab title='Таб 3' id='tab-3'>
+                Таб 3
+            </Tab>
+            <Tab title='Таб 4' id='tab-4'>
+                Таб 4
+            </Tab>
+            <Tab title='Таб 5' id='tab-5'>
+                Таб 5
+            </Tab>
+        </TabsResponsive>
+    );
+});
+```
+
+### Табы со слотом справа
+
+В заголовки табов можно добавлять дополнительные элементы с помощью свойства `rightAddons`
+
+```tsx live
+render(() => {
+    const [selectedId, setSelectedId] = React.useState('tab-1');
+
+    const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
+
+    return (
+        <TabsDesktop selectedId={selectedId} onChange={handleChange}>
+            <Tab title='Таб 1' id='tab-1' rightAddons={<StarMIcon />}>
+                Таб 1
+            </Tab>
+            <Tab title='Таб 2' id='tab-2' rightAddons={<StarMIcon />}>
+                Таб 2
+            </Tab>
+            <Tab title='Таб 3' id='tab-3' rightAddons={<StarMIcon />}>
+                Таб 3
+            </Tab>
+        </TabsDesktop>
+    );
+});
+```

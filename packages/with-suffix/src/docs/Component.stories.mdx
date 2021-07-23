@@ -1,0 +1,58 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
+import { Input } from '@alfalab/core-components-input';
+
+import { withSuffix as WithSuffix } from '../Component';
+import { name, version } from '../../package.json';
+import Changelog from '../../CHANGELOG.md';
+import Description from './description.mdx';
+
+export const SuffixInput = WithSuffix(Input);
+
+
+<Meta
+    title='Компоненты/withSuffix'
+    component={WithSuffix}
+    parameters={{ 'theme-switcher': { themes: ['click'] }, previewTabs: { canvas: { hidden: true }} }}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='withSuffix'>
+    <SuffixInput
+        suffix={text('suffix', ' ₽')}
+        block={boolean('block', false)}
+        clear={boolean('clear', false)}
+        size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+        disabled={boolean('disabled', false)}
+        label={text('label', '')}
+        placeholder={text('placeholder', '')}
+        rightAddons={boolean('rightAddons', false) && !text('error') && <Icon />}
+        leftAddons={boolean('leftAddons', false) && <Icon />}
+        bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
+        readOnly={boolean('readOnly', false)}
+    />
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='withSuffix'
+    version={version}
+    package='@alfalab/core-components/with-suffix'
+    stage={2}
+/>
+
+```tsx
+import { withSuffix } from '@alfalab/core-components/with-suffix';
+```
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+/>

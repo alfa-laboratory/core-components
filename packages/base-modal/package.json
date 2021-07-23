@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-base-modal",
-    "version": "2.1.1",
+    "version": "3.0.1",
     "description": "BaseModal component",
     "keywords": [],
     "license": "MIT",
@@ -15,9 +15,9 @@
         "access": "public"
     },
     "dependencies": {
-        "@alfalab/core-components-backdrop": "^1.1.2",
-        "@alfalab/core-components-portal": "^1.4.6",
-        "@alfalab/core-components-stack": "^2.0.0",
+        "@alfalab/core-components-backdrop": "^2.0.1",
+        "@alfalab/core-components-portal": "^2.0.1",
+        "@alfalab/core-components-stack": "^3.0.1",
         "classnames": "^2.2.6",
         "react-focus-lock": "^2.5.0",
         "react-merge-refs": "^1.1.0",

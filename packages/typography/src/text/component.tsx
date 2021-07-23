@@ -33,6 +33,11 @@ export type TextProps = Omit<NativeProps, 'color'> & {
     weight?: 'regular' | 'medium' | 'bold';
 
     /**
+     * Делает цифры моноширинными
+     */
+    monospaceNumbers?: boolean;
+
+    /**
      * HTML тег
      */
     tag?: 'p' | 'span' | 'div';
@@ -57,6 +62,7 @@ export const Text: FC<TextProps> = ({
     view = 'primary-medium',
     tag: Component = 'span',
     weight = 'regular',
+    monospaceNumbers = false,
     color,
     className,
     dataTestId,
@@ -65,7 +71,7 @@ export const Text: FC<TextProps> = ({
 }) => (
     <Component
         className={cn(
-            { [styles.paragraph]: Component === 'p' },
+            { [styles.paragraph]: Component === 'p', [styles.monospace]: monospaceNumbers },
             className,
             color && colors[color],
             styles[view],

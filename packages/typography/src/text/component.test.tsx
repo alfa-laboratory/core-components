@@ -66,6 +66,12 @@ describe('Text', () => {
                 expect(container.firstElementChild).toHaveClass(weight);
             });
         });
+
+        it('should set `monospace` class if prop `monospaceNumbers` is present', () => {
+            const { container } = render(<Text monospaceNumbers={true}>12345</Text>);
+
+            expect(container.firstElementChild).toHaveClass('monospace');
+        });
     });
 
     describe('Attributes tests', () => {

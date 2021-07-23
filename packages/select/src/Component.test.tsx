@@ -140,7 +140,7 @@ describe('Select', () => {
         expect(getByText(selectedOption.content)).toBeInTheDocument();
     });
 
-    describe('Behavior tests', async () => {
+    describe('Behavior tests', () => {
         const optionContent = options[1].content;
 
         const pressArrowDownNTimes = async (target: HTMLElement, n: number) => {
@@ -291,7 +291,7 @@ describe('Select', () => {
             const input = document.querySelector('.input') as HTMLElement;
             await pressArrowDownNTimes(input, options.length + 1);
             expect((document.querySelector('.highlighted div') as HTMLElement).innerHTML).toBe(
-                options[1].content,
+                options[0].content,
             );
         });
 
@@ -390,7 +390,6 @@ describe('Select', () => {
         it('should transfer props to Field', () => {
             const spy = jest.spyOn(fieldModule, 'Field');
 
-            const Element = () => <span />;
             const propPrefix = 'field';
 
             const fieldProps: Partial<BaseFieldProps> = {
@@ -400,8 +399,6 @@ describe('Select', () => {
                 multiple: true,
                 open: true,
                 disabled: true,
-                label: Element,
-                success: true,
                 className: `${propPrefix}-classname`,
                 placeholder: `${propPrefix}-placeholder`,
                 error: `${propPrefix}-error`,
@@ -415,9 +412,7 @@ describe('Select', () => {
 
             render(<Select {...baseProps} fieldProps={fieldProps} />);
 
-            const mockCalls = spy.mock.calls;
-            const lastMockCall = mockCalls[mockCalls.length - 1];
-            expect(lastMockCall[0]).toMatchObject(fieldProps);
+            expect(spy.mock.calls[0][0]).toMatchObject(fieldProps);
         });
 
         it('should transfer props to OptionsList', () => {
@@ -430,7 +425,7 @@ describe('Select', () => {
             const expectedProps: Partial<OptionsListProps> = {
                 options,
                 flatOptions: options,
-                highlightedIndex: 0,
+                highlightedIndex: -1,
                 open: true,
                 size: 'l',
                 visibleOptions: 3,
@@ -584,6 +579,23 @@ describe('Select', () => {
             const option = await findByText(options[0].content);
             await fireEvent.click(option);
             expect(cb).toBeCalledTimes(1);
+        });
+
+        it('should call onScroll', async () => {
+            const onScroll = jest.fn();
+
+            const { getByTestId } = render(
+                <Select
+                    {...baseProps}
+                    dataTestId='test-id'
+                    options={options}
+                    onScroll={onScroll}
+                    defaultOpen={true}
+                />,
+            );
+
+            fireEvent.scroll(getByTestId('test-id-options-list'));
+            expect(onScroll).toBeCalledTimes(1);
         });
 
         it('should call valueRenderer', async () => {

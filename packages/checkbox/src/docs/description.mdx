@@ -1,0 +1,37 @@
+Компонент чекбокса.
+
+```tsx live
+render(() => {
+    const [checked, setChecked] = React.useState(false);
+
+    const handleChange = () => setChecked(!checked);
+
+    return (
+        <Checkbox
+            onChange={handleChange}
+            checked={checked}
+            label='Согласен с условиями'
+            hint='Соглашайтесь, будьте любезны'
+        />
+    );
+});
+```
+
+### Чекбокс c неопределенным (indeterminate) состоянием
+
+```tsx live
+render(() => {
+    const [checked, setChecked] = React.useState(false);
+
+    const handleChange = () => setChecked(!checked);
+
+    return (
+        <Checkbox
+            onChange={handleChange}
+            checked={checked}
+            label='Выберите опции'
+            indeterminate={true}
+        />
+    );
+});
+```

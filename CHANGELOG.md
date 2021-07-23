@@ -1,3 +1,52 @@
+## [19.2.1](https://github.com/alfa-laboratory/core-components/compare/v19.2.0...v19.2.1) (2021-07-20)
+
+
+### Bug Fixes
+
+* **phone-input:** value prop ([#757](https://github.com/alfa-laboratory/core-components/issues/757)) ([3ba0168](https://github.com/alfa-laboratory/core-components/commit/3ba01686ffa950bd74d9ab28bfa961c6cf74a5d8))
+
+# [19.2.0](https://github.com/alfa-laboratory/core-components/compare/v19.1.0...v19.2.0) (2021-07-19)
+
+
+### Bug Fixes
+
+* **intl-phone-input:** remove changing unclearable country code ([#730](https://github.com/alfa-laboratory/core-components/issues/730)) ([6d219d6](https://github.com/alfa-laboratory/core-components/commit/6d219d622e4da60aada0e10d3c442510f597b1b9))
+
+
+### Features
+
+* **phone-input:** add 'clearableCountyCode' prop ([#749](https://github.com/alfa-laboratory/core-components/issues/749)) ([d110ae7](https://github.com/alfa-laboratory/core-components/commit/d110ae76594ccbf7f6d8a5764d3c2a72b1ae9a26))
+* **select:** add scroll handler ([#756](https://github.com/alfa-laboratory/core-components/issues/756)) ([b25351b](https://github.com/alfa-laboratory/core-components/commit/b25351b74913244fb131d4aa1bc09900be362258))
+* **tooltip:** add target ref property ([#755](https://github.com/alfa-laboratory/core-components/issues/755)) ([9aa962d](https://github.com/alfa-laboratory/core-components/commit/9aa962d8b280e8d6af8ac4324a78b4bdebbfc536))
+* **typography:** monospaceNumbers prop (PDS-255) ([#697](https://github.com/alfa-laboratory/core-components/issues/697)) ([42d16a6](https://github.com/alfa-laboratory/core-components/commit/42d16a62f6d0781eba44dc1e0b76b28cae37d89a))
+
+# [19.1.0](https://github.com/alfa-laboratory/core-components/compare/v19.0.0...v19.1.0) (2021-07-09)
+
+
+### Bug Fixes
+
+* **badge:** fix name ([207d3d3](https://github.com/alfa-laboratory/core-components/commit/207d3d30171a84ff4021cd119c0da1316a92d14c))
+* **calendar:** fix select-button disabled+selected state ([4f54c01](https://github.com/alfa-laboratory/core-components/commit/4f54c01451a2532fd377d3590869dfa52c968dcf))
+* **calendar:** limit defaultMonth ([636fa5b](https://github.com/alfa-laboratory/core-components/commit/636fa5b1363fbdea8516b95ac758aee65b8cffba))
+* **input-autocomplete:** popover height with dynamic height options ([da24758](https://github.com/alfa-laboratory/core-components/commit/da247589a35ba33742f95fc96ed63b0ba65cdf11))
+
+
+### Features
+
+* **badge:** add icon color ([d9e9065](https://github.com/alfa-laboratory/core-components/commit/d9e906596d157a5e3d7844bbecfb96f64d9f44e1))
+* **badge:** add screenshots ([3bbc8d0](https://github.com/alfa-laboratory/core-components/commit/3bbc8d032b0a267e9e6e949af5db6c955e25fb50))
+* **select:** dont highlight first option on open ([015a084](https://github.com/alfa-laboratory/core-components/commit/015a084be6e5d837b6368afe6ca63a0a4c325435))
+* **themes:** confirmation mobile theme ([a85233c](https://github.com/alfa-laboratory/core-components/commit/a85233c1e859e933e1c51997678c8a8c6134e353))
+* **vars:** add border-radius-xs ([a4bd8ff](https://github.com/alfa-laboratory/core-components/commit/a4bd8ff44d9ed7cf68ca2b0994ab61a80ed358e2))
+* **vars:** fresh colors from alfa-ui-primitives ([2051a0c](https://github.com/alfa-laboratory/core-components/commit/2051a0ce3caee3c1a70f36e8c84e575bcd528bab))
+
+# [19.0.0](https://github.com/alfa-laboratory/core-components/compare/v18.2.1...v19.0.0) (2021-07-08)
+
+
+### Features
+
+* upgrade storybook ([#696](https://github.com/alfa-laboratory/core-components/issues/696))
+
 ## [18.2.1](https://github.com/alfa-laboratory/core-components/compare/v18.2.0...v18.2.1) (2021-07-02)
 
 

@@ -36,7 +36,7 @@ export type ToastProps = ToastPlateProps &
          * Элемент, относительного которого появляется тост.
          * Если не передавать, тост будет позиционирован снизу экрана (position: fixed).
          */
-        anchorElement?: HTMLElement;
+        anchorElement?: HTMLElement | null;
 
         /**
          * Через сколько исчезнет компонент (ms).

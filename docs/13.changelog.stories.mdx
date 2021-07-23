@@ -1,0 +1,11 @@
+import { Changelog as ChangelogComponent } from 'storybook/blocks';
+import Changelog from '../CHANGELOG.md';
+
+<Meta
+    title='Гайдлайны/Changelog'
+    parameters={{ previewTabs: { canvas: { hidden: true } }}}
+/>
+
+## Changelog
+
+<ChangelogComponent content={<Changelog />} root={true} />

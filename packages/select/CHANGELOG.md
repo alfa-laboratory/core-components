@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.1.0...@alfalab/core-components-select@9.2.0) (2021-07-19)
+
+
+### Features
+
+* **select:** add scroll handler ([#756](https://github.com/alfa-laboratory/core-components/issues/756)) ([b25351b](https://github.com/alfa-laboratory/core-components/commit/b25351b74913244fb131d4aa1bc09900be362258))
+
+
+
+
+
+# [9.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.0.0...@alfalab/core-components-select@9.1.0) (2021-07-09)
+
+
+### Bug Fixes
+
+* **input-autocomplete:** popover height with dynamic height options ([da24758](https://github.com/alfa-laboratory/core-components/commit/da247589a35ba33742f95fc96ed63b0ba65cdf11))
+
+
+### Features
+
+* **select:** dont highlight first option on open ([015a084](https://github.com/alfa-laboratory/core-components/commit/015a084be6e5d837b6368afe6ca63a0a4c325435))
+
+
+
+
+
+# [9.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@8.1.1...@alfalab/core-components-select@9.0.0) (2021-07-08)
+
+
+### Features
+
+* upgrade storybook ([#696](https://github.com/alfa-laboratory/core-components/issues/696))
+
 ## [8.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@8.1.0...@alfalab/core-components-select@8.1.1) (2021-06-28)
 
 **Note:** Version bump only for package @alfalab/core-components-select

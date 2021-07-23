@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-typography@2.0.1...@alfalab/core-components-typography@2.1.0) (2021-07-19)
+
+
+### Features
+
+* **typography:** monospaceNumbers prop (PDS-255) ([#697](https://github.com/alfa-laboratory/core-components/issues/697)) ([42d16a6](https://github.com/alfa-laboratory/core-components/commit/42d16a62f6d0781eba44dc1e0b76b28cae37d89a))
+
+
+
+
+
+## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-typography@2.0.0...@alfalab/core-components-typography@2.0.1) (2021-07-09)
+
+**Note:** Version bump only for package @alfalab/core-components-typography
+
+
+
+
+
+# [2.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-typography@1.5.1...@alfalab/core-components-typography@2.0.0) (2021-07-08)
+
+
+### Features
+
+* upgrade storybook ([#696](https://github.com/alfa-laboratory/core-components/issues/696))
+
 ## [1.5.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-typography@1.5.0...@alfalab/core-components-typography@1.5.1) (2021-06-28)
 
 

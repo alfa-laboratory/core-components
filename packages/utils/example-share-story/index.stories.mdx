@@ -1,19 +1,19 @@
 import { ThemeProvider, ensure, themes } from '@storybook/theming';
 import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 
-import { Example } from '../../../.storybook/blocks/example';
+import { Example } from 'storybook/blocks/example';
 
 export const defaultExample = `
 function Example() {
-  const [count, setCount] = React.useState(0);
-  return (
-    <div>
-      <p>Вы кликнули {count} раз(а)</p>
-      <Button onClick={() => setCount(count + 1)}>
-        Нажми на меня
-      </Button>
-    </div>
-  );
+    const [count, setCount] = React.useState(0);
+    return (
+        <div>
+            <p>Вы кликнули {count} раз(а)</p>
+            <Button onClick={() => setCount(count + 1)}>
+                Нажми на меня
+            </Button>
+        </div>
+    );
 }
 render(
     <Example />
@@ -21,18 +21,20 @@ render(
 `;
 
 export const getCode = () => {
-  const code = window.parent.location.search.split('/code=')[1];
-  return code ? decodeURIComponent(code) : defaultExample;
+    const code = window.parent.location.search.split('/code=')[1];
+    return code ? decodeURIComponent(code) : defaultExample;
 };
 
-<Meta title='Гайдлайны|Песочница' />
+<Meta
+    title='Компоненты/Песочница'
+    parameters={{
+        previewTabs: { canvas: { hidden: true } },
+        'theme-switcher': { themes: ['click', 'mobile', 'corp', 'site'] },
+    }}
+/>
 
-# Песочница
+## Песочница
 
 <ThemeProvider theme={ensure(themes.light)}>
-    <Example
-        expanded={true}
-        live={true}
-        code={getCode()}
-    />
+    <Example expanded={true} live={true} code={getCode()} />
 </ThemeProvider>

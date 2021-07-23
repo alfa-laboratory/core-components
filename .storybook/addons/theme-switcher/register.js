@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import addons, { types } from '@storybook/addons';
 import { useChannel, useParameter } from '@storybook/api';
-import { STORY_RENDERED } from '@storybook/core-events';
+import { STORY_RENDERED, DOCS_RENDERED } from '@storybook/core-events';
 import { Form } from '@storybook/components';
 
 import './index.css';
@@ -15,7 +15,8 @@ const Addon = () => {
 
     const emit = useChannel({
         [STORY_RENDERED]: () => emit(`${ADDON_ID}/theme`, theme),
-    });
+        [DOCS_RENDERED]: () => emit(`${ADDON_ID}/theme`, theme),
+    }, [theme]);
 
     const handleChange = useCallback(event => {
         const newTheme = event.target.value;
@@ -24,12 +25,13 @@ const Addon = () => {
         emit(`${ADDON_ID}/theme`, newTheme);
 
         document.body.dataset[THEME_DATA_ATTR] = newTheme;
+        document.querySelector('iframe').contentDocument.body.dataset[THEME_DATA_ATTR] = newTheme;
     }, []);
 
     return (
         themes.length > 0 && (
             <div className='tool'>
-                <span className='label'>Theme:</span>
+                <span className='label'>Выбор темы: </span>
                 <Form.Select size={1} onChange={handleChange} className='select' value={theme}>
                     {['default'].concat(themes).map(themeName => (
                         <option
@@ -48,7 +50,7 @@ const Addon = () => {
 addons.register(ADDON_ID, () => {
     addons.add(ADDON_ID, {
         type: types.TOOL,
-        match: ({ viewMode }) => viewMode === 'story',
+        match: () => true,
         render: () => <Addon />,
         paramKey: ADDON_ID,
     });

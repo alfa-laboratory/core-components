@@ -1,0 +1,4 @@
+[data-mode='dark'] .sbdocs-wrapper {
+    background: var(--color-dark-bg-primary) !important;
+    color: var(--color-dark-text-primary) !important;
+}

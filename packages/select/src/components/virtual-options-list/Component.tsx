@@ -29,6 +29,7 @@ export const VirtualOptionsList = ({
     dataTestId,
     emptyPlaceholder,
     visibleOptions = 5,
+    onScroll,
 }: VirtualOptionsList) => {
     const listRef = useRef<HTMLDivElement>(null);
     const parentRef = useRef<HTMLDivElement>(null);
@@ -113,6 +114,7 @@ export const VirtualOptionsList = ({
             className={cn(styles.virtualOptionsList, styles[size], className)}
             ref={parentRef}
             data-test-id={dataTestId}
+            onScroll={onScroll}
         >
             <div
                 className={styles.inner}
