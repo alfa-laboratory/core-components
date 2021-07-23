@@ -19,6 +19,7 @@ describe(
                 direction: ['horizontal', 'vertical'],
                 label: ['', 'Заголовок'],
                 error: ['', 'Ошибка'],
+                hint: ['', 'Подсказка'],
             },
         }),
         screenshotOpts: {

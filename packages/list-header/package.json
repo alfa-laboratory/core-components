@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-list-header",
-    "version": "2.0.0",
+    "version": "2.0.2",
     "description": "ListHeader component",
     "keywords": [],
     "license": "MIT",
@@ -16,7 +16,7 @@
         "access": "public"
     },
     "dependencies": {
-        "@alfalab/core-components-typography": "^2.0.0",
+        "@alfalab/core-components-typography": "^2.1.0",
         "classnames": "^2.2.6"
     },
     "peerDependencies": {

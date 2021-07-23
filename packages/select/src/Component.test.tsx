@@ -291,7 +291,7 @@ describe('Select', () => {
             const input = document.querySelector('.input') as HTMLElement;
             await pressArrowDownNTimes(input, options.length + 1);
             expect((document.querySelector('.highlighted div') as HTMLElement).innerHTML).toBe(
-                options[1].content,
+                options[0].content,
             );
         });
 
@@ -425,7 +425,7 @@ describe('Select', () => {
             const expectedProps: Partial<OptionsListProps> = {
                 options,
                 flatOptions: options,
-                highlightedIndex: 0,
+                highlightedIndex: -1,
                 open: true,
                 size: 'l',
                 visibleOptions: 3,
@@ -579,6 +579,23 @@ describe('Select', () => {
             const option = await findByText(options[0].content);
             await fireEvent.click(option);
             expect(cb).toBeCalledTimes(1);
+        });
+
+        it('should call onScroll', async () => {
+            const onScroll = jest.fn();
+
+            const { getByTestId } = render(
+                <Select
+                    {...baseProps}
+                    dataTestId='test-id'
+                    options={options}
+                    onScroll={onScroll}
+                    defaultOpen={true}
+                />,
+            );
+
+            fireEvent.scroll(getByTestId('test-id-options-list'));
+            expect(onScroll).toBeCalledTimes(1);
         });
 
         it('should call valueRenderer', async () => {
