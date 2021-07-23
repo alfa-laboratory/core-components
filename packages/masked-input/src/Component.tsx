@@ -31,6 +31,11 @@ export type MaskedInputProps = InputProps & {
     mask?: TextMaskConfig['mask'];
 
     /**
+     * Управляет поведением компонента при удалении символов
+     */
+    keepCharPositions?: TextMaskConfig['keepCharPositions'];
+
+    /**
      * Дает возможность изменить значение поля перед рендером
      */
     onBeforeDisplay?: TextMaskConfig['pipe'];
@@ -41,7 +46,17 @@ export const PLACEHOLDER_CHAR = '\u2000';
 
 export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
     (
-        { mask, value, defaultValue, className, onBeforeDisplay, onChange, onClear, ...restProps },
+        {
+            mask,
+            keepCharPositions = false,
+            value,
+            defaultValue,
+            className,
+            onBeforeDisplay,
+            onChange,
+            onClear,
+            ...restProps
+        },
         ref,
     ) => {
         const inputRef = useRef<HTMLInputElement>(null);
@@ -53,7 +68,12 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
 
         const update = useCallback((newValue = '') => {
             if (textMask.current && inputRef.current) {
-                textMask.current.update(newValue);
+                try {
+                    textMask.current.update(newValue);
+                } catch (e) {
+                    // ignore masking errors
+                }
+
                 setInputValue(inputRef.current.value);
             }
         }, []);
@@ -86,7 +106,7 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
                     inputElement: inputRef.current,
                     pipe: onBeforeDisplay,
                     guide: false,
-                    keepCharPositions: false,
+                    keepCharPositions,
                     showMask: false,
                     placeholderChar: PLACEHOLDER_CHAR,
                     rawValue: '',
@@ -94,7 +114,7 @@ export const MaskedInput = React.forwardRef<HTMLInputElement, MaskedInputProps>(
                     previousConformedValue: '',
                 });
             }
-        }, [onBeforeDisplay, mask]);
+        }, [onBeforeDisplay, mask, keepCharPositions]);
 
         useEffect(() => {
             update(value || defaultValue);

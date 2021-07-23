@@ -1,12 +1,18 @@
 @import '../../themes/src/default.css';
 
+:root {
+    --checkbox-group-error-color: var(--color-light-text-negative);
+    --checkbox-group-hint-color: var(--color-light-text-secondary);
+    --checkbox-group-label-color: var(--color-light-text-primary);
+}
+
 .component {
     display: flex;
     flex-direction: column;
 }
 
 .error {
-    padding-left: var(--gap-m);
+    padding-left: var(--gap-xs);
     border-left: 1px solid var(--color-light-text-negative);
 }
 
@@ -47,15 +53,22 @@
 }
 
 .label {
+    @mixin system_16-24_regular;
+    margin-bottom: var(--gap-s);
+    color: var(--checkbox-group-label-color);
+}
+
+.sub {
     @mixin system_14-18_regular;
-    margin-bottom: var(--gap-m);
-    color: var(--color-light-text-secondary);
+    margin-top: var(--gap-s);
 }
 
 .errorMessage {
-    @mixin system_14-18_regular;
-    margin-top: var(--gap-m);
-    color: var(--color-light-text-negative);
+    color: var(--checkbox-group-error-color);
+}
+
+.hint {
+    color: var(--checkbox-group-hint-color);
 }
 
 .hiddenInput {

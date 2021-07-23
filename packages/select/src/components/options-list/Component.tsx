@@ -21,6 +21,7 @@ export const OptionsList = ({
     dataTestId,
     emptyPlaceholder,
     visibleOptions = 5,
+    onScroll,
     open,
 }: OptionsListProps) => {
     const listRef = useRef<HTMLDivElement>(null);
@@ -51,6 +52,7 @@ export const OptionsList = ({
             className={cn(styles.optionsList, styles[size], className)}
             data-test-id={dataTestId}
             ref={listRef}
+            onScroll={onScroll}
         >
             {options.map(option =>
                 isGroup(option) ? renderGroup(option) : Option({ option, index: counter() }),

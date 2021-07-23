@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.0.1...@alfalab/core-components-tooltip@4.1.0) (2021-07-19)
+
+
+### Features
+
+* **tooltip:** add target ref property ([#755](https://github.com/alfa-laboratory/core-components/issues/755)) ([9aa962d](https://github.com/alfa-laboratory/core-components/commit/9aa962d8b280e8d6af8ac4324a78b4bdebbfc536))
+
+
+
+
+
 ## [4.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.0.0...@alfalab/core-components-tooltip@4.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-tooltip

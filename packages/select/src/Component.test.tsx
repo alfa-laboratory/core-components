@@ -581,6 +581,23 @@ describe('Select', () => {
             expect(cb).toBeCalledTimes(1);
         });
 
+        it('should call onScroll', async () => {
+            const onScroll = jest.fn();
+
+            const { getByTestId } = render(
+                <Select
+                    {...baseProps}
+                    dataTestId='test-id'
+                    options={options}
+                    onScroll={onScroll}
+                    defaultOpen={true}
+                />,
+            );
+
+            fireEvent.scroll(getByTestId('test-id-options-list'));
+            expect(onScroll).toBeCalledTimes(1);
+        });
+
         it('should call valueRenderer', async () => {
             const valueRenderer = jest.fn();
             const { getByText, getByTestId } = render(

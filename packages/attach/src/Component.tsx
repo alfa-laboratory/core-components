@@ -4,6 +4,9 @@ import React, {
     useState,
     useCallback,
     useRef,
+    ChangeEvent,
+    useEffect,
+    MouseEvent,
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
@@ -17,7 +20,10 @@ import { truncateFilename } from './utils';
 
 import styles from './index.module.css';
 
-export type AttachProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type' | 'value'> & {
+export type AttachProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'size' | 'type' | 'value' | 'defaultValue' | 'onChange' | 'multiple'
+> & {
     /**
      * Содержимое кнопки для выбора файла
      */
@@ -54,9 +60,29 @@ export type AttachProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | '
     size?: 'xs' | 's' | 'm' | 'l';
 
     /**
-     * Содержимое поля ввода, указанное по умолчанию. Принимает массив объектов типа File или null.
+     * Возможность прикрепления нескольких файлов
+     */
+    multiple?: boolean;
+
+    /**
+     * Содержимое поля ввода. Принимает массив объектов типа File или null.
      */
     value?: File[] | null;
+
+    /**
+     * Содержимое поля ввода, указанное по умолчанию. Принимает массив объектов типа File или null.
+     */
+    defaultValue?: File[] | null;
+
+    /**
+     * Обработчик поля ввода
+     */
+    onChange?: (event: ChangeEvent<HTMLInputElement>, payload: { files: File[] }) => void;
+
+    /**
+     * Обработчик нажатия на кнопку очистки
+     */
+    onClear?: (event: MouseEvent<HTMLButtonElement>) => void;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -81,13 +107,17 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
             multiple,
             noFileText = 'Нет файла',
             progressBarPercent,
+            defaultValue,
             value,
             onChange,
+            onClear,
             ...restProps
         },
         ref,
     ) => {
-        const [files, setFiles] = useState(value || []);
+        const uncontrolled = value === undefined;
+
+        const [files, setFiles] = useState(defaultValue || []);
 
         const inputRef = useRef<HTMLInputElement>(null);
         const labelRef = useRef<HTMLLabelElement>(null);
@@ -95,15 +125,17 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
 
         const handleInputChange = useCallback(
             (event: React.ChangeEvent<HTMLInputElement>) => {
-                if (event.target.files) {
-                    setFiles(Array.from(event.target.files));
-                }
+                const filesArray = event.target.files ? Array.from(event.target.files) : [];
 
                 if (onChange) {
-                    onChange(event);
+                    onChange(event, { files: filesArray });
+                }
+
+                if (uncontrolled && event.target.files) {
+                    setFiles(filesArray);
                 }
             },
-            [onChange],
+            [onChange, uncontrolled],
         );
 
         const handleButtonClick = useCallback(
@@ -122,13 +154,22 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
             [buttonProps],
         );
 
-        const handleClearClick = useCallback(() => {
-            if (inputRef.current) {
-                inputRef.current.value = '';
-            }
+        const handleClearClick = useCallback(
+            ev => {
+                if (uncontrolled) {
+                    if (inputRef.current) {
+                        inputRef.current.value = '';
+                    }
 
-            setFiles([]);
-        }, []);
+                    setFiles([]);
+                }
+
+                if (onClear) {
+                    onClear(ev);
+                }
+            },
+            [onClear, uncontrolled],
+        );
 
         const Icon = size === 'xs' ? AttachmentSBlackIcon : AttachmentMBlackIcon;
 
@@ -140,6 +181,12 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
                     {files.length} {pluralize(files.length, ...MULTIPLE_TEXTS)}
                 </abbr>
             );
+
+        useEffect(() => {
+            if (!uncontrolled) {
+                setFiles(value || []);
+            }
+        }, [uncontrolled, value]);
 
         return (
             <div
