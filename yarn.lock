@@ -87,10 +87,10 @@
     react-merge-refs "^1.1.0"
     react-virtual "^2.2.0"
 
-"@alfalab/data@^0.4.0":
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-0.4.2.tgz#688c82d1e0d66cdfadfc7bf2d470560b8fe52a69"
-  integrity sha512-ftVNhWRsjmzx9ZsoiWkz9TtErpTsP4u/0EN71SEoOKGGjePPGoMjRgdQ6h+QKAhrJ3onzPk4Zvp76Ar82EhoeA==
+"@alfalab/data@^0.4.3":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-0.4.3.tgz#81374432b6a54394803502c293757bac9fd7f3c0"
+  integrity sha512-L3MHYEU23ysZ3y68gM5dSVknV4k+t1fzJ5T0j8E0IF8ArZFdP/7UVsz8Az+B2aV5pflcnrMYtIDAbGGab4JfTw==
 
 "@alfalab/hooks@^0.9.0":
   version "0.9.0"
@@ -153,15 +153,15 @@
   resolved "https://registry.yarnpkg.com/@alfalab/stylelint-core-vars/-/stylelint-core-vars-1.1.0.tgz#82b34026683494e32c1f02b3f77942fddebce294"
   integrity sha512-PRAaXvAYJ7uVKUmh1qMN6wO047Oj/g4KmTYlZLDyNqVhPSwkiYnZk/Ivf1qgxecudKRTHf40qnMOEHrdd1R63A==
 
-"@alfalab/utils@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.1.1.tgz#1f14fc91b03d9e99049a59daff009cc8e4a70f95"
-  integrity sha512-JdMNq3WXVwhU3z4cxlkWutbY8C6QIj5PbO3IhAWpe506rhSaZPJIUY+SMoV+BJ5pADD0eiseraQPHaQtIkmGTQ==
+"@alfalab/utils@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.3.0.tgz#956c18e4a577b0e8076d0a7823db7a3852ef613c"
+  integrity sha512-+BEJYXjWyl6mdBomoH80lGFsVjLHHGwAU3H+SZvbGsnyL3M8gVwkMTYvUTEtddxEHKLlTTo6IGmzfAXT/UPaNg==
 
-"@alfalab/utils@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.2.0.tgz#604411c6bd266b663c6cc251d593ca4e8bc3a9a4"
-  integrity sha512-P/nfoDPIdmhk0LrrFP8rEtKsmyTwUs3OHTI/F8iOiJjGWzWFzTzE5fE48ztRRj/rUuWQ/FJHU3zazQ19Q9EepQ==
+"@alfalab/utils@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.2.1.tgz#a0aa2eaeaa8b0078337e6d3dc5e4d4b18c95adf9"
+  integrity sha512-ZqDh9IsrIM371vEJn7eDxHx/yMgUv3YiLwkjYv/CKuBVPsq26dMkVnVEcKwHykNDAiTG1bL05iWn7cqX9XjhBg==
 
 "@babel/code-frame@7.10.4":
   version "7.10.4"
