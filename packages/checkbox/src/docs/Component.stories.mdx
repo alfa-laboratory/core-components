@@ -24,6 +24,7 @@ import styles from '!!raw-loader!../index.module.css';
         const handleChange = () => setChecked(!checked);
         const size = select('size', ['s', 'm'], 's');
         const disabled = boolean('disabled', false);
+        const inactive = boolean('inactive', false);
         const label = text('label', 'Согласен с условиями');
         const indeterminate = boolean('indeterminate', false);
         const hint = text('hint', 'Дополнительная информация');
@@ -33,12 +34,12 @@ import styles from '!!raw-loader!../index.module.css';
         return (
             <Checkbox
                 disabled={disabled}
+                inactive={inactive}
                 size={size}
                 block={block}
                 addons={addons}
                 align={align}
                 onChange={handleChange}
-                checked={checked}
                 label={label}
                 indeterminate={indeterminate}
                 hint={hint}
