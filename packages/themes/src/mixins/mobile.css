@@ -1,4 +1,9 @@
 @import './button/mobile.css';
+@import './form-control/mobile.css';
+@import './input/mobile.css';
+@import './tag/mobile.css';
+@import './checkbox/mobile.css';
+@import './radio/mobile.css';
 @import './confirmation/mobile.css';
 @import './form-control/mobile.css';
 @import './input/mobile.css';
@@ -7,6 +12,9 @@
 
 @define-mixin theme-mobile {
     @mixin button-mobile;
+    @mixin tag-mobile;
+    @mixin checkbox-mobile;
+    @mixin radio-mobile;
     @mixin confirmation-mobile;
     @mixin form-control-mobile;
     @mixin input-mobile;
