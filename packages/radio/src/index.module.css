@@ -5,7 +5,7 @@
     --radio-label-color: var(--color-light-text-primary);
 
     /* unchecked */
-    --radio-bg-color: var(--color-light-graphic-secondary-inverted);
+    --radio-bg-color: var(--color-light-graphic-primary-inverted);
     --radio-border-color: var(--color-light-border-tertiary-inverted);
     --radio-hover-bg-color: var(--color-light-graphic-tertiary);
     --radio-hover-border-color: var(--color-light-border-tertiary-inverted);
@@ -21,7 +21,7 @@
     --radio-checked-active-border-color: transparent;
 
     /* disabled */
-    --radio-disabled-color: var(--color-light-text-tertiary);
+    --radio-disabled-color: var(--color-light-text-secondary);
     --radio-disabled-bg-color: var(--color-light-graphic-primary-inverted);
     --radio-disabled-border-color: var(--color-light-graphic-neutral);
 
@@ -41,7 +41,7 @@
     &:not(.checked):not(.disabled) {
         & .circle {
             background-color: var(--radio-bg-color);
-            border: 1px solid var(--radio-border-color);
+            border: 1.5px solid var(--radio-border-color);
         }
 
         &:hover:not(:active) .circle {
@@ -60,7 +60,7 @@
 
         & .circle {
             background-color: var(--radio-disabled-bg-color);
-            border: 1px solid var(--radio-disabled-border-color);
+            border: 1.5px solid var(--radio-disabled-border-color);
         }
 
         & .label {
@@ -80,7 +80,7 @@
     &.checked {
         & .circle {
             background-color: var(--radio-checked-bg-color);
-            border: 1px solid var(--radio-checked-border-color);
+            border: 1.5px solid var(--radio-checked-border-color);
         }
 
         &:hover .circle {
