@@ -21,7 +21,7 @@
     --checkbox-checked-active-border-color: transparent;
 
     /* disabled */
-    --checkbox-disabled-color: var(--color-light-text-tertiary);
+    --checkbox-disabled-color: var(--color-light-text-secondary);
     --checkbox-disabled-bg-color: var(--color-light-graphic-primary-inverted);
     --checkbox-disabled-border-color: var(--color-light-graphic-neutral);
 

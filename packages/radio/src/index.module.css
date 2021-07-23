@@ -21,7 +21,7 @@
     --radio-checked-active-border-color: transparent;
 
     /* disabled */
-    --radio-disabled-color: var(--color-light-text-tertiary);
+    --radio-disabled-color: var(--color-light-text-secondary);
     --radio-disabled-bg-color: var(--color-light-graphic-primary-inverted);
     --radio-disabled-border-color: var(--color-light-graphic-neutral);
 
