@@ -12,6 +12,7 @@
     --slider-progress-background: transparent;
     --slider-progress-hover-background: transparent;
     --slider-progress-border-radius: 0;
+    --slider-range-offest: calc(var(--slider-thumb-size) / 2 * -1);
 }
 
 /* Не работают префиксные селекторы через запятую - пришлось вынести в миксины */
@@ -96,8 +97,8 @@
     position: absolute;
     z-index: 1;
     top: 0;
-    right: calc(var(--slider-thumb-size) / 2 * -1);
-    left: calc(var(--slider-thumb-size) / 2 * -1);
+    right: var(--slider-range-offest);
+    left: var(--slider-range-offest);
 }
 
 .range,

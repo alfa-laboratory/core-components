@@ -5,6 +5,10 @@
 @import './checkbox/mobile.css';
 @import './radio/mobile.css';
 @import './confirmation/mobile.css';
+@import './form-control/mobile.css';
+@import './input/mobile.css';
+@import './slider/mobile.css';
+@import './slider-input/mobile.css';
 
 @define-mixin theme-mobile {
     @mixin button-mobile;
@@ -14,4 +18,6 @@
     @mixin confirmation-mobile;
     @mixin form-control-mobile;
     @mixin input-mobile;
+    @mixin slider-mobile;
+    @mixin slider-input-mobile;
 }

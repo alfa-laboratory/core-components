@@ -3,6 +3,7 @@
 :root {
     --slider-input-steps-color: var(--color-light-text-secondary);
     --slider-input-info-color: var(--color-light-text-secondary);
+    --slider-input-font-weight: 700;
 }
 
 .component {
@@ -24,10 +25,15 @@
     }
 }
 
+.field {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
 .input {
     & input,
     & input + div {
-        font-weight: 700;
+        font-weight: var(--slider-input-font-weight);
         font-variant-numeric: tabular-nums;
     }
 
