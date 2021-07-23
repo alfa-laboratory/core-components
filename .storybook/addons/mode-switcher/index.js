@@ -2,7 +2,18 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import addons, { makeDecorator } from '@storybook/addons';
 import { ADDON_ID } from './register';
-// import { DarkThemeStylesInjector } from '../../../packages/dark-theme-styles-injector/src/index';
+
+import colorsIndigo from '!!raw-loader!../../../packages/themes/src/mixins/colors/colors-indigo.css';
+import colorsBluetint from '!!raw-loader!../../../packages/themes/src/mixins/colors/colors-bluetint.css';
+
+import './index.css';
+
+const innerCss = (css) => css.trim().split('\n').slice(1, -1).join('\n');
+
+const colorsMap = {
+    indigo: innerCss(colorsIndigo),
+    bluetint: innerCss(colorsBluetint),
+};
 
 export default makeDecorator({
     name: 'withModeSwitcher',
@@ -22,7 +33,7 @@ export default makeDecorator({
 
         return (
             <>
-                {/* {mode === 'dark' && <DarkThemeStylesInjector colors='indigo' />} */}
+                {mode === 'dark' && <style id='test'>{`:root { ${colorsMap['indigo']} }`}</style>}
                 {getStory(context)}
             </>
         );
