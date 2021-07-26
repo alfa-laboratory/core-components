@@ -7,7 +7,7 @@
     --slider-thumb-hover-color: var(--color-light-graphic-accent);
     --slider-thumb-size: 18px;
     --slider-thumb-border: 0;
-    --slider-thumb-box-shadow: 0 2px 10px color-mod(var(--slider-thumb-color) alpha(30%));
+    --slider-thumb-box-shadow: 0 2px 10px var(--slider-thumb-color-alpha-30);
     --slider-progress-height: 2px;
     --slider-progress-background: transparent;
     --slider-progress-hover-background: transparent;
