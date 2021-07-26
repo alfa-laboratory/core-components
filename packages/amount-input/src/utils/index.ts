@@ -29,7 +29,7 @@ export function getFormattedValue(enteredValue: string, currency: CurrencyCodes,
     }
 
     if (tail) {
-        return majorPart.concat(',', tail.slice(0, 2));
+        return majorPart.concat(',', tail.slice(0, minority.toString().length - 1));
     }
 
     return majorPart;

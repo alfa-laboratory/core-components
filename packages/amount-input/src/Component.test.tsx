@@ -7,11 +7,16 @@ import { render, fireEvent, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { CurrencyCodes } from '@alfalab/data';
 import { AmountInput } from './index';
+import { AmountInputProps } from './Component';
 
 describe('AmountInput', () => {
     const THINSP = String.fromCharCode(8201);
 
-    function renderAmountInput(value: number | null, currency: CurrencyCodes | null = 'RUR') {
+    function renderAmountInput(
+        value: number | null,
+        currency: CurrencyCodes | null = 'RUR',
+        props: AmountInputProps = {},
+    ) {
         // TODO: почему тесты в кор компонентах цепляются к data-test-id вместо label?
         const dataTestId = 'test-id';
         const { getByTestId } = render(
@@ -20,6 +25,7 @@ describe('AmountInput', () => {
                 currency={currency as CurrencyCodes}
                 minority={100}
                 dataTestId={dataTestId}
+                {...props}
             />,
         );
 
@@ -61,6 +67,26 @@ describe('AmountInput', () => {
 
         const input = getByTestId(dataTestId) as HTMLInputElement;
         expect(input.placeholder).toBe('Сумма');
+    });
+
+    it('should use custom suffix when currency empty', () => {
+        const input = renderAmountInput(null, null, { suffix: '%' });
+        expect(input.placeholder).toBe(`0${THINSP}%`);
+    });
+
+    it('should use custom suffix', () => {
+        const input = renderAmountInput(null, 'RUR', { suffix: '%' });
+        expect(input.placeholder).toBe(`0${THINSP}%`);
+    });
+
+    it('should allow to clean suffix when currency empty', () => {
+        const input = renderAmountInput(null, null, { suffix: '' });
+        expect(input.placeholder).toBe(`0${THINSP}`);
+    });
+
+    it('should allow to clean suffix', () => {
+        const input = renderAmountInput(null, 'RUR', { suffix: '' });
+        expect(input.placeholder).toBe(`0${THINSP}`);
     });
 
     it('should render passed amount', () => {
