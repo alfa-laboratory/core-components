@@ -26,12 +26,12 @@
     --checkbox-disabled-border-color: var(--color-light-graphic-neutral);
 
     /* inactive */
-    --checkbox-inactive-border-color: var(--color-dark-bg-secondary-inverted);
+    --checkbox-inactive-border-color: var(--color-light-border-secondary-inverted);
     --checkbox-checked-inactive-color: var(--color-light-graphic-tertiary);
 
-    /* muted and checked */
-    --checkbox-checked-muted-bg-color: var(--color-light-graphic-neutral);
-    --checkbox-checked-muted-border-color: transparent;
+    /* disabled and checked */
+    --checkbox-checked-disabled-bg-color: var(--color-light-bg-neutral);
+    --checkbox-checked-disabled-border-color: transparent;
 
     /* icon */
     --checkbox-icon-color: var(--color-light-bg-primary);
@@ -141,13 +141,13 @@
 }
 
 .disabled.checked .box {
-    background-color: var(--checkbox-checked-muted-bg-color);
-    border-color: var(--checkbox-checked-muted-border-color);
+    background-color: var(--checkbox-checked-disabled-bg-color);
+    border-color: var(--checkbox-checked-disabled-border-color);
 }
 
 .disabled.indeterminate .box {
-    background-color: var(--checkbox-checked-muted-bg-color);
-    border-color: var(--checkbox-checked-muted-border-color);
+    background-color: var(--checkbox-checked-disabled-bg-color);
+    border-color: var(--checkbox-checked-disabled-border-color);
 }
 
 .disabled .label {
@@ -159,17 +159,17 @@
 }
 
 .inactive .box {
-    background-color: var(--checkbox-checked-muted-bg-color);
+    background-color: var(--checkbox-checked-disabled-bg-color);
     border-color: var(--checkbox-inactive-border-color);
 }
 
 .inactive.checked .box {
     color: var(--checkbox-checked-inactive-color);
-    border-color: var(--checkbox-checked-muted-border-color);
+    border-color: var(--checkbox-checked-disabled-border-color);
 }
 
 .inactive.indeterminate .box {
-    border-color: var(--checkbox-checked-muted-border-color);
+    border-color: var(--checkbox-checked-disabled-border-color);
 }
 
 .focused .box {

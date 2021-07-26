@@ -16,7 +16,7 @@
     --switch-disabled-border-color: var(--color-light-graphic-neutral);
 
     /* inactive */
-    --switch-inactive-color: var(--color-dark-bg-secondary-inverted);
+    --switch-inactive-color: var(--color-light-border-secondary-inverted);
 }
 
 .component {
