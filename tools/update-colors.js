@@ -22,7 +22,7 @@ glob(path.join(colorsDir, 'colors*.json'), {}, (err, files) => {
                 return;
             }
 
-            let value = token.a === 1 || token.hex.length <= 7 ? token.hex : token.rgba;
+            let value = token.hex && token.hex.length <= 7 ? token.hex : token.rgba;
             css += `    ${buildVarName(color)}: ${value};\n`;
         });
 
@@ -88,12 +88,21 @@ function generateColorMods(colors) {
             modValues.forEach(modValue => {
                 const generatedColorName = `${colorName}-${mod}-${modValue}`;
 
-                const colorValue = token.a === 1 || token.hex.length <= 7 ? token.hex : token.rgba;
+                const colorValue = token.hex.length <= 7 ? token.hex : token.rgba;
 
-                colors[generatedColorName] = {
-                    a: 1,
-                    hex: `color-mod(${colorValue} ${mod}(${modValue}%));`,
-                };
+                if (['tint', 'shade'].includes(mod) && token.hex.length > 7) {
+                    colors[generatedColorName] = {
+                        hex: '',
+                        rgba: `color-mod(${colorValue} blenda(${
+                            mod === 'tint' ? 'white' : 'black'
+                        } ${modValue}%));`,
+                    };
+                } else {
+                    colors[generatedColorName] = {
+                        hex: '',
+                        rgba: `color-mod(${colorValue} ${mod}(${modValue}%));`,
+                    };
+                }
             });
         });
     });

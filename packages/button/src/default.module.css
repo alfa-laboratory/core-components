@@ -112,7 +112,7 @@
     }
 
     &:active {
-        background-color: var(--color-light-specialbg-component) blenda(black 7);
+        background-color: var(--color-light-specialbg-component-shade-7);
     }
 }
 

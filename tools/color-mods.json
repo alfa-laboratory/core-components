@@ -13,7 +13,14 @@
     "light-bg-tertiary": {
         "shade": [7]
     },
+    "light-specialbg-component": {
+        "shade": [7, 10, 30]
+    },
+    "light-border-tertiary-inverted": {
+        "alpha": [30]
+    },
     "light-graphic-accent": {
+        "alpha": [30],
         "shade": [10, 30]
     },
     "light-graphic-negative": {

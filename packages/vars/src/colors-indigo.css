@@ -145,6 +145,8 @@
     --color-dark-bg-primary-inverted-alpha-20: color-mod(#fff alpha(20%));
     --color-dark-bg-primary-inverted-alpha-40: color-mod(#fff alpha(40%));
     --color-dark-bg-tertiary-tint-7: color-mod(#3c4c5d tint(7%));
+    --color-dark-border-tertiary-inverted-alpha-30: color-mod(#b6bcc3 alpha(30%));
+    --color-dark-graphic-accent-alpha-30: color-mod(#ef3124 alpha(30%));
     --color-dark-graphic-accent-tint-10: color-mod(#ef3124 tint(10%));
     --color-dark-graphic-accent-tint-30: color-mod(#ef3124 tint(30%));
     --color-dark-graphic-negative-shade-30: color-mod(#f15045 shade(30%));
@@ -157,6 +159,9 @@
     --color-dark-graphic-secondary-alpha-30: color-mod(#b6bcc3 alpha(30%));
     --color-dark-graphic-secondary-tint-30: color-mod(#b6bcc3 tint(30%));
     --color-dark-graphic-secondary-tint-50: color-mod(#b6bcc3 tint(50%));
+    --color-dark-specialbg-component-tint-7: color-mod(#485767 tint(7%));
+    --color-dark-specialbg-component-tint-10: color-mod(#485767 tint(10%));
+    --color-dark-specialbg-component-tint-30: color-mod(#485767 tint(30%));
     --color-dark-text-link-tint-20: color-mod(#007aff tint(20%));
     --color-dark-text-link-tint-40: color-mod(#007aff tint(40%));
     --color-dark-text-primary-alpha-30: color-mod(#fff alpha(30%));
@@ -179,6 +184,8 @@
     --color-light-bg-primary-inverted-alpha-20: color-mod(#0b1f35 alpha(20%));
     --color-light-bg-primary-inverted-alpha-40: color-mod(#0b1f35 alpha(40%));
     --color-light-bg-tertiary-shade-7: color-mod(#e7e9eb shade(7%));
+    --color-light-border-tertiary-inverted-alpha-30: color-mod(#6d7986 alpha(30%));
+    --color-light-graphic-accent-alpha-30: color-mod(#ef3124 alpha(30%));
     --color-light-graphic-accent-shade-10: color-mod(#ef3124 shade(10%));
     --color-light-graphic-accent-shade-30: color-mod(#ef3124 shade(30%));
     --color-light-graphic-negative-tint-30: color-mod(#f15045 tint(30%));
@@ -191,6 +198,9 @@
     --color-light-graphic-secondary-alpha-30: color-mod(#6d7986 alpha(30%));
     --color-light-graphic-secondary-shade-30: color-mod(#6d7986 shade(30%));
     --color-light-graphic-secondary-shade-50: color-mod(#6d7986 shade(50%));
+    --color-light-specialbg-component-shade-7: color-mod(rgba(11, 31, 53, 0.07) blenda(black 7%));
+    --color-light-specialbg-component-shade-10: color-mod(rgba(11, 31, 53, 0.07) blenda(black 10%));
+    --color-light-specialbg-component-shade-30: color-mod(rgba(11, 31, 53, 0.07) blenda(black 30%));
     --color-light-text-link-shade-20: color-mod(#007aff shade(20%));
     --color-light-text-link-shade-40: color-mod(#007aff shade(40%));
     --color-light-text-primary-alpha-30: color-mod(#0b1f35 alpha(30%));
