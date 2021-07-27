@@ -8,6 +8,7 @@ import {
     ReactElement,
 } from 'react';
 import { PopoverProps } from '@alfalab/core-components-popover';
+import { InputProps } from '@alfalab/core-components-input';
 
 export type OptionShape = {
     /**
@@ -440,6 +441,11 @@ export type OptionsListProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Дополнительные пропсы для Input'a, находящегося внутри кастомного OptionsList
+     */
+    inputProps?: InputProps;
 };
 
 export type OptgroupProps = {
