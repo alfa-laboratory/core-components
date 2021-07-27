@@ -1,10 +1,9 @@
 import React from 'react';
 import { fireEvent, render, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
 
-import { OptionsList, Select, useLazyLoading } from '../../index';
-import { Skeleton } from '../../../../skeleton';
-import { Input } from '../../../../input';
-import { OptionsListProps } from '../../../../picker-button/dist/Component-2e5019e8';
+import { Skeleton } from '@alfalab/core-components-skeleton';
+import { Input } from '@alfalab/core-components-input';
+import { OptionsList, OptionsListProps, Select, useLazyLoading } from '../../index';
 
 const LIMIT = 10;
 const TIME_TO_FETCH = 250;
