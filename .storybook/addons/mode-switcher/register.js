@@ -29,8 +29,10 @@ const Addon = () => {
         setMode(newMode);
         emit(`${ADDON_ID}/mode`, newMode);
 
+        document.body.dataset[MODE_DATA_ATTR] = newMode;
         document.querySelector('iframe').contentDocument.body.dataset[MODE_DATA_ATTR] = newMode;
     }, []);
+
 
     return (
         <div className='tool' style={{ opacity: 0 }}>

@@ -2,3 +2,11 @@
     background: var(--color-dark-bg-primary) !important;
     color: var(--color-dark-text-primary) !important;
 }
+
+[data-mode='dark'] iframe {
+    background: var(--color-dark-bg-primary) !important;
+}
+
+[data-mode='dark'].sb-show-main {
+    color: var(--color-dark-text-primary) !important;
+}
