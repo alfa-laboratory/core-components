@@ -2,6 +2,8 @@ const fs = require('fs');
 const glob = require('glob');
 const path = require('path');
 
+const colorMods = require('./color-mods.json');
+
 const UNDERSCORE_RE = /_/g;
 const DASH = '-';
 
@@ -15,13 +17,13 @@ glob(path.join(colorsDir, 'colors*.json'), {}, (err, files) => {
 
         let css = '';
 
-        Object.entries(colors).forEach(([name, token]) => {
+        Object.entries(colors).forEach(([color, token]) => {
             if (token.deprecated) {
                 return;
             }
-            const colorName = `--color-${name}`;
+
             let value = token.a === 1 || token.hex.length <= 7 ? token.hex : token.rgba;
-            css += `    ${colorName}: ${value};\n`;
+            css += `    ${buildVarName(color)}: ${value};\n`;
         });
 
         const cssPath = path.resolve(
@@ -40,17 +42,6 @@ glob(path.join(colorsDir, 'colors*.json'), {}, (err, files) => {
 });
 
 function updateDarkThemeMixins(pathname, colors) {
-    const findPair = lightColor =>
-        (
-            Object.keys(colors).find(
-                color =>
-                    color.includes('dark') &&
-                    lightColor.replace(/^light-/, '') === color.replace(/^dark-/, ''),
-            ) || ''
-        ).replace(/-(tint|shade)-/, v => {
-            return v === '-shade-' ? '-tint-' : '-shade-';
-        });
-
     const mixinsDir = path.resolve(__dirname, '../packages/themes/src/mixins/colors');
     const mixinFileName = path
         .basename(pathname)
@@ -60,19 +51,17 @@ function updateDarkThemeMixins(pathname, colors) {
     let css = '@define-mixin dark-theme {\n';
 
     if (pathname.includes('bluetint') || pathname.includes('indigo')) {
-        const colorsMap = {
-            /** [lightColorName: string]: string (darkColorName) */
-        };
-
         Object.keys(colors).forEach(color => {
-            if (/^light-/.test(color)) {
-                const pair = findPair(color);
+            if (/^light-/.test(color) === false) return;
 
-                if (pair) {
-                    css += `    --color-${color}: var(--color-${pair});\n`;
-                } else {
-                    console.warn(`No pair found for '${color}' color.`);
-                }
+            const pair = color
+                .replace(/^light-/, 'dark-')
+                .replace(/-(shade|tint)-/, v => (v === '-shade-' ? '-tint-' : '-shade-'));
+
+            if (colors[pair]) {
+                css += `    ${buildVarName(color)}: var(--color-${pair});\n`;
+            } else {
+                console.warn(`No pair found for '${color}' color.`);
             }
         });
 
@@ -89,58 +78,51 @@ function requireColors(pathname) {
     }, {});
 }
 
-function hasMods(colorName) {
-    // TODO
-    return [
-        'bg-accent',
-        'bg-neutral',
-        'bg-primary',
-        'bg-primary-inverted',
-        'bg-secondary-inverted',
-        'bg-tertiary',
-        'graphic-accent',
-        'graphic-neutral',
-        'graphic-negative',
-        'graphic-positive',
-        'graphic-primary',
-        'graphic-secondary',
-        'specialbg-component',
-        'specialbg-component-inverted',
-        'text-link',
-        'text-primary',
-        'text-primary-inverted',
-        'text-secondary',
-        'static-status-blue',
-        'static-status-green',
-        'static-status-grey',
-        'static-status-orange',
-        'static-status-purple',
-        'static-status-red',
-        'static-status-teal',
-    ].some(c => colorName.includes(c));
-}
-
 function generateColorMods(colors) {
-    const modsConfig = [
-        ['alpha', ['3', '7', '8', '10', '12', '15', '20', '30', '40', '50', '90']],
-        ['tint', ['7', '10', '15', '20', '30', '40', '50', '90']],
-        ['shade', ['7', '10', '15', '20', '30', '40', '50', '90']],
-    ];
-
     Object.entries(colors).forEach(([colorName, token]) => {
-        if (!hasMods(colorName)) return;
+        const modsConfig = getModsConfig(colorName);
 
-        modsConfig.forEach(([mod, modValues]) => {
+        if (!modsConfig) return;
+
+        Object.entries(modsConfig).forEach(([mod, modValues]) => {
             modValues.forEach(modValue => {
-                const modName = `${colorName}-${mod}-${modValue}`;
+                const generatedColorName = `${colorName}-${mod}-${modValue}`;
 
                 const colorValue = token.a === 1 || token.hex.length <= 7 ? token.hex : token.rgba;
 
-                colors[modName] = {
+                colors[generatedColorName] = {
                     a: 1,
                     hex: `color-mod(${colorValue} ${mod}(${modValue}%));`,
                 };
             });
         });
     });
+}
+
+function getModsConfig(colorName) {
+    const config = colorMods[colorName.replace('dark-', 'light-')];
+
+    if (!config) return null;
+
+    const isDark = colorName.startsWith('dark-');
+
+    if (isDark) {
+        return Object.entries(config).reduce((acc, [mod, modValue]) => {
+            acc[invertMod(mod)] = modValue;
+
+            return acc;
+        }, {});
+    } else {
+        return config;
+    }
+}
+
+function invertMod(mod) {
+    if (mod === 'tint') return 'shade';
+    if (mod === 'shade') return 'tint';
+    return mod;
+}
+
+function buildVarName(colorName) {
+    return `--color-${colorName}`;
 }
