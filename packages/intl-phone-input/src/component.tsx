@@ -13,6 +13,7 @@ import { CountriesSelect } from './components';
 import styles from './index.module.css';
 import { formatPhoneWithUnclearableCountryCode } from './utils/format-phone-with-unclearable-country-code';
 import { useCaretAvoidCountryCode } from './useCaretAvoidCountryCode';
+import { usePreventCaretReset } from './usePreventCaretReset';
 
 const countriesHash = getCountriesHash();
 
@@ -238,6 +239,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         const countryCodeLength = `+${country.dialCode}`.length;
 
         useCaretAvoidCountryCode({ inputRef, countryCodeLength, clearableCountryCode });
+        usePreventCaretReset({ inputRef, countryCodeLength, clearableCountryCode });
 
         return (
             <InputAutocomplete
