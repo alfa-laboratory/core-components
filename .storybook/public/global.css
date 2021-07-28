@@ -47,6 +47,19 @@ body.sb-show-main {
     padding: var(--gap-5xl) var(--gap-m);
 }
 
+/* plugins */
+
+.tool {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.label {
+    display: inline-block;
+    margin-right: var(--gap-xs);
+    font-size: 13px;
+}
+
 /* Скрываем Story из Docs */
 
 div[id*='story--'] {

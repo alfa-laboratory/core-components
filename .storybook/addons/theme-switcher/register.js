@@ -1,49 +1,35 @@
 import React, { useCallback, useState } from 'react';
 import addons, { types } from '@storybook/addons';
-import { useChannel, useParameter } from '@storybook/api';
-import { STORY_RENDERED, DOCS_RENDERED } from '@storybook/core-events';
+import { useParameter } from '@storybook/api';
 import { Form } from '@storybook/components';
-
-import './index.css';
+import { getTheme, setThemeAttr } from './utils';
 
 export const ADDON_ID = 'theme-switcher';
-export const THEME_DATA_ATTR = 'theme';
 
 const Addon = () => {
-    const [theme, setTheme] = useState(document.body.dataset[THEME_DATA_ATTR] || 'default');
+    const [theme, setTheme] = useState(getTheme() || 'default');
     const { themes } = useParameter(ADDON_ID, { themes: [] });
-
-    const emit = useChannel({
-        [STORY_RENDERED]: () => emit(`${ADDON_ID}/theme`, theme),
-        [DOCS_RENDERED]: () => emit(`${ADDON_ID}/theme`, theme),
-    }, [theme]);
 
     const handleChange = useCallback(event => {
         const newTheme = event.target.value;
 
         setTheme(newTheme);
-        emit(`${ADDON_ID}/theme`, newTheme);
-
-        document.body.dataset[THEME_DATA_ATTR] = newTheme;
-        document.querySelector('iframe').contentDocument.body.dataset[THEME_DATA_ATTR] = newTheme;
+        setThemeAttr(newTheme);
     }, []);
 
+    if (!themes.length) return null;
+
     return (
-        themes.length > 0 && (
-            <div className='tool'>
-                <span className='label'>Выбор темы: </span>
-                <Form.Select size={1} onChange={handleChange} className='select' value={theme}>
-                    {['default'].concat(themes).map(themeName => (
-                        <option
-                            value={themeName}
-                            key={themeName}
-                        >
-                            {themeName}
-                        </option>
-                    ))}
-                </Form.Select>
-            </div>
-        )
+        <div className='tool'>
+            <span className='label'>Выбор темы: </span>
+            <Form.Select size={1} onChange={handleChange} className='select' value={theme}>
+                {['default'].concat(themes).map(themeName => (
+                    <option value={themeName} key={themeName}>
+                        {themeName}
+                    </option>
+                ))}
+            </Form.Select>
+        </div>
     );
 };
 
