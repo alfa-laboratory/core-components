@@ -3,10 +3,8 @@ import { addDecorator, addParameters } from '@storybook/react';
 import { Example } from './blocks/example';
 
 import withThemeSwitcher from './addons/theme-switcher/index';
-import withModeSwitcher from './addons/mode-switcher/index';
 
 addDecorator(withThemeSwitcher);
-addDecorator(withModeSwitcher);
 
 addParameters({
     viewMode: 'docs',
