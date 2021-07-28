@@ -1,0 +1,5 @@
+@import '../../../../packages/themes/src/mixins/click.css';
+
+:root {
+    @mixin theme-click;
+}

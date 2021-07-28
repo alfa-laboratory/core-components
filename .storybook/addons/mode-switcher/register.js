@@ -17,7 +17,7 @@ const Addon = () => {
     }, []);
 
     return (
-        <div className='tool' style={{ opacity: 0 }}>
+        <div className='tool'>
             <Form.Select size={1} onChange={handleChange} className='select' value={mode}>
                 {MODES.map(mode => (
                     <option value={mode} key={mode}>

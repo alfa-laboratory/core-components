@@ -2,19 +2,20 @@ import React, { useCallback, useState } from 'react';
 import addons, { types } from '@storybook/addons';
 import { useParameter } from '@storybook/api';
 import { Form } from '@storybook/components';
-import { getTheme, setThemeAttr } from './utils';
+import { setStyles } from './utils';
 
 export const ADDON_ID = 'theme-switcher';
 
 const Addon = () => {
-    const [theme, setTheme] = useState(getTheme() || 'default');
+    const [theme, setTheme] = useState('default');
     const { themes } = useParameter(ADDON_ID, { themes: [] });
 
     const handleChange = useCallback(event => {
         const newTheme = event.target.value;
 
         setTheme(newTheme);
-        setThemeAttr(newTheme);
+
+        setStyles(newTheme);
     }, []);
 
     if (!themes.length) return null;

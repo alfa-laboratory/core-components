@@ -2,8 +2,6 @@ import { configure } from '@storybook/react';
 import { addParameters } from '@storybook/react';
 import { Example } from './blocks/example';
 
-import './addons/theme-switcher/themes.css';
-
 addParameters({
     viewMode: 'docs',
     docs: {
