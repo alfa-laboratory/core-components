@@ -16,11 +16,10 @@ describe('formatPhoneWithUnclearableCountryCode', () => {
         } as Country;
 
         expect(formatPhoneWithUnclearableCountryCode('', az)).toEqual('+994');
-        expect(formatPhoneWithUnclearableCountryCode('+', az)).toEqual('+994');
-        expect(formatPhoneWithUnclearableCountryCode('+9', az)).toEqual('+994');
+        expect(formatPhoneWithUnclearableCountryCode('6', az)).toEqual('+994 6');
+        expect(formatPhoneWithUnclearableCountryCode('9', az)).toEqual('+994 9');
         expect(formatPhoneWithUnclearableCountryCode('+99', az)).toEqual('+994');
         expect(formatPhoneWithUnclearableCountryCode('+994', az)).toEqual('+994');
-        expect(formatPhoneWithUnclearableCountryCode('1+994', az)).toEqual('+994');
         expect(formatPhoneWithUnclearableCountryCode('+9941', az)).toEqual('+9941');
     });
 });
