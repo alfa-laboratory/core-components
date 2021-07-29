@@ -4,7 +4,7 @@
     /* core vars */
     --color-light-graphic-secondary: #8a8a8e;
     --color-light-graphic-primary: #000;
-    --color-light-graphic-primary-inverted: #f3f4f5;
+    --color-light-graphic-primary-inverted: #fff;
     --color-light-border-key: #000;
     --color-light-graphic-primary-shade-10: color-mod(#000 shade(10%));
     --color-light-graphic-primary-shade-30: color-mod(#000 shade(30%));

@@ -131,13 +131,13 @@ describe('Select | interactions tests', () => {
                     options: JSON.stringify(options),
                 },
             });
-            const { browser, context, page, css } = await openBrowserPage(pageUrl);
+            const { browser, context, page, css } = await openBrowserPage(`${pageUrl}&theme=${theme}`);
 
             const viewport = { width: 260, height: 768 };
 
             await page.setViewportSize(viewport);
 
-            const match = async () => matchHtml({ page, expect, css, theme, viewport });
+            const match = async () => matchHtml({ page, expect, css, viewport });
 
             try {
                 await match();
