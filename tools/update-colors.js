@@ -95,12 +95,12 @@ function generateColorMods(colors) {
                         hex: '',
                         rgba: `color-mod(${colorValue} blenda(${
                             mod === 'tint' ? 'white' : 'black'
-                        } ${modValue}%));`,
+                        } ${modValue}%))`,
                     };
                 } else {
                     colors[generatedColorName] = {
                         hex: '',
-                        rgba: `color-mod(${colorValue} ${mod}(${modValue}%));`,
+                        rgba: `color-mod(${colorValue} ${mod}(${modValue}%))`,
                     };
                 }
             });
