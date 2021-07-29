@@ -1,0 +1,28 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.container {
+    height: 80px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--menu-bg-color);
+    padding: var(--gap-m) var(--gap-xl);
+    box-sizing: border-box;
+    justify-content: space-between;
+    display: flex;
+}
+
+.buttons {
+    display: flex;
+    padding-left: var(--gap-2xl);
+
+    & button {
+        height: 48px;
+        width: 48px;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+}
