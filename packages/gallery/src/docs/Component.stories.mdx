@@ -1,0 +1,39 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
+import { Gallery } from '../Component';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+
+
+<Meta
+    title='Компоненты/Gallery'
+    component={Gallery}
+/>
+
+<!-- Canvas -->
+
+<Story name='Gallery'>
+    <Gallery>
+    </Gallery>
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Gallery'
+    version={version}
+    package='@alfalab/core-components/Gallery'
+    stage={1}
+/>
+
+```tsx
+import { Gallery } from '@alfalab/core-components/collase';
+```
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props of={Gallery} />}
+/>
