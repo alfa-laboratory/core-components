@@ -1,6 +1,9 @@
 import { configure } from '@storybook/react';
 import { addParameters } from '@storybook/react';
+import { setThemeStylesInIframeHtmlPage } from './addons/theme-switcher/utils';
 import { Example } from './blocks/example';
+
+setThemeStylesInIframeHtmlPage();
 
 addParameters({
     viewMode: 'docs',

@@ -8,7 +8,7 @@ import mobile from '!!postcss-loader!./themes/mobile.css';
 import corp from '!!postcss-loader!./themes/corp.css';
 import site from '!!postcss-loader!./themes/site.css';
 
-const themes = {
+export const themes = {
     default: '',
     click,
     mobile,
@@ -18,8 +18,18 @@ const themes = {
 
 export const THEME_DATA_ATTR = 'theme';
 
-export function setStyles(theme) {
-    getOrCreateStyleTag('theme', MODE_COLORS_TAG_ID).innerHTML = themes[theme];
-    getOrCreateStyleTag('colors-bluetint', MODE_COLORS_TAG_ID).innerHTML =
-        theme === 'mobile' ? bluetintColors : '';
+export function setThemeStylesInIframeHtmlPage() {
+    const matches = /&theme=([^&]*)/.exec(document.location.search);
+
+    if (matches) {
+        setStyles(matches[1], document);
+    }
+}
+
+export function getThemeStyles(theme) {
+    return [themes[theme], theme === 'mobile' ? bluetintColors : ''].join('\n');
+}
+
+export function setStyles(theme, doc) {
+    getOrCreateStyleTag('theme', MODE_COLORS_TAG_ID, doc).innerHTML = getThemeStyles(theme);
 }

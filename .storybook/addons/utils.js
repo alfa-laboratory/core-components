@@ -1,22 +1,20 @@
 export const getStoryDoc = () => document.querySelector('iframe').contentDocument;
 
-export function getOrCreateStyleTag(id, beforeId) {
-    const storyDoc = getStoryDoc();
-
-    const existingTag = storyDoc.getElementById(id);
+export function getOrCreateStyleTag(id, beforeId, doc = getStoryDoc()) {
+    const existingTag = doc.getElementById(id);
     if (existingTag) {
         return existingTag;
     }
 
-    const styleTag = storyDoc.createElement('style');
+    const styleTag = doc.createElement('style');
     styleTag.id = id;
 
-    const before = storyDoc.getElementById(beforeId);
+    const before = doc.getElementById(beforeId);
 
     if (before) {
-        storyDoc.head.insertBefore(styleTag, before);
+        doc.head.insertBefore(styleTag, before);
     } else {
-        storyDoc.head.appendChild(styleTag);
+        doc.head.appendChild(styleTag);
     }
 
     return styleTag;
