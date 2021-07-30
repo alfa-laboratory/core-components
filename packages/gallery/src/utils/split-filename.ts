@@ -1,11 +1,16 @@
-export function splitFilename(filename: string) {
-    const dotPosition = filename.lastIndexOf('.');
-    const head = filename.slice(0, dotPosition);
+const SEPARATION_POSITION_SHIFT = 3;
 
+export function splitFilename(filename: string): [string, string] {
+    const dotPosition = filename.lastIndexOf('.');
+
+    let head = filename;
     let tail = '';
 
-    if (dotPosition > 3) {
-        tail = filename.slice(dotPosition - 3);
+    const splitPosition = dotPosition - SEPARATION_POSITION_SHIFT;
+
+    if (splitPosition > 0) {
+        head = filename.slice(0, splitPosition);
+        tail = filename.slice(splitPosition);
     }
 
     return [head, tail];
