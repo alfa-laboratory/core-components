@@ -8507,6 +8507,15 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     width: 50%;
 }
 
+.skeleton_BojAw {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    height: 16px;
+    width: 50%;
+}
+
 .flagIcon_1N7id {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
@@ -17124,4 +17133,4 @@ pre.cssExample_3Mm-Q {
 }
 
 
-/*# sourceMappingURL=main.9b33542f.chunk.css.map */
+/*# sourceMappingURL=main.706ef991.chunk.css.map */
