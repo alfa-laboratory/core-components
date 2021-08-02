@@ -121,32 +121,16 @@ export function useLazyLoading({
                     queryString: action.payload,
                 };
             }
+            default: {
+                return state;
+            }
         }
-
-        return state;
     };
 
     const [
         { opened, offset, options, loading, allOptionsLoaded, queryString },
         dispatch,
     ] = useReducer(lazyLoadingReducer, lazyLoadingInitialState);
-
-    const renderOption = useCallback(
-        props => (
-            <Option {...props} Checkmark={null} highlighted={loading ? false : props.highlighted} />
-        ),
-        [loading],
-    );
-
-    const skeletonOptions: OptionShape[] = useMemo(() => {
-        return Array(loading ? limit : 0)
-            .fill(0)
-            .map((_, key) => ({
-                key: `loading-${key}`,
-                disabled: true,
-                content: skeleton,
-            }));
-    }, [loading, limit, skeleton]);
 
     const abortFetchingOptionsRef = useRef<() => void>();
 
@@ -174,11 +158,14 @@ export function useLazyLoading({
     const listRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        let observer: IntersectionObserver;
         if (opened && !loading && !allOptionsLoaded) {
-            const observer = new IntersectionObserver(
+            observer = new IntersectionObserver(
                 ([entry]) => {
                     if (entry.isIntersecting) {
-                        observer.disconnect();
+                        if (observer) {
+                            observer.disconnect();
+                        }
                         fetchNextOffsetOptions();
                     }
                 },
@@ -192,11 +179,19 @@ export function useLazyLoading({
              * Таким образом, загрузка следующей "страницы" начнется когда юзер доскроллит список
              * до верхнего края последней опции, что обеспечивает плавность
              */
-            const lastOption = listRef.current?.lastElementChild;
+            const options = listRef.current?.querySelectorAll('[role="option"]');
+            const lastOption = options?.[options.length - 1];
+
             if (lastOption) {
                 observer.observe(lastOption);
             }
         }
+
+        return () => {
+            if (observer) {
+                observer.disconnect();
+            }
+        };
     }, [offset, fetchNextOffsetOptions, opened, allOptionsLoaded, initialOffset, loading]);
 
     const onOpen = useCallback(
@@ -254,6 +249,23 @@ export function useLazyLoading({
         },
         [],
     );
+
+    const renderOption = useCallback(
+        props => (
+            <Option {...props} Checkmark={null} highlighted={loading ? false : props.highlighted} />
+        ),
+        [loading],
+    );
+
+    const skeletonOptions: OptionShape[] = useMemo(() => {
+        return Array(loading ? limit : 0)
+            .fill(0)
+            .map((_, key) => ({
+                key: `loading-${key}`,
+                disabled: true,
+                content: skeleton,
+            }));
+    }, [loading, limit, skeleton]);
 
     return {
         optionsProps: {

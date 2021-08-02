@@ -205,11 +205,11 @@ export const BaseSelect = forwardRef(
         };
 
         const handleFieldBlur = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
-            if (
-                !listRef.current?.contains(
-                    (event.relatedTarget || document.activeElement) as HTMLElement,
-                )
-            ) {
+            const isNextFocusInsideList = listRef.current?.contains(
+                (event.relatedTarget || document.activeElement) as HTMLElement,
+            );
+
+            if (!isNextFocusInsideList) {
                 if (onBlur) onBlur(event);
 
                 inputProps.onBlur(event);
