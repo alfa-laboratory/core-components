@@ -53,6 +53,9 @@ const processPostCss = async (content, cssFile) =>
 
         // Извлекаем переменные из файлов с миксинами и генерируем css-файлы, записывая переменные в :root
         const cssFiles = glob.sync(`./?*/${theme}.css`, { absolute: true });
+        if (theme === 'dark') {
+            cssFiles.push('./dark.css');
+        }
 
         for (let cssFile of cssFiles) {
             const component = path.basename(path.dirname(cssFile));
@@ -77,23 +80,6 @@ const processPostCss = async (content, cssFile) =>
             fs.writeFileSync(`../css/${theme}.css`, toRoot(allVars));
         }
     }
-
-    const colorsFiles = glob.sync('./colors/*.css', {});
-
-    colorsFiles.forEach(file => {
-        const content = fs.readFileSync(file, 'utf-8');
-        const vars = extractContentFromMixins(content);
-
-        shell.mkdir('-p', `../css/colors`);
-
-        const css = toRoot(vars);
-
-        fs.writeFileSync(`../css/colors/${path.basename(file)}`, css);
-        fs.writeFileSync(
-            `../css/colors/${path.basename(file).replace(/\.css$/, '.js')}`,
-            `module.exports = \`${vars}\``,
-        );
-    });
 
     // Переносим сгенерированные css-файлы в /dist
     shell.cd('../');

@@ -1,4 +1,4 @@
-@define-mixin dark-theme {
+@define-mixin theme-dark {
     --color-light-bg-accent: var(--color-dark-bg-accent);
     --color-light-bg-attention-muted: var(--color-dark-bg-attention-muted);
     --color-light-bg-info: var(--color-dark-bg-info);

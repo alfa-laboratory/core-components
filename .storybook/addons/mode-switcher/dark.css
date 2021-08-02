@@ -1,3 +1,9 @@
+@import '../../../packages/themes/src/mixins/dark.css';
+
+:root {
+    @mixin theme-dark;
+}
+
 body {
     background: var(--color-dark-bg-primary);
     color: var(--color-dark-text-primary);
