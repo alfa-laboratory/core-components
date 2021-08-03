@@ -2718,17 +2718,6 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     -webkit-transform: scale(0.98);
             transform: scale(0.98);
 }
-:root {
-    --date-input-icon: url('https://alfabank.st/icons/glyph_calendar_m.svg');
-}
-.icon_1gVPi {
-    width: 24px;
-    height: 24px;
-    display: block;
-    background: var(--date-input-icon);
-    background-size: cover;
-    background-position: center;
-}
 .nativeInput_1vLRE {
     opacity: 0;
     position: absolute;
@@ -3200,7 +3189,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     background-position: center
 }
 .calendarIcon_1soRN:not(:only-child) {
-        margin-left: var(--gap-2xs);
+        margin-right: var(--gap-2xs);
     }
 .nativeInput_1mavl {
     opacity: 0;
@@ -3601,8 +3590,12 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --checkbox-disabled-bg-color: var(--color-light-graphic-primary-inverted);
     --checkbox-disabled-border-color: var(--color-light-graphic-neutral);
 
+    /* inactive */
+    --checkbox-inactive-border-color: var(--color-light-border-secondary-inverted);
+    --checkbox-checked-inactive-color: var(--color-light-graphic-tertiary);
+
     /* disabled and checked */
-    --checkbox-checked-disabled-bg-color: var(--color-light-graphic-neutral);
+    --checkbox-checked-disabled-bg-color: var(--color-light-bg-neutral);
     --checkbox-checked-disabled-border-color: transparent;
 
     /* icon */
@@ -3670,11 +3663,11 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     height: 16px;
     margin: var(--gap-2xs) var(--gap-3xs);
 }
-.component_1w1qA:hover:not(.disabled_18lpq) .box_2ftoA {
+.component_1w1qA:hover:not(.disabled_18lpq):not(.inactive_3yBML) .box_2ftoA {
     background-color: var(--checkbox-hover-bg-color);
     border-color: var(--checkbox-hover-border-color);
 }
-.component_1w1qA:active:not(.disabled_18lpq) .box_2ftoA {
+.component_1w1qA:active:not(.disabled_18lpq):not(.inactive_3yBML) .box_2ftoA {
     background-color: var(--checkbox-active-bg-color);
     border-color: var(--checkbox-active-border-color);
 }
@@ -3682,11 +3675,11 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     background-color: var(--checkbox-checked-bg-color);
     border-color: var(--checkbox-checked-border-color);
 }
-.checked_11KY5:hover:not(.disabled_18lpq) .box_2ftoA {
+.checked_11KY5:hover:not(.disabled_18lpq):not(.inactive_3yBML) .box_2ftoA {
     background-color: var(--checkbox-checked-hover-bg-color);
     border-color: var(--checkbox-checked-hover-border-color);
 }
-.checked_11KY5:active:not(.disabled_18lpq) .box_2ftoA {
+.checked_11KY5:active:not(.disabled_18lpq):not(.inactive_3yBML) .box_2ftoA {
     background-color: var(--checkbox-checked-active-bg-color);
     border-color: var(--checkbox-checked-active-border-color);
 }
@@ -3694,15 +3687,16 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     background-color: var(--checkbox-checked-bg-color);
     border-color: var(--checkbox-checked-border-color);
 }
-.indeterminate_2eDiS:hover:not(.disabled_18lpq) .box_2ftoA {
+.indeterminate_2eDiS:hover:not(.disabled_18lpq):not(.inactive_3yBML) .box_2ftoA {
     background-color: var(--checkbox-checked-hover-bg-color);
     border-color: var(--checkbox-checked-hover-border-color);
 }
-.indeterminate_2eDiS:active:not(.disabled_18lpq) .box_2ftoA {
+.indeterminate_2eDiS:active:not(.disabled_18lpq):not(.inactive_3yBML) .box_2ftoA {
     background-color: var(--checkbox-checked-active-bg-color);
     border-color: var(--checkbox-checked-active-border-color);
 }
-.disabled_18lpq {
+.disabled_18lpq,
+.inactive_3yBML {
     cursor: var(--disabled-cursor);
 }
 .disabled_18lpq .box_2ftoA {
@@ -3722,6 +3716,17 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 }
 .disabled_18lpq .hint_1yD21 {
     color: var(--checkbox-disabled-color);
+}
+.inactive_3yBML .box_2ftoA {
+    background-color: var(--checkbox-checked-disabled-bg-color);
+    border-color: var(--checkbox-inactive-border-color);
+}
+.inactive_3yBML.checked_11KY5 .box_2ftoA {
+    color: var(--checkbox-checked-inactive-color);
+    border-color: var(--checkbox-checked-disabled-border-color);
+}
+.inactive_3yBML.indeterminate_2eDiS .box_2ftoA {
+    border-color: var(--checkbox-checked-disabled-border-color);
 }
 .focused_Ls0Gv .box_2ftoA {
     outline: 2px solid var(--focus-color);
@@ -3752,6 +3757,9 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     font-weight: 400;
     display: block;
     color: var(--checkbox-hint-color);
+}
+.inactive_3yBML .indeterminateLine_bXUcL {
+    background-color: var(--checkbox-checked-inactive-color);
 }
 .indeterminateLine_bXUcL {
     position: absolute;
@@ -14259,8 +14267,12 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --radio-disabled-bg-color: var(--color-light-graphic-primary-inverted);
     --radio-disabled-border-color: var(--color-light-graphic-neutral);
 
+    /* inactive */
+    --radio-inactive-border-color: var(--color-light-border-secondary-inverted);
+    --radio-checked-inactive-color: var(--color-light-graphic-tertiary);
+
     /* disabled and checked */
-    --radio-checked-disabled-bg-color: var(--color-light-graphic-neutral);
+    --radio-checked-disabled-bg-color: var(--color-light-bg-neutral);
     --radio-checked-disabled-border-color: transparent;
 
     /* icon */
@@ -14275,15 +14287,15 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
             align-items: flex-start;
     cursor: pointer
 }
-.container_2hTts:not(.checked_2LghW):not(.disabled_1GmaY) .circle_10ktA {
+.container_2hTts:not(.checked_2LghW):not(.disabled_1GmaY):not(.inactive_2K2xj) .circle_10ktA {
             background-color: var(--radio-bg-color);
             border: 1.5px solid var(--radio-border-color);
         }
-.container_2hTts:not(.checked_2LghW):not(.disabled_1GmaY):hover:not(:active) .circle_10ktA {
+.container_2hTts:not(.checked_2LghW):not(.disabled_1GmaY):not(.inactive_2K2xj):hover:not(:active) .circle_10ktA {
             background-color: var(--radio-hover-bg-color);
             border-color: var(--radio-hover-border-color);
         }
-.container_2hTts:not(.checked_2LghW):not(.disabled_1GmaY):active .circle_10ktA {
+.container_2hTts:not(.checked_2LghW):not(.disabled_1GmaY):not(.inactive_2K2xj):active .circle_10ktA {
             background-color: var(--radio-active-bg-color);
             border-color: var(--radio-active-border-color);
         }
@@ -14299,6 +14311,16 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
         }
 .container_2hTts.disabled_1GmaY .hint_39bvo {
             color: var(--radio-disabled-color);
+        }
+.container_2hTts.inactive_2K2xj {
+        cursor: var(--disabled-cursor)
+    }
+.container_2hTts.inactive_2K2xj .circle_10ktA {
+            background-color: var(--radio-checked-disabled-bg-color);
+            border: 1px solid var(--radio-inactive-border-color);
+        }
+.container_2hTts.inactive_2K2xj.checked_2LghW .circle_10ktA:before {
+            background-color: var(--radio-checked-inactive-color);
         }
 .container_2hTts.checked_2LghW:not(:active) .circle_10ktA:before,
     .container_2hTts.checked_2LghW.disabled_1GmaY:active .circle_10ktA:before {
@@ -14320,7 +14342,8 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
         outline: 2px solid var(--focus-color);
         outline-offset: 2px;
     }
-.container_2hTts.disabled_1GmaY.checked_2LghW .circle_10ktA {
+.container_2hTts.disabled_1GmaY.checked_2LghW .circle_10ktA,
+    .container_2hTts.inactive_2K2xj.checked_2LghW .circle_10ktA {
         background-color: var(--radio-checked-disabled-bg-color);
         border-color: var(--radio-checked-disabled-border-color);
     }
@@ -15307,6 +15330,9 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --switch-disabled-color: var(--color-light-text-secondary);
     --switch-disabled-bg-color: var(--color-light-graphic-neutral);
     --switch-disabled-border-color: var(--color-light-graphic-neutral);
+
+    /* inactive */
+    --switch-inactive-color: var(--color-light-border-secondary-inverted);
 }
 .component_245kW {
     display: -webkit-inline-box;
@@ -15439,6 +15465,17 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 .disabled_1_Fv- .hint_2wLFd {
     color: var(--switch-disabled-color);
 }
+/* Inactive */
+.inactive_3cPiE {
+    cursor: var(--disabled-cursor);
+}
+.inactive_3cPiE .switch_c0Sil {
+    background-color: var(--switch-disabled-bg-color);
+    border-color: var(--switch-disabled-border-color)
+}
+.inactive_3cPiE .switch_c0Sil:before {
+        background-color: var(--switch-inactive-color);
+    }
 /* Focused state */
 .focused_sAprB .switch_c0Sil {
     outline: 2px solid var(--focus-color);
