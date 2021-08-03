@@ -158,6 +158,29 @@ describe('AmountInput', () => {
         expect(input.value).toBe(`12${THINSP}345,67`);
     });
 
+    it('should allow enter only integer values when integersOnly is true', async () => {
+        const input = renderAmountInput(12345, 'RUR', { integersOnly: true });
+
+        expect(input.value).toBe('123,45');
+
+        await userEvent.type(input, '1');
+        expect(input.value).toBe('123');
+
+        await userEvent.type(input, '.');
+        expect(input.value).toBe('123');
+
+        await userEvent.type(input, ',');
+        expect(input.value).toBe('123');
+
+        await userEvent.type(input, '.50');
+        expect(input.value).toBe(`12${THINSP}350`);
+
+        input.focus();
+        input.setSelectionRange(0, 3);
+        await userEvent.paste(input, '123.456');
+        expect(input.value).toBe('123');
+    });
+
     it('should avoid inserting leading zero before number, but allow inserting zero', async () => {
         const input = renderAmountInput(null);
         await userEvent.type(input, '0');

@@ -511,4 +511,110 @@ render(() => {
         </div>
     );
 });
+
+```
+### Ленивая загрузка опций
+
+#### Простая ленивая загрузка
+```tsx live
+const LIMIT = 10;
+
+const sleep = () => new Promise(r => setTimeout(r, 2000));
+const mockOptions = (offset) => ({
+    options: Array(LIMIT).fill(0).map((_, i) => ({
+        key: `${offset}${i}`,
+        content: `Option number ${offset}${i}`,
+    })),
+    hasMore: offset < 4
+});
+
+render(() => {
+    const fetchOptions = (offset) => {
+        return sleep().then(() => {
+            return mockOptions(offset);
+        });
+    };
+    const {
+        optionsProps,
+    } = useLazyLoading({
+        limit: LIMIT,
+        optionsFetcher: fetchOptions,
+    });
+
+
+    return (
+        <div style={{ width: 320 }}>
+            <Select
+                label='Простая ленивая загрузка'
+                preventFlip={false}
+                size='l'
+                {...optionsProps}
+            />
+        </div>
+    );
+});
+```
+
+#### Ленивая загрузка с поддержкой поиска по строке
+```tsx live
+const LIMIT = 15;
+
+const sleep = () => new Promise(r => setTimeout(r, 2000));
+const mockOptions = (offset, limit, queryString) => ({
+    options: Array(LIMIT).fill(0).map((_, i) => ({
+        key: `${offset}${i}`,
+        content: queryString ?
+            `Опция ${offset * limit + i}, удовлетворяющая поисковой строке "${queryString}"` :
+            `Option number ${offset * limit + i}`
+    })),
+    hasMore: offset < 4
+});
+
+// Для корректной работы Input должен принимать в себя ...inputProps,
+// OptionsList должен принимать ref и остальные ...props
+const CustomOptionsList = React.forwardRef(({inputProps, ...props}, ref) => {
+    const inputRef = React.useRef();
+
+    React.useLayoutEffect(() => {
+        // Нужно для того, чтобы инпут фокусировался в поле уже после того, как OptionsList
+        // спозиционируется относительно инпута, и тогда не произойдет скачка экрана
+        setTimeout(() => inputRef.current.focus(), 0);
+    }, []);
+
+    return (
+        <div>
+            <div style={{padding: '5px'}}>
+                <Input label='Поиск' {...inputProps} block={true} ref={inputRef}/>
+            </div>
+            <OptionsList {...props} ref={ref} />
+        </div>
+    )
+});
+
+render(() => {
+    const fetchOptions = (offset, limit, queryString) => {
+        return sleep().then(() => {
+            return mockOptions(offset, limit, queryString);
+        });
+    };
+    const {
+        optionsProps,
+    } = useLazyLoading({
+        limit: LIMIT,
+        optionsFetcher: fetchOptions,
+    });
+
+
+    return (
+        <div style={{ width: 320 }}>
+            <Select
+                label='Ленивая загрузка с поддержкой поиска по строке'
+                preventFlip={false}
+                size='l'
+                {...optionsProps}
+                OptionsList={CustomOptionsList}
+            />
+        </div>
+    );
+});
 ```

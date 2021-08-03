@@ -36,6 +36,11 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
     minority?: number;
 
     /**
+     * Позволяет вводить только целые значения
+     */
+    integersOnly?: boolean;
+
+    /**
      * Жир
      */
     bold?: boolean;
@@ -78,6 +83,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             placeholder = `0\u2009${
                 suffix === currency ? getCurrencySymbol(currency) || '' : suffix
             }`,
+            integersOnly = false,
             bold = true,
             className,
             focusedClassName,
@@ -121,7 +127,12 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
 
         const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             const input = e.target;
-            const enteredValue = input.value.replace(/\s/g, '').replace('.', ',');
+            let enteredValue = input.value.replace(/\s/g, '').replace('.', ',');
+
+            if (integersOnly) {
+                [enteredValue] = enteredValue.split(',');
+            }
+
             const isCorrectEnteredValue = RegExp(
                 `(^[0-9]{1,${integerLength}}(,([0-9]+)?)?$|^\\s*$)`,
             ).test(enteredValue);
