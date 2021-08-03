@@ -1561,7 +1561,6 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 .filled_rAQph .input_2ekiB,
 .input_2ekiB:focus {
     -webkit-text-fill-color: transparent; /* Для IE текст будет черным */
-    caret-color: currentColor;
 }
 :root {
     --amount-major-part-font-weight: bold;
