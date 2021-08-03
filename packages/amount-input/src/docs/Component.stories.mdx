@@ -22,6 +22,7 @@ import styles from '!!raw-loader!../index.module.css';
     <AmountInput
         value={number('value', null)}
         currency={text('currency', 'RUR')}
+        suffix={text('suffix', undefined)}
         integerLength={number('integerLength', 9)}
         minority={number('minority', 100)}
         integersOnly={boolean('integersOnly', false)}

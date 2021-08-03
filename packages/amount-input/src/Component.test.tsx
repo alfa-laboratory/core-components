@@ -69,6 +69,26 @@ describe('AmountInput', () => {
         expect(input.placeholder).toBe('Сумма');
     });
 
+    it('should use custom suffix when currency empty', () => {
+        const input = renderAmountInput(null, null, { suffix: '%' });
+        expect(input.placeholder).toBe(`0${THINSP}%`);
+    });
+
+    it('should use custom suffix', () => {
+        const input = renderAmountInput(null, 'RUR', { suffix: '%' });
+        expect(input.placeholder).toBe(`0${THINSP}%`);
+    });
+
+    it('should allow to clean suffix when currency empty', () => {
+        const input = renderAmountInput(null, null, { suffix: '' });
+        expect(input.placeholder).toBe(`0${THINSP}`);
+    });
+
+    it('should allow to clean suffix', () => {
+        const input = renderAmountInput(null, 'RUR', { suffix: '' });
+        expect(input.placeholder).toBe(`0${THINSP}`);
+    });
+
     it('should render passed amount', () => {
         const input = renderAmountInput(1234567);
         expect(input.value).toBe(`12${THINSP}345,67`);
