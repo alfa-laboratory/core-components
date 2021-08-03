@@ -122,5 +122,29 @@ describe('Checkbox', () => {
 
             expect(cb).not.toBeCalled();
         });
+
+        test('should not call `onChange` prop if inactive', () => {
+            const cb = jest.fn();
+
+            const { container } = render(<Checkbox onChange={cb} inactive={true} />);
+
+            if (container.firstElementChild) {
+                fireEvent.click(container.firstElementChild);
+            }
+
+            expect(cb).not.toBeCalled();
+        });
+
+        test('should not call `onChange` prop if inactive and checked', () => {
+            const cb = jest.fn();
+
+            const { container } = render(<Checkbox onChange={cb} checked={true} inactive={true} />);
+
+            if (container.firstElementChild) {
+                fireEvent.click(container.firstElementChild);
+            }
+
+            expect(cb).not.toBeCalled();
+        });
     });
 });
