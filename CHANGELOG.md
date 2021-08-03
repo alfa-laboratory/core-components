@@ -1,3 +1,19 @@
+# [19.4.0](https://github.com/alfa-laboratory/core-components/compare/v19.3.0...v19.4.0) (2021-08-03)
+
+
+### Bug Fixes
+
+* **amount-input:** remove caret-color override ([#773](https://github.com/alfa-laboratory/core-components/issues/773)) ([93311d0](https://github.com/alfa-laboratory/core-components/commit/93311d0a8e170c14c6cbfa28414d2538f78ddd3f))
+* add missing deps ([4f4a540](https://github.com/alfa-laboratory/core-components/commit/4f4a54059f141e41e430199b1a2c30fedf62b081))
+* move icon from date input to calendar input ([#768](https://github.com/alfa-laboratory/core-components/issues/768)) ([040bd42](https://github.com/alfa-laboratory/core-components/commit/040bd423279eb535f1ea924599ee16c296453e3f))
+
+
+### Features
+
+* add inactive controls (PDS-266) ([#765](https://github.com/alfa-laboratory/core-components/issues/765)) ([ec02c89](https://github.com/alfa-laboratory/core-components/commit/ec02c89ab6bf038c026ca0a72b3185525334840a))
+* **amount-input:** add integers only mode ([#766](https://github.com/alfa-laboratory/core-components/issues/766)) ([27a2535](https://github.com/alfa-laboratory/core-components/commit/27a2535f2de8d787e666c08a8fbfeb67d762f9a1))
+* **amount-input:** allow to use custom suffix ([#767](https://github.com/alfa-laboratory/core-components/issues/767)) ([27d9d02](https://github.com/alfa-laboratory/core-components/commit/27d9d02fb619fa5946fb3cb678d9b742d74a745b))
+
 # [19.3.0](https://github.com/alfa-laboratory/core-components/compare/v19.2.1...v19.3.0) (2021-07-23)
 
 
