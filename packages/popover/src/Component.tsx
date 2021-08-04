@@ -102,6 +102,13 @@ export type PopoverProps = {
      * z-index компонента
      */
     zIndex?: number;
+
+    /**
+     * Если поповер не помещается в переданной позиции (position), он попробует открыться в другой позиции,
+     * по очереди для каждой позиции из этого списка.
+     * Если не передавать, то поповер открывается в противоположном направлении от переданного position.
+     */
+    fallbackPlacements?: Position[];
 };
 
 const DEFAULT_TRANSITION = {
@@ -133,6 +140,7 @@ export const Popover: React.FC<PopoverProps> = ({
     update,
     transitionDuration = `${transition.timeout}ms`,
     zIndex = stackingOrder.POPOVER,
+    fallbackPlacements,
 }) => {
     const [referenceElement, setReferenceElement] = useState<RefElement>(anchorElement);
     const [popperElement, setPopperElement] = useState<RefElement>(null);
@@ -149,8 +157,12 @@ export const Popover: React.FC<PopoverProps> = ({
             modifiers.push({ name: 'flip', options: { fallbackPlacements: [] } });
         }
 
+        if (fallbackPlacements) {
+            modifiers.push({ name: 'flip', options: { fallbackPlacements } });
+        }
+
         return modifiers;
-    }, [offset, withArrow, preventFlip, arrowElement]);
+    }, [offset, withArrow, preventFlip, arrowElement, fallbackPlacements]);
 
     const { styles: popperStyles, attributes, update: updatePopper } = usePopper(
         referenceElement,
