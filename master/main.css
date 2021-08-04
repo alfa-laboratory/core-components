@@ -355,21 +355,21 @@ a.loading_1jKXs {
 :root {
     /* primary */
     --button-primary-base-bg-color: var(--color-light-bg-accent);
-    --button-primary-hover-bg-color: rgb(222, 46, 33);
-    --button-primary-active-bg-color: rgb(203, 42, 31);
-    --button-primary-disabled-bg-color: rgba(239, 49, 36, 0.3);
+    --button-primary-hover-bg-color: var(--color-light-bg-accent-shade-7);
+    --button-primary-active-bg-color: var(--color-light-bg-accent-shade-15);
+    --button-primary-disabled-bg-color: var(--color-light-bg-accent-alpha-30);
     --button-primary-color: var(--color-light-text-primary-inverted);
     --button-primary-disabled-color: var(--color-light-text-primary-inverted);
 
     /* secondary */
     --button-secondary-base-bg-color: var(--color-light-bg-neutral);
-    --button-secondary-hover-bg-color: rgb(204, 206, 209);
-    --button-secondary-active-bg-color: rgb(186, 189, 191);
-    --button-secondary-disabled-bg-color: rgba(219, 222, 225, 0.3);
+    --button-secondary-hover-bg-color: var(--color-light-bg-neutral-shade-7);
+    --button-secondary-active-bg-color: var(--color-light-bg-neutral-shade-15);
+    --button-secondary-disabled-bg-color: var(--color-light-bg-neutral-alpha-30);
     --button-secondary-base-border-color: transparent;
     --button-secondary-disabled-border-color: transparent;
     --button-secondary-color: var(--color-light-text-primary);
-    --button-secondary-disabled-color: rgba(11, 31, 53, 0.3);
+    --button-secondary-disabled-color: var(--color-light-text-primary-alpha-30);
 
     /* outlined */
     --button-outlined-base-bg-color: transparent;
@@ -377,15 +377,15 @@ a.loading_1jKXs {
     --button-outlined-active-bg-color: rgba(0, 0, 0, 0.15);
     --button-outlined-disabled-bg-color: transparent;
     --button-outlined-base-border-color: var(--color-light-border-tertiary-inverted);
-    --button-outlined-disabled-border-color: rgba(109, 121, 134, 0.3);
+    --button-outlined-disabled-border-color: var(--color-light-border-tertiary-inverted-alpha-30);
     --button-outlined-color: var(--color-light-text-primary);
-    --button-outlined-disabled-color: rgba(11, 31, 53, 0.3);
+    --button-outlined-disabled-color: var(--color-light-text-primary-alpha-30);
 
     /* ghost */
     --button-ghost-base-color: var(--color-light-text-primary);
-    --button-ghost-hover-color: rgb(84, 98, 114);
-    --button-ghost-active-color: rgb(133, 143, 154);
-    --button-ghost-disabled-color: rgba(11, 31, 53, 0.3);
+    --button-ghost-hover-color: var(--color-light-text-primary-tint-30);
+    --button-ghost-active-color: var(--color-light-text-primary-tint-50);
+    --button-ghost-disabled-color: var(--color-light-text-primary-alpha-30);
 }
 .primary_29-Rp {
     color: var(--button-primary-color);
@@ -424,20 +424,20 @@ a.loading_1jKXs {
     background-color: var(--color-light-bg-neutral)
 }
 .filled_1C_VV:hover {
-        background-color: rgb(204, 206, 209);
+        background-color: var(--color-light-bg-neutral-shade-7);
     }
 .filled_1C_VV:active {
-        background-color: rgb(186, 189, 191);
+        background-color: var(--color-light-bg-neutral-shade-15);
     }
 .transparent_3lv7m {
     color: var(--color-light-text-primary);
-    background-color: rgba(11, 31, 53, 0.1)
+    background-color: var(--color-light-bg-primary-inverted-alpha-10)
 }
 .transparent_3lv7m:hover {
-        background-color: rgba(11, 31, 53, 0.2);
+        background-color: var(--color-light-bg-primary-inverted-alpha-20);
     }
 .transparent_3lv7m:active {
-        background-color: rgba(11, 31, 53, 0.4);
+        background-color: var(--color-light-bg-primary-inverted-alpha-40);
     }
 .link_1mMNk {
     color: var(--color-light-text-primary);
@@ -447,7 +447,7 @@ a.loading_1jKXs {
         background-color: var(--color-light-specialbg-component);
     }
 .link_1mMNk:active {
-        background-color: rgba(10, 29, 49, 0.1351);
+        background-color: var(--color-light-specialbg-component-shade-7);
     }
 .ghost_1yrHb {
     color: var(--button-ghost-base-color)
@@ -486,23 +486,23 @@ a.loading_1jKXs {
             border-color: var(--button-outlined-border-color);
         }
 .component_14Uiz:disabled.filled_1C_VV {
-        color: rgba(11, 31, 53, 0.3);
-        background-color: rgba(219, 222, 225, 0.3)
+        color: var(--color-light-text-primary-alpha-30);
+        background-color: var(--color-light-bg-neutral-alpha-30)
     }
 .component_14Uiz:disabled.filled_1C_VV.loading_2J-rc {
             color: var(--color-light-text-primary);
             background-color: var(--color-light-bg-neutral);
         }
 .component_14Uiz:disabled.transparent_3lv7m {
-        color: rgba(11, 31, 53, 0.3);
-        background-color: rgba(11, 31, 53, 0.03)
+        color: var(--color-light-text-primary-alpha-30);
+        background-color: var(--color-light-bg-primary-inverted-alpha-3)
     }
 .component_14Uiz:disabled.transparent_3lv7m.loading_2J-rc {
             color: var(--color-light-text-primary);
-            background-color: rgba(11, 31, 53, 0.1);
+            background-color: var(--color-light-bg-primary-inverted-alpha-10);
         }
 .component_14Uiz:disabled.link_1mMNk {
-        color: rgba(11, 31, 53, 0.3);
+        color: var(--color-light-text-primary-alpha-30);
         background-color: transparent
     }
 .component_14Uiz:disabled.link_1mMNk.loading_2J-rc {
@@ -857,7 +857,7 @@ a.loading_1jKXs {
     --form-control-xl-min-height: var(--size-xl-height);
     --form-control-border-radius: 4px 4px 0 0;
     --form-control-border-bottom: 1px solid var(--color-light-border-secondary-inverted);
-    --form-control-bg-color: rgba(11, 31, 53, 0.07);
+    --form-control-bg-color: var(--color-light-bg-primary-inverted-alpha-7);
     --form-control-bg-backdrop-filter: unset;
     --form-control-color: var(--color-light-text-primary);
     --form-control-label-color: var(--color-light-text-secondary);
@@ -873,17 +873,17 @@ a.loading_1jKXs {
     --form-control-sub-paddings: 0;
 
     /* disabled */
-    --form-control-disabled-bg-color: rgba(11, 31, 53, 0.15);
+    --form-control-disabled-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
     --form-control-disabled-border-bottom: 1px dashed var(--color-light-border-secondary-inverted);
     --form-control-disabled-opacity: 1;
     --form-control-disabled-color: var(--color-light-text-secondary);
 
     /* focus */
     --form-control-focus-border-bottom: 1px solid var(--color-light-border-key);
-    --form-control-focus-bg-color: rgba(11, 31, 53, 0.15);
+    --form-control-focus-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
 
     /* hover */
-    --form-control-hover-bg-color: rgba(11, 31, 53, 0.15);
+    --form-control-hover-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
 
     /* error */
     --form-control-error-color: var(--color-light-text-negative);
@@ -1560,7 +1560,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 }
 .filled_rAQph .input_2ekiB,
 .input_2ekiB:focus {
-    -webkit-text-fill-color: transparent; /* Для IE текст будет черным */
+    -webkit-text-fill-color: transparent;
 }
 :root {
     --amount-major-part-font-weight: bold;
@@ -2629,6 +2629,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 }
 .component_YZbHn {
     background-color: transparent;
+    color: var(--color-light-text-primary);
 }
 .inner_15cET {
     position: relative;
@@ -2754,7 +2755,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
         background-color: var(--color-light-bg-tertiary)
     }
 .button_235_J.filled_23r4p:not(:disabled):hover {
-            background-color: rgb(215, 217, 219);
+            background-color: var(--color-light-bg-tertiary-shade-7);
         }
 .button_235_J.outlined_zigT1 {
         border: 1px solid var(--calendar-selector-button-outline-border-color);
@@ -3579,9 +3580,9 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     /* checked */
     --checkbox-checked-bg-color: var(--color-light-graphic-accent);
     --checkbox-checked-border-color: transparent;
-    --checkbox-checked-hover-bg-color: rgb(215, 44, 32);
+    --checkbox-checked-hover-bg-color: var(--color-light-graphic-accent-shade-10);
     --checkbox-checked-hover-border-color: transparent;
-    --checkbox-checked-active-bg-color: rgb(167, 34, 25);
+    --checkbox-checked-active-bg-color: var(--color-light-graphic-accent-shade-30);
     --checkbox-checked-active-border-color: transparent;
 
     /* disabled */
@@ -3924,18 +3925,18 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 :root {
     /* primary */
     --link-primary-color: var(--color-light-text-primary);
-    --link-primary-hover-color: rgb(9, 25, 42);
-    --link-primary-active-color: rgb(7, 19, 32);
+    --link-primary-hover-color: var(--color-light-text-primary-shade-20);
+    --link-primary-active-color: var(--color-light-text-primary-shade-40);
 
     /* secondary */
     --link-secondary-color: var(--color-light-text-secondary);
-    --link-secondary-hover-color: rgb(67, 78, 91);
-    --link-secondary-active-color: rgb(50, 59, 68);
+    --link-secondary-hover-color: var(--color-light-text-secondary-shade-20);
+    --link-secondary-active-color: var(--color-light-text-secondary-shade-40);
 
     /* default */
     --link-default-color: var(--color-light-text-link);
-    --link-default-hover-color: rgb(0, 98, 204);
-    --link-default-active-color: rgb(0, 73, 153);
+    --link-default-hover-color: var(--color-light-text-link-shade-20);
+    --link-default-active-color: var(--color-light-text-link-shade-40);
 }
 .primary_nIPyI {
     color: var(--link-primary-color);
@@ -4599,26 +4600,26 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 :root {
     /* primary */
     --icon-button-primary-base-color: var(--color-light-graphic-primary);
-    --icon-button-primary-hover-color: rgb(84, 98, 114);
-    --icon-button-primary-active-color: rgb(133, 143, 154);
-    --icon-button-primary-disabled-color: rgba(11, 31, 53, 0.3);
+    --icon-button-primary-hover-color: var(--color-light-graphic-primary-tint-30);
+    --icon-button-primary-active-color: var(--color-light-graphic-primary-tint-50);
+    --icon-button-primary-disabled-color: var(--color-light-graphic-primary-alpha-30);
 
     /* secondary */
     --icon-button-secondary-base-color: var(--color-light-graphic-secondary);
-    --icon-button-secondary-hover-color: rgb(76, 85, 94);
-    --icon-button-secondary-active-color: rgb(55, 61, 67);
-    --icon-button-secondary-disabled-color: rgba(109, 121, 134, 0.3);
+    --icon-button-secondary-hover-color: var(--color-light-graphic-secondary-shade-30);
+    --icon-button-secondary-active-color: var(--color-light-graphic-secondary-shade-50);
+    --icon-button-secondary-disabled-color: var(--color-light-graphic-secondary-alpha-30);
 
     /* transparent */
-    --icon-button-transparent-base-color: rgba(11, 31, 53, 0.3);
-    --icon-button-transparent-hover-color: rgba(11, 31, 53, 0.4);
-    --icon-button-transparent-active-color: rgba(11, 31, 53, 0.5);
-    --icon-button-transparent-disabled-color: rgba(11, 31, 53, 0.4);
+    --icon-button-transparent-base-color: var(--color-light-graphic-primary-alpha-30);
+    --icon-button-transparent-hover-color: var(--color-light-graphic-primary-alpha-40);
+    --icon-button-transparent-active-color: var(--color-light-graphic-primary-alpha-50);
+    --icon-button-transparent-disabled-color: var(--color-light-graphic-primary-alpha-40);
 
     /* negative */
     --icon-button-negative-base-color: var(--color-light-graphic-negative);
-    --icon-button-negative-hover-color: rgb(245, 133, 125);
-    --icon-button-negative-active-color: rgb(248, 168, 162);
+    --icon-button-negative-hover-color: var(--color-light-graphic-negative-tint-30);
+    --icon-button-negative-active-color: var(--color-light-graphic-negative-tint-50);
 }
 .primary_2zKzl {
     color: var(--icon-button-primary-base-color)
@@ -14256,9 +14257,9 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     /* checked */
     --radio-checked-bg-color: var(--color-light-graphic-accent);
     --radio-checked-border-color: transparent;
-    --radio-checked-hover-bg-color: rgb(215, 44, 32);
+    --radio-checked-hover-bg-color: var(--color-light-graphic-accent-shade-10);
     --radio-checked-hover-border-color: transparent;
-    --radio-checked-active-bg-color: rgb(167, 34, 25);
+    --radio-checked-active-bg-color: var(--color-light-graphic-accent-shade-30);
     --radio-checked-active-border-color: transparent;
 
     /* disabled */
@@ -14443,9 +14444,9 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     /* background-color */
     --tag-background-color: transparent;
     --tag-background-color-hover: transparent;
-    --tag-background-color-active: rgba(11, 31, 53, 0.07);
+    --tag-background-color-active: var(--color-light-bg-primary-inverted-alpha-7);
     --tag-background-color-checked: var(--color-light-bg-primary-inverted);
-    --tag-background-color-checked-disabled: rgba(11, 31, 53, 0.15);
+    --tag-background-color-checked-disabled: var(--color-light-bg-primary-inverted-alpha-15);
 
     /* text color */
     --tag-text-color: var(--color-light-text-primary);
@@ -14842,7 +14843,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --slider-thumb-hover-color: var(--color-light-graphic-accent);
     --slider-thumb-size: 18px;
     --slider-thumb-border: 0;
-    --slider-thumb-box-shadow: 0 2px 10px rgba(239, 49, 36, 0.3);
+    --slider-thumb-box-shadow: 0 2px 10px var(--color-light-graphic-accent-alpha-30);
     --slider-progress-height: 2px;
     --slider-progress-background: transparent;
     --slider-progress-hover-background: transparent;
@@ -15228,31 +15229,31 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
         padding: 0;
     }
 .soft_767Gt.green_YcWxs {
-        background: rgb(231, 246, 239);
+        background: var(--color-static-status-green-tint-90);
         color: var(--color-static-status-green);
     }
 .soft_767Gt.orange_tItbu {
-        background: rgb(252, 240, 230);
+        background: var(--color-static-status-orange-tint-90);
         color: var(--color-static-status-orange);
     }
 .soft_767Gt.red_3zeru {
-        background: rgb(251, 232, 231);
+        background: var(--color-static-status-red-tint-90);
         color: var(--color-static-status-red);
     }
 .soft_767Gt.blue_5HpPE {
-        background: rgb(230, 242, 255);
+        background: var(--color-static-status-blue-tint-90);
         color: var(--color-static-status-blue);
     }
 .soft_767Gt.grey_Eo7ge {
-        background: rgb(240, 242, 243);
+        background: var(--color-static-status-grey-tint-90);
         color: var(--color-static-status-grey);
     }
 .soft_767Gt.teal_xQg2m {
-        background: rgb(233, 244, 243);
+        background: var(--color-static-status-teal-tint-90);
         color: var(--color-static-status-teal);
     }
 .soft_767Gt.purple_197xs {
-        background: rgb(240, 235, 248);
+        background: var(--color-static-status-purple-tint-90);
         color: var(--color-static-status-purple);
     }
 .contrast_1Y8ij {
@@ -16035,7 +16036,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 .component_aeiBu {
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-light-border-secondary);
     margin: 25px 0 var(--gap-3xl);
     border-radius: var(--border-radius-s);
     font-family: var(--font-family) !important;
@@ -16080,7 +16081,10 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
         -webkit-transition: -webkit-box-shadow 0.2s ease;
         transition: -webkit-box-shadow 0.2s ease;
         transition: box-shadow 0.2s ease;
-        transition: box-shadow 0.2s ease, -webkit-box-shadow 0.2s ease
+        transition: box-shadow 0.2s ease, -webkit-box-shadow 0.2s ease;
+        background: var(--color-light-bg-primary);
+        color: var(--color-light-text-primary);
+        border-color: var(--color-light-border-primary)
     }
 
 .actionBar_2NOY_ button:focus {
@@ -16107,407 +16111,8 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 }
 
 .error_vRFst:nth-child(2) {
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-top: 1px solid var(--color-light-border-secondary);
     }
-.tool {
-    margin-top: auto;
-    margin-bottom: auto;
-}
-.label {
-    display: inline-block;
-    margin-right: var(--gap-xs);
-    font-size: 13px;
-}
-[data-theme='click'] {
-    --disabled-cursor: not-allowed;
-    --arrow-transform: rotate(-180deg);
-    --amount-major-part-font-weight: bold;
-    --amount-minor-part-font-weight: bold;
-    /* core vars */
-    --color-light-bg-tertiary: #e7e9eb;
-    /* theme */
-    --form-control-border-radius: var(--border-radius-s);
-    --form-control-border-bottom: 0;
-    --form-control-bg-color: var(--color-light-bg-tertiary);
-    /* disabled */
-    --form-control-disabled-opacity: 0.5;
-    --form-control-disabled-border-bottom: 0;
-    --form-control-disabled-bg-color: var(--color-light-bg-tertiary);
-    /* focus */
-    --form-control-focus-shadow: none;
-    --form-control-focus-border-bottom: 0;
-    --form-control-focus-bg-color: var(--color-light-bg-tertiary);
-    --form-control-hover-bg-color: var(--color-light-bg-tertiary);
-    /* error */
-    --form-control-error-label-color: var(--form-control-error-color);
-    --form-control-error-shadow: inset 0 0 0 1px var(--form-control-error-color);
-    --form-control-error-border-bottom: 0;
-    /* core vars */
-    /* theme */
-    --input-error-icon-display: none;
-    --input-success-icon-display: none;
-    --input-disabled-color: var(--color-light-text-primary);
-    /* core vars */
-    --color-light-bg-accent: #ef3124;
-    --color-light-bg-neutral: #dbdee1;
-    /* primary */
-    --button-primary-base-bg-color: var(--color-light-bg-accent);
-    --button-primary-hover-bg-color: rgb(215, 44, 32);
-    --button-primary-active-bg-color: rgb(167, 34, 25);
-    --button-primary-disabled-bg-color: rgba(239, 49, 36, 0.3);
-    /* secondary */
-    --button-secondary-base-bg-color: var(--color-light-bg-neutral);
-    --button-secondary-hover-bg-color: rgb(197, 200, 203);
-    --button-secondary-active-bg-color: rgb(153, 155, 157);
-    --button-secondary-disabled-bg-color: rgba(219, 222, 225, 0.3);
-    /* core vars */
-    /* theme */
-    --checkbox-checked-bg-color: var(--color-light-graphic-positive);
-    --checkbox-checked-border-color: transparent;
-    --checkbox-checked-hover-bg-color: rgb(42, 175, 99);
-    --checkbox-checked-hover-border-color: transparent;
-    --checkbox-checked-active-bg-color: rgb(33, 136, 77);
-    --checkbox-checked-active-border-color: transparent;
-    /* core vars */
-    /* theme */
-    --radio-checked-bg-color: var(--color-light-graphic-positive);
-    --radio-checked-border-color: transparent;
-    --radio-checked-hover-bg-color: rgb(42, 175, 99);
-    --radio-checked-hover-border-color: transparent;
-    --radio-checked-active-bg-color: rgb(33, 136, 77);
-    --radio-checked-active-border-color: transparent;
-    /* core vars */
-    /* theme */
-    --switch-checked-bg-color: var(--color-light-graphic-positive);
-    --switch-checked-border-color: transparent;
-    /* core vars */
-    --gap-l: 20px;
-    /* theme */
-    --primary-tablist-mobile-padding: var(--gap-s) 0;
-    --primary-tablist-s-font-size: 18px;
-    --primary-tablist-s-font-weight: 500;
-    --primary-tablist-s-font-family: var(--font-family-system);
-    --primary-tablist-s-padding: var(--gap-s) 0;
-    --primary-tablist-m-font-size: 20px;
-    --primary-tablist-m-font-weight: 500;
-    --primary-tablist-m-font-family: var(--font-family-styrene);
-    --primary-tablist-m-padding: var(--gap-s) 0;
-    --primary-tablist-l-font-size: 24px;
-    --primary-tablist-l-font-weight: 500;
-    --primary-tablist-l-font-family: var(--font-family-styrene);
-    --primary-tablist-l-padding: var(--gap-l) 0;
-    --primary-tablist-xl-font-size: 24px;
-    --primary-tablist-xl-font-weight: 500;
-    --primary-tablist-xl-font-family: var(--font-family-styrene);
-    --primary-tablist-xl-padding: var(--gap-l) 0;
-    /* core vars */
-    --color-light-specialbg-component: #eeeff1;
-    /* theme */
-    --tag-background-color: var(--color-light-specialbg-component);
-    --tag-background-color-hover: rgba(10, 28, 48, 0.163);
-    --tag-background-color-active: rgba(8, 22, 37, 0.349);
-    --tag-border-color: transparent;
-    --tag-border-color-hover: transparent;
-    --tag-border-color-active: transparent;
-    --tag-border-color-checked: transparent;
-    --tag-border-color-disabled: transparent;
-    /* core vars */
-    --color-light-text-primary: #0b1f35;
-    --color-light-text-primary-inverted: #fff;
-    --color-light-text-secondary: #546272;
-    --color-light-text-secondary-inverted: #b6bcc3;
-    --color-light-text-link: #007aff;
-    /* primary */
-    --link-primary-hover-color: rgb(84, 98, 114);
-    --link-primary-active-color: rgb(133, 143, 154);
-    /* inverted primary */
-    --link-inverted-primary-hover-color: rgb(255, 255, 255);
-    --link-inverted-primary-active-color: rgb(255, 255, 255);
-    /* secondary */
-    --link-secondary-hover-color: rgb(135, 145, 156);
-    --link-secondary-active-color: rgb(170, 177, 185);
-    /* inverted secondary */
-    --link-inverted-secondary-hover-color: rgb(204, 208, 213);
-    --link-inverted-secondary-active-color: rgb(219, 222, 225);
-    /* default */
-    --link-default-hover-color: rgb(77, 162, 255);
-    --link-default-active-color: rgb(128, 189, 255);
-    /* inverted default */
-    --link-inverted-default-hover-color: rgb(77, 162, 255);
-    --link-inverted-default-active-color: rgb(128, 189, 255);
-    /* theme */
-    --select-options-list-border-radius: var(--border-radius-s);
-    --select-options-list-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
-    --select-options-list-offset: 8px;
-    /* options list */
-    --select-option-divider-display: block;
-    /* checkmark */
-    --select-checkmark-margin: 0 0 0 var(--gap-m);
-    --select-checkmark-size: 24px;
-    --select-checkmark-order: 1;
-    --select-checkmark-background: url('https://alfabank.st/icons/glyph_checkmark-circle_m_color.svg');
-    --select-checkmark-border-radius: 0;
-    /* core vars */
-    /* theme */
-    --confirmation-title-font-size: 24px;
-    --confirmation-title-line-height: 32px;
-    --confirmation-title-font-weight: 500;
-    --confirmation-title-font-family: var(--font-family-styrene);
-    --confirmation-title-font-feature-settings: 'ss01';
-    --confirmation-input-font-size: 24px;
-    --confirmation-input-font-weight: 400;
-    --confirmation-input-font-family: var(--font-family-styrene);
-    --confirmation-input-error-bg-color: var(--color-light-bg-secondary);
-    /* core vars */
-    --font-family-styrene: 'Styrene UI', system-ui, -apple-system, 'Segoe UI', Roboto,
-        'Helvetica Neue', Helvetica, sans-serif;
-    /* theme */
-    --calendar-arrow-background: url('https://alfabank.st/icons/glyph_chevron-back_m.svg');
-    --calendar-select-icon-background: url('https://alfabank.st/icons/glyph_arrow-up-down_m.svg');
-    --calendar-today-border-color: transparent;
-    --calendar-range-background: var(--color-light-bg-secondary);
-    --calendar-selector-button-outline-border-color: transparent;
-    --calendar-month-only-header-font-family: var(--font-family-styrene);
-    --calendar-month-only-header-font-size: 20px;
-    --calendar-month-only-header-font-weight: 500;
-    /* core vars */
-    --color-light-bg-primary: #fff;
-    --color-light-bg-secondary: #f3f4f5;
-    --gap-s: 12px;
-    --gap-2xl: 32px;
-    --gap-4xl: 48px;
-    --gap-6xl: 72px;
-    /* sizes */
-    --modal-s-width: 500px;
-    --modal-header-min-height: 84px;
-    --modal-header-l-min-height: 84px;
-    --modal-backdrop-visible-background: rgba(11, 31, 53, 0.5);
-    --modal-vertical-padding: var(--gap-4xl);
-    --modal-footer-default-gap: var(--gap-xl);
-    /* paddings */
-    --modal-s-header-paddings: var(--gap-xl) var(--gap-2xl) var(--gap-s) var(--gap-4xl);
-    --modal-m-header-paddings: var(--gap-xl) var(--gap-2xl) var(--gap-s) var(--gap-4xl);
-    --modal-l-header-paddings: var(--gap-xl) var(--gap-2xl) var(--gap-s) var(--gap-6xl);
-    --modal-s-footer-paddings: var(--gap-2xl) var(--gap-4xl) var(--gap-4xl);
-    --modal-m-footer-paddings: var(--gap-2xl) var(--gap-4xl) var(--gap-4xl);
-    --modal-l-footer-paddings: var(--gap-2xl) var(--gap-6xl) var(--gap-6xl);
-    /* closer */
-    --modal-closer-icon: url('https://alfabank.st/icons/glyph_cross-heavy_m.svg');
-    /* sticky */
-    --modal-footer-sticky-box-shadow: none;
-    --modal-footer-sticky-background: var(--color-light-bg-secondary);
-    /* scroll */
-    --modal-header-highlight-box-shadow: none;
-    --modal-header-highlight-background: var(--color-light-bg-primary);
-    --modal-footer-highlight-box-shadow: none;
-    --modal-footer-highlight-background: var(--color-light-bg-secondary);
-    /* core vars */
-    --color-light-bg-secondary-inverted: #233549;
-    --gap-xl: 24px;
-    /* theme */
-    --toast-plate-title-font-weight: 400;
-    --toast-plate-bg-color: var(--color-light-bg-secondary-inverted);
-    --toast-plate-action-align: flex-start;
-    --toast-plate-action-padding: 0 0 0 var(--gap-xl);
-    --toast-plate-action-divider-display: none;
-    /* core vars */
-    --gap-m: 16px;
-    /* theme */
-    --list-item-margin: var(--gap-m);
-    /* core vars */
-    /* theme */
-    --skeleton-default-color: var(--color-light-graphic-neutral);
-    --skeleton-border-radius: var(--border-radius-s);
-    --skeleton-backdrop-filter: blur(20px);
-    --skeleton-gradient-animation-display: none;
-    --skeleton-bg-animation-display: block;
-    /* core vars */
-    --color-light-graphic-primary: #0b1f35;
-    --backdrop-visible-background: rgba(11, 31, 53, 0.5);
-    /* core vars */
-    --color-light-graphic-neutral: #dbdee1;
-    --color-light-graphic-positive: #2fc26e;
-    --border-radius-s: 4px;
-    --shadow-xs-hard: 0 0 4px rgba(11, 31, 53, 0.02), 0 2px 4px rgba(11, 31, 53, 0.04),
-        0 2px 4px rgba(11, 31, 53, 0.16);
-    --color-light-border-key-inverted: #fff;
-    /* progress */
-    --slider-progress-background: var(--color-light-graphic-neutral);
-    --slider-progress-color: var(--color-light-graphic-positive);
-    --slider-progress-border-radius: var(--border-radius-s);
-    --slider-progress-height: 6px;
-    --slider-progress-hover-color: rgb(42, 175, 99);
-    --slider-progress-hover-background: rgb(197, 200, 203);
-    /* thumb */
-    --slider-thumb-color: var(--color-light-graphic-positive);
-    --slider-thumb-size: 24px;
-    --slider-thumb-box-shadow: var(--shadow-xs-hard);
-    --slider-thumb-border: 4px solid var(--color-light-border-key-inverted);
-    --slider-thumb-hover-color: rgb(42, 175, 99);
-}
-[data-theme='site'] {
-    /* theme */
-    --button-border-radius: var(--border-radius-m);
-    --button-active-transform: scale(0.97);
-    --form-control-bg-backdrop-filter: blur(20px);
-    /* core vars */
-    --gap-4xl: 48px;
-    --color-light-border-secondary-inverted: #b6bcc3;
-    /* theme */
-    --primary-tablist-m-gaps: var(--gap-4xl);
-    --primary-tablist-m-font-weight: 500;
-    --primary-tablist-l-gaps: var(--gap-4xl);
-    --primary-tablist-l-font-weight: 500;
-    --primary-tablist-bottom-border-color: var(--color-light-border-secondary-inverted);
-    --input-error-icon: url('https://alfabank.st/icons/glyph_cross-circle_m_negative.svg');
-}
-[data-theme='corp'] {
-    /* core vars */
-    --color-light-specialbg-component: rgba(11, 31, 53, 0.07);
-    --color-light-border-tertiary-inverted: #6d7986;
-    --color-light-text-primary-inverted: #fff;
-    --color-light-border-key-inverted: #fff;
-    --color-light-bg-primary: #fff;
-    --color-static-bg-primary-dark: #000;
-    /* secondary */
-    --button-secondary-base-bg-color: transparent;
-    --button-secondary-hover-bg-color: var(--color-light-specialbg-component);
-    --button-secondary-active-bg-color: rgba(10, 29, 49, 0.1351);
-    --button-secondary-disabled-bg-color: transparent;
-    --button-secondary-base-border-color: var(--color-light-border-tertiary-inverted);
-    --button-secondary-disabled-border-color: rgba(109, 121, 134, 0.3);
-    /* inverted-secondary */
-    --button-inverted-secondary-color: var(--color-light-text-primary-inverted);
-    --button-inverted-secondary-base-bg-color: transparent;
-    --button-inverted-secondary-base-border-color: var(--color-light-border-key-inverted);
-    --button-inverted-secondary-hover-bg-color: rgba(0, 0, 0, 0.1);
-    --button-inverted-secondary-active-bg-color: rgba(0, 0, 0, 0.2);
-    --button-inverted-secondary-disabled-bg-color: rgba(255, 255, 255, 0.08);
-    --button-inverted-secondary-disabled-border-color: transparent;
-    --button-inverted-secondary-disabled-color: rgba(255, 255, 255, 0.4);
-    /* core vars */
-    --color-light-border-secondary-inverted: #b6bcc3;
-    /* theme */
-    --primary-tablist-bottom-border-color: var(--color-light-border-secondary-inverted);
-}
-[data-theme='mobile'] {
-    /* core vars */
-    --color-light-bg-primary-inverted: #121212;
-    --color-light-text-tertiary-inverted: #464649;
-    --color-light-bg-tertiary: #e9e9eb;
-    --color-light-text-disabled: #dcdcdd;
-    /* theme */
-    --button-border-radius: var(--border-radius-l);
-    --button-font-weight: bold;
-    /* primary */
-    --button-primary-base-bg-color: var(--color-light-bg-secondary-inverted);
-    --button-primary-hover-bg-color: var(--color-light-bg-secondary-inverted);
-    --button-primary-active-bg-color: var(--color-light-bg-primary-inverted);
-    --button-primary-disabled-bg-color: var(--color-light-bg-secondary-inverted);
-    --button-primary-disabled-color: var(--color-light-text-tertiary-inverted);
-    /* secondary */
-    --button-secondary-base-bg-color: var(--color-light-bg-secondary);
-    --button-secondary-hover-bg-color: var(--color-light-bg-secondary);
-    --button-secondary-active-bg-color: var(--color-light-bg-tertiary);
-    --button-secondary-disabled-bg-color: var(--color-light-bg-secondary);
-    --button-secondary-disabled-color: var(--color-light-text-disabled);
-    /* core vars */
-    --color-light-bg-secondary-inverted: #202022;
-    /* theme */
-    --tag-border-radius: var(--border-radius-l);
-    --tag-background-color: var(--color-light-bg-secondary);
-    --tag-background-color-hover: var(--color-light-bg-secondary);
-    --tag-background-color-checked: var(--color-light-bg-secondary-inverted);
-    --tag-background-color-active: rgba(35, 53, 73, 0.07);
-    --tag-background-color-checked-disabled: rgba(35, 53, 73, 0.15);
-    --tag-border-color: transparent;
-    --tag-border-color-hover: transparent;
-    --tag-border-color-active: transparent;
-    --tag-border-color-checked: transparent;
-    --tag-border-color-disabled: transparent;
-    /* core vars */
-    /* unchecked */
-    --checkbox-bg-color: var(--color-light-graphic-primary-inverted);
-    --checkbox-border-color: var(--color-light-graphic-secondary);
-    --checkbox-hover-bg-color: var(--color-light-graphic-primary-inverted);
-    --checkbox-hover-border-color: var(--color-light-graphic-secondary);
-    /* active */
-    --checkbox-active-bg-color: var(--color-light-graphic-primary-inverted);
-    --checkbox-active-border-color: var(--color-light-border-key);
-    /* checked */
-    --checkbox-checked-hover-bg-color: rgb(10, 28, 48);
-    --checkbox-checked-active-bg-color: rgb(8, 22, 37);
-    --checkbox-checked-bg-color: var(--color-light-graphic-primary);
-    /* icon */
-    --checkbox-icon-color: var(--color-light-graphic-primary-inverted);
-    /* core vars */
-    --color-light-graphic-secondary: #8a8a8e;
-    --color-light-graphic-primary: #000;
-    --color-light-graphic-primary-inverted: #f3f4f5;
-    --color-light-border-key: #000;
-    /* unchecked */
-    --radio-bg-color: var(--color-light-graphic-primary-inverted);
-    --radio-border-color: var(--color-light-graphic-secondary);
-    --radio-hover-bg-color: var(--color-light-graphic-primary-inverted);
-    --radio-hover-border-color: var(--color-light-graphic-secondary);
-    /* active */
-    --radio-active-bg-color: var(--color-light-graphic-primary-inverted);
-    --radio-active-border-color: var(--color-light-border-key);
-    /* checked */
-    --radio-checked-hover-bg-color: rgb(10, 28, 48);
-    --radio-checked-active-bg-color: rgb(8, 22, 37);
-    --radio-checked-bg-color: var(--color-light-graphic-primary);
-    /* icon */
-    --radio-icon-color: var(--color-light-graphic-primary-inverted);
-    /* theme */
-    --confirmation-title-font-size: 18px;
-    --confirmation-title-line-height: 22px;
-    --confirmation-text-font-size: 14px;
-    --confirmation-text-line-height: 20px;
-    --calendar-input-calendar-icon: url('https://alfabank.st/icons/glyph_calendar_m.svg');
-    /* core vars */
-    --color-light-bg-secondary: #f3f4f5;
-    --border-radius-l: 12px;
-    /* theme */
-    --form-control-border-radius: var(--border-radius-l);
-    --form-control-border-bottom: 0;
-    --form-control-bg-color: var(--color-light-bg-secondary);
-    /* disabled */
-    --form-control-disabled-opacity: 0.5;
-    --form-control-disabled-border-bottom: 0;
-    --form-control-disabled-bg-color: var(--color-light-bg-secondary);
-    /* focus */
-    --form-control-focus-shadow: none;
-    --form-control-focus-border-bottom: 0;
-    --form-control-focus-bg-color: var(--color-light-bg-secondary);
-    --form-control-hover-bg-color: var(--color-light-bg-secondary);
-    /* error */
-    --form-control-error-label-color: var(--form-control-error-color);
-    --form-control-error-shadow: none;
-    --form-control-error-border-bottom: 0;
-    /* paddings */
-    --form-control-sub-paddings: 0 var(--gap-2xs);
-    /* core vars */
-    --color-light-text-primary: #000;
-    --color-light-text-negative: #d91d0b;
-    --color-light-text-tertiary-transparent: rgba(60, 60, 67, 0.3);
-    --color-light-text-link: #0072ef;
-    /* theme */
-    --input-error-color: var(--color-light-text-negative);
-    --input-error-icon-display: none;
-    --input-disabled-color: var(--color-light-text-primary);
-    --input-focus-placeholder-color: var(--color-light-text-tertiary-transparent);
-    --input-caret-color: var(--color-light-text-link);
-    --slider-progress-background: var(--color-light-graphic-neutral);
-    --slider-progress-hover-background: var(--color-light-graphic-neutral);
-    --slider-range-offest: 0;
-    --slider-input-font-weight: normal;
-}
-
-[data-mode='dark'] .sbdocs-wrapper {
-    background: var(--color-dark-bg-primary) !important;
-    color: var(--color-dark-text-primary) !important;
-}
 
 /* stylelint-disable selector-pseudo-class-no-unknown */
 
@@ -16584,7 +16189,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
         margin-top: var(--gap-m);
     }
 .status_1Rf8u {
-    margin: 8px 0 0;
+    margin: var(--gap-xs) 0 0;
 }
 .link_zP8Z2 {
     display: inline-block;
@@ -16597,23 +16202,23 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     font-family: var(--font-family);
     color: var(--color-light-text-primary-inverted);
     text-decoration: none;
-    border-radius: 99px;
+    border-radius: var(--border-radius-pill);
 }
 .stage1_TIG4p {
-    background-color: #b6bcc3;
+    background-color: var(--color-light-graphic-tertiary);
 }
 .stage2_3Y8Vq {
-    background-color: #007aff;
+    background-color: var(--color-light-graphic-link);
 }
 .stage3_lPeWK {
     /* background-color: #13a463; */
-    background: -webkit-gradient(linear, left top, right top, from(#007aff), to(#13a463));
-    background: linear-gradient(to right, #007aff 0%, #13a463 100%);
+    background: -webkit-gradient(linear, left top, right top, from(var(--color-light-graphic-link)), to(#13a463));
+    background: linear-gradient(to right, var(--color-light-graphic-link) 0%, #13a463 100%);
 }
 
 .component_eLfzn {
     position: relative;
-    margin: 0 0 24px;
+    margin: 0 0 var(--gap-xl);
 }
 
 .component_eLfzn h1 {
@@ -16622,20 +16227,20 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 
 .version_qH-g- {
     display: inline-block;
-    margin-left: 8px;
+    margin-left: var(--gap-xs);
     color: rgba(11, 31, 53, 0.6);
     font-size: 16px;
     line-height: 1.2;
 }
 
 .design_1dS0- {
-    padding: 0 0 0 20px;
+    padding: 0 0 0 var(--gap-l);
     background: url(https://static.figma.com/app/icon/1/favicon.svg) no-repeat 0 50%;
 }
 
 .github_1HcXw {
-    margin: 0 0 8px;
-    padding: 0 0 0 20px;
+    margin: 0 0 var(--gap-xs);
+    padding: 0 0 0 var(--gap-l);
     background: url(https://github.githubassets.com/favicons/favicon.svg) no-repeat 0 50%;
     background-size: 16px 16px;
 }
@@ -16649,8 +16254,8 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 }
 
 .links_1iI57 a {
-    color: #0f62fe;
-    border-bottom: 1px solid rgba(15, 98, 254, 0.3);
+    color: var(--color-light-text-link);
+    border-bottom: 1px solid var(--color-light-text-link-alpha-30);
     text-decoration: none;
 }
 
@@ -16890,6 +16495,13 @@ pre.cssExample_3Mm-Q {
     --color-static-status-purple: #673ab7;
     --color-static-status-red: #d91d0b;
     --color-static-status-teal: #219187;
+    --color-static-status-blue-tint-90: rgb(230, 242, 255);
+    --color-static-status-green-tint-90: rgb(231, 246, 239);
+    --color-static-status-grey-tint-90: rgb(240, 242, 243);
+    --color-static-status-orange-tint-90: rgb(252, 240, 230);
+    --color-static-status-purple-tint-90: rgb(240, 235, 248);
+    --color-static-status-red-tint-90: rgb(251, 232, 231);
+    --color-static-status-teal-tint-90: rgb(233, 244, 243);
 }
 :root {
     --color-dark-bg-accent: #ef3124;
@@ -17025,6 +16637,114 @@ pre.cssExample_3Mm-Q {
     --color-static-text-tertiary-dark-transparent: rgba(11, 31, 53, 0.3);
     --color-static-text-tertiary-light: #6d7986;
     --color-static-text-tertiary-light-transparent: rgba(255, 255, 255, 0.4);
+    --color-dark-bg-accent-alpha-30: rgba(239, 49, 36, 0.3);
+    --color-dark-bg-accent-tint-7: rgb(240, 63, 51);
+    --color-dark-bg-accent-tint-10: rgb(241, 70, 58);
+    --color-dark-bg-accent-tint-15: rgb(241, 80, 69);
+    --color-dark-bg-accent-tint-30: rgb(244, 111, 102);
+    --color-dark-bg-neutral-alpha-30: rgba(72, 87, 103, 0.3);
+    --color-dark-bg-neutral-tint-7: rgb(85, 99, 114);
+    --color-dark-bg-neutral-tint-10: rgb(90, 104, 118);
+    --color-dark-bg-neutral-tint-15: rgb(99, 112, 126);
+    --color-dark-bg-neutral-tint-30: rgb(127, 137, 149);
+    --color-dark-bg-primary-inverted-alpha-3: rgba(255, 255, 255, 0.03);
+    --color-dark-bg-primary-inverted-alpha-7: rgba(255, 255, 255, 0.07);
+    --color-dark-bg-primary-inverted-alpha-10: rgba(255, 255, 255, 0.1);
+    --color-dark-bg-primary-inverted-alpha-15: rgba(255, 255, 255, 0.15);
+    --color-dark-bg-primary-inverted-alpha-20: rgba(255, 255, 255, 0.2);
+    --color-dark-bg-primary-inverted-alpha-40: rgba(255, 255, 255, 0.4);
+    --color-dark-bg-secondary-inverted-alpha-7: rgba(182, 188, 195, 0.07);
+    --color-dark-bg-secondary-inverted-alpha-15: rgba(182, 188, 195, 0.15);
+    --color-dark-bg-tertiary-tint-7: rgb(74, 89, 104);
+    --color-dark-border-tertiary-inverted-alpha-30: rgba(182, 188, 195, 0.3);
+    --color-dark-graphic-accent-alpha-30: rgba(239, 49, 36, 0.3);
+    --color-dark-graphic-accent-tint-10: rgb(241, 70, 58);
+    --color-dark-graphic-accent-tint-30: rgb(244, 111, 102);
+    --color-dark-graphic-negative-shade-30: rgb(169, 56, 48);
+    --color-dark-graphic-negative-shade-50: rgb(121, 40, 35);
+    --color-dark-graphic-neutral-tint-10: rgb(90, 104, 118);
+    --color-dark-graphic-positive-tint-10: rgb(68, 200, 125);
+    --color-dark-graphic-positive-tint-30: rgb(109, 212, 154);
+    --color-dark-graphic-primary-alpha-30: rgba(255, 255, 255, 0.3);
+    --color-dark-graphic-primary-alpha-40: rgba(255, 255, 255, 0.4);
+    --color-dark-graphic-primary-alpha-50: rgba(255, 255, 255, 0.5);
+    --color-dark-graphic-primary-shade-30: rgb(179, 179, 179);
+    --color-dark-graphic-primary-shade-50: rgb(128, 128, 128);
+    --color-dark-graphic-primary-tint-10: rgb(255, 255, 255);
+    --color-dark-graphic-primary-tint-30: rgb(255, 255, 255);
+    --color-dark-graphic-secondary-alpha-30: rgba(182, 188, 195, 0.3);
+    --color-dark-graphic-secondary-tint-30: rgb(204, 208, 213);
+    --color-dark-graphic-secondary-tint-50: rgb(219, 222, 225);
+    --color-dark-specialbg-component-tint-7: rgb(85, 99, 114);
+    --color-dark-specialbg-component-tint-10: rgb(90, 104, 118);
+    --color-dark-specialbg-component-tint-30: rgb(127, 137, 149);
+    --color-dark-text-link-shade-30: rgb(0, 85, 179);
+    --color-dark-text-link-shade-50: rgb(0, 61, 128);
+    --color-dark-text-link-tint-20: rgb(51, 149, 255);
+    --color-dark-text-link-tint-40: rgb(102, 175, 255);
+    --color-dark-text-primary-alpha-30: rgba(255, 255, 255, 0.3);
+    --color-dark-text-primary-shade-30: rgb(179, 179, 179);
+    --color-dark-text-primary-shade-50: rgb(128, 128, 128);
+    --color-dark-text-primary-tint-20: rgb(255, 255, 255);
+    --color-dark-text-primary-tint-40: rgb(255, 255, 255);
+    --color-dark-text-secondary-shade-30: rgb(127, 132, 136);
+    --color-dark-text-secondary-shade-50: rgb(91, 94, 98);
+    --color-dark-text-secondary-tint-20: rgb(197, 201, 207);
+    --color-dark-text-secondary-tint-40: rgb(211, 215, 219);
+    --color-light-bg-accent-alpha-30: rgba(239, 49, 36, 0.3);
+    --color-light-bg-accent-shade-7: rgb(222, 46, 33);
+    --color-light-bg-accent-shade-10: rgb(215, 44, 32);
+    --color-light-bg-accent-shade-15: rgb(203, 42, 31);
+    --color-light-bg-accent-shade-30: rgb(167, 34, 25);
+    --color-light-bg-neutral-alpha-30: rgba(219, 222, 225, 0.3);
+    --color-light-bg-neutral-shade-7: rgb(204, 206, 209);
+    --color-light-bg-neutral-shade-10: rgb(197, 200, 203);
+    --color-light-bg-neutral-shade-15: rgb(186, 189, 191);
+    --color-light-bg-neutral-shade-30: rgb(153, 155, 157);
+    --color-light-bg-primary-inverted-alpha-3: rgba(11, 31, 53, 0.03);
+    --color-light-bg-primary-inverted-alpha-7: rgba(11, 31, 53, 0.07);
+    --color-light-bg-primary-inverted-alpha-10: rgba(11, 31, 53, 0.1);
+    --color-light-bg-primary-inverted-alpha-15: rgba(11, 31, 53, 0.15);
+    --color-light-bg-primary-inverted-alpha-20: rgba(11, 31, 53, 0.2);
+    --color-light-bg-primary-inverted-alpha-40: rgba(11, 31, 53, 0.4);
+    --color-light-bg-secondary-inverted-alpha-7: rgba(35, 53, 73, 0.07);
+    --color-light-bg-secondary-inverted-alpha-15: rgba(35, 53, 73, 0.15);
+    --color-light-bg-tertiary-shade-7: rgb(215, 217, 219);
+    --color-light-border-tertiary-inverted-alpha-30: rgba(109, 121, 134, 0.3);
+    --color-light-graphic-accent-alpha-30: rgba(239, 49, 36, 0.3);
+    --color-light-graphic-accent-shade-10: rgb(215, 44, 32);
+    --color-light-graphic-accent-shade-30: rgb(167, 34, 25);
+    --color-light-graphic-negative-tint-30: rgb(245, 133, 125);
+    --color-light-graphic-negative-tint-50: rgb(248, 168, 162);
+    --color-light-graphic-neutral-shade-10: rgb(197, 200, 203);
+    --color-light-graphic-positive-shade-10: rgb(42, 175, 99);
+    --color-light-graphic-positive-shade-30: rgb(33, 136, 77);
+    --color-light-graphic-primary-alpha-30: rgba(11, 31, 53, 0.3);
+    --color-light-graphic-primary-alpha-40: rgba(11, 31, 53, 0.4);
+    --color-light-graphic-primary-alpha-50: rgba(11, 31, 53, 0.5);
+    --color-light-graphic-primary-tint-30: rgb(84, 98, 114);
+    --color-light-graphic-primary-tint-50: rgb(133, 143, 154);
+    --color-light-graphic-primary-shade-10: rgb(10, 28, 48);
+    --color-light-graphic-primary-shade-30: rgb(8, 22, 37);
+    --color-light-graphic-secondary-alpha-30: rgba(109, 121, 134, 0.3);
+    --color-light-graphic-secondary-shade-30: rgb(76, 85, 94);
+    --color-light-graphic-secondary-shade-50: rgb(55, 61, 67);
+    --color-light-specialbg-component-shade-7: rgba(10, 29, 49, 0.1351);
+    --color-light-specialbg-component-shade-10: rgba(10, 28, 48, 0.163);
+    --color-light-specialbg-component-shade-30: rgba(8, 22, 37, 0.349);
+    --color-light-text-link-tint-30: rgb(77, 162, 255);
+    --color-light-text-link-tint-50: rgb(128, 189, 255);
+    --color-light-text-link-shade-20: rgb(0, 98, 204);
+    --color-light-text-link-shade-40: rgb(0, 73, 153);
+    --color-light-text-primary-alpha-30: rgba(11, 31, 53, 0.3);
+    --color-light-text-primary-tint-30: rgb(84, 98, 114);
+    --color-light-text-primary-tint-50: rgb(133, 143, 154);
+    --color-light-text-primary-shade-20: rgb(9, 25, 42);
+    --color-light-text-primary-shade-40: rgb(7, 19, 32);
+    --color-light-text-secondary-tint-30: rgb(135, 145, 156);
+    --color-light-text-secondary-tint-50: rgb(170, 177, 185);
+    --color-light-text-secondary-shade-20: rgb(67, 78, 91);
+    --color-light-text-secondary-shade-40: rgb(50, 59, 68);
 }
 :root {
     --color-dynamic-primary-dark: rgba(0, 0, 0, 0.8);
