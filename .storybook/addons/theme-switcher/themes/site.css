@@ -1,0 +1,5 @@
+@import '../../../../packages/themes/src/mixins/site.css';
+
+:root {
+    @mixin theme-site;
+}

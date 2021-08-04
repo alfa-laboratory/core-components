@@ -24,7 +24,7 @@ import styles from '!!raw-loader!../index.module.css';
         const colors = select('colors', ['default', 'inverted'], 'default');
         return (
             <div style={{
-                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : '#fff',
+                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : 'transparent',
                 padding: '8px',
                 position: 'absolute',
                 top: 0,

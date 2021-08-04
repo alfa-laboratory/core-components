@@ -3,15 +3,13 @@
 @define-mixin tag-click {
     /* core vars */
     --color-light-specialbg-component: #eeeff1;
+    --color-light-specialbg-component-shade-10: color-mod(rgba(11, 31, 53, 0.07) blenda(black 10%));
+    --color-light-specialbg-component-shade-30: color-mod(rgba(11, 31, 53, 0.07) blenda(black 30%));
 
     /* theme */
     --tag-background-color: var(--color-light-specialbg-component);
-    --tag-background-color-hover: color-mod(
-        var(--color-light-specialbg-component) blenda(black 10%)
-    );
-    --tag-background-color-active: color-mod(
-        var(--color-light-specialbg-component) blenda(black 30%)
-    );
+    --tag-background-color-hover: var(--color-light-specialbg-component-shade-10);
+    --tag-background-color-active: var(--color-light-specialbg-component-shade-30);
     --tag-border-color: transparent;
     --tag-border-color-hover: transparent;
     --tag-border-color-active: transparent;
