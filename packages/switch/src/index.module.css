@@ -11,9 +11,12 @@
     --switch-checked-border-color: var(--color-light-graphic-accent);
 
     /* disabled */
-    --switch-disabled-color: var(--color-light-text-tertiary);
+    --switch-disabled-color: var(--color-light-text-secondary);
     --switch-disabled-bg-color: var(--color-light-graphic-neutral);
     --switch-disabled-border-color: var(--color-light-graphic-neutral);
+
+    /* inactive */
+    --switch-inactive-color: var(--color-light-border-secondary-inverted);
 }
 
 .component {
@@ -144,6 +147,21 @@
 
 .disabled .hint {
     color: var(--switch-disabled-color);
+}
+
+/* Inactive */
+
+.inactive {
+    cursor: var(--disabled-cursor);
+}
+
+.inactive .switch {
+    background-color: var(--switch-disabled-bg-color);
+    border-color: var(--switch-disabled-border-color);
+
+    &:before {
+        background-color: var(--switch-inactive-color);
+    }
 }
 
 /* Focused state */

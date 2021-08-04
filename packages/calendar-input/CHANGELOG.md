@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@4.1.0...@alfalab/core-components-calendar-input@4.1.1) (2021-08-03)
+
+
+### Bug Fixes
+
+* move icon from date input to calendar input ([#768](https://github.com/alfa-laboratory/core-components/issues/768)) ([040bd42](https://github.com/alfa-laboratory/core-components/commit/040bd423279eb535f1ea924599ee16c296453e3f))
+
+
+
+
+
+# [4.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@4.0.2...@alfalab/core-components-calendar-input@4.1.0) (2021-07-23)
+
+
+### Bug Fixes
+
+* select & calendar-input use glyph icons ([#742](https://github.com/alfa-laboratory/core-components/issues/742)) ([6b04ae4](https://github.com/alfa-laboratory/core-components/commit/6b04ae49fc4f3805ef362dcb68939b72fc99814b))
+
+
+### Features
+
+* **calendar-input:** uses date-input ([#752](https://github.com/alfa-laboratory/core-components/issues/752)) ([509dba2](https://github.com/alfa-laboratory/core-components/commit/509dba26913ccf6df859a200aa476eeef1df2ddc))
+
+
+
+
+
+## [4.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@4.0.1...@alfalab/core-components-calendar-input@4.0.2) (2021-07-19)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar-input
+
+
+
+
+
 ## [4.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@4.0.0...@alfalab/core-components-calendar-input@4.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar-input

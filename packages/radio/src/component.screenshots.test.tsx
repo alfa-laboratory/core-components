@@ -14,6 +14,8 @@ const screenshotTesting = setupScreenshotTesting({
 
 const clip = { x: 0, y: 0, width: 240, height: 60 };
 
+const availableThemes = ['default', 'click', 'mobile'];
+
 describe('Radio', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
@@ -27,6 +29,7 @@ describe('Radio', () => {
                             hint: ['', 'Подсказка'],
                             checked: [false, true],
                             disabled: [false, true],
+                            inactive: [false, true],
                         },
                         size: { width: 240, height: 60 },
                     }),
@@ -42,7 +45,7 @@ describe('Radio', () => {
             theme,
         })();
 
-    ['default', 'click'].map(testCase);
+    availableThemes.map(testCase);
 });
 
 describe(

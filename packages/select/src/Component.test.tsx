@@ -416,7 +416,7 @@ describe('Select', () => {
         });
 
         it('should transfer props to OptionsList', () => {
-            const spy = jest.spyOn(optionsListModule, 'OptionsList');
+            const spy = jest.spyOn(optionsListModule.OptionsList, 'render' as never);
 
             const optionsListProps: Partial<OptionsListProps> = {
                 emptyPlaceholder: 'list-placeholder',
@@ -579,6 +579,23 @@ describe('Select', () => {
             const option = await findByText(options[0].content);
             await fireEvent.click(option);
             expect(cb).toBeCalledTimes(1);
+        });
+
+        it('should call onScroll', async () => {
+            const onScroll = jest.fn();
+
+            const { getByTestId } = render(
+                <Select
+                    {...baseProps}
+                    dataTestId='test-id'
+                    options={options}
+                    onScroll={onScroll}
+                    defaultOpen={true}
+                />,
+            );
+
+            fireEvent.scroll(getByTestId('test-id-options-list'));
+            expect(onScroll).toBeCalledTimes(1);
         });
 
         it('should call valueRenderer', async () => {

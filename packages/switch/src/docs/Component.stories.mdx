@@ -25,18 +25,30 @@ import styles from '!!raw-loader!../index.module.css';
     {React.createElement(() => {
         const [checked, setChecked] = React.useState(false);
         const handleChange = () => setChecked(!checked);
+        const disabled = boolean('disabled', false);
+        const inactive = boolean('inactive', false);
+        const checkedKnob = boolean('checked', false);
+        const reversed = boolean('reversed', false);
+        const block = boolean('block', false);
+        const addons = text('addons');
+        const align = select('align', ['start', 'center']);
+        const className = text('className', '');
+        const dataTestId = text('dataTestId', '');
+        const label = text('label', 'Условие тоггла');
+        const hint = text('hint', 'Описание пункта');
         return (
             <Switch
-                checked={checked}
-                disabled={boolean('disabled', false)}
-                reversed={boolean('reversed', false)}
-                block={boolean('block', false)}
-                addons={text('addons')}
-                align={select('align', ['start', 'center'])}
-                className={text('className', '')}
-                dataTestId={text('dataTestId', '')}
-                label={text('label', 'Условие тоггла')}
-                hint={text('hint', 'Описание пункта')}
+                disabled={disabled}
+                inactive={inactive}
+                checked={checked || checkedKnob}
+                reversed={reversed}
+                block={block}
+                addons={addons}
+                align={align}
+                className={className}
+                dataTestId={dataTestId}
+                label={label}
+                hint={hint}
                 onChange={handleChange}
             />
         );

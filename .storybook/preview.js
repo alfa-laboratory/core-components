@@ -1,10 +1,9 @@
 import { configure } from '@storybook/react';
-import { addDecorator, addParameters } from '@storybook/react';
+import { addParameters } from '@storybook/react';
+import { setThemeStylesInIframeHtmlPage } from './addons/theme-switcher/utils';
 import { Example } from './blocks/example';
 
-import withThemeSwitcher from './addons/theme-switcher/index';
-
-addDecorator(withThemeSwitcher);
+setThemeStylesInIframeHtmlPage();
 
 addParameters({
     viewMode: 'docs',

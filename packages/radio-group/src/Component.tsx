@@ -38,9 +38,14 @@ export type RadioGroupProps = {
     className?: string;
 
     /**
-     * Текст ошибки
+     * Отображение ошибки
      */
-    error?: string;
+    error?: string | boolean;
+
+    /**
+     * Текст подсказки снизу
+     */
+    hint?: ReactNode;
 
     /**
      * Дочерние элементы. Ожидаются компоненты `Radio` или `Tag`
@@ -87,6 +92,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
             direction = 'vertical',
             label,
             error,
+            hint,
             onChange,
             type = 'radio',
             dataTestId,
@@ -152,6 +158,8 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
             );
         };
 
+        const errorMessage = typeof error === 'string' ? error : '';
+
         return (
             <div
                 className={cn(
@@ -178,7 +186,13 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
                     </div>
                 ) : null}
 
-                {error && <span className={styles.errorMessage}>{error}</span>}
+                {errorMessage && (
+                    <span className={cn(styles.sub, styles.errorMessage)}>{errorMessage}</span>
+                )}
+
+                {hint && !errorMessage && (
+                    <span className={cn(styles.sub, styles.hint)}>{hint}</span>
+                )}
             </div>
         );
     },

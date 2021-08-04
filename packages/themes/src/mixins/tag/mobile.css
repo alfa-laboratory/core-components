@@ -1,0 +1,23 @@
+@import '../../../../themes/src/default.css';
+
+@define-mixin tag-mobile {
+    /* core vars */
+    --border-radius-l: 12px;
+    --color-light-bg-secondary: #f3f4f5;
+    --color-light-bg-secondary-inverted: #202022;
+    --color-light-bg-secondary-inverted-alpha-7: color-mod(#202022 alpha(7%));
+    --color-light-bg-secondary-inverted-alpha-15: color-mod(#202022 alpha(15%));
+
+    /* theme */
+    --tag-border-radius: var(--border-radius-l);
+    --tag-background-color: var(--color-light-bg-secondary);
+    --tag-background-color-hover: var(--color-light-bg-secondary);
+    --tag-background-color-checked: var(--color-light-bg-secondary-inverted);
+    --tag-background-color-active: var(--color-light-bg-secondary-inverted-alpha-7);
+    --tag-background-color-checked-disabled: var(--color-light-bg-secondary-inverted-alpha-15);
+    --tag-border-color: transparent;
+    --tag-border-color-hover: transparent;
+    --tag-border-color-active: transparent;
+    --tag-border-color-checked: transparent;
+    --tag-border-color-disabled: transparent;
+}

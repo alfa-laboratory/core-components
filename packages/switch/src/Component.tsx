@@ -16,7 +16,7 @@ type Align = 'start' | 'center';
 
 export type SwitchProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'type' | 'hint' | 'onChange'
+    'type' | 'hint' | 'onChange' | 'disabled'
 > & {
     /**
      * Управление состоянием вкл/выкл компонента
@@ -54,6 +54,16 @@ export type SwitchProps = Omit<
     block?: boolean;
 
     /**
+     * Управление состоянием включен / выключен
+     */
+    disabled?: boolean;
+
+    /**
+     * Управление состоянием активен / неактивен
+     */
+    inactive?: boolean;
+
+    /**
      * Обработчик переключения компонента
      */
     onChange?: (
@@ -79,6 +89,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
             addons,
             block,
             disabled,
+            inactive,
             label,
             hint,
             name,
@@ -108,6 +119,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
             <label
                 className={cn(styles.component, styles[align], className, {
                     [styles.disabled]: disabled,
+                    [styles.inactive]: inactive,
                     [styles.checked]: checked,
                     [styles.reversed]: reversed,
                     [styles.focused]: focused,
@@ -118,7 +130,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
                 <input
                     type='checkbox'
                     onChange={handleChange}
-                    disabled={disabled}
+                    disabled={disabled || inactive}
                     checked={checked}
                     name={name}
                     value={value}

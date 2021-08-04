@@ -14,31 +14,37 @@ const screenshotTesting = setupScreenshotTesting({
 
 const clip = { x: 0, y: 0, width: 400, height: 100 };
 
-describe(
-    'Checkbox | size, disabled, checked',
-    screenshotTesting({
-        cases: [
-            [
-                'sprite',
-                createSpriteStorybookUrl({
-                    componentName: 'Checkbox',
-                    knobs: {
-                        checked: [true, false],
-                        label: ['Согласен с условиями'],
-                        hint: ['Дополнительная информация'],
-                        size: ['s', 'm'],
-                        disabled: [true, false],
-                        indeterminate: [true, false],
-                    },
-                    size: { width: 400, height: 100 },
-                }),
+const availableThemes = ['default', 'click', 'mobile'];
+
+describe('Checkbox | size, disabled, checked', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    'sprite',
+                    createSpriteStorybookUrl({
+                        componentName: 'Checkbox',
+                        knobs: {
+                            checked: [true, false],
+                            label: ['Согласен с условиями'],
+                            hint: ['Дополнительная информация'],
+                            size: ['s', 'm'],
+                            disabled: [true, false],
+                            inactive: [true, false],
+                            indeterminate: [true, false],
+                        },
+                        size: { width: 400, height: 100 },
+                    }),
+                ],
             ],
-        ],
-        screenshotOpts: {
-            fullPage: true,
-        },
-    }),
-);
+            screenshotOpts: {
+                fullPage: true,
+            },
+            theme,
+        })();
+
+    availableThemes.map(testCase);
+});
 
 describe(
     'Checkbox | addons, block, align',

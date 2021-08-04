@@ -11,7 +11,7 @@
     },
     "references": [
         { "path": "../calendar" },
-        { "path": "../masked-input" },
+        { "path": "../date-input" },
         { "path": "../popover" }
     ]
 }

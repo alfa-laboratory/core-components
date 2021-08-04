@@ -2,7 +2,7 @@
 @import '../../calendar/src/vars.css';
 
 :root {
-    --calendar-input-calendar-icon: url('https://alfabank.st/icons/icon_calendar_m_black.svg');
+    --calendar-input-calendar-icon: url('https://alfabank.st/icons/glyph_calendar_m_primary.svg');
 }
 
 .component {
@@ -32,7 +32,7 @@
     background-position: center;
 
     &:not(:only-child) {
-        margin-left: var(--gap-2xs);
+        margin-right: var(--gap-2xs);
     }
 }
 

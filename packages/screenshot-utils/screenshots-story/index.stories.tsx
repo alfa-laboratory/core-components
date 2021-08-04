@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import { getComponent } from './components';
 import { parseKnobs, getQueryParam } from './utils';
+import { setThemeStylesInIframeHtmlPage } from '../../../.storybook/addons/theme-switcher/utils';
 
 export const Screenshots = () => {
     const Component = getComponent(
@@ -10,6 +11,8 @@ export const Screenshots = () => {
     );
 
     const props = parseKnobs();
+
+    useLayoutEffect(setThemeStylesInIframeHtmlPage, []);
 
     return (
         <div

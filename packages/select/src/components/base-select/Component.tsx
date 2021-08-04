@@ -64,6 +64,7 @@ export const BaseSelect = forwardRef(
             onOpen,
             onFocus,
             onBlur,
+            onScroll,
             Arrow,
             Field = () => null,
             OptionsList = () => null,
@@ -204,20 +205,30 @@ export const BaseSelect = forwardRef(
         };
 
         const handleFieldBlur = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
-            if (onBlur) onBlur(event);
+            const isNextFocusInsideList = listRef.current?.contains(
+                (event.relatedTarget || document.activeElement) as HTMLElement,
+            );
 
-            inputProps.onBlur(event);
+            if (!isNextFocusInsideList) {
+                if (onBlur) onBlur(event);
+
+                inputProps.onBlur(event);
+            }
         };
 
         const handleFieldKeyDown = (event: KeyboardEvent<HTMLDivElement | HTMLInputElement>) => {
             inputProps.onKeyDown(event);
-
             if (autocomplete && !open && event.key.length === 1) {
                 // Для автокомплита - открываем меню при начале ввода
                 openMenu();
             }
 
-            if ([' ', 'Enter'].includes(event.key) && !autocomplete && !nativeSelect) {
+            if (
+                [' ', 'Enter'].includes(event.key) &&
+                !autocomplete &&
+                !nativeSelect &&
+                (event.target as HTMLElement).tagName !== 'INPUT'
+            ) {
                 // Открываем\закрываем меню по нажатию enter или пробела
                 event.preventDefault();
                 if (!open || highlightedIndex === -1) toggleMenu();
@@ -410,6 +421,7 @@ export const BaseSelect = forwardRef(
                                     Optgroup={Optgroup}
                                     Option={WrappedOption}
                                     visibleOptions={visibleOptions}
+                                    onScroll={onScroll}
                                     dataTestId={getDataTestId(dataTestId, 'options-list')}
                                 />
                             </div>

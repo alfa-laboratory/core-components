@@ -32,5 +32,5 @@ describe('Slider | main props', () => {
             theme,
         })();
 
-    ['default', 'click'].map(testCase);
+    ['default', 'click', 'mobile'].map(testCase);
 });

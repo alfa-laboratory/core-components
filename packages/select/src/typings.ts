@@ -8,6 +8,7 @@ import {
     ReactElement,
 } from 'react';
 import { PopoverProps } from '@alfalab/core-components-popover';
+import { InputProps } from '@alfalab/core-components-input';
 
 export type OptionShape = {
     /**
@@ -263,6 +264,11 @@ export type BaseSelectProps = {
     onFocus?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
 
     /**
+     * Обработчик скрола
+     */
+    onScroll?: (event: MouseEvent<HTMLDivElement>) => void;
+
+    /**
      * Хранит функцию, с помощью которой можно обновить положение поповера
      */
     updatePopover?: PopoverProps['update'];
@@ -427,9 +433,19 @@ export type OptionsListProps = {
     visibleOptions?: number;
 
     /**
+     * Обработчик скрола
+     */
+    onScroll?: (event: MouseEvent<HTMLDivElement>) => void;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Дополнительные пропсы для Input'a, находящегося внутри кастомного OptionsList
+     */
+    inputProps?: InputProps;
 };
 
 export type OptgroupProps = {

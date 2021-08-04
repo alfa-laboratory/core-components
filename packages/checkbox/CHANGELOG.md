@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-checkbox@2.1.0...@alfalab/core-components-checkbox@2.2.0) (2021-08-03)
+
+
+### Features
+
+* add inactive controls (PDS-266) ([#765](https://github.com/alfa-laboratory/core-components/issues/765)) ([ec02c89](https://github.com/alfa-laboratory/core-components/commit/ec02c89ab6bf038c026ca0a72b3185525334840a))
+
+
+
+
+
+# [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-checkbox@2.0.1...@alfalab/core-components-checkbox@2.1.0) (2021-07-23)
+
+
+### Features
+
+* **calendar-input:** uses date-input ([#752](https://github.com/alfa-laboratory/core-components/issues/752)) ([509dba2](https://github.com/alfa-laboratory/core-components/commit/509dba26913ccf6df859a200aa476eeef1df2ddc))
+* add mobile theme for tag, radio, checkbox (PDS-244/247/248) ([#717](https://github.com/alfa-laboratory/core-components/issues/717)) ([36e2d99](https://github.com/alfa-laboratory/core-components/commit/36e2d99c716a03e7f319439df9ca47ec43ad4b71))
+* checkbox/radio/switch design updates (PDS-252) ([#735](https://github.com/alfa-laboratory/core-components/issues/735)) ([62f3c63](https://github.com/alfa-laboratory/core-components/commit/62f3c63279872a80ffb1c018b08addf897597b26))
+
+
+
+
+
 ## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-checkbox@2.0.0...@alfalab/core-components-checkbox@2.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-checkbox

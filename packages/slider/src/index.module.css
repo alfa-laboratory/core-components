@@ -7,11 +7,12 @@
     --slider-thumb-hover-color: var(--color-light-graphic-accent);
     --slider-thumb-size: 18px;
     --slider-thumb-border: 0;
-    --slider-thumb-box-shadow: 0 2px 10px color-mod(var(--slider-thumb-color) alpha(30%));
+    --slider-thumb-box-shadow: 0 2px 10px var(--color-light-graphic-accent-alpha-30);
     --slider-progress-height: 2px;
     --slider-progress-background: transparent;
     --slider-progress-hover-background: transparent;
     --slider-progress-border-radius: 0;
+    --slider-range-offest: calc(var(--slider-thumb-size) / 2 * -1);
 }
 
 /* Не работают префиксные селекторы через запятую - пришлось вынести в миксины */
@@ -96,8 +97,8 @@
     position: absolute;
     z-index: 1;
     top: 0;
-    right: calc(var(--slider-thumb-size) / 2 * -1);
-    left: calc(var(--slider-thumb-size) / 2 * -1);
+    right: var(--slider-range-offest);
+    left: var(--slider-range-offest);
 }
 
 .range,

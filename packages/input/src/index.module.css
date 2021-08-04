@@ -13,12 +13,16 @@
     --input-error-icon-not-alone-display: block;
     --input-error-icon: url('https://alfabank.st/icons/glyph_alert-circle_m_negative.svg');
     --input-success-icon: url('https://alfabank.st/icons/icon_ok_s_color.svg');
+    --input-caret-color: var(--input-color);
 
     /* disabled */
     --input-disabled-color: var(--color-light-text-secondary);
 
     /* read-only */
     --input-read-only-color: var(--color-light-text-secondary);
+
+    /* error */
+    --input-error-color: var(--color-light-text-primary);
 }
 
 @define-mixin _input-icon {
@@ -42,6 +46,7 @@
     outline: none;
     text-overflow: ellipsis;
     box-sizing: border-box;
+    caret-color: var(--input-caret-color);
     -webkit-appearance: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -84,12 +89,16 @@
     background-image: var(--input-error-icon);
 
     &:not(:only-child) {
-        margin-left: var(--gap-s);
+        margin-left: var(--gap-2xs);
     }
 }
 
 * + .errorIcon {
     display: var(--input-error-icon-not-alone-display);
+}
+
+.clearButton + * {
+    margin-left: var(--gap-2xs);
 }
 
 .clearButton + .errorIcon {
@@ -103,7 +112,7 @@
     background-image: var(--input-success-icon);
 
     &:not(:only-child) {
-        margin-left: var(--gap-s);
+        margin-left: var(--gap-2xs);
     }
 }
 
@@ -141,6 +150,12 @@
 
 .hasLabel:read-only:focus::placeholder {
     opacity: 0;
+}
+
+/* ERROR STATE */
+.error {
+    color: var(--input-error-color);
+    caret-color: var(--input-error-color);
 }
 
 /* IE hide clear */

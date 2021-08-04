@@ -1,4 +1,3 @@
-/* eslint-disable multiline-comment-style */
 import React, {
     forwardRef,
     useCallback,
@@ -12,34 +11,28 @@ import React, {
     ElementType,
 } from 'react';
 import cn from 'classnames';
-import { MaskedInput, MaskedInputProps } from '@alfalab/core-components-masked-input';
+import mergeRefs from 'react-merge-refs';
+
+import { Popover, PopoverProps } from '@alfalab/core-components-popover';
+
+import {
+    DateInput,
+    DateInputProps,
+    SUPPORTS_INPUT_TYPE_DATE,
+    formatDate,
+    parseDateString,
+    isCompleteDateInput,
+} from '@alfalab/core-components-date-input';
+
 import {
     Calendar as DefaultCalendar,
     CalendarProps,
     dateInLimits,
 } from '@alfalab/core-components-calendar';
-import { Popover, PopoverProps } from '@alfalab/core-components-popover';
-import mergeRefs from 'react-merge-refs';
-import {
-    NATIVE_DATE_FORMAT,
-    DATE_MASK,
-    SUPPORTS_INPUT_TYPE_DATE,
-    formatDate,
-    parseDateString,
-    isCompleteDateInput,
-} from './utils';
 
 import styles from './index.module.css';
 
-export type CalendarInputProps = Omit<
-    MaskedInputProps,
-    'mask' | 'value' | 'onChange' | 'clear' | 'onClear' | 'rightAddons' | 'onBeforeDisplay'
-> & {
-    /**
-     * Растягивает компонент на ширину контейнера
-     */
-    block?: boolean;
-
+export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'> & {
     /**
      * Дополнительный класс
      */
@@ -133,11 +126,6 @@ export type CalendarInputProps = Omit<
     onCalendarChange?: CalendarProps['onChange'];
 
     /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
-
-    /**
      * Позиционирование поповера с календарем
      */
     popoverPosition?: PopoverProps['position'];
@@ -194,9 +182,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
 
         const inputDisabled = disabled || readOnly;
 
-        const inputRef = useRef<HTMLInputElement>(null);
         const inputWrapperRef = useRef<HTMLDivElement>(null);
-        const componentRef = useRef<HTMLDivElement>(null);
         const calendarRef = useRef<HTMLDivElement>(null);
 
         const handleKeyDown = useCallback(
@@ -271,34 +257,21 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             [onCalendarChange, onChange, onInputChange, uncontrolled],
         );
 
-        const handleInputChange = useCallback(
-            (event: ChangeEvent<HTMLInputElement>) => {
-                const newValue = event.target.value;
-                const newDate = parseDateString(newValue);
-
+        const handleInputChange = useCallback<Required<DateInputProps>['onChange']>(
+            (event, payload) => {
                 changeHandler(
                     event,
-                    newValue,
-                    newDate,
+                    payload.value,
+                    payload.date,
                     'input',
-                    !newValue || isCompleteDateInput(newValue),
+                    !payload.value || isCompleteDateInput(payload.value),
                 );
             },
             [changeHandler],
         );
 
-        const handleNativeInputChange = useCallback(
-            (event: ChangeEvent<HTMLInputElement>) => {
-                const newDate = parseDateString(event.target.value, NATIVE_DATE_FORMAT);
-                const newValue = event.target.value === '' ? '' : formatDate(newDate);
-
-                changeHandler(event, newValue, newDate);
-            },
-            [changeHandler],
-        );
-
-        const handleCalendarChange = useCallback(
-            (date: number) => {
+        const handleCalendarChange = useCallback<Required<CalendarProps>['onChange']>(
+            date => {
                 changeHandler(null, formatDate(date), new Date(date), 'calendar');
                 setOpen(false);
             },
@@ -346,7 +319,6 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         return (
             // eslint-disable-next-line jsx-a11y/no-static-element-interactions
             <div
-                ref={componentRef}
                 className={cn(styles.component, className, {
                     [styles.block]: block,
                 })}
@@ -357,35 +329,20 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                 onBlur={handleBlur}
                 data-test-id={dataTestId}
             >
-                <MaskedInput
+                <DateInput
                     {...restProps}
-                    ref={mergeRefs([ref, inputRef])}
+                    ref={ref}
                     wrapperRef={mergeRefs([wrapperRef, inputWrapperRef])}
                     className={inputClassName}
                     value={inputValue}
                     defaultValue={defaultValue}
                     disabled={disabled}
                     readOnly={readOnly}
-                    mask={DATE_MASK}
-                    rightAddons={
-                        <React.Fragment>
-                            <span className={styles.calendarIcon} />
-                            {shouldRenderNative && (
-                                <input
-                                    type='date'
-                                    ref={mergeRefs([ref, inputRef])}
-                                    defaultValue={defaultValue}
-                                    onChange={handleNativeInputChange}
-                                    className={styles.nativeInput}
-                                />
-                            )}
-                        </React.Fragment>
-                    }
+                    mobileMode={mobileMode === 'native' ? 'native' : 'input'}
+                    rightAddons={<span className={styles.calendarIcon} />}
                     onKeyDown={handleInputKeyDown}
                     onChange={handleInputChange}
                     block={true}
-                    inputMode='numeric'
-                    pattern='[0-9\.]*'
                 />
                 {shouldRenderStatic && renderCalendar()}
 

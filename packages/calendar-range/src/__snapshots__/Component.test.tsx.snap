@@ -23,8 +23,6 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             >
               <input
                 class="input"
-                inputmode="numeric"
-                pattern="[0-9\\\\.]*"
                 type="text"
                 value=""
               />
@@ -586,8 +584,6 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
               >
                 <input
                   class="input"
-                  inputmode="numeric"
-                  pattern="[0-9\\\\.]*"
                   type="text"
                   value=""
                 />

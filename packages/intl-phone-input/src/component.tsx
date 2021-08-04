@@ -11,6 +11,7 @@ import {
 } from '@alfalab/core-components-input-autocomplete';
 import { CountriesSelect } from './components';
 import { formatPhoneWithUnclearableCountryCode } from './utils/format-phone-with-unclearable-country-code';
+import { useCaretAvoidCountryCode } from './useCaretAvoidCountryCode';
 
 import styles from './index.module.css';
 
@@ -233,6 +234,11 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                 });
             }
         }, [countryIso2, loadPhoneUtils, setCountryByDialCode, value]);
+
+        const country = countriesHash[countryIso2];
+        const countryCodeLength = `+${country.dialCode}`.length;
+
+        useCaretAvoidCountryCode({ inputRef, countryCodeLength, clearableCountryCode });
 
         return (
             <InputAutocomplete

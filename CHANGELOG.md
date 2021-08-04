@@ -1,3 +1,64 @@
+# [19.4.0](https://github.com/alfa-laboratory/core-components/compare/v19.3.0...v19.4.0) (2021-08-03)
+
+
+### Bug Fixes
+
+* **amount-input:** remove caret-color override ([#773](https://github.com/alfa-laboratory/core-components/issues/773)) ([93311d0](https://github.com/alfa-laboratory/core-components/commit/93311d0a8e170c14c6cbfa28414d2538f78ddd3f))
+* add missing deps ([4f4a540](https://github.com/alfa-laboratory/core-components/commit/4f4a54059f141e41e430199b1a2c30fedf62b081))
+* move icon from date input to calendar input ([#768](https://github.com/alfa-laboratory/core-components/issues/768)) ([040bd42](https://github.com/alfa-laboratory/core-components/commit/040bd423279eb535f1ea924599ee16c296453e3f))
+
+
+### Features
+
+* add inactive controls (PDS-266) ([#765](https://github.com/alfa-laboratory/core-components/issues/765)) ([ec02c89](https://github.com/alfa-laboratory/core-components/commit/ec02c89ab6bf038c026ca0a72b3185525334840a))
+* **amount-input:** add integers only mode ([#766](https://github.com/alfa-laboratory/core-components/issues/766)) ([27a2535](https://github.com/alfa-laboratory/core-components/commit/27a2535f2de8d787e666c08a8fbfeb67d762f9a1))
+* **amount-input:** allow to use custom suffix ([#767](https://github.com/alfa-laboratory/core-components/issues/767)) ([27d9d02](https://github.com/alfa-laboratory/core-components/commit/27d9d02fb619fa5946fb3cb678d9b742d74a745b))
+
+# [19.3.0](https://github.com/alfa-laboratory/core-components/compare/v19.2.1...v19.3.0) (2021-07-23)
+
+
+### Bug Fixes
+
+* select & calendar-input use glyph icons ([#742](https://github.com/alfa-laboratory/core-components/issues/742)) ([6b04ae4](https://github.com/alfa-laboratory/core-components/commit/6b04ae49fc4f3805ef362dcb68939b72fc99814b))
+* **input:** autofocus ([#761](https://github.com/alfa-laboratory/core-components/issues/761)) ([e2880de](https://github.com/alfa-laboratory/core-components/commit/e2880de6cff33b156bea58286bb46e0803e254a5))
+* **tooltip:** fix bug with controlled state ([#759](https://github.com/alfa-laboratory/core-components/issues/759)) ([dd0144e](https://github.com/alfa-laboratory/core-components/commit/dd0144e880e0dac6bac1ab9d15832341761993e9))
+
+
+### Features
+
+* **attach:** simulate controlled state ([#760](https://github.com/alfa-laboratory/core-components/issues/760)) ([5d312bf](https://github.com/alfa-laboratory/core-components/commit/5d312bf632cc716bfc7ecb7b487c4af812838aa9)), closes [#743](https://github.com/alfa-laboratory/core-components/issues/743)
+* **bottom-sheet:** fix marker gap, fix animation duration ([#750](https://github.com/alfa-laboratory/core-components/issues/750)) ([cb04ed8](https://github.com/alfa-laboratory/core-components/commit/cb04ed8cc214fac9dba32a0ab39a4399743d5bfc))
+* **calendar-input:** uses date-input ([#752](https://github.com/alfa-laboratory/core-components/issues/752)) ([509dba2](https://github.com/alfa-laboratory/core-components/commit/509dba26913ccf6df859a200aa476eeef1df2ddc))
+* **confirmation:** fix timer, some loader refactoring ([#754](https://github.com/alfa-laboratory/core-components/issues/754)) ([187bb0e](https://github.com/alfa-laboratory/core-components/commit/187bb0e72a75c62b117a49917976903257d90bb7))
+* **date-input:** add component ([#751](https://github.com/alfa-laboratory/core-components/issues/751)) ([4b94bee](https://github.com/alfa-laboratory/core-components/commit/4b94beec36acc73ac6c62cf37f87061c0ada4b35))
+* **input:** input mobile theme (PDS-241) ([#737](https://github.com/alfa-laboratory/core-components/issues/737)) ([88f6f7c](https://github.com/alfa-laboratory/core-components/commit/88f6f7c58968b9564970eaa3d759aa2bc275ca7e))
+* **stepped-progress-bar:** add component ([#747](https://github.com/alfa-laboratory/core-components/issues/747)) ([f82e9af](https://github.com/alfa-laboratory/core-components/commit/f82e9af075e12e5a34751efc5c7f427283e75c1b))
+* add mobile theme for tag, radio, checkbox (PDS-244/247/248) ([#717](https://github.com/alfa-laboratory/core-components/issues/717)) ([36e2d99](https://github.com/alfa-laboratory/core-components/commit/36e2d99c716a03e7f319439df9ca47ec43ad4b71))
+* checkbox/radio/switch design updates (PDS-252) ([#735](https://github.com/alfa-laboratory/core-components/issues/735)) ([62f3c63](https://github.com/alfa-laboratory/core-components/commit/62f3c63279872a80ffb1c018b08addf897597b26))
+* slider input mobile theme (PDS-242) ([#738](https://github.com/alfa-laboratory/core-components/issues/738)) ([6e924aa](https://github.com/alfa-laboratory/core-components/commit/6e924aa90b63b914b6f5690766e41cddabe18e19))
+
+## [19.2.1](https://github.com/alfa-laboratory/core-components/compare/v19.2.0...v19.2.1) (2021-07-20)
+
+
+### Bug Fixes
+
+* **phone-input:** value prop ([#757](https://github.com/alfa-laboratory/core-components/issues/757)) ([3ba0168](https://github.com/alfa-laboratory/core-components/commit/3ba01686ffa950bd74d9ab28bfa961c6cf74a5d8))
+
+# [19.2.0](https://github.com/alfa-laboratory/core-components/compare/v19.1.0...v19.2.0) (2021-07-19)
+
+
+### Bug Fixes
+
+* **intl-phone-input:** remove changing unclearable country code ([#730](https://github.com/alfa-laboratory/core-components/issues/730)) ([6d219d6](https://github.com/alfa-laboratory/core-components/commit/6d219d622e4da60aada0e10d3c442510f597b1b9))
+
+
+### Features
+
+* **phone-input:** add 'clearableCountyCode' prop ([#749](https://github.com/alfa-laboratory/core-components/issues/749)) ([d110ae7](https://github.com/alfa-laboratory/core-components/commit/d110ae76594ccbf7f6d8a5764d3c2a72b1ae9a26))
+* **select:** add scroll handler ([#756](https://github.com/alfa-laboratory/core-components/issues/756)) ([b25351b](https://github.com/alfa-laboratory/core-components/commit/b25351b74913244fb131d4aa1bc09900be362258))
+* **tooltip:** add target ref property ([#755](https://github.com/alfa-laboratory/core-components/issues/755)) ([9aa962d](https://github.com/alfa-laboratory/core-components/commit/9aa962d8b280e8d6af8ac4324a78b4bdebbfc536))
+* **typography:** monospaceNumbers prop (PDS-255) ([#697](https://github.com/alfa-laboratory/core-components/issues/697)) ([42d16a6](https://github.com/alfa-laboratory/core-components/commit/42d16a62f6d0781eba44dc1e0b76b28cae37d89a))
+
 # [19.1.0](https://github.com/alfa-laboratory/core-components/compare/v19.0.0...v19.1.0) (2021-07-09)
 
 

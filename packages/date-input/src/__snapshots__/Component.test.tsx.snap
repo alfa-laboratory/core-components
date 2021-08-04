@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateInput Display tests should match snapshot 1`] = `
+<div>
+  <div
+    class="component s hasRightAddons"
+  >
+    <div
+      class="inner filled"
+    >
+      <div
+        class="inputWrapper"
+      >
+        <div
+          class="input"
+        >
+          <input
+            class="input"
+            type="text"
+            value="01.01.2021"
+          />
+        </div>
+      </div>
+      <div
+        class="addons rightAddons"
+      />
+    </div>
+    
+  </div>
+</div>
+`;

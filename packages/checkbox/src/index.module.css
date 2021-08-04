@@ -5,7 +5,7 @@
     --checkbox-label-color: var(--color-light-text-primary);
 
     /* unchecked */
-    --checkbox-bg-color: var(--color-light-graphic-secondary-inverted);
+    --checkbox-bg-color: var(--color-light-graphic-primary-inverted);
     --checkbox-border-color: var(--color-light-graphic-secondary);
     --checkbox-hover-bg-color: var(--color-light-graphic-tertiary);
     --checkbox-hover-border-color: var(--color-light-graphic-secondary);
@@ -15,19 +15,26 @@
     /* checked */
     --checkbox-checked-bg-color: var(--color-light-graphic-accent);
     --checkbox-checked-border-color: transparent;
-    --checkbox-checked-hover-bg-color: color-mod(var(--color-light-graphic-accent) shade(10%));
+    --checkbox-checked-hover-bg-color: var(--color-light-graphic-accent-shade-10);
     --checkbox-checked-hover-border-color: transparent;
-    --checkbox-checked-active-bg-color: color-mod(var(--color-light-graphic-accent) shade(30%));
+    --checkbox-checked-active-bg-color: var(--color-light-graphic-accent-shade-30);
     --checkbox-checked-active-border-color: transparent;
 
     /* disabled */
-    --checkbox-disabled-color: var(--color-light-text-tertiary);
+    --checkbox-disabled-color: var(--color-light-text-secondary);
     --checkbox-disabled-bg-color: var(--color-light-graphic-primary-inverted);
     --checkbox-disabled-border-color: var(--color-light-graphic-neutral);
 
+    /* inactive */
+    --checkbox-inactive-border-color: var(--color-light-border-secondary-inverted);
+    --checkbox-checked-inactive-color: var(--color-light-graphic-tertiary);
+
     /* disabled and checked */
-    --checkbox-checked-disabled-bg-color: var(--color-light-graphic-neutral);
+    --checkbox-checked-disabled-bg-color: var(--color-light-bg-neutral);
     --checkbox-checked-disabled-border-color: transparent;
+
+    /* icon */
+    --checkbox-icon-color: var(--color-light-bg-primary);
 }
 
 .component {
@@ -65,7 +72,7 @@
     margin: var(--gap-3xs);
     color: var(--color-light-graphic-primary-inverted);
     background-color: var(--checkbox-bg-color);
-    border: 1px solid var(--checkbox-border-color);
+    border: 1.5px solid var(--checkbox-border-color);
     border-radius: var(--border-radius-s);
     transition: background-color 0.2s ease, border-color 0.2s ease;
     box-sizing: border-box;
@@ -74,6 +81,7 @@
 
 .checkedIcon {
     position: absolute;
+    color: var(--checkbox-icon-color);
 }
 
 .s .box {
@@ -82,12 +90,12 @@
     margin: var(--gap-2xs) var(--gap-3xs);
 }
 
-.component:hover:not(.disabled) .box {
+.component:hover:not(.disabled):not(.inactive) .box {
     background-color: var(--checkbox-hover-bg-color);
     border-color: var(--checkbox-hover-border-color);
 }
 
-.component:active:not(.disabled) .box {
+.component:active:not(.disabled):not(.inactive) .box {
     background-color: var(--checkbox-active-bg-color);
     border-color: var(--checkbox-active-border-color);
 }
@@ -97,12 +105,12 @@
     border-color: var(--checkbox-checked-border-color);
 }
 
-.checked:hover:not(.disabled) .box {
+.checked:hover:not(.disabled):not(.inactive) .box {
     background-color: var(--checkbox-checked-hover-bg-color);
     border-color: var(--checkbox-checked-hover-border-color);
 }
 
-.checked:active:not(.disabled) .box {
+.checked:active:not(.disabled):not(.inactive) .box {
     background-color: var(--checkbox-checked-active-bg-color);
     border-color: var(--checkbox-checked-active-border-color);
 }
@@ -112,17 +120,18 @@
     border-color: var(--checkbox-checked-border-color);
 }
 
-.indeterminate:hover:not(.disabled) .box {
+.indeterminate:hover:not(.disabled):not(.inactive) .box {
     background-color: var(--checkbox-checked-hover-bg-color);
     border-color: var(--checkbox-checked-hover-border-color);
 }
 
-.indeterminate:active:not(.disabled) .box {
+.indeterminate:active:not(.disabled):not(.inactive) .box {
     background-color: var(--checkbox-checked-active-bg-color);
     border-color: var(--checkbox-checked-active-border-color);
 }
 
-.disabled {
+.disabled,
+.inactive {
     cursor: var(--disabled-cursor);
 }
 
@@ -147,6 +156,20 @@
 
 .disabled .hint {
     color: var(--checkbox-disabled-color);
+}
+
+.inactive .box {
+    background-color: var(--checkbox-checked-disabled-bg-color);
+    border-color: var(--checkbox-inactive-border-color);
+}
+
+.inactive.checked .box {
+    color: var(--checkbox-checked-inactive-color);
+    border-color: var(--checkbox-checked-disabled-border-color);
+}
+
+.inactive.indeterminate .box {
+    border-color: var(--checkbox-checked-disabled-border-color);
 }
 
 .focused .box {
@@ -176,6 +199,10 @@
     @mixin system_14-18_regular;
     display: block;
     color: var(--checkbox-hint-color);
+}
+
+.inactive .indeterminateLine {
+    background-color: var(--checkbox-checked-inactive-color);
 }
 
 .indeterminateLine {

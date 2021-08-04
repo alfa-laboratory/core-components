@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@3.0.1...@alfalab/core-components-select-with-tags@3.0.2) (2021-07-23)
+
+
+### Bug Fixes
+
+* select & calendar-input use glyph icons ([#742](https://github.com/alfa-laboratory/core-components/issues/742)) ([6b04ae4](https://github.com/alfa-laboratory/core-components/commit/6b04ae49fc4f3805ef362dcb68939b72fc99814b))
+
+
+
+
+
 ## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@3.0.0...@alfalab/core-components-select-with-tags@3.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags

@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount-input@5.0.3...@alfalab/core-components-amount-input@5.1.0) (2021-08-03)
+
+
+### Bug Fixes
+
+* **amount-input:** remove caret-color override ([#773](https://github.com/alfa-laboratory/core-components/issues/773)) ([93311d0](https://github.com/alfa-laboratory/core-components/commit/93311d0a8e170c14c6cbfa28414d2538f78ddd3f))
+
+
+### Features
+
+* **amount-input:** add integers only mode ([#766](https://github.com/alfa-laboratory/core-components/issues/766)) ([27a2535](https://github.com/alfa-laboratory/core-components/commit/27a2535f2de8d787e666c08a8fbfeb67d762f9a1))
+* **amount-input:** allow to use custom suffix ([#767](https://github.com/alfa-laboratory/core-components/issues/767)) ([27d9d02](https://github.com/alfa-laboratory/core-components/commit/27d9d02fb619fa5946fb3cb678d9b742d74a745b))
+
+
+
+
+
+## [5.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount-input@5.0.2...@alfalab/core-components-amount-input@5.0.3) (2021-07-23)
+
+**Note:** Version bump only for package @alfalab/core-components-amount-input
+
+
+
+
+
+## [5.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount-input@5.0.1...@alfalab/core-components-amount-input@5.0.2) (2021-07-19)
+
+**Note:** Version bump only for package @alfalab/core-components-amount-input
+
+
+
+
+
 ## [5.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount-input@5.0.0...@alfalab/core-components-amount-input@5.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-amount-input

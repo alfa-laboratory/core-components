@@ -1,0 +1,15 @@
+.bar {
+    width: 100%;
+    height: var(--gap-2xs);
+    margin-right: var(--gap-2xs);
+    border-radius: var(--border-radius-xs);
+    background: var(--color-light-border-primary);
+}
+
+.bar:last-child {
+    margin-right: 0;
+}
+
+.done {
+    background: var(--color-light-graphic-positive);
+}
