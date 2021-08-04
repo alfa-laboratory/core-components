@@ -1,3 +1,10 @@
+# [19.5.0](https://github.com/alfa-laboratory/core-components/compare/v19.4.0...v19.5.0) (2021-08-04)
+
+
+### Features
+
+* add mods colors ([#770](https://github.com/alfa-laboratory/core-components/issues/770)) ([fe985f4](https://github.com/alfa-laboratory/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
+
 # [19.4.0](https://github.com/alfa-laboratory/core-components/compare/v19.3.0...v19.4.0) (2021-08-03)
 
 
