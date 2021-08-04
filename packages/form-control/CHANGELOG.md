@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-form-control@7.1.0...@alfalab/core-components-form-control@7.2.0) (2021-08-04)
+
+
+### Features
+
+* add mods colors ([#770](https://github.com/alfa-laboratory/core-components/issues/770)) ([fe985f4](https://github.com/alfa-laboratory/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
+
+
+
+
+
 # [7.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-form-control@7.0.1...@alfalab/core-components-form-control@7.1.0) (2021-07-23)
 
 
