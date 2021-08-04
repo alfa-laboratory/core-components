@@ -32,7 +32,7 @@
     background-position: center;
 
     &:not(:only-child) {
-        margin-left: var(--gap-2xs);
+        margin-right: var(--gap-2xs);
     }
 }
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@3.1.0...@alfalab/core-components-calendar-range@3.1.1) (2021-08-03)
+
+
+### Bug Fixes
+
+* move icon from date input to calendar input ([#768](https://github.com/alfa-laboratory/core-components/issues/768)) ([040bd42](https://github.com/alfa-laboratory/core-components/commit/040bd423279eb535f1ea924599ee16c296453e3f))
+
+
+
+
+
 # [3.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@3.0.2...@alfalab/core-components-calendar-range@3.1.0) (2021-07-23)
 
 

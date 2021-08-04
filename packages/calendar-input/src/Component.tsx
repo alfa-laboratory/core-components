@@ -339,6 +339,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                     disabled={disabled}
                     readOnly={readOnly}
                     mobileMode={mobileMode === 'native' ? 'native' : 'input'}
+                    rightAddons={<span className={styles.calendarIcon} />}
                     onKeyDown={handleInputKeyDown}
                     onChange={handleInputChange}
                     block={true}

@@ -112,7 +112,6 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
                 onChange={handleChange}
                 rightAddons={
                     <React.Fragment>
-                        <span className={styles.icon} />
                         {rightAddons}
                         {shouldRenderNative && (
                             <input
