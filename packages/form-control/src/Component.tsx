@@ -153,6 +153,7 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                         [styles.hasLabel]: label,
                         [styles.focused]: focused,
                         [colorStyles[colors].focused]: focused,
+                        [styles.hasError]: error,
                         [colorStyles[colors].hasError]: error,
                     })}
                     ref={ref}

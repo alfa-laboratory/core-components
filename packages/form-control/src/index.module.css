@@ -241,7 +241,8 @@
 
 /* FOCUS STATE */
 
-.focused:not(.disabled):before {
+.focused:not(.disabled):before,
+.hasError:before {
     transform: scaleY(2);
 }
 
