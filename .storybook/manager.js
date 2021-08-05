@@ -3,6 +3,8 @@ import alfaTheme from './theme';
 
 import { STORY_RENDERED } from '@storybook/core-events';
 
+import '../packages/themes/src/default.css';
+
 addons.register('TitleAddon', api => {
     const libName = 'Core Components';
     let interval = null;

@@ -3,42 +3,26 @@
 :root {
     /* primary */
     --icon-button-primary-base-color: var(--color-light-graphic-primary);
-    --icon-button-primary-hover-color: color-mod(var(--icon-button-primary-base-color) tint(30%));
-    --icon-button-primary-active-color: color-mod(var(--icon-button-primary-base-color) tint(50%));
-    --icon-button-primary-disabled-color: color-mod(
-        var(--icon-button-primary-base-color) alpha(30%)
-    );
+    --icon-button-primary-hover-color: var(--color-light-graphic-primary-tint-30);
+    --icon-button-primary-active-color: var(--color-light-graphic-primary-tint-50);
+    --icon-button-primary-disabled-color: var(--color-light-graphic-primary-alpha-30);
 
     /* secondary */
     --icon-button-secondary-base-color: var(--color-light-graphic-secondary);
-    --icon-button-secondary-hover-color: color-mod(
-        var(--icon-button-secondary-base-color) shade(30%)
-    );
-    --icon-button-secondary-active-color: color-mod(
-        var(--icon-button-secondary-base-color) shade(50%)
-    );
-    --icon-button-secondary-disabled-color: color-mod(
-        var(--icon-button-secondary-base-color) alpha(30%)
-    );
+    --icon-button-secondary-hover-color: var(--color-light-graphic-secondary-shade-30);
+    --icon-button-secondary-active-color: var(--color-light-graphic-secondary-shade-50);
+    --icon-button-secondary-disabled-color: var(--color-light-graphic-secondary-alpha-30);
 
     /* transparent */
-    --icon-button-transparent-base-color: color-mod(var(--color-light-graphic-primary) alpha(30%));
-    --icon-button-transparent-hover-color: color-mod(
-        var(--icon-button-transparent-base-color) alpha(40%)
-    );
-    --icon-button-transparent-active-color: color-mod(
-        var(--icon-button-transparent-base-color) alpha(50%)
-    );
-    --icon-button-transparent-disabled-color: color-mod(
-        var(--icon-button-transparent-base-color) alpha(40%)
-    );
+    --icon-button-transparent-base-color: var(--color-light-graphic-primary-alpha-30);
+    --icon-button-transparent-hover-color: var(--color-light-graphic-primary-alpha-40);
+    --icon-button-transparent-active-color: var(--color-light-graphic-primary-alpha-50);
+    --icon-button-transparent-disabled-color: var(--color-light-graphic-primary-alpha-40);
 
     /* negative */
     --icon-button-negative-base-color: var(--color-light-graphic-negative);
-    --icon-button-negative-hover-color: color-mod(var(--icon-button-negative-base-color) tint(30%));
-    --icon-button-negative-active-color: color-mod(
-        var(--icon-button-negative-base-color) tint(50%)
-    );
+    --icon-button-negative-hover-color: var(--color-light-graphic-negative-tint-30);
+    --icon-button-negative-active-color: var(--color-light-graphic-negative-tint-50);
 }
 
 .primary {

@@ -14,11 +14,9 @@
     /* background-color */
     --tag-background-color: transparent;
     --tag-background-color-hover: transparent;
-    --tag-background-color-active: color-mod(var(--color-light-bg-primary-inverted) alpha(7%));
+    --tag-background-color-active: var(--color-light-bg-primary-inverted-alpha-7);
     --tag-background-color-checked: var(--color-light-bg-primary-inverted);
-    --tag-background-color-checked-disabled: color-mod(
-        var(--color-light-bg-primary-inverted) alpha(15%)
-    );
+    --tag-background-color-checked-disabled: var(--color-light-bg-primary-inverted-alpha-15);
 
     /* text color */
     --tag-text-color: var(--color-light-text-primary);

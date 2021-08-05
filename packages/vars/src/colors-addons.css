@@ -45,4 +45,11 @@
     --color-static-status-purple: #673ab7;
     --color-static-status-red: #d91d0b;
     --color-static-status-teal: #219187;
+    --color-static-status-blue-tint-90: color-mod(#007aff tint(90%));
+    --color-static-status-green-tint-90: color-mod(#13a463 tint(90%));
+    --color-static-status-grey-tint-90: color-mod(#6d7986 tint(90%));
+    --color-static-status-orange-tint-90: color-mod(#de6a00 tint(90%));
+    --color-static-status-purple-tint-90: color-mod(#673ab7 tint(90%));
+    --color-static-status-red-tint-90: color-mod(#d91d0b tint(90%));
+    --color-static-status-teal-tint-90: color-mod(#219187 tint(90%));
 }

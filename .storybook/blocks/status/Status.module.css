@@ -2,7 +2,7 @@
 @import '../../../packages/vars/src/colors-addons.css';
 
 .status {
-    margin: 8px 0 0;
+    margin: var(--gap-xs) 0 0;
 }
 
 .link {
@@ -12,18 +12,18 @@
     font-family: var(--font-family);
     color: var(--color-light-text-primary-inverted);
     text-decoration: none;
-    border-radius: 99px;
+    border-radius: var(--border-radius-pill);
 }
 
 .stage1 {
-    background-color: #b6bcc3;
+    background-color: var(--color-light-graphic-tertiary);
 }
 
 .stage2 {
-    background-color: #007aff;
+    background-color: var(--color-light-graphic-link);
 }
 
 .stage3 {
     /* background-color: #13a463; */
-    background: linear-gradient(to right, #007aff 0%, #13a463 100%);
+    background: linear-gradient(to right, var(--color-light-graphic-link) 0%, #13a463 100%);
 }
