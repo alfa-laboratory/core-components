@@ -6,12 +6,7 @@
     --form-control-l-min-height: var(--size-l-height);
     --form-control-xl-min-height: var(--size-xl-height);
     --form-control-border-radius: 4px 4px 0 0;
-    --form-control-border-bottom: 1px solid var(--color-light-border-secondary-inverted);
-    --form-control-bg-color: var(--color-light-bg-primary-inverted-alpha-7);
     --form-control-bg-backdrop-filter: unset;
-    --form-control-color: var(--color-light-text-primary);
-    --form-control-label-color: var(--color-light-text-secondary);
-    --form-control-hint-color: var(--color-light-text-secondary);
 
     /* paddings */
     --form-control-paddings: 0 var(--gap-s);
@@ -23,23 +18,7 @@
     --form-control-sub-paddings: 0;
 
     /* disabled */
-    --form-control-disabled-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
-    --form-control-disabled-border-bottom: 1px dashed var(--color-light-border-secondary-inverted);
     --form-control-disabled-opacity: 1;
-    --form-control-disabled-color: var(--color-light-text-secondary);
-
-    /* focus */
-    --form-control-focus-border-bottom: 1px solid var(--color-light-border-key);
-    --form-control-focus-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
-
-    /* hover */
-    --form-control-hover-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
-
-    /* error */
-    --form-control-error-color: var(--color-light-text-negative);
-    --form-control-error-label-color: var(--color-light-text-secondary);
-    --form-control-error-shadow: none;
-    --form-control-error-border-bottom: 1px solid var(--form-control-error-color);
 
     /* font */
     --form-control-font-family: var(--font-family);
@@ -48,14 +27,12 @@
 .component {
     font-family: var(--form-control-font-family);
     width: max-content;
-    color: var(--form-control-color);
 }
 
 .inner {
     display: flex;
     position: relative;
     min-height: 100%;
-    background-color: var(--form-control-bg-color);
     backdrop-filter: var(--form-control-bg-backdrop-filter);
     border-radius: var(--form-control-border-radius);
     transition: background 0.2s ease, box-shadow 0.2s ease;
@@ -72,7 +49,6 @@
     width: 100%;
     bottom: 0;
     height: 0;
-    border-bottom: var(--form-control-border-bottom);
     transition: transform 0.2s ease, border 0.2s ease;
     transform-origin: bottom;
 }
@@ -108,7 +84,6 @@
     transition-duration: 200ms;
     transition-property: color, transform;
     transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-    color: var(--form-control-label-color);
 }
 
 .labelInner {
@@ -138,10 +113,6 @@
     display: block;
     margin-top: var(--gap-2xs);
     padding: var(--form-control-sub-paddings);
-}
-
-.hint {
-    color: var(--form-control-hint-color);
 }
 
 .block {
@@ -266,52 +237,16 @@
 
 .disabled {
     opacity: var(--form-control-disabled-opacity);
-    background-color: var(--form-control-disabled-bg-color);
-    color: var(--form-control-disabled-color);
-}
-
-.disabled:before {
-    border-bottom: var(--form-control-disabled-border-bottom);
 }
 
 /* FOCUS STATE */
 
-.focused:not(.disabled):not(.hasError):before {
-    border-bottom: var(--form-control-focus-border-bottom);
+.focused:not(.disabled):before {
     transform: scaleY(2);
 }
 
 .filled .label {
     transform: translateY(-100%) scale(0.875);
-}
-
-.focused.inner {
-    background-color: var(--form-control-focus-bg-color);
-}
-
-/* HOVER STATE */
-
-.inner:not(.disabled):hover {
-    background-color: var(--form-control-hover-bg-color);
-}
-
-/* ERROR STATE */
-
-.error {
-    color: var(--form-control-error-color);
-}
-
-.hasError .label {
-    color: var(--form-control-error-label-color);
-}
-
-.hasError {
-    box-shadow: var(--form-control-error-shadow);
-}
-
-.hasError:before {
-    border-bottom: var(--form-control-error-border-bottom);
-    transform: scaleY(2);
 }
 
 .hiddenLabel {

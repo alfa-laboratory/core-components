@@ -3,10 +3,10 @@
 exports[`DateInput Display tests should match snapshot 1`] = `
 <div>
   <div
-    class="component s hasRightAddons"
+    class="component component s hasRightAddons"
   >
     <div
-      class="inner filled"
+      class="inner inner filled"
     >
       <div
         class="inputWrapper"
@@ -15,7 +15,7 @@ exports[`DateInput Display tests should match snapshot 1`] = `
           class="input"
         >
           <input
-            class="input"
+            class="input input"
             type="text"
             value="01.01.2021"
           />

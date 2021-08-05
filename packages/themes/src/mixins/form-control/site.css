@@ -2,4 +2,6 @@
 
 @define-mixin form-control-site {
     --form-control-bg-backdrop-filter: blur(20px);
+    --form-control-error-color: var(--color-static-text-accent);
+    --form-control-inverted-error-color: var(--color-static-text-accent);
 }
