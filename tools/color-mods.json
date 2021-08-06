@@ -1,0 +1,81 @@
+{
+    "light-bg-accent": {
+        "alpha": [30],
+        "shade": [7, 10, 15, 30]
+    },
+    "light-bg-neutral": {
+        "alpha": [30],
+        "shade": [7, 10, 15, 30]
+    },
+    "light-bg-primary-inverted": {
+        "alpha": [3, 7, 10, 15, 20, 40]
+    },
+    "light-bg-secondary-inverted": {
+        "alpha": [7, 15]
+    },
+    "light-bg-tertiary": {
+        "shade": [7]
+    },
+    "light-specialbg-component": {
+        "shade": [7, 10, 30]
+    },
+    "light-border-tertiary-inverted": {
+        "alpha": [30]
+    },
+    "light-graphic-accent": {
+        "alpha": [30],
+        "shade": [10, 30]
+    },
+    "light-graphic-positive": {
+        "shade": [10, 30]
+    },
+    "light-graphic-negative": {
+        "tint": [30, 50]
+    },
+    "light-graphic-neutral": {
+        "shade": [10]
+    },
+    "light-graphic-primary": {
+        "alpha": [30, 40, 50],
+        "tint": [30, 50],
+        "shade": [10, 30]
+    },
+    "light-graphic-secondary": {
+        "alpha": [30],
+        "shade": [30, 50]
+    },
+    "light-text-link": {
+        "tint": [30, 50],
+        "shade": [20, 40]
+    },
+    "light-text-primary": {
+        "alpha": [30],
+        "tint": [30, 50],
+        "shade": [20, 40]
+    },
+    "light-text-secondary": {
+        "tint": [30, 50],
+        "shade": [20, 40]
+    },
+    "static-status-blue": {
+        "tint": [90]
+    },
+    "static-status-green": {
+        "tint": [90]
+    },
+    "static-status-grey": {
+        "tint": [90]
+    },
+    "static-status-orange": {
+        "tint": [90]
+    },
+    "static-status-purple": {
+        "tint": [90]
+    },
+    "static-status-red": {
+        "tint": [90]
+    },
+    "static-status-teal": {
+        "tint": [90]
+    }
+}

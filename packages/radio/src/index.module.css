@@ -15,9 +15,9 @@
     /* checked */
     --radio-checked-bg-color: var(--color-light-graphic-accent);
     --radio-checked-border-color: transparent;
-    --radio-checked-hover-bg-color: color-mod(var(--color-light-graphic-accent) shade(10%));
+    --radio-checked-hover-bg-color: var(--color-light-graphic-accent-shade-10);
     --radio-checked-hover-border-color: transparent;
-    --radio-checked-active-bg-color: color-mod(var(--color-light-graphic-accent) shade(30%));
+    --radio-checked-active-bg-color: var(--color-light-graphic-accent-shade-30);
     --radio-checked-active-border-color: transparent;
 
     /* disabled */

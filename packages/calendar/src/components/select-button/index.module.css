@@ -19,7 +19,7 @@
         background-color: var(--color-light-bg-tertiary);
 
         &:not(:disabled):hover {
-            background-color: color-mod(var(--color-light-bg-tertiary) shade(7%));
+            background-color: var(--color-light-bg-tertiary-shade-7);
         }
     }
 

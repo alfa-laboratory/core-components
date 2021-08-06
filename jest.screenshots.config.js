@@ -18,5 +18,6 @@ module.exports = {
         '\\.css$': 'identity-obj-proxy',
     },
     testMatch: ['**/*.screenshots.test.ts?(x)'],
+    maxWorkers: 5,
     testTimeout: 20000,
 };
