@@ -14,7 +14,9 @@
     --tag-inverted-background-color-hover: transparent;
     --tag-inverted-background-color-active: var(--color-dark-bg-primary-inverted-alpha-7);
     --tag-inverted-background-color-checked: var(--color-dark-bg-primary-inverted);
-    --tag-inverted-background-color-checked-disabled: var(--color-dark-bg-primary-inverted-alpha-15);
+    --tag-inverted-background-color-checked-disabled: var(
+        --color-dark-bg-primary-inverted-alpha-15
+    );
 
     /* text color */
     --tag-inverted-text-color: var(--color-dark-text-primary);
