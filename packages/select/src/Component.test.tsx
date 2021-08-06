@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ForwardRefRenderFunction } from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -9,6 +9,10 @@ import { FieldProps as BaseFieldProps, Select, OptionsListProps, OptionProps } f
 import * as fieldModule from './components/field';
 import * as optionsListModule from './components/options-list';
 import * as optionModule from './components/option';
+
+type PopoverComponent = {
+    render?: ForwardRefRenderFunction<HTMLDivElement, popoverModule.PopoverProps>;
+};
 
 const baseProps = {
     options: [],
@@ -488,7 +492,8 @@ describe('Select', () => {
         });
 
         it('should transfer props to Popover', () => {
-            const spy = jest.spyOn(popoverModule, 'Popover');
+            const PopoverComponent = popoverModule.Popover as PopoverComponent;
+            const spy = jest.spyOn(PopoverComponent, 'render');
 
             const cb = () => undefined;
 
