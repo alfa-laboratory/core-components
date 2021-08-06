@@ -51,6 +51,11 @@ export type PopoverProps = {
     preventFlip?: boolean;
 
     /**
+     * Запрещает поповеру менять свою позицию, если он не влезают в видимую область.
+     */
+    preventOverflow?: boolean;
+
+    /**
      * Если `true`, будет отрисована стрелочка
      */
     withArrow?: boolean;
@@ -157,6 +162,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             transitionDuration = `${transition.timeout}ms`,
             zIndex = stackingOrder.POPOVER,
             fallbackPlacements,
+            preventOverflow = true,
         },
         ref,
     ) => {
@@ -179,8 +185,12 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                 modifiers.push({ name: 'flip', options: { fallbackPlacements } });
             }
 
+            if (preventOverflow) {
+                modifiers.push({ name: 'preventOverflow', options: { mainAxis: false } });
+            }
+
             return modifiers;
-        }, [offset, withArrow, preventFlip, arrowElement, fallbackPlacements]);
+        }, [offset, withArrow, preventFlip, fallbackPlacements, preventOverflow, arrowElement]);
 
         const { styles: popperStyles, attributes, update: updatePopper } = usePopper(
             referenceElement,
