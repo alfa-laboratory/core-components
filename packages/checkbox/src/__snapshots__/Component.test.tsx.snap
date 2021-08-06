@@ -8,13 +8,12 @@ Object {
       <label
         class="component s start"
       >
+        <input
+          type="checkbox"
+        />
         <span
           class="box"
-        >
-          <input
-            type="checkbox"
-          />
-        </span>
+        />
         <span
           class="content"
         >
@@ -36,13 +35,12 @@ Object {
     <label
       class="component s start"
     >
+      <input
+        type="checkbox"
+      />
       <span
         class="box"
-      >
-        <input
-          type="checkbox"
-        />
-      </span>
+      />
       <span
         class="content"
       >
@@ -121,12 +119,12 @@ Object {
       <label
         class="component s start indeterminate"
       >
+        <input
+          type="checkbox"
+        />
         <span
           class="box"
         >
-          <input
-            type="checkbox"
-          />
           <span
             class="indeterminateLine"
           />
@@ -152,12 +150,12 @@ Object {
     <label
       class="component s start indeterminate"
     >
+      <input
+        type="checkbox"
+      />
       <span
         class="box"
       >
-        <input
-          type="checkbox"
-        />
         <span
           class="indeterminateLine"
         />

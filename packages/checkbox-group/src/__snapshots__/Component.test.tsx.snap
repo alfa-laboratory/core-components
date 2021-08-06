@@ -19,13 +19,12 @@ Object {
           <label
             class="component s start my-checkbox checkbox"
           >
+            <input
+              type="checkbox"
+            />
             <span
               class="box"
-            >
-              <input
-                type="checkbox"
-              />
-            </span>
+            />
             <span
               class="content"
             >
@@ -39,13 +38,12 @@ Object {
           <label
             class="component s start checkbox"
           >
+            <input
+              type="checkbox"
+            />
             <span
               class="box"
-            >
-              <input
-                type="checkbox"
-              />
-            </span>
+            />
             <span
               class="content"
             >
@@ -59,13 +57,12 @@ Object {
           <label
             class="component s start checkbox"
           >
+            <input
+              type="checkbox"
+            />
             <span
               class="box"
-            >
-              <input
-                type="checkbox"
-              />
-            </span>
+            />
             <span
               class="content"
             >
@@ -96,13 +93,12 @@ Object {
         <label
           class="component s start my-checkbox checkbox"
         >
+          <input
+            type="checkbox"
+          />
           <span
             class="box"
-          >
-            <input
-              type="checkbox"
-            />
-          </span>
+          />
           <span
             class="content"
           >
@@ -116,13 +112,12 @@ Object {
         <label
           class="component s start checkbox"
         >
+          <input
+            type="checkbox"
+          />
           <span
             class="box"
-          >
-            <input
-              type="checkbox"
-            />
-          </span>
+          />
           <span
             class="content"
           >
@@ -136,13 +131,12 @@ Object {
         <label
           class="component s start checkbox"
         >
+          <input
+            type="checkbox"
+          />
           <span
             class="box"
-          >
-            <input
-              type="checkbox"
-            />
-          </span>
+          />
           <span
             class="content"
           >
@@ -230,13 +224,12 @@ Object {
           <label
             class="component s start my-checkbox checkbox"
           >
+            <input
+              type="checkbox"
+            />
             <span
               class="box"
-            >
-              <input
-                type="checkbox"
-              />
-            </span>
+            />
             <span
               class="content"
             >
@@ -250,13 +243,12 @@ Object {
           <label
             class="component s start checkbox"
           >
+            <input
+              type="checkbox"
+            />
             <span
               class="box"
-            >
-              <input
-                type="checkbox"
-              />
-            </span>
+            />
             <span
               class="content"
             >
@@ -270,13 +262,12 @@ Object {
           <label
             class="component s start checkbox"
           >
+            <input
+              type="checkbox"
+            />
             <span
               class="box"
-            >
-              <input
-                type="checkbox"
-              />
-            </span>
+            />
             <span
               class="content"
             >
@@ -311,13 +302,12 @@ Object {
         <label
           class="component s start my-checkbox checkbox"
         >
+          <input
+            type="checkbox"
+          />
           <span
             class="box"
-          >
-            <input
-              type="checkbox"
-            />
-          </span>
+          />
           <span
             class="content"
           >
@@ -331,13 +321,12 @@ Object {
         <label
           class="component s start checkbox"
         >
+          <input
+            type="checkbox"
+          />
           <span
             class="box"
-          >
-            <input
-              type="checkbox"
-            />
-          </span>
+          />
           <span
             class="content"
           >
@@ -351,13 +340,12 @@ Object {
         <label
           class="component s start checkbox"
         >
+          <input
+            type="checkbox"
+          />
           <span
             class="box"
-          >
-            <input
-              type="checkbox"
-            />
-          </span>
+          />
           <span
             class="content"
           >
@@ -449,13 +437,12 @@ Object {
           <label
             class="component s start my-checkbox checkbox"
           >
+            <input
+              type="checkbox"
+            />
             <span
               class="box"
-            >
-              <input
-                type="checkbox"
-              />
-            </span>
+            />
             <span
               class="content"
             >
@@ -486,13 +473,12 @@ Object {
         <label
           class="component s start my-checkbox checkbox"
         >
+          <input
+            type="checkbox"
+          />
           <span
             class="box"
-          >
-            <input
-              type="checkbox"
-            />
-          </span>
+          />
           <span
             class="content"
           >

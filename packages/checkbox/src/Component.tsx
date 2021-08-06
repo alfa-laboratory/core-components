@@ -122,16 +122,15 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                 })}
                 ref={mergeRefs([labelRef, ref])}
             >
+                <input
+                    type='checkbox'
+                    onChange={handleChange}
+                    disabled={disabled || inactive}
+                    checked={checked}
+                    data-test-id={dataTestId}
+                    {...restProps}
+                />
                 <span className={styles.box}>
-                    <input
-                        type='checkbox'
-                        onChange={handleChange}
-                        disabled={disabled || inactive}
-                        checked={checked}
-                        data-test-id={dataTestId}
-                        {...restProps}
-                    />
-
                     {checked && <CheckedIcon className={styles.checkedIcon} />}
 
                     {indeterminate && !checked && <span className={styles.indeterminateLine} />}
