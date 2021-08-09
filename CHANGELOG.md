@@ -1,3 +1,16 @@
+# [19.6.0](https://github.com/alfa-laboratory/core-components/compare/v19.5.0...v19.6.0) (2021-08-09)
+
+
+### Bug Fixes
+
+* **attach:** fix drag counter & styles ([#786](https://github.com/alfa-laboratory/core-components/issues/786)) ([b075725](https://github.com/alfa-laboratory/core-components/commit/b0757250ea57a6e5db64a5026315f8837e8a3303))
+* **checkbox:** fix layout ([#790](https://github.com/alfa-laboratory/core-components/issues/790)) ([8aa18b4](https://github.com/alfa-laboratory/core-components/commit/8aa18b48167eeb5df225ff854d3ca337cd43d4f2))
+
+
+### Features
+
+* **attach:** add additional classNames props ([#783](https://github.com/alfa-laboratory/core-components/issues/783)) ([bc8e865](https://github.com/alfa-laboratory/core-components/commit/bc8e86512a95b8690d2115a71a299c19195fa58d))
+
 # [19.5.0](https://github.com/alfa-laboratory/core-components/compare/v19.4.0...v19.5.0) (2021-08-04)
 
 
