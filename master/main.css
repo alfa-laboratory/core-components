@@ -4546,7 +4546,6 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 }
 .dragOver_2t8-h .overlay_2f10r {
     opacity: 1;
-    pointer-events: all;
 }
 .error_NGTqS:after {
     /* https://kovart.github.io/dashed-border-generator/ */
