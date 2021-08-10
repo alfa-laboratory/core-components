@@ -251,9 +251,7 @@ export function useLazyLoading({
     );
 
     const renderOption = useCallback(
-        props => (
-            <Option {...props} Checkmark={null} highlighted={loading ? false : props.highlighted} />
-        ),
+        props => <Option {...props} highlighted={loading ? false : props.highlighted} />,
         [loading],
     );
 
