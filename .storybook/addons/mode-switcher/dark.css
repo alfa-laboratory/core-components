@@ -1,8 +1,4 @@
-@import '../../../packages/themes/src/mixins/dark.css';
-
-:root {
-    @mixin theme-dark;
-}
+@import '../../../packages/themes/src/dark.css';
 
 body {
     background: var(--color-dark-bg-primary);

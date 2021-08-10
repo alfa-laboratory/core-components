@@ -1,16 +1,4 @@
-@import '../../../../themes/src/default.css';
-
 @define-mixin slider-click {
-    /* core vars */
-    --color-light-graphic-neutral: #dbdee1;
-    --color-light-graphic-positive: #2fc26e;
-    --border-radius-s: 4px;
-    --shadow-xs-hard: 0 0 4px rgba(11, 31, 53, 0.02), 0 2px 4px rgba(11, 31, 53, 0.04),
-        0 2px 4px rgba(11, 31, 53, 0.16);
-    --color-light-border-key-inverted: #fff;
-    --color-light-graphic-positive-shade-10: color-mod(#2fc26e shade(10%));
-    --color-light-graphic-neutral-shade-10: color-mod(#dbdee1 shade(10%));
-
     /* progress */
     --slider-progress-background: var(--color-light-graphic-neutral);
     --slider-progress-color: var(--color-light-graphic-positive);

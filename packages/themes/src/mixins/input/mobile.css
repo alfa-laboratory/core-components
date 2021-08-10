@@ -1,12 +1,4 @@
-@import '../../../../themes/src/default.css';
-
 @define-mixin input-mobile {
-    /* core vars */
-    --color-light-text-primary: #000;
-    --color-light-text-negative: #d91d0b;
-    --color-light-text-tertiary-transparent: rgba(60, 60, 67, 0.3);
-    --color-light-text-link: #0072ef;
-
     /* theme */
     --input-error-color: var(--color-light-text-negative);
     --input-error-icon-display: none;

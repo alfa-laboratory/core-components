@@ -1,5 +1,3 @@
-@import '../../../../themes/src/default.css';
-
 @define-mixin slider-mobile {
     --slider-progress-background: var(--color-light-graphic-neutral);
     --slider-progress-hover-background: var(--color-light-graphic-neutral);

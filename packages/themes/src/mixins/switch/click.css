@@ -1,9 +1,4 @@
-@import '../../../../themes/src/default.css';
-
 @define-mixin switch-click {
-    /* core vars */
-    --color-light-graphic-positive: #2fc26e;
-
     /* theme */
     --switch-checked-bg-color: var(--color-light-graphic-positive);
     --switch-checked-border-color: transparent;

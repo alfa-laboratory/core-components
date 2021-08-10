@@ -1,10 +1,4 @@
-@import '../../../../themes/src/default.css';
-
 @define-mixin form-control-mobile {
-    /* core vars */
-    --color-light-bg-secondary: #f3f4f5;
-    --border-radius-l: 12px;
-
     /* theme */
     --form-control-border-radius: var(--border-radius-l);
     --form-control-border-bottom: 0;
