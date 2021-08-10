@@ -13,17 +13,9 @@
     --button-inverted-secondary-color: var(--color-light-text-primary-inverted);
     --button-inverted-secondary-base-bg-color: transparent;
     --button-inverted-secondary-base-border-color: var(--color-light-border-key-inverted);
-    --button-inverted-secondary-hover-bg-color: color-mod(
-        var(--color-static-bg-primary-dark) alpha(10%)
-    );
-    --button-inverted-secondary-active-bg-color: color-mod(
-        var(--color-static-bg-primary-dark) alpha(20%)
-    );
-    --button-inverted-secondary-disabled-bg-color: color-mod(
-        var(--color-light-bg-primary) alpha(8%)
-    );
+    --button-inverted-secondary-hover-bg-color: var(--color-static-bg-primary-dark-alpha-10);
+    --button-inverted-secondary-active-bg-color: var(--color-static-bg-primary-dark-alpha-20);
+    --button-inverted-secondary-disabled-bg-color: var(--color-light-bg-primary-alpha-8);
     --button-inverted-secondary-disabled-border-color: transparent;
-    --button-inverted-secondary-disabled-color: color-mod(
-        var(--color-light-text-primary-inverted) alpha(40%)
-    );
+    --button-inverted-secondary-disabled-color: var(--color-light-text-primary-inverted-alpha-40);
 }
