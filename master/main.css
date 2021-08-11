@@ -783,7 +783,7 @@ a.loading_1jKXs {
 .contentContainer_Fo69W.withoutTitle_1Gdjw {
         padding-top: var(--gap-3xs);
     }
-.title_1NrsB + .content_24wrB .contentInner_2asqv {
+.title_1NrsB + .content_24wrB > .contentInner_2asqv {
     padding-top: var(--gap-xs);
 }
 .closer_18TbV,
@@ -13624,6 +13624,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 }
 .component_3G14n {
     width: 100%;
+    max-width: 100%;
     border-radius: var(--modal-border-radius);
 }
 .fullscreen_15z6h {
