@@ -37,7 +37,7 @@ export type FormControlProps = HTMLAttributes<HTMLDivElement> & {
     /**
      * Текст подсказки
      */
-    hint?: string;
+    hint?: ReactNode;
 
     /**
      * Лейбл компонента
