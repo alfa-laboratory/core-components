@@ -1,3 +1,13 @@
+## [19.6.1](https://github.com/alfa-laboratory/core-components/compare/v19.6.0...v19.6.1) (2021-08-11)
+
+
+### Bug Fixes
+
+* **modal:** max-width 100% ([#794](https://github.com/alfa-laboratory/core-components/issues/794)) ([793a765](https://github.com/alfa-laboratory/core-components/commit/793a765e7d5dc251eee810acde4605e139565906))
+* **plate:** alert in plate cascade issue ([#793](https://github.com/alfa-laboratory/core-components/issues/793)) ([dbc20e5](https://github.com/alfa-laboratory/core-components/commit/dbc20e558f2b6452e70052b5abc3faf8533709d4))
+* **select:** remove wron prop passed into renderOption method ([#791](https://github.com/alfa-laboratory/core-components/issues/791)) ([5231813](https://github.com/alfa-laboratory/core-components/commit/523181355ebde537aa802f86c27e867d9261095a))
+* extend hint type to ReactNode ([#792](https://github.com/alfa-laboratory/core-components/issues/792)) ([d02784e](https://github.com/alfa-laboratory/core-components/commit/d02784e392f5ca3a30ae009109fbb6351967f746))
+
 # [19.6.0](https://github.com/alfa-laboratory/core-components/compare/v19.5.0...v19.6.0) (2021-08-09)
 
 
