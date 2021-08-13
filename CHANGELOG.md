@@ -1,3 +1,11 @@
+## [19.6.2](https://github.com/alfa-laboratory/core-components/compare/v19.6.1...v19.6.2) (2021-08-13)
+
+
+### Bug Fixes
+
+* **calendar:** fix min\max ([6bd4944](https://github.com/alfa-laboratory/core-components/commit/6bd49447492b10583973cdfc43350cf8f96c1ecb))
+* **calendar-input:** extends calendarProps type ([8bf4f58](https://github.com/alfa-laboratory/core-components/commit/8bf4f587c1a36471318f7cc02968d1de2a125e11))
+
 ## [19.6.1](https://github.com/alfa-laboratory/core-components/compare/v19.6.0...v19.6.1) (2021-08-11)
 
 
