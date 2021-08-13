@@ -101,7 +101,7 @@ export function useLazyLoading({
                 return {
                     ...state,
                     options: [...state.options, ...action.payload.options],
-                    offset: state.offset + 1,
+                    offset: state.offset + (action.payload.options.length ? 1 : 0),
                     allOptionsLoaded: !action.payload.hasMore,
                     loading: false,
                 };
