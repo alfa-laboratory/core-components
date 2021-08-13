@@ -1,3 +1,10 @@
+## [19.6.3](https://github.com/alfa-laboratory/core-components/compare/v19.6.2...v19.6.3) (2021-08-13)
+
+
+### Bug Fixes
+
+* **select:** lazy loading select ([#797](https://github.com/alfa-laboratory/core-components/issues/797)) ([68b5602](https://github.com/alfa-laboratory/core-components/commit/68b560208ff288657aa1698387c617c7c1449a8d))
+
 ## [19.6.2](https://github.com/alfa-laboratory/core-components/compare/v19.6.1...v19.6.2) (2021-08-13)
 
 
