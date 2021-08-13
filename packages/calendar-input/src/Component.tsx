@@ -46,7 +46,7 @@ export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'>
     /**
      * Доп. пропсы для календаря
      */
-    calendarProps?: CalendarProps;
+    calendarProps?: CalendarProps & Record<string, unknown>;
 
     /**
      * Значение инпута (используется и для календаря)
