@@ -123,7 +123,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
         ref,
     ) => {
         const plateRef = useRef<HTMLDivElement>(null);
-        const buttonsRef = useRef<HTMLDivElement>(null);
+        const contentRef = useRef<HTMLDivElement>(null);
 
         const [focused] = useFocus(plateRef, 'keyboard');
 
@@ -140,13 +140,13 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
 
         const handleClick = useCallback(
             event => {
-                const eventInsideButtons =
-                    buttonsRef.current && buttonsRef.current.contains(event.target);
+                const eventInsideContent =
+                    contentRef.current && contentRef.current.contains(event.target);
 
                 const clickSimilarKeys = ['Enter', ' '].includes(event.key);
 
                 const shouldChangeIsFolded =
-                    !eventInsideButtons && (event.type === 'click' || clickSimilarKeys);
+                    !eventInsideContent && (event.type === 'click' || clickSimilarKeys);
 
                 if (foldable && shouldChangeIsFolded) {
                     if (uncontrolled) {
@@ -178,7 +178,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
 
         const renderButtons = useCallback(
             () => (
-                <div className={cn(styles.buttons, buttonsClassName)} ref={buttonsRef}>
+                <div className={cn(styles.buttons, buttonsClassName)}>
                     {buttons.map((button, index) =>
                         button
                             ? React.cloneElement(button, {
@@ -226,6 +226,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                         {title && <div className={styles.title}>{title}</div>}
                         {hasContent && (
                             <div
+                                ref={contentRef}
                                 className={cn(styles.content, {
                                     [styles.isFolded]: foldable && folded,
                                 })}
