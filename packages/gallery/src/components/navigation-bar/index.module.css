@@ -1,10 +1,32 @@
 @import '../../../../themes/src/default.css';
+@import '../../vars.css';
 
 .container {
     height: 88px;
-    left: 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: blue;
+    background-color: var(--menu-bg-color);
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+    align-content: center;
+    align-items: center;
+    padding: 0 var(--gap-2xl);
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    & > * {
+        margin-right: var(--gap-m);
+    }
+
+    & > *:first-child {
+        margin-left: auto;
+    }
+
+    & > *:last-child {
+        margin-right: auto;
+    }
 }

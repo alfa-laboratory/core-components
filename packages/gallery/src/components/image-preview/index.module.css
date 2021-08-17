@@ -1,0 +1,25 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.activeBorder {
+    height: 56px;
+    padding: var(--gap-2xs);
+    border: 2px solid #fff;
+    border-radius: 11px;
+
+    & > img {
+        opacity: 0.7;
+    }
+}
+
+.imagePreview {
+    height: 56px;
+    width: 56px;
+    border-radius: var(--border-radius-m);
+    cursor: pointer;
+    background-color: var(--image-placeholder-color);
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
