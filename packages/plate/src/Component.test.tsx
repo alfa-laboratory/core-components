@@ -73,6 +73,126 @@ describe('Plate', () => {
         });
     });
 
+    describe('Folded tests', () => {
+        it('should ignore folded and defaultFolded if foldable is false', async () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <Plate foldable={false} folded={true} defaultFolded={true} dataTestId={dataTestId}>
+                    Content
+                </Plate>,
+            );
+
+            expect(getByTestId(dataTestId)).not.toHaveClass('isFolded');
+        });
+
+        it('should ignore folded and defaultFolded if title or children are empty', async () => {
+            const dataTestId = 'test-id';
+            const { getByTestId, rerender } = render(
+                <Plate foldable={true} folded={true} defaultFolded={true} dataTestId={dataTestId}>
+                    Content
+                </Plate>,
+            );
+
+            expect(getByTestId(dataTestId)).not.toHaveClass('isFolded');
+
+            rerender(
+                <Plate
+                    foldable={true}
+                    folded={true}
+                    defaultFolded={true}
+                    title='title'
+                    dataTestId={dataTestId}
+                />,
+            );
+
+            expect(getByTestId(dataTestId)).not.toHaveClass('isFolded');
+        });
+
+        describe('when controlled', () => {
+            it('should be folded/unfolded when folded prop passed', async () => {
+                const dataTestId = 'test-id';
+                const { getByTestId, rerender } = render(
+                    <Plate foldable={true} folded={true} title='title' dataTestId={dataTestId}>
+                        Content
+                    </Plate>,
+                );
+
+                expect(getByTestId(dataTestId)).toHaveClass('isFolded');
+
+                rerender(
+                    <Plate foldable={true} folded={false} title='title' dataTestId={dataTestId}>
+                        Content
+                    </Plate>,
+                );
+
+                expect(getByTestId(dataTestId)).not.toHaveClass('isFolded');
+            });
+        });
+
+        describe('when uncontrolled', () => {
+            it('should be folded when defaultFolded is true', async () => {
+                const dataTestId = 'test-id';
+                const { getByTestId } = render(
+                    <Plate
+                        foldable={true}
+                        defaultFolded={true}
+                        title='title'
+                        dataTestId={dataTestId}
+                    >
+                        Content
+                    </Plate>,
+                );
+
+                expect(getByTestId(dataTestId)).toHaveClass('isFolded');
+            });
+
+            it('should be unfolded when defaultFolded is false', async () => {
+                const dataTestId = 'test-id';
+                const { getByTestId } = render(
+                    <Plate
+                        foldable={true}
+                        defaultFolded={false}
+                        title='title'
+                        dataTestId={dataTestId}
+                    >
+                        Content
+                    </Plate>,
+                );
+
+                expect(getByTestId(dataTestId)).not.toHaveClass('isFolded');
+            });
+
+            it('should be persist folded state when defaultFolded is changed', async () => {
+                const dataTestId = 'test-id';
+                const { getByTestId, rerender } = render(
+                    <Plate
+                        foldable={true}
+                        defaultFolded={true}
+                        title='title'
+                        dataTestId={dataTestId}
+                    >
+                        Content
+                    </Plate>,
+                );
+
+                expect(getByTestId(dataTestId)).toHaveClass('isFolded');
+
+                rerender(
+                    <Plate
+                        foldable={true}
+                        defaultFolded={false}
+                        title='title'
+                        dataTestId={dataTestId}
+                    >
+                        Content
+                    </Plate>,
+                );
+
+                expect(getByTestId(dataTestId)).toHaveClass('isFolded');
+            });
+        });
+    });
+
     describe('Callbacks tests', () => {
         it('should call `onClick` prop', async () => {
             const cb = jest.fn();
@@ -86,6 +206,23 @@ describe('Plate', () => {
             expect(cb).toBeCalledTimes(1);
         });
 
+        it('should call `onToggle` prop', async () => {
+            const cb = jest.fn();
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <Plate foldable={true} onToggle={cb} dataTestId={dataTestId} title='title'>
+                    Content
+                </Plate>,
+            );
+
+            const el = getByTestId(dataTestId);
+            const folderEl = el.querySelector('.folder') as Element;
+
+            fireEvent.click(folderEl);
+
+            expect(cb).toBeCalledTimes(1);
+        });
+
         it('should call `onClose` prop', async () => {
             const cb = jest.fn();
             const dataTestId = 'test-id';
@@ -94,37 +231,23 @@ describe('Plate', () => {
             );
 
             const el = getByTestId(dataTestId);
-            const closeEl = el.querySelector('.closer') as Element;
+            const closeEl = el.querySelector('[aria-label="закрыть"]') as Element;
 
             fireEvent.click(closeEl);
 
             expect(cb).toBeCalledTimes(1);
         });
 
-        it('should hide, if clicked on closer and prop `open` dont`t passed', () => {
+        it('should hide, if clicked on closer', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(<Plate hasCloser={true} dataTestId={dataTestId} />);
 
             const el = getByTestId(dataTestId);
-            const closeEl = el.querySelector('.closer') as Element;
+            const closeEl = el.querySelector('[aria-label="закрыть"]') as Element;
 
             fireEvent.click(closeEl);
 
             expect(el).toHaveClass('isHidden');
-        });
-
-        it('should don`t hide, if clicked on closer and prop `open` is passed (controlled)', () => {
-            const dataTestId = 'test-id';
-            const { getByTestId } = render(
-                <Plate hasCloser={true} dataTestId={dataTestId} open={true} />,
-            );
-
-            const el = getByTestId(dataTestId);
-            const closeEl = el.querySelector('.closer') as Element;
-
-            fireEvent.click(closeEl);
-
-            expect(el).not.toHaveClass('isHidden');
         });
     });
 
