@@ -38,9 +38,14 @@ export type RadioProps = Omit<
     checked?: boolean;
 
     /**
-     * Управление состоянием активен / не активен
+     * Управление состоянием включен / выключен
      */
     disabled?: boolean;
+
+    /**
+     * Управление состоянием активен / неактивен
+     */
+    inactive?: boolean;
 
     /**
      * Html аттрибут name инпута
@@ -86,6 +91,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
             className,
             name,
             disabled,
+            inactive,
             dataTestId,
             label,
             checked,
@@ -113,6 +119,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
             <label
                 className={cn(styles.container, styles[size], styles[align], className, {
                     [styles.disabled]: disabled,
+                    [styles.inactive]: inactive,
                     [styles.checked]: checked,
                     [styles.focused]: focused,
                     [styles.block]: block,
@@ -123,7 +130,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
                     type='radio'
                     onChange={handleChange}
                     data-test-id={dataTestId}
-                    disabled={disabled}
+                    disabled={disabled || inactive}
                     checked={checked}
                     name={name}
                     {...restProps}

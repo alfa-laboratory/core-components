@@ -416,7 +416,7 @@ describe('Select', () => {
         });
 
         it('should transfer props to OptionsList', () => {
-            const spy = jest.spyOn(optionsListModule, 'OptionsList');
+            const spy = jest.spyOn(optionsListModule.OptionsList, 'render' as never);
 
             const optionsListProps: Partial<OptionsListProps> = {
                 emptyPlaceholder: 'list-placeholder',

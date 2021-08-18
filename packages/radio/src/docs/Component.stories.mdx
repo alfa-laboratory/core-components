@@ -12,7 +12,7 @@ import styles from '!!raw-loader!../index.module.css';
 <Meta
     title='Компоненты/Radio'
     component={Radio}
-    parameters={{ 'theme-switcher': { themes: ['click'] } }}
+    parameters={{ 'theme-switcher': { themes: ['click', 'mobile'] } }}
 />
 
 
@@ -24,6 +24,7 @@ import styles from '!!raw-loader!../index.module.css';
         const handleChange = () => setChecked(!checked);
         const size = select('size', ['s', 'm'], 's');
         const disabled = boolean('disabled', false);
+        const inactive = boolean('inactive', false);
         const checkedKnob = boolean('checked', false);
         const block = boolean('block', false);
         const label = text('label', 'Text label')
@@ -33,6 +34,7 @@ import styles from '!!raw-loader!../index.module.css';
         return (
             <Radio
                 disabled={disabled}
+                inactive={inactive}
                 addons={addons}
                 block={block}
                 size={size}

@@ -4,8 +4,10 @@
     /* core vars */
     --color-light-graphic-secondary: #8a8a8e;
     --color-light-graphic-primary: #000;
-    --color-light-graphic-primary-inverted: #f3f4f5;
+    --color-light-graphic-primary-inverted: #fff;
     --color-light-border-key: #000;
+    --color-light-graphic-primary-shade-10: color-mod(#000 shade(10%));
+    --color-light-graphic-primary-shade-30: color-mod(#000 shade(30%));
 
     /* unchecked */
     --radio-bg-color: var(--color-light-graphic-primary-inverted);
@@ -18,8 +20,8 @@
     --radio-active-border-color: var(--color-light-border-key);
 
     /* checked */
-    --radio-checked-hover-bg-color: color-mod(var(--color-light-graphic-primary) shade(10%));
-    --radio-checked-active-bg-color: color-mod(var(--color-light-graphic-primary) shade(30%));
+    --radio-checked-hover-bg-color: var(--color-light-graphic-primary-shade-10);
+    --radio-checked-active-bg-color: var(--color-light-graphic-primary-shade-30);
     --radio-checked-bg-color: var(--color-light-graphic-primary);
 
     /* icon */

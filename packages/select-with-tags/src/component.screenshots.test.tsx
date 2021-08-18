@@ -16,7 +16,9 @@ describe('SelectWithTags | interactions tests', () => {
                 knobs: {},
             });
 
-            const { browser, context, page, css } = await openBrowserPage(pageUrl);
+            const { browser, context, page, css } = await openBrowserPage(
+                `${pageUrl}&theme=${theme}`,
+            );
 
             const viewport = { width: 420, height: 768 };
 
@@ -27,7 +29,6 @@ describe('SelectWithTags | interactions tests', () => {
                     page,
                     expect,
                     css,
-                    theme,
                     viewport,
                     matchImageSnapshotOptions: {
                         failureThresholdType: 'percent',

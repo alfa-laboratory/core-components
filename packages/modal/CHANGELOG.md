@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@2.0.4...@alfalab/core-components-modal@2.0.5) (2021-08-11)
+
+
+### Bug Fixes
+
+* **modal:** max-width 100% ([#794](https://github.com/alfa-laboratory/core-components/issues/794)) ([793a765](https://github.com/alfa-laboratory/core-components/commit/793a765e7d5dc251eee810acde4605e139565906))
+
+
+
+
+
+## [2.0.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@2.0.3...@alfalab/core-components-modal@2.0.4) (2021-08-04)
+
+**Note:** Version bump only for package @alfalab/core-components-modal
+
+
+
+
+
 ## [2.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@2.0.2...@alfalab/core-components-modal@2.0.3) (2021-07-23)
 
 **Note:** Version bump only for package @alfalab/core-components-modal

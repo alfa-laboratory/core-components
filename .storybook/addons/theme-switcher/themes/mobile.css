@@ -1,0 +1,5 @@
+@import '../../../../packages/themes/src/mixins/mobile.css';
+
+:root {
+    @mixin theme-mobile;
+}

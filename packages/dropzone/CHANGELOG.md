@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-dropzone@2.0.1...@alfalab/core-components-dropzone@2.0.2) (2021-08-09)
+
+
+### Bug Fixes
+
+* **attach:** fix drag counter & styles ([#786](https://github.com/alfa-laboratory/core-components/issues/786)) ([b075725](https://github.com/alfa-laboratory/core-components/commit/b0757250ea57a6e5db64a5026315f8837e8a3303))
+
+
+
+
+
 ## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-dropzone@2.0.0...@alfalab/core-components-dropzone@2.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-dropzone

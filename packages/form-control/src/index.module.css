@@ -7,7 +7,7 @@
     --form-control-xl-min-height: var(--size-xl-height);
     --form-control-border-radius: 4px 4px 0 0;
     --form-control-border-bottom: 1px solid var(--color-light-border-secondary-inverted);
-    --form-control-bg-color: color-mod(var(--color-light-bg-primary-inverted) alpha(7%));
+    --form-control-bg-color: var(--color-light-bg-primary-inverted-alpha-7);
     --form-control-bg-backdrop-filter: unset;
     --form-control-color: var(--color-light-text-primary);
     --form-control-label-color: var(--color-light-text-secondary);
@@ -23,17 +23,17 @@
     --form-control-sub-paddings: 0;
 
     /* disabled */
-    --form-control-disabled-bg-color: color-mod(var(--color-light-bg-primary-inverted) alpha(15%));
+    --form-control-disabled-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
     --form-control-disabled-border-bottom: 1px dashed var(--color-light-border-secondary-inverted);
     --form-control-disabled-opacity: 1;
     --form-control-disabled-color: var(--color-light-text-secondary);
 
     /* focus */
     --form-control-focus-border-bottom: 1px solid var(--color-light-border-key);
-    --form-control-focus-bg-color: color-mod(var(--color-light-bg-primary-inverted) alpha(15%));
+    --form-control-focus-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
 
     /* hover */
-    --form-control-hover-bg-color: color-mod(var(--color-light-bg-primary-inverted) alpha(15%));
+    --form-control-hover-bg-color: var(--color-light-bg-primary-inverted-alpha-15);
 
     /* error */
     --form-control-error-color: var(--color-light-text-negative);

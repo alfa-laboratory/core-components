@@ -6,6 +6,7 @@
 
 .component {
     background-color: transparent;
+    color: var(--color-light-text-primary);
 }
 
 .inner {

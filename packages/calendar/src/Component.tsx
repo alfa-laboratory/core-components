@@ -1,6 +1,6 @@
 import React, { forwardRef, useCallback, useMemo, useState } from 'react';
 import cn from 'classnames';
-import { startOfMonth } from 'date-fns';
+import { startOfDay, startOfMonth, endOfDay } from 'date-fns';
 import { useDidUpdateEffect } from '@alfalab/hooks';
 import { Header } from './components/header';
 import { DaysTable } from './components/days-table';
@@ -129,11 +129,12 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             monthTimestamp,
         ]);
 
-        const minDate = useMemo(() => (minDateTimestamp ? new Date(minDateTimestamp) : undefined), [
-            minDateTimestamp,
-        ]);
+        const minDate = useMemo(
+            () => (minDateTimestamp ? startOfDay(minDateTimestamp) : undefined),
+            [minDateTimestamp],
+        );
 
-        const maxDate = useMemo(() => (maxDateTimestamp ? new Date(maxDateTimestamp) : undefined), [
+        const maxDate = useMemo(() => (maxDateTimestamp ? endOfDay(maxDateTimestamp) : undefined), [
             maxDateTimestamp,
         ]);
 
