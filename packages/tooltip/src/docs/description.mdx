@@ -1,4 +1,35 @@
-Компонент `Tooltip`.
+import { Plate } from '@alfalab/core-components-plate';
+import { Badge } from '@alfalab/core-components-badge';
+import { List } from '@alfalab/core-components-list';
+import { InformationCircleMIcon } from '@alfalab/icons-glyph/InformationCircleMIcon';
+
+### Компонент `Tooltip`.
+
+<div style={{ marginBottom: '16px' }}>
+    <Plate
+        view='common'
+        leftAddons={
+            <Badge view='icon' iconColor='secondary' content={<InformationCircleMIcon />} />
+        }
+    >
+        <List>
+            <span>
+                В мобильной версии следует использовать компонент{' '}
+                <a href="/core-components/master/?path=/docs/компоненты-bottomsheet--bottom-sheet">
+                    BottomSheet
+                </a>
+            </span>
+            <span>
+                В пакете таже доступна <a href="#tooltip-responsive">адаптивная версия тултипа</a>:
+                на мобильных устройствах отрендерится{' '}
+                <a href="/core-components/master/?path=/docs/компоненты-bottomsheet--bottom-sheet">
+                    BottomSheet
+                </a>, а на десктопе обычный тултип
+            </span>
+        </List>
+    </Plate>
+</div>
+
 Если тултип не помещается в переданной позиции (position),
 то он отобразится с противоположной стороны (если там будет место).
 
@@ -32,7 +63,7 @@
 </div>
 ```
 
-Также возможен вид `Hint`.
+### Также возможен вид `Hint`.
 
 ```tsx live
 <div
@@ -52,7 +83,9 @@
 </div>
 ```
 
-Компонент `TooltipResponsive`.
+<a name="tooltip-responsive" />
+
+### Компонент `TooltipResponsive`.
 
 Адаптивный тултип (на мобильных устройствах отобразится BottomSheet).
 
