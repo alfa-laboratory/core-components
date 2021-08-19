@@ -277,6 +277,11 @@ export type BaseSelectProps = {
      * Показывать OptionsList, если он пустой
      */
     showEmptyOptionsList?: boolean;
+
+    /**
+     * Позволяет установить состояние открыто/закрыто поповера
+     */
+    open?: boolean;
 };
 
 // TODO: использовать InputProps

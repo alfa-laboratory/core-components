@@ -161,6 +161,20 @@ describe('Select', () => {
             expect(getByRole(ROLE_LISTBOX)).toBeInTheDocument();
         });
 
+        it('should be open with `open===true`', async () => {
+            const { getByRole } = render(<Select {...baseProps} options={options} open={true} />);
+
+            expect(getByRole(ROLE_LISTBOX)).toBeInTheDocument();
+        });
+
+        it('should be closed with `open===false`', async () => {
+            const { queryByRole } = render(
+                <Select {...baseProps} options={options} open={false} />,
+            );
+
+            expect(queryByRole(ROLE_LISTBOX)).not.toBeInTheDocument();
+        });
+
         it('should allow multiple select', async () => {
             const optionsToSelect = [options[2].content, options[3].content, options[0].content];
             const expectedResult = optionsToSelect.join(', ');

@@ -73,6 +73,7 @@ export const BaseSelect = forwardRef(
             updatePopover,
             showEmptyOptionsList = false,
             visibleOptions,
+            open,
         }: BaseSelectProps,
         ref,
     ) => {
@@ -127,7 +128,7 @@ export const BaseSelect = forwardRef(
         } = useMultipleSelection(useMultipleSelectionProps);
 
         const {
-            isOpen: open,
+            isOpen: openState,
             getMenuProps,
             getInputProps,
             getItemProps,
@@ -136,6 +137,7 @@ export const BaseSelect = forwardRef(
             highlightedIndex,
             toggleMenu,
             openMenu,
+            closeMenu,
         } = useCombobox<OptionShape>({
             id,
             circularNavigation,
@@ -190,6 +192,11 @@ export const BaseSelect = forwardRef(
             },
         });
 
+        useEffect(() => {
+            if (open === true && openMenu && !openState) openMenu();
+            if (open === false && closeMenu && openState) closeMenu();
+        }, [open, openMenu, openState, closeMenu]);
+
         const menuProps = (getMenuProps as (options: object, additional: object) => void)(
             { ref: listRef },
             { suppressRefError: true },
@@ -199,7 +206,7 @@ export const BaseSelect = forwardRef(
         const handleFieldFocus = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
             if (onFocus) onFocus(event);
 
-            if (autocomplete && !open) {
+            if (autocomplete && !openState) {
                 openMenu();
             }
         };
@@ -218,7 +225,7 @@ export const BaseSelect = forwardRef(
 
         const handleFieldKeyDown = (event: KeyboardEvent<HTMLDivElement | HTMLInputElement>) => {
             inputProps.onKeyDown(event);
-            if (autocomplete && !open && event.key.length === 1) {
+            if (autocomplete && !openState && event.key.length === 1) {
                 // Для автокомплита - открываем меню при начале ввода
                 openMenu();
             }
@@ -231,7 +238,7 @@ export const BaseSelect = forwardRef(
             ) {
                 // Открываем\закрываем меню по нажатию enter или пробела
                 event.preventDefault();
-                if (!open || highlightedIndex === -1) toggleMenu();
+                if (!openState || highlightedIndex === -1) toggleMenu();
             }
         };
 
@@ -317,9 +324,14 @@ export const BaseSelect = forwardRef(
             return () => {
                 observer.disconnect();
             };
-        }, [calcOptionsListWidth, open, optionsListWidth]);
+        }, [calcOptionsListWidth, openState, optionsListWidth]);
 
-        useLayoutEffect(calcOptionsListWidth, [open, optionsListWidth, options, selectedItems]);
+        useLayoutEffect(calcOptionsListWidth, [
+            openState,
+            optionsListWidth,
+            options,
+            selectedItems,
+        ]);
 
         const renderValue = useCallback(
             () =>
@@ -367,12 +379,12 @@ export const BaseSelect = forwardRef(
                     selectedMultiple={selectedItems}
                     selected={selectedItems[0]}
                     multiple={multiple}
-                    open={open}
+                    open={openState}
                     disabled={disabled}
                     size={size}
                     placeholder={placeholder}
                     label={label && <span {...getLabelProps()}>{label}</span>}
-                    Arrow={Arrow && <Arrow open={open} />}
+                    Arrow={Arrow && <Arrow open={openState} />}
                     error={error}
                     hint={hint}
                     valueRenderer={valueRenderer}
@@ -398,7 +410,7 @@ export const BaseSelect = forwardRef(
 
                 {!nativeSelect && (
                     <Popover
-                        open={open}
+                        open={openState}
                         withTransition={false}
                         anchorElement={fieldRef.current as HTMLElement}
                         position={popoverPosition}
@@ -415,7 +427,7 @@ export const BaseSelect = forwardRef(
                                     {...optionsListProps}
                                     flatOptions={flatOptions}
                                     highlightedIndex={highlightedIndex}
-                                    open={open}
+                                    open={openState}
                                     size={size}
                                     options={options}
                                     Optgroup={Optgroup}
