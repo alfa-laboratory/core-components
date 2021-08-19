@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-textarea@6.0.3...@alfalab/core-components-textarea@6.0.4) (2021-08-11)
+
+
+### Bug Fixes
+
+* extend hint type to ReactNode ([#792](https://github.com/alfa-laboratory/core-components/issues/792)) ([d02784e](https://github.com/alfa-laboratory/core-components/commit/d02784e392f5ca3a30ae009109fbb6351967f746))
+
+
+
+
+
 ## [6.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-textarea@6.0.2...@alfalab/core-components-textarea@6.0.3) (2021-08-04)
 
 **Note:** Version bump only for package @alfalab/core-components-textarea

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-form-control@7.2.0...@alfalab/core-components-form-control@7.2.1) (2021-08-11)
+
+
+### Bug Fixes
+
+* extend hint type to ReactNode ([#792](https://github.com/alfa-laboratory/core-components/issues/792)) ([d02784e](https://github.com/alfa-laboratory/core-components/commit/d02784e392f5ca3a30ae009109fbb6351967f746))
+
+
+
+
+
 # [7.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-form-control@7.1.0...@alfalab/core-components-form-control@7.2.0) (2021-08-04)
 
 

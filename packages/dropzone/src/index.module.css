@@ -46,7 +46,6 @@
 
 .dragOver .overlay {
     opacity: 1;
-    pointer-events: all;
 }
 
 .error:after {

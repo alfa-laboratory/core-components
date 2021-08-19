@@ -103,7 +103,7 @@
     }
 }
 
-.title + .content .contentInner {
+.title + .content > .contentInner {
     padding-top: var(--gap-xs);
 }
 
