@@ -1,26 +1,92 @@
-import React from 'react';
+import React, { KeyboardEventHandler, useCallback, useContext, useEffect, useRef } from 'react';
 
 import { ImagePreview } from '../image-preview';
 import styles from './index.module.css';
 
+import { getImageKey } from '../../utils';
+import { GalleryContext } from '../../context';
+
+const MIN_SCROLL_STEP = 24;
+
 export const NavigationBar: React.FC = () => {
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    const { images, currentSlideIndex, setCurrentSlideIndex, getSwiper } = useContext(
+        GalleryContext,
+    );
+
+    const swiper = getSwiper();
+
+    const handlePreviewSelect = (index: number) => {
+        setCurrentSlideIndex(index);
+
+        if (swiper) {
+            swiper.slideTo(index);
+        }
+    };
+
+    const scroll = useCallback((scrollValue: number) => {
+        if (containerRef.current) {
+            containerRef.current.scroll({
+                top: 0,
+                left: containerRef.current.scrollLeft + scrollValue,
+                behavior: 'smooth',
+            });
+        }
+    }, []);
+
+    const handlePreviewPosition = useCallback(
+        (preview: Element, containerWidth: number) => {
+            const { right, left } = preview.getBoundingClientRect();
+
+            if (right > containerWidth) {
+                const scrollValue = right - containerWidth + MIN_SCROLL_STEP;
+
+                scroll(scrollValue);
+            } else if (left < 0) {
+                const scrollValue = left - MIN_SCROLL_STEP;
+
+                scroll(scrollValue);
+            }
+        },
+        [scroll],
+    );
+
+    const handleKeyDown: KeyboardEventHandler = event => {
+        if (['ArrowLeft', 'ArrowRight'].includes(event.key)) {
+            event.preventDefault();
+        }
+    };
+
+    useEffect(() => {
+        if (containerRef.current) {
+            const { width: containerWidth } = containerRef.current.getBoundingClientRect();
+
+            const activePreview = containerRef.current.children[currentSlideIndex];
+
+            if (activePreview) {
+                handlePreviewPosition(activePreview, containerWidth);
+            }
+        }
+    }, [currentSlideIndex, handlePreviewPosition, scroll]);
+
     return (
-        <div className={styles.container}>
-            <ImagePreview src='https://picsum.photos/3000' />
-            <ImagePreview src='https://picsum.photos/3000' />
-            <ImagePreview src='https://picsum.photos/3000' />
-            <ImagePreview src='https://picsum.photos/3000' />
-            <ImagePreview src='https://picsum.photos/3000' />
-            <ImagePreview src='https://interactive-exampls.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg' />
-            <ImagePreview src='https://picsum.photos/3000' />
-            <ImagePreview src='https://picsum.photos/3000' />
-            <ImagePreview src='https://picsum.photos/3000' />
-            <ImagePreview src='https://picsum.photos/3000' />
-            <ImagePreview src='https://picsum.photos/3000' />
-            <ImagePreview src='https://picsum.photos/3000' />
-            <ImagePreview src='https://picsum.photos/3000' />
-            <ImagePreview src='https://picsum.photos/3000' />
-            <ImagePreview active={true} src='https://picsum.photos/200' />
+        // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+        <div className={styles.component} ref={containerRef} onKeyDown={handleKeyDown}>
+            {images.map((image, index) => {
+                const active = index === currentSlideIndex;
+
+                return (
+                    <ImagePreview
+                        key={getImageKey(image, index)}
+                        image={image}
+                        active={active}
+                        index={index}
+                        onSelect={handlePreviewSelect}
+                        className={styles.preview}
+                    />
+                );
+            })}
         </div>
     );
 };

@@ -9,5 +9,11 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../typography" }, { "path": "../tooltip" }]
+    "references": [
+        { "path": "../typography" },
+        { "path": "../tooltip" },
+        { "path": "../icon-button" },
+        { "path": "../typography" },
+        { "path": "../base-modal" }
+    ]
 }

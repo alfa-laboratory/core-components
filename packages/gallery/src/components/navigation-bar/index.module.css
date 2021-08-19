@@ -1,32 +1,32 @@
 @import '../../../../themes/src/default.css';
-@import '../../vars.css';
 
-.container {
-    height: 88px;
-    background-color: var(--menu-bg-color);
+.component {
     display: flex;
-    overflow-x: auto;
     flex-wrap: nowrap;
-    box-sizing: border-box;
     align-content: center;
     align-items: center;
-    padding: 0 var(--gap-2xl);
-
+    flex-shrink: 0;
+    overflow-x: auto;
+    box-sizing: border-box;
+    padding: 10px var(--gap-xl);
     -ms-overflow-style: none;
+    background-color: var(--color-light-bg-tertiary-inverted);
     scrollbar-width: none;
+
     &::-webkit-scrollbar {
         display: none;
     }
+}
 
-    & > * {
-        margin-right: var(--gap-m);
-    }
+.preview {
+    flex-shrink: 0;
+    margin: 0 var(--gap-3xs);
 
-    & > *:first-child {
+    &:first-child {
         margin-left: auto;
     }
 
-    & > *:last-child {
+    &:last-child {
         margin-right: auto;
     }
 }

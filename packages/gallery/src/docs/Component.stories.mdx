@@ -1,7 +1,8 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { Button } from '@alfalab/core-components-button';
 
-import { Gallery } from '../Component';
+import { Gallery } from '..';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -15,8 +16,86 @@ import Changelog from '../../CHANGELOG.md';
 <!-- Canvas -->
 
 <Story name='Gallery'>
-    <Gallery>
-    </Gallery>
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        return (
+            <div style={{ width: '100%', height: 'calc(100vh - 50px)'}}>
+                <Button view="primary" onClick={() => { setOpen(true) }}>Открыть галерею</Button>
+                <Gallery
+                    open={open}
+                    onClose={() => {
+                        setOpen(false);
+                    }}
+                    images={[
+                        {
+                            name: 'File 3.jpg',
+                            src: 'https://picsum.photos/500/1500'
+                        },
+                        {
+                            name: 'File 1.jpg',
+                            src: 'https://picsum.photos/1100/500'
+                        },
+                        {
+                            name: 'File 2.jpg',
+                            src: 'https://picsum.photos/600/1000'
+                        },
+                        {
+                            name: 'File 3.jpg',
+                            src: 'https://picsum.photos/500/1700'
+                        },
+                        {
+                            name: 'File 1.jpg',
+                            src: 'https://picsum.photos/1200/500'
+                        },
+                        {
+                            name: 'File 2.jpg',
+                            src: 'https://picsum.photos/1500/1000'
+                        },
+                        {
+                            name: 'File 3.jpg',
+                            src: 'https://picsum.photos/1500/200'
+                        },
+                        {
+                            name: 'File1File1File1File1File1File1File1File1File1File1File1File1File1File1asdasdsad.jpg',
+                            src: 'https://picsum.photos/100/200'
+                        },
+                        {
+                            name: 'File 2.jpg',
+                            src: 'https://picsum.ru'
+                        },
+                        {
+                            name: 'File 2.png',
+                            src: 'https://clipart-best.com/img/bush/bush-clip-art-22.png'
+                        },
+                        {
+                            name: 'File 1.jpg',
+                            src: 'https://picsum.photos/1100/700'
+                        },
+                        {
+                            name: 'File 2.jpg',
+                            src: 'https://picsum.photos/550/750'
+                        },
+                        {
+                            name: 'File 3.jpg',
+                            src: 'https://picsum.photos/650/1400'
+                        },
+                        {
+                            name: 'File 1.jpg',
+                            src: 'https://picsum.photos/1150/750'
+                        },
+                        {
+                            name: 'File 2.jpg',
+                            src: 'https://picsum.photos/900/900'
+                        },
+                        {
+                            name: 'File 3.jpg',
+                            src: 'https://picsum.photos/1000/1000'
+                        },
+                    ]}
+                />
+            </div>
+        )
+    })}
 </Story>
 
 <!-- Docs -->

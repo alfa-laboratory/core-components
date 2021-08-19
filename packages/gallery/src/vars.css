@@ -1,4 +1,3 @@
 :root {
-    --menu-bg-color: var(--color-light-bg-tertiary-inverted);
-    --image-placeholder-color: #e9eaeb;
+    --gallery-broken-image-icon: url('https://alfabank.st/icons/art_no-image_s.svg');
 }
