@@ -22,6 +22,8 @@
     --color-dark-border-secondary-inverted: #6d7986;
     --color-dark-border-tertiary: #233549;
     --color-dark-border-tertiary-inverted: #b6bcc3;
+    --color-dark-border-underline: #6d7986;
+    --color-dark-border-underline-inverted: #b6bcc3;
     --color-dark-graphic-accent: #ef3124;
     --color-dark-graphic-attention: #e58933;
     --color-dark-graphic-link: #007aff;
@@ -34,6 +36,7 @@
     --color-dark-graphic-secondary-inverted: #233549;
     --color-dark-graphic-tertiary: #6d7986;
     --color-dark-specialbg-component: #485767;
+    --color-dark-specialbg-component-inverted: rgba(11, 31, 53, 0.07);
     --color-dark-specialbg-nulled: rgba(11, 31, 53, 0);
     --color-dark-specialbg-primary-grouped: #0b1f35;
     --color-dark-specialbg-secondary-grouped: #233549;
@@ -78,6 +81,8 @@
     --color-light-border-secondary-inverted: #b6bcc3;
     --color-light-border-tertiary: #f3f4f5;
     --color-light-border-tertiary-inverted: #6d7986;
+    --color-light-border-underline: #b6bcc3;
+    --color-light-border-underline-inverted: #6d7986;
     --color-light-graphic-accent: #ef3124;
     --color-light-graphic-attention: #e58933;
     --color-light-graphic-link: #007aff;
