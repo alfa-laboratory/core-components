@@ -18,6 +18,10 @@
     & .info {
         margin-top: 0;
     }
+
+    & .customContent {
+        margin-bottom: var(--gap-2xl);
+    }
 }
 
 .info {
