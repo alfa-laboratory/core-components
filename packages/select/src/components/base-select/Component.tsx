@@ -73,6 +73,7 @@ export const BaseSelect = forwardRef(
             updatePopover,
             showEmptyOptionsList = false,
             visibleOptions,
+            popoverActionsRef,
         }: BaseSelectProps,
         ref,
     ) => {
@@ -136,6 +137,7 @@ export const BaseSelect = forwardRef(
             highlightedIndex,
             toggleMenu,
             openMenu,
+            closeMenu,
         } = useCombobox<OptionShape>({
             id,
             circularNavigation,
@@ -189,6 +191,17 @@ export const BaseSelect = forwardRef(
                 }
             },
         });
+
+        React.useEffect(() => {
+            if (popoverActionsRef) {
+                // eslint-disable-next-line no-param-reassign
+                popoverActionsRef.current = {
+                    openMenu,
+                    closeMenu,
+                };
+            }
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [openMenu, closeMenu]);
 
         const menuProps = (getMenuProps as (options: object, additional: object) => void)(
             { ref: listRef },

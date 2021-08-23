@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MutableRefObject } from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -159,6 +159,27 @@ describe('Select', () => {
             );
 
             expect(getByRole(ROLE_LISTBOX)).toBeInTheDocument();
+        });
+
+        it('should act correctly by calling popoverActionsRef functions', async () => {
+            const popoverActionsRef = { current: {} } as MutableRefObject<{
+                closeMenu: () => void;
+                openMenu: () => void;
+            }>;
+
+            const { getByRole, queryByRole } = render(
+                <Select {...baseProps} options={options} popoverActionsRef={popoverActionsRef} />,
+            );
+
+            // eslint-disable-next-line no-unused-expressions
+            popoverActionsRef?.current?.openMenu?.();
+
+            expect(getByRole(ROLE_LISTBOX)).toBeInTheDocument();
+
+            // eslint-disable-next-line no-unused-expressions
+            popoverActionsRef?.current?.closeMenu?.();
+
+            expect(queryByRole(ROLE_LISTBOX)).not.toBeInTheDocument();
         });
 
         it('should allow multiple select', async () => {

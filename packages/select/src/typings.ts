@@ -6,6 +6,7 @@ import {
     FocusEvent,
     MouseEvent,
     ReactElement,
+    MutableRefObject,
 } from 'react';
 import { PopoverProps } from '@alfalab/core-components-popover';
 import { InputProps } from '@alfalab/core-components-input';
@@ -277,6 +278,11 @@ export type BaseSelectProps = {
      * Показывать OptionsList, если он пустой
      */
     showEmptyOptionsList?: boolean;
+
+    /**
+     * Объект для получения доступа к функциям открытия и закрытия поповера
+     */
+    popoverActionsRef?: MutableRefObject<{ closeMenu: () => void; openMenu: () => void }>;
 };
 
 // TODO: использовать InputProps
