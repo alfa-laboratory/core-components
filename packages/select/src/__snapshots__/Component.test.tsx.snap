@@ -17,12 +17,12 @@ Object {
           class="component"
         >
           <div
-            class="component s block hasRightAddons"
+            class="component component s block hasRightAddons"
           >
             <div
               aria-controls="downshift-1-menu"
               aria-labelledby="downshift-1-label"
-              class="field inner"
+              class="field inner inner"
               id="downshift-0-input"
               tabindex="0"
             >
@@ -67,12 +67,12 @@ Object {
         class="component"
       >
         <div
-          class="component s block hasRightAddons"
+          class="component component s block hasRightAddons"
         >
           <div
             aria-controls="downshift-1-menu"
             aria-labelledby="downshift-1-label"
-            class="field inner"
+            class="field inner inner"
             id="downshift-0-input"
             tabindex="0"
           >
@@ -168,12 +168,12 @@ exports[`Select Snapshots tests should match snapshot with fatal error 1`] = `
       class="component"
     >
       <div
-        class="component s block hasRightAddons"
+        class="component component s block hasRightAddons"
       >
         <div
           aria-controls="downshift-3-menu"
           aria-labelledby="downshift-3-label"
-          class="field inner hasError"
+          class="field inner inner hasError"
           id="downshift-2-input"
           tabindex="0"
         >
@@ -197,7 +197,7 @@ exports[`Select Snapshots tests should match snapshot with fatal error 1`] = `
           </div>
         </div>
         <span
-          class="sub error"
+          class="sub error error"
         >
           Error
         </span>
@@ -221,12 +221,12 @@ exports[`Select Snapshots tests should match snapshot with visibleOptions 1`] = 
       class="component"
     >
       <div
-        class="component s block hasRightAddons"
+        class="component component s block hasRightAddons"
       >
         <div
           aria-controls="downshift-5-menu"
           aria-labelledby="downshift-5-label"
-          class="field inner focused"
+          class="field inner inner focused"
           id="downshift-4-input"
           tabindex="0"
         >

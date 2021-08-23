@@ -122,6 +122,13 @@ export type TooltipProps = {
      * Реф для обертки над дочерними элементами
      */
     targetRef?: MutableRefObject<HTMLElement | null>;
+
+    /**
+     * Если тултип не помещается в переданной позиции (position), он попробует открыться в другой позиции,
+     * по очереди для каждой позиции из этого списка.
+     * Если не передавать, то тултип открывается в противоположном направлении от переданного position.
+     */
+    fallbackPlacements?: PopoverProps['fallbackPlacements'];
 };
 
 export const Tooltip: FC<TooltipProps> = ({
@@ -145,6 +152,7 @@ export const Tooltip: FC<TooltipProps> = ({
     getPortalContainer,
     view = 'tooltip',
     targetRef = null,
+    fallbackPlacements,
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
     const [target, setTarget] = useState<HTMLElement | null>(null);
@@ -314,6 +322,7 @@ export const Tooltip: FC<TooltipProps> = ({
                 position={position}
                 update={updatePopover}
                 zIndex={zIndex}
+                fallbackPlacements={fallbackPlacements}
             >
                 <div {...getContentProps()}>{content}</div>
             </Popover>

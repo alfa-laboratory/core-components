@@ -17,5 +17,9 @@ export const formatPhoneWithUnclearableCountryCode = (phone: string, country: Co
         return phone.replace(RUSSIAN_NATIONAL_DIAL_CODE, countryPrefix);
     }
 
-    return countryPrefix;
+    if (countryPrefix.startsWith(phone) || !phone) {
+        return countryPrefix;
+    }
+
+    return `${countryPrefix} ${phone}`;
 };

@@ -40,6 +40,16 @@ export type AttachProps = Omit<
     className?: string;
 
     /**
+     * Дополнительный класс для блока с файлами
+     */
+    fileClassName?: string;
+
+    /**
+     * Дополнительный класс для блока с подсказкой, когда файл не загружен
+     */
+    noFileClassName?: string;
+
+    /**
      * Число символов, после которого имя файла будет обрезаться
      */
     maxFilenameLength?: number;
@@ -100,6 +110,8 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
             buttonContent = 'Выберите файл',
             buttonProps = {},
             className,
+            fileClassName,
+            noFileClassName,
             disabled,
             dataTestId,
             id,
@@ -228,7 +240,7 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
                     />
                 </label>
                 {files && files.length > 0 ? (
-                    <div className={styles.file}>
+                    <div className={cn(styles.file, fileClassName)}>
                         <span>{statusTextContent}</span>
                         <KeyboardFocusable>
                             {(targetRef, focused) => (
@@ -252,7 +264,7 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
                         )}
                     </div>
                 ) : (
-                    <div className={styles.noFile}>{noFileText}</div>
+                    <div className={cn(styles.noFile, noFileClassName)}>{noFileText}</div>
                 )}
             </div>
         );

@@ -12,6 +12,7 @@ import {
 import { CountriesSelect } from './components';
 import { formatPhoneWithUnclearableCountryCode } from './utils/format-phone-with-unclearable-country-code';
 import { useCaretAvoidCountryCode } from './useCaretAvoidCountryCode';
+import { usePreventCaretReset } from './usePreventCaretReset';
 
 import styles from './index.module.css';
 
@@ -25,6 +26,11 @@ export type IntlPhoneInputProps = Partial<Omit<InputAutocompleteProps, 'onChange
          * Значение
          */
         value: string;
+
+        /**
+         * Набор цветов для компонента
+         */
+        colors?: 'default' | 'inverted';
 
         /**
          * Обработчик события изменения значения
@@ -58,6 +64,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             disabled = false,
             readOnly = false,
             size = 'm',
+            colors = 'default',
             options = [],
             countries = getCountries(),
             clearableCountryCode = true,
@@ -239,6 +246,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
         const countryCodeLength = `+${country.dialCode}`.length;
 
         useCaretAvoidCountryCode({ inputRef, countryCodeLength, clearableCountryCode });
+        usePreventCaretReset({ inputRef, countryCodeLength, clearableCountryCode });
 
         return (
             <InputAutocomplete
@@ -249,6 +257,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     ref: inputRef,
                     wrapperRef: setInputWrapperRef,
                     type: 'tel',
+                    colors,
                     className: cn(className, styles[size]),
                     addonsClassName: styles.addons,
                     leftAddons: (

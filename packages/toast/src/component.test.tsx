@@ -1,8 +1,12 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, ForwardRefRenderFunction } from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import * as popoverModule from '@alfalab/core-components-popover';
 import { Toast, ToastProps } from './index';
+
+type PopoverComponent = {
+    render?: ForwardRefRenderFunction<HTMLDivElement, popoverModule.PopoverProps>;
+};
 
 describe('Toast', () => {
     jest.useFakeTimers();
@@ -65,7 +69,9 @@ describe('Toast', () => {
     });
 
     it('should pass props to Popover', () => {
-        const popoverComponentSpy = jest.spyOn(popoverModule, 'Popover');
+        const PopoverComponent = popoverModule.Popover as PopoverComponent;
+
+        const popoverComponentSpy = jest.spyOn(PopoverComponent, 'render');
 
         const anchorElement = document.createElement('div');
         document.body.appendChild(anchorElement);

@@ -16,6 +16,13 @@ import { Button } from '@alfalab/core-components-button';
 import { FormControl } from '@alfalab/core-components-form-control';
 
 import styles from './index.module.css';
+import defaultColors from './default.module.css';
+import invertedColors from './inverted.module.css';
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
 
 export type InputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
@@ -47,6 +54,11 @@ export type InputProps = Omit<
     size?: 's' | 'm' | 'l' | 'xl';
 
     /**
+     * Набор цветов для компонента
+     */
+    colors?: 'default' | 'inverted';
+
+    /**
      * Отображение ошибки
      */
     error?: string | boolean;
@@ -59,7 +71,7 @@ export type InputProps = Omit<
     /**
      * Текст подсказки
      */
-    hint?: string;
+    hint?: ReactNode;
 
     /**
      * Лейбл компонента
@@ -163,6 +175,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             size = 's',
             type = 'text',
             block = false,
+            colors = 'default',
             bottomAddons,
             dataTestId,
             clear = false,
@@ -293,12 +306,23 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                                 className={styles.clearButton}
                                 onClick={handleClear}
                             >
-                                <span className={styles.clearIcon} />
+                                <span
+                                    className={cn(
+                                        styles.clearIcon,
+                                        colorStyles[colors].clearButton,
+                                    )}
+                                />
                             </Button>
                         )}
                         {rightAddons}
-                        {error && <span className={styles.errorIcon} />}
-                        {success && !error && <span className={styles.successIcon} />}
+                        {error && (
+                            <span className={cn(styles.errorIcon, colorStyles[colors].errorIcon)} />
+                        )}
+                        {success && !error && (
+                            <span
+                                className={cn(styles.successIcon, colorStyles[colors].successIcon)}
+                            />
+                        )}
                     </Fragment>
                 )
             );
@@ -314,6 +338,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 labelClassName={labelClassName}
                 addonsClassName={addonsClassName}
                 size={size}
+                colors={colors}
                 block={block}
                 disabled={disabled}
                 filled={filled || autofilled || focused}
@@ -332,9 +357,12 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     {...restProps}
                     className={cn(
                         styles.input,
+                        colorStyles[colors].input,
                         {
                             [styles.error]: error,
+                            [colorStyles[colors].error]: error,
                             [styles.hasLabel]: label,
+                            [colorStyles[colors].hasLabel]: label,
                         },
                         inputClassName,
                     )}
