@@ -4,6 +4,13 @@ import mergeRefs from 'react-merge-refs';
 import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
+import defaultColors from './default.module.css';
+import invertedColors from './inverted.module.css';
+
+const colorStylesMap = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
 
 type NativeProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -43,6 +50,11 @@ export type TagProps = Omit<NativeProps, 'onClick'> & {
             name?: string;
         },
     ) => void;
+
+    /**
+     * Набор цветов для компонента
+     */
+    colors?: 'default' | 'inverted';
 };
 
 export const Tag = forwardRef<HTMLButtonElement, TagProps>(
@@ -56,11 +68,14 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
             className,
             dataTestId,
             name,
+            colors = 'default',
             onClick,
             ...restProps
         },
         ref,
     ) => {
+        const colorStyles = colorStylesMap[colors];
+
         const tagRef = useRef<HTMLButtonElement>(null);
 
         const [focused] = useFocus(tagRef, 'keyboard');
@@ -68,9 +83,11 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
         const tagProps = {
             className: cn(
                 styles.component,
+                colorStyles.component,
                 styles[size],
                 {
                     [styles.checked]: checked,
+                    [colorStyles.checked]: checked,
                     [styles.focused]: focused,
                     [styles.iconOnly]: !children,
                 },
