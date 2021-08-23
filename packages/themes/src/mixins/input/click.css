@@ -3,10 +3,12 @@
 @define-mixin input-click {
     /* core vars */
     --color-light-text-primary: #0b1f35;
+    --color-light-text-primary-inverted: #fff;
 
     /* theme */
     --input-error-icon-display: none;
     --input-error-icon-not-alone-display: none;
     --input-success-icon-display: none;
     --input-disabled-color: var(--color-light-text-primary);
+    --input-inverted-disabled-color: var(--color-light-text-primary-inverted);
 }

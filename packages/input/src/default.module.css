@@ -1,0 +1,75 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --input-clear-icon: url('https://alfabank.st/icons/glyph_cross-circle_m.svg');
+    --input-color: var(--color-light-text-primary);
+    --input-placeholder-color: var(--color-light-text-secondary);
+    --input-focus-placeholder-color: var(--color-light-text-tertiary);
+    --input-with-label-placeholder-color: var(--color-light-text-tertiary);
+    --input-error-icon: url('https://alfabank.st/icons/glyph_alert-circle_m_negative.svg');
+    --input-success-icon: url('https://alfabank.st/icons/icon_ok_s_color.svg');
+    --input-caret-color: var(--input-color);
+
+    /* disabled */
+    --input-disabled-color: var(--color-light-text-secondary);
+
+    /* read-only */
+    --input-read-only-color: var(--color-light-text-secondary);
+
+    /* error */
+    --input-error-color: var(--color-light-text-primary);
+}
+
+.input {
+    color: var(--input-color);
+    caret-color: var(--input-caret-color);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.input::placeholder {
+    color: var(--input-placeholder-color);
+}
+
+.hasLabel::placeholder {
+    color: var(--input-with-label-placeholder-color);
+}
+
+.clearIcon {
+    background-image: var(--input-clear-icon);
+}
+
+.errorIcon {
+    background-image: var(--input-error-icon);
+}
+
+.successIcon {
+    background-image: var(--input-success-icon);
+}
+
+/* READ-ONLY STATE */
+
+.input:read-only {
+    color: var(--input-read-only-color);
+
+    &:focus::placeholder {
+        color: var(--input-placeholder-color);
+    }
+}
+
+/* DISABLED STATE */
+
+.input:disabled {
+    color: var(--input-disabled-color);
+}
+
+/* FOCUS STATE */
+
+.input:focus::placeholder {
+    color: var(--input-focus-placeholder-color);
+}
+
+/* ERROR STATE */
+.error {
+    color: var(--input-error-color);
+    caret-color: var(--input-error-color);
+}

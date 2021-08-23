@@ -28,6 +28,11 @@ export type IntlPhoneInputProps = Partial<Omit<InputAutocompleteProps, 'onChange
         value: string;
 
         /**
+         * Набор цветов для компонента
+         */
+        colors?: 'default' | 'inverted';
+
+        /**
          * Обработчик события изменения значения
          */
         onChange: (value: string) => void;
@@ -59,6 +64,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             disabled = false,
             readOnly = false,
             size = 'm',
+            colors = 'default',
             options = [],
             countries = getCountries(),
             clearableCountryCode = true,
@@ -251,6 +257,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     ref: inputRef,
                     wrapperRef: setInputWrapperRef,
                     type: 'tel',
+                    colors,
                     className: cn(className, styles[size]),
                     addonsClassName: styles.addons,
                     leftAddons: (
