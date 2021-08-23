@@ -1,6 +1,7 @@
 import React, {
     AnchorHTMLAttributes,
     ButtonHTMLAttributes,
+    ElementType,
     useEffect,
     useRef,
     useState,
@@ -54,7 +55,12 @@ export type ComponentProps = {
     /**
      * Выводит ссылку в виде кнопки
      */
-    href?: AnchorHTMLAttributes<HTMLAnchorElement>['href'];
+    href?: string;
+
+    /**
+     * Позволяет использовать кастомный элемент для кнопки
+     */
+    Component?: ElementType;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -103,6 +109,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
             loading = false,
             nowrap = false,
             colors = 'default',
+            Component = href ? 'a' : 'button',
             ...restProps
         },
         ref,
@@ -175,16 +182,19 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
         if (href) {
             const { target } = restProps as AnchorHTMLAttributes<HTMLAnchorElement>;
 
+            // Для совместимости с react-router-dom, меняем href на to
+            const hrefProps = { [typeof Component === 'string' ? 'href' : 'to']: href };
+
             return (
-                <a
+                <Component
                     rel={target === '_blank' ? 'noreferrer noopener' : undefined}
                     {...componentProps}
                     {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
-                    href={href}
+                    {...hrefProps}
                     ref={mergeRefs([buttonRef, ref])}
                 >
                     {buttonChildren}
-                </a>
+                </Component>
             );
         }
 
