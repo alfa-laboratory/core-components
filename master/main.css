@@ -701,11 +701,9 @@ a.loading_1jKXs {
     width: 100%;
     min-height: 56px;
     padding: var(--gap-m);
-    outline: none
+    outline: none;
+    cursor: pointer;
 }
-.component_2E-YU.isFolded_Gc3i2 {
-        cursor: pointer;
-    }
 .component_2E-YU * {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -766,7 +764,8 @@ a.loading_1jKXs {
     -webkit-transition: max-height 2s ease-in-out;
     transition: max-height 2s ease-in-out;
     padding: var(--gap-2xs);
-    margin: var(--gap-2xs-neg)
+    margin: var(--gap-2xs-neg);
+    cursor: default
 }
 .content_24wrB.isFolded_Gc3i2 {
         max-height: 0;
