@@ -2,6 +2,7 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 
+import userEvent from '@testing-library/user-event';
 import { Plate } from './index';
 import { Button } from '../../button/src';
 
@@ -104,6 +105,65 @@ describe('Plate', () => {
                     dataTestId={dataTestId}
                 />,
             );
+
+            expect(getByTestId(dataTestId)).not.toHaveClass('isFolded');
+        });
+
+        it('should toggle folded when click on title', async () => {
+            const dataTestId = 'test-id';
+            const { getByTestId, getByText } = render(
+                <Plate foldable={true} defaultFolded={false} title='title' dataTestId={dataTestId}>
+                    Content
+                </Plate>,
+            );
+
+            getByText('title').click();
+
+            expect(getByTestId(dataTestId)).toHaveClass('isFolded');
+
+            getByText('title').click();
+
+            expect(getByTestId(dataTestId)).not.toHaveClass('isFolded');
+        });
+
+        it('should toggle folded when click on folder', async () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <Plate foldable={true} defaultFolded={false} title='title' dataTestId={dataTestId}>
+                    Content
+                </Plate>,
+            );
+
+            const folderEl = getByTestId(dataTestId).querySelector('.folder') as HTMLElement;
+
+            folderEl.click();
+
+            expect(getByTestId(dataTestId)).toHaveClass('isFolded');
+
+            folderEl.click();
+
+            expect(getByTestId(dataTestId)).not.toHaveClass('isFolded');
+        });
+
+        it('should not toggle folded when click or keypress inside content', async () => {
+            const dataTestId = 'test-id';
+            const { getByTestId } = render(
+                <Plate foldable={true} defaultFolded={false} title='title' dataTestId={dataTestId}>
+                    <input data-test-id='input' />
+                </Plate>,
+            );
+
+            const input = getByTestId('input') as HTMLElement;
+
+            input.click();
+
+            expect(getByTestId(dataTestId)).not.toHaveClass('isFolded');
+
+            await userEvent.type(input, '{space}');
+
+            expect(getByTestId(dataTestId)).not.toHaveClass('isFolded');
+
+            await userEvent.type(input, '{enter}');
 
             expect(getByTestId(dataTestId)).not.toHaveClass('isFolded');
         });
