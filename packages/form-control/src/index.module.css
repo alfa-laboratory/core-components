@@ -10,10 +10,10 @@
 
     /* paddings */
     --form-control-paddings: 0 var(--gap-s);
-    --form-control-l-paddings: 0 var(--gap-m);
+    --form-control-xl-paddings: 0 var(--gap-m);
     --form-control-labeled-s-paddings: 23px var(--gap-s) 5px;
     --form-control-labeled-m-paddings: 28px var(--gap-s) 8px;
-    --form-control-labeled-l-paddings: 34px var(--gap-m) 10px;
+    --form-control-labeled-l-paddings: 32px var(--gap-s) 12px;
     --form-control-labeled-xl-paddings: 38px var(--gap-m) 14px;
     --form-control-sub-paddings: 0;
 
@@ -149,44 +149,12 @@
     min-height: var(--form-control-l-min-height);
 }
 
-.l .label {
-    left: var(--gap-m);
-}
-
-.l .input > * {
-    padding: var(--form-control-l-paddings);
-}
-
 .l .hasLabel .input > * {
     padding: var(--form-control-labeled-l-paddings);
 }
 
-.l .leftAddons {
-    padding-left: var(--gap-m);
-}
-
-.l .rightAddons {
-    padding-right: var(--gap-m);
-}
-
-.l.hasLeftAddons .label {
-    left: var(--gap-s);
-}
-
-.l.hasLeftAddons .input > * {
-    padding-left: var(--gap-s);
-}
-
-.l.hasRightAddons .input > * {
-    padding-right: var(--gap-s);
-}
-
-.l .sub {
-    margin-top: var(--gap-xs);
-}
-
 .l .label {
-    top: calc(var(--form-control-l-min-height) / 2 - 1px);
+    top: calc(var(--form-control-l-min-height) / 2);
 }
 
 .xl .inner {
@@ -198,7 +166,7 @@
 }
 
 .xl .input > * {
-    padding: var(--form-control-l-paddings);
+    padding: var(--form-control-xl-paddings);
 }
 
 .xl .hasLabel .input > * {
@@ -258,7 +226,7 @@
     box-sizing: border-box;
 }
 
-.l .hiddenLabel {
+.xl .hiddenLabel {
     padding: var(--form-control-l-paddings);
 }
 

@@ -1,4 +1,8 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl, createStorybookUrl } from '../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+    createStorybookUrl,
+} from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,

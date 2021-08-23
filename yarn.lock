@@ -33,6 +33,15 @@
   dependencies:
     classnames "^2.2.6"
 
+"@alfalab/core-components-input-autocomplete@7.0.4":
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-input-autocomplete/-/core-components-input-autocomplete-7.0.4.tgz#a12b2ddfc9f615d32f89c318f0cec969ea880e11"
+  integrity sha512-zz8WKPRjd2nao7Q54bCryO+1NtnZ2jtiZvoVe1/gH7tP8YtucjbiH/zYiCasdT8k0eOAYNDlGoN3E0HHkDu4VA==
+  dependencies:
+    "@alfalab/core-components-input" "^7.1.0"
+    "@alfalab/core-components-select" "^9.2.2"
+    classnames "^2.2.6"
+
 "@alfalab/core-components-input@^3.2.2":
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components-input/-/core-components-input-3.2.2.tgz#04bf0f52b6a8faccf778218861064369376c40df"
