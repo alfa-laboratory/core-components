@@ -39,3 +39,29 @@
     </Plate>
 </Space>
 ```
+
+### Управление сворачиванием
+
+```tsx live
+render(() => {
+    const [folded, setFolded] = React.useState(true);
+
+    const onToggle = (_, { folded }) => setFolded(folded);
+
+    return (
+        <Space>
+            <Button onClick={() => setFolded(!folded)}>{folded ? 'Открыть' : 'Закрыть'}</Button>
+
+            <Plate
+                view='common'
+                title='Компонент плашки'
+                foldable={true}
+                folded={folded}
+                onToggle={onToggle}
+            >
+                Самая обыкновенная плашка
+            </Plate>
+        </Space>
+    );
+});
+```
