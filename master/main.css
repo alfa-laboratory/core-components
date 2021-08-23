@@ -4338,6 +4338,9 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 .hasError_1wX4L .info_XRYr3 {
         margin-top: 0;
     }
+.hasError_1wX4L .customContent_1bY_D {
+        margin-bottom: var(--gap-2xl);
+    }
 .info_XRYr3 {
     margin: var(--gap-2xs) 0;
 }
