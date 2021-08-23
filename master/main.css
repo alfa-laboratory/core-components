@@ -859,10 +859,10 @@ a.loading_1jKXs {
 
     /* paddings */
     --form-control-paddings: 0 var(--gap-s);
-    --form-control-l-paddings: 0 var(--gap-m);
+    --form-control-xl-paddings: 0 var(--gap-m);
     --form-control-labeled-s-paddings: 23px var(--gap-s) 5px;
     --form-control-labeled-m-paddings: 28px var(--gap-s) 8px;
-    --form-control-labeled-l-paddings: 34px var(--gap-m) 10px;
+    --form-control-labeled-l-paddings: 32px var(--gap-s) 12px;
     --form-control-labeled-xl-paddings: 38px var(--gap-m) 14px;
     --form-control-sub-paddings: 0;
 
@@ -1016,35 +1016,11 @@ a.loading_1jKXs {
 .l_3yfY1 .inner_1oxNk {
     min-height: var(--form-control-l-min-height);
 }
-.l_3yfY1 .label_2Y7gw {
-    left: var(--gap-m);
-}
-.l_3yfY1 .input_3d4he > * {
-    padding: var(--form-control-l-paddings);
-}
 .l_3yfY1 .hasLabel_uyghW .input_3d4he > * {
     padding: var(--form-control-labeled-l-paddings);
 }
-.l_3yfY1 .leftAddons_2hEPp {
-    padding-left: var(--gap-m);
-}
-.l_3yfY1 .rightAddons_1jIJH {
-    padding-right: var(--gap-m);
-}
-.l_3yfY1.hasLeftAddons_2exR8 .label_2Y7gw {
-    left: var(--gap-s);
-}
-.l_3yfY1.hasLeftAddons_2exR8 .input_3d4he > * {
-    padding-left: var(--gap-s);
-}
-.l_3yfY1.hasRightAddons_3f0MC .input_3d4he > * {
-    padding-right: var(--gap-s);
-}
-.l_3yfY1 .sub_AzZDb {
-    margin-top: var(--gap-xs);
-}
 .l_3yfY1 .label_2Y7gw {
-    top: calc(var(--form-control-l-min-height) / 2 - 1px);
+    top: calc(var(--form-control-l-min-height) / 2);
 }
 .xl_1HYQa .inner_1oxNk {
     min-height: var(--form-control-xl-min-height);
@@ -1053,7 +1029,7 @@ a.loading_1jKXs {
     left: var(--gap-m);
 }
 .xl_1HYQa .input_3d4he > * {
-    padding: var(--form-control-l-paddings);
+    padding: var(--form-control-xl-paddings);
 }
 .xl_1HYQa .hasLabel_uyghW .input_3d4he > * {
     padding: var(--form-control-labeled-xl-paddings);
@@ -1101,7 +1077,7 @@ a.loading_1jKXs {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
 }
-.l_3yfY1 .hiddenLabel_3D3Yg {
+.xl_1HYQa .hiddenLabel_3D3Yg {
     padding: var(--form-control-l-paddings);
 }
 /* min-height and width: max-content; fix for IE */
