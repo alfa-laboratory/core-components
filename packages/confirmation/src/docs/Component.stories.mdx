@@ -23,7 +23,6 @@ import vars from '!!raw-loader!../vars.css';
 
 <Story name='Confirmation'>
     {React.createElement(() => {
-        const [open, setOpen] = React.useState(false);
         const [variant, setVariant] = React.useState({ key: 'success', content: 'Успешный сценарий'});
         const [value, setValue] = React.useState('');
         const [codeChecking, setCodeChecking] = React.useState(false);
@@ -78,6 +77,8 @@ import vars from '!!raw-loader!../vars.css';
                         { key: 'attempts-left', content: 'Сценарий, когда кончились попытки запроса смс'}
                     ]}
                     onChange={({ selected }) => {
+                        setError('');
+                        setCode('');
                         setVariant(selected)
                     }}
                     selected={variant.key}

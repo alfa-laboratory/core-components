@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.4.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.4.0...@alfalab/core-components-select@9.4.1) (2021-08-23)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+# [9.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.3.2...@alfalab/core-components-select@9.4.0) (2021-08-23)
+
+
+### Bug Fixes
+
+* **form-control:** l size offset between value and label (PDS-270) ([#781](https://github.com/alfa-laboratory/core-components/issues/781)) ([311f8a0](https://github.com/alfa-laboratory/core-components/commit/311f8a0eaa97cf7d0c89d4a3cdfc443aef2d763c))
+* **input:** smart error icon ([#746](https://github.com/alfa-laboratory/core-components/issues/746)) ([f1950d6](https://github.com/alfa-laboratory/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/alfa-laboratory/core-components/issues/782)
+
+
+### Features
+
+* **tooltip:** add TooltipResponsive,  add `fallbackPlacements` prop ([#780](https://github.com/alfa-laboratory/core-components/issues/780)) ([61d780c](https://github.com/alfa-laboratory/core-components/commit/61d780c750bd9c0331d275f1b12b0512bb3d2049))
+
+
+
+
+
 ## [9.3.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.3.1...@alfalab/core-components-select@9.3.2) (2021-08-13)
 
 

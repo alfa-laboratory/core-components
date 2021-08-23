@@ -1,7 +1,7 @@
 import React, { ButtonHTMLAttributes, ElementType, forwardRef } from 'react';
 import cn from 'classnames';
 
-import { Button } from '@alfalab/core-components-button';
+import { Button, ButtonProps } from '@alfalab/core-components-button';
 
 import styles from './index.module.css';
 import defaultColors from './default.module.css';
@@ -42,7 +42,8 @@ export type IconButtonProps = {
      * Набор цветов для компонента
      */
     colors?: 'default' | 'inverted';
-} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'size'>;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'size'> &
+    Pick<ButtonProps, 'href' | 'loading'>;
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     (

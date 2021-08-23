@@ -13,7 +13,7 @@ describe('FormControl', () => {
             const ref = jest.fn();
             render(<FormControl ref={ref} />);
 
-            expect(ref.mock.calls[0][0].className).toBe('inner');
+            expect(ref.mock.calls[0][0].className).toMatch(/inner/);
         });
 
         it('should render label', () => {

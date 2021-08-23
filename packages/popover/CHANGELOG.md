@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-popover@5.2.0...@alfalab/core-components-popover@5.3.0) (2021-08-23)
+
+
+### Features
+
+* **tooltip:** add TooltipResponsive,  add `fallbackPlacements` prop ([#780](https://github.com/alfa-laboratory/core-components/issues/780)) ([61d780c](https://github.com/alfa-laboratory/core-components/commit/61d780c750bd9c0331d275f1b12b0512bb3d2049))
+
+
+
+
+
 # [5.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-popover@5.1.0...@alfalab/core-components-popover@5.2.0) (2021-08-04)
 
 

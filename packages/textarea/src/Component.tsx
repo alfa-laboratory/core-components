@@ -15,6 +15,13 @@ import { useFocus } from '@alfalab/hooks';
 import { FormControl } from '@alfalab/core-components-form-control';
 
 import styles from './index.module.css';
+import defaultColors from './default.module.css';
+import invertedColors from './inverted.module.css';
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
 
 type NativeProps = TextareaHTMLAttributes<HTMLTextAreaElement>;
 
@@ -41,6 +48,11 @@ export type TextareaProps = Omit<
      * Размер компонента
      */
     size?: 's' | 'm' | 'l' | 'xl';
+
+    /**
+     * Набор цветов для компонента
+     */
+    colors?: 'default' | 'inverted';
 
     /**
      * Отображение ошибки
@@ -152,6 +164,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             autoComplete = 'on',
             autosize = true,
             size = 's',
+            colors = 'default',
             block = false,
             bottomAddons,
             fieldClassName,
@@ -255,9 +268,11 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
             ...restProps,
             className: cn(
                 styles.textarea,
+                colorStyles[colors].textarea,
                 styles[size],
                 {
                     [styles.hasLabel]: label,
+                    [colorStyles[colors].hasLabel]: label,
                     [styles.filled]: filled,
                     [styles.resizeVertical]: resize === 'vertical',
                 },
@@ -282,6 +297,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                     [styles.focusVisible]: focusVisible,
                 })}
                 size={size}
+                colors={colors}
                 block={block}
                 disabled={disabled}
                 filled={filled || focused}

@@ -1,8 +1,11 @@
 import React, { useCallback, useRef } from 'react';
+import cn from 'classnames';
 import { Input as DefaultInput } from '@alfalab/core-components-input';
 import { FieldProps } from '@alfalab/core-components-select';
 import mergeRefs from 'react-merge-refs';
 import { InputAutocompleteProps } from '../Component';
+
+import styles from './index.module.css';
 
 export type AutocompleteFieldProps = FieldProps &
     Pick<InputAutocompleteProps, 'Input' | 'inputProps' | 'value' | 'onInput' | 'readOnly'>;
@@ -67,7 +70,15 @@ export const AutocompleteField = ({
                 (Arrow || inputProps.rightAddons) && (
                     <React.Fragment>
                         {inputProps.rightAddons}
-                        {Arrow}
+                        {Arrow && (
+                            <span
+                                className={cn(styles.arrow, {
+                                    [styles.error]: error,
+                                })}
+                            >
+                                {Arrow}
+                            </span>
+                        )}
                     </React.Fragment>
                 )
             }

@@ -6,10 +6,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component s"
+        class="component component s"
       >
         <div
-          class="inner"
+          class="inner inner"
         >
           <div
             class="inputWrapper"
@@ -25,10 +25,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component s"
+      class="component component s"
     >
       <div
-        class="inner"
+        class="inner inner"
       >
         <div
           class="inputWrapper"
@@ -101,10 +101,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component s hasRightAddons"
+        class="component component s hasRightAddons"
       >
         <div
-          class="inner hasError"
+          class="inner inner hasError"
         >
           <div
             class="inputWrapper"
@@ -115,7 +115,7 @@ Object {
           </div>
         </div>
         <span
-          class="sub error"
+          class="sub error error"
         >
           error
         </span>
@@ -124,10 +124,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component s hasRightAddons"
+      class="component component s hasRightAddons"
     >
       <div
-        class="inner hasError"
+        class="inner inner hasError"
       >
         <div
           class="inputWrapper"
@@ -138,7 +138,7 @@ Object {
         </div>
       </div>
       <span
-        class="sub error"
+        class="sub error error"
       >
         error
       </span>
@@ -204,10 +204,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component s"
+        class="component component s"
       >
         <div
-          class="inner"
+          class="inner inner"
         >
           <div
             class="inputWrapper"
@@ -226,10 +226,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component s"
+      class="component component s"
     >
       <div
-        class="inner"
+        class="inner inner"
       >
         <div
           class="inputWrapper"
@@ -305,10 +305,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component s hasRightAddons"
+        class="component component s hasRightAddons"
       >
         <div
-          class="inner hasError"
+          class="inner inner hasError"
         >
           <div
             class="inputWrapper"
@@ -319,7 +319,7 @@ Object {
           </div>
         </div>
         <span
-          class="sub error"
+          class="sub error error"
         >
           This is error
         </span>
@@ -328,10 +328,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component s hasRightAddons"
+      class="component component s hasRightAddons"
     >
       <div
-        class="inner hasError"
+        class="inner inner hasError"
       >
         <div
           class="inputWrapper"
@@ -342,7 +342,7 @@ Object {
         </div>
       </div>
       <span
-        class="sub error"
+        class="sub error error"
       >
         This is error
       </span>
@@ -408,10 +408,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component s"
+        class="component component s"
       >
         <div
-          class="inner"
+          class="inner inner"
         >
           <div
             class="inputWrapper"
@@ -432,10 +432,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component s"
+      class="component component s"
     >
       <div
-        class="inner"
+        class="inner inner"
       >
         <div
           class="inputWrapper"
@@ -513,10 +513,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component s"
+        class="component component s"
       >
         <div
-          class="inner hasLabel"
+          class="inner inner hasLabel"
         >
           <div
             class="inputWrapper"
@@ -530,7 +530,7 @@ Object {
               </span>
             </span>
             <div
-              class="label"
+              class="label label"
             >
               <span
                 class="labelInner"
@@ -551,10 +551,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component s"
+      class="component component s"
     >
       <div
-        class="inner hasLabel"
+        class="inner inner hasLabel"
       >
         <div
           class="inputWrapper"
@@ -568,7 +568,7 @@ Object {
             </span>
           </span>
           <div
-            class="label"
+            class="label label"
           >
             <span
               class="labelInner"
@@ -646,10 +646,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component s hasLeftAddons"
+        class="component component s hasLeftAddons"
       >
         <div
-          class="inner"
+          class="inner inner"
         >
           <div
             class="addons leftAddons"
@@ -672,10 +672,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component s hasLeftAddons"
+      class="component component s hasLeftAddons"
     >
       <div
-        class="inner"
+        class="inner inner"
       >
         <div
           class="addons leftAddons"
@@ -755,10 +755,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component s hasRightAddons"
+        class="component component s hasRightAddons"
       >
         <div
-          class="inner"
+          class="inner inner"
         >
           <div
             class="inputWrapper"
@@ -781,10 +781,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="component s hasRightAddons"
+      class="component component s hasRightAddons"
     >
       <div
-        class="inner"
+        class="inner inner"
       >
         <div
           class="inputWrapper"
