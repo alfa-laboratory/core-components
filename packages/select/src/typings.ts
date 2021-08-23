@@ -140,7 +140,7 @@ export type BaseSelectProps = {
     /**
      * Подсказка под полем
      */
-    hint?: string;
+    hint?: ReactNode;
 
     /**
      * Возможность использовать селект как input-autocomplete
@@ -339,7 +339,7 @@ export type FieldProps = {
     /**
      * Подсказка под полем
      */
-    hint?: string;
+    hint?: ReactNode;
 
     /**
      * Компонент стрелки

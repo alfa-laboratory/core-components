@@ -6,6 +6,7 @@ import React, {
     TextareaHTMLAttributes,
     ChangeEvent,
     forwardRef,
+    ReactNode,
 } from 'react';
 import cn from 'classnames';
 import TextareaAutosize from 'react-textarea-autosize';
@@ -49,7 +50,7 @@ export type TextareaProps = Omit<
     /**
      * Текст подсказки
      */
-    hint?: string;
+    hint?: ReactNode;
 
     /**
      * Лейбл компонента

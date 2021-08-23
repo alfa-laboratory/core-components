@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-checkbox@2.3.0...@alfalab/core-components-checkbox@2.3.1) (2021-08-09)
+
+
+### Bug Fixes
+
+* **checkbox:** fix layout ([#790](https://github.com/alfa-laboratory/core-components/issues/790)) ([8aa18b4](https://github.com/alfa-laboratory/core-components/commit/8aa18b48167eeb5df225ff854d3ca337cd43d4f2))
+
+
+
+
+
 # [2.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-checkbox@2.2.0...@alfalab/core-components-checkbox@2.3.0) (2021-08-04)
 
 

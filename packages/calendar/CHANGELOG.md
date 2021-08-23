@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar@3.1.0...@alfalab/core-components-calendar@3.1.1) (2021-08-13)
+
+
+### Bug Fixes
+
+* **calendar:** fix min\max ([6bd4944](https://github.com/alfa-laboratory/core-components/commit/6bd49447492b10583973cdfc43350cf8f96c1ecb))
+
+
+
+
+
 # [3.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar@3.0.3...@alfalab/core-components-calendar@3.1.0) (2021-08-04)
 
 

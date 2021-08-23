@@ -66,6 +66,10 @@ export const Dropzone: FC<DropzoneProps> = ({
 }) => {
     const [dragOver, setDragOver] = useState(false);
 
+    /**
+     * При ховере дочерних элементов срабатывает dragLeave, из-за чего пропадает оверлей
+     * https://stackoverflow.com/a/21002544
+     */
     const dragCounter = useRef(0);
 
     const handleDragOver = useCallback(
@@ -82,6 +86,8 @@ export const Dropzone: FC<DropzoneProps> = ({
     const handleDragEnter = useCallback(
         (event: React.DragEvent<HTMLElement>) => {
             preventAndStopEvent(event);
+
+            dragCounter.current += 1;
 
             setDragOver(true);
 
