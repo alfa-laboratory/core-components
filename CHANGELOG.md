@@ -1,3 +1,19 @@
+# [19.7.0](https://github.com/alfa-laboratory/core-components/compare/v19.6.3...v19.7.0) (2021-08-23)
+
+
+### Bug Fixes
+
+* **form-control:** l size offset between value and label (PDS-270) ([#781](https://github.com/alfa-laboratory/core-components/issues/781)) ([311f8a0](https://github.com/alfa-laboratory/core-components/commit/311f8a0eaa97cf7d0c89d4a3cdfc443aef2d763c))
+* **input:** smart error icon ([#746](https://github.com/alfa-laboratory/core-components/issues/746)) ([f1950d6](https://github.com/alfa-laboratory/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/alfa-laboratory/core-components/issues/782)
+
+
+### Features
+
+* **confirmation:** add custom countdown content, change time format ([#804](https://github.com/alfa-laboratory/core-components/issues/804)) ([b87ace1](https://github.com/alfa-laboratory/core-components/commit/b87ace190013cc873133bd1fff23cb6ae0ae3800))
+* **icon-button:** Rest props for IconButton from Button ([#805](https://github.com/alfa-laboratory/core-components/issues/805)) ([ee4e170](https://github.com/alfa-laboratory/core-components/commit/ee4e170b6b59800e283080d36bddfdcfe4b57561))
+* **tag:** add inverted colors ([#784](https://github.com/alfa-laboratory/core-components/issues/784)) ([d3681ae](https://github.com/alfa-laboratory/core-components/commit/d3681aeefe02e5f481d066013911a1877a165bb2))
+* **tooltip:** add TooltipResponsive,  add `fallbackPlacements` prop ([#780](https://github.com/alfa-laboratory/core-components/issues/780)) ([61d780c](https://github.com/alfa-laboratory/core-components/commit/61d780c750bd9c0331d275f1b12b0512bb3d2049))
+
 ## [19.6.3](https://github.com/alfa-laboratory/core-components/compare/v19.6.2...v19.6.3) (2021-08-13)
 
 
