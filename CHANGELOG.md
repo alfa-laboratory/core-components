@@ -1,3 +1,10 @@
+## [19.7.1](https://github.com/alfa-laboratory/core-components/compare/v19.7.0...v19.7.1) (2021-08-23)
+
+
+### Bug Fixes
+
+* **input:** clear icon ([51debd4](https://github.com/alfa-laboratory/core-components/commit/51debd46ea2176486cfc1945d74e8d56a4b9387b))
+
 # [19.7.0](https://github.com/alfa-laboratory/core-components/compare/v19.6.3...v19.7.0) (2021-08-23)
 
 
