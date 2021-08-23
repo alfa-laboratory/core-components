@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@8.1.1...@alfalab/core-components-confirmation@8.2.0) (2021-08-23)
+
+
+### Features
+
+* **confirmation:** add custom countdown content, change time format ([#804](https://github.com/alfa-laboratory/core-components/issues/804)) ([b87ace1](https://github.com/alfa-laboratory/core-components/commit/b87ace190013cc873133bd1fff23cb6ae0ae3800))
+
+
+
+
+
 ## [8.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@8.1.0...@alfalab/core-components-confirmation@8.1.1) (2021-08-04)
 
 **Note:** Version bump only for package @alfalab/core-components-confirmation

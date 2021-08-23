@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@4.1.4...@alfalab/core-components-calendar-input@4.1.5) (2021-08-23)
+
+
+### Bug Fixes
+
+* **input:** smart error icon ([#746](https://github.com/alfa-laboratory/core-components/issues/746)) ([f1950d6](https://github.com/alfa-laboratory/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/alfa-laboratory/core-components/issues/782)
+
+
+
+
+
 ## [4.1.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@4.1.3...@alfalab/core-components-calendar-input@4.1.4) (2021-08-13)
 
 

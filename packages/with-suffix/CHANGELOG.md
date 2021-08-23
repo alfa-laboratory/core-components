@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-with-suffix@3.0.5...@alfalab/core-components-with-suffix@3.0.6) (2021-08-23)
+
+
+### Bug Fixes
+
+* **input:** smart error icon ([#746](https://github.com/alfa-laboratory/core-components/issues/746)) ([f1950d6](https://github.com/alfa-laboratory/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/alfa-laboratory/core-components/issues/782)
+
+
+
+
+
 ## [3.0.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-with-suffix@3.0.4...@alfalab/core-components-with-suffix@3.0.5) (2021-08-11)
 
 **Note:** Version bump only for package @alfalab/core-components-with-suffix
