@@ -29,7 +29,7 @@ exports[`CalendarInput Display tests should match snapshot 1`] = `
           class="addons rightAddons"
         >
           <span
-            class="icon"
+            class="calendarIcon"
           />
         </div>
       </div>

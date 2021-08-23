@@ -26,6 +26,7 @@ import styles from '!!raw-loader!../index.module.css';
         const [checked, setChecked] = React.useState(false);
         const handleChange = () => setChecked(!checked);
         const disabled = boolean('disabled', false);
+        const inactive = boolean('inactive', false);
         const checkedKnob = boolean('checked', false);
         const reversed = boolean('reversed', false);
         const block = boolean('block', false);
@@ -38,6 +39,7 @@ import styles from '!!raw-loader!../index.module.css';
         return (
             <Switch
                 disabled={disabled}
+                inactive={inactive}
                 checked={checked || checkedKnob}
                 reversed={reversed}
                 block={block}

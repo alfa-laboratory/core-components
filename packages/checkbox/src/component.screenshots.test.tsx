@@ -30,6 +30,7 @@ describe('Checkbox | size, disabled, checked', () => {
                             hint: ['Дополнительная информация'],
                             size: ['s', 'm'],
                             disabled: [true, false],
+                            inactive: [true, false],
                             indeterminate: [true, false],
                         },
                         size: { width: 400, height: 100 },

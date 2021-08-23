@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@3.1.1...@alfalab/core-components-attach@3.2.0) (2021-08-09)
+
+
+### Features
+
+* **attach:** add additional classNames props ([#783](https://github.com/alfa-laboratory/core-components/issues/783)) ([bc8e865](https://github.com/alfa-laboratory/core-components/commit/bc8e86512a95b8690d2115a71a299c19195fa58d))
+
+
+
+
+
+## [3.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@3.1.0...@alfalab/core-components-attach@3.1.1) (2021-08-04)
+
+**Note:** Version bump only for package @alfalab/core-components-attach
+
+
+
+
+
 # [3.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@3.0.2...@alfalab/core-components-attach@3.1.0) (2021-07-23)
 
 

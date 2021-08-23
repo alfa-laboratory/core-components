@@ -58,6 +58,16 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange'> & {
     block?: boolean;
 
     /**
+     * Управление состоянием включен / выключен
+     */
+    disabled?: boolean;
+
+    /**
+     * Управление состоянием активен / неактивен
+     */
+    inactive?: boolean;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -82,6 +92,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             className,
             name,
             disabled,
+            inactive,
             dataTestId,
             indeterminate = false,
             ...restProps
@@ -103,6 +114,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             <label
                 className={cn(styles.component, styles[size], styles[align], className, {
                     [styles.disabled]: disabled,
+                    [styles.inactive]: inactive,
                     [styles.checked]: checked,
                     [styles.indeterminate]: indeterminate,
                     [styles.focused]: focused,
@@ -110,16 +122,15 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                 })}
                 ref={mergeRefs([labelRef, ref])}
             >
+                <input
+                    type='checkbox'
+                    onChange={handleChange}
+                    disabled={disabled || inactive}
+                    checked={checked}
+                    data-test-id={dataTestId}
+                    {...restProps}
+                />
                 <span className={styles.box}>
-                    <input
-                        type='checkbox'
-                        onChange={handleChange}
-                        disabled={disabled}
-                        checked={checked}
-                        data-test-id={dataTestId}
-                        {...restProps}
-                    />
-
                     {checked && <CheckedIcon className={styles.checkedIcon} />}
 
                     {indeterminate && !checked && <span className={styles.indeterminateLine} />}

@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-checkbox@2.3.0...@alfalab/core-components-checkbox@2.3.1) (2021-08-09)
+
+
+### Bug Fixes
+
+* **checkbox:** fix layout ([#790](https://github.com/alfa-laboratory/core-components/issues/790)) ([8aa18b4](https://github.com/alfa-laboratory/core-components/commit/8aa18b48167eeb5df225ff854d3ca337cd43d4f2))
+
+
+
+
+
+# [2.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-checkbox@2.2.0...@alfalab/core-components-checkbox@2.3.0) (2021-08-04)
+
+
+### Features
+
+* add mods colors ([#770](https://github.com/alfa-laboratory/core-components/issues/770)) ([fe985f4](https://github.com/alfa-laboratory/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
+
+
+
+
+
+# [2.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-checkbox@2.1.0...@alfalab/core-components-checkbox@2.2.0) (2021-08-03)
+
+
+### Features
+
+* add inactive controls (PDS-266) ([#765](https://github.com/alfa-laboratory/core-components/issues/765)) ([ec02c89](https://github.com/alfa-laboratory/core-components/commit/ec02c89ab6bf038c026ca0a72b3185525334840a))
+
+
+
+
+
 # [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-checkbox@2.0.1...@alfalab/core-components-checkbox@2.1.0) (2021-07-23)
 
 

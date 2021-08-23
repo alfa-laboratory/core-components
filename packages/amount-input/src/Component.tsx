@@ -21,6 +21,11 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
     currency?: CurrencyCodes;
 
     /**
+     * Дополнительный закрепленный текст справа от основного значения. (по умолчанию — символ валюты)
+     */
+    suffix?: string;
+
+    /**
      * Максимальное число знаков до запятой
      */
     integerLength?: number;
@@ -29,6 +34,11 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
      * Минорные единицы
      */
     minority?: number;
+
+    /**
+     * Позволяет вводить только целые значения
+     */
+    integersOnly?: boolean;
 
     /**
      * Жир
@@ -69,7 +79,11 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             integerLength = 9,
             minority = 100,
             currency = 'RUR',
-            placeholder = `0\u2009${getCurrencySymbol(currency) || ''}`,
+            suffix = currency,
+            placeholder = `0\u2009${
+                suffix === currency ? getCurrencySymbol(currency) || '' : suffix
+            }`,
+            integersOnly = false,
             bold = true,
             className,
             focusedClassName,
@@ -113,7 +127,12 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
 
         const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             const input = e.target;
-            const enteredValue = input.value.replace(/\s/g, '').replace('.', ',');
+            let enteredValue = input.value.replace(/\s/g, '').replace('.', ',');
+
+            if (integersOnly) {
+                [enteredValue] = enteredValue.split(',');
+            }
+
             const isCorrectEnteredValue = RegExp(
                 `(^[0-9]{1,${integerLength}}(,([0-9]+)?)?$|^\\s*$)`,
             ).test(enteredValue);
@@ -140,7 +159,10 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     let notFormattedEnteredValueLength = head.length;
                     if (tail) {
                         notFormattedEnteredValueLength += 1; // запятая или точка
-                        notFormattedEnteredValueLength += tail.slice(0, 2).length; // только 2 символа в минорной части
+                        notFormattedEnteredValueLength += tail.slice(
+                            0,
+                            minority.toString().length - 1,
+                        ).length; // символы в минорной части
                     }
 
                     const diff = newFormattedValue.length - notFormattedEnteredValueLength;
@@ -197,7 +219,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                             <span className={styles.minorPartAndCurrency}>
                                 {minorPart !== undefined && `,${minorPart}`}
                                 {THINSP}
-                                {currencySymbol}
+                                {suffix === currency ? currencySymbol : suffix}
                             </span>
                         </Fragment>
                     }

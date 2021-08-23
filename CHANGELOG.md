@@ -1,3 +1,64 @@
+## [19.6.3](https://github.com/alfa-laboratory/core-components/compare/v19.6.2...v19.6.3) (2021-08-13)
+
+
+### Bug Fixes
+
+* **select:** lazy loading select ([#797](https://github.com/alfa-laboratory/core-components/issues/797)) ([68b5602](https://github.com/alfa-laboratory/core-components/commit/68b560208ff288657aa1698387c617c7c1449a8d))
+
+## [19.6.2](https://github.com/alfa-laboratory/core-components/compare/v19.6.1...v19.6.2) (2021-08-13)
+
+
+### Bug Fixes
+
+* **calendar:** fix min\max ([6bd4944](https://github.com/alfa-laboratory/core-components/commit/6bd49447492b10583973cdfc43350cf8f96c1ecb))
+* **calendar-input:** extends calendarProps type ([8bf4f58](https://github.com/alfa-laboratory/core-components/commit/8bf4f587c1a36471318f7cc02968d1de2a125e11))
+
+## [19.6.1](https://github.com/alfa-laboratory/core-components/compare/v19.6.0...v19.6.1) (2021-08-11)
+
+
+### Bug Fixes
+
+* **modal:** max-width 100% ([#794](https://github.com/alfa-laboratory/core-components/issues/794)) ([793a765](https://github.com/alfa-laboratory/core-components/commit/793a765e7d5dc251eee810acde4605e139565906))
+* **plate:** alert in plate cascade issue ([#793](https://github.com/alfa-laboratory/core-components/issues/793)) ([dbc20e5](https://github.com/alfa-laboratory/core-components/commit/dbc20e558f2b6452e70052b5abc3faf8533709d4))
+* **select:** remove wron prop passed into renderOption method ([#791](https://github.com/alfa-laboratory/core-components/issues/791)) ([5231813](https://github.com/alfa-laboratory/core-components/commit/523181355ebde537aa802f86c27e867d9261095a))
+* extend hint type to ReactNode ([#792](https://github.com/alfa-laboratory/core-components/issues/792)) ([d02784e](https://github.com/alfa-laboratory/core-components/commit/d02784e392f5ca3a30ae009109fbb6351967f746))
+
+# [19.6.0](https://github.com/alfa-laboratory/core-components/compare/v19.5.0...v19.6.0) (2021-08-09)
+
+
+### Bug Fixes
+
+* **attach:** fix drag counter & styles ([#786](https://github.com/alfa-laboratory/core-components/issues/786)) ([b075725](https://github.com/alfa-laboratory/core-components/commit/b0757250ea57a6e5db64a5026315f8837e8a3303))
+* **checkbox:** fix layout ([#790](https://github.com/alfa-laboratory/core-components/issues/790)) ([8aa18b4](https://github.com/alfa-laboratory/core-components/commit/8aa18b48167eeb5df225ff854d3ca337cd43d4f2))
+
+
+### Features
+
+* **attach:** add additional classNames props ([#783](https://github.com/alfa-laboratory/core-components/issues/783)) ([bc8e865](https://github.com/alfa-laboratory/core-components/commit/bc8e86512a95b8690d2115a71a299c19195fa58d))
+
+# [19.5.0](https://github.com/alfa-laboratory/core-components/compare/v19.4.0...v19.5.0) (2021-08-04)
+
+
+### Features
+
+* add mods colors ([#770](https://github.com/alfa-laboratory/core-components/issues/770)) ([fe985f4](https://github.com/alfa-laboratory/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
+
+# [19.4.0](https://github.com/alfa-laboratory/core-components/compare/v19.3.0...v19.4.0) (2021-08-03)
+
+
+### Bug Fixes
+
+* **amount-input:** remove caret-color override ([#773](https://github.com/alfa-laboratory/core-components/issues/773)) ([93311d0](https://github.com/alfa-laboratory/core-components/commit/93311d0a8e170c14c6cbfa28414d2538f78ddd3f))
+* add missing deps ([4f4a540](https://github.com/alfa-laboratory/core-components/commit/4f4a54059f141e41e430199b1a2c30fedf62b081))
+* move icon from date input to calendar input ([#768](https://github.com/alfa-laboratory/core-components/issues/768)) ([040bd42](https://github.com/alfa-laboratory/core-components/commit/040bd423279eb535f1ea924599ee16c296453e3f))
+
+
+### Features
+
+* add inactive controls (PDS-266) ([#765](https://github.com/alfa-laboratory/core-components/issues/765)) ([ec02c89](https://github.com/alfa-laboratory/core-components/commit/ec02c89ab6bf038c026ca0a72b3185525334840a))
+* **amount-input:** add integers only mode ([#766](https://github.com/alfa-laboratory/core-components/issues/766)) ([27a2535](https://github.com/alfa-laboratory/core-components/commit/27a2535f2de8d787e666c08a8fbfeb67d762f9a1))
+* **amount-input:** allow to use custom suffix ([#767](https://github.com/alfa-laboratory/core-components/issues/767)) ([27d9d02](https://github.com/alfa-laboratory/core-components/commit/27d9d02fb619fa5946fb3cb678d9b742d74a745b))
+
 # [19.3.0](https://github.com/alfa-laboratory/core-components/compare/v19.2.1...v19.3.0) (2021-07-23)
 
 

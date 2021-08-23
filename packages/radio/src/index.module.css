@@ -25,8 +25,12 @@
     --radio-disabled-bg-color: var(--color-light-graphic-primary-inverted);
     --radio-disabled-border-color: var(--color-light-graphic-neutral);
 
+    /* inactive */
+    --radio-inactive-border-color: var(--color-light-border-secondary-inverted);
+    --radio-checked-inactive-color: var(--color-light-graphic-tertiary);
+
     /* disabled and checked */
-    --radio-checked-disabled-bg-color: var(--color-light-graphic-neutral);
+    --radio-checked-disabled-bg-color: var(--color-light-bg-neutral);
     --radio-checked-disabled-border-color: transparent;
 
     /* icon */
@@ -38,7 +42,7 @@
     align-items: flex-start;
     cursor: pointer;
 
-    &:not(.checked):not(.disabled) {
+    &:not(.checked):not(.disabled):not(.inactive) {
         & .circle {
             background-color: var(--radio-bg-color);
             border: 1.5px solid var(--radio-border-color);
@@ -72,6 +76,19 @@
         }
     }
 
+    &.inactive {
+        cursor: var(--disabled-cursor);
+
+        & .circle {
+            background-color: var(--radio-checked-disabled-bg-color);
+            border: 1px solid var(--radio-inactive-border-color);
+        }
+
+        &.checked .circle:before {
+            background-color: var(--radio-checked-inactive-color);
+        }
+    }
+
     &.checked:not(:active) .circle:before,
     &.checked.disabled:active .circle:before {
         opacity: 1;
@@ -98,7 +115,8 @@
         @mixin focus-outline;
     }
 
-    &.disabled.checked .circle {
+    &.disabled.checked .circle,
+    &.inactive.checked .circle {
         background-color: var(--radio-checked-disabled-bg-color);
         border-color: var(--radio-checked-disabled-border-color);
     }

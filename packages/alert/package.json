@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-alert",
-    "version": "2.0.3",
+    "version": "2.0.5",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -19,7 +19,7 @@
         "react": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-plate": "^2.0.3",
+        "@alfalab/core-components-plate": "^2.0.5",
         "classnames": "^2.2.6"
     }
 }

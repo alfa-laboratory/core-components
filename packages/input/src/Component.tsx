@@ -59,7 +59,7 @@ export type InputProps = Omit<
     /**
      * Текст подсказки
      */
-    hint?: string;
+    hint?: ReactNode;
 
     /**
      * Лейбл компонента
