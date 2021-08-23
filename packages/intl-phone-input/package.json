@@ -19,7 +19,7 @@
         "react": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-input-autocomplete": "7.0.4",,
+        "@alfalab/core-components-input-autocomplete": "7.0.4",
         "@alfalab/core-components-input": "^7.2.1",
         "@alfalab/core-components-select": "^9.3.2",
         "@alfalab/hooks": "^0.9.0",
