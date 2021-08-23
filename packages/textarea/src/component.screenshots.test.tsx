@@ -25,6 +25,20 @@ describe('Textarea | sprite', () => {
                     }),
                 ],
                 [
+                    'inverted',
+                    createSpriteStorybookUrl({
+                        componentName: 'Textarea',
+                        knobs: {
+                            value: 'Компонент текстового поля ввода.',
+                            block: true,
+                            label: 'Лейбл',
+                            colors: 'inverted',
+                            error: ['', 'error'],
+                        },
+                        size: { width: 240, height: 100 },
+                    }),
+                ],
+                [
                     `${theme} - hint & error`,
                     createSpriteStorybookUrl({
                         componentName: 'Textarea',

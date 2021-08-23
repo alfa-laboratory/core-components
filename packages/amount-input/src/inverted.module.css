@@ -1,0 +1,11 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --amount-input-inverted-minor-part-and-currency-color: var(
+        --color-light-text-secondary-inverted
+    );
+}
+
+.minorPartAndCurrency {
+    color: var(--amount-input-inverted-minor-part-and-currency-color);
+}

@@ -16,7 +16,7 @@ const screenshotTesting = setupScreenshotTesting({
 const clip = { x: 0, y: 0, width: 350, height: 150 };
 
 describe('Input | screenshots main props', () => {
-    const testCase = (theme: string) =>
+    const testCase = (theme: string, colors: string) =>
         screenshotTesting({
             cases: [
                 [
@@ -29,6 +29,7 @@ describe('Input | screenshots main props', () => {
                             block: [false, true],
                             disabled: [false, true],
                             value: ['', 'Value'],
+                            colors,
                         },
                         size: { width: 350, height: 150 },
                     }),
@@ -40,11 +41,13 @@ describe('Input | screenshots main props', () => {
             theme,
         })();
 
-    ['default', 'click', 'site', 'mobile'].map(testCase);
+    ['default', 'inverted'].forEach(colors => {
+        ['default', 'click', 'site', 'mobile'].forEach(theme => testCase(theme, colors));
+    });
 });
 
 describe('Input | screenshots hint and error', () => {
-    const testCase = (theme: string) =>
+    const testCase = (theme: string, colors: string) =>
         screenshotTesting({
             cases: [
                 [
@@ -56,6 +59,7 @@ describe('Input | screenshots hint and error', () => {
                             hint: ['', 'Hint'],
                             error: ['', 'Error'],
                             value: ['', 'Value'],
+                            colors,
                         },
                         size: { width: 350, height: 150 },
                     }),
@@ -67,7 +71,9 @@ describe('Input | screenshots hint and error', () => {
             theme,
         })();
 
-    ['default', 'click', 'site', 'mobile'].map(testCase);
+    ['default', 'inverted'].forEach(colors => {
+        ['default', 'click', 'site', 'mobile'].forEach(theme => testCase(theme, colors));
+    });
 });
 
 describe(

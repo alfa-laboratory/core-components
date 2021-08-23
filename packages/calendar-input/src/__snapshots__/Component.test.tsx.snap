@@ -7,10 +7,10 @@ exports[`CalendarInput Display tests should match snapshot 1`] = `
     tabindex="-1"
   >
     <div
-      class="component s block hasRightAddons"
+      class="component component s block hasRightAddons"
     >
       <div
-        class="inner"
+        class="inner inner"
       >
         <div
           class="inputWrapper"
@@ -19,7 +19,7 @@ exports[`CalendarInput Display tests should match snapshot 1`] = `
             class="input"
           >
             <input
-              class="input"
+              class="input input"
               type="text"
               value=""
             />
