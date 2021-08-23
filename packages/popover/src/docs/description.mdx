@@ -24,7 +24,7 @@ render(() => {
                 alignItems: 'center',
             }}
         >
-            <Popover anchorElement={buttonElement} open={open}>
+            <Popover anchorElement={buttonElement} open={open} preventFlip={true}>
                 <div style={{ padding: '15px', width: '156px' }}>I am popover</div>
             </Popover>
 
