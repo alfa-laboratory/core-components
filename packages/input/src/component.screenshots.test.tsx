@@ -76,6 +76,33 @@ describe('Input | screenshots hint and error', () => {
     });
 });
 
+describe('Input | clear icon', () => {
+    const testCase = (theme: string, colors: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme} theme`,
+                    createSpriteStorybookUrl({
+                        componentName: 'Input',
+                        knobs: {
+                            size: 'm',
+                            clear: true,
+                            value: 'value',
+                            colors,
+                        },
+                        size: { width: 350, height: 150 },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            theme,
+        })();
+
+    ['default', 'inverted'].forEach(colors => testCase('default', colors));
+});
+
 describe(
     'Input | screenshots addons',
     screenshotTesting({

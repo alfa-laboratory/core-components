@@ -307,10 +307,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                                 onClick={handleClear}
                             >
                                 <span
-                                    className={cn(
-                                        styles.clearIcon,
-                                        colorStyles[colors].clearButton,
-                                    )}
+                                    className={cn(styles.clearIcon, colorStyles[colors].clearIcon)}
                                 />
                             </Button>
                         )}
