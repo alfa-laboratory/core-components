@@ -260,7 +260,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     colors,
                     className: cn(className, styles[size]),
                     addonsClassName: styles.addons,
-                    leftAddons: (
+                    leftAddons: countries.length > 1 && (
                         <CountriesSelect
                             disabled={disabled || readOnly}
                             size={size}

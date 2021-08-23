@@ -27,6 +27,7 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
               aria-haspopup="listbox"
               aria-owns="downshift-3-menu"
               class="component"
+              data-test-id="countries-select"
               role="combobox"
               tabindex="-1"
             >
