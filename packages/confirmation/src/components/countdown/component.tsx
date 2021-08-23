@@ -1,4 +1,4 @@
-import React, { MouseEvent, FC, useCallback, useState, useRef, useEffect } from 'react';
+import React, { MouseEvent, FC, useCallback, useState, useRef, useEffect, ReactNode } from 'react';
 import cn from 'classnames';
 import { phoneNumber } from '@alfalab/utils';
 import { usePrevious } from '@alfalab/hooks';
@@ -11,21 +11,29 @@ import styles from './index.module.css';
 
 /**
  * TODO: Вынести это в utils
- * Форматирование миллисекунд в mm:ss.
+ * Форматирование миллисекунд в hh:mm:ss.
  *
  * @param {Number} ms миллисекунды
- * @returns {String} время в формате mm:ss, но если оно более 100 минут,
- * то строка 'более, чем 99:99'
+ * @returns {String} время в формате mm:ss
  */
 export function formatMsAsMinutes(ms: number) {
-    if (ms >= 6000000) {
-        return 'более, чем 99:99';
-    }
     const totalSeconds = Math.ceil(ms / 1000);
     const totalMinutes = Math.floor(totalSeconds / 60);
+    const totalHours = Math.floor(totalMinutes / 60);
+
     const seconds = totalSeconds % 60;
-    const paddedMinutes = `00${totalMinutes}`.slice(-2);
     const paddedSeconds = `00${seconds}`.slice(-2);
+
+    if (totalHours > 0) {
+        const minutes = totalMinutes % 60;
+
+        const paddedMinutes = `00${minutes}`.slice(-2);
+        const paddedHours = `00${totalHours}`.slice(-2);
+
+        return `${paddedHours}:${paddedMinutes}:${paddedSeconds}`;
+    }
+
+    const paddedMinutes = `00${totalMinutes}`.slice(-2);
 
     return `${paddedMinutes}:${paddedSeconds}`;
 }
@@ -38,9 +46,22 @@ export type CountdownProps = {
     buttonRetryText: string;
     noAttemptsLeftMessage?: string;
     hasError: boolean;
+    content?: ReactNode;
     onCountdownFinished?: () => void;
     onRepeatSms: (event: MouseEvent) => void;
 };
+
+type ContainerProps = Pick<CountdownProps, 'alignContent' | 'hasError'>;
+
+const Container: FC<ContainerProps> = ({ alignContent, hasError, children }) => (
+    <div
+        className={cn(styles.component, styles[alignContent], {
+            [styles.hasError]: hasError,
+        })}
+    >
+        {children}
+    </div>
+);
 
 export const Countdown: FC<CountdownProps> = ({
     duration = 5000,
@@ -50,6 +71,7 @@ export const Countdown: FC<CountdownProps> = ({
     alignContent,
     noAttemptsLeftMessage,
     hasError,
+    content,
     onRepeatSms,
     onCountdownFinished,
 }) => {
@@ -123,10 +145,29 @@ export const Countdown: FC<CountdownProps> = ({
 
     const formattedPhone = phoneNumber.format(phone);
 
-    return (
-        <div
-            className={cn(styles.component, styles[alignContent], { [styles.hasError]: hasError })}
+    const retryButton = (
+        <Button
+            size='xs'
+            view='secondary'
+            onClick={handleRepeatSmsButtonClick}
+            className={styles.getCodeButton}
         >
+            {buttonRetryText}
+        </Button>
+    );
+
+    if (content) {
+        return (
+            <Container alignContent={alignContent} hasError={hasError}>
+                <div className={styles.customContent}>{content}</div>
+
+                {retryButton}
+            </Container>
+        );
+    }
+
+    return (
+        <Container alignContent={alignContent} hasError={hasError}>
             {phone && !hasError && (
                 <div>
                     Код отправлен на
@@ -139,14 +180,7 @@ export const Countdown: FC<CountdownProps> = ({
             {noAttemptsLeftMessage ? (
                 <div className={styles.noAttemptsLeftMessage}>{noAttemptsLeftMessage}</div>
             ) : repeatSmsButtonShow ? (
-                <Button
-                    size='xs'
-                    view='secondary'
-                    onClick={handleRepeatSmsButtonClick}
-                    className={styles.getCodeButton}
-                >
-                    {buttonRetryText}
-                </Button>
+                retryButton
             ) : (
                 <div>
                     <div className={styles.info}>Запросить повторно можно через</div>
@@ -159,6 +193,6 @@ export const Countdown: FC<CountdownProps> = ({
                     </div>
                 </div>
             )}
-        </div>
+        </Container>
     );
 };

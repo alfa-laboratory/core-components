@@ -85,7 +85,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                 class="contentWrapper hasTags contentWrapperVertical"
               >
                 <button
-                  class="component xs checked tag"
+                  class="component component xs checked tag"
                   type="button"
                 >
                   <span>
@@ -113,7 +113,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                   </span>
                 </button>
                 <button
-                  class="component xs checked tag"
+                  class="component component xs checked tag"
                   type="button"
                 >
                   <span>
@@ -141,7 +141,7 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
                   </span>
                 </button>
                 <button
-                  class="component xs checked tag"
+                  class="component component xs checked tag"
                   type="button"
                 >
                   <span>

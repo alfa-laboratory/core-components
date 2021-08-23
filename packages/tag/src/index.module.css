@@ -3,26 +3,7 @@
 :root {
     /* border */
     --tag-border-width: 1px;
-    --tag-border-color: var(--color-light-border-secondary-inverted);
-    --tag-border-color-hover: var(--color-light-border-key);
-    --tag-border-color-active: var(--color-light-border-key);
-    --tag-border-color-checked: var(--color-light-border-key);
-    --tag-border-color-disabled: var(--color-light-border-primary);
-    --tag-border-color-checked-disabled: transparent;
     --tag-border-radius: var(--border-radius-pill);
-
-    /* background-color */
-    --tag-background-color: transparent;
-    --tag-background-color-hover: transparent;
-    --tag-background-color-active: var(--color-light-bg-primary-inverted-alpha-7);
-    --tag-background-color-checked: var(--color-light-bg-primary-inverted);
-    --tag-background-color-checked-disabled: var(--color-light-bg-primary-inverted-alpha-15);
-
-    /* text color */
-    --tag-text-color: var(--color-light-text-primary);
-    --tag-text-color-checked: var(--color-light-text-primary-inverted);
-    --tag-text-color-disabled: var(--color-light-text-tertiary);
-    --tag-text-color-checked-disabled: var(--color-light-text-primary-inverted);
 }
 
 .component {
@@ -33,24 +14,17 @@
     margin: 0;
     font-family: var(--font-family);
     text-decoration: none;
-    color: var(--tag-text-color);
-    border: var(--tag-border-width) solid var(--tag-border-color);
+    border-width: var(--tag-border-width);
+    border-style: solid;
     border-radius: var(--tag-border-radius);
-    background-color: var(--tag-background-color);
-    transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
+    transition: background-color 0.2s ease, border 0.2s ease, color 0.2s ease;
     box-sizing: border-box;
     box-shadow: none;
     user-select: none;
     cursor: pointer;
     outline: none;
 
-    &.iconOnly {
-        min-width: 0;
-    }
-
     &:disabled {
-        border-color: var(--tag-border-color-disabled);
-        color: var(--tag-text-color-disabled);
         cursor: var(--disabled-cursor);
     }
 }
@@ -74,35 +48,6 @@
 
     &:only-child {
         margin: 0;
-    }
-}
-
-.component {
-    &:hover:not(:disabled) {
-        border-color: var(--tag-border-color-hover);
-        background-color: var(--tag-background-color-hover);
-    }
-
-    &:active:not(:disabled) {
-        border-color: var(--tag-border-color-active);
-        background-color: var(--tag-background-color-active);
-        color: var(--tag-text-color);
-    }
-}
-
-.checked {
-    border-color: var(--tag-border-color-checked);
-    background-color: var(--tag-background-color-checked);
-    color: var(--tag-text-color-checked);
-
-    &:disabled {
-        background-color: var(--tag-background-color-checked-disabled);
-        border-color: var(--tag-border-color-checked-disabled);
-        color: var(--tag-text-color-checked-disabled);
-    }
-
-    &:hover:not(:disabled):not(:active) {
-        background-color: var(--tag-background-color-checked);
     }
 }
 
