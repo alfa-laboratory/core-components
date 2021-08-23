@@ -14706,26 +14706,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 :root {
     /* border */
     --tag-border-width: 1px;
-    --tag-border-color: var(--color-light-border-secondary-inverted);
-    --tag-border-color-hover: var(--color-light-border-key);
-    --tag-border-color-active: var(--color-light-border-key);
-    --tag-border-color-checked: var(--color-light-border-key);
-    --tag-border-color-disabled: var(--color-light-border-primary);
-    --tag-border-color-checked-disabled: transparent;
     --tag-border-radius: var(--border-radius-pill);
-
-    /* background-color */
-    --tag-background-color: transparent;
-    --tag-background-color-hover: transparent;
-    --tag-background-color-active: var(--color-light-bg-primary-inverted-alpha-7);
-    --tag-background-color-checked: var(--color-light-bg-primary-inverted);
-    --tag-background-color-checked-disabled: var(--color-light-bg-primary-inverted-alpha-15);
-
-    /* text color */
-    --tag-text-color: var(--color-light-text-primary);
-    --tag-text-color-checked: var(--color-light-text-primary-inverted);
-    --tag-text-color-disabled: var(--color-light-text-tertiary);
-    --tag-text-color-checked-disabled: var(--color-light-text-primary-inverted);
 }
 .component_2dKuC {
     display: -webkit-inline-box;
@@ -14742,12 +14723,11 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     margin: 0;
     font-family: var(--font-family);
     text-decoration: none;
-    color: var(--tag-text-color);
-    border: var(--tag-border-width) solid var(--tag-border-color);
+    border-width: var(--tag-border-width);
+    border-style: solid;
     border-radius: var(--tag-border-radius);
-    background-color: var(--tag-background-color);
-    -webkit-transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
-    transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
+    -webkit-transition: background-color 0.2s ease, border 0.2s ease, color 0.2s ease;
+    transition: background-color 0.2s ease, border 0.2s ease, color 0.2s ease;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     -webkit-box-shadow: none;
@@ -14759,12 +14739,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     cursor: pointer;
     outline: none
 }
-.component_2dKuC.iconOnly_2g69I {
-        min-width: 0;
-    }
 .component_2dKuC:disabled {
-        border-color: var(--tag-border-color-disabled);
-        color: var(--tag-text-color-disabled);
         cursor: var(--disabled-cursor);
     }
 .focused_17rKa {
@@ -14789,28 +14764,6 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     }
 .addons_xL5fS:only-child {
         margin: 0;
-    }
-.component_2dKuC:hover:not(:disabled) {
-        border-color: var(--tag-border-color-hover);
-        background-color: var(--tag-background-color-hover);
-    }
-.component_2dKuC:active:not(:disabled) {
-        border-color: var(--tag-border-color-active);
-        background-color: var(--tag-background-color-active);
-        color: var(--tag-text-color);
-    }
-.checked_3nyb3 {
-    border-color: var(--tag-border-color-checked);
-    background-color: var(--tag-background-color-checked);
-    color: var(--tag-text-color-checked)
-}
-.checked_3nyb3:disabled {
-        background-color: var(--tag-background-color-checked-disabled);
-        border-color: var(--tag-border-color-checked-disabled);
-        color: var(--tag-text-color-checked-disabled);
-    }
-.checked_3nyb3:hover:not(:disabled):not(:active) {
-        background-color: var(--tag-background-color-checked);
     }
 .xs_1UHcS {
     min-width: 60px;
@@ -14886,6 +14839,114 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
         Возможно другое решение - если в будущем у компонента появится обертка, установить ей display: flex / inline-flex */
         height: 72px
 }
+    }
+:root {
+    /* border */
+    --tag-border-color: var(--color-light-border-secondary-inverted);
+    --tag-border-color-hover: var(--color-light-border-key);
+    --tag-border-color-active: var(--color-light-border-key);
+    --tag-border-color-checked: var(--color-light-border-key);
+    --tag-border-color-disabled: var(--color-light-border-primary);
+    --tag-border-color-checked-disabled: transparent;
+
+    /* background-color */
+    --tag-background-color: transparent;
+    --tag-background-color-hover: transparent;
+    --tag-background-color-active: var(--color-light-bg-primary-inverted-alpha-7);
+    --tag-background-color-checked: var(--color-light-bg-primary-inverted);
+    --tag-background-color-checked-disabled: var(--color-light-bg-primary-inverted-alpha-15);
+
+    /* text color */
+    --tag-text-color: var(--color-light-text-primary);
+    --tag-text-color-checked: var(--color-light-text-primary-inverted);
+    --tag-text-color-disabled: var(--color-light-text-tertiary);
+    --tag-text-color-checked-disabled: var(--color-light-text-primary-inverted);
+}
+.component_2I5h1 {
+    color: var(--tag-text-color);
+    border-color: var(--tag-border-color);
+    background-color: var(--tag-background-color)
+}
+.component_2I5h1:disabled {
+        border-color: var(--tag-border-color-disabled);
+        color: var(--tag-text-color-disabled);
+    }
+.component_2I5h1:hover:not(:disabled) {
+        border-color: var(--tag-border-color-hover);
+        background-color: var(--tag-background-color-hover);
+    }
+.component_2I5h1:active:not(:disabled) {
+        border-color: var(--tag-border-color-active);
+        background-color: var(--tag-background-color-active);
+        color: var(--tag-text-color);
+    }
+.checked_35ZxE {
+    border-color: var(--tag-border-color-checked);
+    background-color: var(--tag-background-color-checked);
+    color: var(--tag-text-color-checked)
+}
+.checked_35ZxE:disabled {
+        background-color: var(--tag-background-color-checked-disabled);
+        border-color: var(--tag-border-color-checked-disabled);
+        color: var(--tag-text-color-checked-disabled);
+    }
+.checked_35ZxE:hover:not(:disabled):not(:active) {
+        background-color: var(--tag-background-color-checked);
+    }
+:root {
+    /* border */
+    --tag-inverted-border-color: var(--color-dark-border-secondary-inverted);
+    --tag-inverted-border-color-hover: var(--color-dark-border-key);
+    --tag-inverted-border-color-active: var(--color-dark-border-key);
+    --tag-inverted-border-color-checked: var(--color-dark-border-key);
+    --tag-inverted-border-color-disabled: var(--color-dark-border-primary);
+    --tag-inverted-border-color-checked-disabled: transparent;
+
+    /* background-color */
+    --tag-inverted-background-color: transparent;
+    --tag-inverted-background-color-hover: transparent;
+    --tag-inverted-background-color-active: var(--color-dark-bg-primary-inverted-alpha-7);
+    --tag-inverted-background-color-checked: var(--color-dark-bg-primary-inverted);
+    --tag-inverted-background-color-checked-disabled: var(
+        --color-dark-bg-primary-inverted-alpha-15
+    );
+
+    /* text color */
+    --tag-inverted-text-color: var(--color-dark-text-primary);
+    --tag-inverted-text-color-checked: var(--color-dark-text-primary-inverted);
+    --tag-inverted-text-color-disabled: var(--color-dark-text-tertiary);
+    --tag-inverted-text-color-checked-disabled: var(--color-dark-text-primary-inverted);
+}
+.component_TwZ_5 {
+    color: var(--tag-inverted-text-color);
+    border-color: var(--tag-inverted-border-color);
+    background-color: var(--tag-inverted-background-color)
+}
+.component_TwZ_5:disabled {
+        border-color: var(--tag-inverted-border-color-disabled);
+        color: var(--tag-inverted-text-color-disabled);
+    }
+.component_TwZ_5:hover:not(:disabled) {
+        border-color: var(--tag-inverted-border-color-hover);
+        background-color: var(--tag-inverted-background-color-hover);
+    }
+.component_TwZ_5:active:not(:disabled) {
+        border-color: var(--tag-inverted-border-color-active);
+        background-color: var(--tag-inverted-background-color-active);
+        color: var(--tag-inverted-text-color);
+    }
+.checked_4Rm1r {
+    border-color: var(--tag-inverted-border-color-checked);
+    background-color: var(--tag-inverted-background-color-checked);
+    color: var(--tag-inverted-text-color-checked)
+}
+.checked_4Rm1r:disabled {
+        background-color: var(--tag-inverted-background-color-checked-disabled);
+        border-color: var(--tag-inverted-border-color-checked-disabled);
+        color: var(--tag-inverted-text-color-checked-disabled);
+    }
+.checked_4Rm1r:hover:not(:disabled):not(:active) {
+        background-color: var(--tag-inverted-background-color-checked);
     }
 
 .tag_rvl28 {
