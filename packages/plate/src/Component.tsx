@@ -140,13 +140,18 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
 
         const handleClick = useCallback(
             event => {
+                const eventInsideComponent =
+                    plateRef.current && plateRef.current.contains(event.target);
+
                 const eventInsideContent =
                     contentRef.current && contentRef.current.contains(event.target);
 
                 const clickSimilarKeys = ['Enter', ' '].includes(event.key);
 
                 const shouldChangeIsFolded =
-                    !eventInsideContent && (event.type === 'click' || clickSimilarKeys);
+                    eventInsideComponent &&
+                    !eventInsideContent &&
+                    (event.type === 'click' || clickSimilarKeys);
 
                 if (foldable && shouldChangeIsFolded) {
                     if (uncontrolled) {
