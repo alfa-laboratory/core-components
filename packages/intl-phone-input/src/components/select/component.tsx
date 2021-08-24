@@ -27,7 +27,7 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
     fieldWidth,
     preventFlip,
     onChange,
-    dataTestId = 'countries-select',
+    dataTestId,
 }) => {
     const options = useMemo(
         () =>

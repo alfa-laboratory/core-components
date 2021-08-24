@@ -262,6 +262,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     addonsClassName: styles.addons,
                     leftAddons: countries.length > 1 && (
                         <CountriesSelect
+                            dataTestId='countries-select'
                             disabled={disabled || readOnly}
                             size={size}
                             selected={countryIso2}
