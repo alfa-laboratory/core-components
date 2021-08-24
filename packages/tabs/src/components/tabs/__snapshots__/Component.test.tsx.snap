@@ -262,7 +262,7 @@ exports[`Tabs Snapshots tests should match snapshot 4`] = `
 <div>
   <div>
     <div
-      class="undefined"
+      class=""
       role="tablist"
     >
       <div
