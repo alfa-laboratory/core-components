@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-input@7.2.2...@alfalab/core-components-input@7.2.3) (2021-08-23)
+
+
+### Bug Fixes
+
+* **input:** clear icon ([51debd4](https://github.com/alfa-laboratory/core-components/commit/51debd46ea2176486cfc1945d74e8d56a4b9387b))
+
+
+
+
+
 ## [7.2.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-input@7.2.1...@alfalab/core-components-input@7.2.2) (2021-08-23)
 
 

@@ -1,3 +1,17 @@
+## [19.7.2](https://github.com/alfa-laboratory/core-components/compare/v19.7.1...v19.7.2) (2021-08-23)
+
+
+### Bug Fixes
+
+* **plate:** check is click inside component, popover issue ([bea8a7d](https://github.com/alfa-laboratory/core-components/commit/bea8a7dc199d7aced3ec8b5e9ab76568f0cba839))
+
+## [19.7.1](https://github.com/alfa-laboratory/core-components/compare/v19.7.0...v19.7.1) (2021-08-23)
+
+
+### Bug Fixes
+
+* **input:** clear icon ([51debd4](https://github.com/alfa-laboratory/core-components/commit/51debd46ea2176486cfc1945d74e8d56a4b9387b))
+
 # [19.7.0](https://github.com/alfa-laboratory/core-components/compare/v19.6.3...v19.7.0) (2021-08-23)
 
 
