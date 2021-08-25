@@ -98,6 +98,26 @@ describe('Attributes tests', () => {
     });
 });
 
+describe('Custom component', () => {
+    it('should use custom component and replace `href` to `to`', () => {
+        const cb = jest.fn();
+        cb.mockReturnValue(null);
+
+        render(
+            <Link Component={cb} href='test'>
+                Link
+            </Link>,
+        );
+
+        expect(cb).toBeCalled();
+
+        const props = cb.mock.calls[0][0];
+
+        expect(props.href).toBeFalsy();
+        expect(props.to).toBe('test');
+    });
+});
+
 describe('Render tests', () => {
     it('should unmount without errors', () => {
         const { unmount } = render(<Link href=''>Link</Link>);

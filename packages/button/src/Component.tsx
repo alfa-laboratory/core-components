@@ -58,7 +58,7 @@ export type ComponentProps = {
     href?: string;
 
     /**
-     * Позволяет использовать кастомный элемент для кнопки
+     * Позволяет использовать кастомный компонент для кнопки (например Link из роутера)
      */
     Component?: ElementType;
 
@@ -203,17 +203,15 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
         >;
 
         return (
-            // eslint-disable-next-line react/button-has-type
-            <button
+            <Component
                 {...componentProps}
                 {...restButtonProps}
-                // eslint-disable-next-line react/button-has-type
                 type={type}
                 disabled={disabled || showLoader}
                 ref={mergeRefs([buttonRef, ref])}
             >
                 {buttonChildren}
-            </button>
+            </Component>
         );
     },
 );
