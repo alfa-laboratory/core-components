@@ -27,6 +27,11 @@ export type DropzoneProps = {
     overlayVisible?: boolean;
 
     /**
+     * Растягивать ли компонент на всю ширину
+     */
+    block?: boolean;
+
+    /**
      * Обработчик события 'drop'
      */
     onDrop?: (files: FileList) => void;
@@ -62,6 +67,7 @@ export const Dropzone: FC<DropzoneProps> = ({
     onDragLeave,
     onDragOver,
     onDrop,
+    block = false,
     dataTestId,
 }) => {
     const [dragOver, setDragOver] = useState(false);
@@ -138,6 +144,7 @@ export const Dropzone: FC<DropzoneProps> = ({
             className={cn(styles.component, className, {
                 [styles.dragOver]: dragOver || overlayVisible,
                 [styles.error]: error,
+                [styles.block]: block,
             })}
             onDragEnter={handleDragEnter}
             onDragLeave={handleDragLeave}
