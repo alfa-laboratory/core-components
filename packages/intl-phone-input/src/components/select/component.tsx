@@ -10,7 +10,10 @@ import { FlagIcon } from '../flag-icon';
 
 import styles from './index.module.css';
 
-type CountriesSelectProps = Pick<SelectProps, 'size' | 'disabled' | 'onChange' | 'preventFlip'> & {
+type CountriesSelectProps = Pick<
+    SelectProps,
+    'size' | 'dataTestId' | 'disabled' | 'onChange' | 'preventFlip'
+> & {
     selected: string;
     countries: Country[];
     fieldWidth: number | null;
@@ -24,6 +27,7 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
     fieldWidth,
     preventFlip,
     onChange,
+    dataTestId,
 }) => {
     const options = useMemo(
         () =>
@@ -56,6 +60,7 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
     return (
         <div className={styles.component} onClick={event => event.stopPropagation()}>
             <Select
+                dataTestId={dataTestId}
                 disabled={disabled}
                 size={size}
                 options={options}
