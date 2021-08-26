@@ -1,7 +1,6 @@
-import { ThemeProvider, ensure, themes } from '@storybook/theming';
 import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 
-import { Example } from 'storybook/blocks/example';
+import { Example } from 'storybook-addon-live-examples';
 
 export const defaultExample = `
 function Example() {
@@ -35,6 +34,4 @@ export const getCode = () => {
 
 ## Песочница
 
-<ThemeProvider theme={ensure(themes.light)}>
-    <Example expanded={true} live={true} code={getCode()} />
-</ThemeProvider>
+<Example expanded={true} live={true} code={getCode()} />

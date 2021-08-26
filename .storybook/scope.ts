@@ -1,11 +1,11 @@
 import { ComponentType } from 'react';
-import * as grid from '../../grid';
-import * as glyph from '@alfalab/icons-glyph';
 import * as dateUtils from 'date-fns';
+import * as glyph from '@alfalab/icons-glyph';
 import * as knobs from '@storybook/addon-knobs';
+import * as grid from './blocks/grid';
 
 const req = require.context(
-    '../../../../packages',
+    '../packages',
     true,
     /^\.\/(?!dark-theme-styles-injector)(.*)\/src\/(index|desktop|mobile|responsive).ts$/,
 );
