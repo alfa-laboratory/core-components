@@ -35,10 +35,9 @@
     background-color: #e9eaeb;
 }
 
-
 .image {
-    width: 0px;
-    height: 0px;
+    width: 0;
+    height: 0;
     user-select: none;
     background-color: var(--color-light-bg-primary);
 }
