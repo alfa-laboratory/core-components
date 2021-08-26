@@ -41,9 +41,7 @@ export const SecondaryTabList = ({
         <div
             role='tablist'
             data-test-id={dataTestId}
-            className={cn(styles.component, className, size && styles[size], {
-                [styles.scrollable]: scrollable,
-            })}
+            className={cn(styles.component, className, size && styles[size])}
         >
             {scrollable ? (
                 <ScrollableContainer
