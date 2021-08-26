@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-intl-phone-input@5.0.10...@alfalab/core-components-intl-phone-input@5.1.0) (2021-08-26)
+
+
+### Features
+
+* **intl-phone-input:** hide select for countries when one country ([#809](https://github.com/alfa-laboratory/core-components/issues/809)) ([bad50af](https://github.com/alfa-laboratory/core-components/commit/bad50aff46ab4af5416510944802451873cd08bc))
+
+
+
+
+
 ## [5.0.10](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-intl-phone-input@5.0.9...@alfalab/core-components-intl-phone-input@5.0.10) (2021-08-23)
 
 **Note:** Version bump only for package @alfalab/core-components-intl-phone-input
