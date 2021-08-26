@@ -177,4 +177,23 @@ describe('IntlPhoneInput', () => {
             expect(input).toHaveValue('+7');
         });
     });
+
+    it('should not show country select when one country is available', async () => {
+        const countries = [
+            {
+                areaCodes: null,
+                dialCode: '7',
+                iso2: 'ru',
+                name: 'Россия',
+                priority: 0,
+            },
+        ];
+        const { queryByTestId } = render(
+            <IntlPhoneInput value='+7' countries={countries} onChange={() => null} />,
+        );
+
+        const countrySelect = queryByTestId('countries-select');
+
+        expect(countrySelect).toBeNull();
+    });
 });

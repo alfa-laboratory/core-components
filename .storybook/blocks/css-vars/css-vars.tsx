@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import cn from 'classnames';
 
-import { Example } from '../example';
+import { Example } from 'storybook-addon-live-examples';
 
 type Props = {
     css: string;

@@ -1,16 +1,43 @@
+import { addons } from '@storybook/addons';
 import { configure } from '@storybook/react';
 import { addParameters } from '@storybook/react';
 import { setThemeStylesInIframeHtmlPage } from './addons/theme-switcher/utils';
-import { Example } from './blocks/example';
+import { LIVE_EXAMPLES_ADDON_ID } from 'storybook-addon-live-examples';
+import theme from 'prism-react-renderer/themes/oceanicNext';
+
+import alfaTheme from './theme';
+import scope from './scope';
 
 setThemeStylesInIframeHtmlPage();
+
+addons.setConfig({
+    [LIVE_EXAMPLES_ADDON_ID]: {
+        editorTheme: theme,
+        sandboxPath: '/docs/компоненты-песочница--page',
+        copyText: ['Скопировать', 'Скопировано'],
+        expandText: ['Показать код', 'Скрыть код'],
+        shareText: ['Поделиться', 'Поделиться'],
+        borderColor: 'var(--color-light-border-secondary)',
+        borderRadius: 'var(--border-radius-s)',
+        actionBg: 'var(--color-light-bg-primary)',
+        actionColor: 'var(--color-light-text-primary)',
+        actionAccent: 'var(--color-light-bg-accent)',
+        errorsBg: 'var(--color-light-bg-negative-muted)',
+        errorsColor: 'var(--color-light-text-accent)',
+        fontBase: 'var(--font-family-system)',
+        fontCode: 'Monaco, Menlo, monospace',
+        fontSizeBase: 16,
+        fontSizeCode: 14,
+        scope: {
+            ...scope,
+        },
+    },
+});
 
 addParameters({
     viewMode: 'docs',
     docs: {
-        components: {
-            code: Example,
-        },
+        theme: alfaTheme,
     },
     options: {
         storySort: {

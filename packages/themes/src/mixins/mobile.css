@@ -5,6 +5,7 @@
 @import './checkbox/mobile.css';
 @import './radio/mobile.css';
 @import './confirmation/mobile.css';
+@import './input/mobile.css';
 @import './calendar-input/mobile.css';
 @import './slider/mobile.css';
 @import './slider-input/mobile.css';
@@ -15,6 +16,7 @@
     @mixin checkbox-mobile;
     @mixin radio-mobile;
     @mixin confirmation-mobile;
+    @mixin input-mobile;
     @mixin calendar-input-mobile;
     @mixin form-control-mobile;
     @mixin input-mobile;

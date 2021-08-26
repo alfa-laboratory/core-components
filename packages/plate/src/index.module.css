@@ -21,10 +21,7 @@
     min-height: 56px;
     padding: var(--gap-m);
     outline: none;
-
-    &.isFolded {
-        cursor: pointer;
-    }
+    cursor: pointer;
 }
 
 .component * {
@@ -86,6 +83,7 @@
     transition: max-height 2s ease-in-out;
     padding: var(--gap-2xs);
     margin: var(--gap-2xs-neg);
+    cursor: default;
 
     &.isFolded {
         max-height: 0;

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@3.1.0...@alfalab/core-components-icon-button@3.2.0) (2021-08-23)
+
+
+### Features
+
+* **icon-button:** Rest props for IconButton from Button ([#805](https://github.com/alfa-laboratory/core-components/issues/805)) ([ee4e170](https://github.com/alfa-laboratory/core-components/commit/ee4e170b6b59800e283080d36bddfdcfe4b57561))
+
+
+
+
+
 # [3.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@3.0.3...@alfalab/core-components-icon-button@3.1.0) (2021-08-04)
 
 

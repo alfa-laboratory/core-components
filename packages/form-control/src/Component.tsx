@@ -2,6 +2,13 @@ import React, { ReactNode, HTMLAttributes } from 'react';
 import cn from 'classnames';
 
 import styles from './index.module.css';
+import defaultColors from './default.module.css';
+import invertedColors from './inverted.module.css';
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
 
 export type FormControlProps = HTMLAttributes<HTMLDivElement> & {
     /**
@@ -13,6 +20,11 @@ export type FormControlProps = HTMLAttributes<HTMLDivElement> & {
      * Размер компонента
      */
     size?: 's' | 'm' | 'l' | 'xl';
+
+    /**
+     * Набор цветов для компонента
+     */
+    colors?: 'default' | 'inverted';
 
     /**
      * Заблокированное состояние
@@ -95,6 +107,7 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
         {
             block = false,
             size = 's',
+            colors = 'default',
             className,
             fieldClassName,
             labelClassName,
@@ -119,20 +132,29 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
         return (
             <div
                 data-test-id={dataTestId}
-                className={cn(styles.component, className, styles[size], {
-                    [styles.block]: block,
-                    [styles.hasLeftAddons]: leftAddons,
-                    [styles.hasRightAddons]: rightAddons || error,
-                })}
+                className={cn(
+                    styles.component,
+                    colorStyles[colors].component,
+                    className,
+                    styles[size],
+                    {
+                        [styles.block]: block,
+                        [styles.hasLeftAddons]: leftAddons,
+                        [styles.hasRightAddons]: rightAddons || error,
+                    },
+                )}
             >
                 <div
                     {...restProps}
-                    className={cn(fieldClassName, styles.inner, {
-                        [styles.focused]: focused,
+                    className={cn(fieldClassName, styles.inner, colorStyles[colors].inner, {
                         [styles.disabled]: disabled,
+                        [colorStyles[colors].disabled]: disabled,
                         [styles.filled]: filled,
-                        [styles.hasError]: error,
                         [styles.hasLabel]: label,
+                        [styles.focused]: focused,
+                        [colorStyles[colors].focused]: focused,
+                        [styles.hasError]: error,
+                        [colorStyles[colors].hasError]: error,
                     })}
                     ref={ref}
                 >
@@ -148,7 +170,13 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                                 <span className={styles.hiddenLabel} aria-hidden={true}>
                                     {label}
                                 </span>
-                                <div className={cn(styles.label, labelClassName)}>
+                                <div
+                                    className={cn(
+                                        styles.label,
+                                        colorStyles[colors].label,
+                                        labelClassName,
+                                    )}
+                                >
                                     <span className={styles.labelInner}>{label}</span>
                                 </div>
                             </React.Fragment>
@@ -167,11 +195,13 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                 {bottomAddons}
 
                 {errorMessage && (
-                    <span className={cn(styles.sub, styles.error)}>{errorMessage}</span>
+                    <span className={cn(styles.sub, styles.error, colorStyles[colors].error)}>
+                        {errorMessage}
+                    </span>
                 )}
 
                 {hint && !errorMessage && (
-                    <span className={cn(styles.sub, styles.hint)}>{hint}</span>
+                    <span className={cn(styles.sub, colorStyles[colors].hint)}>{hint}</span>
                 )}
             </div>
         );

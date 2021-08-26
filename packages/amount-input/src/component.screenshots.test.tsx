@@ -1,4 +1,8 @@
-import { setupScreenshotTesting, createSpriteStorybookUrl } from '../../screenshot-utils';
+import {
+    setupScreenshotTesting,
+    createSpriteStorybookUrl,
+    createStorybookUrl,
+} from '../../screenshot-utils';
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -22,6 +26,17 @@ describe(
                         bold: [true, false],
                     },
                     size: { width: 300, height: 70 },
+                }),
+            ],
+            [
+                'inverted',
+                createStorybookUrl({
+                    componentName: 'AmountInput',
+                    knobs: {
+                        value: 12300,
+                        minority: 100,
+                        colors: 'inverted',
+                    },
                 }),
             ],
         ],

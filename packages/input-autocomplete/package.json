@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-input-autocomplete",
-    "version": "7.0.7",
+    "version": "7.0.9",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -19,8 +19,8 @@
         "react": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-input": "^7.2.1",
-        "@alfalab/core-components-select": "^9.3.2",
+        "@alfalab/core-components-input": "^7.2.3",
+        "@alfalab/core-components-select": "^9.4.1",
         "classnames": "^2.2.6"
     }
 }

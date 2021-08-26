@@ -10,10 +10,11 @@ import {
     InputAutocompleteProps,
 } from '@alfalab/core-components-input-autocomplete';
 import { CountriesSelect } from './components';
-import styles from './index.module.css';
 import { formatPhoneWithUnclearableCountryCode } from './utils/format-phone-with-unclearable-country-code';
 import { useCaretAvoidCountryCode } from './useCaretAvoidCountryCode';
 import { usePreventCaretReset } from './usePreventCaretReset';
+
+import styles from './index.module.css';
 
 const countriesHash = getCountriesHash();
 
@@ -25,6 +26,11 @@ export type IntlPhoneInputProps = Partial<Omit<InputAutocompleteProps, 'onChange
          * Значение
          */
         value: string;
+
+        /**
+         * Набор цветов для компонента
+         */
+        colors?: 'default' | 'inverted';
 
         /**
          * Обработчик события изменения значения
@@ -58,6 +64,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
             disabled = false,
             readOnly = false,
             size = 'm',
+            colors = 'default',
             options = [],
             countries = getCountries(),
             clearableCountryCode = true,
@@ -250,10 +257,12 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                     ref: inputRef,
                     wrapperRef: setInputWrapperRef,
                     type: 'tel',
+                    colors,
                     className: cn(className, styles[size]),
                     addonsClassName: styles.addons,
-                    leftAddons: (
+                    leftAddons: countries.length > 1 && (
                         <CountriesSelect
+                            dataTestId='countries-select'
                             disabled={disabled || readOnly}
                             size={size}
                             selected={countryIso2}
