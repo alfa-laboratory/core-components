@@ -10,10 +10,29 @@ import { GalleryContext } from './context';
 import styles from './index.module.css';
 
 export type GalleryProps = {
+    /**
+     * Управление видимостью
+     */
     open: boolean;
+
+    /**
+     * Массив изображений
+     */
     images: GalleryImage[];
+
+    /**
+     * Зациклить галерею
+     */
     loop?: boolean;
+
+    /**
+     * Индекс открытого изображение
+     */
     defaultOpenedImageIndex?: number;
+
+    /**
+     * Обработчик закрытия
+     */
     onClose: () => void;
 };
 

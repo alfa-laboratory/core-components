@@ -10,6 +10,8 @@ import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
 type Props = Omit<IconButtonProps, 'icon' | 'colors'> & {
     buttonRef?: MutableRefObject<HTMLButtonElement | null>;
+    download?: string | boolean;
+    target?: string;
 };
 
 export const Fullscreen: FC<Props> = ({ disabled, buttonRef, ...restProps }) => (
@@ -42,9 +44,21 @@ export const ExitFullscreen: FC<Props> = ({ buttonRef, ...restProps }) => (
     </Tooltip>
 );
 
-export const Download: FC<Props> = props => (
-    <Tooltip trigger='hover' position='bottom' content='Скачать'>
-        <IconButton {...props} icon={PointerDownMIcon} colors='inverted' aria-label='Скачать' />
+export const Download: FC<Props> = ({ href, disabled, ...restProps }) => (
+    <Tooltip
+        trigger='hover'
+        position='bottom'
+        content='Скачать'
+        open={disabled ? false : undefined}
+    >
+        <IconButton
+            {...restProps}
+            icon={PointerDownMIcon}
+            colors='inverted'
+            aria-label='Скачать'
+            disabled={disabled}
+            href={disabled ? '' : href}
+        />
     </Tooltip>
 );
 

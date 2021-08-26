@@ -1,12 +1,12 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { Button } from '@alfalab/core-components-button';
 
 import { Gallery } from '..';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
-
+import styles from '!!raw-loader!../vars.css';
 
 <Meta
     title='Компоненты/Gallery'
@@ -28,69 +28,25 @@ import Changelog from '../../CHANGELOG.md';
                     }}
                     images={[
                         {
-                            name: 'File 3.jpg',
-                            src: 'https://picsum.photos/500/1500'
+                            name: 'Горизонтально изображение.jpg',
+                            src: 'https://unsplash.com/photos/ywiAen4L4qA/download?force=true'
                         },
                         {
-                            name: 'File 1.jpg',
-                            src: 'https://picsum.photos/1100/500'
+                            name: 'Вертикальное изображение.jpg',
+                            src: 'https://unsplash.com/photos/J3WbMATCz8I/download?force=true'
                         },
                         {
-                            name: 'File 2.jpg',
-                            src: 'https://picsum.photos/600/1000'
+                            name: 'Маленькое изображение.jpg',
+                            src: 'https://picsum.photos/100/100'
                         },
                         {
-                            name: 'File 3.jpg',
-                            src: 'https://picsum.photos/500/1700'
+                            name: 'Битое изображение.jpg',
+                            src: 'https://picsum.photos'
                         },
                         {
-                            name: 'File 1.jpg',
-                            src: 'https://picsum.photos/1200/500'
-                        },
-                        {
-                            name: 'File 2.jpg',
-                            src: 'https://picsum.photos/1500/1000'
-                        },
-                        {
-                            name: 'File 3.jpg',
-                            src: 'https://picsum.photos/1500/200'
-                        },
-                        {
-                            name: 'File1File1File1File1File1File1File1File1File1File1File1File1File1File1asdasdsad.jpg',
-                            src: 'https://picsum.photos/100/200'
-                        },
-                        {
-                            name: 'File 2.jpg',
-                            src: 'https://picsum.ru'
-                        },
-                        {
-                            name: 'File 2.png',
+                            name: 'Изображение с прозрачностью.png',
                             src: 'https://clipart-best.com/img/bush/bush-clip-art-22.png'
-                        },
-                        {
-                            name: 'File 1.jpg',
-                            src: 'https://picsum.photos/1100/700'
-                        },
-                        {
-                            name: 'File 2.jpg',
-                            src: 'https://picsum.photos/550/750'
-                        },
-                        {
-                            name: 'File 3.jpg',
-                            src: 'https://picsum.photos/650/1400'
-                        },
-                        {
-                            name: 'File 1.jpg',
-                            src: 'https://picsum.photos/1150/750'
-                        },
-                        {
-                            name: 'File 2.jpg',
-                            src: 'https://picsum.photos/900/900'
-                        },
-                        {
-                            name: 'File 3.jpg',
-                            src: 'https://picsum.photos/1000/1000'
-                        },
+                        }
                     ]}
                 />
             </div>
@@ -103,16 +59,17 @@ import Changelog from '../../CHANGELOG.md';
 <ComponentHeader
     name='Gallery'
     version={version}
-    package='@alfalab/core-components/Gallery'
-    stage={1}
+    stage={2}
+    design="https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=29677%3A159383"
 />
 
 ```tsx
-import { Gallery } from '@alfalab/core-components/collase';
+import { Gallery } from '@alfalab/core-components/gallery';
 ```
 
 <Tabs
     description={<Description />}
     changelog={<Changelog />}
     props={<Props of={Gallery} />}
+    cssVars={<CssVars css={styles} />}
 />

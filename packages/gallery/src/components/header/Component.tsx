@@ -62,7 +62,12 @@ export const Header: FC = () => {
                     />
                 )}
 
-                <Buttons.Download />
+                <Buttons.Download
+                    href={currentImage?.src}
+                    download={currentImage?.name}
+                    disabled={meta?.broken}
+                    target="_blank"
+                />
 
                 <Buttons.Exit onClick={onClose} />
             </div>
