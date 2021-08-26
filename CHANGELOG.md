@@ -1,3 +1,15 @@
+# [19.8.0](https://github.com/alfa-laboratory/core-components/compare/v19.7.2...v19.8.0) (2021-08-26)
+
+
+### Bug Fixes
+
+* **tabs:** height styles ([#810](https://github.com/alfa-laboratory/core-components/issues/810)) ([b3b96e7](https://github.com/alfa-laboratory/core-components/commit/b3b96e7efb4771c0009c29e851ce1d69f4c61ff4))
+
+
+### Features
+
+* **intl-phone-input:** hide select for countries when one country ([#809](https://github.com/alfa-laboratory/core-components/issues/809)) ([bad50af](https://github.com/alfa-laboratory/core-components/commit/bad50aff46ab4af5416510944802451873cd08bc))
+
 ## [19.7.2](https://github.com/alfa-laboratory/core-components/compare/v19.7.1...v19.7.2) (2021-08-23)
 
 
