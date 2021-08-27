@@ -12,6 +12,7 @@
 .swiper {
     width: 100%;
     height: 100%;
+    max-height: calc(100vh - 168px);
     padding: var(--gap-2xl) var(--gap-m);
     box-sizing: border-box;
 }

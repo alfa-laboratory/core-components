@@ -66,7 +66,6 @@ export const Header: FC = () => {
                     href={currentImage?.src}
                     download={currentImage?.name}
                     disabled={meta?.broken}
-                    target="_blank"
                 />
 
                 <Buttons.Exit onClick={onClose} />
