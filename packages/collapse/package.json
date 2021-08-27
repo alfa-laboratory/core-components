@@ -21,6 +21,9 @@
         "@alfalab/core-components-link": "^3.2.0",
         "@alfalab/icons-classic": "^1.74.0",
         "classnames": "^2.2.6",
-        "lodash.debounce": "^4.0.8"
+        "react-transition-group": "^4.3.0"
+    },
+    "devDependencies": {
+      "@types/react-transition-group": "^4.2.4"
     }
 }

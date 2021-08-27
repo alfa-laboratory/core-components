@@ -1,7 +1,7 @@
-import React from 'react';
-import { render } from '@testing-library/react';
+import React, { ReactElement } from 'react';
+import { render, fireEvent, screen } from '@testing-library/react';
 
-import { Collapse } from './index';
+import { Collapse, CollapseProps } from './index';
 
 const paragraph = (
     <p style={{ margin: '0 0 16px 0' }}>
@@ -27,6 +27,55 @@ describe('Collapse', () => {
             );
 
             expect(container).toMatchSnapshot();
+        });
+
+        it('should call onExpandedChange prop when clicked', () => {
+            const handleExpandedChange = jest.fn();
+
+            render(
+                <Collapse
+                    collapsedLabel='подробнее'
+                    expanded={false}
+                    onExpandedChange={handleExpandedChange}
+                >
+                    {paragraph}
+                </Collapse>,
+            );
+
+            fireEvent.click(screen.getByText(/подробнее/i));
+            expect(handleExpandedChange).toHaveBeenCalledTimes(1);
+        });
+
+        beforeAll(() => {
+            jest.useFakeTimers();
+        });
+
+        afterAll(() => {
+            jest.clearAllTimers();
+        });
+
+        it('should call onAnimationStart and onAnimationStart props', () => {
+            const onAnimationStart = jest.fn();
+            const onAnimationEnd = jest.fn();
+            const enteringTransitionDuration = 300;
+
+            const collapse = (props: Partial<CollapseProps>, children: ReactElement) => (
+                <Collapse {...props}>{children}</Collapse>
+            );
+
+            const defaultProps = {
+                collapsedLabel: 'подробнее',
+                onAnimationStart,
+                onAnimationEnd,
+                expanded: false,
+            };
+
+            const { rerender } = render(collapse(defaultProps, paragraph));
+            rerender(collapse({ ...defaultProps, expanded: true }, paragraph));
+
+            expect(onAnimationStart).toHaveBeenCalledTimes(1);
+            jest.advanceTimersByTime(enteringTransitionDuration);
+            expect(onAnimationEnd).toHaveBeenCalledTimes(1);
         });
     });
 });

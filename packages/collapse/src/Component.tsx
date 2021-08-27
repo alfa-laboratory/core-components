@@ -1,9 +1,11 @@
-import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useCallback, useRef, useState, useMemo } from 'react';
 import cn from 'classnames';
 import { ArrowDownMBlackIcon } from '@alfalab/icons-classic/ArrowDownMBlackIcon';
 import { ArrowUpMBlackIcon } from '@alfalab/icons-classic/ArrowUpMBlackIcon';
 import { Link } from '@alfalab/core-components-link';
-import debounce from 'lodash.debounce';
+import { CSSTransition } from 'react-transition-group';
+import { CSSTransitionClassNames } from 'react-transition-group/CSSTransition';
+
 import styles from './index.module.css';
 
 export type CollapseProps = {
@@ -14,13 +16,13 @@ export type CollapseProps = {
     expanded?: boolean;
 
     /**
-     * Текст ссылки в `expanded` состоянии
+     * Текст ссылки в `collapsed` состоянии
      *
      */
     collapsedLabel?: string;
 
     /**
-     * Текст ссылки в `collapsed` состоянии
+     * Текст ссылки в `expanded` состоянии
      *
      */
     expandedLabel?: string;
@@ -49,6 +51,19 @@ export type CollapseProps = {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Классы анимации
+     *
+     * http://reactcommunity.org/react-transition-group/css-transition#CSSTransition-prop-classNames
+     */
+    transitionClassNames?: string | CSSTransitionClassNames;
+
+    /** Обработчик события начала анимации */
+    onAnimationStart?: () => void;
+
+    /** Обработчик события завершения анимации */
+    onAnimationEnd?: () => void;
 };
 
 export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
@@ -62,6 +77,9 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
             id,
             onExpandedChange,
             dataTestId,
+            transitionClassNames = styles,
+            onAnimationStart,
+            onAnimationEnd,
         },
         ref,
     ) => {
@@ -69,38 +87,39 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
 
         const contentRef = useRef<HTMLDivElement>(null);
         const contentCaseRef = useRef<HTMLDivElement>(null);
+
         const [expandedState, setExpandedState] = useState(expanded);
 
         const isExpanded = uncontrolled ? expandedState : expanded;
 
-        const recalculate = useCallback(() => {
-            let contentHeight;
+        const contentHeight = useMemo(
+            () => (isExpanded ? contentCaseRef?.current?.offsetHeight : 0),
+            [isExpanded],
+        );
 
+        const recalculate = useCallback(() => {
             if (!contentCaseRef.current || !contentRef.current) {
                 return;
             }
-
-            if (isExpanded) {
-                contentHeight = contentCaseRef.current.offsetHeight;
-            } else {
-                contentHeight = 0;
-            }
-
             contentRef.current.style.height = `${contentHeight}px`;
-        }, [isExpanded]);
+        }, [contentHeight]);
 
-        useEffect(() => {
-            const handleResize = debounce(() => recalculate(), 300);
+        function onTransitionStart() {
+            if (onAnimationStart) {
+                onAnimationStart();
+            }
+            recalculate();
+        }
 
-            window.addEventListener('resize', handleResize);
-
-            return () => window.removeEventListener('resize', handleResize);
-        }, [recalculate]);
-
-        useEffect(() => recalculate(), [isExpanded, recalculate]);
+        function onTransitionEnd() {
+            if (onAnimationEnd) {
+                onAnimationEnd();
+            }
+            recalculate();
+        }
 
         const contentClassName = cn(styles.content, {
-            [styles.expandedContent]: isExpanded,
+            [styles.collapsed]: !isExpanded,
         });
 
         const labelClassName = isExpanded ? styles.expandedLabel : '';
@@ -122,9 +141,19 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
                 id={id}
                 data-test-id={dataTestId}
             >
-                <div ref={contentRef} className={contentClassName}>
-                    <div ref={contentCaseRef}>{children}</div>
-                </div>
+                <CSSTransition
+                    in={isExpanded}
+                    onEntering={onTransitionStart}
+                    onEntered={onTransitionEnd}
+                    onExiting={onTransitionStart}
+                    onExited={onTransitionEnd}
+                    timeout={300}
+                    classNames={transitionClassNames}
+                >
+                    <div ref={contentRef} className={contentClassName}>
+                        <div ref={contentCaseRef}>{children}</div>
+                    </div>
+                </CSSTransition>
                 {(expandedLabel || collapsedLabel) && (
                     <Link
                         className={labelClassName}

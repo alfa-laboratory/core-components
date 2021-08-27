@@ -13,14 +13,30 @@
 .content {
     position: relative;
     overflow: hidden;
-    visibility: hidden;
-    height: 0;
-    transition: height 0.2s;
 }
 
-.expandedContent {
-    visibility: visible;
+.enter {
+    height: 0;
+}
+
+.enterActive,
+.enterDone {
     height: auto;
+    transition: height 300ms ease-in-out;
+}
+
+.exit {
+    height: auto;
+}
+
+.exitActive,
+.exitDone {
+    height: 0;
+    transition: height 300ms ease-in-out;
+}
+
+.collapsed {
+    height: 0;
 }
 
 .expandedLabel {
