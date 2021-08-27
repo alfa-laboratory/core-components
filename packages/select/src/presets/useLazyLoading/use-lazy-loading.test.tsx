@@ -124,7 +124,7 @@ describe('Select useLazyLoading hook', () => {
 
         // Шаг 2. Дожидаемся загрузки списка опций. Проверяем, что скелетоны заменены ими.
         await waitForElementToBeRemoved(() => getAllByTestId('skeleton'), {
-            timeout: TIME_TO_FETCH,
+            timeout: TIME_TO_FETCH * 2,
         }).then(async () => {
             const opts = getAllByText(content => content.startsWith('Option number'));
             expect(queryAllByTestId('skeleton')).toHaveLength(0);

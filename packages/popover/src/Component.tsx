@@ -1,9 +1,18 @@
-import React, { useState, useEffect, useCallback, CSSProperties, MutableRefObject } from 'react';
+import React, {
+    useState,
+    useEffect,
+    useCallback,
+    CSSProperties,
+    MutableRefObject,
+    forwardRef,
+    ReactNode,
+} from 'react';
 import cn from 'classnames';
 import { CSSTransition } from 'react-transition-group';
 import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
 import { usePopper } from 'react-popper';
 import { BasePlacement, VariationPlacement, Obj } from '@popperjs/core';
+import mergeRefs from 'react-merge-refs';
 
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 import { Portal } from '@alfalab/core-components-portal';
@@ -40,6 +49,11 @@ export type PopoverProps = {
      * Например, если места снизу недостаточно,то он все равно будет показан снизу
      */
     preventFlip?: boolean;
+
+    /**
+     * Запрещает поповеру менять свою позицию, если он не влезает в видимую область.
+     */
+    preventOverflow?: boolean;
 
     /**
      * Если `true`, будет отрисована стрелочка
@@ -102,6 +116,18 @@ export type PopoverProps = {
      * z-index компонента
      */
     zIndex?: number;
+
+    /**
+     * Если поповер не помещается в переданной позиции (position), он попробует открыться в другой позиции,
+     * по очереди для каждой позиции из этого списка.
+     * Если не передавать, то поповер открывается в противоположном направлении от переданного position.
+     */
+    fallbackPlacements?: Position[];
+
+    /**
+     * Контент
+     */
+    children?: ReactNode;
 };
 
 const DEFAULT_TRANSITION = {
@@ -115,113 +141,129 @@ const CSS_TRANSITION_CLASS_NAMES = {
     exitActive: styles.exitActive,
 };
 
-export const Popover: React.FC<PopoverProps> = ({
-    children,
-    getPortalContainer,
-    transition = DEFAULT_TRANSITION,
-    anchorElement,
-    offset = [0, 0],
-    withArrow = false,
-    withTransition = true,
-    position = 'left',
-    preventFlip,
-    popperClassName,
-    arrowClassName,
-    className,
-    open,
-    dataTestId,
-    update,
-    transitionDuration = `${transition.timeout}ms`,
-    zIndex = stackingOrder.POPOVER,
-}) => {
-    const [referenceElement, setReferenceElement] = useState<RefElement>(anchorElement);
-    const [popperElement, setPopperElement] = useState<RefElement>(null);
-    const [arrowElement, setArrowElement] = useState<RefElement>(null);
-
-    const getModifiers = useCallback(() => {
-        const modifiers: PopperModifier[] = [{ name: 'offset', options: { offset } }];
-
-        if (withArrow) {
-            modifiers.push({ name: 'arrow', options: { element: arrowElement } });
-        }
-
-        if (preventFlip) {
-            modifiers.push({ name: 'flip', options: { fallbackPlacements: [] } });
-        }
-
-        return modifiers;
-    }, [offset, withArrow, preventFlip, arrowElement]);
-
-    const { styles: popperStyles, attributes, update: updatePopper } = usePopper(
-        referenceElement,
-        popperElement,
+export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
+    (
         {
-            placement: position,
-            modifiers: getModifiers(),
+            children,
+            getPortalContainer,
+            transition = DEFAULT_TRANSITION,
+            anchorElement,
+            offset = [0, 0],
+            withArrow = false,
+            withTransition = true,
+            position = 'left',
+            preventFlip,
+            popperClassName,
+            arrowClassName,
+            className,
+            open,
+            dataTestId,
+            update,
+            transitionDuration = `${transition.timeout}ms`,
+            zIndex = stackingOrder.POPOVER,
+            fallbackPlacements,
+            preventOverflow = true,
         },
-    );
+        ref,
+    ) => {
+        const [referenceElement, setReferenceElement] = useState<RefElement>(anchorElement);
+        const [popperElement, setPopperElement] = useState<RefElement>(null);
+        const [arrowElement, setArrowElement] = useState<RefElement>(null);
 
-    useEffect(() => {
-        setReferenceElement(anchorElement);
-    }, [anchorElement]);
+        const getModifiers = useCallback(() => {
+            const modifiers: PopperModifier[] = [{ name: 'offset', options: { offset } }];
 
-    useEffect(() => {
-        if (updatePopper) {
-            updatePopper();
-        }
-    }, [updatePopper, arrowElement, children]);
+            if (withArrow) {
+                modifiers.push({ name: 'arrow', options: { element: arrowElement } });
+            }
 
-    useEffect(() => {
-        if (update && updatePopper) {
-            // eslint-disable-next-line no-param-reassign
-            update.current = updatePopper;
-        }
-    }, [updatePopper, update]);
+            if (preventFlip) {
+                modifiers.push({ name: 'flip', options: { fallbackPlacements: [] } });
+            }
 
-    const renderContent = (computedZIndex: number, style?: CSSProperties) => {
-        return (
-            <div
-                ref={setPopperElement}
-                style={{
-                    zIndex: computedZIndex,
-                    ...popperStyles.popper,
-                }}
-                data-test-id={dataTestId}
-                className={cn(styles.component, className)}
-                {...attributes.popper}
-            >
-                <div className={cn(styles.inner, popperClassName)} style={style}>
-                    {children}
-                    {withArrow && (
-                        <div
-                            ref={setArrowElement}
-                            style={popperStyles.arrow}
-                            className={cn(styles.arrow, arrowClassName)}
-                        />
-                    )}
-                </div>
-            </div>
+            if (fallbackPlacements) {
+                modifiers.push({ name: 'flip', options: { fallbackPlacements } });
+            }
+
+            if (preventOverflow) {
+                modifiers.push({ name: 'preventOverflow', options: { mainAxis: false } });
+            }
+
+            return modifiers;
+        }, [offset, withArrow, preventFlip, fallbackPlacements, preventOverflow, arrowElement]);
+
+        const { styles: popperStyles, attributes, update: updatePopper } = usePopper(
+            referenceElement,
+            popperElement,
+            {
+                placement: position,
+                modifiers: getModifiers(),
+            },
         );
-    };
 
-    return (
-        <Stack value={zIndex}>
-            {computedZIndex => (
-                <Portal getPortalContainer={getPortalContainer}>
-                    {withTransition ? (
-                        <CSSTransition
-                            unmountOnExit={true}
-                            classNames={CSS_TRANSITION_CLASS_NAMES}
-                            {...transition}
-                            in={open}
-                        >
-                            {renderContent(computedZIndex, { transitionDuration })}
-                        </CSSTransition>
-                    ) : (
-                        open && renderContent(computedZIndex)
-                    )}
-                </Portal>
-            )}
-        </Stack>
-    );
-};
+        useEffect(() => {
+            setReferenceElement(anchorElement);
+        }, [anchorElement]);
+
+        useEffect(() => {
+            if (updatePopper) {
+                updatePopper();
+            }
+        }, [updatePopper, arrowElement, children]);
+
+        useEffect(() => {
+            if (update && !update.current && updatePopper) {
+                // eslint-disable-next-line no-param-reassign
+                update.current = updatePopper;
+            }
+        });
+
+        const renderContent = (computedZIndex: number, style?: CSSProperties) => {
+            return (
+                <div
+                    ref={mergeRefs([ref, setPopperElement])}
+                    // ref={setPopperElement}
+                    style={{
+                        zIndex: computedZIndex,
+                        ...popperStyles.popper,
+                    }}
+                    data-test-id={dataTestId}
+                    className={cn(styles.component, className)}
+                    {...attributes.popper}
+                >
+                    <div className={cn(styles.inner, popperClassName)} style={style}>
+                        {children}
+                        {withArrow && (
+                            <div
+                                ref={setArrowElement}
+                                style={popperStyles.arrow}
+                                className={cn(styles.arrow, arrowClassName)}
+                            />
+                        )}
+                    </div>
+                </div>
+            );
+        };
+
+        return (
+            <Stack value={zIndex}>
+                {computedZIndex => (
+                    <Portal getPortalContainer={getPortalContainer}>
+                        {withTransition ? (
+                            <CSSTransition
+                                unmountOnExit={true}
+                                classNames={CSS_TRANSITION_CLASS_NAMES}
+                                {...transition}
+                                in={open}
+                            >
+                                {renderContent(computedZIndex, { transitionDuration })}
+                            </CSSTransition>
+                        ) : (
+                            open && renderContent(computedZIndex)
+                        )}
+                    </Portal>
+                )}
+            </Stack>
+        );
+    },
+);

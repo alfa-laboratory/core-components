@@ -1,3 +1,58 @@
+# [19.9.0](https://github.com/alfa-laboratory/core-components/compare/v19.8.0...v19.9.0) (2021-08-27)
+
+
+### Bug Fixes
+
+* **tabs:** fix tabs hidden ([#816](https://github.com/alfa-laboratory/core-components/issues/816)) ([68468dd](https://github.com/alfa-laboratory/core-components/commit/68468dd6e74a465f2d4bcde87d7852bcaf934783))
+
+
+### Features
+
+* custom components for button and link ([#814](https://github.com/alfa-laboratory/core-components/issues/814)) ([a623dd0](https://github.com/alfa-laboratory/core-components/commit/a623dd021ef611f9994a6587ba6a0d0ee9d8929c))
+* **dropzone:** add block prop ([#813](https://github.com/alfa-laboratory/core-components/issues/813)) ([39bf4c3](https://github.com/alfa-laboratory/core-components/commit/39bf4c3158525d419c75aedec8be81e4a4bb90da))
+
+# [19.8.0](https://github.com/alfa-laboratory/core-components/compare/v19.7.2...v19.8.0) (2021-08-26)
+
+
+### Bug Fixes
+
+* **tabs:** height styles ([#810](https://github.com/alfa-laboratory/core-components/issues/810)) ([b3b96e7](https://github.com/alfa-laboratory/core-components/commit/b3b96e7efb4771c0009c29e851ce1d69f4c61ff4))
+
+
+### Features
+
+* **intl-phone-input:** hide select for countries when one country ([#809](https://github.com/alfa-laboratory/core-components/issues/809)) ([bad50af](https://github.com/alfa-laboratory/core-components/commit/bad50aff46ab4af5416510944802451873cd08bc))
+
+## [19.7.2](https://github.com/alfa-laboratory/core-components/compare/v19.7.1...v19.7.2) (2021-08-23)
+
+
+### Bug Fixes
+
+* **plate:** check is click inside component, popover issue ([bea8a7d](https://github.com/alfa-laboratory/core-components/commit/bea8a7dc199d7aced3ec8b5e9ab76568f0cba839))
+
+## [19.7.1](https://github.com/alfa-laboratory/core-components/compare/v19.7.0...v19.7.1) (2021-08-23)
+
+
+### Bug Fixes
+
+* **input:** clear icon ([51debd4](https://github.com/alfa-laboratory/core-components/commit/51debd46ea2176486cfc1945d74e8d56a4b9387b))
+
+# [19.7.0](https://github.com/alfa-laboratory/core-components/compare/v19.6.3...v19.7.0) (2021-08-23)
+
+
+### Bug Fixes
+
+* **form-control:** l size offset between value and label (PDS-270) ([#781](https://github.com/alfa-laboratory/core-components/issues/781)) ([311f8a0](https://github.com/alfa-laboratory/core-components/commit/311f8a0eaa97cf7d0c89d4a3cdfc443aef2d763c))
+* **input:** smart error icon ([#746](https://github.com/alfa-laboratory/core-components/issues/746)) ([f1950d6](https://github.com/alfa-laboratory/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/alfa-laboratory/core-components/issues/782)
+
+
+### Features
+
+* **confirmation:** add custom countdown content, change time format ([#804](https://github.com/alfa-laboratory/core-components/issues/804)) ([b87ace1](https://github.com/alfa-laboratory/core-components/commit/b87ace190013cc873133bd1fff23cb6ae0ae3800))
+* **icon-button:** Rest props for IconButton from Button ([#805](https://github.com/alfa-laboratory/core-components/issues/805)) ([ee4e170](https://github.com/alfa-laboratory/core-components/commit/ee4e170b6b59800e283080d36bddfdcfe4b57561))
+* **tag:** add inverted colors ([#784](https://github.com/alfa-laboratory/core-components/issues/784)) ([d3681ae](https://github.com/alfa-laboratory/core-components/commit/d3681aeefe02e5f481d066013911a1877a165bb2))
+* **tooltip:** add TooltipResponsive,  add `fallbackPlacements` prop ([#780](https://github.com/alfa-laboratory/core-components/issues/780)) ([61d780c](https://github.com/alfa-laboratory/core-components/commit/61d780c750bd9c0331d275f1b12b0512bb3d2049))
+
 ## [19.6.3](https://github.com/alfa-laboratory/core-components/compare/v19.6.2...v19.6.3) (2021-08-13)
 
 

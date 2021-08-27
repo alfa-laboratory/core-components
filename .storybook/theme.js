@@ -5,11 +5,11 @@ import { version } from '../package.json';
 export default create({
     base: 'light',
     colorPrimary: '#0B1F35',
-    // colorSecondary: '#B6BCC3',
+    colorSecondary: '#EF3124',
     appContentBg: '#fff',
     appBorderColor: 'rgba(11, 31, 53, 0.1)',
     fontBase: 'system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Helvetica, sans-serif',
-    fontCode: 'Consolas, Liberation Mono, Menlo, monospace',
+    fontCode: 'Monaco, Menlo, monospace',
     textColor: '#0B1F35',
     barTextColor: '#6D7986',
     barSelectedColor: '#EF3124',

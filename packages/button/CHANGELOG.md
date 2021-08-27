@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@4.2.0...@alfalab/core-components-button@4.3.0) (2021-08-27)
+
+
+### Features
+
+* custom components for button and link ([#814](https://github.com/alfa-laboratory/core-components/issues/814)) ([a623dd0](https://github.com/alfa-laboratory/core-components/commit/a623dd021ef611f9994a6587ba6a0d0ee9d8929c))
+
+
+
+
+
 # [4.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@4.1.0...@alfalab/core-components-button@4.2.0) (2021-08-04)
 
 

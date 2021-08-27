@@ -3,7 +3,6 @@
 
 .component {
     overflow: hidden;
-    height: 100%;
 
     &:after {
         content: '';
@@ -16,7 +15,6 @@
     position: relative;
     display: flex;
     align-items: center;
-    height: 100%;
     overflow-x: auto;
     overflow-y: hidden;
     padding-bottom: var(--tablist-hidden-scrollbar-height);

@@ -16,6 +16,7 @@ describe(
                 createSpriteStorybookUrl({
                     componentName: 'PasswordInput',
                     knobs: {
+                        colors: ['default', 'inverted'],
                         passwordVisible: [true, false],
                         value: 'my password',
                     },
@@ -23,8 +24,5 @@ describe(
                 }),
             ],
         ],
-        screenshotOpts: {
-            clip: { x: 0, y: 0, width: 600, height: 150 },
-        },
     }),
 );

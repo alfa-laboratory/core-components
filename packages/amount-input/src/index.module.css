@@ -1,9 +1,5 @@
 @import '../../themes/src/default.css';
 
-:root {
-    --amount-input-minor-part-and-currency-color: var(--color-light-text-secondary);
-}
-
 /*
 * Задача:
 * 1) Отобразить символ валюты сразу за последним введенным символом
@@ -19,10 +15,6 @@
 
 .container {
     position: relative;
-}
-
-.minorPartAndCurrency {
-    color: var(--amount-input-minor-part-and-currency-color);
 }
 
 .bold .input,

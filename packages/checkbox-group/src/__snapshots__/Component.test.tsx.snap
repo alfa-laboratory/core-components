@@ -567,7 +567,7 @@ Object {
             class="checkbox tagLabel"
           >
             <button
-              class="component s my-tag"
+              class="component component s my-tag"
               type="button"
             >
               <span>
@@ -584,7 +584,7 @@ Object {
             class="checkbox tagLabel"
           >
             <button
-              class="component s"
+              class="component component s"
               type="button"
             >
               <span>
@@ -601,7 +601,7 @@ Object {
             class="checkbox tagLabel"
           >
             <button
-              class="component s"
+              class="component component s"
               type="button"
             >
               <span>
@@ -635,7 +635,7 @@ Object {
           class="checkbox tagLabel"
         >
           <button
-            class="component s my-tag"
+            class="component component s my-tag"
             type="button"
           >
             <span>
@@ -652,7 +652,7 @@ Object {
           class="checkbox tagLabel"
         >
           <button
-            class="component s"
+            class="component component s"
             type="button"
           >
             <span>
@@ -669,7 +669,7 @@ Object {
           class="checkbox tagLabel"
         >
           <button
-            class="component s"
+            class="component component s"
             type="button"
           >
             <span>

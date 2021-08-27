@@ -19,6 +19,9 @@
     "light-specialbg-component": {
         "shade": [7, 10, 30]
     },
+    "light-specialbg-component-inverted": {
+        "tint": [15]
+    },
     "light-border-tertiary-inverted": {
         "alpha": [30]
     },

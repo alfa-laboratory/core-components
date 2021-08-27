@@ -131,7 +131,9 @@ describe('Select | interactions tests', () => {
                     options: JSON.stringify(options),
                 },
             });
-            const { browser, context, page, css } = await openBrowserPage(`${pageUrl}&theme=${theme}`);
+            const { browser, context, page, css } = await openBrowserPage(
+                `${pageUrl}&theme=${theme}`,
+            );
 
             const viewport = { width: 260, height: 768 };
 

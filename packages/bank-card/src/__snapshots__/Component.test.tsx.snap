@@ -32,10 +32,10 @@ exports[`BankCard Snapshots tests should match snapshots 1`] = `
           </svg>
         </div>
         <div
-          class="component filled s block hasRightAddons"
+          class="component component filled s block hasRightAddons"
         >
           <div
-            class="inner filled hasLabel"
+            class="inner inner filled hasLabel"
           >
             <div
               class="inputWrapper"
@@ -47,7 +47,7 @@ exports[`BankCard Snapshots tests should match snapshots 1`] = `
                 Номер карты или счёта
               </span>
               <div
-                class="label label"
+                class="label label label"
               >
                 <span
                   class="labelInner"
@@ -60,7 +60,7 @@ exports[`BankCard Snapshots tests should match snapshots 1`] = `
               >
                 <input
                   aria-label="Номер карты или счёта"
-                  class="input hasLabel input"
+                  class="input input hasLabel input"
                   inputmode="numeric"
                   pattern="[0-9]*"
                   type="text"
@@ -150,10 +150,10 @@ exports[`BankCard Snapshots tests should match snapshots 2`] = `
           </svg>
         </div>
         <div
-          class="component filled s block hasRightAddons"
+          class="component component filled s block hasRightAddons"
         >
           <div
-            class="inner filled hasLabel"
+            class="inner inner filled hasLabel"
           >
             <div
               class="inputWrapper"
@@ -165,7 +165,7 @@ exports[`BankCard Snapshots tests should match snapshots 2`] = `
                 Номер карты или счёта
               </span>
               <div
-                class="label label"
+                class="label label label"
               >
                 <span
                   class="labelInner"
@@ -178,7 +178,7 @@ exports[`BankCard Snapshots tests should match snapshots 2`] = `
               >
                 <input
                   aria-label="Номер карты или счёта"
-                  class="input hasLabel input"
+                  class="input input hasLabel input"
                   inputmode="numeric"
                   pattern="[0-9]*"
                   type="text"
@@ -266,10 +266,10 @@ exports[`BankCard Snapshots tests should match snapshots 3`] = `
           </svg>
         </div>
         <div
-          class="component filled s block hasRightAddons"
+          class="component component filled s block hasRightAddons"
         >
           <div
-            class="inner filled hasLabel"
+            class="inner inner filled hasLabel"
           >
             <div
               class="inputWrapper"
@@ -281,7 +281,7 @@ exports[`BankCard Snapshots tests should match snapshots 3`] = `
                 Номер карты или счёта
               </span>
               <div
-                class="label label"
+                class="label label label"
               >
                 <span
                   class="labelInner"
@@ -294,7 +294,7 @@ exports[`BankCard Snapshots tests should match snapshots 3`] = `
               >
                 <input
                   aria-label="Номер карты или счёта"
-                  class="input hasLabel input"
+                  class="input input hasLabel input"
                   inputmode="numeric"
                   pattern="[0-9]*"
                   type="text"
@@ -382,10 +382,10 @@ exports[`BankCard Snapshots tests should match snapshots 4`] = `
           </svg>
         </div>
         <div
-          class="component filled s block hasRightAddons"
+          class="component component filled s block hasRightAddons"
         >
           <div
-            class="inner filled hasLabel"
+            class="inner inner filled hasLabel"
           >
             <div
               class="inputWrapper"
@@ -397,7 +397,7 @@ exports[`BankCard Snapshots tests should match snapshots 4`] = `
                 Номер карты или счёта
               </span>
               <div
-                class="label label"
+                class="label label label"
               >
                 <span
                   class="labelInner"
@@ -410,7 +410,7 @@ exports[`BankCard Snapshots tests should match snapshots 4`] = `
               >
                 <input
                   aria-label="Номер карты или счёта"
-                  class="input hasLabel input"
+                  class="input input hasLabel input"
                   inputmode="numeric"
                   pattern="[0-9]*"
                   type="text"

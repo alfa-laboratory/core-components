@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component s"
+        class="component component s"
         type="button"
       >
         <span>
@@ -17,7 +17,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component s"
+      class="component component s"
       type="button"
     >
       <span>
@@ -85,7 +85,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component s"
+        class="component component s"
         type="button"
       >
         <span
@@ -103,7 +103,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component s"
+      class="component component s"
       type="button"
     >
       <span
@@ -178,7 +178,7 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component s"
+        class="component component s"
         type="button"
       >
         <span>
@@ -196,7 +196,7 @@ Object {
   </body>,
   "container": <div>
     <button
-      class="component s"
+      class="component component s"
       type="button"
     >
       <span>
@@ -271,14 +271,14 @@ Object {
   "baseElement": <body>
     <div>
       <button
-        class="component s iconOnly"
+        class="component component s iconOnly"
         type="button"
       />
     </div>
   </body>,
   "container": <div>
     <button
-      class="component s iconOnly"
+      class="component component s iconOnly"
       type="button"
     />
   </div>,

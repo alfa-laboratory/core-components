@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tag@3.2.0...@alfalab/core-components-tag@3.3.0) (2021-08-23)
+
+
+### Features
+
+* **tag:** add inverted colors ([#784](https://github.com/alfa-laboratory/core-components/issues/784)) ([d3681ae](https://github.com/alfa-laboratory/core-components/commit/d3681aeefe02e5f481d066013911a1877a165bb2))
+
+
+
+
+
 # [3.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tag@3.1.0...@alfalab/core-components-tag@3.2.0) (2021-08-04)
 
 

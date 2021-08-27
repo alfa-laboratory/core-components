@@ -21,6 +21,17 @@ describe('IconButton', () => {
         });
     });
 
+    describe('Href tests', () => {
+        it('should set `href` attribute and be link', () => {
+            const dataTestId = 'test-id';
+            const href = 'http://example.com';
+
+            expect(
+                render(<IconButton icon={StarMIcon} href={href} dataTestId={dataTestId} />),
+            ).toMatchSnapshot();
+        });
+    });
+
     describe('Classes tests', () => {
         it('should set `className` class', () => {
             const className = 'test-class';

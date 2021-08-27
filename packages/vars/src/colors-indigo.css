@@ -232,6 +232,9 @@
     --color-light-specialbg-component-shade-7: color-mod(rgba(11, 31, 53, 0.07) blenda(black 7%));
     --color-light-specialbg-component-shade-10: color-mod(rgba(11, 31, 53, 0.07) blenda(black 10%));
     --color-light-specialbg-component-shade-30: color-mod(rgba(11, 31, 53, 0.07) blenda(black 30%));
+    --color-light-specialbg-component-inverted-tint-15: color-mod(
+        rgba(255, 255, 255, 0.15) blenda(white 15%)
+    );
     --color-light-text-link-tint-30: color-mod(#007aff tint(30%));
     --color-light-text-link-tint-50: color-mod(#007aff tint(50%));
     --color-light-text-link-shade-20: color-mod(#007aff shade(20%));
@@ -245,4 +248,8 @@
     --color-light-text-secondary-tint-50: color-mod(#546272 tint(50%));
     --color-light-text-secondary-shade-20: color-mod(#546272 shade(20%));
     --color-light-text-secondary-shade-40: color-mod(#546272 shade(40%));
+
+    /* TODO: цвета добавлены руками. Обновить токены */
+    --color-light-border-underline-inverted: #6d7986;
+    --color-light-text-secondary-inverted-transparent: rgba(255, 255, 255, 0.7);
 }

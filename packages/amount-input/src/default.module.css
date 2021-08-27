@@ -1,0 +1,9 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --amount-input-minor-part-and-currency-color: var(--color-light-text-secondary);
+}
+
+.minorPartAndCurrency {
+    color: var(--amount-input-minor-part-and-currency-color);
+}
