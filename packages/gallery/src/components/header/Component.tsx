@@ -29,6 +29,12 @@ export const Header: FC = () => {
         setFullScreen(true);
     };
 
+    useEffect(() => {
+        if (toggleFullScreenButton.current) {
+            toggleFullScreenButton.current.focus();
+        }
+    }, [fullScreen]);
+
     const currentImage = getCurrentImage();
 
     const filename = currentImage?.name || '';
@@ -38,35 +44,25 @@ export const Header: FC = () => {
 
     const meta = getCurrentImageMeta();
 
-    useEffect(() => {
-        if (toggleFullScreenButton.current) {
-            toggleFullScreenButton.current.focus();
-        }
-    }, [fullScreen]);
+    const showFullScreenButton = !isSmallImage(meta) && !meta?.broken;
+
+    const renderToggleFullScreenButton = () =>
+        fullScreen ? (
+            <Buttons.ExitFullscreen onClick={closeFullScreen} buttonRef={toggleFullScreenButton} />
+        ) : (
+            <Buttons.Fullscreen onClick={openFullScreen} buttonRef={toggleFullScreenButton} />
+        );
 
     return (
         <div className={styles.component}>
             <HeaderInfoBlock filename={filename} description={description} />
 
             <div className={styles.buttons}>
-                {fullScreen ? (
-                    <Buttons.ExitFullscreen
-                        onClick={closeFullScreen}
-                        buttonRef={toggleFullScreenButton}
-                    />
-                ) : (
-                    <Buttons.Fullscreen
-                        onClick={openFullScreen}
-                        disabled={isSmallImage(meta) || meta?.broken}
-                        buttonRef={toggleFullScreenButton}
-                    />
-                )}
+                {showFullScreenButton && renderToggleFullScreenButton()}
 
-                <Buttons.Download
-                    href={currentImage?.src}
-                    download={currentImage?.name}
-                    disabled={meta?.broken}
-                />
+                {!meta?.broken && (
+                    <Buttons.Download href={currentImage?.src} download={currentImage?.name} />
+                )}
 
                 <Buttons.Exit onClick={onClose} />
             </div>
