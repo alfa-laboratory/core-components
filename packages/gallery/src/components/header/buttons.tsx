@@ -11,7 +11,6 @@ import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 type Props = Omit<IconButtonProps, 'icon' | 'colors'> & {
     buttonRef?: MutableRefObject<HTMLButtonElement | null>;
     download?: string | boolean;
-    target?: string;
 };
 
 export const Fullscreen: FC<Props> = ({ disabled, buttonRef, ...restProps }) => (

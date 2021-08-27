@@ -1,4 +1,4 @@
-import React, { KeyboardEventHandler, useCallback, useContext, useEffect, useRef } from 'react';
+import React, { FC, KeyboardEventHandler, useCallback, useContext, useEffect, useRef } from 'react';
 
 import { ImagePreview } from '../image-preview';
 import styles from './index.module.css';
@@ -8,7 +8,7 @@ import { GalleryContext } from '../../context';
 
 const MIN_SCROLL_STEP = 24;
 
-export const NavigationBar: React.FC = () => {
+export const NavigationBar: FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
 
     const { images, currentSlideIndex, setCurrentSlideIndex, getSwiper } = useContext(

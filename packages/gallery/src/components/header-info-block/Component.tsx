@@ -24,10 +24,12 @@ export const HeaderInfoBlock: React.FunctionComponent<Props> = ({ filename, desc
                 >
                     {head}
                 </Typography.Title>
+
                 <Typography.Title tag='h1' view='xsmall' font='system' color='primary-inverted'>
                     {tail}
                 </Typography.Title>
             </span>
+
             {description ? (
                 <Typography.Text
                     className={styles.description}

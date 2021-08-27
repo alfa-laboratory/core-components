@@ -1,4 +1,4 @@
-import React, { FC, useContext, useLayoutEffect, useRef } from 'react';
+import React, { FC, useContext, useEffect, useRef } from 'react';
 
 import { HeaderInfoBlock } from '../header-info-block';
 import * as Buttons from './buttons';
@@ -38,7 +38,7 @@ export const Header: FC = () => {
 
     const meta = getCurrentImageMeta();
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         if (toggleFullScreenButton.current) {
             toggleFullScreenButton.current.focus();
         }

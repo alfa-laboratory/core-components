@@ -104,6 +104,10 @@ export const Gallery: FC<GalleryProps> = ({
 
     const handleKeyDown = useCallback(
         (event: KeyboardEvent) => {
+            if (fullScreen) {
+                return;
+            }
+
             switch (event.key) {
                 case 'ArrowLeft':
                     slidePrev();
@@ -113,7 +117,7 @@ export const Gallery: FC<GalleryProps> = ({
                     break;
             }
         },
-        [slideNext, slidePrev],
+        [fullScreen, slideNext, slidePrev],
     );
 
     useEffect(() => {

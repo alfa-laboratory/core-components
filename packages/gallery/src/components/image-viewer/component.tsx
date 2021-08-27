@@ -140,8 +140,8 @@ export const ImageViewer: FC = () => {
                 {images.map((image, index) => {
                     const meta = imagesMeta[index];
 
-                    const imageWidth = meta?.width || 0;
-                    const imageHeight = meta?.height || 0;
+                    const imageWidth = meta?.width || 1;
+                    const imageHeight = meta?.height || 1;
 
                     const imageAspectRatio = imageWidth / imageHeight;
 
