@@ -294,7 +294,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         );
 
         const handleBackdropClick = (event: MouseEvent<HTMLElement>) => {
-            if (!disableBackdropClick) {
+            if (!disableBackdropClick && event.target === wrapperRef.current) {
                 handleClose(event, 'backdropClick');
             }
         };
@@ -428,6 +428,16 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                 disabled={disableFocusLock || !open}
                                 returnFocus={!disableRestoreFocus}
                             >
+                                {Backdrop && (
+                                    <Backdrop
+                                        {...backdropProps}
+                                        className={cn(backdropProps.className, styles.backdrop)}
+                                        open={open}
+                                        style={{
+                                            zIndex: computedZIndex,
+                                        }}
+                                    />
+                                )}
                                 <div
                                     role='dialog'
                                     className={cn(styles.wrapper, wrapperClassName, {
@@ -435,20 +445,13 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                     })}
                                     ref={mergeRefs([ref, wrapperRef])}
                                     onKeyDown={handleKeyDown}
+                                    onClick={handleBackdropClick}
                                     tabIndex={-1}
                                     data-test-id={dataTestId}
                                     style={{
                                         zIndex: computedZIndex,
                                     }}
                                 >
-                                    {Backdrop && (
-                                        <Backdrop
-                                            {...backdropProps}
-                                            className={cn(backdropProps.className, styles.backdrop)}
-                                            open={open}
-                                            onClick={handleBackdropClick}
-                                        />
-                                    )}
                                     <CSSTransition
                                         appear={true}
                                         timeout={200}
