@@ -24,7 +24,13 @@ import { Portal, PortalProps } from '@alfalab/core-components-portal';
 import { Backdrop as DefaultBackdrop, BackdropProps } from '@alfalab/core-components-backdrop';
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 
-import { handleContainer, hasScrollbar, isScrolledToBottom, isScrolledToTop } from './utils';
+import {
+    handleContainer,
+    hasScrollbar,
+    isScrolledToBottom,
+    isScrolledToTop,
+    restoreContainerStyles,
+} from './utils';
 
 import styles from './index.module.css';
 
@@ -222,7 +228,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         const wrapperRef = useRef<HTMLDivElement>(null);
         const scrollableNodeRef = useRef<HTMLDivElement | null>(null);
         const contentNodeRef = useRef<HTMLDivElement | null>(null);
-        const restoreContainerStyles = useRef<null | Function>(null);
+        const restoreContainerStylesRef = useRef<null | Function>(null);
 
         const checkToHasScrollBar = () => {
             if (scrollableNodeRef.current) {
@@ -233,6 +239,10 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         };
 
         const shouldRender = keepMounted || open || !exited;
+
+        const getContainer = useCallback(() => {
+            return (container ? container() : document.body) as HTMLElement;
+        }, [container]);
 
         const resizeObserver = useMemo(() => new ResizeObserver(checkToHasScrollBar), []);
 
@@ -361,9 +371,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
                 if (onUnmount) onUnmount();
 
-                if (restoreContainerStyles.current) {
-                    restoreContainerStyles.current();
-                    restoreContainerStyles.current = null;
+                if (restoreContainerStylesRef.current) {
+                    restoreContainerStylesRef.current();
                 }
             },
             [handleScroll, onUnmount, removeResizeHandle, transitionProps],
@@ -371,12 +380,14 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
         useEffect(() => {
             if (open) {
-                restoreContainerStyles.current = handleContainer(
-                    (container ? container() : document.body) as HTMLElement,
-                );
+                handleContainer(getContainer());
+
+                restoreContainerStylesRef.current = () => {
+                    restoreContainerStylesRef.current = null;
+                    restoreContainerStyles(getContainer());
+                };
             }
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [open]);
+        }, [getContainer, open]);
 
         useEffect(() => {
             if (open) setExited(false);
@@ -384,11 +395,11 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
         useEffect(() => {
             return () => {
-                resizeObserver.disconnect();
-
-                if (restoreContainerStyles.current) {
-                    restoreContainerStyles.current();
+                if (restoreContainerStylesRef.current) {
+                    restoreContainerStylesRef.current();
                 }
+
+                resizeObserver.disconnect();
             };
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
