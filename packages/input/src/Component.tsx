@@ -230,6 +230,12 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     setFocused(true);
                 }
 
+                const input = event.currentTarget;
+
+                setTimeout(() => {
+                    input.setSelectionRange(input.value.length, input.value.length);
+                }, 0);
+
                 if (onFocus) {
                     onFocus(event);
                 }
@@ -260,6 +266,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             },
             [onChange, uncontrolled],
         );
+
+
 
         const handleClear = useCallback(
             (event: MouseEvent<HTMLButtonElement>) => {
