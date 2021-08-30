@@ -7,7 +7,7 @@
 
 .component {
     @mixin paragraph_primary_small;
-    padding: var(--gap-s) var(--gap-m);
+    padding: var(--gap-m);
 }
 
 .popper {

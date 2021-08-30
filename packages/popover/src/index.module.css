@@ -12,7 +12,7 @@
 .inner {
     position: relative;
     background-color: var(--color-light-bg-primary);
-    box-shadow: var(--shadow-l);
+    box-shadow: var(--shadow-m);
     border: 1px solid var(--popover-border-color);
     transition-property: opacity, transform;
     transition-timing-function: ease-in-out;
@@ -24,8 +24,8 @@
     content: '';
     display: block;
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 11px;
+    height: 11px;
     background-color: var(--color-light-bg-primary);
     border: 1px solid var(--popover-border-color);
     transform: rotate(45deg);
@@ -37,22 +37,38 @@
     right: 5px;
 
     &:after {
-        top: -4px;
+        top: -6px;
         border-bottom: none;
         border-left: none;
     }
 }
 
+.component[data-popper-placement='left-start'] .arrow:after {
+    top: -7px;
+}
+
+.component[data-popper-placement='left-end'] .arrow:after {
+    top: -5px;
+}
+
 .component[data-popper-placement='right'] .arrow,
 .component[data-popper-placement='right-start'] .arrow,
 .component[data-popper-placement='right-end'] .arrow {
-    left: -6px;
+    left: -7px;
 
     &:after {
-        top: -4px;
+        top: -6px;
         border-top: none;
         border-right: none;
     }
+}
+
+.component[data-popper-placement='right-start'] .arrow:after {
+    top: -7px;
+}
+
+.component[data-popper-placement='right-end'] .arrow:after {
+    top: -5px;
 }
 
 .component[data-popper-placement='top'] .arrow,
@@ -61,22 +77,38 @@
     bottom: 5px;
 
     &:after {
-        left: -4px;
+        left: -6px;
         border-top: none;
         border-left: none;
     }
 }
 
+.component[data-popper-placement='top-start'] .arrow:after {
+    left: -17px;
+}
+
+.component[data-popper-placement='top-end'] .arrow:after {
+    left: 5px;
+}
+
 .component[data-popper-placement='bottom'] .arrow,
 .component[data-popper-placement='bottom-start'] .arrow,
 .component[data-popper-placement='bottom-end'] .arrow {
-    top: -6px;
+    top: -7px;
 
     &:after {
-        left: -4px;
+        left: -6px;
         border-bottom: none;
         border-right: none;
     }
+}
+
+.component[data-popper-placement='bottom-start'] .arrow:after {
+    left: -17px;
+}
+
+.component[data-popper-placement='bottom-end'] .arrow:after {
+    left: 5px;
 }
 
 .enter .inner {
