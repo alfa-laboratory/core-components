@@ -43,7 +43,8 @@ export type IconButtonProps = {
      */
     colors?: 'default' | 'inverted';
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'size'> &
-    Pick<ButtonProps, 'href' | 'target' | 'loading'>;
+    Pick<ButtonProps, 'href' | 'loading'> &
+    Pick<HTMLAnchorElement, 'target'>;
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     (
