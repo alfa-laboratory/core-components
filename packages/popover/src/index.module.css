@@ -24,10 +24,11 @@
     content: '';
     display: block;
     position: absolute;
-    width: 11px;
-    height: 11px;
+    width: 12px;
+    height: 12px;
     background-color: var(--color-light-bg-primary);
     border: 1px solid var(--popover-border-color);
+    box-sizing: border-box;
     transform: rotate(45deg);
 }
 
