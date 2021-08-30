@@ -26,3 +26,7 @@
 .expandedLabel {
     margin-top: 15px;
 }
+
+.contentCase {
+    overflow: hidden;
+}
