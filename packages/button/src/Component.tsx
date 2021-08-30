@@ -57,6 +57,11 @@ export type ComponentProps = {
     href?: AnchorHTMLAttributes<HTMLAnchorElement>['href'];
 
     /**
+     * Аттрибут target для ссылок в виде кнопки
+     */
+    target?: AnchorHTMLAttributes<HTMLAnchorElement>['target'];
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -100,6 +105,7 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
             className,
             dataTestId,
             href,
+            target,
             loading = false,
             nowrap = false,
             colors = 'default',
@@ -173,10 +179,9 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
         }, []);
 
         if (href) {
-            const { target } = restProps as AnchorHTMLAttributes<HTMLAnchorElement>;
-
             return (
                 <a
+                    target={target || '_blank'}
                     rel={target === '_blank' ? 'noreferrer noopener' : undefined}
                     {...componentProps}
                     {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
