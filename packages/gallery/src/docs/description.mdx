@@ -62,3 +62,34 @@ const Example = () => {
 
 render(<Example />)
 ```
+
+Галерея с одним изображением:
+
+```tsx live
+const Example = () => {
+    const [open, setOpen] = React.useState(false);
+
+    const images = [
+        {
+            name: 'Горизонтально изображение.jpg',
+            src: 'https://unsplash.com/photos/ywiAen4L4qA/download?force=true'
+        }
+    ]
+    
+    return (
+        <div>
+            <Button view="primary" onClick={() => { setOpen(true) }}>Открыть галерею</Button>
+
+            <Gallery
+                open={open}
+                onClose={() => {
+                    setOpen(false);
+                }}
+                images={images}
+            />
+        </div>
+    )
+}
+
+render(<Example />)
+```
