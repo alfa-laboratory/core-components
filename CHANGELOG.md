@@ -1,3 +1,16 @@
+# [19.9.0](https://github.com/alfa-laboratory/core-components/compare/v19.8.0...v19.9.0) (2021-08-27)
+
+
+### Bug Fixes
+
+* **tabs:** fix tabs hidden ([#816](https://github.com/alfa-laboratory/core-components/issues/816)) ([68468dd](https://github.com/alfa-laboratory/core-components/commit/68468dd6e74a465f2d4bcde87d7852bcaf934783))
+
+
+### Features
+
+* custom components for button and link ([#814](https://github.com/alfa-laboratory/core-components/issues/814)) ([a623dd0](https://github.com/alfa-laboratory/core-components/commit/a623dd021ef611f9994a6587ba6a0d0ee9d8929c))
+* **dropzone:** add block prop ([#813](https://github.com/alfa-laboratory/core-components/issues/813)) ([39bf4c3](https://github.com/alfa-laboratory/core-components/commit/39bf4c3158525d419c75aedec8be81e4a4bb90da))
+
 # [19.8.0](https://github.com/alfa-laboratory/core-components/compare/v19.7.2...v19.8.0) (2021-08-26)
 
 
