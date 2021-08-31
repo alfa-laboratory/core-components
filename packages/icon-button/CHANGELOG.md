@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@3.2.1...@alfalab/core-components-icon-button@3.3.0) (2021-08-31)
+
+
+### Features
+
+* **icon-button:** added 'target' attribute, when IconButton is link ([#823](https://github.com/alfa-laboratory/core-components/issues/823)) ([b2aab6b](https://github.com/alfa-laboratory/core-components/commit/b2aab6be98e01d0e99863f016e08bde384a4ff3c))
+
+
+
+
+
 ## [3.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@3.2.0...@alfalab/core-components-icon-button@3.2.1) (2021-08-27)
 
 **Note:** Version bump only for package @alfalab/core-components-icon-button
