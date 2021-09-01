@@ -40,6 +40,11 @@ export type PopoverProps = {
     anchorElement: RefElement;
 
     /**
+     * Использовать ширину родительского элемента
+     */
+    useAnchorWidth?: boolean;
+
+    /**
      * Позиционирование поповера
      */
     position?: Position;
@@ -148,6 +153,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             getPortalContainer,
             transition = DEFAULT_TRANSITION,
             anchorElement,
+            useAnchorWidth,
             offset = [0, 0],
             withArrow = false,
             withTransition = true,
@@ -169,6 +175,9 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         const [referenceElement, setReferenceElement] = useState<RefElement>(anchorElement);
         const [popperElement, setPopperElement] = useState<RefElement>(null);
         const [arrowElement, setArrowElement] = useState<RefElement>(null);
+
+        const [referenceWidth, setReferenceWidth] = useState(referenceElement?.offsetWidth);
+        const currentReferenceWidth = referenceElement?.offsetWidth;
 
         const getModifiers = useCallback(() => {
             const modifiers: PopperModifier[] = [{ name: 'offset', options: { offset } }];
@@ -218,6 +227,23 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             }
         });
 
+        useEffect(() => {
+            setReferenceWidth(currentReferenceWidth);
+        }, [currentReferenceWidth]);
+
+        useEffect(() => {
+            if (
+                useAnchorWidth &&
+                update &&
+                update.current &&
+                currentReferenceWidth !== referenceWidth
+            ) {
+                setTimeout(() => {
+                    update.current();
+                }, 0);
+            }
+        });
+
         const renderContent = (computedZIndex: number, style?: CSSProperties) => {
             return (
                 <div
@@ -225,6 +251,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                     // ref={setPopperElement}
                     style={{
                         zIndex: computedZIndex,
+                        width: useAnchorWidth ? currentReferenceWidth : undefined,
                         ...popperStyles.popper,
                     }}
                     data-test-id={dataTestId}
