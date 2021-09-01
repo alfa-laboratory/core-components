@@ -44,7 +44,7 @@ export type FormControlProps = HTMLAttributes<HTMLDivElement> & {
     /**
      * Отображение ошибки
      */
-    error?: string | boolean;
+    error?: ReactNode | boolean;
 
     /**
      * Текст подсказки
@@ -127,7 +127,7 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
         },
         ref,
     ) => {
-        const errorMessage = typeof error === 'string' ? error : '';
+        const errorMessage = typeof error === 'boolean' ? '' : error;
 
         return (
             <div

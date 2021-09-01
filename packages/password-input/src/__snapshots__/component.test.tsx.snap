@@ -58,7 +58,6 @@ exports[`PasswordInput snapshots tests should match snapshot 1`] = `
           </button>
         </div>
       </div>
-      
     </div>
   </div>
 </body>

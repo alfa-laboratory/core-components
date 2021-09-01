@@ -49,7 +49,6 @@ exports[`SelectWithTags Display tests should match snapshot 1`] = `
             />
           </div>
         </div>
-        
       </div>
     </div>
   </div>
@@ -190,7 +189,6 @@ exports[`SelectWithTags Display tests should match snapshot with selected tags 1
             />
           </div>
         </div>
-        
       </div>
     </div>
   </div>

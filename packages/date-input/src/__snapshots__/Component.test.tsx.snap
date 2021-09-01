@@ -25,7 +25,6 @@ exports[`DateInput Display tests should match snapshot 1`] = `
         class="addons rightAddons"
       />
     </div>
-    
   </div>
 </div>
 `;

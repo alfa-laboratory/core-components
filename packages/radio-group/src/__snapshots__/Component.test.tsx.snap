@@ -77,7 +77,6 @@ Object {
             </span>
           </label>
         </div>
-        
       </div>
     </div>
   </body>,
@@ -154,7 +153,6 @@ Object {
           </span>
         </label>
       </div>
-      
     </div>
   </div>,
   "debug": [Function],
@@ -467,7 +465,6 @@ Object {
             </span>
           </label>
         </div>
-        
       </div>
     </div>
   </body>,
@@ -504,7 +501,6 @@ Object {
           </span>
         </label>
       </div>
-      
     </div>
   </div>,
   "debug": [Function],
@@ -629,7 +625,6 @@ Object {
             />
           </label>
         </div>
-        
       </div>
     </div>
   </body>,
@@ -697,7 +692,6 @@ Object {
           />
         </label>
       </div>
-      
     </div>
   </div>,
   "debug": [Function],
@@ -770,7 +764,6 @@ Object {
         <div
           class="radioList"
         />
-        
       </div>
     </div>
   </body>,
@@ -786,7 +779,6 @@ Object {
       <div
         class="radioList"
       />
-      
     </div>
   </div>,
   "debug": [Function],
