@@ -136,10 +136,10 @@
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.150.0.tgz#8982226948895bc9cb8f8655887124d6b84838a3"
   integrity sha512-+l2n+VAZZ34llOaGnP67TI5mSjeMiSQmrWNflZOXm1ujE6qmi+aY1wg+XmwLxaZ3h7f7gqsasWrX81z7rDPFqg==
 
-"@alfalab/icons-glyph@^1.163.0":
-  version "1.163.0"
-  resolved "https://registry.npmjs.org/@alfalab/icons-glyph/-/icons-glyph-1.163.0.tgz#c56649fd02958803ce14c0377e1ae09ef91c4a7e"
-  integrity sha512-9gWCTfI3QPftDpKcf4Q+66FihkNfBei9IpWIPfvUJpZ167prR+x6Hsl1tL0/2FzoIxLv9dJ7qbS2Kyo4KDvmDg==
+"@alfalab/icons-glyph@^1.168.0":
+  version "1.168.0"
+  resolved "https://registry.npmjs.org/@alfalab/icons-glyph/-/icons-glyph-1.168.0.tgz#4d64dd5da7ffce3602f82b2ae3d0b1f4eaa8add5"
+  integrity sha512-qGb6TC3erpliN52JBYDwLBTRW2elZB5crhZZwHDnUOyRUNwQkCeSnIreZu2vAu9momqItYFaPTlKET1PUNz0mQ==
 
 "@alfalab/icons-logotype@^1.19.0":
   version "1.19.0"

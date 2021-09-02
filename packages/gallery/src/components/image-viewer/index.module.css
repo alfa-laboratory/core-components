@@ -10,11 +10,17 @@
 }
 
 .swiper {
+    display: flex;
     width: 100%;
     height: 100%;
     max-height: calc(100vh - 168px);
     padding: var(--gap-2xl) var(--gap-m);
     box-sizing: border-box;
+}
+
+.singleSlide .swiper {
+    max-height: calc(100vh - 80px);
+    padding: var(--gap-2xl);
 }
 
 .hidden {
@@ -34,6 +40,7 @@
 .slideLoading {
     /* TODO: цвета нет в палитре */
     background-color: #e9eaeb;
+    border-radius: var(--border-radius-m);
 }
 
 .image {
@@ -41,6 +48,7 @@
     height: 0;
     user-select: none;
     background-color: var(--color-light-bg-primary);
+    border-radius: var(--border-radius-m);
 }
 
 .smallImage {
@@ -87,10 +95,9 @@
 }
 
 .placeholder {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 400px;
     height: 300px;
     border-radius: var(--border-radius-m);
@@ -109,7 +116,7 @@
 .brokenImgIcon {
     width: 80px;
     height: 80px;
-    margin-bottom: var(--gap-s);
+    margin-bottom: var(--gap-2xs);
     background-image: var(--gallery-broken-image-icon);
     background-size: contain;
     background-repeat: no-repeat;

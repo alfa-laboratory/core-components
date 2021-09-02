@@ -9,6 +9,7 @@ export type GalleryContext = {
     images: GalleryImage[];
     imagesMeta: ImageMeta[];
     fullScreen: boolean;
+    initialSlide: number;
     setFullScreen: (fullScreen: boolean) => void;
     setImageMeta: (meta: ImageMeta, index: number) => void;
     slideTo: (index: number) => void;
@@ -30,6 +31,7 @@ export const GalleryContext = createContext<GalleryContext>({
     images: [],
     imagesMeta: [],
     fullScreen: false,
+    initialSlide: 0,
     setFullScreen: mockFn,
     setImageMeta: mockFn,
     slideTo: mockFn,

@@ -28,7 +28,7 @@ export type GalleryProps = {
     /**
      * Индекс открытого изображение
      */
-    defaultOpenedImageIndex?: number;
+    initialSlide?: number;
 
     /**
      * Обработчик закрытия
@@ -39,11 +39,11 @@ export type GalleryProps = {
 export const Gallery: FC<GalleryProps> = ({
     open,
     images,
-    defaultOpenedImageIndex = 0,
+    initialSlide = 0,
     loop = true,
     onClose,
 }) => {
-    const [currentSlideIndex, setCurrentSlideIndex] = useState(defaultOpenedImageIndex);
+    const [currentSlideIndex, setCurrentSlideIndex] = useState(initialSlide);
     const [swiper, setSwiper] = useState<SwiperCore>();
     const [imagesMeta, setImagesMeta] = useState<ImageMeta[]>([]);
     const [fullScreen, setFullScreen] = useState(false);
@@ -120,6 +120,12 @@ export const Gallery: FC<GalleryProps> = ({
         [fullScreen, slideNext, slidePrev],
     );
 
+    const handleClose = useCallback(() => {
+        onClose();
+
+        setCurrentSlideIndex(initialSlide);
+    }, [initialSlide, onClose]);
+
     useEffect(() => {
         document.addEventListener('keydown', handleKeyDown);
 
@@ -139,6 +145,7 @@ export const Gallery: FC<GalleryProps> = ({
             images,
             imagesMeta,
             fullScreen,
+            initialSlide,
             setFullScreen,
             setImageMeta,
             slideNext,
@@ -146,7 +153,7 @@ export const Gallery: FC<GalleryProps> = ({
             slideTo,
             getSwiper: () => swiper,
             setSwiper,
-            onClose,
+            onClose: handleClose,
             setCurrentSlideIndex,
             getCurrentImage: () => images[currentSlideIndex],
             getCurrentImageMeta: () => imagesMeta[currentSlideIndex],
@@ -157,12 +164,13 @@ export const Gallery: FC<GalleryProps> = ({
             images,
             imagesMeta,
             fullScreen,
+            initialSlide,
             swiper,
             setImageMeta,
             slideNext,
             slidePrev,
             slideTo,
-            onClose,
+            handleClose,
         ],
     );
 

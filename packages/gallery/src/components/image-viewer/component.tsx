@@ -6,15 +6,18 @@ import React, {
     SyntheticEvent,
     useMemo,
     useCallback,
+    MouseEventHandler,
+    useEffect,
 } from 'react';
 import SwiperCore, { A11y, EffectFade, Controller } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import cn from 'classnames';
+import elementClosest from 'element-closest';
 import 'swiper/swiper.min.css';
 
 import { useFocus } from '@alfalab/hooks';
-import { ChevronBackMIcon } from '@alfalab/icons-glyph/ChevronBackMIcon';
-import { ChevronForwardMIcon } from '@alfalab/icons-glyph/ChevronForwardMIcon';
+import { ChevronBackHeavyMIcon } from '@alfalab/icons-glyph/ChevronBackHeavyMIcon';
+import { ChevronForwardHeavyMIcon } from '@alfalab/icons-glyph/ChevronForwardHeavyMIcon';
 
 import { GalleryContext } from '../../context';
 import { getImageAlt, getImageKey, isSmallImage } from '../../utils';
@@ -31,6 +34,8 @@ export const ImageViewer: FC = () => {
         imagesMeta,
         fullScreen,
         currentSlideIndex,
+        initialSlide,
+        onClose,
         getCurrentImage,
         setImageMeta,
         setCurrentSlideIndex,
@@ -49,10 +54,8 @@ export const ImageViewer: FC = () => {
     const swiper = getSwiper();
 
     const handleSlideChange = useCallback(() => {
-        if (swiper) {
-            setCurrentSlideIndex(swiper.activeIndex);
-        }
-    }, [setCurrentSlideIndex, swiper]);
+        setCurrentSlideIndex(swiper?.activeIndex || initialSlide);
+    }, [setCurrentSlideIndex, swiper, initialSlide]);
 
     const handlePrevClick = () => {
         slidePrev();
@@ -86,6 +89,29 @@ export const ImageViewer: FC = () => {
         setImageMeta({ width: 0, height: 0, broken: true }, index);
     };
 
+    const handleWrapperClick = useCallback<MouseEventHandler>(
+        event => {
+            const eventTarget = event.target as HTMLElement;
+
+            const isArrow =
+                leftArrowRef.current?.contains(eventTarget) ||
+                rightArrowRef.current?.contains(eventTarget);
+
+            const isPlaceholder = Boolean(eventTarget.closest(`.${styles.placeholder}`));
+
+            const isImg = eventTarget.tagName === 'IMG';
+
+            if (!isImg && !isPlaceholder && !isArrow) {
+                onClose();
+            }
+        },
+        [onClose],
+    );
+
+    useEffect(() => {
+        elementClosest(window);
+    }, []);
+
     const swiperProps = useMemo<Swiper>(
         () => ({
             slidesPerView: 1,
@@ -95,10 +121,12 @@ export const ImageViewer: FC = () => {
             a11y: {
                 slideRole: 'img',
             },
+            initialSlide,
+            simulateTouch: false,
             onSwiper: setSwiper,
             onSlideChange: handleSlideChange,
         }),
-        [swiper, fullScreen, handleSlideChange, setSwiper],
+        [swiper, fullScreen, initialSlide, handleSlideChange, setSwiper],
     );
 
     const showControls = !singleSlide && !fullScreen;
@@ -111,7 +139,11 @@ export const ImageViewer: FC = () => {
     const currentImage = getCurrentImage();
 
     return (
-        <div className={styles.component}>
+        /* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
+        <div
+            className={cn(styles.component, { [styles.singleSlide]: singleSlide })}
+            onClick={handleWrapperClick}
+        >
             {showControls && (
                 <div
                     className={cn(styles.arrow, {
@@ -124,7 +156,7 @@ export const ImageViewer: FC = () => {
                     ref={leftArrowRef}
                     aria-label='Предыдущее изображение'
                 >
-                    <ChevronBackMIcon />
+                    <ChevronBackHeavyMIcon />
                 </div>
             )}
 
@@ -145,8 +177,13 @@ export const ImageViewer: FC = () => {
 
                     const imageAspectRatio = imageWidth / imageHeight;
 
+                    const slideVisible = index === currentSlideIndex;
+
                     return (
-                        <SwiperSlide key={getImageKey(image, index)}>
+                        <SwiperSlide
+                            key={getImageKey(image, index)}
+                            style={{ pointerEvents: slideVisible ? 'auto' : 'none' }}
+                        >
                             {({ isActive }) => {
                                 const broken = Boolean(meta?.broken);
                                 const small = isSmallImage(meta);
@@ -197,7 +234,7 @@ export const ImageViewer: FC = () => {
                     ref={rightArrowRef}
                     aria-label='Следующее изображение'
                 >
-                    <ChevronForwardMIcon />
+                    <ChevronForwardHeavyMIcon />
                 </div>
             )}
         </div>
