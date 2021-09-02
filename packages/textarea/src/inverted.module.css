@@ -1,4 +1,5 @@
 @import '../../themes/src/default.css';
+@import '../../input/src/inverted.module.css';
 
 .textarea {
     color: var(--input-inverted-color);
