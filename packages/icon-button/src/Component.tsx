@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, ElementType, forwardRef } from 'react';
+import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, ElementType, forwardRef } from 'react';
 import cn from 'classnames';
 
 import { Button, ButtonProps } from '@alfalab/core-components-button';
@@ -43,7 +43,8 @@ export type IconButtonProps = {
      */
     colors?: 'default' | 'inverted';
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'size'> &
-    Pick<ButtonProps, 'href' | 'loading'>;
+    Pick<ButtonProps, 'href' | 'loading'> &
+    Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'target'>;
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     (

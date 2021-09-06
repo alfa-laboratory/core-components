@@ -139,7 +139,7 @@ export const Tooltip: FC<TooltipProps> = ({
     onOpenDelay = 300,
     dataTestId,
     open: forcedOpen,
-    offset = [0, 10],
+    offset = [0, 16],
     position,
     contentClassName,
     arrowClassName,

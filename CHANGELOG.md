@@ -1,3 +1,15 @@
+# [19.10.0](https://github.com/alfa-laboratory/core-components/compare/v19.9.0...v19.10.0) (2021-08-31)
+
+
+### Bug Fixes
+
+* **textarea:** missing vars ([#817](https://github.com/alfa-laboratory/core-components/issues/817)) ([d03231f](https://github.com/alfa-laboratory/core-components/commit/d03231f24c826f540ecc8c6ddeb2b3e3fec38b6a))
+
+
+### Features
+
+* **icon-button:** added 'target' attribute, when IconButton is link ([#823](https://github.com/alfa-laboratory/core-components/issues/823)) ([b2aab6b](https://github.com/alfa-laboratory/core-components/commit/b2aab6be98e01d0e99863f016e08bde384a4ff3c))
+
 # [19.9.0](https://github.com/alfa-laboratory/core-components/compare/v19.8.0...v19.9.0) (2021-08-27)
 
 
