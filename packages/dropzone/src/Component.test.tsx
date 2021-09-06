@@ -75,6 +75,18 @@ describe('Dropzone', () => {
         });
     });
 
+    it('should render custom overlay', () => {
+        const dataTestId = 'test-id';
+        const CustomOverlay = jest.fn();
+
+        CustomOverlay.mockReturnValue(<div data-test-id={dataTestId} />);
+
+        const { queryByTestId } = render(<Dropzone Overlay={CustomOverlay} text='text' />);
+
+        expect(queryByTestId(dataTestId)).toBeInTheDocument();
+        expect(CustomOverlay.mock.calls[0][0]).toEqual({ text: 'text', visible: false });
+    });
+
     describe('Callbacks tests', () => {
         it('should call `onDrop` callback after drop file on Dropzone', () => {
             const handleDrop = jest.fn();

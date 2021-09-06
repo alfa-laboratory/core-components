@@ -17,6 +17,7 @@
 @import './skeleton/click.css';
 @import './backdrop/click.css';
 @import './slider/click.css';
+@import './dropzone/click.css';
 
 @define-mixin theme-click {
     --disabled-cursor: not-allowed;
@@ -41,4 +42,5 @@
     @mixin skeleton-click;
     @mixin backdrop-click;
     @mixin slider-click;
+    @mixin dropzone-click;
 }

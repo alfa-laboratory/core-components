@@ -1,5 +1,10 @@
 @import '../../themes/src/default.css';
 
+:root {
+    --dropzone-active-bg: transparent;
+    --dropzone-active-cursor: default;
+}
+
 @define-mixin border $color {
     /* https://kovart.github.io/dashed-border-generator/ */
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23$(color)' stroke-width='2' stroke-dasharray='4%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
@@ -8,6 +13,7 @@
 .component {
     display: inline-block;
     position: relative;
+    transition: background-color 0.2s ease;
 
     &:after {
         content: '';
@@ -28,42 +34,19 @@
     cursor: var(--disabled-cursor);
 }
 
+.component:not(.disabled):hover {
+    background-color: var(--dropzone-active-bg);
+    cursor: var(--dropzone-active-cursor);
+}
+
 .block {
     width: 100%;
 }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: var(--border-radius-s);
-    background: var(--color-light-bg-secondary);
-
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    pointer-events: none;
-}
-
-.dragOver .overlay {
-    opacity: 1;
+.dragOver {
+    background-color: var(--dropzone-active-bg);
 }
 
 .error:after {
     @mixin border ef3124;
-}
-
-.text {
-    @mixin paragraph_primary_medium;
-
-    color: var(--color-light-text-primary);
-    text-align: center;
-    margin-top: var(--gap-xs);
 }
