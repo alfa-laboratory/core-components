@@ -3,7 +3,6 @@
 :root {
     --dropzone-active-bg: transparent;
     --dropzone-border-radius: var(--border-radius-s);
-    --dropzone-active-cursor: default;
 }
 
 .component {
@@ -31,7 +30,6 @@
 
 .component:not(.disabled):hover {
     background-color: var(--dropzone-active-bg);
-    cursor: var(--dropzone-active-cursor);
 }
 
 .block {
