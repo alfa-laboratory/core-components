@@ -130,5 +130,39 @@ describe('Dropzone', () => {
 
             expect(handleDrop.mock.calls[0][0]).toEqual(dataTransfer.files);
         });
+
+        it('should not call drag callbacks when disabled', () => {
+            const handleDrop = jest.fn();
+            const handleDragEnter = jest.fn();
+            const handleDragLeave = jest.fn();
+            const handleDragOver = jest.fn();
+            const { container } = render(
+                <Dropzone
+                    disabled={true}
+                    onDrop={handleDrop}
+                    onDragEnter={handleDragEnter}
+                    onDragLeave={handleDragLeave}
+                    onDragOver={handleDragOver}
+                />,
+            );
+
+            const dropzone = container.firstElementChild as HTMLElement;
+
+            fireDragEventWithFiles(dropzone, 'drop');
+
+            expect(handleDrop).not.toBeCalled();
+
+            fireDragEventWithFiles(dropzone, 'dragEnter');
+
+            expect(handleDragEnter).not.toBeCalled();
+
+            fireDragEventWithFiles(dropzone, 'dragLeave');
+
+            expect(handleDragLeave).not.toBeCalled();
+
+            fireDragEventWithFiles(dropzone, 'dragOver');
+
+            expect(handleDragOver).not.toBeCalled();
+        });
     });
 });

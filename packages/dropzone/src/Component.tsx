@@ -17,6 +17,11 @@ export type DropzoneProps = {
     text?: string;
 
     /**
+     * Заблокированное состояние
+     */
+    disabled?: boolean;
+
+    /**
      * Состояние ошибки
      */
     error?: boolean;
@@ -68,6 +73,7 @@ export const Dropzone: FC<DropzoneProps> = ({
     onDragOver,
     onDrop,
     block = false,
+    disabled,
     dataTestId,
 }) => {
     const [dragOver, setDragOver] = useState(false);
@@ -139,18 +145,23 @@ export const Dropzone: FC<DropzoneProps> = ({
         [onDrop],
     );
 
+    const dragHandlers = !disabled && {
+        onDragEnter: handleDragEnter,
+        onDragLeave: handleDragLeave,
+        onDragOver: handleDragOver,
+        onDrop: handleDrop,
+    };
+
     return (
         <div
             className={cn(styles.component, className, {
                 [styles.dragOver]: dragOver || overlayVisible,
                 [styles.error]: error,
                 [styles.block]: block,
+                [styles.disabled]: disabled,
             })}
-            onDragEnter={handleDragEnter}
-            onDragLeave={handleDragLeave}
-            onDragOver={handleDragOver}
-            onDrop={handleDrop}
             data-test-id={dataTestId}
+            {...dragHandlers}
         >
             {children}
             <div className={styles.overlay}>

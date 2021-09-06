@@ -24,6 +24,10 @@
     }
 }
 
+.disabled {
+    cursor: var(--disabled-cursor);
+}
+
 .block {
     width: 100%;
 }
