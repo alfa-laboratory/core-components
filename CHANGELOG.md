@@ -1,3 +1,10 @@
+# [19.11.0](https://github.com/alfa-laboratory/core-components/compare/v19.10.0...v19.11.0) (2021-09-06)
+
+
+### Features
+
+* **tooltip:** update shadow and arrow size/position ([2d40988](https://github.com/alfa-laboratory/core-components/commit/2d40988f3c376c51907aa8a4845ba25c7c43a2f4))
+
 # [19.10.0](https://github.com/alfa-laboratory/core-components/compare/v19.9.0...v19.10.0) (2021-08-31)
 
 
