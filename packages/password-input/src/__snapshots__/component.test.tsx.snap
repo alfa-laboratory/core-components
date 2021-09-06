@@ -4,7 +4,7 @@ exports[`PasswordInput snapshots tests should match snapshot 1`] = `
 <body>
   <div>
     <div
-      class="component component s hasRightAddons"
+      class="component component s s hasRightAddons"
     >
       <div
         class="inner inner"
@@ -26,7 +26,7 @@ exports[`PasswordInput snapshots tests should match snapshot 1`] = `
           class="addons rightAddons addons"
         >
           <button
-            class="component ghost s component ghost iconOnly secondary"
+            class="component ghost s component ghost iconOnly eye secondary"
             type="button"
           >
             <span

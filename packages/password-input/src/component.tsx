@@ -1,4 +1,5 @@
 import React, { forwardRef, useCallback, useState } from 'react';
+import cn from 'classnames';
 import { Input, InputProps } from '@alfalab/core-components-input';
 import { IconButton } from '@alfalab/core-components-icon-button';
 import EyeMIcon from '@alfalab/icons-glyph/EyeMIcon';
@@ -20,7 +21,16 @@ export type PasswordInputProps = InputProps & {
 
 export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
     (
-        { onPasswordVisibleChange, passwordVisible, disabled, colors, rightAddons, ...restProps },
+        {
+            onPasswordVisibleChange,
+            passwordVisible,
+            disabled,
+            colors,
+            rightAddons,
+            size = 's',
+            className,
+            ...restProps
+        },
         ref,
     ) => {
         const uncontrolled = passwordVisible === undefined;
@@ -46,12 +56,15 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
                 {...restProps}
                 disabled={disabled}
                 type={isPasswordVisible ? 'text' : 'password'}
+                size={size}
                 ref={ref}
                 colors={colors}
+                className={cn(className, styles[size])}
                 rightAddons={
                     <React.Fragment>
                         {rightAddons}
                         <IconButton
+                            className={styles.eye}
                             colors={colors}
                             view='secondary'
                             size='s'
