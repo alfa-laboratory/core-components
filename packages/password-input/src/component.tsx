@@ -19,7 +19,10 @@ export type PasswordInputProps = InputProps & {
 };
 
 export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
-    ({ onPasswordVisibleChange, passwordVisible, disabled, colors, ...restProps }, ref) => {
+    (
+        { onPasswordVisibleChange, passwordVisible, disabled, colors, rightAddons, ...restProps },
+        ref,
+    ) => {
         const uncontrolled = passwordVisible === undefined;
 
         const [statePasswordVisible, setStatePasswordVisible] = useState(
@@ -46,14 +49,17 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
                 ref={ref}
                 colors={colors}
                 rightAddons={
-                    <IconButton
-                        colors={colors}
-                        view='secondary'
-                        size='s'
-                        icon={isPasswordVisible ? EyeMIcon : EyeOffMIcon}
-                        onClick={handleButtonClick}
-                        disabled={disabled}
-                    />
+                    <React.Fragment>
+                        {rightAddons}
+                        <IconButton
+                            colors={colors}
+                            view='secondary'
+                            size='s'
+                            icon={isPasswordVisible ? EyeMIcon : EyeOffMIcon}
+                            onClick={handleButtonClick}
+                            disabled={disabled}
+                        />
+                    </React.Fragment>
                 }
                 addonsClassName={styles.addons}
                 inputClassName={styles.input}
