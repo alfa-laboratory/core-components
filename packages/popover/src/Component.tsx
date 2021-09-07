@@ -13,6 +13,7 @@ import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
 import { usePopper } from 'react-popper';
 import { BasePlacement, VariationPlacement, Obj } from '@popperjs/core';
 import mergeRefs from 'react-merge-refs';
+import { ResizeObserver } from 'resize-observer';
 
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 import { Portal } from '@alfalab/core-components-portal';
@@ -176,9 +177,6 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         const [popperElement, setPopperElement] = useState<RefElement>(null);
         const [arrowElement, setArrowElement] = useState<RefElement>(null);
 
-        const [referenceWidth, setReferenceWidth] = useState(referenceElement?.offsetWidth);
-        const currentReferenceWidth = referenceElement?.offsetWidth;
-
         const getModifiers = useCallback(() => {
             const modifiers: PopperModifier[] = [{ name: 'offset', options: { offset } }];
 
@@ -210,6 +208,12 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             },
         );
 
+        const updatePopoverWidth = useCallback(() => {
+            if (useAnchorWidth && update && update.current) {
+                update.current();
+            }
+        }, [update, useAnchorWidth]);
+
         useEffect(() => {
             setReferenceElement(anchorElement);
         }, [anchorElement]);
@@ -228,21 +232,15 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         });
 
         useEffect(() => {
-            setReferenceWidth(currentReferenceWidth);
-        }, [currentReferenceWidth]);
-
-        useEffect(() => {
-            if (
-                useAnchorWidth &&
-                update &&
-                update.current &&
-                currentReferenceWidth !== referenceWidth
-            ) {
-                setTimeout(() => {
-                    update.current();
-                }, 0);
+            const observer = new ResizeObserver(updatePopoverWidth);
+            if (anchorElement) {
+                observer.observe(anchorElement);
             }
-        });
+
+            return () => {
+                observer.disconnect();
+            };
+        }, [anchorElement, update, updatePopoverWidth]);
 
         const renderContent = (computedZIndex: number, style?: CSSProperties) => {
             return (
@@ -251,7 +249,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                     // ref={setPopperElement}
                     style={{
                         zIndex: computedZIndex,
-                        width: useAnchorWidth ? currentReferenceWidth : undefined,
+                        width: useAnchorWidth ? referenceElement?.offsetWidth : undefined,
                         ...popperStyles.popper,
                     }}
                     data-test-id={dataTestId}
