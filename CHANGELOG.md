@@ -1,3 +1,12 @@
+## [19.11.1](https://github.com/alfa-laboratory/core-components/compare/v19.11.0...v19.11.1) (2021-09-08)
+
+
+### Bug Fixes
+
+* wrong mobile colors ([#832](https://github.com/alfa-laboratory/core-components/issues/832)) ([d9e275b](https://github.com/alfa-laboratory/core-components/commit/d9e275b6ac60e635dec4b655bfc859f079cb9840))
+* **bank-card:** improve docs, fix focus bg ([#830](https://github.com/alfa-laboratory/core-components/issues/830)) ([1d8171c](https://github.com/alfa-laboratory/core-components/commit/1d8171ce5c76831c350fcf636dd48bad2c3db118))
+* **base-select:** lazy loading ([#831](https://github.com/alfa-laboratory/core-components/issues/831)) ([78f2b86](https://github.com/alfa-laboratory/core-components/commit/78f2b86221d8af7bf5019104aba743546fc31b45))
+
 # [19.11.0](https://github.com/alfa-laboratory/core-components/compare/v19.10.0...v19.11.0) (2021-09-06)
 
 
