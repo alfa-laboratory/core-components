@@ -6,6 +6,7 @@ import React, {
     MutableRefObject,
     forwardRef,
     ReactNode,
+    useRef,
 } from 'react';
 import cn from 'classnames';
 import { CSSTransition } from 'react-transition-group';
@@ -176,6 +177,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         const [referenceElement, setReferenceElement] = useState<RefElement>(anchorElement);
         const [popperElement, setPopperElement] = useState<RefElement>(null);
         const [arrowElement, setArrowElement] = useState<RefElement>(null);
+        const updatePopperRef = useRef<() => void>();
 
         const getModifiers = useCallback(() => {
             const modifiers: PopperModifier[] = [{ name: 'offset', options: { offset } }];
@@ -208,11 +210,15 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             },
         );
 
+        if (updatePopper) {
+            updatePopperRef.current = updatePopper;
+        }
+
         const updatePopoverWidth = useCallback(() => {
-            if (useAnchorWidth && update && update.current) {
-                update.current();
+            if (useAnchorWidth && updatePopperRef.current) {
+                updatePopperRef.current();
             }
-        }, [update, useAnchorWidth]);
+        }, [useAnchorWidth]);
 
         useEffect(() => {
             setReferenceElement(anchorElement);
@@ -240,7 +246,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             return () => {
                 observer.disconnect();
             };
-        }, [anchorElement, update, updatePopoverWidth]);
+        }, [anchorElement, updatePopoverWidth]);
 
         const renderContent = (computedZIndex: number, style?: CSSProperties) => {
             return (
