@@ -2055,6 +2055,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 
     /* hover */
     --form-control-hover-bg-color: transparent;
+    --form-control-focus-bg-color: transparent;
     --form-control-font-family: var(--font-family-styrene);
 
     position: relative;
@@ -2139,6 +2140,8 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     left: 20px
 }
 .bankLogo_3zvlv svg {
+        max-height: 30px;
+        width: auto;
         display: block
     }
 .bankLogo_3zvlv svg g {
@@ -17488,4 +17491,4 @@ pre.cssExample_3Mm-Q {
 }
 
 
-/*# sourceMappingURL=main.74ea666d.chunk.css.map */
+/*# sourceMappingURL=main.652692dd.chunk.css.map */
