@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.4.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.4.3...@alfalab/core-components-select@9.4.4) (2021-09-08)
+
+
+### Bug Fixes
+
+* **base-select:** lazy loading ([#831](https://github.com/alfa-laboratory/core-components/issues/831)) ([78f2b86](https://github.com/alfa-laboratory/core-components/commit/78f2b86221d8af7bf5019104aba743546fc31b45))
+
+
+
+
+
 ## [9.4.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.4.2...@alfalab/core-components-select@9.4.3) (2021-09-06)
 
 **Note:** Version bump only for package @alfalab/core-components-select
