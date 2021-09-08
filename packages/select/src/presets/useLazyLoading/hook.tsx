@@ -57,6 +57,9 @@ const actions = {
     setQueryString(qs: string) {
         return { type: 'SET_QUERY_STRING', payload: qs } as const;
     },
+    reset() {
+        return { type: 'RESET' } as const;
+    },
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -119,6 +122,11 @@ export function useLazyLoading({
                     opened: state.opened,
                     loading: true,
                     queryString: action.payload,
+                };
+            }
+            case 'RESET': {
+                return {
+                    ...lazyLoadingInitialState,
                 };
             }
             default: {
@@ -265,6 +273,10 @@ export function useLazyLoading({
             }));
     }, [loading, limit, skeleton]);
 
+    const reset = useCallback(() => {
+        dispatch(actions.reset());
+    }, []);
+
     return {
         optionsProps: {
             Option: renderOption,
@@ -278,5 +290,6 @@ export function useLazyLoading({
             },
             onOpen,
         },
+        reset,
     };
 }
