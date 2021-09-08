@@ -238,15 +238,19 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         });
 
         useEffect(() => {
-            const observer = new ResizeObserver(updatePopoverWidth);
-            if (anchorElement) {
-                observer.observe(anchorElement);
+            if (useAnchorWidth) {
+                const observer = new ResizeObserver(updatePopoverWidth);
+                if (anchorElement) {
+                    observer.observe(anchorElement);
+                }
+
+                return () => {
+                    observer.disconnect();
+                };
             }
 
-            return () => {
-                observer.disconnect();
-            };
-        }, [anchorElement, updatePopoverWidth]);
+            return () => ({});
+        }, [anchorElement, updatePopoverWidth, useAnchorWidth]);
 
         const renderContent = (computedZIndex: number, style?: CSSProperties) => {
             return (
