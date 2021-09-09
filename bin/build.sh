@@ -25,7 +25,6 @@ lerna exec --scope @alfalab/core-components-themes -- node $(pwd)/bin/build-them
 
 # собираю все подпакеты с компонентами
 lerna exec --concurrency $CONCURRENCY \
-    --ignore @alfalab/core-components-vars \
     --ignore @alfalab/core-components-codemod \
     -- $(pwd)/bin/rollup.sh
 

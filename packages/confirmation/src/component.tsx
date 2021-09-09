@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useRef, useEffect, useCallback } from 'react';
+import React, { forwardRef, useState, useRef, useEffect, useCallback, ReactNode } from 'react';
 import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
 import { Link } from '@alfalab/core-components-link';
@@ -38,7 +38,7 @@ export type ConfirmationProps = {
     /**
      * Дополнительный контент
      */
-    additionalContent?: React.ReactNode;
+    additionalContent?: ReactNode;
 
     /**
      * Флаг критичности ошибки подписания.
@@ -129,6 +129,11 @@ export type ConfirmationProps = {
     noAttemptsLeftMessage?: string;
 
     /**
+     * Кастомный контент для компонента Countdown
+     */
+    countdownContent?: ReactNode;
+
+    /**
      * Обработчик события завершения ввода кода подписания
      */
     onInputFinished: ({ code }: { code: string }) => void;
@@ -186,6 +191,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
             buttonRetryText = 'Запросить новый код',
             alignContent = 'left',
             noAttemptsLeftMessage,
+            countdownContent,
             onInputFinished,
             onSmsRetryClick,
             onActionWithFatalError,
@@ -274,6 +280,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                         codeSendingText={codeSendingText}
                         alignContent={alignContent}
                         noAttemptsLeftMessage={noAttemptsLeftMessage}
+                        countdownContent={countdownContent}
                         onInputFinished={onInputFinished}
                         onInputChange={onInputChange}
                         onSmsRetryClick={handleSmsRetryClick}

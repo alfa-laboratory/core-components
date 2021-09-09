@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-textarea@6.0.5...@alfalab/core-components-textarea@6.0.6) (2021-08-31)
+
+
+### Bug Fixes
+
+* **textarea:** missing vars ([#817](https://github.com/alfa-laboratory/core-components/issues/817)) ([d03231f](https://github.com/alfa-laboratory/core-components/commit/d03231f24c826f540ecc8c6ddeb2b3e3fec38b6a))
+
+
+
+
+
+## [6.0.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-textarea@6.0.4...@alfalab/core-components-textarea@6.0.5) (2021-08-23)
+
+
+### Bug Fixes
+
+* **form-control:** l size offset between value and label (PDS-270) ([#781](https://github.com/alfa-laboratory/core-components/issues/781)) ([311f8a0](https://github.com/alfa-laboratory/core-components/commit/311f8a0eaa97cf7d0c89d4a3cdfc443aef2d763c))
+* **input:** smart error icon ([#746](https://github.com/alfa-laboratory/core-components/issues/746)) ([f1950d6](https://github.com/alfa-laboratory/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/alfa-laboratory/core-components/issues/782)
+
+
+
+
+
 ## [6.0.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-textarea@6.0.3...@alfalab/core-components-textarea@6.0.4) (2021-08-11)
 
 

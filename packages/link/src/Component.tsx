@@ -1,4 +1,4 @@
-import React, { AnchorHTMLAttributes, forwardRef, ReactNode, useRef } from 'react';
+import React, { AnchorHTMLAttributes, ElementType, forwardRef, ReactNode, useRef } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
 import { useFocus } from '@alfalab/hooks';
@@ -33,12 +33,17 @@ export type LinkProps = NativeProps & {
     /**
      * Слот слева
      */
-    leftAddons?: React.ReactNode;
+    leftAddons?: ReactNode;
 
     /**
      * Слот справа
      */
-    rightAddons?: React.ReactNode;
+    rightAddons?: ReactNode;
+
+    /**
+     * Позволяет использовать кастомный компонент для кнопки (например Link из роутера)
+     */
+    Component?: ElementType;
 
     /**
      * Дополнительный класс (native prop)
@@ -77,6 +82,8 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             dataTestId,
             children,
             colors = 'default',
+            href,
+            Component = 'a',
             ...restProps
         },
         ref,
@@ -98,10 +105,12 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
             ),
             'data-test-id': dataTestId,
             rel: restProps.target === '_blank' ? 'noreferrer noopener' : undefined,
+            // Для совместимости с react-router-dom, меняем href на to
+            [typeof Component === 'string' ? 'href' : 'to']: href,
         };
 
         return (
-            <a {...componentProps} {...restProps} ref={mergeRefs([linkRef, ref])}>
+            <Component {...componentProps} {...restProps} ref={mergeRefs([linkRef, ref])}>
                 {leftAddons || rightAddons ? (
                     <React.Fragment>
                         {leftAddons && <span className={styles.addons}>{leftAddons}</span>}
@@ -115,7 +124,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
                 ) : (
                     <span className={styles.text}>{children}</span>
                 )}
-            </a>
+            </Component>
         );
     },
 );

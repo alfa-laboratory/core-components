@@ -5,7 +5,7 @@ import { Alert } from '@alfalab/core-components-alert';
 
 import { Typography } from '@alfalab/core-components-typography';
 
-import { Example } from '../../../blocks/example';
+import { Example } from 'storybook-addon-live-examples';
 
 export const KeepCssVars = ({
     answers,
@@ -56,7 +56,7 @@ export const KeepCssVars = ({
 import darkMode from '@alfalab/core-components/themes/dark';
 
 <>
-    {mode === 'dark' && <style>{darkMode.toString()}</style>}
+    {mode === 'dark' && <style>{darkMode}</style>}
     {this.renderPage()}
 </>
 `}

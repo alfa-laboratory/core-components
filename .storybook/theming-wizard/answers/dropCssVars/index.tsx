@@ -3,8 +3,7 @@ import React from 'react';
 import { List } from '@alfalab/core-components-list';
 import { Link } from '@alfalab/core-components-link';
 import { Typography } from '@alfalab/core-components-typography';
-
-import { Example } from '../../../blocks/example';
+import { Example } from 'storybook-addon-live-examples';
 
 export const DropCssVars = ({
     answers,
@@ -78,7 +77,7 @@ postcssCustomProperties({
 import darkMode from '@alfalab/core-components/themes/compiled/${compiledTheme}';
 
 <>
-    {mode === 'dark' && <style>{darkMode.toString()}</style>}
+    {mode === 'dark' && <style>{darkMode}</style>}
     {this.renderPage()}
 </>
 `}

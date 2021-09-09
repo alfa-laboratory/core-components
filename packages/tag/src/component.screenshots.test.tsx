@@ -67,3 +67,32 @@ describe('Tag | right addons', () => {
 
     availableThemes.map(testCase);
 });
+
+describe('Tag | inverted', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    theme,
+                    createSpriteStorybookUrl({
+                        componentName: 'Tag',
+                        knobs: {
+                            children: 'Оплатить',
+                            size: ['xl', 'l', 'm', 's', 'xs'],
+                            checked: [false, true],
+                            disabled: [false, true],
+                            colors: 'inverted',
+                        },
+                        size: { width: 160, height: 90 },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            viewport: { width: 740, height: 100 },
+            theme,
+        })();
+
+    availableThemes.map(testCase);
+});

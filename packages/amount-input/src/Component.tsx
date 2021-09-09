@@ -7,6 +7,13 @@ import { withSuffix } from '@alfalab/core-components-with-suffix';
 import { getFormattedValue, getAmountValueFromStr } from './utils';
 
 import styles from './index.module.css';
+import defaultColors from './default.module.css';
+import invertedColors from './inverted.module.css';
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
 
 export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> & {
     /**
@@ -85,6 +92,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             }`,
             integersOnly = false,
             bold = true,
+            colors = 'default',
             className,
             focusedClassName,
             dataTestId,
@@ -216,7 +224,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                         <Fragment>
                             {majorPart}
 
-                            <span className={styles.minorPartAndCurrency}>
+                            <span className={colorStyles[colors].minorPartAndCurrency}>
                                 {minorPart !== undefined && `,${minorPart}`}
                                 {THINSP}
                                 {suffix === currency ? currencySymbol : suffix}
@@ -227,6 +235,7 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     clear={clear}
                     placeholder={placeholder}
                     value={inputValue}
+                    colors={colors}
                     className={cn(styles.component, className)}
                     focusedClassName={focusedClassName}
                     inputClassName={styles.input}

@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.6.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@4.6.1...@alfalab/core-components-themes@4.6.2) (2021-09-08)
+
+
+### Bug Fixes
+
+* wrong mobile colors ([#832](https://github.com/alfa-laboratory/core-components/issues/832)) ([d9e275b](https://github.com/alfa-laboratory/core-components/commit/d9e275b6ac60e635dec4b655bfc859f079cb9840))
+
+
+
+
+
+## [4.6.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@4.6.0...@alfalab/core-components-themes@4.6.1) (2021-08-23)
+
+
+### Bug Fixes
+
+* **input:** smart error icon ([#746](https://github.com/alfa-laboratory/core-components/issues/746)) ([f1950d6](https://github.com/alfa-laboratory/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/alfa-laboratory/core-components/issues/782)
+
+
+
+
+
 # [4.6.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@4.5.0...@alfalab/core-components-themes@4.6.0) (2021-08-04)
 
 

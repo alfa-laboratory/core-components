@@ -1,0 +1,33 @@
+@import '../../themes/src/default.css';
+@import '../../input/src/default.module.css';
+
+.textarea {
+    color: var(--input-color);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.textarea::placeholder {
+    color: var(--input-placeholder-color);
+}
+
+.hasLabel::placeholder {
+    color: var(--input-with-label-placeholder-color);
+}
+
+/* DISABLED STATE */
+
+.textarea:disabled {
+    color: var(--input-disabled-color);
+}
+
+/* READ-ONLY STATE */
+
+.textarea:read-only {
+    color: var(--input-read-only-color);
+}
+
+/* FOCUS STATE */
+
+.textarea:focus::placeholder {
+    color: var(--input-focus-placeholder-color);
+}

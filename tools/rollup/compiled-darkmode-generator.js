@@ -66,7 +66,7 @@ export function compiledDarkmodeGenerator(dist) {
     return {
         name: 'compiled-darkmode-generator',
         writeBundle: async () => {
-            if (dist.includes('themes')) return;
+            if (dist.includes('themes') || dist.includes('vars')) return;
 
             const generationConfig = ['mobile-dark-bluetint'];
 

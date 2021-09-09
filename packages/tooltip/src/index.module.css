@@ -7,7 +7,7 @@
 
 .component {
     @mixin paragraph_primary_small;
-    padding: var(--gap-s) var(--gap-m);
+    padding: var(--gap-m);
 }
 
 .popper {
@@ -17,6 +17,7 @@
 .hint {
     border-radius: var(--border-radius-s);
     background-color: var(--tooltip-hint-bg-color);
+    box-shadow: none;
 }
 
 .hint .component {
@@ -26,8 +27,6 @@
 }
 
 .hint .arrow:after {
-    width: 9px;
-    height: 9px;
     background-color: var(--tooltip-hint-bg-color);
     border-color: var(--tooltip-hint-bg-color);
 }

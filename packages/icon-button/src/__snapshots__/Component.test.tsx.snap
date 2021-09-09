@@ -1,5 +1,122 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`IconButton Href tests should set \`href\` attribute and be link 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <a
+        class="component ghost s component ghost iconOnly primary"
+        data-test-id="test-id"
+        href="http://example.com"
+      >
+        <span
+          class="addons"
+        >
+          <span
+            class="iconWrapper s"
+          >
+            <svg
+              class="icon"
+              fill="currentColor"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <path
+                d="M11.063 3.505c.324-.866 1.55-.866 1.874 0l1.794 4.798a1 1 0 00.893.648l5.117.224c.924.04 1.303 1.206.579 1.782l-4.009 3.188a1 1 0 00-.34 1.05l1.368 4.936c.247.891-.744 1.612-1.516 1.101l-4.271-2.827a1 1 0 00-1.104 0l-4.271 2.827c-.772.51-1.763-.21-1.516-1.1l1.369-4.937a1 1 0 00-.341-1.05L2.68 10.957c-.724-.576-.345-1.742.58-1.782l5.116-.224a1 1 0 00.893-.648l1.794-4.798z"
+              />
+            </svg>
+          </span>
+        </span>
+      </a>
+    </div>
+  </body>,
+  "container": <div>
+    <a
+      class="component ghost s component ghost iconOnly primary"
+      data-test-id="test-id"
+      href="http://example.com"
+    >
+      <span
+        class="addons"
+      >
+        <span
+          class="iconWrapper s"
+        >
+          <svg
+            class="icon"
+            fill="currentColor"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path
+              d="M11.063 3.505c.324-.866 1.55-.866 1.874 0l1.794 4.798a1 1 0 00.893.648l5.117.224c.924.04 1.303 1.206.579 1.782l-4.009 3.188a1 1 0 00-.34 1.05l1.368 4.936c.247.891-.744 1.612-1.516 1.101l-4.271-2.827a1 1 0 00-1.104 0l-4.271 2.827c-.772.51-1.763-.21-1.516-1.1l1.369-4.937a1 1 0 00-.341-1.05L2.68 10.957c-.724-.576-.345-1.742.58-1.782l5.116-.224a1 1 0 00.893-.648l1.794-4.798z"
+            />
+          </svg>
+        </span>
+      </span>
+    </a>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
 exports[`IconButton Snapshots tests should match snapshot 1`] = `
 Object {
   "asFragment": [Function],

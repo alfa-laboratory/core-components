@@ -1,0 +1,33 @@
+@import '../../themes/src/default.css';
+@import '../../input/src/inverted.module.css';
+
+.textarea {
+    color: var(--input-inverted-color);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.textarea::placeholder {
+    color: var(--input-inverted-placeholder-color);
+}
+
+.hasLabel::placeholder {
+    color: var(--input-inverted-with-label-placeholder-color);
+}
+
+/* DISABLED STATE */
+
+.textarea:disabled {
+    color: var(--input-inverted-disabled-color);
+}
+
+/* READ-ONLY STATE */
+
+.textarea:read-only {
+    color: var(--input-inverted-read-only-color);
+}
+
+/* FOCUS STATE */
+
+.textarea:focus::placeholder {
+    color: var(--input-inverted-focus-placeholder-color);
+}

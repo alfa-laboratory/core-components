@@ -1,4 +1,4 @@
-import React, { FC, KeyboardEvent, MutableRefObject, useCallback } from 'react';
+import React, { FC, KeyboardEvent, MutableRefObject, ReactNode, useCallback } from 'react';
 import cn from 'classnames';
 
 import { Link } from '@alfalab/core-components-link';
@@ -30,6 +30,7 @@ export type SignConfirmationProps = {
     alignContent: ContentAlign;
     noAttemptsLeftMessage?: string;
     buttonRetryText: string;
+    countdownContent?: ReactNode;
     onInputFinished: ({ code }: { code: string }) => void;
     onInputChange: ({ code }: { code: string }) => void;
     onSmsRetryClick: (event: React.MouseEvent) => void;
@@ -57,6 +58,7 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
     alignContent,
     noAttemptsLeftMessage,
     buttonRetryText,
+    countdownContent,
     onInputFinished,
     onInputChange,
     onSmsRetryClick,
@@ -138,6 +140,7 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
                         noAttemptsLeftMessage={noAttemptsLeftMessage}
                         hasError={Boolean(displayedError)}
                         buttonRetryText={buttonRetryText}
+                        content={countdownContent}
                         onRepeatSms={onSmsRetryClick}
                         onCountdownFinished={onCountdownFinished}
                     />

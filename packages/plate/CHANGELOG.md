@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-plate@2.0.7...@alfalab/core-components-plate@2.0.8) (2021-08-27)
+
+**Note:** Version bump only for package @alfalab/core-components-plate
+
+
+
+
+
+## [2.0.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-plate@2.0.6...@alfalab/core-components-plate@2.0.7) (2021-08-23)
+
+
+### Bug Fixes
+
+* **plate:** check is click inside component, popover issue ([bea8a7d](https://github.com/alfa-laboratory/core-components/commit/bea8a7dc199d7aced3ec8b5e9ab76568f0cba839))
+
+
+
+
+
+## [2.0.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-plate@2.0.5...@alfalab/core-components-plate@2.0.6) (2021-08-23)
+
+**Note:** Version bump only for package @alfalab/core-components-plate
+
+
+
+
+
 ## [2.0.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-plate@2.0.4...@alfalab/core-components-plate@2.0.5) (2021-08-11)
 
 

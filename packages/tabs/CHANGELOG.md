@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@5.2.1...@alfalab/core-components-tabs@5.2.2) (2021-08-27)
+
+
+### Bug Fixes
+
+* **tabs:** fix tabs hidden ([#816](https://github.com/alfa-laboratory/core-components/issues/816)) ([68468dd](https://github.com/alfa-laboratory/core-components/commit/68468dd6e74a465f2d4bcde87d7852bcaf934783))
+
+
+
+
+
+## [5.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@5.2.0...@alfalab/core-components-tabs@5.2.1) (2021-08-26)
+
+
+### Bug Fixes
+
+* **tabs:** height styles ([#810](https://github.com/alfa-laboratory/core-components/issues/810)) ([b3b96e7](https://github.com/alfa-laboratory/core-components/commit/b3b96e7efb4771c0009c29e851ce1d69f4c61ff4))
+
+
+
+
+
+# [5.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@5.1.0...@alfalab/core-components-tabs@5.2.0) (2021-08-23)
+
+
+### Features
+
+* **tag:** add inverted colors ([#784](https://github.com/alfa-laboratory/core-components/issues/784)) ([d3681ae](https://github.com/alfa-laboratory/core-components/commit/d3681aeefe02e5f481d066013911a1877a165bb2))
+
+
+
+
+
 # [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@5.0.2...@alfalab/core-components-tabs@5.1.0) (2021-08-04)
 
 

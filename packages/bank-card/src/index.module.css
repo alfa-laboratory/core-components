@@ -11,6 +11,7 @@
 
     /* hover */
     --form-control-hover-bg-color: transparent;
+    --form-control-focus-bg-color: transparent;
     --form-control-font-family: var(--font-family-styrene);
 
     position: relative;
@@ -84,6 +85,8 @@
     left: 20px;
 
     & svg {
+        max-height: 30px;
+        width: auto;
         display: block;
 
         & g {

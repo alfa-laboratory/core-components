@@ -24,26 +24,26 @@ export const SecondaryTabList = ({
     });
 
     const renderContent = () =>
-        titles.map((item, index) => (
-            <Tag
-                {...getTabListItemProps(index)}
-                key={item.id}
-                className={styles.title}
-                checked={item.id === selectedId}
-                size={tagSize}
-                rightAddons={item.rightAddons}
-            >
-                {item.title}
-            </Tag>
-        ));
+        titles
+            .filter(item => !item.hidden)
+            .map((item, index) => (
+                <Tag
+                    {...getTabListItemProps(index)}
+                    key={item.id}
+                    className={styles.title}
+                    checked={item.id === selectedId}
+                    size={tagSize}
+                    rightAddons={item.rightAddons}
+                >
+                    {item.title}
+                </Tag>
+            ));
 
     return (
         <div
             role='tablist'
             data-test-id={dataTestId}
-            className={cn(styles.component, className, size && styles[size], {
-                [styles.scrollable]: scrollable,
-            })}
+            className={cn(styles.component, className, size && styles[size])}
         >
             {scrollable ? (
                 <ScrollableContainer

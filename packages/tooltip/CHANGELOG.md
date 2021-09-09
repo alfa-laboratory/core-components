@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.2.0...@alfalab/core-components-tooltip@4.3.0) (2021-09-06)
+
+
+### Features
+
+* **tooltip:** update shadow and arrow size/position ([2d40988](https://github.com/alfa-laboratory/core-components/commit/2d40988f3c376c51907aa8a4845ba25c7c43a2f4))
+
+
+
+
+
+# [4.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.1.2...@alfalab/core-components-tooltip@4.2.0) (2021-08-23)
+
+
+### Features
+
+* **tooltip:** add TooltipResponsive,  add `fallbackPlacements` prop ([#780](https://github.com/alfa-laboratory/core-components/issues/780)) ([61d780c](https://github.com/alfa-laboratory/core-components/commit/61d780c750bd9c0331d275f1b12b0512bb3d2049))
+
+
+
+
+
 ## [4.1.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.1.1...@alfalab/core-components-tooltip@4.1.2) (2021-08-04)
 
 **Note:** Version bump only for package @alfalab/core-components-tooltip
