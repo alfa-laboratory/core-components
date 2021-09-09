@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.9](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-bank-card@4.0.8...@alfalab/core-components-bank-card@4.0.9) (2021-09-08)
+
+
+### Bug Fixes
+
+* **bank-card:** improve docs, fix focus bg ([#830](https://github.com/alfa-laboratory/core-components/issues/830)) ([1d8171c](https://github.com/alfa-laboratory/core-components/commit/1d8171ce5c76831c350fcf636dd48bad2c3db118))
+
+
+
+
+
 ## [4.0.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-bank-card@4.0.7...@alfalab/core-components-bank-card@4.0.8) (2021-08-27)
 
 **Note:** Version bump only for package @alfalab/core-components-bank-card

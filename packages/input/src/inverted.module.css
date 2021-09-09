@@ -24,6 +24,9 @@
     color: var(--input-inverted-color);
     caret-color: var(--input-inverted-caret-color);
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.input:-webkit-autofill {
     -webkit-text-fill-color: var(--input-inverted-color);
 }
 
