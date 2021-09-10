@@ -8,20 +8,9 @@
 .component {
     display: inline-block;
     position: relative;
-    transition: background-color 0.2s ease;
-
-    &:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        pointer-events: none;
-        border-radius: var(--dropzone-border-radius);
-        border: 2px dashed var(--color-light-border-secondary-inverted);
-        transition: border-color 0.2s ease;
-    }
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    border-radius: var(--dropzone-border-radius);
+    border: 2px dashed var(--color-light-border-secondary-inverted);
 }
 
 .disabled {
@@ -40,6 +29,6 @@
     background-color: var(--dropzone-active-bg);
 }
 
-.error:after {
+.error {
     border-color: var(--color-light-border-accent);
 }
