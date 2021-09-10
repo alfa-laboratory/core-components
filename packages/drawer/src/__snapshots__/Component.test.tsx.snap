@@ -9,10 +9,6 @@ exports[`Drawer should match snapshot 1`] = `
   tabindex="-1"
 >
   <div
-    aria-hidden="true"
-    class="backdrop backdropEnter backdropEnterActive"
-  />
-  <div
     class="component enter enterActive"
   >
     <div

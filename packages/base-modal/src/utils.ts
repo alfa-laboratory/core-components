@@ -37,18 +37,56 @@ const getPaddingRight = (node: Element) => {
     return parseInt(window.getComputedStyle(node).paddingRight, 10) || 0;
 };
 
-export const handleContainer = (container: HTMLElement) => {
-    const restoreStyle: Array<{
-        value: string;
-        key: string;
-        el: HTMLElement;
-    }> = [];
+type SavedStyle = {
+    value: string;
+    key: string;
+    el: HTMLElement;
+};
+
+const restoreStylesStore: Array<{
+    container: HTMLElement;
+    modals: number;
+    styles: SavedStyle[];
+}> = [];
+
+export const restoreContainerStyles = (container: HTMLElement) => {
+    const index = restoreStylesStore.findIndex(s => s.container === container);
+    const existingStyles = restoreStylesStore[index];
+
+    if (!existingStyles) return;
+
+    existingStyles.modals -= 1;
+
+    if (existingStyles.modals <= 0) {
+        restoreStylesStore.splice(index, 1);
+
+        existingStyles.styles.forEach(({ value, el, key }) => {
+            if (value) {
+                el.style.setProperty(key, value);
+            } else {
+                el.style.removeProperty(key);
+            }
+        });
+    }
+};
+
+export const handleContainer = (container?: HTMLElement) => {
+    if (!container) return;
+
+    const existingStyles = restoreStylesStore.find(s => s.container === container);
+
+    if (existingStyles) {
+        existingStyles.modals += 1;
+        return;
+    }
+
+    const containerStyles: SavedStyle[] = [];
 
     if (isOverflowing(container)) {
         // Вычисляет размер до применения `overflow hidden` для избежания скачков
         const scrollbarSize = getScrollbarSize();
 
-        restoreStyle.push({
+        containerStyles.push({
             value: container.style.paddingRight,
             key: 'padding-right',
             el: container,
@@ -69,21 +107,18 @@ export const handleContainer = (container: HTMLElement) => {
 
     // Блокируем скролл даже если отсутствует скроллбар
     if (scrollContainer.style.overflow !== 'hidden') {
-        restoreStyle.push({
+        containerStyles.push({
             value: scrollContainer.style.overflow,
             key: 'overflow',
             el: scrollContainer,
         });
     }
+
     scrollContainer.style.overflow = 'hidden';
 
-    return () => {
-        restoreStyle.forEach(({ value, el, key }) => {
-            if (value) {
-                el.style.setProperty(key, value);
-            } else {
-                el.style.removeProperty(key);
-            }
-        });
-    };
+    restoreStylesStore.push({
+        container,
+        modals: 1,
+        styles: containerStyles,
+    });
 };
