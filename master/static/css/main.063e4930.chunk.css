@@ -14259,9 +14259,17 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 }
     }
 
-.addons_gcyM6:last-child {
-    padding: 0;
+.eye_QksrN:last-child {
+    margin-right: var(--gap-s-neg);
 }
+
+.xl_15qfU .eye_QksrN:last-child {
+        margin-right: var(--gap-m-neg);
+    }
+
+.xl_15qfU .eye_QksrN {
+        margin-left: var(--gap-2xs);
+    }
 
 .input_20ATc::-ms-reveal {
     display: none;
@@ -17495,4 +17503,4 @@ pre.cssExample_3Mm-Q {
 }
 
 
-/*# sourceMappingURL=main.122cc832.chunk.css.map */
+/*# sourceMappingURL=main.063e4930.chunk.css.map */

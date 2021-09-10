@@ -14259,9 +14259,17 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 }
     }
 
-.addons_gcyM6:last-child {
-    padding: 0;
+.eye_QksrN:last-child {
+    margin-right: var(--gap-s-neg);
 }
+
+.xl_15qfU .eye_QksrN:last-child {
+        margin-right: var(--gap-m-neg);
+    }
+
+.xl_15qfU .eye_QksrN {
+        margin-left: var(--gap-2xs);
+    }
 
 .input_20ATc::-ms-reveal {
     display: none;
