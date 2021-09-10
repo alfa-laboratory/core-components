@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useRef, useState, useMemo } from 'react';
+import React, { forwardRef, useCallback, useRef, useState, useMemo, CSSProperties } from 'react';
 import cn from 'classnames';
 import { ArrowDownMBlackIcon } from '@alfalab/icons-classic/ArrowDownMBlackIcon';
 import { ArrowUpMBlackIcon } from '@alfalab/icons-classic/ArrowUpMBlackIcon';
@@ -134,6 +134,23 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
             if (onExpandedChange) onExpandedChange();
         }, [isExpanded, onExpandedChange, uncontrolled]);
 
+        const handleTransitionEnd = useCallback(() => {
+            if (contentRef.current) {
+                if (contentRef.current.offsetHeight > 0) {
+                    contentRef.current.style.height = 'auto';
+                }
+            }
+        }, []);
+
+
+        const contentStyles: CSSProperties = useMemo(() => {
+            const contentHeight = contentRef.current?.offsetHeight;
+
+            return {
+                height: isExpanded && !contentHeight ? '0px' : `${contentHeight}px`,
+            };
+        }, [isExpanded]);
+
         return (
             <div
                 ref={ref}
@@ -150,8 +167,17 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
                     timeout={300}
                     classNames={transitionClassNames}
                 >
-                    <div ref={contentRef} className={contentClassName}>
-                        <div ref={contentCaseRef}>{children}</div>
+                    <div ref={contentRef}
+                         className={contentClassName}
+                         onTransitionEnd={handleTransitionEnd}
+                         style={contentStyles}
+                    >
+                        <div
+                            ref={contentCaseRef}
+                            className={styles.contentCase}
+                        >
+                            {children}
+                        </div>
                     </div>
                 </CSSTransition>
                 {(expandedLabel || collapsedLabel) && (
