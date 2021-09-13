@@ -1,0 +1,35 @@
+@import '../../../../vars/src/index.css';
+
+.legendContent {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.legendWrap {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.legendItem {
+    margin-right: var(--gap-2xl);
+    cursor: pointer;
+    display: inline-block;
+}
+
+.legendItem:last-child {
+    margin-right: 0;
+}
+
+.legendUnactive {
+    opacity: 0.3;
+}
+
+.legendIcon {
+    margin-right: 13px;
+}
+
+.legendValue {
+    text-transform: capitalize;
+}

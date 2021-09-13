@@ -1,0 +1,51 @@
+@import '../../../../themes/src/default.css';
+
+.tooltip {
+    background-color: var(--color-light-bg-primary);
+    border: 1px solid var(--color-light-border-primary);
+    box-shadow: var(--shadow-l);
+    border-radius: var(--border-radius-m);
+    padding: var(--gap-s) var(--gap-m);
+    pointer-events: none;
+    position: relative;
+}
+
+.tooltipList {
+    position: relative;
+    z-index: 5;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tooltipItem {
+    margin-bottom: 10px;
+}
+
+.tooltipArrow {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1, 1) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--color-light-border-primary);
+    background-color: var(--color-light-bg-primary);
+}
+
+.tooltipArrow:before {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 24px 24px 0;
+    border-color: transparent var(--color-light-bg-primary) transparent transparent;
+}
+
+.tooltipArrowRight {
+    left: 100%;
+    transform: translate(-50%, -50%) scale(-1, 1) rotate(45deg);
+}

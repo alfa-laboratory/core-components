@@ -1,0 +1,7 @@
+@import '../../../../themes/src/default.css';
+
+.tickText {
+    fill: var(--color-light-text-primary);
+    font-size: 16px;
+    line-height: 22px;
+}

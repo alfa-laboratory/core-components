@@ -1,0 +1,19 @@
+@import '../../themes/src/default.css';
+
+:global(.recharts-line path) {
+    transition: d 0.2s ease-out;
+}
+
+:global(.recharts-text tspan) {
+    fill: var(--color-light-text-primary);
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.bar {
+    transition: opacity 0.2s ease-out, d 0.2s ease-out;
+}
+
+.barUnfocused {
+    opacity: 0.3;
+}
