@@ -1,3 +1,27 @@
+# [20.0.0](https://github.com/alfa-laboratory/core-components/compare/v19.11.1...v20.0.0) (2021-09-14)
+
+
+### Bug Fixes
+
+* confirmation & input ([#833](https://github.com/alfa-laboratory/core-components/issues/833)) ([f3c0d62](https://github.com/alfa-laboratory/core-components/commit/f3c0d62c15b3812205b71685c2d37c0a986677ee))
+* **base-modal:** modal scroll ([#820](https://github.com/alfa-laboratory/core-components/issues/820)) ([1b2d94a](https://github.com/alfa-laboratory/core-components/commit/1b2d94ad45e04145bf1292d749ae2028702dc622))
+
+
+### Features
+
+* dark themes ([#778](https://github.com/alfa-laboratory/core-components/issues/778)) ([d848d16](https://github.com/alfa-laboratory/core-components/commit/d848d165b59182e6521d28efc2aadeecebc00d93))
+* **dropzone:** design improvements (PDS-282) ([#829](https://github.com/alfa-laboratory/core-components/issues/829)) ([437ec3c](https://github.com/alfa-laboratory/core-components/commit/437ec3c80c507a37c8a24106a6ee6514abd68d04))
+* **password-input:** show right addons (PDS-283) ([#828](https://github.com/alfa-laboratory/core-components/issues/828)) ([b255acd](https://github.com/alfa-laboratory/core-components/commit/b255acdcdbe37b546c6c9100a1645609439af430))
+* **popover:** add useAnchorWidth prop ([#826](https://github.com/alfa-laboratory/core-components/issues/826)) ([8df55c4](https://github.com/alfa-laboratory/core-components/commit/8df55c4c496467c363c5c09c14d1bd08a9709ebf)), closes [#787](https://github.com/alfa-laboratory/core-components/issues/787)
+* **typography:** add ref ([#834](https://github.com/alfa-laboratory/core-components/issues/834)) ([976b16d](https://github.com/alfa-laboratory/core-components/commit/976b16dd9ae68c31999bffb3506623db05033ad4))
+* change error type to ReactNode ([#825](https://github.com/alfa-laboratory/core-components/issues/825)) ([c6d95c1](https://github.com/alfa-laboratory/core-components/commit/c6d95c1c6239f2b2a3bf2c1639554d8500e794f3))
+* **vars:** updated colors and typography from latest alfa-ui-primitives ([#803](https://github.com/alfa-laboratory/core-components/issues/803)) ([0d5b2a3](https://github.com/alfa-laboratory/core-components/commit/0d5b2a30a78e70392dd505790a92bc3bc83f9386))
+
+
+### BREAKING CHANGES
+
+* remove dark-theme-injector. remove vars duplications
+
 ## [19.11.1](https://github.com/alfa-laboratory/core-components/compare/v19.11.0...v19.11.1) (2021-09-08)
 
 
