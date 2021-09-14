@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import cn from 'classnames';
 
 import { Color } from '../colors';
@@ -60,31 +60,39 @@ type Styles = {
     };
 };
 
-export const Title: React.FC<TitleProps & Styles> = ({
-    tag: Component = 'div',
-    view = 'medium',
-    font = 'styrene',
-    weight = font === 'styrene' ? 'medium' : 'bold',
-    defaultMargins = false,
-    color,
-    className,
-    dataTestId,
-    children,
-    styles,
-    ...restProps
-}) => (
-    <Component
-        className={cn(
-            styles.component,
+type TitleElementType = HTMLHeadingElement | HTMLDivElement;
+
+export const Title = forwardRef<TitleElementType, TitleProps & Styles>(
+    (
+        {
+            tag: Component = 'div',
+            view = 'medium',
+            font = 'styrene',
+            weight = font === 'styrene' ? 'medium' : 'bold',
+            defaultMargins = false,
+            color,
             className,
-            styles[`${font}-${view}`],
-            defaultMargins && styles[`margins-${view}`],
-            styles[weight],
-            color && colors[color],
-        )}
-        data-test-id={dataTestId}
-        {...restProps}
-    >
-        {children}
-    </Component>
+            dataTestId,
+            children,
+            styles,
+            ...restProps
+        },
+        ref,
+    ) => (
+        <Component
+            className={cn(
+                styles.component,
+                className,
+                styles[`${font}-${view}`],
+                defaultMargins && styles[`margins-${view}`],
+                styles[weight],
+                color && colors[color],
+            )}
+            data-test-id={dataTestId}
+            ref={ref}
+            {...restProps}
+        >
+            {children}
+        </Component>
+    ),
 );
