@@ -9,12 +9,12 @@ import json from '@rollup/plugin-json';
 import {
     coreComponentsRootPackageResolver,
     coreComponentsResolver,
-    coreComponentsThemesResolver,
 } from './tools/rollup/core-components-resolver';
 import ignoreCss from './tools/rollup/ignore-css';
 import processCss from './tools/rollup/process-css';
 import coreComponentsTypingsResolver from './tools/rollup/core-components-typings-resolver';
 import createPackageJson from './tools/rollup/create-package-json';
+import { compiledDarkmodeGenerator } from './tools/rollup/compiled-darkmode-generator';
 
 const currentPackageDir = process.cwd();
 const currentPkg = path.join(currentPackageDir, 'package.json');
@@ -83,6 +83,7 @@ const es5 = {
         copy({
             targets: [{ src: ['../../bin/send-stats.js'], dest: 'dist' }],
         }),
+        compiledDarkmodeGenerator(`${currentPackageDir}/dist`),
     ],
 };
 
@@ -209,36 +210,10 @@ const root = {
     ],
 };
 
-const configs = [es5, modern, cssm, esm, root];
+const configs = [es5, modern, esm, root];
 
-const themes = pkg.buildThemes;
-
-if (themes && themes.length > 0) {
-    const output = themes.map(theme => ({
-        dir: `dist/themes/${theme}`,
-    }));
-
-    const dest = themes.map(theme => `dist/themes/${theme}`);
-
-    /**
-     * Копирование собранных пакетов в отдельные папки с темами.
-     * В этих папках css-переменные будут заменены на соответствующие значения (после сборки).
-     */
-    configs.push({
-        input: ['dist/**/*.js'], // TODO: убрать cssm
-        external: baseConfig.external,
-        plugins: [
-            multiInput({
-                relative: 'dist',
-            }),
-            copy({
-                flatten: false,
-                targets: [{ src: ['dist/**/*', '!**/*.js'], dest }],
-            }),
-            coreComponentsThemesResolver(),
-        ],
-        output,
-    });
+if (currentComponentName !== 'themes') {
+    configs.push(cssm);
 }
 
 export default configs;

@@ -1,9 +1,4 @@
-@import '../../../../themes/src/default.css';
-
 @define-mixin backdrop-click {
-    /* core vars */
-
     /* TODO: в темной теме что-то не то */
-    --color-light-graphic-primary-alpha-50: color-mod(#0b1f35 alpha(50%));
     --backdrop-visible-background: var(--color-light-graphic-primary-alpha-50);
 }

@@ -1,7 +1,7 @@
 const req = require.context(
     '../../',
     true,
-    /^\.\/(?!dark-theme-styles-injector)(.*)\/src\/index.ts$/,
+    /^\.\/(.*)\/src\/index.ts$/,
 );
 
 const packages = req.keys().reduce((acc, key) => {

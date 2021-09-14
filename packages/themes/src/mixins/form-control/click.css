@@ -1,14 +1,4 @@
-@import '../../../../themes/src/default.css';
-
 @define-mixin form-control-click {
-    /* core vars */
-    --border-radius-s: 4px;
-    --color-light-bg-tertiary: #e7e9eb;
-    --color-light-bg-tertiary-inverted: #3c4c5d;
-    --color-light-border-accent: #ef3124;
-    --color-light-text-accent: #ef3124;
-    --color-light-text-negative: #d91d0b;
-
     /* theme */
     --form-control-border-radius: var(--border-radius-s);
     --form-control-border-bottom: 0;

@@ -7,6 +7,9 @@
         "alpha": [30],
         "shade": [7, 10, 15, 30]
     },
+    "light-bg-primary": {
+        "alpha": [8]
+    },
     "light-bg-primary-inverted": {
         "alpha": [3, 7, 10, 15, 20, 40]
     },
@@ -56,9 +59,19 @@
         "tint": [30, 50],
         "shade": [20, 40]
     },
+    "light-text-primary-inverted": {
+        "alpha": [40],
+        "tint": [30, 50]
+    },
     "light-text-secondary": {
         "tint": [30, 50],
         "shade": [20, 40]
+    },
+    "light-text-secondary-inverted": {
+        "tint": [30, 50]
+    },
+    "static-bg-primary-dark": {
+        "alpha": [10, 20]
     },
     "static-status-blue": {
         "tint": [90]

@@ -1,13 +1,4 @@
-@import '../../../../themes/src/default.css';
-
 @define-mixin tag-mobile {
-    /* core vars */
-    --border-radius-l: 12px;
-    --color-light-bg-secondary: #f3f4f5;
-    --color-light-bg-secondary-inverted: #202022;
-    --color-light-bg-secondary-inverted-alpha-7: color-mod(#202022 alpha(7%));
-    --color-light-bg-secondary-inverted-alpha-15: color-mod(#202022 alpha(15%));
-
     /* theme */
     --tag-border-radius: var(--border-radius-l);
     --tag-background-color: var(--color-light-bg-secondary);

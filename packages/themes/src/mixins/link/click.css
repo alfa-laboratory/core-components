@@ -1,48 +1,25 @@
-@import '../../../../themes/src/default.css';
-
 @define-mixin link-click {
-    /* core vars */
-    --color-light-text-primary: #0b1f35;
-    --color-light-text-primary-inverted: #fff;
-    --color-light-text-secondary: #546272;
-    --color-light-text-secondary-inverted: #b6bcc3;
-    --color-light-text-link: #007aff;
-    --color-light-text-primary-tint-30: color-mod(#0b1f35 tint(30%));
-    --color-light-text-primary-tint-50: color-mod(#0b1f35 tint(50%));
-    --color-light-text-secondary-tint-30: color-mod(#546272 tint(30%));
-    --color-light-text-secondary-tint-50: color-mod(#546272 tint(50%));
-    --color-light-text-link-tint-30: color-mod(#007aff tint(30%));
-    --color-light-text-link-tint-50: color-mod(#007aff tint(50%));
-
     /* primary */
     --link-primary-hover-color: var(--color-light-text-primary-tint-30);
     --link-primary-active-color: var(--color-light-text-primary-tint-50);
 
     /* inverted primary */
-    --link-inverted-primary-hover-color: color-mod(
-        var(--color-light-text-primary-inverted) tint(30%)
-    );
-    --link-inverted-primary-active-color: color-mod(
-        var(--color-light-text-primary-inverted) tint(50%)
-    );
+    --link-inverted-primary-hover-color: var(--color-light-text-primary-inverted-tint-30);
+    --link-inverted-primary-active-color: var(--color-light-text-primary-inverted-tint-50);
 
     /* secondary */
     --link-secondary-hover-color: var(--color-light-text-secondary-tint-30);
     --link-secondary-active-color: var(--color-light-text-secondary-tint-50);
 
     /* inverted secondary */
-    --link-inverted-secondary-hover-color: color-mod(
-        var(--color-light-text-secondary-inverted) tint(30%)
-    );
-    --link-inverted-secondary-active-color: color-mod(
-        var(--color-light-text-secondary-inverted) tint(50%)
-    );
+    --link-inverted-secondary-hover-color: var(--color-light-text-secondary-inverted-tint-30);
+    --link-inverted-secondary-active-color: var(--color-light-text-secondary-inverted-tint-50);
 
     /* default */
     --link-default-hover-color: var(--color-light-text-link-tint-30);
     --link-default-active-color: var(--color-light-text-link-tint-50);
 
     /* inverted default */
-    --link-inverted-default-hover-color: color-mod(var(--color-light-text-link) tint(30%));
-    --link-inverted-default-active-color: color-mod(var(--color-light-text-link) tint(50%));
+    --link-inverted-default-hover-color: var(--color-light-text-link-tint-30);
+    --link-inverted-default-active-color: var(--color-light-text-link-tint-50);
 }

@@ -147,6 +147,7 @@
     --color-dark-bg-neutral-tint-10: color-mod(#485767 tint(10%));
     --color-dark-bg-neutral-tint-15: color-mod(#485767 tint(15%));
     --color-dark-bg-neutral-tint-30: color-mod(#485767 tint(30%));
+    --color-dark-bg-primary-alpha-8: color-mod(#0b1f35 alpha(8%));
     --color-dark-bg-primary-inverted-alpha-3: color-mod(#fff alpha(3%));
     --color-dark-bg-primary-inverted-alpha-7: color-mod(#fff alpha(7%));
     --color-dark-bg-primary-inverted-alpha-10: color-mod(#fff alpha(10%));
@@ -178,6 +179,9 @@
     --color-dark-specialbg-component-tint-7: color-mod(#485767 tint(7%));
     --color-dark-specialbg-component-tint-10: color-mod(#485767 tint(10%));
     --color-dark-specialbg-component-tint-30: color-mod(#485767 tint(30%));
+    --color-dark-specialbg-component-inverted-shade-15: color-mod(
+        rgba(11, 31, 53, 0.07) blenda(black 15%)
+    );
     --color-dark-text-link-shade-30: color-mod(#007aff shade(30%));
     --color-dark-text-link-shade-50: color-mod(#007aff shade(50%));
     --color-dark-text-link-tint-20: color-mod(#007aff tint(20%));
@@ -187,10 +191,15 @@
     --color-dark-text-primary-shade-50: color-mod(#fff shade(50%));
     --color-dark-text-primary-tint-20: color-mod(#fff tint(20%));
     --color-dark-text-primary-tint-40: color-mod(#fff tint(40%));
+    --color-dark-text-primary-inverted-alpha-40: color-mod(#0b1f35 alpha(40%));
+    --color-dark-text-primary-inverted-shade-30: color-mod(#0b1f35 shade(30%));
+    --color-dark-text-primary-inverted-shade-50: color-mod(#0b1f35 shade(50%));
     --color-dark-text-secondary-shade-30: color-mod(#b6bcc3 shade(30%));
     --color-dark-text-secondary-shade-50: color-mod(#b6bcc3 shade(50%));
     --color-dark-text-secondary-tint-20: color-mod(#b6bcc3 tint(20%));
     --color-dark-text-secondary-tint-40: color-mod(#b6bcc3 tint(40%));
+    --color-dark-text-secondary-inverted-shade-30: color-mod(#6d7986 shade(30%));
+    --color-dark-text-secondary-inverted-shade-50: color-mod(#6d7986 shade(50%));
     --color-light-bg-accent-alpha-30: color-mod(#ef3124 alpha(30%));
     --color-light-bg-accent-shade-7: color-mod(#ef3124 shade(7%));
     --color-light-bg-accent-shade-10: color-mod(#ef3124 shade(10%));
@@ -201,6 +210,7 @@
     --color-light-bg-neutral-shade-10: color-mod(#dbdee1 shade(10%));
     --color-light-bg-neutral-shade-15: color-mod(#dbdee1 shade(15%));
     --color-light-bg-neutral-shade-30: color-mod(#dbdee1 shade(30%));
+    --color-light-bg-primary-alpha-8: color-mod(#fff alpha(8%));
     --color-light-bg-primary-inverted-alpha-3: color-mod(#0b1f35 alpha(3%));
     --color-light-bg-primary-inverted-alpha-7: color-mod(#0b1f35 alpha(7%));
     --color-light-bg-primary-inverted-alpha-10: color-mod(#0b1f35 alpha(10%));
@@ -244,12 +254,15 @@
     --color-light-text-primary-tint-50: color-mod(#0b1f35 tint(50%));
     --color-light-text-primary-shade-20: color-mod(#0b1f35 shade(20%));
     --color-light-text-primary-shade-40: color-mod(#0b1f35 shade(40%));
+    --color-light-text-primary-inverted-alpha-40: color-mod(#fff alpha(40%));
+    --color-light-text-primary-inverted-tint-30: color-mod(#fff tint(30%));
+    --color-light-text-primary-inverted-tint-50: color-mod(#fff tint(50%));
     --color-light-text-secondary-tint-30: color-mod(#546272 tint(30%));
     --color-light-text-secondary-tint-50: color-mod(#546272 tint(50%));
     --color-light-text-secondary-shade-20: color-mod(#546272 shade(20%));
     --color-light-text-secondary-shade-40: color-mod(#546272 shade(40%));
-
-    /* TODO: цвета добавлены руками. Обновить токены */
-    --color-light-border-underline-inverted: #6d7986;
-    --color-light-text-secondary-inverted-transparent: rgba(255, 255, 255, 0.7);
+    --color-light-text-secondary-inverted-tint-30: color-mod(#b6bcc3 tint(30%));
+    --color-light-text-secondary-inverted-tint-50: color-mod(#b6bcc3 tint(50%));
+    --color-static-bg-primary-dark-alpha-10: color-mod(#000 alpha(10%));
+    --color-static-bg-primary-dark-alpha-20: color-mod(#000 alpha(20%));
 }

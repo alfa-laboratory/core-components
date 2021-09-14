@@ -37,38 +37,35 @@ glob(path.join(colorsDir, 'colors*.json'), {}, (err, files) => {
 
         fs.writeFileSync(cssPath, `:root {\n${css}}\n`);
 
-        updateDarkThemeMixins(pathname, colors);
+        if (pathname.includes('indigo')) {
+            updateDarkThemeMixins(colors);
+        }
     });
 });
 
-function updateDarkThemeMixins(pathname, colors) {
-    const mixinsDir = path.resolve(__dirname, '../packages/themes/src/mixins/colors');
-    const mixinFileName = path
-        .basename(pathname)
-        .replace('.json', '.css')
-        .replace('_', '-');
+function updateDarkThemeMixins(colors) {
+    const mixinsDir = path.resolve(__dirname, '../packages/themes/src/mixins');
+    const mixinFileName = 'dark.css';
 
-    let css = '@define-mixin dark-theme {\n';
+    let css = '@define-mixin theme-dark {\n';
 
-    if (pathname.includes('bluetint') || pathname.includes('indigo')) {
-        Object.keys(colors).forEach(color => {
-            if (/^light-/.test(color) === false) return;
+    Object.keys(colors).forEach(color => {
+        if (/^light-/.test(color) === false) return;
 
-            const pair = color
-                .replace(/^light-/, 'dark-')
-                .replace(/-(shade|tint)-/, v => (v === '-shade-' ? '-tint-' : '-shade-'));
+        const pair = color
+            .replace(/^light-/, 'dark-')
+            .replace(/-(shade|tint)-/, v => (v === '-shade-' ? '-tint-' : '-shade-'));
 
-            if (colors[pair]) {
-                css += `    ${buildVarName(color)}: var(--color-${pair});\n`;
-            } else {
-                console.warn(`No pair found for '${color}' color.`);
-            }
-        });
+        if (colors[pair]) {
+            css += `    ${buildVarName(color)}: var(--color-${pair});\n`;
+        } else {
+            console.warn(`No pair found for '${color}' color.`);
+        }
+    });
 
-        css += '}';
+    css += '}';
 
-        fs.writeFileSync(path.join(mixinsDir, mixinFileName), css);
-    }
+    fs.writeFileSync(path.join(mixinsDir, mixinFileName), css);
 }
 
 function requireColors(pathname) {
