@@ -4740,29 +4740,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     -webkit-transition: opacity 0.12s ease-in-out;
     transition: opacity 0.12s ease-in-out;
 }
-.component_2E6Qw {
-    display: inline-block;
-    position: relative
-}
-.component_2E6Qw:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        pointer-events: none;
-
-        border-radius: var(--border-radius-s);
-
-        /* https://kovart.github.io/dashed-border-generator/ */
-
-        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%236d7986' stroke-width='2' stroke-dasharray='4%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
-    }
-.block_1FPNE {
-    width: 100%;
-}
-.overlay_2f10r {
+.overlay_3Di75 {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -4792,14 +4770,10 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     transition: opacity 0.2s ease;
     pointer-events: none;
 }
-.dragOver_2t8-h .overlay_2f10r {
+.visible_12Hii {
     opacity: 1;
 }
-.error_NGTqS:after {
-    /* https://kovart.github.io/dashed-border-generator/ */
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23ef3124' stroke-width='2' stroke-dasharray='4%2c 8' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
-}
-.text_2bzgB {
+.text_3RWzu {
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
@@ -4807,6 +4781,33 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     color: var(--color-light-text-primary);
     text-align: center;
     margin-top: var(--gap-xs);
+}
+:root {
+    --dropzone-active-bg: transparent;
+    --dropzone-border-radius: var(--border-radius-s);
+}
+.component_2E6Qw {
+    display: inline-block;
+    position: relative;
+    -webkit-transition: border-color 0.2s ease, background-color 0.2s ease;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    border-radius: var(--dropzone-border-radius);
+    border: 2px dashed var(--color-light-border-secondary-inverted);
+}
+.disabled_11mxv {
+    cursor: var(--disabled-cursor);
+}
+.component_2E6Qw:not(.disabled_11mxv):hover {
+    background-color: var(--dropzone-active-bg);
+}
+.block_1FPNE {
+    width: 100%;
+}
+.dragOver_2t8-h {
+    background-color: var(--dropzone-active-bg);
+}
+.error_NGTqS {
+    border-color: var(--color-light-border-accent);
 }
 :root {
     --icon-button-xxs-size: 24px;
@@ -16880,77 +16881,6 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     border-bottom: 1px solid var(--color-light-text-link-alpha-30);
     text-decoration: none;
 }
-
-div.themeExample_3M4Fx {
-    margin: 0 0 24px;
-}
-
-div.container_Y0uGQ {
-    margin: 24px 0 0;
-    padding: 20px 24px 24px;
-}
-
-div.title_1PSH7 {
-    margin: 0 0 12px;
-}
-
-pre.cssExample_3Mm-Q {
-    opacity: 0.6;
-}
-
-.dark_OpHRS {
-    --checkbox-label-color: var(--color-dark-text-primary);
-    --checkbox-bg-color: var(--color-dark-bg-secondary);
-    --checkbox-border-color: var(--color-dark-border-secondary-inverted);
-    --checkbox-hover-bg-color: var(--color-dark-border-secondary-inverted);
-    --checkbox-hover-border-color: var(--color-dark-border-tertiary-inverted);
-    --checkbox-active-border-color: var(--color-dark-border-key);
-    --radio-label-color: var(--color-dark-text-primary);
-    --radio-bg-color: var(--color-dark-bg-secondary);
-    --radio-border-color: var(--color-dark-border-secondary-inverted);
-    --radio-hover-bg-color: var(--color-dark-border-secondary-inverted);
-    --radio-hover-border-color: var(--color-dark-border-tertiary-inverted);
-    --radio-active-border-color: var(--color-dark-border-key);
-
-    background-color: var(--color-dark-bg-secondary);
-    color: var(--color-dark-text-primary);
-}
-
-.light_1XjxL {
-    --checkbox-label-color: var(--color-light-text-primary);
-    --checkbox-bg-color: var(--color-light-bg-secondary);
-    --checkbox-border-color: var(--color-light-border-secondary-inverted);
-    --checkbox-hover-bg-color: var(--color-light-border-secondary-inverted);
-    --checkbox-hover-border-color: var(--color-light-border-tertiary-inverted);
-    --checkbox-active-border-color: var(--color-light-border-key);
-    --radio-label-color: var(--color-light-text-primary);
-    --radio-bg-color: var(--color-light-bg-secondary);
-    --radio-border-color: var(--color-light-border-secondary-inverted);
-    --radio-hover-bg-color: var(--color-light-border-secondary-inverted);
-    --radio-hover-border-color: var(--color-light-border-tertiary-inverted);
-    --radio-active-border-color: var(--color-light-border-key);
-
-    background-color: var(--color-light-bg-primary);
-    color: var(--color-light-text-primary);
-}
-
-.redEye_3z3JV {
-    --checkbox-label-color: var(--color-dark-text-accent);
-    --checkbox-bg-color: transparent;
-    --checkbox-border-color: var(--color-dark-border-accent);
-    --checkbox-hover-bg-color: var(--color-dark-bg-negative-muted);
-    --checkbox-hover-border-color: var(--color-dark-border-accent);
-    --checkbox-active-border-color: var(--color-dark-border-key);
-    --radio-label-color: var(--color-dark-text-accent);
-    --radio-bg-color: transparent;
-    --radio-border-color: var(--color-dark-border-accent);
-    --radio-hover-bg-color: var(--color-dark-bg-negative-muted);
-    --radio-hover-border-color: var(--color-dark-border-accent);
-    --radio-active-border-color: var(--color-dark-border-key);
-
-    background-color: var(--color-static-bg-dark);
-    color: var(--color-dark-text-accent);
-}
 :root {
     --calendar-width: 344px;
     --calendar-height: 340px;
@@ -17209,6 +17139,7 @@ pre.cssExample_3Mm-Q {
     --color-light-border-tertiary: #f3f4f5;
     --color-light-border-tertiary-inverted: #6d7986;
     --color-light-border-underline: #b6bcc3;
+    --color-light-border-underline-inverted: #6d7986;
     --color-light-graphic-accent: #ef3124;
     --color-light-graphic-attention: #e58933;
     --color-light-graphic-link: #007aff;
@@ -17237,6 +17168,7 @@ pre.cssExample_3Mm-Q {
     --color-light-text-primary-inverted: #fff;
     --color-light-text-secondary: #546272;
     --color-light-text-secondary-inverted: #b6bcc3;
+    --color-light-text-secondary-inverted-transparent: rgba(255, 255, 255, 0.7);
     --color-light-text-secondary-transparent: rgba(11, 31, 53, 0.7);
     --color-light-text-tertiary: #b6bcc3;
     --color-light-text-tertiary-inverted: #6d7986;
@@ -17272,6 +17204,7 @@ pre.cssExample_3Mm-Q {
     --color-dark-bg-neutral-tint-10: rgb(90, 104, 118);
     --color-dark-bg-neutral-tint-15: rgb(99, 112, 126);
     --color-dark-bg-neutral-tint-30: rgb(127, 137, 149);
+    --color-dark-bg-primary-alpha-8: rgba(11, 31, 53, 0.08);
     --color-dark-bg-primary-inverted-alpha-3: rgba(255, 255, 255, 0.03);
     --color-dark-bg-primary-inverted-alpha-7: rgba(255, 255, 255, 0.07);
     --color-dark-bg-primary-inverted-alpha-10: rgba(255, 255, 255, 0.1);
@@ -17303,6 +17236,7 @@ pre.cssExample_3Mm-Q {
     --color-dark-specialbg-component-tint-7: rgb(85, 99, 114);
     --color-dark-specialbg-component-tint-10: rgb(90, 104, 118);
     --color-dark-specialbg-component-tint-30: rgb(127, 137, 149);
+    --color-dark-specialbg-component-inverted-shade-15: rgba(9, 26, 45, 0.2095);
     --color-dark-text-link-shade-30: rgb(0, 85, 179);
     --color-dark-text-link-shade-50: rgb(0, 61, 128);
     --color-dark-text-link-tint-20: rgb(51, 149, 255);
@@ -17312,10 +17246,15 @@ pre.cssExample_3Mm-Q {
     --color-dark-text-primary-shade-50: rgb(128, 128, 128);
     --color-dark-text-primary-tint-20: rgb(255, 255, 255);
     --color-dark-text-primary-tint-40: rgb(255, 255, 255);
+    --color-dark-text-primary-inverted-alpha-40: rgba(11, 31, 53, 0.4);
+    --color-dark-text-primary-inverted-shade-30: rgb(8, 22, 37);
+    --color-dark-text-primary-inverted-shade-50: rgb(6, 16, 26);
     --color-dark-text-secondary-shade-30: rgb(127, 132, 136);
     --color-dark-text-secondary-shade-50: rgb(91, 94, 98);
     --color-dark-text-secondary-tint-20: rgb(197, 201, 207);
     --color-dark-text-secondary-tint-40: rgb(211, 215, 219);
+    --color-dark-text-secondary-inverted-shade-30: rgb(76, 85, 94);
+    --color-dark-text-secondary-inverted-shade-50: rgb(55, 61, 67);
     --color-light-bg-accent-alpha-30: rgba(239, 49, 36, 0.3);
     --color-light-bg-accent-shade-7: rgb(222, 46, 33);
     --color-light-bg-accent-shade-10: rgb(215, 44, 32);
@@ -17326,6 +17265,7 @@ pre.cssExample_3Mm-Q {
     --color-light-bg-neutral-shade-10: rgb(197, 200, 203);
     --color-light-bg-neutral-shade-15: rgb(186, 189, 191);
     --color-light-bg-neutral-shade-30: rgb(153, 155, 157);
+    --color-light-bg-primary-alpha-8: rgba(255, 255, 255, 0.08);
     --color-light-bg-primary-inverted-alpha-3: rgba(11, 31, 53, 0.03);
     --color-light-bg-primary-inverted-alpha-7: rgba(11, 31, 53, 0.07);
     --color-light-bg-primary-inverted-alpha-10: rgba(11, 31, 53, 0.1);
@@ -17367,14 +17307,17 @@ pre.cssExample_3Mm-Q {
     --color-light-text-primary-tint-50: rgb(133, 143, 154);
     --color-light-text-primary-shade-20: rgb(9, 25, 42);
     --color-light-text-primary-shade-40: rgb(7, 19, 32);
+    --color-light-text-primary-inverted-alpha-40: rgba(255, 255, 255, 0.4);
+    --color-light-text-primary-inverted-tint-30: rgb(255, 255, 255);
+    --color-light-text-primary-inverted-tint-50: rgb(255, 255, 255);
     --color-light-text-secondary-tint-30: rgb(135, 145, 156);
     --color-light-text-secondary-tint-50: rgb(170, 177, 185);
     --color-light-text-secondary-shade-20: rgb(67, 78, 91);
     --color-light-text-secondary-shade-40: rgb(50, 59, 68);
-
-    /* TODO: цвета добавлены руками. Обновить токены */
-    --color-light-border-underline-inverted: #6d7986;
-    --color-light-text-secondary-inverted-transparent: rgba(255, 255, 255, 0.7);
+    --color-light-text-secondary-inverted-tint-30: rgb(204, 208, 213);
+    --color-light-text-secondary-inverted-tint-50: rgb(219, 222, 225);
+    --color-static-bg-primary-dark-alpha-10: rgba(0, 0, 0, 0.1);
+    --color-static-bg-primary-dark-alpha-20: rgba(0, 0, 0, 0.2);
 }
 :root {
     --color-dynamic-primary-dark: rgba(0, 0, 0, 0.8);
@@ -17519,4 +17462,4 @@ pre.cssExample_3Mm-Q {
 }
 
 
-/*# sourceMappingURL=main.d9ca71a4.chunk.css.map */
+/*# sourceMappingURL=main.61f2e0db.chunk.css.map */
