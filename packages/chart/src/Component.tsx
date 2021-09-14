@@ -318,7 +318,7 @@ const Chart = ({ options }: ChartsPropsTypes) => {
             (state.brush?.brushMargin ? state.brush.brushMargin : 0);
         setYBrush(brushY);
     }, [heightLegend, state]);
-
+    // eslint-disable-next-line complexity
     useEffect(() => {
         const initData: DataDynamicProps[] = [];
         const chartsNames: DataDynamicBooleanProps = {};

@@ -53,6 +53,6 @@ export interface ChartsProps {
     /**
      * "Положение" в поле просмотра декартовых координат
      */
-    labels: string[] | number[];
+    labels: Array<string | number>;
     children?: React.ReactNode;
 }
