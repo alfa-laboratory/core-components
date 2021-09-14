@@ -101,7 +101,7 @@ import Changelog from '../../CHANGELOG.md';
         const yAxisMirror = boolean('mirror', false, yAxisId);
         const yAxisReversed = boolean('reversed', false, yAxisId);
         const yAxisTickCoiunt = number('tickCount', 6, {}, yAxisId);
-        const yAxisTickMargin = number('tickMargin', 10, {}, yAxisId);
+        const yAxisTickMargin = number('tickMargin', 0, {}, yAxisId);
         const yAxisMinTickGap = number('minTickGap', 5, {}, yAxisId);
     
         const yAxisLine = boolean('axisLine', false, yAxisId);
@@ -141,6 +141,7 @@ import Changelog from '../../CHANGELOG.md';
         const lineWidth = number('dotSettings: { width }', 18, {}, lineId);
         const lineDot = boolean('dot', true, lineId);
         const lineInheritStroke = boolean('inheritStroke', true, lineId);
+        const lineStrokeDasharray = text('strokeDasharray', '1 0', lineId);
     
         const barHideFirst = boolean('hide', false, barIdFirst);
         const barHideLegendFirst = boolean('hideLegend', false, barIdFirst);
@@ -358,6 +359,7 @@ import Changelog from '../../CHANGELOG.md';
                 formatter: (decimal) => `${decimal * 1000}`,
                 type: lineType,
                 strokeWidth: lineStrokeWidth,
+                strokeDasharray: lineStrokeDasharray,
             },
             data: [
                 {
@@ -501,7 +503,7 @@ import Changelog from '../../CHANGELOG.md';
         const yAxisReversed = boolean('reversed', false, yAxisId);
         const yAxisTickCoiunt = number('tickCount', 6, {}, yAxisId);
         const yAxisMinTickGap = number('minTickGap', 5, {}, yAxisId);
-        const yAxisTickMargin = number('tickMargin', 2, {}, yAxisId);
+        const yAxisTickMargin = number('tickMargin', 0, {}, yAxisId);
         const yAxisLine = boolean('axisLine', false, yAxisId);
         const yAxisLabel = text('label', '', yAxisId);
     
@@ -537,14 +539,14 @@ import Changelog from '../../CHANGELOG.md';
         const lineScale = number('dotSettings: { scale }', 1.5, {}, lineId);
         const lineInitScale = number('dotSettings: { initScale }', 0, {}, lineId);
         const lineWidth = number('dotSettings: { width }', 18, {}, lineId);
-        const lineStrokeDasharray = object('strokeDasharray', [10, 10], lineId);
         const lineInheritStroke = boolean('inheritStroke', true, lineId);
+        const lineStrokeDasharray = text('strokeDasharray', '10 10', lineId);
         const lineDot = boolean('dot', true, lineId);
     
         const areaHide = boolean('hide', false, areaId);
         const areaHideLegend = boolean('hideLegend', false, areaId);
         const areaHideTooltip = boolean('hideTooltip', false, areaId);
-        const areaIcon = select('icon', iconTypes, 'filledCircle', lineId);
+        const areaIcon = select('icon', iconTypes, 'filledCircle', areaId);
         const areaZIndex = number('zIndex', 100, {}, areaId);
         const areaOffset = number('offset', 0.1, {min: 0, max: 1, step: 0.1}, areaId);
         const areaColor_1 = text('gradient color above', 'rgba(0, 112, 224, 0.2)', areaId);
@@ -558,7 +560,7 @@ import Changelog from '../../CHANGELOG.md';
         const areaScale = number('dotSettings: { scale }', 1.5, {}, areaId);
         const areaInitScale = number('dotSettings: { initScale }', 0, {}, areaId);
         const areaWidth = number('dotSettings: { width }', 18, {}, areaId);
-        const areaStrokeDasharray = object('strokeDasharray', [1, 0], areaId);
+        const areaStrokeDasharray = text('strokeDasharray', '10 10', areaId);
         const areaDot = boolean('dot', true, areaId);
     
         const responsiveContainer = {
