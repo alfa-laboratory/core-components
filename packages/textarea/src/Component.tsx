@@ -57,7 +57,7 @@ export type TextareaProps = Omit<
     /**
      * Отображение ошибки
      */
-    error?: string | boolean;
+    error?: ReactNode | boolean;
 
     /**
      * Текст подсказки

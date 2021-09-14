@@ -26,6 +26,10 @@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.input:-webkit-autofill {
+    -webkit-text-fill-color: var(--input-color);
+}
+
 .input::placeholder {
     color: var(--input-placeholder-color);
 }

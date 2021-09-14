@@ -48,7 +48,6 @@ exports[`SliderInput should match snapshot 1`] = `
           value="0"
         />
       </div>
-      
     </div>
   </div>
 </div>

@@ -1,6 +1,7 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+import Icon from '@alfalab/icons-glyph/StarMIcon';
 
 import { PasswordInput } from '..';
 import { name, version } from '../../package.json';
@@ -27,6 +28,7 @@ import Changelog from '../../CHANGELOG.md';
         error={text('error', '')}
         success={boolean('success', false)}
         leftAddons={boolean('leftAddons', false) && <Icon />}
+        rightAddons={boolean('rightAddons', false) && <Icon />}
         bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
         readOnly={boolean('readOnly', false)}
     />

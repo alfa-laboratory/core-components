@@ -135,7 +135,7 @@ export type BaseSelectProps = {
     /**
      * Отображение ошибки
      */
-    error?: string | boolean;
+    error?: ReactNode | boolean;
 
     /**
      * Подсказка под полем
@@ -329,7 +329,7 @@ export type FieldProps = {
     /**
      * Отображение ошибки
      */
-    error?: string | boolean;
+    error?: ReactNode | boolean;
 
     /**
      * Отображение иконки успеха

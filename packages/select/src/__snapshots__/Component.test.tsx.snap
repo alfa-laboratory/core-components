@@ -45,7 +45,6 @@ Object {
                 />
               </div>
             </div>
-            
           </div>
         </div>
       </div>
@@ -95,7 +94,6 @@ Object {
               />
             </div>
           </div>
-          
         </div>
       </div>
     </div>
@@ -249,7 +247,6 @@ exports[`Select Snapshots tests should match snapshot with visibleOptions 1`] = 
             />
           </div>
         </div>
-        
       </div>
     </div>
   </div>

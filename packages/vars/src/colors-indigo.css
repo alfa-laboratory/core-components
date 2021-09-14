@@ -22,6 +22,8 @@
     --color-dark-border-secondary-inverted: #6d7986;
     --color-dark-border-tertiary: #233549;
     --color-dark-border-tertiary-inverted: #b6bcc3;
+    --color-dark-border-underline: #6d7986;
+    --color-dark-border-underline-inverted: #b6bcc3;
     --color-dark-graphic-accent: #ef3124;
     --color-dark-graphic-attention: #e58933;
     --color-dark-graphic-link: #007aff;
@@ -34,6 +36,7 @@
     --color-dark-graphic-secondary-inverted: #233549;
     --color-dark-graphic-tertiary: #6d7986;
     --color-dark-specialbg-component: #485767;
+    --color-dark-specialbg-component-inverted: rgba(11, 31, 53, 0.07);
     --color-dark-specialbg-nulled: rgba(11, 31, 53, 0);
     --color-dark-specialbg-primary-grouped: #0b1f35;
     --color-dark-specialbg-secondary-grouped: #233549;
@@ -78,6 +81,8 @@
     --color-light-border-secondary-inverted: #b6bcc3;
     --color-light-border-tertiary: #f3f4f5;
     --color-light-border-tertiary-inverted: #6d7986;
+    --color-light-border-underline: #b6bcc3;
+    --color-light-border-underline-inverted: #6d7986;
     --color-light-graphic-accent: #ef3124;
     --color-light-graphic-attention: #e58933;
     --color-light-graphic-link: #007aff;
@@ -174,6 +179,9 @@
     --color-dark-specialbg-component-tint-7: color-mod(#485767 tint(7%));
     --color-dark-specialbg-component-tint-10: color-mod(#485767 tint(10%));
     --color-dark-specialbg-component-tint-30: color-mod(#485767 tint(30%));
+    --color-dark-specialbg-component-inverted-shade-15: color-mod(
+        rgba(11, 31, 53, 0.07) blenda(black 15%)
+    );
     --color-dark-text-link-shade-30: color-mod(#007aff shade(30%));
     --color-dark-text-link-shade-50: color-mod(#007aff shade(50%));
     --color-dark-text-link-tint-20: color-mod(#007aff tint(20%));
@@ -257,8 +265,4 @@
     --color-light-text-secondary-inverted-tint-50: color-mod(#b6bcc3 tint(50%));
     --color-static-bg-primary-dark-alpha-10: color-mod(#000 alpha(10%));
     --color-static-bg-primary-dark-alpha-20: color-mod(#000 alpha(20%));
-
-    /* TODO: цвета добавлены руками. Обновить токены */
-    --color-light-border-underline-inverted: #6d7986;
-    --color-light-text-secondary-inverted-transparent: rgba(255, 255, 255, 0.7);
 }

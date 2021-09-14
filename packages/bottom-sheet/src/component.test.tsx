@@ -166,22 +166,32 @@ describe('Bottom sheet', () => {
     });
 
     describe('Interactions tests', () => {
-        it('should close if on backdrop click', async () => {
+        it('should close on dialog click', async () => {
             const { getByTestId, queryByTestId } = render(
                 <BottomSheetWrapper dataTestId={dataTestId} />,
             );
 
-            const backdrop = document.querySelector('.backdrop');
-
-            if (backdrop) {
-                fireEvent.click(backdrop);
-            }
+            fireEvent.click(getByTestId(dataTestId));
 
             await waitForElementToBeRemoved(() => getByTestId(dataTestId));
 
-            const component = await queryByTestId(dataTestId);
+            expect(queryByTestId(dataTestId)).not.toBeInTheDocument();
+        });
 
-            expect(component).not.toBeInTheDocument();
+        it('should not close on dialog content click', async () => {
+            const { getByTestId, queryByTestId } = render(
+                <BottomSheetWrapper dataTestId={dataTestId} />,
+            );
+
+            const content = getByTestId(dataTestId).firstElementChild as HTMLElement;
+
+            if (content) {
+                fireEvent.click(content);
+            }
+
+            await new Promise(res => setTimeout(res, 1000));
+
+            expect(queryByTestId(dataTestId)).toBeInTheDocument();
         });
 
         it('should swiping on touchmove', async () => {
