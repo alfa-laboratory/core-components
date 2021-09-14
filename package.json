@@ -209,6 +209,9 @@
             "arui-cssvars/use-variables": false,
             "stylelint-core-vars/use-vars": true,
             "stylelint-core-vars/use-mixins": true,
+            "selector-pseudo-class-no-unknown": [true, {
+                "ignorePseudoClasses": ["global"]
+              }],
             "stylelint-core-vars/use-one-of-vars": [
                 true,
                 {
