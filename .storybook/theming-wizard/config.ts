@@ -3,7 +3,7 @@ import { Answer, Question } from './types';
 export const config: Question[] = [
     {
         name: 'product',
-        title: 'Продукт',
+        title: 'Тема продукта',
         variants: [
             {
                 label: 'default',
