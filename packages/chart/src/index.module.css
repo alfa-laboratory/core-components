@@ -1,13 +1,15 @@
 @import '../../themes/src/default.css';
 
-:global(.recharts-line path) {
-    transition: d 0.2s ease-out;
-}
+.coreChart {
+    & :global(.recharts-line path) {
+        transition: d 0.2s ease-out;
+    }
 
-:global(.recharts-text tspan) {
-    fill: var(--color-light-text-primary);
-    font-size: 16px;
-    line-height: 22px;
+    & :global(.recharts-text tspan) {
+        fill: var(--color-light-text-primary);
+        font-size: 16px;
+        line-height: 22px;
+    }
 }
 
 .bar {

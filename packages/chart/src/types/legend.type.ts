@@ -25,6 +25,10 @@ export interface LegendProps {
     margin?: {
         top?: number;
     };
+    /**
+     * Высота иконок
+     */
+    iconHeight?: number;
 }
 
 export interface CustomLegendProps {

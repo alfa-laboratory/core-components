@@ -28,6 +28,7 @@
 
 .legendIcon {
     margin-right: 13px;
+    display: flex;
 }
 
 .legendValue {

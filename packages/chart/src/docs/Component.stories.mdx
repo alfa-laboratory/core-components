@@ -110,6 +110,7 @@ import Changelog from '../../CHANGELOG.md';
         const legendAlign = select('align', alignHorizontal, 'center', legendId);
         const legendVerticalAlign = select('verticalAlign', alignVertical, 'bottom', legendId);
         const legendMarginTop = number('marginTop', 10, {}, legendId);
+        const legendIconHeight = number('iconHeight', 16, {}, legendId);
     
         const tooltipArrow = boolean('arrow', true, tooltipId);
         const tooltipIsAnimationActive = boolean('isAnimationActive', true, tooltipId);
@@ -225,6 +226,7 @@ import Changelog from '../../CHANGELOG.md';
             verticalAlign: legendVerticalAlign,
             align: legendAlign,
             marginTop: legendMarginTop,
+            iconHeight: legendIconHeight,
         };
     
         const tooltip = {
@@ -510,6 +512,7 @@ import Changelog from '../../CHANGELOG.md';
         const legendAlign = select('align', alignHorizontal, 'right', legendId);
         const legendVerticalAlign = select('verticalAlign', alignVertical, 'top', legendId);
         const legendMarginTop = number('marginTop', 20, {}, legendId);
+        const legendIconHeight = number('iconHeight', 20, {}, legendId);
     
         const tooltipArrow = boolean('arrow', true, tooltipId);
         const tooltipIsAnimationActive = boolean('isAnimationActive', true, tooltipId);
@@ -630,7 +633,8 @@ import Changelog from '../../CHANGELOG.md';
         const legend = {
             verticalAlign: legendVerticalAlign,
             align: legendAlign,
-            marginTop: legendMarginTop
+            marginTop: legendMarginTop,
+            iconHeight: legendIconHeight,
         };
     
         const tooltip = {

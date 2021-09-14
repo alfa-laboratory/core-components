@@ -515,7 +515,12 @@ const Chart = ({ options }: ChartsPropsTypes) => {
     if (!data || !charts || !state) return null;
 
     return (
-        <div ref={svgRef} id={state?.id || ''} style={{ width: '100%', height: '100%' }}>
+        <div
+            className={styles.coreChart}
+            ref={svgRef}
+            id={state?.id || ''}
+            style={{ width: '100%', height: '100%' }}
+        >
             <ResponsiveContainer
                 debounce={
                     state?.responsiveContainer?.debounce ? state.responsiveContainer.debounce : 0

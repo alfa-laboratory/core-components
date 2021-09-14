@@ -59,6 +59,7 @@ const Legends = React.forwardRef<HTMLUListElement, LegendComponentProps>(
                                                 item.properties?.stroke ||
                                                 ''
                                             }
+                                            height={legend.iconHeight || 16}
                                         />
                                     </i>
                                 ) : null}
