@@ -10,6 +10,7 @@ import Description from './description.mdx';
 <Meta
     title='Компоненты/Dropzone'
     component={Dropzone}
+    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
 
@@ -29,7 +30,8 @@ import Description from './description.mdx';
             <Dropzone
                 error={boolean('error', false)}
                 block={boolean('block', false)}
-                overlayVisible={boolean('overlayVisible', false)}
+                overlayVisible={boolean('overlayVisible (deprecated)', undefined)}
+                disabled={boolean('disabled', false)}
                 onDrop={handleDrop}
             >
                 <div

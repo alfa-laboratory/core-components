@@ -75,6 +75,18 @@ describe('Dropzone', () => {
         });
     });
 
+    it('should render custom overlay', () => {
+        const dataTestId = 'test-id';
+        const CustomOverlay = jest.fn();
+
+        CustomOverlay.mockReturnValue(<div data-test-id={dataTestId} />);
+
+        const { queryByTestId } = render(<Dropzone Overlay={CustomOverlay} text='text' />);
+
+        expect(queryByTestId(dataTestId)).toBeInTheDocument();
+        expect(CustomOverlay.mock.calls[0][0]).toEqual({ text: 'text', visible: false });
+    });
+
     describe('Callbacks tests', () => {
         it('should call `onDrop` callback after drop file on Dropzone', () => {
             const handleDrop = jest.fn();
@@ -129,6 +141,40 @@ describe('Dropzone', () => {
             fireDragEventWithFiles(dropzone, 'drop');
 
             expect(handleDrop.mock.calls[0][0]).toEqual(dataTransfer.files);
+        });
+
+        it('should not call drag callbacks when disabled', () => {
+            const handleDrop = jest.fn();
+            const handleDragEnter = jest.fn();
+            const handleDragLeave = jest.fn();
+            const handleDragOver = jest.fn();
+            const { container } = render(
+                <Dropzone
+                    disabled={true}
+                    onDrop={handleDrop}
+                    onDragEnter={handleDragEnter}
+                    onDragLeave={handleDragLeave}
+                    onDragOver={handleDragOver}
+                />,
+            );
+
+            const dropzone = container.firstElementChild as HTMLElement;
+
+            fireDragEventWithFiles(dropzone, 'drop');
+
+            expect(handleDrop).not.toBeCalled();
+
+            fireDragEventWithFiles(dropzone, 'dragEnter');
+
+            expect(handleDragEnter).not.toBeCalled();
+
+            fireDragEventWithFiles(dropzone, 'dragLeave');
+
+            expect(handleDragLeave).not.toBeCalled();
+
+            fireDragEventWithFiles(dropzone, 'dragOver');
+
+            expect(handleDragOver).not.toBeCalled();
         });
     });
 });
