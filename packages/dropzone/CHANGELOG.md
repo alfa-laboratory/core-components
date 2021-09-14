@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-dropzone@2.1.0...@alfalab/core-components-dropzone@2.2.0) (2021-09-14)
+
+
+### Features
+
+* **dropzone:** design improvements (PDS-282) ([#829](https://github.com/alfa-laboratory/core-components/issues/829)) ([437ec3c](https://github.com/alfa-laboratory/core-components/commit/437ec3c80c507a37c8a24106a6ee6514abd68d04))
+
+
+
+
+
 # [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-dropzone@2.0.2...@alfalab/core-components-dropzone@2.1.0) (2021-08-27)
 
 

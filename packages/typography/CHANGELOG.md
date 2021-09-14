@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-typography@2.1.0...@alfalab/core-components-typography@2.2.0) (2021-09-14)
+
+
+### Features
+
+* **typography:** add ref ([#834](https://github.com/alfa-laboratory/core-components/issues/834)) ([976b16d](https://github.com/alfa-laboratory/core-components/commit/976b16dd9ae68c31999bffb3506623db05033ad4))
+
+
+
+
+
 # [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-typography@2.0.1...@alfalab/core-components-typography@2.1.0) (2021-07-19)
 
 

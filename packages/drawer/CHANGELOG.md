@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-drawer@3.0.1...@alfalab/core-components-drawer@3.0.2) (2021-09-14)
+
+
+### Bug Fixes
+
+* **base-modal:** modal scroll ([#820](https://github.com/alfa-laboratory/core-components/issues/820)) ([1b2d94a](https://github.com/alfa-laboratory/core-components/commit/1b2d94ad45e04145bf1292d749ae2028702dc622))
+
+
+
+
+
 ## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-drawer@3.0.0...@alfalab/core-components-drawer@3.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-drawer

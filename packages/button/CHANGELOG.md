@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@4.3.0...@alfalab/core-components-button@4.4.0) (2021-09-14)
+
+
+### Features
+
+* **vars:** updated colors and typography from latest alfa-ui-primitives ([#803](https://github.com/alfa-laboratory/core-components/issues/803)) ([0d5b2a3](https://github.com/alfa-laboratory/core-components/commit/0d5b2a30a78e70392dd505790a92bc3bc83f9386))
+
+
+
+
+
 # [4.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@4.2.0...@alfalab/core-components-button@4.3.0) (2021-08-27)
 
 

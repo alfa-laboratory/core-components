@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-password-input@2.0.9...@alfalab/core-components-password-input@2.1.0) (2021-09-14)
+
+
+### Features
+
+* **password-input:** show right addons (PDS-283) ([#828](https://github.com/alfa-laboratory/core-components/issues/828)) ([b255acd](https://github.com/alfa-laboratory/core-components/commit/b255acdcdbe37b546c6c9100a1645609439af430))
+* change error type to ReactNode ([#825](https://github.com/alfa-laboratory/core-components/issues/825)) ([c6d95c1](https://github.com/alfa-laboratory/core-components/commit/c6d95c1c6239f2b2a3bf2c1639554d8500e794f3))
+
+
+
+
+
 ## [2.0.9](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-password-input@2.0.8...@alfalab/core-components-password-input@2.0.9) (2021-08-31)
 
 **Note:** Version bump only for package @alfalab/core-components-password-input
