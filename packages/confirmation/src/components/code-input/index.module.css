@@ -1,5 +1,7 @@
 @import '../../vars.css';
-@import '../../../../vars/src/index.css' .component {
+@import '../../../../vars/src/index.css';
+
+.component {
     display: flex;
 }
 
