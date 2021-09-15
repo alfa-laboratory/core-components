@@ -20,7 +20,7 @@ import { ChevronBackHeavyMIcon } from '@alfalab/icons-glyph/ChevronBackHeavyMIco
 import { ChevronForwardHeavyMIcon } from '@alfalab/icons-glyph/ChevronForwardHeavyMIcon';
 
 import { GalleryContext } from '../../context';
-import { getImageAlt, getImageKey, isSmallImage } from '../../utils';
+import { getImageAlt, getImageKey } from '../../utils';
 import { Slide } from './slide';
 
 import styles from './index.module.css';
@@ -184,39 +184,19 @@ export const ImageViewer: FC = () => {
                             key={getImageKey(image, index)}
                             style={{ pointerEvents: slideVisible ? 'auto' : 'none' }}
                         >
-                            {({ isActive }) => {
-                                const broken = Boolean(meta?.broken);
-                                const small = isSmallImage(meta);
-                                const verticalImageFit =
-                                    !small && swiperAspectRatio > imageAspectRatio;
-                                const horizontalImageFit =
-                                    !small && swiperAspectRatio <= imageAspectRatio;
-
-                                return (
-                                    <Slide
-                                        active={isActive}
-                                        broken={broken}
-                                        loading={!meta}
-                                        withPlaceholder={small || broken}
-                                    >
-                                        <img
-                                            src={image.src}
-                                            alt={getImageAlt(image, index)}
-                                            className={cn({
-                                                [styles.smallImage]: small,
-                                                [styles.image]: !small,
-                                                [styles.verticalImageFit]: verticalImageFit,
-                                                [styles.horizontalImageFit]: horizontalImageFit,
-                                            })}
-                                            onLoad={event => handleLoad(event, index)}
-                                            onError={() => handleLoadError(index)}
-                                            style={{
-                                                maxHeight: `${swiperHeight}px`,
-                                            }}
-                                        />
-                                    </Slide>
-                                );
-                            }}
+                            {({ isActive }) => (
+                                <Slide
+                                    isActive={isActive}
+                                    swiperAspectRatio={swiperAspectRatio}
+                                    image={image}
+                                    swiperHeight={swiperHeight}
+                                    meta={meta}
+                                    index={index}
+                                    imageAspectRatio={imageAspectRatio}
+                                    handleLoad={handleLoad}
+                                    handleLoadError={handleLoadError}
+                                />
+                            )}
                         </SwiperSlide>
                     );
                 })}

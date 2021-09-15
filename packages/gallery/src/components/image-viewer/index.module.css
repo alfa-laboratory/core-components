@@ -13,6 +13,8 @@
     display: flex;
     width: 100%;
     height: 100%;
+
+    /* 168px - высота хэдера и футера */
     max-height: calc(100vh - 168px);
     padding: var(--gap-2xl) var(--gap-m);
     box-sizing: border-box;
@@ -80,6 +82,7 @@
     cursor: pointer;
     color: var(--color-light-graphic-primary-inverted);
     transition: background-color 0.15s ease-in-out;
+    outline: none;
 
     &:hover {
         background-color: var(--color-light-bg-primary-inverted-alpha-10);

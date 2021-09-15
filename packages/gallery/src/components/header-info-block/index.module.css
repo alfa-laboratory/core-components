@@ -6,10 +6,6 @@
     flex-direction: column;
     justify-content: center;
     overflow: hidden;
-
-    & *:last-child() {
-        padding-top: var(--gap-2xs);
-    }
 }
 
 .filenameHead {

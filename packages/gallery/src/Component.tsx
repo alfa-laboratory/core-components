@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect, useMemo, useState } from 'react';
+import React, { FC, useCallback, useEffect, useState } from 'react';
 import SwiperCore from 'swiper';
 
 import { BaseModal } from '@alfalab/core-components-base-modal';
@@ -35,6 +35,8 @@ export type GalleryProps = {
      */
     onClose: () => void;
 };
+
+const Backdrop = () => null;
 
 export const Gallery: FC<GalleryProps> = ({
     open,
@@ -94,11 +96,18 @@ export const Gallery: FC<GalleryProps> = ({
         [imagesMeta],
     );
 
+    const handleClose = useCallback(() => {
+        onClose();
+
+        setCurrentSlideIndex(initialSlide);
+        setFullScreen(false);
+    }, [initialSlide, onClose]);
+
     const handleEscapeKeyDown = () => {
         if (fullScreen) {
             setFullScreen(false);
         } else {
-            onClose();
+            handleClose();
         }
     };
 
@@ -120,12 +129,6 @@ export const Gallery: FC<GalleryProps> = ({
         [fullScreen, slideNext, slidePrev],
     );
 
-    const handleClose = useCallback(() => {
-        onClose();
-
-        setCurrentSlideIndex(initialSlide);
-    }, [initialSlide, onClose]);
-
     useEffect(() => {
         document.addEventListener('keydown', handleKeyDown);
 
@@ -138,51 +141,33 @@ export const Gallery: FC<GalleryProps> = ({
 
     const showNavigationBar = !singleSlide && !fullScreen;
 
-    const galleryContext = useMemo<GalleryContext>(
-        () => ({
-            singleSlide,
-            currentSlideIndex,
-            images,
-            imagesMeta,
-            fullScreen,
-            initialSlide,
-            setFullScreen,
-            setImageMeta,
-            slideNext,
-            slidePrev,
-            slideTo,
-            getSwiper: () => swiper,
-            setSwiper,
-            onClose: handleClose,
-            setCurrentSlideIndex,
-            getCurrentImage: () => images[currentSlideIndex],
-            getCurrentImageMeta: () => imagesMeta[currentSlideIndex],
-        }),
-        [
-            singleSlide,
-            currentSlideIndex,
-            images,
-            imagesMeta,
-            fullScreen,
-            initialSlide,
-            swiper,
-            setImageMeta,
-            slideNext,
-            slidePrev,
-            slideTo,
-            handleClose,
-        ],
-    );
+    const galleryContext: GalleryContext = {
+        singleSlide,
+        currentSlideIndex,
+        images,
+        imagesMeta,
+        fullScreen,
+        initialSlide,
+        setFullScreen,
+        setImageMeta,
+        slideNext,
+        slidePrev,
+        slideTo,
+        getSwiper: () => swiper,
+        setSwiper,
+        onClose: handleClose,
+        setCurrentSlideIndex,
+        getCurrentImage: () => images[currentSlideIndex],
+        getCurrentImageMeta: () => imagesMeta[currentSlideIndex],
+    };
 
     return (
         <GalleryContext.Provider value={galleryContext}>
             <BaseModal
                 open={open}
-                backdropProps={{
-                    invisible: true,
-                }}
                 className={styles.modal}
                 onEscapeKeyDown={handleEscapeKeyDown}
+                Backdrop={Backdrop}
             >
                 <div className={styles.container}>
                     <Header />

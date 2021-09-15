@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Typography } from '@alfalab/core-components-typography';
 
-import styles from './index.module.css';
 import { splitFilename } from '../../utils';
 
-export type Props = {
+import styles from './index.module.css';
+
+export type HeaderInfoBlockProps = {
     filename: string;
     description?: string;
 };
 
-export const HeaderInfoBlock: React.FunctionComponent<Props> = ({ filename, description }) => {
+export const HeaderInfoBlock: FC<HeaderInfoBlockProps> = ({ filename, description }) => {
     const [head, tail] = splitFilename(filename);
 
     return (
         <div className={styles.info}>
-            <span className={styles.filenameContainer}>
+            <div className={styles.filenameContainer}>
                 <Typography.Title
                     tag='h1'
                     className={styles.filenameHead}
@@ -28,7 +29,7 @@ export const HeaderInfoBlock: React.FunctionComponent<Props> = ({ filename, desc
                 <Typography.Title tag='h1' view='xsmall' font='system' color='primary-inverted'>
                     {tail}
                 </Typography.Title>
-            </span>
+            </div>
 
             {description ? (
                 <Typography.Text

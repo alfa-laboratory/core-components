@@ -43,6 +43,6 @@ export const Download: FC<Props> = props => (
     </Tooltip>
 );
 
-export const Exit: React.FunctionComponent<Props> = props => (
+export const Exit: FC<Props> = props => (
     <IconButton {...props} icon={CrossMIcon} colors='inverted' aria-label='Закрыть' />
 );
