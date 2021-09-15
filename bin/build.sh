@@ -10,15 +10,10 @@ CONCURRENCY=${BUILD_CONCURRENCY:=10}
 
 echo "start build on $CONCURRENCY parallel process"
 
-# собираю все подпакеты, за исключением css-пакетов (vars, themes)
-lerna exec --concurrency $CONCURRENCY \
-    --ignore @alfalab/core-components-vars \
-    --ignore @alfalab/core-components-themes \
-    --ignore @alfalab/core-components-codemod \
-    -- $(pwd)/bin/rollup.sh
+mkdir -p dist
 
 # собираю css пакеты
-copy_css="yarn copyfiles -u 1 \"src/**/*.css\" dist"
+copy_css="yarn copyfiles -u 1 \"src/**/*.{css,js}\" dist"
 copy_package="yarn copyfiles package.json dist"
 lerna exec \
     --scope @alfalab/core-components-vars \
@@ -28,18 +23,18 @@ lerna exec \
 # собираю пакет themes
 lerna exec --scope @alfalab/core-components-themes -- node $(pwd)/bin/build-themes.js
 
+# собираю все подпакеты с компонентами
+lerna exec --concurrency $CONCURRENCY \
+    --ignore @alfalab/core-components-codemod \
+    -- $(pwd)/bin/rollup.sh
+
+
 # копирую собранные css пакеты в корневой пакет
 copy_to_root="cp -rp dist/ ../../dist/\${PWD##*/}"
 lerna exec \
     --scope @alfalab/core-components-vars \
     --scope @alfalab/core-components-themes \
     -- $copy_to_root
-
-# собираю компоненты с темами (inject themes)
-lerna exec --concurrency $CONCURRENCY \
-    --ignore @alfalab/core-components-vars \
-    --ignore @alfalab/core-components-themes \
-    -- node $(pwd)/bin/inject-themes.js
 
 # копирую package.json в сборку корневого пакета
 cp package.json dist/package.json

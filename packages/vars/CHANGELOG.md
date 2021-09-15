@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@3.1.1...@alfalab/core-components-vars@4.0.0) (2021-09-14)
+
+
+### Features
+
+* dark themes ([#778](https://github.com/alfa-laboratory/core-components/issues/778)) ([d848d16](https://github.com/alfa-laboratory/core-components/commit/d848d165b59182e6521d28efc2aadeecebc00d93))
+* **vars:** updated colors and typography from latest alfa-ui-primitives ([#803](https://github.com/alfa-laboratory/core-components/issues/803)) ([0d5b2a3](https://github.com/alfa-laboratory/core-components/commit/0d5b2a30a78e70392dd505790a92bc3bc83f9386))
+
+
+### BREAKING CHANGES
+
+* remove dark-theme-injector. remove vars duplications
+
+
+
+
+
 ## [3.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@3.1.0...@alfalab/core-components-vars@3.1.1) (2021-08-23)
 
 

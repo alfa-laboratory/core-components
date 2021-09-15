@@ -6,6 +6,7 @@ import React, {
     MutableRefObject,
     forwardRef,
     ReactNode,
+    useRef,
 } from 'react';
 import cn from 'classnames';
 import { CSSTransition } from 'react-transition-group';
@@ -13,6 +14,7 @@ import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
 import { usePopper } from 'react-popper';
 import { BasePlacement, VariationPlacement, Obj } from '@popperjs/core';
 import mergeRefs from 'react-merge-refs';
+import { ResizeObserver } from 'resize-observer';
 
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 import { Portal } from '@alfalab/core-components-portal';
@@ -38,6 +40,11 @@ export type PopoverProps = {
      * Элемент, относительного которого появляется поповер
      */
     anchorElement: RefElement;
+
+    /**
+     * Использовать ширину родительского элемента
+     */
+    useAnchorWidth?: boolean;
 
     /**
      * Позиционирование поповера
@@ -148,6 +155,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             getPortalContainer,
             transition = DEFAULT_TRANSITION,
             anchorElement,
+            useAnchorWidth,
             offset = [0, 0],
             withArrow = false,
             withTransition = true,
@@ -169,6 +177,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         const [referenceElement, setReferenceElement] = useState<RefElement>(anchorElement);
         const [popperElement, setPopperElement] = useState<RefElement>(null);
         const [arrowElement, setArrowElement] = useState<RefElement>(null);
+        const updatePopperRef = useRef<() => void>();
 
         const getModifiers = useCallback(() => {
             const modifiers: PopperModifier[] = [{ name: 'offset', options: { offset } }];
@@ -201,6 +210,16 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             },
         );
 
+        if (updatePopper) {
+            updatePopperRef.current = updatePopper;
+        }
+
+        const updatePopoverWidth = useCallback(() => {
+            if (useAnchorWidth && updatePopperRef.current) {
+                updatePopperRef.current();
+            }
+        }, [useAnchorWidth]);
+
         useEffect(() => {
             setReferenceElement(anchorElement);
         }, [anchorElement]);
@@ -218,6 +237,21 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             }
         });
 
+        useEffect(() => {
+            if (useAnchorWidth) {
+                const observer = new ResizeObserver(updatePopoverWidth);
+                if (anchorElement) {
+                    observer.observe(anchorElement);
+                }
+
+                return () => {
+                    observer.disconnect();
+                };
+            }
+
+            return () => ({});
+        }, [anchorElement, updatePopoverWidth, useAnchorWidth]);
+
         const renderContent = (computedZIndex: number, style?: CSSProperties) => {
             return (
                 <div
@@ -225,6 +259,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                     // ref={setPopperElement}
                     style={{
                         zIndex: computedZIndex,
+                        width: useAnchorWidth ? referenceElement?.offsetWidth : undefined,
                         ...popperStyles.popper,
                     }}
                     data-test-id={dataTestId}

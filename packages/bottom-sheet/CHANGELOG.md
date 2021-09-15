@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-bottom-sheet@2.1.0...@alfalab/core-components-bottom-sheet@2.1.1) (2021-09-14)
+
+
+### Bug Fixes
+
+* **base-modal:** modal scroll ([#820](https://github.com/alfa-laboratory/core-components/issues/820)) ([1b2d94a](https://github.com/alfa-laboratory/core-components/commit/1b2d94ad45e04145bf1292d749ae2028702dc622))
+
+
+
+
+
 # [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-bottom-sheet@2.0.2...@alfalab/core-components-bottom-sheet@2.1.0) (2021-07-23)
 
 

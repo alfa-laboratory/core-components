@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-tabs",
-    "version": "5.2.2",
+    "version": "5.2.3",
     "description": "Tabs components",
     "keywords": [],
     "license": "MIT",
@@ -20,7 +20,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-keyboard-focusable": "^2.0.1",
-        "@alfalab/core-components-tag": "^3.3.0",
+        "@alfalab/core-components-tag": "^3.4.0",
         "classnames": "^2.2.6",
         "compute-scroll-into-view": "^1.0.13",
         "lodash.debounce": "^4.0.8"

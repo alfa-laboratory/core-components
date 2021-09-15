@@ -61,7 +61,7 @@ export type InputProps = Omit<
     /**
      * Отображение ошибки
      */
-    error?: string | boolean;
+    error?: ReactNode | boolean;
 
     /**
      * Отображение иконки успеха

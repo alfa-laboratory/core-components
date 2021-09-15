@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-textarea@6.0.6...@alfalab/core-components-textarea@6.1.0) (2021-09-14)
+
+
+### Features
+
+* change error type to ReactNode ([#825](https://github.com/alfa-laboratory/core-components/issues/825)) ([c6d95c1](https://github.com/alfa-laboratory/core-components/commit/c6d95c1c6239f2b2a3bf2c1639554d8500e794f3))
+
+
+
+
+
+## [6.0.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-textarea@6.0.5...@alfalab/core-components-textarea@6.0.6) (2021-08-31)
+
+
+### Bug Fixes
+
+* **textarea:** missing vars ([#817](https://github.com/alfa-laboratory/core-components/issues/817)) ([d03231f](https://github.com/alfa-laboratory/core-components/commit/d03231f24c826f540ecc8c6ddeb2b3e3fec38b6a))
+
+
+
+
+
 ## [6.0.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-textarea@6.0.4...@alfalab/core-components-textarea@6.0.5) (2021-08-23)
 
 

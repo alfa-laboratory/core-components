@@ -1,16 +1,4 @@
-@import '../../../../themes/src/default.css';
-
 @define-mixin modal-click {
-    /* core vars */
-    --color-light-graphic-primary: #0b1f35;
-    --color-light-bg-primary: #fff;
-    --color-light-bg-secondary: #f3f4f5;
-    --gap-s: 12px;
-    --gap-xl: 24px;
-    --gap-2xl: 32px;
-    --gap-4xl: 48px;
-    --gap-6xl: 72px;
-
     /* sizes */
     --modal-s-width: 500px;
     --modal-header-min-height: 84px;

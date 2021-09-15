@@ -41,3 +41,51 @@ render(() => {
     );
 });
 ```
+
+
+### Управление оверлеем
+
+По умолчанию оверлей показывается при перетаскивании файлов в дропзону.
+
+В помощью свойства `Overlay` можно отрисовать кастомный оверлей, либо вообще отключить его через `Overlay={null}`
+
+```tsx live
+render(() => {
+    const [filesList, setFilesList] = React.useState([]);
+
+    const handleDrop = files => {
+        setFilesList(
+            Array.from(files)
+                .map(file => file.name)
+                .filter(Boolean),
+        );
+    };
+
+    return (
+        <Dropzone
+            Overlay={null}
+            onDrop={handleDrop}
+        >
+            <div
+                style={{
+                    width: 400,
+                    height: 200,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                }}
+            >
+                {filesList.length > 0 ? (
+                    <ul>
+                        {filesList.map(file => (
+                            <li key={file}>{file}</li>
+                        ))}
+                    </ul>
+                ) : (
+                    <span>Перетащите файлы</span>
+                )}
+            </div>
+        </Dropzone>
+    );
+});
+```

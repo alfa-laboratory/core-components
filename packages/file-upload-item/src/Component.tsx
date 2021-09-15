@@ -1,4 +1,4 @@
-import React, { MouseEvent, useCallback } from 'react';
+import React, { MouseEvent, ReactNode, useCallback } from 'react';
 import cn from 'classnames';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
@@ -68,7 +68,7 @@ export type FileUploadItemProps = {
     /**
      * Сообщение об ошибке
      */
-    error?: string;
+    error?: ReactNode;
 
     /**
      * Дочерние элементы

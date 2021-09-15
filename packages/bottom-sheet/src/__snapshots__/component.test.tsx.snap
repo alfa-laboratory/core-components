@@ -22,19 +22,19 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
       data-focus-lock-disabled="false"
     >
       <div
+        style="opacity: 1; transition: opacity 300ms ease-in-out; position: relative; z-index: 100;"
+      >
+        <div
+          aria-hidden="true"
+          class="backdrop appear appearActive"
+        />
+      </div>
+      <div
         class="wrapper"
         role="dialog"
         style="z-index: 100;"
         tabindex="-1"
       >
-        <div
-          style="opacity: 1; transition: opacity 300ms ease-in-out;"
-        >
-          <div
-            aria-hidden="true"
-            class="backdrop appear appearActive"
-          />
-        </div>
         <div
           class="component modal appear appearActive"
         >
@@ -98,19 +98,19 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
       data-focus-lock-disabled="false"
     >
       <div
+        style="opacity: 1; transition: opacity 300ms ease-in-out; position: relative; z-index: 100;"
+      >
+        <div
+          aria-hidden="true"
+          class="backdrop appear appearActive"
+        />
+      </div>
+      <div
         class="wrapper"
         role="dialog"
         style="z-index: 100;"
         tabindex="-1"
       >
-        <div
-          style="opacity: 1; transition: opacity 300ms ease-in-out;"
-        >
-          <div
-            aria-hidden="true"
-            class="backdrop appear appearActive"
-          />
-        </div>
         <div
           class="component modal appear appearActive"
         >

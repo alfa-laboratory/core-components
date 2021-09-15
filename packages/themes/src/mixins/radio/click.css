@@ -1,11 +1,4 @@
-@import '../../../../themes/src/default.css';
-
 @define-mixin radio-click {
-    /* core vars */
-    --color-light-graphic-positive: #2fc26e;
-    --color-light-graphic-positive-shade-10: color-mod(#2fc26e shade(10%));
-    --color-light-graphic-positive-shade-30: color-mod(#2fc26e shade(30%));
-
     /* theme */
     --radio-checked-bg-color: var(--color-light-graphic-positive);
     --radio-checked-border-color: transparent;

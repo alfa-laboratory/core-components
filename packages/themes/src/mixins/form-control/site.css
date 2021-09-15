@@ -1,5 +1,3 @@
-@import '../../../../themes/src/default.css';
-
 @define-mixin form-control-site {
     --form-control-bg-backdrop-filter: blur(20px);
     --form-control-error-color: var(--color-static-text-accent);

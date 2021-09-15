@@ -1,4 +1,4 @@
-@define-mixin dark-theme {
+:root {
     --color-light-bg-accent: var(--color-dark-bg-accent);
     --color-light-bg-attention-muted: var(--color-dark-bg-attention-muted);
     --color-light-bg-info: var(--color-dark-bg-info);
@@ -22,6 +22,8 @@
     --color-light-border-secondary-inverted: var(--color-dark-border-secondary-inverted);
     --color-light-border-tertiary: var(--color-dark-border-tertiary);
     --color-light-border-tertiary-inverted: var(--color-dark-border-tertiary-inverted);
+    --color-light-border-underline: var(--color-dark-border-underline);
+    --color-light-border-underline-inverted: var(--color-dark-border-underline-inverted);
     --color-light-graphic-accent: var(--color-dark-graphic-accent);
     --color-light-graphic-attention: var(--color-dark-graphic-attention);
     --color-light-graphic-link: var(--color-dark-graphic-link);
@@ -34,6 +36,7 @@
     --color-light-graphic-secondary-inverted: var(--color-dark-graphic-secondary-inverted);
     --color-light-graphic-tertiary: var(--color-dark-graphic-tertiary);
     --color-light-specialbg-component: var(--color-dark-specialbg-component);
+    --color-light-specialbg-component-inverted: var(--color-dark-specialbg-component-inverted);
     --color-light-specialbg-nulled: var(--color-dark-specialbg-nulled);
     --color-light-specialbg-primary-grouped: var(--color-dark-specialbg-primary-grouped);
     --color-light-specialbg-secondary-grouped: var(--color-dark-specialbg-secondary-grouped);

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.1.12](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@6.1.11...@alfalab/core-components-picker-button@6.1.12) (2021-09-14)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
+## [6.1.11](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@6.1.10...@alfalab/core-components-picker-button@6.1.11) (2021-09-08)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
+## [6.1.10](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@6.1.9...@alfalab/core-components-picker-button@6.1.10) (2021-09-06)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
 ## [6.1.9](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@6.1.8...@alfalab/core-components-picker-button@6.1.9) (2021-08-27)
 
 **Note:** Version bump only for package @alfalab/core-components-picker-button

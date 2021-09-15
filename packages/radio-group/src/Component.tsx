@@ -40,7 +40,7 @@ export type RadioGroupProps = {
     /**
      * Отображение ошибки
      */
-    error?: string | boolean;
+    error?: ReactNode | boolean;
 
     /**
      * Текст подсказки снизу
@@ -158,7 +158,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
             );
         };
 
-        const errorMessage = typeof error === 'string' ? error : '';
+        const errorMessage = typeof error === 'boolean' ? '' : error;
 
         return (
             <div

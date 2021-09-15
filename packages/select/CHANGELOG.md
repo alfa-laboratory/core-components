@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.4.4...@alfalab/core-components-select@9.5.0) (2021-09-14)
+
+
+### Features
+
+* change error type to ReactNode ([#825](https://github.com/alfa-laboratory/core-components/issues/825)) ([c6d95c1](https://github.com/alfa-laboratory/core-components/commit/c6d95c1c6239f2b2a3bf2c1639554d8500e794f3))
+
+
+
+
+
+## [9.4.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.4.3...@alfalab/core-components-select@9.4.4) (2021-09-08)
+
+
+### Bug Fixes
+
+* **base-select:** lazy loading ([#831](https://github.com/alfa-laboratory/core-components/issues/831)) ([78f2b86](https://github.com/alfa-laboratory/core-components/commit/78f2b86221d8af7bf5019104aba743546fc31b45))
+
+
+
+
+
+## [9.4.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.4.2...@alfalab/core-components-select@9.4.3) (2021-09-06)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
 ## [9.4.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.4.1...@alfalab/core-components-select@9.4.2) (2021-08-27)
 
 **Note:** Version bump only for package @alfalab/core-components-select

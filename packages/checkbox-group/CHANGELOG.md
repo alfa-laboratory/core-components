@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-checkbox-group@2.1.0...@alfalab/core-components-checkbox-group@2.2.0) (2021-09-14)
+
+
+### Bug Fixes
+
+* **checkbox:** fix layout ([#790](https://github.com/alfa-laboratory/core-components/issues/790)) ([8aa18b4](https://github.com/alfa-laboratory/core-components/commit/8aa18b48167eeb5df225ff854d3ca337cd43d4f2))
+
+
+### Features
+
+* change error type to ReactNode ([#825](https://github.com/alfa-laboratory/core-components/issues/825)) ([c6d95c1](https://github.com/alfa-laboratory/core-components/commit/c6d95c1c6239f2b2a3bf2c1639554d8500e794f3))
+* **tag:** add inverted colors ([#784](https://github.com/alfa-laboratory/core-components/issues/784)) ([d3681ae](https://github.com/alfa-laboratory/core-components/commit/d3681aeefe02e5f481d066013911a1877a165bb2))
+
+
+
+
+
 # [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-checkbox-group@2.0.1...@alfalab/core-components-checkbox-group@2.1.0) (2021-07-23)
 
 

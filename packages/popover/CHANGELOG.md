@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-popover@5.4.0...@alfalab/core-components-popover@5.5.0) (2021-09-14)
+
+
+### Features
+
+* **popover:** add useAnchorWidth prop ([#826](https://github.com/alfa-laboratory/core-components/issues/826)) ([8df55c4](https://github.com/alfa-laboratory/core-components/commit/8df55c4c496467c363c5c09c14d1bd08a9709ebf)), closes [#787](https://github.com/alfa-laboratory/core-components/issues/787)
+
+
+
+
+
+# [5.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-popover@5.3.0...@alfalab/core-components-popover@5.4.0) (2021-09-06)
+
+
+### Features
+
+* **tooltip:** update shadow and arrow size/position ([2d40988](https://github.com/alfa-laboratory/core-components/commit/2d40988f3c376c51907aa8a4845ba25c7c43a2f4))
+
+
+
+
+
 # [5.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-popover@5.2.0...@alfalab/core-components-popover@5.3.0) (2021-08-23)
 
 

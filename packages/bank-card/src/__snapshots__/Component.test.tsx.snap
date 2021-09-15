@@ -92,7 +92,6 @@ exports[`BankCard Snapshots tests should match snapshots 1`] = `
               </button>
             </div>
           </div>
-          
         </div>
         <div
           class="brandLogo"
@@ -210,7 +209,6 @@ exports[`BankCard Snapshots tests should match snapshots 2`] = `
               </button>
             </div>
           </div>
-          
         </div>
         <div
           class="brandLogo"
@@ -326,7 +324,6 @@ exports[`BankCard Snapshots tests should match snapshots 3`] = `
               </button>
             </div>
           </div>
-          
         </div>
         <div
           class="brandLogo"
@@ -442,7 +439,6 @@ exports[`BankCard Snapshots tests should match snapshots 4`] = `
               </button>
             </div>
           </div>
-          
         </div>
       </div>
     </div>

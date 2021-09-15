@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@3.2.0...@alfalab/core-components-select-with-tags@3.3.0) (2021-09-14)
+
+
+### Features
+
+* change error type to ReactNode ([#825](https://github.com/alfa-laboratory/core-components/issues/825)) ([c6d95c1](https://github.com/alfa-laboratory/core-components/commit/c6d95c1c6239f2b2a3bf2c1639554d8500e794f3))
+
+
+
+
+
 # [3.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@3.1.0...@alfalab/core-components-select-with-tags@3.2.0) (2021-08-23)
 
 

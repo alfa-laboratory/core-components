@@ -7,7 +7,7 @@ import * as grid from './blocks/grid';
 const req = require.context(
     '../packages',
     true,
-    /^\.\/(?!dark-theme-styles-injector)(.*)\/src\/(index|desktop|mobile|responsive).ts$/,
+    /^\.\/(.*)\/src\/(index|desktop|mobile|responsive).ts$/,
 );
 
 const isComponent = (component: any) =>
