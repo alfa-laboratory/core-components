@@ -201,6 +201,7 @@
     --color-light-bg-primary-inverted-alpha-15: color-mod(#121212 alpha(15%));
     --color-light-bg-primary-inverted-alpha-20: color-mod(#121212 alpha(20%));
     --color-light-bg-primary-inverted-alpha-40: color-mod(#121212 alpha(40%));
+    --color-light-bg-primary-inverted-alpha-50: color-mod(#121212 alpha(50%));
     --color-light-bg-secondary-inverted-alpha-7: color-mod(#202022 alpha(7%));
     --color-light-bg-secondary-inverted-alpha-15: color-mod(#202022 alpha(15%));
     --color-light-bg-tertiary-shade-7: color-mod(#e9e9eb shade(7%));
