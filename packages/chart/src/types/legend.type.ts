@@ -16,7 +16,7 @@ export interface LegendProps {
      */
     align?: 'left' | 'center' | 'right';
     /**
-     * Вертикальный отстуа
+     * Вертикальный отступ
      */
     marginTop?: number;
     /**

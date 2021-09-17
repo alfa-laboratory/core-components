@@ -6,7 +6,7 @@ export interface AxisProps {
      */
     hide?: boolean;
     /**
-     * Показывать линию оси.
+     * Отображение линии оси.
      */
     axisLine: boolean;
     /**

@@ -35,7 +35,7 @@ export interface BrushProps {
      */
     alwaysShowText?: boolean;
     /**
-     * Цвевт
+     * Цвет
      */
     stroke?: string;
 }

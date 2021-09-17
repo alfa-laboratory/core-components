@@ -1,6 +1,6 @@
 export interface ComposedChartProps {
     /**
-     * Отступы внутри графика для иницилизации
+     * Отступы графика на момент инициализации компонента
      */
     initMargin?: {
         top?: number;
@@ -26,7 +26,7 @@ export interface ComposedChartProps {
      */
     barCategoryGap?: string | number;
     /**
-     * Ширина графиков типа bar
+     * Разрыв между двумя столбцами одной категории
      */
     barGap?: number;
 }

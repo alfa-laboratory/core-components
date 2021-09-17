@@ -15,25 +15,25 @@ export interface ChartsProps {
      */
     id: string;
     /**
-     * Компонент контейнера, позволяющий адаптировать диаграммы к размеру родительского контейнера.
+     * Компонент контейнера, позволяющий адаптировать диаграммы к размеру родительского контейнера
      */
     responsiveContainer?: ResponsiveContainerProps;
     /**
-     * Диаграмма, состоящая из линейных диаграмм, диаграмм с областями и гистограмм.
+     * Диаграмма, состоящая из bar, linear и area диаграмм
      */
     composeChart: ComposedChartProps;
     /**
-     * Компонент линий осей графика
+     * Отображение линий осей графика
      */
-    cartesianGrid: CartesianGridProps;
+    cartesianGrid?: CartesianGridProps;
     /**
-     * Ось Х графика
+     * Настройки оси Х
      */
-    xAxis?: XAxisProps;
+    xAxis: XAxisProps;
     /**
-     * Ось У графика
+     * Настройки оси У
      */
-    yAxis?: YAxisProps;
+    yAxis: YAxisProps;
     /**
      * Всплывающаяся подсказка
      */
@@ -47,11 +47,11 @@ export interface ChartsProps {
      */
     legend?: LegendProps;
     /**
-     * Массив графиков для отображения
+     * Mассив объектов с параметрами грaфиков с обязательным полем
      */
     series: SeriaProps[];
     /**
-     * "Положение" в поле просмотра декартовых координат
+     * Mассив меток
      */
     labels: Array<string | number>;
     children?: React.ReactNode;

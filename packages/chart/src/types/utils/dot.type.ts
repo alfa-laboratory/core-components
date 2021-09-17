@@ -15,11 +15,11 @@ export interface DotSettingProps {
      */
     initScale: number;
     /**
-     * Ширина.
+     * Ширина точки.
      */
     width: number;
     /**
-     * Высота.
+     * Высота точки.
      */
     height: number;
 }

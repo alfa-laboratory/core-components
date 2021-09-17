@@ -1,6 +1,6 @@
 export interface DataProps {
     /**
-     * Подпись значения
+     * Метка
      */
     label: string | number;
     /**

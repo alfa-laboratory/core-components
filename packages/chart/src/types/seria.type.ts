@@ -12,7 +12,7 @@ export interface SeriaProps {
      */
     hideLegend?: boolean;
     /**
-     * Скрыть график в тултипк
+     * Скрыть график в тултипe
      */
     hideTooltip?: boolean;
     /**
@@ -30,15 +30,15 @@ export interface SeriaProps {
     /**
      * Оффсет для градиента (только для типа area)
      */
-    offset?: number;
+    offset: number;
     /**
      * Заливка графика
      */
     fill?: string;
     /**
-     * Параметры градиента
+     * Прозрачность
      */
-    gradient?: {
+    gradient: {
         /**
          * Индефикатор градиента
          */
