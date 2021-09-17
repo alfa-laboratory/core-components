@@ -16,6 +16,21 @@ import Changelog from '../../CHANGELOG.md';
 
 <Story name='Chart.Bar'>
     {React.createElement(() => {
+        const clearData = (obj) => {
+            const copy = JSON.parse(JSON.stringify(obj));
+            const labels = ["label", "label", "..."];
+            const series = copy.series.map(item => {
+                item.data = [
+                    {
+                        label: 'label',
+                        value: 'value'
+                    },
+                    '...'
+                ];
+                return item;
+            });
+            return ({ ...obj, labels, series});
+        };
         const formatXAxis = (time) => {
             const dateFormat = 'DD MMM';
             const dateUtc = moment.utc(time);
@@ -46,7 +61,13 @@ import Changelog from '../../CHANGELOG.md';
             monotone: 'monotone',
             step: 'step'
         };
-    
+        const animationType = {
+            ease: 'ease',
+            'ease-in': 'ease-in',
+            'ease-out': 'ease-out',
+            'ease-in-out': 'ease-in-out',
+            linear: 'linear'
+        };
         const iconTypes = {
             circleLine: 'circleLine',
             filledCircle: 'filledCircle',
@@ -66,7 +87,9 @@ import Changelog from '../../CHANGELOG.md';
         const barIdFirst = 'barFirst';
         const barIdSecond = 'barSecond';
     
+    
         const debounce = number('debounce', 0, {}, responsiveContainerId);
+    
     
         const vertical = boolean('vertical', false, cartesianGridId);
         const horizontal = boolean('horizontal', true, cartesianGridId);
@@ -74,13 +97,17 @@ import Changelog from '../../CHANGELOG.md';
         const stroke = text('stroke', 'var(--color-light-border-primary)', cartesianGridId);
         const fill = text('fill', 'var(--color-light-bg-primary)', cartesianGridId);
     
-        const initMarginTop = number('initMargin: { top }', 40, {}, composeChartId);
-        const initMarginBottom = number('initMargin: { bottom }', 20, {}, composeChartId);
-        const marginLeft = number('margin: { left }', 20, {}, composeChartId);
-        const marginRight = number('margin: { right }', 50, {}, composeChartId);
+    
+    
+        const initMarginTop = number('initMargin.top', 40, {}, composeChartId);
+        const initMarginBottom = number('initMargin.bottom', 20, {}, composeChartId);
+        const marginLeft = number('initMargin.left', 20, {}, composeChartId);
+        const marginRight = number('initMargin.right', 50, {}, composeChartId);
         const barCategoryGap = text('barCategoryGap', '30%', composeChartId);
         const barGap = number('barGap', 4, {}, composeChartId);
         const maxBarSize = number('maxBarSize', 24, {}, composeChartId);
+    
+    
     
         const xAxisHide = boolean('hide', false, xAxisId);
         const xAxisOrientation = select('orientation', orientationVertical, 'bottom', xAxisId);
@@ -93,6 +120,8 @@ import Changelog from '../../CHANGELOG.md';
         const xAxisMinTickGap = number('minTickGap', 5, {}, xAxisId);
         const xAxisLine = boolean('axisLine', false, xAxisId);
     
+    
+    
         const yAxisHide = boolean('hide', false, yAxisId);
         const yAxisOrientation = select('orientation', orientationHorizontal, 'left', yAxisId);
         const yAxisAngle = number('angle', 0, {}, yAxisId);
@@ -103,22 +132,30 @@ import Changelog from '../../CHANGELOG.md';
         const yAxisTickCoiunt = number('tickCount', 6, {}, yAxisId);
         const yAxisTickMargin = number('tickMargin', 0, {}, yAxisId);
         const yAxisMinTickGap = number('minTickGap', 5, {}, yAxisId);
-    
         const yAxisLine = boolean('axisLine', false, yAxisId);
         const yAxisLabel = text('label', 'тыс.', yAxisId);
+    
+    
     
         const legendAlign = select('align', alignHorizontal, 'center', legendId);
         const legendVerticalAlign = select('verticalAlign', alignVertical, 'bottom', legendId);
         const legendMarginTop = number('marginTop', 10, {}, legendId);
         const legendIconHeight = number('iconHeight', 16, {}, legendId);
     
+    
+    
         const tooltipArrow = boolean('arrow', true, tooltipId);
         const tooltipIsAnimationActive = boolean('isAnimationActive', true, tooltipId);
         const tooltipSeparator = text('separator', ' ', tooltipId);
         const tooltipOffset = number('offset', 20, {}, tooltipId);
-        const cursorStroke = text('cursor: { stroke }', 'var(--color-light-border-primary)', tooltipId);
-        const cursorStrokeWidth = number('cursor: { strokeWidth }', 1, {}, tooltipId);
+        const cursorStroke = text('cursor.stroke', 'var(--color-light-border-primary)', tooltipId);
+        const cursorStrokeWidth = number('cursor.strokeWidth', 1, {}, tooltipId);
         const tooltipFilterNull = boolean('filterNull', true, tooltipId);
+        const tooltipAnimationBegin = number('animationBegin', 0, {}, tooltipId);
+        const tooltipAnimationDuration = number('animationDuration', 500, {}, tooltipId);
+        const tooltipAnimationEasing = select('animationEasing', animationType, 'ease', tooltipId);
+    
+    
     
         const travellerWidth = number('travellerWidth', 20, {}, brushId);
         const brushHeight = number('height', 20, {}, brushId);
@@ -128,37 +165,46 @@ import Changelog from '../../CHANGELOG.md';
         const brushMargin = number('brushMargin', 10, { min: 0, max: 100 }, brushId);
         const brushHeightAlwaysShowText = boolean('alwaysShowText', true, brushId);
     
+    
+    
         const lineHide = boolean('hide', false, lineId);
         const lineHideLegend = boolean('hideLegend', false, lineId);
         const lineHideTooltip = boolean('hideTooltip', false, lineId);
-        const lineIcon = select('icon', iconTypes, 'circleLine', lineId);
         const lineZIndex = number('zIndex', 50, {}, lineId);
-        const lineType = select('type', linesType, 'monotone', lineId);
-        const lineStrokeWidth = number('strokeWidth', 2, {}, lineId);
-        const lineStroke = text('stroke', 'var(--color-static-status-blue)', lineId);
-        const lineName = text('name', 'остаток', lineId);
-        const lineScale = number('dotSettings: { scale }', 1.5, {}, lineId);
-        const lineInitScale = number('dotSettings: { initScale }', 1, {}, lineId);
-        const lineWidth = number('dotSettings: { width }', 18, {}, lineId);
-        const lineDot = boolean('dot', true, lineId);
-        const lineInheritStroke = boolean('inheritStroke', true, lineId);
-        const lineStrokeDasharray = text('strokeDasharray', '1 0', lineId);
+        const lineIcon = select('icon', iconTypes, 'circleLine', lineId);
+    
+        const lineName = text('properties.name', 'остаток', lineId);
+        const lineStroke = text('properties.stroke', 'var(--color-static-status-blue)', lineId);
+        const lineDot = boolean('properties.dot', true, lineId);
+        const lineScale = number('properties.dotSettings.scale', 1.5, {}, lineId);
+        const lineInitScale = number('properties.dotSettings.initScale', 1, {}, lineId);
+        const lineWidth = number('properties.dotSettings.width', 18, {}, lineId);
+        const lineType = select('properties.type', linesType, 'monotone', lineId);
+        const lineInheritStroke = boolean('properties.inheritStroke', true, lineId);
+        const lineStrokeWidth = number('properties.strokeWidth', 2, {}, lineId);
+        const lineStrokeDasharray = text('properties.strokeDasharray', '1 0', lineId);
+    
+    
     
         const barHideFirst = boolean('hide', false, barIdFirst);
         const barHideLegendFirst = boolean('hideLegend', false, barIdFirst);
         const barHideTooltipFirst = boolean('hideTooltip', false, barIdFirst);
-        const barIconFirst = select('icon', iconTypes, 'circle', barIdFirst);
         const barZIndexFirst = number('zIndex', 1, {}, barIdFirst);
-        const barFillFirst = text('fill', 'var(--color-static-graphic-persimmon)', barIdFirst);
-        const barNameFirst = text('name', 'расход', barIdFirst);
+        const barIconFirst = select('icon', iconTypes, 'circle', barIdFirst);
+    
+        const barFillFirst = text('properties.fill', 'var(--color-static-graphic-persimmon)', barIdFirst);
+        const barNameFirst = text('properties.name', 'расход', barIdFirst);
+    
+    
     
         const barHideSecond = boolean('hide', false, barIdSecond);
         const barHideLegendSecond = boolean('hideLegend', false, barIdSecond);
         const barHideTooltipSecond = boolean('hideTooltip', false, barIdSecond);
-        const barIconSecond = select('icon', iconTypes, 'circle', barIdSecond);
         const barZIndexSecond = number('zIndex', 10, {}, barIdSecond);
-        const barFillSecond = text('fill', 'var(--color-static-graphic-green-jungle)', barIdSecond);
-        const barNameSecond = text('name', 'приход', barIdSecond);
+        const barIconSecond = select('icon', iconTypes, 'circle', barIdSecond);
+    
+        const barFillSecond = text('properties.fill', 'var(--color-static-graphic-green-jungle)', barIdSecond);
+        const barNameSecond = text('properties.name', 'приход', barIdSecond);
     
         const responsiveContainer = {
             debounce
@@ -238,9 +284,9 @@ import Changelog from '../../CHANGELOG.md';
                 strokeWidth: cursorStrokeWidth
             },
             isAnimationActive: tooltipIsAnimationActive,
-            animationBegin: 0,
-            animationDuration: 500,
-            animationEasing: 'ease',
+            animationBegin: tooltipAnimationBegin,
+            animationDuration: tooltipAnimationDuration,
+            animationEasing: tooltipAnimationEasing,
             arrow: tooltipArrow,
         };
     
@@ -404,11 +450,16 @@ import Changelog from '../../CHANGELOG.md';
             labels: labelsBarChart,
             series: [barChartFirst, barChartSecond, lineChart]
         };
-    
+        
         return (
-            <div>
-                <div style={{ marginBottom: '20px', top: 25, width: '100%', maxWidth: '1050px', height: '600px' }}>
+            <div style={{ display: 'flex' }}>
+                <div style={{ marginBottom: '20px', top: 25, width: '1050px', height: '600px' }}>
                     <Chart options={ barChartOptions } />
+                </div>
+                <div style={{ width: '500px', height: '600px', overflow: 'auto' }}>
+                    <pre>
+                        { JSON.stringify(clearData(barChartOptions), null, 2) }
+                    </pre>
                 </div>
             </div>
         )
@@ -419,6 +470,21 @@ import Changelog from '../../CHANGELOG.md';
 
 <Story name='Chart.Line'>
     {React.createElement(() => {
+        const clearData = (obj) => {
+            const copy = JSON.parse(JSON.stringify(obj));
+            const labels = ["label", "label", "..."];
+            const series = copy.series.map(item => {
+                item.data = [
+                    {
+                        label: 'label',
+                        value: 'value'
+                    },
+                    '...'
+                ];
+                return item;
+            });
+            return ({ ...obj, labels, series});
+        };
         const formatXAxis = (time) => {
             const dateFormat = 'DD MMM';
             const dateUtc = moment.utc(time);
@@ -449,13 +515,21 @@ import Changelog from '../../CHANGELOG.md';
             monotone: 'monotone',
             step: 'step'
         };
-    
+        const animationType = {
+            ease: 'ease',
+            'ease-in': 'ease-in',
+            'ease-out': 'ease-out',
+            'ease-in-out': 'ease-in-out',
+            linear: 'linear'
+        };
         const iconTypes = {
             circleLine: 'circleLine',
             filledCircle: 'filledCircle',
             strokeCircle: 'strokeCircle',
             circle: 'circle',
         };
+    
+    
     
         const responsiveContainerId = 'responsiveContainer';
         const cartesianGridId = 'cartesianGrid';
@@ -468,7 +542,11 @@ import Changelog from '../../CHANGELOG.md';
         const lineId = 'line';
         const areaId = 'area';
     
+    
+    
         const debounce = number('debounce', 0, {}, responsiveContainerId);
+    
+    
     
         const vertical = boolean('vertical', true, cartesianGridId);
         const horizontal = boolean('horizontal', true, cartesianGridId);
@@ -476,14 +554,19 @@ import Changelog from '../../CHANGELOG.md';
         const stroke = text('stroke', 'var(--color-light-border-primary)', cartesianGridId);
         const fill = text('fill', 'var(--color-light-bg-primary)', cartesianGridId);
     
-        const initMarginTop = number('initMargin: { top }', 40, {}, composeChartId);
-        const initMarginBottom = number('initMargin: { bottom }', 20, {}, composeChartId);
-        const marginLeft = number('margin: { left }', 20, {}, composeChartId);
-        const marginRight = number('margin: { right }', 70, {}, composeChartId);
+    
+    
+        const initMarginTop = number('initMargin.top', 40, {}, composeChartId);
+        const initMarginBottom = number('initMargin.bottom', 20, {}, composeChartId);
+        const marginLeft = number('initMargin.left', 20, {}, composeChartId);
+        const marginRight = number('initMargin.right', 70, {}, composeChartId);
+    
         const barCategoryGap = text('barCategoryGap', '30%', composeChartId);
         const barGap = number('barGap', 4, {}, composeChartId);
         const barSize = number('barSize', 24, {}, composeChartId);
         const maxBarSize = number('maxBarSize', 24, {}, composeChartId);
+    
+    
     
         const xAxisHide = boolean('hide', false, xAxisId);
         const xAxisOrientation = select('orientation', orientationVertical, 'bottom', xAxisId);
@@ -495,6 +578,8 @@ import Changelog from '../../CHANGELOG.md';
         const xAxisTickMargin = number('tickMargin', 2, {}, xAxisId);
         const xAxisMinTickGap = number('minTickGap', 20, {}, xAxisId);
         const xAxisLine = boolean('axisLine', false, xAxisId);
+    
+    
     
         const yAxisHide = boolean('hide', false, yAxisId);
         const yAxisOrientation = select('orientation', orientationHorizontal, 'left', yAxisId);
@@ -509,18 +594,29 @@ import Changelog from '../../CHANGELOG.md';
         const yAxisLine = boolean('axisLine', false, yAxisId);
         const yAxisLabel = text('label', '', yAxisId);
     
+    
+    
         const legendAlign = select('align', alignHorizontal, 'right', legendId);
         const legendVerticalAlign = select('verticalAlign', alignVertical, 'top', legendId);
         const legendMarginTop = number('marginTop', 20, {}, legendId);
         const legendIconHeight = number('iconHeight', 20, {}, legendId);
     
+    
+    
         const tooltipArrow = boolean('arrow', true, tooltipId);
         const tooltipIsAnimationActive = boolean('isAnimationActive', true, tooltipId);
         const tooltipSeparator = text('separator', ' ', tooltipId);
         const tooltipOffset = number('offset', 20, {}, tooltipId);
-        const cursorStroke = text('cursor: { stroke }', 'var(--color-light-border-primary)', tooltipId);
-        const cursorStrokeWidth = number('cursor: { strokeWidth }', 1, {}, tooltipId);
+    
+        const cursorStroke = text('cursor.stroke', 'var(--color-light-border-primary)', tooltipId);
+        const cursorStrokeWidth = number('cursor.strokeWidth', 1, {}, tooltipId);
+    
         const tooltipFilterNull = boolean('filterNull', true, tooltipId);
+        const tooltipAnimationBegin = number('animationBegin', 0, {}, tooltipId);
+        const tooltipAnimationDuration = number('animationDuration', 500, {}, tooltipId);
+        const tooltipAnimationEasing = select('animationEasing', animationType, 'ease', tooltipId);
+    
+    
     
         const travellerWidth = number('travellerWidth', 20, {}, brushId);
         const brushHeight = number('height', 20, {}, brushId);
@@ -530,41 +626,50 @@ import Changelog from '../../CHANGELOG.md';
         const brushMargin = number('brushMargin', 10, { min: 0, max: 100 }, brushId);
         const brushHeightAlwaysShowText = boolean('alwaysShowText', true, brushId);
     
+    
+    
         const lineHide = boolean('hide', false, lineId);
         const lineHideLegend = boolean('hideLegend', false, lineId);
         const lineHideTooltip = boolean('hideTooltip', false, lineId);
-        const lineIcon = select('icon', iconTypes, 'strokeCircle', lineId);
         const lineZIndex = number('zIndex', 50, {}, lineId);
-        const lineType = select('type', linesType, 'monotone', lineId);
-        const lineStrokeWidth = number('strokeWidth', 2, {}, lineId);
-        const lineStroke = text('stroke', 'var(--color-static-status-blue)', lineId);
-        const lineName = text('name', 'текущий период', lineId);
-        const lineScale = number('dotSettings: { scale }', 1.5, {}, lineId);
-        const lineInitScale = number('dotSettings: { initScale }', 0, {}, lineId);
-        const lineWidth = number('dotSettings: { width }', 18, {}, lineId);
-        const lineInheritStroke = boolean('inheritStroke', true, lineId);
-        const lineStrokeDasharray = text('strokeDasharray', '10 10', lineId);
-        const lineDot = boolean('dot', true, lineId);
+        const lineIcon = select('icon', iconTypes, 'strokeCircle', lineId);
+    
+        const lineName = text('properties.name', 'текущий период', lineId);
+        const lineStroke = text('properties.stroke', 'var(--color-static-status-blue)', lineId);
+        const lineDot = boolean('properties.dot', true, lineId);
+        const lineScale = number('properties.dotSettings.scale', 1.5, {}, lineId);
+        const lineInitScale = number('properties.dotSettings.initScale', 0, {}, lineId);
+        const lineStrokeWidth = number('properties.strokeWidth', 2, {}, lineId);
+        const lineInheritStroke = boolean('properties.inheritStroke', true, lineId);
+        const lineType = select('properties.type', linesType, 'monotone', lineId);
+        const lineWidth = number('properties.dotSettings.width', 18, {}, lineId);
+        const lineStrokeDasharray = text('properties.strokeDasharray', '10 10', lineId);
+    
+    
     
         const areaHide = boolean('hide', false, areaId);
         const areaHideLegend = boolean('hideLegend', false, areaId);
         const areaHideTooltip = boolean('hideTooltip', false, areaId);
-        const areaIcon = select('icon', iconTypes, 'filledCircle', areaId);
         const areaZIndex = number('zIndex', 100, {}, areaId);
+        const areaIcon = select('icon', iconTypes, 'filledCircle', areaId);
         const areaOffset = number('offset', 0.1, {min: 0, max: 1, step: 0.1}, areaId);
-        const areaColor_1 = text('gradient color above', 'rgba(0, 112, 224, 0.2)', areaId);
-        const areaColorOpacity_1 = number('gradient opacity of color above', 1, {min: 0, max: 1, step: 0.1}, areaId);
-        const areaColor_2 = text('gradient color below', 'rgba(0, 128, 255, 0)', areaId);
+    
+        const areaColor_1 = text('gradient.points.color', 'rgba(0, 112, 224, 0.2)', areaId);
+        const areaColorOpacity_1 = number('gradient.points.opacity', 1, {min: 0, max: 1, step: 0.1}, areaId);
+        const areaColor_2 = text('gradient.points.color', 'rgba(0, 128, 255, 0)', areaId);
         const areaColorOpacity_2 = number('gradient opacity of color below', 1, {min: 0, max: 1, step: 0.1}, areaId);
-        const areaType = select('type', linesType, 'monotone', areaId);
-        const areaStrokeWidth = number('strokeWidth', 2, {}, areaId);
-        const areaStroke = text('stroke', 'var(--color-static-status-blue)', areaId);
-        const areaName = text('name', 'предыдущий период', areaId);
-        const areaScale = number('dotSettings: { scale }', 1.5, {}, areaId);
-        const areaInitScale = number('dotSettings: { initScale }', 0, {}, areaId);
-        const areaWidth = number('dotSettings: { width }', 18, {}, areaId);
-        const areaStrokeDasharray = text('strokeDasharray', '10 10', areaId);
-        const areaDot = boolean('dot', true, areaId);
+    
+        const areaName = text('properties.name', 'предыдущий период', areaId);
+        const areaType = select('properties.type', linesType, 'monotone', areaId);
+        const areaStroke = text('properties.stroke', 'var(--color-static-status-blue)', areaId);
+        const areaScale = number('properties.dotSettings.scale', 1.5, {}, areaId);
+        const areaInitScale = number('properties.dotSettings.initScale', 0, {}, areaId);
+        const areaWidth = number('properties.dotSettings.width', 18, {}, areaId);
+        const areaStrokeWidth = number('properties.strokeWidth', 2, {}, areaId);
+        const areaDot = boolean('properties.dot', true, areaId);
+        const areaStrokeDasharray = text('properties.strokeDasharray', '10 10', areaId);
+    
+    
     
         const responsiveContainer = {
             debounce
@@ -646,9 +751,9 @@ import Changelog from '../../CHANGELOG.md';
                 strokeWidth: cursorStrokeWidth
             },
             isAnimationActive: tooltipIsAnimationActive,
-            animationBegin: 0,
-            animationDuration: 500,
-            animationEasing: 'ease',
+            animationBegin: tooltipAnimationBegin,
+            animationDuration: tooltipAnimationDuration,
+            animationEasing: tooltipAnimationEasing,
             arrow: tooltipArrow,
             labelFormatter: formatXAxis,
         };
@@ -1134,9 +1239,14 @@ import Changelog from '../../CHANGELOG.md';
         };
     
         return (
-            <div>
-                <div style={{ marginBottom: '20px', top: 25, width: '100%', maxWidth: '1050px', height: '600px' }}>
+            <div style={{ display: 'flex' }}>
+                <div style={{ marginBottom: '20px', top: 25, width: '1050px', height: '600px' }}>
                     <Chart options={ lineChartOptions } />
+                </div>
+                <div style={{ width: '500px', height: '600px', overflow: 'auto' }}>
+                    <pre>
+                        { JSON.stringify(clearData(lineChartOptions), null, 2) }
+                    </pre>
                 </div>
             </div>
         )
