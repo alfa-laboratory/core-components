@@ -37,6 +37,7 @@ export const Header: FC = () => {
 
     const currentImage = getCurrentImage();
 
+    const canDownload = currentImage?.canDownload ?? true;
     const filename = currentImage?.name || '';
     const description = singleSlide
         ? ''
@@ -45,6 +46,7 @@ export const Header: FC = () => {
     const meta = getCurrentImageMeta();
 
     const showFullScreenButton = !isSmallImage(meta) && !meta?.broken;
+    const showDownloadButton = !meta?.broken && canDownload;
 
     const renderToggleFullScreenButton = () =>
         fullScreen ? (
@@ -60,7 +62,7 @@ export const Header: FC = () => {
             <div className={styles.buttons}>
                 {showFullScreenButton && renderToggleFullScreenButton()}
 
-                {!meta?.broken && (
+                {showDownloadButton && (
                     <Buttons.Download href={currentImage?.src} download={currentImage?.name} />
                 )}
 

@@ -3,6 +3,7 @@ export type GalleryImage = {
     name?: string;
     previewSrc?: string;
     alt?: string;
+    canDownload?: boolean;
 };
 
 export type ImageMeta = {
