@@ -43,6 +43,7 @@ export const BaseSelect = forwardRef(
             circularNavigation = false,
             nativeSelect = false,
             defaultOpen = false,
+            open: openProp,
             popoverPosition = 'bottom-start',
             preventFlip = true,
             optionsListWidth = 'content',
@@ -138,16 +139,25 @@ export const BaseSelect = forwardRef(
             openMenu,
         } = useCombobox<OptionShape>({
             id,
+            isOpen: openProp,
             circularNavigation,
             items: flatOptions,
             itemToString,
             defaultHighlightedIndex: selectedItems.length === 0 ? -1 : undefined,
             onIsOpenChange: changes => {
                 if (onOpen) {
-                    onOpen({
-                        open: changes.isOpen,
-                        name,
-                    });
+                    /**
+                     *  Вызываем обработчик асинхронно.
+                     *
+                     * Иначе при клике вне открытого селекта сначала сработает onOpen, который закроет селект,
+                     * А затем сработает onClick кнопки открытия\закрытия с open=false и в итоге селект откроется снова.
+                     */
+                    setTimeout(() => {
+                        onOpen({
+                            open: changes.isOpen,
+                            name,
+                        });
+                    }, 0);
                 }
             },
             stateReducer: (state, actionAndChanges) => {
@@ -294,6 +304,13 @@ export const BaseSelect = forwardRef(
         useEffect(() => {
             if (defaultOpen) openMenu();
         }, [defaultOpen, openMenu]);
+
+        useEffect(() => {
+            if (openProp) {
+                openMenu();
+            }
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, []);
 
         const calcOptionsListWidth = useCallback(() => {
             if (listRef.current) {

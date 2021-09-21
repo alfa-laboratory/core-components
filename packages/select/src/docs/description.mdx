@@ -87,6 +87,44 @@ render(() => {
 });
 ```
 
+
+#### Управление открытием
+
+```tsx live
+const options = [
+    { key: '1', content: 'Neptunium' },
+    { key: '2', content: 'Plutonium' },
+    { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
+];
+
+render(() => {
+    const [open, setOpen] = React.useState(false);
+
+    return (
+        <Space direction='horizontal'>
+            <Select
+                options={options}
+                placeholder='Выберите элемент'
+                open={open}
+                onOpen={(payload) => { setOpen(payload.open) }}
+                // Полностью управляемое открытие
+                // onChange={payload => {
+                //     setOpen(false);
+                // }}
+            />
+            <Button onClick={() => setOpen(o => !o)}>
+                {open ? 'Закрыть' : 'Открыть'}
+            </Button>
+        </Space>
+    );
+});
+```
+
 #### OptionShape вместо ключей для выбранных пунктов
 
 Иногда может быть удобнее использовать в качестве выбранных значений не ключи, а сами объекты.

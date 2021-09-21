@@ -97,6 +97,11 @@ export type BaseSelectProps = {
     defaultOpen?: boolean;
 
     /**
+     * Управление открытием
+     */
+    open?: boolean;
+
+    /**
      * Возможность выбрать несколько значений
      */
     multiple?: boolean;

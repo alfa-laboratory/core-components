@@ -6,7 +6,6 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="downshift-1-menu"
         class="component"
@@ -55,7 +54,6 @@ Object {
   </body>,
   "container": <div>
     <div
-      aria-expanded="false"
       aria-haspopup="listbox"
       aria-owns="downshift-1-menu"
       class="component"
@@ -155,7 +153,6 @@ Object {
 exports[`Select Snapshots tests should match snapshot with fatal error 1`] = `
 <div>
   <div
-    aria-expanded="false"
     aria-haspopup="listbox"
     aria-owns="downshift-3-menu"
     class="component"
