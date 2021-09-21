@@ -212,7 +212,6 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
             phone,
             requiredCharAmount = 5,
             signTitle = 'Введите код из\xa0сообщения',
-            // TODO в docs + canvas и default props
             overlimitTitle = 'Превышено количество\n попыток ввода кода',
             overlimitText = 'Повторное подтверждение кодом из SMS\n будет возможно через',
             overlimitCountdownDuration = 60000,
