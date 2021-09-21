@@ -1,0 +1,37 @@
+@import '../../vars.css';
+
+.component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    @mixin _confirmation-title;
+
+    margin-bottom: var(--gap-3xl);
+}
+
+.description {
+    @mixin _confirmation-text;
+}
+
+.countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--gap-2xs);
+}
+
+.loader {
+    margin-right: var(--gap-xs);
+}
+
+.timePassed {
+    display: flex;
+    min-width: 3em;
+}
+
+.getCodeButton {
+    margin-top: var(--gap-2xl);
+}

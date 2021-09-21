@@ -11,6 +11,7 @@ render(() => {
     const [error, setError] = React.useState('');
     const [errorIsFatal, setErrorIsFatal] = React.useState(false);
     const [noAttemptsLeftMessage, setNoAttemptsLeftMessage] = React.useState('');
+    const [errorOverlimit, setErrorOverlimit] = React.useState(false);
 
     const setCode = code => {
         setValue(code);
@@ -35,6 +36,14 @@ render(() => {
                 case 'attempts-left':
                     setNoAttemptsLeftMessage('Не осталось попыток запроса кода');
                     break;
+                case 'overlimit-input':
+                    setErrorOverlimit(true);
+                    setErrorIsFatal(false);
+                    break;
+                case 'overlimit-attempts':
+                    setErrorOverlimit(true);
+                    setErrorIsFatal(false);
+                    break;
             }
         }, 300);
     };
@@ -55,10 +64,9 @@ render(() => {
                     { key: 'success', content: 'Успешный сценарий' },
                     { key: 'error', content: 'Сценарий с ошибкой' },
                     { key: 'fatal', content: 'Сценарий с критичной ошибкой' },
-                    {
-                        key: 'attempts-left',
-                        content: 'Сценарий, когда кончились попытки запроса смс',
-                    },
+                    { key: 'attempts-left', content: 'Сценарий, когда кончились попытки запроса смс'},
+                    { key: 'overlimit-input', content: 'Сценарий, когда кончились попытки ввода и форма заблокирована'},
+                    { key: 'overlimit-attempts', content: 'Сценарий, когда кончились попытки запроса смс и форма заблокирована'},
                 ]}
                 onChange={({ selected }) => {
                     setVariant(selected);
@@ -88,6 +96,7 @@ render(() => {
                     errorText={error}
                     errorIsFatal={errorIsFatal}
                     noAttemptsLeftMessage={noAttemptsLeftMessage}
+                    errorOverlimit={errorOverlimit}
                 />
             </div>
         </Space>
