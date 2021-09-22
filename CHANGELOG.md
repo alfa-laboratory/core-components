@@ -1,3 +1,10 @@
+# [20.2.0](https://github.com/alfa-laboratory/core-components/compare/v20.1.0...v20.2.0) (2021-09-22)
+
+
+### Features
+
+* **gallery:** add `canDownload` image prop, some refactoring ([#837](https://github.com/alfa-laboratory/core-components/issues/837)) ([b0c6665](https://github.com/alfa-laboratory/core-components/commit/b0c6665bb6a3d4b1e9d5bc176149f63ca2bd8542))
+
 # [20.1.0](https://github.com/alfa-laboratory/core-components/compare/v20.0.0...v20.1.0) (2021-09-16)
 
 
