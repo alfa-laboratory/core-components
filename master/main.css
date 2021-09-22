@@ -5133,6 +5133,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     overflow: hidden;
     -webkit-transition: border 0.15s ease-in-out;
     transition: border 0.15s ease-in-out;
+    outline: none;
 }
 .active_2Rt1b {
     border-color: var(--color-light-border-key-inverted)
@@ -5366,8 +5367,6 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
             align-items: center;
     width: 100%;
     height: 100%;
-    -webkit-transition: opacity 0.15s ease-in-out;
-    transition: opacity 0.15s ease-in-out;
 }
 .slideLoading_3glTn {
     /* TODO: цвета нет в палитре */
