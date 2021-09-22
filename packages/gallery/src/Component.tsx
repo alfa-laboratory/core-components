@@ -113,7 +113,7 @@ export const Gallery: FC<GalleryProps> = ({
 
     const handleKeyDown = useCallback(
         (event: KeyboardEvent) => {
-            if (fullScreen) {
+            if (!open || fullScreen) {
                 return;
             }
 
@@ -126,7 +126,7 @@ export const Gallery: FC<GalleryProps> = ({
                     break;
             }
         },
-        [fullScreen, slideNext, slidePrev],
+        [fullScreen, open, slideNext, slidePrev],
     );
 
     useEffect(() => {

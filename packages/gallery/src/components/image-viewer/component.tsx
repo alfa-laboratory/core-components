@@ -54,7 +54,7 @@ export const ImageViewer: FC = () => {
     const swiper = getSwiper();
 
     const handleSlideChange = useCallback(() => {
-        setCurrentSlideIndex(swiper?.activeIndex || initialSlide);
+        setCurrentSlideIndex(swiper?.activeIndex ?? initialSlide);
     }, [setCurrentSlideIndex, swiper, initialSlide]);
 
     const handlePrevClick = () => {
@@ -116,6 +116,9 @@ export const ImageViewer: FC = () => {
         () => ({
             slidesPerView: 1,
             effect: 'fade',
+            fadeEffect: {
+                crossFade: true,
+            },
             className: cn(styles.swiper, { [styles.hidden]: fullScreen }),
             controller: { control: swiper },
             a11y: {
@@ -182,7 +185,10 @@ export const ImageViewer: FC = () => {
                     return (
                         <SwiperSlide
                             key={getImageKey(image, index)}
-                            style={{ pointerEvents: slideVisible ? 'auto' : 'none' }}
+                            style={{
+                                pointerEvents: slideVisible ? 'auto' : 'none',
+                                transitionProperty: 'opacity',
+                            }}
                         >
                             {({ isActive }) => (
                                 <Slide

@@ -69,13 +69,7 @@ type SlideInnerProps = {
     loading: boolean;
 };
 
-const SlideInner: FC<SlideInnerProps> = ({
-    children,
-    active,
-    broken,
-    loading,
-    withPlaceholder,
-}) => {
+const SlideInner: FC<SlideInnerProps> = ({ children, broken, loading, withPlaceholder }) => {
     const content = broken ? (
         <div className={styles.brokenImgWrapper}>
             <div className={styles.brokenImgIcon} />
@@ -89,12 +83,7 @@ const SlideInner: FC<SlideInnerProps> = ({
     );
 
     return (
-        <div
-            className={cn(styles.slide, { [styles.slideLoading]: loading })}
-            style={{
-                opacity: Number(active),
-            }}
-        >
+        <div className={cn(styles.slide, { [styles.slideLoading]: loading })}>
             {withPlaceholder ? <div className={styles.placeholder}>{content}</div> : content}
         </div>
     );

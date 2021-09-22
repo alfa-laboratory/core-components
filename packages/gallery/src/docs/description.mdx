@@ -75,7 +75,7 @@ const Example = () => {
             src: 'https://unsplash.com/photos/ywiAen4L4qA/download?force=true'
         }
     ]
-    
+
     return (
         <div>
             <Button view="primary" onClick={() => { setOpen(true) }}>Открыть галерею</Button>
@@ -86,6 +86,84 @@ const Example = () => {
                     setOpen(false);
                 }}
                 images={images}
+            />
+        </div>
+    )
+}
+
+render(<Example />)
+```
+
+Еще одна галерея:
+
+```tsx live
+const Example = () => {
+    const [open, setOpen] = React.useState(false);
+    const [initialSlide, setInitialSlide] = React.useState(0);
+
+    const openGallery = (slideIndex) => {
+        setInitialSlide(slideIndex);
+        setOpen(true);
+    }
+
+    const closeGallery = () => {
+        setInitialSlide(0);
+        setOpen(false);
+    }
+
+    const images = [
+        {
+            src: 'https://lastfm.freetls.fastly.net/i/u/ar0/b2bcf80a513341d0c1ebbe4027c81a69.png'
+        },
+        {
+            src: 'https://prelestno24.ru/800/600/https/i.pinimg.com/736x/1b/27/5b/1b275b675d3c3abbdfe39e45e08faa2c.jpg'
+        },
+        {
+            src: 'https://www.shans-na-schastye.ru/wp-content/uploads/2020/12/novyj-god-doma-pochemu-eto-ploxo-scaled.jpeg'
+        },
+        {
+            src: 'https://demotivation.ru/wp-content/uploads/2020/08/s1200-1-25.jpg'
+        },
+        {
+            src: 'https://huntland.ru/wp-content/uploads/2019/01/kavkazskiy_lesnoy_kot_10.jpg'
+        },
+        {
+            src: 'https://krasivosti.pro/uploads/posts/2021-04/1618933529_29-krasivosti_pro-p-sokol-sapsan-v-tundre-ptitsi-krasivo-foto-33.jpg'
+        },
+        {
+            src: 'https://best-top10.ru/wp-content/uploads/2016/12/medved_gizli.jpg'
+        },
+        {
+            src: 'https://s1.1zoom.ru/b5949/146/Sunrises_and_sunsets_Winter_Sweden_Arvika_Snow_Fir_515425_1600x1200.jpg'
+        }
+    ]
+
+    return (
+        <div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', maxWidth: '850px' }}>
+                {images.map((image, index) => (
+                    <div
+                        key={image.src}
+                        onClick={() => {
+                            openGallery(index);
+                        }}
+                        style={{
+                            width: '200px',
+                            height: '200px',
+                            cursor: 'pointer',
+                            backgroundSize: 'cover',
+                            backgroundImage: `url(${image.src})`,
+                            margin: '4px'
+                        }}
+                    />
+                ))}
+            </div>
+
+            <Gallery
+                open={open}
+                onClose={closeGallery}
+                images={images}
+                initialSlide={initialSlide}
             />
         </div>
     )
