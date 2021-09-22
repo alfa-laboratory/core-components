@@ -1,0 +1,68 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    display: flex;
+    padding: var(--gap-2xs);
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-radius: var(--border-radius-l);
+    overflow: hidden;
+    transition: border 0.15s ease-in-out;
+}
+
+.active {
+    border-color: var(--color-light-border-key-inverted);
+
+    & > .image {
+        opacity: 0.7;
+    }
+}
+
+.preview {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    border-radius: var(--border-radius-m);
+    cursor: pointer;
+    user-select: none;
+}
+
+.image {
+    background-color: var(--color-light-bg-primary);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: opacity 0.15s ease-in-out;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.loading {
+    /* TODO: цвета нет в палитре */
+    background-color: #e9eaeb;
+}
+
+.brokenImageWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-light-bg-primary);
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.brokenIcon {
+    width: 40px;
+    height: 40px;
+    background-image: var(--gallery-broken-image-icon);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.focused {
+    @mixin focus-outline;
+}

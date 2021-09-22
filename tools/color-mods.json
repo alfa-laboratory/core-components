@@ -11,7 +11,7 @@
         "alpha": [8]
     },
     "light-bg-primary-inverted": {
-        "alpha": [3, 7, 10, 15, 20, 40]
+        "alpha": [3, 7, 10, 15, 20, 40, 50]
     },
     "light-bg-secondary-inverted": {
         "alpha": [7, 15]

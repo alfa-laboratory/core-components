@@ -1,0 +1,132 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-light-bg-primary-inverted-alpha-50);
+}
+
+.swiper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    /* 168px - высота хэдера и футера */
+    max-height: calc(100vh - 168px);
+    padding: var(--gap-2xl) var(--gap-m);
+    box-sizing: border-box;
+}
+
+.singleSlide .swiper {
+    max-height: calc(100vh - 80px);
+    padding: var(--gap-2xl);
+}
+
+.hidden {
+    display: none;
+}
+
+.slide {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.15s ease-in-out;
+}
+
+.slideLoading {
+    /* TODO: цвета нет в палитре */
+    background-color: #e9eaeb;
+    border-radius: var(--border-radius-m);
+}
+
+.image {
+    width: 0;
+    height: 0;
+    user-select: none;
+    background-color: var(--color-light-bg-primary);
+    border-radius: var(--border-radius-m);
+}
+
+.smallImage {
+    position: relative;
+    width: auto;
+    height: auto;
+    user-select: none;
+    background-color: var(--color-light-bg-primary);
+}
+
+.verticalImageFit {
+    width: auto;
+    height: 100%;
+}
+
+.horizontalImageFit {
+    width: 100%;
+    height: auto;
+}
+
+.arrow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 96px;
+    height: 100%;
+    cursor: pointer;
+    color: var(--color-light-graphic-primary-inverted);
+    transition: background-color 0.15s ease-in-out;
+    outline: none;
+
+    &:hover {
+        background-color: var(--color-light-bg-primary-inverted-alpha-10);
+    }
+
+    &:active {
+        background-color: var(--color-light-bg-primary-inverted-alpha-20);
+    }
+}
+
+.focused {
+    @mixin focus-outline;
+}
+
+.placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 300px;
+    border-radius: var(--border-radius-m);
+    background-color: var(--color-light-bg-primary);
+}
+
+.brokenImgWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+    text-align: center;
+}
+
+.brokenImgIcon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: var(--gap-2xs);
+    background-image: var(--gallery-broken-image-icon);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.fullScreenImage {
+    width: 100%;
+    height: auto;
+    background-color: var(--color-light-bg-primary);
+}
