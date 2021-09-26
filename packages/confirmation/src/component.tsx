@@ -36,6 +36,11 @@ export type ConfirmationProps = {
     errorOverlimit?: boolean;
 
     /**
+     * Состояние критической ошибки лимитов - превышены все лимиты и попытки, пользователя блокируют
+     */
+    errorOverlimitIsFatal?: boolean;
+
+    /**
      * Текст ошибки подписания
      */
     errorText?: string;
@@ -206,6 +211,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
             errorTitle = 'Превышено количество попыток ввода кода',
             error = false,
             errorOverlimit = false,
+            errorOverlimitIsFatal = false,
             errorText,
             hasPhoneMask = true,
             hasSmsCountdown = true,
@@ -214,7 +220,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
             signTitle = 'Введите код из\xa0сообщения',
             overlimitTitle = 'Превышено количество\n попыток ввода кода',
             overlimitText = 'Повторное подтверждение кодом из SMS\n будет возможно через',
-            overlimitCountdownDuration = 60000,
+            overlimitCountdownDuration,
             code,
             codeSending = false,
             codeChecking = false,
@@ -239,7 +245,6 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
     ) => {
         const [showHint, setShowHint] = useState(false);
 
-        // TODO START -- можно переделать в состояния под каждый тип --
         const shouldShowFatalError = errorIsFatal && Boolean(errorText);
 
         const shouldShowOverlimitError = !errorIsFatal && !showHint && errorOverlimit;
@@ -248,7 +253,6 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
             !showHint && !shouldShowFatalError && !shouldShowOverlimitError;
 
         const shouldShowHint = showHint && !shouldShowFatalError && !shouldShowOverlimitError;
-        // TODO END -- можно переделать в состояния под каждый тип --
 
         const nonFatalError = errorIsFatal ? '' : errorText;
 
@@ -257,6 +261,12 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
         const handleSmsRetryClick = useCallback(() => {
             onSmsRetryClick();
         }, [onSmsRetryClick]);
+
+        const handleOverlimitSmsRetryClick = useCallback(() => {
+            if (onOverlimitSmsRetryClick) {
+                onOverlimitSmsRetryClick();
+            }
+        }, [onOverlimitSmsRetryClick]);
 
         const handleSmsRetryFromHintClick = useCallback(() => {
             setShowHint(false);
@@ -341,9 +351,9 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                         duration={overlimitCountdownDuration}
                         title={overlimitTitle}
                         text={overlimitText}
-                        // hasFatalError={true}
+                        hasFatalError={errorOverlimitIsFatal}
                         buttonRetryText={buttonRetryText}
-                        onOverlimitRepeatSms={onOverlimitSmsRetryClick}
+                        onOverlimitRepeatSms={handleOverlimitSmsRetryClick}
                         onOverlimitCountdownFinished={handleOverlimitCountdownFinished}
                     />
                 )}

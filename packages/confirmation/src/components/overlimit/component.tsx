@@ -1,6 +1,7 @@
 import React, { MouseEvent, FC, useCallback, useState, useRef, useEffect } from 'react';
 
 import { Button } from '@alfalab/core-components-button';
+import { CrossCircleMIcon } from '@alfalab/icons-glyph';
 
 import { CountdownLoader } from '../countdown-loader';
 import { formatMsAsMinutes } from '../countdown';
@@ -8,19 +9,19 @@ import { formatMsAsMinutes } from '../countdown';
 import styles from './index.module.css';
 
 export type OverlimitProps = {
-    duration: number;
+    duration?: number;
     buttonRetryText: string;
-    // hasError: boolean;
+    hasFatalError: boolean;
     title: string;
     text: string;
-    onOverlimitCountdownFinished?: () => void;
-    onOverlimitRepeatSms?: (event: MouseEvent) => void;
+    onOverlimitCountdownFinished: () => void;
+    onOverlimitRepeatSms: (event: MouseEvent) => void;
 };
 
 export const Overlimit: FC<OverlimitProps> = ({
     duration = 60000,
     buttonRetryText,
-    // hasError,
+    hasFatalError,
     onOverlimitRepeatSms,
     onOverlimitCountdownFinished,
     text,
@@ -85,14 +86,13 @@ export const Overlimit: FC<OverlimitProps> = ({
 
     const progress = timePassed / duration;
 
-    /*
-     * TODO переделать в 3 отдельных состояния
-     * - превышено кол-во попыток ввода
-     * - таймер закончился, кнопка + введите снова
-     * - критикал: превышено кол-во попыток запроса кода
-     */
     return (
         <div className={styles.component}>
+            {hasFatalError && (
+                <div className={styles.alertIcon}>
+                    <CrossCircleMIcon data-test-id='alert-icon' width={64} height={64} />
+                </div>
+            )}
             <span className={styles.title}>{title}</span>
             <div className={styles.description}>
                 <div>{text}</div>

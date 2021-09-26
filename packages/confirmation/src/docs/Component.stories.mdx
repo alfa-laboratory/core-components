@@ -30,6 +30,7 @@ import vars from '!!raw-loader!../vars.css';
         const [errorIsFatal, setErrorIsFatal] = React.useState(false);
         const [noAttemptsLeftMessage, setNoAttemptsLeftMessage] = React.useState('');
         const [errorOverlimit, setErrorOverlimit] = React.useState(false);
+        const [errorOverlimitIsFatal, setErrorOverlimitIsFatal] = React.useState(false);
         const [overlimitTitle, setOverlimitTitle] = React.useState('Превышено количество\n попыток ввода кода');
         const [overlimitText, setOverlimitText] = React.useState('Повторное подтверждение кодом из SMS\n будет возможно через');
         const [overlimitCountdownDuration, setOverlimitCountdownDuration] = React.useState(10000);
@@ -60,12 +61,14 @@ import vars from '!!raw-loader!../vars.css';
                         setOverlimitText('Повторное подтверждение кодом из SMS\n будет возможно через 1 минуту');
                         setOverlimitCountdownDuration(60000);
                         setErrorOverlimit(true);
+                        setErrorOverlimitIsFatal(false);
                         break;
                     case 'overlimit-attempts':
                         setOverlimitTitle('Превышено количество\n попыток запроса кода');
                         setOverlimitText('Повторное подтверждение кода из SMS\n будет возможно через 24 часа ');
                         setOverlimitCountdownDuration(86400000);
                         setErrorOverlimit(true);
+                        setErrorOverlimitIsFatal(true);
                         break;
                 }
             }, 300);
@@ -73,6 +76,7 @@ import vars from '!!raw-loader!../vars.css';
         const handleOverlimitCountdownFinished = () => {
             setOverlimitTitle('Введите код из SMS');
             setOverlimitText('Чтобы продолжить нажмите кнопку\n «Запросить новый код»');
+            setErrorOverlimitIsFatal(false);
         };
         const handleSmsRetryClick = () => {
             setCodeSending(true);
@@ -141,6 +145,7 @@ import vars from '!!raw-loader!../vars.css';
                             errorIsFatal={errorIsFatal}
                             noAttemptsLeftMessage={noAttemptsLeftMessage}
                             errorOverlimit={errorOverlimit}
+                            errorOverlimitIsFatal={errorOverlimitIsFatal}
                             overlimitTitle={overlimitTitle}
                             overlimitText={overlimitText}
                             overlimitCountdownDuration={overlimitCountdownDuration}

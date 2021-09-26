@@ -35,3 +35,9 @@
 .getCodeButton {
     margin-top: var(--gap-2xl);
 }
+
+.alertIcon {
+    text-align: center;
+    margin-bottom: var(--gap-xl);
+    color: var(--color-static-status-red);
+}
