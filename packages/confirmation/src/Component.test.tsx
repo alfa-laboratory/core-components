@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, waitFor } from '@testing-library/react';
+import { render, waitFor, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Confirmation } from './index';
 
@@ -77,8 +77,16 @@ describe('Confirmation', () => {
             expect(container).toMatchSnapshot();
         });
 
-        it('should math snapshot without smsCountdown', () => {
+        it('should match snapshot without smsCountdown', () => {
             const { container } = render(<Confirmation {...baseProps} hasSmsCountdown={false} />);
+
+            expect(container).toMatchSnapshot();
+        });
+
+        it('should match snapshot with overlimit fatal error', () => {
+            const { container } = render(
+                <Confirmation {...baseProps} errorOverlimit={true} errorOverlimitIsFatal={true} />,
+            );
 
             expect(container).toMatchSnapshot();
         });
@@ -431,6 +439,83 @@ describe('Confirmation', () => {
             expect(onInputChange).nthCalledWith(1, { code: '1' });
             expect(onInputChange).nthCalledWith(2, { code: '12' });
             expect(onInputChange).toBeCalledTimes(2);
+        });
+    });
+
+    describe('Overlimit tests', () => {
+        it('should display custom passed overlimitTitle and overlimitText', () => {
+            const customOverlimitTitle = 'Some test title';
+            const customOverlimitText = 'Some overlimit text';
+            render(
+                <Confirmation
+                    {...baseProps}
+                    overlimitTitle={customOverlimitTitle}
+                    overlimitText={customOverlimitText}
+                    errorOverlimit={true}
+                />,
+            );
+
+            expect(screen.getByText(customOverlimitTitle)).toBeInTheDocument();
+            expect(screen.getByText(customOverlimitText)).toBeInTheDocument();
+        });
+
+        it('should display button on overlimit countdown finished', async () => {
+            const buttonRetryText = 'test retry button';
+            const twoMinutesMs = 120 * 1000;
+            const realDate = Date.now();
+            render(
+                <Confirmation
+                    {...baseProps}
+                    overlimitCountdownDuration={30000}
+                    errorOverlimit={true}
+                    buttonRetryText={buttonRetryText}
+                />,
+            );
+
+            expect(screen.queryByText(buttonRetryText)).toEqual(null);
+
+            const spyDateNow = jest
+                .spyOn(global.Date, 'now')
+                .mockImplementation(() => realDate + twoMinutesMs);
+
+            await screen.findByText(buttonRetryText);
+            expect(screen.getByText(buttonRetryText)).toBeInTheDocument();
+
+            spyDateNow.mockClear();
+        });
+
+        it('should call onOverlimitCountdownFinished and onOverlimitSmsRetryClick', async () => {
+            const buttonRetryText = 'test retry button';
+            const twoMinutesMs = 120 * 1000;
+            const realDate = Date.now();
+            const onOverlimitCountdownFinished = jest.fn();
+            const onOverlimitSmsRetryClick = jest.fn();
+            render(
+                <Confirmation
+                    {...baseProps}
+                    errorOverlimit={true}
+                    buttonRetryText={buttonRetryText}
+                    onOverlimitCountdownFinished={onOverlimitCountdownFinished}
+                    onOverlimitSmsRetryClick={onOverlimitSmsRetryClick}
+                />,
+            );
+
+            expect(screen.queryByText(buttonRetryText)).toEqual(null);
+            expect(onOverlimitCountdownFinished).toBeCalledTimes(0);
+
+            const spyDateNow = jest
+                .spyOn(global.Date, 'now')
+                .mockImplementation(() => realDate + twoMinutesMs);
+
+            await screen.findByText(buttonRetryText);
+            expect(screen.getByText(buttonRetryText)).toBeInTheDocument();
+            expect(onOverlimitCountdownFinished).toBeCalledTimes(1);
+
+            expect(onOverlimitSmsRetryClick).toBeCalledTimes(0);
+            userEvent.click(screen.getByText(buttonRetryText));
+            expect(onOverlimitSmsRetryClick).toBeCalledTimes(1);
+
+            spyDateNow.mockClear();
         });
     });
 });

@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
 import { Link } from '@alfalab/core-components-link';
 
-import { SignConfirmation } from './components';
+import { SignConfirmation, Overlimit } from './components';
 
 import styles from './index.module.css';
 
@@ -29,6 +29,16 @@ export type ConfirmationProps = {
      * Состояние ошибки подписания
      */
     error?: boolean;
+
+    /**
+     * Состояние ошибки лимитов - превышено кол-во попыток ввода или запросов кода
+     */
+    errorOverlimit?: boolean;
+
+    /**
+     * Состояние критической ошибки лимитов - превышены все лимиты и попытки, пользователя блокируют
+     */
+    errorOverlimitIsFatal?: boolean;
 
     /**
      * Текст ошибки подписания
@@ -81,6 +91,21 @@ export type ConfirmationProps = {
      * Заголовок экрана подписания
      */
     signTitle?: string | React.ReactNode;
+
+    /**
+     * Заголовок экрана ошибки лимитов
+     */
+    overlimitTitle?: string;
+
+    /**
+     * Текстовое описание блокировки формы при превышении лимитов
+     */
+    overlimitText?: string;
+
+    /**
+     * Длительно блокировки при превышении лимитов, в милисекундах
+     */
+    overlimitCountdownDuration?: number;
 
     /**
      * Заголовок экрана блокирующей ошибки
@@ -149,9 +174,19 @@ export type ConfirmationProps = {
     onSmsRetryClick: () => void;
 
     /**
+     * Обработчик события нажатия на кнопку "Запросить код" в блоке превышение лимитов
+     */
+    onOverlimitSmsRetryClick?: () => void;
+
+    /**
      * Обработчик события завершения обратного отсчета для повторного запроса сообщения
      */
     onCountdownFinished?: () => void;
+
+    /**
+     * Обработчик события завершения обратного отсчета для блокировки формы
+     */
+    onOverlimitCountdownFinished?: () => void;
 
     /**
      * Обработчик события нажатия на ссылку "не приходит сообщение?"
@@ -175,12 +210,17 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
             errorIsFatal,
             errorTitle = 'Превышено количество попыток ввода кода',
             error = false,
+            errorOverlimit = false,
+            errorOverlimitIsFatal = false,
             errorText,
             hasPhoneMask = true,
             hasSmsCountdown = true,
             phone,
             requiredCharAmount = 5,
             signTitle = 'Введите код из\xa0сообщения',
+            overlimitTitle = 'Превышено количество\n попыток ввода кода',
+            overlimitText = 'Повторное подтверждение кодом из SMS\n будет возможно через',
+            overlimitCountdownDuration,
             code,
             codeSending = false,
             codeChecking = false,
@@ -194,8 +234,10 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
             countdownContent,
             onInputFinished,
             onSmsRetryClick,
+            onOverlimitSmsRetryClick,
             onActionWithFatalError,
             onCountdownFinished,
+            onOverlimitCountdownFinished,
             onInputChange,
             onSmsHintLinkClick,
         },
@@ -203,11 +245,14 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
     ) => {
         const [showHint, setShowHint] = useState(false);
 
-        const shouldShowError = errorIsFatal && Boolean(errorText);
+        const shouldShowFatalError = errorIsFatal && Boolean(errorText);
 
-        const shouldShowSignComponent = !showHint && !shouldShowError;
+        const shouldShowOverlimitError = !errorIsFatal && !showHint && errorOverlimit;
 
-        const shouldShowHint = showHint && !shouldShowError;
+        const shouldShowSignComponent =
+            !showHint && !shouldShowFatalError && !shouldShowOverlimitError;
+
+        const shouldShowHint = showHint && !shouldShowFatalError && !shouldShowOverlimitError;
 
         const nonFatalError = errorIsFatal ? '' : errorText;
 
@@ -216,6 +261,12 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
         const handleSmsRetryClick = useCallback(() => {
             onSmsRetryClick();
         }, [onSmsRetryClick]);
+
+        const handleOverlimitSmsRetryClick = useCallback(() => {
+            if (onOverlimitSmsRetryClick) {
+                onOverlimitSmsRetryClick();
+            }
+        }, [onOverlimitSmsRetryClick]);
 
         const handleSmsRetryFromHintClick = useCallback(() => {
             setShowHint(false);
@@ -230,6 +281,12 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                 onCountdownFinished();
             }
         }, [onCountdownFinished]);
+
+        const handleOverlimitCountdownFinished = useCallback(() => {
+            if (onOverlimitCountdownFinished) {
+                onOverlimitCountdownFinished();
+            }
+        }, [onOverlimitCountdownFinished]);
 
         const handleSmsHintLinkClick = useCallback(() => {
             setShowHint(true);
@@ -289,7 +346,19 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                     />
                 )}
 
-                {shouldShowError && (
+                {shouldShowOverlimitError && (
+                    <Overlimit
+                        duration={overlimitCountdownDuration}
+                        title={overlimitTitle}
+                        text={overlimitText}
+                        hasFatalError={errorOverlimitIsFatal}
+                        buttonRetryText={buttonRetryText}
+                        onOverlimitRepeatSms={handleOverlimitSmsRetryClick}
+                        onOverlimitCountdownFinished={handleOverlimitCountdownFinished}
+                    />
+                )}
+
+                {shouldShowFatalError && (
                     <div className={styles.error}>
                         <span className={styles.errorHeader}>{errorTitle}</span>
 

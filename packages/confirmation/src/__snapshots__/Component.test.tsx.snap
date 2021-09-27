@@ -392,6 +392,77 @@ exports[`Confirmation Snapshot tests should match snapshot with nonFatal error 1
 </div>
 `;
 
+exports[`Confirmation Snapshot tests should match snapshot with overlimit fatal error 1`] = `
+<div>
+  <div
+    class="component left"
+  >
+    <div
+      class="component"
+    >
+      <div
+        class="alertIcon"
+      >
+        <svg
+          data-test-id="alert-icon"
+          fill="currentColor"
+          focusable="false"
+          height="64"
+          role="img"
+          viewBox="0 0 24 24"
+          width="64"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-4-7.5l2.586-2.5L8 9.5 9.5 8l2.5 2.586L14.5 8 16 9.5 13.414 12 16 14.5 14.5 16 12 13.414 9.5 16 8 14.5z"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <span
+        class="title"
+      >
+        Превышено количество
+ попыток ввода кода
+      </span>
+      <div
+        class="description"
+      >
+        <div>
+          Повторное подтверждение кодом из SMS
+ будет возможно через
+        </div>
+        <div
+          class="countdown"
+        >
+          <svg
+            class="loader"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+          >
+            <circle
+              class="circle"
+              cx="8"
+              cy="8"
+              r="7"
+              stroke-dasharray="43.98"
+              stroke-dashoffset="0.00"
+              transform="rotate(-90 8 8)"
+            />
+          </svg>
+          <div
+            class="timePassed"
+          >
+            01:00
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Confirmation Snapshot tests should match snapshot with signTitle as react node 1`] = `
 <div>
   <div
@@ -747,7 +818,7 @@ exports[`Confirmation Snapshot tests should match snapshot with unmasked phone 1
 </div>
 `;
 
-exports[`Confirmation Snapshot tests should math snapshot without smsCountdown 1`] = `
+exports[`Confirmation Snapshot tests should match snapshot without smsCountdown 1`] = `
 <div>
   <div
     class="component left"
