@@ -5,7 +5,7 @@ type Props = {
     height?: number;
 };
 
-const FilledCircleIcon = ({ fill = '#5A8ECF', height = 16 }: Props) => {
+export const FilledCircleIcon = ({ fill = '#5A8ECF', height = 16 }: Props) => {
     return (
         <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -38,5 +38,3 @@ const FilledCircleIcon = ({ fill = '#5A8ECF', height = 16 }: Props) => {
         </svg>
     );
 };
-
-export default FilledCircleIcon;

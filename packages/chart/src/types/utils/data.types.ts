@@ -3,6 +3,7 @@ export interface DataProps {
      * Метка
      */
     label: string | number;
+
     /**
      * Значение
      */

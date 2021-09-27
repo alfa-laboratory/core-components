@@ -1,4 +1,4 @@
-import { XAxisProps } from '../xAxis.type';
+import { XAxisProps } from '../xAxis.types';
 
 export interface TickProps {
     /*
@@ -9,19 +9,30 @@ export interface TickProps {
          * Координата по оси Х
          */
         coordinate: number;
+
         /*
          * Значение графика
          */
         value: number;
     };
+
+    /**
+     * Функция форматирования
+     */
     tickFormatter: (value: number | string) => React.ReactText;
+
     /*
      * Координата Х
      */
     x: number;
+
     /*
      * Координата У
      */
     y: number;
+
+    /**
+     * Настройки оси Х
+     */
     xAxis: XAxisProps;
 }

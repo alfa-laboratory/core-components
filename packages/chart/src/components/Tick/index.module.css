@@ -5,3 +5,8 @@
     font-size: 16px;
     line-height: 22px;
 }
+
+.circle {
+    opacity: 0.3;
+    fill: var(--color-dark-bg-primary);
+}

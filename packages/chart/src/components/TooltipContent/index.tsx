@@ -2,9 +2,9 @@ import React from 'react';
 import cn from 'classnames';
 import { Typography } from '@alfalab/core-components-typography';
 
-import { PayloadProps } from '../../types/payload.type';
-import { SeriaProps } from '../../types/seria.type';
-import { TooltipProps } from '../../types/tooltip.type';
+import { PayloadProps } from '../../types/payload.types';
+import { SeriaProps } from '../../types/seria.types';
+import { TooltipProps } from '../../types/tooltip.types';
 
 import styles from './index.module.css';
 
@@ -13,8 +13,16 @@ export interface TooltipContentProps extends TooltipProps {
     series: SeriaProps[];
 }
 
-const TooltipContent = (props: TooltipContentProps) => {
-    const { payload, label, tooltipArrowSide, arrow, series, labelFormatter, labelStyle } = props;
+export const TooltipContent = ({
+    payload,
+    separator,
+    label,
+    tooltipArrowSide,
+    arrow,
+    series,
+    labelFormatter,
+    labelStyle,
+}: TooltipContentProps) => {
     if (!label || payload.length === 0) return null;
 
     return (
@@ -56,7 +64,7 @@ const TooltipContent = (props: TooltipContentProps) => {
                                 className={cn(styles.tooltipValue)}
                             >
                                 {entry?.formatter ? entry.formatter(entry.value) : entry.value}
-                                {props?.separator ? props.separator : ' '}
+                                {separator || ' '}
                             </Typography.Text>
                             <Typography.Text
                                 view='secondary-large'
@@ -70,5 +78,3 @@ const TooltipContent = (props: TooltipContentProps) => {
         </div>
     );
 };
-
-export default React.memo(TooltipContent);
