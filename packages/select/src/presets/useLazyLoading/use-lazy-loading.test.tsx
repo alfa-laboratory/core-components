@@ -117,7 +117,11 @@ describe('Select useLazyLoading hook', () => {
         await waitFor(() => {
             getByTestId('select-field').click();
         });
-        expect(getAllByTestId('skeleton')).toHaveLength(LIMIT);
+
+        await waitFor(() => {
+            expect(getAllByTestId('skeleton')).toHaveLength(LIMIT);
+        });
+
         expect(getAllByTestId('select-option')).toHaveLength(LIMIT);
 
         expect(fetchOptions).toHaveBeenCalledWith(0, LIMIT, '');

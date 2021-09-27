@@ -568,7 +568,10 @@ describe('Select', () => {
             const input = container.querySelector('.contentWrapper') as HTMLInputElement;
 
             fireEvent.click(input);
-            expect(cb).toBeCalledTimes(1);
+
+            waitFor(() => {
+                expect(cb).toBeCalledTimes(1);
+            });
         });
 
         it('should call onChange', async () => {

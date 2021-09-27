@@ -3,7 +3,6 @@
 exports[`Snapshots tests should display correctly 1`] = `
 <div>
   <div
-    aria-expanded="false"
     aria-haspopup="listbox"
     aria-owns="downshift-1-menu"
     class="component container"

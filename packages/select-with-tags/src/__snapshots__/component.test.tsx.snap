@@ -3,7 +3,6 @@
 exports[`SelectWithTags Display tests should match snapshot 1`] = `
 <div>
   <div
-    aria-expanded="false"
     aria-haspopup="listbox"
     aria-owns="downshift-1-menu"
     class="component"
@@ -58,7 +57,6 @@ exports[`SelectWithTags Display tests should match snapshot 1`] = `
 exports[`SelectWithTags Display tests should match snapshot with selected tags 1`] = `
 <div>
   <div
-    aria-expanded="false"
     aria-haspopup="listbox"
     aria-owns="downshift-3-menu"
     class="component"
