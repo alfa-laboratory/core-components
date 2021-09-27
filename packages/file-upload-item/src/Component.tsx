@@ -51,7 +51,7 @@ export type FileUploadItemProps = {
     showDelete?: boolean;
 
     /**
-     * Отображение кнопки удаления
+     * Отображение кнопки восстановления
      */
     showRestore?: boolean;
 
