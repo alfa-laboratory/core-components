@@ -4351,6 +4351,11 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 .noAttemptsLeftMessage_lreKT {
     margin: var(--gap-2xs) 0 var(--gap-xs);
 }
+.component_1NiuD {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
 .input_15JL3 {
     -ms-flex-negative: 0;
         flex-shrink: 0;
@@ -4507,6 +4512,65 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
             -ms-flex-pack: center;
                 justify-content: center;
     }
+.component_3UK7m {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+.title_2dO4l {
+    font-size: var(--confirmation-title-font-size);
+    line-height: var(--confirmation-title-line-height);
+    font-weight: var(--confirmation-title-font-weight);
+    font-family: var(--confirmation-title-font-family);
+    color: var(--confirmation-title-color);
+    -webkit-font-feature-settings: var(--confirmation-title-font-feature-settings);
+            font-feature-settings: var(--confirmation-title-font-feature-settings);
+
+    margin-bottom: var(--gap-3xl);
+}
+.description_113iC {
+    font-size: var(--confirmation-text-font-size);
+    line-height: var(--confirmation-text-line-height);
+    font-weight: var(--confirmation-text-font-weight);
+    font-family: var(--confirmation-text-font-family);
+    color: var(--confirmation-text-color);
+}
+.countdown_u6-vl {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-top: var(--gap-2xs);
+}
+.loader_1JZq3 {
+    margin-right: var(--gap-xs);
+}
+.timePassed_PxYaS {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    min-width: 3em;
+}
+.getCodeButton_30Xjf {
+    margin-top: var(--gap-2xl);
+}
+.alertIcon_Z4Cw3 {
+    text-align: center;
+    margin-bottom: var(--gap-xl);
+    color: var(--color-static-status-red);
+}
 :root {
     /* title */
     --confirmation-title-font-size: 22px;
