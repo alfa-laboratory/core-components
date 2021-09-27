@@ -1,3 +1,17 @@
+# [20.3.0](https://github.com/alfa-laboratory/core-components/compare/v20.2.0...v20.3.0) (2021-09-27)
+
+
+### Bug Fixes
+
+* **file-upload-item:** fix description prop ([#836](https://github.com/alfa-laboratory/core-components/issues/836)) ([e15cf1d](https://github.com/alfa-laboratory/core-components/commit/e15cf1dad438e22ac31984bfcf8531981b88c6de))
+* **intl-phone-input:** fix carret position on backspace ([#840](https://github.com/alfa-laboratory/core-components/issues/840)) ([c786ac1](https://github.com/alfa-laboratory/core-components/commit/c786ac17bd086833f3200570e812028ec4580554)), closes [#806](https://github.com/alfa-laboratory/core-components/issues/806)
+
+
+### Features
+
+* **confirmation:** design update, new type of error "overlimit" and blocking input  ([#841](https://github.com/alfa-laboratory/core-components/issues/841)) ([1ea5d31](https://github.com/alfa-laboratory/core-components/commit/1ea5d3117552f7cc9fcd78092edf634d9020b693))
+* **select:** controlled open ([#839](https://github.com/alfa-laboratory/core-components/issues/839)) ([95d0470](https://github.com/alfa-laboratory/core-components/commit/95d0470a86e1a54f4cb4b789bb7e3281a1f0a401))
+
 # [20.2.0](https://github.com/alfa-laboratory/core-components/compare/v20.1.0...v20.2.0) (2021-09-22)
 
 
