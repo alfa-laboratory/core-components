@@ -12,15 +12,14 @@ export function usePreventCaretReset({ inputRef, clearableCountryCode, countryCo
             const input = event.target as HTMLInputElement;
             const caretPosition = input.selectionStart;
 
-            if (event.key !== 'Backspace' || !caretPosition) return;
+            if (event.key === 'ArrowRight' || event.key === 'ArrowLeft' || !caretPosition) return;
 
             if (!clearableCountryCode && caretPosition <= countryCodeLength) {
                 event.preventDefault();
-
                 return;
             }
 
-            const newPosition = caretPosition - 1;
+            const newPosition = event.key === 'Backspace' ? caretPosition - 1 : caretPosition + 1;
 
             requestAnimationFrame(() => {
                 input.setSelectionRange(newPosition, newPosition);
