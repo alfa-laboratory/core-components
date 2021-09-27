@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@8.2.2...@alfalab/core-components-confirmation@8.3.0) (2021-09-27)
+
+
+### Features
+
+* **confirmation:** design update, new type of error "overlimit" and blocking input  ([#841](https://github.com/alfa-laboratory/core-components/issues/841)) ([1ea5d31](https://github.com/alfa-laboratory/core-components/commit/1ea5d3117552f7cc9fcd78092edf634d9020b693))
+
+
+
+
+
 ## [8.2.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@8.2.1...@alfalab/core-components-confirmation@8.2.2) (2021-09-14)
 
 

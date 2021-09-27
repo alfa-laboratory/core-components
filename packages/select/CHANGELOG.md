@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.6.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.5.0...@alfalab/core-components-select@9.6.0) (2021-09-27)
+
+
+### Features
+
+* **select:** controlled open ([#839](https://github.com/alfa-laboratory/core-components/issues/839)) ([95d0470](https://github.com/alfa-laboratory/core-components/commit/95d0470a86e1a54f4cb4b789bb7e3281a1f0a401))
+
+
+
+
+
 # [9.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.4.4...@alfalab/core-components-select@9.5.0) (2021-09-14)
 
 

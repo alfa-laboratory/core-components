@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@6.1.12...@alfalab/core-components-picker-button@6.2.0) (2021-09-27)
+
+
+### Features
+
+* **select:** controlled open ([#839](https://github.com/alfa-laboratory/core-components/issues/839)) ([95d0470](https://github.com/alfa-laboratory/core-components/commit/95d0470a86e1a54f4cb4b789bb7e3281a1f0a401))
+
+
+
+
+
 ## [6.1.12](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@6.1.11...@alfalab/core-components-picker-button@6.1.12) (2021-09-14)
 
 **Note:** Version bump only for package @alfalab/core-components-picker-button

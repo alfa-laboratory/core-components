@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-file-upload-item@3.1.0...@alfalab/core-components-file-upload-item@3.1.1) (2021-09-27)
+
+
+### Bug Fixes
+
+* **file-upload-item:** fix description prop ([#836](https://github.com/alfa-laboratory/core-components/issues/836)) ([e15cf1d](https://github.com/alfa-laboratory/core-components/commit/e15cf1dad438e22ac31984bfcf8531981b88c6de))
+
+
+
+
+
 # [3.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-file-upload-item@3.0.7...@alfalab/core-components-file-upload-item@3.1.0) (2021-09-14)
 
 
