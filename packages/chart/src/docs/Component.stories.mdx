@@ -454,7 +454,19 @@ import Changelog from '../../CHANGELOG.md';
         return (
             <div style={{ display: 'flex' }}>
                 <div style={{ marginBottom: '20px', top: 25, width: '1050px', height: '600px' }}>
-                    <Chart options={ barChartOptions } />
+                    <Chart
+                        id='bar-chart'
+                        composeChart={ composeChart }
+                        responsiveContainer={ responsiveContainer }
+                        cartesianGrid={ cartesianGrid }
+                        xAxis={ xAxis }
+                        yAxis={ yAxis }
+                        tooltip={ tooltip }
+                        legend={ legend }
+                        brush={ brush }
+                        labels={ labelsBarChart }
+                        series={ [barChartFirst, barChartSecond, lineChart] }
+                    />
                 </div>
                 <div style={{ width: '500px', height: '600px', overflow: 'auto' }}>
                     <pre>
@@ -1241,7 +1253,19 @@ import Changelog from '../../CHANGELOG.md';
         return (
             <div style={{ display: 'flex' }}>
                 <div style={{ marginBottom: '20px', top: 25, width: '1050px', height: '600px' }}>
-                    <Chart options={ lineChartOptions } />
+                    <Chart
+                        id={ 'line-chart' }
+                        composeChart={ composeChart }
+                        responsiveContainer={ responsiveContainer }
+                        cartesianGrid={ cartesianGrid }
+                        xAxis={ xAxis }
+                        yAxis={ yAxis }
+                        tooltip={ tooltip }
+                        legend={ legend }
+                        brush={ brush }
+                        labels={ labelsLineChart }
+                        series={ [lineChart, areaChart] }
+                    />
                 </div>
                 <div style={{ width: '500px', height: '600px', overflow: 'auto' }}>
                     <pre>
@@ -1252,7 +1276,6 @@ import Changelog from '../../CHANGELOG.md';
         )
     })}
 </Story>
-
 
 <!-- Docs -->
 

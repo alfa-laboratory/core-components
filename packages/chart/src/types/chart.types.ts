@@ -1,9 +1,9 @@
 import { ReactElement } from 'react';
 import { RectangleProps } from 'recharts';
 import { DataKey } from 'recharts/types/util/types';
-import { DotSettingProps } from './utils/dot.type';
+import { DotSettingProps } from './utils/dot.types';
 
-import { DataProps } from './utils/data.type';
+import { DataProps } from './utils/data.types';
 
 type CurveType = 'linear' | 'monotone' | 'step';
 
@@ -18,42 +18,52 @@ export interface ChartProps {
      * Название графика (отображается в легендах и тултипе)
      */
     name?: string;
+
     /**
      * Ключ данных
      */
     dataKey: DataKey<number | string>;
+
     /**
      * Цвет заливки графика
      */
     fill?: string;
+
     /**
      * Цвет линии графика
      */
     stroke?: string;
+
     /**
      * Отображение точек на графике
      */
     dot?: boolean;
+
     /**
      * Параметры для точек грфика (если dot: true)
      */
     dotSettings?: DotSettingProps[] | DotSettingProps;
+
     /**
      * Наследование цвета
      */
     inheritStroke?: boolean;
+
     /**
      * Форматирование значения графика для тултипа
      */
     formatter?: Function;
+
     /**
      * Тип линии
      */
     type?: CurveType;
+
     /**
      * Толщина линии
      */
     strokeWidth?: number;
+
     /**
      * Прерывистость линии
      */

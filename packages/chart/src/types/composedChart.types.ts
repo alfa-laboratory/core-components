@@ -8,6 +8,7 @@ export interface ComposedChartProps {
         left?: number;
         right?: number;
     };
+
     /**
      * Отступы которые высчитываются автоматически, основаны на initMargin и отступах разных елементов
      */
@@ -17,14 +18,17 @@ export interface ComposedChartProps {
         left?: number;
         bottom?: number;
     };
+
     /**
      * Максимальная ширина графиков типа bar
      */
     maxBarSize?: number;
+
     /**
      * Разрыв между двумя категориями столбцов, который может быть процентным или фиксированным значением
      */
     barCategoryGap?: string | number;
+
     /**
      * Разрыв между двумя столбцами одной категории
      */

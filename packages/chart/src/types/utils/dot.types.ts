@@ -1,23 +1,27 @@
-import { CoordinatesProps } from './coordinates.type';
-import { DataProps } from './data.type';
+import { CoordinatesProps } from './coordinates.types';
+import { DataProps } from './data.types';
 
 export interface DotSettingProps {
     /**
      * Значение media query.
      */
     media?: number;
+
     /**
      * Значение маштаба при ховере.
      */
     scale: number;
+
     /**
      * Начальный значения маштаба.
      */
     initScale: number;
+
     /**
      * Ширина точки.
      */
     width: number;
+
     /**
      * Высота точки.
      */
@@ -29,6 +33,7 @@ export interface ActiveDotProps {
      * Индекс предыдущей точки.
      */
     prev: number | null;
+
     /**
      * Индекс активной точки.
      */
@@ -45,30 +50,37 @@ export interface DotProps {
      * Индекс активной точки на графике.
      */
     activeDot: null | number;
+
     /**
      * Координата Х.
      */
     cx: number;
+
     /**
      * Координата У.
      */
     cy: number;
+
     /**
      * Ключ данных.
      */
     dataKey: string;
+
     /**
      * Параметры точки.
      */
     dotSettings?: DotSettingProps;
+
     /**
      * Индекс.
      */
     index: number;
+
     /**
      * Цвет линии.
      */
     stroke: string;
+
     /**
      * Значения по этим координатам.
      */

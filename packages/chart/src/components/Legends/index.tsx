@@ -1,18 +1,34 @@
 import React from 'react';
 import cn from 'classnames';
 import { Typography } from '@alfalab/core-components-typography';
-import { LegendComponentProps } from '../../types/legend.type';
-import { SeriaProps } from '../../types/seria.type';
 
-// icons
-import CircleIcon from '../../icons/Circle.icon';
-import CircleLineIcon from '../../icons/CircleLine.icon';
-import FilledCircleIcon from '../../icons/FilledCircle.icon';
-import StrokeCircleIcon from '../../icons/StrokeCircle.icon';
+import { DataDynamicBooleanProps } from '../../types/utils/data.types';
+import { LegendProps } from '../../types/legend.types';
+import { SeriaProps } from '../../types/seria.types';
+
+import { CircleIcon } from '../../icons/Circle';
+import { CircleLineIcon } from '../../icons/CircleLine';
+import { FilledCircleIcon } from '../../icons/FilledCircle';
+import { StrokeCircleIcon } from '../../icons/StrokeCircle';
 
 import styles from './index.module.css';
 
-const Legends = React.forwardRef<HTMLUListElement, LegendComponentProps>(
+interface Props {
+    legend: LegendProps;
+    series: SeriaProps[];
+    id: string;
+    charts: DataDynamicBooleanProps;
+    toggleChart(item: SeriaProps): void;
+}
+
+const icons = {
+    circleLine: CircleLineIcon,
+    filledCircle: FilledCircleIcon,
+    strokeCircle: StrokeCircleIcon,
+    circle: CircleIcon,
+};
+
+export const Legends = React.forwardRef<HTMLUListElement, Props>(
     ({ legend, series, id, charts, toggleChart }, ref): React.ReactElement => {
         const style: React.CSSProperties = {
             textAlign: legend.align || 'center',
@@ -20,26 +36,13 @@ const Legends = React.forwardRef<HTMLUListElement, LegendComponentProps>(
                 (legend.verticalAlign === 'top' ? -1 : 1)}px)`,
         };
 
-        const getIcon = (type: string) => {
-            switch (type) {
-                case 'circleLine':
-                    return CircleLineIcon;
-                case 'filledCircle':
-                    return FilledCircleIcon;
-                case 'strokeCircle':
-                    return StrokeCircleIcon;
-                case 'circle':
-                default:
-                    return CircleIcon;
-            }
-        };
-
         return (
             <ul ref={ref} className={cn(styles.legendWrap)} style={style}>
                 {series.map((item: SeriaProps) => {
                     if (item.hideLegend || item.hide) return null;
 
-                    const Icon = getIcon(item.icon);
+                    const Icon = icons[item.icon] || CircleIcon;
+
                     return (
                         <li
                             role='presentation'
@@ -78,5 +81,3 @@ const Legends = React.forwardRef<HTMLUListElement, LegendComponentProps>(
         );
     },
 );
-
-export default Legends;
