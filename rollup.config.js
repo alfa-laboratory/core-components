@@ -210,10 +210,6 @@ const root = {
     ],
 };
 
-const configs = [es5, modern, esm, root];
-
-if (currentComponentName !== 'themes') {
-    configs.push(cssm);
-}
+const configs = [es5, modern, esm, currentComponentName !== 'themes' && cssm, root].filter(Boolean);
 
 export default configs;
