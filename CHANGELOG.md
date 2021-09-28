@@ -1,3 +1,10 @@
+## [20.3.1](https://github.com/alfa-laboratory/core-components/compare/v20.3.0...v20.3.1) (2021-09-28)
+
+
+### Bug Fixes
+
+* cssm build ([bbc0a47](https://github.com/alfa-laboratory/core-components/commit/bbc0a472a0f68a5b239c4734bdce452f1a107ea6))
+
 # [20.3.0](https://github.com/alfa-laboratory/core-components/compare/v20.2.0...v20.3.0) (2021-09-27)
 
 
