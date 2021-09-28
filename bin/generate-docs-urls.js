@@ -13,7 +13,7 @@ const excludedPackages = ['codemod', 'screenshot-utils', 'themes', 'utils', 'var
 const isComponent = dir => !excludedPackages.includes(dir) && !dir.includes('.');
 
 const packagesDir = path.join(process.cwd(), 'packages');
-const buildDir = path.join(process.cwd(), 'build');
+const buildDir = path.join(process.cwd(), process.env.STORYBOOK_BUILD_DIR || 'build');
 
 async function main() {
     const packagesNames = (await readDir(packagesDir)).filter(isComponent);
