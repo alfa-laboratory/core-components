@@ -37,9 +37,9 @@ export const useSettings = (options: OptionsProps): Settings => {
             settings.legend.margin.top = setLegendMargin(brush, legend);
 
         settings.series = setGradientCharts(series);
-        const [initData, chartsNames, count] = setDatas(series, labels);
+        const [initData, chartsNames, count] = setDatas(settings.series, labels);
         settings.composeChart.margin = setComposedChartsMargin(composeChart, legend, brush, xAxis);
-        settings.series = sortByIndex(series);
+        settings.series = sortByIndex(settings.series);
 
         setState(settings);
         setData(initData);

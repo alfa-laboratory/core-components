@@ -19,10 +19,10 @@ export const setGradientCharts = (series: SeriaProps[]): SeriaProps[] => {
                 });
             }
 
-            const obj = {
+            accum.push({
                 ...item,
                 zIndex: -100,
-                chart: 'gradient' as const,
+                chart: 'gradient',
                 hideLegend: true,
                 hideTooltip: true,
                 properties: {
@@ -31,8 +31,7 @@ export const setGradientCharts = (series: SeriaProps[]): SeriaProps[] => {
                     fill,
                 },
                 data: newData || item.data,
-            };
-            accum.push(obj);
+            });
         }
 
         accum.push(item);

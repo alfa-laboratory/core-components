@@ -543,16 +543,16 @@ import Changelog from '../../CHANGELOG.md';
     
     
     
-        const responsiveContainerId = 'responsiveContainer';
-        const cartesianGridId = 'cartesianGrid';
-        const composeChartId = 'composeChart';
-        const xAxisId = 'xAxis';
-        const yAxisId = 'yAxis';
-        const legendId = 'legend';
-        const tooltipId = 'tooltip';
-        const brushId = 'brush';
-        const lineId = 'line';
-        const areaId = 'area';
+        const responsiveContainerId = 'responsiveContainerId';
+        const cartesianGridId = 'cartesianGridId';
+        const composeChartId = 'composeChartId';
+        const xAxisId = 'xAxisId';
+        const yAxisId = 'yAxisId';
+        const legendId = 'legendId';
+        const tooltipId = 'tooltipId';
+        const brushId = 'brushId';
+        const lineId = 'lineId';
+        const areaId = 'areaId';
     
     
     
@@ -666,9 +666,9 @@ import Changelog from '../../CHANGELOG.md';
         const areaIcon = select('icon', iconTypes, 'filledCircle', areaId);
         const areaOffset = number('offset', 0.1, {min: 0, max: 1, step: 0.1}, areaId);
     
-        const areaColor_1 = text('gradient.points.color', 'rgba(0, 112, 224, 0.2)', areaId);
-        const areaColorOpacity_1 = number('gradient.points.opacity', 1, {min: 0, max: 1, step: 0.1}, areaId);
-        const areaColor_2 = text('gradient.points.color', 'rgba(0, 128, 255, 0)', areaId);
+        const areaColor_1 = text('gradient.points.color above', 'rgba(0, 112, 224, 0.2)', areaId);
+        const areaColorOpacity_1 = number('gradient.points.opacity of color above', 1, {min: 0, max: 1, step: 0.1}, areaId);
+        const areaColor_2 = text('gradient.points.color below', 'rgba(0, 128, 255, 0)', areaId);
         const areaColorOpacity_2 = number('gradient opacity of color below', 1, {min: 0, max: 1, step: 0.1}, areaId);
     
         const areaName = text('properties.name', 'предыдущий период', areaId);
@@ -1247,7 +1247,7 @@ import Changelog from '../../CHANGELOG.md';
             legend,
             brush,
             labels: labelsLineChart,
-            series: [lineChart, areaChart]
+            series: [areaChart]
         };
     
         return (

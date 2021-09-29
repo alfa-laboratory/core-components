@@ -46,5 +46,6 @@ export const setDatas = (
             return null;
         });
     }
+
     return [initData, chartsNames, count];
 };
