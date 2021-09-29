@@ -33,9 +33,9 @@ import { TooltipContent } from './components/TooltipContent';
 import styles from './index.module.css';
 
 const Chart = (props: OptionsProps) => {
-    const [get, set] = useSettings(props);
-    const { state, data, charts, filterCount } = get;
-    const { setCharts, setFilterCount } = set;
+    const [{ state, data, charts, filterCount }, { setCharts, setFilterCount }] = useSettings(
+        props,
+    );
     const [activeDotsState, setActiveDotsState] = useState<ActiveDotProps>({
         prev: null,
         active: null,
@@ -341,8 +341,6 @@ const Chart = (props: OptionsProps) => {
     };
 
     if (!data || !charts || !state) return null;
-
-    console.log('state.series: ', state.series);
 
     return (
         <div
