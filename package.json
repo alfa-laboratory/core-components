@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "20.3.2",
+    "version": "20.4.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -215,9 +215,14 @@
             "arui-cssvars/use-variables": false,
             "stylelint-core-vars/use-vars": true,
             "stylelint-core-vars/use-mixins": true,
-            "selector-pseudo-class-no-unknown": [true, {
-                "ignorePseudoClasses": ["global"]
-              }],
+            "selector-pseudo-class-no-unknown": [
+                true,
+                {
+                    "ignorePseudoClasses": [
+                        "global"
+                    ]
+                }
+            ],
             "stylelint-core-vars/use-one-of-vars": [
                 true,
                 {

@@ -1,3 +1,10 @@
+# [20.4.0](https://github.com/alfa-laboratory/core-components/compare/v20.3.2...v20.4.0) (2021-09-30)
+
+
+### Features
+
+* **chart:** add component ([#835](https://github.com/alfa-laboratory/core-components/issues/835)) ([17d840b](https://github.com/alfa-laboratory/core-components/commit/17d840b9f9f64474491d3ec58d3cda53ad07f0ca))
+
 ## [20.3.2](https://github.com/alfa-laboratory/core-components/compare/v20.3.1...v20.3.2) (2021-09-30)
 
 
