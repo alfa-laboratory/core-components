@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-intl-phone-input@5.3.0...@alfalab/core-components-intl-phone-input@5.3.1) (2021-09-30)
+
+
+### Bug Fixes
+
+* **intl-phone-input:** revert fix carret position on backspace ([772dcf5](https://github.com/alfa-laboratory/core-components/commit/772dcf588ba2d28ab9b02f81d0bf538bf016cae0))
+
+
+
+
+
 # [5.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-intl-phone-input@5.2.0...@alfalab/core-components-intl-phone-input@5.3.0) (2021-09-27)
 
 
