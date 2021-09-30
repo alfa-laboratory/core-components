@@ -1,3 +1,10 @@
+## [20.3.2](https://github.com/alfa-laboratory/core-components/compare/v20.3.1...v20.3.2) (2021-09-30)
+
+
+### Bug Fixes
+
+* **intl-phone-input:** revert fix carret position on backspace ([772dcf5](https://github.com/alfa-laboratory/core-components/commit/772dcf588ba2d28ab9b02f81d0bf538bf016cae0))
+
 ## [20.3.1](https://github.com/alfa-laboratory/core-components/compare/v20.3.0...v20.3.1) (2021-09-28)
 
 
