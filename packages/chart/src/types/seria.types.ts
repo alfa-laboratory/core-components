@@ -2,6 +2,13 @@ import { ChartProps } from './chart.types';
 import { DataProps } from './utils/data.types';
 import { GradientProps } from './utils/gradient.types';
 
+export type RadiusProp = {
+    topLeft?: number;
+    topRight?: number;
+    bottomLeft?: number;
+    bottomRight?: number;
+};
+
 export interface SeriaProps {
     /**
      * Скрыть график
@@ -27,6 +34,11 @@ export interface SeriaProps {
      * Тип графика
      */
     chart: 'line' | 'area' | 'bar' | 'gradient';
+
+    /**
+     * Радиус закругления углов графика типа bar
+     */
+    radius: RadiusProp | number;
 
     /**
      * Тип иконки для графика

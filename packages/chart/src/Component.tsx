@@ -27,6 +27,7 @@ import { ToggleChartProps } from './types/chart.types';
 import { DataDynamicProps, DataDynamicBooleanProps } from './types/utils/data.types';
 import { ActiveDotProps } from './types/utils/dot.types';
 import { CoordinatesProps } from './types/utils/coordinates.types';
+import { RectBar } from './components/RectBar';
 import { Tick } from './components/Tick';
 import { TooltipContent } from './components/TooltipContent';
 
@@ -192,13 +193,17 @@ const Chart = (props: OptionsProps) => {
         if (!state || !charts) return null;
 
         return state.series.map((item: SeriaProps) => {
-            const { chart, properties } = item;
+            const { chart, properties, radius } = item;
             const show = charts[`${properties.dataKey}`];
 
             switch (chart) {
                 case 'bar':
                     return show && !item?.hide ? (
-                        <Bar key={`${state.id}-${properties.dataKey}`} {...properties}>
+                        <Bar
+                            key={`${state.id}-${properties.dataKey}`}
+                            {...properties}
+                            shape={<RectBar radius={radius} />}
+                        >
                             {data.map((_: DataDynamicProps, index: number) => {
                                 const key = `${state.id}-${properties.dataKey}-${index}`;
                                 return (
