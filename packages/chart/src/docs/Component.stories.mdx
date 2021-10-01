@@ -191,12 +191,6 @@ import Changelog from '../../CHANGELOG.md';
         const barHideTooltipFirst = boolean('hideTooltip', false, barIdFirst);
         const barZIndexFirst = number('zIndex', 1, {}, barIdFirst);
         const barIconFirst = select('icon', iconTypes, 'circle', barIdFirst);
-        const barRadiusFirst = object('radius', {
-            topLeft: 10,
-            topRight: 10,
-            bottomLeft: 10,
-            bottomRight: 10
-        }, barIdFirst);
     
         const barFillFirst = text('properties.fill', 'var(--color-static-graphic-persimmon)', barIdFirst);
         const barNameFirst = text('properties.name', 'расход', barIdFirst);
@@ -208,7 +202,6 @@ import Changelog from '../../CHANGELOG.md';
         const barHideTooltipSecond = boolean('hideTooltip', false, barIdSecond);
         const barZIndexSecond = number('zIndex', 10, {}, barIdSecond);
         const barIconSecond = select('icon', iconTypes, 'circle', barIdSecond);
-        const barRadiusSecond = number('radius', 10, {}, barIdSecond);
     
         const barFillSecond = text('properties.fill', 'var(--color-static-graphic-green-jungle)', barIdSecond);
         const barNameSecond = text('properties.name', 'приход', barIdSecond);
@@ -317,7 +310,6 @@ import Changelog from '../../CHANGELOG.md';
             zIndex: barZIndexFirst,
             chart: 'bar',
             icon: barIconFirst,
-            radius: barRadiusFirst,
             properties: {
                 name: barNameFirst,
                 dataKey: 'uv',
@@ -359,7 +351,6 @@ import Changelog from '../../CHANGELOG.md';
             zIndex: barZIndexSecond,
             chart: 'bar',
             icon: barIconSecond,
-            radius: barRadiusSecond || 0,
             properties: {
                 name: barNameSecond,
                 dataKey: 'pv',
@@ -1279,6 +1270,256 @@ import Changelog from '../../CHANGELOG.md';
                 <div style={{ width: '500px', height: '600px', overflow: 'auto' }}>
                     <pre>
                         { JSON.stringify(clearData(lineChartOptions), null, 2) }
+                    </pre>
+                </div>
+            </div>
+        )
+    })}
+</Story>
+
+<!-- Canvas -->
+
+<Story name='Chart.Histogram'>
+    {React.createElement(() => {
+        const clearData = (obj) => {
+            const copy = JSON.parse(JSON.stringify(obj));
+            const labels = ["label", "label", "..."];
+            const series = copy.series.map(item => {
+                item.data = [
+                    {
+                        label: 'label',
+                        value: 'value'
+                    },
+                    '...'
+                ];
+                return item;
+            });
+            return ({ ...obj, labels, series});
+        };
+        const formatXAxis = (time) => {
+            const dateFormat = 'DD MMM';
+            const dateUtc = moment.utc(time);
+            const localDate = dateUtc.local();
+            return localDate.format(dateFormat);
+        };
+    
+        const orientationVertical = {
+            bottom: 'bottom',
+            top: 'top'
+        };
+        const orientationHorizontal = {
+            left: 'left',
+            right: 'right'
+        };
+        const alignHorizontal = {
+            left: 'left',
+            center: 'center',
+            right: 'right'
+        };
+        const alignVertical = {
+            bottom: 'bottom',
+            middle: 'middle',
+            top: 'top'
+        };
+        const linesType = {
+            linear: 'linear',
+            monotone: 'monotone',
+            step: 'step'
+        };
+        const animationType = {
+            ease: 'ease',
+            'ease-in': 'ease-in',
+            'ease-out': 'ease-out',
+            'ease-in-out': 'ease-in-out',
+            linear: 'linear'
+        };
+        const iconTypes = {
+            circleLine: 'circleLine',
+            filledCircle: 'filledCircle',
+            strokeCircle: 'strokeCircle',
+            circle: 'circle',
+        };
+    
+        const responsiveContainerId = 'responsiveContainer';
+        const cartesianGridId = 'cartesianGrid';
+        const composeChartId = 'composeChart';
+        const xAxisId = 'xAxis';
+        const yAxisId = 'yAxis';
+        const barId = 'bar';
+    
+    
+        const debounce = number('debounce', 0, {}, responsiveContainerId);
+    
+    
+        const vertical = boolean('vertical', false, cartesianGridId);
+        const horizontal = boolean('horizontal', false, cartesianGridId);
+    
+    
+    
+        const initMarginTop = number('initMargin.top', 40, {}, composeChartId);
+        const initMarginBottom = number('initMargin.bottom', 20, {}, composeChartId);
+        const marginLeft = number('initMargin.left', 20, {}, composeChartId);
+        const marginRight = number('initMargin.right', 50, {}, composeChartId);
+        const barCategoryGap = text('barCategoryGap', '10%', composeChartId);
+        const barGap = number('barGap', 4, {}, composeChartId);
+        const maxBarSize = number('maxBarSize', 64, {}, composeChartId);
+    
+    
+    
+        const xAxisHide = boolean('hide', false, xAxisId);
+        const xAxisOrientation = select('orientation', orientationVertical, 'bottom', xAxisId);
+        const xAxisTickLine = boolean('tickLine', false, xAxisId);
+        const xAxisTickSize = number('tickSize', 6, {}, xAxisId);
+        const xAxisTickMargin = number('tickMargin', 10, {}, xAxisId);
+        const xAxisMinTickGap = number('minTickGap', 5, {}, xAxisId);
+        const xAxisLine = boolean('axisLine', false, xAxisId);
+    
+    
+    
+        const yAxisHide = boolean('hide', true, yAxisId);
+    
+    
+    
+        const barHide = boolean('hide', false, barId);
+        const barHideLegend = boolean('hideLegend', false, barId);
+        const barHideTooltip = boolean('hideTooltip', false, barId);
+        const barZIndex = number('zIndex', 10, {}, barId);
+        const barIcon = select('icon', iconTypes, 'circle', barId);
+        const barRadius = object('radius', {
+            top: 10,
+            bottom: 10,
+        }, barId);
+    
+        const barFormatter = text('labelList.formatter', '', barId);
+        const barLabelListOffset= number('labelList.offset', 10, {}, barId);
+    
+        const barFill = text('properties.fill', 'var(--color-static-graphic-green-jungle)', barId);
+        const barName = text('properties.name', 'приход', barId);
+    
+        const responsiveContainer = {
+            debounce
+        };
+    
+        const cartesianGrid = {
+            vertical,
+            horizontal,
+        };
+    
+        const composeChart = {
+            initMargin: {
+                top: initMarginTop,
+                bottom: initMarginBottom,
+                left: marginLeft,
+                right: marginRight
+            },
+            barGap,
+            maxBarSize,
+            barCategoryGap,
+        };
+        
+        const xAxis = {
+            hide: xAxisHide,
+            axisLine: xAxisLine,
+            type: 'category',
+            allowDecimals: true,
+            allowDuplicatedCategory: true,
+            interval: 'preserveStartEnd',
+            minTickGap: xAxisMinTickGap,
+            tickLine: xAxisTickLine,
+            tickSize: xAxisTickSize,
+            tickMargin: xAxisTickMargin,
+            dataKey: 'label',
+            orientation: xAxisOrientation,
+        };
+    
+        const yAxis = {
+            hide: yAxisHide,
+        };
+    
+        const labelsBarChart = ['Long label', 'Label1', 'Label2', 'Label3', 'Label4', 'Label5', 'Label6', 'Label7'];
+    
+        const barChart = {
+            hide: barHideLegend,
+            hideLegend: barHideLegend,
+            hideTooltip: barHideTooltip,
+            zIndex: barZIndex,
+            chart: 'bar',
+            icon: barIcon,
+            radius: barRadius || 0,
+            labelList: {
+                formatter: (decimal) => `${decimal}${barFormatter}`,
+                offset: barLabelListOffset,
+            },
+            properties: {
+                name: barName,
+                dataKey: 'cm',
+                formatter: (decimal) => `${decimal * 1000}`,
+                fill: barFill,
+            },
+            data: [
+                {
+                    label: 'Long label',
+                    value: 5000,
+                },
+                {
+                    label: 'Label1',
+                    value: 650,
+                },
+                {
+                    label: 'Label2',
+                    value: 3522,
+                },
+                {
+                    label: 'Label3',
+                    value: 0,
+                },
+                {
+                    label: 'Label4',
+                    value: 2000,
+                },
+                {
+                    label: 'Label5',
+                    value: 1043,
+                },
+                {
+                    label: 'Label6',
+                    value: 600,
+                },
+                {
+                    label: 'Label7',
+                    value: 1,
+                },
+            ],
+        };
+    
+        const barChartOptions = {
+            id: 'bar-chart',
+            composeChart,
+            responsiveContainer,
+            cartesianGrid,
+            xAxis,
+            yAxis,
+            labels: labelsBarChart,
+            series: [barChart]
+        };
+        
+        return (
+            <div style={{ display: 'flex' }}>
+                <div style={{ marginBottom: '20px', top: 25, width: '1050px', height: '600px' }}>
+                    <Chart
+                        id='bar-chart'
+                        composeChart={ composeChart }
+                        responsiveContainer={ responsiveContainer }
+                        cartesianGrid={ cartesianGrid }
+                        xAxis={ xAxis }
+                        yAxis={ yAxis }
+                        labels={ labelsBarChart }
+                        series={ [barChart] }
+                    />
+                </div>
+                <div style={{ width: '500px', height: '600px', overflow: 'auto' }}>
+                    <pre>
+                        { JSON.stringify(clearData(barChartOptions), null, 2) }
                     </pre>
                 </div>
             </div>
