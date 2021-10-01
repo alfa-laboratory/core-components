@@ -122,7 +122,7 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
             [styles.collapsed]: !isExpanded,
         });
 
-        const labelClassName = isExpanded ? styles.expandedLabel : '';
+        const labelClassName = cn(styles.label, isExpanded ? styles.expandedLabel : '');
 
         const ToggledIcon = isExpanded ? ArrowUpMBlackIcon : ArrowDownMBlackIcon;
 
@@ -141,7 +141,6 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
                 }
             }
         }, []);
-
 
         const contentStyles: CSSProperties = useMemo(() => {
             const contentHeight = contentRef.current?.offsetHeight;
@@ -167,15 +166,13 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
                     timeout={300}
                     classNames={transitionClassNames}
                 >
-                    <div ref={contentRef}
-                         className={contentClassName}
-                         onTransitionEnd={handleTransitionEnd}
-                         style={contentStyles}
+                    <div
+                        ref={contentRef}
+                        className={contentClassName}
+                        onTransitionEnd={handleTransitionEnd}
+                        style={contentStyles}
                     >
-                        <div
-                            ref={contentCaseRef}
-                            className={styles.contentCase}
-                        >
+                        <div ref={contentCaseRef} className={styles.contentCase}>
                             {children}
                         </div>
                     </div>

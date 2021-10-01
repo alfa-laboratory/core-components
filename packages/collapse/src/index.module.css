@@ -39,6 +39,10 @@
     height: 0;
 }
 
+.label {
+    transition: margin-top 300ms ease-in-out;
+}
+
 .expandedLabel {
     margin-top: 15px;
 }
