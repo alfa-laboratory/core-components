@@ -13,8 +13,6 @@
 }
 
 .bar {
-    stroke-location: inside;
-    stroke-linejoin: round;
     transition: opacity 0.2s ease-out, d 0.2s ease-out;
 }
 

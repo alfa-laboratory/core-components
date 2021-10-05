@@ -155,7 +155,7 @@ const Chart = (props: OptionsProps) => {
             tick = true;
         }
 
-        return <XAxis {...state.xAxis} tick={tick} allowDuplicatedCategory={false} />;
+        return <XAxis {...state.xAxis} tick={tick} />;
     }, [state]);
 
     const renderYAxis = useMemo((): React.ReactElement | null => {
