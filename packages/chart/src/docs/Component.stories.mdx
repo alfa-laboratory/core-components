@@ -148,6 +148,9 @@ import Changelog from '../../CHANGELOG.md';
         const tooltipIsAnimationActive = boolean('isAnimationActive', true, tooltipId);
         const tooltipSeparator = text('separator', ' ', tooltipId);
         const tooltipOffset = number('offset', 20, {}, tooltipId);
+    
+    
+    
         const cursorStroke = text('cursor.stroke', 'var(--color-light-border-primary)', tooltipId);
         const cursorStrokeWidth = number('cursor.strokeWidth', 1, {}, tooltipId);
         const tooltipFilterNull = boolean('filterNull', true, tooltipId);
@@ -450,7 +453,7 @@ import Changelog from '../../CHANGELOG.md';
             labels: labelsBarChart,
             series: [barChartFirst, barChartSecond, lineChart]
         };
-        
+    
         return (
             <div style={{ display: 'flex' }}>
                 <div style={{ marginBottom: '20px', top: 25, width: '1050px', height: '600px' }}>
@@ -578,8 +581,6 @@ import Changelog from '../../CHANGELOG.md';
         const barSize = number('barSize', 24, {}, composeChartId);
         const maxBarSize = number('maxBarSize', 24, {}, composeChartId);
     
-    
-    
         const xAxisHide = boolean('hide', false, xAxisId);
         const xAxisOrientation = select('orientation', orientationVertical, 'bottom', xAxisId);
         const xAxisAngle = number('angle', 0, {}, xAxisId);
@@ -590,8 +591,6 @@ import Changelog from '../../CHANGELOG.md';
         const xAxisTickMargin = number('tickMargin', 2, {}, xAxisId);
         const xAxisMinTickGap = number('minTickGap', 20, {}, xAxisId);
         const xAxisLine = boolean('axisLine', false, xAxisId);
-    
-    
     
         const yAxisHide = boolean('hide', false, yAxisId);
         const yAxisOrientation = select('orientation', orientationHorizontal, 'left', yAxisId);
