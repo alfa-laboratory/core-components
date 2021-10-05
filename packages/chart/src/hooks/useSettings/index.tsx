@@ -30,7 +30,7 @@ export const useSettings = (options: OptionsProps): Settings => {
     const [filterCount, setFilterCount] = useState<number>(0);
 
     useEffect(() => {
-        const settings: OptionsProps = JSON.parse(JSON.stringify(options));
+        const settings: OptionsProps = { ...options };
         const { brush, legend, series, labels, composeChart, xAxis } = settings;
 
         if (settings.legend?.margin && brush && legend)

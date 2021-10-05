@@ -15,7 +15,8 @@ options: {
      * Oбязательное уникальное поле, такие елменты как `legend`
      * `linearGradient` используют его
      */
-    id;
+    id,
+
     /**
      * Компонент контейнера, позволяющий адаптировать диаграммы к размеру
      * родительского контейнера
@@ -24,8 +25,9 @@ options: {
         /**
          * Значение для debounce функции при ресайзе
          */
-        debounce?: 0;
-    };
+        debounce?: 0,
+    },
+
     /*
      * Диграмма для построения графиков с разными типами
      */
@@ -34,25 +36,29 @@ options: {
         * Отступы графика на момент инициализации компонента
         */
         initMargin?: {
-            top?: 5;
-            right?: 5;
-            bottom?: 5;
-            left?: 5;
+            top?: 5,
+            right?: 5,
+            bottom?: 5,
+            left?: 5,
         },
+
         /*
         * Максимальная ширина графиков типа bar
         */
-        maxBarSize?;
+        maxBarSize?,
+
         /*
         * Разрыв между двумя категориями столбцов,
         который может быть процентным или фиксированным значением
         */
-        barCategoryGap?: '10%';
+        barCategoryGap?: '10%',
+
         /*
         * Разрыв между двумя столбцами одной категории
         */
-        barGap?: 4;
-    };
+        barGap?: 4,
+    },
+
     /**
      * Отображение линий осей графика
      */
@@ -60,24 +66,29 @@ options: {
         /**
          * Отображение горизонтальной сетки
          */
-        horizontal?: true;
+        horizontal?: true,
+
         /**
          * Отображение вертикальной сетки
          */
-        vertical?: true;
+        vertical?: true,
+
         /**
          * Штрихи для осей
          */
-        strokeDashArray?;
+        strokeDashArray?,
+
         /**
          * Цвет разметки сетки
          */
-        stroke?;
+        stroke?,
+
         /**
          * Цвет заливки графика
          */
-        fill?;
-    };
+        fill?,
+    },
+
     /**
      * Настройки оси Х
      */
@@ -85,80 +96,99 @@ options: {
         /**
          * Скрыть ось
          */
-        hide?: false;
+        hide?: false,
+
         /**
          * Отображение линии оси.
          */
-        axisLine?: true;
+        axisLine?: true,
+
         /**
          * Тип оси.
          */
-        type: 'category';
+        type: 'category',
+
         /**
          * Разрешить значениям оси быть десятичными или нет.
          */
-        allowDecimals?: true;
+        allowDecimals?: true,
+
         /**
          * Разрешить или нет на оси дублировать категории,
          * если "type" оси - "category".
          */
-        allowDuplicatedCategory?: true;
+        allowDuplicatedCategory?: true,
+
         /**
          * Угол наклона значений оси.
          */
-        angle?: 0;
+        angle?: 0,
+
         /**
          * Количество делений оси. Не используется,
          * если "тип" - "категория".
          */
-        tickCount?: 5;
+        tickCount?: 5,
+
         /**
          * Интревал линий деления оси
          */
-        interval?: 'preserveEnd';
+        interval?: 'preserveEnd',
+
         /**
          * Минимальный зазор между двумя соседними делениями оси.
          */
-        minTickGap?: 5;
+        minTickGap?: 5,
+
         /**
          * Отображение линий деления оси
          */
-        tickLine?: true;
+        tickLine?: true,
+
         /**
          * Размер линий деления оси
          */
-        tickSize?: 6;
+        tickSize?: 6,
+
         /**
          * Если установлено значение true,
          * галочки переворачиваются вокруг оси,
          * отображая метки внутри диаграммы, а не снаружи.
          */
-        mirror?: false;
+
+        mirror?: false,
+
         /**
          * Отображение горизонтальной сетки
          */
-        reversed?: false;
+        reversed?: false,
+
         /**
          * Реверсировать ось или нет
          */
-        tickMargin?: 0;
+        tickMargin?: 0,
+
         /**
          * Функция форматирования значения деления оси.
          */
-        tickFormatter?;
+        tickFormatter?,
+
         /**
          * Ключ данных, отображаемых на оси.
          */
-        dataKey;
+        dataKey,
+
         /**
          * Ориентация оси
          */
-        orientation?: 'bottom';
+        orientation?: 'bottom',
+
         /**
          * Тип деления оси
          */
-        tickType?;
-    };
+        tickType?,
+    },
+
     /**
      * Настройки оси Y
      */
@@ -166,72 +196,88 @@ options: {
         /**
          * Скрыть ось
          */
-        hide?: false;
+        hide?: false,
+
         /**
          * Отображение линии оси.
          */
-        axisLine?: true;
+        axisLine?: true,
+
         /**
          * Тип оси.
          */
-        type: 'number';
+        type: 'number',
+
         /**
          * Разрешить значениям оси быть десятичными или нет.
          */
-        allowDecimals?: true;
+        allowDecimals?: true,
+
         /**
          * Разрешить или нет на оси дублировать категории,
          * если "type" оси - "category".
          */
-        allowDuplicatedCategory?: true;
+        allowDuplicatedCategory?: true,
+
         /**
          * Угол наклона значений оси.
          */
-        angle?: 0;
+        angle?: 0,
+
         /**
          * Количество делений оси.
          * Не используется, если "тип" - "категория".
          */
-        tickCount?: 5;
+        tickCount?: 5,
+
         /**
          * Интревал линий деления оси
          */
-        interval?: 'preserveEnd';
+        interval?: 'preserveEnd',
+
         /**
          * Минимальный зазор между двумя соседними делениями оси.
          */
-        minTickGap?: 5;
+        minTickGap?: 5,
+
         /**
          * Отображение линий деления оси
          */
-        tickLine?: true;
+        tickLine?: true,
+
         /**
          * Размер линий деления оси
          */
-        tickSize?: 6;
+        tickSize?: 6,
+
         /**
          * Если установлено значение true,
          * галочки переворачиваются вокруг оси,
          * отображая метки внутри диаграммы, а не снаружи.
          */
-        mirror?: false;
+        mirror?: false,
+
         /**
          * Отображение горизонтальной сетки
          */
-        reversed?: false;
+        reversed?: false,
+
         /**
          * Реверсировать ось или нет
          */
-        tickMargin?: 0;
+        tickMargin?: 0,
+
         /**
          * Функция форматирования значения деления оси.
          */
-        tickFormatter?;
+        tickFormatter?,
+
         /**
          * Ключ данных, отображаемых на оси.
          */
-        orientation?: 'bottom';
-    };
+        orientation?: 'bottom',
+    },
+
     /**
      * Всплывающаяся подсказка
      */
@@ -240,16 +286,19 @@ options: {
          * Разделитель между именем и значением
          */
         separator?,
+
         /**
          * Размер смещения между положением всплывающей
          * подсказки и активной позицией
          */
         offset?: 10,
+
         /**
          * Когда элемент полезной нагрузки имеет значение null или undefined,
          * этот элемент не отображается
          */
         filterNull: true,
+
         /**
          * Если установлено false, курсор не будет отображаться, когда всплывающая подсказка активна.
          * Если установлен объект, опция - это конфигурация курсора.
@@ -260,42 +309,50 @@ options: {
              * Цвет линии
              */
             stroke: cursorStroke,
+    
             /**
              * Ширина линии
              */
-            strokeWidth: cursorStrokeWidth
+            strokeWidth: cursorStrokeWidth,
         },
+
         /**
          * Если это поле установлено, положение всплывающей подсказки
          * будет фиксированным и больше не будет перемещаться.
          */
         position?: {
-            x;
-            y;
+            x,
+            y,
         };
+
         /**
          * Если установлено false, анимация всплывающей подсказки будет отключена.
          */
         isAnimationActive?: true,
+
         /**
          * Указывает, когда должна начинаться анимация,
          * единица измерения этого параметра - мс.
          */
         animationBegin?: 0,
+
         /**
          * Определяет продолжительность анимации,
          * единица измерения этого параметра - мс.
          */
         animationDuration?: 1500,
+
         /**
          * Тип функции плавности
          */
         animationEasing?: 'ease',
+
         /**
          * Отображение стрелки тултипа
          */
         arrow?: false,
     };
+
     /**
      * Компонент маштабирования графика
      */
@@ -303,40 +360,49 @@ options: {
         /**
          * Ключ данных
          */
-        dataKey;
+        dataKey,
+
         /**
          * Ширина ползунков
          */
-        travellerWidth?: 5;
+        travellerWidth?: 5,
+
         /**
          * Начальный индекс интервала показа
          */
-        startIndex?;
+        startIndex?,
+
         /**
          * Конечный индекс интервала показа
          */
-        endIndex?;
+        endIndex?,
+
         /**
          * Отступ
          */
-        brushMargin?: 0;
+        brushMargin?: 0,
+
         /**
          * Высота
          */
-        height?: 40;
+        height?: 40,
+
         /**
          * Форматирование значений
          */
-        tickFormatter?;
+        tickFormatter?,
+
         /**
          * Всегда показывать значение текущего интервала
          */
-        alwaysShowText?: false;
+        alwaysShowText?: false,
+
         /**
          * Цвет
          */
-        stroke?: brushStroke;
+        stroke?: brushStroke,
     }
+
     /**
      * Компонент подписи графиков
      */
@@ -344,28 +410,34 @@ options: {
         /**
          * Выравнивание элементов легенды в вертикальном направлении
          */
-        verticalAlign?: 'middle';
+        verticalAlign?: 'middle',
+
         /**
          * Функция форматирования каждого текста в легенде
          */
-        formatter?;
+        formatter?,
+
         /**
          * Выравнивание элементов легенды в горизонтальном направлении
          */
-        align?: 'center';
+        align?: 'center',
+
         /**
          * Вертикальный отступ
          */
-        marginTop?: 0;
+        marginTop?: 0,
+
         /**
          * Высота иконок
          */
-        iconHeight?: 16;
-    };
+        iconHeight?: 16,
+    },
+
     /**
      * Mассив меток
      */
-    labels: Array<string | number>;
+    labels: Array<string | number>,
+
     /**
      * Mассив объектов с параметрами грaфиков с обязательным полем 
      */
@@ -377,48 +449,79 @@ options: {
             /*
              * Скрыть график
              */
-            hide?: false;
+            hide?: false,
+
             /*
              * Скрыть график в легенде
              */
-            hideLegend?: false;
+            hideLegend?: false,
+
             /*
              * Скрыть график в тултипe
              */
-            hideTooltip?: false;
+            hideTooltip?: false,
+
             /*
              * Z-index графика
              */
-            zIndex;
+            zIndex,
+
             /*
              * Тип графика
              */
-            chart: 'bar';
+            chart: 'bar',
+
+            /**
+             * Радиус закругления углов графика типа bar
+             */
+            radius?: {
+                /**
+                 * Верхний pадиус закругления углов графика типа bar
+                 */
+                top?,
+
+                /**
+                 * Нижний радиус закругления углов графика типа bar
+                 */
+                bottom?,
+            },
+
             /*
              * Тип иконки для графика
              */
-            icon;
+            icon,
+
             /*
              * Параметры графика
              */
             properties: {
+
                 /*
                 * Название графика (отображается в легендах и тултипе)
                 */
-                name;
+                name,
+
                 /*
                 * Ключ данных
                 */
-                dataKey;
+                dataKey,
+
                 /*
                 * Форматирование значения графика для тултипа
                 */
-                formatter?;
+                formatter?,
+
                 /*
                 * Цвет заливки графика
                 */
-                fill;
-            };
+                fill,
+
+                /*
+                * Цвет бордера графика
+                */
+                strokeWidth?,
+            },
+
             /**
              * Данные для построения графика
              */
@@ -427,12 +530,14 @@ options: {
                  * Метка
                  */
                 label,
+
                 /**
                  * Значение
                  */
                 value
             ];
-        };
+        },
+
         /*
          * Пример графика типа line
          */
@@ -440,104 +545,132 @@ options: {
             /*
              * Скрыть график
              */
-            hide?: false;
+            hide?: false,
+
             /*
              * Скрыть график в легенде
              */
-            hideLegend?: false;
+            hideLegend?: false,
+
             /*
              * Скрыть график в тултипe
              */
-            hideTooltip?: false;
+            hideTooltip?: false,
+
             /*
              * Z-index графика
              */
-            zIndex;
+            zIndex,
+
             /*
              * Тип графика
              */
-            chart: 'line';
+            chart: 'line',
+
             /*
              * Тип иконки для графика
              */
-            icon;
+            icon,
+
             /*
              * Параметры графика
              */
             properties: {
+
                 /*
                  * Название графика (отображается в легендах и тултипе)
                  */
-                name;
+                name,
+
                 /*
                  * Ключ данных
                  */
-                dataKey;
+                dataKey,
+
                 /*
                  * Цвет линии графика
                  */
-                stroke?: '#3182bd';
+                stroke?: '#3182bd',
+
                 /*
                  * Отображение точек на графике
                  */
-                dot?;
+                dot?,
+
                 /*
                  * Параметры для точек грфика (если dot: true)
                  */
                 dotSettings: [{
+
                     /*
                      * Значение media query
                      */
-                    media;
+                    media,
+
                     /*
                      * Значение маштаба при ховере
                      */
-                    scale;
+                    scale,
+
                     /*
                      * Начальный значения маштаба
                      */
-                    initScale;
+                    initScale,
+
                     /*
                      * Ширина точки
                      */
-                    width;
+                    width,
+
                     /*
                      * Высота точки
                      */
-                    height;
+                    height,
                 }],
+
                 /*
                  * Наследование цвета
                  */
-                inheritStroke?: false;
+                inheritStroke?: false,
+
                 /*
                  * Форматирование значения графика для тултипа
                  */
-                formatter?;
+                formatter?,
+
                 /*
                  * Тип линии
                  */
-                type? 'linear';
+                type? 'linear',
+
                 /*
                  * Толщина линии
                  */
-                strokeWidth?: 1;
+                strokeWidth?: 1,
+
                 /*
                  * Прерывистость линии
                  */
-                strokeDasharray?;
-            };
+                strokeDasharray?,
+            },
+
+            /*
+             *  Массив данных для отрисовки
+             */
             data: [
+
                 /**
                  * Метка
                  */
                 label,
+
                 /**
                  * Значение
                  */
-                value
-            ];
-        };
+                value,
+            ],
+        },
+
         /*
          * Пример графика типа area
          */
@@ -545,137 +678,168 @@ options: {
             /*
              * Скрыть график
              */
-            hide?: false;
+            hide?: false,
+
             /*
              * Скрыть график в легенде
              */
-            hideLegend?: false;
+            hideLegend?: false,
+
             /*
              * Скрыть график в тултипe
              */
-            hideTooltip?: false;
+            hideTooltip?: false,
+
             /*
              * Z-index графика
              */
-            zIndex;
+            zIndex,
+
             /*
              * Тип графика
              */
-            chart: 'ara';
+            chart: 'ara',
+
             /*
              * Тип иконки для графика
              */
-            icon;
+            icon,
+
             /*
              * Оффсет для градиента (только для типа area)
              */
-            offset;
+            offset,
+
             /**
              * Параметры градиента
              */
             gradient: {
+
                 /**
                  * Индефикатор градиента
                  */
-                gid;
+                gid,
+
                 /**
                  * Параметра точек для градиента
                  */
                 points: [
+
                     /**
                      * Отступ
                      */
-                    offset: number;
+                    offset: number,
+
                     /**
                      * Цвет
                      */
-                    stopColor: string;
+                    stopColor: string,
+
                     /**
                      * Прозрачность
                      */
-                    stopOpacity: number;
+                    stopOpacity: number,
                 ];
             };
+
             /*
              * Параметры графика
              */
             properties: {
+
                 /*
                  * Название графика (отображается в легендах и тултипе)
                  */
-                name;
+                name,
+
                 /*
                  * Ключ данных
                  */
-                dataKey;
+                dataKey,
+
                 /*
                  * Цвет линии графика
                  */
-                stroke?: '#3182bd';
+                stroke?: '#3182bd',
+
                 /*
                  * Отображение точек на графике
                  */
-                dot?;
+                dot?,
+
                 /*
                  * Параметры для точек грфика (если dot: true)
                  */
                 dotSettings: [{
+
                     /*
                      * Значение media query
                      */
-                    media;
+                    media,
+
                     /*
                      * Значение маштаба при ховере
                      */
-                    scale;
+                    scale,
+
                     /*
                      * Начальный значения маштаба
                      */
-                    initScale;
+                    initScale,
+
                     /*
                      * Ширина точки
                      */
-                    width;
+                    width,
+
                     /*
                      * Высота точки
                      */
-                    height;
+                    height,
                 }],
+
                 /*
                  * Наследование цвета
                  */
-                inheritStroke?: false;
+                inheritStroke?: false,
+
                 /*
                  * Форматирование значения графика для тултипа
                  */
-                formatter?;
+                formatter?,
+
                 /*
                  * Тип линии
                  */
-                type? 'linear';
+                type? 'linear',
+
                 /*
                  * Толщина линии
                  */
-                strokeWidth?: 1;
+                strokeWidth?: 1,
+
                 /*
                  * Прерывистость линии
                  */
-                strokeDasharray?;
-            };
+                strokeDasharray?,
+            },
+
             /**
              * Данные для построения графика
              */
             data: [
+
                 /**
                  * Метка
                  */
                 label,
+
                 /**
                  * Значение
                  */
-                value
+                value,
             ]
-        };
-    ];
-}
+        },
+    ],
+};
 ```
