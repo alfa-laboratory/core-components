@@ -1,14 +1,20 @@
 import React, { useCallback, useState } from 'react';
 import addons, { types } from '@storybook/addons';
-import { useParameter } from '@storybook/api';
 import { Form } from '@storybook/components';
 import { setStyles } from './utils';
 
 export const ADDON_ID = 'theme-switcher';
 
+const THEMES = [
+    'default',
+    'click',
+    'corp',
+    'mobile',
+    'site',
+]
+
 const Addon = () => {
     const [theme, setTheme] = useState('default');
-    const { themes } = useParameter(ADDON_ID, { themes: [] });
 
     const handleChange = useCallback(event => {
         const newTheme = event.target.value;
@@ -18,13 +24,11 @@ const Addon = () => {
         setStyles(newTheme);
     }, []);
 
-    if (!themes.length) return null;
-
     return (
         <div className='tool'>
             <span className='label'>Выбор темы: </span>
             <Form.Select size={1} onChange={handleChange} className='select' value={theme}>
-                {['default'].concat(themes).map(themeName => (
+                {THEMES.map(themeName => (
                     <option value={themeName} key={themeName}>
                         {themeName}
                     </option>
@@ -39,6 +43,5 @@ addons.register(ADDON_ID, () => {
         type: types.TOOL,
         match: () => true,
         render: () => <Addon />,
-        paramKey: ADDON_ID,
     });
 });
