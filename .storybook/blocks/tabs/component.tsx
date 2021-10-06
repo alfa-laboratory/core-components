@@ -50,21 +50,21 @@ export const Tabs: FC<Props> = ({
 
     const renderTabs = (): TabsResponsiveProps['children'] => {
         return [
-            <Tab title={TabTitle[TabName.DESCRIPTION]} id={TabName.DESCRIPTION}>
+            <Tab title={TabTitle[TabName.DESCRIPTION]} id={TabName.DESCRIPTION} key='description'>
                 <div style={{ marginTop: '40px' }}>{description}</div>
             </Tab>,
             props ? (
-                <Tab title={TabTitle[TabName.PROPS]} id={TabName.PROPS}>
+                <Tab title={TabTitle[TabName.PROPS]} id={TabName.PROPS} key='props'>
                     {props}
                 </Tab>
             ) : null,
             cssVars ? (
-                <Tab title={TabTitle[TabName.CSS_VARS]} id={TabName.CSS_VARS}>
+                <Tab title={TabTitle[TabName.CSS_VARS]} id={TabName.CSS_VARS} key='css-vars'>
                     <div style={{ marginTop: '40px' }}>{cssVars}</div>
                 </Tab>
             ) : null,
             changelog ? (
-                <Tab title={TabTitle[TabName.CHANGELOG]} id={TabName.CHANGELOG}>
+                <Tab title={TabTitle[TabName.CHANGELOG]} id={TabName.CHANGELOG} key='changelog'>
                     <div style={{ marginTop: '40px' }}>
                         <Changelog content={changelog} />
                     </div>
