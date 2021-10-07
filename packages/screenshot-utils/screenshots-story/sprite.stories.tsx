@@ -1,8 +1,7 @@
-import React, { CSSProperties, useLayoutEffect } from 'react';
+import React, { CSSProperties } from 'react';
 import { combosToProps, generateCombos } from '../utils';
 import { getComponent } from './components';
 import { getQueryParam } from './utils';
-import { setThemeStylesInIframeHtmlPage } from '../../../.storybook/addons/theme-switcher/utils';
 
 import styles from './sprite.stories.module.css';
 
@@ -38,8 +37,6 @@ export const ScreenshotsSprite = () => {
     if (mockDate) {
         Date.now = () => mockDate;
     }
-
-    useLayoutEffect(setThemeStylesInIframeHtmlPage, []);
 
     if (!Component) return null;
 

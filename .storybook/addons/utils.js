@@ -9,7 +9,7 @@ export function getOrCreateStyleTag(id, beforeId, doc = getStoryDoc()) {
     const styleTag = doc.createElement('style');
     styleTag.id = id;
 
-    const before = doc.getElementById(beforeId);
+    const before = beforeId ? doc.getElementById(beforeId) : null;
 
     if (before) {
         doc.head.insertBefore(styleTag, before);
