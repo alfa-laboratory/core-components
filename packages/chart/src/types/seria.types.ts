@@ -37,7 +37,7 @@ export interface SeriaProps {
     /**
      * Радиус закругления углов графика типа bar
      */
-    radius: RadiusProp;
+    radius?: RadiusProp;
 
     /**
      * Тип иконки для графика

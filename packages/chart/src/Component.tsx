@@ -29,7 +29,7 @@ import { ToggleChartProps } from './types/chart.types';
 import { DataDynamicProps, DataDynamicBooleanProps } from './types/utils/data.types';
 import { ActiveDotProps } from './types/utils/dot.types';
 import { CoordinatesProps } from './types/utils/coordinates.types';
-import { RectBar } from './components/RectBar';
+import RectBar from './components/RectBar';
 import { Tick } from './components/Tick';
 import { TooltipContent } from './components/TooltipContent';
 

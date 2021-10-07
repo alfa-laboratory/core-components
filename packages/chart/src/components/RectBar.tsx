@@ -1,62 +1,52 @@
-import React from 'react';
-import { RadiusProp } from '../types/seria.types';
-
-type BackgroundProps = {
-    height: number;
-    width: number;
-    x: number;
-    y: number;
-};
+import React, { useMemo } from 'react';
+import { usePathBar } from '../hooks/usePathBar';
 
 // eslint-disable-next-line complexity
 const getPath = (
     x: number,
-    y: number,
     width: number,
     height: number,
-    radius: RadiusProp,
-    background: BackgroundProps,
-): string => {
-    const topRadius =
-        radius?.top && height / 2 < radius.top ? Math.ceil(height / 2) : radius?.top || 0;
-    const bottomRadius =
-        radius?.bottom && height / 2 < radius.bottom ? Math.ceil(height / 2) : radius?.bottom || 0;
-    const checkHeight =
-        (radius && height !== 0 && height / 2 < (radius?.top || 0)) ||
-        height / 2 < (radius?.bottom || 0);
-    // eslint-disable-next-line no-nested-ternary
-    const initHeight = checkHeight
-        ? (topRadius || bottomRadius) && topRadius + bottomRadius
-        : height > 0 && height < 2
-        ? -2
-        : height;
-    const initY = checkHeight ? background.height + background.y - (topRadius + bottomRadius) : y;
-
-    return `
-            M${x + ((height !== 0 && bottomRadius) || 0)} ${initY + initHeight || 0}
-            Q${x} ${initY + initHeight} ${x} ${initY +
+    initHeight: number,
+    topRadius: number,
+    bottomRadius: number,
+    initY: number,
+): string =>
+    `
+        M${x + ((height !== 0 && bottomRadius) || 0)} ${initY + initHeight || 0}
+        Q${x} ${initY + initHeight} ${x} ${initY +
         initHeight -
         ((height !== 0 && bottomRadius) || 0)}
-            L${x} ${initY + ((height !== 0 && topRadius) || 0)}
-            Q${x} ${initY} ${x + ((height !== 0 && topRadius) || 0)} ${initY}
-            L${x + width - ((height !== 0 && topRadius) || 0)} ${initY}
-            Q${x + width} ${initY} ${x + width} ${initY + (topRadius || 0)}
-            L${x + width} ${initY + initHeight - ((height !== 0 && bottomRadius) || 0)}
-            Q${x + width} ${initY + initHeight} ${x +
+        L${x} ${initY + ((height !== 0 && topRadius) || 0)}
+        Q${x} ${initY} ${x + ((height !== 0 && topRadius) || 0)} ${initY}
+        L${x + width - ((height !== 0 && topRadius) || 0)} ${initY}
+        Q${x + width} ${initY} ${x + width} ${initY + (topRadius || 0)}
+        L${x + width} ${initY + initHeight - ((height !== 0 && bottomRadius) || 0)}
+        Q${x + width} ${initY + initHeight} ${x +
         width -
         ((height !== 0 && bottomRadius) || 0)} ${initY + initHeight}
-            Z
-        `;
+        Z
+    `;
+
+const RectBar = ({ fill, x, y, width, height, radius, background }: any): JSX.Element => {
+    const [initHeight, topRadius, bottomRadius, initY]: any = usePathBar({
+        radius,
+        height,
+        background,
+        y,
+    });
+
+    const path = useMemo(
+        () => (
+            <path
+                d={getPath(x, width, height, initHeight, topRadius, bottomRadius, initY)}
+                stroke='none'
+                fill={fill}
+            />
+        ),
+        [x, width, height, initHeight, topRadius, bottomRadius, initY, fill],
+    );
+
+    return <React.Fragment>{path}</React.Fragment>;
 };
 
-export const RectBar: React.FC<any> = ({
-    fill,
-    x,
-    y,
-    width,
-    height,
-    radius,
-    background,
-}): JSX.Element => (
-    <path d={getPath(x, y, width, height, radius, background)} stroke='none' fill={fill} />
-);
+export default React.memo(RectBar);
