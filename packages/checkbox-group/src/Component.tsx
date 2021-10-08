@@ -157,7 +157,9 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
             ) : null}
 
             {errorMessage && (
-                <span className={cn(styles.sub, styles.errorMessage)}>{errorMessage}</span>
+                <span className={cn(styles.sub, styles.errorMessage)} role='alert'>
+                    {errorMessage}
+                </span>
             )}
 
             {hint && !errorMessage && <span className={cn(styles.sub, styles.hint)}>{hint}</span>}

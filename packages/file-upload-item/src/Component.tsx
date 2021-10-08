@@ -183,7 +183,11 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
 
                 {uploadStatus === 'UPLOADING' && <span>{`${Math.round(uploadPercent)}%`}</span>}
 
-                {uploadStatus === 'ERROR' && <span className={styles.error}>{error}</span>}
+                {uploadStatus === 'ERROR' && (
+                    <span className={styles.error} role='alert'>
+                        {error}
+                    </span>
+                )}
 
                 {showMeta && (
                     <div className={styles.meta}>
