@@ -1,4 +1,4 @@
-import React, { MouseEvent, ReactNode, useCallback } from 'react';
+import React, { ElementType, MouseEvent, ReactNode, useCallback } from 'react';
 import cn from 'classnames';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
@@ -76,6 +76,11 @@ export type FileUploadItemProps = {
     children?: React.ReactNode;
 
     /**
+     * Компонент кастомной иконки
+     */
+    icon?: ElementType<{ className?: string }>;
+
+    /**
      * Обработчик загрузки файла
      */
     onDownload?: (id: string) => void;
@@ -102,6 +107,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
     id = '0',
     name = '',
     size,
+    icon: Icon = fileIcon(name),
     uploadDate,
     downloadLink,
     uploadStatus,
@@ -142,11 +148,10 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
             case 'UPLOADING':
                 return <Spinner visible={true} />;
             default: {
-                const Icon = fileIcon(name);
                 return <Icon className={styles.icon} />;
             }
         }
-    }, [name, uploadStatus]);
+    }, [uploadStatus]);
 
     const renderName = useCallback(
         () => (

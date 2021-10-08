@@ -40,6 +40,15 @@ describe('FileUploadItem', () => {
         expect(container.firstElementChild).toHaveClass(className);
     });
 
+    it('should use custom icon', () => {
+        const dataTestId = 'test-id';
+        const { queryByTestId } = render(
+            <FileUploadItem icon={() => <div data-test-id={dataTestId} />} />,
+        );
+
+        expect(queryByTestId(dataTestId)).toBeInTheDocument();
+    });
+
     describe('Callbacks tests', () => {
         it('should call `onDelete` prop', () => {
             const cb = jest.fn();
