@@ -39,9 +39,19 @@ Object {
               <div
                 class="addons rightAddons"
               >
-                <span
+                <svg
                   class="arrow arrow"
-                />
+                  fill="currentColor"
+                  focusable="false"
+                  height="24"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path
+                    d="M12 14L6.5 8.5 5 10l7 7 7-7-1.5-1.5L12 14z"
+                  />
+                </svg>
               </div>
             </div>
           </div>
@@ -87,9 +97,19 @@ Object {
             <div
               class="addons rightAddons"
             >
-              <span
+              <svg
                 class="arrow arrow"
-              />
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  d="M12 14L6.5 8.5 5 10l7 7 7-7-1.5-1.5L12 14z"
+                />
+              </svg>
             </div>
           </div>
         </div>
@@ -186,9 +206,19 @@ exports[`Select Snapshots tests should match snapshot with fatal error 1`] = `
           <div
             class="addons rightAddons"
           >
-            <span
+            <svg
               class="arrow arrow"
-            />
+              fill="currentColor"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <path
+                d="M12 14L6.5 8.5 5 10l7 7 7-7-1.5-1.5L12 14z"
+              />
+            </svg>
           </div>
         </div>
         <span
@@ -239,9 +269,19 @@ exports[`Select Snapshots tests should match snapshot with visibleOptions 1`] = 
           <div
             class="addons rightAddons"
           >
-            <span
+            <svg
               class="arrow arrow open"
-            />
+              fill="currentColor"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <path
+                d="M12 14L6.5 8.5 5 10l7 7 7-7-1.5-1.5L12 14z"
+              />
+            </svg>
           </div>
         </div>
       </div>
