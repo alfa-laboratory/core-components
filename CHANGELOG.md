@@ -1,3 +1,16 @@
+# [20.6.0](https://github.com/alfa-laboratory/core-components/compare/v20.5.0...v20.6.0) (2021-10-11)
+
+
+### Bug Fixes
+
+* bump react-popper ([#847](https://github.com/alfa-laboratory/core-components/issues/847)) ([e8d284b](https://github.com/alfa-laboratory/core-components/commit/e8d284bfdfb4aa1fa0ea9e11f6e59c117b309782))
+
+
+### Features
+
+* проставлен role=alert для ошибок ([#850](https://github.com/alfa-laboratory/core-components/issues/850)) ([dc634a3](https://github.com/alfa-laboratory/core-components/commit/dc634a3d008accfab10192ce234c12ef0ecc7fa9))
+* **file-upload-item:** custom icon ([#849](https://github.com/alfa-laboratory/core-components/issues/849)) ([59b8925](https://github.com/alfa-laboratory/core-components/commit/59b8925fbb9c631534c49c8dbb68cf493678e9e5))
+
 # [20.5.0](https://github.com/alfa-laboratory/core-components/compare/v20.4.0...v20.5.0) (2021-10-11)
 
 
