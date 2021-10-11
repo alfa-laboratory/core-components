@@ -1,3 +1,28 @@
+# [20.5.0](https://github.com/alfa-laboratory/core-components/compare/v20.4.0...v20.5.0) (2021-10-11)
+
+
+### Features
+
+* **chart:** added border radius to bar charts ([cfd0ad2](https://github.com/alfa-laboratory/core-components/commit/cfd0ad2c23a2b80de0bc5dfae7b65a14263e37e9))
+* **chart:** added chart component ([1119943](https://github.com/alfa-laboratory/core-components/commit/11199435e9ab53ae159707e94714a34952ad56c1))
+* **chart:** added description ([8275346](https://github.com/alfa-laboratory/core-components/commit/827534640af0c0b06c1105755e9435d43cae8acd))
+* **chart:** added props for legend icons height ([5c9b321](https://github.com/alfa-laboratory/core-components/commit/5c9b32154e6f39cddd3ac9668830959adba64648))
+* **chart:** bar radius ([e39251a](https://github.com/alfa-laboratory/core-components/commit/e39251a37a52b6f434932439da0b86a03a26d901))
+* **chart:** beautifyed ([67cc96e](https://github.com/alfa-laboratory/core-components/commit/67cc96e6afc020c3af5491d3d7ba0b89f50dbaf3))
+* **chart:** edited doc ([8728271](https://github.com/alfa-laboratory/core-components/commit/8728271dc7f733c9b14a27c83a7136c22ef39ed6))
+* **chart:** fix doc ([9d1e888](https://github.com/alfa-laboratory/core-components/commit/9d1e8889615f0701a43a9fbceca867557002ef31))
+* **chart:** fixed after pull master ) ([4c7d241](https://github.com/alfa-laboratory/core-components/commit/4c7d241da264cde81e50573f96a2f035c31306e1))
+* **chart:** fixed build error ([2efdd22](https://github.com/alfa-laboratory/core-components/commit/2efdd22f27e8229b2ad4cb7d355f61b218ea1bc1))
+* **chart:** fixed comments ([a611b9c](https://github.com/alfa-laboratory/core-components/commit/a611b9c1c9bab1d5a15c2021bff270e9bbf5a934))
+* **chart:** fixed comments ([7ad1caf](https://github.com/alfa-laboratory/core-components/commit/7ad1caf5be9f2da6a218b2c97cc7d96efb4d286d))
+* **chart:** fixed comments ([555acb6](https://github.com/alfa-laboratory/core-components/commit/555acb699549c52f85d0dd58009ab1692344eb44))
+* **chart:** fixed comments ([379e53d](https://github.com/alfa-laboratory/core-components/commit/379e53ddf8c857424600d5fc49b41c03f5ac11ea))
+* **chart:** fixed global styles css ([2f8f139](https://github.com/alfa-laboratory/core-components/commit/2f8f139137090f185b1c3c2333fe7ceee7a1fff8))
+* **chart:** more description ([9a4c076](https://github.com/alfa-laboratory/core-components/commit/9a4c0762782c2f8ccee0e0c7c660514a10119960))
+* **chart:** pulled master ([176f7ae](https://github.com/alfa-laboratory/core-components/commit/176f7ae6e7cdb2a3e18d2136523e5be6ecdbde3e))
+* **chart:** resolved conflicts ([7f734ba](https://github.com/alfa-laboratory/core-components/commit/7f734bab0347af6e5d56d717d8b5cc0cf192f9f3))
+* **chart:** добавлена возможность скруглять углы и возможность отображать подписи значений для графиков типа bar ([4d81ab5](https://github.com/alfa-laboratory/core-components/commit/4d81ab5601b2ed38bc6f0f1187cf7c80c79fe50a))
+
 # [20.4.0](https://github.com/alfa-laboratory/core-components/compare/v20.3.2...v20.4.0) (2021-09-30)
 
 
