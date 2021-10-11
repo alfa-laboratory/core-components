@@ -359,7 +359,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                 )}
 
                 {shouldShowFatalError && (
-                    <div className={styles.error}>
+                    <div className={styles.error} role='alert'>
                         <span className={styles.errorHeader}>{errorTitle}</span>
 
                         <span className={styles.errorText}>{errorText}</span>

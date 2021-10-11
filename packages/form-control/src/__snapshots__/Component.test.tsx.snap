@@ -114,6 +114,7 @@ Object {
         </div>
         <span
           class="sub error error"
+          role="alert"
         >
           error
         </span>
@@ -137,6 +138,7 @@ Object {
       </div>
       <span
         class="sub error error"
+        role="alert"
       >
         error
       </span>
@@ -316,6 +318,7 @@ Object {
         </div>
         <span
           class="sub error error"
+          role="alert"
         >
           This is error
         </span>
@@ -339,6 +342,7 @@ Object {
       </div>
       <span
         class="sub error error"
+        role="alert"
       >
         This is error
       </span>

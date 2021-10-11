@@ -187,7 +187,9 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
                 ) : null}
 
                 {errorMessage && (
-                    <span className={cn(styles.sub, styles.errorMessage)}>{errorMessage}</span>
+                    <span className={cn(styles.sub, styles.errorMessage)} role='alert'>
+                        {errorMessage}
+                    </span>
                 )}
 
                 {hint && !errorMessage && (
