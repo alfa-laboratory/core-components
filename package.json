@@ -76,7 +76,7 @@
         "react-focus-lock": "^2.5.0",
         "react-merge-refs": "^1.1.0",
         "react-node-resolver": "^2.0.1",
-        "react-popper": "^2.2.2",
+        "react-popper": "^2.2.5",
         "react-swipeable": "^5.5.0",
         "react-textarea-autosize": "^8.2.0",
         "react-transition-group": "^4.3.0",
