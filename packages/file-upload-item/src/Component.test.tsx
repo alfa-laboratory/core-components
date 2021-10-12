@@ -8,6 +8,7 @@ export const fileProps = {
     uploadDate: '22.01.2018',
     size: 45000,
     downloadLink: '/link',
+    download: 'новое_название_файла',
     uploadStatus: 'SUCCESS' as FileStatuses,
     showDelete: true,
 };
