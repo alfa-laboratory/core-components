@@ -1,3 +1,10 @@
+# [20.7.0](https://github.com/alfa-laboratory/core-components/compare/v20.6.0...v20.7.0) (2021-10-12)
+
+
+### Features
+
+* **file-upload-item:** добавлен пропс download  ([#844](https://github.com/alfa-laboratory/core-components/issues/844)) ([db2a4ca](https://github.com/alfa-laboratory/core-components/commit/db2a4ca27ee7a64721138c7c2e918b4657c75489))
+
 # [20.6.0](https://github.com/alfa-laboratory/core-components/compare/v20.5.0...v20.6.0) (2021-10-11)
 
 
