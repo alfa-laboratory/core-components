@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-file-upload-item@3.2.0...@alfalab/core-components-file-upload-item@3.3.0) (2021-10-12)
+
+
+### Features
+
+* **file-upload-item:** добавлен пропс download  ([#844](https://github.com/alfa-laboratory/core-components/issues/844)) ([db2a4ca](https://github.com/alfa-laboratory/core-components/commit/db2a4ca27ee7a64721138c7c2e918b4657c75489))
+
+
+
+
+
 # [3.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-file-upload-item@3.1.1...@alfalab/core-components-file-upload-item@3.2.0) (2021-10-11)
 
 
