@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@5.2.3...@alfalab/core-components-tabs@5.2.4) (2021-10-13)
+
+
+### Bug Fixes
+
+* **tabs:** фикс бага при скрытии табов ([#851](https://github.com/alfa-laboratory/core-components/issues/851)) ([5d5dcd9](https://github.com/alfa-laboratory/core-components/commit/5d5dcd966fface279921bea5610e9b3af3f2117b))
+
+
+
+
+
 ## [5.2.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@5.2.2...@alfalab/core-components-tabs@5.2.3) (2021-09-14)
 
 **Note:** Version bump only for package @alfalab/core-components-tabs
