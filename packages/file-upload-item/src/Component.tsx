@@ -46,6 +46,12 @@ export type FileUploadItemProps = {
     downloadLink?: string;
 
     /**
+     * Рекомендует браузеру скачивать контент по ссылке.
+     * В проп может быть передано рекомендуемое название скачиваемого файла.
+     */
+    download?: string | true;
+
+    /**
      * Отображение кнопки удаления
      */
     showDelete?: boolean;
@@ -110,6 +116,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
     icon: Icon = fileIcon(name),
     uploadDate,
     downloadLink,
+    download,
     uploadStatus,
     uploadPercent = 0,
     error = uploadStatus === 'ERROR' ? 'Не удалось загрузить файл' : undefined,
@@ -157,7 +164,12 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
         () => (
             <div className={styles.name}>
                 {downloadLink ? (
-                    <Link pseudo={true} href={downloadLink} onClick={handleDownload}>
+                    <Link
+                        pseudo={true}
+                        href={downloadLink}
+                        onClick={handleDownload}
+                        download={download}
+                    >
                         {name}
                     </Link>
                 ) : (
@@ -165,7 +177,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
                 )}
             </div>
         ),
-        [downloadLink, handleDownload, name],
+        [downloadLink, handleDownload, download, name],
     );
 
     const showMeta = !showRestore && (!uploadStatus || uploadStatus === 'SUCCESS');

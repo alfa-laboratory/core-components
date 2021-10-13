@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-file-upload-item@3.2.0...@alfalab/core-components-file-upload-item@3.3.0) (2021-10-12)
+
+
+### Features
+
+* **file-upload-item:** добавлен пропс download  ([#844](https://github.com/alfa-laboratory/core-components/issues/844)) ([db2a4ca](https://github.com/alfa-laboratory/core-components/commit/db2a4ca27ee7a64721138c7c2e918b4657c75489))
+
+
+
+
+
+# [3.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-file-upload-item@3.1.1...@alfalab/core-components-file-upload-item@3.2.0) (2021-10-11)
+
+
+### Features
+
+* проставлен role=alert для ошибок ([#850](https://github.com/alfa-laboratory/core-components/issues/850)) ([dc634a3](https://github.com/alfa-laboratory/core-components/commit/dc634a3d008accfab10192ce234c12ef0ecc7fa9))
+* **file-upload-item:** custom icon ([#849](https://github.com/alfa-laboratory/core-components/issues/849)) ([59b8925](https://github.com/alfa-laboratory/core-components/commit/59b8925fbb9c631534c49c8dbb68cf493678e9e5))
+
+
+
+
+
 ## [3.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-file-upload-item@3.1.0...@alfalab/core-components-file-upload-item@3.1.1) (2021-09-27)
 
 
