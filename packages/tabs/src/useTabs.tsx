@@ -1,4 +1,5 @@
-import { useState, useCallback, useRef, MouseEvent, KeyboardEvent, MutableRefObject } from 'react';
+import { KeyboardEvent, MouseEvent, MutableRefObject, useCallback, useRef, useState } from 'react';
+
 import { UseTabsProps } from './typings';
 
 export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
@@ -27,7 +28,9 @@ export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
         (position: 'prev' | 'next' | 'start' | 'end') => {
             const refs = itemRefs.current;
 
-            if (refs.every(ref => ref.disabled)) return;
+            const tabAvailable = (ref: HTMLButtonElement) => ref && !ref.disabled;
+
+            if (refs.every(ref => !tabAvailable(ref))) return;
 
             let focusedTabIndex = refs.findIndex(node => document.activeElement === node);
 
@@ -53,7 +56,7 @@ export function useTabs({ titles = [], selectedId, onChange }: UseTabsProps) {
 
             const shift = ['prev', 'end'].includes(position) ? -1 : 1;
 
-            while (refs[newFocusIndex].disabled) {
+            while (!tabAvailable(refs[newFocusIndex])) {
                 newFocusIndex = (refs.length + newFocusIndex + shift) % refs.length;
             }
 
