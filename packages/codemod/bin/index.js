@@ -11,7 +11,7 @@ const { hideBin } = require('yargs/helpers');
 const getTransformerPath = componentName =>
     path.resolve(__dirname, `../src/${kebab(componentName)}/transform.ts`);
 
-const availableComponentsTransformers = ['Label', 'Heading', 'Paragraph'];
+const availableComponentsTransformers = ['Label', 'Heading', 'Paragraph', 'ButtonXs'];
 
 function main() {
     const { argv } = yargs(hideBin(process.argv));
