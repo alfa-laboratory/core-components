@@ -3,6 +3,7 @@
 
 :root {
     --calendar-input-calendar-icon: url('https://alfabank.st/icons/glyph_calendar_m_primary.svg');
+    --calendar-input-popover-border-color: var(--color-light-border-primary);
 }
 
 .component {
@@ -19,7 +20,7 @@
     display: inline-block;
     box-sizing: border-box;
     box-shadow: var(--shadow-s);
-    border: 1px solid var(--color-light-border-primary);
+    border: 1px solid var(--calendar-input-popover-border-color);
     border-radius: var(--border-radius-m);
 }
 

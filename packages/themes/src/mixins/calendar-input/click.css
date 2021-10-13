@@ -1,0 +1,3 @@
+@define-mixin calendar-input-click {
+    --calendar-input-popover-border-color: transparent;
+}
