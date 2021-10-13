@@ -1,3 +1,11 @@
+## [20.7.1](https://github.com/alfa-laboratory/core-components/compare/v20.7.0...v20.7.1) (2021-10-13)
+
+
+### Bug Fixes
+
+* понижена версия react-hooks, чтобы не дропать 10ую ноду. Пакет перенесен devDeps ([#852](https://github.com/alfa-laboratory/core-components/issues/852)) ([662754a](https://github.com/alfa-laboratory/core-components/commit/662754a354b2286114fdff16fa0f7a9ccb5b769d))
+* **tabs:** фикс бага при скрытии табов ([#851](https://github.com/alfa-laboratory/core-components/issues/851)) ([5d5dcd9](https://github.com/alfa-laboratory/core-components/commit/5d5dcd966fface279921bea5610e9b3af3f2117b))
+
 # [20.7.0](https://github.com/alfa-laboratory/core-components/compare/v20.6.0...v20.7.0) (2021-10-12)
 
 
