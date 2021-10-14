@@ -18,6 +18,7 @@
 
 .textarea:disabled {
     color: var(--input-inverted-disabled-color);
+    -webkit-text-fill-color: var(--input-inverted-disabled-color);
 }
 
 /* READ-ONLY STATE */

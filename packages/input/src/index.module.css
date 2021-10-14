@@ -95,6 +95,7 @@
 
 .input:disabled {
     cursor: var(--disabled-cursor);
+    opacity: 1;
 }
 
 /* FOCUS STATE */

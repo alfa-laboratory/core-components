@@ -106,6 +106,7 @@
 
 .textarea:disabled {
     cursor: var(--disabled-cursor);
+    opacity: 1;
 }
 
 /* READ-ONLY STATE */
