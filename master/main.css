@@ -1360,6 +1360,7 @@ a.loading_1jKXs {
 /* DISABLED STATE */
 .input_1RLLg:disabled {
     cursor: var(--disabled-cursor);
+    opacity: 1;
 }
 /* FOCUS STATE */
 .input_1RLLg:focus.hasLabel_2hAVz::-webkit-input-placeholder {
@@ -1538,6 +1539,7 @@ a.loading_1jKXs {
 /* DISABLED STATE */
 .input_LQ_Jr:disabled {
     color: var(--input-disabled-color);
+    -webkit-text-fill-color: var(--input-disabled-color);
 }
 /* FOCUS STATE */
 .input_LQ_Jr:focus::-webkit-input-placeholder {
@@ -1635,6 +1637,7 @@ a.loading_1jKXs {
 /* DISABLED STATE */
 .input_1rLHe:disabled {
     color: var(--input-inverted-disabled-color);
+    -webkit-text-fill-color: var(--input-inverted-disabled-color);
 }
 /* FOCUS STATE */
 .input_1rLHe:focus::-webkit-input-placeholder {
@@ -3403,6 +3406,8 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 }
 :root {
     --calendar-input-calendar-icon: url('https://alfabank.st/icons/glyph_calendar_m_primary.svg');
+    --calendar-input-popover-border-color: var(--color-light-border-primary);
+    --calendar-input-popover-border-radius: var(--border-radius-m);
 }
 .component_2Gvik {
     display: inline-block;
@@ -3418,8 +3423,8 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
             box-sizing: border-box;
     -webkit-box-shadow: var(--shadow-s);
             box-shadow: var(--shadow-s);
-    border: 1px solid var(--color-light-border-primary);
-    border-radius: var(--border-radius-m);
+    border: 1px solid var(--calendar-input-popover-border-color);
+    border-radius: var(--calendar-input-popover-border-radius);
 }
 .calendarIcon_1soRN {
     width: 24px;
@@ -14956,6 +14961,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 /* DISABLED STATE */
 .input_2LLyS:disabled {
     color: var(--input-disabled-color);
+    -webkit-text-fill-color: var(--input-disabled-color);
 }
 /* FOCUS STATE */
 .input_2LLyS:focus::-webkit-input-placeholder {
@@ -16864,6 +16870,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 /* DISABLED STATE */
 .textarea_3oAGt:disabled {
     cursor: var(--disabled-cursor);
+    opacity: 1;
 }
 /* READ-ONLY STATE */
 .textarea_3oAGt:-moz-read-only {
@@ -16995,6 +17002,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 /* DISABLED STATE */
 .input_34tAO:disabled {
     color: var(--input-disabled-color);
+    -webkit-text-fill-color: var(--input-disabled-color);
 }
 /* FOCUS STATE */
 .input_34tAO:focus::-webkit-input-placeholder {
@@ -17054,6 +17062,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 /* DISABLED STATE */
 .textarea_12KIt:disabled {
     color: var(--input-disabled-color);
+    -webkit-text-fill-color: var(--input-disabled-color);
 }
 /* READ-ONLY STATE */
 .textarea_12KIt:-moz-read-only {
@@ -17157,6 +17166,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 /* DISABLED STATE */
 .input_2rMmO:disabled {
     color: var(--input-inverted-disabled-color);
+    -webkit-text-fill-color: var(--input-inverted-disabled-color);
 }
 /* FOCUS STATE */
 .input_2rMmO:focus::-webkit-input-placeholder {
@@ -17216,6 +17226,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 /* DISABLED STATE */
 .textarea_1jXGh:disabled {
     color: var(--input-inverted-disabled-color);
+    -webkit-text-fill-color: var(--input-inverted-disabled-color);
 }
 /* READ-ONLY STATE */
 .textarea_1jXGh:-moz-read-only {
