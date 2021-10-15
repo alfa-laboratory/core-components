@@ -1,0 +1,3 @@
+@define-mixin calendar-input-corp {
+    --calendar-input-icon-color: var(--color-light-graphic-secondary);
+}

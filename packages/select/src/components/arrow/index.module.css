@@ -5,10 +5,8 @@
     display: block;
     width: 24px;
     height: 24px;
+    color: var(--select-arrow-color);
 
-    background: var(--select-arrow-background);
-    background-size: cover;
-    background-position: center;
     transition: transform 0.15s ease-in-out, opacity 0.2s ease;
 }
 
