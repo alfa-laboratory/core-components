@@ -1,3 +1,67 @@
+## [20.7.2](https://github.com/alfa-laboratory/core-components/compare/v20.7.1...v20.7.2) (2021-10-15)
+
+
+### Bug Fixes
+
+* **calendar-input:** обновлён в теме click ([da5d960](https://github.com/alfa-laboratory/core-components/commit/da5d9607ce80742bd6780a5bad11b07b3617b44c))
+* input & textarea disabled color on safari ([39ea4ef](https://github.com/alfa-laboratory/core-components/commit/39ea4ef7e948016a4ffa17c563cfdd13169a3c2b))
+* фикс цвета disabled в Safari для Input и Textarea ([efaa693](https://github.com/alfa-laboratory/core-components/commit/efaa693c8e34569df05c951c09c89895d4d949dc))
+* **calendar-input:** remove popover border in click theme ([7a76759](https://github.com/alfa-laboratory/core-components/commit/7a76759ccc5741a03a4c90f97cce6f67255b1c4b))
+* **calendar-input:** update border-radius ([0d06aca](https://github.com/alfa-laboratory/core-components/commit/0d06aca7162c85f987c1172ea037b5b3bc66f8c5))
+
+## [20.7.1](https://github.com/alfa-laboratory/core-components/compare/v20.7.0...v20.7.1) (2021-10-13)
+
+
+### Bug Fixes
+
+* понижена версия react-hooks, чтобы не дропать 10ую ноду. Пакет перенесен devDeps ([#852](https://github.com/alfa-laboratory/core-components/issues/852)) ([662754a](https://github.com/alfa-laboratory/core-components/commit/662754a354b2286114fdff16fa0f7a9ccb5b769d))
+* **tabs:** фикс бага при скрытии табов ([#851](https://github.com/alfa-laboratory/core-components/issues/851)) ([5d5dcd9](https://github.com/alfa-laboratory/core-components/commit/5d5dcd966fface279921bea5610e9b3af3f2117b))
+
+# [20.7.0](https://github.com/alfa-laboratory/core-components/compare/v20.6.0...v20.7.0) (2021-10-12)
+
+
+### Features
+
+* **file-upload-item:** добавлен пропс download  ([#844](https://github.com/alfa-laboratory/core-components/issues/844)) ([db2a4ca](https://github.com/alfa-laboratory/core-components/commit/db2a4ca27ee7a64721138c7c2e918b4657c75489))
+
+# [20.6.0](https://github.com/alfa-laboratory/core-components/compare/v20.5.0...v20.6.0) (2021-10-11)
+
+
+### Bug Fixes
+
+* bump react-popper ([#847](https://github.com/alfa-laboratory/core-components/issues/847)) ([e8d284b](https://github.com/alfa-laboratory/core-components/commit/e8d284bfdfb4aa1fa0ea9e11f6e59c117b309782))
+
+
+### Features
+
+* проставлен role=alert для ошибок ([#850](https://github.com/alfa-laboratory/core-components/issues/850)) ([dc634a3](https://github.com/alfa-laboratory/core-components/commit/dc634a3d008accfab10192ce234c12ef0ecc7fa9))
+* **file-upload-item:** custom icon ([#849](https://github.com/alfa-laboratory/core-components/issues/849)) ([59b8925](https://github.com/alfa-laboratory/core-components/commit/59b8925fbb9c631534c49c8dbb68cf493678e9e5))
+
+# [20.5.0](https://github.com/alfa-laboratory/core-components/compare/v20.4.0...v20.5.0) (2021-10-11)
+
+
+### Features
+
+* **chart:** added border radius to bar charts ([cfd0ad2](https://github.com/alfa-laboratory/core-components/commit/cfd0ad2c23a2b80de0bc5dfae7b65a14263e37e9))
+* **chart:** added chart component ([1119943](https://github.com/alfa-laboratory/core-components/commit/11199435e9ab53ae159707e94714a34952ad56c1))
+* **chart:** added description ([8275346](https://github.com/alfa-laboratory/core-components/commit/827534640af0c0b06c1105755e9435d43cae8acd))
+* **chart:** added props for legend icons height ([5c9b321](https://github.com/alfa-laboratory/core-components/commit/5c9b32154e6f39cddd3ac9668830959adba64648))
+* **chart:** bar radius ([e39251a](https://github.com/alfa-laboratory/core-components/commit/e39251a37a52b6f434932439da0b86a03a26d901))
+* **chart:** beautifyed ([67cc96e](https://github.com/alfa-laboratory/core-components/commit/67cc96e6afc020c3af5491d3d7ba0b89f50dbaf3))
+* **chart:** edited doc ([8728271](https://github.com/alfa-laboratory/core-components/commit/8728271dc7f733c9b14a27c83a7136c22ef39ed6))
+* **chart:** fix doc ([9d1e888](https://github.com/alfa-laboratory/core-components/commit/9d1e8889615f0701a43a9fbceca867557002ef31))
+* **chart:** fixed after pull master ) ([4c7d241](https://github.com/alfa-laboratory/core-components/commit/4c7d241da264cde81e50573f96a2f035c31306e1))
+* **chart:** fixed build error ([2efdd22](https://github.com/alfa-laboratory/core-components/commit/2efdd22f27e8229b2ad4cb7d355f61b218ea1bc1))
+* **chart:** fixed comments ([a611b9c](https://github.com/alfa-laboratory/core-components/commit/a611b9c1c9bab1d5a15c2021bff270e9bbf5a934))
+* **chart:** fixed comments ([7ad1caf](https://github.com/alfa-laboratory/core-components/commit/7ad1caf5be9f2da6a218b2c97cc7d96efb4d286d))
+* **chart:** fixed comments ([555acb6](https://github.com/alfa-laboratory/core-components/commit/555acb699549c52f85d0dd58009ab1692344eb44))
+* **chart:** fixed comments ([379e53d](https://github.com/alfa-laboratory/core-components/commit/379e53ddf8c857424600d5fc49b41c03f5ac11ea))
+* **chart:** fixed global styles css ([2f8f139](https://github.com/alfa-laboratory/core-components/commit/2f8f139137090f185b1c3c2333fe7ceee7a1fff8))
+* **chart:** more description ([9a4c076](https://github.com/alfa-laboratory/core-components/commit/9a4c0762782c2f8ccee0e0c7c660514a10119960))
+* **chart:** pulled master ([176f7ae](https://github.com/alfa-laboratory/core-components/commit/176f7ae6e7cdb2a3e18d2136523e5be6ecdbde3e))
+* **chart:** resolved conflicts ([7f734ba](https://github.com/alfa-laboratory/core-components/commit/7f734bab0347af6e5d56d717d8b5cc0cf192f9f3))
+* **chart:** добавлена возможность скруглять углы и возможность отображать подписи значений для графиков типа bar ([4d81ab5](https://github.com/alfa-laboratory/core-components/commit/4d81ab5601b2ed38bc6f0f1187cf7c80c79fe50a))
+
 # [20.4.0](https://github.com/alfa-laboratory/core-components/compare/v20.3.2...v20.4.0) (2021-09-30)
 
 

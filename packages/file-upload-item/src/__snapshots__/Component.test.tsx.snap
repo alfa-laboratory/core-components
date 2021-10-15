@@ -31,6 +31,7 @@ Object {
           >
             <a
               class="component primary pseudo"
+              download="новое_название_файла"
               href="/link"
             >
               <span
@@ -110,6 +111,7 @@ Object {
         >
           <a
             class="component primary pseudo"
+            download="новое_название_файла"
             href="/link"
           >
             <span

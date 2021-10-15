@@ -34,9 +34,10 @@ export const PrimaryTabList = ({
 
     const renderContent = () => (
         <React.Fragment>
-            {titles
-                .filter(item => !item.hidden)
-                .map((item, index) => (
+            {titles.map((item, index) => {
+                if (item.hidden) return null;
+
+                return (
                     <KeyboardFocusable key={item.id}>
                         {(ref, focused) => (
                             <button
@@ -56,7 +57,8 @@ export const PrimaryTabList = ({
                             </button>
                         )}
                     </KeyboardFocusable>
-                ))}
+                );
+            })}
 
             <div className={styles.line} ref={lineRef} />
         </React.Fragment>

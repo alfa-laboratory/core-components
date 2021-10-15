@@ -195,7 +195,10 @@ export const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
                 {bottomAddons}
 
                 {errorMessage && (
-                    <span className={cn(styles.sub, styles.error, colorStyles[colors].error)}>
+                    <span
+                        className={cn(styles.sub, styles.error, colorStyles[colors].error)}
+                        role='alert'
+                    >
                         {errorMessage}
                     </span>
                 )}

@@ -117,7 +117,11 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
                     handleInputKeyDown={handleInputKeyDown}
                 />
 
-                {displayedError && <div className={styles.error}>{displayedError}</div>}
+                {displayedError && (
+                    <div className={styles.error} role='alert'>
+                        {displayedError}
+                    </div>
+                )}
             </div>
 
             {processing && (

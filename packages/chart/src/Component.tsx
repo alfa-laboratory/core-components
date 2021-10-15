@@ -13,6 +13,7 @@ import {
     Cell,
     Area,
     Brush,
+    LabelList,
 } from 'recharts';
 
 import { CustomizedHOC } from './hoc/Customized';
@@ -21,12 +22,14 @@ import { Legends } from './components/Legends';
 import { Dot } from './components/Dot';
 import { useSettings } from './hooks/useSettings';
 
+import { CustomizedLabel } from './components/CustomizedLabel';
 import { SeriaProps } from './types/seria.types';
 import { OptionsProps } from './types/options.types';
 import { ToggleChartProps } from './types/chart.types';
 import { DataDynamicProps, DataDynamicBooleanProps } from './types/utils/data.types';
 import { ActiveDotProps } from './types/utils/dot.types';
 import { CoordinatesProps } from './types/utils/coordinates.types';
+import RectBar from './components/RectBar';
 import { Tick } from './components/Tick';
 import { TooltipContent } from './components/TooltipContent';
 
@@ -192,13 +195,24 @@ const Chart = (props: OptionsProps) => {
         if (!state || !charts) return null;
 
         return state.series.map((item: SeriaProps) => {
-            const { chart, properties } = item;
+            const { chart, properties, radius, labelList } = item;
             const show = charts[`${properties.dataKey}`];
 
             switch (chart) {
                 case 'bar':
                     return show && !item?.hide ? (
-                        <Bar key={`${state.id}-${properties.dataKey}`} {...properties}>
+                        <Bar
+                            key={`${state.id}-${properties.dataKey}`}
+                            {...properties}
+                            shape={<RectBar radius={radius} />}
+                        >
+                            {labelList && (
+                                <LabelList
+                                    dataKey={properties.dataKey.toString()}
+                                    {...labelList}
+                                    content={<CustomizedLabel radius={radius} />}
+                                />
+                            )}
                             {data.map((_: DataDynamicProps, index: number) => {
                                 const key = `${state.id}-${properties.dataKey}-${index}`;
                                 return (
@@ -331,12 +345,16 @@ const Chart = (props: OptionsProps) => {
     };
 
     const mouseMove = (e: any): void => {
+        if (!state?.tooltip) return;
+
         arrowTooltipEvent(e.activeCoordinate);
         hoverEvent(e.isTooltipActive, e.activeTooltipIndex);
         leaveEvent(e.isTooltipActive);
     };
 
     const mouseLeave = (e: any): void => {
+        if (!state?.tooltip) return;
+
         leaveEvent(e.isTooltipActive);
     };
 

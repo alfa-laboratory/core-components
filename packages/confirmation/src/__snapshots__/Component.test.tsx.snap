@@ -124,6 +124,7 @@ exports[`Confirmation Snapshot tests should match snapshot with fatal error 1`] 
   >
     <div
       class="error"
+      role="alert"
     >
       <span
         class="errorHeader"
@@ -328,6 +329,7 @@ exports[`Confirmation Snapshot tests should match snapshot with nonFatal error 1
         </div>
         <div
           class="error"
+          role="alert"
         >
           Неверный код
         </div>

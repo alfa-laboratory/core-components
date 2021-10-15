@@ -1,4 +1,4 @@
-import React, { MouseEvent, ReactNode, useCallback } from 'react';
+import React, { ElementType, MouseEvent, ReactNode, useCallback } from 'react';
 import cn from 'classnames';
 
 import { IconButton } from '@alfalab/core-components-icon-button';
@@ -46,6 +46,12 @@ export type FileUploadItemProps = {
     downloadLink?: string;
 
     /**
+     * Рекомендует браузеру скачивать контент по ссылке.
+     * В проп может быть передано рекомендуемое название скачиваемого файла.
+     */
+    download?: string | true;
+
+    /**
      * Отображение кнопки удаления
      */
     showDelete?: boolean;
@@ -76,6 +82,11 @@ export type FileUploadItemProps = {
     children?: React.ReactNode;
 
     /**
+     * Компонент кастомной иконки
+     */
+    icon?: ElementType<{ className?: string }>;
+
+    /**
      * Обработчик загрузки файла
      */
     onDownload?: (id: string) => void;
@@ -102,8 +113,10 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
     id = '0',
     name = '',
     size,
+    icon: Icon = fileIcon(name),
     uploadDate,
     downloadLink,
+    download,
     uploadStatus,
     uploadPercent = 0,
     error = uploadStatus === 'ERROR' ? 'Не удалось загрузить файл' : undefined,
@@ -142,17 +155,21 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
             case 'UPLOADING':
                 return <Spinner visible={true} />;
             default: {
-                const Icon = fileIcon(name);
                 return <Icon className={styles.icon} />;
             }
         }
-    }, [name, uploadStatus]);
+    }, [uploadStatus]);
 
     const renderName = useCallback(
         () => (
             <div className={styles.name}>
                 {downloadLink ? (
-                    <Link pseudo={true} href={downloadLink} onClick={handleDownload}>
+                    <Link
+                        pseudo={true}
+                        href={downloadLink}
+                        onClick={handleDownload}
+                        download={download}
+                    >
                         {name}
                     </Link>
                 ) : (
@@ -160,7 +177,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
                 )}
             </div>
         ),
-        [downloadLink, handleDownload, name],
+        [downloadLink, handleDownload, download, name],
     );
 
     const showMeta = !showRestore && (!uploadStatus || uploadStatus === 'SUCCESS');
@@ -183,7 +200,11 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
 
                 {uploadStatus === 'UPLOADING' && <span>{`${Math.round(uploadPercent)}%`}</span>}
 
-                {uploadStatus === 'ERROR' && <span className={styles.error}>{error}</span>}
+                {uploadStatus === 'ERROR' && (
+                    <span className={styles.error} role='alert'>
+                        {error}
+                    </span>
+                )}
 
                 {showMeta && (
                     <div className={styles.meta}>

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-form-control@7.3.0...@alfalab/core-components-form-control@7.4.0) (2021-10-11)
+
+
+### Features
+
+* проставлен role=alert для ошибок ([#850](https://github.com/alfa-laboratory/core-components/issues/850)) ([dc634a3](https://github.com/alfa-laboratory/core-components/commit/dc634a3d008accfab10192ce234c12ef0ecc7fa9))
+
+
+
+
+
 # [7.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-form-control@7.2.2...@alfalab/core-components-form-control@7.3.0) (2021-09-14)
 
 
