@@ -1,3 +1,19 @@
+# [21.0.0](https://github.com/alfa-laboratory/core-components/compare/v20.7.2...v21.0.0) (2021-10-15)
+
+
+### Features
+
+* обновлённая темизация иконок в инпутах ([ab90d60](https://github.com/alfa-laboratory/core-components/commit/ab90d602f239176d0771db38f9cc29dc02a35566))
+* **calendar-input:** переход к темизации цвета иконки ([adf1dfd](https://github.com/alfa-laboratory/core-components/commit/adf1dfd080c1986976a57fee448183e762892eb0))
+* **select:** переход к темизации цвета иконки ([112cd95](https://github.com/alfa-laboratory/core-components/commit/112cd95242e27f5065eb2a8349d3afbddfdee638))
+* **themes:** обновлённые темы для calendar-input и select ([5ae76c3](https://github.com/alfa-laboratory/core-components/commit/5ae76c314bf33236767056b77969ca7003057532))
+
+
+### BREAKING CHANGES
+
+* **select:** удалена переменная --select-arrow-background
+* **calendar-input:** удалена переменная --calendar-input-calendar-icon
+
 ## [20.7.2](https://github.com/alfa-laboratory/core-components/compare/v20.7.1...v20.7.2) (2021-10-15)
 
 
