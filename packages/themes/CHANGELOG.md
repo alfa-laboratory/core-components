@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@5.0.1...@alfalab/core-components-themes@5.1.0) (2021-10-15)
+
+
+### Features
+
+* **themes:** обновлённые темы для calendar-input и select ([5ae76c3](https://github.com/alfa-laboratory/core-components/commit/5ae76c314bf33236767056b77969ca7003057532))
+
+
+
+
+
 ## [5.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@5.0.0...@alfalab/core-components-themes@5.0.1) (2021-10-15)
 
 

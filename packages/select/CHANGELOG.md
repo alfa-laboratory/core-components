@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.7.1...@alfalab/core-components-select@10.0.0) (2021-10-15)
+
+
+### Features
+
+* **select:** переход к темизации цвета иконки ([112cd95](https://github.com/alfa-laboratory/core-components/commit/112cd95242e27f5065eb2a8349d3afbddfdee638))
+
+
+### BREAKING CHANGES
+
+* **select:** удалена переменная --select-arrow-background
+
+
+
+
+
 ## [9.7.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.7.0...@alfalab/core-components-select@9.7.1) (2021-10-15)
 
 **Note:** Version bump only for package @alfalab/core-components-select

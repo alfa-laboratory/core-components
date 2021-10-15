@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@3.2.2...@alfalab/core-components-calendar-range@4.0.0) (2021-10-15)
+
+
+### Features
+
+* **calendar-input:** переход к темизации цвета иконки ([adf1dfd](https://github.com/alfa-laboratory/core-components/commit/adf1dfd080c1986976a57fee448183e762892eb0))
+
+
+### BREAKING CHANGES
+
+* **calendar-input:** удалена переменная --calendar-input-calendar-icon
+
+
+
+
+
 ## [3.2.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@3.2.1...@alfalab/core-components-calendar-range@3.2.2) (2021-10-15)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar-range
