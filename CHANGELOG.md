@@ -1,3 +1,14 @@
+## [20.7.2](https://github.com/alfa-laboratory/core-components/compare/v20.7.1...v20.7.2) (2021-10-15)
+
+
+### Bug Fixes
+
+* **calendar-input:** обновлён в теме click ([da5d960](https://github.com/alfa-laboratory/core-components/commit/da5d9607ce80742bd6780a5bad11b07b3617b44c))
+* input & textarea disabled color on safari ([39ea4ef](https://github.com/alfa-laboratory/core-components/commit/39ea4ef7e948016a4ffa17c563cfdd13169a3c2b))
+* фикс цвета disabled в Safari для Input и Textarea ([efaa693](https://github.com/alfa-laboratory/core-components/commit/efaa693c8e34569df05c951c09c89895d4d949dc))
+* **calendar-input:** remove popover border in click theme ([7a76759](https://github.com/alfa-laboratory/core-components/commit/7a76759ccc5741a03a4c90f97cce6f67255b1c4b))
+* **calendar-input:** update border-radius ([0d06aca](https://github.com/alfa-laboratory/core-components/commit/0d06aca7162c85f987c1172ea037b5b3bc66f8c5))
+
 ## [20.7.1](https://github.com/alfa-laboratory/core-components/compare/v20.7.0...v20.7.1) (2021-10-13)
 
 
