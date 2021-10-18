@@ -1,3 +1,11 @@
+# [21.1.0](https://github.com/alfa-laboratory/core-components/compare/v21.0.0...v21.1.0) (2021-10-18)
+
+
+### Features
+
+* **confirmation:** compact code-input if slotsCount > 6 ([99be0e1](https://github.com/alfa-laboratory/core-components/commit/99be0e1744d9782824756c8992fd4b986a589dd7))
+* **confirmation:** компактный code-input когда символов > 6 ([633d1ff](https://github.com/alfa-laboratory/core-components/commit/633d1ffd66c7c9d949c3996f6d4d739a4fcb6b21))
+
 # [21.0.0](https://github.com/alfa-laboratory/core-components/compare/v20.7.2...v21.0.0) (2021-10-15)
 
 
