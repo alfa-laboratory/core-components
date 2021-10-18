@@ -4532,6 +4532,10 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
         color: var(--color-light-text-tertiary);
         opacity: 1;
     }
+.compact_3dN0A .input_15JL3 {
+    width: 28px;
+    height: 40px;
+}
 @-webkit-keyframes shake_1ReDO {
     0% {
         -webkit-transform: translateX(0);
