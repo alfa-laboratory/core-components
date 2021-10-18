@@ -17,7 +17,6 @@
     "dependencies": {
         "@alfalab/core-components-typography": "^2.0.1",
         "classnames": "^2.2.6",
-        "moment": "^2.29.1",
         "recharts": "^2.0.10"
     },
     "devDependencies": {

@@ -1,5 +1,5 @@
-import moment from 'moment';
-import Chart from '../Component';
+import { format } from 'date-fns';
+import { Chart } from '../Component';
 
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
@@ -30,12 +30,6 @@ import Changelog from '../../CHANGELOG.md';
                 return item;
             });
             return ({ ...obj, labels, series});
-        };
-        const formatXAxis = (time) => {
-            const dateFormat = 'DD MMM';
-            const dateUtc = moment.utc(time);
-            const localDate = dateUtc.local();
-            return localDate.format(dateFormat);
         };
     
         const orientationVertical = {
@@ -500,12 +494,7 @@ import Changelog from '../../CHANGELOG.md';
             });
             return ({ ...obj, labels, series});
         };
-        const formatXAxis = (time) => {
-            const dateFormat = 'DD MMM';
-            const dateUtc = moment.utc(time);
-            const localDate = dateUtc.local();
-            return localDate.format(dateFormat);
-        };
+        const formatXAxis = (time) => format(time, 'dd LLL');
     
         const orientationVertical = {
             bottom: 'bottom',
@@ -1300,12 +1289,6 @@ import Changelog from '../../CHANGELOG.md';
                 return item;
             });
             return ({ ...obj, labels, series});
-        };
-        const formatXAxis = (time) => {
-            const dateFormat = 'DD MMM';
-            const dateUtc = moment.utc(time);
-            const localDate = dateUtc.local();
-            return localDate.format(dateFormat);
         };
     
         const orientationVertical = {
