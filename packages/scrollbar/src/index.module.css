@@ -1,0 +1,125 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --scrollbar-rail-size: 16px;
+    --scrollbar-thumb-size: 8px;
+    --scrollbar-thumb-border-radius: 6px;
+    --scrollbar-thumb-main-offset: 4px;
+    --scrollbar-thumb-side-offset: 2px;
+    --scrollbar-thumb-color: #aaa;
+}
+
+.component {
+    overflow: hidden;
+    position: relative;
+
+    overflow-anchor: none;
+    -ms-overflow-style: none;
+    touch-action: auto;
+    -ms-touch-action: auto;
+
+    & :global(.ps__rail-x) {
+        display: none;
+        opacity: 0;
+        transition: background-color 0.2s ease, opacity 0.2s ease;
+        height: var(--scrollbar-rail-size);
+
+        /* there must be 'bottom' or 'top' for ps__rail-x */
+        bottom: 0;
+
+        /* please don't change 'position' */
+        position: absolute;
+        z-index: 1;
+    }
+
+    & :global(.ps__rail-y) {
+        display: none;
+        opacity: 0;
+        transition: background-color 0.2s ease, opacity 0.2s ease;
+        width: var(--scrollbar-rail-size);
+
+        /* there must be 'right' or 'left' for ps__rail-y */
+        right: 0;
+
+        /* please don't change 'position' */
+        position: absolute;
+        z-index: 1;
+    }
+
+    &:global(.ps--active-x > .ps__rail-x),
+    &:global(.ps--active-y > .ps__rail-y) {
+        display: block;
+        background-color: transparent;
+    }
+
+    &:global(.ps--scrolling-x > .ps__rail-x),
+    &:global(.ps--scrolling-y > .ps__rail-y) {
+        opacity: 0.5;
+    }
+
+    & :global(.ps__rail-x:hover),
+    & :global(.ps__rail-y:hover),
+    & :global(.ps__rail-x:focus),
+    & :global(.ps__rail-y:focus),
+    & :global(.ps__rail-x.ps--clicking),
+    & :global(.ps__rail-y.ps--clicking) {
+        /* background-color: #eee; */
+        opacity: 1;
+    }
+
+    /*
+    * Scrollbar thumb styles
+    */
+    & :global(.ps__thumb-x) {
+        background-color: var(--scrollbar-thumb-color);
+        border-radius: var(--scrollbar-thumb-border-radius);
+        height: var(--scrollbar-thumb-size);
+        transition: background-color 0.2s ease, transform 0.2s ease;
+        transform-origin: bottom;
+
+        /* there must be 'bottom' for ps__thumb-x */
+        bottom: var(--scrollbar-thumb-side-offset);
+
+        /* please don't change 'position' */
+        position: absolute;
+    }
+
+    & :global(.ps__thumb-y) {
+        background-color: var(--scrollbar-thumb-color);
+        border-radius: var(--scrollbar-thumb-border-radius);
+        width: var(--scrollbar-thumb-size);
+        transition: background-color 0.2s ease, transform 0.2s ease;
+        transform-origin: right;
+
+        /* there must be 'right' for ps__thumb-y */
+        right: var(--scrollbar-thumb-side-offset);
+
+        /* please don't change 'position' */
+        position: absolute;
+    }
+
+    & :global(.ps__rail-x:hover > .ps__thumb-x),
+    & :global(.ps__rail-x:focus > .ps__thumb-x),
+    & :global(.ps__rail-x.ps--clicking .ps__thumb-x) {
+        transform: scaleY(1.5);
+    }
+
+    & :global(.ps__rail-y:hover > .ps__thumb-y),
+    & :global(.ps__rail-y:focus > .ps__thumb-y),
+    & :global(.ps__rail-y.ps--clicking .ps__thumb-y) {
+        transform: scaleX(1.5);
+    }
+}
+
+/* MS supports */
+@supports (-ms-overflow-style: none) {
+    .component {
+        overflow: auto !important;
+    }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .component {
+        overflow: auto !important;
+    }
+}
