@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@8.4.0...@alfalab/core-components-confirmation@8.5.0) (2021-10-18)
+
+
+### Features
+
+* **confirmation:** compact code-input if slotsCount > 6 ([99be0e1](https://github.com/alfa-laboratory/core-components/commit/99be0e1744d9782824756c8992fd4b986a589dd7))
+
+
+
+
+
 # [8.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@8.3.0...@alfalab/core-components-confirmation@8.4.0) (2021-10-11)
 
 
