@@ -38,6 +38,11 @@
     }
 }
 
+.compact .input {
+    width: 28px;
+    height: 40px;
+}
+
 @keyframes shake {
     0% {
         transform: translateX(0);
