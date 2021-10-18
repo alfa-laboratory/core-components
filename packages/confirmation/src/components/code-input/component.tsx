@@ -217,6 +217,7 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
             <div
                 className={cn(styles.component, className, {
                     [styles.shake]: Boolean(error),
+                    [styles.compact]: slotsCount > 6,
                 })}
             >
                 {new Array(slotsCount).fill('').map((_, index) => (
