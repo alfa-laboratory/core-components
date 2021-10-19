@@ -80,6 +80,7 @@
         "react-textarea-autosize": "^8.2.0",
         "react-transition-group": "^4.3.0",
         "react-virtual": "^2.2.0",
+        "recharts": "^2.0.10",
         "resize-observer": "^1.0.0",
         "swiper": "^6.8.2",
         "text-mask-core": "^5.1.2"

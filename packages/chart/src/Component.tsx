@@ -29,13 +29,13 @@ import { ToggleChartProps } from './types/chart.types';
 import { DataDynamicProps, DataDynamicBooleanProps } from './types/utils/data.types';
 import { ActiveDotProps } from './types/utils/dot.types';
 import { CoordinatesProps } from './types/utils/coordinates.types';
-import RectBar from './components/RectBar';
+import { RectBar } from './components/RectBar';
 import { Tick } from './components/Tick';
 import { TooltipContent } from './components/TooltipContent';
 
 import styles from './index.module.css';
 
-const Chart = (props: OptionsProps) => {
+export const Chart = (props: OptionsProps) => {
     const [{ state, data, charts, filterCount }, { setCharts, setFilterCount }] = useSettings(
         props,
     );
@@ -392,5 +392,3 @@ const Chart = (props: OptionsProps) => {
         </div>
     );
 };
-
-export default React.memo(Chart);
