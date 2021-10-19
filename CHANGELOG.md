@@ -1,3 +1,10 @@
+## [21.1.1](https://github.com/alfa-laboratory/core-components/compare/v21.1.0...v21.1.1) (2021-10-19)
+
+
+### Bug Fixes
+
+* **chart:** fix deps, export types ([b46450a](https://github.com/alfa-laboratory/core-components/commit/b46450ae954b10f0138c393482fe1271b001f085))
+
 # [21.1.0](https://github.com/alfa-laboratory/core-components/compare/v21.0.0...v21.1.0) (2021-10-18)
 
 
