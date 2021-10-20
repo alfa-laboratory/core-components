@@ -103,17 +103,15 @@ export function useVisibleOptions({
         const styleTarget = styleTargetRef.current;
 
         if (open && list && styleTarget) {
-            const optionsNodes = ([] as HTMLElement[]).slice.call(
-                list.children,
-                0,
-                visibleOptions + 1,
-            );
+            const options = list.querySelectorAll('*[role="option"]');
+
+            const optionsNodes = ([] as HTMLElement[]).slice.call(options, 0, visibleOptions + 1);
 
             let height = optionsNodes
                 .slice(0, visibleOptions)
                 .reduce((acc, child) => acc + child.clientHeight, 0);
 
-            if (visibleOptions < list.children.length) {
+            if (visibleOptions < options.length) {
                 // Добавляем половинку
                 height += Math.round(optionsNodes[optionsNodes.length - 1].clientHeight / 2);
             }

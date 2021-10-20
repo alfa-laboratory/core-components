@@ -1,6 +1,7 @@
 import React, { forwardRef, useCallback, useRef } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
+import { Scrollbar } from '@alfalab/core-components-scrollbar';
 import { OptionsListProps, GroupShape } from '../../typings';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 
@@ -52,7 +53,7 @@ export const OptionsList = forwardRef(
         }
 
         return (
-            <div
+            <Scrollbar
                 className={cn(styles.optionsList, styles[size], className)}
                 data-test-id={dataTestId}
                 ref={mergeRefs([listRef, ref])}
@@ -65,7 +66,7 @@ export const OptionsList = forwardRef(
                 {emptyPlaceholder && options.length === 0 && (
                     <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>
                 )}
-            </div>
+            </Scrollbar>
         );
     },
 );

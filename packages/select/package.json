@@ -24,6 +24,7 @@
         "@alfalab/core-components-input": "^7.3.1",
         "@alfalab/core-components-popover": "^5.5.0",
         "@alfalab/core-components-skeleton": "^3.0.1",
+        "@alfalab/core-components-scrollbar": "^1.0.0",
         "@alfalab/hooks": "^1.0.0",
         "classnames": "^2.2.6",
         "downshift": "5.4.7",

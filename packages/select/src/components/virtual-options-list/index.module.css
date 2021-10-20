@@ -2,7 +2,6 @@
 @import '../../vars.css';
 
 .virtualOptionsList {
-    overflow: auto;
     width: 100%;
     outline: none;
     box-sizing: border-box;
