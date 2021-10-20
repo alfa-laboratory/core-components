@@ -20,7 +20,7 @@ import { ChevronBackHeavyMIcon } from '@alfalab/icons-glyph/ChevronBackHeavyMIco
 import { ChevronForwardHeavyMIcon } from '@alfalab/icons-glyph/ChevronForwardHeavyMIcon';
 
 import { GalleryContext } from '../../context';
-import { getImageAlt, getImageKey } from '../../utils';
+import { getImageAlt, getImageKey, TestIds } from '../../utils';
 import { Slide } from './slide';
 
 import styles from './index.module.css';
@@ -158,6 +158,7 @@ export const ImageViewer: FC = () => {
                     tabIndex={0}
                     ref={leftArrowRef}
                     aria-label='Предыдущее изображение'
+                    data-test-id={TestIds.PREV_SLIDE_BUTTON}
                 >
                     <ChevronBackHeavyMIcon />
                 </div>
@@ -199,6 +200,7 @@ export const ImageViewer: FC = () => {
                                     meta={meta}
                                     index={index}
                                     imageAspectRatio={imageAspectRatio}
+                                    slideVisible={slideVisible}
                                     handleLoad={handleLoad}
                                     handleLoadError={handleLoadError}
                                 />
@@ -219,6 +221,7 @@ export const ImageViewer: FC = () => {
                     tabIndex={0}
                     ref={rightArrowRef}
                     aria-label='Следующее изображение'
+                    data-test-id={TestIds.NEXT_SLIDE_BUTTON}
                 >
                     <ChevronForwardHeavyMIcon />
                 </div>

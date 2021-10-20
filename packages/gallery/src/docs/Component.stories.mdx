@@ -1,4 +1,5 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { Button } from '@alfalab/core-components-button';
 
@@ -20,7 +21,7 @@ import styles from '!!raw-loader!../vars.css';
         const [open, setOpen] = React.useState(false);
         return (
             <div style={{ width: '100%', height: 'calc(100vh - 50px)'}}>
-                <Button view="primary" onClick={() => { setOpen(true) }}>Открыть галерею</Button>
+                <Button view="primary" onClick={() => { setOpen(true) }} id="open-gallery-button">Открыть галерею</Button>
                 <Gallery
                     open={open}
                     onClose={() => {
@@ -48,6 +49,7 @@ import styles from '!!raw-loader!../vars.css';
                             src: 'https://clipart-best.com/img/bush/bush-clip-art-22.png'
                         }
                     ]}
+                    loop={boolean('loop', true)}
                 />
             </div>
         )
