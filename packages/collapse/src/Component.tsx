@@ -54,6 +54,11 @@ export type CollapseProps = {
     onExpandedChange?: (expanded?: boolean) => void;
 
     /**
+     * Обработчик события завершения анимации
+     */
+    onTransitionEnd?: () => void;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -68,6 +73,7 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
             children,
             className,
             id,
+            onTransitionEnd,
             onExpandedChange,
             dataTestId,
         },
@@ -103,7 +109,9 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
                     contentRef.current.style.height = 'auto';
                 }
             }
-        }, []);
+
+            if (onTransitionEnd) onTransitionEnd();
+        }, [onTransitionEnd]);
 
         const handleExpandedChange = useCallback(() => {
             if (uncontrolled) {
@@ -148,9 +156,7 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
                     style={contentStyles}
                     onTransitionEnd={handleTransitionEnd}
                 >
-                    <div ref={contentCaseRef} className={styles.contentCase}>
-                        {children}
-                    </div>
+                    <div ref={contentCaseRef}>{children}</div>
                 </div>
                 {(expandedLabel || collapsedLabel) && (
                     <Link

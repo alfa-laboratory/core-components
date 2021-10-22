@@ -9,9 +9,7 @@ exports[`Collapse Display tests should display radio group with one child correc
       class="content"
       style="height: 0px;"
     >
-      <div
-        class="contentCase"
-      >
+      <div>
         <p
           style="margin: 0px 0px 16px 0px;"
         >
@@ -68,9 +66,7 @@ exports[`Collapse Display tests should display with children like boolean or str
       class="content"
       style="height: 0px;"
     >
-      <div
-        class="contentCase"
-      >
+      <div>
         <p
           style="margin: 0px 0px 16px 0px;"
         >
