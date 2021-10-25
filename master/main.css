@@ -14763,8 +14763,6 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     font-size: 14px;
     line-height: 20px;
     font-weight: 400;
-
-    word-break: break-all;
 }
 .title_3Qb0b + .children_1kWJs {
     margin-top: var(--gap-2xs);
@@ -16771,7 +16769,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --textarea-s-filled-margin-top: 23px;
     --textarea-m-filled-margin-top: 28px;
     --textarea-l-filled-margin-top: 32px;
-    --textarea-xl-filled-margin-top: 38px;
+    --textarea-xl-filled-margin-top: 34px;
 
     /* filled min-height */
     --textarea-s-filled-min-height: calc(
