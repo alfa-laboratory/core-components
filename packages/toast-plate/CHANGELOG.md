@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.6...@alfalab/core-components-toast-plate@4.0.7) (2021-10-25)
+
+
+### Bug Fixes
+
+* **textarea:** поправлен отступ в размере xl ([#859](https://github.com/alfa-laboratory/core-components/issues/859)) ([fcd586b](https://github.com/alfa-laboratory/core-components/commit/fcd586b03761bda053c7c3fd9381bb94227711d7))
+
+
+
+
+
 ## [4.0.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.5...@alfalab/core-components-toast-plate@4.0.6) (2021-09-14)
 
 **Note:** Version bump only for package @alfalab/core-components-toast-plate

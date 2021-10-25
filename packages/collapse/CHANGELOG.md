@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@2.0.3...@alfalab/core-components-collapse@2.1.0) (2021-10-25)
+
+
+### Features
+
+* **collapse:** reset height to auto ([#822](https://github.com/alfa-laboratory/core-components/issues/822)) ([f533e3b](https://github.com/alfa-laboratory/core-components/commit/f533e3ba1eab5f41539c39ca3b97f698e90ca687))
+
+
+
+
+
 ## [2.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@2.0.2...@alfalab/core-components-collapse@2.0.3) (2021-08-27)
 
 **Note:** Version bump only for package @alfalab/core-components-collapse
