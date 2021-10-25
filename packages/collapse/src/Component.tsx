@@ -1,4 +1,12 @@
-import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
+import React, {
+    CSSProperties,
+    forwardRef,
+    useCallback,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
+} from 'react';
 import cn from 'classnames';
 import { ArrowDownMBlackIcon } from '@alfalab/icons-classic/ArrowDownMBlackIcon';
 import { ArrowUpMBlackIcon } from '@alfalab/icons-classic/ArrowUpMBlackIcon';
@@ -46,6 +54,11 @@ export type CollapseProps = {
     onExpandedChange?: (expanded?: boolean) => void;
 
     /**
+     * Обработчик события завершения анимации
+     */
+    onTransitionEnd?: () => void;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -60,6 +73,7 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
             children,
             className,
             id,
+            onTransitionEnd,
             onExpandedChange,
             dataTestId,
         },
@@ -89,6 +103,24 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
             contentRef.current.style.height = `${contentHeight}px`;
         }, [isExpanded]);
 
+        const handleTransitionEnd = useCallback(() => {
+            if (contentRef.current) {
+                if (contentRef.current.offsetHeight > 0) {
+                    contentRef.current.style.height = 'auto';
+                }
+            }
+
+            if (onTransitionEnd) onTransitionEnd();
+        }, [onTransitionEnd]);
+
+        const handleExpandedChange = useCallback(() => {
+            if (uncontrolled) {
+                setExpandedState(!isExpanded);
+            }
+
+            if (onExpandedChange) onExpandedChange();
+        }, [isExpanded, onExpandedChange, uncontrolled]);
+
         useEffect(() => {
             const handleResize = debounce(() => recalculate(), 300);
 
@@ -99,21 +131,15 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
 
         useEffect(() => recalculate(), [isExpanded, recalculate]);
 
-        const contentClassName = cn(styles.content, {
-            [styles.expandedContent]: isExpanded,
-        });
+        const contentStyles: CSSProperties = useMemo(() => {
+            const contentHeight = contentRef.current?.offsetHeight;
 
-        const labelClassName = isExpanded ? styles.expandedLabel : '';
+            return {
+                height: isExpanded && !contentHeight ? '0px' : `${contentHeight}px`,
+            };
+        }, [isExpanded]);
 
         const ToggledIcon = isExpanded ? ArrowUpMBlackIcon : ArrowDownMBlackIcon;
-
-        const handleExpandedChange = useCallback(() => {
-            if (uncontrolled) {
-                setExpandedState(!isExpanded);
-            }
-
-            if (onExpandedChange) onExpandedChange();
-        }, [isExpanded, onExpandedChange, uncontrolled]);
 
         return (
             <div
@@ -122,12 +148,19 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
                 id={id}
                 data-test-id={dataTestId}
             >
-                <div ref={contentRef} className={contentClassName}>
+                <div
+                    ref={contentRef}
+                    className={cn(styles.content, {
+                        [styles.expandedContent]: isExpanded,
+                    })}
+                    style={contentStyles}
+                    onTransitionEnd={handleTransitionEnd}
+                >
                     <div ref={contentCaseRef}>{children}</div>
                 </div>
                 {(expandedLabel || collapsedLabel) && (
                     <Link
-                        className={labelClassName}
+                        className={cn({ [styles.expandedLabel]: isExpanded })}
                         pseudo={true}
                         onClick={handleExpandedChange}
                         rightAddons={<ToggledIcon />}
