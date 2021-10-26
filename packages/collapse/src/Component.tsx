@@ -8,6 +8,7 @@ import React, {
     useState,
 } from 'react';
 import cn from 'classnames';
+import { ResizeObserver } from 'resize-observer';
 import { ArrowDownMBlackIcon } from '@alfalab/icons-classic/ArrowDownMBlackIcon';
 import { ArrowUpMBlackIcon } from '@alfalab/icons-classic/ArrowUpMBlackIcon';
 import { Link } from '@alfalab/core-components-link';
@@ -56,7 +57,7 @@ export type CollapseProps = {
     /**
      * Обработчик события завершения анимации
      */
-    onTransitionEnd?: () => void;
+    onTransitionEnd?: (expanded?: boolean) => void;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -104,14 +105,8 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
         }, [isExpanded]);
 
         const handleTransitionEnd = useCallback(() => {
-            if (contentRef.current) {
-                if (contentRef.current.offsetHeight > 0) {
-                    contentRef.current.style.height = 'auto';
-                }
-            }
-
-            if (onTransitionEnd) onTransitionEnd();
-        }, [onTransitionEnd]);
+            if (onTransitionEnd) onTransitionEnd(expanded);
+        }, [expanded, onTransitionEnd]);
 
         const handleExpandedChange = useCallback(() => {
             if (uncontrolled) {
@@ -127,6 +122,17 @@ export const Collapse = forwardRef<HTMLDivElement, CollapseProps>(
             window.addEventListener('resize', handleResize);
 
             return () => window.removeEventListener('resize', handleResize);
+        }, [recalculate]);
+
+        useEffect(() => {
+            const observer = new ResizeObserver(recalculate);
+            if (contentCaseRef.current) {
+                observer.observe(contentCaseRef.current);
+            }
+
+            return () => {
+                observer.disconnect();
+            };
         }, [recalculate]);
 
         useEffect(() => recalculate(), [isExpanded, recalculate]);
