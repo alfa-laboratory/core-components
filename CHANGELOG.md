@@ -1,3 +1,10 @@
+## [21.2.1](https://github.com/alfa-laboratory/core-components/compare/v21.2.0...v21.2.1) (2021-10-27)
+
+
+### Bug Fixes
+
+* **collapse:** dynamic content height ([#864](https://github.com/alfa-laboratory/core-components/issues/864)) ([e96c86b](https://github.com/alfa-laboratory/core-components/commit/e96c86bde70d58e4311a2c6bcd6d7407be0f4c44))
+
 # [21.2.0](https://github.com/alfa-laboratory/core-components/compare/v21.1.1...v21.2.0) (2021-10-25)
 
 
