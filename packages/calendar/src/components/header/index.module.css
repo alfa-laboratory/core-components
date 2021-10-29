@@ -74,6 +74,10 @@
     width: 24px;
     height: 24px;
     margin-left: var(--gap-xs);
+
+    @media (max-width: 374px) {
+        margin-left: auto;
+    }
 }
 
 .arrow {
