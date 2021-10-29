@@ -18,16 +18,34 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 374px) {
+        justify-content: space-between;
+    }
+
+    @media (max-width: 374px) {
+        width: 256px;
+        margin: 0 auto;
+    }
 }
 
 .month {
     width: 131px;
+
+    @media (max-width: 374px) {
+        width: auto;
+        flex-grow: 1;
+    }
 }
 
 .year {
     width: 105px;
 
     margin-left: var(--gap-xs);
+
+    @media (max-width: 374px) {
+        width: 90px;
+    }
 }
 
 .buttonContent {
@@ -72,5 +90,9 @@
     &:last-child {
         right: 0;
         transform: rotateY(180deg);
+    }
+
+    @media (max-width: 374px) {
+        display: none;
     }
 }

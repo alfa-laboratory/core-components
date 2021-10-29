@@ -23,6 +23,10 @@
     box-shadow: var(--shadow-s);
     border: 1px solid var(--calendar-input-popover-border-color);
     border-radius: var(--calendar-input-popover-border-radius);
+
+    @media (max-width: 374px) {
+        width: 100%;
+    }
 }
 
 .calendarIcon {

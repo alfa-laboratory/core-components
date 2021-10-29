@@ -44,6 +44,10 @@
 
     height: 40px;
     color: var(--color-light-text-secondary);
+
+    @media (max-width: 374px) {
+        height: 36px;
+    }
 }
 
 .day {
@@ -59,6 +63,11 @@
     box-sizing: border-box;
     border-radius: var(--calendar-day-border-radius);
     color: var(--color-light-text-primary);
+
+    @media (max-width: 374px) {
+        width: 36px;
+        height: 36px;
+    }
 
     &.event {
         &:before {
