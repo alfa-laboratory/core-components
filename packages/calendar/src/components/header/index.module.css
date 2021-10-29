@@ -21,9 +21,6 @@
 
     @media (max-width: 374px) {
         justify-content: space-between;
-    }
-
-    @media (max-width: 374px) {
         width: 256px;
         margin: 0 auto;
     }
