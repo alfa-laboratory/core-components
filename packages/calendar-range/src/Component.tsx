@@ -280,6 +280,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
         <div className={cn(styles.component, className)} data-test-id={dataTestId}>
             <CalendarInput
                 {...inputFromProps}
+                useAnchorWidth={false}
                 calendarPosition={calendarPosition}
                 onInputChange={handleInputFromChange}
                 onCalendarChange={handleFromCalendarChange}
@@ -302,6 +303,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
             <div onMouseOver={handleCalendarToMouseOver}>
                 <CalendarInput
                     {...inputToProps}
+                    useAnchorWidth={false}
                     calendarPosition={calendarPosition}
                     popoverPosition='bottom-end'
                     onInputChange={handleInputToChange}
