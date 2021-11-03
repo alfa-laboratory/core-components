@@ -279,6 +279,11 @@ export type BaseSelectProps = {
     updatePopover?: PopoverProps['update'];
 
     /**
+     * z-index поповера
+     */
+    zIndexPopover?: PopoverProps['zIndex'];
+
+    /**
      * Показывать OptionsList, если он пустой
      */
     showEmptyOptionsList?: boolean;
