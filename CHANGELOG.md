@@ -1,3 +1,29 @@
+## [21.2.1](https://github.com/alfa-laboratory/core-components/compare/v21.2.0...v21.2.1) (2021-10-27)
+
+
+### Bug Fixes
+
+* **collapse:** dynamic content height ([#864](https://github.com/alfa-laboratory/core-components/issues/864)) ([e96c86b](https://github.com/alfa-laboratory/core-components/commit/e96c86bde70d58e4311a2c6bcd6d7407be0f4c44))
+
+# [21.2.0](https://github.com/alfa-laboratory/core-components/compare/v21.1.1...v21.2.0) (2021-10-25)
+
+
+### Bug Fixes
+
+* **textarea:** поправлен отступ в размере xl ([#859](https://github.com/alfa-laboratory/core-components/issues/859)) ([fcd586b](https://github.com/alfa-laboratory/core-components/commit/fcd586b03761bda053c7c3fd9381bb94227711d7))
+
+
+### Features
+
+* **collapse:** reset height to auto ([#822](https://github.com/alfa-laboratory/core-components/issues/822)) ([f533e3b](https://github.com/alfa-laboratory/core-components/commit/f533e3ba1eab5f41539c39ca3b97f698e90ca687))
+
+## [21.1.1](https://github.com/alfa-laboratory/core-components/compare/v21.1.0...v21.1.1) (2021-10-19)
+
+
+### Bug Fixes
+
+* **chart:** fix deps, export types ([b46450a](https://github.com/alfa-laboratory/core-components/commit/b46450ae954b10f0138c393482fe1271b001f085))
+
 # [21.1.0](https://github.com/alfa-laboratory/core-components/compare/v21.0.0...v21.1.0) (2021-10-18)
 
 
