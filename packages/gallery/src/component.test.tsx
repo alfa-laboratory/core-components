@@ -55,14 +55,6 @@ const waitForExitFullscreen = async (baseElement: HTMLElement) => {
     });
 };
 
-/**
- * 1) В снэпшотах у swiper генерятся какие-то рандомные айдишники, по-этому снэпшот-тесты не проходят, надо разобраться
- * 2) Тесты на navigation-bar
- * 3) Тесты на single-image
- * 4) Тест на закрытие при клике мимо картинки
- * 5) Тест на показ тульипа при наведении на кнопки в хэдере
- * 6) Скриншот-тесты
- */
 describe('Gallery', () => {
     describe('Switch images tests', () => {
         it('should show next image, if clicked on button next', async () => {
@@ -263,6 +255,57 @@ describe('Gallery', () => {
             expect(description.textContent).toBe(
                 `Изображение ${initialSlide + 1} из ${images.length}`,
             );
+        });
+
+        it('should open tooltip, if hover on buttons', async () => {
+            const { getByTestId, getByText } = render(
+                <Gallery open={true} images={images} onClose={() => null} />,
+            );
+
+            const fullscreenButton = getByTestId(TestIds.FULLSCREEN_BUTTON);
+            const downloadButton = getByTestId(TestIds.DOWNLOAD_BUTTON);
+
+            fireEvent.mouseOver(fullscreenButton);
+
+            await waitFor(() =>
+                expect(getByText('Открыть в полноэкранном режиме')).toBeInTheDocument(),
+            );
+
+            fireEvent.mouseOver(downloadButton);
+
+            await waitFor(() => expect(getByText('Скачать')).toBeInTheDocument());
+        });
+    });
+
+    describe('Navigation bar tests', () => {
+        it('should go to clicked image', async () => {
+            const { getByTestId } = render(
+                <Gallery open={true} images={images} onClose={() => null} />,
+            );
+
+            const navigationBar = getByTestId(TestIds.NAVIGATION_BAR);
+
+            const previewButtons = navigationBar.querySelectorAll('div[role="button"]');
+
+            fireEvent.click(previewButtons[1]);
+
+            await waitForActiveImage(getByTestId, 1);
+
+            fireEvent.click(previewButtons[2]);
+
+            await waitForActiveImage(getByTestId, 2);
+        });
+    });
+
+    describe('Single image view tests', () => {
+        it('should don`t display arrows and navigation bar ', async () => {
+            const { queryByTestId } = render(
+                <Gallery open={true} images={[images[0]]} onClose={() => null} />,
+            );
+
+            expect(queryByTestId(TestIds.NAVIGATION_BAR)).not.toBeInTheDocument();
+            expect(queryByTestId(TestIds.PREV_SLIDE_BUTTON)).not.toBeInTheDocument();
+            expect(queryByTestId(TestIds.NEXT_SLIDE_BUTTON)).not.toBeInTheDocument();
         });
     });
 
