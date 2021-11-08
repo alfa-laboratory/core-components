@@ -5,6 +5,7 @@ import { defaultViewport, matchHtml, MatchHtmlParams } from './helpers';
 
 export const STORYBOOK_URL = process.env.STORYBOOK_URL || 'http://localhost:9009/iframe.html';
 export const STYLES_URL = 'http://localhost:9009/main.css';
+export const VENDOR_STYLES_URL = 'http://localhost:9009/vendors~main.css';
 
 export type ScreenshotOpts = {
     /**

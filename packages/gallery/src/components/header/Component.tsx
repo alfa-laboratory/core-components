@@ -2,7 +2,7 @@ import React, { FC, useContext, useEffect, useRef } from 'react';
 
 import { HeaderInfoBlock } from '../header-info-block';
 import * as Buttons from './buttons';
-import { isSmallImage } from '../../utils';
+import { isSmallImage, TestIds } from '../../utils';
 import { GalleryContext } from '../../context';
 
 import styles from './index.module.css';
@@ -50,23 +50,35 @@ export const Header: FC = () => {
 
     const renderToggleFullScreenButton = () =>
         fullScreen ? (
-            <Buttons.ExitFullscreen onClick={closeFullScreen} buttonRef={toggleFullScreenButton} />
+            <Buttons.ExitFullscreen
+                onClick={closeFullScreen}
+                buttonRef={toggleFullScreenButton}
+                dataTestId={TestIds.EXIT_FULLSCREEN_BUTTON}
+            />
         ) : (
-            <Buttons.Fullscreen onClick={openFullScreen} buttonRef={toggleFullScreenButton} />
+            <Buttons.Fullscreen
+                onClick={openFullScreen}
+                buttonRef={toggleFullScreenButton}
+                dataTestId={TestIds.FULLSCREEN_BUTTON}
+            />
         );
 
     return (
-        <div className={styles.component}>
+        <div className={styles.header}>
             <HeaderInfoBlock filename={filename} description={description} />
 
             <div className={styles.buttons}>
                 {showFullScreenButton && renderToggleFullScreenButton()}
 
                 {showDownloadButton && (
-                    <Buttons.Download href={currentImage?.src} download={currentImage?.name} />
+                    <Buttons.Download
+                        href={currentImage?.src}
+                        download={currentImage?.name}
+                        dataTestId={TestIds.DOWNLOAD_BUTTON}
+                    />
                 )}
 
-                <Buttons.Exit onClick={onClose} />
+                <Buttons.Exit onClick={onClose} dataTestId={TestIds.CLOSE_BUTTON} />
             </div>
         </div>
     );

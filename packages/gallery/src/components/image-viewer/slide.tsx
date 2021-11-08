@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { Typography } from '@alfalab/core-components-typography';
 
 import { ImageMeta, GalleryImage } from '../../types';
-import { getImageAlt, isSmallImage } from '../../utils';
+import { getImageAlt, isSmallImage, TestIds } from '../../utils';
 
 import styles from './index.module.css';
 
@@ -16,6 +16,7 @@ type SlideProps = {
     imageAspectRatio: number;
     index: number;
     swiperHeight: number;
+    slideVisible: boolean;
     handleLoad: (event: SyntheticEvent<HTMLImageElement>, index: number) => void;
     handleLoadError: (index: number) => void;
 };
@@ -28,6 +29,7 @@ export const Slide: FC<SlideProps> = ({
     image,
     index,
     swiperHeight,
+    slideVisible,
     handleLoad,
     handleLoadError,
 }) => {
@@ -57,6 +59,7 @@ export const Slide: FC<SlideProps> = ({
                 style={{
                     maxHeight: `${swiperHeight}px`,
                 }}
+                data-test-id={slideVisible ? TestIds.ACTIVE_IMAGE : undefined}
             />
         </SlideInner>
     );

@@ -3,7 +3,7 @@ import React, { FC, KeyboardEventHandler, useCallback, useContext, useEffect, us
 import { ImagePreview } from '../image-preview';
 import styles from './index.module.css';
 
-import { getImageKey } from '../../utils';
+import { getImageKey, TestIds } from '../../utils';
 import { GalleryContext } from '../../context';
 
 const MIN_SCROLL_STEP = 24;
@@ -72,7 +72,12 @@ export const NavigationBar: FC = () => {
 
     return (
         // eslint-disable-next-line jsx-a11y/no-static-element-interactions
-        <div className={styles.component} ref={containerRef} onKeyDown={handleKeyDown}>
+        <div
+            className={styles.component}
+            ref={containerRef}
+            onKeyDown={handleKeyDown}
+            data-test-id={TestIds.NAVIGATION_BAR}
+        >
             {images.map((image, index) => {
                 const active = index === currentSlideIndex;
 

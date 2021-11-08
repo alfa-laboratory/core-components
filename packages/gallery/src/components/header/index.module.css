@@ -1,6 +1,6 @@
 @import '../../../../themes/src/default.css';
 
-.component {
+.header {
     display: flex;
     justify-content: space-between;
     flex-shrink: 0;

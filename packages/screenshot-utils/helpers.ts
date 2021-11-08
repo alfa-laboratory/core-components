@@ -12,7 +12,12 @@ import {
 import axios from 'axios';
 import { MatchImageSnapshotOptions } from 'jest-image-snapshot';
 import kebab from 'lodash.kebabcase';
-import { STYLES_URL, ScreenshotOpts, EvaluateFn } from './setupScreenshotTesting';
+import {
+    STYLES_URL,
+    VENDOR_STYLES_URL,
+    ScreenshotOpts,
+    EvaluateFn,
+} from './setupScreenshotTesting';
 
 type CustomSnapshotIdentifierParams = {
     currentTestName: string;
@@ -123,14 +128,17 @@ export const openBrowserPage = async (
     const context = await browser.newContext({ viewport: defaultViewport });
     const page = await context.newPage();
 
-    const [css] = await Promise.all([
+    const [mainCss, vendorCss] = await Promise.all([
         axios.get(STYLES_URL, {
             responseType: 'text',
         }),
+        axios.get(VENDOR_STYLES_URL, { responseType: 'text' }),
         page.goto(pageUrl),
     ]);
 
-    return { browser, context, page, css: css?.data };
+    const css = `${mainCss?.data}\n${vendorCss?.data}`;
+
+    return { browser, context, page, css };
 };
 
 export const closeBrowser = async ({ page, context, browser }: CloseBrowserParams) => {
