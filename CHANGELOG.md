@@ -1,3 +1,10 @@
+## [21.2.2](https://github.com/alfa-laboratory/core-components/compare/v21.2.1...v21.2.2) (2021-11-08)
+
+
+### Bug Fixes
+
+* **modal:** add spreading backdrop props ([#870](https://github.com/alfa-laboratory/core-components/issues/870)) ([b523426](https://github.com/alfa-laboratory/core-components/commit/b52342616adf1f4b227f603264b70474e53c16f8))
+
 ## [21.2.1](https://github.com/alfa-laboratory/core-components/compare/v21.2.0...v21.2.1) (2021-10-27)
 
 
