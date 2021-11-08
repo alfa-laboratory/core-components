@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@2.0.7...@alfalab/core-components-modal@2.0.8) (2021-11-08)
+
+
+### Bug Fixes
+
+* **modal:** add spreading backdrop props ([#870](https://github.com/alfa-laboratory/core-components/issues/870)) ([b523426](https://github.com/alfa-laboratory/core-components/commit/b52342616adf1f4b227f603264b70474e53c16f8))
+
+
+
+
+
 ## [2.0.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@2.0.6...@alfalab/core-components-modal@2.0.7) (2021-09-14)
 
 **Note:** Version bump only for package @alfalab/core-components-modal
