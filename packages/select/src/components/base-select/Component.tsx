@@ -72,6 +72,7 @@ export const BaseSelect = forwardRef(
             Optgroup = () => null,
             Option = () => null,
             updatePopover,
+            zIndexPopover,
             showEmptyOptionsList = false,
             visibleOptions,
         }: BaseSelectProps,
@@ -422,6 +423,7 @@ export const BaseSelect = forwardRef(
                         preventFlip={preventFlip}
                         popperClassName={styles.popoverInner}
                         update={updatePopover}
+                        zIndex={zIndexPopover}
                     >
                         {needRenderOptionsList && (
                             <div
