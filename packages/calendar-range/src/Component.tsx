@@ -10,7 +10,13 @@ import {
     isCompleteDateInput,
     parseDateString,
 } from '@alfalab/core-components-calendar-input';
-import { isDayButton, ValueState, getCorrectValueState, initialValueState } from './utils';
+import {
+    isDayButton,
+    ValueState,
+    getCorrectValueState,
+    initialValueState,
+    PickPeriod,
+} from './utils';
 
 import { useCalendarMonthes } from './useCalendarMonthes';
 import { useCalendarMaxMinDates } from './useCalendarMaxMinDates';
@@ -77,6 +83,12 @@ export type CalendarRangeProps = {
      * Определяет, как рендерить календарь — в поповере или снизу инпута
      */
     calendarPosition?: 'static' | 'popover';
+
+    /**
+     * Если выбран in-future - будут оторбражаться текущий месяц и следующий
+     * Если выбран in-past - будут оторбражаться текущий месяц и прошлый
+     */
+    pickPeriod?: PickPeriod;
 };
 
 export const CalendarRange: FC<CalendarRangeProps> = ({
@@ -92,6 +104,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
     inputToProps = {},
     calendarPosition = 'static',
     dataTestId,
+    pickPeriod = 'in-past',
 }) => {
     const uncontrolled = valueFrom === undefined && valueTo === undefined;
     const isPopover = calendarPosition === 'popover';
@@ -134,6 +147,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
         inputValueTo,
         defaultMonth,
         isPopover,
+        pickPeriod,
     });
 
     const handleInputFromChange = useCallback<Required<CalendarInputProps>['onInputChange']>(
