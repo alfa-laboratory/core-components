@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.0.0...@alfalab/core-components-select@10.1.0) (2021-11-08)
+
+
+### Features
+
+* **select:** добавлено свойство z-index для поповера ([#871](https://github.com/alfa-laboratory/core-components/issues/871)) ([4a53483](https://github.com/alfa-laboratory/core-components/commit/4a534835a9e6c9ec7793733467194536cfd96a91))
+
+
+
+
+
 # [10.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.7.1...@alfalab/core-components-select@10.0.0) (2021-10-15)
 
 
