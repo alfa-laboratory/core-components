@@ -1,13 +1,14 @@
 import { useState, useCallback } from 'react';
 import { startOfMonth, addMonths, subMonths } from 'date-fns';
 
-import { ValueState } from './utils';
+import { ValueState, PickPeriod, isEmptyDate } from './utils';
 
 type useMonthProps = {
     defaultMonth: number;
     isPopover: boolean;
     inputValueFrom: ValueState;
     inputValueTo: ValueState;
+    pickPeriod: PickPeriod;
 };
 
 export function useCalendarMonthes({
@@ -15,13 +16,34 @@ export function useCalendarMonthes({
     inputValueTo,
     defaultMonth,
     isPopover,
+    pickPeriod,
 }: useMonthProps) {
-    const initialMonthFrom =
-        !inputValueFrom.value || !inputValueFrom.date
-            ? defaultMonth
-            : startOfMonth(inputValueFrom.date).getTime();
+    const getInitialMonthes = (): { initialMonthFrom: number; initialMonthTo: number } => {
+        let initialMonthFrom = 0;
+        let initialMonthTo = 0;
 
-    const initialMonthTo = isPopover ? initialMonthFrom : addMonths(initialMonthFrom, 1).getTime();
+        if (pickPeriod === 'in-future') {
+            initialMonthFrom = isEmptyDate(inputValueFrom)
+                ? defaultMonth
+                : startOfMonth(inputValueFrom.date as number).getTime();
+
+            initialMonthTo = isPopover
+                ? initialMonthFrom
+                : addMonths(initialMonthFrom, 1).getTime();
+        } else {
+            initialMonthTo = isEmptyDate(inputValueTo)
+                ? defaultMonth
+                : startOfMonth(inputValueTo.date as number).getTime();
+            initialMonthFrom = isPopover ? initialMonthTo : subMonths(initialMonthTo, 1).getTime();
+        }
+
+        return {
+            initialMonthFrom,
+            initialMonthTo,
+        };
+    };
+
+    const { initialMonthFrom, initialMonthTo } = getInitialMonthes();
 
     const [monthFrom, setMonthFrom] = useState(initialMonthFrom);
     const [monthTo, setMonthTo] = useState(initialMonthTo);

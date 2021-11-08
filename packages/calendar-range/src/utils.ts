@@ -28,3 +28,7 @@ export const getCorrectValueState = (
 
 export const isDayButton = (node: HTMLElement | null) =>
     node && node.tagName === 'BUTTON' && node.dataset.date;
+
+export type PickPeriod = 'in-future' | 'in-past';
+
+export const isEmptyDate = (date: ValueState): boolean => !date.value || !date.date;

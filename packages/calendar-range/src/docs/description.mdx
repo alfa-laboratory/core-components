@@ -4,8 +4,8 @@
 
 ```tsx live
 render(() => {
-    const [valueFrom, setValueFrom] = React.useState('10.10.2020');
-    const [valueTo, setValueTo] = React.useState('10.11.2020');
+    const [valueFrom, setValueFrom] = React.useState('09.11.2021');
+    const [valueTo, setValueTo] = React.useState('09.11.2021');
 
     return (
         <CalendarRange
@@ -21,11 +21,11 @@ render(() => {
 ### Min/Max даты
 
 ```tsx live
-// import { startOfDay, subMonths, addMonths } from 'date-fns';
+// import { startOfDay, subMonths, addMonths, startOfMonth } from 'date-fns';
 // import { parseDateString } from '@alfalab/core-components/calendar-input';
 
 render(() => {
-    const defaultDate = '10.11.2020';
+    const defaultDate = '09.11.2021';
 
     const [valueFrom, setValueFrom] = React.useState(defaultDate);
     const [valueTo, setValueTo] = React.useState('');
@@ -81,6 +81,7 @@ render(() => {
                 onBlur: handleToBlur,
                 onFocus: handleToFocus,
             }}
+            defaultMonth={startOfMonth(parseDateString(defaultDate))}
         />
     );
 });
