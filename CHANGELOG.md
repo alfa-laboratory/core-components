@@ -1,3 +1,10 @@
+# [21.3.0](https://github.com/alfa-laboratory/core-components/compare/v21.2.2...v21.3.0) (2021-11-08)
+
+
+### Features
+
+* **select:** добавлено свойство z-index для поповера ([#871](https://github.com/alfa-laboratory/core-components/issues/871)) ([4a53483](https://github.com/alfa-laboratory/core-components/commit/4a534835a9e6c9ec7793733467194536cfd96a91))
+
 ## [21.2.2](https://github.com/alfa-laboratory/core-components/compare/v21.2.1...v21.2.2) (2021-11-08)
 
 
