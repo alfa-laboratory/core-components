@@ -1,18 +1,18 @@
-import React, { ChangeEvent, useCallback, useMemo, useState } from 'react';
-import { MaskedInput, MaskedInputProps } from '@alfalab/core-components-masked-input';
+import React, { ChangeEvent, useCallback, useState } from 'react';
+import { Input, InputProps } from '@alfalab/core-components-input';
 
 import {
     SUPPORTS_INPUT_TYPE_DATE,
     NATIVE_DATE_FORMAT,
-    createAutoCorrectedDatePipe,
     parseDateString,
     formatDate,
-    mask,
+    format,
+    validate,
 } from './utils';
 
 import styles from './index.module.css';
 
-export type DateInputProps = Omit<MaskedInputProps, 'onBeforeDisplay' | 'mask' | 'onChange'> & {
+export type DateInputProps = Omit<InputProps, 'onChange'> & {
     /**
      * Минимальный год, доступный для ввода
      */
@@ -58,15 +58,6 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
 
         const inputValue = uncontrolled ? stateValue : value;
 
-        const pipe = useMemo(
-            () =>
-                createAutoCorrectedDatePipe({
-                    maxYear,
-                    minYear,
-                }),
-            [maxYear, minYear],
-        );
-
         const changeHandler = useCallback(
             (event: ChangeEvent<HTMLInputElement>, newValue: string, newDate: Date) => {
                 if (uncontrolled) {
@@ -82,10 +73,19 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
 
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
-                const newValue = event.target.value;
-                const newDate = parseDateString(newValue);
+                const { value: newValue } = event.target;
 
-                changeHandler(event, newValue, newDate);
+                if (/[^\d.]/.test(newValue)) {
+                    return;
+                }
+
+                const formattedValue = format(newValue);
+
+                if (validate(formattedValue)) {
+                    changeHandler(event, formattedValue, parseDateString(formattedValue));
+                }
+
+                // TODO: handle caret position
             },
             [changeHandler],
         );
@@ -101,14 +101,11 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
         );
 
         return (
-            <MaskedInput
+            <Input
                 {...restProps}
                 ref={ref}
-                mask={mask}
-                keepCharPositions={true}
                 defaultValue={defaultValue}
                 value={inputValue}
-                onBeforeDisplay={pipe}
                 onChange={handleChange}
                 rightAddons={
                     <React.Fragment>

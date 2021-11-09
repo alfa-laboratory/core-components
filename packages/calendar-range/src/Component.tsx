@@ -7,7 +7,6 @@ import {
     CalendarInput,
     CalendarInputProps,
     formatDate,
-    isCompleteDateInput,
     parseDateString,
 } from '@alfalab/core-components-calendar-input';
 import {
@@ -157,10 +156,6 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                 handleStateFromChange(initialValueState);
             }
 
-            if (!isCompleteDateInput(value)) {
-                return;
-            }
-
             if (dateInLimits(date, minDate, maxDate)) {
                 setStart(date.getTime());
                 handleMonthFromChange(startOfMonth(date).getTime());
@@ -178,10 +173,6 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
             if (value === '') {
                 setEnd(undefined);
                 handleStateToChange(initialValueState);
-            }
-
-            if (!isCompleteDateInput(value)) {
-                return;
             }
 
             if (dateInLimits(date, minDate, maxDate)) {

@@ -21,7 +21,6 @@ import {
     SUPPORTS_INPUT_TYPE_DATE,
     formatDate,
     parseDateString,
-    isCompleteDateInput,
 } from '@alfalab/core-components-date-input';
 
 import {
@@ -261,13 +260,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
 
         const handleInputChange = useCallback<Required<DateInputProps>['onChange']>(
             (event, payload) => {
-                changeHandler(
-                    event,
-                    payload.value,
-                    payload.date,
-                    'input',
-                    !payload.value || isCompleteDateInput(payload.value),
-                );
+                changeHandler(event, payload.value, payload.date, 'input');
             },
             [changeHandler],
         );
