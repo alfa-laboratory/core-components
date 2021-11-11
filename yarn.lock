@@ -96,6 +96,22 @@
     react-merge-refs "^1.1.0"
     react-virtual "^2.2.0"
 
+"@alfalab/core-components-select@^9.2.2":
+  version "9.7.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/core-components-select/-/core-components-select-9.7.1.tgz#5c24e5265b5c182e9b66a87e4029ac849980355f"
+  integrity sha512-46ObyRzieHBgHRWS6TblEvkpXZJy3/7lllb3/jZlHyf/J1Mlo2mmRGgyy8XD1h47vuAsAlnPDsf7Brr592Jq7Q==
+  dependencies:
+    "@alfalab/core-components-form-control" "^7.4.0"
+    "@alfalab/core-components-input" "^7.3.2"
+    "@alfalab/core-components-popover" "^5.5.0"
+    "@alfalab/core-components-skeleton" "^3.0.1"
+    "@alfalab/hooks" "^1.0.0"
+    classnames "^2.2.6"
+    downshift "5.4.7"
+    react-merge-refs "^1.1.0"
+    react-virtual "^2.2.0"
+    resize-observer "^1.0.0"
+
 "@alfalab/data@^0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-0.4.3.tgz#81374432b6a54394803502c293757bac9fd7f3c0"
@@ -16543,11 +16559,6 @@ modify-values@^1.0.0:
   resolved "https://registry.yarnpkg.com/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
   integrity sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==
 
-moment@^2.29.1:
-  version "2.29.1"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
-  integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
-
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -17215,9 +17226,9 @@ object-keys@^1.0.12, object-keys@^1.1.1:
   integrity sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA==
 
 object-path@^0.11.5:
-  version "0.11.5"
-  resolved "https://registry.yarnpkg.com/object-path/-/object-path-0.11.5.tgz#d4e3cf19601a5140a55a16ad712019a9c50b577a"
-  integrity sha512-jgSbThcoR/s+XumvGMTMf81QVBmah+/Q7K7YduKeKVWL7N111unR2d6pZZarSk6kY/caeNxUDyxOvMWyzoU2eg==
+  version "0.11.8"
+  resolved "https://registry.yarnpkg.com/object-path/-/object-path-0.11.8.tgz#ed002c02bbdd0070b78a27455e8ae01fc14d4742"
+  integrity sha512-YJjNZrlXJFM42wTBn6zgOJVar9KFJvzx6sTWDte8sWZF//cnjl0BxHNpfZx+ZffXX63A9q0b1zsFiBX4g4X5KA==
 
 object-visit@^1.0.0:
   version "1.0.1"
