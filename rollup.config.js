@@ -17,8 +17,10 @@ import createPackageJson from './tools/rollup/create-package-json';
 import { compiledDarkmodeGenerator } from './tools/rollup/compiled-darkmode-generator';
 
 const currentPackageDir = process.cwd();
+
 const currentPkg = path.join(currentPackageDir, 'package.json');
 
+const rootPkg = require(path.resolve(currentPackageDir, '../../package.json'))
 const pkg = require(currentPkg);
 
 const currentComponentName = pkg.name.replace('@alfalab/core-components-', '');
@@ -46,7 +48,7 @@ const postcssPlugin = postcss({
         generateScopedName: function(name, fileName) {
             const relativeFileName = path.relative(currentPackageDir, fileName);
 
-            const hash = generateClassNameHash(pkg.name, pkg.version, relativeFileName);
+            const hash = generateClassNameHash(pkg.name, rootPkg.version, relativeFileName);
 
             return `${currentComponentName}__${name}_${hash}`;
         },
