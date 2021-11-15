@@ -40,7 +40,7 @@ export type ComponentProps = {
     /**
      * Размер компонента
      */
-    size?: 'xs' | 's' | 'm' | 'l' | 'xl';
+    size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
     /**
      * Растягивает компонент на ширину контейнера
@@ -124,6 +124,8 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
 
         const showLoader = loading || !loaderTimePassed;
 
+        const iconOnly = !children;
+
         const componentProps = {
             className: cn(
                 styles.component,
@@ -134,9 +136,11 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                 {
                     [styles.focused]: focused,
                     [styles.block]: block,
-                    [styles.iconOnly]: !children,
+                    [styles.iconOnly]: iconOnly,
                     [styles.nowrap]: nowrap,
                     [styles.loading]: showLoader,
+                    [styles.withRightAddons]: Boolean(rightAddons) && !iconOnly,
+                    [styles.withLeftAddons]: Boolean(leftAddons) && !iconOnly,
                     [colorStyles[colors].loading]: showLoader,
                 },
                 className,

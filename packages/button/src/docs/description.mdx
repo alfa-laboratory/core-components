@@ -41,7 +41,7 @@ import { Button } from '../';
 - <b>Primary</b>. Обозначает ключевое действие. На экране может быть только одна главная кнопка.
 
 ```tsx live
-const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
 render(
     <Container>
@@ -61,7 +61,7 @@ render(
 - <b>Secondary</b>. Второстепенная кнопка. Может использоваться для любых действий.
 
 ```tsx live
-const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
 render(
     <Container>
@@ -81,7 +81,7 @@ render(
 - <b>Outlined</b>. Дополнительная кнопка.
 
 ```tsx live
-const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
 render(
     <Container>
@@ -101,7 +101,7 @@ render(
 - <b>Filled</b>. Дополнительная кнопка.
 
 ```tsx live
-const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
 render(
     <Container>
@@ -121,7 +121,7 @@ render(
 - <b>Transparent</b>. Кнопка с прозрачностью.
 
 ```tsx live
-const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
 render(
     <Container>
@@ -141,7 +141,7 @@ render(
 - <b>Link</b>. Прозрачная кнопка-ссылка. Для получения ссылки, нужно установить пропс `href`.
 
 ```tsx live
-const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
 render(
     <Container>
@@ -161,7 +161,7 @@ render(
 - <b>Ghost</b>. Прозрачная кнопка без отступов.
 
 ```tsx live
-const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
 render(
     <Container>
@@ -219,20 +219,40 @@ render(
 <Container>
     <Row>
         <Col>
-            <Button leftAddons={<StarMIcon/>} rightAddons={<StarMIcon/>}>
+            <Button rightAddons={<InformationCircleLineSIcon/>} view="primary" size="xxs">
                 Кнопка
             </Button>
         </Col>
         <Col>
-            <Button rightAddons={<StarMIcon/>} view="outlined"/>
-        </Col>
-        <Col>
-            <Button size="xs" leftAddons={<FlashCircleSIcon/>}>
+            <Button rightAddons={<InformationCircleLineSIcon/>} view="primary" size="xs">
                 Кнопка
             </Button>
         </Col>
         <Col>
-            <Button size="xs" rightAddons={<FlashCircleSIcon/>} view="outlined"/>
+            <Button rightAddons={<InformationCircleLineSIcon/>} view="primary" size="s">
+                Кнопка
+            </Button>
+        </Col>
+        <Col>
+            <Button rightAddons={<InformationCircleLineSIcon/>} view="primary" size="m">
+                Кнопка
+            </Button>
+        </Col>
+         <Col>
+            <Button rightAddons={<InformationCircleLineSIcon/>} view="primary" size="l">
+                Кнопка
+            </Button>
+        </Col>
+        <Col>
+            <Button rightAddons={<InformationCircleLineSIcon/>} view="primary" size="xl">
+                Кнопка
+            </Button>
+        </Col>
+    </Row>
+
+    <Row>
+        <Col>
+            <Button rightAddons={<InformationCircleLineSIcon/>} view="primary" size="xs" />
         </Col>
     </Row>
 </Container>

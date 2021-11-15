@@ -27,7 +27,7 @@ describe(
                     knobs: {
                         children: 'Оплатить',
                         view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
-                        size: ['xs', 's', 'm', 'l'],
+                        size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
                     },
                 }),
             ],

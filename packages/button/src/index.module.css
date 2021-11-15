@@ -3,7 +3,7 @@
 :root {
     /* misc */
     --button-font-family: var(--font-family);
-    --button-border-radius: var(--border-radius-s);
+    --button-border-radius: var(--border-radius-m);
     --button-active-transform: none;
     --button-font-weight: 500;
 }
@@ -66,7 +66,7 @@ a.loading {
 
 /* Size */
 
-.xs {
+.xxs {
     min-width: 80px;
     min-height: var(--size-xs-height);
     padding: 0 var(--gap-m);
@@ -74,6 +74,17 @@ a.loading {
 
     &.iconOnly {
         min-width: var(--size-xs-height);
+    }
+}
+
+.xs {
+    min-width: 80px;
+    min-height: 40px;
+    padding: 0 var(--gap-l);
+    font-size: 14px;
+
+    &.iconOnly {
+        min-width: 40px;
     }
 }
 
@@ -121,6 +132,58 @@ a.loading {
     }
 }
 
+.withRightAddons {
+    &.xxs {
+        padding-right: var(--gap-s);
+    }
+
+    &.xs {
+        padding-right: var(--gap-m);
+    }
+
+    &.s {
+        padding-right: var(--gap-l);
+    }
+
+    &.m {
+        padding-right: var(--gap-xl);
+    }
+
+    &.l {
+        padding-right: 28px;
+    }
+
+    &.xl {
+        padding-right: var(--gap-2xl);
+    }
+}
+
+.withLeftAddons {
+    &.xxs {
+        padding-left: var(--gap-s);
+    }
+
+    &.xs {
+        padding-left: var(--gap-m);
+    }
+
+    &.s {
+        padding-left: var(--gap-l);
+    }
+
+    &.m {
+        padding-left: var(--gap-xl);
+    }
+
+    &.l {
+        padding-left: 28px;
+    }
+
+    &.xl {
+        padding-left: var(--gap-2xl);
+    }
+}
+
 .link {
     min-width: 0;
 }
@@ -149,18 +212,37 @@ a.loading {
     display: flex;
     flex-shrink: 0;
     align-items: center;
+    margin: 0;
 }
 
 .addons:first-child {
-    margin: 0 var(--gap-xs) 0 0;
+    margin-right: var(--gap-2xs);
 }
 
 .addons:last-child {
-    margin: 0 0 0 var(--gap-xs);
+    margin-left: var(--gap-2xs);
 }
 
-.addons:only-child {
-    margin: 0;
+.s,
+.m {
+    & .addons:first-child {
+        margin-right: var(--gap-xs);
+    }
+
+    & .addons:last-child {
+        margin-left: var(--gap-xs);
+    }
+}
+
+.l,
+.xl {
+    & .addons:first-child {
+        margin-right: var(--gap-s);
+    }
+
+    & .addons:last-child {
+        margin-left: var(--gap-s);
+    }
 }
 
 .iconOnly {
