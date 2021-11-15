@@ -99,7 +99,7 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
       >
         <button
           aria-selected="false"
-          class="component component s title"
+          class="component component s withRightAddons title"
           role="tab"
           tabindex="-1"
           type="button"
@@ -273,7 +273,7 @@ exports[`Tabs Snapshots tests should match snapshot 4`] = `
         >
           <button
             aria-selected="false"
-            class="component component xs"
+            class="component component xs withRightAddons"
             role="tab"
             tabindex="-1"
             type="button"
@@ -444,7 +444,7 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
       >
         <button
           aria-selected="false"
-          class="component component s title"
+          class="component component s withRightAddons title"
           role="tab"
           tabindex="-1"
           type="button"

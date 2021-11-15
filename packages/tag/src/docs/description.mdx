@@ -1,10 +1,11 @@
+import { Container, Row, Col } from 'storybook/blocks';
 import Icon from '@alfalab/icons-glyph/CopyMIcon';
 
 Компонент тэг (чипсы).
 
 ```tsx live
 render(() => {
-    const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+    const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
     const [checked, setChecked] = React.useState(false);
 
@@ -28,33 +29,20 @@ render(() => {
 
 ```tsx live
 render(() => {
-    const SIZES = ['xs', 's', 'm', 'l', 'xl'];
-
-    const [checked, setChecked] = React.useState(false);
-
-    const handleClick = () => setChecked(!checked);
+    const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
     return (
-        <Tag checked={checked} onClick={handleClick} rightAddons={<CopyMIcon />}>
-            Нажми меня
-        </Tag>
-    );
-});
-```
-
-
-### Тэг высотой 40px (используется в теме mobile)
-
-```tsx live
-render(() => {
-    const [checked, setChecked] = React.useState(false);
-
-    const handleClick = () => setChecked(!checked);
-
-    return (
-        <Tag checked={checked} onClick={handleClick} style={{ minHeight: '40px' }} size="xs">
-            Нажми меня
-        </Tag>
+        <Container>
+            <Row>
+                {SIZES.map(size => (
+                    <Col key={size}>
+                        <Tag checked={false} rightAddons={<CopyMIcon />} size={size}>
+                            Tag
+                        </Tag>
+                    </Col>
+                ))}
+            </Row>
+        </Container>
     );
 });
 ```

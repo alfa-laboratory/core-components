@@ -101,6 +101,7 @@ a.loading {
 .m {
     min-width: 128px;
     min-height: var(--size-m-height);
+    padding: 0 28px;
     font-size: 16px;
 
     &.iconOnly {
@@ -123,7 +124,7 @@ a.loading {
 .xl {
     min-width: 160px;
     min-height: var(--size-xl-height);
-    padding: 0 var(--gap-2xl);
+    padding: 0 36px;
     font-size: 18px;
     line-height: 24px;
 
@@ -213,14 +214,14 @@ a.loading {
     flex-shrink: 0;
     align-items: center;
     margin: 0;
-}
 
-.addons:first-child {
-    margin-right: var(--gap-2xs);
-}
+    &:first-child {
+        margin-right: var(--gap-2xs);
+    }
 
-.addons:last-child {
-    margin-left: var(--gap-2xs);
+    &:last-child {
+        margin-left: var(--gap-2xs);
+    }
 }
 
 .s,

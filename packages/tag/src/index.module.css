@@ -39,11 +39,11 @@
     align-items: center;
 
     &:first-child {
-        margin-right: var(--gap-xs);
+        margin-right: var(--gap-2xs);
     }
 
     &:last-child {
-        margin-left: var(--gap-xs);
+        margin-left: var(--gap-2xs);
     }
 
     &:only-child {
@@ -51,7 +51,29 @@
     }
 }
 
-.xs {
+.s,
+.m {
+    & .addons:first-child {
+        margin-right: var(--gap-xs);
+    }
+
+    & .addons:last-child {
+        margin-left: var(--gap-xs);
+    }
+}
+
+.l,
+.xl {
+    & .addons:first-child {
+        margin-right: var(--gap-s);
+    }
+
+    & .addons:last-child {
+        margin-left: var(--gap-s);
+    }
+}
+
+.xxs {
     min-width: 60px;
     min-height: var(--size-xs-height);
     padding: var(--gap-2xs) var(--gap-m);
@@ -66,10 +88,25 @@
     }
 }
 
+.xs {
+    min-width: 72px;
+    min-height: 40px;
+    padding: var(--gap-2xs) var(--gap-l);
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: normal;
+
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        /* Хак для ие, в котором не работает центрирование по высоте с использованием флексов, если указан min-height
+        Возможно другое решение - если в будущем у компонента появится обертка, установить ей display: flex / inline-flex */
+        height: 40px;
+    }
+}
+
 .s {
     min-width: 80px;
     min-height: var(--size-s-height);
-    padding: var(--gap-2xs) var(--gap-m);
+    padding: var(--gap-2xs) var(--gap-xl);
     font-size: 16px;
     line-height: 20px;
     font-weight: normal;
@@ -85,7 +122,7 @@
     @mixin action_component;
     min-width: 96px;
     min-height: var(--size-m-height);
-    padding: var(--gap-2xs) var(--gap-xl);
+    padding: var(--gap-2xs) 28px;
 
     @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
         /* Хак для ие, в котором не работает центрирование по высоте с использованием флексов, если указан min-height
@@ -111,11 +148,63 @@
     @mixin action_primary_large;
     min-width: 120px;
     min-height: var(--size-xl-height);
-    padding: var(--gap-2xs) var(--gap-2xl);
+    padding: var(--gap-2xs) 36px;
 
     @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
         /* Хак для ие, в котором не работает центрирование по высоте с использованием флексов, если указан min-height
         Возможно другое решение - если в будущем у компонента появится обертка, установить ей display: flex / inline-flex */
         height: 72px;
+    }
+}
+
+.withRightAddons {
+    &.xxs {
+        padding-right: var(--gap-s);
+    }
+
+    &.xs {
+        padding-right: var(--gap-m);
+    }
+
+    &.s {
+        padding-right: var(--gap-l);
+    }
+
+    &.m {
+        padding-right: var(--gap-xl);
+    }
+
+    &.l {
+        padding-right: 28px;
+    }
+
+    &.xl {
+        padding-right: var(--gap-2xl);
+    }
+}
+
+.withLeftAddons {
+    &.xxs {
+        padding-left: var(--gap-s);
+    }
+
+    &.xs {
+        padding-left: var(--gap-m);
+    }
+
+    &.s {
+        padding-left: var(--gap-l);
+    }
+
+    &.m {
+        padding-left: var(--gap-xl);
+    }
+
+    &.l {
+        padding-left: 28px;
+    }
+
+    &.xl {
+        padding-left: var(--gap-2xl);
     }
 }
