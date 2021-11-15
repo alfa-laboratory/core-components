@@ -3,6 +3,7 @@
 import React, { useRef, useEffect, useMemo, useState } from 'react';
 import cn from 'classnames';
 import { useVirtual } from 'react-virtual';
+import { Scrollbar } from '@alfalab/core-components-scrollbar';
 import { OptionsListProps, GroupShape, OptionShape } from '../../typings';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 import { isGroup, lastIndexOf, usePrevious, useVisibleOptions } from '../../utils';
@@ -110,7 +111,7 @@ export const VirtualOptionsList = ({
     }, [options]);
 
     return (
-        <div
+        <Scrollbar
             className={cn(styles.virtualOptionsList, styles[size], className)}
             ref={parentRef}
             data-test-id={dataTestId}
@@ -148,6 +149,6 @@ export const VirtualOptionsList = ({
             {emptyPlaceholder && options.length === 0 && (
                 <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>
             )}
-        </div>
+        </Scrollbar>
     );
 };

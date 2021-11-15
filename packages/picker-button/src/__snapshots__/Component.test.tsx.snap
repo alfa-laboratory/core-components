@@ -119,7 +119,7 @@ exports[`Snapshots tests should display opened correctly 2`] = `
         style="min-width: 0px;"
       >
         <div
-          class="optionsList m"
+          class="optionsList m component ps"
           style="height: 0px;"
         >
           <div
@@ -346,6 +346,26 @@ exports[`Snapshots tests should display opened correctly 2`] = `
             >
               Bohrium
             </div>
+          </div>
+          <div
+            class="ps__rail-x"
+            style="left: 0px; top: 0px;"
+          >
+            <div
+              class="ps__thumb-x"
+              style="left: 0px; width: 0px;"
+              tabindex="0"
+            />
+          </div>
+          <div
+            class="ps__rail-y"
+            style="top: 0px; left: 0px;"
+          >
+            <div
+              class="ps__thumb-y"
+              style="top: 0px; height: 0px;"
+              tabindex="0"
+            />
           </div>
         </div>
       </div>

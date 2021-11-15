@@ -13,6 +13,7 @@
         { "path": "../form-control" },
         { "path": "../input" },
         { "path": "../popover" },
-        { "path": "../skeleton" }
+        { "path": "../skeleton" },
+        { "path": "../scrollbar" }
     ]
 }
