@@ -19,7 +19,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-link": "^3.2.0",
-        "@alfalab/icons-classic": "^1.74.0",
+        "@alfalab/icons-classic": "^1.76.0",
         "classnames": "^2.2.6",
         "lodash.debounce": "^4.0.8",
         "resize-observer": "^1.0.0"
