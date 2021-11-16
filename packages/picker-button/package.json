@@ -21,8 +21,8 @@
     "dependencies": {
         "@alfalab/core-components-button": "^4.4.0",
         "@alfalab/core-components-select": "^10.1.0",
-        "@alfalab/icons-classic": "^1.74.0",
-        "@alfalab/icons-glyph": "^1.150.0",
+        "@alfalab/icons-classic": "^1.76.0",
+        "@alfalab/icons-glyph": "^1.190.0",
         "classnames": "^2.2.6"
     }
 }

@@ -19,6 +19,6 @@
         "@alfalab/core-components-icon-button": "^3.3.1",
         "@alfalab/core-components-link": "^3.2.0",
         "@alfalab/core-components-spinner": "^2.0.1",
-        "@alfalab/icons-glyph": "^1.150.0"
+        "@alfalab/icons-glyph": "^1.190.0"
     }
 }
