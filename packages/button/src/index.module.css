@@ -237,7 +237,7 @@ a.loading {
     & .addons:last-child {
         margin-left: var(--gap-xs);
     }
-    
+
     & .addons:only-child {
         margin: 0;
     }
