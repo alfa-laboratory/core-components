@@ -1,5 +1,4 @@
 import { Container, Row, Col } from 'storybook/blocks';
-import Icon from '@alfalab/icons-glyph/CopyMIcon';
 
 Компонент тэг (чипсы).
 
@@ -16,7 +15,7 @@ render(() => {
             size={select('size', SIZES, 'm')}
             disabled={boolean('disabled', false)}
             checked={checked || boolean('checked', false)}
-            rightAddons={boolean('rightAddons', false) && <CopyMIcon />}
+            rightAddons={boolean('rightAddons', false) && <StarSIcon />}
             onClick={handleClick}
         >
             {text('label', 'Оплатить')}
@@ -36,7 +35,25 @@ render(() => {
             <Row>
                 {SIZES.map(size => (
                     <Col key={size}>
-                        <Tag checked={false} rightAddons={<CopyMIcon />} size={size}>
+                        <Tag
+                            checked={false}
+                            rightAddons={size === 'xxs' ? <StarSIcon /> : <StarMIcon />}
+                            size={size}
+                        >
+                            Tag
+                        </Tag>
+                    </Col>
+                ))}
+            </Row>
+
+            <Row>
+                {SIZES.map(size => (
+                    <Col key={size}>
+                        <Tag
+                            checked={false}
+                            leftAddons={size === 'xxs' ? <StarSIcon /> : <StarMIcon />}
+                            size={size}
+                        >
                             Tag
                         </Tag>
                     </Col>

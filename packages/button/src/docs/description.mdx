@@ -216,46 +216,39 @@ render(
 Переданный контент будет отрисован слева или справа от текста кнопки. Если текста нет — будет отрисована квадратная кнопка.
 
 ```tsx live
-<Container>
-    <Row>
-        <Col>
-            <Button rightAddons={<InformationCircleLineSIcon/>} view="primary" size="xxs">
-                Кнопка
-            </Button>
-        </Col>
-        <Col>
-            <Button rightAddons={<InformationCircleLineSIcon/>} view="primary" size="xs">
-                Кнопка
-            </Button>
-        </Col>
-        <Col>
-            <Button rightAddons={<InformationCircleLineSIcon/>} view="primary" size="s">
-                Кнопка
-            </Button>
-        </Col>
-        <Col>
-            <Button rightAddons={<InformationCircleLineSIcon/>} view="primary" size="m">
-                Кнопка
-            </Button>
-        </Col>
-         <Col>
-            <Button rightAddons={<InformationCircleLineSIcon/>} view="primary" size="l">
-                Кнопка
-            </Button>
-        </Col>
-        <Col>
-            <Button rightAddons={<InformationCircleLineSIcon/>} view="primary" size="xl">
-                Кнопка
-            </Button>
-        </Col>
-    </Row>
+render(() => {
+    const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
-    <Row>
-        <Col>
-            <Button rightAddons={<InformationCircleLineSIcon/>} view="primary" size="xs" />
-        </Col>
-    </Row>
-</Container>
+    return (
+        <Container>
+            <Row>
+                {SIZES.map(size => (
+                    <Col key={size}>
+                        <Button rightAddons={<InformationCircleLineSIcon/>} view="primary" size={size}>
+                            Кнопка
+                        </Button>
+                    </Col>
+                ))}
+            </Row>
+
+            <Row>
+                {SIZES.map(size => (
+                    <Col key={size}>
+                        <Button leftAddons={<InformationCircleLineSIcon/>} view="primary" size={size}>
+                            Кнопка
+                        </Button>
+                    </Col>
+                ))}
+            </Row>
+
+            <Row>
+                <Col>
+                    <Button rightAddons={<InformationCircleLineSIcon/>} view="primary" size="xs" />
+                </Col>
+            </Row>
+        </Container>
+    )
+})
 ```
 
 ## Состояние загрузки
