@@ -73,9 +73,13 @@ exports[`Skeleton Snapshots tests should not display 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <div />
+    <div>
+      <div />
+    </div>
   </body>,
-  "container": <div />,
+  "container": <div>
+    <div />
+  </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
   "findAllByDisplayValue": [Function],
@@ -135,11 +139,15 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      text
+      <div>
+        text
+      </div>
     </div>
   </body>,
   "container": <div>
-    text
+    <div>
+      text
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
