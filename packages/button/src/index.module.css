@@ -222,6 +222,10 @@ a.loading {
     &:last-child {
         margin-left: var(--gap-2xs);
     }
+
+    &:only-child {
+        margin: 0;
+    }
 }
 
 .s,
@@ -233,6 +237,10 @@ a.loading {
     & .addons:last-child {
         margin-left: var(--gap-xs);
     }
+    
+    & .addons:only-child {
+        margin: 0;
+    }
 }
 
 .l,
@@ -243,6 +251,10 @@ a.loading {
 
     & .addons:last-child {
         margin-left: var(--gap-s);
+    }
+
+    & .addons:only-child {
+        margin: 0;
     }
 }
 
