@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@3.3.0...@alfalab/core-components-select-with-tags@4.0.0) (2021-11-16)
+
+
+### Features
+
+* **select:** controlled open ([#839](https://github.com/alfa-laboratory/core-components/issues/839)) ([95d0470](https://github.com/alfa-laboratory/core-components/commit/95d0470a86e1a54f4cb4b789bb7e3281a1f0a401))
+* **select:** переход к темизации цвета иконки ([112cd95](https://github.com/alfa-laboratory/core-components/commit/112cd95242e27f5065eb2a8349d3afbddfdee638))
+
+
+### BREAKING CHANGES
+
+* **select:** удалена переменная --select-arrow-background
+
+
+
+
+
 # [3.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@3.2.0...@alfalab/core-components-select-with-tags@3.3.0) (2021-09-14)
 
 
