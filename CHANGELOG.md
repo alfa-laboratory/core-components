@@ -1,3 +1,11 @@
+## [21.3.1](https://github.com/alfa-laboratory/core-components/compare/v21.3.0...v21.3.1) (2021-11-16)
+
+
+### Bug Fixes
+
+* **skeleton:** prevent component unmount ([#887](https://github.com/alfa-laboratory/core-components/issues/887)) ([1bd4dc3](https://github.com/alfa-laboratory/core-components/commit/1bd4dc3147622f75802dd8e574175dbbf02cca54))
+* fix classNames hash ([#884](https://github.com/alfa-laboratory/core-components/issues/884)) ([60f58f2](https://github.com/alfa-laboratory/core-components/commit/60f58f223106869b15f6b19f466a70b0936a5a1d))
+
 # [21.3.0](https://github.com/alfa-laboratory/core-components/compare/v21.2.2...v21.3.0) (2021-11-08)
 
 
