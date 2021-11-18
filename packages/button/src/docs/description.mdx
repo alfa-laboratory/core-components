@@ -4,7 +4,7 @@ import { Button } from '../';
 
 Кнопка используется как триггер для выполнения определённого действия. Кнопка однозначно сообщает пользователю, что произойдёт после нажатия на неё.
 
-☝️ В зависимости от используемой темы кнопка `secondary` может соответствовать `filled` (по умолчанию) или `outlined`.
+☝️ В зависимости от используемой темы кнопка `secondary` может соответствовать `tertiary`.
 
 ```tsx live
 <Container>
@@ -16,13 +16,7 @@ import { Button } from '../';
             <Button view='secondary'>Secondary</Button>
         </Col>
         <Col>
-            <Button view='outlined'>Outlined</Button>
-        </Col>
-        <Col>
-            <Button view='filled'>Filled</Button>
-        </Col>
-        <Col>
-            <Button view='transparent'>Transparent</Button>
+            <Button view='tertiary'>Tertiary</Button>
         </Col>
         <Col>
             <Button view='link'>Link</Button>
@@ -78,7 +72,7 @@ render(
 )
 ```
 
-- <b>Outlined</b>. Дополнительная кнопка.
+- <b>Tertiary</b>. Дополнительная кнопка.
 
 ```tsx live
 const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
@@ -88,47 +82,7 @@ render(
         <Row>
             {SIZES.map(size => (
                 <Col key={size}>
-                    <Button size={size} view="outlined">
-                        Кнопка
-                    </Button>
-                </Col>
-            ))}
-        </Row>
-    </Container>
-)
-```
-
-- <b>Filled</b>. Дополнительная кнопка.
-
-```tsx live
-const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
-
-render(
-    <Container>
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <Button size={size} view="filled">
-                        Кнопка
-                    </Button>
-                </Col>
-            ))}
-        </Row>
-    </Container>
-)
-```
-
-- <b>Transparent</b>. Кнопка с прозрачностью.
-
-```tsx live
-const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
-
-render(
-    <Container>
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <Button size={size} view="transparent">
+                    <Button size={size} view="tertiary">
                         Кнопка
                     </Button>
                 </Col>
@@ -191,7 +145,7 @@ render(
             </Button>
         </Col>
         <Col>
-            <Button view="outlined" href="https://alfabank.ru" target="_blank" >
+            <Button view="tertiary" href="https://alfabank.ru" target="_blank" >
                 Ссылка
             </Button>
         </Col>
@@ -334,7 +288,7 @@ render(() => {
                     <Button view='secondary'>Secondary</Button>
                 </Col>
                 <Col>
-                    <Button view='outlined'>Outlined</Button>
+                    <Button view='tertiary'>Tertiary</Button>
                 </Col>
             </Row>
         </Container>
@@ -349,7 +303,7 @@ render(() => {
                     <Button colors='inverted' view='secondary'>Secondary</Button>
                 </Col>
                 <Col>
-                    <Button colors='inverted' view='outlined'>Outlined</Button>
+                    <Button colors='inverted' view='tertiary'>Tertiary</Button>
                 </Col>
             </Row>
         </Container>
