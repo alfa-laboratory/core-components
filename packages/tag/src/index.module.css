@@ -76,7 +76,7 @@
 .xxs {
     min-width: 60px;
     min-height: var(--size-xs-height);
-    padding: var(--gap-2xs) var(--gap-m);
+    padding: 0 var(--gap-m);
     font-size: 14px;
     line-height: 20px;
     font-weight: normal;
@@ -91,7 +91,7 @@
 .xs {
     min-width: 72px;
     min-height: 40px;
-    padding: var(--gap-2xs) var(--gap-l);
+    padding: 0 var(--gap-l);
     font-size: 14px;
     line-height: 20px;
     font-weight: normal;
@@ -106,7 +106,7 @@
 .s {
     min-width: 80px;
     min-height: var(--size-s-height);
-    padding: var(--gap-2xs) var(--gap-xl);
+    padding: 0 var(--gap-xl);
     font-size: 16px;
     line-height: 20px;
     font-weight: normal;
@@ -122,7 +122,7 @@
     @mixin action_component;
     min-width: 96px;
     min-height: var(--size-m-height);
-    padding: var(--gap-2xs) 28px;
+    padding: 0 28px;
 
     @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
         /* Хак для ие, в котором не работает центрирование по высоте с использованием флексов, если указан min-height
@@ -135,7 +135,7 @@
     @mixin action_primary_large;
     min-width: 120px;
     min-height: var(--size-l-height);
-    padding: var(--gap-2xs) var(--gap-2xl);
+    padding: 0 var(--gap-2xl);
 
     @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
         /* Хак для ие, в котором не работает центрирование по высоте с использованием флексов, если указан min-height
@@ -148,7 +148,7 @@
     @mixin action_primary_large;
     min-width: 120px;
     min-height: var(--size-xl-height);
-    padding: var(--gap-2xs) 36px;
+    padding: 0 36px;
 
     @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
         /* Хак для ие, в котором не работает центрирование по высоте с использованием флексов, если указан min-height
