@@ -113,7 +113,7 @@ const logWarning = (view: Required<ComponentProps>['view']) => {
     console.warn(
         // eslint-disable-next-line prefer-template
         `@alfalab/core-components/button: view='${view}' будет удален в следующих мажорных версиях. ` +
-            `Используйте view='${viewsMap[view]}'. Чтобы поменять все кнопки на проекте разом, можно воспользоваться codemode: ` +
+            `Используйте view='${viewsMap[view]}'. Чтобы поменять все кнопки на проекте разом, можно воспользоваться codemod: ` +
             'npx core-components-codemod --components=ButtonViews src/**/*.tsx',
     );
 };
