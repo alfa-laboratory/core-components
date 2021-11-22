@@ -1,4 +1,7 @@
 @define-mixin button-corp {
+    --button-border-radius: var(--border-radius-s);
+    --button-active-transform: none;
+
     /* secondary */
     --button-secondary-base-bg-color: transparent;
     --button-secondary-hover-bg-color: var(--color-light-specialbg-component);
