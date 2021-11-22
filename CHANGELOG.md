@@ -1,3 +1,11 @@
+## [21.3.2](https://github.com/alfa-laboratory/core-components/compare/v21.3.1...v21.3.2) (2021-11-22)
+
+
+### Bug Fixes
+
+* **calendar-range:** fix default month to ([#868](https://github.com/alfa-laboratory/core-components/issues/868)) ([1f9fb97](https://github.com/alfa-laboratory/core-components/commit/1f9fb9709292d28300c3fc4386ffd858b2efd852))
+* **slider-input:** classnames overriding ([#891](https://github.com/alfa-laboratory/core-components/issues/891)) ([d63d676](https://github.com/alfa-laboratory/core-components/commit/d63d67628c88e54b38244b1f57969844379d311f))
+
 ## [21.3.1](https://github.com/alfa-laboratory/core-components/compare/v21.3.0...v21.3.1) (2021-11-16)
 
 
