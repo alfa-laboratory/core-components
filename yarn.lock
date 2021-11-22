@@ -183,10 +183,10 @@
     string-hash "^1.1.3"
     style-inject "^0.3.0"
 
-"@alfalab/stylelint-core-vars@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/stylelint-core-vars/-/stylelint-core-vars-1.1.0.tgz#82b34026683494e32c1f02b3f77942fddebce294"
-  integrity sha512-PRAaXvAYJ7uVKUmh1qMN6wO047Oj/g4KmTYlZLDyNqVhPSwkiYnZk/Ivf1qgxecudKRTHf40qnMOEHrdd1R63A==
+"@alfalab/stylelint-core-vars@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/stylelint-core-vars/-/stylelint-core-vars-1.4.0.tgz#d21a0474433985e1b970df42ab0495a280aa029e"
+  integrity sha512-6BOJJppFlPTsA/m53zjlBDTm49PF1O+wcrSDL7s3uOdMkChc0F/NXKTq+Oz/k4tI4yG5ZnyACcmD8g7vbjvVag==
 
 "@alfalab/utils@^1.3.0":
   version "1.3.0"
@@ -21828,10 +21828,10 @@ store2@^2.12.0:
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.12.0.tgz#e1f1b7e1a59b6083b2596a8d067f6ee88fd4d3cf"
   integrity sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==
 
-storybook-addon-live-examples@0.0.13:
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/storybook-addon-live-examples/-/storybook-addon-live-examples-0.0.13.tgz#e444d36b9ac581578157a5026ee9529636cc665d"
-  integrity sha512-RhjNdMttQ5g4pTlaC8illo9/kpmHqKr9QkbRd9shPSDNAfAenLMmEtzhTW3nVSzu3b2raEb58nT2ZQErARfkYw==
+storybook-addon-live-examples@^0.0.24:
+  version "0.0.24"
+  resolved "https://registry.yarnpkg.com/storybook-addon-live-examples/-/storybook-addon-live-examples-0.0.24.tgz#ce23ebea5acead291bfa3d0733635cc755fa81ff"
+  integrity sha512-1HP810woALDlKzDBHpAOFfI2hktTNY3bP6f3xKCY5vzPE+LNOZxcKPSC4WZS6bj69fWz2WiAt03TV2WnU0YXmw==
   dependencies:
     react-live "^2.3.0"
 
