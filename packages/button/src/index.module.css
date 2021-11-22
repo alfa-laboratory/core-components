@@ -4,7 +4,7 @@
     /* misc */
     --button-font-family: var(--font-family);
     --button-border-radius: var(--border-radius-m);
-    --button-active-transform: none;
+    --button-active-transform: scale(0.97);
     --button-font-weight: 500;
 }
 
