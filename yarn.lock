@@ -19136,6 +19136,11 @@ prettier@^1.19.1:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
   integrity sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
 
+prettier@^2.4.0:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.4.1.tgz#671e11c89c14a4cfc876ce564106c4a6726c9f5c"
+  integrity sha512-9fbDAXSBcc6Bs1mZrDYb3XKzDLm4EXXL9sC1LqKP5rZkT6KRr/rf9amVUcODVXgguK/isJz0d0hP72WeaKWsvA==
+
 prettier@~2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
@@ -21828,11 +21833,12 @@ store2@^2.12.0:
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.12.0.tgz#e1f1b7e1a59b6083b2596a8d067f6ee88fd4d3cf"
   integrity sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==
 
-storybook-addon-live-examples@^0.0.24:
-  version "0.0.24"
-  resolved "https://registry.yarnpkg.com/storybook-addon-live-examples/-/storybook-addon-live-examples-0.0.24.tgz#ce23ebea5acead291bfa3d0733635cc755fa81ff"
-  integrity sha512-1HP810woALDlKzDBHpAOFfI2hktTNY3bP6f3xKCY5vzPE+LNOZxcKPSC4WZS6bj69fWz2WiAt03TV2WnU0YXmw==
+storybook-addon-live-examples@^0.0.25:
+  version "0.0.25"
+  resolved "https://registry.yarnpkg.com/storybook-addon-live-examples/-/storybook-addon-live-examples-0.0.25.tgz#f5f39f7cdc4244922c65bf080e171f10fe95e27a"
+  integrity sha512-JJzaLhR+8t7pIGP6VyiEVuXfTbxmyx3/TGxt5SabGwxM88b/b6giFzggzTHqeDcrBwlJehj8PixYmPQMNG4m9A==
   dependencies:
+    prettier "^2.4.0"
     react-live "^2.3.0"
 
 stream-browserify@^2.0.1:
