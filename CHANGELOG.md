@@ -1,3 +1,10 @@
+## [21.3.3](https://github.com/alfa-laboratory/core-components/compare/v21.3.2...v21.3.3) (2021-11-23)
+
+
+### Bug Fixes
+
+* **tabs:** hide native scrollbar on scrollable tabs properly ([0134956](https://github.com/alfa-laboratory/core-components/commit/0134956f2af01720500f7ad06caeeb4569e74d50)), closes [#879](https://github.com/alfa-laboratory/core-components/issues/879)
+
 ## [21.3.2](https://github.com/alfa-laboratory/core-components/compare/v21.3.1...v21.3.2) (2021-11-22)
 
 
