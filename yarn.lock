@@ -137,30 +137,30 @@
   resolved "https://registry.npmjs.org/@alfalab/hooks/-/hooks-1.3.0.tgz#c2d8761fa36c6e4219bf7d922ccdc026623269ee"
   integrity sha512-uVg/zbmvtFdI4kBigwN+2kt5eYSAVqkhF/Qky2kmFsr0sN+i5hF0bEZ98aXjXlV3mOTMaNp3qQd4ZAHO2fwIoQ==
 
-"@alfalab/icons-classic@^1.74.0":
-  version "1.74.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-classic/-/icons-classic-1.74.0.tgz#d0150a0c31dfe98dd88bb1ecf47d1073589321f6"
-  integrity sha512-6TGBrkie7dguGG576ZfMM60QMm4RYyTDDgPZb7uN0n5wa4NhAD9ONppqumnuPkqqnHSm73juWjSH4wkEhvqiug==
+"@alfalab/icons-classic@^1.76.0":
+  version "1.76.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-classic/-/icons-classic-1.76.0.tgz#8f40bafc9d247084aececc249ffff93a8d10d7eb"
+  integrity sha512-Zq8srsqnOB3rdkLI2X1JK7c4tJtMThvFPaFi+myOn1+qutNAxeHRzF8yb0V+gVoKw86HxE814teYQIYSVm40Sw==
 
-"@alfalab/icons-flag@^1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-flag/-/icons-flag-1.9.0.tgz#4c9a4b9738a00694253803cb36fc243bcf3daa7a"
-  integrity sha512-JA41pz/OVc0a2CRYPTNl++q5kLJWEH3il9+utDuTMm25d2v81Z0bWcOgYwu6uRBQaFOuKbbui5Wl+vdjZgC7Lg==
+"@alfalab/icons-flag@^1.11.0":
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-flag/-/icons-flag-1.11.0.tgz#136a227a93c1a4b767c06d72d3fc3ccaaf9fd1ea"
+  integrity sha512-n+R4Gr6JaMd8JUTiO0QNkcG8rftM9qiAr+sqbZoOKg56O/8SmAaTY8M4wYRQkP93uGo3vFgI1aaCGPXGFSr73A==
 
-"@alfalab/icons-glyph@^1.150.0", "@alfalab/icons-glyph@^1.26.0":
+"@alfalab/icons-glyph@^1.190.0":
+  version "1.190.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.190.0.tgz#ef9ac0c108dce2d87bda764cd5f4b5c3e09671ca"
+  integrity sha512-WrlfVP30XdUIH/La/qy9YcIRY22NluYl90rCg8thtcDXt1Rp+QPuRQ89/l40QrMCtpleHtRV2Sxdn6BmyDC8FQ==
+
+"@alfalab/icons-glyph@^1.26.0":
   version "1.150.0"
   resolved "https://registry.yarnpkg.com/@alfalab/icons-glyph/-/icons-glyph-1.150.0.tgz#8982226948895bc9cb8f8655887124d6b84838a3"
   integrity sha512-+l2n+VAZZ34llOaGnP67TI5mSjeMiSQmrWNflZOXm1ujE6qmi+aY1wg+XmwLxaZ3h7f7gqsasWrX81z7rDPFqg==
 
-"@alfalab/icons-glyph@^1.168.0":
-  version "1.168.0"
-  resolved "https://registry.npmjs.org/@alfalab/icons-glyph/-/icons-glyph-1.168.0.tgz#4d64dd5da7ffce3602f82b2ae3d0b1f4eaa8add5"
-  integrity sha512-qGb6TC3erpliN52JBYDwLBTRW2elZB5crhZZwHDnUOyRUNwQkCeSnIreZu2vAu9momqItYFaPTlKET1PUNz0mQ==
-
-"@alfalab/icons-logotype@^1.19.0":
-  version "1.19.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/icons-logotype/-/icons-logotype-1.19.0.tgz#5ba485ce7fa8029afe2b4e066b13ff55178685a0"
-  integrity sha512-AxlF6Jyw8bqILtrBRCkpaEZkjdXcVxJNxAR3CQU4kewH5S2D5LluVmjT+gY752a6biuIs/OvHi7VWjDDtCp7Rg==
+"@alfalab/icons-logotype@^1.28.0":
+  version "1.28.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/icons-logotype/-/icons-logotype-1.28.0.tgz#1901ed5f5d996d4318372fdbd543b0f3dc72171f"
+  integrity sha512-7W3pVTqEYlAMub+yXDqB2HcqFdO+9q0BFjzUnT72b5XbVamgw/X2tnhnY1dmURPs5VCepYsKLX5PYt/X8timDw==
 
 "@alfalab/rollup-plugin-postcss@^3.6.0":
   version "3.6.0"
@@ -6207,7 +6207,7 @@ agent-base@4, agent-base@^4.3.0:
   dependencies:
     es6-promisify "^5.0.0"
 
-agent-base@6:
+agent-base@6, agent-base@^6.0.2:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/agent-base/-/agent-base-6.0.2.tgz#49fff58577cfee3f37176feab4c22e00f86d7f77"
   integrity sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==
@@ -8295,6 +8295,11 @@ commander@^6.1.0, commander@^6.2.0, commander@^6.2.1:
   resolved "https://registry.yarnpkg.com/commander/-/commander-6.2.1.tgz#0792eb682dfbc325999bb2b84fddddba110ac73c"
   integrity sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==
 
+commander@^8.2.0:
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-8.3.0.tgz#4837ea1b2da67b9c616a67afbb0fafee567bca66"
+  integrity sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==
+
 commitizen@^4.0.3, commitizen@^4.1.2:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/commitizen/-/commitizen-4.2.2.tgz#1a93dd07208521ea1ebbf832593542dac714cc79"
@@ -9675,6 +9680,13 @@ debug@^3.0.0, debug@^3.1.0, debug@^3.1.1, debug@^3.2.5:
   integrity sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==
   dependencies:
     ms "^2.1.1"
+
+debug@^4.3.1:
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.2.tgz#f0a49c18ac8779e31d4a0c6029dfb76873c7428b"
+  integrity sha512-mOp8wKcvj7XxC78zLgw/ZA+6TSgkoE2C/ienthhRD298T7UNwAg9diBpLRxC0mOezLl4B0xV7M0cCO6P/O0Xhw==
+  dependencies:
+    ms "2.1.2"
 
 debuglog@^1.0.1:
   version "1.0.1"
@@ -18079,12 +18091,12 @@ playwright-cli@^0.171.0:
     react "^17.0.1"
     react-dom "^17.0.1"
 
-playwright@1.8.1:
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/playwright/-/playwright-1.8.1.tgz#0a26035d1b5f2c31d9a4da09d649b4992f989d1e"
-  integrity sha512-nmuiDEDwB/SdAxiZQS5pLqPS3XXN8OJ1LKvTSiAbJvu+AUf7f0RD7nuq9xB0C08Emd6stx9yBMhANvD12k/+GQ==
+playwright-core@=1.16.3:
+  version "1.16.3"
+  resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.16.3.tgz#f466be9acaffb698654adfb0a17a4906ba936895"
+  integrity sha512-16hF27IvQheJee+DbhC941AUZLjbJgfZFWi9YPS4LKEk/lKFhZI+9TiFD0sboYqb9eaEWvul47uR5xxTVbE4iw==
   dependencies:
-    commander "^6.1.0"
+    commander "^8.2.0"
     debug "^4.1.1"
     extract-zip "^2.0.1"
     https-proxy-agent "^5.0.0"
@@ -18095,7 +18107,11 @@ playwright@1.8.1:
     proper-lockfile "^4.1.1"
     proxy-from-env "^1.1.0"
     rimraf "^3.0.2"
-    ws "^7.3.1"
+    socks-proxy-agent "^6.1.0"
+    stack-utils "^2.0.3"
+    ws "^7.4.6"
+    yauzl "^2.10.0"
+    yazl "^2.5.1"
 
 playwright@=1.7.1:
   version "1.7.1"
@@ -18113,6 +18129,13 @@ playwright@=1.7.1:
     proxy-from-env "^1.1.0"
     rimraf "^3.0.2"
     ws "^7.3.1"
+
+playwright@^1.16.3:
+  version "1.16.3"
+  resolved "https://registry.yarnpkg.com/playwright/-/playwright-1.16.3.tgz#27a292d9fa54fbac923998d3af58cd2b691f5ebe"
+  integrity sha512-nfJx/OpIb/8OexL3rYGxNN687hGyaM3XNpfuMzoPlrekURItyuiHHsNhC9oQCx3JDmCn5O3EyyyFCnrZjH6MpA==
+  dependencies:
+    playwright-core "=1.16.3"
 
 please-upgrade-node@^3.2.0:
   version "3.2.0"
@@ -21507,6 +21530,23 @@ socks-proxy-agent@^4.0.0:
     agent-base "~4.2.1"
     socks "~2.3.2"
 
+socks-proxy-agent@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/socks-proxy-agent/-/socks-proxy-agent-6.1.0.tgz#869cf2d7bd10fea96c7ad3111e81726855e285c3"
+  integrity sha512-57e7lwCN4Tzt3mXz25VxOErJKXlPfXmkMLnk310v/jwW20jWRVcgsOit+xNkN3eIEdB47GwnfAEBLacZ/wVIKg==
+  dependencies:
+    agent-base "^6.0.2"
+    debug "^4.3.1"
+    socks "^2.6.1"
+
+socks@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/socks/-/socks-2.6.1.tgz#989e6534a07cf337deb1b1c94aaa44296520d30e"
+  integrity sha512-kLQ9N5ucj8uIcxrDwjm0Jsqk06xdpBjGNQtpXy4Q8/QY2k+fY7nZH8CARy+hkbG+SGAovmzzuauCpBlb8FrnBA==
+  dependencies:
+    ip "^1.1.5"
+    smart-buffer "^4.1.0"
+
 socks@~2.3.2:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/socks/-/socks-2.3.3.tgz#01129f0a5d534d2b897712ed8aceab7ee65d78e3"
@@ -21771,6 +21811,13 @@ stack-utils@^2.0.2:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/stack-utils/-/stack-utils-2.0.3.tgz#cd5f030126ff116b78ccb3c027fe302713b61277"
   integrity sha512-gL//fkxfWUsIlFL2Tl42Cl6+HFALEaB1FU76I/Fy+oZjRreP7OPMXFlGbxM7NQsI0ZpUfw76sHnv0WNYuTb7Iw==
+  dependencies:
+    escape-string-regexp "^2.0.0"
+
+stack-utils@^2.0.3:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/stack-utils/-/stack-utils-2.0.5.tgz#d25265fca995154659dbbfba3b49254778d2fdd5"
+  integrity sha512-xrQcmYhOsn/1kX+Vraq+7j4oE2j/6BFscZ0etmYg81xuM8Gq0022Pxb8+IqgOFUIaxHs0KaSb7T1+OegiNrNFA==
   dependencies:
     escape-string-regexp "^2.0.0"
 
@@ -24290,6 +24337,11 @@ ws@^7.2.3, ws@^7.3.1:
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.4.2.tgz#782100048e54eb36fe9843363ab1c68672b261dd"
   integrity sha512-T4tewALS3+qsrpGI/8dqNMLIVdq/g/85U98HPMa6F0m6xTbvhXU6RCQLqPH3+SlomNV/LdY6RXEbBpMH6EOJnA==
 
+ws@^7.4.6:
+  version "7.5.5"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.5.tgz#8b4bc4af518cfabd0473ae4f99144287b33eb881"
+  integrity sha512-BAkMFcAzl8as1G/hArkxOxq3G7pjUqQ3gzYbLL0/5zNkph70e+lCoxBGnm6AW1+/aiNeV4fnKqZ8m4GZewmH2w==
+
 x-is-string@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/x-is-string/-/x-is-string-0.1.0.tgz#474b50865af3a49a9c4657f05acd145458f77d82"
@@ -24502,6 +24554,13 @@ yauzl@^2.10.0:
   dependencies:
     buffer-crc32 "~0.2.3"
     fd-slicer "~1.1.0"
+
+yazl@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/yazl/-/yazl-2.5.1.tgz#a3d65d3dd659a5b0937850e8609f22fffa2b5c35"
+  integrity sha512-phENi2PLiHnHb6QBVot+dJnaAZ0xosj7p3fWl+znIjBDlnMI2PsZCJZ306BPTFOaHf5qdDEI8x5qFrSOBN5vrw==
+  dependencies:
+    buffer-crc32 "~0.2.3"
 
 yocto-queue@^0.1.0:
   version "0.1.0"
