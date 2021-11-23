@@ -1,7 +1,6 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --tablist-hidden-scrollbar-height: 20px;
     --primary-tablist-color: var(--color-light-text-secondary);
     --primary-tablist-hover-color: var(--color-light-text-primary);
     --primary-tablist-selected-color: var(--color-light-text-primary);

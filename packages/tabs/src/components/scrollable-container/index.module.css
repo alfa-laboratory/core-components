@@ -1,21 +1,15 @@
 @import '../../../../themes/src/default.css';
 @import '../../vars.css';
 
-.component {
-    overflow: hidden;
-
-    &:after {
-        content: '';
-        display: block;
-        margin-bottom: calc(var(--tablist-hidden-scrollbar-height) * -1);
-    }
-}
-
 .container {
     position: relative;
     display: flex;
     align-items: center;
     overflow-x: auto;
     overflow-y: hidden;
-    padding-bottom: var(--tablist-hidden-scrollbar-height);
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }

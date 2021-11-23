@@ -42,9 +42,5 @@ export const ScrollableContainer = ({
         }
     }, [activeChild]);
 
-    return (
-        <div className={styles.component}>
-            <div className={cn(styles.container, containerClassName)}>{children}</div>
-        </div>
-    );
+    return <div className={cn(styles.container, containerClassName)}>{children}</div>;
 };
