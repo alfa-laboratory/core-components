@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@5.2.4...@alfalab/core-components-tabs@5.2.5) (2021-11-23)
+
+
+### Bug Fixes
+
+* **tabs:** hide native scrollbar on scrollable tabs properly ([0134956](https://github.com/alfa-laboratory/core-components/commit/0134956f2af01720500f7ad06caeeb4569e74d50)), closes [#879](https://github.com/alfa-laboratory/core-components/issues/879)
+
+
+
+
+
 ## [5.2.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@5.2.3...@alfalab/core-components-tabs@5.2.4) (2021-10-13)
 
 
