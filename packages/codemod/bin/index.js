@@ -11,8 +11,6 @@ const { hideBin } = require('yargs/helpers');
 const getTransformerPath = componentName =>
     path.resolve(__dirname, `../src/${kebab(componentName)}/transform.ts`);
 
-const availableComponentsTransformers = ['Label', 'Heading', 'Paragraph', 'ButtonXs'];
-
 function main() {
     const { argv } = yargs(hideBin(process.argv));
 
@@ -31,32 +29,23 @@ function main() {
         return;
     }
 
-    if (argv.components && typeof argv.components !== 'string') {
+    if (!argv.transformers || (argv.transformers && typeof argv.transformers !== 'string')) {
         console.log(
             chalk.red(
-                'Укажите компоненты, которые хотите заменить, например --components="Label,Heading,Paragraph"',
+                'Укажите трансформеры, которые нужно запустить, например --transformers="button-xs,button-views"',
             ),
         );
 
         return;
     }
 
-    let components = availableComponentsTransformers;
+    const transformers = argv.transformers.split(',');
 
-    if (argv.components) {
-        components = argv.components.split(',');
-    }
-
-    components.forEach(componentName => {
-        if (!availableComponentsTransformers.includes(componentName)) {
-            console.log(chalk.yellow(`Для компонента ${componentName} еще нет трансформера`));
-            return;
-        }
-
-        const transformer = getTransformerPath(componentName);
+    transformers.forEach(transformerName => {
+        const transformer = getTransformerPath(transformerName);
 
         try {
-            console.log(chalk.green(`Трансформируем ${componentName}:`));
+            console.log(chalk.green(`Запускаем ${transformerName}:`));
             shell.exec(`jscodeshift --parser=tsx --transform=${transformer} ${argv._.join(' ')}`);
         } catch (error) {
             console.log(chalk.red(error));
