@@ -52,6 +52,17 @@ export type TagProps = Omit<NativeProps, 'onClick'> & {
     ) => void;
 
     /**
+     * Обработчик переключения
+     */
+    onChange?: (
+        event?: Event,
+        payload?: {
+            checked: boolean;
+            name?: string;
+        },
+    ) => void;
+
+    /**
      * Набор цветов для компонента
      */
     colors?: 'default' | 'inverted';
@@ -69,6 +80,8 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
             dataTestId,
             name,
             colors = 'default',
+            value,
+            onChange,
             onClick,
             ...restProps
         },
@@ -97,8 +110,22 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
         };
 
         const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+            const payload = { name, checked: !checked };
+
             if (onClick) {
-                onClick(event, { name, checked: !checked });
+                onClick(event, payload);
+            }
+
+            if (onChange) {
+                const input = document.createElement('input');
+
+                if (typeof checked !== 'undefined') input.checked = payload.checked;
+                if (typeof value !== 'undefined') input.value = value.toString();
+
+                input.onchange = e => onChange(e, payload);
+
+                const changeEvent = new Event('change');
+                input.dispatchEvent(changeEvent);
             }
         };
 
