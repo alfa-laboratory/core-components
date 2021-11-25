@@ -1,3 +1,26 @@
+## [21.3.3](https://github.com/alfa-laboratory/core-components/compare/v21.3.2...v21.3.3) (2021-11-23)
+
+
+### Bug Fixes
+
+* **tabs:** hide native scrollbar on scrollable tabs properly ([0134956](https://github.com/alfa-laboratory/core-components/commit/0134956f2af01720500f7ad06caeeb4569e74d50)), closes [#879](https://github.com/alfa-laboratory/core-components/issues/879)
+
+## [21.3.2](https://github.com/alfa-laboratory/core-components/compare/v21.3.1...v21.3.2) (2021-11-22)
+
+
+### Bug Fixes
+
+* **calendar-range:** fix default month to ([#868](https://github.com/alfa-laboratory/core-components/issues/868)) ([1f9fb97](https://github.com/alfa-laboratory/core-components/commit/1f9fb9709292d28300c3fc4386ffd858b2efd852))
+* **slider-input:** classnames overriding ([#891](https://github.com/alfa-laboratory/core-components/issues/891)) ([d63d676](https://github.com/alfa-laboratory/core-components/commit/d63d67628c88e54b38244b1f57969844379d311f))
+
+## [21.3.1](https://github.com/alfa-laboratory/core-components/compare/v21.3.0...v21.3.1) (2021-11-16)
+
+
+### Bug Fixes
+
+* **skeleton:** prevent component unmount ([#887](https://github.com/alfa-laboratory/core-components/issues/887)) ([1bd4dc3](https://github.com/alfa-laboratory/core-components/commit/1bd4dc3147622f75802dd8e574175dbbf02cca54))
+* fix classNames hash ([#884](https://github.com/alfa-laboratory/core-components/issues/884)) ([60f58f2](https://github.com/alfa-laboratory/core-components/commit/60f58f223106869b15f6b19f466a70b0936a5a1d))
+
 # [21.3.0](https://github.com/alfa-laboratory/core-components/compare/v21.2.2...v21.3.0) (2021-11-08)
 
 
