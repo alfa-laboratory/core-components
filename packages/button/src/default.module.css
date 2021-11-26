@@ -19,6 +19,16 @@
     --button-secondary-color: var(--color-light-text-primary);
     --button-secondary-disabled-color: var(--color-light-text-primary-alpha-30);
 
+    /* tertiary */
+    --button-tertiary-base-bg-color: transparent;
+    --button-tertiary-hover-bg-color: rgba(0, 0, 0, 0.07);
+    --button-tertiary-active-bg-color: rgba(0, 0, 0, 0.15);
+    --button-tertiary-disabled-bg-color: transparent;
+    --button-tertiary-base-border-color: var(--color-light-border-tertiary-inverted);
+    --button-tertiary-disabled-border-color: var(--color-light-border-tertiary-inverted-alpha-30);
+    --button-tertiary-color: var(--color-light-text-primary);
+    --button-tertiary-disabled-color: var(--color-light-text-primary-alpha-30);
+
     /* outlined */
     --button-outlined-base-bg-color: transparent;
     --button-outlined-hover-bg-color: rgba(0, 0, 0, 0.07);
@@ -74,6 +84,20 @@
 
     &:active {
         background-color: var(--button-outlined-active-bg-color);
+    }
+}
+
+.tertiary {
+    color: var(--button-tertiary-color);
+    background-color: var(--button-tertiary-base-bg-color);
+    border: 1px solid var(--button-tertiary-base-border-color);
+
+    &:hover {
+        background-color: var(--button-tertiary-hover-bg-color);
+    }
+
+    &:active {
+        background-color: var(--button-tertiary-active-bg-color);
     }
 }
 
@@ -160,6 +184,17 @@
         &.loading {
             color: var(--button-outlined-color);
             border-color: var(--button-outlined-border-color);
+        }
+    }
+
+    &.tertiary {
+        color: var(--button-tertiary-disabled-color);
+        background-color: var(--button-tertiary-disabled-bg-color);
+        border-color: var(--button-tertiary-disabled-border-color);
+
+        &.loading {
+            color: var(--button-tertiary-color);
+            border-color: var(--button-tertiary-border-color);
         }
     }
 

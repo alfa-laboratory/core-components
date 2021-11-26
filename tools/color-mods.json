@@ -5,7 +5,8 @@
     },
     "light-bg-neutral": {
         "alpha": [30],
-        "shade": [7, 10, 15, 30]
+        "shade": [7, 10, 15, 30],
+        "tint": [15]
     },
     "light-bg-primary": {
         "alpha": [8]

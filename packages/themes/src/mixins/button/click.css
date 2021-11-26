@@ -1,4 +1,7 @@
 @define-mixin button-click {
+    --button-border-radius: var(--border-radius-s);
+    --button-active-transform: none;
+
     /* primary */
     --button-primary-base-bg-color: var(--color-light-bg-accent);
     --button-primary-hover-bg-color: var(--color-light-bg-accent-shade-10);
