@@ -20,6 +20,16 @@
     will-change: transform;
 }
 
+.scrollableContent {
+    position: relative;
+    z-index: 2;
+    overflow-y: auto;
+}
+
+.arrow {
+    z-index: 1;
+}
+
 .arrow:after {
     content: '';
     display: block;

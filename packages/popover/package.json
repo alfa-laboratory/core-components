@@ -24,6 +24,7 @@
         "@alfalab/core-components-stack": "^3.0.1",
         "@popperjs/core": "^2.3.3",
         "classnames": "^2.2.6",
+        "popper-max-size-modifier": "^0.2.0",
         "react-merge-refs": "^1.1.0",
         "react-popper": "^2.2.5",
         "react-transition-group": "^4.3.0",

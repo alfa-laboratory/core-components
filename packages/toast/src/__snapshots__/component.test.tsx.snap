@@ -53,19 +53,23 @@ exports[`Toast Snapshots tests should math snapshot when prop \`anchorElement\` 
         style="transition-duration: 150ms;"
       >
         <div
-          class="component"
+          class=""
         >
           <div
-            class="contentWrap"
+            class="component"
           >
             <div
-              class="content"
+              class="contentWrap"
             >
-              <div>
-                <div
-                  class="children"
-                >
-                  text
+              <div
+                class="content"
+              >
+                <div>
+                  <div
+                    class="children"
+                  >
+                    text
+                  </div>
                 </div>
               </div>
             </div>
