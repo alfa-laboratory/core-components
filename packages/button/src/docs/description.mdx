@@ -2,9 +2,8 @@ import { Container, Row, Col } from 'storybook/blocks';
 import { Button } from '../';
 
 
-Кнопка используется как триггер для выполнения определённого действия. Кнопка однозначно сообщает пользователю, что произойдёт после нажатия на неё.
-
-☝️ В зависимости от используемой темы кнопка `secondary` может соответствовать `filled` (по умолчанию) или `outlined`.
+Кнопка используется как триггер для выполнения определённого действия.
+Кнопка однозначно сообщает пользователю, что произойдёт после нажатия на неё.
 
 ```tsx live
 <Container>
@@ -16,13 +15,7 @@ import { Button } from '../';
             <Button view='secondary'>Secondary</Button>
         </Col>
         <Col>
-            <Button view='outlined'>Outlined</Button>
-        </Col>
-        <Col>
-            <Button view='filled'>Filled</Button>
-        </Col>
-        <Col>
-            <Button view='transparent'>Transparent</Button>
+            <Button view='tertiary'>Tertiary</Button>
         </Col>
         <Col>
             <Button view='link'>Link</Button>
@@ -41,7 +34,7 @@ import { Button } from '../';
 - <b>Primary</b>. Обозначает ключевое действие. На экране может быть только одна главная кнопка.
 
 ```tsx live
-const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
 render(
     <Container>
@@ -61,7 +54,7 @@ render(
 - <b>Secondary</b>. Второстепенная кнопка. Может использоваться для любых действий.
 
 ```tsx live
-const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
 render(
     <Container>
@@ -78,57 +71,17 @@ render(
 )
 ```
 
-- <b>Outlined</b>. Дополнительная кнопка.
+- <b>Tertiary</b>. Дополнительная кнопка.
 
 ```tsx live
-const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
 render(
     <Container>
         <Row>
             {SIZES.map(size => (
                 <Col key={size}>
-                    <Button size={size} view="outlined">
-                        Кнопка
-                    </Button>
-                </Col>
-            ))}
-        </Row>
-    </Container>
-)
-```
-
-- <b>Filled</b>. Дополнительная кнопка.
-
-```tsx live
-const SIZES = ['xs', 's', 'm', 'l', 'xl'];
-
-render(
-    <Container>
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <Button size={size} view="filled">
-                        Кнопка
-                    </Button>
-                </Col>
-            ))}
-        </Row>
-    </Container>
-)
-```
-
-- <b>Transparent</b>. Кнопка с прозрачностью.
-
-```tsx live
-const SIZES = ['xs', 's', 'm', 'l', 'xl'];
-
-render(
-    <Container>
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <Button size={size} view="transparent">
+                    <Button size={size} view="tertiary">
                         Кнопка
                     </Button>
                 </Col>
@@ -141,7 +94,7 @@ render(
 - <b>Link</b>. Прозрачная кнопка-ссылка. Для получения ссылки, нужно установить пропс `href`.
 
 ```tsx live
-const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
 render(
     <Container>
@@ -161,7 +114,7 @@ render(
 - <b>Ghost</b>. Прозрачная кнопка без отступов.
 
 ```tsx live
-const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
 render(
     <Container>
@@ -191,7 +144,7 @@ render(
             </Button>
         </Col>
         <Col>
-            <Button view="outlined" href="https://alfabank.ru" target="_blank" >
+            <Button view="tertiary" href="https://alfabank.ru" target="_blank" >
                 Ссылка
             </Button>
         </Col>
@@ -216,26 +169,39 @@ render(
 Переданный контент будет отрисован слева или справа от текста кнопки. Если текста нет — будет отрисована квадратная кнопка.
 
 ```tsx live
-<Container>
-    <Row>
-        <Col>
-            <Button leftAddons={<StarMIcon/>} rightAddons={<StarMIcon/>}>
-                Кнопка
-            </Button>
-        </Col>
-        <Col>
-            <Button rightAddons={<StarMIcon/>} view="outlined"/>
-        </Col>
-        <Col>
-            <Button size="xs" leftAddons={<FlashCircleSIcon/>}>
-                Кнопка
-            </Button>
-        </Col>
-        <Col>
-            <Button size="xs" rightAddons={<FlashCircleSIcon/>} view="outlined"/>
-        </Col>
-    </Row>
-</Container>
+render(() => {
+    const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
+
+    return (
+        <Container>
+            <Row>
+                {SIZES.map(size => (
+                    <Col key={size}>
+                        <Button rightAddons={<InformationCircleLineSIcon/>} view="primary" size={size}>
+                            Кнопка
+                        </Button>
+                    </Col>
+                ))}
+            </Row>
+
+            <Row>
+                {SIZES.map(size => (
+                    <Col key={size}>
+                        <Button leftAddons={<InformationCircleLineSIcon/>} view="primary" size={size}>
+                            Кнопка
+                        </Button>
+                    </Col>
+                ))}
+            </Row>
+
+            <Row>
+                <Col>
+                    <Button rightAddons={<InformationCircleLineSIcon/>} view="primary" size="xs" />
+                </Col>
+            </Row>
+        </Container>
+    )
+})
 ```
 
 ## Состояние загрузки
@@ -321,7 +287,7 @@ render(() => {
                     <Button view='secondary'>Secondary</Button>
                 </Col>
                 <Col>
-                    <Button view='outlined'>Outlined</Button>
+                    <Button view='tertiary'>Tertiary</Button>
                 </Col>
             </Row>
         </Container>
@@ -336,7 +302,7 @@ render(() => {
                     <Button colors='inverted' view='secondary'>Secondary</Button>
                 </Col>
                 <Col>
-                    <Button colors='inverted' view='outlined'>Outlined</Button>
+                    <Button colors='inverted' view='tertiary'>Tertiary</Button>
                 </Col>
             </Row>
         </Container>

@@ -1,4 +1,7 @@
 @define-mixin button-corp {
+    --button-border-radius: var(--border-radius-s);
+    --button-active-transform: none;
+
     /* secondary */
     --button-secondary-base-bg-color: transparent;
     --button-secondary-hover-bg-color: var(--color-light-specialbg-component);
@@ -6,6 +9,16 @@
     --button-secondary-disabled-bg-color: transparent;
     --button-secondary-base-border-color: var(--color-light-border-tertiary-inverted);
     --button-secondary-disabled-border-color: var(--color-light-border-tertiary-inverted-alpha-30);
+
+    /* tertiary */
+    --button-tertiary-base-bg-color: var(--color-light-bg-neutral);
+    --button-tertiary-hover-bg-color: var(--color-light-bg-neutral-shade-7);
+    --button-tertiary-active-bg-color: var(--color-light-bg-neutral-shade-15);
+    --button-tertiary-disabled-bg-color: var(--color-light-bg-neutral-alpha-30);
+    --button-tertiary-base-border-color: transparent;
+    --button-tertiary-disabled-border-color: transparent;
+    --button-tertiary-color: var(--color-light-text-primary);
+    --button-tertiary-disabled-color: var(--color-light-text-primary-alpha-30);
 
     /* inverted-secondary */
 
@@ -18,4 +31,14 @@
     --button-inverted-secondary-disabled-bg-color: var(--color-light-bg-primary-alpha-8);
     --button-inverted-secondary-disabled-border-color: transparent;
     --button-inverted-secondary-disabled-color: var(--color-light-text-primary-inverted-alpha-40);
+
+    /* inverted-tertiary */
+    --button-inverted-tertiary-color: var(--color-dark-text-primary);
+    --button-inverted-tertiary-base-bg-color: var(--color-dark-bg-neutral);
+    --button-inverted-tertiary-hover-bg-color: var(--color-dark-bg-neutral-tint-15);
+    --button-inverted-tertiary-active-bg-color: var(--color-dark-bg-neutral-shade-15);
+    --button-inverted-tertiary-disabled-bg-color: var(--color-dark-bg-neutral-alpha-30);
+    --button-inverted-tertiary-base-border-color: transparent;
+    --button-inverted-tertiary-disabled-border-color: transparent;
+    --button-inverted-tertiary-disabled-color: var(--color-dark-text-primary-alpha-30);
 }

@@ -1,10 +1,10 @@
-import Icon from '@alfalab/icons-glyph/CopyMIcon';
+import { Container, Row, Col } from 'storybook/blocks';
 
 Компонент тэг (чипсы).
 
 ```tsx live
 render(() => {
-    const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+    const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
     const [checked, setChecked] = React.useState(false);
 
@@ -15,7 +15,7 @@ render(() => {
             size={select('size', SIZES, 'm')}
             disabled={boolean('disabled', false)}
             checked={checked || boolean('checked', false)}
-            rightAddons={boolean('rightAddons', false) && <CopyMIcon />}
+            rightAddons={boolean('rightAddons', false) && <StarSIcon />}
             onClick={handleClick}
         >
             {text('label', 'Оплатить')}
@@ -28,33 +28,38 @@ render(() => {
 
 ```tsx live
 render(() => {
-    const SIZES = ['xs', 's', 'm', 'l', 'xl'];
-
-    const [checked, setChecked] = React.useState(false);
-
-    const handleClick = () => setChecked(!checked);
+    const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
     return (
-        <Tag checked={checked} onClick={handleClick} rightAddons={<CopyMIcon />}>
-            Нажми меня
-        </Tag>
-    );
-});
-```
+        <Container>
+            <Row>
+                {SIZES.map(size => (
+                    <Col key={size}>
+                        <Tag
+                            checked={false}
+                            rightAddons={<StarMIcon />}
+                            size={size}
+                        >
+                            Tag
+                        </Tag>
+                    </Col>
+                ))}
+            </Row>
 
-
-### Тэг высотой 40px (используется в теме mobile)
-
-```tsx live
-render(() => {
-    const [checked, setChecked] = React.useState(false);
-
-    const handleClick = () => setChecked(!checked);
-
-    return (
-        <Tag checked={checked} onClick={handleClick} style={{ minHeight: '40px' }} size="xs">
-            Нажми меня
-        </Tag>
+            <Row>
+                {SIZES.map(size => (
+                    <Col key={size}>
+                        <Tag
+                            checked={false}
+                            leftAddons={<StarMIcon />}
+                            size={size}
+                        >
+                            Tag
+                        </Tag>
+                    </Col>
+                ))}
+            </Row>
+        </Container>
     );
 });
 ```
