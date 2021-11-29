@@ -129,13 +129,16 @@ exports[`Snapshots tests should display opened correctly 2`] = `
             role="option"
           >
             <span
-              class="checkmark"
+              class="checkmark before single"
             />
             <div
               class="content textContent"
             >
               Neptunium
             </div>
+            <span
+              class="checkmark after single"
+            />
           </div>
           <div
             aria-selected="false"
@@ -144,13 +147,16 @@ exports[`Snapshots tests should display opened correctly 2`] = `
             role="option"
           >
             <span
-              class="checkmark"
+              class="checkmark before single"
             />
             <div
               class="content textContent"
             >
               Plutonium
             </div>
+            <span
+              class="checkmark after single"
+            />
           </div>
           <div
             aria-selected="false"
@@ -159,13 +165,16 @@ exports[`Snapshots tests should display opened correctly 2`] = `
             role="option"
           >
             <span
-              class="checkmark"
+              class="checkmark before single"
             />
             <div
               class="content textContent"
             >
               Americium
             </div>
+            <span
+              class="checkmark after single"
+            />
           </div>
           <div
             aria-selected="false"
@@ -174,13 +183,16 @@ exports[`Snapshots tests should display opened correctly 2`] = `
             role="option"
           >
             <span
-              class="checkmark"
+              class="checkmark before single"
             />
             <div
               class="content textContent"
             >
               Curium
             </div>
+            <span
+              class="checkmark after single"
+            />
           </div>
           <div
             aria-selected="false"
@@ -189,13 +201,16 @@ exports[`Snapshots tests should display opened correctly 2`] = `
             role="option"
           >
             <span
-              class="checkmark"
+              class="checkmark before single"
             />
             <div
               class="content textContent"
             >
               Berkelium
             </div>
+            <span
+              class="checkmark after single"
+            />
           </div>
           <div
             aria-selected="false"
@@ -204,13 +219,16 @@ exports[`Snapshots tests should display opened correctly 2`] = `
             role="option"
           >
             <span
-              class="checkmark"
+              class="checkmark before single"
             />
             <div
               class="content textContent"
             >
               Californium
             </div>
+            <span
+              class="checkmark after single"
+            />
           </div>
           <div
             aria-selected="false"
@@ -219,13 +237,16 @@ exports[`Snapshots tests should display opened correctly 2`] = `
             role="option"
           >
             <span
-              class="checkmark"
+              class="checkmark before single"
             />
             <div
               class="content textContent"
             >
               Einsteinium
             </div>
+            <span
+              class="checkmark after single"
+            />
           </div>
           <div
             aria-selected="false"
@@ -234,13 +255,16 @@ exports[`Snapshots tests should display opened correctly 2`] = `
             role="option"
           >
             <span
-              class="checkmark"
+              class="checkmark before single"
             />
             <div
               class="content textContent"
             >
               Fermium
             </div>
+            <span
+              class="checkmark after single"
+            />
           </div>
           <div
             aria-selected="false"
@@ -249,13 +273,16 @@ exports[`Snapshots tests should display opened correctly 2`] = `
             role="option"
           >
             <span
-              class="checkmark"
+              class="checkmark before single"
             />
             <div
               class="content textContent"
             >
               Mendelevium
             </div>
+            <span
+              class="checkmark after single"
+            />
           </div>
           <div
             aria-selected="false"
@@ -264,13 +291,16 @@ exports[`Snapshots tests should display opened correctly 2`] = `
             role="option"
           >
             <span
-              class="checkmark"
+              class="checkmark before single"
             />
             <div
               class="content textContent"
             >
               Nobelium
             </div>
+            <span
+              class="checkmark after single"
+            />
           </div>
           <div
             aria-selected="false"
@@ -279,13 +309,16 @@ exports[`Snapshots tests should display opened correctly 2`] = `
             role="option"
           >
             <span
-              class="checkmark"
+              class="checkmark before single"
             />
             <div
               class="content textContent"
             >
               Lawrencium
             </div>
+            <span
+              class="checkmark after single"
+            />
           </div>
           <div
             aria-selected="false"
@@ -294,13 +327,16 @@ exports[`Snapshots tests should display opened correctly 2`] = `
             role="option"
           >
             <span
-              class="checkmark"
+              class="checkmark before single"
             />
             <div
               class="content textContent"
             >
               Rutherfordium
             </div>
+            <span
+              class="checkmark after single"
+            />
           </div>
           <div
             aria-selected="false"
@@ -309,13 +345,16 @@ exports[`Snapshots tests should display opened correctly 2`] = `
             role="option"
           >
             <span
-              class="checkmark"
+              class="checkmark before single"
             />
             <div
               class="content textContent"
             >
               Dubnium
             </div>
+            <span
+              class="checkmark after single"
+            />
           </div>
           <div
             aria-selected="false"
@@ -324,13 +363,16 @@ exports[`Snapshots tests should display opened correctly 2`] = `
             role="option"
           >
             <span
-              class="checkmark"
+              class="checkmark before single"
             />
             <div
               class="content textContent"
             >
               Seaborgium
             </div>
+            <span
+              class="checkmark after single"
+            />
           </div>
           <div
             aria-selected="false"
@@ -339,13 +381,16 @@ exports[`Snapshots tests should display opened correctly 2`] = `
             role="option"
           >
             <span
-              class="checkmark"
+              class="checkmark before single"
             />
             <div
               class="content textContent"
             >
               Bohrium
             </div>
+            <span
+              class="checkmark after single"
+            />
           </div>
         </div>
       </div>
