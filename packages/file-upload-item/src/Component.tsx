@@ -7,6 +7,7 @@ import { Spinner } from '@alfalab/core-components-spinner';
 import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
+import { PointerDownMIcon } from '@alfalab/icons-glyph/PointerDownMIcon';
 
 import { fileIcon, humanFileSize } from './utils';
 
@@ -41,7 +42,7 @@ export type FileUploadItemProps = {
     uploadDate?: string;
 
     /**
-     * Ссылка на файл. Если прокидывается этот параметр, то заголовок становится ссылкой
+     * Ссылка на файл. Если прокидывается этот параметр, то появляется кнопка скачивания
      */
     downloadLink?: string;
 
@@ -153,34 +154,34 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
                 return <CheckmarkCircleMIcon className={styles.successIcon} />;
             case 'LOADING':
             case 'UPLOADING':
-                return <Spinner visible={true} />;
+                return (
+                    <div className={styles.spinnerWrapper}>
+                        <Spinner visible={true} className={styles.spinner} />
+                    </div>
+                );
             default: {
                 return <Icon className={styles.icon} />;
             }
         }
     }, [uploadStatus]);
 
-    const renderName = useCallback(
+    const renderInfoSection = useCallback(
         () => (
-            <div className={styles.name}>
-                {downloadLink ? (
-                    <Link
-                        pseudo={true}
-                        href={downloadLink}
-                        onClick={handleDownload}
-                        download={download}
-                    >
-                        {name}
-                    </Link>
-                ) : (
-                    name
+            <div className={styles.infoSection}>
+                <div className={styles.name}>{name}</div>
+
+                {uploadStatus === 'ERROR' && error && (
+                    <div className={styles.errorWrapper} role='alert'>
+                        {error}
+                    </div>
                 )}
             </div>
         ),
-        [downloadLink, handleDownload, download, name],
+        [name, uploadStatus, error],
     );
 
     const showMeta = !showRestore && (!uploadStatus || uploadStatus === 'SUCCESS');
+    const showDownload = Boolean(downloadLink) && !showRestore;
 
     return (
         <div
@@ -194,16 +195,12 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
             <div className={styles.info}>
                 {renderIcon()}
 
-                {renderName()}
+                {renderInfoSection()}
 
                 {children}
 
-                {uploadStatus === 'UPLOADING' && <span>{`${Math.round(uploadPercent)}%`}</span>}
-
-                {uploadStatus === 'ERROR' && (
-                    <span className={styles.error} role='alert'>
-                        {error}
-                    </span>
+                {uploadStatus === 'UPLOADING' && (
+                    <span className={styles.uploadPercent}>{`${Math.round(uploadPercent)}%`}</span>
                 )}
 
                 {showMeta && (
@@ -223,6 +220,18 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
                 <Link pseudo={true} className={styles.restore} onClick={handleRestore}>
                     Восстановить
                 </Link>
+            )}
+
+            {showDownload && (
+                <IconButton
+                    size='xxs'
+                    icon={PointerDownMIcon}
+                    className={styles.download}
+                    aria-label='скачать'
+                    href={downloadLink}
+                    onClick={handleDownload}
+                    download={download}
+                />
             )}
 
             {showDelete && !showRestore && (
