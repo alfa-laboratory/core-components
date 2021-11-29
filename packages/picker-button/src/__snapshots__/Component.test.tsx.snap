@@ -12,7 +12,7 @@ exports[`Snapshots tests should display correctly 1`] = `
     <button
       aria-controls="downshift-1-menu"
       aria-labelledby="downshift-1-label"
-      class="component secondary m component secondary block component"
+      class="component secondary m component secondary block withRightAddons component"
       id="downshift-0-input"
       tabindex="0"
       type="button"

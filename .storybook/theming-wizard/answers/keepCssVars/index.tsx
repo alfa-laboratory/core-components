@@ -30,7 +30,7 @@ export const KeepCssVars = ({ answers }: { answers: Answers }) => {
                 одном из корневых файлов проекта:{' '}
                 <Typography.Text weight='bold'>App.tsx, root.tsx или app.css</Typography.Text>
             </Typography.Text>
-            <Example>{cssImportsExample(answers)}</Example>
+            <Example live={false} language='css' code={cssImportsExample(answers)} />
         </div>,
     );
 
@@ -41,7 +41,7 @@ export const KeepCssVars = ({ answers }: { answers: Answers }) => {
                     Добавьте на страницу дополнительные стили, если темный режим был включен. Обычно
                     это можно сделать в корне приложения.
                 </Typography.Text>
-                <Example>{darkModeExample()}</Example>
+                <Example live={false} language='css' code={darkModeExample()} />
             </div>,
         );
     }
