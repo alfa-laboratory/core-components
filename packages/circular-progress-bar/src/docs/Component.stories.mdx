@@ -30,7 +30,7 @@ import styles from '!!raw-loader!../index.module.css';
                     view={view}
                     title={title}
                     subtitle={subtitle}
-                    size={select('size', ['m', 'l'])}
+                    size={select('size', ['s', 'm', 'l'], 'm')}
                 />
                 <p>Без атрибута title значение для title берётся из value</p>
                 <CircularProgressBar
