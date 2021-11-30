@@ -19,10 +19,16 @@ export const joinOptions = ({
     if (!options.length) return null;
 
     return options.reduce((acc: Array<ReactNode | string>, option: OptionShape, index: number) => {
-        if (isValidElement(option.content)) {
-            acc.push(cloneElement(option.content, { key: option.key }));
+        const justRenderedContent = option.contentComponent?.({
+            value: option.value,
+            key: option.key,
+        });
+        const content = justRenderedContent || option.content;
+
+        if (isValidElement(content) && !option.contentComponent) {
+            acc.push(cloneElement(content, { key: option.key }));
         } else {
-            acc.push(option.content);
+            acc.push(content);
         }
 
         if (index < options.length - 1) acc.push(', ');

@@ -17,7 +17,11 @@ export const Option: FC<OptionProps> = ({
     innerProps,
     dataTestId,
 }) => {
-    const content = children || option.content || option.key;
+    const content =
+        children ||
+        option.contentComponent?.({ value: option.value, key: option.key }) ||
+        option.content ||
+        option.key;
 
     return (
         <div

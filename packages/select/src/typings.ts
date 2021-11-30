@@ -22,6 +22,13 @@ export type OptionShape = {
     content?: ReactNode;
 
     /**
+     * Компонент, который отрисовывает контент в выпадающем списке и в поле при выборе
+     * на основе дополнительных данных
+     */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    contentComponent?: FC<{ value?: any; key: string }>;
+
+    /**
      * Блокирует данный пункт для выбора
      */
     disabled?: boolean;
