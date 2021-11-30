@@ -4349,6 +4349,19 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
         max-height: 24px;
     }
 
+.s_1sMNL {
+    width: 96px;
+    height: 96px
+}
+
+.s_1sMNL .label_s74fv {
+        max-width: 72px;
+    }
+
+.s_1sMNL .title_3y-6h {
+        max-height: 24px;
+    }
+
 .label_s74fv {
     text-align: center;
     position: absolute;
