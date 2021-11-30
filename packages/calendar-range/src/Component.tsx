@@ -298,27 +298,25 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
 
             <span className={styles.divider} />
 
-            {/* eslint-disable-next-line jsx-a11y/mouse-events-have-key-events */}
-            <div onMouseOver={handleCalendarToMouseOver}>
-                <CalendarInput
-                    {...inputToProps}
-                    calendarPosition={calendarPosition}
-                    popoverPosition='bottom-end'
-                    onInputChange={handleInputToChange}
-                    onCalendarChange={handleToCalendarChange}
-                    value={inputValueTo.value}
-                    minDate={maxMinDates.toMinDate}
-                    maxDate={maxMinDates.toMaxDate}
-                    calendarProps={{
-                        ...inputToProps.calendarProps,
-                        month: monthTo,
-                        onMonthChange: handleMonthToChange,
-                        selectorView,
-                        selectedFrom,
-                        selectedTo,
-                    }}
-                />
-            </div>
+            <CalendarInput
+                {...inputToProps}
+                calendarPosition={calendarPosition}
+                popoverPosition='bottom-end'
+                onInputChange={handleInputToChange}
+                onCalendarChange={handleToCalendarChange}
+                onMouseOver={handleCalendarToMouseOver}
+                value={inputValueTo.value}
+                minDate={maxMinDates.toMinDate}
+                maxDate={maxMinDates.toMaxDate}
+                calendarProps={{
+                    ...inputToProps.calendarProps,
+                    month: monthTo,
+                    onMonthChange: handleMonthToChange,
+                    selectorView,
+                    selectedFrom,
+                    selectedTo,
+                }}
+            />
         </div>
     );
 };
