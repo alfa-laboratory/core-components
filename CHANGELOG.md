@@ -1,3 +1,10 @@
+# [22.1.0](https://github.com/alfa-laboratory/core-components/compare/v22.0.0...v22.1.0) (2021-11-30)
+
+
+### Features
+
+* **circular-progress-bar:** new size S ([d34db5c](https://github.com/alfa-laboratory/core-components/commit/d34db5cca682bc63f948a0dad322604c8044a6b8))
+
 # [22.0.0](https://github.com/alfa-laboratory/core-components/compare/v21.3.3...v22.0.0) (2021-11-26)
 
 
