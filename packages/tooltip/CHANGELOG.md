@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.3.2...@alfalab/core-components-tooltip@4.4.0) (2021-12-01)
+
+
+### Features
+
+* **popover:** add availableHieght prop, update related snapshots ([43b4ebd](https://github.com/alfa-laboratory/core-components/commit/43b4ebd6ba092f22d0dfc845f3f0113b390317dc)), closes [#758](https://github.com/alfa-laboratory/core-components/issues/758)
+* **tooltip:** add availableHeight and preventOverflow props ([b401524](https://github.com/alfa-laboratory/core-components/commit/b401524b0eb0b9e06593883a889b99198982c718)), closes [#758](https://github.com/alfa-laboratory/core-components/issues/758)
+
+
+
+
+
 ## [4.3.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.3.1...@alfalab/core-components-tooltip@4.3.2) (2021-11-26)
 
 **Note:** Version bump only for package @alfalab/core-components-tooltip
