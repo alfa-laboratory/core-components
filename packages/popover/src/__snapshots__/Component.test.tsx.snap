@@ -19,8 +19,12 @@ Object {
           class="inner"
           style="transition-duration: 150ms;"
         >
-          <div>
-            I am popover
+          <div
+            class=""
+          >
+            <div>
+              I am popover
+            </div>
           </div>
         </div>
       </div>
@@ -98,8 +102,12 @@ Object {
         <div
           class="inner"
         >
-          <div>
-            I am popover
+          <div
+            class=""
+          >
+            <div>
+              I am popover
+            </div>
           </div>
         </div>
       </div>
