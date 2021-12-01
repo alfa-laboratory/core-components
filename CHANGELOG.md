@@ -1,3 +1,17 @@
+# [22.2.0](https://github.com/alfa-laboratory/core-components/compare/v22.1.0...v22.2.0) (2021-12-01)
+
+
+### Bug Fixes
+
+* **notification:** set word-break: break-word in notif ([8f7615d](https://github.com/alfa-laboratory/core-components/commit/8f7615d2f497d97c0811868e14bf4ccd51710f31))
+* **notification:** убрал word-break: break-all ([db0d2b2](https://github.com/alfa-laboratory/core-components/commit/db0d2b28d12101f1a7bae395cbf17d570b88cc83))
+
+
+### Features
+
+* **popover:** add availableHieght prop, update related snapshots ([43b4ebd](https://github.com/alfa-laboratory/core-components/commit/43b4ebd6ba092f22d0dfc845f3f0113b390317dc)), closes [#758](https://github.com/alfa-laboratory/core-components/issues/758)
+* **tooltip:** add availableHeight and preventOverflow props ([b401524](https://github.com/alfa-laboratory/core-components/commit/b401524b0eb0b9e06593883a889b99198982c718)), closes [#758](https://github.com/alfa-laboratory/core-components/issues/758)
+
 # [22.1.0](https://github.com/alfa-laboratory/core-components/compare/v22.0.0...v22.1.0) (2021-11-30)
 
 
