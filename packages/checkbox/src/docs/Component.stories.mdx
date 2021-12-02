@@ -8,12 +8,7 @@ import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
-
-<Meta
-    title='Компоненты/Checkbox'
-    component={Checkbox}
-/>
-
+<Meta title='Компоненты/Checkbox' component={Checkbox} />
 
 <!-- Canvas -->
 
@@ -28,6 +23,7 @@ import styles from '!!raw-loader!../index.module.css';
         const label = text('label', 'Согласен с условиями');
         const indeterminate = boolean('indeterminate', false);
         const hint = text('hint', 'Дополнительная информация');
+        const error = text('error', '');
         const block = boolean('block', false);
         const addons = text('addons');
         const align = select('align', ['start', 'center']);
@@ -44,11 +40,11 @@ import styles from '!!raw-loader!../index.module.css';
                 label={label}
                 indeterminate={indeterminate}
                 hint={hint}
+                error={error}
             />
         );
     })}
 </Story>
-
 
 <!-- Docs -->
 
@@ -66,7 +62,10 @@ import { Checkbox } from '@alfalab/core-components/checkbox';
 
 <Tabs
     description={<Description />}
-    changelog={<Changelog />}
-    props={<Props of={Checkbox} />}
-    cssVars={<CssVars css={styles} />}
+changelog={
+<Changelog />}
+props={
+<Props of={Checkbox} />}
+cssVars={
+<CssVars css={styles} />}
 />

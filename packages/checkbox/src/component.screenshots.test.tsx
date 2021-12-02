@@ -109,3 +109,31 @@ describe(
         },
     }),
 );
+
+describe('Checkbox | checked | error state', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    'sprite',
+                    createSpriteStorybookUrl({
+                        componentName: 'Checkbox',
+                        knobs: {
+                            checked: [true, false],
+                            label: ['Согласен с условиями'],
+                            hint: ['', 'Дополнительная информация'],
+                            error: ['', 'Ошибка'],
+                            size: ['s'],
+                        },
+                        size: { width: 400, height: 100 },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            theme,
+        })();
+
+    availableThemes.map(testCase);
+});
