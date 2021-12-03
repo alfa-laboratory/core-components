@@ -59,6 +59,19 @@
     }
 }
 
+.s {
+    width: 96px;
+    height: 96px;
+
+    & .label {
+        max-width: 72px;
+    }
+
+    & .title {
+        max-height: 24px;
+    }
+}
+
 .label {
     text-align: center;
     position: absolute;

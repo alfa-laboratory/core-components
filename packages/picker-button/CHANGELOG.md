@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.0.0...@alfalab/core-components-picker-button@7.1.0) (2021-12-01)
+
+
+### Features
+
+* **popover:** add availableHieght prop, update related snapshots ([43b4ebd](https://github.com/alfa-laboratory/core-components/commit/43b4ebd6ba092f22d0dfc845f3f0113b390317dc)), closes [#758](https://github.com/alfa-laboratory/core-components/issues/758)
+
+
+
+
+
 # [7.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@6.2.5...@alfalab/core-components-picker-button@7.0.0) (2021-11-26)
 
 
