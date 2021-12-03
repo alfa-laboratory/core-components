@@ -14,6 +14,7 @@ export const Checkmark = ({
     const single = !multiple || position === 'after';
 
     const checkmarkClassNames = cn(styles.checkmark, className, styles[position], {
+        [styles.multiple]: !single,
         [styles.single]: single,
         [styles.selected]: selected,
     });

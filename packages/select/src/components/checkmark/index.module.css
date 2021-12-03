@@ -24,6 +24,10 @@
 
 .before {
     display: var(--select-checkmark-before-display);
+
+    &.multiple {
+        margin-right: var(--gap-s);
+    }
 }
 
 .after {
