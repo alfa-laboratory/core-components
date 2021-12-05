@@ -1,0 +1,68 @@
+@import '../../themes/src/default.css';
+
+:root {
+    /* white content */
+    --button-white-content-color: var(--color-light-text-primary-inverted);
+    --button-white-content-color-disabled: var(--color-light-text-primary-inverted);
+
+    /* black content */
+    --button-black-content-color: var(--color-light-text-primary);
+    --button-black-content-color-disabled: var(--color-light-text-primary);
+}
+
+.customButton {
+    overflow: hidden;
+    position: relative;
+
+    &.white * {
+        color: var(--button-white-content-color);
+    }
+
+    &.black * {
+        color: var(--button-black-content-color);
+    }
+
+    & span {
+        position: relative;
+        z-index: 3;
+    }
+
+    &:before {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0);
+        content: '';
+        transition: 0.2s;
+        opacity: 1;
+        pointer-events: none;
+    }
+
+    &:hover:before {
+        background-color: rgba(0, 0, 0, 0.07);
+    }
+
+    &:active:before {
+        background-color: rgba(0, 0, 0, 0.15);
+    }
+}
+
+/* Disabled */
+
+.customButton:disabled {
+    opacity: 0.3;
+
+    &.customLoading {
+        opacity: 1;
+    }
+
+    &.white * {
+        color: var(--button-white-content-color-disabled);
+    }
+
+    &.black * {
+        color: var(--button-black-content-color-disabled);
+    }
+}

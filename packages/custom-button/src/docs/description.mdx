@@ -1,0 +1,244 @@
+import { Container, Row, Col } from 'storybook/blocks';
+import { CustomButton } from '../';
+
+
+Кнопка используется как триггер для выполнения определённого действия.
+Кнопка однозначно сообщает пользователю, что произойдёт после нажатия на неё.
+
+```tsx live
+<Container>
+    <Row align='middle'>
+        <Col>
+            <CustomButton>Кнопка</CustomButton>
+        </Col>
+    </Row>
+</Container>
+```
+
+## Виды кнопок
+
+- Кнопка разных размеров `size = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl'` .
+
+```tsx live
+const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
+
+
+render(
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <CustomButton size={size} >
+                        Кнопка
+                    </CustomButton>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+)
+```
+## Цвет кнопки
+- Кнопка может принимать пропс `backgroundColor` отвечающий за цвет фона.
+
+```tsx live
+const COLORS = ['#55aa00', '#4AF2FD', '#9A06BF'];
+
+render(
+    <Container>
+        <Row>
+            {COLORS.map(color => (
+                <Col key={color}>
+                    <CustomButton backgroundColor={color} >
+                        Кнопка
+                    </CustomButton>
+               </Col>
+            ))}
+        </Row>   
+    </Container>
+)
+```
+
+## Цвет контента 
+- Кнопка может принимать пропс `contentColor = white | black` отвечающий за цвет контента.
+
+```tsx live
+const COLORS = ['#55aa00', '#4AF2FD', '#9A06BF'];
+
+render(
+    <Container>
+        <Row>    
+            {COLORS.map(color => (
+                <Col key={color}>
+                    <CustomButton backgroundColor={color} contentColor="black">
+                        Кнопка
+                    </CustomButton>
+               </Col>
+            ))}
+        </Row>
+    </Container>
+)
+```
+
+## Ссылка
+
+Любую кнопку можно превратить в ссылку, передав компоненту пропс `href`.
+
+```tsx live
+<Container>
+    <Row align="middle">
+        <Col>
+            <CustomButton href="https://alfabank.ru" target="_blank" >
+                Ссылка
+            </CustomButton>
+        </Col>
+        <Col>
+            <CustomButton href="https://alfabank.ru" target="_blank" >
+                Ссылка
+            </CustomButton>
+        </Col>
+    </Row>
+</Container>
+```
+
+## Ширина кнопки
+
+С помощью свойства `block` можно заставить кнопку занимать всю ширину контейнера.
+
+```tsx live
+<CustomButton block={true} size="s" >
+    Кнопка
+</CustomButton>
+```
+
+## Слоты для кастомизации
+
+С помощью слотов `leftAddons` и `rightAddons` можно кастомизировать кнопку. Например, добавить иконку.
+
+Переданный контент будет отрисован слева или справа от текста кнопки. Если текста нет — будет отрисована квадратная кнопка.
+
+```tsx live
+render(() => {
+    const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
+
+    return (
+        <Container>
+            <Row>
+                {SIZES.map(size => (
+                    <Col key={size}>
+                        <CustomButton rightAddons={<InformationCircleLineSIcon/>} size={size}>
+                            Кнопка
+                        </CustomButton>
+                    </Col>
+                ))}
+            </Row>
+
+            <Row>
+                {SIZES.map(size => (
+                    <Col key={size}>
+                        <CustomButton leftAddons={<InformationCircleLineSIcon/>} size={size}>
+                            Кнопка
+                        </CustomButton>
+                    </Col>
+                ))}
+            </Row>
+
+            <Row>
+                <Col>
+                    <CustomButton rightAddons={<InformationCircleLineSIcon/>} size="xs" />
+                </Col>
+            </Row>
+        </Container>
+    )
+})
+```
+
+## Состояние загрузки
+
+С помощью свойства `loading` можно отобразить состояние загрузки.
+
+Минимальное время отображения лоадера - 500мс, чтобы при быстрых ответах от сервера кнопка не «моргала».
+
+```tsx live expanded
+render(() => {
+    const [loading, setLoading] = React.useState({
+        primary: false,
+        secondary: false
+    });
+
+    const handleClick = (CustomButtonName, timeout) => {
+        setLoading({...loading, [CustomButtonName]: true});
+        setTimeout(() => {
+            setLoading({...loading, [CustomButtonName]: false});
+        }, timeout)
+    }
+
+    return (
+        <Container>
+            <Row align="middle">
+                <Col>
+                    <CustomButton
+                        loading={loading.primary}
+                        onClick={() => handleClick('primary', 30)}
+                    >
+                        Отправить быстрый запрос (30мс)
+                    </CustomButton>
+                </Col>
+                <Col>
+                    <CustomButton
+                        loading={loading.secondary}
+                        onClick={() => handleClick('secondary', 1500)}
+                    >
+                        Отправить долгий запрос (1500мс)
+                    </CustomButton>
+                </Col>
+            </Row>
+        </Container>
+    );
+});
+```
+
+## Перенос текста
+
+С помощью свойства `nowrap` можно запретить перенос строки в кнопке.
+
+```tsx live
+<div style={{ width: '240px' }}>
+    <Row align="middle">
+        <Col>
+            <CustomButton nowrap={true}>
+                Кнопка без переноса текста
+            </CustomButton>
+        </Col>
+        <Col>
+            <CustomButton>
+                Кнопка с{'\u00A0'}переносом текста
+            </CustomButton>
+        </Col>
+    </Row>
+</div>
+```
+
+## Темы
+
+`site`
+
+<div style={{border: '1px solid #e5e5e5', borderRadius: '4px', overflow: 'hidden'}}>
+    <div data-theme='site' style={{padding: '24px', backgroundColor: '#fff'}}>
+        <Container>
+            <Row align='middle'>
+                <Col>
+                    <CustomButton>Кнопка</CustomButton>
+                </Col>
+            </Row>
+        </Container>
+    </div>
+    <div data-theme='site' style={{padding: '24px', backgroundColor: '#0b1f35'}}>
+        <Container>
+            <Row align='middle'>
+                <Col>
+                    <CustomButton colors='inverted'>Кнопка</CustomButton>
+                </Col>
+            </Row>
+        </Container>
+    </div>
+</div>
