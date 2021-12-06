@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast@3.2.6...@alfalab/core-components-toast@3.3.0) (2021-12-01)
+
+
+### Features
+
+* **popover:** add availableHieght prop, update related snapshots ([43b4ebd](https://github.com/alfa-laboratory/core-components/commit/43b4ebd6ba092f22d0dfc845f3f0113b390317dc)), closes [#758](https://github.com/alfa-laboratory/core-components/issues/758)
+
+
+
+
+
+## [3.2.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast@3.2.5...@alfalab/core-components-toast@3.2.6) (2021-11-26)
+
+**Note:** Version bump only for package @alfalab/core-components-toast
+
+
+
+
+
+## [3.2.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast@3.2.4...@alfalab/core-components-toast@3.2.5) (2021-11-16)
+
+**Note:** Version bump only for package @alfalab/core-components-toast
+
+
+
+
+
+## [3.2.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast@3.2.3...@alfalab/core-components-toast@3.2.4) (2021-10-25)
+
+**Note:** Version bump only for package @alfalab/core-components-toast
+
+
+
+
+
 ## [3.2.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast@3.2.2...@alfalab/core-components-toast@3.2.3) (2021-09-14)
 
 **Note:** Version bump only for package @alfalab/core-components-toast

@@ -30,6 +30,8 @@ import {
     dateInLimits,
 } from '@alfalab/core-components-calendar';
 
+import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
+
 import styles from './index.module.css';
 
 export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'> & {
@@ -339,7 +341,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                     disabled={disabled}
                     readOnly={readOnly}
                     mobileMode={mobileMode === 'native' ? 'native' : 'input'}
-                    rightAddons={<span className={styles.calendarIcon} />}
+                    rightAddons={<CalendarMIcon className={styles.calendarIcon} />}
                     onKeyDown={handleInputKeyDown}
                     onChange={handleInputChange}
                     block={true}

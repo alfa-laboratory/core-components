@@ -106,6 +106,8 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
             inputClassName,
             sliderClassName,
             stepsClassName,
+            focusedClassName,
+            fieldClassName,
             value = '',
             min = 0,
             max = 100,
@@ -179,8 +181,8 @@ export const SliderInput = forwardRef<HTMLInputElement, SliderInputProps>(
                     disabled={disabled}
                     readOnly={readOnly}
                     className={cn(inputClassName, styles.input)}
-                    focusedClassName={styles.focused}
-                    fieldClassName={styles.field}
+                    focusedClassName={cn(focusedClassName, styles.focused)}
+                    fieldClassName={cn(fieldClassName, styles.field)}
                     inputMode='numeric'
                     pattern='[0-9]*'
                     error={error}

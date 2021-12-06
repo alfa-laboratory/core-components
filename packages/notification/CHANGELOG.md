@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.10](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.9...@alfalab/core-components-notification@5.0.10) (2021-12-01)
+
+**Note:** Version bump only for package @alfalab/core-components-notification
+
+
+
+
+
+## [5.0.9](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.8...@alfalab/core-components-notification@5.0.9) (2021-11-26)
+
+**Note:** Version bump only for package @alfalab/core-components-notification
+
+
+
+
+
+## [5.0.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.7...@alfalab/core-components-notification@5.0.8) (2021-11-16)
+
+**Note:** Version bump only for package @alfalab/core-components-notification
+
+
+
+
+
+## [5.0.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.6...@alfalab/core-components-notification@5.0.7) (2021-10-25)
+
+
+### Bug Fixes
+
+* **textarea:** поправлен отступ в размере xl ([#859](https://github.com/alfa-laboratory/core-components/issues/859)) ([fcd586b](https://github.com/alfa-laboratory/core-components/commit/fcd586b03761bda053c7c3fd9381bb94227711d7))
+
+
+
+
+
 ## [5.0.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.5...@alfalab/core-components-notification@5.0.6) (2021-09-14)
 
 **Note:** Version bump only for package @alfalab/core-components-notification

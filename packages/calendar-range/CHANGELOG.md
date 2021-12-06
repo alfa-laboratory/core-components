@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@4.0.3...@alfalab/core-components-calendar-range@4.0.4) (2021-12-01)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar-range
+
+
+
+
+
+## [4.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@4.0.2...@alfalab/core-components-calendar-range@4.0.3) (2021-11-26)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar-range
+
+
+
+
+
+## [4.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@4.0.1...@alfalab/core-components-calendar-range@4.0.2) (2021-11-22)
+
+
+### Bug Fixes
+
+* **calendar-range:** fix default month to ([#868](https://github.com/alfa-laboratory/core-components/issues/868)) ([1f9fb97](https://github.com/alfa-laboratory/core-components/commit/1f9fb9709292d28300c3fc4386ffd858b2efd852))
+
+
+
+
+
+## [4.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@4.0.0...@alfalab/core-components-calendar-range@4.0.1) (2021-11-16)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar-range
+
+
+
+
+
+# [4.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@3.2.2...@alfalab/core-components-calendar-range@4.0.0) (2021-10-15)
+
+
+### Features
+
+* **calendar-input:** переход к темизации цвета иконки ([adf1dfd](https://github.com/alfa-laboratory/core-components/commit/adf1dfd080c1986976a57fee448183e762892eb0))
+
+
+### BREAKING CHANGES
+
+* **calendar-input:** удалена переменная --calendar-input-calendar-icon
+
+
+
+
+
+## [3.2.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@3.2.1...@alfalab/core-components-calendar-range@3.2.2) (2021-10-15)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar-range
+
+
+
+
+
 ## [3.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@3.2.0...@alfalab/core-components-calendar-range@3.2.1) (2021-10-11)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar-range

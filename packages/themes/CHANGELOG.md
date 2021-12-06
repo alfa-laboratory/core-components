@@ -3,6 +3,69 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@5.1.0...@alfalab/core-components-themes@6.0.0) (2021-11-26)
+
+
+### Features
+
+* **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/alfa-laboratory/core-components/issues/886)) ([88e657a](https://github.com/alfa-laboratory/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/alfa-laboratory/core-components/issues/890)
+
+
+### BREAKING CHANGES
+
+* **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер  на xxs. Можно воспользоваться codemod.
+
+* feat(codemod): add button xs to xxs transformer
+
+* feat(tag): добавлен тэг размера 40px, изменены отступы
+
+Добавлен тэг размером 40px, изменены отступы. Тем, кто использовал размер xs, надо заменить размер
+на xxs.
+* **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер на xxs. Можно воспользоваться codemod.
+
+* test: update screenshots
+
+* test: update screenshots
+
+* feat(button): linter fix
+
+* feat(button): fix min-width
+
+* feat(tag): remove vertical paddings
+
+* feat(tag): remove vertical paddings
+
+* feat(button): updates
+
+
+
+
+
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@5.0.1...@alfalab/core-components-themes@5.1.0) (2021-10-15)
+
+
+### Features
+
+* **themes:** обновлённые темы для calendar-input и select ([5ae76c3](https://github.com/alfa-laboratory/core-components/commit/5ae76c314bf33236767056b77969ca7003057532))
+
+
+
+
+
+## [5.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@5.0.0...@alfalab/core-components-themes@5.0.1) (2021-10-15)
+
+
+### Bug Fixes
+
+* **calendar-input:** remove popover border in click theme ([7a76759](https://github.com/alfa-laboratory/core-components/commit/7a76759ccc5741a03a4c90f97cce6f67255b1c4b))
+* **calendar-input:** update border-radius ([0d06aca](https://github.com/alfa-laboratory/core-components/commit/0d06aca7162c85f987c1172ea037b5b3bc66f8c5))
+
+
+
+
+
 # [5.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@4.6.2...@alfalab/core-components-themes@5.0.0) (2021-09-14)
 
 

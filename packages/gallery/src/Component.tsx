@@ -22,11 +22,13 @@ export type GalleryProps = {
 
     /**
      * Зациклить галерею
+     * @default true
      */
     loop?: boolean;
 
     /**
      * Индекс открытого изображение
+     * @default 0
      */
     initialSlide?: number;
 

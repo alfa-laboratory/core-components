@@ -40,6 +40,7 @@ const ModalMobileComponent = forwardRef<HTMLDivElement, ModalMobileProps>(
                 }}
                 className={cn(className, styles.component)}
                 backdropProps={{
+                    ...restProps.backdropProps,
                     invisible: true,
                 }}
             >

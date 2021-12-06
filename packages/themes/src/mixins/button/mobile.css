@@ -2,6 +2,7 @@
     /* theme */
     --button-border-radius: var(--border-radius-l);
     --button-font-weight: bold;
+    --button-active-transform: none;
 
     /* primary */
     --button-primary-base-bg-color: var(--color-light-bg-secondary-inverted);

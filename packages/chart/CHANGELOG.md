@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-chart@1.2.0...@alfalab/core-components-chart@1.2.1) (2021-10-19)
+
+
+### Bug Fixes
+
+* **chart:** fix deps, export types ([b46450a](https://github.com/alfa-laboratory/core-components/commit/b46450ae954b10f0138c393482fe1271b001f085))
+
+
+
+
+
 # [1.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-chart@1.1.0...@alfalab/core-components-chart@1.2.0) (2021-10-11)
 
 

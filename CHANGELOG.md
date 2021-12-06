@@ -1,3 +1,158 @@
+# [22.2.0](https://github.com/alfa-laboratory/core-components/compare/v22.1.0...v22.2.0) (2021-12-01)
+
+
+### Bug Fixes
+
+* **notification:** set word-break: break-word in notif ([8f7615d](https://github.com/alfa-laboratory/core-components/commit/8f7615d2f497d97c0811868e14bf4ccd51710f31))
+* **notification:** убрал word-break: break-all ([db0d2b2](https://github.com/alfa-laboratory/core-components/commit/db0d2b28d12101f1a7bae395cbf17d570b88cc83))
+
+
+### Features
+
+* **popover:** add availableHieght prop, update related snapshots ([43b4ebd](https://github.com/alfa-laboratory/core-components/commit/43b4ebd6ba092f22d0dfc845f3f0113b390317dc)), closes [#758](https://github.com/alfa-laboratory/core-components/issues/758)
+* **tooltip:** add availableHeight and preventOverflow props ([b401524](https://github.com/alfa-laboratory/core-components/commit/b401524b0eb0b9e06593883a889b99198982c718)), closes [#758](https://github.com/alfa-laboratory/core-components/issues/758)
+
+# [22.1.0](https://github.com/alfa-laboratory/core-components/compare/v22.0.0...v22.1.0) (2021-11-30)
+
+
+### Features
+
+* **circular-progress-bar:** new size S ([d34db5c](https://github.com/alfa-laboratory/core-components/commit/d34db5cca682bc63f948a0dad322604c8044a6b8))
+
+# [22.0.0](https://github.com/alfa-laboratory/core-components/compare/v21.3.3...v22.0.0) (2021-11-26)
+
+
+### Features
+
+* **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/alfa-laboratory/core-components/issues/886)) ([88e657a](https://github.com/alfa-laboratory/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/alfa-laboratory/core-components/issues/890)
+
+
+### BREAKING CHANGES
+
+* **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер  на xxs. Можно воспользоваться codemod.
+
+* feat(codemod): add button xs to xxs transformer
+
+* feat(tag): добавлен тэг размера 40px, изменены отступы
+
+Добавлен тэг размером 40px, изменены отступы. Тем, кто использовал размер xs, надо заменить размер
+на xxs.
+* **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер на xxs. Можно воспользоваться codemod.
+
+* test: update screenshots
+
+* test: update screenshots
+
+* feat(button): linter fix
+
+* feat(button): fix min-width
+
+* feat(tag): remove vertical paddings
+
+* feat(tag): remove vertical paddings
+
+* feat(button): updates
+
+## [21.3.3](https://github.com/alfa-laboratory/core-components/compare/v21.3.2...v21.3.3) (2021-11-23)
+
+
+### Bug Fixes
+
+* **tabs:** hide native scrollbar on scrollable tabs properly ([0134956](https://github.com/alfa-laboratory/core-components/commit/0134956f2af01720500f7ad06caeeb4569e74d50)), closes [#879](https://github.com/alfa-laboratory/core-components/issues/879)
+
+## [21.3.2](https://github.com/alfa-laboratory/core-components/compare/v21.3.1...v21.3.2) (2021-11-22)
+
+
+### Bug Fixes
+
+* **calendar-range:** fix default month to ([#868](https://github.com/alfa-laboratory/core-components/issues/868)) ([1f9fb97](https://github.com/alfa-laboratory/core-components/commit/1f9fb9709292d28300c3fc4386ffd858b2efd852))
+* **slider-input:** classnames overriding ([#891](https://github.com/alfa-laboratory/core-components/issues/891)) ([d63d676](https://github.com/alfa-laboratory/core-components/commit/d63d67628c88e54b38244b1f57969844379d311f))
+
+## [21.3.1](https://github.com/alfa-laboratory/core-components/compare/v21.3.0...v21.3.1) (2021-11-16)
+
+
+### Bug Fixes
+
+* **skeleton:** prevent component unmount ([#887](https://github.com/alfa-laboratory/core-components/issues/887)) ([1bd4dc3](https://github.com/alfa-laboratory/core-components/commit/1bd4dc3147622f75802dd8e574175dbbf02cca54))
+* fix classNames hash ([#884](https://github.com/alfa-laboratory/core-components/issues/884)) ([60f58f2](https://github.com/alfa-laboratory/core-components/commit/60f58f223106869b15f6b19f466a70b0936a5a1d))
+
+# [21.3.0](https://github.com/alfa-laboratory/core-components/compare/v21.2.2...v21.3.0) (2021-11-08)
+
+
+### Features
+
+* **select:** добавлено свойство z-index для поповера ([#871](https://github.com/alfa-laboratory/core-components/issues/871)) ([4a53483](https://github.com/alfa-laboratory/core-components/commit/4a534835a9e6c9ec7793733467194536cfd96a91))
+
+## [21.2.2](https://github.com/alfa-laboratory/core-components/compare/v21.2.1...v21.2.2) (2021-11-08)
+
+
+### Bug Fixes
+
+* **modal:** add spreading backdrop props ([#870](https://github.com/alfa-laboratory/core-components/issues/870)) ([b523426](https://github.com/alfa-laboratory/core-components/commit/b52342616adf1f4b227f603264b70474e53c16f8))
+
+## [21.2.1](https://github.com/alfa-laboratory/core-components/compare/v21.2.0...v21.2.1) (2021-10-27)
+
+
+### Bug Fixes
+
+* **collapse:** dynamic content height ([#864](https://github.com/alfa-laboratory/core-components/issues/864)) ([e96c86b](https://github.com/alfa-laboratory/core-components/commit/e96c86bde70d58e4311a2c6bcd6d7407be0f4c44))
+
+# [21.2.0](https://github.com/alfa-laboratory/core-components/compare/v21.1.1...v21.2.0) (2021-10-25)
+
+
+### Bug Fixes
+
+* **textarea:** поправлен отступ в размере xl ([#859](https://github.com/alfa-laboratory/core-components/issues/859)) ([fcd586b](https://github.com/alfa-laboratory/core-components/commit/fcd586b03761bda053c7c3fd9381bb94227711d7))
+
+
+### Features
+
+* **collapse:** reset height to auto ([#822](https://github.com/alfa-laboratory/core-components/issues/822)) ([f533e3b](https://github.com/alfa-laboratory/core-components/commit/f533e3ba1eab5f41539c39ca3b97f698e90ca687))
+
+## [21.1.1](https://github.com/alfa-laboratory/core-components/compare/v21.1.0...v21.1.1) (2021-10-19)
+
+
+### Bug Fixes
+
+* **chart:** fix deps, export types ([b46450a](https://github.com/alfa-laboratory/core-components/commit/b46450ae954b10f0138c393482fe1271b001f085))
+
+# [21.1.0](https://github.com/alfa-laboratory/core-components/compare/v21.0.0...v21.1.0) (2021-10-18)
+
+
+### Features
+
+* **confirmation:** compact code-input if slotsCount > 6 ([99be0e1](https://github.com/alfa-laboratory/core-components/commit/99be0e1744d9782824756c8992fd4b986a589dd7))
+* **confirmation:** компактный code-input когда символов > 6 ([633d1ff](https://github.com/alfa-laboratory/core-components/commit/633d1ffd66c7c9d949c3996f6d4d739a4fcb6b21))
+
+# [21.0.0](https://github.com/alfa-laboratory/core-components/compare/v20.7.2...v21.0.0) (2021-10-15)
+
+
+### Features
+
+* обновлённая темизация иконок в инпутах ([ab90d60](https://github.com/alfa-laboratory/core-components/commit/ab90d602f239176d0771db38f9cc29dc02a35566))
+* **calendar-input:** переход к темизации цвета иконки ([adf1dfd](https://github.com/alfa-laboratory/core-components/commit/adf1dfd080c1986976a57fee448183e762892eb0))
+* **select:** переход к темизации цвета иконки ([112cd95](https://github.com/alfa-laboratory/core-components/commit/112cd95242e27f5065eb2a8349d3afbddfdee638))
+* **themes:** обновлённые темы для calendar-input и select ([5ae76c3](https://github.com/alfa-laboratory/core-components/commit/5ae76c314bf33236767056b77969ca7003057532))
+
+
+### BREAKING CHANGES
+
+* **select:** удалена переменная --select-arrow-background
+* **calendar-input:** удалена переменная --calendar-input-calendar-icon
+
+## [20.7.2](https://github.com/alfa-laboratory/core-components/compare/v20.7.1...v20.7.2) (2021-10-15)
+
+
+### Bug Fixes
+
+* **calendar-input:** обновлён в теме click ([da5d960](https://github.com/alfa-laboratory/core-components/commit/da5d9607ce80742bd6780a5bad11b07b3617b44c))
+* input & textarea disabled color on safari ([39ea4ef](https://github.com/alfa-laboratory/core-components/commit/39ea4ef7e948016a4ffa17c563cfdd13169a3c2b))
+* фикс цвета disabled в Safari для Input и Textarea ([efaa693](https://github.com/alfa-laboratory/core-components/commit/efaa693c8e34569df05c951c09c89895d4d949dc))
+* **calendar-input:** remove popover border in click theme ([7a76759](https://github.com/alfa-laboratory/core-components/commit/7a76759ccc5741a03a4c90f97cce6f67255b1c4b))
+* **calendar-input:** update border-radius ([0d06aca](https://github.com/alfa-laboratory/core-components/commit/0d06aca7162c85f987c1172ea037b5b3bc66f8c5))
+
 ## [20.7.1](https://github.com/alfa-laboratory/core-components/compare/v20.7.0...v20.7.1) (2021-10-13)
 
 

@@ -27,7 +27,7 @@ const getPath = (
         Z
     `;
 
-const RectBar = ({ fill, x, y, width, height, radius, background }: any): JSX.Element => {
+export const RectBar = ({ fill, x, y, width, height, radius, background }: any): JSX.Element => {
     const [initHeight, topRadius, bottomRadius, initY]: any = usePathBar({
         radius,
         height,
@@ -48,5 +48,3 @@ const RectBar = ({ fill, x, y, width, height, radius, background }: any): JSX.El
 
     return <React.Fragment>{path}</React.Fragment>;
 };
-
-export default React.memo(RectBar);

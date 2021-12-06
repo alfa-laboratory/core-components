@@ -17,7 +17,7 @@
     --textarea-s-filled-margin-top: 23px;
     --textarea-m-filled-margin-top: 28px;
     --textarea-l-filled-margin-top: 32px;
-    --textarea-xl-filled-margin-top: 34px;
+    --textarea-xl-filled-margin-top: 38px;
 
     /* filled min-height */
     --textarea-s-filled-min-height: calc(
@@ -106,6 +106,7 @@
 
 .textarea:disabled {
     cursor: var(--disabled-cursor);
+    opacity: 1;
 }
 
 /* READ-ONLY STATE */

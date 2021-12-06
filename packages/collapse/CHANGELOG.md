@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@2.1.1...@alfalab/core-components-collapse@2.1.2) (2021-11-16)
+
+**Note:** Version bump only for package @alfalab/core-components-collapse
+
+
+
+
+
+## [2.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@2.1.0...@alfalab/core-components-collapse@2.1.1) (2021-10-27)
+
+
+### Bug Fixes
+
+* **collapse:** dynamic content height ([#864](https://github.com/alfa-laboratory/core-components/issues/864)) ([e96c86b](https://github.com/alfa-laboratory/core-components/commit/e96c86bde70d58e4311a2c6bcd6d7407be0f4c44))
+
+
+
+
+
+# [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@2.0.3...@alfalab/core-components-collapse@2.1.0) (2021-10-25)
+
+
+### Features
+
+* **collapse:** reset height to auto ([#822](https://github.com/alfa-laboratory/core-components/issues/822)) ([f533e3b](https://github.com/alfa-laboratory/core-components/commit/f533e3ba1eab5f41539c39ca3b97f698e90ca687))
+
+
+
+
+
 ## [2.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-collapse@2.0.2...@alfalab/core-components-collapse@2.0.3) (2021-08-27)
 
 **Note:** Version bump only for package @alfalab/core-components-collapse

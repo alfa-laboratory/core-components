@@ -99,7 +99,7 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
       >
         <button
           aria-selected="false"
-          class="component component s title"
+          class="component component s withRightAddons title"
           role="tab"
           tabindex="-1"
           type="button"
@@ -174,77 +174,73 @@ exports[`Tabs Snapshots tests should match snapshot 3`] = `
 <div>
   <div>
     <div
-      class="undefined"
+      class=""
       role="tablist"
     >
       <div
-        class="component"
+        class="container"
       >
-        <div
-          class="container"
+        <button
+          aria-selected="false"
+          class=""
+          role="tab"
+          tabindex="-1"
+          type="button"
         >
-          <button
-            aria-selected="false"
-            class=""
-            role="tab"
-            tabindex="-1"
-            type="button"
-          >
-            <span>
-              Таб 1
-            </span>
-            <span>
-              addon
-            </span>
-          </button>
-          <button
-            aria-selected="true"
-            class=""
-            role="tab"
-            tabindex="0"
-            type="button"
-          >
-            <span>
-              Таб 2
-            </span>
-          </button>
-          <button
-            aria-selected="false"
-            class=""
-            role="tab"
-            tabindex="-1"
-            type="button"
-          >
-            <span>
-              Таб 3
-            </span>
-          </button>
-          <button
-            aria-selected="false"
-            class=""
-            role="tab"
-            tabindex="-1"
-            type="button"
-          >
-            <span>
-              Таб 4
-            </span>
-          </button>
-          <button
-            aria-selected="false"
-            class=""
-            role="tab"
-            tabindex="-1"
-            type="button"
-          >
-            <span>
-              Таб 5
-            </span>
-          </button>
-          <div
-            style="width: 0px; transform: translateX(0px);"
-          />
-        </div>
+          <span>
+            Таб 1
+          </span>
+          <span>
+            addon
+          </span>
+        </button>
+        <button
+          aria-selected="true"
+          class=""
+          role="tab"
+          tabindex="0"
+          type="button"
+        >
+          <span>
+            Таб 2
+          </span>
+        </button>
+        <button
+          aria-selected="false"
+          class=""
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span>
+            Таб 3
+          </span>
+        </button>
+        <button
+          aria-selected="false"
+          class=""
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span>
+            Таб 4
+          </span>
+        </button>
+        <button
+          aria-selected="false"
+          class=""
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span>
+            Таб 5
+          </span>
+        </button>
+        <div
+          style="width: 0px; transform: translateX(0px);"
+        />
       </div>
     </div>
     <div
@@ -266,72 +262,68 @@ exports[`Tabs Snapshots tests should match snapshot 4`] = `
       role="tablist"
     >
       <div
-        class="component"
+        class="container"
       >
-        <div
-          class="container"
+        <button
+          aria-selected="false"
+          class="component component xs withRightAddons"
+          role="tab"
+          tabindex="-1"
+          type="button"
         >
-          <button
-            aria-selected="false"
-            class="component component xs"
-            role="tab"
-            tabindex="-1"
-            type="button"
+          <span>
+            Таб 1
+          </span>
+          <span
+            class="addons"
           >
-            <span>
-              Таб 1
-            </span>
-            <span
-              class="addons"
-            >
-              addon
-            </span>
-          </button>
-          <button
-            aria-selected="true"
-            class="component component xs checked"
-            role="tab"
-            tabindex="0"
-            type="button"
-          >
-            <span>
-              Таб 2
-            </span>
-          </button>
-          <button
-            aria-selected="false"
-            class="component component xs"
-            role="tab"
-            tabindex="-1"
-            type="button"
-          >
-            <span>
-              Таб 3
-            </span>
-          </button>
-          <button
-            aria-selected="false"
-            class="component component xs"
-            role="tab"
-            tabindex="-1"
-            type="button"
-          >
-            <span>
-              Таб 4
-            </span>
-          </button>
-          <button
-            aria-selected="false"
-            class="component component xs"
-            role="tab"
-            tabindex="-1"
-            type="button"
-          >
-            <span>
-              Таб 5
-            </span>
-          </button>
-        </div>
+            addon
+          </span>
+        </button>
+        <button
+          aria-selected="true"
+          class="component component xs checked"
+          role="tab"
+          tabindex="0"
+          type="button"
+        >
+          <span>
+            Таб 2
+          </span>
+        </button>
+        <button
+          aria-selected="false"
+          class="component component xs"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span>
+            Таб 3
+          </span>
+        </button>
+        <button
+          aria-selected="false"
+          class="component component xs"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span>
+            Таб 4
+          </span>
+        </button>
+        <button
+          aria-selected="false"
+          class="component component xs"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          <span>
+            Таб 5
+          </span>
+        </button>
       </div>
     </div>
     <div
@@ -444,7 +436,7 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
       >
         <button
           aria-selected="false"
-          class="component component s title"
+          class="component component s withRightAddons title"
           role="tab"
           tabindex="-1"
           type="button"

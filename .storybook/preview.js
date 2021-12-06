@@ -30,6 +30,7 @@ addons.setConfig({
         fontCode: 'Monaco, Menlo, monospace',
         fontSizeBase: 16,
         fontSizeCode: 14,
+        defaultCanvas: true,
         scope: {
             ...scope,
         },

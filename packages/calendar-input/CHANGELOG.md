@@ -3,6 +3,58 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@5.0.2...@alfalab/core-components-calendar-input@5.0.3) (2021-12-01)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar-input
+
+
+
+
+
+## [5.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@5.0.1...@alfalab/core-components-calendar-input@5.0.2) (2021-11-26)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar-input
+
+
+
+
+
+## [5.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@5.0.0...@alfalab/core-components-calendar-input@5.0.1) (2021-11-16)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar-input
+
+
+
+
+
+# [5.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@4.2.2...@alfalab/core-components-calendar-input@5.0.0) (2021-10-15)
+
+
+### Features
+
+* **calendar-input:** переход к темизации цвета иконки ([adf1dfd](https://github.com/alfa-laboratory/core-components/commit/adf1dfd080c1986976a57fee448183e762892eb0))
+
+
+### BREAKING CHANGES
+
+* **calendar-input:** удалена переменная --calendar-input-calendar-icon
+
+
+
+
+
+## [4.2.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@4.2.1...@alfalab/core-components-calendar-input@4.2.2) (2021-10-15)
+
+
+### Bug Fixes
+
+* **calendar-input:** remove popover border in click theme ([7a76759](https://github.com/alfa-laboratory/core-components/commit/7a76759ccc5741a03a4c90f97cce6f67255b1c4b))
+* **calendar-input:** update border-radius ([0d06aca](https://github.com/alfa-laboratory/core-components/commit/0d06aca7162c85f987c1172ea037b5b3bc66f8c5))
+
+
+
+
+
 ## [4.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@4.2.0...@alfalab/core-components-calendar-input@4.2.1) (2021-10-11)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar-input

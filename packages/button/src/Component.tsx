@@ -25,7 +25,15 @@ export type ComponentProps = {
     /**
      * Тип кнопки
      */
-    view?: 'primary' | 'secondary' | 'outlined' | 'filled' | 'transparent' | 'link' | 'ghost';
+    view?:
+        | 'primary'
+        | 'secondary'
+        | 'tertiary'
+        | 'outlined' // deprecated
+        | 'filled' // deprecated
+        | 'transparent' // deprecated
+        | 'link'
+        | 'ghost';
 
     /**
      * Слот слева
@@ -40,7 +48,7 @@ export type ComponentProps = {
     /**
      * Размер компонента
      */
-    size?: 'xs' | 's' | 'm' | 'l' | 'xl';
+    size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
     /**
      * Растягивает компонент на ширину контейнера
@@ -94,6 +102,22 @@ export type ButtonProps = Partial<AnchorButtonProps | NativeButtonProps>;
  */
 export const LOADER_MIN_DISPLAY_INTERVAL = 500;
 
+const logWarning = (view: Required<ComponentProps>['view']) => {
+    const viewsMap: { [key: string]: string } = {
+        filled: 'secondary',
+        transparent: 'secondary',
+        outlined: 'tertiary',
+    };
+
+    // eslint-disable-next-line no-console
+    console.warn(
+        // eslint-disable-next-line prefer-template
+        `@alfalab/core-components/button: view='${view}' будет удален в следующих мажорных версиях. ` +
+            `Используйте view='${viewsMap[view]}'. Чтобы поменять все кнопки на проекте разом, можно воспользоваться codemod: ` +
+            'npx core-components-codemod --components=ButtonViews src/**/*.tsx',
+    );
+};
+
 export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
     (
         {
@@ -114,6 +138,10 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
         },
         ref,
     ) => {
+        if (['outlined', 'filled', 'transparent'].includes(view)) {
+            logWarning(view);
+        }
+
         const buttonRef = useRef<HTMLElement>(null);
 
         const [focused] = useFocus(buttonRef, 'keyboard');
@@ -123,6 +151,8 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
         const timerId = useRef(0);
 
         const showLoader = loading || !loaderTimePassed;
+
+        const iconOnly = !children;
 
         const componentProps = {
             className: cn(
@@ -134,9 +164,11 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                 {
                     [styles.focused]: focused,
                     [styles.block]: block,
-                    [styles.iconOnly]: !children,
+                    [styles.iconOnly]: iconOnly,
                     [styles.nowrap]: nowrap,
                     [styles.loading]: showLoader,
+                    [styles.withRightAddons]: Boolean(rightAddons) && !iconOnly,
+                    [styles.withLeftAddons]: Boolean(leftAddons) && !iconOnly,
                     [colorStyles[colors].loading]: showLoader,
                 },
                 className,
