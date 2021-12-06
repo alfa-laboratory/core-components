@@ -5,7 +5,7 @@ import { Button } from '@alfalab/core-components-button';
 
 import styles from './index.module.css';
 
-const DEFAULT_BUTTON_COLOR = '#9A06BF';
+const DEFAULT_BUTTON_COLOR = '#FF45C3';
 const DEFAULT_CONTENT_COLOR = 'white';
 
 export type ComponentProps = {
@@ -101,11 +101,11 @@ export const CustomButton = React.forwardRef<
 
         return (
             <Button
+                {...buttonProps}
                 view='primary'
                 ref={ref}
                 className={buttonClassName}
                 loading={loading}
-                {...buttonProps}
             >
                 {children}
             </Button>

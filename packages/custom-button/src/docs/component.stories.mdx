@@ -23,10 +23,9 @@ export const CONTENT_COLORS = ['white', 'black'];
 
 <Story name='CustomButton'>
     {React.createElement(() => {
-        const colors = select('colors', ['default', 'inverted'], 'default');
         return (
             <div style={{
-                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : 'transparent',
+                backgroundColor: 'transparent',
                 padding: '8px',
                 position: 'absolute',
                 top: 0,
@@ -36,7 +35,7 @@ export const CONTENT_COLORS = ['white', 'black'];
             }}>
                 <CustomButton
                     size={select('size', SIZES, 'm')}
-                    backgroundColor={color('backgroundColor',"#9A06BF")}
+                    backgroundColor={color('backgroundColor',"#FF45C3")}
                     contentColor={select('contentColor', CONTENT_COLORS, 'white')}
                     href={text('href', '')}
                     loading={boolean('loading', false)}
@@ -59,8 +58,8 @@ export const CONTENT_COLORS = ['white', 'black'];
 <ComponentHeader
     name='CustomButton'
     version={version}
-    stage={3}
-    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=1%3A2'
+    stage={1}
+    design='https://www.figma.com/file/QLcOlxLFOtNnJnRXBBd0Op/%D0%A1ore-%7C-%D0%A1alibration?node-id=527%3A139421'
 />
 
 ```tsx

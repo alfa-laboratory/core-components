@@ -21,8 +21,5 @@
     "dependencies": {
         "@alfalab/core-components-button": "^5.0.0",
         "classnames": "^2.2.6"
-        },
-    "buildThemes": [
-        "site"
-    ]
+    }
 }

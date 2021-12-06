@@ -1,25 +1,15 @@
-@import '../../themes/src/default.css';
-
-:root {
-    /* white content */
-    --button-white-content-color: var(--color-light-text-primary-inverted);
-    --button-white-content-color-disabled: var(--color-light-text-primary-inverted);
-
-    /* black content */
-    --button-black-content-color: var(--color-light-text-primary);
-    --button-black-content-color-disabled: var(--color-light-text-primary);
-}
+@import '../../vars/src/index.css';
 
 .customButton {
     overflow: hidden;
     position: relative;
 
     &.white * {
-        color: var(--button-white-content-color);
+        color: var(--color-light-text-primary-inverted);
     }
 
     &.black * {
-        color: var(--button-black-content-color);
+        color: var(--color-light-text-primary);
     }
 
     & span {
@@ -59,10 +49,10 @@
     }
 
     &.white * {
-        color: var(--button-white-content-color-disabled);
+        color: var(--color-light-text-primary-inverted);
     }
 
     &.black * {
-        color: var(--button-black-content-color-disabled);
+        color: var(--color-light-text-primary);
     }
 }
