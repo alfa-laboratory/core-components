@@ -49,7 +49,7 @@ describe(
                     size: { width: 200, height: 80 },
                     knobs: {
                         children: 'Оплатить',
-                        backgroundColor: ['rgba(154, 6, 191, 1)', 'rgba(74, 242, 253, 1)'],
+                        backgroundColor: ['rgba(255, 69, 195, 1)', 'rgba(74, 242, 253, 1)'],
                         size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
                     },
                 }),
@@ -61,7 +61,7 @@ describe(
     }),
 );
 
-describe('CustomButton | colors and themes', () => {
+describe('CustomButton | colors, disabled state and themes', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
             cases: [
@@ -72,7 +72,7 @@ describe('CustomButton | colors and themes', () => {
                         knobs: {
                             children: 'Оплатить',
                             disabled: [false, true],
-                            backgroundColor: ['rgba(154, 6, 191, 1)', 'rgba(74, 242, 253, 1)'],
+                            backgroundColor: ['rgba(255, 69, 195, 1)', 'rgba(74, 242, 253, 1)'],
                             contentColor: ['white', 'black'],
                         },
                         size: { width: 150, height: 80 },
@@ -93,30 +93,6 @@ describe('CustomButton | colors and themes', () => {
 });
 
 describe(
-    'CustomButton | colors and block',
-    screenshotTesting({
-        cases: [
-            [
-                'sprite',
-                createSpriteStorybookUrl({
-                    componentName: 'CustomButton',
-                    size: { width: 500, height: 80 },
-                    knobs: {
-                        children: 'Оплатить',
-                        block: true,
-                        backgroundColor: ['rgba(154, 6, 191, 1)', 'rgba(74, 242, 253, 1)'],
-                        contentColor: ['white', 'black'],
-                    },
-                }),
-            ],
-        ],
-        screenshotOpts: {
-            fullPage: true,
-        },
-    }),
-);
-
-describe(
     'CustomButton | colors and loading',
     screenshotTesting({
         cases: generateTestCases({
@@ -124,7 +100,7 @@ describe(
             knobs: {
                 children: 'Оплатить',
                 loading: true,
-                backgroundColor: ['rgba(154, 6, 191, 1)', 'rgba(74, 242, 253, 1)'],
+                backgroundColor: ['rgba(255, 69, 195, 1)', 'rgba(74, 242, 253, 1)'],
                 contentColor: ['white', 'black'],
             },
         }),
@@ -144,7 +120,7 @@ describe(
             componentName: 'CustomButton',
             knobs: {
                 children: 'Оплатить',
-                backgroundColor: ['rgba(154, 6, 191, 1)', 'rgba(74, 242, 253, 1)'],
+                backgroundColor: ['rgba(255, 69, 195, 1)', 'rgba(74, 242, 253, 1)'],
                 contentColor: ['white', 'black'],
             },
         }),
@@ -163,7 +139,7 @@ describe(
             componentName: 'CustomButton',
             knobs: {
                 children: 'Оплатить',
-                backgroundColor: ['rgba(154, 6, 191, 1)', 'rgba(74, 242, 253, 1)'],
+                backgroundColor: ['rgba(255, 69, 195, 1)', 'rgba(74, 242, 253, 1)'],
                 contentColor: ['white', 'black'],
             },
         }),
