@@ -21,6 +21,9 @@
     min-height: 56px;
     padding: var(--gap-m);
     outline: none;
+}
+
+.foldable {
     cursor: pointer;
 }
 
