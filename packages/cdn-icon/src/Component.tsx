@@ -22,7 +22,7 @@ export const CDNIcon: React.FC<CDNIconProps> = ({ name, color, dataTestId }) => 
 
     useEffect(() => {
         const xhr = new XMLHttpRequest();
-        xhr.open('GET', `https://alfabank.st/icons/${name}.svg`);
+        xhr.open('GET', `https://alfabank.gcdn.co/icons/${name}.svg`);
         xhr.send();
         xhr.onload = function onload() {
             const svg = xhr.response;
