@@ -1,0 +1,13 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    padding: 0 var(--gap-m) var(--gap-m);
+    background: var(--color-light-bg-primary);
+    box-shadow: var(--shadow-xs-hard);
+    border-radius: var(--border-radius-m);
+    box-sizing: border-box;
+}
+
+.hasPagination {
+    padding-bottom: 0;
+}

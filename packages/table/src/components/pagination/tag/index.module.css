@@ -1,0 +1,45 @@
+@import '../../../../../themes/src/default.css';
+
+.tag {
+    color: var(--color-light-text-secondary);
+    border-radius: var(--border-radius-m);
+    border: none;
+
+    &:hover:not(:disabled) {
+        background-color: var(--color-light-bg-tertiary);
+        color: var(--color-light-text-primary);
+
+        & .tagCount {
+            color: var(--color-light-text-secondary);
+        }
+    }
+
+    &:active:not(:disabled) {
+        background-color: var(--color-light-bg-neutral);
+    }
+
+    &.checked {
+        background-color: var(--color-light-bg-secondary-inverted);
+        color: var(--color-light-text-primary-inverted);
+    }
+
+    &.checked:hover:not(:disabled) {
+        color: var(--color-light-text-primary-inverted);
+
+        & .tagCount {
+            color: var(--color-light-text-primary-inverted);
+        }
+    }
+
+    &.checked:active:not(:disabled) {
+        color: var(--color-light-text-primary);
+
+        & .tagCount {
+            color: var(--color-light-text-secondary);
+        }
+    }
+}
+
+.tagCount {
+    @mixin action_primary_medium;
+}

@@ -1,0 +1,13 @@
+@import '../../../../../themes/src/default.css';
+
+.field {
+    & svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+.open,
+.open:hover {
+    background-color: var(--color-light-specialbg-component-shade-7);
+}

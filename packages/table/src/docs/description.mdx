@@ -1,0 +1,205 @@
+Компоненты для построения таблиц
+
+```tsx live
+const data = [
+    {
+        id: 28,
+        date: '07.12.2021',
+        title: 'ARG BANK OF CHINA',
+        subtitle: 'НДС не облагается',
+        number: 931,
+        sum: 120000,
+        currency: 'USD',
+    },
+    {
+        id: 12,
+        date: '06.12.2021',
+        title: 'ООО СОВМЕСТНОЕ ПРЕДПРИЯТИЕ "ИНТЕГРА"',
+        subtitle: 'Аренда гаражей, за сентябрь 2021 г., Молодёжная, НДС необлагается',
+        number: 78,
+        sum: 15078000,
+        currency: 'RUR',
+    },
+    {
+        id: 5,
+        date: '06.12.2021',
+        title: 'Общество с ограниченной ответственностью "Умное пространство"',
+        subtitle: 'Аренда помещений за июнь 2021 г. НДС необлагается',
+        number: 12,
+        sum: 20179800,
+        currency: 'RUR',
+    },
+    {
+        id: 4,
+        date: '06.12.2021',
+        title: 'ООО "Берест"',
+        subtitle: 'В том числе НДС 20%',
+        number: 843,
+        sum: 1255690,
+        currency: 'RUR',
+    },
+    {
+        id: 1,
+        date: '06.12.2021',
+        title:
+            'УФК по Свердловской области (Государственное учреждение - Свердловское региональное отделение Фонда социального страхования Российской Федерации)',
+        subtitle: 'Страховой взнос в ФСС от НС и ПЗ за сентябрь 2021 г. НДС необлагается',
+        number: 159,
+        sum: 3880,
+        currency: 'RUR',
+    },
+    {
+        id: 27,
+        date: '21.10.2021',
+        title: 'MasterBrok',
+        subtitle: 'Плюс 10% НДС',
+        number: 1060,
+        sum: 40498900,
+        currency: 'USD',
+    },
+    {
+        id: 26,
+        date: '20.10.2021',
+        title: 'MR ANTON TAGUNOV',
+        subtitle: 'В том числе НДС 18%',
+        number: 1898,
+        sum: 4074300,
+        currency: 'USD',
+    },
+    {
+        id: 25,
+        date: '20.10.2021',
+        title: 'NTC Nanontronic',
+        subtitle: 'НДС не облагается',
+        number: 842,
+        sum: 1345000,
+        currency: 'USD',
+    },
+    {
+        id: 24,
+        date: '20.10.2021',
+        title: 'Зарифулина Алие Заримовна',
+        subtitle: 'Заработная плата за сентябрь 2021 года,. НДС не облагается',
+        number: 75,
+        sum: 896500,
+        currency: 'RUR',
+    },
+    {
+        id: 23,
+        date: '19.10.2021',
+        title: 'Мифтахова Каридат Нургиевна',
+        subtitle: 'Заработная плата за сентябрь 2021 года,. НДС не облагается',
+        number: 90,
+        sum: 765600,
+        currency: 'RUR',
+    },
+];
+
+render(() => {
+    const [sortDescBySum, setSortDescBySum] = React.useState(undefined);
+    const [perPage, setPerPage] = React.useState(5);
+    const [page, setPage] = React.useState(0);
+
+    const handleSort = (...args) => {
+        if (sortDescBySum) {
+            setSortDescBySum(undefined);
+        } else {
+            setSortDescBySum(sortDescBySum === undefined ? false : true);
+        }
+    };
+
+    const sortedData = React.useMemo(() => {
+        if (sortDescBySum === undefined) return data;
+
+        return [...data].sort((a, b) => (sortDescBySum ? b.sum - a.sum : a.sum - b.sum));
+    }, [data, sortDescBySum]);
+
+    const pagesCount = Math.ceil(sortedData.length / perPage);
+
+    const currentPageData = React.useMemo(() => {
+        return sortedData.slice(page * perPage).slice(0, perPage);
+    }, [sortedData, page, perPage]);
+
+    return (
+        <Table.Wrapper style={{ margin: '24px 0 40px' }}>
+            <Table>
+                <Table.THead>
+                    <Table.THeadCell width='122px' id='date' title='Дата'>
+                        Дата
+                    </Table.THeadCell>
+
+                    <Table.THeadCell id='title' title='Контрагент'>
+                        Контрагент
+                    </Table.THeadCell>
+
+                    <Table.THeadCell width='84px' id='number' title='Номер'>
+                        Номер
+                    </Table.THeadCell>
+
+                    <Table.TSortableHeadCell
+                        width='186px'
+                        id='sum'
+                        title='Сумма'
+                        textAlign='right'
+                        sorted={sortDescBySum !== undefined}
+                        isSortedDesc={sortDescBySum}
+                        onSort={handleSort}
+                    >
+                        Сумма
+                    </Table.TSortableHeadCell>
+                </Table.THead>
+                <Table.TBody>
+                    {currentPageData.map(row => (
+                        <Table.TRow key={row.id}>
+                            <Table.TCell>
+                                <Typography.Text view='primary-small' tag='div'>
+                                    {row.date}
+                                </Typography.Text>
+                            </Table.TCell>
+
+                            <Table.TCell>
+                                <Typography.Text view='primary-small' tag='div'>
+                                    {row.title}
+                                </Typography.Text>
+                                <Typography.Text
+                                    view='primary-small'
+                                    color='secondary'
+                                    tag='div'
+                                    style={{ marginTop: 'var(--gap-2xs)' }}
+                                >
+                                    {row.subtitle}
+                                </Typography.Text>
+                            </Table.TCell>
+
+                            <Table.TCell>
+                                <Typography.Text view='primary-small'>{row.id}</Typography.Text>
+                            </Table.TCell>
+
+                            <Table.TCell>
+                                <Amount
+                                    value={row.sum}
+                                    currency={row.currency}
+                                    minority={100}
+                                    view='withZeroMinorPart'
+                                />
+                            </Table.TCell>
+                        </Table.TRow>
+                    ))}
+                </Table.TBody>
+            </Table>
+
+            <Table.Pagination
+                perPage={perPage}
+                currentPageIndex={page}
+                possiblePerPage={[5, 10]}
+                pagesCount={pagesCount}
+                onPageChange={pageIndex => setPage(pageIndex)}
+                onPerPageChange={value => {
+                    setPage(0);
+                    setPerPage(value);
+                }}
+            />
+        </Table.Wrapper>
+    );
+});
+```

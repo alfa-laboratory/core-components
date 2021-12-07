@@ -1,0 +1,107 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { text, number, select, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
+import { Amount } from '@alfalab/core-components-amount';
+import { Typography } from '@alfalab/core-components-typography';
+
+import { Table } from '../index';
+import { version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+
+
+<Meta
+    title='Компоненты/Table'
+    component={Table}
+/>
+
+<!-- Canvas -->
+
+<Story name='Table'>
+    <Table.Wrapper style={{width: '960px', margin: '40px auto' }}>
+        <Table>
+            <Table.THead>
+                <Table.THeadCell width='122px' id='date' title='Дата'>
+                    Дата
+                </Table.THeadCell>
+                <Table.THeadCell id='title' title='Контрагент'>
+                    Контрагент
+                </Table.THeadCell>
+                <Table.THeadCell width='84px' id='number' title='Номер'>
+                    Номер
+                </Table.THeadCell>
+                <Table.THeadCell
+                    width='186px'
+                    id='sum'
+                    title='Сумма'
+                    textAlign='right'
+                >
+                    Сумма
+                </Table.THeadCell>
+            </Table.THead>
+            <Table.TBody>
+                <Table.TRow>
+                    <Table.TCell>
+                        <Typography.Text view='primary-small' tag='div'>
+                            06.12.2021
+                        </Typography.Text>
+                    </Table.TCell>
+                    <Table.TCell>
+                        <Typography.Text view='primary-small' tag='div'>
+                            ООО СОВМЕСТНОЕ ПРЕДПРИЯТИЕ "ИНТЕГРА"
+                        </Typography.Text>
+                        <Typography.Text
+                            view='primary-small'
+                            color='secondary'
+                            tag='div'
+                            style={{ marginTop: 'var(--gap-2xs)' }}
+                        >
+                            Аренда гаражей, за сентябрь 2021 г., Молодёжная, НДС необлагается
+                        </Typography.Text>
+                    </Table.TCell>
+                    <Table.TCell>
+                        <Typography.Text view='primary-small'>1</Typography.Text>
+                    </Table.TCell>
+                    <Table.TCell>
+                        <Amount
+                            value={20179800}
+                            currency='RUR'
+                            minority={100}
+                            view='withZeroMinorPart'
+                        />
+                    </Table.TCell>
+                </Table.TRow>
+            </Table.TBody>
+        </Table>
+    </Table.Wrapper>
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Table'
+    version={version}
+    package='@alfalab/core-components/table'
+    stage={1}
+    design=''
+/>
+
+```tsx
+import { Table } from '@alfalab/core-components/table';
+```
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props components={{
+        Table,
+        'Wrapper': Table.Wrapper,
+        'Pagination': Table.Pagination,
+        'TCell': Table.TCell,
+        'THead': Table.THead,
+        'THeadCell': Table.THeadCell,
+        'TSortableHeadCell': Table.TSortableHeadCell,
+        'TRow': Table.TRow,
+    }} />}
+/>

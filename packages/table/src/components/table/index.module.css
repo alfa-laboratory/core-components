@@ -1,0 +1,7 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    width: 100%;
+    border-collapse: collapse;
+    box-sizing: border-box;
+}

@@ -1,0 +1,25 @@
+{
+    "name": "@alfalab/core-components-table",
+    "version": "1.0.0",
+    "description": "",
+    "keywords": [],
+    "license": "MIT",
+    "main": "dist/index.js",
+    "module": "./dist/esm/index.js",
+    "files": [
+        "dist"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "peerDependencies": {
+        "react": "^16.9.0 || ^17.0.1",
+        "react-dom": "^16.9.0 || ^17.0.1"
+    },
+    "dependencies": {
+        "@alfalab/core-components-button": "^5.0.0",
+        "@alfalab/core-components-tag": "^4.0.0",
+        "@alfalab/core-components-select": "^10.2.0",
+        "classnames": "^2.2.6"
+    }
+}

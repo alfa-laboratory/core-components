@@ -1,0 +1,22 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    min-height: 53px;
+    height: 53px;
+    padding-top: 1px;
+    width: 100%;
+    transition: background-color 0.2s;
+    box-sizing: border-box;
+
+    &:hover {
+        background-color: var(--color-light-bg-secondary);
+    }
+
+    &:first-child td {
+        border-top: 0;
+    }
+}
+
+.clickable {
+    cursor: pointer;
+}
