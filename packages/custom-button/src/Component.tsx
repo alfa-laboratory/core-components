@@ -1,64 +1,14 @@
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, ElementType } from 'react';
+import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 import cn from 'classnames';
 
-import { Button } from '@alfalab/core-components-button';
+import { Button, ComponentProps as ButtonComponentProps } from '@alfalab/core-components-button';
 
 import styles from './index.module.css';
 
 const DEFAULT_BUTTON_COLOR = '#FF45C3';
 const DEFAULT_CONTENT_COLOR = 'white';
 
-export type ComponentProps = {
-    /**
-     * Слот слева
-     */
-    leftAddons?: React.ReactNode;
-
-    /**
-     * Слот справа
-     */
-    rightAddons?: React.ReactNode;
-
-    /**
-     * Размер компонента
-     */
-    size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
-
-    /**
-     * Растягивает компонент на ширину контейнера
-     */
-    block?: boolean;
-
-    /**
-     * Дополнительный класс
-     */
-    className?: string;
-
-    /**
-     * Выводит ссылку в виде кнопки
-     */
-    href?: string;
-
-    /**
-     * Позволяет использовать кастомный компонент для кнопки (например Link из роутера)
-     */
-    Component?: ElementType;
-
-    /**
-     * Идентификатор для систем автоматизированного тестирования
-     */
-    dataTestId?: string;
-
-    /**
-     * Показать лоадер
-     */
-    loading?: boolean;
-
-    /**
-     * Не переносить текст кнопки на новую строку
-     */
-    nowrap?: boolean;
-
+export type ComponentProps = Omit<ButtonComponentProps, 'view' | 'colors'> & {
     /**
      * Цвет кнопки
      */
