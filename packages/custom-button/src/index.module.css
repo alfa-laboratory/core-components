@@ -1,15 +1,15 @@
-@import '../../vars/src/index.css';
+@import '../../themes/src/default.css';
 
 .customButton {
     overflow: hidden;
     position: relative;
 
     &.white * {
-        color: var(--color-light-text-primary-inverted);
+        color: var(--color-static-text-primary-light);
     }
 
     &.black * {
-        color: var(--color-light-text-primary);
+        color: var(--color-static-text-primary-dark);
     }
 
     & span {
@@ -49,10 +49,10 @@
     }
 
     &.white * {
-        color: var(--color-light-text-primary-inverted);
+        color: var(--color-static-text-primary-light);
     }
 
     &.black * {
-        color: var(--color-light-text-primary);
+        color: var(--color-static-text-primary-dark);
     }
 }
