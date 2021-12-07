@@ -7,16 +7,31 @@
     width: 100%;
     transition: background-color 0.2s;
     box-sizing: border-box;
-
-    &:hover {
-        background-color: var(--color-light-bg-secondary);
-    }
+    background: var(--color-light-bg-primary);
 
     &:first-child td {
         border-top: 0;
     }
 }
 
+.withoutBorder {
+    td {
+        border: none;
+    }
+}
+
 .clickable {
     cursor: pointer;
+
+    &:hover {
+        background-color: var(--color-light-bg-secondary);
+    }
+}
+
+.selected {
+    background-color: #f2f8ff; /* нет цвета в палитре */
+
+    &:hover {
+        background-color: var(--color-static-graphic-solitude);
+    }
 }

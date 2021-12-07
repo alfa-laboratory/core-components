@@ -6,6 +6,7 @@ import {
     TSortableHeadCell,
     TCell,
     TRow,
+    TExpandableRow,
     Wrapper,
     Pagination,
 } from './components';
@@ -17,6 +18,7 @@ export const Table = Object.assign(TableComponent, {
     TSortableHeadCell,
     TCell,
     TRow,
+    TExpandableRow,
     Wrapper,
     Pagination,
 });

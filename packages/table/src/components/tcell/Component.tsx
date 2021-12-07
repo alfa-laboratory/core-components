@@ -15,22 +15,26 @@ export type TCellProps = TdHTMLAttributes<HTMLTableCellElement> & {
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Устанавливается автоматически и позволяет использовать конфиг для соответствующего индекса
+     */
+    index?: number;
 };
 
-export type IInternalCellProps = {
-    children: React.ReactElement;
-    index: number;
-};
-
-// Компонент для внутреннего использования
-export const TInternalCell = ({ children, index }: IInternalCellProps) => {
+export const TCell = ({
+    className,
+    style,
+    dataTestId,
+    children,
+    index,
+    ...restProps
+}: TCellProps) => {
     const { columnsConfiguration, compactView } = useContext(TableContext);
-    const column = columnsConfiguration[index];
+    const column = index === undefined ? null : columnsConfiguration[index];
     const width = column?.width;
     const textAlign = column?.textAlign;
     const hidden = column?.hidden || false;
-
-    const { className, style, dataTestId, ...restProps } = children.props || {};
 
     return (
         <td
@@ -48,5 +52,3 @@ export const TInternalCell = ({ children, index }: IInternalCellProps) => {
         </td>
     );
 };
-
-export const TCell = ({ children }: TCellProps) => <React.Fragment>{children}</React.Fragment>;

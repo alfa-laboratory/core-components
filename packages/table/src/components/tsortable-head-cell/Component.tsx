@@ -9,7 +9,6 @@ import { SortIconDesc } from './sort-icon-desc';
 import { SortIconUnset } from './sort-icon-unset';
 
 export type TSortableHeadCellProps = THeadCellProps & {
-    sorted?: boolean;
     isSortedDesc?: boolean;
     defaultIsSortedDesc?: boolean;
     onSort?: () => void;
@@ -18,18 +17,21 @@ export type TSortableHeadCellProps = THeadCellProps & {
 export const TSortableHeadCell = ({
     children,
     className,
-    sorted,
     defaultIsSortedDesc,
-    isSortedDesc = defaultIsSortedDesc,
+    isSortedDesc,
     textAlign,
     onSort,
     ...restProps
 }: TSortableHeadCellProps) => {
     const SortIcon = useMemo(() => {
-        if (typeof isSortedDesc === 'boolean') return isSortedDesc ? SortIconDesc : SortIconAsc;
+        let value = isSortedDesc;
+
+        if (value === undefined) value = defaultIsSortedDesc;
+
+        if (typeof value === 'boolean') return value ? SortIconDesc : SortIconAsc;
 
         return SortIconUnset;
-    }, [isSortedDesc]);
+    }, [defaultIsSortedDesc, isSortedDesc]);
 
     return (
         <THeadCell className={cn(className, styles.component)} {...restProps}>
@@ -38,7 +40,7 @@ export const TSortableHeadCell = ({
                 <SortIcon
                     onClick={onSort}
                     className={cn(styles.icon, {
-                        [styles.sorted]: sorted,
+                        [styles.sorted]: isSortedDesc !== undefined,
                     })}
                 />
             </div>

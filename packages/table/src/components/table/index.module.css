@@ -4,4 +4,12 @@
     width: 100%;
     border-collapse: collapse;
     box-sizing: border-box;
+
+    /* TODO: Хак для выравнивания чекбокса */
+    & td:first-child,
+    & th:first-child {
+        & label > *[class^='box'] {
+            margin-top: 0;
+        }
+    }
 }

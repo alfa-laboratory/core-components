@@ -1,4 +1,10 @@
-Компоненты для построения таблиц
+Набор компонентов для построения таблиц.
+
+Набор представляет из себя стилизованные компоненты, которые открыты к расширению и содержат лишь минимальный набор параметров.
+
+Компоненты не содержат почти никакой логики и могу использоваться совместно с другими библиотеками для таблиц, например с [react-table](https://react-table.tanstack.com/)
+
+## Пример простой таблицы
 
 ```tsx live
 const data = [
@@ -6,147 +12,378 @@ const data = [
         id: 28,
         date: '07.12.2021',
         title: 'ARG BANK OF CHINA',
-        subtitle: 'НДС не облагается',
         number: 931,
-        sum: 120000,
-        currency: 'USD',
     },
     {
         id: 12,
         date: '06.12.2021',
         title: 'ООО СОВМЕСТНОЕ ПРЕДПРИЯТИЕ "ИНТЕГРА"',
-        subtitle: 'Аренда гаражей, за сентябрь 2021 г., Молодёжная, НДС необлагается',
         number: 78,
-        sum: 15078000,
-        currency: 'RUR',
     },
     {
         id: 5,
         date: '06.12.2021',
         title: 'Общество с ограниченной ответственностью "Умное пространство"',
-        subtitle: 'Аренда помещений за июнь 2021 г. НДС необлагается',
         number: 12,
-        sum: 20179800,
-        currency: 'RUR',
+    },
+];
+
+render(() => {
+    return (
+        <Table>
+            <Table.THead>
+                <Table.THeadCell title='Дата'>Дата</Table.THeadCell>
+
+                <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
+
+                <Table.THeadCell title='Номер'>Номер</Table.THeadCell>
+            </Table.THead>
+            <Table.TBody>
+                {data.map(row => (
+                    <Table.TRow key={row.id}>
+                        <Table.TCell>
+                            <Typography.Text view='primary-small' tag='div'>
+                                {row.date}
+                            </Typography.Text>
+                        </Table.TCell>
+
+                        <Table.TCell>
+                            <Typography.Text view='primary-small' tag='div'>
+                                {row.title}
+                            </Typography.Text>
+                        </Table.TCell>
+
+                        <Table.TCell>
+                            <Typography.Text view='primary-small'>{row.number}</Typography.Text>
+                        </Table.TCell>
+                    </Table.TRow>
+                ))}
+            </Table.TBody>
+        </Table>
+    );
+});
+```
+
+## Обертка
+
+`Wrapper` позволяет обернуть таблицу в контейнер, который задает нужные стили
+
+```tsx live
+const data = [
+    {
+        id: 28,
+        date: '07.12.2021',
+        title: 'ARG BANK OF CHINA',
+        number: 931,
+    },
+    {
+        id: 12,
+        date: '06.12.2021',
+        title: 'ООО СОВМЕСТНОЕ ПРЕДПРИЯТИЕ "ИНТЕГРА"',
+        number: 78,
+    },
+    {
+        id: 5,
+        date: '06.12.2021',
+        title: 'Общество с ограниченной ответственностью "Умное пространство"',
+        number: 12,
+    },
+];
+
+render(() => {
+    return (
+        <Table.Wrapper>
+            <Table>
+                <Table.THead>
+                    <Table.THeadCell title='Дата'>Дата</Table.THeadCell>
+
+                    <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
+
+                    <Table.THeadCell title='Номер'>Номер</Table.THeadCell>
+                </Table.THead>
+                <Table.TBody>
+                    {data.map(row => (
+                        <Table.TRow key={row.id}>
+                            <Table.TCell>
+                                <Typography.Text view='primary-small' tag='div'>
+                                    {row.date}
+                                </Typography.Text>
+                            </Table.TCell>
+
+                            <Table.TCell>
+                                <Typography.Text view='primary-small' tag='div'>
+                                    {row.title}
+                                </Typography.Text>
+                            </Table.TCell>
+
+                            <Table.TCell>
+                                <Typography.Text view='primary-small'>{row.number}</Typography.Text>
+                            </Table.TCell>
+                        </Table.TRow>
+                    ))}
+                </Table.TBody>
+            </Table>
+        </Table.Wrapper>
+    );
+});
+```
+
+## Настройка колонок
+
+Задавая настройки для `THeadCell` можно контролировать отображение колонки целиком:
+
+-   `hidden` — позволяет скрыть колонку
+-   `width` — задает ширину колонки
+-   `textAlign` — задает выравнивание контента
+
+```tsx live
+const data = [
+    {
+        id: 28,
+        date: '07.12.2021',
+        title: 'ARG BANK OF CHINA',
+        number: 931,
+    },
+    {
+        id: 12,
+        date: '06.12.2021',
+        title: 'ООО СОВМЕСТНОЕ ПРЕДПРИЯТИЕ "ИНТЕГРА"',
+        number: 78,
+    },
+    {
+        id: 5,
+        date: '06.12.2021',
+        title: 'Общество с ограниченной ответственностью "Умное пространство"',
+        number: 12,
+    },
+];
+
+render(() => {
+    return (
+        <Table>
+            <Table.THead>
+                <Table.THeadCell title='Номер' hidden={true}>
+                    Id
+                </Table.THeadCell>
+
+                <Table.THeadCell title='Дата' width='240'>
+                    Дата 240px
+                </Table.THeadCell>
+
+                <Table.THeadCell title='Контрагент' textAlign='center'>
+                    Контрагент
+                </Table.THeadCell>
+
+                <Table.THeadCell title='Номер' textAlign='right' width='120px'>
+                    Номер
+                </Table.THeadCell>
+            </Table.THead>
+            <Table.TBody>
+                {data.map(row => (
+                    <Table.TRow key={row.id}>
+                        <Table.TCell>{row.id}</Table.TCell>
+
+                        <Table.TCell>
+                            <Typography.Text view='primary-small' tag='div'>
+                                {row.date}
+                            </Typography.Text>
+                        </Table.TCell>
+
+                        <Table.TCell>
+                            <Typography.Text view='primary-small' tag='div'>
+                                {row.title}
+                            </Typography.Text>
+                        </Table.TCell>
+
+                        <Table.TCell>
+                            <Typography.Text view='primary-small'>{row.number}</Typography.Text>
+                        </Table.TCell>
+                    </Table.TRow>
+                ))}
+            </Table.TBody>
+        </Table>
+    );
+});
+```
+
+## Сортировка
+
+Реализация сортировки лежит на разработчике, пакет предоставляет только компоненты для сборки UI.
+
+`TSortableHeadCell` позволяет отобразить индикатор сортировки и вызвать обработчик сортировки при клике.
+
+-   Если `isSortedDesc=true` — показывается индиктор сортировки по убыванию (desc)
+-   Если `isSortedDesc=false` — показывается индиктор по возрастанию (asc)
+-   Если `isSortedDesc=undefined` — показывается индиктор, что данные не отсортированы (unset)
+
+_Если нужно показать, что данные отсортированы заранее, то можно использовать `defaultIsSortedDesc`, тогда иконка индикатора будет серой, а не синей._
+
+```tsx live
+const data = [
+    {
+        id: 5,
+        date: '06.12.2021',
+        title: 'Общество с ограниченной ответственностью "Умное пространство"',
+        number: 12,
+    },
+    {
+        id: 12,
+        date: '06.12.2021',
+        title: 'ООО СОВМЕСТНОЕ ПРЕДПРИЯТИЕ "ИНТЕГРА"',
+        number: 78,
+    },
+    {
+        id: 28,
+        date: '07.12.2021',
+        title: 'ARG BANK OF CHINA',
+        number: 931,
+    },
+];
+
+render(() => {
+    const [isSortedDesc, setIsSortedDesc] = React.useState(undefined);
+
+    const defaultIsSortedDesc = false;
+
+    const handleSort = (...args) => {
+        if (isSortedDesc !== undefined) {
+            setIsSortedDesc(!isSortedDesc ? undefined : defaultIsSortedDesc);
+        } else {
+            setIsSortedDesc(!defaultIsSortedDesc);
+        }
+    };
+
+    const sortedData = React.useMemo(() => {
+        if (isSortedDesc === undefined) return data;
+
+        return [...data].sort((a, b) => (isSortedDesc ? b.number - a.number : a.number - b.number));
+    }, [data, isSortedDesc]);
+
+    return (
+        <Table>
+            <Table.THead>
+                <Table.THeadCell title='Дата'>Дата</Table.THeadCell>
+
+                <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
+
+                <Table.TSortableHeadCell
+                    title='Номер'
+                    defaultIsSortedDesc={defaultIsSortedDesc}
+                    isSortedDesc={isSortedDesc}
+                    onSort={handleSort}
+                >
+                    Номер
+                </Table.TSortableHeadCell>
+            </Table.THead>
+            <Table.TBody>
+                {sortedData.map(row => (
+                    <Table.TRow key={row.id}>
+                        <Table.TCell>
+                            <Typography.Text view='primary-small' tag='div'>
+                                {row.date}
+                            </Typography.Text>
+                        </Table.TCell>
+
+                        <Table.TCell>
+                            <Typography.Text view='primary-small' tag='div'>
+                                {row.title}
+                            </Typography.Text>
+                        </Table.TCell>
+
+                        <Table.TCell>
+                            <Typography.Text view='primary-small'>{row.number}</Typography.Text>
+                        </Table.TCell>
+                    </Table.TRow>
+                ))}
+            </Table.TBody>
+        </Table>
+    );
+});
+```
+
+## Пагинация
+
+Для реализации пагинации следует использовать компонент `Pagination`.
+
+Как и в случае с сортировкой, контроль над данными лежит на разработчике.
+
+```tsx live
+const data = [
+    {
+        id: 28,
+        date: '07.12.2021',
+        title: 'ARG BANK OF CHINA',
+        number: 931,
+    },
+    {
+        id: 12,
+        date: '06.12.2021',
+        title: 'ООО СОВМЕСТНОЕ ПРЕДПРИЯТИЕ "ИНТЕГРА"',
+        number: 78,
+    },
+    {
+        id: 5,
+        date: '06.12.2021',
+        title: 'Общество с ограниченной ответственностью "Умное пространство"',
+        number: 12,
     },
     {
         id: 4,
         date: '06.12.2021',
         title: 'ООО "Берест"',
-        subtitle: 'В том числе НДС 20%',
         number: 843,
-        sum: 1255690,
-        currency: 'RUR',
     },
     {
         id: 1,
         date: '06.12.2021',
         title:
             'УФК по Свердловской области (Государственное учреждение - Свердловское региональное отделение Фонда социального страхования Российской Федерации)',
-        subtitle: 'Страховой взнос в ФСС от НС и ПЗ за сентябрь 2021 г. НДС необлагается',
         number: 159,
-        sum: 3880,
-        currency: 'RUR',
     },
     {
         id: 27,
         date: '21.10.2021',
         title: 'MasterBrok',
-        subtitle: 'Плюс 10% НДС',
         number: 1060,
-        sum: 40498900,
-        currency: 'USD',
     },
     {
         id: 26,
         date: '20.10.2021',
         title: 'MR ANTON TAGUNOV',
-        subtitle: 'В том числе НДС 18%',
         number: 1898,
-        sum: 4074300,
-        currency: 'USD',
-    },
-    {
-        id: 25,
-        date: '20.10.2021',
-        title: 'NTC Nanontronic',
-        subtitle: 'НДС не облагается',
-        number: 842,
-        sum: 1345000,
-        currency: 'USD',
-    },
-    {
-        id: 24,
-        date: '20.10.2021',
-        title: 'Зарифулина Алие Заримовна',
-        subtitle: 'Заработная плата за сентябрь 2021 года,. НДС не облагается',
-        number: 75,
-        sum: 896500,
-        currency: 'RUR',
-    },
-    {
-        id: 23,
-        date: '19.10.2021',
-        title: 'Мифтахова Каридат Нургиевна',
-        subtitle: 'Заработная плата за сентябрь 2021 года,. НДС не облагается',
-        number: 90,
-        sum: 765600,
-        currency: 'RUR',
     },
 ];
 
 render(() => {
-    const [sortDescBySum, setSortDescBySum] = React.useState(undefined);
     const [perPage, setPerPage] = React.useState(5);
     const [page, setPage] = React.useState(0);
 
-    const handleSort = (...args) => {
-        if (sortDescBySum) {
-            setSortDescBySum(undefined);
-        } else {
-            setSortDescBySum(sortDescBySum === undefined ? false : true);
-        }
+    const handlePerPageChange = value => {
+        setPage(0);
+        setPerPage(value);
     };
 
-    const sortedData = React.useMemo(() => {
-        if (sortDescBySum === undefined) return data;
+    const handlePageChange = pageIndex => setPage(pageIndex);
 
-        return [...data].sort((a, b) => (sortDescBySum ? b.sum - a.sum : a.sum - b.sum));
-    }, [data, sortDescBySum]);
-
-    const pagesCount = Math.ceil(sortedData.length / perPage);
+    const pagesCount = Math.ceil(data.length / perPage);
 
     const currentPageData = React.useMemo(() => {
-        return sortedData.slice(page * perPage).slice(0, perPage);
-    }, [sortedData, page, perPage]);
+        return data.slice(page * perPage).slice(0, perPage);
+    }, [data, page, perPage]);
 
     return (
         <Table.Wrapper style={{ margin: '24px 0 40px' }}>
             <Table>
                 <Table.THead>
-                    <Table.THeadCell width='122px' id='date' title='Дата'>
+                    <Table.THeadCell title='Дата' width='120px'>
                         Дата
                     </Table.THeadCell>
 
-                    <Table.THeadCell id='title' title='Контрагент'>
-                        Контрагент
-                    </Table.THeadCell>
+                    <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
 
-                    <Table.THeadCell width='84px' id='number' title='Номер'>
+                    <Table.THeadCell title='Номер' width='100px'>
                         Номер
                     </Table.THeadCell>
-
-                    <Table.TSortableHeadCell
-                        width='186px'
-                        id='sum'
-                        title='Сумма'
-                        textAlign='right'
-                        sorted={sortDescBySum !== undefined}
-                        isSortedDesc={sortDescBySum}
-                        onSort={handleSort}
-                    >
-                        Сумма
-                    </Table.TSortableHeadCell>
                 </Table.THead>
                 <Table.TBody>
                     {currentPageData.map(row => (
@@ -161,27 +398,10 @@ render(() => {
                                 <Typography.Text view='primary-small' tag='div'>
                                     {row.title}
                                 </Typography.Text>
-                                <Typography.Text
-                                    view='primary-small'
-                                    color='secondary'
-                                    tag='div'
-                                    style={{ marginTop: 'var(--gap-2xs)' }}
-                                >
-                                    {row.subtitle}
-                                </Typography.Text>
                             </Table.TCell>
 
                             <Table.TCell>
-                                <Typography.Text view='primary-small'>{row.id}</Typography.Text>
-                            </Table.TCell>
-
-                            <Table.TCell>
-                                <Amount
-                                    value={row.sum}
-                                    currency={row.currency}
-                                    minority={100}
-                                    view='withZeroMinorPart'
-                                />
+                                <Typography.Text view='primary-small'>{row.number}</Typography.Text>
                             </Table.TCell>
                         </Table.TRow>
                     ))}
@@ -193,13 +413,325 @@ render(() => {
                 currentPageIndex={page}
                 possiblePerPage={[5, 10]}
                 pagesCount={pagesCount}
-                onPageChange={pageIndex => setPage(pageIndex)}
-                onPerPageChange={value => {
-                    setPage(0);
-                    setPerPage(value);
-                }}
+                onPageChange={handlePageChange}
+                onPerPageChange={handlePerPageChange}
             />
         </Table.Wrapper>
+    );
+});
+```
+
+## Раскрывающаяся строка
+
+`TExpandableRow` позволяет реализовывать раскрывающиеся строки.
+
+Скрытый контент отрисовывается с помощью рендер-пропса `renderContent`, в который передается состояние `expanded`.
+
+Это позволяет более гибко управлять рендером и, например, использовать `Collapse` для плавного раскрытия.
+
+```tsx live
+const data = [
+    {
+        id: 5,
+        date: '06.12.2021',
+        title: 'Общество с ограниченной ответственностью "Умное пространство"',
+        number: 12,
+    },
+    {
+        id: 12,
+        date: '06.12.2021',
+        title: 'ООО СОВМЕСТНОЕ ПРЕДПРИЯТИЕ "ИНТЕГРА"',
+        number: 78,
+    },
+    {
+        id: 28,
+        date: '07.12.2021',
+        title: 'ARG BANK OF CHINA',
+        number: 931,
+    },
+];
+
+render(() => {
+    return (
+        <Table>
+            <Table.THead>
+                <Table.THeadCell title='Дата'>Дата</Table.THeadCell>
+
+                <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
+
+                <Table.THeadCell title='Номер'>Номер</Table.THeadCell>
+            </Table.THead>
+            <Table.TBody>
+                {data.map(row => (
+                    <Table.TExpandableRow
+                        key={row.id}
+                        defaultExpanded={row.id === 5}
+                        renderContent={expanded => (
+                            <>
+                                <Table.TCell colSpan={1} />
+                                <Table.TCell colSpan={2}>
+                                    <Collapse expanded={expanded}>
+                                        <Typography.Text
+                                            view='primary-small'
+                                            color='secondary'
+                                            tag='div'
+                                            style={{ padding: '4px 0 16px' }}
+                                        >
+                                            Платёж №{row.number} будет отправлен в банк после
+                                            подписания
+                                        </Typography.Text>
+                                    </Collapse>
+                                </Table.TCell>
+                            </>
+                        )}
+                    >
+                        <Table.TCell>
+                            <Typography.Text view='primary-small' tag='div'>
+                                {row.date}
+                            </Typography.Text>
+                        </Table.TCell>
+
+                        <Table.TCell>
+                            <Typography.Text view='primary-small' tag='div'>
+                                {row.title}
+                            </Typography.Text>
+                        </Table.TCell>
+
+                        <Table.TCell>
+                            <Typography.Text view='primary-small'>{row.number}</Typography.Text>
+                        </Table.TCell>
+                    </Table.TExpandableRow>
+                ))}
+            </Table.TBody>
+        </Table>
+    );
+});
+```
+
+### Внешний контроль над раскрытием строк
+
+`TExpandableRow` может использоваться как в uncontrolled, так и controlled режиме, когда нужно самостоятельно управлять раскрытием.
+
+```tsx live
+const data = [
+    {
+        id: 5,
+        date: '06.12.2021',
+        title: 'Общество с ограниченной ответственностью "Умное пространство"',
+        number: 12,
+    },
+    {
+        id: 12,
+        date: '06.12.2021',
+        title: 'ООО СОВМЕСТНОЕ ПРЕДПРИЯТИЕ "ИНТЕГРА"',
+        number: 78,
+    },
+    {
+        id: 28,
+        date: '07.12.2021',
+        title: 'ARG BANK OF CHINA',
+        number: 931,
+    },
+];
+
+render(() => {
+    const [expandedRow, setExpandedRow] = React.useState();
+
+    const handleExpand = (rowId, expanded) => {
+        if (expanded) {
+            setExpandedRow(undefined);
+        } else {
+            setExpandedRow(rowId);
+        }
+    };
+
+    return (
+        <Table>
+            <Table.THead>
+                <Table.THeadCell title='Дата'>Дата</Table.THeadCell>
+
+                <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
+
+                <Table.THeadCell title='Номер'>Номер</Table.THeadCell>
+            </Table.THead>
+            <Table.TBody>
+                {data.map(row => (
+                    <Table.TExpandableRow
+                        key={row.id}
+                        expanded={expandedRow === row.id}
+                        onToggle={expanded => handleExpand(row.id, expanded)}
+                        renderContent={expanded => (
+                            <>
+                                <Table.TCell colSpan={1} />
+                                <Table.TCell colSpan={2}>
+                                    <Collapse expanded={expanded}>
+                                        <Typography.Text
+                                            view='primary-small'
+                                            color='secondary'
+                                            tag='div'
+                                            style={{ padding: '4px 0 16px' }}
+                                        >
+                                            Платёж №{row.number} будет отправлен в банк после
+                                            подписания
+                                        </Typography.Text>
+                                    </Collapse>
+                                </Table.TCell>
+                            </>
+                        )}
+                    >
+                        <Table.TCell>
+                            <Typography.Text view='primary-small' tag='div'>
+                                {row.date}
+                            </Typography.Text>
+                        </Table.TCell>
+
+                        <Table.TCell>
+                            <Typography.Text view='primary-small' tag='div'>
+                                {row.title}
+                            </Typography.Text>
+                        </Table.TCell>
+
+                        <Table.TCell>
+                            <Typography.Text view='primary-small'>{row.number}</Typography.Text>
+                        </Table.TCell>
+                    </Table.TExpandableRow>
+                ))}
+            </Table.TBody>
+        </Table>
+    );
+});
+```
+
+## Выбор строк
+
+```tsx live
+const data = [
+    {
+        id: 28,
+        date: '07.12.2021',
+        title: 'ARG BANK OF CHINA',
+        number: 931,
+    },
+    {
+        id: 12,
+        date: '06.12.2021',
+        title: 'ООО СОВМЕСТНОЕ ПРЕДПРИЯТИЕ "ИНТЕГРА"',
+        number: 78,
+    },
+    {
+        id: 5,
+        date: '06.12.2021',
+        title: 'Общество с ограниченной ответственностью "Умное пространство"',
+        number: 12,
+    },
+];
+
+render(() => {
+    const [selectedRows, setSelectedRows] = React.useState(new Set());
+
+    const handleRowSelect = rowId => {
+        const nextSelected = new Set(selectedRows);
+
+        if (rowId === 'all') {
+            setSelectedRows(
+                new Set(selectedRows.size === data.length ? [] : data.map(row => row.id)),
+            );
+
+            return;
+        }
+
+        if (nextSelected.has(rowId)) {
+            nextSelected.delete(rowId);
+        } else {
+            nextSelected.add(rowId);
+        }
+
+        setSelectedRows(nextSelected);
+    };
+
+    return (
+        <Table>
+            <Table.THead>
+                <Table.THeadCell width='48px'>
+                    <Tooltip
+                        view='hint'
+                        position='top'
+                        content={
+                            <React.Fragment>
+                                Выбрать все
+                                <br />
+                                на странице
+                            </React.Fragment>
+                        }
+                    >
+                        <Checkbox
+                            size='m'
+                            onClick={() => handleRowSelect('all')}
+                            checked={data.length > 0 && data.every(row => selectedRows.has(row.id))}
+                            indeterminate={
+                                data.length > 0 && data.some(row => selectedRows.has(row.id))
+                            }
+                        />
+                    </Tooltip>
+                </Table.THeadCell>
+
+                <Table.THeadCell title='Дата'>Дата</Table.THeadCell>
+
+                <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
+
+                <Table.THeadCell title='Номер'>Номер</Table.THeadCell>
+            </Table.THead>
+            <Table.TBody>
+                {data.map(row => (
+                    <Table.TExpandableRow
+                        key={row.id}
+                        selected={selectedRows.has(row.id)}
+                        renderContent={expanded => (
+                            <>
+                                <Table.TCell colSpan={1} />
+                                <Table.TCell colSpan={2}>
+                                    <Collapse expanded={expanded}>
+                                        <Typography.Text
+                                            view='primary-small'
+                                            color='secondary'
+                                            tag='div'
+                                            style={{ padding: '4px 0 16px' }}
+                                        >
+                                            Платёж №{row.number} будет отправлен в банк после
+                                            подписания
+                                        </Typography.Text>
+                                    </Collapse>
+                                </Table.TCell>
+                            </>
+                        )}
+                    >
+                        <Table.TCell>
+                            <Checkbox
+                                size='m'
+                                onClick={() => handleRowSelect(row.id)}
+                                checked={selectedRows.has(row.id)}
+                            />
+                        </Table.TCell>
+
+                        <Table.TCell>
+                            <Typography.Text view='primary-small' tag='div'>
+                                {row.date}
+                            </Typography.Text>
+                        </Table.TCell>
+
+                        <Table.TCell>
+                            <Typography.Text view='primary-small' tag='div'>
+                                {row.title}
+                            </Typography.Text>
+                        </Table.TCell>
+
+                        <Table.TCell>
+                            <Typography.Text view='primary-small'>{row.number}</Typography.Text>
+                        </Table.TCell>
+                    </Table.TExpandableRow>
+                ))}
+            </Table.TBody>
+        </Table>
     );
 });
 ```
