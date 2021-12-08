@@ -15,7 +15,7 @@
     --modal-l-footer-paddings: var(--gap-2xl) var(--gap-6xl) var(--gap-6xl);
 
     /* closer */
-    --modal-closer-icon: url('https://alfabank.st/icons/glyph_cross-heavy_m.svg');
+    --modal-closer-icon: url('https://alfabank.gcdn.co/icons/glyph_cross-heavy_m.svg');
 
     /* sticky */
     --modal-footer-sticky-box-shadow: none;
