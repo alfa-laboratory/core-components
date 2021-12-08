@@ -6,8 +6,8 @@
     --plate-border-radius: var(--border-radius-m);
 
     /* icons */
-    --plate-closer-icon: url('https://alfabank.st/icons/glyph_cross_m.svg');
-    --plate-arrow-icon: url('https://alfabank.st/icons/glyph_chevron-down_m.svg');
+    --plate-closer-icon: url('https://alfabank.gcdn.co/icons/glyph_cross_m.svg');
+    --plate-arrow-icon: url('https://alfabank.gcdn.co/icons/glyph_chevron-down_m.svg');
 }
 
 .component {
