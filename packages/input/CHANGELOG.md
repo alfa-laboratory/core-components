@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-input@7.3.5...@alfalab/core-components-input@7.3.6) (2021-12-08)
+
+
+### Bug Fixes
+
+* revert 0e8124552206f96149d104f65cff1667e857bf01 ([#916](https://github.com/alfa-laboratory/core-components/issues/916)) ([953fbcf](https://github.com/alfa-laboratory/core-components/commit/953fbcfec46a40089a5cfde670597315269b05f5))
+
+
+
+
+
 ## [7.3.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-input@7.3.4...@alfalab/core-components-input@7.3.5) (2021-12-08)
 
 

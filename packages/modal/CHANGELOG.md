@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@3.0.1...@alfalab/core-components-modal@3.0.2) (2021-12-08)
+
+
+### Bug Fixes
+
+* revert 0e8124552206f96149d104f65cff1667e857bf01 ([#916](https://github.com/alfa-laboratory/core-components/issues/916)) ([953fbcf](https://github.com/alfa-laboratory/core-components/commit/953fbcfec46a40089a5cfde670597315269b05f5))
+
+
+
+
+
 ## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@3.0.0...@alfalab/core-components-modal@3.0.1) (2021-12-08)
 
 
