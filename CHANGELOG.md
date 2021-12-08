@@ -1,3 +1,10 @@
+## [22.3.1](https://github.com/alfa-laboratory/core-components/compare/v22.3.0...v22.3.1) (2021-12-08)
+
+
+### Bug Fixes
+
+* revert 0e8124552206f96149d104f65cff1667e857bf01 ([#916](https://github.com/alfa-laboratory/core-components/issues/916)) ([953fbcf](https://github.com/alfa-laboratory/core-components/commit/953fbcfec46a40089a5cfde670597315269b05f5))
+
 # [22.3.0](https://github.com/alfa-laboratory/core-components/compare/v22.2.0...v22.3.0) (2021-12-08)
 
 
