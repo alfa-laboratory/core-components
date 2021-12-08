@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-picker-button",
-    "version": "6.2.3",
+    "version": "7.1.0",
     "description": "Picker button component",
     "keywords": [],
     "license": "MIT",
@@ -19,10 +19,10 @@
         "react-dom": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-button": "^4.4.0",
-        "@alfalab/core-components-select": "^10.0.0",
-        "@alfalab/icons-classic": "^1.74.0",
-        "@alfalab/icons-glyph": "^1.150.0",
+        "@alfalab/core-components-button": "^5.0.0",
+        "@alfalab/core-components-select": "^10.2.0",
+        "@alfalab/icons-classic": "^1.76.0",
+        "@alfalab/icons-glyph": "^1.190.0",
         "classnames": "^2.2.6"
     }
 }

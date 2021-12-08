@@ -16,12 +16,21 @@ export function useCalendarMonthes({
     defaultMonth,
     isPopover,
 }: useMonthProps) {
-    const initialMonthFrom =
-        !inputValueFrom.value || !inputValueFrom.date
-            ? defaultMonth
-            : startOfMonth(inputValueFrom.date).getTime();
+    const initialMonthFrom = (() => {
+        if (inputValueFrom.value && inputValueFrom.date) {
+            return startOfMonth(inputValueFrom.date).getTime();
+        }
 
-    const initialMonthTo = isPopover ? initialMonthFrom : addMonths(initialMonthFrom, 1).getTime();
+        return defaultMonth;
+    })();
+
+    const initialMonthTo = (() => {
+        if (inputValueTo.value && inputValueTo.date) {
+            return startOfMonth(inputValueTo.date).getTime();
+        }
+
+        return isPopover ? initialMonthFrom : addMonths(initialMonthFrom, 1).getTime();
+    })();
 
     const [monthFrom, setMonthFrom] = useState(initialMonthFrom);
     const [monthTo, setMonthTo] = useState(initialMonthTo);

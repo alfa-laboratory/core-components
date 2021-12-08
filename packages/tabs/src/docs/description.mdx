@@ -128,3 +128,48 @@ render(() => {
     );
 });
 ```
+
+### Табы со скроллом
+
+```tsx live
+render(() => {
+    const [selectedId, setSelectedId] = React.useState('tab-1');
+
+    const handleChange = (event, { selectedId }) => setSelectedId(selectedId);
+
+    return (
+        <TabsDesktop selectedId={selectedId} onChange={handleChange} scrollable={true}>
+            <Tab title='Первый таб с длинным заголовком' id='tab-1'>
+                Таб 1
+            </Tab>
+            <Tab title='Второй таб с длинным заголовком' id='tab-2'>
+                Таб 2
+            </Tab>
+            <Tab title='Третий таб с длинным заголовком' id='tab-3'>
+                Таб 3
+            </Tab>
+            <Tab title='Четвёртый таб с длинным заголовком' id='tab-4'>
+                Таб 4
+            </Tab>
+            <Tab title='Пятый таб с длинным заголовком' id='tab-5'>
+                Таб 5
+            </Tab>
+            <Tab title='Шестой таб с длинным заголовком' id='tab-6'>
+                Таб 6
+            </Tab>
+            <Tab title='Седьмой таб с длинным заголовком' id='tab-7'>
+                Таб 7
+            </Tab>
+            <Tab title='Восьмой таб с длинным заголовком' id='tab-8'>
+                Таб 8
+            </Tab>
+            <Tab title='Девятый таб с длинным заголовком' id='tab-9'>
+                Таб 9
+            </Tab>
+            <Tab title='Десятый таб с длинным заголовком' id='tab-10'>
+                Таб 10
+            </Tab>
+        </TabsDesktop>
+    );
+});
+```

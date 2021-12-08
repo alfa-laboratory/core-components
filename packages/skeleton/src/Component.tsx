@@ -40,5 +40,5 @@ export const Skeleton: React.FC<SkeletonProps> = ({
         );
     }
 
-    return <React.Fragment>{children}</React.Fragment>;
+    return <div>{children}</div>;
 };

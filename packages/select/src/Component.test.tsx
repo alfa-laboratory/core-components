@@ -589,7 +589,7 @@ describe('Select', () => {
             expect(cb).toBeCalledTimes(1);
         });
 
-        it('should call onScroll', async () => {
+        it.skip('should call onScroll', async () => {
             const onScroll = jest.fn();
 
             const { getByTestId } = render(

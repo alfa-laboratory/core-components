@@ -3,6 +3,73 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.0.0...@alfalab/core-components-picker-button@7.1.0) (2021-12-01)
+
+
+### Features
+
+* **popover:** add availableHieght prop, update related snapshots ([43b4ebd](https://github.com/alfa-laboratory/core-components/commit/43b4ebd6ba092f22d0dfc845f3f0113b390317dc)), closes [#758](https://github.com/alfa-laboratory/core-components/issues/758)
+
+
+
+
+
+# [7.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@6.2.5...@alfalab/core-components-picker-button@7.0.0) (2021-11-26)
+
+
+### Features
+
+* **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/alfa-laboratory/core-components/issues/886)) ([88e657a](https://github.com/alfa-laboratory/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/alfa-laboratory/core-components/issues/890)
+
+
+### BREAKING CHANGES
+
+* **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер  на xxs. Можно воспользоваться codemod.
+
+* feat(codemod): add button xs to xxs transformer
+
+* feat(tag): добавлен тэг размера 40px, изменены отступы
+
+Добавлен тэг размером 40px, изменены отступы. Тем, кто использовал размер xs, надо заменить размер
+на xxs.
+* **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер на xxs. Можно воспользоваться codemod.
+
+* test: update screenshots
+
+* test: update screenshots
+
+* feat(button): linter fix
+
+* feat(button): fix min-width
+
+* feat(tag): remove vertical paddings
+
+* feat(tag): remove vertical paddings
+
+* feat(button): updates
+
+
+
+
+
+## [6.2.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@6.2.4...@alfalab/core-components-picker-button@6.2.5) (2021-11-16)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
+## [6.2.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@6.2.3...@alfalab/core-components-picker-button@6.2.4) (2021-11-08)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
 ## [6.2.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@6.2.2...@alfalab/core-components-picker-button@6.2.3) (2021-10-15)
 
 **Note:** Version bump only for package @alfalab/core-components-picker-button

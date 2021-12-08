@@ -27,7 +27,7 @@ export const DropCssVars = ({ answers }: { answers: Answers }) => {
                     </Link>{' '}
                     arui-scripts
                 </Typography.Text>
-                <Example>{aruiScriptsExample(answers)}</Example>
+                <Example live={false} language='json' code={aruiScriptsExample(answers)} />
             </div>,
         );
     }
@@ -46,7 +46,7 @@ export const DropCssVars = ({ answers }: { answers: Answers }) => {
                         postcss-custom-properties
                     </Link>
                 </Typography.Text>
-                <Example>{withoutAruiScriptsExample(answers)}</Example>
+                <Example live={false} language='json' code={withoutAruiScriptsExample(answers)} />
             </div>,
         );
     }
@@ -58,7 +58,7 @@ export const DropCssVars = ({ answers }: { answers: Answers }) => {
                     Добавьте на страницу дополнительные стили, если темный режим был включен. Обычно
                     это можно сделать в корне приложения.
                 </Typography.Text>
-                <Example>{darkModeExample(answers)}</Example>
+                <Example live={false} language='css' code={darkModeExample(answers)} />
             </div>,
         );
     }

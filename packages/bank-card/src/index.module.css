@@ -124,6 +124,7 @@
     margin-right: calc(var(--gap-s) * -1);
 
     & svg {
+        fill: var(--color-black);
         display: block;
     }
 }

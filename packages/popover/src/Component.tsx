@@ -12,7 +12,8 @@ import cn from 'classnames';
 import { CSSTransition } from 'react-transition-group';
 import { CSSTransitionProps } from 'react-transition-group/CSSTransition';
 import { usePopper } from 'react-popper';
-import { BasePlacement, VariationPlacement, Obj } from '@popperjs/core';
+import { BasePlacement, VariationPlacement, Obj, ModifierArguments } from '@popperjs/core';
+import maxSize from 'popper-max-size-modifier';
 import mergeRefs from 'react-merge-refs';
 import { ResizeObserver } from 'resize-observer';
 
@@ -61,6 +62,11 @@ export type PopoverProps = {
      * Запрещает поповеру менять свою позицию, если он не влезает в видимую область.
      */
     preventOverflow?: boolean;
+
+    /**
+     *  Позволяет поповеру подствраивать свою высоту под границы экрана, если из-за величины контента он выходит за рамки видимой области экрана
+     */
+    availableHeight?: boolean;
 
     /**
      * Если `true`, будет отрисована стрелочка
@@ -148,6 +154,27 @@ const CSS_TRANSITION_CLASS_NAMES = {
     exitActive: styles.exitActive,
 };
 
+const availableHieghtModifier = {
+    name: 'availableHeight',
+    enabled: true,
+    phase: 'beforeWrite',
+    requires: ['maxSize'],
+    fn({
+        state: {
+            modifiersData,
+            elements: { popper },
+        },
+    }: ModifierArguments<Obj>) {
+        const { height } = modifiersData.maxSize;
+
+        const content = popper.querySelector(`.${styles.scrollableContent}`) as HTMLElement;
+
+        if (content && !content.style.maxHeight) {
+            content.style.maxHeight = `${height}px`;
+        }
+    },
+};
+
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     (
         {
@@ -171,6 +198,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             zIndex = stackingOrder.POPOVER,
             fallbackPlacements,
             preventOverflow = true,
+            availableHeight = false,
         },
         ref,
     ) => {
@@ -198,8 +226,21 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                 modifiers.push({ name: 'preventOverflow', options: { mainAxis: false } });
             }
 
+            if (availableHeight) {
+                modifiers.push({ ...maxSize, options: {} });
+                modifiers.push({ ...availableHieghtModifier, options: {} });
+            }
+
             return modifiers;
-        }, [offset, withArrow, preventFlip, fallbackPlacements, preventOverflow, arrowElement]);
+        }, [
+            offset,
+            withArrow,
+            preventFlip,
+            fallbackPlacements,
+            preventOverflow,
+            availableHeight,
+            arrowElement,
+        ]);
 
         const { styles: popperStyles, attributes, update: updatePopper } = usePopper(
             referenceElement,
@@ -267,7 +308,9 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                     {...attributes.popper}
                 >
                     <div className={cn(styles.inner, popperClassName)} style={style}>
-                        {children}
+                        <div className={cn(availableHeight ? styles.scrollableContent : '')}>
+                            {children}
+                        </div>
                         {withArrow && (
                             <div
                                 ref={setArrowElement}

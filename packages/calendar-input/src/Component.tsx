@@ -167,10 +167,12 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             onChange,
             onInputChange,
             onCalendarChange,
+            onKeyDown,
             readOnly,
             Calendar = DefaultCalendar,
             popoverPosition = 'bottom-start',
             useAnchorWidth,
+            rightAddons,
             ...restProps
         },
         ref,
@@ -235,12 +237,17 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             }
         }, []);
 
-        const handleInputKeyDown = useCallback((event: KeyboardEvent<HTMLInputElement>) => {
-            if (['ArrowDown', 'ArrowUp'].includes(event.key) && calendarRef.current) {
-                event.preventDefault();
-                calendarRef.current.focus();
-            }
-        }, []);
+        const handleInputKeyDown = useCallback(
+            (event: KeyboardEvent<HTMLInputElement>) => {
+                if (['ArrowDown', 'ArrowUp'].includes(event.key) && calendarRef.current) {
+                    event.preventDefault();
+                    calendarRef.current.focus();
+                }
+
+                if (onKeyDown) onKeyDown(event);
+            },
+            [onKeyDown],
+        );
 
         const changeHandler = useCallback(
             (
@@ -347,13 +354,17 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                     {...restProps}
                     ref={ref}
                     wrapperRef={mergeRefs([wrapperRef, inputWrapperRef])}
-                    className={inputClassName}
                     value={inputValue}
                     defaultValue={defaultValue}
                     disabled={disabled}
                     readOnly={readOnly}
                     mobileMode={mobileMode === 'native' ? 'native' : 'input'}
-                    rightAddons={<CalendarMIcon className={styles.calendarIcon} />}
+                    rightAddons={
+                        <React.Fragment>
+                            {rightAddons}
+                            <CalendarMIcon className={styles.calendarIcon} />
+                        </React.Fragment>
+                    }
                     onKeyDown={handleInputKeyDown}
                     onChange={handleInputChange}
                     block={true}

@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.1.2...@alfalab/core-components-select@10.2.0) (2021-12-01)
+
+
+### Features
+
+* **circular-progress-bar:** new size S ([d34db5c](https://github.com/alfa-laboratory/core-components/commit/d34db5cca682bc63f948a0dad322604c8044a6b8))
+
+
+
+
+
+## [10.1.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.1.1...@alfalab/core-components-select@10.1.2) (2021-11-26)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.1.0...@alfalab/core-components-select@10.1.1) (2021-11-16)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+# [10.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.0.0...@alfalab/core-components-select@10.1.0) (2021-11-08)
+
+
+### Features
+
+* **select:** добавлено свойство z-index для поповера ([#871](https://github.com/alfa-laboratory/core-components/issues/871)) ([4a53483](https://github.com/alfa-laboratory/core-components/commit/4a534835a9e6c9ec7793733467194536cfd96a91))
+
+
+
+
+
 # [10.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.7.1...@alfalab/core-components-select@10.0.0) (2021-10-15)
 
 

@@ -65,10 +65,6 @@
     transition: transform 0.2s ease, width 0.2s ease;
 }
 
-.scrollable .line {
-    bottom: var(--tablist-hidden-scrollbar-height);
-}
-
 /* sizes */
 
 .s {

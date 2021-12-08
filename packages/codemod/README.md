@@ -1,12 +1,4 @@
-## Тулзы для миграции с arui-feather на core-components.
-
-С помощью данного cli-инструмента можно быстро заменить компоненты из arui-feather на компоненты из core-components.
-
-На данный момент, для замены доступны следуюшие компоненты из arui-feather:
-
--   Heading
--   Paragraph
--   Label
+## Тулзы для модификации кода
 
 ### Использование
 
@@ -16,20 +8,38 @@
 $ yarn add --dev @alfalab/core-components-codemod
 ```
 
-2. Заменить компоненты:
+2. Запустить нужные трансформеры:
 
-Можно заменить сразу все доступные компоненты:
-
-```bash
-$ ./node_modules/.bin/core-components-codemod src/**/*.tsx
-```
-
-Можно заменять компоненты частично. Например только Label и Paragraph:
+Какой-то один трансформер:
 
 ```bash
-$ ./node_modules/.bin/core-components-codemod --components=Label,Paragraph src/**/*.tsx
+$ npx core-components-codemod --transformers=button-xs src/**/*.tsx
 ```
 
-В большинстве случаев можно заменить один компонент на другой и однозначно поменять ему пропсы. Но это не всегда возможно. В таких случаях вы увидите предупреждение, и должны будете руками поменять пропсы у компонента.
+Можно сразу несколько трансформеров:
+
+```bash
+$ npx core-components-codemod --transformers=button-xs,button-views src/**/*.tsx
+```
 
 Сейчас замена компонентов доступна только для кода, написанного на `typescript`. Если кому-то нужно мигрировать с `js` - дайте знать, докрутим.
+
+### Список доступных трансформеров
+
+| Название     | Описание                                                                                    |
+| ------------ | ------------------------------------------------------------------------------------------- |
+| paragraph    | Меняет компонент `Paragraph` из `arui-feather` на актульный компонент из `core-components` |
+| label        | Меняет компонент `Label` из `arui-feather` на актульный компонент из `core-components`     |
+| heading      | Меняет компонент `Heading` из `arui-feather` на актульный компонент из `core-components`   |
+| button-xs    | Изменяет размер кнопки с `xs` на `xxs`                                                      |
+| button-views | Меняет вид кнопки с `filled|transparent` на `secondary`, `outlined` на `tertiary`           |
+
+## Разработка
+
+Под капотом - [jscodeshift](https://github.com/facebook/jscodeshift).
+
+### Запуск тестов
+
+```bash
+$ npx jest packages/codemod/src --config=jest.codemod.config.js
+```

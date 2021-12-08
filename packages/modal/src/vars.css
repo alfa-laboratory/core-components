@@ -29,7 +29,7 @@
     --modal-content-no-header-top-padding: var(--gap-2xl);
 
     /* closer */
-    --modal-closer-icon: url('https://alfabank.st/icons/glyph_cross_m.svg');
+    --modal-closer-icon: url('https://alfabank.gcdn.co/icons/glyph_cross_m.svg');
 
     /* sticky */
     --modal-footer-sticky-box-shadow: none;

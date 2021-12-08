@@ -23,7 +23,7 @@ export type TagProps = Omit<NativeProps, 'onClick'> & {
     /**
      * Размер компонента
      */
-    size?: 'xs' | 's' | 'm' | 'l' | 'xl';
+    size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
     /**
      * Слот слева
@@ -89,7 +89,8 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
                     [styles.checked]: checked,
                     [colorStyles.checked]: checked,
                     [styles.focused]: focused,
-                    [styles.iconOnly]: !children,
+                    [styles.withRightAddons]: Boolean(rightAddons),
+                    [styles.withLeftAddons]: Boolean(leftAddons),
                 },
                 className,
             ),

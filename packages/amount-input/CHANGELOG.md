@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount-input@5.3.3...@alfalab/core-components-amount-input@5.3.4) (2021-11-26)
+
+**Note:** Version bump only for package @alfalab/core-components-amount-input
+
+
+
+
+
+## [5.3.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount-input@5.3.2...@alfalab/core-components-amount-input@5.3.3) (2021-11-16)
+
+**Note:** Version bump only for package @alfalab/core-components-amount-input
+
+
+
+
+
 ## [5.3.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount-input@5.3.1...@alfalab/core-components-amount-input@5.3.2) (2021-10-15)
 
 **Note:** Version bump only for package @alfalab/core-components-amount-input
