@@ -8,6 +8,7 @@ import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
 import { PointerDownMIcon } from '@alfalab/icons-glyph/PointerDownMIcon';
+import { ClockMIcon } from '@alfalab/icons-glyph';
 
 import { fileIcon, humanFileSize } from './utils';
 
@@ -147,6 +148,10 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
     }, [id, onRestore]);
 
     const renderIcon = useCallback(() => {
+        if (showRestore) {
+            return <ClockMIcon className={styles.restoreIcon} />;
+        }
+
         switch (uploadStatus) {
             case 'ERROR':
                 return <AlertCircleMIcon className={styles.errorIcon} />;
@@ -163,7 +168,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
                 return <Icon className={styles.icon} />;
             }
         }
-    }, [uploadStatus]);
+    }, [showRestore, uploadStatus]);
 
     const renderInfoSection = useCallback(
         () => (
