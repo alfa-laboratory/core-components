@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@6.0.0...@alfalab/core-components-themes@6.0.1) (2021-12-08)
+
+
+### Bug Fixes
+
+* новый cdn иконок ([#913](https://github.com/alfa-laboratory/core-components/issues/913)) ([0e81245](https://github.com/alfa-laboratory/core-components/commit/0e8124552206f96149d104f65cff1667e857bf01))
+* **dropzone:** изменение темы клика ([#893](https://github.com/alfa-laboratory/core-components/issues/893)) ([cadc6da](https://github.com/alfa-laboratory/core-components/commit/cadc6da29896e6a033bac8e91723b20beb404b32))
+
+
+
+
+
 # [6.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@5.1.0...@alfalab/core-components-themes@6.0.0) (2021-11-26)
 
 

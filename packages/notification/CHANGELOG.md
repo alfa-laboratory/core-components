@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.11](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.10...@alfalab/core-components-notification@5.0.11) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-notification
+
+
+
+
+
 ## [5.0.10](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.9...@alfalab/core-components-notification@5.0.10) (2021-12-01)
 
 **Note:** Version bump only for package @alfalab/core-components-notification

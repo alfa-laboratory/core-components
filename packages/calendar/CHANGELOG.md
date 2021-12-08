@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar@3.1.4...@alfalab/core-components-calendar@3.2.0) (2021-12-08)
+
+
+### Bug Fixes
+
+* актуализируем @alfalab/utils ([#897](https://github.com/alfa-laboratory/core-components/issues/897)) ([30fb88e](https://github.com/alfa-laboratory/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+* новый cdn иконок ([#913](https://github.com/alfa-laboratory/core-components/issues/913)) ([0e81245](https://github.com/alfa-laboratory/core-components/commit/0e8124552206f96149d104f65cff1667e857bf01))
+
+
+### Features
+
+* **calendar:** мобильные стили ([#867](https://github.com/alfa-laboratory/core-components/issues/867)) ([febf545](https://github.com/alfa-laboratory/core-components/commit/febf54551f8179a1ba03fe65ed47aa3b20b01472))
+* **calendar:** показываем будущий год ([#900](https://github.com/alfa-laboratory/core-components/issues/900)) ([3cd3c63](https://github.com/alfa-laboratory/core-components/commit/3cd3c63e5ff88066599d0944a2d3183e63150664))
+
+
+
+
+
 ## [3.1.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar@3.1.3...@alfalab/core-components-calendar@3.1.4) (2021-11-26)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar

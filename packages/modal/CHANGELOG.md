@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@3.0.0...@alfalab/core-components-modal@3.0.1) (2021-12-08)
+
+
+### Bug Fixes
+
+* новый cdn иконок ([#913](https://github.com/alfa-laboratory/core-components/issues/913)) ([0e81245](https://github.com/alfa-laboratory/core-components/commit/0e8124552206f96149d104f65cff1667e857bf01))
+
+
+
+
+
 # [3.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@2.0.8...@alfalab/core-components-modal@3.0.0) (2021-11-26)
 
 

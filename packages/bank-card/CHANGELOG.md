@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-bank-card@4.1.4...@alfalab/core-components-bank-card@4.1.5) (2021-12-08)
+
+
+### Bug Fixes
+
+* **bank-card:** фикс цвета иконки ([#898](https://github.com/alfa-laboratory/core-components/issues/898)) ([66c2659](https://github.com/alfa-laboratory/core-components/commit/66c265919e7452af324ceabd26813a8be19b4839))
+
+
+
+
+
 ## [4.1.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-bank-card@4.1.3...@alfalab/core-components-bank-card@4.1.4) (2021-11-26)
 
 **Note:** Version bump only for package @alfalab/core-components-bank-card

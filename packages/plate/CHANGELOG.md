@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-plate@3.0.0...@alfalab/core-components-plate@3.0.1) (2021-12-08)
+
+
+### Bug Fixes
+
+* актуализируем @alfalab/utils ([#897](https://github.com/alfa-laboratory/core-components/issues/897)) ([30fb88e](https://github.com/alfa-laboratory/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+* новый cdn иконок ([#913](https://github.com/alfa-laboratory/core-components/issues/913)) ([0e81245](https://github.com/alfa-laboratory/core-components/commit/0e8124552206f96149d104f65cff1667e857bf01))
+* **plate:** активный курсор только для foldable плашек ([#912](https://github.com/alfa-laboratory/core-components/issues/912)) ([06a38bd](https://github.com/alfa-laboratory/core-components/commit/06a38bd6bd07d016d670e600b373791aabe3d3ea))
+
+
+
+
+
 # [3.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-plate@2.0.9...@alfalab/core-components-plate@3.0.0) (2021-11-26)
 
 

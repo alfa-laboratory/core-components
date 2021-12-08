@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@5.0.3...@alfalab/core-components-calendar-input@5.1.0) (2021-12-08)
+
+
+### Bug Fixes
+
+* **calendar-input:** рендер rightAddons, фикс затертых пропсов ([#895](https://github.com/alfa-laboratory/core-components/issues/895)) ([1eabd29](https://github.com/alfa-laboratory/core-components/commit/1eabd2902cd1bd62517284313f79cf31189cf525))
+
+
+### Features
+
+* **calendar:** мобильные стили ([#867](https://github.com/alfa-laboratory/core-components/issues/867)) ([febf545](https://github.com/alfa-laboratory/core-components/commit/febf54551f8179a1ba03fe65ed47aa3b20b01472))
+
+
+
+
+
 ## [5.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@5.0.2...@alfalab/core-components-calendar-input@5.0.3) (2021-12-01)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar-input

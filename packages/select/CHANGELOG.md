@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.2.0...@alfalab/core-components-select@10.2.1) (2021-12-08)
+
+
+### Bug Fixes
+
+* актуализируем @alfalab/utils ([#897](https://github.com/alfa-laboratory/core-components/issues/897)) ([30fb88e](https://github.com/alfa-laboratory/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+
+
+
+
+
 # [10.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.1.2...@alfalab/core-components-select@10.2.0) (2021-12-01)
 
 
