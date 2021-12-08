@@ -1,4 +1,4 @@
 @define-mixin input-site {
-    --input-error-icon: url('https://alfabank.gcdn.co/icons/icon_error_m_color.svg');
-    --input-inverted-error-icon: url('https://alfabank.gcdn.co/icons/icon_error_m_color.svg');
+    --input-error-icon: url('https://alfabank.st/icons/icon_error_m_color.svg');
+    --input-inverted-error-icon: url('https://alfabank.st/icons/icon_error_m_color.svg');
 }
