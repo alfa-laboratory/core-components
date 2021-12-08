@@ -69,7 +69,7 @@
 .children {
     @mixin paragraph_primary_small;
 
-    word-break: break-all;
+    word-break: break-word;
 }
 
 .title + .children {

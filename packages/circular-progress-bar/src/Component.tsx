@@ -4,6 +4,12 @@ import { Typography } from '@alfalab/core-components-typography';
 
 import styles from './index.module.css';
 
+const SIZES = {
+    s: 96,
+    m: 120,
+    l: 144,
+};
+
 export type CircularProgressBarProps = {
     /**
      * Уровень прогресса, %
@@ -31,9 +37,9 @@ export type CircularProgressBarProps = {
     view?: 'positive' | 'negative';
 
     /**
-     * Размер (l - 144x144px, m - 120x120px)
+     * Размер (l — 144×144px, m — 120×120px, s — 96×96px)
      */
-    size?: 'l' | 'm';
+    size?: 'l' | 'm' | 's';
 
     /**
      * Id компонента для тестов
@@ -58,8 +64,8 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
         const strokeWidth = 8;
         const maxProgress = 100;
         const minProgress = 0;
-        const width = size === 'l' ? 144 : 120;
-        const height = size === 'l' ? 144 : 120;
+        const width = SIZES[size];
+        const height = SIZES[size];
         const center = width / 2;
         const radius = center - strokeWidth / 2;
         const circumference = Math.PI * radius * 2;

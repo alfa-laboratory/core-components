@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.1.2...@alfalab/core-components-select@10.2.0) (2021-12-01)
+
+
+### Features
+
+* **circular-progress-bar:** new size S ([d34db5c](https://github.com/alfa-laboratory/core-components/commit/d34db5cca682bc63f948a0dad322604c8044a6b8))
+
+
+
+
+
 ## [10.1.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.1.1...@alfalab/core-components-select@10.1.2) (2021-11-26)
 
 **Note:** Version bump only for package @alfalab/core-components-select
