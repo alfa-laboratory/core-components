@@ -23,7 +23,7 @@
         "@alfalab/core-components-icon-button": "^4.0.0",
         "@alfalab/core-components-tooltip": "^4.4.0",
         "@alfalab/core-components-typography": "^2.1.0",
-        "@alfalab/hooks": "^1.3.0",
+        "@alfalab/hooks": "^1.4.1",
         "@alfalab/icons-glyph": "^1.190.0",
         "classnames": "^2.2.6",
         "element-closest": "^3.0.2",

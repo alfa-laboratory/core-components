@@ -19,7 +19,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-button": "^5.0.0",
-        "@alfalab/hooks": "^1.2.0",
+        "@alfalab/hooks": "^1.4.1",
         "classnames": "^2.2.6",
         "date-fns": "^2.16.1",
         "react-merge-refs": "^1.1.0"
