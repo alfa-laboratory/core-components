@@ -1,3 +1,15 @@
+# [23.0.0](https://github.com/alfa-laboratory/core-components/compare/v22.3.1...v23.0.0) (2021-12-08)
+
+
+* fix!: новый cdn иконок (#913) (#917) ([224831f](https://github.com/alfa-laboratory/core-components/commit/224831f41ed2de49dc1a228dc081b0629cf274b1)), closes [#913](https://github.com/alfa-laboratory/core-components/issues/913) [#917](https://github.com/alfa-laboratory/core-components/issues/917)
+
+
+### BREAKING CHANGES
+
+* Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.gcdn.co data: 'self'`
+
+This reverts commit 953fbcfec46a40089a5cfde670597315269b05f5.
+
 ## [22.3.1](https://github.com/alfa-laboratory/core-components/compare/v22.3.0...v22.3.1) (2021-12-08)
 
 
