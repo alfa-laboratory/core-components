@@ -1,3 +1,22 @@
+# [22.3.0](https://github.com/alfa-laboratory/core-components/compare/v22.2.0...v22.3.0) (2021-12-08)
+
+
+### Bug Fixes
+
+* актуализируем @alfalab/utils ([#897](https://github.com/alfa-laboratory/core-components/issues/897)) ([30fb88e](https://github.com/alfa-laboratory/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+* новый cdn иконок ([#913](https://github.com/alfa-laboratory/core-components/issues/913)) ([0e81245](https://github.com/alfa-laboratory/core-components/commit/0e8124552206f96149d104f65cff1667e857bf01))
+* **bank-card:** фикс цвета иконки ([#898](https://github.com/alfa-laboratory/core-components/issues/898)) ([66c2659](https://github.com/alfa-laboratory/core-components/commit/66c265919e7452af324ceabd26813a8be19b4839))
+* **calendar-input:** рендер rightAddons, фикс затертых пропсов ([#895](https://github.com/alfa-laboratory/core-components/issues/895)) ([1eabd29](https://github.com/alfa-laboratory/core-components/commit/1eabd2902cd1bd62517284313f79cf31189cf525))
+* **dropzone:** изменение темы клика ([#893](https://github.com/alfa-laboratory/core-components/issues/893)) ([cadc6da](https://github.com/alfa-laboratory/core-components/commit/cadc6da29896e6a033bac8e91723b20beb404b32))
+* **plate:** активный курсор только для foldable плашек ([#912](https://github.com/alfa-laboratory/core-components/issues/912)) ([06a38bd](https://github.com/alfa-laboratory/core-components/commit/06a38bd6bd07d016d670e600b373791aabe3d3ea))
+* **radio:** условный рендер подсказки и лейбла ([#892](https://github.com/alfa-laboratory/core-components/issues/892)) ([b744c15](https://github.com/alfa-laboratory/core-components/commit/b744c159f3779c5bf555041e7762f9653efb7b0e)), closes [#869](https://github.com/alfa-laboratory/core-components/issues/869)
+
+
+### Features
+
+* **calendar:** мобильные стили ([#867](https://github.com/alfa-laboratory/core-components/issues/867)) ([febf545](https://github.com/alfa-laboratory/core-components/commit/febf54551f8179a1ba03fe65ed47aa3b20b01472))
+* **calendar:** показываем будущий год ([#900](https://github.com/alfa-laboratory/core-components/issues/900)) ([3cd3c63](https://github.com/alfa-laboratory/core-components/commit/3cd3c63e5ff88066599d0944a2d3183e63150664))
+
 # [22.2.0](https://github.com/alfa-laboratory/core-components/compare/v22.1.0...v22.2.0) (2021-12-01)
 
 
