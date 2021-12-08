@@ -827,6 +827,8 @@ a.loading_1jKXs {
     min-height: 56px;
     padding: var(--gap-m);
     outline: none;
+}
+.foldable_2GFVz {
     cursor: pointer;
 }
 .component_2E-YU * {
@@ -2313,6 +2315,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     margin-right: calc(var(--gap-s) * -1)
 }
 .usePhoto_1D-Lf svg {
+        fill: var(--color-black);
         display: block;
     }
 .component_1wheX {
