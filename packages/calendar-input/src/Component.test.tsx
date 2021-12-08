@@ -12,6 +12,16 @@ describe('CalendarInput', () => {
         it('should match snapshot', () => {
             expect(render(<CalendarInput />).container).toMatchSnapshot();
         });
+
+        it('should render left addons', () => {
+            expect(render(<CalendarInput leftAddons={<div>Left addons</div>} />)).toMatchSnapshot();
+        });
+
+        it('should render right addons', () => {
+            expect(
+                render(<CalendarInput rightAddons={<div>Right addons</div>} />),
+            ).toMatchSnapshot();
+        });
     });
 
     it('should set `data-test-id` attribute', () => {
@@ -534,6 +544,24 @@ describe('CalendarInput', () => {
             expect(payload.date).toBeTruthy();
             expect(payload.date.getTime()).toBe(defaultMonth);
             expect(payload.value).toBe('01.11.2020');
+        });
+
+        it('should call onKeyDown callback', async () => {
+            const cb = jest.fn();
+            const value = '01.11.2020';
+            const { queryByRole } = render(
+                <CalendarInput calendarPosition='static' onKeyDown={cb} />,
+            );
+
+            const input = queryByRole('textbox') as HTMLInputElement;
+
+            userEvent.type(input, value);
+
+            await waitFor(() => {
+                expect(input).toHaveValue(value);
+            });
+
+            expect(cb).toBeCalledTimes(value.length);
         });
 
         it('should not call onChange until the full date is entered', async () => {
