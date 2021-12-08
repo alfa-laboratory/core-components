@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-input@7.3.6...@alfalab/core-components-input@8.0.0) (2021-12-08)
+
+
+* fix!: новый cdn иконок (#913) (#917) ([224831f](https://github.com/alfa-laboratory/core-components/commit/224831f41ed2de49dc1a228dc081b0629cf274b1)), closes [#913](https://github.com/alfa-laboratory/core-components/issues/913) [#917](https://github.com/alfa-laboratory/core-components/issues/917)
+
+
+### BREAKING CHANGES
+
+* Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.gcdn.co data: 'self'`
+
+This reverts commit 953fbcfec46a40089a5cfde670597315269b05f5.
+
+
+
+
+
 ## [7.3.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-input@7.3.5...@alfalab/core-components-input@7.3.6) (2021-12-08)
 
 
