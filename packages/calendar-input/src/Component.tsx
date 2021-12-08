@@ -46,6 +46,11 @@ export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'>
     inputClassName?: string;
 
     /**
+     * Дополнительный класс для поповера
+     */
+    popoverClassName?: string;
+
+    /**
      * Доп. пропсы для календаря
      */
     calendarProps?: CalendarProps & Record<string, unknown>;
@@ -131,6 +136,11 @@ export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'>
      * Позиционирование поповера с календарем
      */
     popoverPosition?: PopoverProps['position'];
+
+    /**
+     * Календарь будет принимать ширину инпута
+     */
+    useAnchorWidth?: boolean;
 };
 
 export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
@@ -138,6 +148,8 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
         {
             block = false,
             className,
+            inputClassName,
+            popoverClassName,
             defaultOpen = false,
             defaultMonth,
             defaultValue = '',
@@ -159,6 +171,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             readOnly,
             Calendar = DefaultCalendar,
             popoverPosition = 'bottom-start',
+            useAnchorWidth,
             rightAddons,
             ...restProps
         },
@@ -361,8 +374,10 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                 {shouldRenderPopover && (
                     <Popover
                         open={open}
+                        useAnchorWidth={useAnchorWidth}
                         anchorElement={inputWrapperRef.current as HTMLElement}
                         popperClassName={styles.calendarContainer}
+                        className={popoverClassName}
                         position={popoverPosition}
                         offset={[0, 8]}
                         withTransition={false}
