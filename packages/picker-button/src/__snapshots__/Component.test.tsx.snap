@@ -9,46 +9,48 @@ exports[`Snapshots tests should display correctly 1`] = `
     role="combobox"
     tabindex="-1"
   >
-    <button
-      aria-controls="downshift-1-menu"
-      aria-labelledby="downshift-1-label"
-      class="component secondary m component secondary block withRightAddons component"
-      id="downshift-0-input"
-      tabindex="0"
-      type="button"
-    >
-      <span
-        class="text"
+    <div>
+      <button
+        aria-controls="downshift-1-menu"
+        aria-labelledby="downshift-1-label"
+        class="component secondary m component secondary block withRightAddons component"
+        id="downshift-0-input"
+        tabindex="0"
+        type="button"
       >
         <span
-          for="downshift-0-input"
-          id="downshift-1-label"
+          class="text"
         >
-          some label
-        </span>
-      </span>
-      <span
-        class="addons"
-      >
-        <span
-          class="iconContainer"
-        >
-          <svg
-            data-test-id="picker-button-icon"
-            fill="currentColor"
-            focusable="false"
-            height="24"
-            role="img"
-            viewBox="0 0 24 24"
-            width="24"
+          <span
+            for="downshift-0-input"
+            id="downshift-1-label"
           >
-            <path
-              d="M16.074 9.646l.708.708-5.068 5.068-5.068-5.068.708-.708 4.36 4.362z"
-            />
-          </svg>
+            some label
+          </span>
         </span>
-      </span>
-    </button>
+        <span
+          class="addons"
+        >
+          <span
+            class="iconContainer"
+          >
+            <svg
+              data-test-id="picker-button-icon"
+              fill="currentColor"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <path
+                d="M16.074 9.646l.708.708-5.068 5.068-5.068-5.068.708-.708 4.36 4.362z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+    </div>
   </div>
 </div>
 `;
@@ -63,36 +65,38 @@ exports[`Snapshots tests should display opened correctly 1`] = `
     role="combobox"
     tabindex="-1"
   >
-    <button
-      aria-controls="downshift-3-menu"
-      aria-labelledby="downshift-3-label"
-      class="component secondary m component secondary block iconOnly component"
-      id="downshift-2-input"
-      tabindex="0"
-      type="button"
-    >
-      <span
-        class="addons"
+    <div>
+      <button
+        aria-controls="downshift-3-menu"
+        aria-labelledby="downshift-3-label"
+        class="component secondary m component secondary block iconOnly component"
+        id="downshift-2-input"
+        tabindex="0"
+        type="button"
       >
         <span
-          class="iconContainer open"
+          class="addons"
         >
-          <svg
-            data-test-id="picker-button-icon"
-            fill="currentColor"
-            focusable="false"
-            height="24"
-            role="img"
-            viewBox="0 0 24 24"
-            width="24"
+          <span
+            class="iconContainer open"
           >
-            <path
-              d="M16.074 9.646l.708.708-5.068 5.068-5.068-5.068.708-.708 4.36 4.362z"
-            />
-          </svg>
+            <svg
+              data-test-id="picker-button-icon"
+              fill="currentColor"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <path
+                d="M16.074 9.646l.708.708-5.068 5.068-5.068-5.068.708-.708 4.36 4.362z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
-    </button>
+      </button>
+    </div>
   </div>
 </div>
 `;

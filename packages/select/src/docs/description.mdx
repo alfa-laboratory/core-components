@@ -312,11 +312,16 @@ const options = [
 render(<Select label='With addons' options={options} Field={CustomField} />);
 ```
 
+Для корректой работы выпадающего списка с компонентом `Button`,
+необходимо сделать обертку над компонентом кнопки и передать обертке `ref`
+
 ```tsx live
-const CustomField = ({ selected, innerProps, ...restProps }) => (
-    <Button {...innerProps} size='xs'>
-        {selected ? selected.content : 'Pick'}
-    </Button>
+const CustomField = ({ selected, innerProps: { ref, ...restInnerProps }, ...restProps }) => (
+    <div ref={ref}>
+        <Button {...restInnerProps} {...restProps} size='xs'>
+            {selected ? selected.content : 'Pick'}
+        </Button>
+    </div>
 );
 
 const options = [
