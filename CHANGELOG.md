@@ -1,3 +1,11 @@
+# [23.1.0](https://github.com/alfa-laboratory/core-components/compare/v23.0.0...v23.1.0) (2021-12-09)
+
+
+### Features
+
+* **file-upload-item:** обновлен внешний вид ([#902](https://github.com/alfa-laboratory/core-components/issues/902)) ([d0f7d1e](https://github.com/alfa-laboratory/core-components/commit/d0f7d1ebdf302711a01549e86d0d8a5129b66d82))
+* **status:** добавлено 10% прозрачности в цвет фона ([#896](https://github.com/alfa-laboratory/core-components/issues/896)) ([b55c62b](https://github.com/alfa-laboratory/core-components/commit/b55c62b49cc52a15ff7497b9ad329773fba15959))
+
 # [23.0.0](https://github.com/alfa-laboratory/core-components/compare/v22.3.1...v23.0.0) (2021-12-08)
 
 
