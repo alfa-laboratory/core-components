@@ -33,4 +33,13 @@
 
 .target {
     cursor: pointer;
+    width: max-content;
+
+    &.disabled {
+        cursor: var(--disabled-cursor);
+    }
+
+    & .disabledChild {
+        pointer-events: none;
+    }
 }

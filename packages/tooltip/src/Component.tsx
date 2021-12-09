@@ -279,7 +279,9 @@ export const Tooltip: FC<TooltipProps> = ({
 
     const getTargetProps = (): HTMLAttributes<HTMLElement> => {
         const props = {
-            className: cn(styles.target, targetClassName),
+            className: cn(styles.target, targetClassName, {
+                [styles.disabled]: children.props.disabled,
+            }),
         };
 
         switch (trigger) {
@@ -319,7 +321,9 @@ export const Tooltip: FC<TooltipProps> = ({
     return (
         <Fragment>
             <div ref={mergeRefs([targetRef, setTarget])} {...getTargetProps()}>
-                {children}
+                <span className={cn({ [styles.disabledChild]: children.props.disabled })}>
+                    {children}
+                </span>
             </div>
 
             <Popover
