@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@4.0.1...@alfalab/core-components-icon-button@4.1.0) (2021-12-09)
+
+
+### Features
+
+* **file-upload-item:** обновлен внешний вид ([#902](https://github.com/alfa-laboratory/core-components/issues/902)) ([d0f7d1e](https://github.com/alfa-laboratory/core-components/commit/d0f7d1ebdf302711a01549e86d0d8a5129b66d82))
+
+
+
+
+
 ## [4.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@4.0.0...@alfalab/core-components-icon-button@4.0.1) (2021-12-08)
 
 **Note:** Version bump only for package @alfalab/core-components-icon-button
