@@ -5484,24 +5484,35 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 
     display: flex;
     width: 100%;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    border-bottom: 1px solid var(--color-light-border-primary);
+    padding: var(--gap-xs);
     color: var(--color-light-text-secondary);
-    padding: 0 0 var(--gap-xs) 0;
-    margin-bottom: var(--gap-xs)
+    -webkit-box-shadow: 0 -1px 0 0 var(--color-light-border-primary) inset;
+            box-shadow: 0 -1px 0 0 var(--color-light-border-primary) inset;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box
 }
 .component_2g869 svg {
         display: block;
     }
+.infoSection_BrDop {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    margin-top: var(--gap-2xs);
+    margin-left: var(--gap-s);
+    min-width: 40%;
+}
 .info_114t7 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     -webkit-box-flex: 1;
@@ -5525,15 +5536,10 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     color: var(--color-light-graphic-positive);
 }
 .name_YRq9a {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    margin-left: var(--gap-xs);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: var(--color-light-text-primary);
-    min-width: 40%
+    color: var(--color-light-text-primary)
 }
 .name_YRq9a a {
         display: block;
@@ -5546,8 +5552,9 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-
-    white-space: nowrap
+    white-space: nowrap;
+    margin-right: var(--gap-2xs);
+    margin-left: var(--gap-xl)
 }
 .meta_1mDsX > * {
         margin-right: var(--gap-s)
@@ -5556,25 +5563,58 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
             margin-right: 0;
         }
 .size_2WSPd {
-    width: 65px;
     text-align: right;
 }
-.delete_37bBe {
+.delete_37bBe,
+.download_bCBA4 {
     height: 24px;
     width: 24px;
-    margin-left: var(--gap-s);
+    margin-left: var(--gap-xs)
 }
-.error_-JxC8 {
+.delete_37bBe svg, .download_bCBA4 svg {
+        width: 18px;
+        height: 18px;
+    }
+.errorWrapper__YBE6 {
+    margin-top: var(--gap-s);
     color: var(--color-light-text-accent)
 }
 @media (--small-only) {
-.error_-JxC8 {
+.errorWrapper__YBE6 {
         -webkit-box-flex: 1;
             -ms-flex: 1 0 100%;
                 flex: 1 0 100%;
         margin-top: var(--gap-3xs)
 }
     }
+.restore_1nWtB {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+
+    margin-left: var(--gap-s);
+}
+.spinnerWrapper_2bZ4s {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 24px;
+    height: 24px;
+}
+.spinner_3gOka {
+    width: 20px;
+    height: 20px;
+}
+.uploadPercent_i-PSd {
+    margin-top: var(--gap-2xs);
+    margin-left: var(--gap-xl);
+}
 .component_3x0eZ {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -16536,31 +16576,31 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
         padding: 0;
     }
 .soft_767Gt.green_YcWxs {
-        background: var(--color-static-status-green-tint-90);
+        background: var(--color-static-status-green-alpha-10);
         color: var(--color-static-status-green);
     }
 .soft_767Gt.orange_tItbu {
-        background: var(--color-static-status-orange-tint-90);
+        background: var(--color-static-status-orange-alpha-10);
         color: var(--color-static-status-orange);
     }
 .soft_767Gt.red_3zeru {
-        background: var(--color-static-status-red-tint-90);
+        background: var(--color-static-status-red-alpha-10);
         color: var(--color-static-status-red);
     }
 .soft_767Gt.blue_5HpPE {
-        background: var(--color-static-status-blue-tint-90);
+        background: var(--color-static-status-blue-alpha-10);
         color: var(--color-static-status-blue);
     }
 .soft_767Gt.grey_Eo7ge {
-        background: var(--color-static-status-grey-tint-90);
+        background: var(--color-static-status-grey-alpha-10);
         color: var(--color-static-status-grey);
     }
 .soft_767Gt.teal_xQg2m {
-        background: var(--color-static-status-teal-tint-90);
+        background: var(--color-static-status-teal-alpha-10);
         color: var(--color-static-status-teal);
     }
 .soft_767Gt.purple_197xs {
-        background: var(--color-static-status-purple-tint-90);
+        background: var(--color-static-status-purple-alpha-10);
         color: var(--color-static-status-purple);
     }
 .contrast_1Y8ij {
@@ -17906,12 +17946,19 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --color-static-status-red: #d91d0b;
     --color-static-status-teal: #219187;
     --color-static-status-blue-tint-90: rgb(230, 242, 255);
+    --color-static-status-blue-alpha-10: rgba(0, 122, 255, 0.1);
     --color-static-status-green-tint-90: rgb(231, 246, 239);
+    --color-static-status-green-alpha-10: rgba(19, 164, 99, 0.1);
     --color-static-status-grey-tint-90: rgb(240, 242, 243);
+    --color-static-status-grey-alpha-10: rgba(109, 121, 134, 0.1);
     --color-static-status-orange-tint-90: rgb(252, 240, 230);
+    --color-static-status-orange-alpha-10: rgba(222, 106, 0, 0.1);
     --color-static-status-purple-tint-90: rgb(240, 235, 248);
+    --color-static-status-purple-alpha-10: rgba(103, 58, 183, 0.1);
     --color-static-status-red-tint-90: rgb(251, 232, 231);
+    --color-static-status-red-alpha-10: rgba(217, 29, 11, 0.1);
     --color-static-status-teal-tint-90: rgb(233, 244, 243);
+    --color-static-status-teal-alpha-10: rgba(33, 145, 135, 0.1);
 }
 :root {
     --color-dark-bg-accent: #ef3124;
