@@ -279,9 +279,7 @@ export const Tooltip: FC<TooltipProps> = ({
 
     const getTargetProps = (): HTMLAttributes<HTMLElement> => {
         const props = {
-            className: cn(styles.target, targetClassName, {
-                [styles.disabled]: children.props.disabled,
-            }),
+            className: cn(styles.target, targetClassName),
         };
 
         switch (trigger) {
@@ -321,9 +319,8 @@ export const Tooltip: FC<TooltipProps> = ({
     return (
         <Fragment>
             <div ref={mergeRefs([targetRef, setTarget])} {...getTargetProps()}>
-                <span className={cn({ [styles.disabledChild]: children.props.disabled })}>
-                    {children}
-                </span>
+                {children.props.disabled && <div className={styles.overlap} />}
+                {children}
             </div>
 
             <Popover

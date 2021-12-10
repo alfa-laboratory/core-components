@@ -34,12 +34,13 @@
 .target {
     cursor: pointer;
     width: max-content;
+    position: relative;
 
-    &.disabled {
+    & .overlap {
         cursor: var(--disabled-cursor);
-    }
-
-    & .disabledChild {
-        pointer-events: none;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 1000;
     }
 }

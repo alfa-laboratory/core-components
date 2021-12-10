@@ -8,13 +8,9 @@ Object {
       <div
         class="target"
       >
-        <span
-          class=""
-        >
-          <div>
-            Hover me
-          </div>
-        </span>
+        <div>
+          Hover me
+        </div>
       </div>
     </div>
     <div
@@ -25,13 +21,9 @@ Object {
     <div
       class="target"
     >
-      <span
-        class=""
-      >
-        <div>
-          Hover me
-        </div>
-      </span>
+      <div>
+        Hover me
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -128,13 +120,9 @@ Object {
       <div
         class="target"
       >
-        <span
-          class=""
-        >
-          <div>
-            Hover me
-          </div>
-        </span>
+        <div>
+          Hover me
+        </div>
       </div>
     </div>
   </body>,
@@ -142,13 +130,9 @@ Object {
     <div
       class="target"
     >
-      <span
-        class=""
-      >
-        <div>
-          Hover me
-        </div>
-      </span>
+      <div>
+        Hover me
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -245,13 +229,9 @@ Object {
       <div
         class="target"
       >
-        <span
-          class=""
-        >
-          <div>
-            Hover me
-          </div>
-        </span>
+        <div>
+          Hover me
+        </div>
       </div>
     </div>
   </body>,
@@ -259,13 +239,9 @@ Object {
     <div
       class="target"
     >
-      <span
-        class=""
-      >
-        <div>
-          Hover me
-        </div>
-      </span>
+      <div>
+        Hover me
+      </div>
     </div>
   </div>,
   "debug": [Function],
