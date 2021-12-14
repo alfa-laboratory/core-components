@@ -1,0 +1,74 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import IconM from '@alfalab/icons-glyph/StarMIcon';
+import { text, select, boolean, color } from '@storybook/addon-knobs';
+import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
+
+import { CustomButton } from '../';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../index.module.css';
+
+export const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
+export const CONTENT_COLORS = ['white', 'black'];
+
+<Meta
+    title='Компоненты/CustomButton'
+    component={CustomButton}
+/>
+
+
+<!-- Canvas -->
+
+
+<Story name='CustomButton'>
+    {React.createElement(() => {
+        return (
+            <div style={{
+                backgroundColor: 'transparent',
+                padding: '8px',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+            }}>
+                <CustomButton
+                    size={select('size', SIZES, 'm')}
+                    backgroundColor={color('backgroundColor',"#FF45C3")}
+                    contentColor={select('contentColor', CONTENT_COLORS, 'white')}
+                    href={text('href', '')}
+                    loading={boolean('loading', false)}
+                    disabled={boolean('disabled', false)}
+                    block={boolean('block', false)}
+                    nowrap={boolean('nowrap', false)}
+                    leftAddons={boolean('leftAddons', false) && <IconM />}
+                    rightAddons={boolean('rightAddons', false) && <IconM />}
+                >
+                    {text('label', 'Оплатить')}
+                </CustomButton>
+            </div>
+        )
+    })}
+</Story>
+
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='CustomButton'
+    version={version}
+    stage={1}
+    design='https://www.figma.com/file/JnpPl4gvg2Zjr7zvTz8mUk/Core-%7C-%F0%9F%91%91-Default?node-id=3306%3A33232'
+/>
+
+```tsx
+import { CustomButton } from '@alfalab/core-components/сustom-button';
+```
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props of={CustomButton} /> }
+    cssVars={<CssVars css={`${styles}`} />}
+/>
