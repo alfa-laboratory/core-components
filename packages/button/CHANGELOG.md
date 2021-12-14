@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@5.0.1...@alfalab/core-components-button@5.0.2) (2021-12-14)
+
+
+### Bug Fixes
+
+* **button:** удален вызов console.warn, если process.env.NODE_ENV !== 'development' ([d3e14ce](https://github.com/alfa-laboratory/core-components/commit/d3e14cef7835b5512e4848c5a1048475a8990018))
+
+
+
+
+
 ## [5.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@5.0.0...@alfalab/core-components-button@5.0.1) (2021-12-08)
 
 

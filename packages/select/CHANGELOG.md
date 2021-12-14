@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.2.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.2.3...@alfalab/core-components-select@10.2.4) (2021-12-14)
+
+
+### Bug Fixes
+
+* **picker-button:** wrap field with div ([b51bce8](https://github.com/alfa-laboratory/core-components/commit/b51bce85b39583e7bb1107f56c6e64a6f2b96d5c)), closes [#914](https://github.com/alfa-laboratory/core-components/issues/914)
+
+
+
+
+
 ## [10.2.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.2.2...@alfalab/core-components-select@10.2.3) (2021-12-08)
 
 **Note:** Version bump only for package @alfalab/core-components-select

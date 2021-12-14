@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-input@8.0.0...@alfalab/core-components-input@8.0.1) (2021-12-14)
+
+**Note:** Version bump only for package @alfalab/core-components-input
+
+
+
+
+
 # [8.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-input@7.3.6...@alfalab/core-components-input@8.0.0) (2021-12-08)
 
 

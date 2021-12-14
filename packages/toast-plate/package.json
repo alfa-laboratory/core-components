@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-toast-plate",
-    "version": "4.0.11",
+    "version": "4.0.12",
     "description": "Toast plate component",
     "keywords": [],
     "license": "MIT",
@@ -21,7 +21,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-badge": "^1.0.3",
-        "@alfalab/core-components-button": "^5.0.1",
+        "@alfalab/core-components-button": "^5.0.2",
         "@alfalab/icons-glyph": "^1.190.0",
         "classnames": "^2.2.6"
     }
