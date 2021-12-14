@@ -5090,6 +5090,52 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
             -ms-flex-align: center;
                 align-items: center;
     }
+.customButton_3zSaL {
+    overflow: hidden;
+    position: relative
+}
+.customButton_3zSaL.white_1201W * {
+        color: var(--color-static-text-primary-light);
+    }
+.customButton_3zSaL.black_1uqjl * {
+        color: var(--color-static-text-primary-dark);
+    }
+.customButton_3zSaL span {
+        position: relative;
+        z-index: 3;
+    }
+.customButton_3zSaL:before {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0);
+        content: '';
+        -webkit-transition: 0.2s;
+        transition: 0.2s;
+        opacity: 1;
+        pointer-events: none;
+    }
+.customButton_3zSaL:hover:before {
+        background-color: rgba(0, 0, 0, 0.07);
+    }
+.customButton_3zSaL:active:before {
+        background-color: rgba(0, 0, 0, 0.15);
+    }
+/* Disabled */
+.customButton_3zSaL:disabled {
+    opacity: 0.3
+}
+.customButton_3zSaL:disabled.customLoading_3sUEa {
+        opacity: 1;
+    }
+.customButton_3zSaL:disabled.white_1201W * {
+        color: var(--color-static-text-primary-light);
+    }
+.customButton_3zSaL:disabled.black_1uqjl * {
+        color: var(--color-static-text-primary-dark);
+    }
 :root {
     --divider-color: var(--color-light-border-primary);
 }
