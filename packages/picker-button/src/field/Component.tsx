@@ -30,25 +30,29 @@ export const Field = ({
 }: FieldProps) => {
     const Icon: FC<SVGProps<SVGSVGElement>> = buttonSize === 'xs' ? ArrowDownSIcon : ArrowDownMIcon;
 
+    const { ref, ...restInnerProps } = innerProps;
+
     const buttonProps = {
         ...restProps,
-        ...innerProps,
+        ...restInnerProps,
     } as ButtonHTMLAttributes<HTMLButtonElement>;
 
     return (
-        <Button
-            {...buttonProps}
-            rightAddons={
-                <span className={cn(styles.iconContainer, open && styles.open)}>
-                    <Icon data-test-id='picker-button-icon' />
-                </span>
-            }
-            block={true}
-            view={view}
-            size={buttonSize}
-            className={cn(styles.component, view === 'primary' && styles.primary, className)}
-        >
-            {label}
-        </Button>
+        <div ref={ref}>
+            <Button
+                {...buttonProps}
+                rightAddons={
+                    <span className={cn(styles.iconContainer, open && styles.open)}>
+                        <Icon data-test-id='picker-button-icon' />
+                    </span>
+                }
+                block={true}
+                view={view}
+                size={buttonSize}
+                className={cn(styles.component, view === 'primary' && styles.primary, className)}
+            >
+                {label}
+            </Button>
+        </div>
     );
 };
