@@ -103,6 +103,10 @@ export type ButtonProps = Partial<AnchorButtonProps | NativeButtonProps>;
 export const LOADER_MIN_DISPLAY_INTERVAL = 500;
 
 const logWarning = (view: Required<ComponentProps>['view']) => {
+    if (process.env.NODE_ENV !== 'development') {
+        return;
+    }
+
     const viewsMap: { [key: string]: string } = {
         filled: 'secondary',
         transparent: 'secondary',
@@ -114,7 +118,7 @@ const logWarning = (view: Required<ComponentProps>['view']) => {
         // eslint-disable-next-line prefer-template
         `@alfalab/core-components/button: view='${view}' будет удален в следующих мажорных версиях. ` +
             `Используйте view='${viewsMap[view]}'. Чтобы поменять все кнопки на проекте разом, можно воспользоваться codemod: ` +
-            'npx core-components-codemod --components=ButtonViews src/**/*.tsx',
+            'npx core-components-codemod --transformers=button-views src/**/*.tsx',
     );
 };
 
