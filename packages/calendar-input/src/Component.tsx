@@ -138,6 +138,11 @@ export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'>
     popoverPosition?: PopoverProps['position'];
 
     /**
+     * z-index Popover
+     */
+    zIndexPopover?: PopoverProps['zIndex'];
+
+    /**
      * Календарь будет принимать ширину инпута
      */
     useAnchorWidth?: boolean;
@@ -171,6 +176,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             readOnly,
             Calendar = DefaultCalendar,
             popoverPosition = 'bottom-start',
+            zIndexPopover,
             useAnchorWidth,
             rightAddons,
             ...restProps
@@ -382,6 +388,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                         offset={[0, 8]}
                         withTransition={false}
                         preventFlip={preventFlip}
+                        zIndex={zIndexPopover}
                     >
                         {renderCalendar()}
                     </Popover>
