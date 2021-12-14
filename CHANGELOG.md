@@ -1,3 +1,18 @@
+# [23.2.0](https://github.com/alfa-laboratory/core-components/compare/v23.1.0...v23.2.0) (2021-12-14)
+
+
+### Bug Fixes
+
+* **button:** удален вызов console.warn, если process.env.NODE_ENV !== 'development' ([d3e14ce](https://github.com/alfa-laboratory/core-components/commit/d3e14cef7835b5512e4848c5a1048475a8990018))
+* **custom-button:** fix color variable & component description ([5b9df4d](https://github.com/alfa-laboratory/core-components/commit/5b9df4dffa070b8339f0e208c0d14c72ecdb2012))
+* **custom-button:** fix props type ([a1bf943](https://github.com/alfa-laboratory/core-components/commit/a1bf94319b8844cbb3fc7d4626d2232357d72f63))
+* **picker-button:** wrap field with div ([b51bce8](https://github.com/alfa-laboratory/core-components/commit/b51bce85b39583e7bb1107f56c6e64a6f2b96d5c)), closes [#914](https://github.com/alfa-laboratory/core-components/issues/914)
+
+
+### Features
+
+* **custom-button:** add custom-button component ([983bcd7](https://github.com/alfa-laboratory/core-components/commit/983bcd7119c6f674ed15ed5bfe069349449f84c8))
+
 # [23.1.0](https://github.com/alfa-laboratory/core-components/compare/v23.0.0...v23.1.0) (2021-12-09)
 
 
