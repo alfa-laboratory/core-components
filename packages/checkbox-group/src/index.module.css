@@ -4,6 +4,8 @@
     --checkbox-group-error-color: var(--color-light-text-negative);
     --checkbox-group-hint-color: var(--color-light-text-secondary);
     --checkbox-group-label-color: var(--color-light-text-primary);
+    --checkbox-group-error-padding-left: var(--gap-xs);
+    --checkbox-group-error-border-left: 1px solid var(--color-light-text-negative);
 }
 
 .component {
@@ -12,8 +14,8 @@
 }
 
 .error {
-    padding-left: var(--gap-xs);
-    border-left: 1px solid var(--color-light-text-negative);
+    padding-left: var(--checkbox-group-error-padding-left);
+    border-left: var(--checkbox-group-error-border-left);
 }
 
 .checkboxList {
