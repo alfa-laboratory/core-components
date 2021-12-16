@@ -1,0 +1,59 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+import { select, boolean, text } from '@storybook/addon-knobs';
+import { SfTouchIdXxlIcon } from '@alfalab/icons-glyph/SfTouchIdXxlIcon';
+import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
+import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
+
+import { IconView } from '..';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+
+
+<Meta
+    title='Компоненты/IconView'
+    component={IconView}
+/>
+
+
+<!-- Canvas -->
+
+<Story name='IconView'>
+    {React.createElement(() => {
+        const topAddons = boolean('topAddons', false);
+        const bottomAddons = boolean('bottomAddons', false);
+        return (   
+            <IconView
+                size={select('size', ['48', '64', '80', '128'], '64')}
+                backgroundColor={text('backgroundColor', '#f3f4f5')}
+                border={boolean('border', false)}
+                imageUrl={text('imageUrl', '')}
+                topAddons={topAddons && <AlertCircleMIcon color="#2fc26e" /> }
+                bottomAddons={bottomAddons && <CheckmarkCircleMIcon color="#2fc26e" /> }
+            >
+                <SfTouchIdXxlIcon />
+            </IconView>
+        )
+    })}
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='IconView'
+    version={version}
+    package='@alfalab/core-components/icon-view'
+    stage={2}
+    design='https://www.figma.com/file/JnpPl4gvg2Zjr7zvTz8mUk/branch/ybhZv49Gy5W44bC6ZWTZyn/Core-%7C-%F0%9F%91%91-Default?node-id=2202%3A27524'
+/>
+
+```tsx
+import { IconView } from '@alfalab/core-components/icon-view';
+```
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props of={IconView} />}
+/>
