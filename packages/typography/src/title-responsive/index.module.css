@@ -16,7 +16,7 @@
 }
 
 .styrene-small {
-    @mixin headline_xsmall;
+    @mixin headline_small;
 }
 
 .styrene-xsmall {
