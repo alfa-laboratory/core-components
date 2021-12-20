@@ -1,3 +1,10 @@
+# [23.3.0](https://github.com/alfa-laboratory/core-components/compare/v23.2.0...v23.3.0) (2021-12-20)
+
+
+### Features
+
+* **checkbox-group:** add click theme ([967d585](https://github.com/alfa-laboratory/core-components/commit/967d58538c5537fc2b3ac583fb742ebaef86109e))
+
 # [23.2.0](https://github.com/alfa-laboratory/core-components/compare/v23.1.0...v23.2.0) (2021-12-14)
 
 
