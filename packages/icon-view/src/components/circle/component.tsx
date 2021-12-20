@@ -1,7 +1,7 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
 
-import { getClipPath, getBorderPath } from './paths';
+import { getPath } from './paths';
 import { ShapeProps } from '../../types';
 
 import styles from './index.module.css';
@@ -16,41 +16,26 @@ export const Circle: FC<ShapeProps> = ({
     topAddons,
     bottomAddons,
 }) => {
+    const imagePatternId = imageUrl && `${imageUrl.replace(/[^a-z]+/g, '')}_${size}`;
     const hasTopAddons = Boolean(topAddons);
     const hasBottomAddons = Boolean(bottomAddons);
-    const hasMask = hasTopAddons || hasBottomAddons;
 
-    const maskId = useMemo(
-        () =>
-            cn('core-components-mask', 'circle', size, {
-                'top-addons': hasTopAddons,
-                'bottom-addons': hasBottomAddons,
-            })
-                .split(' ')
-                .join('_'),
-        [size, hasTopAddons, hasBottomAddons],
-    );
-
-    const mask = hasMask && (
+    const imagePattern = imagePatternId && (
         <defs>
-            <clipPath id={maskId}>
-                <path fill='white' d={getClipPath(size, hasTopAddons, hasBottomAddons)} />
-            </clipPath>
+            <pattern id={imagePatternId} width='100%' height='100%'>
+                <image
+                    href={imageUrl}
+                    width='100%'
+                    height='100%'
+                    preserveAspectRatio='xMidYMid slice'
+                />
+            </pattern>
         </defs>
     );
 
     return (
         <div className={cn(styles.componentWrapper, styles[`size_${size}`], className)}>
-            <div
-                className={cn(styles.component, { [styles.withCssBorder]: border && !hasMask })}
-                style={{ clipPath: hasMask ? `url(#${maskId})` : '', backgroundColor }}
-            >
-                {imageUrl ? (
-                    <div className={styles.img} style={{ backgroundImage: `url(${imageUrl})` }} />
-                ) : (
-                    <div className={styles.children}>{children}</div>
-                )}
-
+            <div className={styles.component}>
                 <svg
                     width={size}
                     height={size}
@@ -58,16 +43,22 @@ export const Circle: FC<ShapeProps> = ({
                     xmlns='http://www.w3.org/2000/svg'
                     className={styles.svg}
                 >
-                    {mask}
+                    {imagePattern}
+
+                    <path
+                        fill={imagePatternId ? `url(#${imagePatternId})` : backgroundColor}
+                        d={getPath('shape', size, hasTopAddons, hasBottomAddons)}
+                    />
 
                     {border && (
                         <path
-                            d={getBorderPath(size, hasTopAddons, hasBottomAddons)}
                             className={styles.border}
-                            fill='transparent'
+                            d={getPath('border', size, hasTopAddons, hasBottomAddons)}
                         />
                     )}
                 </svg>
+
+                {!imageUrl && <div className={styles.children}>{children}</div>}
             </div>
 
             {hasTopAddons && <div className={cn(styles.addons, styles.topAddons)}>{topAddons}</div>}

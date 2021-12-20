@@ -11,6 +11,8 @@
 
 .border {
     stroke: var(--color-light-specialbg-component);
+    stroke-width: 1px;
+    fill: transparent;
 }
 
 .children {

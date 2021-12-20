@@ -25,6 +25,7 @@ import Changelog from '../../CHANGELOG.md';
         const bottomAddons = boolean('bottomAddons', false);
         return (   
             <IconView
+                shape={select('shape', ['super-ellipse', 'circle'], 'super-ellipse')}
                 size={select('size', ['48', '64', '80', '128'], '64')}
                 backgroundColor={text('backgroundColor', '#f3f4f5')}
                 border={boolean('border', false)}

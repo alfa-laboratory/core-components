@@ -73,18 +73,34 @@ render(
 const SIZES = ['48', '64', '80', '128'];
 
 const iconViewContent = {
-    '48': <Typography.Text view="primary-small" weight="bold">ЙО</Typography.Text>,
-    '64': <Typography.Text view="primary-large" weight="bold">ЙО</Typography.Text>
-    '80': <Typography.Title view="small" weight="bold">ЙО</Typography.Title>
-    '128': <Typography.Title view="medium" weight="bold">ЙО</Typography.Title>
-}
+    '48': (
+        <Typography.Text view='primary-small' weight='bold'>
+            ЙО
+        </Typography.Text>
+    ),
+    '64': (
+        <Typography.Text view='primary-large' weight='bold'>
+            ЙО
+        </Typography.Text>
+    ),
+    '80': (
+        <Typography.Title view='small' weight='bold' tag='h1'>
+            ЙО
+        </Typography.Title>
+    ),
+    '128': (
+        <Typography.Title view='medium' weight='bold' tag='h1'>
+            ЙО
+        </Typography.Title>
+    ),
+};
 
 render(
     <Container>
         <Row>
             {SIZES.map(size => (
                 <Col key={size}>
-                    <IconView backgroundColor="transparent" border={true} size={size}>
+                    <IconView backgroundColor='transparent' border={true} size={size}>
                         {iconViewContent[size]}
                     </IconView>
                 </Col>
@@ -95,10 +111,10 @@ render(
             {SIZES.map(size => (
                 <Col key={size}>
                     <IconView
-                        backgroundColor="transparent"
+                        backgroundColor='transparent'
                         border={true}
                         size={size}
-                        topAddons={<CheckmarkCircleMIcon color="#2fc26e" />}
+                        topAddons={<CheckmarkCircleMIcon color='#2fc26e' />}
                     >
                         <SfTouchIdXxlIcon />
                     </IconView>
@@ -106,14 +122,14 @@ render(
             ))}
         </Row>
 
-       <Row>
+        <Row>
             {SIZES.map(size => (
                 <Col key={size}>
                     <IconView
-                        backgroundColor="transparent"
+                        backgroundColor='transparent'
                         border={true}
                         size={size}
-                        bottomAddons={<AlertCircleMIcon color="#2fc26e" />}
+                        bottomAddons={<AlertCircleMIcon color='#2fc26e' />}
                     >
                         <SfTouchIdXxlIcon />
                     </IconView>
@@ -121,15 +137,15 @@ render(
             ))}
         </Row>
 
-       <Row>
+        <Row>
             {SIZES.map(size => (
                 <Col key={size}>
                     <IconView
-                        backgroundColor="transparent"
+                        backgroundColor='transparent'
                         border={true}
                         size={size}
-                        topAddons={<CheckmarkCircleMIcon color="#2fc26e" />}
-                        bottomAddons={<AlertCircleMIcon color="#2fc26e" />}
+                        topAddons={<CheckmarkCircleMIcon color='#2fc26e' />}
+                        bottomAddons={<AlertCircleMIcon color='#2fc26e' />}
                     >
                         <SfTouchIdXxlIcon />
                     </IconView>
@@ -358,7 +374,7 @@ render(
         <Row>
             {SIZES.map(size => (
                 <Col key={size}>
-                    <IconView shape="circle" size={size} imageUrl={IMG} border={true} />
+                    <IconView shape='circle' size={size} imageUrl={IMG} border={true} />
                 </Col>
             ))}
         </Row>
@@ -367,7 +383,7 @@ render(
             {SIZES.map(size => (
                 <Col key={size}>
                     <IconView
-                        shape="circle"
+                        shape='circle'
                         size={size}
                         imageUrl={IMG}
                         topAddons={<CheckmarkCircleMIcon color='#2fc26e' />}
@@ -381,7 +397,7 @@ render(
             {SIZES.map(size => (
                 <Col key={size}>
                     <IconView
-                        shape="circle"
+                        shape='circle'
                         size={size}
                         imageUrl={IMG}
                         bottomAddons={<CheckmarkCircleMIcon color='#2fc26e' />}
@@ -395,7 +411,7 @@ render(
             {SIZES.map(size => (
                 <Col key={size}>
                     <IconView
-                        shape="circle"
+                        shape='circle'
                         size={size}
                         imageUrl={IMG}
                         topAddons={<CheckmarkCircleMIcon color='#2fc26e' />}

@@ -1,7 +1,7 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
 
-import { getClipPath, shapes, getBorderPath } from './paths';
+import { getPath } from './paths';
 import { ShapeProps } from '../../types';
 
 import styles from './index.module.css';
@@ -16,24 +16,10 @@ export const SuperEllipse: FC<ShapeProps> = ({
     topAddons,
     bottomAddons,
 }) => {
-    const shapePath = shapes[size];
-
     const imagePatternId = imageUrl && `${imageUrl.replace(/[^a-z]+/g, '')}_${size}`;
 
     const hasTopAddons = Boolean(topAddons);
     const hasBottomAddons = Boolean(bottomAddons);
-    const hasMask = hasTopAddons || hasBottomAddons;
-
-    const maskId = useMemo(
-        () =>
-            cn('core-components-mask', 'super-ellipse', size, {
-                'top-addons': hasTopAddons,
-                'bottom-addons': hasBottomAddons,
-            })
-                .split(' ')
-                .join('_'),
-        [size, hasTopAddons, hasBottomAddons],
-    );
 
     const imagePattern = imagePatternId && (
         <defs>
@@ -48,20 +34,9 @@ export const SuperEllipse: FC<ShapeProps> = ({
         </defs>
     );
 
-    const mask = hasMask && (
-        <defs>
-            <clipPath id={maskId}>
-                <path d={getClipPath(size, hasTopAddons, hasBottomAddons)} />
-            </clipPath>
-        </defs>
-    );
-
     return (
         <div className={cn(styles.componentWrapper, styles[`size_${size}`], className)}>
-            <div
-                className={styles.component}
-                style={{ clipPath: hasMask ? `url(#${maskId})` : '' }}
-            >
+            <div className={styles.component}>
                 <svg
                     width={size}
                     height={size}
@@ -70,18 +45,15 @@ export const SuperEllipse: FC<ShapeProps> = ({
                 >
                     {imagePattern}
 
-                    {mask}
-
                     <path
-                        d={shapePath}
                         fill={imagePatternId ? `url(#${imagePatternId})` : backgroundColor}
+                        d={getPath('shape', size, hasTopAddons, hasBottomAddons)}
                     />
 
                     {border && (
                         <path
-                            d={getBorderPath(size, hasTopAddons, hasBottomAddons)}
                             className={styles.border}
-                            fill='transparent'
+                            d={getPath('border', size, hasTopAddons, hasBottomAddons)}
                         />
                     )}
                 </svg>
