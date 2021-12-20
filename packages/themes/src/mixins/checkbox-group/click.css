@@ -1,0 +1,5 @@
+@define-mixin checkbox-group-click {
+    /* theme */
+    --checkbox-group-error-padding-left: 0;
+    --checkbox-group-error-border-left: none;
+}
