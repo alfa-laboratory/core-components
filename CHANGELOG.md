@@ -1,3 +1,10 @@
+# [23.4.0](https://github.com/alfa-laboratory/core-components/compare/v23.3.0...v23.4.0) (2021-12-21)
+
+
+### Features
+
+* **calendar-input:** add popover z-index ([#924](https://github.com/alfa-laboratory/core-components/issues/924)) ([378286d](https://github.com/alfa-laboratory/core-components/commit/378286d746ca33aeb755617270f66310712d1c61))
+
 # [23.3.0](https://github.com/alfa-laboratory/core-components/compare/v23.2.0...v23.3.0) (2021-12-20)
 
 
