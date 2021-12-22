@@ -1,3 +1,10 @@
+## [23.4.1](https://github.com/alfa-laboratory/core-components/compare/v23.4.0...v23.4.1) (2021-12-22)
+
+
+### Bug Fixes
+
+* add missing vars imports ([#931](https://github.com/alfa-laboratory/core-components/issues/931)) ([35ba847](https://github.com/alfa-laboratory/core-components/commit/35ba847d39924e713166d79ae6d64444131794a1))
+
 # [23.4.0](https://github.com/alfa-laboratory/core-components/compare/v23.3.0...v23.4.0) (2021-12-21)
 
 
