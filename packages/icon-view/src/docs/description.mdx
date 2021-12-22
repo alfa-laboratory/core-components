@@ -1,63 +1,20 @@
-import { IconView } from '..';
+## Форма и размеры
 
-## SuperEllipse
+### SuperEllipse
 
-### С заливкой
+128px, 80px, 64px, 48px.
 
 ```tsx live
-// import { Typography } from '@alfalab/core-components/typography';
-
-const SIZES = ['48', '64', '80', '128'];
-
-const iconViewContent = {
-    '48': <Typography.Text view="primary-small" weight="bold">ЙО</Typography.Text>,
-    '64': <Typography.Text view="primary-large" weight="bold">ЙО</Typography.Text>
-    '80': <Typography.Title view="small" weight="bold">ЙО</Typography.Title>
-    '128': <Typography.Title view="medium" weight="bold">ЙО</Typography.Title>
-}
+const SIZES = ['128', '80', '64', '48'];
 
 render(
     <Container>
         <Row>
             {SIZES.map(size => (
                 <Col key={size}>
-                    <IconView size={size}>
-                        {iconViewContent[size]}
-                    </IconView>
-                </Col>
-            ))}
-        </Row>
-
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView size={size} topAddons={<CheckmarkCircleMIcon color="#2fc26e" />}>
+                    <SuperEllipse size={size}>
                         <SfTouchIdXxlIcon />
-                    </IconView>
-                </Col>
-            ))}
-        </Row>
-
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView size={size} bottomAddons={<CheckmarkCircleMIcon color="#2fc26e" />}>
-                        <ToolsMIcon />
-                    </IconView>
-                </Col>
-            ))}
-        </Row>
-
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView
-                        size={size}
-                        topAddons={<AlertCircleMIcon color="#2fc26e" />}
-                        bottomAddons={<CheckmarkCircleMIcon color="#2fc26e" />}
-                    >
-                        <SfPhoneXxlIcon />
-                    </IconView>
+                    </SuperEllipse>
                 </Col>
             ))}
         </Row>
@@ -65,90 +22,21 @@ render(
 );
 ```
 
-### С обводкой
+### Circle
+
+128px, 80px, 64px, 48px.
 
 ```tsx live
-// import { Typography } from '@alfalab/core-components/typography';
-
-const SIZES = ['48', '64', '80', '128'];
-
-const iconViewContent = {
-    '48': (
-        <Typography.Text view='primary-small' weight='bold'>
-            ЙО
-        </Typography.Text>
-    ),
-    '64': (
-        <Typography.Text view='primary-large' weight='bold'>
-            ЙО
-        </Typography.Text>
-    ),
-    '80': (
-        <Typography.Title view='small' weight='bold' tag='h1'>
-            ЙО
-        </Typography.Title>
-    ),
-    '128': (
-        <Typography.Title view='medium' weight='bold' tag='h1'>
-            ЙО
-        </Typography.Title>
-    ),
-};
+const SIZES = ['80', '64', '48'];
 
 render(
     <Container>
         <Row>
             {SIZES.map(size => (
                 <Col key={size}>
-                    <IconView backgroundColor='transparent' border={true} size={size}>
-                        {iconViewContent[size]}
-                    </IconView>
-                </Col>
-            ))}
-        </Row>
-
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView
-                        backgroundColor='transparent'
-                        border={true}
-                        size={size}
-                        topAddons={<CheckmarkCircleMIcon color='#2fc26e' />}
-                    >
+                    <Circle size={size}>
                         <SfTouchIdXxlIcon />
-                    </IconView>
-                </Col>
-            ))}
-        </Row>
-
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView
-                        backgroundColor='transparent'
-                        border={true}
-                        size={size}
-                        bottomAddons={<AlertCircleMIcon color='#2fc26e' />}
-                    >
-                        <SfTouchIdXxlIcon />
-                    </IconView>
-                </Col>
-            ))}
-        </Row>
-
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView
-                        backgroundColor='transparent'
-                        border={true}
-                        size={size}
-                        topAddons={<CheckmarkCircleMIcon color='#2fc26e' />}
-                        bottomAddons={<AlertCircleMIcon color='#2fc26e' />}
-                    >
-                        <SfTouchIdXxlIcon />
-                    </IconView>
+                    </Circle>
                 </Col>
             ))}
         </Row>
@@ -156,271 +44,90 @@ render(
 );
 ```
 
-### С картинкой
+## Фон
+
+Заливка и изображение с обводкой / без обводки
 
 ```tsx live
-// import { Typography } from '@alfalab/core-components/typography';
+<Container>
+    <Row>
+        <Col>
+            <SuperEllipse size='80' />
+        </Col>
 
-const SIZES = ['48', '64', '80', '128'];
-const IMG = 'https://picsum.photos/id/1081/5512/3708';
+        <Col>
+            <SuperEllipse size='80' border={true} />
+        </Col>
 
-render(
-    <Container>
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView size={size} imageUrl={IMG} border={true} />
-                </Col>
-            ))}
-        </Row>
+        <Col>
+            <SuperEllipse size='80' imageUrl='https://picsum.photos/id/1081/5512/3708' />
+        </Col>
 
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView
-                        size={size}
-                        imageUrl={IMG}
-                        topAddons={<CheckmarkCircleMIcon color='#2fc26e' />}
-                        border={true}
-                    />
-                </Col>
-            ))}
-        </Row>
-
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView
-                        size={size}
-                        imageUrl={IMG}
-                        bottomAddons={<CheckmarkCircleMIcon color='#2fc26e' />}
-                        border={true}
-                    />
-                </Col>
-            ))}
-        </Row>
-
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView
-                        size={size}
-                        imageUrl={IMG}
-                        topAddons={<CheckmarkCircleMIcon color='#2fc26e' />}
-                        bottomAddons={<AlertCircleMIcon color='#2fc26e' />}
-                        border={true}
-                    />
-                </Col>
-            ))}
-        </Row>
-    </Container>,
-);
+        <Col>
+            <SuperEllipse
+                size='80'
+                border={true}
+                imageUrl='https://picsum.photos/id/1081/5512/3708'
+            />
+        </Col>
+    </Row>
+</Container>
 ```
 
-## Circle
+## Контент
 
-### С заливкой
+Иконка, инициалы, без контента
 
 ```tsx live
-// import { Typography } from '@alfalab/core-components/typography';
+<Container>
+    <Row>
+        <Col>
+            <SuperEllipse size='80'>
+                <SfTouchIdXxlIcon />
+            </SuperEllipse>
+        </Col>
 
-const SIZES = ['48', '64', '80'];
+        <Col>
+            <SuperEllipse size='80'>
+                <Typography.Title view='small' weight='bold'>
+                    ЙО
+                </Typography.Title>
+            </SuperEllipse>
+        </Col>
 
-const iconViewContent = {
-    '48': <Typography.Text view="primary-small" weight="bold">ЙО</Typography.Text>,
-    '64': <Typography.Text view="primary-large" weight="bold">ЙО</Typography.Text>
-    '80': <Typography.Title view="small" weight="bold">ЙО</Typography.Title>
-    '128': <Typography.Title view="medium" weight="bold">ЙО</Typography.Title>
-}
-
-render(
-    <Container>
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView shape="circle" size={size}>
-                        {iconViewContent[size]}
-                    </IconView>
-                </Col>
-            ))}
-        </Row>
-
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView shape="circle" size={size} topAddons={<CheckmarkCircleMIcon color="#2fc26e" />}>
-                        <SfTouchIdXxlIcon />
-                    </IconView>
-                </Col>
-            ))}
-        </Row>
-
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView shape="circle" size={size} bottomAddons={<CheckmarkCircleMIcon color="#2fc26e" />}>
-                        <ToolsMIcon />
-                    </IconView>
-                </Col>
-            ))}
-        </Row>
-
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView
-                        shape="circle"
-                        size={size}
-                        topAddons={<AlertCircleMIcon color="#2fc26e" />}
-                        bottomAddons={<CheckmarkCircleMIcon color="#2fc26e" />}
-                    >
-                        <SfPhoneXxlIcon />
-                    </IconView>
-                </Col>
-            ))}
-        </Row>
-    </Container>,
-);
+        <Col>
+            <SuperEllipse size='80' />
+        </Col>
+    </Row>
+</Container>
 ```
 
-### С обводкой
+## Аддоны
+
+Без, правый верхний, правый нижний, оба.
 
 ```tsx live
-// import { Typography } from '@alfalab/core-components/typography';
+<Container>
+    <Row>
+        <Col>
+            <SuperEllipse size='80' />
+        </Col>
 
-const SIZES = ['48', '64', '80'];
+        <Col>
+            <SuperEllipse size='80' topAddons={<CheckmarkCircleMIcon color='#2fc26e' />} />
+        </Col>
 
-const iconViewContent = {
-    '48': <Typography.Text view="primary-small" weight="bold">ЙО</Typography.Text>,
-    '64': <Typography.Text view="primary-large" weight="bold">ЙО</Typography.Text>
-    '80': <Typography.Title view="small" weight="bold">ЙО</Typography.Title>
-    '128': <Typography.Title view="medium" weight="bold">ЙО</Typography.Title>
-}
+        <Col>
+            <SuperEllipse size='80' bottomAddons={<CheckmarkCircleMIcon color='#2fc26e' />} />
+        </Col>
 
-render(
-    <Container>
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView shape="circle" size={size} backgroundColor="transparent" border={true}>
-                        {iconViewContent[size]}
-                    </IconView>
-                </Col>
-            ))}
-        </Row>
-
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView
-                        shape="circle"
-                        size={size}
-                        topAddons={<CheckmarkCircleMIcon color="#2fc26e" />}
-                        backgroundColor="transparent"
-                        border={true}
-                    >
-                        <SfTouchIdXxlIcon />
-                    </IconView>
-                </Col>
-            ))}
-        </Row>
-
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView
-                        shape="circle"
-                        size={size}
-                        bottomAddons={<CheckmarkCircleMIcon color="#2fc26e" />}
-                        backgroundColor="transparent"
-                        border={true}
-                    >
-                        <ToolsMIcon />
-                    </IconView>
-                </Col>
-            ))}
-        </Row>
-
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView
-                        shape="circle"
-                        size={size}
-                        topAddons={<AlertCircleMIcon color="#2fc26e" />}
-                        bottomAddons={<CheckmarkCircleMIcon color="#2fc26e" />}
-                        backgroundColor="transparent"
-                        border={true}
-                    >
-                        <SfPhoneXxlIcon />
-                    </IconView>
-                </Col>
-            ))}
-        </Row>
-    </Container>,
-);
-```
-
-### С картинкой
-
-```tsx live
-// import { Typography } from '@alfalab/core-components/typography';
-
-const SIZES = ['48', '64', '80'];
-const IMG = 'https://picsum.photos/id/1081/5512/3708';
-
-render(
-    <Container>
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView shape='circle' size={size} imageUrl={IMG} border={true} />
-                </Col>
-            ))}
-        </Row>
-
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView
-                        shape='circle'
-                        size={size}
-                        imageUrl={IMG}
-                        topAddons={<CheckmarkCircleMIcon color='#2fc26e' />}
-                        border={true}
-                    />
-                </Col>
-            ))}
-        </Row>
-
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView
-                        shape='circle'
-                        size={size}
-                        imageUrl={IMG}
-                        bottomAddons={<CheckmarkCircleMIcon color='#2fc26e' />}
-                        border={true}
-                    />
-                </Col>
-            ))}
-        </Row>
-
-        <Row>
-            {SIZES.map(size => (
-                <Col key={size}>
-                    <IconView
-                        shape='circle'
-                        size={size}
-                        imageUrl={IMG}
-                        topAddons={<CheckmarkCircleMIcon color='#2fc26e' />}
-                        bottomAddons={<AlertCircleMIcon color='#2fc26e' />}
-                        border={true}
-                    />
-                </Col>
-            ))}
-        </Row>
-    </Container>,
-);
+        <Col>
+            <SuperEllipse
+                size='80'
+                topAddons={<CheckmarkCircleMIcon color='#2fc26e' />}
+                bottomAddons={<CheckmarkCircleMIcon color='#2fc26e' />}
+            />
+        </Col>
+    </Row>
+</Container>
 ```

@@ -17,10 +17,6 @@
     fill: transparent;
 }
 
-.svg {
-    position: relative;
-}
-
 .children {
     display: flex;
     justify-content: center;
@@ -136,15 +132,4 @@
         bottom: -8px;
         right: -8px;
     }
-}
-
-.img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
 }

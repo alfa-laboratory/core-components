@@ -2,17 +2,12 @@ import { ReactNode } from 'react';
 
 export type ShapeProps = {
     /**
-     * Размер компонента
-     */
-    size?: '48' | '64' | '80' | '128';
-
-    /**
      * Цвет заливки
      */
     backgroundColor?: string;
 
     /**
-     * Видимость бордера
+     * Видимость обводки
      */
     border?: boolean;
 
