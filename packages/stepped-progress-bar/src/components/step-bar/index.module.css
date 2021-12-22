@@ -1,3 +1,5 @@
+@import '../../../../themes/src/default.css';
+
 .bar {
     width: 100%;
     height: var(--gap-2xs);
