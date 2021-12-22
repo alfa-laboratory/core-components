@@ -1,0 +1,54 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { text, number, select, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
+
+
+import { Pagination } from '../index';
+import { version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+
+
+<Meta
+    title='Компоненты/Pagination'
+    component={Pagination}
+/>
+
+<!-- Canvas -->
+
+<Story name='Pagination'>
+    {React.createElement(() => {
+        const DATA_SIZE = 100;
+        const PER_PAGE = 25;
+        const [page, setPage] = React.useState(0);
+        const pagesCount = Math.ceil(DATA_SIZE / PER_PAGE);
+        const handlePageChange = pageIndex => setPage(pageIndex);
+        return (
+            <Pagination
+                currentPageIndex={page}
+                pagesCount={pagesCount}
+                onPageChange={handlePageChange}
+            />
+        );
+    })}
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Pagination'
+    version={version}
+    package='@alfalab/core-components/pagination'
+    stage={1}
+    design=''
+/>
+
+```tsx
+import { Pagination } from '@alfalab/core-components/pagination';
+```
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props of={Pagination} />}
+/>

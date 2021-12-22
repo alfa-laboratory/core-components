@@ -1,0 +1,22 @@
+Компонент пагинации
+
+```tsx live
+render(() => {
+    const DATA_SIZE = 100;
+    const PER_PAGE = 25;
+
+    const [page, setPage] = React.useState(0);
+
+    const handlePageChange = pageIndex => setPage(pageIndex);
+
+    const pagesCount = Math.ceil(DATA_SIZE / PER_PAGE);
+
+    return (
+        <Pagination
+            currentPageIndex={page}
+            pagesCount={pagesCount}
+            onPageChange={handlePageChange}
+        />
+    );
+});
+```

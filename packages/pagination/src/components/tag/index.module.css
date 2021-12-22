@@ -1,4 +1,4 @@
-@import '../../../../../themes/src/default.css';
+@import '../../../../themes/src/default.css';
 
 .tag {
     color: var(--color-light-text-secondary);

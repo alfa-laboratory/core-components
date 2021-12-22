@@ -2,10 +2,7 @@ import React, { FC, useMemo, useCallback } from 'react';
 import cn from 'classnames';
 
 import { Select, SelectProps } from '@alfalab/core-components-select';
-import { ChevronBackMIcon } from '@alfalab/icons-glyph/ChevronBackMIcon';
-import { ChevronForwardMIcon } from '@alfalab/icons-glyph/ChevronForwardMIcon';
-
-import { Tag } from './tag';
+import { Pagination as CorePagination } from '@alfalab/core-components-pagination';
 import { CustomSelectField } from './select-field';
 
 import styles from './index.module.css';
@@ -80,18 +77,6 @@ export const Pagination: FC<PaginationProps> = ({
         [onPerPageChange],
     );
 
-    const handlePageClick = (pageIndex: number) => {
-        onPageChange(pageIndex);
-    };
-
-    const handleNextPageClick = () => {
-        handlePageClick(Math.min(pagesCount - 1, currentPageIndex + 1));
-    };
-
-    const handlePrevPageClick = () => {
-        handlePageClick(Math.max(0, currentPageIndex - 1));
-    };
-
     return (
         <div className={cn(styles.component, className)} data-test-id={dataTestId}>
             <Select
@@ -106,42 +91,11 @@ export const Pagination: FC<PaginationProps> = ({
                 Field={CustomSelectField}
             />
 
-            {pagesCount > 1 && (
-                <div className={styles.pagesWrapper}>
-                    <Tag
-                        className={styles.tag}
-                        disabled={currentPageIndex <= 0}
-                        onClick={handlePrevPageClick}
-                        rightAddons={<ChevronBackMIcon width={16} height={16} />}
-                    />
-
-                    {Array(pagesCount)
-                        .fill('')
-                        .map((_, index) => {
-                            const active = currentPageIndex === index;
-
-                            return (
-                                <Tag
-                                    key={index.toString()}
-                                    className={cn(styles.tag, { [styles.tagActive]: active })}
-                                    checked={active}
-                                    disabled={active}
-                                    onClick={() => handlePageClick(index)}
-                                >
-                                    {index + 1}
-                                </Tag>
-                            );
-                        })}
-
-                    <Tag
-                        className={styles.tag}
-                        size='xs'
-                        disabled={currentPageIndex >= pagesCount - 1}
-                        onClick={handleNextPageClick}
-                        rightAddons={<ChevronForwardMIcon width={16} height={16} />}
-                    />
-                </div>
-            )}
+            <CorePagination
+                pagesCount={pagesCount}
+                currentPageIndex={currentPageIndex}
+                onPageChange={onPageChange}
+            />
         </div>
     );
 };

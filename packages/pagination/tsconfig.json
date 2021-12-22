@@ -9,5 +9,5 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../button" }, { "path": "../pagination" }, { "path": "../select" }]
+    "references": [{ "path": "../button" }, { "path": "../tag" }]
 }
