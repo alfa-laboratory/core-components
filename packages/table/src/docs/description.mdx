@@ -79,80 +79,6 @@ render(() => {
 });
 ```
 
-## Обертка
-
-`Wrapper` позволяет обернуть таблицу в контейнер, который задает нужные стили
-
-```tsx live
-const data = [
-    {
-        id: 28,
-        date: '30.06.2022',
-        title: 'ООО "КОРПУС-ИТ"',
-        sum: 21000000,
-    },
-    {
-        id: 12,
-        date: '30.06.2022',
-        title: 'ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "МОБИЛСТИЛ"',
-        subtitle:
-            'Оказание услуг по договору № 26/09 на основании акта № 1450 от 30 июня 2020 года, в т.ч. НДС 18%',
-        sum: 10002030,
-    },
-    {
-        id: 5,
-        date: '30.06.2022',
-        title: 'ИП Жуков Валерий Сергеевич',
-        subtitle: 'Услуги по ремонту за июнь, НДС не облагается',
-        sum: 3000069,
-    },
-];
-
-render(() => {
-    return (
-        <Table.Wrapper>
-            <Table>
-                <Table.THead>
-                    <Table.THeadCell title='Дата'>Дата</Table.THeadCell>
-
-                    <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
-
-                    <Table.THeadCell title='Сумма' textAlign='right' width={268}>
-                        Сумма
-                    </Table.THeadCell>
-                </Table.THead>
-                <Table.TBody>
-                    {data.map(row => (
-                        <Table.TRow key={row.id}>
-                            <Table.TCell>
-                                <Typography.Text view='primary-small' tag='div'>
-                                    {row.date}
-                                </Typography.Text>
-                            </Table.TCell>
-
-                            <Table.TCell>
-                                <Typography.Text view='primary-small' tag='div'>
-                                    {row.title}
-                                </Typography.Text>
-                            </Table.TCell>
-
-                            <Table.TCell>
-                                <Amount
-                                    value={row.sum}
-                                    currency='RUR'
-                                    minority={100}
-                                    view='withZeroMinorPart'
-                                />
-                            </Table.TCell>
-                        </Table.TRow>
-                    ))}
-                </Table.TBody>
-            </Table>
-        </Table.Wrapper>
-    );
-});
-```
-
 ## Настройка колонок
 
 Задавая настройки для `THeadCell` можно контролировать отображение колонки целиком:
@@ -451,8 +377,19 @@ render(() => {
     }, [data, page, perPage]);
 
     return (
-        <Table.Wrapper style={{ margin: '24px 0 40px' }}>
-            <Table>
+        <div style={{ margin: '24px 0 40px' }}>
+            <Table
+                pagination={
+                    <Table.Pagination
+                        perPage={perPage}
+                        currentPageIndex={page}
+                        possiblePerPage={[5, 10]}
+                        pagesCount={pagesCount}
+                        onPageChange={handlePageChange}
+                        onPerPageChange={handlePerPageChange}
+                    />
+                }
+            >
                 <Table.THead>
                     <Table.THeadCell title='Дата' width='120px'>
                         Дата
@@ -491,16 +428,7 @@ render(() => {
                     ))}
                 </Table.TBody>
             </Table>
-
-            <Table.Pagination
-                perPage={perPage}
-                currentPageIndex={page}
-                possiblePerPage={[5, 10]}
-                pagesCount={pagesCount}
-                onPageChange={handlePageChange}
-                onPerPageChange={handlePerPageChange}
-            />
-        </Table.Wrapper>
+        </div>
     );
 });
 ```
@@ -664,7 +592,7 @@ render(() => {
                         expanded={expandedRow === row.id}
                         onToggle={expanded => handleExpand(row.id, expanded)}
                         renderContent={expanded => (
-                            <Table.TCell colspan={3}>
+                            <Table.TCell colSpan={3}>
                                 <Collapse expanded={expanded}>
                                     <div style={{ paddingBottom: '16px' }}>
                                         <div

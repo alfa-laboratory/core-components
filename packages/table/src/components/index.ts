@@ -1,4 +1,3 @@
-export * from './wrapper';
 export * from './table';
 export * from './pagination';
 export * from './thead';

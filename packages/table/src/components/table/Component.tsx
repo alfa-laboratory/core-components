@@ -1,4 +1,4 @@
-import React, { useMemo, TableHTMLAttributes } from 'react';
+import React, { useMemo, TableHTMLAttributes, useCallback, ReactNode } from 'react';
 import cn from 'classnames';
 
 import { ColumnConfiguration, TableContext } from '../table-context';
@@ -23,6 +23,16 @@ export type TableProps = TableHTMLAttributes<HTMLTableElement> & {
     children: React.ReactElement[];
 
     /**
+     * Оборачивает таблицу в стилизованный контейнер
+     */
+    wrapper?: boolean;
+
+    /**
+     * Слот для пагинации
+     */
+    pagination?: ReactNode;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -32,6 +42,8 @@ export const Table: React.FC<TableProps> = ({
     className,
     children,
     compactView = false,
+    wrapper = true,
+    pagination,
     dataTestId,
     ...restProps
 }) => {
@@ -46,15 +58,35 @@ export const Table: React.FC<TableProps> = ({
         [children],
     );
 
+    const Wrapper: React.FC = useCallback(
+        wrapperProps =>
+            wrapper ? (
+                <div
+                    className={cn(styles.wrapper, {
+                        [styles.hasPagination]: !!pagination,
+                    })}
+                >
+                    {wrapperProps.children}
+                </div>
+            ) : (
+                <React.Fragment>{wrapperProps.children}</React.Fragment>
+            ),
+        [pagination, wrapper],
+    );
+
     return (
         <TableContext.Provider value={{ columnsConfiguration, compactView }}>
-            <table
-                className={cn(styles.component, className)}
-                data-test-id={dataTestId}
-                {...restProps}
-            >
-                {children}
-            </table>
+            <Wrapper>
+                <table
+                    className={cn(styles.component, className)}
+                    data-test-id={dataTestId}
+                    {...restProps}
+                >
+                    {children}
+                </table>
+
+                {pagination}
+            </Wrapper>
         </TableContext.Provider>
     );
 };

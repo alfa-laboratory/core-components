@@ -7,7 +7,6 @@ import {
     TCell,
     TRow,
     TExpandableRow,
-    Wrapper,
     Pagination,
 } from './components';
 
@@ -19,6 +18,5 @@ export const Table = Object.assign(TableComponent, {
     TCell,
     TRow,
     TExpandableRow,
-    Wrapper,
     Pagination,
 });
