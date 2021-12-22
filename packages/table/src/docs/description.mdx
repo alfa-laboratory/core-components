@@ -10,21 +10,24 @@
 const data = [
     {
         id: 28,
-        date: '07.12.2021',
-        title: 'ARG BANK OF CHINA',
-        number: 931,
+        date: '30.06.2022',
+        title: 'ООО "КОРПУС-ИТ"',
+        sum: 21000000,
     },
     {
         id: 12,
-        date: '06.12.2021',
-        title: 'ООО СОВМЕСТНОЕ ПРЕДПРИЯТИЕ "ИНТЕГРА"',
-        number: 78,
+        date: '30.06.2022',
+        title: 'ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "МОБИЛСТИЛ"',
+        subtitle:
+            'Оказание услуг по договору № 26/09 на основании акта № 1450 от 30 июня 2020 года, в т.ч. НДС 18%',
+        sum: 10002030,
     },
     {
         id: 5,
-        date: '06.12.2021',
-        title: 'Общество с ограниченной ответственностью "Умное пространство"',
-        number: 12,
+        date: '30.06.2022',
+        title: 'ИП Жуков Валерий Сергеевич',
+        subtitle: 'Услуги по ремонту за июнь, НДС не облагается',
+        sum: 3000069,
     },
 ];
 
@@ -36,7 +39,9 @@ render(() => {
 
                 <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
 
-                <Table.THeadCell title='Номер'>Номер</Table.THeadCell>
+                <Table.THeadCell title='Сумма' textAlign='right' width={268}>
+                    Сумма
+                </Table.THeadCell>
             </Table.THead>
             <Table.TBody>
                 {data.map(row => (
@@ -48,13 +53,23 @@ render(() => {
                         </Table.TCell>
 
                         <Table.TCell>
-                            <Typography.Text view='primary-small' tag='div'>
-                                {row.title}
-                            </Typography.Text>
+                            <Space size={2}>
+                                <Typography.Text view='primary-small' tag='div'>
+                                    {row.title}
+                                </Typography.Text>
+                                <Typography.Text view='primary-small' color='secondary'>
+                                    {row.subtitle}
+                                </Typography.Text>
+                            </Space>
                         </Table.TCell>
 
                         <Table.TCell>
-                            <Typography.Text view='primary-small'>{row.number}</Typography.Text>
+                            <Amount
+                                value={row.sum}
+                                currency='RUR'
+                                minority={100}
+                                view='withZeroMinorPart'
+                            />
                         </Table.TCell>
                     </Table.TRow>
                 ))}
@@ -72,21 +87,24 @@ render(() => {
 const data = [
     {
         id: 28,
-        date: '07.12.2021',
-        title: 'ARG BANK OF CHINA',
-        number: 931,
+        date: '30.06.2022',
+        title: 'ООО "КОРПУС-ИТ"',
+        sum: 21000000,
     },
     {
         id: 12,
-        date: '06.12.2021',
-        title: 'ООО СОВМЕСТНОЕ ПРЕДПРИЯТИЕ "ИНТЕГРА"',
-        number: 78,
+        date: '30.06.2022',
+        title: 'ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "МОБИЛСТИЛ"',
+        subtitle:
+            'Оказание услуг по договору № 26/09 на основании акта № 1450 от 30 июня 2020 года, в т.ч. НДС 18%',
+        sum: 10002030,
     },
     {
         id: 5,
-        date: '06.12.2021',
-        title: 'Общество с ограниченной ответственностью "Умное пространство"',
-        number: 12,
+        date: '30.06.2022',
+        title: 'ИП Жуков Валерий Сергеевич',
+        subtitle: 'Услуги по ремонту за июнь, НДС не облагается',
+        sum: 3000069,
     },
 ];
 
@@ -99,7 +117,9 @@ render(() => {
 
                     <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
 
-                    <Table.THeadCell title='Номер'>Номер</Table.THeadCell>
+                    <Table.THeadCell title='Сумма' textAlign='right' width={268}>
+                        Сумма
+                    </Table.THeadCell>
                 </Table.THead>
                 <Table.TBody>
                     {data.map(row => (
@@ -117,7 +137,12 @@ render(() => {
                             </Table.TCell>
 
                             <Table.TCell>
-                                <Typography.Text view='primary-small'>{row.number}</Typography.Text>
+                                <Amount
+                                    value={row.sum}
+                                    currency='RUR'
+                                    minority={100}
+                                    view='withZeroMinorPart'
+                                />
                             </Table.TCell>
                         </Table.TRow>
                     ))}
@@ -140,21 +165,24 @@ render(() => {
 const data = [
     {
         id: 28,
-        date: '07.12.2021',
-        title: 'ARG BANK OF CHINA',
-        number: 931,
+        date: '30.06.2022',
+        title: 'ООО "КОРПУС-ИТ"',
+        sum: 21000000,
     },
     {
         id: 12,
-        date: '06.12.2021',
-        title: 'ООО СОВМЕСТНОЕ ПРЕДПРИЯТИЕ "ИНТЕГРА"',
-        number: 78,
+        date: '30.06.2022',
+        title: 'ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "МОБИЛСТИЛ"',
+        subtitle:
+            'Оказание услуг по договору № 26/09 на основании акта № 1450 от 30 июня 2020 года, в т.ч. НДС 18%',
+        sum: 10002030,
     },
     {
         id: 5,
-        date: '06.12.2021',
-        title: 'Общество с ограниченной ответственностью "Умное пространство"',
-        number: 12,
+        date: '30.06.2022',
+        title: 'ИП Жуков Валерий Сергеевич',
+        subtitle: 'Услуги по ремонту за июнь, НДС не облагается',
+        sum: 3000069,
     },
 ];
 
@@ -162,20 +190,20 @@ render(() => {
     return (
         <Table>
             <Table.THead>
-                <Table.THeadCell title='Номер' hidden={true}>
+                <Table.THeadCell title='Id' hidden={true}>
                     Id
                 </Table.THeadCell>
 
-                <Table.THeadCell title='Дата' width='240'>
-                    Дата 240px
+                <Table.THeadCell title='Дата' width={120}>
+                    Дата
                 </Table.THeadCell>
 
                 <Table.THeadCell title='Контрагент' textAlign='center'>
                     Контрагент
                 </Table.THeadCell>
 
-                <Table.THeadCell title='Номер' textAlign='right' width='120px'>
-                    Номер
+                <Table.THeadCell title='Сумма' textAlign='right' width={268}>
+                    Сумма
                 </Table.THeadCell>
             </Table.THead>
             <Table.TBody>
@@ -190,13 +218,23 @@ render(() => {
                         </Table.TCell>
 
                         <Table.TCell>
-                            <Typography.Text view='primary-small' tag='div'>
-                                {row.title}
-                            </Typography.Text>
+                            <Space size={2} align='center'>
+                                <Typography.Text view='primary-small' tag='div'>
+                                    {row.title}
+                                </Typography.Text>
+                                <Typography.Text view='primary-small' color='secondary'>
+                                    {row.subtitle}
+                                </Typography.Text>
+                            </Space>
                         </Table.TCell>
 
                         <Table.TCell>
-                            <Typography.Text view='primary-small'>{row.number}</Typography.Text>
+                            <Amount
+                                value={row.sum}
+                                currency='RUR'
+                                minority={100}
+                                view='withZeroMinorPart'
+                            />
                         </Table.TCell>
                     </Table.TRow>
                 ))}
@@ -218,34 +256,48 @@ render(() => {
 
 _Если нужно показать, что данные отсортированы заранее, то можно использовать `defaultIsSortedDesc`, тогда иконка индикатора будет серой, а не синей._
 
+_Код сортировки указан только в качестве примера. В реальном приложении следует реализовать более универсальный подход_
+
 ```tsx live
 const data = [
     {
-        id: 5,
-        date: '06.12.2021',
-        title: 'Общество с ограниченной ответственностью "Умное пространство"',
-        number: 12,
+        id: 1,
+        date: '27.06.2022',
+        title: 'ИП Жуков Валерий Сергеевич',
+        subtitle: 'Услуги по ремонту за июнь, НДС не облагается',
+        sum: 21000000,
     },
     {
-        id: 12,
-        date: '06.12.2021',
-        title: 'ООО СОВМЕСТНОЕ ПРЕДПРИЯТИЕ "ИНТЕГРА"',
-        number: 78,
+        id: 2,
+        date: '28.06.2022',
+        title: 'ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "МОБИЛСТИЛ"',
+        subtitle:
+            'Оказание услуг по договору № 26/09 на основании акта № 1450 от 30 июня 2020 года, в т.ч. НДС 18%',
+        sum: 10002030,
     },
     {
-        id: 28,
-        date: '07.12.2021',
-        title: 'ARG BANK OF CHINA',
-        number: 931,
+        id: 3,
+        date: '29.06.2022',
+        title: 'ООО "КОРПУС-ИТ"',
+        sum: 3000069,
+    },
+    {
+        id: 4,
+        date: '30.06.2022',
+        title: 'MasterBrok',
+        sum: 42130000,
     },
 ];
 
 render(() => {
+    const [sortKey, setSortKey] = React.useState(undefined);
     const [isSortedDesc, setIsSortedDesc] = React.useState(undefined);
 
     const defaultIsSortedDesc = false;
 
-    const handleSort = (...args) => {
+    const handleSort = key => {
+        setSortKey(key);
+
         if (isSortedDesc !== undefined) {
             setIsSortedDesc(!isSortedDesc ? undefined : defaultIsSortedDesc);
         } else {
@@ -254,25 +306,39 @@ render(() => {
     };
 
     const sortedData = React.useMemo(() => {
-        if (isSortedDesc === undefined) return data;
+        if (!sortKey || isSortedDesc === undefined) return data;
 
-        return [...data].sort((a, b) => (isSortedDesc ? b.number - a.number : a.number - b.number));
-    }, [data, isSortedDesc]);
+        return [...data].sort((a, b) => {
+            if (sortKey === 'sum') {
+                return isSortedDesc ? b.sum - a.sum : a.sum - b.sum;
+            }
+
+            if (sortKey === 'date') {
+                return isSortedDesc ? b.date.localeCompare(a.date) : a.date.localeCompare(b.date);
+            }
+        });
+    }, [data, isSortedDesc, sortKey]);
 
     return (
         <Table>
             <Table.THead>
-                <Table.THeadCell title='Дата'>Дата</Table.THeadCell>
+                <Table.TSortableHeadCell
+                    title='Дата'
+                    defaultIsSortedDesc={defaultIsSortedDesc}
+                    isSortedDesc={sortKey === 'date' ? isSortedDesc : undefined}
+                    onSort={() => handleSort('date')}
+                >
+                    Дата
+                </Table.TSortableHeadCell>
 
                 <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
 
                 <Table.TSortableHeadCell
-                    title='Номер'
-                    defaultIsSortedDesc={defaultIsSortedDesc}
-                    isSortedDesc={isSortedDesc}
-                    onSort={handleSort}
+                    title='Сумма'
+                    isSortedDesc={sortKey === 'sum' ? isSortedDesc : undefined}
+                    onSort={() => handleSort('sum')}
                 >
-                    Номер
+                    Сумма
                 </Table.TSortableHeadCell>
             </Table.THead>
             <Table.TBody>
@@ -285,13 +351,23 @@ render(() => {
                         </Table.TCell>
 
                         <Table.TCell>
-                            <Typography.Text view='primary-small' tag='div'>
-                                {row.title}
-                            </Typography.Text>
+                            <Space size={2}>
+                                <Typography.Text view='primary-small' tag='div'>
+                                    {row.title}
+                                </Typography.Text>
+                                <Typography.Text view='primary-small' color='secondary'>
+                                    {row.subtitle}
+                                </Typography.Text>
+                            </Space>
                         </Table.TCell>
 
                         <Table.TCell>
-                            <Typography.Text view='primary-small'>{row.number}</Typography.Text>
+                            <Amount
+                                value={row.sum}
+                                currency='RUR'
+                                minority={100}
+                                view='withZeroMinorPart'
+                            />
                         </Table.TCell>
                     </Table.TRow>
                 ))}
@@ -311,46 +387,49 @@ render(() => {
 const data = [
     {
         id: 28,
-        date: '07.12.2021',
-        title: 'ARG BANK OF CHINA',
-        number: 931,
+        date: '30.06.2022',
+        title: 'ООО "КОРПУС-ИТ"',
+        sum: 21000000,
     },
     {
         id: 12,
-        date: '06.12.2021',
-        title: 'ООО СОВМЕСТНОЕ ПРЕДПРИЯТИЕ "ИНТЕГРА"',
-        number: 78,
+        date: '30.06.2022',
+        title: 'ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "МОБИЛСТИЛ"',
+        subtitle:
+            'Оказание услуг по договору № 26/09 на основании акта № 1450 от 30 июня 2020 года, в т.ч. НДС 18%',
+        sum: 10002030,
     },
     {
         id: 5,
-        date: '06.12.2021',
-        title: 'Общество с ограниченной ответственностью "Умное пространство"',
-        number: 12,
+        date: '30.06.2022',
+        title: 'ИП Жуков Валерий Сергеевич',
+        subtitle: 'Услуги по ремонту за июнь, НДС не облагается',
+        sum: 3000069,
     },
     {
         id: 4,
-        date: '06.12.2021',
+        date: '30.06.2022',
         title: 'ООО "Берест"',
-        number: 843,
+        sum: 84300,
     },
     {
         id: 1,
-        date: '06.12.2021',
+        date: '30.06.2022',
         title:
             'УФК по Свердловской области (Государственное учреждение - Свердловское региональное отделение Фонда социального страхования Российской Федерации)',
-        number: 159,
+        sum: 15900,
     },
     {
         id: 27,
         date: '21.10.2021',
         title: 'MasterBrok',
-        number: 1060,
+        sum: 106000,
     },
     {
         id: 26,
         date: '20.10.2021',
         title: 'MR ANTON TAGUNOV',
-        number: 1898,
+        sum: 189800,
     },
 ];
 
@@ -381,8 +460,8 @@ render(() => {
 
                     <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
 
-                    <Table.THeadCell title='Номер' width='100px'>
-                        Номер
+                    <Table.THeadCell title='Сумма' textAlign='right' width={268}>
+                        Сумма
                     </Table.THeadCell>
                 </Table.THead>
                 <Table.TBody>
@@ -401,7 +480,12 @@ render(() => {
                             </Table.TCell>
 
                             <Table.TCell>
-                                <Typography.Text view='primary-small'>{row.number}</Typography.Text>
+                                <Amount
+                                    value={row.sum}
+                                    currency='RUR'
+                                    minority={100}
+                                    view='withZeroMinorPart'
+                                />
                             </Table.TCell>
                         </Table.TRow>
                     ))}
@@ -433,21 +517,24 @@ render(() => {
 const data = [
     {
         id: 5,
-        date: '06.12.2021',
-        title: 'Общество с ограниченной ответственностью "Умное пространство"',
-        number: 12,
+        date: '30.06.2022',
+        title: 'ИП Жуков Валерий Сергеевич',
+        subtitle: 'Услуги по ремонту за июнь, НДС не облагается',
+        sum: 21000000,
     },
     {
         id: 12,
-        date: '06.12.2021',
-        title: 'ООО СОВМЕСТНОЕ ПРЕДПРИЯТИЕ "ИНТЕГРА"',
-        number: 78,
+        date: '30.06.2022',
+        title: 'ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "МОБИЛСТИЛ"',
+        subtitle:
+            'Оказание услуг по договору № 26/09 на основании акта № 1450 от 30 июня 2020 года, в т.ч. НДС 18%',
+        sum: 10002030,
     },
     {
         id: 28,
-        date: '07.12.2021',
-        title: 'ARG BANK OF CHINA',
-        number: 931,
+        date: '30.06.2022',
+        title: 'ООО "КОРПУС-ИТ"',
+        sum: 3000069,
     },
 ];
 
@@ -459,7 +546,9 @@ render(() => {
 
                 <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
 
-                <Table.THeadCell title='Номер'>Номер</Table.THeadCell>
+                <Table.THeadCell title='Сумма' textAlign='right' width={268}>
+                    Сумма
+                </Table.THeadCell>
             </Table.THead>
             <Table.TBody>
                 {data.map(row => (
@@ -471,15 +560,14 @@ render(() => {
                                 <Table.TCell colSpan={1} />
                                 <Table.TCell colSpan={2}>
                                     <Collapse expanded={expanded}>
-                                        <Typography.Text
-                                            view='primary-small'
-                                            color='secondary'
-                                            tag='div'
-                                            style={{ padding: '4px 0 16px' }}
-                                        >
-                                            Платёж №{row.number} будет отправлен в банк после
-                                            подписания
-                                        </Typography.Text>
+                                        <div style={{ paddingBottom: '16px' }}>
+                                            <div
+                                                style={{
+                                                    border: '1px dashed #007AFF',
+                                                    height: '200px',
+                                                }}
+                                            />
+                                        </div>
                                     </Collapse>
                                 </Table.TCell>
                             </>
@@ -492,13 +580,23 @@ render(() => {
                         </Table.TCell>
 
                         <Table.TCell>
-                            <Typography.Text view='primary-small' tag='div'>
-                                {row.title}
-                            </Typography.Text>
+                            <Space size={2}>
+                                <Typography.Text view='primary-small' tag='div'>
+                                    {row.title}
+                                </Typography.Text>
+                                <Typography.Text view='primary-small' color='secondary'>
+                                    {row.subtitle}
+                                </Typography.Text>
+                            </Space>
                         </Table.TCell>
 
                         <Table.TCell>
-                            <Typography.Text view='primary-small'>{row.number}</Typography.Text>
+                            <Amount
+                                value={row.sum}
+                                currency='RUR'
+                                minority={100}
+                                view='withZeroMinorPart'
+                            />
                         </Table.TCell>
                     </Table.TExpandableRow>
                 ))}
@@ -516,21 +614,24 @@ render(() => {
 const data = [
     {
         id: 5,
-        date: '06.12.2021',
-        title: 'Общество с ограниченной ответственностью "Умное пространство"',
-        number: 12,
+        date: '30.06.2022',
+        title: 'ИП Жуков Валерий Сергеевич',
+        subtitle: 'Услуги по ремонту за июнь, НДС не облагается',
+        sum: 21000000,
     },
     {
         id: 12,
-        date: '06.12.2021',
-        title: 'ООО СОВМЕСТНОЕ ПРЕДПРИЯТИЕ "ИНТЕГРА"',
-        number: 78,
+        date: '30.06.2022',
+        title: 'ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "МОБИЛСТИЛ"',
+        subtitle:
+            'Оказание услуг по договору № 26/09 на основании акта № 1450 от 30 июня 2020 года, в т.ч. НДС 18%',
+        sum: 10002030,
     },
     {
         id: 28,
-        date: '07.12.2021',
-        title: 'ARG BANK OF CHINA',
-        number: 931,
+        date: '30.06.2022',
+        title: 'ООО "КОРПУС-ИТ"',
+        sum: 3000069,
     },
 ];
 
@@ -552,7 +653,9 @@ render(() => {
 
                 <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
 
-                <Table.THeadCell title='Номер'>Номер</Table.THeadCell>
+                <Table.THeadCell title='Сумма' textAlign='right' width={268}>
+                    Сумма
+                </Table.THeadCell>
             </Table.THead>
             <Table.TBody>
                 {data.map(row => (
@@ -561,22 +664,18 @@ render(() => {
                         expanded={expandedRow === row.id}
                         onToggle={expanded => handleExpand(row.id, expanded)}
                         renderContent={expanded => (
-                            <>
-                                <Table.TCell colSpan={1} />
-                                <Table.TCell colSpan={2}>
-                                    <Collapse expanded={expanded}>
-                                        <Typography.Text
-                                            view='primary-small'
-                                            color='secondary'
-                                            tag='div'
-                                            style={{ padding: '4px 0 16px' }}
-                                        >
-                                            Платёж №{row.number} будет отправлен в банк после
-                                            подписания
-                                        </Typography.Text>
-                                    </Collapse>
-                                </Table.TCell>
-                            </>
+                            <Table.TCell colspan={3}>
+                                <Collapse expanded={expanded}>
+                                    <div style={{ paddingBottom: '16px' }}>
+                                        <div
+                                            style={{
+                                                border: '1px dashed #007AFF',
+                                                height: '200px',
+                                            }}
+                                        />
+                                    </div>
+                                </Collapse>
+                            </Table.TCell>
                         )}
                     >
                         <Table.TCell>
@@ -586,13 +685,23 @@ render(() => {
                         </Table.TCell>
 
                         <Table.TCell>
-                            <Typography.Text view='primary-small' tag='div'>
-                                {row.title}
-                            </Typography.Text>
+                            <Space size={2}>
+                                <Typography.Text view='primary-small' tag='div'>
+                                    {row.title}
+                                </Typography.Text>
+                                <Typography.Text view='primary-small' color='secondary'>
+                                    {row.subtitle}
+                                </Typography.Text>
+                            </Space>
                         </Table.TCell>
 
                         <Table.TCell>
-                            <Typography.Text view='primary-small'>{row.number}</Typography.Text>
+                            <Amount
+                                value={row.sum}
+                                currency='RUR'
+                                minority={100}
+                                view='withZeroMinorPart'
+                            />
                         </Table.TCell>
                     </Table.TExpandableRow>
                 ))}
@@ -608,21 +717,24 @@ render(() => {
 const data = [
     {
         id: 28,
-        date: '07.12.2021',
-        title: 'ARG BANK OF CHINA',
-        number: 931,
+        date: '30.06.2022',
+        title: 'ООО "КОРПУС-ИТ"',
+        sum: 21000000,
     },
     {
         id: 12,
-        date: '06.12.2021',
-        title: 'ООО СОВМЕСТНОЕ ПРЕДПРИЯТИЕ "ИНТЕГРА"',
-        number: 78,
+        date: '30.06.2022',
+        title: 'ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "МОБИЛСТИЛ"',
+        subtitle:
+            'Оказание услуг по договору № 26/09 на основании акта № 1450 от 30 июня 2020 года, в т.ч. НДС 18%',
+        sum: 10002030,
     },
     {
         id: 5,
-        date: '06.12.2021',
-        title: 'Общество с ограниченной ответственностью "Умное пространство"',
-        number: 12,
+        date: '30.06.2022',
+        title: 'ИП Жуков Валерий Сергеевич',
+        subtitle: 'Услуги по ремонту за июнь, НДС не облагается',
+        sum: 3000069,
     },
 ];
 
@@ -679,7 +791,9 @@ render(() => {
 
                 <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
 
-                <Table.THeadCell title='Номер'>Номер</Table.THeadCell>
+                <Table.THeadCell title='Сумма' textAlign='right' width={268}>
+                    Сумма
+                </Table.THeadCell>
             </Table.THead>
             <Table.TBody>
                 {data.map(row => (
@@ -697,8 +811,7 @@ render(() => {
                                             tag='div'
                                             style={{ padding: '4px 0 16px' }}
                                         >
-                                            Платёж №{row.number} будет отправлен в банк после
-                                            подписания
+                                            Платёж №{row.id} будет отправлен в банк после подписания
                                         </Typography.Text>
                                     </Collapse>
                                 </Table.TCell>
@@ -720,13 +833,23 @@ render(() => {
                         </Table.TCell>
 
                         <Table.TCell>
-                            <Typography.Text view='primary-small' tag='div'>
-                                {row.title}
-                            </Typography.Text>
+                            <Space size={2}>
+                                <Typography.Text view='primary-small' tag='div'>
+                                    {row.title}
+                                </Typography.Text>
+                                <Typography.Text view='primary-small' color='secondary'>
+                                    {row.subtitle}
+                                </Typography.Text>
+                            </Space>
                         </Table.TCell>
 
                         <Table.TCell>
-                            <Typography.Text view='primary-small'>{row.number}</Typography.Text>
+                            <Amount
+                                value={row.sum}
+                                currency='RUR'
+                                minority={100}
+                                view='withZeroMinorPart'
+                            />
                         </Table.TCell>
                     </Table.TExpandableRow>
                 ))}
