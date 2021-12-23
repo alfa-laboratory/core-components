@@ -11,6 +11,10 @@
     height: 32px;
     padding: 0;
 
+    &:disabled:not(.checked) {
+        opacity: 0.3;
+    }
+
     &:hover:not(:disabled) {
         background-color: var(--color-light-bg-tertiary);
         color: var(--color-light-text-primary);
@@ -21,6 +25,7 @@
     }
 
     &.checked {
+        cursor: default;
         background-color: var(--color-light-bg-secondary-inverted);
         color: var(--color-light-text-primary-inverted);
     }

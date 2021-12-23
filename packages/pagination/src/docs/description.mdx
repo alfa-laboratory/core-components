@@ -1,9 +1,11 @@
 Компонент пагинации
 
+#### view=default
+
 ```tsx live
 render(() => {
-    const DATA_SIZE = 100;
-    const PER_PAGE = 10;
+    const DATA_SIZE = 20;
+    const PER_PAGE = 1;
 
     const [page, setPage] = React.useState(0);
 
@@ -16,6 +18,30 @@ render(() => {
             currentPageIndex={page}
             pagesCount={pagesCount}
             onPageChange={handlePageChange}
+        />
+    );
+});
+```
+
+#### view=per-page
+
+```tsx live
+render(() => {
+    const DATA_SIZE = 15;
+    const PER_PAGE = 1;
+
+    const [page, setPage] = React.useState(0);
+
+    const handlePageChange = pageIndex => setPage(pageIndex);
+
+    const pagesCount = Math.ceil(DATA_SIZE / PER_PAGE);
+
+    return (
+        <Pagination
+            currentPageIndex={page}
+            pagesCount={pagesCount}
+            onPageChange={handlePageChange}
+            view='per-page'
         />
     );
 });

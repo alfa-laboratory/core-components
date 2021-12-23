@@ -383,7 +383,7 @@ render(() => {
                     <Table.Pagination
                         perPage={perPage}
                         currentPageIndex={page}
-                        possiblePerPage={[5, 10]}
+                        // possiblePerPage={[5, 10]}
                         pagesCount={pagesCount}
                         onPageChange={handlePageChange}
                         onPerPageChange={handlePerPageChange}
@@ -731,16 +731,16 @@ render(() => {
                         renderContent={expanded => (
                             <>
                                 <Table.TCell colSpan={1} />
-                                <Table.TCell colSpan={2}>
+                                <Table.TCell colSpan={3}>
                                     <Collapse expanded={expanded}>
-                                        <Typography.Text
-                                            view='primary-small'
-                                            color='secondary'
-                                            tag='div'
-                                            style={{ padding: '4px 0 16px' }}
-                                        >
-                                            Платёж №{row.id} будет отправлен в банк после подписания
-                                        </Typography.Text>
+                                        <div style={{ paddingBottom: '16px' }}>
+                                            <div
+                                                style={{
+                                                    border: '1px dashed #007AFF',
+                                                    height: '200px',
+                                                }}
+                                            />
+                                        </div>
                                     </Collapse>
                                 </Table.TCell>
                             </>

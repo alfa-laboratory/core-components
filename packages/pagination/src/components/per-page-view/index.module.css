@@ -1,0 +1,6 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    display: block;
+    margin: 0 var(--gap-m);
+}

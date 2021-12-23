@@ -2,26 +2,19 @@ import React, { FC, useMemo, useCallback } from 'react';
 import cn from 'classnames';
 
 import { Select, SelectProps } from '@alfalab/core-components-select';
-import { Pagination as CorePagination } from '@alfalab/core-components-pagination';
+import {
+    Pagination as CorePagination,
+    PaginationProps as CorePaginationProps,
+} from '@alfalab/core-components-pagination';
 import { CustomSelectField } from './select-field';
 
 import styles from './index.module.css';
 
-type PaginationProps = {
+type PaginationProps = CorePaginationProps & {
     /**
      * Количество строк на страницу
      */
     perPage?: number;
-
-    /**
-     * Текущая страница (с нуля)
-     */
-    currentPageIndex?: number;
-
-    /**
-     * Количество страниц
-     */
-    pagesCount: number;
 
     /**
      * Возможные варианты разбивки
@@ -29,19 +22,9 @@ type PaginationProps = {
     possiblePerPage?: number[];
 
     /**
-     * Дополнительный класс
-     */
-    className?: string;
-
-    /**
      * Обработчик переключения perPage
      */
     onPerPageChange?: (perPage: number) => void;
-
-    /**
-     * Обработчик переключения страницы
-     */
-    onPageChange?: (pageIndex: number) => void;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -51,13 +34,12 @@ type PaginationProps = {
 
 export const Pagination: FC<PaginationProps> = ({
     perPage = 25,
-    currentPageIndex = 0,
-    pagesCount,
-    possiblePerPage = [10, 25, 50, 100],
-    className,
-    onPageChange = () => null,
+    possiblePerPage = [25, 50, 100],
     onPerPageChange = () => null,
+    pagesCount,
+    className,
     dataTestId,
+    ...restPaginationProps
 }) => {
     const options = useMemo(
         () =>
@@ -77,6 +59,8 @@ export const Pagination: FC<PaginationProps> = ({
         [onPerPageChange],
     );
 
+    if (pagesCount <= 1) return null;
+
     return (
         <div className={cn(styles.component, className)} data-test-id={dataTestId}>
             <Select
@@ -91,11 +75,7 @@ export const Pagination: FC<PaginationProps> = ({
                 Field={CustomSelectField}
             />
 
-            <CorePagination
-                pagesCount={pagesCount}
-                currentPageIndex={currentPageIndex}
-                onPageChange={onPageChange}
-            />
+            <CorePagination pagesCount={pagesCount} {...restPaginationProps} />
         </div>
     );
 };

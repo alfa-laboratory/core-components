@@ -1,18 +1,20 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC } from 'react';
 import cn from 'classnames';
 
 import { ChevronBackMIcon } from '@alfalab/icons-glyph/ChevronBackMIcon';
 import { ChevronForwardMIcon } from '@alfalab/icons-glyph/ChevronForwardMIcon';
 
 import { Tag } from './components/tag';
+import { DefaultView } from './components/default-view';
+import { PerPageView } from './components/per-page-view';
 
 import styles from './index.module.css';
 
-type PaginationProps = {
+export type PaginationProps = {
     /**
      * Текущая страница (с нуля)
      */
-    currentPageIndex?: number;
+    currentPageIndex: number;
 
     /**
      * Количество страниц
@@ -40,6 +42,11 @@ type PaginationProps = {
     activePadding?: number;
 
     /**
+     * Режим пагинации
+     */
+    view?: 'default' | 'per-page';
+
+    /**
      * Обработчик переключения страницы
      */
     onPageChange?: (pageIndex: number) => void;
@@ -57,6 +64,7 @@ export const Pagination: FC<PaginationProps> = ({
     sidePadding = 1,
     activePadding = 2,
     hideArrows = true,
+    view = 'default',
     onPageChange = () => null,
     dataTestId,
 }) => {
@@ -72,86 +80,38 @@ export const Pagination: FC<PaginationProps> = ({
         handlePageClick(Math.max(0, currentPageIndex - 1));
     };
 
-    const maxHalfCount = sidePadding + activePadding + 1;
-    const maxElementsCount = maxHalfCount * 2 + 1;
-    const itemsFit = pagesCount <= maxElementsCount;
-    const elementsCount = itemsFit ? pagesCount : maxElementsCount;
-
-    const getPageIndex = useCallback(
-        (elementIndex: number) => {
-            const lastIndex = pagesCount - 1;
-            const reverseIndex = lastIndex - currentPageIndex;
-            const lastElementIndex = elementsCount - 1;
-            const reverseElementIndex = lastElementIndex - elementIndex;
-
-            const hasCollapsedItems = (index: number) => !itemsFit && index >= maxHalfCount;
-
-            if (elementIndex < sidePadding) {
-                return elementIndex;
-            }
-
-            if (elementIndex === sidePadding && hasCollapsedItems(currentPageIndex)) {
-                return null;
-            }
-
-            if (reverseElementIndex === sidePadding && hasCollapsedItems(reverseIndex)) {
-                return null;
-            }
-
-            if (reverseElementIndex < sidePadding) {
-                return lastIndex - reverseElementIndex;
-            }
-
-            const computedIndex = currentPageIndex - maxHalfCount + elementIndex;
-
-            return Math.min(lastIndex - reverseElementIndex, Math.max(elementIndex, computedIndex));
-        },
-        [currentPageIndex, elementsCount, itemsFit, maxHalfCount, pagesCount, sidePadding],
-    );
-
-    if (pagesCount <= 0) return null;
+    const shouldRenderPrevArrow = view === 'per-page' || !hideArrows || currentPageIndex > 0;
+    const shouldRenderNextArrow =
+        view === 'per-page' || !hideArrows || currentPageIndex < pagesCount - 1;
 
     return (
-        <div className={cn(styles.component, className)} data-test-id={dataTestId}>
-            {(!hideArrows || currentPageIndex > 0) && (
+        <div className={cn(styles.component, className, styles[view])} data-test-id={dataTestId}>
+            {shouldRenderPrevArrow && (
                 <Tag
-                    className={styles.tag}
+                    className={styles.arrow}
                     disabled={currentPageIndex <= 0}
                     onClick={handlePrevPageClick}
                     rightAddons={<ChevronBackMIcon width={16} height={16} />}
                 />
             )}
 
-            {Array(elementsCount)
-                .fill('')
-                .map((_, i) => {
-                    const pageIndex = getPageIndex(i);
+            {view === 'default' && (
+                <DefaultView
+                    activePadding={activePadding}
+                    sidePadding={sidePadding}
+                    currentPageIndex={currentPageIndex}
+                    pagesCount={pagesCount}
+                    onPageChange={handlePageClick}
+                />
+            )}
 
-                    if (pageIndex === null) {
-                        return (
-                            <div key={i.toString()} className={styles.dots}>
-                                ...
-                            </div>
-                        );
-                    }
+            {view === 'per-page' && (
+                <PerPageView currentPageIndex={currentPageIndex} pagesCount={pagesCount} />
+            )}
 
-                    const active = currentPageIndex === pageIndex;
-
-                    return (
-                        <Tag
-                            key={i.toString()}
-                            checked={active}
-                            disabled={active}
-                            onClick={() => handlePageClick(pageIndex)}
-                        >
-                            {pageIndex + 1}
-                        </Tag>
-                    );
-                })}
-
-            {(!hideArrows || currentPageIndex < pagesCount - 1) && (
+            {shouldRenderNextArrow && (
                 <Tag
-                    className={styles.tag}
+                    className={styles.arrow}
                     disabled={currentPageIndex >= pagesCount - 1}
                     onClick={handleNextPageClick}
                     rightAddons={<ChevronForwardMIcon width={16} height={16} />}

@@ -2,7 +2,15 @@
 
 .component {
     display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: var(--color-light-text-primary);
+    font-variant-numeric: tabular-nums;
+}
 
+.default {
     & > * {
         margin-right: var(--gap-xs);
 
@@ -10,18 +18,4 @@
             margin-right: 0;
         }
     }
-}
-
-.dots {
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: 400;
-    width: 32px;
-    height: 32px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-light-text-secondary);
-    cursor: default;
 }
