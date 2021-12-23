@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useCallback } from 'react';
+import React, { FC, useMemo, useCallback, useContext } from 'react';
 import cn from 'classnames';
 
 import { Select, SelectProps } from '@alfalab/core-components-select';
@@ -6,7 +6,9 @@ import {
     Pagination as CorePagination,
     PaginationProps as CorePaginationProps,
 } from '@alfalab/core-components-pagination';
+
 import { CustomSelectField } from './select-field';
+import { TableContext } from '../table-context';
 
 import styles from './index.module.css';
 
@@ -37,10 +39,13 @@ export const Pagination: FC<PaginationProps> = ({
     possiblePerPage = [25, 50, 100],
     onPerPageChange = () => null,
     pagesCount,
+    onPageChange = () => null,
     className,
     dataTestId,
     ...restPaginationProps
 }) => {
+    const { wrapperRef } = useContext(TableContext);
+
     const options = useMemo(
         () =>
             Array.from(new Set<number>(possiblePerPage.concat(perPage)))
@@ -59,6 +64,19 @@ export const Pagination: FC<PaginationProps> = ({
         [onPerPageChange],
     );
 
+    const handlePageChange = useCallback(
+        (pageIndex: number) => {
+            onPageChange(pageIndex);
+
+            setTimeout(() => {
+                if (wrapperRef.current) {
+                    wrapperRef.current.scrollIntoView();
+                }
+            }, 0);
+        },
+        [onPageChange, wrapperRef],
+    );
+
     if (pagesCount <= 1) return null;
 
     return (
@@ -75,7 +93,11 @@ export const Pagination: FC<PaginationProps> = ({
                 Field={CustomSelectField}
             />
 
-            <CorePagination pagesCount={pagesCount} {...restPaginationProps} />
+            <CorePagination
+                pagesCount={pagesCount}
+                onPageChange={handlePageChange}
+                {...restPaginationProps}
+            />
         </div>
     );
 };

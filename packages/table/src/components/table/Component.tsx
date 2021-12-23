@@ -1,4 +1,4 @@
-import React, { useMemo, TableHTMLAttributes, useCallback, ReactNode } from 'react';
+import React, { useMemo, TableHTMLAttributes, ReactNode, useRef, forwardRef } from 'react';
 import cn from 'classnames';
 
 import { ColumnConfiguration, TableContext } from '../table-context';
@@ -38,55 +38,49 @@ export type TableProps = TableHTMLAttributes<HTMLTableElement> & {
     dataTestId?: string;
 };
 
-export const Table: React.FC<TableProps> = ({
-    className,
-    children,
-    compactView = false,
-    wrapper = true,
-    pagination,
-    dataTestId,
-    ...restProps
-}) => {
-    const columnsConfiguration: ColumnConfiguration[] = useMemo(
-        () =>
-            findAllHeadCellsProps(children).map((columnProps, index) => ({
-                width: columnProps.width,
-                textAlign: columnProps.textAlign,
-                hidden: columnProps.hidden,
-                index,
-            })),
-        [children],
-    );
+export const Table = forwardRef<HTMLTableElement, TableProps>(
+    (
+        {
+            className,
+            children,
+            compactView = false,
+            wrapper = true,
+            pagination,
+            dataTestId,
+            ...restProps
+        },
+        ref,
+    ) => {
+        const wrapperRef = useRef<HTMLDivElement>(null);
 
-    const Wrapper: React.FC = useCallback(
-        wrapperProps =>
-            wrapper ? (
+        const columnsConfiguration: ColumnConfiguration[] = useMemo(
+            () =>
+                findAllHeadCellsProps(children).map((columnProps, index) => ({
+                    width: columnProps.width,
+                    textAlign: columnProps.textAlign,
+                    hidden: columnProps.hidden,
+                    index,
+                })),
+            [children],
+        );
+
+        return (
+            <TableContext.Provider value={{ columnsConfiguration, compactView, wrapperRef }}>
                 <div
-                    className={cn(styles.wrapper, {
+                    ref={wrapperRef}
+                    className={cn(styles.component, className, {
+                        [styles.wrapper]: wrapper,
                         [styles.hasPagination]: !!pagination,
                     })}
-                >
-                    {wrapperProps.children}
-                </div>
-            ) : (
-                <React.Fragment>{wrapperProps.children}</React.Fragment>
-            ),
-        [pagination, wrapper],
-    );
-
-    return (
-        <TableContext.Provider value={{ columnsConfiguration, compactView }}>
-            <Wrapper>
-                <table
-                    className={cn(styles.component, className)}
                     data-test-id={dataTestId}
-                    {...restProps}
                 >
-                    {children}
-                </table>
+                    <table ref={ref} className={styles.table} {...restProps}>
+                        {children}
+                    </table>
 
-                {pagination}
-            </Wrapper>
-        </TableContext.Provider>
-    );
-};
+                    {pagination}
+                </div>
+            </TableContext.Provider>
+        );
+    },
+);

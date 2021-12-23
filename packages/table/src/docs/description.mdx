@@ -33,48 +33,50 @@ const data = [
 
 render(() => {
     return (
-        <Table>
-            <Table.THead>
-                <Table.THeadCell title='Дата'>Дата</Table.THeadCell>
+        <div style={{ margin: '24px 0 40px' }}>
+            <Table>
+                <Table.THead>
+                    <Table.THeadCell title='Дата'>Дата</Table.THeadCell>
 
-                <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
+                    <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
 
-                <Table.THeadCell title='Сумма' textAlign='right' width={268}>
-                    Сумма
-                </Table.THeadCell>
-            </Table.THead>
-            <Table.TBody>
-                {data.map(row => (
-                    <Table.TRow key={row.id}>
-                        <Table.TCell>
-                            <Typography.Text view='primary-small' tag='div'>
-                                {row.date}
-                            </Typography.Text>
-                        </Table.TCell>
-
-                        <Table.TCell>
-                            <Space size={2}>
+                    <Table.THeadCell title='Сумма' textAlign='right' width={268}>
+                        Сумма
+                    </Table.THeadCell>
+                </Table.THead>
+                <Table.TBody>
+                    {data.map(row => (
+                        <Table.TRow key={row.id}>
+                            <Table.TCell>
                                 <Typography.Text view='primary-small' tag='div'>
-                                    {row.title}
+                                    {row.date}
                                 </Typography.Text>
-                                <Typography.Text view='primary-small' color='secondary'>
-                                    {row.subtitle}
-                                </Typography.Text>
-                            </Space>
-                        </Table.TCell>
+                            </Table.TCell>
 
-                        <Table.TCell>
-                            <Amount
-                                value={row.sum}
-                                currency='RUR'
-                                minority={100}
-                                view='withZeroMinorPart'
-                            />
-                        </Table.TCell>
-                    </Table.TRow>
-                ))}
-            </Table.TBody>
-        </Table>
+                            <Table.TCell>
+                                <Space size={2}>
+                                    <Typography.Text view='primary-small' tag='div'>
+                                        {row.title}
+                                    </Typography.Text>
+                                    <Typography.Text view='primary-small' color='secondary'>
+                                        {row.subtitle}
+                                    </Typography.Text>
+                                </Space>
+                            </Table.TCell>
+
+                            <Table.TCell>
+                                <Amount
+                                    value={row.sum}
+                                    currency='RUR'
+                                    minority={100}
+                                    view='withZeroMinorPart'
+                                />
+                            </Table.TCell>
+                        </Table.TRow>
+                    ))}
+                </Table.TBody>
+            </Table>
+        </div>
     );
 });
 ```
@@ -114,58 +116,60 @@ const data = [
 
 render(() => {
     return (
-        <Table>
-            <Table.THead>
-                <Table.THeadCell title='Id' hidden={true}>
-                    Id
-                </Table.THeadCell>
+        <div style={{ margin: '24px 0 40px' }}>
+            <Table>
+                <Table.THead>
+                    <Table.THeadCell title='Id' hidden={true}>
+                        Id
+                    </Table.THeadCell>
 
-                <Table.THeadCell title='Дата' width={120}>
-                    Дата
-                </Table.THeadCell>
+                    <Table.THeadCell title='Дата' width={120}>
+                        Дата
+                    </Table.THeadCell>
 
-                <Table.THeadCell title='Контрагент' textAlign='center'>
-                    Контрагент
-                </Table.THeadCell>
+                    <Table.THeadCell title='Контрагент' textAlign='center'>
+                        Контрагент
+                    </Table.THeadCell>
 
-                <Table.THeadCell title='Сумма' textAlign='right' width={268}>
-                    Сумма
-                </Table.THeadCell>
-            </Table.THead>
-            <Table.TBody>
-                {data.map(row => (
-                    <Table.TRow key={row.id}>
-                        <Table.TCell>{row.id}</Table.TCell>
+                    <Table.THeadCell title='Сумма' textAlign='right' width={268}>
+                        Сумма
+                    </Table.THeadCell>
+                </Table.THead>
+                <Table.TBody>
+                    {data.map(row => (
+                        <Table.TRow key={row.id}>
+                            <Table.TCell>{row.id}</Table.TCell>
 
-                        <Table.TCell>
-                            <Typography.Text view='primary-small' tag='div'>
-                                {row.date}
-                            </Typography.Text>
-                        </Table.TCell>
-
-                        <Table.TCell>
-                            <Space size={2} align='center'>
+                            <Table.TCell>
                                 <Typography.Text view='primary-small' tag='div'>
-                                    {row.title}
+                                    {row.date}
                                 </Typography.Text>
-                                <Typography.Text view='primary-small' color='secondary'>
-                                    {row.subtitle}
-                                </Typography.Text>
-                            </Space>
-                        </Table.TCell>
+                            </Table.TCell>
 
-                        <Table.TCell>
-                            <Amount
-                                value={row.sum}
-                                currency='RUR'
-                                minority={100}
-                                view='withZeroMinorPart'
-                            />
-                        </Table.TCell>
-                    </Table.TRow>
-                ))}
-            </Table.TBody>
-        </Table>
+                            <Table.TCell>
+                                <Space size={2} align='center'>
+                                    <Typography.Text view='primary-small' tag='div'>
+                                        {row.title}
+                                    </Typography.Text>
+                                    <Typography.Text view='primary-small' color='secondary'>
+                                        {row.subtitle}
+                                    </Typography.Text>
+                                </Space>
+                            </Table.TCell>
+
+                            <Table.TCell>
+                                <Amount
+                                    value={row.sum}
+                                    currency='RUR'
+                                    minority={100}
+                                    view='withZeroMinorPart'
+                                />
+                            </Table.TCell>
+                        </Table.TRow>
+                    ))}
+                </Table.TBody>
+            </Table>
+        </div>
     );
 });
 ```
@@ -246,59 +250,61 @@ render(() => {
     }, [data, isSortedDesc, sortKey]);
 
     return (
-        <Table>
-            <Table.THead>
-                <Table.TSortableHeadCell
-                    title='Дата'
-                    defaultIsSortedDesc={defaultIsSortedDesc}
-                    isSortedDesc={sortKey === 'date' ? isSortedDesc : undefined}
-                    onSort={() => handleSort('date')}
-                >
-                    Дата
-                </Table.TSortableHeadCell>
+        <div style={{ margin: '24px 0 40px' }}>
+            <Table>
+                <Table.THead>
+                    <Table.TSortableHeadCell
+                        title='Дата'
+                        defaultIsSortedDesc={defaultIsSortedDesc}
+                        isSortedDesc={sortKey === 'date' ? isSortedDesc : undefined}
+                        onSort={() => handleSort('date')}
+                    >
+                        Дата
+                    </Table.TSortableHeadCell>
 
-                <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
+                    <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
 
-                <Table.TSortableHeadCell
-                    title='Сумма'
-                    isSortedDesc={sortKey === 'sum' ? isSortedDesc : undefined}
-                    onSort={() => handleSort('sum')}
-                >
-                    Сумма
-                </Table.TSortableHeadCell>
-            </Table.THead>
-            <Table.TBody>
-                {sortedData.map(row => (
-                    <Table.TRow key={row.id}>
-                        <Table.TCell>
-                            <Typography.Text view='primary-small' tag='div'>
-                                {row.date}
-                            </Typography.Text>
-                        </Table.TCell>
-
-                        <Table.TCell>
-                            <Space size={2}>
+                    <Table.TSortableHeadCell
+                        title='Сумма'
+                        isSortedDesc={sortKey === 'sum' ? isSortedDesc : undefined}
+                        onSort={() => handleSort('sum')}
+                    >
+                        Сумма
+                    </Table.TSortableHeadCell>
+                </Table.THead>
+                <Table.TBody>
+                    {sortedData.map(row => (
+                        <Table.TRow key={row.id}>
+                            <Table.TCell>
                                 <Typography.Text view='primary-small' tag='div'>
-                                    {row.title}
+                                    {row.date}
                                 </Typography.Text>
-                                <Typography.Text view='primary-small' color='secondary'>
-                                    {row.subtitle}
-                                </Typography.Text>
-                            </Space>
-                        </Table.TCell>
+                            </Table.TCell>
 
-                        <Table.TCell>
-                            <Amount
-                                value={row.sum}
-                                currency='RUR'
-                                minority={100}
-                                view='withZeroMinorPart'
-                            />
-                        </Table.TCell>
-                    </Table.TRow>
-                ))}
-            </Table.TBody>
-        </Table>
+                            <Table.TCell>
+                                <Space size={2}>
+                                    <Typography.Text view='primary-small' tag='div'>
+                                        {row.title}
+                                    </Typography.Text>
+                                    <Typography.Text view='primary-small' color='secondary'>
+                                        {row.subtitle}
+                                    </Typography.Text>
+                                </Space>
+                            </Table.TCell>
+
+                            <Table.TCell>
+                                <Amount
+                                    value={row.sum}
+                                    currency='RUR'
+                                    minority={100}
+                                    view='withZeroMinorPart'
+                                />
+                            </Table.TCell>
+                        </Table.TRow>
+                    ))}
+                </Table.TBody>
+            </Table>
+        </div>
     );
 });
 ```
@@ -358,6 +364,17 @@ const data = [
         sum: 189800,
     },
 ];
+
+Array(100)
+    .fill('')
+    .forEach((_, i) =>
+        data.push({
+            id: (i + 1) * 100,
+            date: '20.10.2021',
+            title: `Контрагент #${i + 1}`,
+            sum: 1000000 + (i + 1) * 10000,
+        }),
+    );
 
 render(() => {
     const [perPage, setPerPage] = React.useState(5);
@@ -468,68 +485,70 @@ const data = [
 
 render(() => {
     return (
-        <Table>
-            <Table.THead>
-                <Table.THeadCell title='Дата'>Дата</Table.THeadCell>
+        <div style={{ margin: '24px 0 40px' }}>
+            <Table>
+                <Table.THead>
+                    <Table.THeadCell title='Дата'>Дата</Table.THeadCell>
 
-                <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
+                    <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
 
-                <Table.THeadCell title='Сумма' textAlign='right' width={268}>
-                    Сумма
-                </Table.THeadCell>
-            </Table.THead>
-            <Table.TBody>
-                {data.map(row => (
-                    <Table.TExpandableRow
-                        key={row.id}
-                        defaultExpanded={row.id === 5}
-                        renderContent={expanded => (
-                            <>
-                                <Table.TCell colSpan={1} />
-                                <Table.TCell colSpan={2}>
-                                    <Collapse expanded={expanded}>
-                                        <div style={{ paddingBottom: '16px' }}>
-                                            <div
-                                                style={{
-                                                    border: '1px dashed #007AFF',
-                                                    height: '200px',
-                                                }}
-                                            />
-                                        </div>
-                                    </Collapse>
-                                </Table.TCell>
-                            </>
-                        )}
-                    >
-                        <Table.TCell>
-                            <Typography.Text view='primary-small' tag='div'>
-                                {row.date}
-                            </Typography.Text>
-                        </Table.TCell>
-
-                        <Table.TCell>
-                            <Space size={2}>
+                    <Table.THeadCell title='Сумма' textAlign='right' width={268}>
+                        Сумма
+                    </Table.THeadCell>
+                </Table.THead>
+                <Table.TBody>
+                    {data.map(row => (
+                        <Table.TExpandableRow
+                            key={row.id}
+                            defaultExpanded={row.id === 5}
+                            renderContent={expanded => (
+                                <>
+                                    <Table.TCell colSpan={1} />
+                                    <Table.TCell colSpan={2}>
+                                        <Collapse expanded={expanded}>
+                                            <div style={{ paddingBottom: '16px' }}>
+                                                <div
+                                                    style={{
+                                                        border: '1px dashed #007AFF',
+                                                        height: '200px',
+                                                    }}
+                                                />
+                                            </div>
+                                        </Collapse>
+                                    </Table.TCell>
+                                </>
+                            )}
+                        >
+                            <Table.TCell>
                                 <Typography.Text view='primary-small' tag='div'>
-                                    {row.title}
+                                    {row.date}
                                 </Typography.Text>
-                                <Typography.Text view='primary-small' color='secondary'>
-                                    {row.subtitle}
-                                </Typography.Text>
-                            </Space>
-                        </Table.TCell>
+                            </Table.TCell>
 
-                        <Table.TCell>
-                            <Amount
-                                value={row.sum}
-                                currency='RUR'
-                                minority={100}
-                                view='withZeroMinorPart'
-                            />
-                        </Table.TCell>
-                    </Table.TExpandableRow>
-                ))}
-            </Table.TBody>
-        </Table>
+                            <Table.TCell>
+                                <Space size={2}>
+                                    <Typography.Text view='primary-small' tag='div'>
+                                        {row.title}
+                                    </Typography.Text>
+                                    <Typography.Text view='primary-small' color='secondary'>
+                                        {row.subtitle}
+                                    </Typography.Text>
+                                </Space>
+                            </Table.TCell>
+
+                            <Table.TCell>
+                                <Amount
+                                    value={row.sum}
+                                    currency='RUR'
+                                    minority={100}
+                                    view='withZeroMinorPart'
+                                />
+                            </Table.TCell>
+                        </Table.TExpandableRow>
+                    ))}
+                </Table.TBody>
+            </Table>
+        </div>
     );
 });
 ```
@@ -575,66 +594,68 @@ render(() => {
     };
 
     return (
-        <Table>
-            <Table.THead>
-                <Table.THeadCell title='Дата'>Дата</Table.THeadCell>
+        <div style={{ margin: '24px 0 40px' }}>
+            <Table>
+                <Table.THead>
+                    <Table.THeadCell title='Дата'>Дата</Table.THeadCell>
 
-                <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
+                    <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
 
-                <Table.THeadCell title='Сумма' textAlign='right' width={268}>
-                    Сумма
-                </Table.THeadCell>
-            </Table.THead>
-            <Table.TBody>
-                {data.map(row => (
-                    <Table.TExpandableRow
-                        key={row.id}
-                        expanded={expandedRow === row.id}
-                        onToggle={expanded => handleExpand(row.id, expanded)}
-                        renderContent={expanded => (
-                            <Table.TCell colSpan={3}>
-                                <Collapse expanded={expanded}>
-                                    <div style={{ paddingBottom: '16px' }}>
-                                        <div
-                                            style={{
-                                                border: '1px dashed #007AFF',
-                                                height: '200px',
-                                            }}
-                                        />
-                                    </div>
-                                </Collapse>
-                            </Table.TCell>
-                        )}
-                    >
-                        <Table.TCell>
-                            <Typography.Text view='primary-small' tag='div'>
-                                {row.date}
-                            </Typography.Text>
-                        </Table.TCell>
-
-                        <Table.TCell>
-                            <Space size={2}>
+                    <Table.THeadCell title='Сумма' textAlign='right' width={268}>
+                        Сумма
+                    </Table.THeadCell>
+                </Table.THead>
+                <Table.TBody>
+                    {data.map(row => (
+                        <Table.TExpandableRow
+                            key={row.id}
+                            expanded={expandedRow === row.id}
+                            onToggle={expanded => handleExpand(row.id, expanded)}
+                            renderContent={expanded => (
+                                <Table.TCell colSpan={3}>
+                                    <Collapse expanded={expanded}>
+                                        <div style={{ paddingBottom: '16px' }}>
+                                            <div
+                                                style={{
+                                                    border: '1px dashed #007AFF',
+                                                    height: '200px',
+                                                }}
+                                            />
+                                        </div>
+                                    </Collapse>
+                                </Table.TCell>
+                            )}
+                        >
+                            <Table.TCell>
                                 <Typography.Text view='primary-small' tag='div'>
-                                    {row.title}
+                                    {row.date}
                                 </Typography.Text>
-                                <Typography.Text view='primary-small' color='secondary'>
-                                    {row.subtitle}
-                                </Typography.Text>
-                            </Space>
-                        </Table.TCell>
+                            </Table.TCell>
 
-                        <Table.TCell>
-                            <Amount
-                                value={row.sum}
-                                currency='RUR'
-                                minority={100}
-                                view='withZeroMinorPart'
-                            />
-                        </Table.TCell>
-                    </Table.TExpandableRow>
-                ))}
-            </Table.TBody>
-        </Table>
+                            <Table.TCell>
+                                <Space size={2}>
+                                    <Typography.Text view='primary-small' tag='div'>
+                                        {row.title}
+                                    </Typography.Text>
+                                    <Typography.Text view='primary-small' color='secondary'>
+                                        {row.subtitle}
+                                    </Typography.Text>
+                                </Space>
+                            </Table.TCell>
+
+                            <Table.TCell>
+                                <Amount
+                                    value={row.sum}
+                                    currency='RUR'
+                                    minority={100}
+                                    view='withZeroMinorPart'
+                                />
+                            </Table.TCell>
+                        </Table.TExpandableRow>
+                    ))}
+                </Table.TBody>
+            </Table>
+        </div>
     );
 });
 ```
@@ -690,99 +711,103 @@ render(() => {
     };
 
     return (
-        <Table>
-            <Table.THead>
-                <Table.THeadCell width='48px'>
-                    <Tooltip
-                        view='hint'
-                        position='top'
-                        content={
-                            <React.Fragment>
-                                Выбрать все
-                                <br />
-                                на странице
-                            </React.Fragment>
-                        }
-                    >
-                        <Checkbox
-                            size='m'
-                            onClick={() => handleRowSelect('all')}
-                            checked={data.length > 0 && data.every(row => selectedRows.has(row.id))}
-                            indeterminate={
-                                data.length > 0 && data.some(row => selectedRows.has(row.id))
+        <div style={{ margin: '24px 0 40px' }}>
+            <Table>
+                <Table.THead>
+                    <Table.THeadCell width='48px'>
+                        <Tooltip
+                            view='hint'
+                            position='top'
+                            content={
+                                <React.Fragment>
+                                    Выбрать все
+                                    <br />
+                                    на странице
+                                </React.Fragment>
                             }
-                        />
-                    </Tooltip>
-                </Table.THeadCell>
-
-                <Table.THeadCell title='Дата'>Дата</Table.THeadCell>
-
-                <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
-
-                <Table.THeadCell title='Сумма' textAlign='right' width={268}>
-                    Сумма
-                </Table.THeadCell>
-            </Table.THead>
-            <Table.TBody>
-                {data.map(row => (
-                    <Table.TExpandableRow
-                        key={row.id}
-                        selected={selectedRows.has(row.id)}
-                        renderContent={expanded => (
-                            <>
-                                <Table.TCell colSpan={1} />
-                                <Table.TCell colSpan={3}>
-                                    <Collapse expanded={expanded}>
-                                        <div style={{ paddingBottom: '16px' }}>
-                                            <div
-                                                style={{
-                                                    border: '1px dashed #007AFF',
-                                                    height: '200px',
-                                                }}
-                                            />
-                                        </div>
-                                    </Collapse>
-                                </Table.TCell>
-                            </>
-                        )}
-                    >
-                        <Table.TCell>
+                        >
                             <Checkbox
                                 size='m'
-                                onClick={() => handleRowSelect(row.id)}
-                                checked={selectedRows.has(row.id)}
+                                onClick={() => handleRowSelect('all')}
+                                checked={
+                                    data.length > 0 && data.every(row => selectedRows.has(row.id))
+                                }
+                                indeterminate={
+                                    data.length > 0 && data.some(row => selectedRows.has(row.id))
+                                }
                             />
-                        </Table.TCell>
+                        </Tooltip>
+                    </Table.THeadCell>
 
-                        <Table.TCell>
-                            <Typography.Text view='primary-small' tag='div'>
-                                {row.date}
-                            </Typography.Text>
-                        </Table.TCell>
+                    <Table.THeadCell title='Дата'>Дата</Table.THeadCell>
 
-                        <Table.TCell>
-                            <Space size={2}>
+                    <Table.THeadCell title='Контрагент'>Контрагент</Table.THeadCell>
+
+                    <Table.THeadCell title='Сумма' textAlign='right' width={268}>
+                        Сумма
+                    </Table.THeadCell>
+                </Table.THead>
+                <Table.TBody>
+                    {data.map(row => (
+                        <Table.TExpandableRow
+                            key={row.id}
+                            selected={selectedRows.has(row.id)}
+                            renderContent={expanded => (
+                                <>
+                                    <Table.TCell colSpan={1} />
+                                    <Table.TCell colSpan={3}>
+                                        <Collapse expanded={expanded}>
+                                            <div style={{ paddingBottom: '16px' }}>
+                                                <div
+                                                    style={{
+                                                        border: '1px dashed #007AFF',
+                                                        height: '200px',
+                                                    }}
+                                                />
+                                            </div>
+                                        </Collapse>
+                                    </Table.TCell>
+                                </>
+                            )}
+                        >
+                            <Table.TCell>
+                                <Checkbox
+                                    size='m'
+                                    onClick={() => handleRowSelect(row.id)}
+                                    checked={selectedRows.has(row.id)}
+                                />
+                            </Table.TCell>
+
+                            <Table.TCell>
                                 <Typography.Text view='primary-small' tag='div'>
-                                    {row.title}
+                                    {row.date}
                                 </Typography.Text>
-                                <Typography.Text view='primary-small' color='secondary'>
-                                    {row.subtitle}
-                                </Typography.Text>
-                            </Space>
-                        </Table.TCell>
+                            </Table.TCell>
 
-                        <Table.TCell>
-                            <Amount
-                                value={row.sum}
-                                currency='RUR'
-                                minority={100}
-                                view='withZeroMinorPart'
-                            />
-                        </Table.TCell>
-                    </Table.TExpandableRow>
-                ))}
-            </Table.TBody>
-        </Table>
+                            <Table.TCell>
+                                <Space size={2}>
+                                    <Typography.Text view='primary-small' tag='div'>
+                                        {row.title}
+                                    </Typography.Text>
+                                    <Typography.Text view='primary-small' color='secondary'>
+                                        {row.subtitle}
+                                    </Typography.Text>
+                                </Space>
+                            </Table.TCell>
+
+                            <Table.TCell>
+                                <Amount
+                                    value={row.sum}
+                                    currency='RUR'
+                                    minority={100}
+                                    view='withZeroMinorPart'
+                                />
+                            </Table.TCell>
+                        </Table.TExpandableRow>
+                    ))}
+                </Table.TBody>
+            </Table>
+        </div>
     );
 });
 ```
