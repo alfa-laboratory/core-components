@@ -13,10 +13,3 @@ export const Tag: FC<TagProps> = ({ className, checked, ...restProps }) => (
         className={cn(className, styles.tag, { [styles.checked]: checked })}
     />
 );
-
-export const TagWithCount: FC<TagProps & { count: number }> = ({ count, ...restProps }) => (
-    <Tag
-        {...restProps}
-        rightAddons={count === 0 ? null : <div className={styles.tagCount}>{count}</div>}
-    />
-);

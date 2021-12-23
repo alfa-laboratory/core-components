@@ -1,17 +1,19 @@
 @import '../../../../themes/src/default.css';
 
-.tag {
+.tag.tag {
     color: var(--color-light-text-secondary);
     border-radius: var(--border-radius-m);
     border: none;
+    flex-shrink: 0;
+    min-width: auto;
+    min-height: auto;
+    width: 32px;
+    height: 32px;
+    padding: 0;
 
     &:hover:not(:disabled) {
         background-color: var(--color-light-bg-tertiary);
         color: var(--color-light-text-primary);
-
-        & .tagCount {
-            color: var(--color-light-text-secondary);
-        }
     }
 
     &:active:not(:disabled) {
@@ -25,21 +27,9 @@
 
     &.checked:hover:not(:disabled) {
         color: var(--color-light-text-primary-inverted);
-
-        & .tagCount {
-            color: var(--color-light-text-primary-inverted);
-        }
     }
 
     &.checked:active:not(:disabled) {
         color: var(--color-light-text-primary);
-
-        & .tagCount {
-            color: var(--color-light-text-secondary);
-        }
     }
-}
-
-.tagCount {
-    @mixin action_primary_medium;
 }

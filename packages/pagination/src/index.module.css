@@ -2,27 +2,26 @@
 
 .component {
     display: flex;
-}
 
-.tag.tag {
-    flex-shrink: 0;
-    margin-right: var(--gap-xs);
-    padding: 0 var(--gap-xs);
-    min-width: 32px;
+    & > * {
+        margin-right: var(--gap-xs);
 
-    &:last-child {
-        margin-right: 0;
-    }
-
-    &.tagActive {
-        cursor: default;
+        &:last-child {
+            margin-right: 0;
+        }
     }
 }
 
-.menu {
-    margin: var(--gap-2xs) 0;
-}
-
-.option {
-    min-width: 208px;
+.dots {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-light-text-secondary);
+    cursor: default;
 }
