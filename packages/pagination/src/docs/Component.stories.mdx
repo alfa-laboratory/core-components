@@ -18,15 +18,16 @@ import Changelog from '../../CHANGELOG.md';
 
 <Story name='Pagination'>
     {React.createElement(() => {
-        const DATA_SIZE = 100;
-        const PER_PAGE = 25;
         const [page, setPage] = React.useState(0);
-        const pagesCount = Math.ceil(DATA_SIZE / PER_PAGE);
         const handlePageChange = pageIndex => setPage(pageIndex);
         return (
             <Pagination
+                view={select('view', ['default', 'per-page'], 'default')}
+                pagesCount={number('pagesCount', 10)}
+                hideArrows={boolean('hideArrows', true)}
+                activePadding={number('activePadding', 2)}
+                sidePadding={number('sidePadding', 1)}
                 currentPageIndex={page}
-                pagesCount={pagesCount}
                 onPageChange={handlePageChange}
             />
         );
