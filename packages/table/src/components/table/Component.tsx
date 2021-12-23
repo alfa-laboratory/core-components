@@ -1,8 +1,8 @@
 import React, { useMemo, TableHTMLAttributes, ReactNode, useRef, forwardRef } from 'react';
 import cn from 'classnames';
 
-import { ColumnConfiguration, TableContext } from '../table-context';
 import { findAllHeadCellsProps } from './utils';
+import { ColumnConfiguration, TableContext } from '../table-context';
 
 import styles from './index.module.css';
 

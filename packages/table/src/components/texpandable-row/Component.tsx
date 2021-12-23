@@ -1,8 +1,8 @@
 import React, { ReactNode, useState } from 'react';
 import cn from 'classnames';
+import { TRow, TRowProps } from '../trow';
 
 import styles from './index.module.css';
-import { TRow, TRowProps } from '..';
 
 export type TExpandableRowProps = TRowProps & {
     defaultExpanded?: boolean;
@@ -27,7 +27,7 @@ export const TExpandableRow = ({
 
     const uncontrolled = expanded === undefined;
 
-    const isExpanded: boolean = uncontrolled ? expandedState : expanded;
+    const isExpanded = (uncontrolled ? expandedState : expanded) as boolean;
 
     const handleToggle = () => {
         if (uncontrolled) {
