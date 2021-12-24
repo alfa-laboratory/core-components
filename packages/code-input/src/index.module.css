@@ -1,0 +1,40 @@
+@import '../../themes/src/default.css';
+
+.component {
+    display: flex;
+    flex-direction: column;
+}
+
+.compact .input {
+    width: 28px;
+    height: 40px;
+}
+
+.error {
+    @mixin paragraph_primary_small;
+
+    margin-top: var(--gap-xs);
+    color: var(--confirmation-error-color);
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-2px);
+    }
+
+    75% {
+        transform: translateX(2px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.shake {
+    animation: shake 0.15s linear 0s 3;
+}
