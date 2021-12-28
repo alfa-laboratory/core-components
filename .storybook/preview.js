@@ -3,14 +3,21 @@ import { configure } from '@storybook/react';
 import { addParameters } from '@storybook/react';
 import { setThemeStylesInIframeHtmlPage } from './addons/theme-switcher/utils';
 import { setModeVarsInIframeHtmlPage } from './addons/mode-switcher/utils';
+import { setGuidelinesStyles } from './addons/utils';
 import { LIVE_EXAMPLES_ADDON_ID } from 'storybook-addon-live-examples';
 import theme from 'prism-react-renderer/themes/oceanicNext';
+
+import guidelinesStyles from '!!postcss-loader!./public/guidelines.css';
 
 import alfaTheme from './theme';
 import scope from './scope';
 
 setThemeStylesInIframeHtmlPage();
 setModeVarsInIframeHtmlPage();
+
+if (window.location.href.includes('guidelines')) {
+    setGuidelinesStyles(guidelinesStyles);
+}
 
 addons.setConfig({
     [LIVE_EXAMPLES_ADDON_ID]: {
