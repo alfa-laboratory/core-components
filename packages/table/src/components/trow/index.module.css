@@ -1,8 +1,6 @@
 @import '../../../../themes/src/default.css';
 
 .component {
-    min-height: 53px;
-    height: 53px;
     padding-top: 1px;
     width: 100%;
     transition: background-color 0.2s;

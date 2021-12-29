@@ -1,11 +1,10 @@
 @import '../../themes/src/default.css';
 
 .component {
+    @mixin paragraph_primary_small;
+
     display: flex;
     align-items: center;
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: 400;
     color: var(--color-light-text-primary);
     font-variant-numeric: tabular-nums;
 }

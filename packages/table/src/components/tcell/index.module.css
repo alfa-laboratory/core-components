@@ -4,7 +4,8 @@
     @mixin paragraph_primary_small;
 
     color: var(--color-light-text-primary);
-    padding: var(--gap-xl) var(--gap-s);
+    padding: var(--gap-xl) var(--gap-m);
+    height: 72px;
     border-top: 1px solid var(--color-light-border-primary);
     vertical-align: top;
     box-sizing: border-box;
