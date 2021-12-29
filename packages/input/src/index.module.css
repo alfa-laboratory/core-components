@@ -44,8 +44,6 @@
 }
 
 .clearIcon {
-    @mixin _input-icon;
-
     display: block;
     opacity: 0.3;
     transition: opacity 0.2s ease;
