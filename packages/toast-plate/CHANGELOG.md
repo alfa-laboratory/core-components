@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.12](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.11...@alfalab/core-components-toast-plate@4.0.12) (2021-12-14)
+
+**Note:** Version bump only for package @alfalab/core-components-toast-plate
+
+
+
+
+
+## [4.0.11](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.10...@alfalab/core-components-toast-plate@4.0.11) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-toast-plate
+
+
+
+
+
+## [4.0.10](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.9...@alfalab/core-components-toast-plate@4.0.10) (2021-12-01)
+
+
+### Bug Fixes
+
+* **notification:** set word-break: break-word in notif ([8f7615d](https://github.com/alfa-laboratory/core-components/commit/8f7615d2f497d97c0811868e14bf4ccd51710f31))
+* **notification:** убрал word-break: break-all ([db0d2b2](https://github.com/alfa-laboratory/core-components/commit/db0d2b28d12101f1a7bae395cbf17d570b88cc83))
+
+
+
+
+
 ## [4.0.9](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.8...@alfalab/core-components-toast-plate@4.0.9) (2021-11-26)
 
 **Note:** Version bump only for package @alfalab/core-components-toast-plate

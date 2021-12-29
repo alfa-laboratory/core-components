@@ -7,6 +7,11 @@
     width: 318px;
     margin: auto -3px;
     justify-content: flex-start;
+
+    @media (max-width: 374px) {
+        /* 2 кнопки по 125px + 2 отступа по 6px */
+        width: 262px;
+    }
 }
 
 .button {
@@ -15,5 +20,11 @@
 
     &:nth-last-child(-n + 3) {
         margin-bottom: 0;
+    }
+
+    @media (max-width: 374px) {
+        margin: 0 3px var(--gap-2xs);
+        width: 125px;
+        height: 36px;
     }
 }

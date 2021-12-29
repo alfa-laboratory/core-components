@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-checkbox-group@2.3.0...@alfalab/core-components-checkbox-group@2.4.0) (2021-12-20)
+
+
+### Features
+
+* **checkbox-group:** add click theme ([967d585](https://github.com/alfa-laboratory/core-components/commit/967d58538c5537fc2b3ac583fb742ebaef86109e))
+
+
+
+
+
 # [2.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-checkbox-group@2.2.0...@alfalab/core-components-checkbox-group@2.3.0) (2021-10-11)
 
 

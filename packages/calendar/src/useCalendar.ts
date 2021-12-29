@@ -7,6 +7,7 @@ import {
     setYear,
     addMonths,
     subYears,
+    addYears,
 } from 'date-fns';
 import mergeRefs from 'react-merge-refs';
 import {
@@ -117,7 +118,8 @@ export function useCalendar({
     ]);
 
     const years = useMemo(
-        () => generateYears(minDate || subYears(new Date(), 100), maxDate || new Date()),
+        () =>
+            generateYears(minDate || subYears(new Date(), 100), maxDate || addYears(new Date(), 1)),
         [minDate, maxDate],
     );
 

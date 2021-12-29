@@ -14,6 +14,6 @@
     --select-checkmark-size: 24px;
     --select-checkmark-before-display: none;
     --select-checkmark-after-display: 'flex';
-    --select-checkmark-background: url('https://alfabank.st/icons/glyph_checkmark-circle_m_color.svg');
+    --select-checkmark-background: url('https://alfabank.gcdn.co/icons/glyph_checkmark-circle_m_color.svg');
     --select-checkmark-border-radius: 0;
 }

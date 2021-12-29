@@ -3,6 +3,7 @@
 @import './input/click.css';
 @import './button/click.css';
 @import './checkbox/click.css';
+@import './checkbox-group/click.css';
 @import './radio/click.css';
 @import './switch/click.css';
 @import './tabs/click.css';
@@ -29,6 +30,7 @@
     @mixin input-click;
     @mixin button-click;
     @mixin checkbox-click;
+    @mixin checkbox-group-click;
     @mixin radio-click;
     @mixin switch-click;
     @mixin tabs-click;

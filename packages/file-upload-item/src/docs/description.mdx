@@ -16,10 +16,11 @@
         showDelete={true}
     />
     <FileUploadItem
-        name='Название файла.pdf'
+        name='С кастомной иконкой.pdf'
         uploadDate='22.01.2018'
         size={50000000}
         showDelete={true}
+        icon={StarLineMIcon}
     />
     <FileUploadItem
         name='Название файла.txt'
@@ -56,7 +57,15 @@
         uploadDate='22.01.2018'
         size={450000000}
         uploadStatus='ERROR'
-        error='размер больше 20 МБ'
+        error={
+            <>
+                <p style={{ margin: 0, marginBottom: '8px' }}>Размер больше 500 Кб</p>
+                <p style={{ margin: 0 }}>
+                    Недопустимый формат файла. Загрузите файл в одном из этих форматов: .txt, .xml,
+                    .csv
+                </p>
+            </>
+        }
         showDelete={false}
     />
 </>

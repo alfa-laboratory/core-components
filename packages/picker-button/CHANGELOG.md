@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.1.3...@alfalab/core-components-picker-button@7.1.4) (2021-12-14)
+
+
+### Bug Fixes
+
+* **picker-button:** wrap field with div ([b51bce8](https://github.com/alfa-laboratory/core-components/commit/b51bce85b39583e7bb1107f56c6e64a6f2b96d5c)), closes [#914](https://github.com/alfa-laboratory/core-components/issues/914)
+
+
+
+
+
+## [7.1.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.1.2...@alfalab/core-components-picker-button@7.1.3) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
+## [7.1.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.1.1...@alfalab/core-components-picker-button@7.1.2) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
+## [7.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.1.0...@alfalab/core-components-picker-button@7.1.1) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
+# [7.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.0.0...@alfalab/core-components-picker-button@7.1.0) (2021-12-01)
+
+
+### Features
+
+* **popover:** add availableHieght prop, update related snapshots ([43b4ebd](https://github.com/alfa-laboratory/core-components/commit/43b4ebd6ba092f22d0dfc845f3f0113b390317dc)), closes [#758](https://github.com/alfa-laboratory/core-components/issues/758)
+
+
+
+
+
 # [7.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@6.2.5...@alfalab/core-components-picker-button@7.0.0) (2021-11-26)
 
 

@@ -1,6 +1,6 @@
 import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
 
-const clip = { x: 0, y: 0, width: 540, height: 50 };
+const clip = { x: 0, y: 0, width: 1920, height: 150 };
 
 const screenshotTesting = setupScreenshotTesting({
     it,

@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.0.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-intl-phone-input@6.0.7...@alfalab/core-components-intl-phone-input@6.0.8) (2021-12-14)
+
+**Note:** Version bump only for package @alfalab/core-components-intl-phone-input
+
+
+
+
+
+## [6.0.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-intl-phone-input@6.0.6...@alfalab/core-components-intl-phone-input@6.0.7) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-intl-phone-input
+
+
+
+
+
+## [6.0.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-intl-phone-input@6.0.5...@alfalab/core-components-intl-phone-input@6.0.6) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-intl-phone-input
+
+
+
+
+
+## [6.0.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-intl-phone-input@6.0.4...@alfalab/core-components-intl-phone-input@6.0.5) (2021-12-08)
+
+
+### Bug Fixes
+
+* актуализируем @alfalab/utils ([#897](https://github.com/alfa-laboratory/core-components/issues/897)) ([30fb88e](https://github.com/alfa-laboratory/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+
+
+
+
+
+## [6.0.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-intl-phone-input@6.0.3...@alfalab/core-components-intl-phone-input@6.0.4) (2021-12-01)
+
+**Note:** Version bump only for package @alfalab/core-components-intl-phone-input
+
+
+
+
+
 ## [6.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-intl-phone-input@6.0.2...@alfalab/core-components-intl-phone-input@6.0.3) (2021-11-26)
 
 **Note:** Version bump only for package @alfalab/core-components-intl-phone-input

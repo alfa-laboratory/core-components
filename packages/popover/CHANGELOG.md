@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.6.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-popover@5.5.0...@alfalab/core-components-popover@5.6.0) (2021-12-01)
+
+
+### Features
+
+* **popover:** add availableHieght prop, update related snapshots ([43b4ebd](https://github.com/alfa-laboratory/core-components/commit/43b4ebd6ba092f22d0dfc845f3f0113b390317dc)), closes [#758](https://github.com/alfa-laboratory/core-components/issues/758)
+
+
+
+
+
 # [5.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-popover@5.4.0...@alfalab/core-components-popover@5.5.0) (2021-09-14)
 
 

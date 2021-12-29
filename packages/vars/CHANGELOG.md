@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@5.0.0...@alfalab/core-components-vars@5.1.0) (2021-12-09)
+
+
+### Features
+
+* **status:** добавлено 10% прозрачности в цвет фона ([#896](https://github.com/alfa-laboratory/core-components/issues/896)) ([b55c62b](https://github.com/alfa-laboratory/core-components/commit/b55c62b49cc52a15ff7497b9ad329773fba15959))
+
+
+
+
+
 # [5.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@4.1.0...@alfalab/core-components-vars@5.0.0) (2021-11-26)
 
 

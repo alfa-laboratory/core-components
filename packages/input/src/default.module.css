@@ -1,13 +1,13 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --input-clear-icon: url('https://alfabank.st/icons/glyph_cross-circle_m.svg');
+    --input-clear-icon: url('https://alfabank.gcdn.co/icons/glyph_cross-circle_m.svg');
     --input-color: var(--color-light-text-primary);
     --input-placeholder-color: var(--color-light-text-secondary);
     --input-focus-placeholder-color: var(--color-light-text-tertiary);
     --input-with-label-placeholder-color: var(--color-light-text-tertiary);
-    --input-error-icon: url('https://alfabank.st/icons/glyph_alert-circle_m_negative.svg');
-    --input-success-icon: url('https://alfabank.st/icons/icon_ok_s_color.svg');
+    --input-error-icon: url('https://alfabank.gcdn.co/icons/glyph_alert-circle_m_negative.svg');
+    --input-success-icon: url('https://alfabank.gcdn.co/icons/icon_ok_s_color.svg');
     --input-caret-color: var(--input-color);
 
     /* disabled */

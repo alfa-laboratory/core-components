@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
-import { FileUploadItem, FileStatuses } from './index';
+import { FileUploadItem, FileStatuses } from '.';
 
 export const fileProps = {
     name: 'Довольно длинное название файла.pdf',
@@ -77,14 +77,16 @@ describe('FileUploadItem', () => {
             expect(cb.mock.calls[0][0]).toBe(fileId);
         });
 
-        it('should call `onRestore` prop', () => {
+        it('should call `onDownload` prop', async() => {
             const cb = jest.fn();
             const fileId = 'id';
-            const { getByText } = render(
+            const { baseElement } = render(
                 <FileUploadItem {...fileProps} downloadLink='/link' onDownload={cb} id={fileId} />,
             );
 
-            fireEvent.click(getByText(fileProps.name));
+            const downloadButton = baseElement.querySelector('a') as HTMLAnchorElement;
+
+            fireEvent.click(downloadButton);
 
             expect(cb).toBeCalledTimes(1);
             expect(cb.mock.calls[0][0]).toBe(fileId);

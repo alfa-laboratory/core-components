@@ -12,6 +12,10 @@ describe('Radio', () => {
         it('should display with description correctly', () => {
             expect(render(<Radio hint='hint' label='text' />)).toMatchSnapshot();
         });
+
+        it('should display without label or hint', () => {
+            expect(render(<Radio />)).toMatchSnapshot();
+        });
     });
 
     describe('Styles tests', () => {

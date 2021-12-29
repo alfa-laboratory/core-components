@@ -1,3 +1,106 @@
+## [23.4.1](https://github.com/alfa-laboratory/core-components/compare/v23.4.0...v23.4.1) (2021-12-22)
+
+
+### Bug Fixes
+
+* add missing vars imports ([#931](https://github.com/alfa-laboratory/core-components/issues/931)) ([35ba847](https://github.com/alfa-laboratory/core-components/commit/35ba847d39924e713166d79ae6d64444131794a1))
+
+# [23.4.0](https://github.com/alfa-laboratory/core-components/compare/v23.3.0...v23.4.0) (2021-12-21)
+
+
+### Features
+
+* **calendar-input:** add popover z-index ([#924](https://github.com/alfa-laboratory/core-components/issues/924)) ([378286d](https://github.com/alfa-laboratory/core-components/commit/378286d746ca33aeb755617270f66310712d1c61))
+
+# [23.3.0](https://github.com/alfa-laboratory/core-components/compare/v23.2.0...v23.3.0) (2021-12-20)
+
+
+### Features
+
+* **checkbox-group:** add click theme ([967d585](https://github.com/alfa-laboratory/core-components/commit/967d58538c5537fc2b3ac583fb742ebaef86109e))
+
+# [23.2.0](https://github.com/alfa-laboratory/core-components/compare/v23.1.0...v23.2.0) (2021-12-14)
+
+
+### Bug Fixes
+
+* **button:** удален вызов console.warn, если process.env.NODE_ENV !== 'development' ([d3e14ce](https://github.com/alfa-laboratory/core-components/commit/d3e14cef7835b5512e4848c5a1048475a8990018))
+* **custom-button:** fix color variable & component description ([5b9df4d](https://github.com/alfa-laboratory/core-components/commit/5b9df4dffa070b8339f0e208c0d14c72ecdb2012))
+* **custom-button:** fix props type ([a1bf943](https://github.com/alfa-laboratory/core-components/commit/a1bf94319b8844cbb3fc7d4626d2232357d72f63))
+* **picker-button:** wrap field with div ([b51bce8](https://github.com/alfa-laboratory/core-components/commit/b51bce85b39583e7bb1107f56c6e64a6f2b96d5c)), closes [#914](https://github.com/alfa-laboratory/core-components/issues/914)
+
+
+### Features
+
+* **custom-button:** add custom-button component ([983bcd7](https://github.com/alfa-laboratory/core-components/commit/983bcd7119c6f674ed15ed5bfe069349449f84c8))
+
+# [23.1.0](https://github.com/alfa-laboratory/core-components/compare/v23.0.0...v23.1.0) (2021-12-09)
+
+
+### Features
+
+* **file-upload-item:** обновлен внешний вид ([#902](https://github.com/alfa-laboratory/core-components/issues/902)) ([d0f7d1e](https://github.com/alfa-laboratory/core-components/commit/d0f7d1ebdf302711a01549e86d0d8a5129b66d82))
+* **status:** добавлено 10% прозрачности в цвет фона ([#896](https://github.com/alfa-laboratory/core-components/issues/896)) ([b55c62b](https://github.com/alfa-laboratory/core-components/commit/b55c62b49cc52a15ff7497b9ad329773fba15959))
+
+# [23.0.0](https://github.com/alfa-laboratory/core-components/compare/v22.3.1...v23.0.0) (2021-12-08)
+
+
+* fix!: новый cdn иконок (#913) (#917) ([224831f](https://github.com/alfa-laboratory/core-components/commit/224831f41ed2de49dc1a228dc081b0629cf274b1)), closes [#913](https://github.com/alfa-laboratory/core-components/issues/913) [#917](https://github.com/alfa-laboratory/core-components/issues/917)
+
+
+### BREAKING CHANGES
+
+* Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.gcdn.co data: 'self'`
+
+This reverts commit 953fbcfec46a40089a5cfde670597315269b05f5.
+
+## [22.3.1](https://github.com/alfa-laboratory/core-components/compare/v22.3.0...v22.3.1) (2021-12-08)
+
+
+### Bug Fixes
+
+* revert 0e8124552206f96149d104f65cff1667e857bf01 ([#916](https://github.com/alfa-laboratory/core-components/issues/916)) ([953fbcf](https://github.com/alfa-laboratory/core-components/commit/953fbcfec46a40089a5cfde670597315269b05f5))
+
+# [22.3.0](https://github.com/alfa-laboratory/core-components/compare/v22.2.0...v22.3.0) (2021-12-08)
+
+
+### Bug Fixes
+
+* актуализируем @alfalab/utils ([#897](https://github.com/alfa-laboratory/core-components/issues/897)) ([30fb88e](https://github.com/alfa-laboratory/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+* новый cdn иконок ([#913](https://github.com/alfa-laboratory/core-components/issues/913)) ([0e81245](https://github.com/alfa-laboratory/core-components/commit/0e8124552206f96149d104f65cff1667e857bf01))
+* **bank-card:** фикс цвета иконки ([#898](https://github.com/alfa-laboratory/core-components/issues/898)) ([66c2659](https://github.com/alfa-laboratory/core-components/commit/66c265919e7452af324ceabd26813a8be19b4839))
+* **calendar-input:** рендер rightAddons, фикс затертых пропсов ([#895](https://github.com/alfa-laboratory/core-components/issues/895)) ([1eabd29](https://github.com/alfa-laboratory/core-components/commit/1eabd2902cd1bd62517284313f79cf31189cf525))
+* **dropzone:** изменение темы клика ([#893](https://github.com/alfa-laboratory/core-components/issues/893)) ([cadc6da](https://github.com/alfa-laboratory/core-components/commit/cadc6da29896e6a033bac8e91723b20beb404b32))
+* **plate:** активный курсор только для foldable плашек ([#912](https://github.com/alfa-laboratory/core-components/issues/912)) ([06a38bd](https://github.com/alfa-laboratory/core-components/commit/06a38bd6bd07d016d670e600b373791aabe3d3ea))
+* **radio:** условный рендер подсказки и лейбла ([#892](https://github.com/alfa-laboratory/core-components/issues/892)) ([b744c15](https://github.com/alfa-laboratory/core-components/commit/b744c159f3779c5bf555041e7762f9653efb7b0e)), closes [#869](https://github.com/alfa-laboratory/core-components/issues/869)
+
+
+### Features
+
+* **calendar:** мобильные стили ([#867](https://github.com/alfa-laboratory/core-components/issues/867)) ([febf545](https://github.com/alfa-laboratory/core-components/commit/febf54551f8179a1ba03fe65ed47aa3b20b01472))
+* **calendar:** показываем будущий год ([#900](https://github.com/alfa-laboratory/core-components/issues/900)) ([3cd3c63](https://github.com/alfa-laboratory/core-components/commit/3cd3c63e5ff88066599d0944a2d3183e63150664))
+
+# [22.2.0](https://github.com/alfa-laboratory/core-components/compare/v22.1.0...v22.2.0) (2021-12-01)
+
+
+### Bug Fixes
+
+* **notification:** set word-break: break-word in notif ([8f7615d](https://github.com/alfa-laboratory/core-components/commit/8f7615d2f497d97c0811868e14bf4ccd51710f31))
+* **notification:** убрал word-break: break-all ([db0d2b2](https://github.com/alfa-laboratory/core-components/commit/db0d2b28d12101f1a7bae395cbf17d570b88cc83))
+
+
+### Features
+
+* **popover:** add availableHieght prop, update related snapshots ([43b4ebd](https://github.com/alfa-laboratory/core-components/commit/43b4ebd6ba092f22d0dfc845f3f0113b390317dc)), closes [#758](https://github.com/alfa-laboratory/core-components/issues/758)
+* **tooltip:** add availableHeight and preventOverflow props ([b401524](https://github.com/alfa-laboratory/core-components/commit/b401524b0eb0b9e06593883a889b99198982c718)), closes [#758](https://github.com/alfa-laboratory/core-components/issues/758)
+
+# [22.1.0](https://github.com/alfa-laboratory/core-components/compare/v22.0.0...v22.1.0) (2021-11-30)
+
+
+### Features
+
+* **circular-progress-bar:** new size S ([d34db5c](https://github.com/alfa-laboratory/core-components/commit/d34db5cca682bc63f948a0dad322604c8044a6b8))
+
 # [22.0.0](https://github.com/alfa-laboratory/core-components/compare/v21.3.3...v22.0.0) (2021-11-26)
 
 

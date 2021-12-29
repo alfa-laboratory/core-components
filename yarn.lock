@@ -117,12 +117,12 @@
   resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-0.4.3.tgz#81374432b6a54394803502c293757bac9fd7f3c0"
   integrity sha512-L3MHYEU23ysZ3y68gM5dSVknV4k+t1fzJ5T0j8E0IF8ArZFdP/7UVsz8Az+B2aV5pflcnrMYtIDAbGGab4JfTw==
 
-"@alfalab/hooks@^0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-0.9.0.tgz#cc1258698011e1d929d9154e87cba573689babad"
-  integrity sha512-2YGUfBpZ8omADxvn5oXA0zwDMLINg5AvCx1nCrJNSLbiekpP/jk8F2rcVjN0OKgY9OKUOgMaGZZ3keDtsvVCIA==
+"@alfalab/data@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/data/-/data-1.0.1.tgz#9130214153ce507d7378be40fb0387d26b06ccdd"
+  integrity sha512-y+vuNeF7ey6vWLrIBhJvfeG9gFXrwkp5DqjNYBDkFyjjZJNYxhWMBJMPrUpXi6q6/RZMnSeRcGsqRIz2e8I1bg==
 
-"@alfalab/hooks@^1.0.0", "@alfalab/hooks@^1.1.1":
+"@alfalab/hooks@^1.0.0":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.1.1.tgz#c61e839983cb915e2e4de730bf9c9b0f1c0aea45"
   integrity sha512-4NBh/BzFE/W7Wxgxa0SByodjpDgUQT5RHzc/9wLbMlhljpo+S145mavFdtK+YcJ2Sg4GK6OZon61KqV5w7Nafw==
@@ -132,10 +132,10 @@
   resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.2.0.tgz#729ae06c5c3ebe02a9ca0f98bcc01c8713c5c54b"
   integrity sha512-AHrMhlC3AxL085T/NnCjYsiERUFkfh9MtvXAAs954w2RZdhQFlLpevESv0lzjoVSnYfrV4yOzQyUbb/WGDQFGA==
 
-"@alfalab/hooks@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.npmjs.org/@alfalab/hooks/-/hooks-1.3.0.tgz#c2d8761fa36c6e4219bf7d922ccdc026623269ee"
-  integrity sha512-uVg/zbmvtFdI4kBigwN+2kt5eYSAVqkhF/Qky2kmFsr0sN+i5hF0bEZ98aXjXlV3mOTMaNp3qQd4ZAHO2fwIoQ==
+"@alfalab/hooks@^1.4.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/hooks/-/hooks-1.4.1.tgz#b4e23fd6c16bd265d547158684bd1d97b1597fb0"
+  integrity sha512-TFHBw9FcZrr8G/LKUwIzHVg+DPmyKiak0FAe0THjdrSYrRttm0DDf5ljTe0+3FBJNgUu3hbGbEJUEFg2sGflig==
 
 "@alfalab/icons-classic@^1.76.0":
   version "1.76.0"
@@ -192,6 +192,11 @@
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.3.0.tgz#956c18e4a577b0e8076d0a7823db7a3852ef613c"
   integrity sha512-+BEJYXjWyl6mdBomoH80lGFsVjLHHGwAU3H+SZvbGsnyL3M8gVwkMTYvUTEtddxEHKLlTTo6IGmzfAXT/UPaNg==
+
+"@alfalab/utils@^1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.5.1.tgz#8a48782094c36f1d418693753145bd398523bfff"
+  integrity sha512-DYsi4XvaMdh5K17OXvsPRFruzxRcJTeA+QlZ4jDMF7JtY5Fimq5jK7ZEA+ZhUNsnMOsFxb299ny8WqDIylDR0A==
 
 "@babel/code-frame@7.10.4":
   version "7.10.4"
@@ -18177,6 +18182,11 @@ polished@^4.0.5:
   integrity sha512-ocPAcVBUOryJEKe0z2KLd1l9EBa1r5mSwlKpExmrLzsnIzJo4axsoU9O2BjOTkDGDT4mZ0WFE5XKTlR3nLnZOA==
   dependencies:
     "@babel/runtime" "^7.14.0"
+
+popper-max-size-modifier@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/popper-max-size-modifier/-/popper-max-size-modifier-0.2.0.tgz#1574744401296a488b4974909d130a85db94256f"
+  integrity sha1-FXR0RAEpakiLSXSQnRMKhduUJW8=
 
 portfinder@^1.0.25, portfinder@^1.0.26:
   version "1.0.28"

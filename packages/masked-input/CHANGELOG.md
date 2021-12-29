@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-masked-input@4.2.7...@alfalab/core-components-masked-input@4.2.8) (2021-12-14)
+
+**Note:** Version bump only for package @alfalab/core-components-masked-input
+
+
+
+
+
+## [4.2.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-masked-input@4.2.6...@alfalab/core-components-masked-input@4.2.7) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-masked-input
+
+
+
+
+
+## [4.2.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-masked-input@4.2.5...@alfalab/core-components-masked-input@4.2.6) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-masked-input
+
+
+
+
+
+## [4.2.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-masked-input@4.2.4...@alfalab/core-components-masked-input@4.2.5) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-masked-input
+
+
+
+
+
 ## [4.2.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-masked-input@4.2.3...@alfalab/core-components-masked-input@4.2.4) (2021-11-26)
 
 **Note:** Version bump only for package @alfalab/core-components-masked-input

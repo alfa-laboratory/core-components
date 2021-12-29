@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-notification-manager",
-    "version": "4.0.9",
+    "version": "4.0.12",
     "description": "Notification manager",
     "keywords": [],
     "license": "MIT",
@@ -19,7 +19,7 @@
         "react": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-notification": "^5.0.9",
+        "@alfalab/core-components-notification": "^5.0.12",
         "@alfalab/core-components-portal": "^2.0.1",
         "@alfalab/core-components-stack": "^3.0.1",
         "classnames": "^2.2.6",

@@ -46,6 +46,11 @@ export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'>
     inputClassName?: string;
 
     /**
+     * Дополнительный класс для поповера
+     */
+    popoverClassName?: string;
+
+    /**
      * Доп. пропсы для календаря
      */
     calendarProps?: CalendarProps & Record<string, unknown>;
@@ -131,6 +136,16 @@ export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'>
      * Позиционирование поповера с календарем
      */
     popoverPosition?: PopoverProps['position'];
+
+    /**
+     * z-index Popover
+     */
+    zIndexPopover?: PopoverProps['zIndex'];
+
+    /**
+     * Календарь будет принимать ширину инпута
+     */
+    useAnchorWidth?: boolean;
 };
 
 export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
@@ -139,6 +154,7 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             block = false,
             className,
             inputClassName,
+            popoverClassName,
             defaultOpen = false,
             defaultMonth,
             defaultValue = '',
@@ -156,9 +172,13 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             onChange,
             onInputChange,
             onCalendarChange,
+            onKeyDown,
             readOnly,
             Calendar = DefaultCalendar,
             popoverPosition = 'bottom-start',
+            zIndexPopover,
+            useAnchorWidth,
+            rightAddons,
             ...restProps
         },
         ref,
@@ -223,12 +243,17 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
             }
         }, []);
 
-        const handleInputKeyDown = useCallback((event: KeyboardEvent<HTMLInputElement>) => {
-            if (['ArrowDown', 'ArrowUp'].includes(event.key) && calendarRef.current) {
-                event.preventDefault();
-                calendarRef.current.focus();
-            }
-        }, []);
+        const handleInputKeyDown = useCallback(
+            (event: KeyboardEvent<HTMLInputElement>) => {
+                if (['ArrowDown', 'ArrowUp'].includes(event.key) && calendarRef.current) {
+                    event.preventDefault();
+                    calendarRef.current.focus();
+                }
+
+                if (onKeyDown) onKeyDown(event);
+            },
+            [onKeyDown],
+        );
 
         const changeHandler = useCallback(
             (
@@ -335,13 +360,17 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                     {...restProps}
                     ref={ref}
                     wrapperRef={mergeRefs([wrapperRef, inputWrapperRef])}
-                    className={inputClassName}
                     value={inputValue}
                     defaultValue={defaultValue}
                     disabled={disabled}
                     readOnly={readOnly}
                     mobileMode={mobileMode === 'native' ? 'native' : 'input'}
-                    rightAddons={<CalendarMIcon className={styles.calendarIcon} />}
+                    rightAddons={
+                        <React.Fragment>
+                            {rightAddons}
+                            <CalendarMIcon className={styles.calendarIcon} />
+                        </React.Fragment>
+                    }
                     onKeyDown={handleInputKeyDown}
                     onChange={handleInputChange}
                     block={true}
@@ -351,12 +380,15 @@ export const CalendarInput = forwardRef<HTMLInputElement, CalendarInputProps>(
                 {shouldRenderPopover && (
                     <Popover
                         open={open}
+                        useAnchorWidth={useAnchorWidth}
                         anchorElement={inputWrapperRef.current as HTMLElement}
                         popperClassName={styles.calendarContainer}
+                        className={popoverClassName}
                         position={popoverPosition}
                         offset={[0, 8]}
                         withTransition={false}
                         preventFlip={preventFlip}
+                        zIndex={zIndexPopover}
                     >
                         {renderCalendar()}
                     </Popover>

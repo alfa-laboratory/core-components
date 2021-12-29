@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount-input@5.3.7...@alfalab/core-components-amount-input@5.3.8) (2021-12-14)
+
+**Note:** Version bump only for package @alfalab/core-components-amount-input
+
+
+
+
+
+## [5.3.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount-input@5.3.6...@alfalab/core-components-amount-input@5.3.7) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-amount-input
+
+
+
+
+
+## [5.3.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount-input@5.3.5...@alfalab/core-components-amount-input@5.3.6) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-amount-input
+
+
+
+
+
+## [5.3.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount-input@5.3.4...@alfalab/core-components-amount-input@5.3.5) (2021-12-08)
+
+
+### Bug Fixes
+
+* актуализируем @alfalab/utils ([#897](https://github.com/alfa-laboratory/core-components/issues/897)) ([30fb88e](https://github.com/alfa-laboratory/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+
+
+
+
+
 ## [5.3.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount-input@5.3.3...@alfalab/core-components-amount-input@5.3.4) (2021-11-26)
 
 **Note:** Version bump only for package @alfalab/core-components-amount-input

@@ -129,6 +129,16 @@ export type TooltipProps = {
      * Если не передавать, то тултип открывается в противоположном направлении от переданного position.
      */
     fallbackPlacements?: PopoverProps['fallbackPlacements'];
+
+    /**
+     * Запрещает тултипу менять свою позицию, если он не влезает в видимую область.
+     */
+    preventOverflow?: PopoverProps['preventOverflow'];
+
+    /**
+     *  Позволяет тултипу подствраивать свою высоту под границы экрана, если из-за величины контента он выходит за рамки видимой области экрана
+     */
+    availableHeight?: PopoverProps['availableHeight'];
 };
 
 export const Tooltip: FC<TooltipProps> = ({
@@ -153,6 +163,8 @@ export const Tooltip: FC<TooltipProps> = ({
     view = 'tooltip',
     targetRef = null,
     fallbackPlacements,
+    preventOverflow = true,
+    availableHeight = false,
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
     const [target, setTarget] = useState<HTMLElement | null>(null);
@@ -323,6 +335,8 @@ export const Tooltip: FC<TooltipProps> = ({
                 update={updatePopover}
                 zIndex={zIndex}
                 fallbackPlacements={fallbackPlacements}
+                preventOverflow={preventOverflow}
+                availableHeight={availableHeight}
             >
                 <div {...getContentProps()}>{content}</div>
             </Popover>

@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.2.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.2.3...@alfalab/core-components-select@10.2.4) (2021-12-14)
+
+
+### Bug Fixes
+
+* **picker-button:** wrap field with div ([b51bce8](https://github.com/alfa-laboratory/core-components/commit/b51bce85b39583e7bb1107f56c6e64a6f2b96d5c)), closes [#914](https://github.com/alfa-laboratory/core-components/issues/914)
+
+
+
+
+
+## [10.2.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.2.2...@alfalab/core-components-select@10.2.3) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.2.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.2.1...@alfalab/core-components-select@10.2.2) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.2.0...@alfalab/core-components-select@10.2.1) (2021-12-08)
+
+
+### Bug Fixes
+
+* актуализируем @alfalab/utils ([#897](https://github.com/alfa-laboratory/core-components/issues/897)) ([30fb88e](https://github.com/alfa-laboratory/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+
+
+
+
+
+# [10.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.1.2...@alfalab/core-components-select@10.2.0) (2021-12-01)
+
+
+### Features
+
+* **circular-progress-bar:** new size S ([d34db5c](https://github.com/alfa-laboratory/core-components/commit/d34db5cca682bc63f948a0dad322604c8044a6b8))
+
+
+
+
+
 ## [10.1.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.1.1...@alfalab/core-components-select@10.1.2) (2021-11-26)
 
 **Note:** Version bump only for package @alfalab/core-components-select

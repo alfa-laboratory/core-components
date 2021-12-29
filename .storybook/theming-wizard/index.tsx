@@ -26,7 +26,7 @@ export const ThemingWizard = () => {
         <React.Fragment>
             <Questions config={config} answers={answers} onChange={handleChange} />
 
-            <Typography.Title tag='h2' defaultMargins={true} view="small">
+            <Typography.Title tag='h3' defaultMargins={true} view="small">
                 Настройка темизации
             </Typography.Title>
 

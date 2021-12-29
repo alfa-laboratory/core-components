@@ -207,6 +207,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                     styles.component,
                     styles[view],
                     {
+                        [styles.foldable]: foldable,
                         [styles.focused]: focused,
                         [styles.isHidden]: hasCloser && isHidden,
                         [styles.isFolded]: foldable && folded,

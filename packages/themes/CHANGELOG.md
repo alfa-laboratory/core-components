@@ -3,6 +3,56 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.0.0...@alfalab/core-components-themes@7.1.0) (2021-12-20)
+
+
+### Features
+
+* **checkbox-group:** add click theme ([967d585](https://github.com/alfa-laboratory/core-components/commit/967d58538c5537fc2b3ac583fb742ebaef86109e))
+
+
+
+
+
+# [7.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@6.0.2...@alfalab/core-components-themes@7.0.0) (2021-12-08)
+
+
+* fix!: новый cdn иконок (#913) (#917) ([224831f](https://github.com/alfa-laboratory/core-components/commit/224831f41ed2de49dc1a228dc081b0629cf274b1)), closes [#913](https://github.com/alfa-laboratory/core-components/issues/913) [#917](https://github.com/alfa-laboratory/core-components/issues/917)
+
+
+### BREAKING CHANGES
+
+* Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.gcdn.co data: 'self'`
+
+This reverts commit 953fbcfec46a40089a5cfde670597315269b05f5.
+
+
+
+
+
+## [6.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@6.0.1...@alfalab/core-components-themes@6.0.2) (2021-12-08)
+
+
+### Bug Fixes
+
+* revert 0e8124552206f96149d104f65cff1667e857bf01 ([#916](https://github.com/alfa-laboratory/core-components/issues/916)) ([953fbcf](https://github.com/alfa-laboratory/core-components/commit/953fbcfec46a40089a5cfde670597315269b05f5))
+
+
+
+
+
+## [6.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@6.0.0...@alfalab/core-components-themes@6.0.1) (2021-12-08)
+
+
+### Bug Fixes
+
+* новый cdn иконок ([#913](https://github.com/alfa-laboratory/core-components/issues/913)) ([0e81245](https://github.com/alfa-laboratory/core-components/commit/0e8124552206f96149d104f65cff1667e857bf01))
+* **dropzone:** изменение темы клика ([#893](https://github.com/alfa-laboratory/core-components/issues/893)) ([cadc6da](https://github.com/alfa-laboratory/core-components/commit/cadc6da29896e6a033bac8e91723b20beb404b32))
+
+
+
+
+
 # [6.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@5.1.0...@alfalab/core-components-themes@6.0.0) (2021-11-26)
 
 
