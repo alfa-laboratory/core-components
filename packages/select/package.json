@@ -24,6 +24,7 @@
         "@alfalab/core-components-input": "^8.0.1",
         "@alfalab/core-components-popover": "^5.6.0",
         "@alfalab/core-components-skeleton": "^3.0.2",
+        "@alfalab/core-components-checkbox": "^2.3.2",
         "@alfalab/hooks": "^1.4.1",
         "classnames": "^2.2.6",
         "downshift": "5.4.7",

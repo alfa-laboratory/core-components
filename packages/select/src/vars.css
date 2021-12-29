@@ -35,7 +35,8 @@
 
     --select-checkmark-margin: 0 var(--gap-xs) 0 0;
     --select-checkmark-size: 4px;
-    --select-checkmark-order: 0;
+    --select-checkmark-before-display: 'flex';
+    --select-checkmark-after-display: none;
     --select-checkmark-unselected-opacity: 0;
     --select-checkmark-background: var(--color-light-graphic-primary);
     --select-checkmark-border-radius: var(--border-radius-circle);
