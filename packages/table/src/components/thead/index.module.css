@@ -1,0 +1,32 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+
+    & th:not(:last-child):not(:empty):after {
+        transition: opacity 0.2s;
+        position: absolute;
+        content: '';
+        display: block;
+
+        width: 1px;
+        right: 0;
+        top: 12px;
+        bottom: 8px;
+        background-color: var(--color-light-graphic-neutral);
+    }
+
+    & th:after {
+        opacity: 0;
+    }
+
+    &:hover th:after {
+        opacity: 1;
+    }
+}
+
+.row {
+    height: 72px;
+}
