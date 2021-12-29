@@ -76,6 +76,11 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange'> & {
      * Управление неопределенным состоянием чекбокса
      */
     indeterminate?: boolean;
+
+    /**
+     * Отображение ошибки
+     */
+    error?: ReactNode | boolean;
 };
 
 export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
@@ -95,6 +100,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             inactive,
             dataTestId,
             indeterminate = false,
+            error,
             ...restProps
         },
         ref,
@@ -108,6 +114,8 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                 onChange(event, { checked: event.target.checked, name });
             }
         };
+
+        const errorMessage = typeof error === 'boolean' ? '' : error;
 
         return (
             // eslint-disable-next-line jsx-a11y/label-has-associated-control
@@ -136,10 +144,15 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                     {indeterminate && !checked && <span className={styles.indeterminateLine} />}
                 </span>
 
-                {(label || hint) && (
+                {(label || hint || errorMessage) && (
                     <span className={styles.content}>
                         {label && <span className={styles.label}>{label}</span>}
-                        {hint && <span className={styles.hint}>{hint}</span>}
+                        {hint && !errorMessage && <span className={styles.hint}>{hint}</span>}
+                        {errorMessage && (
+                            <span className={styles.errorMessage} role='alert'>
+                                {errorMessage}
+                            </span>
+                        )}
                     </span>
                 )}
 
