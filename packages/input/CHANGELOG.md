@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-input@8.0.1...@alfalab/core-components-input@8.0.2) (2021-12-29)
+
+
+### Bug Fixes
+
+* **input:** компонент иконки для кнопки очистки ([#930](https://github.com/alfa-laboratory/core-components/issues/930)) ([37049af](https://github.com/alfa-laboratory/core-components/commit/37049af84ed475e1932c91f1907fb604893be7d7))
+
+
+
+
+
 ## [8.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-input@8.0.0...@alfalab/core-components-input@8.0.1) (2021-12-14)
 
 **Note:** Version bump only for package @alfalab/core-components-input

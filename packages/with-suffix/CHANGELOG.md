@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.9](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-with-suffix@3.1.8...@alfalab/core-components-with-suffix@3.1.9) (2021-12-29)
+
+**Note:** Version bump only for package @alfalab/core-components-with-suffix
+
+
+
+
+
 ## [3.1.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-with-suffix@3.1.7...@alfalab/core-components-with-suffix@3.1.8) (2021-12-14)
 
 **Note:** Version bump only for package @alfalab/core-components-with-suffix

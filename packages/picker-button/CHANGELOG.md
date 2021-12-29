@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.1.4...@alfalab/core-components-picker-button@7.2.0) (2021-12-29)
+
+
+### Features
+
+* **select:** чекбоксы в выпадашке множественного выбора [#903](https://github.com/alfa-laboratory/core-components/issues/903)) ([f5638ef](https://github.com/alfa-laboratory/core-components/commit/f5638ef589468de0dc0473d30871035d8c4efab5))
+
+
+
+
+
 ## [7.1.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.1.3...@alfalab/core-components-picker-button@7.1.4) (2021-12-14)
 
 
