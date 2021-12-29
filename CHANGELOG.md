@@ -1,3 +1,19 @@
+# [23.5.0](https://github.com/alfa-laboratory/core-components/compare/v23.4.1...v23.5.0) (2021-12-29)
+
+
+### Bug Fixes
+
+* **button:** решение проблемы с тултипом и заблокированной кнопкой ([#920](https://github.com/alfa-laboratory/core-components/issues/920)) ([d04f311](https://github.com/alfa-laboratory/core-components/commit/d04f31109baf340a4dc7264d3b8ab13109a5a68c)), closes [#799](https://github.com/alfa-laboratory/core-components/issues/799)
+* **button:** убраны лишние отступы для вида ghost ([#933](https://github.com/alfa-laboratory/core-components/issues/933)) ([f43cdf6](https://github.com/alfa-laboratory/core-components/commit/f43cdf6afe349d2c7cb0d8436123e63aed347b54))
+* **input:** компонент иконки для кнопки очистки ([#930](https://github.com/alfa-laboratory/core-components/issues/930)) ([37049af](https://github.com/alfa-laboratory/core-components/commit/37049af84ed475e1932c91f1907fb604893be7d7))
+
+
+### Features
+
+* **checkbox:** состояние ошибки ([#909](https://github.com/alfa-laboratory/core-components/issues/909)) ([f81d7d8](https://github.com/alfa-laboratory/core-components/commit/f81d7d8ecade7418a2015d57f5cf3a9f31779174))
+* **select:** чекбоксы в выпадашке множественного выбора [#903](https://github.com/alfa-laboratory/core-components/issues/903)) ([f5638ef](https://github.com/alfa-laboratory/core-components/commit/f5638ef589468de0dc0473d30871035d8c4efab5))
+* **table:** компоненты для построения таблиц  ([#911](https://github.com/alfa-laboratory/core-components/issues/911)) ([4ac648a](https://github.com/alfa-laboratory/core-components/commit/4ac648abd4de08bf68babc2f122f432d5b14080e))
+
 ## [23.4.1](https://github.com/alfa-laboratory/core-components/compare/v23.4.0...v23.4.1) (2021-12-22)
 
 
