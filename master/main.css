@@ -319,6 +319,9 @@ a.loading_1jKXs {
 .withRightAddons_2Ubcd.xl_3L8EX {
         padding-right: var(--gap-2xl);
     }
+.withRightAddons_2Ubcd.ghost_3S-CP {
+        padding-right: 0;
+    }
 .withLeftAddons_1hzDx.xxs_io9Ui {
         padding-left: var(--gap-s);
     }
@@ -336,6 +339,9 @@ a.loading_1jKXs {
     }
 .withLeftAddons_1hzDx.xl_3L8EX {
         padding-left: var(--gap-2xl);
+    }
+.withLeftAddons_1hzDx.ghost_3S-CP {
+        padding-left: 0;
     }
 .link_LhF3Q {
     min-width: 0;
@@ -1440,11 +1446,6 @@ a.loading_1jKXs {
     width: 100%;
 }
 .clearIcon_3Ss0s {
-    width: 24px;
-    height: 24px;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-
     display: block;
     opacity: 0.3;
     -webkit-transition: opacity 0.2s ease;
@@ -1633,7 +1634,7 @@ a.loading_1jKXs {
     color: var(--input-with-label-placeholder-color);
 }
 .clearIcon_1Y8ET {
-    background-image: var(--input-clear-icon);
+    color: var(--color-light-graphic-primary);
 }
 .errorIcon_3U4Fy {
     background-image: var(--input-error-icon);
@@ -1731,7 +1732,7 @@ a.loading_1jKXs {
     color: var(--input-inverted-with-label-placeholder-color);
 }
 .clearIcon_3M1iv {
-    background-image: var(--input-inverted-clear-icon);
+    color: var(--color-light-graphic-primary-inverted);
 }
 .errorIcon_1Z8ge {
     background-image: var(--input-inverted-error-icon);
@@ -15672,7 +15673,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     color: var(--input-with-label-placeholder-color);
 }
 .clearIcon_3E6IW {
-    background-image: var(--input-clear-icon);
+    color: var(--color-light-graphic-primary);
 }
 .errorIcon_36tjo {
     background-image: var(--input-error-icon);
@@ -17643,7 +17644,6 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
         height: var(--textarea-xl-filled-min-height);
     }
 :root {
-    --input-clear-icon: url('https://alfabank.gcdn.co/icons/glyph_cross-circle_m.svg');
     --input-color: var(--color-light-text-primary);
     --input-placeholder-color: var(--color-light-text-secondary);
     --input-focus-placeholder-color: var(--color-light-text-tertiary);
@@ -17685,7 +17685,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     color: var(--input-placeholder-color);
 }
 .clearIcon_3ird_ {
-    background-image: var(--input-clear-icon);
+    color: var(--color-light-graphic-primary);
 }
 .errorIcon_2wlu7 {
     background-image: var(--input-error-icon);
@@ -17807,7 +17807,6 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     color: var(--input-focus-placeholder-color);
 }
 :root {
-    --input-inverted-clear-icon: url('https://alfabank.gcdn.co/icons/glyph_cross-circle_m.svg');
     --input-inverted-color: var(--color-light-text-primary-inverted);
     --input-inverted-placeholder-color: var(--color-light-text-secondary-inverted-transparent);
     --input-inverted-focus-placeholder-color: var(--color-light-text-tertiary-inverted);
@@ -17849,7 +17848,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     color: var(--input-inverted-placeholder-color);
 }
 .clearIcon_pkgeE {
-    background-image: var(--input-inverted-clear-icon);
+    color: var(--color-light-graphic-primary-inverted);
 }
 .errorIcon_2DKpr {
     background-image: var(--input-inverted-error-icon);
