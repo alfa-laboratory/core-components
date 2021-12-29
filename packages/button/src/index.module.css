@@ -205,6 +205,10 @@ a.loading {
 
 .component:disabled {
     cursor: var(--disabled-cursor);
+
+    & * {
+        pointer-events: none;
+    }
 }
 
 /* Addons */

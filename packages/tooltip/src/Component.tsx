@@ -319,6 +319,7 @@ export const Tooltip: FC<TooltipProps> = ({
     return (
         <Fragment>
             <div ref={mergeRefs([targetRef, setTarget])} {...getTargetProps()}>
+                {children.props.disabled && <div className={styles.overlap} />}
                 {children}
             </div>
 
