@@ -13,6 +13,8 @@ import {
 import { Field as DefaultField } from './field';
 import styles from './index.module.css';
 
+const SIDE_POSITIONS = ['right', 'right-start', 'right-end', 'left', 'left-start', 'left-end'];
+
 export type PickerButtonSize = 'xs' | 's' | 'm';
 
 export type PickerButtonProps = Omit<
@@ -51,25 +53,31 @@ export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
             ...restProps
         },
         ref,
-    ) => (
-        <BaseSelect
-            {...restProps}
-            ref={ref}
-            Option={Option}
-            Field={DefaultField}
-            size={size === 'm' ? 'm' : 's'}
-            fieldProps={{
-                view,
-                loading,
-                /** size у select, button несовместимы */
-                buttonSize: size,
-                leftAddons,
-            }}
-            Optgroup={Optgroup}
-            OptionsList={OptionsList}
-            className={cn(styles.container, className)}
-            selected={[]}
-            closeOnSelect={true}
-        />
-    ),
+    ) => {
+        const isSideGap =
+            !!restProps.popoverPosition && SIDE_POSITIONS.includes(restProps.popoverPosition);
+
+        return (
+            <BaseSelect
+                {...restProps}
+                ref={ref}
+                Option={Option}
+                Field={DefaultField}
+                size={size === 'm' ? 'm' : 's'}
+                fieldProps={{
+                    view,
+                    loading,
+                    /** size у select, button несовместимы */
+                    buttonSize: size,
+                    leftAddons,
+                }}
+                Optgroup={Optgroup}
+                OptionsList={OptionsList}
+                className={cn(styles.container, className)}
+                optionsListClassName={cn(styles.optionsContainer, { [styles.sideGap]: isSideGap })}
+                selected={[]}
+                closeOnSelect={true}
+            />
+        );
+    },
 );

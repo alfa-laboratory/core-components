@@ -1,3 +1,13 @@
+@import '../../themes/src/default.css';
+
 .container {
     min-width: auto;
+}
+
+.optionsContainer {
+    margin: var(--gap-xs) 0;
+
+    &.sideGap {
+        margin: 0 var(--gap-xs);
+    }
 }
