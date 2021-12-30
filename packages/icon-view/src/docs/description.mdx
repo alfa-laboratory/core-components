@@ -1,0 +1,133 @@
+## Форма и размеры
+
+### SuperEllipse
+
+128px, 80px, 64px, 48px.
+
+```tsx live
+const SIZES = ['128', '80', '64', '48'];
+
+render(
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <SuperEllipse size={size}>
+                        <SfTouchIdXxlIcon />
+                    </SuperEllipse>
+                </Col>
+            ))}
+        </Row>
+    </Container>,
+);
+```
+
+### Circle
+
+128px, 80px, 64px, 48px.
+
+```tsx live
+const SIZES = ['80', '64', '48'];
+
+render(
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <Circle size={size}>
+                        <SfTouchIdXxlIcon />
+                    </Circle>
+                </Col>
+            ))}
+        </Row>
+    </Container>,
+);
+```
+
+## Фон
+
+Заливка и изображение с обводкой / без обводки
+
+```tsx live
+<Container>
+    <Row>
+        <Col>
+            <SuperEllipse size='80' />
+        </Col>
+
+        <Col>
+            <SuperEllipse size='80' border={true} />
+        </Col>
+
+        <Col>
+            <SuperEllipse size='80' imageUrl='https://picsum.photos/id/1081/5512/3708' />
+        </Col>
+
+        <Col>
+            <SuperEllipse
+                size='80'
+                border={true}
+                imageUrl='https://picsum.photos/id/1081/5512/3708'
+            />
+        </Col>
+    </Row>
+</Container>
+```
+
+## Контент
+
+Иконка, инициалы, без контента
+
+```tsx live
+<Container>
+    <Row>
+        <Col>
+            <SuperEllipse size='80'>
+                <SfTouchIdXxlIcon />
+            </SuperEllipse>
+        </Col>
+
+        <Col>
+            <SuperEllipse size='80'>
+                <Typography.Title view='small' weight='bold'>
+                    ЙО
+                </Typography.Title>
+            </SuperEllipse>
+        </Col>
+
+        <Col>
+            <SuperEllipse size='80' />
+        </Col>
+    </Row>
+</Container>
+```
+
+## Аддоны
+
+Без, правый верхний, правый нижний, оба.
+
+```tsx live
+<Container>
+    <Row>
+        <Col>
+            <SuperEllipse size='80' />
+        </Col>
+
+        <Col>
+            <SuperEllipse size='80' topAddons={<CheckmarkCircleMIcon color='#2fc26e' />} />
+        </Col>
+
+        <Col>
+            <SuperEllipse size='80' bottomAddons={<CheckmarkCircleMIcon color='#2fc26e' />} />
+        </Col>
+
+        <Col>
+            <SuperEllipse
+                size='80'
+                topAddons={<CheckmarkCircleMIcon color='#2fc26e' />}
+                bottomAddons={<CheckmarkCircleMIcon color='#2fc26e' />}
+            />
+        </Col>
+    </Row>
+</Container>
+```
