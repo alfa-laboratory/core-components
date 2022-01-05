@@ -4,10 +4,12 @@
     min-width: auto;
 }
 
-.optionsContainer {
-    margin: var(--gap-xs) 0;
+.optionsPopover {
+    padding-top: var(--gap-xs);
+    padding-bottom: var(--gap-xs);
 
     &.sideGap {
-        margin: 0 var(--gap-xs);
+        padding-right: var(--gap-xs);
+        padding-left: var(--gap-xs);
     }
 }

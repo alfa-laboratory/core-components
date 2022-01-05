@@ -139,11 +139,11 @@ describe('Render tests', () => {
         });
     });
 
-    it('options container should have sideGap & optionsContainer class', async () => {
+    it('options container should have sideGap & optionsPopover  class', async () => {
         const { container } = render(
             <PickerButton options={options} loading={true} popoverPosition='right' />,
         );
-        expect(container.getElementsByClassName('optionsContainer')).not.toBeNull();
+        expect(container.getElementsByClassName('optionsPopover')).not.toBeNull();
         expect(container.getElementsByClassName('sideGap')).not.toBeNull();
     });
 });

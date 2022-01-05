@@ -113,14 +113,14 @@ exports[`Snapshots tests should display opened correctly 2`] = `
     style="z-index: 50; position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
   >
     <div
-      class="inner popoverInner"
+      class="inner popoverInner optionsPopover"
     >
       <div
         class=""
       >
         <div
           aria-labelledby="downshift-3-label"
-          class="optionsContainer optionsList"
+          class="optionsList"
           id="downshift-3-menu"
           role="listbox"
           style="min-width: 0px;"

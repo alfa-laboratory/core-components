@@ -74,7 +74,7 @@ export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
                 Optgroup={Optgroup}
                 OptionsList={OptionsList}
                 className={cn(styles.container, className)}
-                optionsListClassName={cn(styles.optionsContainer, { [styles.sideGap]: isSideGap })}
+                popperClassName={cn(styles.optionsPopover, { [styles.sideGap]: isSideGap })}
                 selected={[]}
                 closeOnSelect={true}
             />
