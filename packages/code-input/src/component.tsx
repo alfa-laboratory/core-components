@@ -69,13 +69,13 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
         },
         ref,
     ) => {
-        const inputRefs: Array<RefObject<HTMLInputElement>> = Array(fields)
+        const inputRefs = Array(fields)
             .fill({})
-            .map(() => createRef());
+            .map(() => createRef<HTMLInputElement>());
 
-        const [values, setValues] = useState<string[]>(initialValues.split(''));
+        const [values, setValues] = useState(initialValues.split(''));
 
-        const focusOnInputRef = (inputRef: RefObject<HTMLInputElement>) => {
+        const focusOnInput = (inputRef: RefObject<HTMLInputElement>) => {
             if (inputRef.current) {
                 inputRef.current.focus();
             }
@@ -94,15 +94,22 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
         };
 
         const handleChange: InputProps['onChange'] = (event, { index }) => {
-            if (!fields) return;
-
             const {
-                target: { value: newValue },
+                target: {
+                    value,
+                    validity: { valid },
+                },
             } = event;
+
+            const newValue = value.replace(/\D/g, '');
+
+            if (newValue === '' || !valid) {
+                return;
+            }
 
             let nextRef;
 
-            const newArrayOfValues: string[] = Object.assign([], values);
+            const newValues = [...values];
 
             if (newValue.length > 1) {
                 let nextIndex = newValue.length + index - 1;
@@ -117,16 +124,16 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
                     const cursor = index + i;
 
                     if (cursor < fields) {
-                        newArrayOfValues[cursor] = item;
+                        newValues[cursor] = item;
                     }
                 });
             } else {
                 nextRef = inputRefs[index + 1];
 
-                newArrayOfValues[index] = newValue;
+                newValues[index] = newValue;
             }
 
-            setValues(newArrayOfValues);
+            setValues(newValues);
 
             if (nextRef && nextRef.current) {
                 nextRef.current.focus();
@@ -134,7 +141,7 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
                 nextRef.current.select();
             }
 
-            triggerChange(newArrayOfValues);
+            triggerChange(newValues);
         };
 
         const handleKeyDown: InputProps['onKeyDown'] = (event, { index }) => {
@@ -144,30 +151,30 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
             const prevRef = inputRefs[prevIndex];
             const nextRef = inputRefs[nextIndex];
 
-            const vals = Array.from(values);
+            const newValues = [...values];
 
             switch (event.key) {
                 case 'Backspace':
                     event.preventDefault();
 
                     if (values[index]) {
-                        vals[index] = '';
+                        newValues[index] = '';
                     } else if (prevRef) {
-                        vals[prevIndex] = '';
+                        newValues[prevIndex] = '';
 
-                        focusOnInputRef(prevRef);
+                        focusOnInput(prevRef);
                     }
 
-                    setValues(vals);
+                    setValues(newValues);
 
-                    triggerChange(vals);
+                    triggerChange(newValues);
 
                     break;
                 case 'ArrowLeft':
                     event.preventDefault();
 
                     if (prevRef) {
-                        focusOnInputRef(prevRef);
+                        focusOnInput(prevRef);
                     }
 
                     break;
@@ -175,7 +182,7 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
                     event.preventDefault();
 
                     if (nextRef) {
-                        focusOnInputRef(nextRef);
+                        focusOnInput(nextRef);
                     }
 
                     break;
@@ -189,28 +196,32 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
         };
 
         const handleFocus: FocusEventHandler<HTMLInputElement> = event => {
-            event.target.select();
+            /**
+             * В сафари выделение работает только с setTimeout
+             */
+            setTimeout(() => {
+                event.target.select();
+            }, 0);
         };
 
         return (
             <div
                 className={cn(styles.component, className, {
-                    [styles.shake]: Boolean(error),
                     [styles.compact]: fields > 6,
                 })}
                 data-test-id={dataTestId}
             >
-                <div>
+                <div className={cn({ [styles.shake]: Boolean(error) })}>
                     {new Array(fields).fill('').map((_, index) => (
                         <Input
+                            ref={
+                                index === 0 ? mergeRefs([inputRefs[index], ref]) : inputRefs[index]
+                            }
                             key={index.toString()}
                             index={index}
                             value={values[index]}
                             disabled={disabled}
                             error={!!error}
-                            ref={
-                                index === 0 ? mergeRefs([inputRefs[index], ref]) : inputRefs[index]
-                            }
                             onChange={handleChange}
                             onFocus={handleFocus}
                             onKeyDown={handleKeyDown}

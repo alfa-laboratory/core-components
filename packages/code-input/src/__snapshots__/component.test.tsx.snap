@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CodeInput Display tests should display correctly 1`] = `
+<div>
+  <div
+    class="component"
+  >
+    <div
+      class=""
+    >
+      <input
+        autocomplete="one-time-code"
+        class="input"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        value=""
+      />
+      <input
+        autocomplete=""
+        class="input"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        value=""
+      />
+      <input
+        autocomplete=""
+        class="input"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        value=""
+      />
+      <input
+        autocomplete=""
+        class="input"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        value=""
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CodeInput Display tests should display correctly with error 1`] = `
+<div>
+  <div
+    class="component"
+  >
+    <div
+      class="shake"
+    >
+      <input
+        autocomplete="one-time-code"
+        class="input hasError"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        value=""
+      />
+      <input
+        autocomplete=""
+        class="input hasError"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        value=""
+      />
+      <input
+        autocomplete=""
+        class="input hasError"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        value=""
+      />
+      <input
+        autocomplete=""
+        class="input hasError"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        value=""
+      />
+    </div>
+    <div
+      class="error"
+      role="alert"
+    >
+      Error
+    </div>
+  </div>
+</div>
+`;

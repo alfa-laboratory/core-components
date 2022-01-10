@@ -22,7 +22,7 @@ export type InputProps = Omit<
 };
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-    ({ index, error, disabled, value, onChange, onKeyDown, onFocus }, ref) => {
+    ({ index, error, disabled, value = '', onChange, onKeyDown, onFocus }, ref) => {
         const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
             onChange(event, { index });
         };
