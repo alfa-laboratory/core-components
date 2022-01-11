@@ -5,7 +5,6 @@ render(() => {
     const [open, setOpen] = React.useState(false);
 
     const [variant, setVariant] = React.useState({ key: 'success', content: 'Успешный сценарий' });
-    const [value, setValue] = React.useState('');
     const [codeChecking, setCodeChecking] = React.useState(false);
     const [codeSending, setCodeSending] = React.useState(false);
     const [error, setError] = React.useState('');
@@ -16,11 +15,6 @@ render(() => {
     const [overlimitTitle, setOverlimitTitle] = React.useState('Превышено количество\n попыток ввода кода');
     const [overlimitText, setOverlimitText] = React.useState('Повторное подтверждение кодом из SMS\n будет возможно через');
     const [overlimitCountdownDuration, setOverlimitCountdownDuration] = React.useState(10000);
-
-    const setCode = code => {
-        setValue(code);
-        setError('');
-    };
 
     const handleSubmit = () => {
         setCodeChecking(true);
@@ -65,7 +59,6 @@ render(() => {
     const handleSmsRetryClick = () => {
         setCodeSending(true);
         setError('');
-        setCode('');
         setTimeout(() => {
             setCodeSending(false);
         }, 300);
@@ -73,7 +66,6 @@ render(() => {
     const handleOverlimitRetryClick = () => {
         setCodeSending(true);
         setError('');
-        setCode('');
         setErrorOverlimit(false);
         setTimeout(() => {
             setCodeSending(false);
@@ -111,8 +103,6 @@ render(() => {
                     codeSending={codeSending}
                     codeChecking={codeChecking}
                     countdownDuration={10000}
-                    code={value}
-                    onInputChange={({ code }) => setCode(code)}
                     alignContent='center'
                     requiredCharAmount={5}
                     error={Boolean(error)}
