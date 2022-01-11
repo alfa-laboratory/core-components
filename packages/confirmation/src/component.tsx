@@ -2,6 +2,7 @@ import React, { forwardRef, useState, useRef, useEffect, useCallback, ReactNode 
 import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
 import { Link } from '@alfalab/core-components-link';
+import { CustomInputRef } from '@alfalab/core-components-code-input';
 
 import { SignConfirmation, Overlimit } from './components';
 
@@ -10,11 +11,6 @@ import styles from './index.module.css';
 export type ContentAlign = 'left' | 'center';
 
 export type ConfirmationProps = {
-    /**
-     * Значение поля ввода
-     */
-    code: string;
-
     /**
      * Флаг состояния обработки введенного кода.
      */
@@ -166,7 +162,7 @@ export type ConfirmationProps = {
     /**
      * Обработчик события изменения значения поля ввода кода подписания
      */
-    onInputChange: ({ code }: { code: string }) => void;
+    onInputChange?: ({ code }: { code: string }) => void;
 
     /**
      * Обработчик события нажатия на кнопку "Запросить код"
@@ -221,7 +217,6 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
             overlimitTitle = 'Превышено количество\n попыток ввода кода',
             overlimitText = 'Повторное подтверждение кодом из SMS\n будет возможно через',
             overlimitCountdownDuration,
-            code,
             codeSending = false,
             codeChecking = false,
             codeCheckingText = 'Проверка кода',
@@ -256,15 +251,31 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
 
         const nonFatalError = errorIsFatal ? '' : errorText;
 
-        const inputRef = useRef<HTMLInputElement>(null);
+        const inputRef = useRef<CustomInputRef>(null);
+
+        const focusOnInput = (index = 0) => {
+            if (inputRef.current) {
+                inputRef.current.focus(index);
+            }
+        };
+
+        const resetInputValue = () => {
+            if (inputRef.current) {
+                inputRef.current.reset();
+            }
+        };
 
         const handleSmsRetryClick = useCallback(() => {
             onSmsRetryClick();
+
+            resetInputValue();
         }, [onSmsRetryClick]);
 
         const handleOverlimitSmsRetryClick = useCallback(() => {
             if (onOverlimitSmsRetryClick) {
                 onOverlimitSmsRetryClick();
+
+                resetInputValue();
             }
         }, [onOverlimitSmsRetryClick]);
 
@@ -273,6 +284,8 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
 
             if (!noAttemptsLeftMessage) {
                 onSmsRetryClick();
+
+                resetInputValue();
             }
         }, [onSmsRetryClick, noAttemptsLeftMessage]);
 
@@ -305,9 +318,7 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
         }, [onActionWithFatalError, onSmsRetryClick]);
 
         useEffect(() => {
-            if (inputRef.current) {
-                inputRef.current.focus();
-            }
+            focusOnInput();
         }, []);
 
         return (
@@ -326,7 +337,6 @@ export const Confirmation = forwardRef<HTMLDivElement, ConfirmationProps>(
                         hasSmsCountdown={hasSmsCountdown}
                         countdownDuration={countdownDuration}
                         phone={phone}
-                        code={code}
                         hasPhoneMask={hasPhoneMask}
                         errorText={nonFatalError || ''}
                         error={error}

@@ -1,11 +1,11 @@
-import React, { FC, KeyboardEvent, MutableRefObject, ReactNode, useCallback } from 'react';
+import React, { FC, RefObject, ReactNode, useCallback, useEffect } from 'react';
 import cn from 'classnames';
 
 import { Link } from '@alfalab/core-components-link';
 import { Loader } from '@alfalab/core-components-loader';
+import { CodeInput, CustomInputRef } from '@alfalab/core-components-code-input';
 
 import { Countdown } from '../countdown';
-import { CodeInput } from '../code-input';
 import { ContentAlign } from '../../component';
 
 import styles from './index.module.css';
@@ -19,20 +19,19 @@ export type SignConfirmationProps = {
     additionalContent: React.ReactNode;
     hasPhoneMask: boolean;
     phone?: string;
-    code: string;
     errorText: string;
     error: boolean;
     title: string | React.ReactNode;
     codeCheckingText: string;
     codeSendingText: string;
     hasSmsCountdown: boolean;
-    inputRef: MutableRefObject<HTMLInputElement | null>;
+    inputRef: RefObject<CustomInputRef>;
     alignContent: ContentAlign;
     noAttemptsLeftMessage?: string;
     buttonRetryText: string;
     countdownContent?: ReactNode;
     onInputFinished: ({ code }: { code: string }) => void;
-    onInputChange: ({ code }: { code: string }) => void;
+    onInputChange?: ({ code }: { code: string }) => void;
     onSmsRetryClick: (event: React.MouseEvent) => void;
     onCountdownFinished: () => void;
     onSmsHintLinkClick: (event: React.MouseEvent) => void;
@@ -47,7 +46,6 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
     additionalContent,
     hasPhoneMask,
     phone,
-    code: inputValue,
     error,
     errorText,
     title,
@@ -69,24 +67,15 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
 
     const displayedError = processing ? '' : errorText;
 
-    const handleInputKeyDown = useCallback(
-        (event: KeyboardEvent) => {
-            if (event.key === 'Enter') {
-                onInputFinished({ code: (event.target as HTMLInputElement).value });
-            }
-        },
-        [onInputFinished],
-    );
-
     const handleInputFinished = useCallback(
         (code: string) => {
             onInputFinished({ code });
 
             if (inputRef.current) {
-                inputRef.current.blur();
+                inputRef.current.blur(requiredCharAmount - 1);
             }
         },
-        [onInputFinished, inputRef],
+        [onInputFinished, inputRef, requiredCharAmount],
     );
 
     const handleInputChange = useCallback(
@@ -95,10 +84,24 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
                 handleInputFinished(code);
             }
 
-            onInputChange({ code });
+            if (onInputChange) {
+                onInputChange({ code });
+            }
         },
         [handleInputFinished, onInputChange, requiredCharAmount],
     );
+
+    useEffect(() => {
+        if (inputRef.current && error) {
+            inputRef.current.focus(requiredCharAmount - 1);
+        }
+    }, [error, inputRef, requiredCharAmount]);
+
+    useEffect(() => {
+        if (inputRef.current && !codeSending) {
+            inputRef.current.focus();
+        }
+    }, [inputRef, codeSending]);
 
     return (
         <div className={cn(styles.component, styles[alignContent])}>
@@ -106,15 +109,12 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
 
             <div className={styles.inputContainer}>
                 <CodeInput
-                    processing={processing}
+                    disabled={processing}
                     error={error}
-                    value={inputValue}
                     ref={inputRef}
-                    slotsCount={requiredCharAmount}
+                    fields={requiredCharAmount}
                     className={styles.codeInput}
-                    alignContent={alignContent}
-                    handleChange={handleInputChange}
-                    handleInputKeyDown={handleInputKeyDown}
+                    onChange={handleInputChange}
                 />
 
                 {displayedError && (
