@@ -5,9 +5,9 @@ import React, {
     createRef,
     useState,
     FocusEventHandler,
+    useImperativeHandle,
 } from 'react';
 import cn from 'classnames';
-import mergeRefs from 'react-merge-refs';
 
 import { Input, InputProps } from './components';
 
@@ -55,7 +55,13 @@ export type CodeInputProps = {
     onComplete?: (code: string) => void;
 };
 
-export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
+export type CustomInputRef = {
+    focus: (index?: number) => void;
+    blur: (index?: number) => void;
+    reset: () => void;
+};
+
+export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
     (
         {
             className,
@@ -80,6 +86,24 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
                 inputRef.current.focus();
             }
         };
+
+        const focus = (index = 0) => {
+            focusOnInput(inputRefs[index]);
+        };
+
+        const blur = (index = 0) => {
+            const input = inputRefs[index].current;
+
+            if (input) {
+                input.blur();
+            }
+        };
+
+        const reset = () => {
+            setValues([]);
+        };
+
+        useImperativeHandle(ref, () => ({ focus, blur, reset }));
 
         const triggerChange = (argumentValues: string[]) => {
             const newValue = (argumentValues || values).join('');
@@ -209,9 +233,7 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
                 <div className={cn({ [styles.shake]: Boolean(error) })}>
                     {new Array(fields).fill('').map((_, index) => (
                         <Input
-                            ref={
-                                index === 0 ? mergeRefs([inputRefs[index], ref]) : inputRefs[index]
-                            }
+                            ref={inputRefs[index]}
                             key={index.toString()}
                             index={index}
                             value={values[index]}
