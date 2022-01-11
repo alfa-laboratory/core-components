@@ -1,0 +1,38 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    padding: var(--gap-xl) var(--gap-m) var(--gap-2xl);
+    border-top: 1px solid var(--color-light-border-primary);
+    box-sizing: border-box;
+}
+
+.pagesWrapper {
+    display: flex;
+}
+
+.tag.tag {
+    flex-shrink: 0;
+    margin-right: var(--gap-xs);
+    padding: 0 var(--gap-xs);
+    min-width: 32px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    &.tagActive {
+        cursor: default;
+    }
+}
+
+.menu {
+    margin: var(--gap-2xs) 0;
+}
+
+.option {
+    min-width: 208px;
+}

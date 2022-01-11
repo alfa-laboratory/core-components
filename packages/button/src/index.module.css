@@ -157,6 +157,10 @@ a.loading {
     &.xl {
         padding-right: var(--gap-2xl);
     }
+
+    &.ghost {
+        padding-right: 0;
+    }
 }
 
 .withLeftAddons {
@@ -183,6 +187,10 @@ a.loading {
     &.xl {
         padding-left: var(--gap-2xl);
     }
+
+    &.ghost {
+        padding-left: 0;
+    }
 }
 
 .link {
@@ -205,6 +213,10 @@ a.loading {
 
 .component:disabled {
     cursor: var(--disabled-cursor);
+
+    & * {
+        pointer-events: none;
+    }
 }
 
 /* Addons */

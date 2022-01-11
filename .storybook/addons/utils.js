@@ -20,6 +20,10 @@ export function getOrCreateStyleTag(id, beforeId, doc = getStoryDoc()) {
     return styleTag;
 }
 
+export function setGuidelinesStyles(styles) {
+    getOrCreateStyleTag('guidelines', null, document).innerHTML = styles;
+}
+
 export const extractMixinContent = css =>
     css
         .trim()

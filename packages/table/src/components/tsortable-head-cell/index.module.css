@@ -1,0 +1,38 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    position: relative;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    cursor: pointer;
+    margin-left: var(--gap-xs);
+    color: var(--color-light-graphic-secondary);
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: var(--color-light-graphic-primary);
+    }
+}
+
+.reverse {
+    flex-direction: row-reverse;
+
+    & .icon {
+        margin-left: 0;
+        margin-right: var(--gap-xs);
+    }
+}
+
+.sorted {
+    color: var(--color-light-graphic-link);
+
+    &:hover {
+        color: var(--color-light-graphic-link);
+    }
+}

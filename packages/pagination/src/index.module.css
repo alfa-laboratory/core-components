@@ -1,0 +1,20 @@
+@import '../../themes/src/default.css';
+
+.component {
+    @mixin paragraph_primary_small;
+
+    display: flex;
+    align-items: center;
+    color: var(--color-light-text-primary);
+    font-variant-numeric: tabular-nums;
+}
+
+.default {
+    & > * {
+        margin-right: var(--gap-xs);
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

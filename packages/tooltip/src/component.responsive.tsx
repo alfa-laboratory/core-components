@@ -5,6 +5,8 @@ import { BottomSheet, BottomSheetProps } from '@alfalab/core-components-bottom-s
 
 import { Tooltip, TooltipProps } from '.';
 
+import styles from './responsive.module.css';
+
 type View = 'desktop' | 'mobile';
 
 type TooltipResponsiveProps = Omit<TooltipProps, 'open' | 'onClose' | 'onOpen'> & {
@@ -63,7 +65,10 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
             </BottomSheet>
             {/** TODO: проверить тултип на доступность */}
             {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
-            <div onClick={handleOpen}>{children}</div>
+            <div onClick={handleOpen} className={styles.target}>
+                {children.props.disabled && <div className={styles.overlap} />}
+                {children}
+            </div>
         </Fragment>
     ) : (
         <Tooltip {...restProps} content={content} onOpen={onOpen}>

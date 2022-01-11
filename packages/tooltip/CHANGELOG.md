@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.4.1...@alfalab/core-components-tooltip@4.4.2) (2021-12-29)
+
+
+### Bug Fixes
+
+* **button:** решение проблемы с тултипом и заблокированной кнопкой ([#920](https://github.com/alfa-laboratory/core-components/issues/920)) ([d04f311](https://github.com/alfa-laboratory/core-components/commit/d04f31109baf340a4dc7264d3b8ab13109a5a68c)), closes [#799](https://github.com/alfa-laboratory/core-components/issues/799)
+
+
+
+
+
 ## [4.4.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.4.0...@alfalab/core-components-tooltip@4.4.1) (2021-12-08)
 
 

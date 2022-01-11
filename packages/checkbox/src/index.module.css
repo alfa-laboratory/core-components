@@ -3,6 +3,7 @@
 :root {
     --checkbox-hint-color: var(--color-light-text-secondary);
     --checkbox-label-color: var(--color-light-text-primary);
+    --checkbox-error-color: var(--color-light-text-negative);
 
     /* unchecked */
     --checkbox-bg-color: var(--color-light-graphic-primary-inverted);
@@ -193,6 +194,11 @@
 
 .label:not(:only-child) {
     margin-bottom: var(--gap-2xs);
+}
+
+.errorMessage {
+    @mixin system_14-18_regular;
+    color: var(--checkbox-error-color);
 }
 
 .hint {
