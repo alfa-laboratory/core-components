@@ -5,16 +5,11 @@
     flex-direction: column;
 }
 
-.compact .input {
-    width: 28px;
-    height: 40px;
-}
-
 .error {
     @mixin paragraph_primary_small;
 
     margin-top: var(--gap-xs);
-    color: var(--confirmation-error-color);
+    color: var(--color-light-text-negative);
 }
 
 @keyframes shake {

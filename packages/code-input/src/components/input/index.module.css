@@ -1,13 +1,5 @@
-@import '../../../../vars/src/index.css';
-
-:root {
-    --code-input-font-size: 30px;
-    --code-input-font-weight: 700;
-    --code-input-font-family: var(--font-family-system);
-    --code-input-text-color: var(--color-light-text-primary);
-    --code-input-bg-color: var(--color-light-bg-secondary);
-    --code-input-error-bg-color: var(--color-light-bg-negative-muted);
-}
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
 
 .component {
     display: flex;
@@ -40,4 +32,9 @@
         color: var(--color-light-text-tertiary);
         opacity: 1;
     }
+}
+
+.compact {
+    width: 28px;
+    height: 40px;
 }

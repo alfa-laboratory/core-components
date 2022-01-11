@@ -6,6 +6,7 @@ import { CodeInput } from '..';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../vars.css';
 
 <Meta title='Компоненты/CodeInput' component={CodeInput} />
 
@@ -41,4 +42,5 @@ import { CodeInput } from '@alfalab/core-components/code-input';
     description={<Description />}
     changelog={<Changelog />}
     props={<Props of={CodeInput} />}
+    cssVars={<CssVars css={styles}/>}
 />

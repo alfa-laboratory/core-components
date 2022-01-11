@@ -17,12 +17,16 @@ export type InputProps = Omit<
     index: number;
     value: string;
     error: boolean;
+    compact?: boolean;
     onChange: (event: ChangeEvent<HTMLInputElement>, payload: { index: number }) => void;
     onKeyDown: (event: KeyboardEvent<HTMLInputElement>, payload: { index: number }) => void;
 };
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-    ({ index, error, disabled, value = '', onChange, onKeyDown, onFocus }, ref) => {
+    (
+        { index, error, disabled, value = '', compact = false, onChange, onKeyDown, onFocus },
+        ref,
+    ) => {
         const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
             onChange(event, { index });
         };
@@ -37,6 +41,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 className={cn(styles.input, {
                     [styles.hasError]: error,
                     [styles.disabled]: disabled,
+                    [styles.compact]: compact,
                 })}
                 disabled={disabled}
                 value={value}

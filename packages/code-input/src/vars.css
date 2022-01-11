@@ -1,0 +1,10 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --code-input-font-size: 30px;
+    --code-input-font-weight: 700;
+    --code-input-font-family: var(--font-family-system);
+    --code-input-text-color: var(--color-light-text-primary);
+    --code-input-bg-color: var(--color-light-bg-secondary);
+    --code-input-error-bg-color: var(--color-light-bg-negative-muted);
+}

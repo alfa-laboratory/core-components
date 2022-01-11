@@ -205,12 +205,7 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
         };
 
         return (
-            <div
-                className={cn(styles.component, className, {
-                    [styles.compact]: fields > 6,
-                })}
-                data-test-id={dataTestId}
-            >
+            <div className={cn(styles.component, className)} data-test-id={dataTestId}>
                 <div className={cn({ [styles.shake]: Boolean(error) })}>
                     {new Array(fields).fill('').map((_, index) => (
                         <Input
@@ -226,6 +221,7 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(
                             onFocus={handleFocus}
                             onKeyDown={handleKeyDown}
                             className={styles.input}
+                            compact={fields > 6}
                         />
                     ))}
                 </div>
