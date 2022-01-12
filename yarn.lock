@@ -54,18 +54,6 @@
     classnames "^2.2.6"
     react-merge-refs "^1.1.0"
 
-"@alfalab/core-components-input@^7.1.0", "@alfalab/core-components-input@^7.3.2":
-  version "7.3.6"
-  resolved "http://binary:80/artifactory/api/npm/npm/@alfalab/core-components-input/-/core-components-input-7.3.6.tgz#d56d7e1cead04df8bdc93bc204b49c2914b1b1f7"
-  integrity sha1-1W1+HOrQTfi9yTvCBLScKRSxsfc=
-  dependencies:
-    "@alfalab/core-components-button" "^5.0.1"
-    "@alfalab/core-components-form-control" "^7.4.0"
-    "@alfalab/hooks" "^1.4.1"
-    "@alfalab/icons-glyph" "^1.190.0"
-    classnames "^2.2.6"
-    react-merge-refs "^1.1.0"
-
 "@alfalab/core-components-loader@^1.1.1":
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components-loader/-/core-components-loader-1.1.6.tgz#a781934a7ee86012b122c545250d5e0a6a51d0f8"
