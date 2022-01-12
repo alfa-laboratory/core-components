@@ -33,4 +33,14 @@
 
 .target {
     cursor: pointer;
+    width: max-content;
+    position: relative;
+
+    & .overlap {
+        cursor: var(--disabled-cursor);
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 2;
+    }
 }

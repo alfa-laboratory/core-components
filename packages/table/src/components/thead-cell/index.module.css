@@ -1,0 +1,27 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    @mixin paragraph_caps;
+
+    line-height: 20px;
+    position: relative;
+    text-align: left;
+    color: var(--color-light-text-primary);
+    padding: var(--gap-2xl) var(--gap-s) 0;
+    border-bottom: 1px solid var(--color-light-border-primary);
+    background: var(--color-light-bg-primary);
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+.sortable {
+    cursor: pointer;
+}
+
+.sorted {
+    color: var(--color-light-text-primary);
+}
+
+.hidden {
+    display: none;
+}

@@ -522,6 +522,11 @@ export type OptionProps = {
     disabled?: boolean;
 
     /**
+     * Флаг множественного выбора
+     */
+    multiple?: boolean;
+
+    /**
      * Компонент пункта меню
      */
     Checkmark?: FC<CheckmarkProps>;
@@ -549,4 +554,19 @@ export type CheckmarkProps = {
      * Флаг, данный пункт выбран
      */
     selected?: boolean;
+
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
+
+    /**
+     * Флаг множественного выбора
+     */
+    multiple?: boolean;
+
+    /**
+     * Расположение отметки
+     */
+    position?: 'before' | 'after';
 };

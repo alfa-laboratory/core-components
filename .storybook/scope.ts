@@ -7,7 +7,7 @@ import * as grid from './blocks/grid';
 const req = require.context(
     '../packages',
     true,
-    /^\.\/(.*)\/src\/(index|desktop|mobile|responsive).ts$/,
+    /^\.\/(.*)\/src\/(index|desktop|mobile|responsive|circle|super-ellipse).ts$/,
 );
 
 const isComponent = (component: any) =>

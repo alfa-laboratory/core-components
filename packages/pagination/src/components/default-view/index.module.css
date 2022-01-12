@@ -1,0 +1,12 @@
+@import '../../../../themes/src/default.css';
+
+.dots {
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-light-text-secondary);
+    cursor: default;
+}

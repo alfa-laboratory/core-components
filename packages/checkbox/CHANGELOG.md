@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-checkbox@2.3.3...@alfalab/core-components-checkbox@2.4.0) (2021-12-29)
+
+
+### Features
+
+* **checkbox:** состояние ошибки ([#909](https://github.com/alfa-laboratory/core-components/issues/909)) ([f81d7d8](https://github.com/alfa-laboratory/core-components/commit/f81d7d8ecade7418a2015d57f5cf3a9f31779174))
+
+
+
+
+
 ## [2.3.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-checkbox@2.3.2...@alfalab/core-components-checkbox@2.3.3) (2021-12-08)
 
 

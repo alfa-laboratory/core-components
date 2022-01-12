@@ -14,6 +14,10 @@ describe('Checkbox', () => {
                 render(<Checkbox label='label' hint='hint' indeterminate={true} />),
             ).toMatchSnapshot();
         });
+
+        it('should display error state', () => {
+            expect(render(<Checkbox label='label' hint='hint' error='error' />)).toMatchSnapshot();
+        });
     });
 
     describe('Styles tests', () => {

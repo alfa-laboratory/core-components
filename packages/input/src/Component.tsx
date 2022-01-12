@@ -14,6 +14,7 @@ import mergeRefs from 'react-merge-refs';
 import { useFocus } from '@alfalab/hooks';
 import { Button } from '@alfalab/core-components-button';
 import { FormControl } from '@alfalab/core-components-form-control';
+import { CrossCircleMIcon } from '@alfalab/icons-glyph/CrossCircleMIcon';
 
 import styles from './index.module.css';
 import defaultColors from './default.module.css';
@@ -306,7 +307,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
                                 className={styles.clearButton}
                                 onClick={handleClear}
                             >
-                                <span
+                                <CrossCircleMIcon
                                     className={cn(styles.clearIcon, colorStyles[colors].clearIcon)}
                                 />
                             </Button>

@@ -1,0 +1,24 @@
+@import '../../../../themes/src/default.css';
+
+.row {
+    cursor: pointer;
+}
+
+.selected.expanded {
+    background-color: inherit;
+}
+
+.expanded {
+    &:hover {
+        background-color: inherit;
+    }
+}
+
+.expandable {
+    & td {
+        margin: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        border: none;
+    }
+}

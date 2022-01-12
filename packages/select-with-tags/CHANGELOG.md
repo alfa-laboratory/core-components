@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@5.0.2...@alfalab/core-components-select-with-tags@5.1.0) (2021-12-29)
+
+
+### Features
+
+* **select:** чекбоксы в выпадашке множественного выбора [#903](https://github.com/alfa-laboratory/core-components/issues/903)) ([f5638ef](https://github.com/alfa-laboratory/core-components/commit/f5638ef589468de0dc0473d30871035d8c4efab5))
+
+
+
+
+
 ## [5.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@5.0.1...@alfalab/core-components-select-with-tags@5.0.2) (2021-12-22)
 
 
