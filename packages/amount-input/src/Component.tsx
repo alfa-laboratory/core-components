@@ -20,7 +20,7 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
      * Денежное значение в минорных единицах
      * Значение null - значит не установлено
      */
-    value?: number | null;
+    value?: string | number | null;
 
     /**
      * Валюта
@@ -103,35 +103,30 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         },
         ref,
     ) => {
-        const [inputValue, setInputValue] = useState<string>(
-            formatAmount({
-                // TODO: поддержать nullable в utils
-                value: value as number,
+        const getFormattedAmount = useCallback(() => {
+            if (value === '' || value === null) return '';
+
+            return formatAmount({
+                value: +value,
                 currency,
                 minority,
                 view: 'default',
-            }).formatted,
-        );
+            }).formatted;
+        }, [currency, minority, value]);
+
+        const [inputValue, setInputValue] = useState<string>(getFormattedAmount());
 
         const currencySymbol = getCurrencySymbol(currency);
 
         useEffect(() => {
             const currentAmountValue = getAmountValueFromStr(inputValue, minority);
             if (currentAmountValue !== value) {
-                return setInputValue(
-                    formatAmount({
-                        // TODO: поддержать nullable в utils
-                        value: value as number,
-                        currency,
-                        minority,
-                        view: 'default',
-                    }).formatted,
-                );
+                return setInputValue(getFormattedAmount());
             }
 
             return () => undefined;
             // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [value, currency, minority]);
+        }, [getFormattedAmount]);
 
         const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             const input = e.target;
@@ -241,6 +236,8 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     inputClassName={styles.input}
                     onChange={handleChange}
                     onClear={handleClear}
+                    inputMode='decimal'
+                    pattern='[0-9\s\.,]*'
                     dataTestId={dataTestId}
                     ref={ref}
                 />

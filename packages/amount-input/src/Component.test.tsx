@@ -13,7 +13,7 @@ describe('AmountInput', () => {
     const THINSP = String.fromCharCode(8201);
 
     function renderAmountInput(
-        value: number | null,
+        value: AmountInputProps['value'],
         currency: CurrencyCodes | null = 'RUR',
         props: AmountInputProps = {},
     ) {
@@ -104,6 +104,11 @@ describe('AmountInput', () => {
         expect(input.value).toBe('');
     });
 
+    it('should render empty input if passed amount.value is empty string', () => {
+        const input = renderAmountInput('');
+        expect(input.value).toBe('');
+    });
+
     it('should render 0 in input if passed amount.value is 0', () => {
         const input = renderAmountInput(0);
         expect(input.value).toBe('0');
@@ -111,6 +116,11 @@ describe('AmountInput', () => {
 
     it('should render passed decimal amount', () => {
         const input = renderAmountInput(1234567);
+        expect(input.value).toBe(`12${THINSP}345,67`);
+    });
+
+    it('should render passed decimal amount if value is string', () => {
+        const input = renderAmountInput('1234567');
         expect(input.value).toBe(`12${THINSP}345,67`);
     });
 
