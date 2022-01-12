@@ -19,43 +19,47 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
         <div
           class="component codeInput"
         >
-          <input
-            autocomplete="one-time-code"
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="1"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="2"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="3"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="4"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="5"
-          />
+          <div
+            class=""
+          >
+            <input
+              autocomplete="one-time-code"
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+          </div>
+          
         </div>
-        
       </div>
       <div
         class="countdown countdown"
@@ -170,43 +174,47 @@ exports[`Confirmation Snapshot tests should match snapshot with masked phone 1`]
         <div
           class="component codeInput"
         >
-          <input
-            autocomplete="one-time-code"
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="1"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="2"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="3"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="4"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="5"
-          />
+          <div
+            class=""
+          >
+            <input
+              autocomplete="one-time-code"
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+          </div>
+          
         </div>
-        
       </div>
       <div
         class="countdown countdown"
@@ -291,47 +299,51 @@ exports[`Confirmation Snapshot tests should match snapshot with nonFatal error 1
         <div
           class="component codeInput"
         >
-          <input
-            autocomplete="one-time-code"
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="1"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="2"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="3"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="4"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="5"
-          />
-        </div>
-        <div
-          class="error"
-          role="alert"
-        >
-          Неверный код
+          <div
+            class="shake"
+          >
+            <input
+              autocomplete="one-time-code"
+              class="input hasError"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input hasError"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input hasError"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input hasError"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input hasError"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+          </div>
+          <div
+            class="error"
+            role="alert"
+          >
+            Неверный код
+          </div>
         </div>
       </div>
       <div
@@ -484,43 +496,47 @@ exports[`Confirmation Snapshot tests should match snapshot with signTitle as rea
         <div
           class="component codeInput"
         >
-          <input
-            autocomplete="one-time-code"
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="1"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="2"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="3"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="4"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="5"
-          />
+          <div
+            class=""
+          >
+            <input
+              autocomplete="one-time-code"
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+          </div>
+          
         </div>
-        
       </div>
       <div
         class="countdown countdown"
@@ -601,43 +617,47 @@ exports[`Confirmation Snapshot tests should match snapshot with signTitle as str
         <div
           class="component codeInput"
         >
-          <input
-            autocomplete="one-time-code"
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="1"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="2"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="3"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="4"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="5"
-          />
+          <div
+            class=""
+          >
+            <input
+              autocomplete="one-time-code"
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+          </div>
+          
         </div>
-        
       </div>
       <div
         class="countdown countdown"
@@ -718,43 +738,47 @@ exports[`Confirmation Snapshot tests should match snapshot with unmasked phone 1
         <div
           class="component codeInput"
         >
-          <input
-            autocomplete="one-time-code"
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="1"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="2"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="3"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="4"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="5"
-          />
+          <div
+            class=""
+          >
+            <input
+              autocomplete="one-time-code"
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+          </div>
+          
         </div>
-        
       </div>
       <div
         class="countdown countdown"
@@ -839,43 +863,47 @@ exports[`Confirmation Snapshot tests should match snapshot without smsCountdown 
         <div
           class="component codeInput"
         >
-          <input
-            autocomplete="one-time-code"
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="1"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="2"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="3"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="4"
-          />
-          <input
-            autocomplete=""
-            class="input left"
-            inputmode="numeric"
-            pattern="[0-9]*"
-            value="5"
-          />
+          <div
+            class=""
+          >
+            <input
+              autocomplete="one-time-code"
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+            <input
+              autocomplete=""
+              class="input"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              value=""
+            />
+          </div>
+          
         </div>
-        
       </div>
       <div
         class="smsComeLinkWrap"

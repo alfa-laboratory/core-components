@@ -25,7 +25,6 @@ describe(
                     componentName: 'Confirmation',
                     size: { width: 450, height: 450 },
                     knobs: {
-                        code: ['', '1234'],
                         alignContent: ['left', 'center'],
                         requiredCharAmount: [3, 5],
                     },
@@ -52,7 +51,6 @@ describe(
                     componentName: 'Confirmation',
                     size: { width: 450, height: 450 },
                     knobs: {
-                        code: ['12345'],
                         phone: '+7 000 000 00 42',
                         hasPhoneMask: [true, false],
                         hasSmsCountdown: [true, false],
@@ -80,7 +78,6 @@ describe(
                     componentName: 'Confirmation',
                     size: { width: 450, height: 450 },
                     knobs: {
-                        code: ['12345'],
                         codeChecking: [true, false],
                         codeSending: [true, false],
                     },
@@ -108,7 +105,6 @@ describe(
                     componentName: 'Confirmation',
                     size: { width: 450, height: 450 },
                     knobs: {
-                        code: ['12345'],
                         error: true,
                         errorText: 'Неправильный код',
                         errorIsFatal: [true, false],
@@ -137,7 +133,6 @@ describe(
                     componentName: 'Confirmation',
                     size: { width: 450, height: 450 },
                     knobs: {
-                        code: ['12345'],
                         error: true,
                         errorText: 'Неправильный код',
                         noAttemptsLeftMessage: ['', 'Не осталось попыток запроса кода'],
