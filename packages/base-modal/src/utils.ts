@@ -37,19 +37,34 @@ const getPaddingRight = (node: Element) => {
     return parseInt(window.getComputedStyle(node).paddingRight, 10) || 0;
 };
 
+declare global {
+    interface Window {
+        restoreStylesStore: Array<{
+            container: HTMLElement;
+            modals: number;
+            styles: SavedStyle[];
+        }>;
+    }
+}
+
 type SavedStyle = {
     value: string;
     key: string;
     el: HTMLElement;
 };
 
-const restoreStylesStore: Array<{
-    container: HTMLElement;
-    modals: number;
-    styles: SavedStyle[];
-}> = [];
+const getRestoreStylesStore = () => {
+    if (!window.restoreStylesStore) {
+        window.restoreStylesStore = [];
+
+        return window.restoreStylesStore;
+    }
+
+    return window.restoreStylesStore;
+};
 
 export const restoreContainerStyles = (container: HTMLElement) => {
+    const restoreStylesStore = getRestoreStylesStore();
     const index = restoreStylesStore.findIndex(s => s.container === container);
     const existingStyles = restoreStylesStore[index];
 
@@ -72,6 +87,8 @@ export const restoreContainerStyles = (container: HTMLElement) => {
 
 export const handleContainer = (container?: HTMLElement) => {
     if (!container) return;
+
+    const restoreStylesStore = getRestoreStylesStore();
 
     const existingStyles = restoreStylesStore.find(s => s.container === container);
 
