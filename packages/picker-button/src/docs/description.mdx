@@ -101,6 +101,26 @@ render(
 );
 ```
 
+#### Кастомная
+
+Кастомную ширину можно задать с помощью стилей и `optionsListClassName`
+
+```tsx
+/*
+css
+.customWidth {
+    width: 300px;
+}
+*/
+
+<PickerButton
+    options={options}
+    optionsListClassName={styles.customWidth}
+    view='primary'
+    label='Picker button'
+/>
+```
+
 ### Высота ячеек
 
 По умолчанию размер пунктов меню совпадает с размером селекта,
