@@ -1,3 +1,5 @@
+import { getCoreComponentsStore, SavedStyle } from '@alfalab/core-components-global-store';
+
 export function isScrolledToTop(target: HTMLElement) {
     return target.scrollTop <= 0;
 }
@@ -37,43 +39,17 @@ const getPaddingRight = (node: Element) => {
     return parseInt(window.getComputedStyle(node).paddingRight, 10) || 0;
 };
 
-declare global {
-    interface Window {
-        restoreStylesStore: Array<{
-            container: HTMLElement;
-            modals: number;
-            styles: SavedStyle[];
-        }>;
-    }
-}
-
-type SavedStyle = {
-    value: string;
-    key: string;
-    el: HTMLElement;
-};
-
-const getRestoreStylesStore = () => {
-    if (!window.restoreStylesStore) {
-        window.restoreStylesStore = [];
-
-        return window.restoreStylesStore;
-    }
-
-    return window.restoreStylesStore;
-};
-
 export const restoreContainerStyles = (container: HTMLElement) => {
-    const restoreStylesStore = getRestoreStylesStore();
-    const index = restoreStylesStore.findIndex(s => s.container === container);
-    const existingStyles = restoreStylesStore[index];
+    const modalRestoreStyles = getCoreComponentsStore().getModalRestoreStyles();
+    const index = modalRestoreStyles.findIndex(s => s.container === container);
+    const existingStyles = modalRestoreStyles[index];
 
     if (!existingStyles) return;
 
     existingStyles.modals -= 1;
 
     if (existingStyles.modals <= 0) {
-        restoreStylesStore.splice(index, 1);
+        modalRestoreStyles.splice(index, 1);
 
         existingStyles.styles.forEach(({ value, el, key }) => {
             if (value) {
@@ -88,9 +64,9 @@ export const restoreContainerStyles = (container: HTMLElement) => {
 export const handleContainer = (container?: HTMLElement) => {
     if (!container) return;
 
-    const restoreStylesStore = getRestoreStylesStore();
+    const modalRestoreStyles = getCoreComponentsStore().getModalRestoreStyles();
 
-    const existingStyles = restoreStylesStore.find(s => s.container === container);
+    const existingStyles = modalRestoreStyles.find(s => s.container === container);
 
     if (existingStyles) {
         existingStyles.modals += 1;
@@ -133,7 +109,7 @@ export const handleContainer = (container?: HTMLElement) => {
 
     scrollContainer.style.overflow = 'hidden';
 
-    restoreStylesStore.push({
+    modalRestoreStyles.push({
         container,
         modals: 1,
         styles: containerStyles,
