@@ -5,6 +5,7 @@ import React, {
     InputHTMLAttributes,
     KeyboardEvent,
     KeyboardEventHandler,
+    MouseEventHandler,
 } from 'react';
 import cn from 'classnames';
 
@@ -35,6 +36,17 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             onKeyDown(event, { index });
         };
 
+        const handleClick: MouseEventHandler = event => {
+            const target = event.target as HTMLInputElement;
+
+            /**
+             * В сафари выделение корректно работает только с setTimeout
+             */
+            setTimeout(() => {
+                target.select();
+            }, 0);
+        };
+
         return (
             <input
                 ref={ref}
@@ -51,6 +63,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                 onChange={handleChange}
                 onKeyDown={handleKeyDown}
                 onFocus={onFocus}
+                onClick={handleClick}
             />
         );
     },

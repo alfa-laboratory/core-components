@@ -221,7 +221,7 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
 
         const handleFocus: FocusEventHandler<HTMLInputElement> = event => {
             /**
-             * В сафари выделение работает только с setTimeout
+             * В сафари выделение корректно работает только с setTimeout
              */
             setTimeout(() => {
                 event.target.select();
