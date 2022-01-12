@@ -71,8 +71,8 @@ describe('CalendarRange', () => {
             <CalendarRange defaultMonth={defaultMonth} />,
         );
 
-        const prevMonthButton = queryByLabelText('Предыдущий месяц') as HTMLButtonElement;
-        const nextMonthButton = queryByLabelText('Следующий месяц') as HTMLButtonElement;
+        const prevMonthButton = queryByLabelText('Предыдущий период') as HTMLButtonElement;
+        const nextMonthButton = queryByLabelText('Следующий период') as HTMLButtonElement;
 
         prevMonthButton.click();
 
@@ -103,7 +103,7 @@ describe('CalendarRange', () => {
             <CalendarRange defaultMonth={defaultMonth} minDate={minDate} />,
         );
 
-        const prevMonthButton = queryByLabelText('Предыдущий месяц') as HTMLButtonElement;
+        const prevMonthButton = queryByLabelText('Предыдущий период') as HTMLButtonElement;
 
         const firstNonDisabledDayButton = container.querySelector(
             '*[data-date]:not(:disabled)',
@@ -123,7 +123,7 @@ describe('CalendarRange', () => {
             <CalendarRange defaultMonth={defaultMonth} maxDate={maxDate} />,
         );
 
-        const nextMonthButton = queryByLabelText('Следующий месяц') as HTMLButtonElement;
+        const nextMonthButton = queryByLabelText('Следующий период') as HTMLButtonElement;
 
         const activeDays = container.querySelectorAll('*[data-date]:not(:disabled)');
         const lastActiveDay = activeDays[activeDays.length - 1] as HTMLButtonElement;
@@ -373,7 +373,7 @@ describe('CalendarRange', () => {
             const { container, queryByLabelText } = render(<CalendarRange />);
 
             const firstDay = container.querySelector('*[data-date]') as HTMLButtonElement;
-            const nextMonthButton = queryByLabelText('Следующий месяц') as HTMLButtonElement;
+            const nextMonthButton = queryByLabelText('Следующий период') as HTMLButtonElement;
 
             act(() => {
                 firstDay.click();

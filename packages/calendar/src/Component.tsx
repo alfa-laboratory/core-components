@@ -6,8 +6,9 @@ import { Header } from './components/header';
 import { DaysTable } from './components/days-table';
 import { MonthsTable } from './components/months-table';
 import { YearsTable } from './components/years-table';
+import { PeriodSlider } from './components/period-slider';
 import { useCalendar } from './useCalendar';
-import { limitDate, monthName } from './utils';
+import { limitDate } from './utils';
 import { View, SelectorView } from './typings';
 
 import styles from './index.module.css';
@@ -217,18 +218,21 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                 })}
                 data-test-id={dataTestId}
             >
-                <Header
-                    month={monthName(activeMonth)}
-                    year={activeMonth.getFullYear().toString()}
-                    prevArrowVisible={canSetPrevMonth}
-                    nextArrowVisible={canSetNextMonth}
-                    onPrevArrowClick={handlePrevArrowClick}
-                    onNextArrowClick={handleNextArrowClick}
-                    onMonthClick={handleMonthClick}
-                    onYearClick={handleYearClick}
-                    view={selectorView}
-                    withShadow={scrolled}
-                />
+                <Header view={selectorView} withShadow={scrolled}>
+                    <PeriodSlider
+                        className={styles.period}
+                        value={activeMonth}
+                        periodType='month'
+                        prevArrowDisabled={!canSetPrevMonth}
+                        nextArrowDisabled={!canSetNextMonth}
+                        hideDisabledArrows={true}
+                        onPrevArrowClick={handlePrevArrowClick}
+                        onNextArrowClick={handleNextArrowClick}
+                        onMonthClick={handleMonthClick}
+                        onYearClick={handleYearClick}
+                        view={selectorView === 'month-only' ? 'period' : 'full'}
+                    />
+                </Header>
 
                 <div className={styles.container}>
                     {view === 'days' && (
