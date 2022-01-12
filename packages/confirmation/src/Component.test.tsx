@@ -1,12 +1,10 @@
 import React from 'react';
-import { render, waitFor, screen } from '@testing-library/react';
+import { render, waitFor, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Confirmation } from './index';
 
 describe('Confirmation', () => {
     const baseProps = {
-        code: '12345',
-        onInputChange: jest.fn(),
         onInputFinished: jest.fn(),
         onSmsRetryClick: jest.fn(),
     };
@@ -371,7 +369,7 @@ describe('Confirmation', () => {
         const getActiveElement = () => document.activeElement as Element;
 
         it('should focus input on first render', () => {
-            const { container } = render(<Confirmation {...baseProps} code='' />);
+            const { container } = render(<Confirmation {...baseProps} />);
 
             expect(getActiveElement()).toBe(container.querySelector('input'));
         });
@@ -379,7 +377,7 @@ describe('Confirmation', () => {
         it('should call onInputChange when input is changed', () => {
             const onInputChange = jest.fn();
 
-            render(<Confirmation {...baseProps} onInputChange={onInputChange} code='' />);
+            render(<Confirmation {...baseProps} onInputChange={onInputChange} />);
 
             userEvent.type(getActiveElement(), '1');
 
@@ -387,58 +385,22 @@ describe('Confirmation', () => {
         });
 
         it('should call onInputFinished when input is finished', () => {
-            let code = '';
             const onInputFinished = jest.fn();
-            const onInputChange = (value: { code: string }) => {
-                code = value.code;
-            };
 
-            const getComponent = () => (
+            const { container } = render(
                 <Confirmation
                     {...baseProps}
                     onInputFinished={onInputFinished}
-                    onInputChange={onInputChange}
                     requiredCharAmount={2}
-                    code={code}
-                />
+                />,
             );
 
-            const { rerender } = render(getComponent());
-            userEvent.type(getActiveElement(), '1');
+            const inputs = container.querySelectorAll('input');
 
-            rerender(getComponent());
-            userEvent.type(getActiveElement(), '2');
+            fireEvent.change(inputs[0], { target: { value: '1' } });
+            fireEvent.change(inputs[1], { target: { value: '2' } });
 
             expect(onInputFinished).toBeCalledTimes(1);
-        });
-
-        it('should not allow type code longer than requiredCharAmount', () => {
-            let code = '';
-            const onInputChange = jest.fn((value: { code: string }) => {
-                code = value.code;
-            });
-
-            const getComponent = () => (
-                <Confirmation
-                    {...baseProps}
-                    onInputChange={onInputChange}
-                    requiredCharAmount={2}
-                    code={code}
-                />
-            );
-
-            const { rerender } = render(getComponent());
-            userEvent.type(getActiveElement(), '1');
-
-            rerender(getComponent());
-            userEvent.type(getActiveElement(), '2');
-
-            rerender(getComponent());
-            userEvent.type(getActiveElement(), '3');
-
-            expect(onInputChange).nthCalledWith(1, { code: '1' });
-            expect(onInputChange).nthCalledWith(2, { code: '12' });
-            expect(onInputChange).toBeCalledTimes(2);
         });
     });
 

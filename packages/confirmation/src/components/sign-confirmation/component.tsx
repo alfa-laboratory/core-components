@@ -110,18 +110,12 @@ export const SignConfirmation: FC<SignConfirmationProps> = ({
             <div className={styles.inputContainer}>
                 <CodeInput
                     disabled={processing}
-                    error={error}
+                    error={displayedError}
                     ref={inputRef}
                     fields={requiredCharAmount}
                     className={styles.codeInput}
                     onChange={handleInputChange}
                 />
-
-                {displayedError && (
-                    <div className={styles.error} role='alert'>
-                        {displayedError}
-                    </div>
-                )}
             </div>
 
             {processing && (
