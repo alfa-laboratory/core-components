@@ -5577,6 +5577,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
+    overflow: hidden;
 }
 .icon_3GUVY {
     display: block;
@@ -17331,6 +17332,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
         padding-top: 0;
         padding-bottom: 0;
         border: none;
+        height: auto;
     }
 .container_1b55b {
     position: relative;
