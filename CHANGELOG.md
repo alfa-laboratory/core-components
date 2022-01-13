@@ -1,3 +1,13 @@
+## [23.6.1](https://github.com/alfa-laboratory/core-components/compare/v23.6.0...v23.6.1) (2022-01-13)
+
+
+### Bug Fixes
+
+* **amount-input:** позволяем использовать строки, не рисуем 0 если передана пустая строка ([#941](https://github.com/alfa-laboratory/core-components/issues/941)) ([51c954f](https://github.com/alfa-laboratory/core-components/commit/51c954f238e7dbdbdbbd517e81e0e944f880ded6))
+* **dropzone:** корректный сброс dragCounter ([#944](https://github.com/alfa-laboratory/core-components/issues/944)) ([091b4a4](https://github.com/alfa-laboratory/core-components/commit/091b4a4b2f42fb0b84581c875a18c14c735eb92b))
+* **file-upload-item:** корректная обрезка контента ([#942](https://github.com/alfa-laboratory/core-components/issues/942)) ([5a285f2](https://github.com/alfa-laboratory/core-components/commit/5a285f2c1259dab270f52b438203fe7d40c07b29))
+* **table:** фикс высоты раскрывающейся ячейки ([#946](https://github.com/alfa-laboratory/core-components/issues/946)) ([643f9a5](https://github.com/alfa-laboratory/core-components/commit/643f9a556748bafc46a5c6f8c458c07770b11b17))
+
 # [23.6.0](https://github.com/alfa-laboratory/core-components/compare/v23.5.0...v23.6.0) (2021-12-30)
 
 
