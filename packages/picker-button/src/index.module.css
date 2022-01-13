@@ -11,3 +11,7 @@
         padding: 0 var(--gap-xs);
     }
 }
+
+.optionsListContainer {
+    border-radius: var(--border-radius-s);
+}

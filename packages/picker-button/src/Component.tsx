@@ -50,6 +50,8 @@ export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
             size = 'm',
             className,
             leftAddons,
+            popperClassName,
+            optionsListClassName,
             ...restProps
         },
         ref,
@@ -74,7 +76,10 @@ export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
                 Optgroup={Optgroup}
                 OptionsList={OptionsList}
                 className={cn(styles.container, className)}
-                popperClassName={cn(styles.optionsPopover, { [styles.sideGap]: isSideGap })}
+                popperClassName={cn(styles.optionsPopover, popperClassName, {
+                    [styles.sideGap]: isSideGap,
+                })}
+                optionsListClassName={cn(styles.optionsListContainer, optionsListClassName)}
                 selected={[]}
                 closeOnSelect={true}
             />
