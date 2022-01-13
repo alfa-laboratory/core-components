@@ -82,3 +82,24 @@ describe(
         screenshotOpts: { clip },
     }),
 );
+
+
+describe(
+    'FileUploadItem | ellipsis',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'FileUploadItem',
+            knobs: {
+                name: ['very-long-file-name-123-very-long-file-name-123-very-long-file-name-123.jpg'],
+                uploadDate: ['22.01.2018'],
+                size: [45000],
+                showRestore: [true],
+            },
+        }),
+        screenshotOpts: { clip },
+        viewport: {
+            width: 400,
+            height: 700,
+        },
+    }),
+);
