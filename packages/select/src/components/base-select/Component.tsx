@@ -268,40 +268,34 @@ export const BaseSelect = forwardRef(
             [flatOptions, setSelectedItems],
         );
 
-        const WrappedOption = useCallback(
-            ({ option, index, ...rest }: { option: OptionShape; index: number }) => (
-                <React.Fragment key={option.key}>
-                    {Option({
-                        ...(optionProps as object),
-                        ...rest,
-                        className: optionClassName,
-                        innerProps: getItemProps({
-                            index,
-                            item: option,
-                            disabled: option.disabled,
-                            onMouseDown: (event: MouseEvent) => event.preventDefault(),
-                        }),
-                        multiple,
-                        index,
-                        option,
-                        size: optionsSize,
-                        disabled: option.disabled,
-                        highlighted: index === highlightedIndex,
-                        selected: selectedItems.includes(option),
-                        dataTestId: getDataTestId(dataTestId, 'option'),
-                    })}
-                </React.Fragment>
-            ),
-            [
-                Option,
-                optionProps,
-                optionClassName,
-                getItemProps,
+        const getOptionProps = useCallback(
+            (option: OptionShape, index: number) => ({
+                ...(optionProps as object),
+                className: optionClassName,
+                innerProps: getItemProps({
+                    index,
+                    item: option,
+                    disabled: option.disabled,
+                    onMouseDown: (event: MouseEvent) => event.preventDefault(),
+                }),
                 multiple,
-                optionsSize,
-                highlightedIndex,
-                selectedItems,
+                index,
+                option,
+                size: optionsSize,
+                disabled: option.disabled,
+                highlighted: index === highlightedIndex,
+                selected: selectedItems.includes(option),
+                dataTestId: getDataTestId(dataTestId, 'option'),
+            }),
+            [
                 dataTestId,
+                getItemProps,
+                highlightedIndex,
+                multiple,
+                optionClassName,
+                optionProps,
+                optionsSize,
+                selectedItems,
             ],
         );
 
@@ -441,7 +435,11 @@ export const BaseSelect = forwardRef(
                                     size={size}
                                     options={options}
                                     Optgroup={Optgroup}
-                                    Option={WrappedOption}
+                                    Option={Option}
+                                    selectedItems={selectedItems}
+                                    setSelectedItems={setSelectedItems}
+                                    getOptionProps={getOptionProps}
+                                    toggleMenu={toggleMenu}
                                     visibleOptions={visibleOptions}
                                     onScroll={onScroll}
                                     dataTestId={getDataTestId(dataTestId, 'options-list')}

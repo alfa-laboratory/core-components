@@ -87,7 +87,6 @@ render(() => {
 });
 ```
 
-
 #### Управление открытием
 
 ```tsx live
@@ -111,15 +110,15 @@ render(() => {
                 options={options}
                 placeholder='Выберите элемент'
                 open={open}
-                onOpen={(payload) => { setOpen(payload.open) }}
+                onOpen={payload => {
+                    setOpen(payload.open);
+                }}
                 // Полностью управляемое открытие
                 // onChange={payload => {
                 //     setOpen(false);
                 // }}
             />
-            <Button onClick={() => setOpen(o => !o)}>
-                {open ? 'Закрыть' : 'Открыть'}
-            </Button>
+            <Button onClick={() => setOpen(o => !o)}>{open ? 'Закрыть' : 'Открыть'}</Button>
         </Space>
     );
 });
@@ -354,7 +353,7 @@ const options = [
 render(<Select size='l' options={options} label='optionsSize' optionsSize='s' />);
 ```
 
-## Селект с заголовком меню
+## Селект с заголовком меню и футером
 
 ```tsx live
 const options = [
@@ -363,14 +362,16 @@ const options = [
     { key: '3', content: 'Americium' },
 ];
 
-const CustomOptionsList = props => (
-    <div>
-        <span style={{ padding: 'var(--gap-xs)', display: 'block' }}>Заголовок меню</span>
-        <OptionsList {...props} />
-    </div>
+render(
+    <Select
+        label='С заголовком меню'
+        options={options}
+        optionsListProps={{
+            header: <div style={{ padding: 'var(--gap-xs)' }}>Заголовок меню</div>,
+            footer: <div style={{ padding: 'var(--gap-xs)' }}>Футер</div>,
+        }}
+    />,
 );
-
-render(<Select label='С заголовком меню' options={options} OptionsList={CustomOptionsList} />);
 ```
 
 ## Ширина выпадающего меню
@@ -501,16 +502,43 @@ render(
 );
 ```
 
-## Открытие вверх, если места недостаточно
+## Выбор с подтверждением
+
+Используйте компонент `OptionsListWithApply`, чтобы реализовать логику подтверждения выбора.
+
+Если требуется отобразить много значений, то подключить `VirtualOptionsList` можно с помощью `optionsListProps={{ virtual: true }}`
 
 ```tsx live
 const options = [
     { key: '1', content: 'Neptunium' },
     { key: '2', content: 'Plutonium' },
     { key: '3', content: 'Americium' },
+    { key: '4', content: 'Curium' },
+    { key: '5', content: 'Berkelium' },
+    { key: '6', content: 'Californium' },
+    { key: '7', content: 'Einsteinium' },
+    { key: '8', content: 'Fermium' },
 ];
 
-render(<Select options={options} preventFlip={false} label='preventFlip = false' />);
+render(() => {
+    const [selected, setSelected] = React.useState([options[2].key, options[3].key]);
+
+    const handleChange = ({ selectedMultiple }) => {
+        setSelected(selectedMultiple.map(option => option.key));
+    };
+
+    return (
+        <Select
+            options={options}
+            placeholder='Выберите элемент'
+            label='controlled'
+            multiple={true}
+            onChange={handleChange}
+            selected={selected}
+            OptionsList={OptionsListWithApply}
+        />
+    );
+});
 ```
 
 ## Пресеты
@@ -554,36 +582,36 @@ render(() => {
         </div>
     );
 });
-
 ```
+
 ### Ленивая загрузка опций
 
 #### Простая ленивая загрузка
+
 ```tsx live
 const LIMIT = 10;
 
 const sleep = () => new Promise(r => setTimeout(r, 2000));
-const mockOptions = (offset) => ({
-    options: Array(LIMIT).fill(0).map((_, i) => ({
-        key: `${offset}${i}`,
-        content: `Option number ${offset}${i}`,
-    })),
-    hasMore: offset < 4
+const mockOptions = offset => ({
+    options: Array(LIMIT)
+        .fill(0)
+        .map((_, i) => ({
+            key: `${offset}${i}`,
+            content: `Option number ${offset}${i}`,
+        })),
+    hasMore: offset < 4,
 });
 
 render(() => {
-    const fetchOptions = (offset) => {
+    const fetchOptions = offset => {
         return sleep().then(() => {
             return mockOptions(offset);
         });
     };
-    const {
-        optionsProps,
-    } = useLazyLoading({
+    const { optionsProps } = useLazyLoading({
         limit: LIMIT,
         optionsFetcher: fetchOptions,
     });
-
 
     return (
         <div style={{ width: 320 }}>
@@ -599,23 +627,26 @@ render(() => {
 ```
 
 #### Ленивая загрузка с поддержкой поиска по строке
+
 ```tsx live
 const LIMIT = 15;
 
 const sleep = () => new Promise(r => setTimeout(r, 2000));
 const mockOptions = (offset, limit, queryString) => ({
-    options: Array(LIMIT).fill(0).map((_, i) => ({
-        key: `${offset}${i}`,
-        content: queryString ?
-            `Опция ${offset * limit + i}, удовлетворяющая поисковой строке "${queryString}"` :
-            `Option number ${offset * limit + i}`
-    })),
-    hasMore: offset < 4
+    options: Array(LIMIT)
+        .fill(0)
+        .map((_, i) => ({
+            key: `${offset}${i}`,
+            content: queryString
+                ? `Опция ${offset * limit + i}, удовлетворяющая поисковой строке "${queryString}"`
+                : `Option number ${offset * limit + i}`,
+        })),
+    hasMore: offset < 4,
 });
 
 // Для корректной работы Input должен принимать в себя ...inputProps,
 // OptionsList должен принимать ref и остальные ...props
-const CustomOptionsList = React.forwardRef(({inputProps, ...props}, ref) => {
+const CustomOptionsList = React.forwardRef(({ inputProps, ...props }, ref) => {
     const inputRef = React.useRef();
 
     React.useLayoutEffect(() => {
@@ -626,12 +657,12 @@ const CustomOptionsList = React.forwardRef(({inputProps, ...props}, ref) => {
 
     return (
         <div>
-            <div style={{padding: '5px'}}>
-                <Input label='Поиск' {...inputProps} block={true} ref={inputRef}/>
+            <div style={{ padding: '5px' }}>
+                <Input label='Поиск' {...inputProps} block={true} ref={inputRef} />
             </div>
             <OptionsList {...props} ref={ref} />
         </div>
-    )
+    );
 });
 
 render(() => {
@@ -640,13 +671,10 @@ render(() => {
             return mockOptions(offset, limit, queryString);
         });
     };
-    const {
-        optionsProps,
-    } = useLazyLoading({
+    const { optionsProps } = useLazyLoading({
         limit: LIMIT,
         optionsFetcher: fetchOptions,
     });
-
 
     return (
         <div style={{ width: 320 }}>

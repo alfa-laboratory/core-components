@@ -410,7 +410,37 @@ export type OptionsListProps = {
     /**
      * Компонент пункта меню
      */
-    Option: (props: { option: OptionShape; index: number }) => JSX.Element | null;
+    Option: FC<OptionProps>;
+
+    /**
+     * Функция для получения пропсов для ячейки
+     */
+    getOptionProps: (option: OptionShape, index: number) => OptionProps;
+
+    /**
+     * Список выбранных пунктов
+     */
+    selectedItems?: OptionShape[];
+
+    /**
+     * Метод для ручной установки выбранных пунктов
+     */
+    setSelectedItems: (selected: OptionShape[]) => void;
+
+    /**
+     * Метод переключающий видимость выпадающего списка
+     */
+    toggleMenu: () => void;
+
+    /**
+     * Контент шапки
+     */
+    header?: ReactNode;
+
+    /**
+     * Контент футера
+     */
+    footer?: ReactNode;
 
     /**
      * Список вариантов выбора
