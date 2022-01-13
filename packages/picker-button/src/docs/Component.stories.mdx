@@ -24,11 +24,7 @@ export const options = [
         options={options}
         label={text('label', 'Действие')}
         size={select('size', ['xxs', 'xs', 's', 'm', 'l', 'xl'], 'm')}
-        view={select(
-            'view',
-            ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost'],
-            'secondary',
-        )}
+        view={select('view', ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost'], 'secondary')}
         disabled={boolean('disabled', false)}
         loading={boolean('loading', false)}
         leftAddons={boolean('Иконка слева', false) ? <Icon /> : null}
@@ -50,8 +46,6 @@ import { PickerButton } from '@alfalab/core-components/picker-button';
 
 <Tabs
     description={<Description />}
-props={
-<Props of={PickerButton} />}
-changelog={
-<Changelog />}
+    props={<Props of={PickerButton} />}
+    changelog={<Changelog />}
 />
