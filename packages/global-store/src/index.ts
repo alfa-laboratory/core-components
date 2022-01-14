@@ -3,7 +3,7 @@ import { ModalStore, SavedStyle } from './ModalStore';
 
 export { SavedStyle };
 
-export const getCoreComponentsStore = (): GlobalStore => {
+const getCoreComponentsStore = (): GlobalStore => {
     if (!window.coreComponentsStore) {
         window.coreComponentsStore = new GlobalStore(new ModalStore());
 
@@ -12,3 +12,5 @@ export const getCoreComponentsStore = (): GlobalStore => {
 
     return window.coreComponentsStore;
 };
+
+export const getModalStore = (): ModalStore => getCoreComponentsStore().getModalStore();

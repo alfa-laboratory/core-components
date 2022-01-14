@@ -1,4 +1,4 @@
-import { getCoreComponentsStore, SavedStyle } from '@alfalab/core-components-global-store';
+import { getModalStore, SavedStyle } from '@alfalab/core-components-global-store';
 
 export function isScrolledToTop(target: HTMLElement) {
     return target.scrollTop <= 0;
@@ -40,8 +40,7 @@ const getPaddingRight = (node: Element) => {
 };
 
 export const restoreContainerStyles = (container: HTMLElement) => {
-    const modalsStore = getCoreComponentsStore().getModalsStore();
-    const modalRestoreStyles = modalsStore.getRestoreStyles();
+    const modalRestoreStyles = getModalStore().getRestoreStyles();
 
     const index = modalRestoreStyles.findIndex(s => s.container === container);
     const existingStyles = modalRestoreStyles[index];
@@ -66,8 +65,7 @@ export const restoreContainerStyles = (container: HTMLElement) => {
 export const handleContainer = (container?: HTMLElement) => {
     if (!container) return;
 
-    const modalsStore = getCoreComponentsStore().getModalsStore();
-    const modalRestoreStyles = modalsStore.getRestoreStyles();
+    const modalRestoreStyles = getModalStore().getRestoreStyles();
 
     const existingStyles = modalRestoreStyles.find(s => s.container === container);
 

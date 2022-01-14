@@ -7,5 +7,5 @@ export class GlobalStore {
         this.modalStore = modalStore;
     }
 
-    getModalsStore = () => this.modalStore;
+    getModalStore = () => this.modalStore;
 }
