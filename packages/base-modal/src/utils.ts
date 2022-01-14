@@ -40,7 +40,9 @@ const getPaddingRight = (node: Element) => {
 };
 
 export const restoreContainerStyles = (container: HTMLElement) => {
-    const modalRestoreStyles = getCoreComponentsStore().getModalRestoreStyles();
+    const modalsStore = getCoreComponentsStore().getModalsStore();
+    const modalRestoreStyles = modalsStore.getRestoreStyles();
+
     const index = modalRestoreStyles.findIndex(s => s.container === container);
     const existingStyles = modalRestoreStyles[index];
 
@@ -64,7 +66,8 @@ export const restoreContainerStyles = (container: HTMLElement) => {
 export const handleContainer = (container?: HTMLElement) => {
     if (!container) return;
 
-    const modalRestoreStyles = getCoreComponentsStore().getModalRestoreStyles();
+    const modalsStore = getCoreComponentsStore().getModalsStore();
+    const modalRestoreStyles = modalsStore.getRestoreStyles();
 
     const existingStyles = modalRestoreStyles.find(s => s.container === container);
 
