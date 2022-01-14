@@ -25,7 +25,7 @@ const options = [
 ];
 
 render(
-    <Space fullWidth={true} direction='horizontal'>
+    <Space direction='horizontal'>
         <PickerButton label='Picker button' options={options} view='primary' size='m' />
         <PickerButton label='Picker button' options={options} view='secondary' size='s' />
         <PickerButton label='Picker button' options={options} view='tertiary' size='xs' />
@@ -35,7 +35,9 @@ render(
 
 ## Примеры
 
-### Позиционирование меню
+### Позиционирование
+
+Если места достаточно, список открывается под контролом, если недостасточно над ним.
 
 ```tsx live
 const options = [
@@ -46,7 +48,7 @@ const options = [
 ];
 
 render(
-    <Space fullWidth={true} direction='horizontal'>
+    <Space direction='horizontal'>
         <PickerButton label='Слева' options={options} popoverPosition='bottom-start' />
         <PickerButton label='По центру' options={options} popoverPosition='bottom' />
         <PickerButton label='Справа' options={options} popoverPosition='bottom-end' />
@@ -54,7 +56,9 @@ render(
 );
 ```
 
-### Ширина
+### Ширина выпадающего списка
+
+#### Дефолтная
 
 Обычно ширину выпадающего списка задает контент.
 Если контент слишком длинный, то можно изменить это поведение.
@@ -71,7 +75,7 @@ const options = [
 render(<PickerButton options={options} view='primary' label='Picker button' />);
 ```
 
-#### Ширина равна вызывающему контролу
+#### Равная вызывающему контролу
 
 Можно использовать `optionsListWidth='field'`
 — в этом случае ширина выпадающего меню будет равна ширине контрола, а лишний контент обрежется.
@@ -121,29 +125,7 @@ css
 />
 ```
 
-### Высота ячеек
-
-По умолчанию размер пунктов меню совпадает с размером контрола, но с помощью свойства
-`optionsSize` можно задать размер отдельно. Рекомендуемый размер пунктов для всех селектов «M».
-
-```tsx live
-const options = [
-    { key: 'Бульвар Рокоссовского' },
-    { key: 'Черкизовская' },
-    { key: 'Преображенская площадь' },
-    { key: 'Сокольники' },
-    { key: 'Красные Ворота' },
-];
-
-render(
-    <Space fullWidth={true} direction='horizontal'>
-        <PickerButton options={options} optionsSize='m' view='primary' label='С размером М' />
-        <PickerButton options={options} optionsSize='l' view='primary' label='С размером L' />
-    </Space>,
-);
-```
-
-### Высота списка
+### Высота выпадающего списка
 
 Если в списке менее шести элементов — он отображается полноразмерно.
 Если элементов больше — высота списка устанавливается равной 5,5 ячейкам и появляется скролл.
@@ -167,19 +149,39 @@ const moreOptions = [
 
 render(
     <Space fullWidth={true} direction='horizontal'>
-        <PickerButton options={options} view='primary' label='До  пяти элементов' />
+        <PickerButton options={options} view='primary' label='До пяти элементов' />
         <PickerButton options={moreOptions} view='primary' label='Больше пяти элементов' />
     </Space>,
 );
 ```
 
-#### Расположение
+### Ячейки
 
-Если места достаточно, список открывается под контролом, если недостасточно над ним.
+#### Высота
 
-### Кастомные ячейки
+По умолчанию размер пунктов меню совпадает с размером контрола, но с помощью свойства
+`optionsSize` можно задать размер отдельно. Рекомендуемый размер пунктов для всех селектов «M».
 
-Помимо текста, компонент позволяет использовать html в качестве поля `content` у вариантов выбора
+```tsx live
+const options = [
+    { key: 'Бульвар Рокоссовского' },
+    { key: 'Черкизовская' },
+    { key: 'Преображенская площадь' },
+    { key: 'Сокольники' },
+    { key: 'Красные Ворота' },
+];
+
+render(
+    <Space fullWidth={true} direction='horizontal'>
+        <PickerButton options={options} optionsSize='m' view='primary' label='С размером М' />
+        <PickerButton options={options} optionsSize='l' view='primary' label='С размером L' />
+    </Space>,
+);
+```
+
+### Кастомный контент
+
+Компонент позволяет использовать html в качестве `content` у вариантов выбора.
 
 ```tsx live
 const Card = ({ name, balance }) => (
