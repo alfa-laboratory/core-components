@@ -5,7 +5,7 @@ export { SavedStyle };
 
 const getCoreComponentsStore = (): GlobalStore => {
     if (!window.coreComponentsStore) {
-        window.coreComponentsStore = new GlobalStore(new ModalStore());
+        window.coreComponentsStore = new GlobalStore();
 
         return window.coreComponentsStore;
     }

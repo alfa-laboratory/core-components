@@ -8,6 +8,5 @@
         "paths": {
             "@alfalab/core-components-*": ["../*/src"]
         }
-    },
-    "references": [{ "path": "../base-modal" }]
+    }
 }

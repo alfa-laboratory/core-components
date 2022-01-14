@@ -3,8 +3,8 @@ import { ModalStore } from './ModalStore';
 export class GlobalStore {
     private readonly modalStore: ModalStore;
 
-    constructor(modalStore: ModalStore) {
-        this.modalStore = modalStore;
+    constructor() {
+        this.modalStore = new ModalStore();
     }
 
     getModalStore = () => this.modalStore;
