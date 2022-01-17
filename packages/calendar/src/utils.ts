@@ -18,12 +18,16 @@ import {
     startOfWeek,
     subDays,
     subMonths,
+    format,
+    parse,
 } from 'date-fns';
 import { DateShift, Day, Month, SpecialDays } from './typings';
 
 export const DAYS_IN_WEEK = 7;
 export const MONTHS_IN_YEAR = 12;
 export const SUNDAY_INDEX = 6;
+export const DATE_FORMAT = 'dd.MM.yyyy';
+export const NATIVE_DATE_FORMAT = 'yyyy-MM-dd';
 
 export const WEEKDAYS = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 export const MONTHS = [
@@ -245,3 +249,9 @@ export function simulateTab(node: HTMLElement) {
         node.dispatchEvent(event);
     }
 }
+
+export const formatDate = (date: Date | number, dateFormat = DATE_FORMAT) =>
+    format(date, dateFormat);
+
+export const parseDateString = (value: string, dateFormat = DATE_FORMAT) =>
+    parse(value, dateFormat, new Date());

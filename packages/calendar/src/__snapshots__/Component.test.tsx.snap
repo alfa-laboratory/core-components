@@ -11,15 +11,16 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
       class="header"
     >
       <div
-        class="inner"
+        aria-live="polite"
+        class="component period full"
       >
         <button
-          aria-label="Предыдущий месяц"
+          aria-label="Предыдущий период"
           class="component ghost m component ghost iconOnly arrow"
           type="button"
         />
         <button
-          class="component ghost xs component ghost button filled button month"
+          class="component ghost xs component ghost button filled month"
           type="button"
         >
           <span
@@ -36,7 +37,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
           </span>
         </button>
         <button
-          class="component ghost xs component ghost button filled button year"
+          class="component ghost xs component ghost button filled year"
           type="button"
         >
           <span
@@ -53,7 +54,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
           </span>
         </button>
         <button
-          aria-label="Следующий месяц"
+          aria-label="Следующий период"
           class="component ghost m component ghost iconOnly arrow"
           type="button"
         />
@@ -597,15 +598,16 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
       class="header"
     >
       <div
-        class="inner"
+        aria-live="polite"
+        class="component period full"
       >
         <button
-          aria-label="Предыдущий месяц"
+          aria-label="Предыдущий период"
           class="component ghost m component ghost iconOnly arrow"
           type="button"
         />
         <button
-          class="component ghost xs component ghost button filled button month"
+          class="component ghost xs component ghost button filled month"
           type="button"
         >
           <span
@@ -622,7 +624,7 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
           </span>
         </button>
         <button
-          class="component ghost xs component ghost button filled button year"
+          class="component ghost xs component ghost button filled year"
           type="button"
         >
           <span
@@ -639,7 +641,7 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
           </span>
         </button>
         <button
-          aria-label="Следующий месяц"
+          aria-label="Следующий период"
           class="component ghost m component ghost iconOnly arrow"
           type="button"
         />
@@ -824,15 +826,16 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
       class="header"
     >
       <div
-        class="inner"
+        aria-live="polite"
+        class="component period full"
       >
         <button
-          aria-label="Предыдущий месяц"
+          aria-label="Предыдущий период"
           class="component ghost m component ghost iconOnly arrow"
           type="button"
         />
         <button
-          class="component ghost xs component ghost button filled button month"
+          class="component ghost xs component ghost button filled month"
           type="button"
         >
           <span
@@ -849,7 +852,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </span>
         </button>
         <button
-          class="component ghost xs component ghost button filled button year"
+          class="component ghost xs component ghost button filled year"
           type="button"
         >
           <span
@@ -866,7 +869,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
           </span>
         </button>
         <button
-          aria-label="Следующий месяц"
+          aria-label="Следующий период"
           class="component ghost m component ghost iconOnly arrow"
           type="button"
         />
@@ -2186,15 +2189,16 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
       class="header"
     >
       <div
-        class="inner"
+        aria-live="polite"
+        class="component period full"
       >
         <button
-          aria-label="Предыдущий месяц"
+          aria-label="Предыдущий период"
           class="component ghost m component ghost iconOnly arrow"
           type="button"
         />
         <button
-          class="component ghost xs component ghost button filled button month"
+          class="component ghost xs component ghost button filled month"
           type="button"
         >
           <span
@@ -2211,7 +2215,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
           </span>
         </button>
         <button
-          class="component ghost xs component ghost button filled button year"
+          class="component ghost xs component ghost button filled year"
           type="button"
         >
           <span
@@ -2228,7 +2232,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
           </span>
         </button>
         <button
-          aria-label="Следующий месяц"
+          aria-label="Следующий период"
           class="component ghost m component ghost iconOnly arrow"
           type="button"
         />
@@ -2772,20 +2776,21 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
       class="header monthOnly"
     >
       <div
-        class="inner"
+        aria-live="polite"
+        class="component period"
       >
         <button
-          aria-label="Предыдущий месяц"
+          aria-label="Предыдущий период"
           class="component ghost m component ghost iconOnly arrow"
           type="button"
         />
         <span
-          class="button month"
+          class="period"
         >
-          Ноябрь
+          Ноябрь 2020
         </span>
         <button
-          aria-label="Следующий месяц"
+          aria-label="Следующий период"
           class="component ghost m component ghost iconOnly arrow"
           type="button"
         />
@@ -3329,15 +3334,16 @@ exports[`Calendar Display tests should match snapshot 1`] = `
       class="header"
     >
       <div
-        class="inner"
+        aria-live="polite"
+        class="component period full"
       >
         <button
-          aria-label="Предыдущий месяц"
+          aria-label="Предыдущий период"
           class="component ghost m component ghost iconOnly arrow"
           type="button"
         />
         <button
-          class="component ghost xs component ghost button filled button month"
+          class="component ghost xs component ghost button filled month"
           type="button"
         >
           <span
@@ -3354,7 +3360,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
           </span>
         </button>
         <button
-          class="component ghost xs component ghost button filled button year"
+          class="component ghost xs component ghost button filled year"
           type="button"
         >
           <span
@@ -3371,7 +3377,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
           </span>
         </button>
         <button
-          aria-label="Следующий месяц"
+          aria-label="Следующий период"
           class="component ghost m component ghost iconOnly arrow"
           type="button"
         />

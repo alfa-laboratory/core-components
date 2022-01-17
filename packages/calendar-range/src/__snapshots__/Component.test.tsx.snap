@@ -62,17 +62,18 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             class="header monthOnly"
           >
             <div
-              class="inner"
+              aria-live="polite"
+              class="component period"
             >
               <button
-                aria-label="Предыдущий месяц"
+                aria-label="Предыдущий период"
                 class="component ghost m component ghost iconOnly arrow"
                 type="button"
               />
               <span
-                class="button month"
+                class="period"
               >
-                Октябрь
+                Октябрь 2020
               </span>
             </div>
           </div>
@@ -637,15 +638,16 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
               class="header monthOnly"
             >
               <div
-                class="inner"
+                aria-live="polite"
+                class="component period"
               >
                 <span
-                  class="button month"
+                  class="period"
                 >
-                  Ноябрь
+                  Ноябрь 2020
                 </span>
                 <button
-                  aria-label="Следующий месяц"
+                  aria-label="Следующий период"
                   class="component ghost m component ghost iconOnly arrow"
                   type="button"
                 />

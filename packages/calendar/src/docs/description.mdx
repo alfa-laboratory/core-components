@@ -130,3 +130,75 @@ render(() => {
     );
 });
 ```
+
+## PeriodSlider
+
+`PeriodSlider` представляет из себя шапку календаря, которую можно использовать отдельно.
+
+С помощью компонента можно смещать выбранный период назад и вперед.
+
+```tsx live
+render(() => {
+    const [values, setValues] = React.useState({
+        value: new Date(),
+        valueFrom: new Date(),
+        valueTo: new Date(),
+    });
+
+    const handler = (event, newValues) => setValues(newValues);
+
+    return (
+        <div style={{ width: 500 }}>
+            <p>
+                <small style={{ marginRight: '16px' }}>
+                    Дата начала: {format(values.valueFrom, DATE_FORMAT)}
+                </small>
+                <small>Дата конца: {format(values.valueTo, DATE_FORMAT)}</small>
+            </p>
+
+            <PeriodSlider
+                value={values.value}
+                view='full'
+                onPrevArrowClick={handler}
+                onNextArrowClick={handler}
+            />
+
+            <br />
+
+            <PeriodSlider
+                value={values.value}
+                periodType='year'
+                onPrevArrowClick={handler}
+                onNextArrowClick={handler}
+            />
+
+            <br />
+
+            <PeriodSlider
+                value={values.value}
+                periodType='quarter'
+                onPrevArrowClick={handler}
+                onNextArrowClick={handler}
+            />
+
+            <br />
+
+            <PeriodSlider
+                value={values.value}
+                periodType='month'
+                onPrevArrowClick={handler}
+                onNextArrowClick={handler}
+            />
+
+            <br />
+
+            <PeriodSlider
+                value={values.value}
+                periodType='day'
+                onPrevArrowClick={handler}
+                onNextArrowClick={handler}
+            />
+        </div>
+    );
+});
+```

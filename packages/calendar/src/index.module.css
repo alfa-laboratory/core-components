@@ -37,3 +37,11 @@
         height: 360px;
     }
 }
+
+.period {
+    @media (max-width: 374px) {
+        justify-content: space-between;
+        width: 256px;
+        margin: 0 auto;
+    }
+}
