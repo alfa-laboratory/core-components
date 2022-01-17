@@ -1,6 +1,8 @@
 const fs = require('fs');
 const glob = require('glob');
 const path = require('path');
+const postcss = require('postcss');
+const postcssColorMod = require('postcss-color-mod-function');
 
 const colorMods = require('./color-mods.json');
 
@@ -35,11 +37,19 @@ glob(path.join(colorsDir, 'colors*.json'), {}, (err, files) => {
                 .replace('_', '-'),
         );
 
-        fs.writeFileSync(cssPath, `:root {\n${css}}\n`);
+        postcss([
+            postcssColorMod({
+                unresolved: 'throw',
+            }),
+        ])
+            .process(`:root {\n${css}}\n`, { from: cssPath })
+            .then(result => {
+                fs.writeFileSync(cssPath, result.css);
 
-        if (pathname.includes('indigo')) {
-            updateDarkThemeMixins(colors);
-        }
+                if (pathname.includes('indigo')) {
+                    updateDarkThemeMixins(colors);
+                }
+            });
     });
 });
 
