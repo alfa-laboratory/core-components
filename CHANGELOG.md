@@ -1,3 +1,17 @@
+# [23.7.0](https://github.com/alfa-laboratory/core-components/compare/v23.6.1...v23.7.0) (2022-01-17)
+
+
+### Bug Fixes
+
+* **vars:** remove unused colors ([#945](https://github.com/alfa-laboratory/core-components/issues/945)) ([310a70a](https://github.com/alfa-laboratory/core-components/commit/310a70a8be6bff687861d3d643ebc347ecf6cd6d))
+
+
+### Features
+
+* **base-modal:** extract modal store to global ([#943](https://github.com/alfa-laboratory/core-components/issues/943)) ([9587f17](https://github.com/alfa-laboratory/core-components/commit/9587f1773bb690ac6696077509d4a519aa109198))
+* **calendar:** split header to header & period-slider ([#939](https://github.com/alfa-laboratory/core-components/issues/939)) ([107cee0](https://github.com/alfa-laboratory/core-components/commit/107cee0f2b5d609a02b61023b324dcc8c98c5220))
+* **typography:** export types ([#940](https://github.com/alfa-laboratory/core-components/issues/940)) ([498227c](https://github.com/alfa-laboratory/core-components/commit/498227c272659a1ebf890eee61c6fecdd110faee))
+
 ## [23.6.1](https://github.com/alfa-laboratory/core-components/compare/v23.6.0...v23.6.1) (2022-01-13)
 
 
