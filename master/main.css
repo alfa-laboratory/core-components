@@ -15724,19 +15724,15 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 .default_K9UbG > *:last-child {
             margin-right: 0;
         }
-
 .eye_QksrN:last-child {
     margin-right: var(--gap-s-neg);
 }
-
 .xl_15qfU .eye_QksrN:last-child {
         margin-right: var(--gap-m-neg);
     }
-
 .xl_15qfU .eye_QksrN {
         margin-left: var(--gap-2xs);
     }
-
 .input_20ATc::-ms-reveal {
     display: none;
 }
@@ -18462,19 +18458,12 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --color-static-status-purple: #673ab7;
     --color-static-status-red: #d91d0b;
     --color-static-status-teal: #219187;
-    --color-static-status-blue-tint-90: rgb(230, 242, 255);
     --color-static-status-blue-alpha-10: rgba(0, 122, 255, 0.1);
-    --color-static-status-green-tint-90: rgb(231, 246, 239);
     --color-static-status-green-alpha-10: rgba(19, 164, 99, 0.1);
-    --color-static-status-grey-tint-90: rgb(240, 242, 243);
     --color-static-status-grey-alpha-10: rgba(109, 121, 134, 0.1);
-    --color-static-status-orange-tint-90: rgb(252, 240, 230);
     --color-static-status-orange-alpha-10: rgba(222, 106, 0, 0.1);
-    --color-static-status-purple-tint-90: rgb(240, 235, 248);
     --color-static-status-purple-alpha-10: rgba(103, 58, 183, 0.1);
-    --color-static-status-red-tint-90: rgb(251, 232, 231);
     --color-static-status-red-alpha-10: rgba(217, 29, 11, 0.1);
-    --color-static-status-teal-tint-90: rgb(233, 244, 243);
     --color-static-status-teal-alpha-10: rgba(33, 145, 135, 0.1);
 }
 :root {
