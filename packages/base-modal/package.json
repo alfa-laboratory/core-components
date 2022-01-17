@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-backdrop": "^2.0.1",
+        "@alfalab/core-components-global-store": "^1.0.0",
         "@alfalab/core-components-portal": "^2.0.1",
         "@alfalab/core-components-stack": "^3.0.1",
         "classnames": "^2.2.6",

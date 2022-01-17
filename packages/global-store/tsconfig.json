@@ -1,5 +1,5 @@
 {
-    "include": ["src", "../../typings"],
+    "include": ["src", "../../typings/*"],
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "dist",
@@ -8,11 +8,5 @@
         "paths": {
             "@alfalab/core-components-*": ["../*/src"]
         }
-    },
-    "references": [
-        { "path": "../portal" },
-        { "path": "../backdrop" },
-        { "path": "../stack" },
-        { "path": "../global-store" }
-    ]
+    }
 }

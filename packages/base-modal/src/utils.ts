@@ -1,3 +1,5 @@
+import { getModalStore, SavedStyle } from '@alfalab/core-components-global-store';
+
 export function isScrolledToTop(target: HTMLElement) {
     return target.scrollTop <= 0;
 }
@@ -37,28 +39,18 @@ const getPaddingRight = (node: Element) => {
     return parseInt(window.getComputedStyle(node).paddingRight, 10) || 0;
 };
 
-type SavedStyle = {
-    value: string;
-    key: string;
-    el: HTMLElement;
-};
-
-const restoreStylesStore: Array<{
-    container: HTMLElement;
-    modals: number;
-    styles: SavedStyle[];
-}> = [];
-
 export const restoreContainerStyles = (container: HTMLElement) => {
-    const index = restoreStylesStore.findIndex(s => s.container === container);
-    const existingStyles = restoreStylesStore[index];
+    const modalRestoreStyles = getModalStore().getRestoreStyles();
+
+    const index = modalRestoreStyles.findIndex(s => s.container === container);
+    const existingStyles = modalRestoreStyles[index];
 
     if (!existingStyles) return;
 
     existingStyles.modals -= 1;
 
     if (existingStyles.modals <= 0) {
-        restoreStylesStore.splice(index, 1);
+        modalRestoreStyles.splice(index, 1);
 
         existingStyles.styles.forEach(({ value, el, key }) => {
             if (value) {
@@ -73,7 +65,9 @@ export const restoreContainerStyles = (container: HTMLElement) => {
 export const handleContainer = (container?: HTMLElement) => {
     if (!container) return;
 
-    const existingStyles = restoreStylesStore.find(s => s.container === container);
+    const modalRestoreStyles = getModalStore().getRestoreStyles();
+
+    const existingStyles = modalRestoreStyles.find(s => s.container === container);
 
     if (existingStyles) {
         existingStyles.modals += 1;
@@ -116,7 +110,7 @@ export const handleContainer = (container?: HTMLElement) => {
 
     scrollContainer.style.overflow = 'hidden';
 
-    restoreStylesStore.push({
+    modalRestoreStyles.push({
         container,
         modals: 1,
         styles: containerStyles,
