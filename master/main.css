@@ -3120,44 +3120,6 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 .nativeInput_1vLRE::-webkit-inner-spin-button {
         display: none;
     }
-.button_235_J {
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 400;
-
-    height: 40px;
-    position: relative;
-    padding: 0 var(--gap-s);
-    background-color: transparent;
-    border-radius: var(--border-radius-s)
-}
-.button_235_J:not(:disabled):hover {
-        background-color: var(--color-light-bg-tertiary);
-        color: var(--color-light-text-primary);
-    }
-.button_235_J.filled_23r4p {
-        background-color: var(--color-light-bg-tertiary)
-    }
-.button_235_J.filled_23r4p:not(:disabled):hover {
-            background-color: var(--color-light-bg-tertiary-shade-7);
-        }
-.button_235_J.outlined_zigT1 {
-        border: 1px solid var(--calendar-selector-button-outline-border-color);
-    }
-.button_235_J.selected_ctQc_,
-    .button_235_J.selected_ctQc_:disabled {
-        background-color: var(--color-light-bg-primary-inverted);
-        color: var(--color-light-text-primary-inverted)
-    }
-.button_235_J.selected_ctQc_:not(:disabled):hover, .button_235_J.selected_ctQc_:disabled:not(:disabled):hover {
-            background-color: var(--color-light-bg-primary-inverted);
-            color: var(--color-light-text-primary-inverted);
-        }
-.button_235_J > * {
-        -webkit-box-flex: 1;
-            -ms-flex-positive: 1;
-                flex-grow: 1;
-    }
 .header_2dBzW {
     width: 100%;
     -webkit-box-sizing: border-box;
@@ -3172,104 +3134,9 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     -webkit-box-shadow: var(--shadow-s);
             box-shadow: var(--shadow-s);
 }
-.inner_3yz_C {
-    position: relative;
-    height: 40px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center
-}
-@media (max-width: 374px) {
-.inner_3yz_C {
-        -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
-        width: 256px;
-        margin: 0 auto
-}
-    }
-.month_KvI4H {
-    width: 131px
-}
-@media (max-width: 374px) {
-.month_KvI4H {
-        width: auto;
-        -webkit-box-flex: 1;
-            -ms-flex-positive: 1;
-                flex-grow: 1
-}
-    }
-.year_3W2JI {
-    width: 105px;
-
-    margin-left: var(--gap-xs)
-}
-@media (max-width: 374px) {
-.year_3W2JI {
-        width: 90px
-}
-    }
-.buttonContent_2z7Bh {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-}
 .monthOnly_3wVkC {
-    padding: var(--calendar-month-only-header-paddings)
+    padding: var(--calendar-month-only-header-paddings);
 }
-.monthOnly_3wVkC .month_KvI4H {
-        font-family: var(--calendar-month-only-header-font-family);
-        font-size: var(--calendar-month-only-header-font-size);
-        font-weight: var(--calendar-month-only-header-font-weight);
-        line-height: 24px;
-
-        width: auto;
-    }
-.upDownIcon_JF3Jl {
-    display: block;
-    background: var(--calendar-select-icon-background);
-    width: 24px;
-    height: 24px;
-    margin-left: var(--gap-xs)
-}
-@media (max-width: 374px) {
-.upDownIcon_JF3Jl {
-        margin-left: auto
-}
-    }
-.arrow_173K9 {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    top: 8px;
-    background: var(--calendar-arrow-background)
-}
-.arrow_173K9:first-child {
-        left: 0;
-    }
-.arrow_173K9:last-child {
-        right: 0;
-        -webkit-transform: rotateY(180deg);
-                transform: rotateY(180deg);
-    }
-@media (max-width: 374px) {
-.arrow_173K9 {
-        display: none
-}
-    }
 .daysTable_3Jr4a {
     border-collapse: separate;
     border-spacing: 0;
@@ -3504,6 +3371,44 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     transition: opacity 300ms, transform 300ms;
     transition: opacity 300ms, transform 300ms, -webkit-transform 300ms;
 }
+.button_235_J {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+
+    height: 40px;
+    position: relative;
+    padding: 0 var(--gap-s);
+    background-color: transparent;
+    border-radius: var(--border-radius-s)
+}
+.button_235_J:not(:disabled):hover {
+        background-color: var(--color-light-bg-tertiary);
+        color: var(--color-light-text-primary);
+    }
+.button_235_J.filled_23r4p {
+        background-color: var(--color-light-bg-tertiary)
+    }
+.button_235_J.filled_23r4p:not(:disabled):hover {
+            background-color: var(--color-light-bg-tertiary-shade-7);
+        }
+.button_235_J.outlined_zigT1 {
+        border: 1px solid var(--calendar-selector-button-outline-border-color);
+    }
+.button_235_J.selected_ctQc_,
+    .button_235_J.selected_ctQc_:disabled {
+        background-color: var(--color-light-bg-primary-inverted);
+        color: var(--color-light-text-primary-inverted)
+    }
+.button_235_J.selected_ctQc_:not(:disabled):hover, .button_235_J.selected_ctQc_:disabled:not(:disabled):hover {
+            background-color: var(--color-light-bg-primary-inverted);
+            color: var(--color-light-text-primary-inverted);
+        }
+.button_235_J > * {
+        -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+                flex-grow: 1;
+    }
 .monthsTable_38CHu {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -3574,6 +3479,102 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
         height: 36px
 }
     }
+.component_3Otvz {
+    position: relative;
+    height: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+.month_3JZmt {
+    width: 131px
+}
+@media (max-width: 374px) {
+.month_3JZmt {
+        width: auto;
+        -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+                flex-grow: 1
+}
+    }
+.year_1h6S0 {
+    width: 105px;
+
+    margin-left: var(--gap-xs)
+}
+@media (max-width: 374px) {
+.year_1h6S0 {
+        width: 90px
+}
+    }
+.buttonContent_2G2d_ {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+.period_1Qwb9 {
+    font-family: var(--calendar-month-only-header-font-family);
+    font-size: var(--calendar-month-only-header-font-size);
+    font-weight: var(--calendar-month-only-header-font-weight);
+    line-height: 24px;
+    text-align: center
+}
+@media (max-width: 374px) {
+.period_1Qwb9 {
+        width: auto;
+        -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+                flex-grow: 1
+}
+    }
+.upDownIcon_1sFoE {
+    display: block;
+    background: var(--calendar-select-icon-background);
+    width: 24px;
+    height: 24px;
+    margin-left: var(--gap-xs)
+}
+@media (max-width: 374px) {
+.upDownIcon_1sFoE {
+        margin-left: auto
+}
+    }
+.arrow_2fhTi {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 8px;
+    background: var(--calendar-arrow-background)
+}
+.arrow_2fhTi:disabled {
+        opacity: 0.3;
+    }
+.arrow_2fhTi:first-child {
+        left: 0;
+    }
+.arrow_2fhTi:last-child {
+        right: 0;
+        -webkit-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+    }
+@media (max-width: 374px) {
+.full_14Ek5 .arrow_2fhTi {
+        display: none
+}
+    }
 .component_33jle {
     width: var(--calendar-width);
     height: var(--calendar-height);
@@ -3626,6 +3627,15 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 @media (max-width: 374px) {
 .sixWeeks_1nd1K {
         height: 360px
+}
+    }
+@media (max-width: 374px) {
+.period_1vOe0 {
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        width: 256px;
+        margin: 0 auto
 }
     }
 :root {
