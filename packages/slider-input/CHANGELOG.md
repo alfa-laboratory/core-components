@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.11](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.3.10...@alfalab/core-components-slider-input@4.3.11) (2022-01-17)
+
+
+### Bug Fixes
+
+* **amount-input:** позволяем использовать строки, не рисуем 0 если передана пустая строка ([#941](https://github.com/alfa-laboratory/core-components/issues/941)) ([51c954f](https://github.com/alfa-laboratory/core-components/commit/51c954f238e7dbdbdbbd517e81e0e944f880ded6))
+
+
+
+
+
 ## [4.3.10](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.3.9...@alfalab/core-components-slider-input@4.3.10) (2021-12-29)
 
 **Note:** Version bump only for package @alfalab/core-components-slider-input

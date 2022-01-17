@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-list-header@2.0.3...@alfalab/core-components-list-header@2.0.4) (2022-01-17)
+
+**Note:** Version bump only for package @alfalab/core-components-list-header
+
+
+
+
+
 ## [2.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-list-header@2.0.2...@alfalab/core-components-list-header@2.0.3) (2021-09-14)
 
 **Note:** Version bump only for package @alfalab/core-components-list-header
