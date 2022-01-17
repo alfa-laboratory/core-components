@@ -1,0 +1,46 @@
+@import '../../../../../themes/src/default.css';
+@import '../../../vars.css';
+
+.header {
+    @mixin _confirmation-title;
+}
+
+.phone {
+    margin-bottom: var(--gap-2xl);
+    color: var(--color-light-text-primary);
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--gap-2xl);
+}
+
+.smallMargin {
+    margin-bottom: var(--gap-xl);
+}
+
+.loaderWrap {
+    display: flex;
+    align-items: center;
+    margin-top: var(--gap-2xl);
+}
+
+.center {
+    & .codeInput,
+    & .loaderWrap {
+        justify-content: center;
+    }
+
+    & input {
+        margin: 0 var(--gap-2xs);
+    }
+}
+
+.smsComeLinkWrap {
+    margin-top: var(--gap-l);
+}
+
+.smsComeLink {
+    @mixin paragraph_primary_small;
+}
