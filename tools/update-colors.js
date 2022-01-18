@@ -44,10 +44,13 @@ glob(path.join(colorsDir, 'colors*.json'), {}, (err, files) => {
 });
 
 function updateDarkThemeMixins(colors) {
-    const mixinsDir = path.resolve(__dirname, '../packages/themes/src/mixins');
-    const mixinFileName = 'dark.css';
+    const mixinFile = path.resolve(__dirname, '../packages/themes/src/mixins/dark.css');
+    const pureCssFile = path.resolve(__dirname, '../packages/themes/src/dark.css');
 
-    let css = '@define-mixin theme-dark {\n';
+    const content = fs.readFileSync(mixinFile, 'utf-8');
+    const customRules = [...content.matchAll(/--(?!.*color).*$/gm)].map(match => match[0].trim());
+
+    const rules = [...customRules];
 
     Object.keys(colors).forEach(color => {
         if (/^light-/.test(color) === false) return;
@@ -57,15 +60,16 @@ function updateDarkThemeMixins(colors) {
             .replace(/-(shade|tint)-/, v => (v === '-shade-' ? '-tint-' : '-shade-'));
 
         if (colors[pair]) {
-            css += `    ${buildVarName(color)}: var(--color-${pair});\n`;
+            rules.push(`${buildVarName(color)}: var(--color-${pair});`);
         } else {
             console.warn(`No pair found for '${color}' color.`);
         }
     });
 
-    css += '}';
+    const css = rules.map(rule => `    ${rule}\n`).join('');
 
-    fs.writeFileSync(path.join(mixinsDir, mixinFileName), css);
+    fs.writeFileSync(mixinFile, `@define-mixin theme-dark {\n${css}}\n`);
+    fs.writeFileSync(pureCssFile, `:root {\n${css}}\n`);
 }
 
 function requireColors(pathname) {
