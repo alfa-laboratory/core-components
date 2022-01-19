@@ -14,12 +14,13 @@ export const Amount: React.FC<AmountProps> = ({
     minority,
     currency,
     view = 'default',
+    currencyIcon,
     className,
     dataTestId,
 }) => {
     const { majorPart, minorPart, currencySymbol } = formatAmount({
         value,
-        currency,
+        currency: currency as any,
         minority,
         view,
     });
@@ -31,7 +32,7 @@ export const Amount: React.FC<AmountProps> = ({
                 {minorPart && AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR}
                 {minorPart}
                 {THINSP}
-                {currencySymbol}
+                {currencyIcon || currencySymbol}
             </span>
         </span>
     );

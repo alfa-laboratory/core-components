@@ -5,6 +5,8 @@ exports[`PureAmount should match snapshot 1`] = `
   class="component"
   data-test-id="test-id"
 >
-  1 ₽
+  1
+   
+  RUR
 </span>
 `;

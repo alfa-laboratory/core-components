@@ -1,4 +1,5 @@
 import { CurrencyCodes } from '@alfalab/data';
+import { ReactNode } from 'react';
 
 export type AmountProps = {
     /**
@@ -9,7 +10,12 @@ export type AmountProps = {
     /**
      * Валюта
      */
-    currency: CurrencyCodes;
+    currency?: CurrencyCodes;
+
+    /**
+     * Значок валюты
+     */
+    currencyIcon?: ReactNode;
 
     /**
      * Количество минорных единиц в валюте

@@ -5,7 +5,7 @@ https://design.alfabank.ru/patterns/amount
 // import { Typography } from '@alfalab/core-components/typography';
 
 <Typography.Title font='system'>
-    <Amount value={100000000} minority={100} view='withZeroMinorPart' />
+    <Amount value={100000000} minority={100} currency="RUB" view='withZeroMinorPart' />
 </Typography.Title>
 ```
 
@@ -44,6 +44,15 @@ https://design.alfabank.ru/patterns/amount
     </Row>
 </Container>
 ```
+
+- Без валюты и с кастомной иконкой валюты
+
+```tsx live
+<Typography.Title font='system'>
+    <Amount value={1234599} minority={100} currencyIcon={<StarMIcon />} />
+</Typography.Title>
+```
+
 
 - Внутри заголовка
 

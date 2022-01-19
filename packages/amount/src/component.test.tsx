@@ -13,4 +13,14 @@ describe('Amount', () => {
         );
         expect(container).toMatchSnapshot();
     });
+
+    it('should render currencyIcons', () => {
+        const { container } = render(
+            <React.Fragment>
+                <Amount value={100} currencyIcon={<span />} minority={100} />
+                <Amount.Pure value={100} currencyIcon={<span />} minority={100} />
+            </React.Fragment>,
+        );
+        expect(container).toMatchSnapshot();
+    });
 });
