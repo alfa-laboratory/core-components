@@ -40,11 +40,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             const target = event.target as HTMLInputElement;
 
             /**
-             * В сафари выделение корректно работает только с setTimeout
+             * В сафари выделение корректно работает только с асинхронным вызовом
              */
-            setTimeout(() => {
+            requestAnimationFrame(() => {
                 target.select();
-            }, 0);
+            });
         };
 
         return (

@@ -57,8 +57,9 @@ export type CodeInputProps = {
 
 export type CustomInputRef = {
     focus: (index?: number) => void;
-    blur: (index?: number) => void;
+    blur: () => void;
     reset: () => void;
+    unselect: () => void;
 };
 
 export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
@@ -91,11 +92,19 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
             focusOnInput(inputRefs[index]);
         };
 
-        const blur = (index = 0) => {
-            const input = inputRefs[index].current;
+        const blur = () => {
+            const input = document.activeElement;
 
-            if (input) {
-                input.blur();
+            if (input?.tagName === 'INPUT') {
+                (input as HTMLInputElement).blur();
+            }
+        };
+
+        const unselect = () => {
+            const input = document.activeElement;
+
+            if (input?.tagName === 'INPUT') {
+                (input as HTMLInputElement).setSelectionRange(0, 0);
             }
         };
 
@@ -103,7 +112,7 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
             setValues([]);
         };
 
-        useImperativeHandle(ref, () => ({ focus, blur, reset }));
+        useImperativeHandle(ref, () => ({ focus, blur, reset, unselect }));
 
         const triggerChange = (argumentValues: string[]) => {
             const newValue = (argumentValues || values).join('');
@@ -221,11 +230,11 @@ export const CodeInput = forwardRef<CustomInputRef, CodeInputProps>(
 
         const handleFocus: FocusEventHandler<HTMLInputElement> = event => {
             /**
-             * В сафари выделение корректно работает только с setTimeout
+             * В сафари выделение корректно работает только с асинхронным вызовом
              */
-            setTimeout(() => {
+            requestAnimationFrame(() => {
                 event.target.select();
-            }, 0);
+            });
         };
 
         return (
