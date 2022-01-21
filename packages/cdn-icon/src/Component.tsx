@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import cn from 'classnames';
 
 import styles from './index.module.css';
 
@@ -12,12 +13,16 @@ type CDNIconProps = {
      */
     color?: string;
     /**
+     * Дополнительный класс
+     */
+    className?: string;
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
 };
 
-export const CDNIcon: React.FC<CDNIconProps> = ({ name, color, dataTestId }) => {
+export const CDNIcon: React.FC<CDNIconProps> = ({ name, color, dataTestId, className }) => {
     const [icon, setIcon] = useState('');
 
     useEffect(() => {
@@ -35,7 +40,7 @@ export const CDNIcon: React.FC<CDNIconProps> = ({ name, color, dataTestId }) => 
     return (
         <span
             style={{ color }}
-            className={styles.component}
+            className={cn(styles.component, className)}
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: icon }}
             data-test-id={dataTestId}
