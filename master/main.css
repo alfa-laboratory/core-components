@@ -17220,7 +17220,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     position: relative;
     text-align: left;
     color: var(--color-light-text-primary);
-    padding: var(--gap-2xl) var(--gap-s) 0;
+    padding: var(--gap-2xl) var(--gap-m) 0;
     border-bottom: 1px solid var(--color-light-border-primary);
     background: var(--color-light-bg-primary);
     vertical-align: top;
