@@ -15,12 +15,7 @@ export const options = [
     { key: 'Скопировать реквизиты' },
 ];
 
-
-<Meta
-    title='Компоненты/PickerButton'
-    component={PickerButton}
-/>
-
+<Meta title='Компоненты/PickerButton' component={PickerButton} />
 
 <!-- Canvas -->
 
@@ -28,14 +23,13 @@ export const options = [
     <PickerButton
         options={options}
         label={text('label', 'Действие')}
-        size={select('size', ['xs', 's', 'm'], 'm')}
+        size={select('size', ['xxs', 'xs', 's', 'm', 'l', 'xl'], 'm')}
         view={select('view', ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost'], 'secondary')}
         disabled={boolean('disabled', false)}
         loading={boolean('loading', false)}
-        leftAddons={boolean('Иконка слева', false) ? <Icon/> : null}
+        leftAddons={boolean('Иконка слева', false) ? <Icon /> : null}
     />
 </Story>
-
 
 <!-- Docs -->
 

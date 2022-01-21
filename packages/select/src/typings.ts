@@ -72,6 +72,11 @@ export type BaseSelectProps = {
     optionClassName?: string;
 
     /**
+     * Дополнительный класс для поповера
+     */
+    popperClassName?: string;
+
+    /**
      * Список вариантов выбора
      */
     options: Array<OptionShape | GroupShape>;

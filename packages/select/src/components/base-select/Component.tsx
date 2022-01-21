@@ -34,6 +34,7 @@ export const BaseSelect = forwardRef(
             fieldClassName,
             optionsListClassName,
             optionClassName,
+            popperClassName,
             options,
             autocomplete = false,
             multiple = false,
@@ -423,7 +424,7 @@ export const BaseSelect = forwardRef(
                         anchorElement={fieldRef.current as HTMLElement}
                         position={popoverPosition}
                         preventFlip={preventFlip}
-                        popperClassName={styles.popoverInner}
+                        popperClassName={cn(styles.popoverInner, popperClassName)}
                         update={updatePopover}
                         zIndex={zIndexPopover}
                     >
