@@ -1,3 +1,10 @@
+## [23.8.1](https://github.com/alfa-laboratory/core-components/compare/v23.8.0...v23.8.1) (2022-01-21)
+
+
+### Bug Fixes
+
+* **cdn-icon:** add className prop ([#957](https://github.com/alfa-laboratory/core-components/issues/957)) ([86f2139](https://github.com/alfa-laboratory/core-components/commit/86f2139fc56fe1cd2669d05d7953075aa8982e22))
+
 # [23.8.0](https://github.com/alfa-laboratory/core-components/compare/v23.7.0...v23.8.0) (2022-01-21)
 
 
