@@ -1,3 +1,16 @@
+# [23.8.0](https://github.com/alfa-laboratory/core-components/compare/v23.7.0...v23.8.0) (2022-01-21)
+
+
+### Bug Fixes
+
+* **table:** fix th paddings ([#951](https://github.com/alfa-laboratory/core-components/issues/951)) ([2d916c1](https://github.com/alfa-laboratory/core-components/commit/2d916c16a388b0949db2d0ae00c852c0acac6d28))
+
+
+### Features
+
+* **picker-button:** gap между picker-button и popover в 8px ([#935](https://github.com/alfa-laboratory/core-components/issues/935)) ([9b3aa2b](https://github.com/alfa-laboratory/core-components/commit/9b3aa2b70b534d8e571baa62b973e1f67667ac43))
+* **vars:** build color-mod ([#953](https://github.com/alfa-laboratory/core-components/issues/953)) ([aa64366](https://github.com/alfa-laboratory/core-components/commit/aa64366d970be46776d23c9d13ebec413b2ac4d9))
+
 # [23.7.0](https://github.com/alfa-laboratory/core-components/compare/v23.6.1...v23.7.0) (2022-01-17)
 
 
