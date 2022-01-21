@@ -45,11 +45,11 @@
     --color-static-status-purple: #673ab7;
     --color-static-status-red: #d91d0b;
     --color-static-status-teal: #219187;
-    --color-static-status-blue-alpha-10: color-mod(#007aff alpha(10%));
-    --color-static-status-green-alpha-10: color-mod(#13a463 alpha(10%));
-    --color-static-status-grey-alpha-10: color-mod(#6d7986 alpha(10%));
-    --color-static-status-orange-alpha-10: color-mod(#de6a00 alpha(10%));
-    --color-static-status-purple-alpha-10: color-mod(#673ab7 alpha(10%));
-    --color-static-status-red-alpha-10: color-mod(#d91d0b alpha(10%));
-    --color-static-status-teal-alpha-10: color-mod(#219187 alpha(10%));
+    --color-static-status-blue-alpha-10: rgba(0, 122, 255, 0.1);
+    --color-static-status-green-alpha-10: rgba(19, 164, 99, 0.1);
+    --color-static-status-grey-alpha-10: rgba(109, 121, 134, 0.1);
+    --color-static-status-orange-alpha-10: rgba(222, 106, 0, 0.1);
+    --color-static-status-purple-alpha-10: rgba(103, 58, 183, 0.1);
+    --color-static-status-red-alpha-10: rgba(217, 29, 11, 0.1);
+    --color-static-status-teal-alpha-10: rgba(33, 145, 135, 0.1);
 }
