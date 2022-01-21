@@ -17,9 +17,17 @@ describe('CDNIcon', () => {
         await waitFor(() => expect(container.querySelector('span')).toHaveTextContent(''));
     });
 
-    it('should use the color prop', async () => {
+    it('should use the `color` prop', async () => {
         const color = '#ccc';
         const { container } = render(<CDNIcon name='glyph_debt_m' color={color} />);
         await waitFor(() => expect(container.firstElementChild).toHaveStyle(`color: ${color}`));
+    });
+
+    it('should use `className` prop', () => {
+        const className = 'class';
+
+        const { container } = render(<CDNIcon name='name' className={className} />);
+
+        expect(container.firstElementChild).toHaveClass('class');
     });
 });
