@@ -15759,9 +15759,17 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     -webkit-transform: var(--arrow-transform);
             transform: var(--arrow-transform);
 }
-
 .container_MK-ak {
     min-width: auto;
+}
+.optionsPopover_13bFq {
+    padding: var(--gap-xs) 0
+}
+.optionsPopover_13bFq.sideGap_3ZAMb {
+        padding: 0 var(--gap-xs);
+    }
+.optionsListContainer_3Qk39 {
+    border-radius: var(--border-radius-s);
 }
 .input_2LLyS {
     color: var(--input-color);
