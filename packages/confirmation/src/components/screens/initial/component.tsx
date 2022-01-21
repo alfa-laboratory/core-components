@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import { usePrevious } from '@alfalab/hooks';
 import { CodeInput, CustomInputRef, CodeInputProps } from '@alfalab/core-components-code-input';
-import { Loader } from '@alfalab/core-components-loader';
-import { Button } from '@alfalab/core-components-button';
 import { Link } from '@alfalab/core-components-link';
 
 import { ConfirmationContext } from '../../../context';
-import { formatMsAsMinutes } from '../../../utils';
 
 import styles from './index.module.css';
+import { CountdownSection } from './countdown-section';
+
+const CODE_SEND_HINT_VISIBLE_DURATION = 2000;
 
 export const Initial = () => {
     const {
@@ -19,8 +19,7 @@ export const Initial = () => {
         texts,
         requiredCharAmount,
         timeLeft,
-        phoneNumber,
-        noAttemptsLeft,
+        phone,
         onChangeState,
         onInputFinished,
         onChangeScreen,
@@ -31,12 +30,22 @@ export const Initial = () => {
 
     const inputRef = useRef<CustomInputRef>(null);
 
+    const [codeSendHintVisible, setCodeSendHintVisible] = useState(false);
+
+    const timerId = useRef(0);
+
     const handleInputComplete: CodeInputProps['onComplete'] = code => {
         onInputFinished(code);
     };
 
     const handleSmsHintLinkClick = () => {
         onChangeScreen('HINT');
+    };
+
+    const handleInputChange = () => {
+        if (state === 'CODE_ERROR') {
+            onChangeState('INITIAL');
+        }
     };
 
     const handleSmsRetryClick = () => {
@@ -47,17 +56,19 @@ export const Initial = () => {
         onSmsRetryClick();
     };
 
-    const handleInputChange = () => {
-        if (state === 'CODE_ERROR') {
-            onChangeState('INITIAL');
-        }
-    };
+    const clearTimer = useCallback(() => {
+        window.clearTimeout(timerId.current);
+    }, []);
 
     useEffect(() => {
         if (inputRef.current) {
             inputRef.current.focus();
         }
-    }, []);
+
+        return () => {
+            clearTimer();
+        };
+    }, [clearTimer]);
 
     useEffect(() => {
         if (!inputRef.current) {
@@ -68,7 +79,6 @@ export const Initial = () => {
             inputRef.current.reset();
             inputRef.current.focus();
             inputRef.current.unselect();
-            return;
         }
 
         if (prevState === 'CODE_SENDING' && state !== 'CODE_SENDING') {
@@ -76,23 +86,31 @@ export const Initial = () => {
         }
     }, [prevState, state]);
 
-    const retrySmsButtonVisible =
-        timeLeft === 0 && ['INITIAL', 'CODE_ERROR'].includes(state) && !noAttemptsLeft;
+    useEffect(() => {
+        if (prevState === 'CODE_SENDING' && state !== 'CODE_SENDING') {
+            setCodeSendHintVisible(true);
 
-    const countdownVisible =
-        ['INITIAL', 'CODE_ERROR'].includes(state) && !retrySmsButtonVisible && !noAttemptsLeft;
+            clearTimer();
+
+            timerId.current = window.setTimeout(() => {
+                setCodeSendHintVisible(false);
+            }, CODE_SEND_HINT_VISIBLE_DURATION);
+        }
+    }, [prevState, state, clearTimer]);
 
     const processing = ['CODE_CHECKING', 'CODE_SENDING'].includes(state);
+
+    const timePassed = timeLeft === 0;
 
     return (
         <div className={cn(styles[alignContent])}>
             <h3 className={styles.header}>{texts.title}</h3>
 
-            {phoneNumber && <div className={styles.phone}>Код отправлен на {phoneNumber}</div>}
+            {phone && <div className={styles.phone}>Код отправлен на {phone}</div>}
 
             <div
                 className={cn(styles.inputContainer, {
-                    [styles.smallMargin]: retrySmsButtonVisible,
+                    [styles.compact]: timePassed,
                 })}
             >
                 <CodeInput
@@ -106,34 +124,12 @@ export const Initial = () => {
                 />
             </div>
 
-            {processing && (
-                <div className={styles.loaderWrap}>
-                    <Loader />
-
-                    <span className={styles.loaderText}>
-                        {state === 'CODE_CHECKING' ? texts.codeChecking : texts.codeSending}
-                    </span>
-                </div>
-            )}
-
-            {retrySmsButtonVisible && (
-                <Button
-                    size='xxs'
-                    view='secondary'
-                    onClick={handleSmsRetryClick}
-                    className={styles.getCodeButton}
-                >
-                    {texts.buttonRetry}
-                </Button>
-            )}
-
-            {countdownVisible && (
-                <div>
-                    Запросить повторно можно через <span>{formatMsAsMinutes(timeLeft)}</span>
-                </div>
-            )}
-
-            {noAttemptsLeft && !processing && <div>{texts.noAttemptsLeft}</div>}
+            <CountdownSection
+                processing={processing}
+                timePassed={timePassed}
+                codeSendHintVisible={codeSendHintVisible}
+                handleSmsRetryClick={handleSmsRetryClick}
+            />
 
             <div className={styles.smsComeLinkWrap}>
                 <Link

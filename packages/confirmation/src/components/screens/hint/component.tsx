@@ -22,13 +22,15 @@ export const Hint = () => {
                 <h3 className={styles.title}>Не&nbsp;приходит сообщение?</h3>
 
                 <span className={styles.text}>
-                    Если у&nbsp;вас сменился номер телефона, пожалуйста, обратитесь в&nbsp;любое
-                    отделение банка.
+                    Если у&nbsp;вас изменился номер телефона, позвоните нам или обратитесь
+                    в&nbsp;любое отделение банка.
                 </span>
 
                 <div className={styles.phonesWrap}>
                     <div className={styles.phoneWrap}>
-                        <Link href='tel:+78002000000'>8 800 200-00-00</Link>
+                        <Link href='tel:+78002000000' className={styles.phoneLink}>
+                            8 800 200-00-00
+                        </Link>
 
                         <span className={styles.phoneDescription}>
                             {' '}
@@ -37,7 +39,9 @@ export const Hint = () => {
                     </div>
 
                     <div className={styles.phoneWrap}>
-                        <Link href='tel:+74957888878'>+7 495 788-88-78</Link>
+                        <Link href='tel:+74957888878' className={styles.phoneLink}>
+                            +7 495 78-888-78
+                        </Link>
 
                         <span className={styles.phoneDescription}>
                             {' '}
@@ -46,7 +50,17 @@ export const Hint = () => {
                     </div>
                 </div>
 
-                <Button size='s' view='secondary' onClick={handleReturnButtonClick}>
+                <span className={styles.text}>
+                    Если номер не&nbsp;менялся, возможно, перегружен сервис отправки сообщений.
+                    Попробуйте повторить действие через несколько минут.
+                </span>
+
+                <Button
+                    size='s'
+                    view='secondary'
+                    onClick={handleReturnButtonClick}
+                    className={styles.hintButton}
+                >
                     {texts.hintButton}
                 </Button>
             </div>

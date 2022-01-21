@@ -4,7 +4,7 @@ import styles from './index.module.css';
 
 type Props = {
     progress: number; // 0-1
-    className: string;
+    className?: string;
 };
 
 const SIZE = 16;

@@ -16,7 +16,7 @@
     margin-bottom: var(--gap-2xl);
 }
 
-.smallMargin {
+.compact {
     margin-bottom: var(--gap-xl);
 }
 
@@ -43,4 +43,15 @@
 
 .smsComeLink {
     @mixin paragraph_primary_small;
+}
+
+.countdown {
+    display: flex;
+}
+
+.countdownTimer {
+    display: flex;
+    justify-content: flex-start;
+    min-width: 45px;
+    margin-left: var(--gap-2xs);
 }

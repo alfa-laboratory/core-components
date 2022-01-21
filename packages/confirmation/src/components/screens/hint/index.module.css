@@ -32,7 +32,7 @@
 
     display: flex;
     flex-direction: column;
-    margin-bottom: var(--gap-4xl);
+    margin-bottom: var(--gap-xl);
 }
 
 .phoneWrap {
@@ -43,6 +43,18 @@
     }
 }
 
+.phoneLink {
+    @mixin action_primary_medium;
+
+    & > span {
+        border-bottom: none;
+    }
+}
+
 .phoneDescription {
     color: var(--confirmation-text-color);
+}
+
+.hintButton {
+    margin-top: var(--gap-2xl);
 }

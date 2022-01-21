@@ -39,12 +39,12 @@ export type ConfirmationProps = {
     /**
      * Номер телефона, на который отправлен код
      */
-    phoneNumber?: string;
+    phone?: string;
 
     /**
      * Не осталось попыток ввода кода
      */
-    noAttemptsLeft?: boolean;
+    blockSmsRetry?: boolean;
 
     /**
      * Функция обновления состояния компонента
@@ -99,28 +99,40 @@ export type TConfirmationContext = Required<
         | 'tempBlockDuration'
     >
 > &
-    Pick<ConfirmationProps, 'phoneNumber' | 'noAttemptsLeft' | 'onTempBlockFinished'> & {
+    Pick<ConfirmationProps, 'phone' | 'blockSmsRetry' | 'onTempBlockFinished'> & {
         timeLeft: number;
     };
 
 export type ConfirmationTexts = {
-    title?: ReactNode; //
+    /**
+     * Экран INITIAL
+     */
+    title?: ReactNode; // заголовок
+    codeError?: string; // ошибка проверки кода
+    codeChecking?: string; // код проверяется
+    codeSending?: string; // код отправляется
+    codeSended?: string; // код отправлен
+    buttonRetry?: string; // кнопка повторной отправки кода
+    linkToHint?: string; // ссылка на экран HINT
+    noAttemptsLeft?: string; // не осталось попыток запроса кода
 
-    codeError?: string; //
-    codeChecking?: string; //
-    codeSending?: string; //
+    /**
+     * Экран HINT
+     */
+    hintButton?: string; // кнопка 'Вернуться'
 
-    buttonRetry?: string; //
-    linkToHint?: string; //
-    hintButton?: string; //
-    noAttemptsLeft?: string; //
+    /**
+     * Экран FATAL_ERROR
+     */
+    fatalErrorTitle?: ReactNode; // заголовок
+    fatalErrorDescription?: ReactNode; // описание
+    fatalErrorButton?: string; // кнопка
 
-    fatalErrorTitle?: ReactNode; //
-    fatalErrorDescription?: ReactNode; //
-    fatalErrorButton?: string; //
-
-    tempBlockTitle?: ReactNode; //
-    tempBlockDescription?: ReactNode; //
+    /**
+     * Экран TEMP_BLOCK
+     */
+    tempBlockTitle?: ReactNode; // заголовок
+    tempBlockDescription?: ReactNode; // описание
 };
 
 export type ConfirmationScreen =
@@ -154,4 +166,5 @@ export const defaultTexts = {
     fatalErrorButton: 'Понятно',
     tempBlockTitle: 'Превышено количество попыток запроса кода',
     tempBlockDescription: 'Повторное подтверждение кодом будет возможно через 24\xa0часа',
+    codeSended: 'Код выслан',
 };

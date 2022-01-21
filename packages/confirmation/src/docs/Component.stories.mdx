@@ -4,8 +4,7 @@ import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
 import { Select } from '@alfalab/core-components-select';
 
-import { ConfirmationExample } from '../confirmation-example';
-import { Confirmation } from '..'
+import { Confirmation, useConfirmation } from '..'
 import { version } from '../../package.json';
 import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
@@ -22,9 +21,101 @@ import vars from '!!raw-loader!../vars.css';
 
 <Story name='Confirmation'>
     {React.createElement(() => {
+        const variants = [
+            { key: 'success', content: 'Успешный сценарий' },
+            { key: 'error', content: 'Сценарий с ошибкой' },
+            { key: 'fatal', content: 'Сценарий с критичной ошибкой' },
+            {
+                key: 'attempts-left',
+                content: 'Сценарий, когда кончились попытки запроса смс',
+            },
+            {
+                key: 'temp-block',
+                content: 'Сценарий, когда форма временно заблокирована',
+            },
+        ];
+        const [variant, setVariant] = React.useState({ key: 'success', content: 'Успешный сценарий' });
+        const {
+            confirmationState,
+            confirmationScreen,
+            confirmationBlockSmsRetry,
+            setConfirmationState,
+            setConfirmationScreen,
+            setConfirmationBlockSmsRetry,
+        } = useConfirmation();
+        const handleInputFinished = () => {
+            setTimeout(() => {
+                switch (variant.key) {
+                    case 'success':
+                        setConfirmationState('INITIAL');
+                        break;
+                    case 'error':
+                        setConfirmationState('CODE_ERROR');
+                        break;
+                    case 'fatal':
+                        setConfirmationScreen('FATAL_ERROR');
+                        break;
+                    case 'attempts-left':
+                        setConfirmationState('CODE_ERROR');
+                        break;
+                    case 'temp-block':
+                        setConfirmationScreen('TEMP_BLOCK');
+                        break;
+                    default:
+                        break;
+                }
+            }, 1000);
+        };
+        const handleSmsRetryClick = () => {
+            setTimeout(() => {
+                if (variant.key === 'attempts-left') {
+                    setConfirmationBlockSmsRetry(true);
+                }
+                setConfirmationState('INITIAL');
+            }, 1000);
+        };
+        const handleTempBlockFinished = () => {
+            setConfirmationScreen('INITIAL');
+            setConfirmationState('CODE_SENDING');
+        };
         return (
-            <div style={{ display: 'flex' }}>
-                <ConfirmationExample />
+            <div>
+                <Select
+                    options={variants}
+                    onChange={({ selected }) => {
+                        setConfirmationState('INITIAL');
+                        setConfirmationScreen('INITIAL');
+                        setConfirmationBlockSmsRetry(false);
+                        setVariant(selected);
+                    }}
+                    selected={variant.key}
+                />
+                <div
+                    key={variant.key}
+                    style={{
+                        display: 'flex',
+                        width: '500px',
+                        margin: '16px 0 0',
+                        padding: '16px',
+                        boxShadow: '0 0 0 1px #eeeff1',
+                        boxSizing: 'border-box',
+                    }}
+                >
+                    <Confirmation
+                        screen={confirmationScreen}
+                        state={confirmationState}
+                        alignContent={select('alignContent', ['left', 'center'], 'center')}
+                        blockSmsRetry={confirmationBlockSmsRetry}
+                        countdownDuration={10000}
+                        requiredCharAmount={number('requiredCharAmount', 5)}
+                        onChangeState={setConfirmationState}
+                        onChangeScreen={setConfirmationScreen}
+                        onInputFinished={handleInputFinished}
+                        onSmsRetryClick={handleSmsRetryClick}
+                        onTempBlockFinished={handleTempBlockFinished}
+                        phone='+7 ··· ··· 07-24'
+                    />
+                </div>
             </div>
         );
     })}
@@ -38,7 +129,7 @@ import vars from '!!raw-loader!../vars.css';
     version={version}
     package='@alfalab/core-components/confirmation'
     stage={3}
-    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=8558%3A22'
+    design='https://www.figma.com/file/JnpPl4gvg2Zjr7zvTz8mUk/branch/6IObNWBpSyfeHD0Bw4NtI1/Core-%7C-%F0%9F%91%91-Default?node-id=3202%3A31426'
 />
 
 ```tsx

@@ -1,5 +1,7 @@
 import { useCallback, useRef, useState } from 'react';
 
+import { ConfirmationProps } from './types';
+
 /**
  * Форматирование миллисекунд в hh:mm:ss.
  *
@@ -66,8 +68,33 @@ export const useCountdown: UseCountdown = (countdownDuration, tick = 1000) => {
         timerId.current = window.setInterval(updateProgress, tick);
     }, [stopTimer, updateProgress, tick]);
 
-    return [countdownDuration - timePassed, startTimer, stopTimer];
+    const timeLeft = countdownDuration - timePassed;
+
+    return [timeLeft, startTimer, stopTimer];
 };
 
 export const ONE_DAY = 24 * 60 * 60 * 1000;
 export const ONE_MINUTE = 60 * 1000;
+
+type UseConfirmationParams = {
+    state?: ConfirmationProps['state'];
+    screen?: ConfirmationProps['screen'];
+    blockSmsRetry?: ConfirmationProps['blockSmsRetry'];
+};
+
+export const useConfirmation = ({ state, screen, blockSmsRetry }: UseConfirmationParams = {}) => {
+    const [confirmationState, setConfirmationState] = useState(state ?? 'INITIAL');
+    const [confirmationScreen, setConfirmationScreen] = useState(screen ?? 'INITIAL');
+    const [confirmationBlockSmsRetry, setConfirmationBlockSmsRetry] = useState(
+        blockSmsRetry ?? false,
+    );
+
+    return {
+        confirmationState,
+        confirmationScreen,
+        confirmationBlockSmsRetry,
+        setConfirmationState,
+        setConfirmationScreen,
+        setConfirmationBlockSmsRetry,
+    };
+};
