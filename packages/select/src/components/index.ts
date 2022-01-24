@@ -5,4 +5,3 @@ export * from './optgroup';
 export * from './option';
 export * from './options-list';
 export * from './virtual-options-list';
-export * from './options-list-with-apply';

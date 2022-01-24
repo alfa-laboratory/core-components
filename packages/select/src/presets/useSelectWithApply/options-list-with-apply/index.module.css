@@ -1,0 +1,13 @@
+@import '../../../../../themes/src/default.css';
+@import '../../../vars.css';
+
+.footer {
+    background: var(--color-light-bg-primary);
+    padding: var(--gap-s) var(--gap-s) var(--gap-m);
+    box-shadow: inset 0 1px 0 var(--color-light-border-secondary);
+    outline: none;
+
+    & > * + * {
+        margin-left: var(--gap-xs);
+    }
+}

@@ -1,7 +1,0 @@
-@import '../../../../themes/src/default.css';
-@import '../../vars.css';
-
-.footer {
-    background: var(--color-light-bg-primary);
-    padding: var(--gap-m) var(--gap-l) var(--gap-xl);
-}

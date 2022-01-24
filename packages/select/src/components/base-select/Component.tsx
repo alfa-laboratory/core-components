@@ -82,6 +82,7 @@ export const BaseSelect = forwardRef(
         const rootRef = useRef<HTMLLabelElement>(null);
         const fieldRef = useRef<HTMLInputElement>(null);
         const listRef = useRef<HTMLDivElement>(null);
+        const initiatorRef = useRef<OptionShape | null>(null);
 
         const itemToString = (option: OptionShape) => (option ? option.key : '');
 
@@ -99,6 +100,7 @@ export const BaseSelect = forwardRef(
                     onChange({
                         selectedMultiple: selectedItems,
                         selected: selectedItems.length ? selectedItems[0] : null,
+                        initiator: initiatorRef.current,
                         name,
                     });
                 }
@@ -169,6 +171,8 @@ export const BaseSelect = forwardRef(
                 switch (type) {
                     case useCombobox.stateChangeTypes.InputKeyDownEnter:
                     case useCombobox.stateChangeTypes.ItemClick:
+                        initiatorRef.current = selectedItem;
+
                         if (selectedItem && !selectedItem.disabled) {
                             const alreadySelected = selectedItems.includes(selectedItem);
                             const allowRemove =
@@ -239,7 +243,8 @@ export const BaseSelect = forwardRef(
                 [' ', 'Enter'].includes(event.key) &&
                 !autocomplete &&
                 !nativeSelect &&
-                (event.target as HTMLElement).tagName !== 'INPUT'
+                (event.target as HTMLElement).tagName !== 'INPUT' &&
+                (event.target as HTMLElement).tagName !== 'BUTTON'
             ) {
                 // Открываем\закрываем меню по нажатию enter или пробела
                 event.preventDefault();

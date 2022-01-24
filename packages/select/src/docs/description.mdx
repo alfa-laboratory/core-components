@@ -502,11 +502,12 @@ render(
 );
 ```
 
-## Выбор с подтверждением
+## Пресеты
 
-Используйте компонент `OptionsListWithApply`, чтобы реализовать логику подтверждения выбора.
 
-Если требуется отобразить много значений, то подключить `VirtualOptionsList` можно с помощью `optionsListProps={{ virtual: true }}`
+### Выбор с подтверждением
+
+Используйте пресет `useSelectWithApply`, чтобы реализовать логику подтверждения выбора.
 
 ```tsx live
 const options = [
@@ -529,19 +530,19 @@ render(() => {
 
     return (
         <Select
-            options={options}
             placeholder='Выберите элемент'
-            label='controlled'
-            multiple={true}
-            onChange={handleChange}
-            selected={selected}
-            OptionsList={OptionsListWithApply}
+            label='Выбор с подтверждением'
+            {...useSelectWithApply({
+                options,
+                selected,
+                showClear: true,
+                onChange: handleChange,
+                OptionsList: VirtualOptionsList,
+            })}
         />
     );
 });
 ```
-
-## Пресеты
 
 ### Селект со скелетной загрузкой
 

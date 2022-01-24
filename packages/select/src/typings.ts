@@ -255,6 +255,7 @@ export type BaseSelectProps = {
     onChange?: (payload: {
         selected: OptionShape | null;
         selectedMultiple: OptionShape[];
+        initiator: OptionShape | null;
         name?: string;
     }) => void;
 
@@ -532,7 +533,7 @@ export type OptionProps = {
     option: OptionShape;
 
     /**
-     * Индект пункта
+     * Индекс пункта
      */
     index: number;
 
