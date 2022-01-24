@@ -47,6 +47,16 @@ export type ConfirmationProps = {
     blockSmsRetry?: boolean;
 
     /**
+     * Идентификатор для систем автоматизированного тестирования
+     */
+    dataTestId?: string;
+
+    /**
+     * Сss класс для стилизации общей обёртки
+     */
+    className?: string;
+
+    /**
      * Функция обновления состояния компонента
      */
     onChangeState: (state: ConfirmationState | string) => void;

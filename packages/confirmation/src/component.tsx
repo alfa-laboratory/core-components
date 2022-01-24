@@ -27,6 +27,8 @@ export const Confirmation: FC<ConfirmationProps> = ({
     tempBlockDuration = ONE_DAY,
     phone,
     blockSmsRetry,
+    dataTestId,
+    className,
     getScreensMap,
     onInputFinished,
     onChangeState,
@@ -109,7 +111,10 @@ export const Confirmation: FC<ConfirmationProps> = ({
 
     return (
         <ConfirmationContext.Provider value={contextValue}>
-            <div className={cn(styles.component, styles[alignContent])}>
+            <div
+                className={cn(styles.component, styles[alignContent], className)}
+                data-test-id={dataTestId}
+            >
                 {CurrentScreen && <CurrentScreen />}
             </div>
         </ConfirmationContext.Provider>
