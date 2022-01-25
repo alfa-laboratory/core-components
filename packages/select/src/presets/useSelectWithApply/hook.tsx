@@ -72,8 +72,16 @@ export function useSelectWithApply({
         });
     }, [onChange]);
 
-    const handleChange = useCallback(
-        ({ initiator }) => {
+    const handleChange: Required<BaseSelectProps>['onChange'] = useCallback(
+        ({ initiator, ...restArgs }) => {
+            if (!initiator) {
+                onChange({
+                    initiator: null,
+                    ...restArgs,
+                });
+                return;
+            }
+
             const initiatorSelected =
                 selectedDraft.includes(initiator) ||
                 (initiator.key === SELECT_ALL_KEY && selectedDraft.length === flatOptions.length);
@@ -88,7 +96,7 @@ export function useSelectWithApply({
                 );
             }
         },
-        [flatOptions, selectedDraft],
+        [flatOptions, onChange, selectedDraft],
     );
 
     const handleClose = useCallback(() => {

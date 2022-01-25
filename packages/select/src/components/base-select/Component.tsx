@@ -103,6 +103,8 @@ export const BaseSelect = forwardRef(
                         initiator: initiatorRef.current,
                         name,
                     });
+
+                    initiatorRef.current = null;
                 }
             },
             stateReducer: (state, actionAndChanges) => {
