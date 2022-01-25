@@ -318,6 +318,16 @@ export type FieldProps = {
     selectedMultiple?: OptionShape[];
 
     /**
+     * Метод для ручной установки выбранных пунктов
+     */
+    setSelectedItems: (selected: OptionShape[]) => void;
+
+    /**
+     * Метод переключающий видимость выпадающего списка
+     */
+    toggleMenu: () => void;
+
+    /**
      * Флаг, можно ли выбрать несколько значений
      */
     multiple?: boolean;
