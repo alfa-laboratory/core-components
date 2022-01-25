@@ -242,7 +242,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 dataTestId={dataTestId}
                 zIndex={zIndex}
                 onClose={onClose}
-                onBackdropClick={onClose}
                 scrollHandler={scrollableContainer}
                 Backdrop={SwipeableBackdrop}
                 backdropProps={{
