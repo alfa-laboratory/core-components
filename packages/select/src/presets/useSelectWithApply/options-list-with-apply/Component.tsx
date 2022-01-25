@@ -62,7 +62,9 @@ export const OptionsListWithApply = forwardRef(
 
         const handleClear = useCallback(() => {
             onClear();
-        }, [onClear]);
+
+            toggleMenu();
+        }, [onClear, toggleMenu]);
 
         useEffect(() => {
             const activeElement = document.activeElement as HTMLElement;
