@@ -509,37 +509,41 @@ render(
 
 Используйте пресет `useSelectWithApply`, чтобы реализовать логику подтверждения выбора.
 
+Кнопка сброса по умолчанию появляется, если выбран хотя бы один пункт списка. Скрыть кнопку можно с помощью свойства `showClear`.
+
+С помощью свойства `showSelectAll` можно добавить пункт "Выбрать все".
+
 ```tsx live
 const options = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
-    { key: '4', content: 'Curium' },
-    { key: '5', content: 'Berkelium' },
-    { key: '6', content: 'Californium' },
-    { key: '7', content: 'Einsteinium' },
-    { key: '8', content: 'Fermium' },
+    { key: "40708810300024636781", content: "Валютный счёт $ ··6781", value: "USD ··6781" },
+    { key: "40701810200000000593", content: "Рублёвый счёт ₽ ··0593", value: "RUB ··0593" },
+    { key: "40700810000000017103", content: "Рублёвый счёт ₽ ··7103", value: "RUB ··7103" },
+    { key: "40817810668001680128", content: "Рублёвый счёт ₽ ··0128", value: "RUB ··0128" },
+    { key: "40832810700000000212", content: "Валютный счёт € ··0212", value: "EUR ··0212" },
 ];
 
 render(() => {
-    const [selected, setSelected] = React.useState([options[2].key, options[3].key]);
+    const [selected, setSelected] = React.useState([]);
 
     const handleChange = ({ selectedMultiple }) => {
         setSelected(selectedMultiple.map(option => option.key));
     };
 
     return (
-        <Select
-            placeholder='Выберите элемент'
-            label='Выбор с подтверждением'
-            {...useSelectWithApply({
-                options,
-                selected,
-                showClear: true,
-                onChange: handleChange,
-                OptionsList: VirtualOptionsList,
-            })}
-        />
+        <div style={{ width: 320 }}>
+            <Select
+                placeholder='Выберите элемент'
+                label='Выбор с подтверждением'
+                block={true}
+                optionsListWidth='field'
+                {...useSelectWithApply({
+                    options,
+                    selected,
+                    onChange: handleChange,
+                    OptionsList: VirtualOptionsList,
+                })}
+            />
+        </div>
     );
 });
 ```
