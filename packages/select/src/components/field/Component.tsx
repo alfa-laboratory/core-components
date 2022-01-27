@@ -20,6 +20,8 @@ export const Field = ({
     selected,
     rightAddons,
     valueRenderer = joinOptions,
+    setSelectedItems,
+    toggleMenu,
     Arrow,
     innerProps,
     dataTestId,

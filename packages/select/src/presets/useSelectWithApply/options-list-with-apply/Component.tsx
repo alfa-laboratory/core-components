@@ -106,7 +106,7 @@ export const OptionsListWithApply = forwardRef(
                             Применить
                         </Button>
 
-                        {showClear && selectedDraft.length > 0 && (
+                        {showClear && (
                             <Button size='xxs' view='secondary' onClick={handleClear}>
                                 Сбросить
                             </Button>

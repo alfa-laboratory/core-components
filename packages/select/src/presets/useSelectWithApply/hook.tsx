@@ -43,8 +43,8 @@ export function useSelectWithApply({
     selected,
     onChange = () => null,
     OptionsList,
-    showClear,
-    showSelectAll,
+    showClear = true,
+    showSelectAll = false,
 }: useSelectWithApplyProps) {
     const { flatOptions, selectedOptions } = useMemo(() => processOptions(options, selected), [
         options,
@@ -123,6 +123,7 @@ export function useSelectWithApply({
             onClose: handleClose,
             selectedDraft,
         },
+        allowUnselect: true,
         multiple: true,
         options: memoizedOptions,
         onChange: handleChange,
