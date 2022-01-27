@@ -117,7 +117,7 @@ export function useSelectWithApply({
         OptionsList: OptionsListWithApply,
         optionsListProps: {
             OptionsList,
-            showClear: showClear && selectedDraft.length > 0,
+            showClear: showClear && (selectedDraft.length > 0 || selectedOptions.length > 0),
             onClear: handleClear,
             onApply: handleApply,
             onClose: handleClose,
