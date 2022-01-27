@@ -20,6 +20,7 @@
         "react-dom": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
+        "@alfalab/core-components-button": "^5.0.3",
         "@alfalab/core-components-checkbox": "^2.4.0",
         "@alfalab/core-components-form-control": "^7.4.0",
         "@alfalab/core-components-input": "^8.0.2",

@@ -1,11 +1,11 @@
 import React, { forwardRef, useCallback, useRef } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
-import { OptionsListProps, GroupShape } from '../../typings';
+import { OptionsListProps, GroupShape, OptionShape } from '../../typings';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
+import { isGroup, useVisibleOptions } from '../../utils';
 
 import styles from './index.module.css';
-import { isGroup, useVisibleOptions } from '../../utils';
 
 const createCounter = () => {
     let count = 0;
@@ -19,6 +19,7 @@ export const OptionsList = forwardRef(
             size = 's',
             className,
             Option,
+            getOptionProps,
             options = [],
             Optgroup = DefaultOptgroup,
             dataTestId,
@@ -26,18 +27,27 @@ export const OptionsList = forwardRef(
             visibleOptions = 5,
             onScroll,
             open,
+            header,
+            footer,
         }: OptionsListProps,
         ref,
     ) => {
+        const renderOption = useCallback(
+            (option: OptionShape, index: number) => (
+                <Option key={option.key} {...getOptionProps(option, index)} />
+            ),
+            [getOptionProps],
+        );
+
         const listRef = useRef<HTMLDivElement>(null);
         const counter = createCounter();
         const renderGroup = useCallback(
             (group: GroupShape) => (
                 <Optgroup label={group.label} key={group.label} size={size}>
-                    {group.options.map(option => Option({ option, index: counter() }))}
+                    {group.options.map(option => renderOption(option, counter()))}
                 </Optgroup>
             ),
-            [Option, counter, size],
+            [counter, renderOption, size],
         );
 
         useVisibleOptions({
@@ -55,16 +65,24 @@ export const OptionsList = forwardRef(
             <div
                 className={cn(styles.optionsList, styles[size], className)}
                 data-test-id={dataTestId}
-                ref={mergeRefs([listRef, ref])}
-                onScroll={onScroll}
             >
-                {options.map(option =>
-                    isGroup(option) ? renderGroup(option) : Option({ option, index: counter() }),
-                )}
+                {header}
 
-                {emptyPlaceholder && options.length === 0 && (
-                    <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>
-                )}
+                <div
+                    className={styles.scrollable}
+                    ref={mergeRefs([listRef, ref])}
+                    onScroll={onScroll}
+                >
+                    {options.map(option =>
+                        isGroup(option) ? renderGroup(option) : renderOption(option, counter()),
+                    )}
+
+                    {emptyPlaceholder && options.length === 0 && (
+                        <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>
+                    )}
+                </div>
+
+                {footer}
             </div>
         );
     },
