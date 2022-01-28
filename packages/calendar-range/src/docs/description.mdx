@@ -1,93 +1,63 @@
 Компонент для ввода даты.
 
-### Controlled-way
-
-```tsx live
-render(() => {
-    const [valueFrom, setValueFrom] = React.useState('10.10.2020');
-    const [valueTo, setValueTo] = React.useState('10.11.2020');
-
-    return (
-        <CalendarRange
-            valueFrom={valueFrom}
-            valueTo={valueTo}
-            onDateFromChange={({ value }) => setValueFrom(value)}
-            onDateToChange={({ value }) => setValueTo(value)}
-        />
-    );
-});
-```
-
-### Min/Max даты
-
-```tsx live
-// import { startOfDay, subMonths, addMonths } from 'date-fns';
+```jsx live
+// import { startOfDay, subMonths, addMonths, startOfMonth, startOfDay } from 'date-fns';
 // import { parseDateString } from '@alfalab/core-components/calendar-input';
 
 render(() => {
-    const defaultDate = '10.11.2020';
+    const [calendarPosition, setCalendarPosition] = React.useState('static');
 
-    const [valueFrom, setValueFrom] = React.useState(defaultDate);
-    const [valueTo, setValueTo] = React.useState('');
+    const defaultDate = parseDateString('10.03.2022');
+    const [valueFrom, setValueFrom] = React.useState('05.03.2022');
+    const [valueTo, setValueTo] = React.useState('09.03.2022');
 
-    const minDate = subMonths(startOfDay(parseDateString(defaultDate)), 2).getTime();
-    const maxDate = addMonths(startOfDay(parseDateString(defaultDate)), 2).getTime();
-
-    const [fromError, setFromError] = React.useState('');
-    const [toError, setToError] = React.useState('');
-
-    const valid = value => {
-        const date = parseDateString(value);
-        return !value || (!Number.isNaN(date.getTime()) && date >= minDate && date <= maxDate);
-    };
-
-    const handleFromBlur = event => {
-        if (!valid(event.target.value)) {
-            setFromError(true);
-        }
-    };
-
-    const handleFromFocus = () => setFromError('');
-
-    const handleToBlur = event => {
-        if (!valid(event.target.value)) {
-            setToError(true);
-        }
-    };
-
-    const handleToFocus = () => setToError('');
+    const minDate = subMonths(startOfDay(defaultDate), 3).getTime();
+    const maxDate = addMonths(startOfDay(defaultDate), 3).getTime();
 
     return (
-        <CalendarRange
-            minDate={minDate}
-            maxDate={maxDate}
-            valueFrom={valueFrom}
-            valueTo={valueTo}
-            onDateFromChange={({ value }) => {
-                setFromError(false);
-                setValueFrom(value);
-            }}
-            onDateToChange={({ value }) => {
-                setToError(false);
-                setValueTo(value);
-            }}
-            inputFromProps={{
-                error: fromError,
-                onBlur: handleFromBlur,
-                onFocus: handleFromFocus,
-            }}
-            inputToProps={{
-                error: toError,
-                onBlur: handleToBlur,
-                onFocus: handleToFocus,
-            }}
-        />
+        <Space size='l'>
+            <RadioGroup
+                label='calendarPosition'
+                direction='horizontal'
+                onChange={(_, { value }) => setCalendarPosition(value)}
+                value={calendarPosition}
+            >
+                <Radio label='static' value='static' />
+                <Radio label='popover' value='popover' />
+            </RadioGroup>
+
+            <CalendarRange
+                valueFrom={valueFrom}
+                valueTo={valueTo}
+                minDate={minDate}
+                maxDate={maxDate}
+                defaultMonth={startOfMonth(defaultDate)}
+                offDays={[startOfDay(defaultDate)]}
+                calendarPosition={calendarPosition}
+                onDateFromChange={({ value }) => setValueFrom(value)}
+                onDateToChange={({ value }) => setValueTo(value)}
+            />
+
+            <span>
+                Values: {valueFrom} — {valueTo}
+            </span>
+
+            <Space direction='horizontal'>
+                <Button size='xxs' type='button' onClick={() => setValueFrom('')}>
+                    Сбросить начало
+                </Button>
+                <Button size='xxs' type='button' onClick={() => setValueTo('')}>
+                    Сбросить конец
+                </Button>
+
+                <Button size='xxs' type='button' onClick={() => setValueFrom('20.02.2022')}>
+                    Начало 20.02.2022
+                </Button>
+                <Button size='xxs' type='button' onClick={() => setValueTo('25.04.2022')}>
+                    Конец 25.04.2022
+                </Button>
+            </Space>
+        </Space>
     );
 });
-```
-
-### Рендерит календари в поповере
-
-```tsx live
-<CalendarRange calendarPosition='popover' />
 ```

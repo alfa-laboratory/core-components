@@ -42,9 +42,9 @@ export function usePeriod({
 
     const updatePeriod = useCallback(
         (date?: number) => {
-            // сбрасываем начало, если выбранная дата совпадает с ним
-            if (date === selectedFrom) {
-                setSelectedFrom(undefined);
+            // сбрасываем выделение
+            if (date === undefined || (date === selectedTo && date === selectedFrom)) {
+                resetPeriod();
                 return;
             }
 
@@ -54,15 +54,24 @@ export function usePeriod({
                 return;
             }
 
-            // сбрасываем выделение
-            if (date === undefined) {
-                resetPeriod();
+            // сбрасываем начало, если выбранная дата совпадает с ним
+            if (date === selectedFrom) {
+                if (selectedTo) {
+                    setSelectedFrom(undefined);
+                } else {
+                    setSelectedTo(date);
+                }
                 return;
             }
 
-            // начинаем выделение
             if (!selectedFrom) {
-                setSelectedFrom(date);
+                if (selectedTo) {
+                    setSelectedFrom(Math.min(date, selectedTo));
+                    setSelectedTo(Math.max(date, selectedTo));
+                } else {
+                    // начинаем выделение
+                    setSelectedFrom(date);
+                }
                 return;
             }
 
@@ -82,6 +91,78 @@ export function usePeriod({
             } else {
                 setSelectedTo(date);
             }
+        },
+        [resetPeriod, selectedFrom, selectedTo],
+    );
+
+    useDidUpdateEffect(() => {
+        if (onPeriodChange) {
+            onPeriodChange(selectedFrom, selectedTo);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [selectedFrom, selectedTo]);
+
+    return {
+        selectedFrom,
+        selectedTo,
+        setStart,
+        setEnd,
+        resetPeriod,
+        updatePeriod,
+    };
+}
+
+export function usePeriodWithReset({
+    onPeriodChange,
+    initialSelectedFrom,
+    initialSelectedTo,
+}: usePeriodProps) {
+    const [selectedFrom, setSelectedFrom] = useState<number | undefined>(initialSelectedFrom);
+    const [selectedTo, setSelectedTo] = useState<number | undefined>(initialSelectedTo);
+
+    const resetPeriod = useCallback(() => {
+        setSelectedFrom(undefined);
+        setSelectedTo(undefined);
+    }, []);
+
+    const setStart = useCallback((date?: number) => {
+        setSelectedFrom(date);
+    }, []);
+
+    const setEnd = useCallback((date?: number) => {
+        setSelectedTo(date);
+    }, []);
+
+    const updatePeriod = useCallback(
+        (date?: number) => {
+            // сбрасываем выделение
+            if (date === undefined) {
+                resetPeriod();
+                return;
+            }
+
+            if (!selectedFrom && selectedTo) {
+                setSelectedFrom(Math.min(date, selectedTo));
+                setSelectedTo(Math.max(date, selectedTo));
+                return;
+            }
+
+            if (!selectedFrom) {
+                // начинаем выделение
+                setSelectedFrom(date);
+                return;
+            }
+
+            // заканчиваем выделение
+            if (!selectedTo) {
+                setSelectedFrom(Math.min(date, selectedFrom));
+                setSelectedTo(Math.max(date, selectedFrom));
+                return;
+            }
+
+            // Если обе даты уже выбраны, начинаем выделение заново
+            setSelectedTo(undefined);
+            setSelectedFrom(date);
         },
         [resetPeriod, selectedFrom, selectedTo],
     );

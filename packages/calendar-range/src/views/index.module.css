@@ -1,10 +1,18 @@
-@import '../../themes/src/default.css';
+@import '../../../themes/src/default.css';
 
 .component {
     display: flex;
 
     & button[aria-selected='true'] {
         cursor: pointer;
+    }
+
+    & *[class^='errorIcon_'] {
+        display: none;
+    }
+
+    & *[class^='calendarIcon_'] {
+        margin-right: 0;
     }
 }
 

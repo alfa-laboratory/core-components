@@ -1,29 +1,24 @@
 import { dateInLimits } from '@alfalab/core-components-calendar';
 import { parseDateString } from '@alfalab/core-components-calendar-input';
+import { isSameDay } from 'date-fns';
+import { isCompleteDateInput } from '@alfalab/core-components-date-input';
 
-export type ValueState = {
-    date: number | null;
-    value: string;
-};
-
-export const initialValueState = { date: null, value: '' };
-
-export const getCorrectValueState = (
-    stateValue: ValueState,
-    propValue?: string,
-    minDate?: number,
-    maxDate?: number,
+export const isValidInputValue = (
+    newInputValue: string | undefined,
+    minDate: number | undefined,
+    maxDate: number | undefined,
+    offDays: Array<number | Date> = [],
 ) => {
-    const state: ValueState =
-        propValue === undefined
-            ? stateValue
-            : { value: propValue, date: parseDateString(propValue).getTime() };
+    if (!newInputValue) return false;
 
-    if (!dateInLimits(state.date, minDate, maxDate)) {
-        state.date = null;
-    }
+    const dateValue = parseDateString(newInputValue).getTime();
 
-    return state;
+    return Boolean(
+        dateValue &&
+            isCompleteDateInput(newInputValue) &&
+            dateInLimits(dateValue, minDate, maxDate) &&
+            !offDays.some(offDay => isSameDay(offDay, dateValue)),
+    );
 };
 
 export const isDayButton = (node: HTMLElement | null) =>

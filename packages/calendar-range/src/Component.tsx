@@ -1,21 +1,8 @@
-/* eslint-disable multiline-comment-style */
-import React, { useCallback, useState, MouseEvent, FC } from 'react';
-import cn from 'classnames';
-import { startOfMonth, subMonths } from 'date-fns';
-import { usePeriodOld as usePeriod, dateInLimits } from '@alfalab/core-components-calendar';
-import {
-    CalendarInput,
-    CalendarInputProps,
-    formatDate,
-    isCompleteDateInput,
-    parseDateString,
-} from '@alfalab/core-components-calendar-input';
-import { isDayButton, ValueState, getCorrectValueState, initialValueState } from './utils';
+import React, { FC } from 'react';
+import { CalendarInputProps } from '@alfalab/core-components-calendar-input';
 
-import { useCalendarMonthes } from './useCalendarMonthes';
-import { useCalendarMaxMinDates } from './useCalendarMaxMinDates';
-
-import styles from './index.module.css';
+import { CalendarRangePopover } from './views/popover';
+import { CalendarRangeStatic } from './views/static';
 
 export type CalendarRangeProps = {
     /**
@@ -51,12 +38,22 @@ export type CalendarRangeProps = {
     /**
      * Обработчик изменения даты от
      */
-    onDateFromChange?: (payload: ValueState) => void;
+    onDateFromChange?: (payload: { date: number | null; value: string }) => void;
 
     /**
      * Обработчик изменения даты до
      */
-    onDateToChange?: (payload: ValueState) => void;
+    onDateToChange?: (payload: { date: number | null; value: string }) => void;
+
+    /**
+     * Список событий
+     */
+    events?: Array<Date | number>;
+
+    /**
+     * Список выходных
+     */
+    offDays?: Array<Date | number>;
 
     /**
      * Пропсы для инпута даты от
@@ -80,248 +77,9 @@ export type CalendarRangeProps = {
 };
 
 export const CalendarRange: FC<CalendarRangeProps> = ({
-    className,
-    defaultMonth = startOfMonth(new Date()).getTime(),
-    minDate,
-    maxDate,
-    valueFrom,
-    valueTo,
-    onDateFromChange,
-    onDateToChange,
-    inputFromProps = {},
-    inputToProps = {},
     calendarPosition = 'static',
-    dataTestId,
+    ...restProps
 }) => {
-    const uncontrolled = valueFrom === undefined && valueTo === undefined;
-    const isPopover = calendarPosition === 'popover';
-
-    const period = usePeriod({
-        initialSelectedFrom: valueFrom ? parseDateString(valueFrom).getTime() : undefined,
-        initialSelectedTo: valueTo ? parseDateString(valueTo).getTime() : undefined,
-    });
-
-    const { setStart, setEnd, resetPeriod } = period;
-    let { selectedFrom, selectedTo } = period;
-
-    if (!dateInLimits(selectedFrom, minDate, maxDate)) selectedFrom = undefined;
-    if (!dateInLimits(selectedTo, minDate, maxDate)) selectedTo = undefined;
-
-    const [stateFrom, setStateFrom] = useState<ValueState>(initialValueState);
-    const [stateTo, setStateTo] = useState<ValueState>(initialValueState);
-
-    const inputValueFrom = getCorrectValueState(stateFrom, valueFrom, minDate, maxDate);
-    const inputValueTo = getCorrectValueState(stateTo, valueTo, minDate, maxDate);
-
-    const handleStateFromChange = useCallback(
-        (newFromState: ValueState) => {
-            if (uncontrolled) setStateFrom(newFromState);
-            if (onDateFromChange) onDateFromChange(newFromState);
-        },
-        [onDateFromChange, uncontrolled],
-    );
-
-    const handleStateToChange = useCallback(
-        (newToState: ValueState) => {
-            if (uncontrolled) setStateTo(newToState);
-            if (onDateToChange) onDateToChange(newToState);
-        },
-        [onDateToChange, uncontrolled],
-    );
-
-    const { monthFrom, monthTo, handleMonthFromChange, handleMonthToChange } = useCalendarMonthes({
-        inputValueFrom,
-        inputValueTo,
-        defaultMonth,
-        isPopover,
-    });
-
-    const handleInputFromChange = useCallback<Required<CalendarInputProps>['onInputChange']>(
-        (_, { value, date }) => {
-            if (value === '') {
-                setStart(undefined);
-                handleStateFromChange(initialValueState);
-            }
-
-            if (!isCompleteDateInput(value)) {
-                return;
-            }
-
-            if (dateInLimits(date, minDate, maxDate)) {
-                setStart(date.getTime());
-                handleMonthFromChange(startOfMonth(date).getTime());
-                handleStateFromChange({ date: date.getTime(), value });
-            } else {
-                setStart(undefined);
-                handleStateFromChange({ date: null, value });
-            }
-        },
-        [handleMonthFromChange, handleStateFromChange, maxDate, minDate, setStart],
-    );
-
-    const handleInputToChange = useCallback<Required<CalendarInputProps>['onInputChange']>(
-        (_, { value, date }) => {
-            if (value === '') {
-                setEnd(undefined);
-                handleStateToChange(initialValueState);
-            }
-
-            if (!isCompleteDateInput(value)) {
-                return;
-            }
-
-            if (dateInLimits(date, minDate, maxDate)) {
-                setEnd(date.getTime());
-                handleMonthToChange(subMonths(startOfMonth(date), 1).getTime());
-                handleStateToChange({ date: date.getTime(), value });
-            } else {
-                setEnd(undefined);
-                handleStateToChange({ date: null, value });
-            }
-        },
-        [handleMonthToChange, handleStateToChange, maxDate, minDate, setEnd],
-    );
-
-    const handleCalendarChange = useCallback(
-        (date: number) => {
-            if (!inputValueFrom.date) {
-                setStart(date);
-                handleStateFromChange({ date, value: formatDate(date) });
-
-                return;
-            }
-
-            if (date < inputValueFrom.date) {
-                resetPeriod();
-                setStart(date);
-                handleStateToChange(initialValueState);
-                handleStateFromChange({ date, value: formatDate(date) });
-
-                return;
-            }
-
-            if (date === inputValueFrom.date && date === inputValueTo.date) {
-                resetPeriod();
-                handleStateFromChange(initialValueState);
-                handleStateToChange(initialValueState);
-
-                return;
-            }
-
-            handleStateToChange({ date, value: formatDate(date) });
-            setEnd(date);
-        },
-        [
-            inputValueFrom.date,
-            inputValueTo.date,
-            handleStateToChange,
-            setEnd,
-            setStart,
-            handleStateFromChange,
-            resetPeriod,
-        ],
-    );
-
-    const handleFromCalendarChange = useCallback(
-        (date: number) => {
-            if (!isPopover) {
-                handleCalendarChange(date);
-
-                return;
-            }
-
-            setStart(date);
-            handleStateFromChange({ date, value: formatDate(date) });
-        },
-        [handleCalendarChange, handleStateFromChange, isPopover, setStart],
-    );
-
-    const handleToCalendarChange = useCallback(
-        (date: number) => {
-            if (!isPopover) {
-                handleCalendarChange(date);
-
-                return;
-            }
-
-            handleStateToChange({ date, value: formatDate(date) });
-            setEnd(date);
-        },
-        [handleCalendarChange, handleStateToChange, isPopover, setEnd],
-    );
-
-    const [nextMonthHighlighted, setNextMonthHighlighted] = useState(false);
-
-    const handleCalendarToMouseOver = useCallback(
-        (event: MouseEvent<HTMLDivElement>) => {
-            const target = event.target as HTMLElement;
-
-            const dayHighlighted = isDayButton(target) || isDayButton(target.parentElement);
-
-            if (nextMonthHighlighted && !dayHighlighted) setNextMonthHighlighted(false);
-            if (!nextMonthHighlighted && dayHighlighted) setNextMonthHighlighted(true);
-        },
-        [nextMonthHighlighted],
-    );
-
-    const selectorView = isPopover ? 'full' : 'month-only';
-    const calendarSelectedTo = selectedTo || (nextMonthHighlighted ? monthTo : undefined);
-    const maxMinDates = useCalendarMaxMinDates({
-        isPopover,
-        monthTo,
-        monthFrom,
-        selectedFrom,
-        selectedTo: calendarSelectedTo,
-        maxDate,
-        minDate,
-    });
-
-    return (
-        <div className={cn(styles.component, className)} data-test-id={dataTestId}>
-            <CalendarInput
-                {...inputFromProps}
-                useAnchorWidth={false}
-                calendarPosition={calendarPosition}
-                onInputChange={handleInputFromChange}
-                onCalendarChange={handleFromCalendarChange}
-                value={inputValueFrom.value}
-                minDate={maxMinDates.fromMinDate}
-                maxDate={maxMinDates.fromMaxDate}
-                calendarProps={{
-                    ...inputFromProps.calendarProps,
-                    month: monthFrom,
-                    onMonthChange: handleMonthFromChange,
-                    selectorView,
-                    selectedFrom,
-                    selectedTo: calendarSelectedTo,
-                    rangeComplete: Boolean(selectedFrom && selectedTo),
-                }}
-            />
-
-            <span className={styles.divider} />
-
-            {/* eslint-disable-next-line jsx-a11y/mouse-events-have-key-events */}
-            <div onMouseOver={handleCalendarToMouseOver}>
-                <CalendarInput
-                    {...inputToProps}
-                    useAnchorWidth={false}
-                    calendarPosition={calendarPosition}
-                    popoverPosition='bottom-end'
-                    onInputChange={handleInputToChange}
-                    onCalendarChange={handleToCalendarChange}
-                    value={inputValueTo.value}
-                    minDate={maxMinDates.toMinDate}
-                    maxDate={maxMinDates.toMaxDate}
-                    calendarProps={{
-                        ...inputToProps.calendarProps,
-                        month: monthTo,
-                        onMonthChange: handleMonthToChange,
-                        selectorView,
-                        selectedFrom,
-                        selectedTo,
-                    }}
-                />
-            </div>
-        </div>
-    );
+    const View = calendarPosition === 'popover' ? CalendarRangePopover : CalendarRangeStatic;
+    return <View {...restProps} />;
 };
