@@ -1,5 +1,34 @@
 @import '../../themes/src/default.css';
 
+.inner {
+    display: flex;
+    padding: 0 var(--gap-s);
+}
+
+.input {
+    @mixin system_16-20_regular;
+
+    width: 18px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: rgba(0, 0, 0, 0);
+    outline: none;
+    font-variant-numeric: tabular-nums;
+
+    &::placeholder {
+        font-size: 13px;
+    }
+}
+
+.inputYear {
+    width: 36px;
+}
+
+.separator {
+    padding: 0;
+}
+
 .nativeInput {
     opacity: 0;
     position: absolute;
@@ -16,4 +45,14 @@
     &::-webkit-inner-spin-button {
         display: none;
     }
+}
+
+.buffer {
+    @mixin system_16-20_regular;
+
+    position: absolute;
+    top: -1000px;
+    left: -1000px;
+    visibility: hidden;
+    white-space: nowrap;
 }

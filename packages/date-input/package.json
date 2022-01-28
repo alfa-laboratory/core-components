@@ -19,7 +19,8 @@
         "react": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-masked-input": "^4.2.9",
+        "@alfalab/core-components-form-control": "^7.4.0",
+        "@alfalab/core-components-input": "^8.0.2",
         "date-fns": "^2.16.1"
     }
 }

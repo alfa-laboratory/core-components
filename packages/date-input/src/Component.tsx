@@ -1,18 +1,23 @@
-import React, { ChangeEvent, useCallback, useMemo, useState } from 'react';
-import { MaskedInput, MaskedInputProps } from '@alfalab/core-components-masked-input';
+import React, {
+    ChangeEvent,
+    KeyboardEvent,
+    useEffect,
+    useState,
+    forwardRef,
+    useRef,
+    MouseEventHandler,
+    FocusEventHandler,
+} from 'react';
+import cn from 'classnames';
 
-import {
-    SUPPORTS_INPUT_TYPE_DATE,
-    NATIVE_DATE_FORMAT,
-    createAutoCorrectedDatePipe,
-    parseDateString,
-    formatDate,
-    mask,
-} from './utils';
+import { FormControl } from '@alfalab/core-components-form-control';
+import { InputProps } from '@alfalab/core-components-input';
+
+import { isInputDateSupported } from './utils';
 
 import styles from './index.module.css';
 
-export type DateInputProps = Omit<MaskedInputProps, 'onBeforeDisplay' | 'mask' | 'onChange'> & {
+export type DateInputProps = Omit<InputProps, 'onChange' | 'value' | 'defaultValue'> & {
     /**
      * Минимальный год, доступный для ввода
      */
@@ -37,94 +42,216 @@ export type DateInputProps = Omit<MaskedInputProps, 'onBeforeDisplay' | 'mask' |
     ) => void;
 };
 
-export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
-    (
-        {
-            maxYear,
-            minYear,
-            mobileMode = 'input',
-            value,
-            defaultValue,
-            rightAddons,
-            onChange,
-            ...restProps
-        },
-        ref,
-    ) => {
-        const uncontrolled = value === undefined;
-        const shouldRenderNative = SUPPORTS_INPUT_TYPE_DATE && mobileMode === 'native';
+type InputType = 'day' | 'month' | 'year';
 
-        const [stateValue, setStateValue] = useState(defaultValue);
+/**
+ * TODO: сделать более умную валидацию
+ */
+const validators = {
+    day: (value: string) => {
+        if (!/^\d?\d?$/.test(value)) {
+            return false;
+        }
 
-        const inputValue = uncontrolled ? stateValue : value;
+        const int = Number(value);
 
-        const pipe = useMemo(
-            () =>
-                createAutoCorrectedDatePipe({
-                    maxYear,
-                    minYear,
-                }),
-            [maxYear, minYear],
-        );
+        return int >= 0 && int <= 31;
+    },
+    month: (value: string) => {
+        if (!/^\d?\d?$/.test(value)) {
+            return false;
+        }
 
-        const changeHandler = useCallback(
-            (event: ChangeEvent<HTMLInputElement>, newValue: string, newDate: Date) => {
-                if (uncontrolled) {
-                    setStateValue(newValue);
-                }
+        const int = Number(value);
 
-                if (onChange) {
-                    onChange(event, { date: newDate, value: newValue });
-                }
-            },
-            [onChange, uncontrolled],
-        );
+        return int >= 0 && int <= 12;
+    },
+    year: (value: string) => /^\d?\d?\d?\d?$/.test(value),
+};
 
-        const handleChange = useCallback(
-            (event: ChangeEvent<HTMLInputElement>) => {
-                const newValue = event.target.value;
-                const newDate = parseDateString(newValue);
+export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
+    ({ maxYear, minYear, mobileMode = 'input', className, onChange, ...restProps }, ref) => {
+        /**
+         * TODO: Рендерить native input
+         */
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const [renderNativeInput, setRenderNativeInput] = useState(false);
 
-                changeHandler(event, newValue, newDate);
-            },
-            [changeHandler],
-        );
+        /**
+         * TODO: заменить на useReducer
+         */
+        const [day, setDay] = useState('');
+        const [month, setMonth] = useState('');
+        const [year, setYear] = useState('');
 
-        const handleNativeInputChange = useCallback(
-            (event: ChangeEvent<HTMLInputElement>) => {
-                const newDate = parseDateString(event.target.value, NATIVE_DATE_FORMAT);
-                const newValue = event.target.value === '' ? '' : formatDate(newDate);
+        const inputRefs = {
+            day: useRef<HTMLInputElement>(null),
+            month: useRef<HTMLInputElement>(null),
+            year: useRef<HTMLInputElement>(null),
+        };
 
-                changeHandler(event, newValue, newDate);
-            },
-            [changeHandler],
-        );
+        const values = {
+            day,
+            month,
+            year,
+        };
+
+        const updateStates = {
+            day: setDay,
+            month: setMonth,
+            year: setYear,
+        };
+
+        const focusOnNextInput = (currentInputType: InputType) => {
+            if (!inputRefs.month.current || !inputRefs.year.current) {
+                return;
+            }
+
+            if (currentInputType === 'day') {
+                inputRefs.month.current.focus();
+            } else if (currentInputType === 'month') {
+                inputRefs.year.current.focus();
+            }
+        };
+
+        const focusOnPrevInput = (currentInputType: InputType) => {
+            if (!inputRefs.day.current || !inputRefs.month.current) {
+                return;
+            }
+
+            if (currentInputType === 'month') {
+                inputRefs.day.current.focus();
+            } else if (currentInputType === 'year') {
+                inputRefs.month.current.focus();
+            }
+        };
+
+        const validate = (value: string, inputType: InputType) => {
+            return validators[inputType](value);
+        };
+
+        const updateInputValue = (value: string, inputType: InputType) => {
+            updateStates[inputType](value);
+
+            if (value.length === 2) {
+                focusOnNextInput(inputType);
+            } else if (value.length === 0) {
+                focusOnPrevInput(inputType);
+            }
+        };
+
+        const handleInputChange = (event: ChangeEvent<HTMLInputElement>, inputType: InputType) => {
+            const { value } = event.target;
+
+            if (validate(value, inputType)) {
+                updateInputValue(value, inputType);
+            }
+        };
+
+        const handleInputKeyDown = (
+            event: KeyboardEvent<HTMLInputElement>,
+            inputType: InputType,
+        ) => {
+            switch (event.key) {
+                case 'Backspace':
+                    if (values[inputType].length === 0) {
+                        // focusOnPrevInput(inputType);
+                    }
+                    break;
+                case 'ArrowRight':
+                    if (inputType === 'year') {
+                        event.preventDefault();
+                    } else {
+                        focusOnNextInput(inputType);
+                    }
+                    break;
+                case 'ArrowLeft':
+                    if (inputType === 'day') {
+                        event.preventDefault();
+                    } else {
+                        focusOnPrevInput(inputType);
+                    }
+                    break;
+                case 'ArrowUp':
+                case 'ArrowDown':
+                    event.preventDefault();
+                    break;
+            }
+        };
+
+        const selectInput = (input: HTMLInputElement) => {
+            requestAnimationFrame(() => {
+                input.select();
+            });
+        };
+
+        const handleInputClick: MouseEventHandler = event => {
+            selectInput(event.target as HTMLInputElement);
+        };
+
+        const handleInputFoucus: FocusEventHandler = event => {
+            selectInput(event.target as HTMLInputElement);
+        };
+
+        useEffect(() => {
+            if (mobileMode === 'native' && isInputDateSupported()) {
+                setRenderNativeInput(true);
+            }
+        }, [mobileMode]);
 
         return (
-            <MaskedInput
-                {...restProps}
-                ref={ref}
-                mask={mask}
-                keepCharPositions={true}
-                defaultValue={defaultValue}
-                value={inputValue}
-                onBeforeDisplay={pipe}
-                onChange={handleChange}
-                rightAddons={
-                    <React.Fragment>
-                        {rightAddons}
-                        {shouldRenderNative && (
-                            <input
-                                type='date'
-                                ref={ref}
-                                defaultValue={defaultValue}
-                                onChange={handleNativeInputChange}
-                                className={styles.nativeInput}
-                            />
-                        )}
-                    </React.Fragment>
-                }
-            />
+            <FormControl {...restProps} ref={ref} className={className}>
+                <div className={styles.inner}>
+                    <input
+                        className={cn(styles.input, styles.inputDay)}
+                        placeholder='ДД'
+                        value={day}
+                        onChange={event => {
+                            handleInputChange(event, 'day');
+                        }}
+                        onClick={handleInputClick}
+                        onFocus={handleInputFoucus}
+                        onKeyDown={event => {
+                            handleInputKeyDown(event, 'day');
+                        }}
+                        ref={inputRefs.day}
+                    />
+
+                    <div className={styles.separator}>.</div>
+
+                    <input
+                        className={cn(styles.input, styles.inputMonth)}
+                        placeholder='ММ'
+                        value={month}
+                        onChange={event => {
+                            handleInputChange(event, 'month');
+                        }}
+                        onKeyDown={event => {
+                            handleInputKeyDown(event, 'month');
+                        }}
+                        onClick={handleInputClick}
+                        onFocus={handleInputFoucus}
+                        ref={inputRefs.month}
+                    />
+
+                    <div className={styles.separator}>.</div>
+
+                    <input
+                        className={cn(styles.input, styles.inputYear)}
+                        placeholder='ГГГГ'
+                        value={year}
+                        onChange={event => {
+                            handleInputChange(event, 'year');
+                        }}
+                        onKeyDown={event => {
+                            handleInputKeyDown(event, 'year');
+                        }}
+                        onClick={handleInputClick}
+                        onFocus={handleInputFoucus}
+                        ref={inputRefs.year}
+                    />
+                </div>
+            </FormControl>
         );
     },
 );
