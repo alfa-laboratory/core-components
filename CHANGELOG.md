@@ -1,3 +1,10 @@
+## [23.9.1](https://github.com/alfa-laboratory/core-components/compare/v23.9.0...v23.9.1) (2022-01-28)
+
+
+### Bug Fixes
+
+* **select-with-tags:** update tag size to xxs ([#960](https://github.com/alfa-laboratory/core-components/issues/960)) ([4234826](https://github.com/alfa-laboratory/core-components/commit/4234826e5dedebc1e6555dfba181981eea4db69f))
+
 # [23.9.0](https://github.com/alfa-laboratory/core-components/compare/v23.8.1...v23.9.0) (2022-01-27)
 
 
