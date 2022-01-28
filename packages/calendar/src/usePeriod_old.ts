@@ -1,6 +1,5 @@
 import { useCallback, useState } from 'react';
 import { useDidUpdateEffect } from '@alfalab/hooks';
-import { differenceInDays } from 'date-fns';
 
 type usePeriodProps = {
     /**
@@ -19,7 +18,7 @@ type usePeriodProps = {
     initialSelectedTo?: number;
 };
 
-export function usePeriod({
+export function usePeriodOld({
     onPeriodChange,
     initialSelectedFrom,
     initialSelectedTo,
@@ -42,18 +41,6 @@ export function usePeriod({
 
     const updatePeriod = useCallback(
         (date?: number) => {
-            // сбрасываем начало, если выбранная дата совпадает с ним
-            if (date === selectedFrom) {
-                setSelectedFrom(undefined);
-                return;
-            }
-
-            // сбрасываем конец, если выбранная дата совпадает с ним
-            if (date === selectedTo) {
-                setSelectedTo(undefined);
-                return;
-            }
-
             // сбрасываем выделение
             if (date === undefined) {
                 resetPeriod();
@@ -73,14 +60,19 @@ export function usePeriod({
                 return;
             }
 
-            // сдвигаем тот конец выделения, который ближе к выбранной дате
-            if (
-                Math.abs(differenceInDays(date, selectedTo)) >
-                Math.abs(differenceInDays(date, selectedFrom))
-            ) {
-                setSelectedFrom(date);
-            } else {
+            // если новая дата за выделенным периодом — расширяем интервал
+            if (date > selectedFrom) {
                 setSelectedTo(date);
+                return;
+            }
+
+            /**
+             * если новая дата находится раньше начала выделения —
+             * сбрасываем конец периода и начинаем выделение с этой даты
+             */
+            if (date < selectedFrom) {
+                setSelectedTo(undefined);
+                setSelectedFrom(date);
             }
         },
         [resetPeriod, selectedFrom, selectedTo],
