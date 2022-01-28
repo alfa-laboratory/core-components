@@ -1,5 +1,6 @@
 export * from './Component';
 export { usePeriod } from './usePeriod';
+export { usePeriodOld } from './usePeriod_old';
 export { useCalendar } from './useCalendar';
 export * from './components/period-slider';
 export {

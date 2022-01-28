@@ -346,7 +346,7 @@ describe('Calendar', () => {
     });
 
     describe('when only selectedTo is set', () => {
-        it('should not highlight anything', () => {
+        it('should highlight days between selectedTo and hightlighted', () => {
             const selectedDay = 15;
             const highlightedDay = 20;
 
@@ -364,8 +364,21 @@ describe('Calendar', () => {
             fireEvent.mouseEnter(days[highlightedDate.getDate() - 1]);
 
             days.forEach(day => {
-                expect(day).not.toHaveClass('range');
-                expect(day).not.toHaveClass('rangeStart');
+                const date = +(day.textContent || '');
+
+                if (date < selectedDay || date > highlightedDay) {
+                    expect(day).not.toHaveClass('highlighted');
+                    expect(day).not.toHaveClass('range');
+                    return;
+                }
+
+                if (date === selectedDay) {
+                    expect(day).toHaveClass('rangeStart');
+                    expect(day).toHaveClass('selected');
+                    return;
+                }
+
+                expect(day).toHaveClass('range');
             });
         });
     });

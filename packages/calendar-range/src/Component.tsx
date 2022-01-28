@@ -2,7 +2,7 @@
 import React, { useCallback, useState, MouseEvent, FC } from 'react';
 import cn from 'classnames';
 import { startOfMonth, subMonths } from 'date-fns';
-import { usePeriod, dateInLimits } from '@alfalab/core-components-calendar';
+import { usePeriodOld as usePeriod, dateInLimits } from '@alfalab/core-components-calendar';
 import {
     CalendarInput,
     CalendarInputProps,
