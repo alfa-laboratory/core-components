@@ -19,7 +19,7 @@ export const PureAmount: React.FC<AmountProps> = ({
     className,
     dataTestId,
 }) => {
-    const { formatted } = formatAmount({
+    const { formatted, currencySymbol } = formatAmount({
         value,
         currency,
         minority,
@@ -29,8 +29,8 @@ export const PureAmount: React.FC<AmountProps> = ({
     return (
         <span className={cn(styles.component, className)} data-test-id={dataTestId}>
             {formatted}
-            {THINSP}
-            {currencyIcon || currency}
+            {currency ? `${THINSP}${currencySymbol}` : null}
+            {currencyIcon}
         </span>
     );
 };

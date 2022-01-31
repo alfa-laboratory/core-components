@@ -11,16 +11,14 @@ exports[`Amount should match snapshots for base and Pure components 1`] = `
     >
       
       
-       
-      ₽
+       ₽
     </span>
   </span>
   <span
     class="component"
   >
     1
-     
-    RUR
+     ₽
   </span>
 </div>
 `;
@@ -36,7 +34,6 @@ exports[`Amount should render currencyIcons 1`] = `
     >
       
       
-       
       <span />
     </span>
   </span>
@@ -44,7 +41,6 @@ exports[`Amount should render currencyIcons 1`] = `
     class="component"
   >
     1
-     
     <span />
   </span>
 </div>

@@ -31,8 +31,8 @@ export const Amount: React.FC<AmountProps> = ({
             <span className={styles.minorPartAndCurrency}>
                 {minorPart && AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR}
                 {minorPart}
-                {THINSP}
-                {currencyIcon || currencySymbol}
+                {currency ? `${THINSP}${currencySymbol}` : null}
+                {currencyIcon}
             </span>
         </span>
     );
