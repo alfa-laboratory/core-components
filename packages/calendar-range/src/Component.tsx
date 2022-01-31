@@ -294,6 +294,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                     selectorView,
                     selectedFrom,
                     selectedTo: calendarSelectedTo,
+                    rangeComplete: Boolean(selectedFrom && selectedTo),
                 }}
             />
 

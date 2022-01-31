@@ -38,6 +38,11 @@ export type DaysTableProps = {
     selectedTo?: Date | number;
 
     /**
+     * Индикатор, что выбран полный период
+     */
+    rangeComplete?: boolean;
+
+    /**
      * Подсвеченная дата (ховер)
      */
     highlighted?: Date | number;
@@ -54,6 +59,7 @@ export const DaysTable: FC<DaysTableProps> = ({
     highlighted,
     selectedFrom,
     selectedTo,
+    rangeComplete = selectedFrom && selectedTo,
     getDayProps,
 }) => {
     const activeMonthRef = useRef(activeMonth);
@@ -65,7 +71,6 @@ export const DaysTable: FC<DaysTableProps> = ({
     const direction = prevActiveMonth && (activeMonth < prevActiveMonth ? 'right' : 'left');
 
     const selection = getSelectionRange(selectedFrom, selectedTo, highlighted);
-    const rangeComplete = selectedFrom && selectedTo;
 
     const renderHeader = useCallback(
         () =>
