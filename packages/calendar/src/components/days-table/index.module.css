@@ -98,7 +98,8 @@
         }
     }
 
-    &.highlighted {
+    &.highlighted,
+    &.range.highlighted:not(.disabled) {
         color: var(--calendar-highlighted-color);
         background: var(--calendar-highlighted-background);
     }
@@ -115,6 +116,10 @@
         color: var(--calendar-range-color);
         background: var(--calendar-range-background);
         border-radius: 0;
+    }
+
+    &.rangeComplete {
+        background: var(--calendar-range-complete-background);
     }
 
     &.selected,

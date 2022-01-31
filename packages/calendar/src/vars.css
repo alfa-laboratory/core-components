@@ -29,7 +29,8 @@
 
     /* range */
     --calendar-range-color: var(--color-light-text-primary);
-    --calendar-range-background: var(--color-static-graphic-solitude);
+    --calendar-range-background: var(--color-light-specialbg-component);
+    --calendar-range-complete-background: var(--color-static-graphic-solitude);
 
     /* selected */
     --calendar-selected-color: var(--color-light-text-primary-inverted);

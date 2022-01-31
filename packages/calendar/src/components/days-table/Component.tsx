@@ -65,6 +65,7 @@ export const DaysTable: FC<DaysTableProps> = ({
     const direction = prevActiveMonth && (activeMonth < prevActiveMonth ? 'right' : 'left');
 
     const selection = getSelectionRange(selectedFrom, selectedTo, highlighted);
+    const rangeComplete = selectedFrom && selectedTo;
 
     const renderHeader = useCallback(
         () =>
@@ -113,6 +114,7 @@ export const DaysTable: FC<DaysTableProps> = ({
                 className={cn(styles.day, {
                     [styles.selected]: daySelected,
                     [styles.range]: inRange,
+                    [styles.rangeComplete]: inRange && rangeComplete,
                     [styles.rangeStart]: rangeStart,
                     [styles.transitLeft]: transitLeft,
                     [styles.transitRight]: transitRight,
