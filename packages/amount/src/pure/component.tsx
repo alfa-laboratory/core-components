@@ -21,7 +21,7 @@ export const PureAmount: React.FC<AmountProps> = ({
 }) => {
     const { formatted } = formatAmount({
         value,
-        currency: currency as any,
+        currency,
         minority,
         view,
     });

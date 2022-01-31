@@ -20,7 +20,7 @@ export const Amount: React.FC<AmountProps> = ({
 }) => {
     const { majorPart, minorPart, currencySymbol } = formatAmount({
         value,
-        currency: currency as any,
+        currency,
         minority,
         view,
     });
