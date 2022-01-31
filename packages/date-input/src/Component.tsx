@@ -1,28 +1,20 @@
-import React, { ChangeEvent, useCallback, useMemo, useState } from 'react';
-import { MaskedInput, MaskedInputProps } from '@alfalab/core-components-masked-input';
+import React, { ChangeEvent, useCallback, useEffect, useState, forwardRef } from 'react';
+import { isValid } from 'date-fns';
+
+import { Input, InputProps } from '@alfalab/core-components-input';
 
 import {
-    SUPPORTS_INPUT_TYPE_DATE,
     NATIVE_DATE_FORMAT,
-    createAutoCorrectedDatePipe,
     parseDateString,
     formatDate,
-    mask,
+    format,
+    isCompleteDateInput,
+    isInputDateSupported,
 } from './utils';
 
 import styles from './index.module.css';
 
-export type DateInputProps = Omit<MaskedInputProps, 'onBeforeDisplay' | 'mask' | 'onChange'> & {
-    /**
-     * Минимальный год, доступный для ввода
-     */
-    minYear?: number;
-
-    /**
-     * Максимальный год, доступный для ввода
-     */
-    maxYear?: number;
-
+export type DateInputProps = Omit<InputProps, 'onChange'> & {
     /**
      * Управление нативным режимом на мобильных устройствах
      */
@@ -35,59 +27,68 @@ export type DateInputProps = Omit<MaskedInputProps, 'onBeforeDisplay' | 'mask' |
         event: ChangeEvent<HTMLInputElement>,
         payload: { date: Date; value: string },
     ) => void;
+
+    /**
+     * Обработчик окончания ввода
+     */
+    onComplete?: (
+        event: ChangeEvent<HTMLInputElement>,
+        payload: { date: Date; value: string },
+    ) => void;
 };
 
-export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
+export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     (
         {
-            maxYear,
-            minYear,
             mobileMode = 'input',
-            value,
             defaultValue,
             rightAddons,
+            error,
+            value: propsValue,
             onChange,
+            onComplete,
             ...restProps
         },
         ref,
     ) => {
-        const uncontrolled = value === undefined;
-        const shouldRenderNative = SUPPORTS_INPUT_TYPE_DATE && mobileMode === 'native';
+        const [shouldRenderNative, setShouldRenderNative] = useState(false);
 
-        const [stateValue, setStateValue] = useState(defaultValue);
+        const [value, setValue] = useState(defaultValue || '');
 
-        const inputValue = uncontrolled ? stateValue : value;
-
-        const pipe = useMemo(
-            () =>
-                createAutoCorrectedDatePipe({
-                    maxYear,
-                    minYear,
-                }),
-            [maxYear, minYear],
-        );
-
-        const changeHandler = useCallback(
-            (event: ChangeEvent<HTMLInputElement>, newValue: string, newDate: Date) => {
-                if (uncontrolled) {
-                    setStateValue(newValue);
-                }
-
-                if (onChange) {
-                    onChange(event, { date: newDate, value: newValue });
-                }
-            },
-            [onChange, uncontrolled],
+        const [stateError, setStateError] = useState(
+            defaultValue ? !isValid(parseDateString(defaultValue)) : false,
         );
 
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
-                const newValue = event.target.value;
-                const newDate = parseDateString(newValue);
+                const { value: newValue } = event.target;
 
-                changeHandler(event, newValue, newDate);
+                if (/[^\d.]/.test(newValue)) {
+                    return;
+                }
+
+                const formattedValue = format(newValue);
+                const date = parseDateString(formattedValue);
+
+                setValue(formattedValue);
+                setStateError(false);
+
+                if (onChange) onChange(event, { date, value: formattedValue });
+
+                if (isCompleteDateInput(formattedValue)) {
+                    const valid = isValid(date);
+
+                    if (!valid) {
+                        setStateError(true);
+                        return;
+                    }
+
+                    setStateError(false);
+
+                    if (onComplete) onComplete(event, { date, value: formattedValue });
+                }
             },
-            [changeHandler],
+            [onChange, onComplete],
         );
 
         const handleNativeInputChange = useCallback(
@@ -95,24 +96,35 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
                 const newDate = parseDateString(event.target.value, NATIVE_DATE_FORMAT);
                 const newValue = event.target.value === '' ? '' : formatDate(newDate);
 
-                changeHandler(event, newValue, newDate);
+                setValue(newValue);
+
+                if (onComplete) onComplete(event, { date: newDate, value: newValue });
+                if (onChange) onChange(event, { date: newDate, value: newValue });
             },
-            [changeHandler],
+            [onComplete, onChange],
         );
 
+        useEffect(() => {
+            if (mobileMode === 'native' && isInputDateSupported()) {
+                setShouldRenderNative(true);
+            }
+        }, [mobileMode]);
+
         return (
-            <MaskedInput
+            <Input
                 {...restProps}
                 ref={ref}
-                mask={mask}
-                keepCharPositions={true}
                 defaultValue={defaultValue}
-                value={inputValue}
-                onBeforeDisplay={pipe}
+                value={propsValue || value}
+                inputMode='numeric'
+                pattern='[0-9]*'
                 onChange={handleChange}
+                placeholder='ДД.ММ.ГГГГ'
+                error={error || stateError}
                 rightAddons={
                     <React.Fragment>
                         {rightAddons}
+
                         {shouldRenderNative && (
                             <input
                                 type='date'

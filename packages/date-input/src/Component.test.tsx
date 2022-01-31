@@ -7,7 +7,7 @@ import { DateInput } from './index';
 describe('DateInput', () => {
     describe('Display tests', () => {
         it('should match snapshot', () => {
-            expect(render(<DateInput value='01.01.2021' />).container).toMatchSnapshot();
+            expect(render(<DateInput defaultValue='01.01.2021' />).container).toMatchSnapshot();
         });
     });
 
@@ -69,15 +69,17 @@ describe('DateInput', () => {
 
     describe('Callback tests', () => {
         it('should call onChange callback', () => {
-            const cb = jest.fn();
+            const onChange = jest.fn();
+            const onComplete = jest.fn();
             const value = '01.01.2020';
-            const { queryByRole } = render(<DateInput onChange={cb} />);
+            const { queryByRole } = render(<DateInput onChange={onChange} onComplete={onComplete} />);
 
             const input = queryByRole('textbox') as HTMLInputElement;
 
             userEvent.type(input, value);
 
-            expect(cb).toBeCalledTimes(value.length);
+            expect(onComplete).toBeCalledTimes(1);
+            expect(onChange).toBeCalledTimes(value.length);
         });
     });
 
