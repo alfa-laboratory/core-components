@@ -1,7 +1,16 @@
 .component {
-    fill: currentColor;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    & circle {
+    & div {
+        height: 4px;
+        width: 4px;
+        margin-right: 4px;
+        border-radius: 100%;
+        background-color: currentColor;
         animation-name: blink;
         animation-duration: 950ms;
         animation-iteration-count: infinite;
@@ -9,17 +18,17 @@
         transform: scale(0);
     }
 
-    & circle:nth-child(1) {
+    & div:nth-child(1) {
         animation-delay: 0ms;
         transform-origin: 15% 50%;
     }
 
-    & circle:nth-child(2) {
+    & div:nth-child(2) {
         animation-delay: 150ms;
         transform-origin: 50% 50%;
     }
 
-    & circle:nth-child(3) {
+    & div:nth-child(3) {
         animation-delay: 300ms;
         transform-origin: 85% 50%;
     }

@@ -189,7 +189,7 @@ describe('Button', () => {
             );
 
             const button = getByTestId(dataTestId);
-            const getLoader = () => container.querySelector('svg');
+            const getLoader = () => container.querySelector('div');
 
             const start = Date.now();
 
@@ -212,7 +212,7 @@ describe('Button', () => {
             );
 
             const button = getByTestId(dataTestId);
-            const getLoader = () => container.querySelector('svg');
+            const getLoader = () => container.querySelector('div');
 
             const start = Date.now();
 
