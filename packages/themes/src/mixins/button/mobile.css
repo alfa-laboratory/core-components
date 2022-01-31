@@ -1,7 +1,6 @@
 @define-mixin button-mobile {
     /* theme */
     --button-border-radius: var(--border-radius-l);
-    --button-font-weight: bold;
     --button-active-transform: none;
 
     /* primary */
