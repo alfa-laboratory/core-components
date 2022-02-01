@@ -13,9 +13,9 @@ export type AmountProps = {
     currency?: CurrencyCodes;
 
     /**
-     * Значок валюты
+     * Слот справа
      */
-    currencyIcon?: ReactNode;
+    rightAddons?: ReactNode;
 
     /**
      * Количество минорных единиц в валюте

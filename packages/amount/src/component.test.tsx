@@ -14,11 +14,11 @@ describe('Amount', () => {
         expect(container).toMatchSnapshot();
     });
 
-    it('should render currencyIcons', () => {
+    it('should render rightAddons', () => {
         const { container } = render(
             <React.Fragment>
-                <Amount value={100} currencyIcon={<span />} minority={100} />
-                <Amount.Pure value={100} currencyIcon={<span />} minority={100} />
+                <Amount value={100} rightAddons={<span />} minority={100} />
+                <Amount.Pure value={100} rightAddons={<span />} minority={100} />
             </React.Fragment>,
         );
         expect(container).toMatchSnapshot();

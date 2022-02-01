@@ -14,7 +14,7 @@ export const Amount: React.FC<AmountProps> = ({
     minority,
     currency,
     view = 'default',
-    currencyIcon,
+    rightAddons,
     className,
     dataTestId,
 }) => {
@@ -32,7 +32,7 @@ export const Amount: React.FC<AmountProps> = ({
                 {minorPart && AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR}
                 {minorPart}
                 {currency ? `${THINSP}${currencySymbol}` : null}
-                {currencyIcon}
+                {rightAddons}
             </span>
         </span>
     );
