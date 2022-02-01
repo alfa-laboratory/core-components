@@ -56,4 +56,12 @@ describe('Add dots tests', () => {
     test('#14', () => {
         expect(format('09.11.20213')).toBe('09.11.2021');
     });
+
+    test('#15', () => {
+        expect(format('10.122005')).toBe('10.12.2005');
+    });
+
+    test('#16', () => {
+        expect(format('1012.2005')).toBe('10.12.2005');
+    });
 });
