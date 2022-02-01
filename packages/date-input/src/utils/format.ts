@@ -12,12 +12,13 @@ export const formatDate = (date: Date | number, dateFormat = DATE_FORMAT) =>
 export const parseDateString = (value: string, dateFormat = DATE_FORMAT) =>
     parse(value, dateFormat, new Date());
 
-// TODO: скорее всего, можно сделать проще
 export const format = (value: string): string =>
     value
-        .replace(/^(\d\d)(\d)$/, '$1.$2')
-        .replace(/^(\d\d)\.(\d\d)(\d)$/, '$1.$2.$3')
-        .replace(/^(\d\d)\d\.(.*)/, '$1.$2')
-        .replace(/^(\d\d\.\d\d)\d\.(.*)/, '$1.$2')
-        .replace(/^(\d\d\.\d\d\.\d\d\d\d).*/, '$1')
-        .replace(/\.$/, '');
+        .replace(/^(\d\d)(\d)$/, '$1.$2') // 121 => 12.1
+        .replace(/^(\d\d)\.(\d\d)(\d)$/, '$1.$2.$3') // 12.122 => 12.12.2
+        .replace(/^(\d\d)\d\.(.*)/, '$1.$2') // 123.12.2005 => 12.12.2005
+        .replace(/^(\d\d\.\d\d)\d\.(.*)/, '$1.$2') // 12.123.2005 => 12.12.2005
+        .replace(/^(\d\d\.\d\d\.\d\d\d\d).*/, '$1') // 12.12.20056 => 12.12.2005
+        .replace(/\.$/, '') // 12. => 12
+        .replace(/^(\d\d\.\d\d)(\d\d\d\d)/, '$1.$2') // 12.122005 => 12.12.2005
+        .replace(/^(\d\d)(\d\d\.\d\d\d\d)/, '$1.$2'); // 1212.2005 => 12.12.2005

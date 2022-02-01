@@ -44,16 +44,18 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
             defaultValue,
             rightAddons,
             error,
-            value: propsValue,
+            value,
             onChange,
             onComplete,
             ...restProps
         },
         ref,
     ) => {
+        const uncontrolled = value === undefined;
+
         const [shouldRenderNative, setShouldRenderNative] = useState(false);
 
-        const [value, setValue] = useState(defaultValue || '');
+        const [stateValue, setStateValue] = useState(defaultValue || '');
 
         const [stateError, setStateError] = useState(
             defaultValue ? !isValid(parseDateString(defaultValue)) : false,
@@ -63,14 +65,23 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
             (event: ChangeEvent<HTMLInputElement>) => {
                 const { value: newValue } = event.target;
 
+                // Позволяем вводить только цифры и точки
                 if (/[^\d.]/.test(newValue)) {
                     return;
                 }
 
+                const dots = newValue.match(/\./g);
+
+                // Не даем вводить больше, чем 2 точки
+                if (dots && dots.length > 2) {
+                    return;
+                }
+
+                // Форматируем введенное значение (добавляем точки)
                 const formattedValue = format(newValue);
                 const date = parseDateString(formattedValue);
 
-                setValue(formattedValue);
+                setStateValue(formattedValue);
                 setStateError(false);
 
                 if (onChange) onChange(event, { date, value: formattedValue });
@@ -96,7 +107,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                 const newDate = parseDateString(event.target.value, NATIVE_DATE_FORMAT);
                 const newValue = event.target.value === '' ? '' : formatDate(newDate);
 
-                setValue(newValue);
+                setStateValue(newValue);
 
                 if (onComplete) onComplete(event, { date: newDate, value: newValue });
                 if (onChange) onChange(event, { date: newDate, value: newValue });
@@ -110,12 +121,14 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
             }
         }, [mobileMode]);
 
+        const inputValue = uncontrolled ? stateValue : value;
+
         return (
             <Input
                 {...restProps}
                 ref={ref}
                 defaultValue={defaultValue}
-                value={propsValue || value}
+                value={inputValue}
                 inputMode='numeric'
                 pattern='[0-9]*'
                 onChange={handleChange}
