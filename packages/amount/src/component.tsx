@@ -15,6 +15,7 @@ export const Amount: React.FC<AmountProps> = ({
     currency,
     view = 'default',
     rightAddons,
+    showPlus = false,
     className,
     dataTestId,
 }) => {
@@ -27,6 +28,7 @@ export const Amount: React.FC<AmountProps> = ({
 
     return (
         <span className={cn(styles.component, className)} data-test-id={dataTestId}>
+            {showPlus && value > 0 ? '+' : ''}
             {majorPart}
             <span className={styles.minorPartAndCurrency}>
                 {minorPart && AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR}

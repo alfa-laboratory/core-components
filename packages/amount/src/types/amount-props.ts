@@ -29,6 +29,11 @@ export type AmountProps = {
     view?: 'default' | 'withZeroMinorPart';
 
     /**
+     * Показывать значок + для положительных значений
+     */
+    showPlus?: boolean;
+
+    /**
      * Дополнительный класс
      */
     className?: string;

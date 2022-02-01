@@ -16,6 +16,7 @@ export const PureAmount: React.FC<AmountProps> = ({
     currency,
     rightAddons,
     view = 'default',
+    showPlus = false,
     className,
     dataTestId,
 }) => {
@@ -28,6 +29,7 @@ export const PureAmount: React.FC<AmountProps> = ({
 
     return (
         <span className={cn(styles.component, className)} data-test-id={dataTestId}>
+            {showPlus && value > 0 ? '+' : ''}
             {formatted}
             {currency ? `${THINSP}${currencySymbol}` : null}
             {rightAddons}

@@ -53,6 +53,14 @@ https://design.alfabank.ru/patterns/amount
 </Typography.Title>
 ```
 
+- Показывать + для положительных значений
+
+```tsx live
+<Typography.Text font='system' color='positive'>
+    <Amount value={1234599} showPlus={true} minority={100} />
+</Typography.Text>
+```
+
 
 - Внутри заголовка
 

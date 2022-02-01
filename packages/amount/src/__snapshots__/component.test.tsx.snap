@@ -5,6 +5,7 @@ exports[`Amount should match snapshots for base and Pure components 1`] = `
   <span
     class="component"
   >
+    
     1
     <span
       class="minorPartAndCurrency"
@@ -17,8 +18,73 @@ exports[`Amount should match snapshots for base and Pure components 1`] = `
   <span
     class="component"
   >
+    
     1
      ₽
+  </span>
+</div>
+`;
+
+exports[`Amount should not render plus sign when showPlus and value <= 0 1`] = `
+<div>
+  <span
+    class="component"
+  >
+    
+    0
+    <span
+      class="minorPartAndCurrency"
+    >
+      
+      
+    </span>
+  </span>
+  <span
+    class="component"
+  >
+    
+    −1
+    <span
+      class="minorPartAndCurrency"
+    >
+      
+      
+    </span>
+  </span>
+  <span
+    class="component"
+  >
+    
+    0
+  </span>
+  <span
+    class="component"
+  >
+    
+    −1
+  </span>
+</div>
+`;
+
+exports[`Amount should render plus sign when showPlus and value > 0 1`] = `
+<div>
+  <span
+    class="component"
+  >
+    +
+    1
+    <span
+      class="minorPartAndCurrency"
+    >
+      
+      
+    </span>
+  </span>
+  <span
+    class="component"
+  >
+    +
+    1
   </span>
 </div>
 `;
@@ -28,6 +94,7 @@ exports[`Amount should render rightAddons 1`] = `
   <span
     class="component"
   >
+    
     1
     <span
       class="minorPartAndCurrency"
@@ -40,6 +107,7 @@ exports[`Amount should render rightAddons 1`] = `
   <span
     class="component"
   >
+    
     1
     <span />
   </span>

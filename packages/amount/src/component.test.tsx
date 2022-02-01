@@ -23,4 +23,26 @@ describe('Amount', () => {
         );
         expect(container).toMatchSnapshot();
     });
+
+    it('should render plus sign when showPlus and value > 0', () => {
+        const { container } = render(
+            <React.Fragment>
+                <Amount value={100} showPlus={true} minority={100} />
+                <Amount.Pure value={100} showPlus={true} minority={100} />
+            </React.Fragment>,
+        );
+        expect(container).toMatchSnapshot();
+    });
+
+    it('should not render plus sign when showPlus and value <= 0', () => {
+        const { container } = render(
+            <React.Fragment>
+                <Amount value={0} showPlus={true} minority={100} />
+                <Amount value={-100} showPlus={true} minority={100} />
+                <Amount.Pure value={0} showPlus={true} minority={100} />
+                <Amount.Pure value={-100} showPlus={true} minority={100} />
+            </React.Fragment>,
+        );
+        expect(container).toMatchSnapshot();
+    });
 });
