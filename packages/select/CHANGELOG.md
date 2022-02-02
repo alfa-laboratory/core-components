@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.4.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.4.0...@alfalab/core-components-select@10.4.1) (2022-02-02)
+
+
+### Bug Fixes
+
+* **input-autocomplete:** open list on backspace ([#964](https://github.com/alfa-laboratory/core-components/issues/964)) ([4d4f126](https://github.com/alfa-laboratory/core-components/commit/4d4f1267a98f05c184267564cd0a2517803bd08b))
+
+
+
+
+
 # [10.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.3.0...@alfalab/core-components-select@10.4.0) (2022-01-27)
 
 
