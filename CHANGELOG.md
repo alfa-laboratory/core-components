@@ -1,3 +1,16 @@
+# [23.10.0](https://github.com/alfa-laboratory/core-components/compare/v23.9.1...v23.10.0) (2022-02-02)
+
+
+### Bug Fixes
+
+* **input-autocomplete:** open list on backspace ([#964](https://github.com/alfa-laboratory/core-components/issues/964)) ([4d4f126](https://github.com/alfa-laboratory/core-components/commit/4d4f1267a98f05c184267564cd0a2517803bd08b))
+* **themes:** fix font weight mobile button ([#972](https://github.com/alfa-laboratory/core-components/issues/972)) ([447a89d](https://github.com/alfa-laboratory/core-components/commit/447a89dde25aa7659d771ae1c722086354323706))
+
+
+### Features
+
+* **amount:** add rightAddons, add showPlus, make currency optional ([#955](https://github.com/alfa-laboratory/core-components/issues/955)) ([ac35b9a](https://github.com/alfa-laboratory/core-components/commit/ac35b9aaf842d88fd28caeb4f888cdf74facf644))
+
 ## [23.9.1](https://github.com/alfa-laboratory/core-components/compare/v23.9.0...v23.9.1) (2022-01-28)
 
 
