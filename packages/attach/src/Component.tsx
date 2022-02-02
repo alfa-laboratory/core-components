@@ -215,7 +215,7 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
                     {...buttonProps}
                     size={size}
                     disabled={disabled}
-                    view={(buttonProps && buttonProps.view) || 'outlined'}
+                    view={(buttonProps && buttonProps.view) || 'tertiary'}
                     leftAddons={
                         (buttonProps && buttonProps.leftAddons) || <Icon className={styles.icon} />
                     }
