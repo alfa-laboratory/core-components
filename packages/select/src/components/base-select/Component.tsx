@@ -236,7 +236,7 @@ export const BaseSelect = forwardRef(
 
         const handleFieldKeyDown = (event: KeyboardEvent<HTMLDivElement | HTMLInputElement>) => {
             inputProps.onKeyDown(event);
-            if (autocomplete && !open && event.key.length === 1) {
+            if (autocomplete && !open && (event.key.length === 1 || event.key === 'Backspace')) {
                 // Для автокомплита - открываем меню при начале ввода
                 openMenu();
             }
