@@ -100,7 +100,7 @@ describe('Calendar', () => {
             <Calendar
                 defaultMonth={defaultDate.getTime()}
                 maxDate={subMonths(defaultDate.getTime(), 1).getTime()}
-                key="2"
+                key='2'
             />,
         );
 
@@ -141,7 +141,7 @@ describe('Calendar', () => {
 
             expect(container.querySelectorAll('table button:disabled')).toHaveLength(0);
 
-            getByLabelText('Предыдущий месяц').click();
+            getByLabelText('Предыдущий период').click();
 
             const nonDisabledDays = container.querySelectorAll('table button:not(:disabled)');
 
@@ -157,7 +157,7 @@ describe('Calendar', () => {
                 <Calendar value={defaultValue} minDate={currentMonthMinDate} />,
             );
 
-            const prevMonthButton = () => queryByLabelText('Предыдущий месяц') as HTMLElement;
+            const prevMonthButton = () => queryByLabelText('Предыдущий период') as HTMLElement;
 
             expect(prevMonthButton()).not.toBeInTheDocument();
 
@@ -214,7 +214,7 @@ describe('Calendar', () => {
 
             expect(container.querySelectorAll('table button:disabled')).toHaveLength(0);
 
-            getByLabelText('Следующий месяц').click();
+            getByLabelText('Следующий период').click();
 
             await waitForMonthChange();
 
@@ -232,7 +232,7 @@ describe('Calendar', () => {
                 <Calendar value={defaultValue} maxDate={maxDate} />,
             );
 
-            const nextMonthButton = () => queryByLabelText('Следующий месяц') as HTMLElement;
+            const nextMonthButton = () => queryByLabelText('Следующий период') as HTMLElement;
 
             expect(nextMonthButton()).toBeInTheDocument();
 
@@ -252,8 +252,8 @@ describe('Calendar', () => {
 
             expect(container.querySelectorAll('button[data-date]:disabled')).toHaveLength(0);
 
-            getByLabelText('Следующий месяц').click();
-            getByLabelText('Следующий месяц').click();
+            getByLabelText('Следующий период').click();
+            getByLabelText('Следующий период').click();
 
             getByText('Январь').click();
 
@@ -451,7 +451,7 @@ describe('Calendar', () => {
                 />,
             );
 
-            getByLabelText('Следующий месяц').click();
+            getByLabelText('Следующий период').click();
 
             const days = container.querySelectorAll('button[data-date]');
 
@@ -506,9 +506,9 @@ describe('Calendar', () => {
             );
 
             // 1
-            getByLabelText('Следующий месяц').click();
+            getByLabelText('Следующий период').click();
             // 2
-            getByLabelText('Предыдущий месяц').click();
+            getByLabelText('Предыдущий период').click();
 
             // 3
             getByText('Ноябрь').click();

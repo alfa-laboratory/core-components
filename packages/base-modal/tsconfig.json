@@ -9,5 +9,10 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../portal" }, { "path": "../backdrop" }, { "path": "../stack" }]
+    "references": [
+        { "path": "../portal" },
+        { "path": "../backdrop" },
+        { "path": "../stack" },
+        { "path": "../global-store" }
+    ]
 }

@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.4.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.4.0...@alfalab/core-components-select@10.4.1) (2022-02-02)
+
+
+### Bug Fixes
+
+* **input-autocomplete:** open list on backspace ([#964](https://github.com/alfa-laboratory/core-components/issues/964)) ([4d4f126](https://github.com/alfa-laboratory/core-components/commit/4d4f1267a98f05c184267564cd0a2517803bd08b))
+
+
+
+
+
+# [10.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.3.0...@alfalab/core-components-select@10.4.0) (2022-01-27)
+
+
+### Features
+
+* **picker-button:** gap между picker-button и popover в 8px ([#935](https://github.com/alfa-laboratory/core-components/issues/935)) ([9b3aa2b](https://github.com/alfa-laboratory/core-components/commit/9b3aa2b70b534d8e571baa62b973e1f67667ac43))
+* **select:** add OptionsListWithApply ([#948](https://github.com/alfa-laboratory/core-components/issues/948)) ([d8ef8dd](https://github.com/alfa-laboratory/core-components/commit/d8ef8dd257dfc100095c923c4f3e317787ed1877))
+
+
+
+
+
 # [10.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.2.4...@alfalab/core-components-select@10.3.0) (2021-12-29)
 
 

@@ -30,7 +30,7 @@ export const Checkmark = ({
         <Checkbox
             checked={selected}
             className={checkmarkClassNames}
-            size="m"
+            size='m'
             onClick={handleCheckboxClick}
         />
     );

@@ -25,6 +25,7 @@ import styles from '!!raw-loader!../index.module.css';
         const value = number('value', 12300);
         const currency = select('currency', currencyCodes, 'RUR');
         const minority = number('minority', 100);
+        const showPlus = boolean('showPlus', false);
         const view = select('view', ['default', 'withZeroMinorPart'], 'default');
         const className = select('className', '');
         const dataTestId = text('dataTestId', '');
@@ -40,6 +41,7 @@ import styles from '!!raw-loader!../index.module.css';
                             value={value}
                             currency={currency}
                             minority={minority}
+                            showPlus={showPlus}
                             view={view}
                             className={className}
                             dataTestId={dataTestId}
@@ -50,6 +52,7 @@ import styles from '!!raw-loader!../index.module.css';
                             value={value}
                             currency={currency}
                             minority={minority}
+                            showPlus={showPlus}
                             view={view}
                             className={className}
                             dataTestId={dataTestId}

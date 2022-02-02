@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-circular-progress-bar@2.1.0...@alfalab/core-components-circular-progress-bar@2.1.1) (2022-01-17)
+
+**Note:** Version bump only for package @alfalab/core-components-circular-progress-bar
+
+
+
+
+
 # [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-circular-progress-bar@2.0.3...@alfalab/core-components-circular-progress-bar@2.1.0) (2021-11-30)
 
 

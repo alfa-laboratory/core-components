@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "23.6.0",
+    "version": "23.10.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -20,7 +20,7 @@
         "start:quick": "RDTL=off yarn start",
         "build-storybook": "build-storybook -o build -s ./.storybook/public --quiet",
         "serve-storybook": "http-server build -p 9009",
-        "update-colors": "node ./tools/update-colors.js && stylelint ./packages/{themes,vars}/**/*.css --fix",
+        "update-colors": "node ./tools/update-colors.js && stylelint ./packages/{themes,vars}/**/*.css --fix && prettier --write \"./packages/{themes,vars}/**/*.css\"",
         "update-typography": "node ./tools/update-typography.js",
         "lint": "yarn lint:css && yarn lint:js",
         "lint:css": "stylelint ./packages/**/*.css",

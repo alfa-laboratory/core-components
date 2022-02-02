@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@5.2.3...@alfalab/core-components-calendar-input@5.2.4) (2022-02-02)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar-input
+
+
+
+
+
+## [5.2.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@5.2.2...@alfalab/core-components-calendar-input@5.2.3) (2022-01-27)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar-input
+
+
+
+
+
+## [5.2.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@5.2.1...@alfalab/core-components-calendar-input@5.2.2) (2022-01-17)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar-input
+
+
+
+
+
 ## [5.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@5.2.0...@alfalab/core-components-calendar-input@5.2.1) (2021-12-29)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar-input

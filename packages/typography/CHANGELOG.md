@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-typography@2.2.0...@alfalab/core-components-typography@2.3.0) (2022-01-17)
+
+
+### Features
+
+* **typography:** export types ([#940](https://github.com/alfa-laboratory/core-components/issues/940)) ([498227c](https://github.com/alfa-laboratory/core-components/commit/498227c272659a1ebf890eee61c6fecdd110faee))
+
+
+
+
+
 # [2.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-typography@2.1.0...@alfalab/core-components-typography@2.2.0) (2021-09-14)
 
 

@@ -8,6 +8,11 @@
     box-sizing: border-box;
 }
 
+.scrollable {
+    overflow: auto;
+    width: 100%;
+}
+
 .emptyPlaceholder {
     padding: var(--gap-m) var(--gap-s);
     color: var(--select-options-list-empty-placeholder-color);

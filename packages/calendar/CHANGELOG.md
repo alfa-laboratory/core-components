@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar@4.2.0...@alfalab/core-components-calendar@4.2.1) (2022-02-02)
+
+**Note:** Version bump only for package @alfalab/core-components-calendar
+
+
+
+
+
+# [4.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar@4.1.0...@alfalab/core-components-calendar@4.2.0) (2022-01-27)
+
+
+### Features
+
+* **picker-button:** gap между picker-button и popover в 8px ([#935](https://github.com/alfa-laboratory/core-components/issues/935)) ([9b3aa2b](https://github.com/alfa-laboratory/core-components/commit/9b3aa2b70b534d8e571baa62b973e1f67667ac43))
+
+
+
+
+
+# [4.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar@4.0.2...@alfalab/core-components-calendar@4.1.0) (2022-01-17)
+
+
+### Features
+
+* **calendar:** split header to header & period-slider ([#939](https://github.com/alfa-laboratory/core-components/issues/939)) ([107cee0](https://github.com/alfa-laboratory/core-components/commit/107cee0f2b5d609a02b61023b324dcc8c98c5220))
+
+
+
+
+
 ## [4.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar@4.0.1...@alfalab/core-components-calendar@4.0.2) (2021-12-29)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar

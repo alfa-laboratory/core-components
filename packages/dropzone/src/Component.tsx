@@ -147,6 +147,7 @@ export const Dropzone: FC<DropzoneProps> = ({
             if (disabled) return;
 
             setDragOver(false);
+            dragCounter.current = 0;
 
             if (event.dataTransfer.files && event.dataTransfer.files.length > 0) {
                 if (onDrop) {
@@ -154,7 +155,6 @@ export const Dropzone: FC<DropzoneProps> = ({
                 }
 
                 event.dataTransfer.clearData();
-                dragCounter.current = 0;
             }
         },
         [disabled, onDrop],

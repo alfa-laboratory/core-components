@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.3.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.3.0...@alfalab/core-components-picker-button@7.3.1) (2022-02-02)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
+# [7.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.2.0...@alfalab/core-components-picker-button@7.3.0) (2022-01-27)
+
+
+### Features
+
+* **picker-button:** gap между picker-button и popover в 8px ([#935](https://github.com/alfa-laboratory/core-components/issues/935)) ([9b3aa2b](https://github.com/alfa-laboratory/core-components/commit/9b3aa2b70b534d8e571baa62b973e1f67667ac43))
+* **select:** add OptionsListWithApply ([#948](https://github.com/alfa-laboratory/core-components/issues/948)) ([d8ef8dd](https://github.com/alfa-laboratory/core-components/commit/d8ef8dd257dfc100095c923c4f3e317787ed1877))
+
+
+
+
+
 # [7.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.1.4...@alfalab/core-components-picker-button@7.2.0) (2021-12-29)
 
 

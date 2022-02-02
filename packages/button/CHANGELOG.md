@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@5.0.3...@alfalab/core-components-button@5.0.4) (2022-02-02)
+
+
+### Bug Fixes
+
+* **themes:** fix font weight mobile button ([#972](https://github.com/alfa-laboratory/core-components/issues/972)) ([447a89d](https://github.com/alfa-laboratory/core-components/commit/447a89dde25aa7659d771ae1c722086354323706))
+
+
+
+
+
 ## [5.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@5.0.2...@alfalab/core-components-button@5.0.3) (2021-12-29)
 
 

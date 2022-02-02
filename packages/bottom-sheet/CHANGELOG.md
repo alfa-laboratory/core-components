@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-bottom-sheet@3.0.1...@alfalab/core-components-bottom-sheet@3.0.2) (2022-01-27)
+
+
+### Bug Fixes
+
+* **bottom-sheet:** fix double calling onClose fn ([#962](https://github.com/alfa-laboratory/core-components/issues/962)) ([feda2a4](https://github.com/alfa-laboratory/core-components/commit/feda2a4c8d3a4f40a1ab9c40eb21f5359e4fa538))
+
+
+
+
+
+## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-bottom-sheet@3.0.0...@alfalab/core-components-bottom-sheet@3.0.1) (2022-01-17)
+
+**Note:** Version bump only for package @alfalab/core-components-bottom-sheet
+
+
+
+
+
 # [3.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-bottom-sheet@2.1.1...@alfalab/core-components-bottom-sheet@3.0.0) (2021-11-26)
 
 
