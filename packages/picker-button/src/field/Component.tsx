@@ -42,9 +42,11 @@ export const Field = ({
             <Button
                 {...buttonProps}
                 rightAddons={
-                    <span className={cn(styles.iconContainer, open && styles.open)}>
-                        <Icon data-test-id='picker-button-icon' />
-                    </span>
+                    rightAddons ?? (
+                        <span className={cn(styles.iconContainer, open && styles.open)}>
+                            <Icon data-test-id='picker-button-icon' />
+                        </span>
+                    )
                 }
                 block={true}
                 view={view}

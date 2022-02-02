@@ -32,7 +32,7 @@ export type PickerButtonProps = Omit<
     | 'hint'
     | 'allowUnselect'
 > &
-    Pick<ButtonProps, 'view' | 'loading' | 'leftAddons'> & {
+    Pick<ButtonProps, 'view' | 'loading' | 'leftAddons' | 'rightAddons'> & {
         /**
          * Размер кнопки
          */
@@ -50,6 +50,7 @@ export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
             size = 'm',
             className,
             leftAddons,
+            rightAddons,
             popperClassName,
             optionsListClassName,
             ...restProps
@@ -72,6 +73,7 @@ export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
                     /** size у select, button несовместимы */
                     buttonSize: size,
                     leftAddons,
+                    rightAddons,
                 }}
                 Optgroup={Optgroup}
                 OptionsList={OptionsList}
