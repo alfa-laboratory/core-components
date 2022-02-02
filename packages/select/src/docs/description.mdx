@@ -87,7 +87,6 @@ render(() => {
 });
 ```
 
-
 #### Управление открытием
 
 ```tsx live
@@ -111,15 +110,15 @@ render(() => {
                 options={options}
                 placeholder='Выберите элемент'
                 open={open}
-                onOpen={(payload) => { setOpen(payload.open) }}
+                onOpen={payload => {
+                    setOpen(payload.open);
+                }}
                 // Полностью управляемое открытие
                 // onChange={payload => {
                 //     setOpen(false);
                 // }}
             />
-            <Button onClick={() => setOpen(o => !o)}>
-                {open ? 'Закрыть' : 'Открыть'}
-            </Button>
+            <Button onClick={() => setOpen(o => !o)}>{open ? 'Закрыть' : 'Открыть'}</Button>
         </Space>
     );
 });
@@ -354,7 +353,7 @@ const options = [
 render(<Select size='l' options={options} label='optionsSize' optionsSize='s' />);
 ```
 
-## Селект с заголовком меню
+## Селект с заголовком меню и футером
 
 ```tsx live
 const options = [
@@ -363,14 +362,16 @@ const options = [
     { key: '3', content: 'Americium' },
 ];
 
-const CustomOptionsList = props => (
-    <div>
-        <span style={{ padding: 'var(--gap-xs)', display: 'block' }}>Заголовок меню</span>
-        <OptionsList {...props} />
-    </div>
+render(
+    <Select
+        label='С заголовком меню'
+        options={options}
+        optionsListProps={{
+            header: <div style={{ padding: 'var(--gap-xs)' }}>Заголовок меню</div>,
+            footer: <div style={{ padding: 'var(--gap-xs)' }}>Футер</div>,
+        }}
+    />,
 );
-
-render(<Select label='С заголовком меню' options={options} OptionsList={CustomOptionsList} />);
 ```
 
 ## Ширина выпадающего меню
@@ -501,19 +502,51 @@ render(
 );
 ```
 
-## Открытие вверх, если места недостаточно
+## Пресеты
+
+
+### Выбор с подтверждением
+
+Используйте пресет `useSelectWithApply`, чтобы реализовать логику подтверждения выбора.
+
+Кнопка сброса по умолчанию появляется, если выбран хотя бы один пункт списка. Скрыть кнопку можно с помощью свойства `showClear`.
+
+С помощью свойства `showSelectAll` можно добавить пункт "Выбрать все".
 
 ```tsx live
 const options = [
-    { key: '1', content: 'Neptunium' },
-    { key: '2', content: 'Plutonium' },
-    { key: '3', content: 'Americium' },
+    { key: "40708810300024636781", content: "Валютный счёт $ ··6781", value: "USD ··6781" },
+    { key: "40701810200000000593", content: "Рублёвый счёт ₽ ··0593", value: "RUB ··0593" },
+    { key: "40700810000000017103", content: "Рублёвый счёт ₽ ··7103", value: "RUB ··7103" },
+    { key: "40817810668001680128", content: "Рублёвый счёт ₽ ··0128", value: "RUB ··0128" },
+    { key: "40832810700000000212", content: "Валютный счёт € ··0212", value: "EUR ··0212" },
 ];
 
-render(<Select options={options} preventFlip={false} label='preventFlip = false' />);
-```
+render(() => {
+    const [selected, setSelected] = React.useState([]);
 
-## Пресеты
+    const handleChange = ({ selectedMultiple }) => {
+        setSelected(selectedMultiple.map(option => option.key));
+    };
+
+    return (
+        <div style={{ width: 320 }}>
+            <Select
+                placeholder='Выберите элемент'
+                label='Выбор с подтверждением'
+                block={true}
+                optionsListWidth='field'
+                {...useSelectWithApply({
+                    options,
+                    selected,
+                    onChange: handleChange,
+                    OptionsList: VirtualOptionsList,
+                })}
+            />
+        </div>
+    );
+});
+```
 
 ### Селект со скелетной загрузкой
 
@@ -554,36 +587,36 @@ render(() => {
         </div>
     );
 });
-
 ```
+
 ### Ленивая загрузка опций
 
 #### Простая ленивая загрузка
+
 ```tsx live
 const LIMIT = 10;
 
 const sleep = () => new Promise(r => setTimeout(r, 2000));
-const mockOptions = (offset) => ({
-    options: Array(LIMIT).fill(0).map((_, i) => ({
-        key: `${offset}${i}`,
-        content: `Option number ${offset}${i}`,
-    })),
-    hasMore: offset < 4
+const mockOptions = offset => ({
+    options: Array(LIMIT)
+        .fill(0)
+        .map((_, i) => ({
+            key: `${offset}${i}`,
+            content: `Option number ${offset}${i}`,
+        })),
+    hasMore: offset < 4,
 });
 
 render(() => {
-    const fetchOptions = (offset) => {
+    const fetchOptions = offset => {
         return sleep().then(() => {
             return mockOptions(offset);
         });
     };
-    const {
-        optionsProps,
-    } = useLazyLoading({
+    const { optionsProps } = useLazyLoading({
         limit: LIMIT,
         optionsFetcher: fetchOptions,
     });
-
 
     return (
         <div style={{ width: 320 }}>
@@ -599,23 +632,26 @@ render(() => {
 ```
 
 #### Ленивая загрузка с поддержкой поиска по строке
+
 ```tsx live
 const LIMIT = 15;
 
 const sleep = () => new Promise(r => setTimeout(r, 2000));
 const mockOptions = (offset, limit, queryString) => ({
-    options: Array(LIMIT).fill(0).map((_, i) => ({
-        key: `${offset}${i}`,
-        content: queryString ?
-            `Опция ${offset * limit + i}, удовлетворяющая поисковой строке "${queryString}"` :
-            `Option number ${offset * limit + i}`
-    })),
-    hasMore: offset < 4
+    options: Array(LIMIT)
+        .fill(0)
+        .map((_, i) => ({
+            key: `${offset}${i}`,
+            content: queryString
+                ? `Опция ${offset * limit + i}, удовлетворяющая поисковой строке "${queryString}"`
+                : `Option number ${offset * limit + i}`,
+        })),
+    hasMore: offset < 4,
 });
 
 // Для корректной работы Input должен принимать в себя ...inputProps,
 // OptionsList должен принимать ref и остальные ...props
-const CustomOptionsList = React.forwardRef(({inputProps, ...props}, ref) => {
+const CustomOptionsList = React.forwardRef(({ inputProps, ...props }, ref) => {
     const inputRef = React.useRef();
 
     React.useLayoutEffect(() => {
@@ -626,12 +662,12 @@ const CustomOptionsList = React.forwardRef(({inputProps, ...props}, ref) => {
 
     return (
         <div>
-            <div style={{padding: '5px'}}>
-                <Input label='Поиск' {...inputProps} block={true} ref={inputRef}/>
+            <div style={{ padding: '5px' }}>
+                <Input label='Поиск' {...inputProps} block={true} ref={inputRef} />
             </div>
             <OptionsList {...props} ref={ref} />
         </div>
-    )
+    );
 });
 
 render(() => {
@@ -640,13 +676,10 @@ render(() => {
             return mockOptions(offset, limit, queryString);
         });
     };
-    const {
-        optionsProps,
-    } = useLazyLoading({
+    const { optionsProps } = useLazyLoading({
         limit: LIMIT,
         optionsFetcher: fetchOptions,
     });
-
 
     return (
         <div style={{ width: 320 }}>

@@ -1,3 +1,23 @@
+## [23.9.1](https://github.com/alfa-laboratory/core-components/compare/v23.9.0...v23.9.1) (2022-01-28)
+
+
+### Bug Fixes
+
+* **select-with-tags:** update tag size to xxs ([#960](https://github.com/alfa-laboratory/core-components/issues/960)) ([4234826](https://github.com/alfa-laboratory/core-components/commit/4234826e5dedebc1e6555dfba181981eea4db69f))
+
+# [23.9.0](https://github.com/alfa-laboratory/core-components/compare/v23.8.1...v23.9.0) (2022-01-27)
+
+
+### Bug Fixes
+
+* **bottom-sheet:** fix double calling onClose fn ([#962](https://github.com/alfa-laboratory/core-components/issues/962)) ([feda2a4](https://github.com/alfa-laboratory/core-components/commit/feda2a4c8d3a4f40a1ab9c40eb21f5359e4fa538))
+* **icon-view:** fix types ([#961](https://github.com/alfa-laboratory/core-components/issues/961)) ([74152f3](https://github.com/alfa-laboratory/core-components/commit/74152f3bd6d776bebeabea65d5971b57cc486b2e))
+
+
+### Features
+
+* **select:** add OptionsListWithApply ([#948](https://github.com/alfa-laboratory/core-components/issues/948)) ([d8ef8dd](https://github.com/alfa-laboratory/core-components/commit/d8ef8dd257dfc100095c923c4f3e317787ed1877))
+
 ## [23.8.1](https://github.com/alfa-laboratory/core-components/compare/v23.8.0...v23.8.1) (2022-01-21)
 
 

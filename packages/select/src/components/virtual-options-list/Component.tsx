@@ -21,6 +21,7 @@ export const VirtualOptionsList = ({
     flatOptions = [],
     highlightedIndex = -1,
     className,
+    getOptionProps,
     Option,
     open,
     options = [],
@@ -30,6 +31,8 @@ export const VirtualOptionsList = ({
     emptyPlaceholder,
     visibleOptions = 5,
     onScroll,
+    header,
+    footer,
 }: VirtualOptionsList) => {
     const listRef = useRef<HTMLDivElement>(null);
     const parentRef = useRef<HTMLDivElement>(null);
@@ -112,42 +115,48 @@ export const VirtualOptionsList = ({
     return (
         <div
             className={cn(styles.virtualOptionsList, styles[size], className)}
-            ref={parentRef}
             data-test-id={dataTestId}
-            onScroll={onScroll}
         >
-            <div
-                className={styles.inner}
-                style={{
-                    height: `${rowVirtualizer.totalSize}px`,
-                }}
-                ref={listRef}
-            >
-                {rowVirtualizer.virtualItems.map(virtualRow => {
-                    const option = flatOptions[virtualRow.index];
-                    const group = options[groupStartIndexes[virtualRow.index]] as GroupShape;
+            {header}
 
-                    return (
-                        <div
-                            key={virtualRow.index}
-                            ref={virtualRow.measureRef}
-                            className={cn(styles.virtualRow, {
-                                [styles.highlighted]: highlightedIndex === virtualRow.index,
-                            })}
-                            style={{
-                                transform: `translateY(${virtualRow.start}px)`,
-                            }}
-                        >
-                            {group && <Optgroup label={group.label} />}
-                            {!isGroup(option) && Option({ option, index: virtualRow.index })}
-                        </div>
-                    );
-                })}
+            <div className={styles.scrollable} ref={parentRef} onScroll={onScroll}>
+                <div
+                    className={styles.inner}
+                    style={{
+                        height: `${rowVirtualizer.totalSize}px`,
+                    }}
+                    ref={listRef}
+                >
+                    {rowVirtualizer.virtualItems.map(virtualRow => {
+                        const option = flatOptions[virtualRow.index];
+                        const group = options[groupStartIndexes[virtualRow.index]] as GroupShape;
+
+                        return (
+                            <div
+                                key={virtualRow.index}
+                                ref={virtualRow.measureRef}
+                                className={cn(styles.virtualRow, {
+                                    [styles.highlighted]: highlightedIndex === virtualRow.index,
+                                })}
+                                style={{
+                                    transform: `translateY(${virtualRow.start}px)`,
+                                }}
+                            >
+                                {group && <Optgroup label={group.label} />}
+                                {!isGroup(option) && (
+                                    <Option {...getOptionProps(option, virtualRow.index)} />
+                                )}
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
 
             {emptyPlaceholder && options.length === 0 && (
                 <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>
             )}
+
+            {footer}
         </div>
     );
 };

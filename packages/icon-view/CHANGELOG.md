@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-view@1.1.0...@alfalab/core-components-icon-view@1.1.1) (2022-01-27)
+
+
+### Bug Fixes
+
+* **icon-view:** fix types ([#961](https://github.com/alfa-laboratory/core-components/issues/961)) ([74152f3](https://github.com/alfa-laboratory/core-components/commit/74152f3bd6d776bebeabea65d5971b57cc486b2e))
+
+
+
+
+
 # 1.1.0 (2021-12-30)
 
 
