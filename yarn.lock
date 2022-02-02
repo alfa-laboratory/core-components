@@ -210,6 +210,11 @@
   resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.5.1.tgz#8a48782094c36f1d418693753145bd398523bfff"
   integrity sha512-DYsi4XvaMdh5K17OXvsPRFruzxRcJTeA+QlZ4jDMF7JtY5Fimq5jK7ZEA+ZhUNsnMOsFxb299ny8WqDIylDR0A==
 
+"@alfalab/utils@^1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@alfalab/utils/-/utils-1.8.0.tgz#b02ea5cbd85c8c2c50188720fa5c32ffda793a7a"
+  integrity sha512-4hK9exo4fXCoCd4/rZNTVjzY/VfrMCGAVO9+aItpwnPh6maL1v+VeD+WRlKLmBukqMJLcsf/PmH/Uguu+SfWGA==
+
 "@babel/code-frame@7.10.4":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.10.4.tgz#168da1a36e90da68ae8d49c0f1b48c7c6249213a"

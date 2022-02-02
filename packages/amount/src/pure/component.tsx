@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import { formatAmount } from '@alfalab/utils';
+import { formatAmount, THINSP } from '@alfalab/utils';
 
 import { AmountProps } from '../types';
 import styles from './index.module.css';
@@ -14,11 +14,13 @@ export const PureAmount: React.FC<AmountProps> = ({
     value,
     minority,
     currency,
+    rightAddons,
     view = 'default',
+    showPlus = false,
     className,
     dataTestId,
 }) => {
-    const { formattedWithCurrency } = formatAmount({
+    const { formatted, currencySymbol } = formatAmount({
         value,
         currency,
         minority,
@@ -27,7 +29,10 @@ export const PureAmount: React.FC<AmountProps> = ({
 
     return (
         <span className={cn(styles.component, className)} data-test-id={dataTestId}>
-            {formattedWithCurrency}
+            {showPlus && value > 0 ? '+' : ''}
+            {formatted}
+            {currency ? `${THINSP}${currencySymbol}` : null}
+            {rightAddons}
         </span>
     );
 };
