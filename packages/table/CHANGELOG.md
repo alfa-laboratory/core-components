@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-table@1.1.1...@alfalab/core-components-table@1.1.2) (2022-01-27)
+
+
+### Bug Fixes
+
+* **table:** fix th paddings ([#951](https://github.com/alfa-laboratory/core-components/issues/951)) ([2d916c1](https://github.com/alfa-laboratory/core-components/commit/2d916c16a388b0949db2d0ae00c852c0acac6d28))
+
+
+
+
+
 ## [1.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-table@1.1.0...@alfalab/core-components-table@1.1.1) (2022-01-17)
 
 

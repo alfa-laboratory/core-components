@@ -20,7 +20,7 @@ export const Tag: TagComponent = ({
     return (
         <CoreTag
             key={key}
-            size='xs'
+            size='xxs'
             onClick={onClick}
             checked={!!handleDeleteTag}
             className={cn(styles.tag, { [styles.tagNoClose]: !handleDeleteTag })}

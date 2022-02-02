@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-cdn-icon@3.0.0...@alfalab/core-components-cdn-icon@3.0.1) (2022-01-27)
+
+
+### Bug Fixes
+
+* **cdn-icon:** add className prop ([#957](https://github.com/alfa-laboratory/core-components/issues/957)) ([86f2139](https://github.com/alfa-laboratory/core-components/commit/86f2139fc56fe1cd2669d05d7953075aa8982e22))
+
+
+
+
+
 # [3.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-cdn-icon@2.0.3...@alfalab/core-components-cdn-icon@3.0.0) (2021-12-08)
 
 

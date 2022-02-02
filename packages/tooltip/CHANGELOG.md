@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.4.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.4.3...@alfalab/core-components-tooltip@4.4.4) (2022-01-27)
+
+**Note:** Version bump only for package @alfalab/core-components-tooltip
+
+
+
+
+
 ## [4.4.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.4.2...@alfalab/core-components-tooltip@4.4.3) (2022-01-17)
 
 **Note:** Version bump only for package @alfalab/core-components-tooltip
