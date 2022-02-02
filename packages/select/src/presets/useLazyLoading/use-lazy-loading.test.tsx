@@ -140,7 +140,7 @@ describe('Select useLazyLoading hook', () => {
          */
         expect(observe).toBeCalledWith(
             getAllByTestId('select-option')[LIMIT - 1],
-            getByTestId('select-options-list'),
+            getByTestId('select-options-list').firstElementChild,
         );
 
         /*

@@ -533,6 +533,14 @@ describe('Select', () => {
             expect(container.getElementsByClassName(optionsListClassName)).not.toBeNull();
         });
 
+        it('should set `popoverClassName` class to popover', () => {
+            const optionsListClassName = 'popover-class';
+            const { container } = render(
+                <Select {...baseProps} options={options} popperClassName={optionsListClassName} />,
+            );
+            expect(container.getElementsByClassName(optionsListClassName)).not.toBeNull();
+        });
+
         it('should rendered empty options list with flag `showEmptyOptionsList`', () => {
             const optionsListClassName = 'options-list-class';
             const { container } = render(

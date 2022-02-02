@@ -1,3 +1,43 @@
+## [23.9.1](https://github.com/alfa-laboratory/core-components/compare/v23.9.0...v23.9.1) (2022-01-28)
+
+
+### Bug Fixes
+
+* **select-with-tags:** update tag size to xxs ([#960](https://github.com/alfa-laboratory/core-components/issues/960)) ([4234826](https://github.com/alfa-laboratory/core-components/commit/4234826e5dedebc1e6555dfba181981eea4db69f))
+
+# [23.9.0](https://github.com/alfa-laboratory/core-components/compare/v23.8.1...v23.9.0) (2022-01-27)
+
+
+### Bug Fixes
+
+* **bottom-sheet:** fix double calling onClose fn ([#962](https://github.com/alfa-laboratory/core-components/issues/962)) ([feda2a4](https://github.com/alfa-laboratory/core-components/commit/feda2a4c8d3a4f40a1ab9c40eb21f5359e4fa538))
+* **icon-view:** fix types ([#961](https://github.com/alfa-laboratory/core-components/issues/961)) ([74152f3](https://github.com/alfa-laboratory/core-components/commit/74152f3bd6d776bebeabea65d5971b57cc486b2e))
+
+
+### Features
+
+* **select:** add OptionsListWithApply ([#948](https://github.com/alfa-laboratory/core-components/issues/948)) ([d8ef8dd](https://github.com/alfa-laboratory/core-components/commit/d8ef8dd257dfc100095c923c4f3e317787ed1877))
+
+## [23.8.1](https://github.com/alfa-laboratory/core-components/compare/v23.8.0...v23.8.1) (2022-01-21)
+
+
+### Bug Fixes
+
+* **cdn-icon:** add className prop ([#957](https://github.com/alfa-laboratory/core-components/issues/957)) ([86f2139](https://github.com/alfa-laboratory/core-components/commit/86f2139fc56fe1cd2669d05d7953075aa8982e22))
+
+# [23.8.0](https://github.com/alfa-laboratory/core-components/compare/v23.7.0...v23.8.0) (2022-01-21)
+
+
+### Bug Fixes
+
+* **table:** fix th paddings ([#951](https://github.com/alfa-laboratory/core-components/issues/951)) ([2d916c1](https://github.com/alfa-laboratory/core-components/commit/2d916c16a388b0949db2d0ae00c852c0acac6d28))
+
+
+### Features
+
+* **picker-button:** gap между picker-button и popover в 8px ([#935](https://github.com/alfa-laboratory/core-components/issues/935)) ([9b3aa2b](https://github.com/alfa-laboratory/core-components/commit/9b3aa2b70b534d8e571baa62b973e1f67667ac43))
+* **vars:** build color-mod ([#953](https://github.com/alfa-laboratory/core-components/issues/953)) ([aa64366](https://github.com/alfa-laboratory/core-components/commit/aa64366d970be46776d23c9d13ebec413b2ac4d9))
+
 # [23.7.0](https://github.com/alfa-laboratory/core-components/compare/v23.6.1...v23.7.0) (2022-01-17)
 
 

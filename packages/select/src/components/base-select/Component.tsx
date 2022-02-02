@@ -34,6 +34,7 @@ export const BaseSelect = forwardRef(
             fieldClassName,
             optionsListClassName,
             optionClassName,
+            popperClassName,
             options,
             autocomplete = false,
             multiple = false,
@@ -81,6 +82,7 @@ export const BaseSelect = forwardRef(
         const rootRef = useRef<HTMLLabelElement>(null);
         const fieldRef = useRef<HTMLInputElement>(null);
         const listRef = useRef<HTMLDivElement>(null);
+        const initiatorRef = useRef<OptionShape | null>(null);
 
         const itemToString = (option: OptionShape) => (option ? option.key : '');
 
@@ -98,8 +100,11 @@ export const BaseSelect = forwardRef(
                     onChange({
                         selectedMultiple: selectedItems,
                         selected: selectedItems.length ? selectedItems[0] : null,
+                        initiator: initiatorRef.current,
                         name,
                     });
+
+                    initiatorRef.current = null;
                 }
             },
             stateReducer: (state, actionAndChanges) => {
@@ -168,6 +173,8 @@ export const BaseSelect = forwardRef(
                 switch (type) {
                     case useCombobox.stateChangeTypes.InputKeyDownEnter:
                     case useCombobox.stateChangeTypes.ItemClick:
+                        initiatorRef.current = selectedItem;
+
                         if (selectedItem && !selectedItem.disabled) {
                             const alreadySelected = selectedItems.includes(selectedItem);
                             const allowRemove =
@@ -238,7 +245,8 @@ export const BaseSelect = forwardRef(
                 [' ', 'Enter'].includes(event.key) &&
                 !autocomplete &&
                 !nativeSelect &&
-                (event.target as HTMLElement).tagName !== 'INPUT'
+                (event.target as HTMLElement).tagName !== 'INPUT' &&
+                (event.target as HTMLElement).tagName !== 'BUTTON'
             ) {
                 // Открываем\закрываем меню по нажатию enter или пробела
                 event.preventDefault();
@@ -267,40 +275,34 @@ export const BaseSelect = forwardRef(
             [flatOptions, setSelectedItems],
         );
 
-        const WrappedOption = useCallback(
-            ({ option, index, ...rest }: { option: OptionShape; index: number }) => (
-                <React.Fragment key={option.key}>
-                    {Option({
-                        ...(optionProps as object),
-                        ...rest,
-                        className: optionClassName,
-                        innerProps: getItemProps({
-                            index,
-                            item: option,
-                            disabled: option.disabled,
-                            onMouseDown: (event: MouseEvent) => event.preventDefault(),
-                        }),
-                        multiple,
-                        index,
-                        option,
-                        size: optionsSize,
-                        disabled: option.disabled,
-                        highlighted: index === highlightedIndex,
-                        selected: selectedItems.includes(option),
-                        dataTestId: getDataTestId(dataTestId, 'option'),
-                    })}
-                </React.Fragment>
-            ),
-            [
-                Option,
-                optionProps,
-                optionClassName,
-                getItemProps,
+        const getOptionProps = useCallback(
+            (option: OptionShape, index: number) => ({
+                ...(optionProps as object),
+                className: optionClassName,
+                innerProps: getItemProps({
+                    index,
+                    item: option,
+                    disabled: option.disabled,
+                    onMouseDown: (event: MouseEvent) => event.preventDefault(),
+                }),
                 multiple,
-                optionsSize,
-                highlightedIndex,
-                selectedItems,
+                index,
+                option,
+                size: optionsSize,
+                disabled: option.disabled,
+                highlighted: index === highlightedIndex,
+                selected: selectedItems.includes(option),
+                dataTestId: getDataTestId(dataTestId, 'option'),
+            }),
+            [
                 dataTestId,
+                getItemProps,
+                highlightedIndex,
+                multiple,
+                optionClassName,
+                optionProps,
+                optionsSize,
+                selectedItems,
             ],
         );
 
@@ -386,6 +388,8 @@ export const BaseSelect = forwardRef(
                 <Field
                     selectedMultiple={selectedItems}
                     selected={selectedItems[0]}
+                    setSelectedItems={setSelectedItems}
+                    toggleMenu={toggleMenu}
                     multiple={multiple}
                     open={open}
                     disabled={disabled}
@@ -423,7 +427,7 @@ export const BaseSelect = forwardRef(
                         anchorElement={fieldRef.current as HTMLElement}
                         position={popoverPosition}
                         preventFlip={preventFlip}
-                        popperClassName={styles.popoverInner}
+                        popperClassName={cn(styles.popoverInner, popperClassName)}
                         update={updatePopover}
                         zIndex={zIndexPopover}
                     >
@@ -440,7 +444,11 @@ export const BaseSelect = forwardRef(
                                     size={size}
                                     options={options}
                                     Optgroup={Optgroup}
-                                    Option={WrappedOption}
+                                    Option={Option}
+                                    selectedItems={selectedItems}
+                                    setSelectedItems={setSelectedItems}
+                                    toggleMenu={toggleMenu}
+                                    getOptionProps={getOptionProps}
                                     visibleOptions={visibleOptions}
                                     onScroll={onScroll}
                                     dataTestId={getDataTestId(dataTestId, 'options-list')}

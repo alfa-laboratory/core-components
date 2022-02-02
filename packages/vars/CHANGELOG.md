@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@5.1.1...@alfalab/core-components-vars@5.2.0) (2022-01-27)
+
+
+### Features
+
+* **vars:** build color-mod ([#953](https://github.com/alfa-laboratory/core-components/issues/953)) ([aa64366](https://github.com/alfa-laboratory/core-components/commit/aa64366d970be46776d23c9d13ebec413b2ac4d9))
+
+
+
+
+
 ## [5.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@5.1.0...@alfalab/core-components-vars@5.1.1) (2022-01-17)
 
 
