@@ -1,4 +1,5 @@
 import { CurrencyCodes } from '@alfalab/data';
+import { ReactNode } from 'react';
 
 export type AmountProps = {
     /**
@@ -9,7 +10,12 @@ export type AmountProps = {
     /**
      * Валюта
      */
-    currency: CurrencyCodes;
+    currency?: CurrencyCodes;
+
+    /**
+     * Слот справа
+     */
+    rightAddons?: ReactNode;
 
     /**
      * Количество минорных единиц в валюте
@@ -21,6 +27,11 @@ export type AmountProps = {
      * withZeroMinorPart - отображаем копейки, даже если их значение равно 0
      */
     view?: 'default' | 'withZeroMinorPart';
+
+    /**
+     * Показывать значок + для положительных значений
+     */
+    showPlus?: boolean;
 
     /**
      * Дополнительный класс
