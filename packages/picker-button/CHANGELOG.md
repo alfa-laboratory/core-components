@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.3.1...@alfalab/core-components-picker-button@7.4.0) (2022-02-03)
+
+
+### Features
+
+* **picker-button:** add conditional righAddons prop for custom icon ([#975](https://github.com/alfa-laboratory/core-components/issues/975)) ([d2544b7](https://github.com/alfa-laboratory/core-components/commit/d2544b74e56deda9cae735e5b3ca6a2d97aef94d))
+
+
+
+
+
 ## [7.3.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.3.0...@alfalab/core-components-picker-button@7.3.1) (2022-02-02)
 
 **Note:** Version bump only for package @alfalab/core-components-picker-button

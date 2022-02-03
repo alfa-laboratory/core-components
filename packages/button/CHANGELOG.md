@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@5.0.4...@alfalab/core-components-button@5.0.5) (2022-02-03)
+
+
+### Bug Fixes
+
+* **loader:** fix animation in IE ([#970](https://github.com/alfa-laboratory/core-components/issues/970)) ([03df943](https://github.com/alfa-laboratory/core-components/commit/03df9438f00bda639aae78aadb940161112a2672))
+
+
+
+
+
 ## [5.0.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@5.0.3...@alfalab/core-components-button@5.0.4) (2022-02-02)
 
 
