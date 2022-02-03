@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-custom-button@1.1.1...@alfalab/core-components-custom-button@1.1.2) (2022-02-02)
+
+
+### Bug Fixes
+
+* **themes:** fix font weight mobile button ([#972](https://github.com/alfa-laboratory/core-components/issues/972)) ([447a89d](https://github.com/alfa-laboratory/core-components/commit/447a89dde25aa7659d771ae1c722086354323706))
+
+
+
+
+
 ## [1.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-custom-button@1.1.0...@alfalab/core-components-custom-button@1.1.1) (2021-12-29)
 
 **Note:** Version bump only for package @alfalab/core-components-custom-button
