@@ -95,10 +95,25 @@
 }
 
 .component_CAoax {
-    fill: currentColor
+    width: 24px;
+    height: 24px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center
 }
 
-.component_CAoax circle {
+.component_CAoax div {
+        height: 4px;
+        width: 4px;
+        margin-right: 4px;
+        border-radius: 100%;
+        background-color: currentColor;
         -webkit-animation-name: blink_Pphx3;
                 animation-name: blink_Pphx3;
         -webkit-animation-duration: 950ms;
@@ -111,21 +126,21 @@
                 transform: scale(0);
     }
 
-.component_CAoax circle:nth-child(1) {
+.component_CAoax div:nth-child(1) {
         -webkit-animation-delay: 0ms;
                 animation-delay: 0ms;
         -webkit-transform-origin: 15% 50%;
                 transform-origin: 15% 50%;
     }
 
-.component_CAoax circle:nth-child(2) {
+.component_CAoax div:nth-child(2) {
         -webkit-animation-delay: 150ms;
                 animation-delay: 150ms;
         -webkit-transform-origin: 50% 50%;
                 transform-origin: 50% 50%;
     }
 
-.component_CAoax circle:nth-child(3) {
+.component_CAoax div:nth-child(3) {
         -webkit-animation-delay: 300ms;
                 animation-delay: 300ms;
         -webkit-transform-origin: 85% 50%;
