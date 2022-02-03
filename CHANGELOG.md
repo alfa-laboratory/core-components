@@ -1,3 +1,15 @@
+# [23.11.0](https://github.com/alfa-laboratory/core-components/compare/v23.10.0...v23.11.0) (2022-02-03)
+
+
+### Bug Fixes
+
+* **loader:** fix animation in IE ([#970](https://github.com/alfa-laboratory/core-components/issues/970)) ([03df943](https://github.com/alfa-laboratory/core-components/commit/03df9438f00bda639aae78aadb940161112a2672))
+
+
+### Features
+
+* **picker-button:** add conditional righAddons prop for custom icon ([#975](https://github.com/alfa-laboratory/core-components/issues/975)) ([d2544b7](https://github.com/alfa-laboratory/core-components/commit/d2544b74e56deda9cae735e5b3ca6a2d97aef94d))
+
 # [23.10.0](https://github.com/alfa-laboratory/core-components/compare/v23.9.1...v23.10.0) (2022-02-02)
 
 
