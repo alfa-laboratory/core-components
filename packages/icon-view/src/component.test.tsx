@@ -101,8 +101,8 @@ describe('IconView', () => {
             expect(path.getAttribute('fill')).toBe(color);
         });
 
-        it('should set background color #f3f4f5 by default', () => {
-            const defaultColor = '#f3f4f5';
+        it('should set background color color-light-bg-secondary by default', () => {
+            const defaultColor = 'var(--color-light-bg-secondary)';
 
             const { baseElement } = render(<SuperEllipse />);
 

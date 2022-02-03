@@ -59,7 +59,7 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
         {
             size = 64,
             border = false,
-            backgroundColor = '#f3f4f5',
+            backgroundColor = 'var(--color-light-bg-secondary)',
             imageUrl,
             className,
             children,
