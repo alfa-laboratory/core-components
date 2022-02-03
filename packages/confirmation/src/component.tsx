@@ -44,11 +44,7 @@ export const Confirmation: FC<ConfirmationProps> = ({
 
     useEffect(() => {
         startTimer();
-
-        return () => {
-            stopTimer();
-        };
-    }, [startTimer, stopTimer]);
+    }, [startTimer]);
 
     useEffect(() => {
         /**

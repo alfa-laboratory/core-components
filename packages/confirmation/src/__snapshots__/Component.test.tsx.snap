@@ -64,7 +64,6 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
         class="countdown"
       >
         Запросить повторно можно через
-         
         <div
           class="countdownTimer"
         >
@@ -271,7 +270,6 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
         class="countdown"
       >
         Запросить повторно можно через
-         
         <div
           class="countdownTimer"
         >

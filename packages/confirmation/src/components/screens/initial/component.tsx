@@ -1,4 +1,11 @@
-import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
+import React, {
+    useCallback,
+    useContext,
+    useEffect,
+    useLayoutEffect,
+    useRef,
+    useState,
+} from 'react';
 import cn from 'classnames';
 
 import { usePrevious } from '@alfalab/hooks';
@@ -86,7 +93,7 @@ export const Initial = () => {
         }
     }, [prevState, state]);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (prevState === 'CODE_SENDING' && state !== 'CODE_SENDING') {
             setCodeSendHintVisible(true);
 
@@ -98,24 +105,28 @@ export const Initial = () => {
         }
     }, [prevState, state, clearTimer]);
 
+    const getCodeInputError = (): string | boolean => {
+        if (state === 'CODE_ERROR') {
+            return texts.codeError || true;
+        }
+
+        return false;
+    };
+
     const processing = ['CODE_CHECKING', 'CODE_SENDING'].includes(state);
 
     const timePassed = timeLeft === 0;
 
     return (
-        <div className={cn(styles[alignContent])}>
+        <div className={cn(styles.component, styles[alignContent])}>
             <h3 className={styles.header}>{texts.title}</h3>
 
             {phone && <div className={styles.phone}>Код отправлен на {phone}</div>}
 
-            <div
-                className={cn(styles.inputContainer, {
-                    [styles.compact]: timePassed,
-                })}
-            >
+            <div className={styles.inputContainer}>
                 <CodeInput
                     disabled={processing}
-                    error={state === 'CODE_ERROR' && texts.codeError}
+                    error={getCodeInputError()}
                     ref={inputRef}
                     fields={requiredCharAmount}
                     className={styles.codeInput}
@@ -131,16 +142,14 @@ export const Initial = () => {
                 handleSmsRetryClick={handleSmsRetryClick}
             />
 
-            <div className={styles.smsComeLinkWrap}>
-                <Link
-                    onClick={handleSmsHintLinkClick}
-                    className={styles.smsComeLink}
-                    view='secondary'
-                    pseudo={true}
-                >
-                    {texts.linkToHint}
-                </Link>
-            </div>
+            <Link
+                onClick={handleSmsHintLinkClick}
+                className={styles.smsComeLink}
+                view='secondary'
+                pseudo={true}
+            >
+                {texts.linkToHint}
+            </Link>
         </div>
     );
 };

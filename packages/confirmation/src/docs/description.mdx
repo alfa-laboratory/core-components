@@ -165,6 +165,43 @@ const Example = () => {
 };
 ```
 
+На каждом экране можно кастомизировать тексты. Для этого есть специальное свойство `texts`:
+
+```tsx
+export type ConfirmationTexts = {
+    /**
+     * Экран INITIAL
+     */
+    title?: ReactNode; // заголовок
+    codeError?: string; // ошибка проверки кода
+    codeChecking?: string; // код проверяется
+    codeSending?: string; // код отправляется
+    codeSended?: string; // код отправлен
+    buttonRetry?: string; // кнопка повторной отправки кода
+    linkToHint?: string; // ссылка на экран HINT
+    noAttemptsLeft?: string; // не осталось попыток запроса кода
+    countdown?: string; // 'запросить повторно можно через'
+
+    /**
+     * Экран HINT
+     */
+    hintButton?: string; // кнопка 'Вернуться'
+
+    /**
+     * Экран FATAL_ERROR
+     */
+    fatalErrorTitle?: ReactNode; // заголовок
+    fatalErrorDescription?: ReactNode; // описание
+    fatalErrorButton?: string; // кнопка
+
+    /**
+     * Экран TEMP_BLOCK
+     */
+    tempBlockTitle?: ReactNode; // заголовок
+    tempBlockDescription?: ReactNode; // описание
+};
+```
+
 Также есть возможность добавить кастомные экраны:
 
 ```tsx

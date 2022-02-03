@@ -1,4 +1,5 @@
 import React, { useContext, FC } from 'react';
+import cn from 'classnames';
 
 import { Loader } from '@alfalab/core-components-loader';
 import { Button } from '@alfalab/core-components-button';
@@ -24,12 +25,12 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
     const { state, texts, timeLeft, blockSmsRetry } = useContext(ConfirmationContext);
 
     if (codeSendHintVisible) {
-        return <div className={styles.loaderText}>{texts.codeSended}</div>;
+        return <div className={styles.countdownContainer}>{texts.codeSended}</div>;
     }
 
     if (processing) {
         return (
-            <div className={styles.loaderWrap}>
+            <div className={cn(styles.loaderWrap, styles.countdownContainer)}>
                 <Loader />
 
                 <span className={styles.loaderText}>
@@ -40,7 +41,7 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
     }
 
     if (blockSmsRetry) {
-        return <div>{texts.noAttemptsLeft}</div>;
+        return <div className={styles.countdownContainer}>{texts.noAttemptsLeft}</div>;
     }
 
     if (timePassed) {
@@ -57,8 +58,9 @@ export const CountdownSection: FC<CountdownSectionProps> = ({
     }
 
     return (
-        <div className={styles.countdown}>
-            Запросить повторно можно через{' '}
+        <div className={cn(styles.countdown, styles.countdownContainer)}>
+            {texts.countdown}
+
             <div className={styles.countdownTimer}>{formatMsAsMinutes(timeLeft)}</div>
         </div>
     );

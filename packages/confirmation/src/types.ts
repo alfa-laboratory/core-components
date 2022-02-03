@@ -125,6 +125,7 @@ export type ConfirmationTexts = {
     buttonRetry?: string; // кнопка повторной отправки кода
     linkToHint?: string; // ссылка на экран HINT
     noAttemptsLeft?: string; // не осталось попыток запроса кода
+    countdown?: string; // 'запросить повторно можно через'
 
     /**
      * Экран HINT
@@ -177,4 +178,5 @@ export const defaultTexts = {
     tempBlockTitle: 'Превышено количество попыток запроса кода',
     tempBlockDescription: 'Повторное подтверждение кодом будет возможно через 24\xa0часа',
     codeSended: 'Код выслан',
+    countdown: 'Запросить повторно можно через',
 };

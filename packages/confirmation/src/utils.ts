@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { ConfirmationProps } from './types';
 
@@ -69,6 +69,12 @@ export const useCountdown: UseCountdown = (countdownDuration, tick = 1000) => {
     }, [stopTimer, updateProgress, tick]);
 
     const timeLeft = countdownDuration - timePassed;
+
+    useEffect(() => {
+        return () => {
+            stopTimer();
+        };
+    }, [stopTimer]);
 
     return [timeLeft, startTimer, stopTimer];
 };

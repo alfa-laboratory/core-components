@@ -12,15 +12,11 @@ export const TempBlock = () => {
         ConfirmationContext,
     );
 
-    const [timeLeft, startTimer, stopTimer] = useCountdown(tempBlockDuration);
+    const [timeLeft, startTimer] = useCountdown(tempBlockDuration);
 
     useEffect(() => {
         startTimer();
-
-        return () => {
-            stopTimer();
-        };
-    }, [startTimer, stopTimer]);
+    }, [startTimer]);
 
     useEffect(() => {
         if (timeLeft === 0 && onTempBlockFinished) {

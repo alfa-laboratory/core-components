@@ -1,6 +1,11 @@
 @import '../../../../../themes/src/default.css';
 @import '../../../vars.css';
 
+.component {
+    display: flex;
+    flex-direction: column;
+}
+
 .header {
     @mixin _confirmation-title;
 }
@@ -23,10 +28,12 @@
 .loaderWrap {
     display: flex;
     align-items: center;
-    margin-top: var(--gap-2xl);
 }
 
 .center {
+    align-items: center;
+    text-align: center;
+
     & .codeInput,
     & .loaderWrap {
         justify-content: center;
@@ -37,12 +44,18 @@
     }
 }
 
-.smsComeLinkWrap {
-    margin-top: var(--gap-l);
-}
-
 .smsComeLink {
     @mixin paragraph_primary_small;
+}
+
+.countdownContainer {
+    margin-bottom: var(--gap-xl);
+}
+
+.getCodeButton {
+    position: relative;
+    top: var(--gap-2xs-neg);
+    margin-bottom: var(--gap-m);
 }
 
 .countdown {
