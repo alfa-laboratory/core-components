@@ -54,11 +54,11 @@
     }
 }
 
-.component[data-popper-placement='left-start'] .arrow:after {
+.component[data-popper-placement='left-start'].arrowShift .arrow:after {
     top: -7px;
 }
 
-.component[data-popper-placement='left-end'] .arrow:after {
+.component[data-popper-placement='left-end'].arrowShift .arrow:after {
     top: -5px;
 }
 
@@ -74,11 +74,11 @@
     }
 }
 
-.component[data-popper-placement='right-start'] .arrow:after {
+.component[data-popper-placement='right-start'].arrowShift .arrow:after {
     top: -7px;
 }
 
-.component[data-popper-placement='right-end'] .arrow:after {
+.component[data-popper-placement='right-end'].arrowShift .arrow:after {
     top: -5px;
 }
 
@@ -94,11 +94,11 @@
     }
 }
 
-.component[data-popper-placement='top-start'] .arrow:after {
+.component[data-popper-placement='top-start'].arrowShift .arrow:after {
     left: -17px;
 }
 
-.component[data-popper-placement='top-end'] .arrow:after {
+.component[data-popper-placement='top-end'].arrowShift .arrow:after {
     left: 5px;
 }
 
@@ -114,11 +114,11 @@
     }
 }
 
-.component[data-popper-placement='bottom-start'] .arrow:after {
+.component[data-popper-placement='bottom-start'].arrowShift .arrow:after {
     left: -17px;
 }
 
-.component[data-popper-placement='bottom-end'] .arrow:after {
+.component[data-popper-placement='bottom-end'].arrowShift .arrow:after {
     left: 5px;
 }
 
