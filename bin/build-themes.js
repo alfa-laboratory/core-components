@@ -9,7 +9,9 @@ const postcssMixins = require('postcss-mixins');
 
 const replaceMixinToRoot = css => css.replace(/@define-mixin.*$/m, ':root {');
 
-const getPalette = cssFile => (cssFile.includes('mobile') ? 'bluetint' : 'indigo');
+const bluetintThemes = ['mobile', 'intranet'];
+const getPalette = cssFile =>
+    bluetintThemes.some(x => x.includes(cssFile)) ? 'bluetint' : 'indigo';
 
 const createColorsByPaletteFilter = palette => {
     return filePath => {

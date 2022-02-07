@@ -89,7 +89,7 @@ describe('CustomButton | colors, disabled state and themes', () => {
             theme,
         })();
 
-    ['default', 'click', 'corp', 'site', 'mobile'].map(testCase);
+    ['default', 'click', 'corp', 'site', 'mobile', 'intranet'].map(testCase);
 });
 
 describe(

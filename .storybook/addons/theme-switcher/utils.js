@@ -7,6 +7,7 @@ import click from '!!postcss-loader!./themes/click.css';
 import mobile from '!!postcss-loader!./themes/mobile.css';
 import corp from '!!postcss-loader!./themes/corp.css';
 import site from '!!postcss-loader!./themes/site.css';
+import intranet from '!!postcss-loader!./themes/intranet.css';
 
 export const themes = {
     default: '',
@@ -14,6 +15,7 @@ export const themes = {
     mobile,
     corp,
     site,
+    intranet,
 };
 
 export const THEME_DATA_ATTR = 'theme';
@@ -27,7 +29,8 @@ export function setThemeStylesInIframeHtmlPage() {
 }
 
 export function getThemeStyles(theme) {
-    return [themes[theme], theme === 'mobile' ? bluetintColors : ''].join('\n');
+    const bluetintThemes = ['mobile', 'intranet'];
+    return [themes[theme], bluetintThemes.some(x => x.includes(theme)) ? bluetintColors : ''].join('\n');
 }
 
 export function setStyles(theme, doc) {

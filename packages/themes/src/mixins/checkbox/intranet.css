@@ -1,0 +1,19 @@
+@define-mixin checkbox-intranet {
+    /* unchecked */
+    --checkbox-bg-color: var(--color-light-graphic-primary-inverted);
+    --checkbox-border-color: var(--color-light-graphic-secondary);
+    --checkbox-hover-bg-color: var(--color-light-graphic-primary-inverted);
+    --checkbox-hover-border-color: var(--color-light-graphic-secondary);
+
+    /* active */
+    --checkbox-active-bg-color: var(--color-light-graphic-primary-inverted);
+    --checkbox-active-border-color: var(--color-light-border-key);
+
+    /* checked */
+    --checkbox-checked-hover-bg-color: var(--color-light-graphic-primary-shade-10);
+    --checkbox-checked-active-bg-color: var(--color-light-graphic-primary-shade-30);
+    --checkbox-checked-bg-color: var(--color-light-graphic-primary);
+
+    /* icon */
+    --checkbox-icon-color: var(--color-light-graphic-primary-inverted);
+}
