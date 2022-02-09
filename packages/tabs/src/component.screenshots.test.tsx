@@ -21,7 +21,7 @@ describe('Tabs | TabsDesktop', () => {
                 knobs: {
                     TabsComponent: 'TabsDesktop',
                     view: ['primary', 'secondary'],
-                    size: ['s', 'm', 'l', 'xl'],
+                    size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
                 },
             }),
             viewport: {
