@@ -1,3 +1,11 @@
+# [23.12.0](https://github.com/alfa-laboratory/core-components/compare/v23.11.0...v23.12.0) (2022-02-09)
+
+
+### Features
+
+* **tabs:** add xxs xs sizes to secondary view and fix heights ([#985](https://github.com/alfa-laboratory/core-components/issues/985)) ([dd20933](https://github.com/alfa-laboratory/core-components/commit/dd20933f7c9a8f08920f7ad21bacb25983d3e93e))
+* **themes:** introducing intranet theme ([#983](https://github.com/alfa-laboratory/core-components/issues/983)) ([85eb9cf](https://github.com/alfa-laboratory/core-components/commit/85eb9cfffeef31b886c5123d6333e177c261ac62))
+
 # [23.11.0](https://github.com/alfa-laboratory/core-components/compare/v23.10.0...v23.11.0) (2022-02-03)
 
 
