@@ -17397,6 +17397,10 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 .container_1b55b::-webkit-scrollbar {
         display: none;
     }
+.container_1b55b > * {
+        -ms-flex-negative: 0;
+            flex-shrink: 0;
+    }
 .component_2iOcg {
     position: relative
 }
@@ -17468,14 +17472,14 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     transition: transform 0.2s ease, width 0.2s ease, -webkit-transform 0.2s ease;
 }
 /* sizes */
-.s_25vpG .title_3fPZu {
+.s_25vpG .title_3fPZu, .xs_1vrMN .title_3fPZu, .xxs_1-YHz .title_3fPZu {
         padding: var(--primary-tablist-s-padding);
         font-size: var(--primary-tablist-s-font-size);
         font-weight: var(--primary-tablist-s-font-weight);
         font-family: var(--primary-tablist-s-font-family);
         line-height: 24px;
     }
-.s_25vpG .title_3fPZu + .title_3fPZu {
+.s_25vpG .title_3fPZu + .title_3fPZu, .xs_1vrMN .title_3fPZu + .title_3fPZu, .xxs_1-YHz .title_3fPZu + .title_3fPZu {
         margin-left: var(--primary-tablist-s-gaps);
     }
 .m_uqWY9 .title_3fPZu {
@@ -17532,30 +17536,24 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     white-space: nowrap;
 }
 /* sizes */
-.s_oQDvk {
-    height: var(--size-s-height)
+.xxs_2sbsH .title_3zomL + .title_3zomL {
+    margin-left: var(--secondary-tablist-xxs-gaps);
+}
+.xs_maZvr .title_3zomL + .title_3zomL {
+    margin-left: var(--secondary-tablist-xs-gaps);
 }
 .s_oQDvk .title_3zomL + .title_3zomL {
-        margin-left: var(--secondary-tablist-s-gaps);
-    }
-.m_SvzBC {
-    height: var(--size-m-height)
+    margin-left: var(--secondary-tablist-s-gaps);
 }
 .m_SvzBC .title_3zomL + .title_3zomL {
-        margin-left: var(--secondary-tablist-m-gaps);
-    }
-.l_1Dcj- {
-    height: var(--size-l-height)
+    margin-left: var(--secondary-tablist-m-gaps);
 }
 .l_1Dcj- .title_3zomL + .title_3zomL {
-        margin-left: var(--secondary-tablist-l-gaps);
-    }
-.xl_1Lw6I {
-    height: var(--size-xl-height)
+    margin-left: var(--secondary-tablist-l-gaps);
 }
 .xl_1Lw6I .title_3zomL + .title_3zomL {
-        margin-left: var(--secondary-tablist-xl-gaps);
-    }
+    margin-left: var(--secondary-tablist-xl-gaps);
+}
 
 .component_3KSE- {
     outline: none;
@@ -17621,6 +17619,12 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     /* mobile */
     --secondary-tablist-mobile-gaps: var(--gap-xs);
 
+    /* size xxs */
+    --secondary-tablist-xxs-gaps: var(--gap-xs);
+
+    /* size xs */
+    --secondary-tablist-xs-gaps: var(--gap-xs);
+
     /* size s */
     --secondary-tablist-s-gaps: var(--gap-s);
 
@@ -17628,19 +17632,16 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --secondary-tablist-m-gaps: var(--gap-s);
 
     /* size l */
-    --secondary-tablist-l-gaps: var(--gap-s);
+    --secondary-tablist-l-gaps: var(--gap-m);
 
     /* size xl */
-    --secondary-tablist-xl-gaps: var(--gap-s);
+    --secondary-tablist-xl-gaps: var(--gap-m);
 }
 .title_WPI2p {
 }
 .title_WPI2p + .title_WPI2p {
         margin-left: var(--secondary-tablist-mobile-gaps);
     }
-.mobile_3y8eA {
-    height: 48px;
-}
 :root {
     /* min-height */
     --textarea-s-min-height: var(--form-control-s-min-height);
