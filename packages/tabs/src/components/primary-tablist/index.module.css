@@ -67,7 +67,9 @@
 
 /* sizes */
 
-.s {
+.s,
+.xs,
+.xxs {
     & .title {
         padding: var(--primary-tablist-s-padding);
         font-size: var(--primary-tablist-s-font-size);

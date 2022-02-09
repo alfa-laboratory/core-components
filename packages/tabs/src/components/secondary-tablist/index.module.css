@@ -18,34 +18,26 @@
 
 /* sizes */
 
-.s {
-    height: var(--size-s-height);
-
-    & .title + .title {
-        margin-left: var(--secondary-tablist-s-gaps);
-    }
+.xxs .title + .title {
+    margin-left: var(--secondary-tablist-xxs-gaps);
 }
 
-.m {
-    height: var(--size-m-height);
-
-    & .title + .title {
-        margin-left: var(--secondary-tablist-m-gaps);
-    }
+.xs .title + .title {
+    margin-left: var(--secondary-tablist-xs-gaps);
 }
 
-.l {
-    height: var(--size-l-height);
-
-    & .title + .title {
-        margin-left: var(--secondary-tablist-l-gaps);
-    }
+.s .title + .title {
+    margin-left: var(--secondary-tablist-s-gaps);
 }
 
-.xl {
-    height: var(--size-xl-height);
+.m .title + .title {
+    margin-left: var(--secondary-tablist-m-gaps);
+}
 
-    & .title + .title {
-        margin-left: var(--secondary-tablist-xl-gaps);
-    }
+.l .title + .title {
+    margin-left: var(--secondary-tablist-l-gaps);
+}
+
+.xl .title + .title {
+    margin-left: var(--secondary-tablist-xl-gaps);
 }

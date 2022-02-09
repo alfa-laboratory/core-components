@@ -10,10 +10,5 @@ export const SecondaryTabListDesktop = ({
     size = 'm',
     ...restProps
 }: SecondaryTabListDesktopProps) => (
-    <SecondaryTabList
-        {...restProps}
-        size={size}
-        styles={commonStyles}
-        tagSize={size === 's' ? 'xs' : 's'}
-    />
+    <SecondaryTabList {...restProps} size={size} styles={commonStyles} tagSize={size} />
 );
