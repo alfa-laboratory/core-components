@@ -14,7 +14,7 @@ export type TabsDesktopProps = Omit<TabsProps, 'TabList'>;
 export const TabsDesktop = ({
     view = 'primary',
     scrollable = false,
-    size = 'm',
+    size = view === 'primary' ? 'm' : 's',
     ...restProps
 }: TabsDesktopProps) => (
     <Tabs TabList={views[view]} scrollable={scrollable} size={size} {...restProps} />

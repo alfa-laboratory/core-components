@@ -91,7 +91,7 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
 <div>
   <div>
     <div
-      class="component m"
+      class="component s"
       role="tablist"
     >
       <div
@@ -99,7 +99,7 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
       >
         <button
           aria-selected="false"
-          class="component component m withRightAddons title"
+          class="component component s withRightAddons title"
           role="tab"
           tabindex="-1"
           type="button"
@@ -115,7 +115,7 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
         </button>
         <button
           aria-selected="true"
-          class="component component m checked title"
+          class="component component s checked title"
           role="tab"
           tabindex="0"
           type="button"
@@ -126,7 +126,7 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
         </button>
         <button
           aria-selected="false"
-          class="component component m title"
+          class="component component s title"
           role="tab"
           tabindex="-1"
           type="button"
@@ -137,7 +137,7 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
         </button>
         <button
           aria-selected="false"
-          class="component component m title"
+          class="component component s title"
           role="tab"
           tabindex="-1"
           type="button"
@@ -148,7 +148,7 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
         </button>
         <button
           aria-selected="false"
-          class="component component m title"
+          class="component component s title"
           role="tab"
           tabindex="-1"
           type="button"
@@ -428,7 +428,7 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
 <div>
   <div>
     <div
-      class="component m"
+      class="component s"
       role="tablist"
     >
       <div
@@ -436,7 +436,7 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
       >
         <button
           aria-selected="false"
-          class="component component m withRightAddons title"
+          class="component component s withRightAddons title"
           role="tab"
           tabindex="-1"
           type="button"
@@ -452,7 +452,7 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
         </button>
         <button
           aria-selected="true"
-          class="component component m checked title"
+          class="component component s checked title"
           role="tab"
           tabindex="0"
           type="button"
@@ -463,7 +463,7 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
         </button>
         <button
           aria-selected="false"
-          class="component component m title"
+          class="component component s title"
           role="tab"
           tabindex="-1"
           type="button"
@@ -474,7 +474,7 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
         </button>
         <button
           aria-selected="false"
-          class="component component m title"
+          class="component component s title"
           role="tab"
           tabindex="-1"
           type="button"
@@ -485,7 +485,7 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
         </button>
         <button
           aria-selected="false"
-          class="component component m title"
+          class="component component s title"
           role="tab"
           tabindex="-1"
           type="button"
