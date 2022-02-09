@@ -1,7 +1,10 @@
+/* eslint-disable complexity */
+/* eslint-disable multiline-comment-style */
 import { useState, useCallback, useEffect, useMemo } from 'react';
 import { startOfMonth, addMonths, subMonths, max } from 'date-fns';
 
 import { isEqual } from 'date-fns/esm';
+import min from 'date-fns/min';
 
 export function usePopoverViewMonthes({
     dateFrom,
@@ -122,24 +125,37 @@ export function useStaticViewMonthes({
         const selectedToMonth = selectedTo ? startOfMonth(selectedTo).getTime() : undefined;
 
         // Проверяем, показываются ли выбранные месяцы в левой или правой части компонента
-        const fromMonthIsNotOnLeft = selectedFromMonth && selectedFromMonth !== monthFrom;
-        const fromMonthIsNotOnRight = selectedFromMonth && selectedFromMonth !== monthTo;
-        const toMonthIsNotOnRight = selectedToMonth && selectedToMonth !== monthTo;
-        const toMonthIsNotOnLeft = selectedToMonth && selectedToMonth !== monthFrom;
+        const fromMonthOnLeft = selectedFromMonth && selectedFromMonth === monthFrom;
+        const fromMonthOnRight = selectedFromMonth && selectedFromMonth === monthTo;
+        const toMonthOnRight = selectedToMonth && selectedToMonth === monthTo;
+        const toMonthOnLeft = selectedToMonth && selectedToMonth === monthFrom;
+        const fromMonthOnScreen = fromMonthOnLeft || fromMonthOnRight;
+        const toMonthOnScreen = toMonthOnLeft || toMonthOnRight;
 
-        // Выставляем месяца так, чтобы обе даты были видны на экране
-
-        if (fromMonthIsNotOnLeft && (fromMonthIsNotOnRight || toMonthIsNotOnRight)) {
-            setMonthFrom(selectedFromMonth);
+        if (fromMonthOnLeft && toMonthOnLeft) {
+            setMonthTo(max([addMonths(selectedFromMonth, 1), monthTo]).getTime());
+            return;
         }
 
-        if (toMonthIsNotOnRight && (toMonthIsNotOnLeft || fromMonthIsNotOnLeft)) {
-            setMonthTo(
-                max([
-                    selectedToMonth,
-                    selectedFromMonth ? addMonths(selectedFromMonth, 1) : 0,
-                ]).getTime(),
-            );
+        if (fromMonthOnRight && toMonthOnRight) {
+            setMonthFrom(min([subMonths(selectedToMonth, 1), monthFrom]).getTime());
+            return;
+        }
+
+        if (selectedFromMonth && selectedToMonth) {
+            setMonthFrom(selectedFromMonth);
+            setMonthTo(max([addMonths(selectedFromMonth, 1), selectedToMonth]).getTime());
+            return;
+        }
+
+        if (selectedFromMonth && !selectedToMonth && !fromMonthOnScreen) {
+            setMonthFrom(selectedFromMonth);
+            setMonthTo(max([addMonths(selectedFromMonth, 1), monthTo]).getTime());
+        }
+
+        if (selectedToMonth && !selectedFromMonth && !toMonthOnScreen) {
+            setMonthTo(selectedToMonth);
+            setMonthFrom(min([subMonths(selectedToMonth, 1), monthFrom]).getTime());
         }
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
