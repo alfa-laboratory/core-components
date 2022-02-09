@@ -1,0 +1,19 @@
+@define-mixin button-intranet {
+    /* theme */
+    --button-border-radius: var(--border-radius-l);
+    --button-active-transform: none;
+
+    /* primary */
+    --button-primary-base-bg-color: var(--color-light-bg-secondary-inverted);
+    --button-primary-hover-bg-color: var(--color-light-bg-secondary-inverted);
+    --button-primary-active-bg-color: var(--color-light-bg-primary-inverted);
+    --button-primary-disabled-bg-color: var(--color-light-bg-secondary-inverted);
+    --button-primary-disabled-color: var(--color-light-text-tertiary-inverted);
+
+    /* secondary */
+    --button-secondary-base-bg-color: var(--color-light-bg-secondary);
+    --button-secondary-hover-bg-color: var(--color-light-bg-secondary);
+    --button-secondary-active-bg-color: var(--color-light-bg-tertiary);
+    --button-secondary-disabled-bg-color: var(--color-light-bg-secondary);
+    --button-secondary-disabled-color: var(--color-light-text-disabled);
+}
