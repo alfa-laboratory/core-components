@@ -1,3 +1,4 @@
+import { AmountProps } from '@alfalab/core-components-amount';
 import { ReactElement } from 'react';
 import { RectangleProps } from 'recharts';
 import { DataKey } from 'recharts/types/util/types';
@@ -18,6 +19,11 @@ export interface ChartProps {
      * Название графика (отображается в легендах и тултипе)
      */
     name?: string;
+
+    /**
+     * Числовое значение
+     */
+    amount?: AmountProps;
 
     /**
      * Ключ данных

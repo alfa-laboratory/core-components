@@ -1,7 +1,12 @@
 import React from 'react';
 import cn from 'classnames';
-import { Typography } from '@alfalab/core-components-typography';
+import { TextProps, Typography } from '@alfalab/core-components-typography';
 
+import { TooltipIcon } from './tooltip-icon';
+import { TooltipName } from './tooltip-name';
+import { TooltipValue } from './tooltip-value';
+
+import { LegendProps } from '../../types/legend.types';
 import { PayloadProps } from '../../types/payload.types';
 import { SeriaProps } from '../../types/seria.types';
 import { TooltipProps } from '../../types/tooltip.types';
@@ -11,6 +16,12 @@ import styles from './index.module.css';
 export interface TooltipContentProps extends TooltipProps {
     payload: PayloadProps[];
     series: SeriaProps[];
+    legend: LegendProps;
+    tooltip: TooltipProps;
+}
+
+export interface JSXElementObject {
+    [name: string]: JSX.Element;
 }
 
 export const TooltipContent = ({
@@ -22,8 +33,23 @@ export const TooltipContent = ({
     series,
     labelFormatter,
     labelStyle,
+    amount,
+    legend,
+    tooltip,
 }: TooltipContentProps) => {
     if (!label || payload.length === 0) return null;
+    const title: TextProps = tooltip?.typography?.title ?? {
+        view: 'component',
+        weight: 'medium',
+        tag: 'span',
+    };
+
+    const text: TextProps = tooltip?.typography?.text ?? {
+        view: 'component',
+        tag: 'span',
+    };
+
+    const list = tooltip.arrangeData ?? ['name', 'value'];
 
     return (
         <div className={cn(styles.tooltip)}>
@@ -37,12 +63,7 @@ export const TooltipContent = ({
             )}
             <ul className={cn(styles.tooltipList)}>
                 <li className={cn(styles.tooltipItem)} style={labelStyle}>
-                    <Typography.Text
-                        view='primary-medium'
-                        tag='span'
-                        weight='medium'
-                        className={cn(styles.tooltipLabel)}
-                    >
+                    <Typography.Text {...title} className={cn(styles.tooltipLabel)}>
                         {labelFormatter ? labelFormatter(label) : label}
                     </Typography.Text>
                 </li>
@@ -50,27 +71,28 @@ export const TooltipContent = ({
                     const data: SeriaProps | undefined = series.find(
                         (d: SeriaProps) => d.properties.dataKey === entry.dataKey,
                     );
-                    if (data?.hideTooltip || data?.hide) return null;
+
+                    if (!data || data?.hideTooltip || data?.hide) return null;
+
+                    const components: JSXElementObject = {
+                        icon: <TooltipIcon key='icon' data={data} legend={legend} />,
+                        name: (
+                            <TooltipName
+                                key='name'
+                                list={list}
+                                separator={separator}
+                                entry={entry}
+                                text={text}
+                            />
+                        ),
+                        value: (
+                            <TooltipValue key='value' amount={amount} entry={entry} text={text} />
+                        ),
+                    };
+
                     return (
-                        <li
-                            className={cn(styles.tooltipItem)}
-                            key={entry.dataKey}
-                            style={{ color: entry.color }}
-                        >
-                            <Typography.Text
-                                view='primary-medium'
-                                tag='span'
-                                weight='medium'
-                                className={cn(styles.tooltipValue)}
-                            >
-                                {entry?.formatter ? entry.formatter(entry.value) : entry.value}
-                                {separator || ' '}
-                            </Typography.Text>
-                            <Typography.Text
-                                view='secondary-large'
-                                tag='span'
-                                className={cn(styles.tooltipName)}
-                            >{`${entry.name}`}</Typography.Text>
+                        <li className={cn(styles.tooltipItem)} key={entry.dataKey}>
+                            {list.map((item: string) => components[item])}
                         </li>
                     );
                 })}

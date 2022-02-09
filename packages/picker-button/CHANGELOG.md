@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.4.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.4.0...@alfalab/core-components-picker-button@7.4.1) (2022-02-09)
+
+**Note:** Version bump only for package @alfalab/core-components-picker-button
+
+
+
+
+
 # [7.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.3.1...@alfalab/core-components-picker-button@7.4.0) (2022-02-03)
 
 

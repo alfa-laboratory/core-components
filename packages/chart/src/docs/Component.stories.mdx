@@ -100,6 +100,7 @@ import Changelog from '../../CHANGELOG.md';
         const barCategoryGap = text('barCategoryGap', '30%', composeChartId);
         const barGap = number('barGap', 4, {}, composeChartId);
         const maxBarSize = number('maxBarSize', 24, {}, composeChartId);
+        const unfocusedAnimation = boolean('unfocusedAnimation', true, composeChartId);
     
     
     
@@ -224,7 +225,8 @@ import Changelog from '../../CHANGELOG.md';
             },
             barGap,
             maxBarSize,
-            barCategoryGap
+            barCategoryGap,
+            unfocusedAnimation
         };
         
         const xAxis = {
@@ -243,7 +245,7 @@ import Changelog from '../../CHANGELOG.md';
             reversed: xAxisReversed,
             tickMargin: xAxisTickMargin,
             dataKey: 'label',
-            orientation: xAxisOrientation,
+            orientation: xAxisOrientation
         };
     
         const yAxis = {
@@ -273,6 +275,10 @@ import Changelog from '../../CHANGELOG.md';
         };
     
         const tooltip = {
+            amount: {
+                currency: 'RUB',
+                minority: 100,
+            },
             separator: tooltipSeparator,
             offset: tooltipOffset,
             filterNull: tooltipFilterNull,
@@ -571,6 +577,7 @@ import Changelog from '../../CHANGELOG.md';
         const barGap = number('barGap', 4, {}, composeChartId);
         const barSize = number('barSize', 24, {}, composeChartId);
         const maxBarSize = number('maxBarSize', 24, {}, composeChartId);
+        const unfocusedAnimation = boolean('unfocusedAnimation', true, composeChartId);
     
     
     
@@ -698,7 +705,8 @@ import Changelog from '../../CHANGELOG.md';
             },
             barCategoryGap,
             barSize,
-            maxBarSize
+            maxBarSize,
+            unfocusedAnimation
         };
     
         const xAxis = {
@@ -1333,24 +1341,29 @@ import Changelog from '../../CHANGELOG.md';
         const composeChartId = 'composeChart';
         const xAxisId = 'xAxis';
         const yAxisId = 'yAxis';
-        const barId = 'bar';
+        const legendId = 'legend';
+        const tooltipId = 'tooltip';
+        const barIdFirst = 'barFirst';
+        const barIdSecond = 'barSecond';
     
     
         const debounce = number('debounce', 0, {}, responsiveContainerId);
     
     
         const vertical = boolean('vertical', false, cartesianGridId);
-        const horizontal = boolean('horizontal', false, cartesianGridId);
+        const horizontal = boolean('horizontal', true, cartesianGridId);
+        const stroke = text('stroke', 'var(--color-light-bg-neutral)', cartesianGridId);
     
     
     
-        const initMarginTop = number('initMargin.top', 40, {}, composeChartId);
-        const initMarginBottom = number('initMargin.bottom', 20, {}, composeChartId);
-        const marginLeft = number('initMargin.left', 20, {}, composeChartId);
-        const marginRight = number('initMargin.right', 50, {}, composeChartId);
-        const barCategoryGap = text('barCategoryGap', '10%', composeChartId);
-        const barGap = number('barGap', 4, {}, composeChartId);
-        const maxBarSize = number('maxBarSize', 64, {}, composeChartId);
+        const initMarginTop = number('initMargin.top', 0, {}, composeChartId);
+        const initMarginBottom = number('initMargin.bottom', 32, {}, composeChartId);
+        const marginLeft = number('initMargin.left', 0, {}, composeChartId);
+        const marginRight = number('initMargin.right', 0, {}, composeChartId);
+        const barCategoryGap = text('barCategoryGap', '30%', composeChartId);
+        const barGap = number('barGap', 8, {}, composeChartId);
+        const maxBarSize = number('maxBarSize', 24, {}, composeChartId);
+        const unfocusedAnimation = boolean('unfocusedAnimation', true, composeChartId);
     
     
     
@@ -1358,31 +1371,75 @@ import Changelog from '../../CHANGELOG.md';
         const xAxisOrientation = select('orientation', orientationVertical, 'bottom', xAxisId);
         const xAxisTickLine = boolean('tickLine', false, xAxisId);
         const xAxisTickSize = number('tickSize', 6, {}, xAxisId);
-        const xAxisTickMargin = number('tickMargin', 10, {}, xAxisId);
+        const xAxisTickMargin = number('tickMargin', 16, {}, xAxisId);
         const xAxisMinTickGap = number('minTickGap', 5, {}, xAxisId);
         const xAxisLine = boolean('axisLine', false, xAxisId);
     
     
     
-        const yAxisHide = boolean('hide', true, yAxisId);
+        const yAxisHide = boolean('hide', false, yAxisId);
+        const yAxisTickLine = boolean('tickLine', false, yAxisId);
+        const yAxisTickCoiunt = number('tickCount', 6, {}, yAxisId);
+        const yAxisLine = boolean('axisLine', false, yAxisId);
     
     
     
-        const barHide = boolean('hide', false, barId);
-        const barHideLegend = boolean('hideLegend', false, barId);
-        const barHideTooltip = boolean('hideTooltip', false, barId);
-        const barZIndex = number('zIndex', 10, {}, barId);
-        const barIcon = select('icon', iconTypes, 'circle', barId);
-        const barRadius = object('radius', {
-            top: 10,
-            bottom: 10,
-        }, barId);
+        const legendAlign = select('align', alignHorizontal, 'left', legendId);
+        const legendVerticalAlign = select('verticalAlign', alignVertical, 'top', legendId);
+        const legendMarginTop = number('marginTop', 40, {}, legendId);
+        const legendIconHeight = number('iconHeight', 12, {}, legendId);
     
-        const barFormatter = text('labelList.formatter', '', barId);
-        const barLabelListOffset= number('labelList.offset', 10, {}, barId);
     
-        const barFill = text('properties.fill', 'var(--color-static-graphic-green-jungle)', barId);
-        const barName = text('properties.name', 'приход', barId);
+    
+        const tooltipArrow = boolean('arrow', true, tooltipId);
+        const tooltipIsAnimationActive = boolean('isAnimationActive', true, tooltipId);
+        const tooltipSeparator = text('separator', ' ', tooltipId);
+        const tooltipOffset = number('offset', 20, {}, tooltipId);
+    
+    
+    
+        const cursorStroke = text('cursor.stroke', 'var(--color-light-border-primary)', tooltipId);
+        const cursorStrokeWidth = number('cursor.strokeWidth', 1, {}, tooltipId);
+        const tooltipFilterNull = boolean('filterNull', true, tooltipId);
+        const tooltipAnimationBegin = number('animationBegin', 0, {}, tooltipId);
+        const tooltipAnimationDuration = number('animationDuration', 500, {}, tooltipId);
+        const tooltipAnimationEasing = select('animationEasing', animationType, 'ease', tooltipId);
+    
+    
+    
+        const barHideFirts = boolean('hide', false, barIdFirst);
+        const barHideLegendFirts = boolean('hideLegend', false, barIdFirst);
+        const barHideTooltipFirts = boolean('hideTooltip', false, barIdFirst);
+        const barZIndexFirts = number('zIndex', 10, {}, barIdFirst);
+        const barIconFirts = select('icon', iconTypes, 'circle', barIdFirst);
+        const barRadiusFirts = object('radius', {
+            top: 4,
+            bottom: 4,
+        }, barIdFirst);
+    
+        const barFormatterFirts = text('labelList.formatter', '', barIdFirst);
+        const barLabelListOffsetFirts= number('labelList.offset', 10, {}, barIdFirst);
+    
+        const barFillFirts = text('properties.fill', '#DE6C69', barIdFirst);
+        const barNameFirts = text('properties.name', 'Расходы', barIdFirst);
+    
+    
+    
+        const barHideSecond = boolean('hide', false, barIdSecond);
+        const barHideLegendSecond = boolean('hideLegend', false, barIdSecond);
+        const barHideTooltipSecond = boolean('hideTooltip', false, barIdSecond);
+        const barZIndexSecond = number('zIndex', 10, {}, barIdSecond);
+        const barIconSecond = select('icon', iconTypes, 'circle', barIdSecond);
+        const barRadiusSecond = object('radius', {
+            top: 4,
+            bottom: 4,
+        }, barIdSecond);
+    
+        const barFormatterSecond = text('labelList.formatter', '', barIdSecond);
+        const barLabelListOffsetSecond = number('labelList.offset', 10, {}, barIdSecond);
+    
+        const barFillSecond = text('properties.fill', '#A6D37E', barIdSecond);
+        const barNameSecond = text('properties.name', 'Доходы', barIdSecond);
     
         const responsiveContainer = {
             debounce
@@ -1391,6 +1448,7 @@ import Changelog from '../../CHANGELOG.md';
         const cartesianGrid = {
             vertical,
             horizontal,
+            stroke,
         };
     
         const composeChart = {
@@ -1403,8 +1461,9 @@ import Changelog from '../../CHANGELOG.md';
             barGap,
             maxBarSize,
             barCategoryGap,
+            unfocusedAnimation,
         };
-        
+    
         const xAxis = {
             hide: xAxisHide,
             axisLine: xAxisLine,
@@ -1418,64 +1477,159 @@ import Changelog from '../../CHANGELOG.md';
             tickMargin: xAxisTickMargin,
             dataKey: 'label',
             orientation: xAxisOrientation,
+            tickFormatter: (decimal) => decimal.substr(0, 3),
         };
     
         const yAxis = {
             hide: yAxisHide,
+            tickLine: yAxisTickLine,
+            tickCount: yAxisTickCoiunt,
+            axisLine: yAxisLine,
         };
     
-        const labelsBarChart = ['Long label', 'Label1', 'Label2', 'Label3', 'Label4', 'Label5', 'Label6', 'Label7'];
+        const legend = {
+            verticalAlign: legendVerticalAlign,
+            align: legendAlign,
+            marginTop: legendMarginTop,
+            iconHeight: legendIconHeight,
+            typography: {
+                label: {
+                    view: 'primary-medium',
+                    tag: 'span',
+                },
+            },
+        };
     
-        const barChart = {
-            hide: barHideLegend,
-            hideLegend: barHideLegend,
-            hideTooltip: barHideTooltip,
-            zIndex: barZIndex,
+        const tooltip = {
+            amount: {
+                currency: 'RUB',
+                minority: 100,
+                view: 'withZeroMinorPart',
+            },
+            separator: tooltipSeparator,
+            offset: tooltipOffset,
+            filterNull: tooltipFilterNull,
+            cursor: {
+                stroke: cursorStroke,
+                strokeWidth: cursorStrokeWidth
+            },
+            isAnimationActive: tooltipIsAnimationActive,
+            animationBegin: tooltipAnimationBegin,
+            animationDuration: tooltipAnimationDuration,
+            animationEasing: tooltipAnimationEasing,
+            arrow: tooltipArrow,
+            labelFormatter: (text) => `${text} 2021`,
+            arrangeData: ['icon', 'name', 'value'],
+            typography: {
+                title: {
+                    view: 'component',
+                    tag: 'span',
+                },
+                text: {
+                    view: 'component',
+                    tag: 'span',
+                },
+            },
+        };
+    
+        const labelsBarChart = ['Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь'];
+    
+        const barChartFirst = {
+            hide: barHideLegendFirts,
+            hideLegend: barHideLegendFirts,
+            hideTooltip: barHideTooltipFirts,
+            zIndex: barZIndexFirts,
             chart: 'bar',
-            icon: barIcon,
-            radius: barRadius || 0,
+            icon: barIconFirts,
+            radius: barRadiusFirts || 0,
             labelList: {
-                formatter: (decimal) => `${decimal}${barFormatter}`,
-                offset: barLabelListOffset,
+                formatter: (decimal) => `${decimal}${barFormatterFirts}`,
+                offset: barLabelListOffsetFirts,
             },
             properties: {
-                name: barName,
-                dataKey: 'cm',
+                name: barNameFirts,
+                amount: {
+                    currency: 'RUB',
+                    minority: 100,
+                    view: 'withZeroMinorPart',
+                    value: 84927645,
+                },
+                dataKey: 'uv',
                 formatter: (decimal) => `${decimal * 1000}`,
-                fill: barFill,
+                fill: barFillFirts,
             },
             data: [
                 {
-                    label: 'Long label',
-                    value: 5000,
+                    label: 'Июнь',
+                    value: 80,
                 },
                 {
-                    label: 'Label1',
-                    value: 650,
+                    label: 'Июль',
+                    value: 70,
                 },
                 {
-                    label: 'Label2',
-                    value: 3522,
+                    label: 'Август',
+                    value: 75,
                 },
                 {
-                    label: 'Label3',
-                    value: 0,
+                    label: 'Сентябрь',
+                    value: 72,
                 },
                 {
-                    label: 'Label4',
-                    value: 2000,
+                    label: 'Октябрь',
+                    value: 72,
                 },
                 {
-                    label: 'Label5',
-                    value: 1043,
+                    label: 'Ноябрь',
+                    value: 100,
+                },
+            ],
+        };
+    
+        const barChartSecond = {
+            hide: barHideLegendSecond,
+            hideLegend: barHideLegendSecond,
+            hideTooltip: barHideTooltipSecond,
+            zIndex: barZIndexSecond,
+            chart: 'bar',
+            icon: barIconSecond,
+            radius: barRadiusSecond || 0,
+            properties: {
+                name: barNameSecond,
+                amount: {
+                    currency: 'RUB',
+                    minority: 100,
+                    view: 'withZeroMinorPart',
+                    value: 832827,
+                },
+                dataKey: 'pv',
+                formatter: (decimal) => `${decimal * 1000}`,
+                fill: barFillSecond,
+            },
+            data: [
+                {
+                    label: 'Июнь',
+                    value: 58,
                 },
                 {
-                    label: 'Label6',
-                    value: 600,
+                    label: 'Июль',
+                    value: 58,
                 },
                 {
-                    label: 'Label7',
-                    value: 1,
+                    label: 'Август',
+                    value: 58,
+                },
+                {
+                    label: 'Сентябрь',
+                    value: 83,
+                },
+                {
+                    label: 'Октябрь',
+                    value: 58,
+                },
+                {
+                    label: 'Ноябрь',
+                    value: 58,
                 },
             ],
         };
@@ -1488,12 +1642,12 @@ import Changelog from '../../CHANGELOG.md';
             xAxis,
             yAxis,
             labels: labelsBarChart,
-            series: [barChart]
+            series: [barChartSecond, barChartFirst],
         };
-        
+    
         return (
             <div style={{ display: 'flex' }}>
-                <div style={{ marginBottom: '20px', top: 25, width: '1050px', height: '600px' }}>
+                <div style={{ marginBottom: '20px', top: 25, width: '1050px', height: '600px', background: '#F3F4F5' }}>
                     <Chart
                         id='bar-chart'
                         composeChart={ composeChart }
@@ -1502,7 +1656,9 @@ import Changelog from '../../CHANGELOG.md';
                         xAxis={ xAxis }
                         yAxis={ yAxis }
                         labels={ labelsBarChart }
-                        series={ [barChart] }
+                        series={ [barChartSecond, barChartFirst] }
+                        legend={ legend }
+                        tooltip={tooltip}
                     />
                 </div>
                 <div style={{ width: '500px', height: '600px', overflow: 'auto' }}>
