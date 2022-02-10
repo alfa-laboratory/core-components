@@ -3,12 +3,11 @@ import cn from 'classnames';
 import { addMonths, endOfMonth, startOfMonth, subMonths } from 'date-fns';
 import { Calendar, usePeriodWithReset } from '@alfalab/core-components-calendar';
 import { formatDate, parseDateString } from '@alfalab/core-components-calendar-input';
-import { isCompleteDateInput } from '@alfalab/core-components-date-input';
+import { DateInput, DateInputProps, isCompleteDateInput } from '@alfalab/core-components-date-input';
 
 import { isValidInputValue, isDayButton } from '../utils';
 import { CalendarRangeProps } from '../Component';
 import { useStaticViewMonthes } from '../hooks';
-import { DateInput, DateInputProps } from '../../../date-input/src/Component';
 
 import styles from './index.module.css';
 
@@ -150,6 +149,9 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         }
 
         period.setStart(dateFrom || undefined);
+        if (dateTo) {
+            period.setEnd(dateTo);
+        }
 
         onDateFromChange({
             value: inputFromValue,
@@ -164,6 +166,9 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         }
 
         period.setEnd(dateTo || undefined);
+        if (dateFrom) {
+            period.setStart(dateFrom);
+        }
 
         onDateToChange({
             value: inputToValue,

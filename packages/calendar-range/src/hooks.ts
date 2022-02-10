@@ -1,10 +1,5 @@
-/* eslint-disable complexity */
-/* eslint-disable multiline-comment-style */
 import { useState, useCallback, useEffect, useMemo } from 'react';
-import { startOfMonth, addMonths, subMonths, max } from 'date-fns';
-
-import { isEqual } from 'date-fns/esm';
-import min from 'date-fns/min';
+import { startOfMonth, addMonths, subMonths, max, min, isEqual } from 'date-fns';
 
 export function usePopoverViewMonthes({
     dateFrom,
@@ -120,6 +115,7 @@ export function useStaticViewMonthes({
         [monthFrom],
     );
 
+    // eslint-disable-next-line complexity
     useEffect(() => {
         const selectedFromMonth = selectedFrom ? startOfMonth(selectedFrom).getTime() : undefined;
         const selectedToMonth = selectedTo ? startOfMonth(selectedTo).getTime() : undefined;
@@ -133,12 +129,12 @@ export function useStaticViewMonthes({
         const toMonthOnScreen = toMonthOnLeft || toMonthOnRight;
 
         if (fromMonthOnLeft && toMonthOnLeft) {
-            setMonthTo(max([addMonths(selectedFromMonth, 1), monthTo]).getTime());
+            setMonthTo(max([addMonths(selectedFromMonth as number, 1), monthTo]).getTime());
             return;
         }
 
         if (fromMonthOnRight && toMonthOnRight) {
-            setMonthFrom(min([subMonths(selectedToMonth, 1), monthFrom]).getTime());
+            setMonthFrom(min([subMonths(selectedToMonth as number, 1), monthFrom]).getTime());
             return;
         }
 

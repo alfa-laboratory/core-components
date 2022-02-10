@@ -31,7 +31,6 @@ import {
 import { SUPPORTS_INPUT_TYPE_DATE } from './utils';
 
 import styles from './index.module.css';
-import { SUPPORTS_INPUT_TYPE_DATE } from './utils';
 
 export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'> & {
     /**

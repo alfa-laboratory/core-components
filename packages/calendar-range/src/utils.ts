@@ -1,7 +1,7 @@
 import { dateInLimits } from '@alfalab/core-components-calendar';
 import { parseDateString } from '@alfalab/core-components-calendar-input';
-import { isSameDay } from 'date-fns';
 import { isCompleteDateInput } from '@alfalab/core-components-date-input';
+import { isSameDay } from 'date-fns';
 
 export const isValidInputValue = (
     newInputValue: string | undefined,
