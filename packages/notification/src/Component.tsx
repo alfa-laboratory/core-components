@@ -184,7 +184,6 @@ export const Notification = forwardRef<HTMLDivElement, NotificationProps>(
                 }
             },
             delta: 100,
-            trackMouse: true,
         });
 
         const Wrapper = usePortal ? Portal : Fragment;
