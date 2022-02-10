@@ -1,4 +1,4 @@
-import { parse, format as dateFnsFormat } from 'date-fns';
+import { parse, format as dateFnsFormat, isValid as dateFnsIsValid } from 'date-fns';
 
 export const DATE_FORMAT = 'dd.MM.yyyy';
 export const NATIVE_DATE_FORMAT = 'yyyy-MM-dd';
@@ -11,6 +11,9 @@ export const formatDate = (date: Date | number, dateFormat = DATE_FORMAT) =>
 
 export const parseDateString = (value: string, dateFormat = DATE_FORMAT) =>
     parse(value, dateFormat, new Date());
+
+export const isValid = (inputValue?: string) =>
+    !inputValue || (isCompleteDateInput(inputValue) && dateFnsIsValid(parseDateString(inputValue)));
 
 export const format = (value: string): string =>
     value

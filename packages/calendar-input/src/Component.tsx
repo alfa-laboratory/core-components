@@ -18,7 +18,6 @@ import { Popover, PopoverProps } from '@alfalab/core-components-popover';
 import {
     DateInput,
     DateInputProps,
-    SUPPORTS_INPUT_TYPE_DATE,
     formatDate,
     parseDateString,
     isCompleteDateInput,
@@ -33,6 +32,7 @@ import {
 import { CalendarMIcon } from '@alfalab/icons-glyph/CalendarMIcon';
 
 import styles from './index.module.css';
+import { SUPPORTS_INPUT_TYPE_DATE } from './utils';
 
 export type CalendarInputProps = Omit<DateInputProps, 'onChange' | 'mobileMode'> & {
     /**

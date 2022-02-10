@@ -1,8 +1,16 @@
-import React, { ChangeEvent, useCallback, useEffect, useState, forwardRef } from 'react';
-import { isValid } from 'date-fns';
+import React, {
+    ChangeEvent,
+    useCallback,
+    useEffect,
+    useState,
+    forwardRef,
+    FocusEvent,
+    useRef,
+} from 'react';
 
 import { Input, InputProps } from '@alfalab/core-components-input';
 
+import mergeRefs from 'react-merge-refs';
 import {
     NATIVE_DATE_FORMAT,
     parseDateString,
@@ -10,6 +18,8 @@ import {
     format,
     isCompleteDateInput,
     isInputDateSupported,
+    DATE_MASK,
+    isValid,
 } from './utils';
 
 import styles from './index.module.css';
@@ -41,25 +51,34 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     (
         {
             mobileMode = 'input',
-            defaultValue,
+            defaultValue = '',
             rightAddons,
             error,
-            value,
+            value: propValue,
+            onBlur,
             onChange,
             onComplete,
             ...restProps
         },
         ref,
     ) => {
-        const uncontrolled = value === undefined;
+        const inputRef = useRef<HTMLInputElement>(null);
 
         const [shouldRenderNative, setShouldRenderNative] = useState(false);
 
-        const [stateValue, setStateValue] = useState(defaultValue || '');
+        const [value, setValue] = useState(propValue || defaultValue);
 
-        const [stateError, setStateError] = useState(
-            defaultValue ? !isValid(parseDateString(defaultValue)) : false,
-        );
+        const [stateError, setStateError] = useState(!isValid(propValue));
+
+        const handleValueValidity = useCallback((inputValue: string) => {
+            // Валидируем незаполненное значение только если инпут не в фокусе (блюр, либо установка значения снаружи)
+            const validateIncomplete =
+                inputRef.current && document.activeElement !== inputRef.current;
+
+            if (!inputValue || validateIncomplete || inputValue.length >= DATE_MASK.length) {
+                setStateError(!isValid(inputValue));
+            }
+        }, []);
 
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
@@ -81,20 +100,14 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                 const formattedValue = format(newValue);
                 const date = parseDateString(formattedValue);
 
-                setStateValue(formattedValue);
-                setStateError(false);
+                setValue(formattedValue);
 
                 if (onChange) onChange(event, { date, value: formattedValue });
 
                 if (isCompleteDateInput(formattedValue)) {
-                    const valid = isValid(date);
+                    const valid = formattedValue.length > 0 && isValid(formattedValue);
 
-                    if (!valid) {
-                        setStateError(true);
-                        return;
-                    }
-
-                    setStateError(false);
+                    if (!valid) return;
 
                     if (onComplete) onComplete(event, { date, value: formattedValue });
                 }
@@ -107,12 +120,21 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                 const newDate = parseDateString(event.target.value, NATIVE_DATE_FORMAT);
                 const newValue = event.target.value === '' ? '' : formatDate(newDate);
 
-                setStateValue(newValue);
+                setValue(newValue);
 
                 if (onComplete) onComplete(event, { date: newDate, value: newValue });
                 if (onChange) onChange(event, { date: newDate, value: newValue });
             },
             [onComplete, onChange],
+        );
+
+        const handleBlur = useCallback(
+            (event: FocusEvent<HTMLInputElement>) => {
+                handleValueValidity(value);
+
+                if (onBlur) onBlur(event);
+            },
+            [handleValueValidity, onBlur, value],
         );
 
         useEffect(() => {
@@ -121,17 +143,26 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
             }
         }, [mobileMode]);
 
-        const inputValue = uncontrolled ? stateValue : value;
+        useEffect(() => {
+            if (typeof propValue !== 'undefined') {
+                setValue(propValue);
+            }
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [propValue]);
+
+        useEffect(() => {
+            handleValueValidity(value);
+        }, [handleValueValidity, value]);
 
         return (
             <Input
                 {...restProps}
-                ref={ref}
-                defaultValue={defaultValue}
-                value={inputValue}
-                inputMode='numeric'
-                pattern='[0-9]*'
+                ref={mergeRefs([ref, inputRef])}
+                value={value}
+                inputMode='decimal'
+                pattern='[0-9\.]*'
                 onChange={handleChange}
+                onBlur={handleBlur}
                 placeholder='ДД.ММ.ГГГГ'
                 error={error || stateError}
                 rightAddons={

@@ -23,6 +23,9 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             >
               <input
                 class="input input"
+                inputmode="decimal"
+                pattern="[0-9\\\\.]*"
+                placeholder="ДД.ММ.ГГГГ"
                 type="text"
                 value=""
               />
@@ -51,6 +54,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
             </svg>
           </div>
         </div>
+        
       </div>
       <div>
         <div
@@ -599,6 +603,9 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
               >
                 <input
                   class="input input"
+                  inputmode="decimal"
+                  pattern="[0-9\\\\.]*"
+                  placeholder="ДД.ММ.ГГГГ"
                   type="text"
                   value=""
                 />
@@ -627,6 +634,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
               </svg>
             </div>
           </div>
+          
         </div>
         <div>
           <div
