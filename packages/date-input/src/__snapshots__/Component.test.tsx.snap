@@ -16,8 +16,8 @@ exports[`DateInput Display tests should match snapshot 1`] = `
         >
           <input
             class="input input"
-            inputmode="numeric"
-            pattern="[0-9]*"
+            inputmode="decimal"
+            pattern="[0-9\\\\.]*"
             placeholder="ДД.ММ.ГГГГ"
             type="text"
             value="01.01.2021"
