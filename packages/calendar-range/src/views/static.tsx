@@ -1,9 +1,13 @@
 import React, { useCallback, useState, useRef, FC, useEffect, MouseEvent } from 'react';
 import cn from 'classnames';
-import { addMonths, endOfMonth, startOfMonth, subMonths } from 'date-fns';
+import { addMonths, endOfMonth, max, startOfMonth, subMonths } from 'date-fns';
 import { Calendar, usePeriodWithReset } from '@alfalab/core-components-calendar';
 import { formatDate, parseDateString } from '@alfalab/core-components-calendar-input';
-import { DateInput, DateInputProps, isCompleteDateInput } from '@alfalab/core-components-date-input';
+import {
+    DateInput,
+    DateInputProps,
+    isCompleteDateInput,
+} from '@alfalab/core-components-date-input';
 
 import { isValidInputValue, isDayButton } from '../utils';
 import { CalendarRangeProps } from '../Component';
@@ -153,10 +157,12 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
             period.setEnd(dateTo);
         }
 
-        onDateFromChange({
-            value: inputFromValue,
-            date: dateFrom,
-        });
+        if (inputFromValue !== valueFrom) {
+            onDateFromChange({
+                value: inputFromValue,
+                date: dateFrom,
+            });
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [inputFromValue]);
 
@@ -170,10 +176,12 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
             period.setStart(dateFrom);
         }
 
-        onDateToChange({
-            value: inputToValue,
-            date: dateTo,
-        });
+        if (inputToValue !== valueTo) {
+            onDateToChange({
+                value: inputToValue,
+                date: dateTo,
+            });
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [inputToValue]);
 
@@ -208,7 +216,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                     onChange={period.updatePeriod}
                     onMonthChange={handleMonthFromChange}
                     minDate={minDate}
-                    maxDate={maxDate && endOfMonth(subMonths(maxDate, 1)).getTime()}
+                    maxDate={maxDate && max([maxDate, endOfMonth(subMonths(maxDate, 1))]).getTime()}
                     selectedFrom={period.selectedFrom}
                     selectedTo={period.selectedTo || (nextMonthHighlighted ? monthTo : undefined)}
                     rangeComplete={Boolean(period.selectedFrom && period.selectedTo)}
