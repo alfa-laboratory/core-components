@@ -6,7 +6,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
     class="component left"
   >
     <div
-      class="left"
+      class="component left"
     >
       <h3
         class="header"
@@ -61,7 +61,7 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="countdown"
+        class="countdown countdownContainer"
       >
         Запросить повторно можно через
         <div
@@ -70,19 +70,15 @@ exports[`Confirmation Snapshot tests should match snapshot 1`] = `
           01:00
         </div>
       </div>
-      <div
-        class="smsComeLinkWrap"
+      <a
+        class="component secondary pseudo smsComeLink"
       >
-        <a
-          class="component secondary pseudo smsComeLink"
+        <span
+          class="text"
         >
-          <span
-            class="text"
-          >
-            Не приходит сообщение?
-          </span>
-        </a>
-      </div>
+          Не приходит сообщение?
+        </span>
+      </a>
     </div>
   </div>
 </div>
@@ -94,7 +90,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
     class="component left"
   >
     <div
-      class="left"
+      class="component left"
     >
       <h3
         class="header"
@@ -154,7 +150,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
         </div>
       </div>
       <div
-        class="loaderWrap"
+        class="loaderWrap countdownContainer"
       >
         <svg
           class="component"
@@ -182,19 +178,15 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
           class="loaderText"
         />
       </div>
-      <div
-        class="smsComeLinkWrap"
+      <a
+        class="component secondary pseudo smsComeLink"
       >
-        <a
-          class="component secondary pseudo smsComeLink"
+        <span
+          class="text"
         >
-          <span
-            class="text"
-          >
-            Не приходит сообщение?
-          </span>
-        </a>
-      </div>
+          Не приходит сообщение?
+        </span>
+      </a>
     </div>
   </div>
 </div>
@@ -206,7 +198,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
     class="component left"
   >
     <div
-      class="left"
+      class="component left"
     >
       <h3
         class="header"
@@ -267,7 +259,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
         </div>
       </div>
       <div
-        class="countdown"
+        class="countdown countdownContainer"
       >
         Запросить повторно можно через
         <div
@@ -276,19 +268,15 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_ERROR state
           01:00
         </div>
       </div>
-      <div
-        class="smsComeLinkWrap"
+      <a
+        class="component secondary pseudo smsComeLink"
       >
-        <a
-          class="component secondary pseudo smsComeLink"
+        <span
+          class="text"
         >
-          <span
-            class="text"
-          >
-            Не приходит сообщение?
-          </span>
-        </a>
-      </div>
+          Не приходит сообщение?
+        </span>
+      </a>
     </div>
   </div>
 </div>
@@ -300,7 +288,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
     class="component left"
   >
     <div
-      class="left"
+      class="component left"
     >
       <h3
         class="header"
@@ -360,7 +348,7 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
         </div>
       </div>
       <div
-        class="loaderWrap"
+        class="loaderWrap countdownContainer"
       >
         <svg
           class="component"
@@ -388,19 +376,15 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
           class="loaderText"
         />
       </div>
-      <div
-        class="smsComeLinkWrap"
+      <a
+        class="component secondary pseudo smsComeLink"
       >
-        <a
-          class="component secondary pseudo smsComeLink"
+        <span
+          class="text"
         >
-          <span
-            class="text"
-          >
-            Не приходит сообщение?
-          </span>
-        </a>
-      </div>
+          Не приходит сообщение?
+        </span>
+      </a>
     </div>
   </div>
 </div>

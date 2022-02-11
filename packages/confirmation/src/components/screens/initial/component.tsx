@@ -83,15 +83,13 @@ export const Initial = () => {
         }
 
         if (state === 'CODE_ERROR' && prevState !== 'CODE_ERROR') {
-            inputRef.current.reset();
-            inputRef.current.focus();
-            inputRef.current.unselect();
+            inputRef.current.focus(requiredCharAmount - 1);
         }
 
         if (prevState === 'CODE_SENDING' && state !== 'CODE_SENDING') {
             inputRef.current.focus();
         }
-    }, [prevState, state]);
+    }, [prevState, state, requiredCharAmount]);
 
     useLayoutEffect(() => {
         if (prevState === 'CODE_SENDING' && state !== 'CODE_SENDING') {
