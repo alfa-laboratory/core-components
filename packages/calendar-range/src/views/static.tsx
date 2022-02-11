@@ -2,14 +2,18 @@ import React, { useCallback, useState, useRef, FC, useEffect, MouseEvent } from 
 import cn from 'classnames';
 import { addMonths, endOfMonth, max, startOfMonth, subMonths } from 'date-fns';
 import { Calendar, usePeriodWithReset } from '@alfalab/core-components-calendar';
-import { formatDate, parseDateString } from '@alfalab/core-components-calendar-input';
+import {
+    formatDate,
+    parseDateString,
+    isValidInputValue,
+} from '@alfalab/core-components-calendar-input';
 import {
     DateInput,
     DateInputProps,
     isCompleteDateInput,
 } from '@alfalab/core-components-date-input';
 
-import { isValidInputValue, isDayButton } from '../utils';
+import { isDayButton } from '../utils';
 import { CalendarRangeProps } from '../Component';
 import { useStaticViewMonthes } from '../hooks';
 

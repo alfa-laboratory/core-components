@@ -1,12 +1,12 @@
-import { parse, format } from 'date-fns';
+import { parse, format, isSameDay } from 'date-fns';
+import { dateInLimits } from '@alfalab/core-components-calendar';
+import { isCompleteDateInput } from '@alfalab/core-components-date-input';
 
 export const DATE_FORMAT = 'dd.MM.yyyy';
 export const NATIVE_DATE_FORMAT = 'yyyy-MM-dd';
 export const DATE_MASK = [/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/];
 export const IS_BROWSER = typeof window !== 'undefined';
 export const SUPPORTS_INPUT_TYPE_DATE = IS_BROWSER && isInputDateSupported();
-
-export const isCompleteDateInput = (input: string) => input.length === DATE_MASK.length;
 
 export const formatDate = (date: Date | number, dateFormat = DATE_FORMAT) =>
     format(date, dateFormat);
@@ -26,3 +26,21 @@ export function isInputDateSupported() {
 
     return input.value !== value;
 }
+
+export const isValidInputValue = (
+    newInputValue: string | undefined,
+    minDate: number | undefined,
+    maxDate: number | undefined,
+    offDays: Array<number | Date> = [],
+) => {
+    if (!newInputValue) return false;
+
+    const dateValue = parseDateString(newInputValue).getTime();
+
+    return Boolean(
+        dateValue &&
+            isCompleteDateInput(newInputValue) &&
+            dateInLimits(dateValue, minDate, maxDate) &&
+            !offDays.some(offDay => isSameDay(offDay, dateValue)),
+    );
+};

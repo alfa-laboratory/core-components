@@ -4,11 +4,12 @@ import { startOfMonth } from 'date-fns';
 import {
     CalendarInput,
     CalendarInputProps,
-    isCompleteDateInput,
+    isValidInputValue,
     parseDateString,
 } from '@alfalab/core-components-calendar-input';
+import { isCompleteDateInput } from '@alfalab/core-components-date-input';
+
 import { CalendarRangeProps } from '../Component';
-import { isValidInputValue } from '../utils';
 import { usePopoverViewMonthes } from '../hooks';
 
 import styles from './index.module.css';
