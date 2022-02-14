@@ -8,8 +8,8 @@ render(() => {
     const [calendarPosition, setCalendarPosition] = React.useState('static');
 
     const defaultDate = parseDateString('10.03.2022');
-    const [valueFrom, setValueFrom] = React.useState('05.03.2022');
-    const [valueTo, setValueTo] = React.useState('09.03.2022');
+    const [valueFrom, setValueFrom] = React.useState({ value: '', date: null });
+    const [valueTo, setValueTo] = React.useState({ value: '', date: null });
 
     const minDate = subMonths(startOfDay(defaultDate), 3).getTime();
     const maxDate = addMonths(startOfDay(defaultDate), 3).getTime();
@@ -27,19 +27,21 @@ render(() => {
             </RadioGroup>
 
             <CalendarRange
-                valueFrom={valueFrom}
-                valueTo={valueTo}
+                valueFrom={valueFrom.value}
+                valueTo={valueTo.value}
                 minDate={minDate}
                 maxDate={maxDate}
                 defaultMonth={startOfMonth(defaultDate)}
                 offDays={[startOfDay(defaultDate)]}
                 calendarPosition={calendarPosition}
-                onDateFromChange={({ value }) => setValueFrom(value)}
-                onDateToChange={({ value }) => setValueTo(value)}
+                onDateFromChange={setValueFrom}
+                onDateToChange={setValueTo}
             />
 
             <span>
-                Values: {valueFrom} — {valueTo}
+                Values: {valueFrom.value} — {valueTo.value}
+                <br />
+                Dates: {valueFrom.date && formatDate(valueFrom.date)} — {valueTo.date && formatDate(valueTo.date)}
             </span>
 
             <Space direction='horizontal'>
