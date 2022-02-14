@@ -104,9 +104,6 @@ render(() => {
 ```tsx live
 render(() => {
     // import { usePeriod } from '@alfalab/core-components/calendar';
-
-    const [value, setValue] = React.useState();
-
     const onPeriodChange = (selectedFrom, selectedTo) => {
         console.log('selected', selectedFrom, selectedTo);
     };
@@ -114,15 +111,11 @@ render(() => {
     const { selectedFrom, selectedTo, updatePeriod } = usePeriod({ onPeriodChange });
 
     const handleChange = date => {
-        const newDate = date === selectedFrom ? undefined : date;
-
-        setValue(newDate);
-        updatePeriod(newDate);
+        updatePeriod(date);
     };
 
     return (
         <Calendar
-            value={value}
             selectedFrom={selectedFrom}
             selectedTo={selectedTo}
             onChange={handleChange}
@@ -194,6 +187,12 @@ render(() => {
 
             <PeriodSlider
                 value={values.value}
+                periodType='day'
+                onPrevArrowClick={handler}
+                onNextArrowClick={handler}
+            />
+
+            <PeriodSlider
                 periodType='day'
                 onPrevArrowClick={handler}
                 onNextArrowClick={handler}

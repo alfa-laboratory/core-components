@@ -65,6 +65,11 @@ export type CalendarProps = {
     selectedTo?: number;
 
     /**
+     * Индикатор, что выбран полный период
+     */
+    rangeComplete?: boolean;
+
+    /**
      * Список событий
      */
     events?: Array<Date | number>;
@@ -103,6 +108,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             defaultMonth: defaultMonthTimestamp = +new Date(),
             selectedFrom,
             selectedTo,
+            rangeComplete,
             offDays,
             events,
             onChange,
@@ -243,6 +249,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                             selectedTo={selectedTo}
                             getDayProps={getDayProps}
                             highlighted={highlighted}
+                            rangeComplete={rangeComplete}
                         />
                     )}
 

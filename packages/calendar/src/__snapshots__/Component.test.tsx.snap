@@ -16,9 +16,31 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
       >
         <button
           aria-label="Предыдущий период"
-          class="component ghost m component ghost iconOnly arrow"
+          class="component ghost s component ghost iconOnly arrow primary"
           type="button"
-        />
+        >
+          <span
+            class="addons"
+          >
+            <span
+              class="iconWrapper xs"
+            >
+              <svg
+                class="icon"
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         <button
           class="component ghost xs component ghost button filled month"
           type="button"
@@ -55,9 +77,31 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
         </button>
         <button
           aria-label="Следующий период"
-          class="component ghost m component ghost iconOnly arrow"
+          class="component ghost s component ghost iconOnly arrow primary"
           type="button"
-        />
+        >
+          <span
+            class="addons"
+          >
+            <span
+              class="iconWrapper xs"
+            >
+              <svg
+                class="icon"
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
       </div>
     </div>
     <div
@@ -603,9 +647,31 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
       >
         <button
           aria-label="Предыдущий период"
-          class="component ghost m component ghost iconOnly arrow"
+          class="component ghost s component ghost iconOnly arrow primary"
           type="button"
-        />
+        >
+          <span
+            class="addons"
+          >
+            <span
+              class="iconWrapper xs"
+            >
+              <svg
+                class="icon"
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         <button
           class="component ghost xs component ghost button filled month"
           type="button"
@@ -642,9 +708,31 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
         </button>
         <button
           aria-label="Следующий период"
-          class="component ghost m component ghost iconOnly arrow"
+          class="component ghost s component ghost iconOnly arrow primary"
           type="button"
-        />
+        >
+          <span
+            class="addons"
+          >
+            <span
+              class="iconWrapper xs"
+            >
+              <svg
+                class="icon"
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
       </div>
     </div>
     <div
@@ -831,9 +919,31 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
       >
         <button
           aria-label="Предыдущий период"
-          class="component ghost m component ghost iconOnly arrow"
+          class="component ghost s component ghost iconOnly arrow primary"
           type="button"
-        />
+        >
+          <span
+            class="addons"
+          >
+            <span
+              class="iconWrapper xs"
+            >
+              <svg
+                class="icon"
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         <button
           class="component ghost xs component ghost button filled month"
           type="button"
@@ -870,9 +980,31 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
         </button>
         <button
           aria-label="Следующий период"
-          class="component ghost m component ghost iconOnly arrow"
+          class="component ghost s component ghost iconOnly arrow primary"
           type="button"
-        />
+        >
+          <span
+            class="addons"
+          >
+            <span
+              class="iconWrapper xs"
+            >
+              <svg
+                class="icon"
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
       </div>
     </div>
     <div
@@ -2194,9 +2326,31 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
       >
         <button
           aria-label="Предыдущий период"
-          class="component ghost m component ghost iconOnly arrow"
+          class="component ghost s component ghost iconOnly arrow primary"
           type="button"
-        />
+        >
+          <span
+            class="addons"
+          >
+            <span
+              class="iconWrapper xs"
+            >
+              <svg
+                class="icon"
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         <button
           class="component ghost xs component ghost button filled month"
           type="button"
@@ -2233,9 +2387,31 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
         </button>
         <button
           aria-label="Следующий период"
-          class="component ghost m component ghost iconOnly arrow"
+          class="component ghost s component ghost iconOnly arrow primary"
           type="button"
-        />
+        >
+          <span
+            class="addons"
+          >
+            <span
+              class="iconWrapper xs"
+            >
+              <svg
+                class="icon"
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
       </div>
     </div>
     <div
@@ -2781,9 +2957,31 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
       >
         <button
           aria-label="Предыдущий период"
-          class="component ghost m component ghost iconOnly arrow"
+          class="component ghost s component ghost iconOnly arrow primary"
           type="button"
-        />
+        >
+          <span
+            class="addons"
+          >
+            <span
+              class="iconWrapper xs"
+            >
+              <svg
+                class="icon"
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         <span
           class="period"
         >
@@ -2791,9 +2989,31 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
         </span>
         <button
           aria-label="Следующий период"
-          class="component ghost m component ghost iconOnly arrow"
+          class="component ghost s component ghost iconOnly arrow primary"
           type="button"
-        />
+        >
+          <span
+            class="addons"
+          >
+            <span
+              class="iconWrapper xs"
+            >
+              <svg
+                class="icon"
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
       </div>
     </div>
     <div
@@ -3339,9 +3559,31 @@ exports[`Calendar Display tests should match snapshot 1`] = `
       >
         <button
           aria-label="Предыдущий период"
-          class="component ghost m component ghost iconOnly arrow"
+          class="component ghost s component ghost iconOnly arrow primary"
           type="button"
-        />
+        >
+          <span
+            class="addons"
+          >
+            <span
+              class="iconWrapper xs"
+            >
+              <svg
+                class="icon"
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
         <button
           class="component ghost xs component ghost button filled month"
           type="button"
@@ -3378,9 +3620,31 @@ exports[`Calendar Display tests should match snapshot 1`] = `
         </button>
         <button
           aria-label="Следующий период"
-          class="component ghost m component ghost iconOnly arrow"
+          class="component ghost s component ghost iconOnly arrow primary"
           type="button"
-        />
+        >
+          <span
+            class="addons"
+          >
+            <span
+              class="iconWrapper xs"
+            >
+              <svg
+                class="icon"
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
       </div>
     </div>
     <div

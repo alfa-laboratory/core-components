@@ -48,6 +48,10 @@
     }
 }
 
+.empty {
+    color: var(--color-light-text-secondary);
+}
+
 .upDownIcon {
     display: block;
     background: var(--calendar-select-icon-background);
@@ -62,14 +66,7 @@
 
 .arrow {
     position: absolute;
-    width: 24px;
-    height: 24px;
-    top: 8px;
-    background: var(--calendar-arrow-background);
-
-    &:disabled {
-        opacity: 0.3;
-    }
+    top: 4px;
 
     &:first-child {
         left: 0;

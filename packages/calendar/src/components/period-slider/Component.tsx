@@ -1,7 +1,8 @@
-import React, { FC, MouseEvent } from 'react';
+import React, { FC, MouseEvent, useMemo } from 'react';
 import cn from 'classnames';
-import { Button } from '@alfalab/core-components-button';
+import { IconButton } from '@alfalab/core-components-icon-button';
 import { endOfWeek, startOfWeek } from 'date-fns';
+import { ChevronBackMIcon } from '@alfalab/icons-glyph/ChevronBackMIcon';
 import { SelectButton } from '../select-button';
 import { monthName } from '../../utils';
 import { formatPeriod, shiftValues } from './utils';
@@ -14,7 +15,7 @@ export type PeriodSliderProps = {
     /**
      * Активная дата или период
      */
-    value: Date | [Date, Date];
+    value?: Date | [Date, Date];
 
     /**
      * Вид шапки — с кнопками выбора года и месяца или только период
@@ -108,27 +109,35 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
     onYearClick,
     dataTestId,
 }) => {
-    let valueFrom: Date;
-    let valueTo: Date;
+    const [valueFrom, valueTo] = useMemo(() => {
+        let from: Date;
+        let to: Date;
 
-    if (Array.isArray(value)) {
-        [valueFrom, valueTo] = value;
-    } else {
-        [valueFrom, valueTo] = [value, value];
+        if (!value) return [undefined, undefined];
 
-        if (periodType === 'week') {
-            valueFrom = startOfWeek(valueFrom, { weekStartsOn: 1 });
-            valueTo = endOfWeek(valueFrom, { weekStartsOn: 1 });
+        if (Array.isArray(value)) {
+            [from, to] = value;
+        } else {
+            [from, to] = [value, value];
+
+            if (periodType === 'week') {
+                from = startOfWeek(from, { weekStartsOn: 1 });
+                to = endOfWeek(from, { weekStartsOn: 1 });
+            }
         }
-    }
 
-    const month = monthName(valueFrom);
-    const year = valueFrom.getFullYear().toString();
+        return [from, to];
+    }, [periodType, value]);
 
-    const showPrevButton = !(hideDisabledArrows && prevArrowDisabled);
-    const showNextButton = !(hideDisabledArrows && nextArrowDisabled);
+    const month = valueFrom ? monthName(valueFrom) : undefined;
+    const year = valueFrom ? valueFrom.getFullYear().toString() : undefined;
+
+    const showPrevButton = !(hideDisabledArrows && (prevArrowDisabled || !valueFrom));
+    const showNextButton = !(hideDisabledArrows && (nextArrowDisabled || !valueFrom));
 
     const handleNextArrowClick = (event: MouseEvent<HTMLButtonElement>) => {
+        if (!valueFrom || !valueTo) return;
+
         const newValues = shiftValues(valueFrom, valueTo, periodType, 'next');
 
         onNextArrowClick(event, {
@@ -140,6 +149,8 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
     };
 
     const handlePrevArrowClick = (event: MouseEvent<HTMLButtonElement>) => {
+        if (!valueFrom || !valueTo) return;
+
         const newValues = shiftValues(valueFrom, valueTo, periodType, 'prev');
 
         onPrevArrowClick(event, {
@@ -148,6 +159,31 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
             valueTo: newValues.valueTo,
             periodType,
         });
+    };
+
+    const renderHeader = () => {
+        if (!valueFrom || !valueTo) {
+            return <span className={cn(styles.period, styles.empty)}>Укажите период</span>;
+        }
+
+        return view === 'full' ? (
+            <React.Fragment>
+                <SelectButton view='filled' className={styles.month} onClick={onMonthClick}>
+                    <span className={styles.buttonContent}>
+                        {month}
+                        <span className={styles.upDownIcon} />
+                    </span>
+                </SelectButton>
+                <SelectButton view='filled' className={styles.year} onClick={onYearClick}>
+                    <span className={styles.buttonContent}>
+                        {year}
+                        <span className={styles.upDownIcon} />
+                    </span>
+                </SelectButton>
+            </React.Fragment>
+        ) : (
+            <span className={styles.period}>{periodFormatter(valueFrom, valueTo, periodType)}</span>
+        );
     };
 
     return (
@@ -159,42 +195,25 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
             data-test-id={dataTestId}
         >
             {showPrevButton && (
-                <Button
-                    view='ghost'
+                <IconButton
+                    size='xs'
                     className={styles.arrow}
+                    icon={ChevronBackMIcon}
                     onClick={handlePrevArrowClick}
-                    disabled={prevArrowDisabled}
+                    disabled={prevArrowDisabled || !valueFrom}
                     aria-label='Предыдущий период'
                 />
             )}
 
-            {view === 'full' ? (
-                <React.Fragment>
-                    <SelectButton view='filled' className={styles.month} onClick={onMonthClick}>
-                        <span className={styles.buttonContent}>
-                            {month}
-                            <span className={styles.upDownIcon} />
-                        </span>
-                    </SelectButton>
-                    <SelectButton view='filled' className={styles.year} onClick={onYearClick}>
-                        <span className={styles.buttonContent}>
-                            {year}
-                            <span className={styles.upDownIcon} />
-                        </span>
-                    </SelectButton>
-                </React.Fragment>
-            ) : (
-                <span className={styles.period}>
-                    {periodFormatter(valueFrom, valueTo, periodType)}
-                </span>
-            )}
+            {renderHeader()}
 
             {showNextButton && (
-                <Button
-                    view='ghost'
+                <IconButton
+                    size='xs'
                     className={styles.arrow}
+                    icon={ChevronBackMIcon}
                     onClick={handleNextArrowClick}
-                    disabled={nextArrowDisabled}
+                    disabled={nextArrowDisabled || !valueFrom}
                     aria-label='Следующий период'
                 />
             )}
