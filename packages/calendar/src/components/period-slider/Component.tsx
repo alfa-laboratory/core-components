@@ -1,7 +1,8 @@
 import React, { FC, MouseEvent, useMemo } from 'react';
 import cn from 'classnames';
-import { Button } from '@alfalab/core-components-button';
+import { IconButton } from '@alfalab/core-components-icon-button';
 import { endOfWeek, startOfWeek } from 'date-fns';
+import { ChevronBackMIcon } from '@alfalab/icons-glyph/ChevronBackMIcon';
 import { SelectButton } from '../select-button';
 import { monthName } from '../../utils';
 import { formatPeriod, shiftValues } from './utils';
@@ -194,9 +195,10 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
             data-test-id={dataTestId}
         >
             {showPrevButton && (
-                <Button
-                    view='ghost'
+                <IconButton
+                    size="xs"
                     className={styles.arrow}
+                    icon={ChevronBackMIcon}
                     onClick={handlePrevArrowClick}
                     disabled={prevArrowDisabled || !valueFrom}
                     aria-label='Предыдущий период'
@@ -206,9 +208,10 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
             {renderHeader()}
 
             {showNextButton && (
-                <Button
-                    view='ghost'
+                <IconButton
+                    size="xs"
                     className={styles.arrow}
+                    icon={ChevronBackMIcon}
                     onClick={handleNextArrowClick}
                     disabled={nextArrowDisabled || !valueFrom}
                     aria-label='Следующий период'
