@@ -7,11 +7,11 @@
         cursor: pointer;
     }
 
-    & *[class^='errorIcon_'] {
+    & *[class*='errorIcon_'] {
         display: none;
     }
 
-    & *[class^='calendarIcon_'] {
+    & *[class*='calendarIcon_'] {
         margin-right: 0;
     }
 }
