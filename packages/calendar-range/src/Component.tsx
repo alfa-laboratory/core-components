@@ -46,6 +46,16 @@ export type CalendarRangeProps = {
     onDateToChange?: (payload: { date: number | null; value: string }) => void;
 
     /**
+     * Обработчик изменения
+     */
+    onChange?: (payload: {
+        dateFrom: number | null;
+        valueFrom: string;
+        dateTo: number | null;
+        valueTo: string;
+    }) => void;
+
+    /**
      * Список событий
      */
     events?: Array<Date | number>;

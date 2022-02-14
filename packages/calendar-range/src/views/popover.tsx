@@ -23,8 +23,9 @@ export const CalendarRangePopover: FC<CalendarRangePopoverProps> = ({
     maxDate,
     valueFrom = '',
     valueTo = '',
-    onDateFromChange,
-    onDateToChange,
+    onDateFromChange = () => null,
+    onDateToChange = () => null,
+    onChange = () => null,
     inputFromProps = {},
     inputToProps = {},
     offDays,
@@ -127,7 +128,14 @@ export const CalendarRangePopover: FC<CalendarRangePopoverProps> = ({
     }, [valueTo]);
 
     useEffect(() => {
-        if (onDateFromChange) onDateFromChange({ value: inputFromValue, date: dateFrom });
+        onDateFromChange({ value: inputFromValue, date: dateFrom });
+
+        onChange({
+            valueFrom: inputFromValue,
+            valueTo: inputToValue,
+            dateFrom,
+            dateTo,
+        });
 
         if (!inputFromValue || isCompleteDateInput(inputFromValue)) {
             handleValidInputFrom();
@@ -136,7 +144,14 @@ export const CalendarRangePopover: FC<CalendarRangePopoverProps> = ({
     }, [inputFromValue]);
 
     useEffect(() => {
-        if (onDateToChange) onDateToChange({ value: inputToValue, date: dateTo });
+        onDateToChange({ value: inputToValue, date: dateTo });
+
+        onChange({
+            valueFrom: inputFromValue,
+            valueTo: inputToValue,
+            dateFrom,
+            dateTo,
+        });
 
         if (!inputToValue || isCompleteDateInput(inputToValue)) {
             handleValidInputTo();

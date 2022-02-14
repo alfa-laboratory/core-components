@@ -34,28 +34,51 @@ render(() => {
                 defaultMonth={startOfMonth(defaultDate)}
                 offDays={[startOfDay(defaultDate)]}
                 calendarPosition={calendarPosition}
-                onDateFromChange={setValueFrom}
-                onDateToChange={setValueTo}
+                onChange={({ valueFrom, valueTo, dateFrom, dateTo }) => {
+                    setValueFrom({ value: valueFrom, date: dateFrom });
+                    setValueTo({ value: valueTo, date: dateTo });
+                }}
             />
 
             <span>
                 Values: {valueFrom.value} — {valueTo.value}
                 <br />
-                Dates: {valueFrom.date && formatDate(valueFrom.date)} — {valueTo.date && formatDate(valueTo.date)}
+                Dates: {valueFrom.date && formatDate(valueFrom.date)} —{' '}
+                {valueTo.date && formatDate(valueTo.date)}
             </span>
 
             <Space direction='horizontal'>
-                <Button size='xxs' type='button' onClick={() => setValueFrom('')}>
+                <Button
+                    size='xxs'
+                    type='button'
+                    onClick={() => setValueFrom({ value: '', date: null })}
+                >
                     Сбросить начало
                 </Button>
-                <Button size='xxs' type='button' onClick={() => setValueTo('')}>
+                <Button
+                    size='xxs'
+                    type='button'
+                    onClick={() => setValueTo({ value: '', date: null })}
+                >
                     Сбросить конец
                 </Button>
 
-                <Button size='xxs' type='button' onClick={() => setValueFrom('20.02.2022')}>
+                <Button
+                    size='xxs'
+                    type='button'
+                    onClick={() =>
+                        setValueFrom({ value: '20.02.2022', date: parseDateString('20.02.2022') })
+                    }
+                >
                     Начало 20.02.2022
                 </Button>
-                <Button size='xxs' type='button' onClick={() => setValueTo('25.04.2022')}>
+                <Button
+                    size='xxs'
+                    type='button'
+                    onClick={() =>
+                        setValueTo({ value: '25.04.2022', date: parseDateString('25.04.2022') })
+                    }
+                >
                     Конец 25.04.2022
                 </Button>
             </Space>

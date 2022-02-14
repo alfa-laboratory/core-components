@@ -30,6 +30,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     valueTo = '',
     onDateFromChange = () => null,
     onDateToChange = () => null,
+    onChange = () => null,
     inputFromProps = {},
     inputToProps = {},
     offDays,
@@ -166,6 +167,13 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                 value: inputFromValue,
                 date: dateFrom,
             });
+
+            onChange({
+                valueFrom: inputFromValue,
+                valueTo: inputToValue,
+                dateFrom,
+                dateTo,
+            });
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [inputFromValue]);
@@ -184,6 +192,13 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
             onDateToChange({
                 value: inputToValue,
                 date: dateTo,
+            });
+
+            onChange({
+                valueFrom: inputFromValue,
+                valueTo: inputToValue,
+                dateFrom,
+                dateTo,
             });
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
