@@ -103,22 +103,6 @@
         }
     }
 
-    &.today {
-        font-weight: bold;
-
-        & span:after {
-            content: '';
-            border: 1px solid var(--calendar-today-border-color);
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: var(--calendar-day-border-radius);
-            box-sizing: border-box;
-        }
-    }
-
     &.highlighted,
     &.range.highlighted:not(.disabled) {
         color: var(--calendar-highlighted-color);
@@ -141,6 +125,11 @@
 
     &.rangeComplete {
         background: var(--calendar-range-complete-background);
+    }
+
+    &.today {
+        font-weight: bold;
+        color: var(--color-light-text-link);
     }
 
     &.selected,

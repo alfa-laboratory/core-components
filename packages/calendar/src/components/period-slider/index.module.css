@@ -48,6 +48,10 @@
     }
 }
 
+.empty {
+    color: var(--color-light-text-secondary);
+}
+
 .upDownIcon {
     display: block;
     background: var(--calendar-select-icon-background);
