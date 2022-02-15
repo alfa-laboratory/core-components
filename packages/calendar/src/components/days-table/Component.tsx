@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 import React, { FC, RefCallback, useCallback, useRef } from 'react';
 import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
@@ -82,13 +83,16 @@ export const DaysTable: FC<DaysTableProps> = ({
         [],
     );
 
-    const renderDay = (day: Day) => {
+    const renderDay = (day: Day, dayIdx: number) => {
+        if (!day) return <td key={dayIdx} />;
+
         const daySelected =
             day.selected ||
             (selectedFrom && isSameDay(day.date, selectedFrom)) ||
             (selectedTo && isSameDay(day.date, selectedTo));
 
-        const inRange = !daySelected && selection && isWithinInterval(day.date, selection);
+        const dayHighlighted = highlighted && isEqual(day.date, highlighted);
+        const inRange = selection && isWithinInterval(day.date, selection);
 
         const firstDay = day.date.getDate() === 1;
         const lastDay = isLastDayOfMonth(day.date);
@@ -97,51 +101,53 @@ export const DaysTable: FC<DaysTableProps> = ({
         const transitRight = lastDay && inRange && selection && day.date < selection.end;
 
         const rangeStart = selection && isSameDay(day.date, selection.start);
+        const rangeEnd = selection && isSameDay(day.date, selection.end);
 
         const dayProps = getDayProps(day);
 
         return (
-            <Button
-                {...dayProps}
-                ref={node => {
-                    /**
-                     * После анимации реф-коллбэк вызывается еще раз, и в него передается null и старый activeMonth.
-                     * Поэтому приходится хранить актуальный месяц в рефе и сравнивать с ним.
-                     */
-                    if (startOfMonth(day.date).getTime() === activeMonthRef.current.getTime()) {
-                        dayProps.ref(node as HTMLButtonElement);
-                    }
-                }}
-                type='button'
-                view='ghost'
-                size='xs'
-                disabled={day.disabled}
-                className={cn(styles.day, {
-                    [styles.selected]: daySelected,
+            <td
+                key={day.date.getTime()}
+                className={cn(styles.dayWrapper, {
                     [styles.range]: inRange,
                     [styles.rangeComplete]: inRange && rangeComplete,
-                    [styles.rangeStart]: rangeStart,
                     [styles.transitLeft]: transitLeft,
                     [styles.transitRight]: transitRight,
-                    [styles.today]: isToday(day.date),
-                    [styles.firstDay]: firstDay,
-                    [styles.lastDay]: lastDay,
-                    [styles.event]: day.event,
-                    [styles.disabled]: day.disabled,
-                    [styles.highlighted]: highlighted && isEqual(day.date, highlighted),
+                    [styles.rangeStart]: rangeStart,
+                    [styles.rangeEnd]: rangeEnd,
                 })}
             >
-                {day.date.getDate()}
-            </Button>
+                <Button
+                    {...dayProps}
+                    ref={node => {
+                        /**
+                         * После анимации реф-коллбэк вызывается еще раз, и в него передается null и старый activeMonth.
+                         * Поэтому приходится хранить актуальный месяц в рефе и сравнивать с ним.
+                         */
+                        if (startOfMonth(day.date).getTime() === activeMonthRef.current.getTime()) {
+                            dayProps.ref(node as HTMLButtonElement);
+                        }
+                    }}
+                    type='button'
+                    view='ghost'
+                    size='xs'
+                    disabled={day.disabled}
+                    className={cn(styles.day, {
+                        [styles.selected]: daySelected,
+                        [styles.today]: isToday(day.date),
+                        [styles.disabled]: day.disabled,
+                        [styles.highlighted]: dayHighlighted,
+                    })}
+                >
+                    {day.event && <span className={styles.dot} />}
+                    {day.date.getDate()}
+                </Button>
+            </td>
         );
     };
 
     const renderWeek = (week: Day[], weekIdx: number) => (
-        <tr key={weekIdx}>
-            {week.map((day: Day, dayIdx: number) => (
-                <td key={day ? day.date.getTime() : dayIdx}>{day && renderDay(day)}</td>
-            ))}
-        </tr>
+        <tr key={weekIdx}>{week.map(renderDay)}</tr>
     );
 
     return (

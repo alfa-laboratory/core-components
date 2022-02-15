@@ -3,8 +3,6 @@ import cn from 'classnames';
 import { IconButton } from '@alfalab/core-components-icon-button';
 import { endOfWeek, startOfWeek } from 'date-fns';
 import { ChevronBackMIcon } from '@alfalab/icons-glyph/ChevronBackMIcon';
-import { SelectButton } from '../select-button';
-import { monthName } from '../../utils';
 import { formatPeriod, shiftValues } from './utils';
 
 import styles from './index.module.css';
@@ -79,16 +77,6 @@ export type PeriodSliderProps = {
     ) => void;
 
     /**
-     * Обработчик нажатия на кнопку месяца
-     */
-    onMonthClick?: (event: MouseEvent<HTMLButtonElement>) => void;
-
-    /**
-     * Обработчик нажатия на кнопку года
-     */
-    onYearClick?: (event: MouseEvent<HTMLButtonElement>) => void;
-
-    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -96,7 +84,6 @@ export type PeriodSliderProps = {
 
 export const PeriodSlider: FC<PeriodSliderProps> = ({
     value,
-    view = 'month-only',
     periodType = 'month',
     className,
     periodFormatter = formatPeriod,
@@ -105,8 +92,6 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
     hideDisabledArrows = false,
     onPrevArrowClick = () => null,
     onNextArrowClick = () => null,
-    onMonthClick,
-    onYearClick,
     dataTestId,
 }) => {
     const [valueFrom, valueTo] = useMemo(() => {
@@ -129,11 +114,14 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
         return [from, to];
     }, [periodType, value]);
 
-    const month = valueFrom ? monthName(valueFrom) : undefined;
-    const year = valueFrom ? valueFrom.getFullYear().toString() : undefined;
+    const showArrow = (direction: 'prev' | 'next') => {
+        if (hideDisabledArrows) {
+            const disabled = direction === 'prev' ? prevArrowDisabled : nextArrowDisabled;
+            return !disabled && valueFrom;
+        }
 
-    const showPrevButton = !(hideDisabledArrows && (prevArrowDisabled || !valueFrom));
-    const showNextButton = !(hideDisabledArrows && (nextArrowDisabled || !valueFrom));
+        return true;
+    };
 
     const handleNextArrowClick = (event: MouseEvent<HTMLButtonElement>) => {
         if (!valueFrom || !valueTo) return;
@@ -161,40 +149,13 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
         });
     };
 
-    const renderHeader = () => {
-        if (!valueFrom || !valueTo) {
-            return <span className={cn(styles.period, styles.empty)}>Укажите период</span>;
-        }
-
-        return view === 'full' ? (
-            <React.Fragment>
-                <SelectButton view='filled' className={styles.month} onClick={onMonthClick}>
-                    <span className={styles.buttonContent}>
-                        {month}
-                        <span className={styles.upDownIcon} />
-                    </span>
-                </SelectButton>
-                <SelectButton view='filled' className={styles.year} onClick={onYearClick}>
-                    <span className={styles.buttonContent}>
-                        {year}
-                        <span className={styles.upDownIcon} />
-                    </span>
-                </SelectButton>
-            </React.Fragment>
-        ) : (
-            <span className={styles.period}>{periodFormatter(valueFrom, valueTo, periodType)}</span>
-        );
-    };
-
     return (
         <div
-            className={cn(styles.component, className, {
-                [styles.full]: view === 'full',
-            })}
+            className={cn(styles.component, className)}
             aria-live='polite'
             data-test-id={dataTestId}
         >
-            {showPrevButton && (
+            {showArrow('prev') && (
                 <IconButton
                     size='xs'
                     className={styles.arrow}
@@ -205,9 +166,15 @@ export const PeriodSlider: FC<PeriodSliderProps> = ({
                 />
             )}
 
-            {renderHeader()}
+            {valueFrom && valueTo ? (
+                <span className={styles.period}>
+                    {periodFormatter(valueFrom, valueTo, periodType)}
+                </span>
+            ) : (
+                <span className={cn(styles.period, styles.empty)}>Укажите период</span>
+            )}
 
-            {showNextButton && (
+            {showArrow('next') && (
                 <IconButton
                     size='xs'
                     className={styles.arrow}

@@ -98,6 +98,7 @@
     --color-light-graphic-primary-alpha-30: var(--color-dark-graphic-primary-alpha-30);
     --color-light-graphic-primary-alpha-40: var(--color-dark-graphic-primary-alpha-40);
     --color-light-graphic-primary-alpha-50: var(--color-dark-graphic-primary-alpha-50);
+    --color-light-graphic-primary-tint-15: var(--color-dark-graphic-primary-shade-15);
     --color-light-graphic-primary-tint-30: var(--color-dark-graphic-primary-shade-30);
     --color-light-graphic-primary-tint-50: var(--color-dark-graphic-primary-shade-50);
     --color-light-graphic-primary-shade-10: var(--color-dark-graphic-primary-tint-10);

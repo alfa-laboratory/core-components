@@ -6,12 +6,14 @@
     box-sizing: border-box;
     padding: var(--calendar-header-paddings);
     transition: box-shadow 0.2s ease;
+
+    @media (max-width: 374px) {
+        /* TODO */
+        padding-left: 18px;
+        padding-right: 18px;
+    }
 }
 
 .withShadow {
     box-shadow: var(--shadow-s);
-}
-
-.monthOnly {
-    padding: var(--calendar-month-only-header-paddings);
 }

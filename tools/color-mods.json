@@ -44,7 +44,7 @@
     },
     "light-graphic-primary": {
         "alpha": [30, 40, 50],
-        "tint": [30, 50],
+        "tint": [15, 30, 50],
         "shade": [10, 30]
     },
     "light-graphic-secondary": {
