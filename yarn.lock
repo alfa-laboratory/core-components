@@ -6301,10 +6301,10 @@ ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.2, ajv@^6.12.3, ajv@^6.12.4, ajv
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-alfa-ui-primitives@^2.234.0:
-  version "2.234.0"
-  resolved "https://registry.yarnpkg.com/alfa-ui-primitives/-/alfa-ui-primitives-2.234.0.tgz#0992e7c12c9dc527c0c7819fbccabaa4b26493a6"
-  integrity sha512-lRC+BNt7s4KSSr2v2ZycQ78tFh3qHSr+R9l23JpcQNREf9pRHJdA+gWSX381YcC4fxb1CIvYiK+noyySR0nXWw==
+alfa-ui-primitives@^3.13.0:
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/alfa-ui-primitives/-/alfa-ui-primitives-3.13.0.tgz#831abd35c86f0aa415756209e11ccb4996ea2478"
+  integrity sha512-hSRC+AV4Q1aMfQuN4V4sAg0sxl9nIniUtjXa1szOaFR7nru9BInh0qXZaFp71JKCSD+p64Ar7W/O7JzE+Rz/KA==
 
 alphanum-sort@^1.0.0:
   version "1.0.2"
