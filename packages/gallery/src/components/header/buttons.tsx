@@ -14,7 +14,12 @@ type Props = Omit<IconButtonProps, 'icon' | 'colors'> & {
 };
 
 export const Fullscreen: FC<Props> = ({ buttonRef, ...restProps }) => (
-    <Tooltip trigger='hover' position='bottom' content='Открыть в полноэкранном режиме'>
+    <Tooltip
+        trigger='hover'
+        position='bottom'
+        content='Открыть в полноэкранном режиме'
+        fallbackPlacements={['bottom-end']}
+    >
         <IconButton
             {...restProps}
             ref={buttonRef}
@@ -26,7 +31,12 @@ export const Fullscreen: FC<Props> = ({ buttonRef, ...restProps }) => (
 );
 
 export const ExitFullscreen: FC<Props> = ({ buttonRef, ...restProps }) => (
-    <Tooltip trigger='hover' position='bottom' content='Выйти из полноэкранного режима'>
+    <Tooltip
+        trigger='hover'
+        position='bottom'
+        content='Выйти из полноэкранного режима'
+        fallbackPlacements={['bottom-end']}
+    >
         <IconButton
             {...restProps}
             ref={buttonRef}
@@ -38,7 +48,12 @@ export const ExitFullscreen: FC<Props> = ({ buttonRef, ...restProps }) => (
 );
 
 export const Download: FC<Props> = props => (
-    <Tooltip trigger='hover' position='bottom' content='Скачать'>
+    <Tooltip
+        trigger='hover'
+        position='bottom'
+        content='Скачать'
+        fallbackPlacements={['bottom-end']}
+    >
         <IconButton {...props} icon={PointerDownMIcon} colors='inverted' aria-label='Скачать' />
     </Tooltip>
 );
