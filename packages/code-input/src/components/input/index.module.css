@@ -1,0 +1,40 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    display: flex;
+}
+
+.input {
+    flex-shrink: 0;
+    width: 36px;
+    height: 48px;
+    margin-right: var(--gap-xs);
+    padding: 0;
+    background-color: var(--code-input-bg-color);
+    border: none;
+    border-radius: var(--border-radius-s);
+    box-sizing: border-box;
+    outline: none;
+    color: var(--code-input-text-color);
+    text-align: center;
+    font-size: var(--code-input-font-size);
+    font-weight: var(--code-input-font-weight);
+    font-family: var(--code-input-font-family);
+
+    &.hasError {
+        color: var(--color-light-text-negative);
+        caret-color: var(--code-input-text-color);
+        background-color: var(--code-input-error-bg-color);
+    }
+
+    &.disabled {
+        color: var(--color-light-text-tertiary);
+        opacity: 1;
+    }
+}
+
+.compact {
+    width: 28px;
+    height: 40px;
+}
