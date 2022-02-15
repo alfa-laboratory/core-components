@@ -152,28 +152,13 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_CHECKING st
       <div
         class="loaderWrap countdownContainer"
       >
-        <svg
+        <div
           class="component"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
         >
-          <circle
-            cx="4"
-            cy="12"
-            r="2"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            r="2"
-          />
-          <circle
-            cx="20"
-            cy="12"
-            r="2"
-          />
-        </svg>
+          <div />
+          <div />
+          <div />
+        </div>
         <span
           class="loaderText"
         />
@@ -350,28 +335,13 @@ exports[`Confirmation Snapshot tests should match snapshot with CODE_SENDING sta
       <div
         class="loaderWrap countdownContainer"
       >
-        <svg
+        <div
           class="component"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
         >
-          <circle
-            cx="4"
-            cy="12"
-            r="2"
-          />
-          <circle
-            cx="12"
-            cy="12"
-            r="2"
-          />
-          <circle
-            cx="20"
-            cy="12"
-            r="2"
-          />
-        </svg>
+          <div />
+          <div />
+          <div />
+        </div>
         <span
           class="loaderText"
         />
