@@ -29,6 +29,8 @@
 }
 
 @define-mixin _confirmation-title {
+    margin: 0;
+    margin-bottom: var(--gap-xl);
     font-size: var(--confirmation-title-font-size);
     line-height: var(--confirmation-title-line-height);
     font-weight: var(--confirmation-title-font-weight);

@@ -1,75 +1,17 @@
+@import '../../themes/src/default.css';
 @import './vars.css';
 
 .component {
+    @mixin _confirmation-text;
+
     display: flex;
     flex-direction: column;
     width: 100%;
-    font-family: var(--confirmation-font-family);
-}
-
-.error {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.errorHeader {
-    @mixin _confirmation-title;
-
-    margin-bottom: var(--gap-2xl);
-    color: var(--confirmation-title-color);
-}
-
-.errorText {
-    @mixin _confirmation-text;
-
-    margin-bottom: var(--gap-2xl);
-    color: var(--confirmation-text-color);
-}
-
-.phoneHintWrap {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.phoneHintText {
-    @mixin _confirmation-text;
-
-    margin-bottom: var(--gap-xl);
-    color: var(--confirmation-text-color);
-}
-
-.phonesWrap {
-    @mixin _confirmation-text;
-
-    display: flex;
-    flex-direction: column;
-    margin-bottom: var(--gap-4xl);
-}
-
-.phoneWrap {
-    margin-bottom: var(--gap-xs);
-
-    &:last-child {
-        margin-bottom: 0;
-    }
-}
-
-.phoneDescription {
-    color: var(--confirmation-text-color);
-}
-
-.component.center {
-    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .center {
-    & .phoneHintWrap {
-        align-items: center;
-    }
-
-    & .error {
-        align-items: center;
-    }
+    align-items: center;
+    text-align: center;
 }
