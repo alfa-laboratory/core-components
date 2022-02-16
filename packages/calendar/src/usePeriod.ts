@@ -23,7 +23,7 @@ export function usePeriod({
     onPeriodChange,
     initialSelectedFrom,
     initialSelectedTo,
-}: usePeriodProps) {
+}: usePeriodProps = {}) {
     const [selectedFrom, setSelectedFrom] = useState<number | undefined>(initialSelectedFrom);
     const [selectedTo, setSelectedTo] = useState<number | undefined>(initialSelectedTo);
 
@@ -57,7 +57,8 @@ export function usePeriod({
             // сбрасываем начало, если выбранная дата совпадает с ним
             if (date === selectedFrom) {
                 if (selectedTo) {
-                    setSelectedFrom(undefined);
+                    setSelectedFrom(selectedTo);
+                    setSelectedTo(undefined);
                 } else {
                     setSelectedTo(date);
                 }
@@ -116,7 +117,7 @@ export function usePeriodWithReset({
     onPeriodChange,
     initialSelectedFrom,
     initialSelectedTo,
-}: usePeriodProps) {
+}: usePeriodProps = {}) {
     const [selectedFrom, setSelectedFrom] = useState<number | undefined>(initialSelectedFrom);
     const [selectedTo, setSelectedTo] = useState<number | undefined>(initialSelectedTo);
 

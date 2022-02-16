@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@5.2.0...@alfalab/core-components-vars@5.3.0) (2022-02-15)
+
+
+### Features
+
+* **vars:** updated typography ([#981](https://github.com/alfa-laboratory/core-components/issues/981)) ([95bcce8](https://github.com/alfa-laboratory/core-components/commit/95bcce8e07467c635e2a93c55edfb3550a533ba4))
+
+
+
+
+
 # [5.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@5.1.1...@alfalab/core-components-vars@5.2.0) (2022-01-27)
 
 

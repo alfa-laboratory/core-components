@@ -27,7 +27,6 @@ import {
     CalendarProps,
     dateInLimits,
 } from '@alfalab/core-components-calendar';
-
 import { SUPPORTS_INPUT_TYPE_DATE } from './utils';
 
 import styles from './index.module.css';

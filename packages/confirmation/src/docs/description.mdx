@@ -2,133 +2,229 @@
 
 ```tsx live
 render(() => {
-    const [open, setOpen] = React.useState(false);
+    const variants = [
+        { key: 'success', content: 'Успешный сценарий' },
+        { key: 'error', content: 'Сценарий с ошибкой' },
+        { key: 'fatal', content: 'Сценарий с критичной ошибкой' },
+        {
+            key: 'attempts-left',
+            content: 'Сценарий, когда кончились попытки запроса смс',
+        },
+        {
+            key: 'temp-block',
+            content: 'Сценарий, когда форма временно заблокирована',
+        },
+    ];
 
     const [variant, setVariant] = React.useState({ key: 'success', content: 'Успешный сценарий' });
-    const [value, setValue] = React.useState('');
-    const [codeChecking, setCodeChecking] = React.useState(false);
-    const [codeSending, setCodeSending] = React.useState(false);
-    const [error, setError] = React.useState('');
-    const [errorIsFatal, setErrorIsFatal] = React.useState(false);
-    const [noAttemptsLeftMessage, setNoAttemptsLeftMessage] = React.useState('');
-    const [errorOverlimit, setErrorOverlimit] = React.useState(false);
-    const [errorOverlimitIsFatal, setErrorOverlimitIsFatal] = React.useState(false);
-    const [overlimitTitle, setOverlimitTitle] = React.useState('Превышено количество\n попыток ввода кода');
-    const [overlimitText, setOverlimitText] = React.useState('Повторное подтверждение кодом из SMS\n будет возможно через');
-    const [overlimitCountdownDuration, setOverlimitCountdownDuration] = React.useState(10000);
 
-    const setCode = code => {
-        setValue(code);
-        setError('');
-    };
+    const {
+        confirmationState,
+        confirmationScreen,
+        confirmationBlockSmsRetry,
+        setConfirmationState,
+        setConfirmationScreen,
+        setConfirmationBlockSmsRetry,
+    } = useConfirmation();
 
-    const handleSubmit = () => {
-        setCodeChecking(true);
-        setError('');
+    const handleInputFinished = () => {
         setTimeout(() => {
-            setCodeChecking(false);
             switch (variant.key) {
                 case 'success':
+                    setConfirmationState('INITIAL');
                     break;
                 case 'error':
-                    setError('Неправильный код');
+                    setConfirmationState('CODE_ERROR');
                     break;
                 case 'fatal':
-                    setError('Выполните операцию с самого начала');
-                    setErrorIsFatal(true);
+                    setConfirmationScreen('FATAL_ERROR');
                     break;
                 case 'attempts-left':
-                    setNoAttemptsLeftMessage('Не осталось попыток запроса кода');
+                    setConfirmationState('CODE_ERROR');
                     break;
-                case 'overlimit-input':
-                    setOverlimitTitle('Превышено количество\n попыток ввода кода');
-                    setOverlimitText('Повторное подтверждение кодом из SMS\n будет возможно через 1 минуту');
-                    setOverlimitCountdownDuration(60000);
-                    setErrorOverlimit(true);
-                    setErrorOverlimitIsFatal(false);
+                case 'temp-block':
+                    setConfirmationScreen('TEMP_BLOCK');
                     break;
-                case 'overlimit-attempts':
-                    setOverlimitTitle('Превышено количество\n попыток запроса кода');
-                    setOverlimitText('Повторное подтверждение кода из SMS\n будет возможно через 24 часа ');
-                    setOverlimitCountdownDuration(86400000);
-                    setErrorOverlimit(true);
-                    setErrorOverlimitIsFatal(true);
+                default:
                     break;
             }
-        }, 300);
+        }, 1000);
     };
-    const handleOverlimitCountdownFinished = () => {
-        setOverlimitTitle('Введите код из SMS');
-        setOverlimitText('Чтобы продолжить нажмите кнопку\n «Запросить новый код»');
-        setErrorOverlimitIsFatal(false);
-    };
+
     const handleSmsRetryClick = () => {
-        setCodeSending(true);
-        setError('');
-        setCode('');
         setTimeout(() => {
-            setCodeSending(false);
-        }, 300);
+            if (variant.key === 'attempts-left') {
+                setConfirmationBlockSmsRetry(true);
+            }
+            setConfirmationState('INITIAL');
+        }, 1000);
     };
-    const handleOverlimitRetryClick = () => {
-        setCodeSending(true);
-        setError('');
-        setCode('');
-        setErrorOverlimit(false);
-        setTimeout(() => {
-            setCodeSending(false);
-        }, 300);
+
+    const handleTempBlockFinished = () => {
+        setConfirmationScreen('INITIAL');
+        setConfirmationState('CODE_SENDING');
     };
 
     return (
-        <Space>
+        <div>
             <Select
-                options={[
-                    { key: 'success', content: 'Успешный сценарий' },
-                    { key: 'error', content: 'Сценарий с ошибкой' },
-                    { key: 'fatal', content: 'Сценарий с критичной ошибкой' },
-                    { key: 'attempts-left', content: 'Сценарий, когда кончились попытки запроса смс'},
-                    { key: 'overlimit-input', content: 'Сценарий, когда кончились попытки ввода и форма заблокирована'},
-                    { key: 'overlimit-attempts', content: 'Сценарий, когда кончились попытки запроса смс и форма заблокирована'},
-                ]}
+                options={variants}
                 onChange={({ selected }) => {
+                    setConfirmationState('INITIAL');
+                    setConfirmationScreen('INITIAL');
+                    setConfirmationBlockSmsRetry(false);
                     setVariant(selected);
                 }}
                 selected={variant.key}
             />
-
             <div
+                key={variant.key}
                 style={{
-                    display: 'inline-flex',
+                    display: 'flex',
+                    width: '500px',
+                    margin: '16px 0 0',
                     padding: '16px',
-                    border: '1px solid #eeeff1',
+                    boxShadow: '0 0 0 1px #eeeff1',
+                    boxSizing: 'border-box',
                 }}
             >
                 <Confirmation
-                    phone='+7 000 000 00 42'
-                    onInputFinished={handleSubmit}
-                    onSmsRetryClick={handleSmsRetryClick}
-                    codeSending={codeSending}
-                    codeChecking={codeChecking}
-                    countdownDuration={10000}
-                    code={value}
-                    onInputChange={({ code }) => setCode(code)}
+                    screen={confirmationScreen}
+                    state={confirmationState}
                     alignContent='center'
-                    requiredCharAmount={5}
-                    error={Boolean(error)}
-                    errorText={error}
-                    errorIsFatal={errorIsFatal}
-                    noAttemptsLeftMessage={noAttemptsLeftMessage}
-                    errorOverlimit={errorOverlimit}
-                    errorOverlimitIsFatal={errorOverlimitIsFatal}
-                    overlimitTitle={overlimitTitle}
-                    overlimitText={overlimitText}
-                    overlimitCountdownDuration={overlimitCountdownDuration}
-                    onOverlimitSmsRetryClick={handleOverlimitRetryClick}
-                    onOverlimitCountdownFinished={handleOverlimitCountdownFinished}
+                    blockSmsRetry={confirmationBlockSmsRetry}
+                    countdownDuration={10000}
+                    onChangeState={setConfirmationState}
+                    onChangeScreen={setConfirmationScreen}
+                    onInputFinished={handleInputFinished}
+                    onSmsRetryClick={handleSmsRetryClick}
+                    onTempBlockFinished={handleTempBlockFinished}
+                    phone='+7 ··· ··· 07-24'
                 />
             </div>
-        </Space>
+        </div>
     );
 });
+```
+
+### Как пользоваться
+
+Компонент содержит в себе несколько экранов и может быть в нескольких состояниях:
+
+```tsx
+export type ConfirmationScreen =
+    | 'INITIAL' // начальный экран
+    | 'HINT' // экран "Не приходит смс?"
+    | 'FATAL_ERROR' // экран критической ошибки
+    | 'TEMP_BLOCK'; // экран временной блокировки
+
+export type ConfirmationState =
+    | 'INITIAL' // начальное состояние
+    | 'CODE_CHECKING' // проверка кода
+    | 'CODE_SENDING' // повторная отправка кода
+    | 'CODE_ERROR'; // ошибка, когда ввели неверный код
+```
+
+Для управления экранами и состояниями можно воспользоваться хуком:
+
+```tsx
+import { Confirmation, useConfirmation } from '@alfalab/core-components/confirmation';
+
+const Example = () => {
+    const {
+        confirmationState,
+        confirmationScreen,
+        setConfirmationState,
+        setConfirmationScreen,
+    } = useConfirmation();
+
+    const handleInputFinished = async code => {
+        const res = await checkCode(code);
+
+        if (!res.ok) {
+            setConfirmationState('CODE_ERROR');
+        }
+    };
+
+    const handleSmsRetryClick = () => {
+        await resendCode();
+
+        setConfirmationState('INITIAL');
+    };
+
+    return (
+        <Confirmation
+            screen={confirmationScreen}
+            state={confirmationState}
+            onChangeState={setConfirmationState}
+            onChangeScreen={setConfirmationScreen}
+            onInputFinished={handleInputFinished}
+            onSmsRetryClick={handleSmsRetryClick}
+        />
+    );
+};
+```
+
+На каждом экране можно кастомизировать тексты. Для этого есть специальное свойство `texts`:
+
+```tsx
+export type ConfirmationTexts = {
+    /**
+     * Экран INITIAL
+     */
+    title?: ReactNode; // заголовок
+    codeError?: string; // ошибка проверки кода
+    codeChecking?: string; // код проверяется
+    codeSending?: string; // код отправляется
+    codeSended?: string; // код отправлен
+    buttonRetry?: string; // кнопка повторной отправки кода
+    linkToHint?: string; // ссылка на экран HINT
+    noAttemptsLeft?: string; // не осталось попыток запроса кода
+    countdown?: string; // 'запросить повторно можно через'
+
+    /**
+     * Экран HINT
+     */
+    hintButton?: string; // кнопка 'Вернуться'
+
+    /**
+     * Экран FATAL_ERROR
+     */
+    fatalErrorTitle?: ReactNode; // заголовок
+    fatalErrorDescription?: ReactNode; // описание
+    fatalErrorButton?: string; // кнопка
+
+    /**
+     * Экран TEMP_BLOCK
+     */
+    tempBlockTitle?: ReactNode; // заголовок
+    tempBlockDescription?: ReactNode; // описание
+};
+```
+
+Также есть возможность добавить кастомные экраны:
+
+```tsx
+const Example = () => {
+    const {
+        confirmationState,
+        confirmationScreen,
+        setConfirmationState,
+        setConfirmationScreen,
+    } = useConfirmation();
+
+    return (
+        <Confirmation
+            screen={confirmationScreen}
+            state={confirmationState}
+            onChangeState={setConfirmationState}
+            onChangeScreen={setConfirmationScreen}
+            getScreensMap={screensMap => ({
+                ...screensMap,
+                HINT: () => <>Custom hint screen</>,
+                CUSTOM_SCREEN: () => <>Custom screen</>,
+            })}
+        />
+    );
+};
 ```

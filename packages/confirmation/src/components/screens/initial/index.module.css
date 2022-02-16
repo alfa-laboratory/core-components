@@ -1,0 +1,70 @@
+@import '../../../../../themes/src/default.css';
+@import '../../../vars.css';
+
+.component {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    @mixin _confirmation-title;
+}
+
+.phone {
+    margin-bottom: var(--gap-2xl);
+    color: var(--color-light-text-primary);
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--gap-2xl);
+}
+
+.compact {
+    margin-bottom: var(--gap-xl);
+}
+
+.loaderWrap {
+    display: flex;
+    align-items: center;
+}
+
+.center {
+    align-items: center;
+    text-align: center;
+
+    & .codeInput,
+    & .loaderWrap {
+        justify-content: center;
+    }
+
+    & input {
+        margin: 0 var(--gap-2xs);
+    }
+}
+
+.smsComeLink {
+    @mixin paragraph_primary_small;
+}
+
+.countdownContainer {
+    margin-bottom: var(--gap-xl);
+}
+
+.getCodeButton {
+    position: relative;
+    top: var(--gap-2xs-neg);
+    margin-bottom: var(--gap-m);
+}
+
+.countdown {
+    display: flex;
+}
+
+.countdownTimer {
+    display: flex;
+    justify-content: flex-start;
+    min-width: 45px;
+    margin-left: var(--gap-2xs);
+}
