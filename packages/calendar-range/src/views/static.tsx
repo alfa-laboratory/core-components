@@ -207,7 +207,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     return (
         // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
         <div
-            className={cn(styles.component, className)}
+            className={cn(styles.component, styles.static, className)}
             onMouseOver={handleCalendarToMouseOver}
             data-test-id={dataTestId}
         >
@@ -228,6 +228,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                     block={true}
                 />
                 <Calendar
+                    className={styles.calendar}
                     month={monthFrom}
                     selectorView='month-only'
                     offDays={offDays}
@@ -259,6 +260,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                     block={true}
                 />
                 <Calendar
+                    className={styles.calendar}
                     ref={calendarToRef}
                     month={monthTo}
                     selectorView='month-only'
