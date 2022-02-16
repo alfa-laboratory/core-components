@@ -1,13 +1,13 @@
 :root {
-    --calendar-width: 344px;
     --calendar-height: 340px;
+    --calendar-width: 344px;
+    --calendar-inner-width: 280px;
+    --calendar-mobile-inner-width: 256px;
 
     /* Кнопки выбора месяцев и годов */
-    --calendar-selector-button-width: 100px;
     --calendar-selector-button-outline-border-color: var(--color-light-border-key);
 
     /* Шапка */
-    --calendar-header-paddings: var(--gap-m) var(--gap-2xl) var(--gap-s);
     --calendar-month-only-header-font-family: var(--font-family-system);
     --calendar-month-only-header-font-size: 16px;
     --calendar-month-only-header-font-weight: 400;

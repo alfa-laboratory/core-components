@@ -4,14 +4,10 @@
 .header {
     width: 100%;
     box-sizing: border-box;
-    padding: var(--calendar-header-paddings);
+    padding: var(--gap-m) 0 var(--gap-s);
     transition: box-shadow 0.2s ease;
-
-    @media (max-width: 374px) {
-        /* TODO */
-        padding-left: 18px;
-        padding-right: 18px;
-    }
+    display: flex;
+    justify-content: center;
 }
 
 .withShadow {

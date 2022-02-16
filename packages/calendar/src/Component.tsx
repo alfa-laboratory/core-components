@@ -239,6 +239,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                         />
                     ) : (
                         <MonthYearHeader
+                            className={styles.monthYear}
                             value={activeMonth}
                             onMonthClick={handleMonthClick}
                             onYearClick={handleYearClick}
