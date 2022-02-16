@@ -9,5 +9,5 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../masked-input" }]
+    "references": [{ "path": "../input" }]
 }

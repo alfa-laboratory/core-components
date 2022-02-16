@@ -20,6 +20,9 @@ exports[`CalendarInput Display tests should match snapshot 1`] = `
           >
             <input
               class="input input"
+              inputmode="decimal"
+              pattern="[0-9\\\\.]*"
+              placeholder="ДД.ММ.ГГГГ"
               type="text"
               value=""
             />
@@ -48,6 +51,7 @@ exports[`CalendarInput Display tests should match snapshot 1`] = `
           </svg>
         </div>
       </div>
+      
     </div>
   </div>
 </div>
@@ -86,6 +90,9 @@ Object {
               >
                 <input
                   class="input input"
+                  inputmode="decimal"
+                  pattern="[0-9\\\\.]*"
+                  placeholder="ДД.ММ.ГГГГ"
                   type="text"
                   value=""
                 />
@@ -114,6 +121,7 @@ Object {
               </svg>
             </div>
           </div>
+          
         </div>
       </div>
     </div>
@@ -144,6 +152,9 @@ Object {
             >
               <input
                 class="input input"
+                inputmode="decimal"
+                pattern="[0-9\\\\.]*"
+                placeholder="ДД.ММ.ГГГГ"
                 type="text"
                 value=""
               />
@@ -172,6 +183,7 @@ Object {
             </svg>
           </div>
         </div>
+        
       </div>
     </div>
   </div>,
@@ -255,6 +267,9 @@ Object {
               >
                 <input
                   class="input input"
+                  inputmode="decimal"
+                  pattern="[0-9\\\\.]*"
+                  placeholder="ДД.ММ.ГГГГ"
                   type="text"
                   value=""
                 />
@@ -286,6 +301,7 @@ Object {
               </svg>
             </div>
           </div>
+          
         </div>
       </div>
     </div>
@@ -309,6 +325,9 @@ Object {
             >
               <input
                 class="input input"
+                inputmode="decimal"
+                pattern="[0-9\\\\.]*"
+                placeholder="ДД.ММ.ГГГГ"
                 type="text"
                 value=""
               />
@@ -340,6 +359,7 @@ Object {
             </svg>
           </div>
         </div>
+        
       </div>
     </div>
   </div>,
