@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components",
-    "version": "23.12.0",
+    "version": "23.13.0",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -63,7 +63,7 @@
         "@alfalab/stylelint-core-vars": "^1.4.0",
         "@alfalab/utils": "^1.3.0",
         "@popperjs/core": "^2.3.3",
-        "alfa-ui-primitives": "^2.234.0",
+        "alfa-ui-primitives": "^3.13.0",
         "classnames": "^2.2.6",
         "compute-scroll-into-view": "^1.0.13",
         "date-fns": "^2.16.1",

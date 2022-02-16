@@ -175,6 +175,12 @@ const availableHieghtModifier = {
     },
 };
 
+/**
+ * Минимальный размер anchorElement,
+ * при котором возможно смещение стрелочки относительно центра
+ */
+const MIN_ARROW_SHIFT_SIZE = 75;
+
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     (
         {
@@ -205,6 +211,8 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         const [referenceElement, setReferenceElement] = useState<RefElement>(anchorElement);
         const [popperElement, setPopperElement] = useState<RefElement>(null);
         const [arrowElement, setArrowElement] = useState<RefElement>(null);
+        const [arrowShift, setArrowShift] = useState(false);
+
         const updatePopperRef = useRef<() => void>();
 
         const getModifiers = useCallback(() => {
@@ -281,6 +289,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         useEffect(() => {
             if (useAnchorWidth) {
                 const observer = new ResizeObserver(updatePopoverWidth);
+
                 if (anchorElement) {
                     observer.observe(anchorElement);
                 }
@@ -293,24 +302,45 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             return () => ({});
         }, [anchorElement, updatePopoverWidth, useAnchorWidth]);
 
+        /**
+         * По дизайну, если у тултипа позиционирование -start/-end, то стрелочка немного сдвигается вбок.
+         * Но если anchorElement слишком маленький, то стрелочка сдвигаться не должна.
+         */
+        useEffect(() => {
+            const shiftedPosition = position.includes('-start') || position.includes('-end');
+
+            if (shiftedPosition && referenceElement) {
+                const { width, height } = referenceElement.getBoundingClientRect();
+
+                const size =
+                    position.includes('left') || position.includes('right') ? height : width;
+
+                if (size >= MIN_ARROW_SHIFT_SIZE) {
+                    setArrowShift(true);
+                }
+            }
+        }, [referenceElement, position]);
+
         const renderContent = (computedZIndex: number, style?: CSSProperties) => {
             return (
                 <div
                     ref={mergeRefs([ref, setPopperElement])}
-                    // ref={setPopperElement}
                     style={{
                         zIndex: computedZIndex,
                         width: useAnchorWidth ? referenceElement?.offsetWidth : undefined,
                         ...popperStyles.popper,
                     }}
                     data-test-id={dataTestId}
-                    className={cn(styles.component, className)}
+                    className={cn(styles.component, className, {
+                        [styles.arrowShift]: arrowShift,
+                    })}
                     {...attributes.popper}
                 >
                     <div className={cn(styles.inner, popperClassName)} style={style}>
-                        <div className={cn(availableHeight ? styles.scrollableContent : '')}>
+                        <div className={cn({ [styles.scrollableContent]: availableHeight })}>
                             {children}
                         </div>
+
                         {withArrow && (
                             <div
                                 ref={setArrowElement}

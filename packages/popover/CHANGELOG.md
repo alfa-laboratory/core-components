@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-popover@5.6.0...@alfalab/core-components-popover@5.6.1) (2022-02-15)
+
+
+### Bug Fixes
+
+* **gallery:** update header button's tooltip position ([#979](https://github.com/alfa-laboratory/core-components/issues/979)) ([8e2acfc](https://github.com/alfa-laboratory/core-components/commit/8e2acfcb772cf4d8051c185a3f1caaaf507b5bc9))
+
+
+
+
+
 # [5.6.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-popover@5.5.0...@alfalab/core-components-popover@5.6.0) (2021-12-01)
 
 

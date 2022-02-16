@@ -39,9 +39,21 @@
 }
 
 .period {
+    width: var(--calendar-inner-width);
+
     @media (max-width: 374px) {
         justify-content: space-between;
-        width: 256px;
+        width: var(--calendar-mobile-inner-width);
+        margin: 0 auto;
+    }
+}
+
+.monthYear {
+    width: var(--calendar-inner-width);
+
+    @media (max-width: 374px) {
+        justify-content: space-between;
+        width: var(--calendar-mobile-inner-width);
         margin: 0 auto;
     }
 }

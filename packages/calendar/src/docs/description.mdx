@@ -165,13 +165,6 @@ render(() => {
                 <small>Дата конца: {format(values.valueTo, DATE_FORMAT)}</small>
             </p>
 
-            <PeriodSlider
-                value={values.value}
-                view='full'
-                onPrevArrowClick={handler}
-                onNextArrowClick={handler}
-            />
-
             <br />
 
             <PeriodSlider
@@ -203,6 +196,14 @@ render(() => {
 
             <PeriodSlider
                 value={values.value}
+                periodType='day'
+                onPrevArrowClick={handler}
+                onNextArrowClick={handler}
+            />
+            
+            <br />
+
+            <PeriodSlider
                 periodType='day'
                 onPrevArrowClick={handler}
                 onNextArrowClick={handler}

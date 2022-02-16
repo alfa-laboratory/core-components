@@ -20,11 +20,18 @@ import vars from '!!raw-loader!../vars.css';
 
 <Story name='Calendar'>
     {React.createElement(() => {
+        const offDays = [new Date().setDate(7)];
+        const events = [
+            new Date().setDate(3),
+            new Date().setDate(17),
+        ];
         const [value, setValue] = React.useState();
         return (
             <Calendar
                 value={value}
                 onChange={setValue}
+                offDays={offDays}
+                events={events}
                 defaultView={select('defaultView', ['days', 'months', 'years'], 'days')}
                 selectorView={select('selectorView', ['full', 'month-only'], 'full')}
             />

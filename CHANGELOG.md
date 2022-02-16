@@ -1,3 +1,16 @@
+# [23.13.0](https://github.com/alfa-laboratory/core-components/compare/v23.12.0...v23.13.0) (2022-02-15)
+
+
+### Bug Fixes
+
+* **gallery:** update header button's tooltip position ([#979](https://github.com/alfa-laboratory/core-components/issues/979)) ([8e2acfc](https://github.com/alfa-laboratory/core-components/commit/8e2acfcb772cf4d8051c185a3f1caaaf507b5bc9))
+
+
+### Features
+
+* **notification:** disabled trackMouse ([#987](https://github.com/alfa-laboratory/core-components/issues/987)) ([c237b04](https://github.com/alfa-laboratory/core-components/commit/c237b04be227d370b321bb2d4585ce72b4d9994e))
+* **vars:** updated typography ([#981](https://github.com/alfa-laboratory/core-components/issues/981)) ([95bcce8](https://github.com/alfa-laboratory/core-components/commit/95bcce8e07467c635e2a93c55edfb3550a533ba4))
+
 # [23.12.0](https://github.com/alfa-laboratory/core-components/compare/v23.11.0...v23.12.0) (2022-02-09)
 
 
