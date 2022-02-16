@@ -1,10 +1,10 @@
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
-import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 
 import { Textarea } from '../Component';
-import { name, version } from '../../package.json';
+import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
@@ -34,8 +34,8 @@ import styles from '!!raw-loader!../index.module.css';
                 label={text('label', '')}
                 hint={text('hint', '')}
                 error={text('error', '')}
-                rightAddons={boolean('rightAddons', false) && !text('error') && <Icon />}
-                leftAddons={boolean('leftAddons', false) && <Icon />}
+                rightAddons={boolean('rightAddons', false) && !text('error') && <StarMIcon />}
+                leftAddons={boolean('leftAddons', false) && <StarMIcon />}
                 bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
                 readOnly={boolean('readOnly', false)}
                 showCounter={showCounter}
