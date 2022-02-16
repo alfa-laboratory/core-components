@@ -9,8 +9,8 @@
 
     /* Шапка */
     --calendar-month-only-header-font-family: var(--font-family-system);
-    --calendar-month-only-header-font-size: 16px;
-    --calendar-month-only-header-font-weight: 400;
+    --calendar-month-only-header-font-size: 18px;
+    --calendar-month-only-header-font-weight: 500;
 
     /* День */
     --calendar-day-size: 40px;
