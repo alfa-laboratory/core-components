@@ -2,8 +2,8 @@ import React, { forwardRef, useCallback, useState } from 'react';
 import cn from 'classnames';
 import { Input, InputProps } from '@alfalab/core-components-input';
 import { IconButton } from '@alfalab/core-components-icon-button';
-import EyeMIcon from '@alfalab/icons-glyph/EyeMIcon';
-import EyeOffMIcon from '@alfalab/icons-glyph/EyeOffMIcon';
+import { EyeMIcon } from '@alfalab/icons-glyph/EyeMIcon';
+import { EyeOffMIcon } from '@alfalab/icons-glyph/EyeOffMIcon';
 
 import styles from './index.module.css';
 
