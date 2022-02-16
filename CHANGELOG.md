@@ -1,3 +1,35 @@
+# [24.0.0](https://github.com/alfa-laboratory/core-components/compare/v23.13.0...v24.0.0) (2022-02-16)
+
+
+### Features
+
+* **code-input:** add component ([#932](https://github.com/alfa-laboratory/core-components/issues/932)) ([dc40cb5](https://github.com/alfa-laboratory/core-components/commit/dc40cb5b28322b4a2dc5735b354a7d45cf34adb9))
+* **confirmation:** большое обновление компонента ([#958](https://github.com/alfa-laboratory/core-components/issues/958)) ([3e61e7e](https://github.com/alfa-laboratory/core-components/commit/3e61e7e6529662d8fb96acb2898a29fd9c1917ab))
+
+
+### BREAKING CHANGES
+
+* **confirmation:** Удалена пропса code
+
+* feat(code-input): ref updates
+
+* feat(confirmation): updates, fix tests
+
+* feat(confirmation): initial
+
+* feat(confirmation): updates
+
+* feat(confirmation): update tests
+
+* feat(confirmation): updates
+
+* feat(confirmation): dont reset code, if error
+
+* test(confirmation): update snapshot
+* **confirmation:** Удалена пропса code
+
+Co-authored-by: reme3d2y <AYatsenko@alfabank.ru>
+
 # [23.13.0](https://github.com/alfa-laboratory/core-components/compare/v23.12.0...v23.13.0) (2022-02-15)
 
 
