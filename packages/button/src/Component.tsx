@@ -118,7 +118,7 @@ const logWarning = (view: Required<ComponentProps>['view']) => {
         // eslint-disable-next-line prefer-template
         `@alfalab/core-components/button: view='${view}' будет удален в следующих мажорных версиях. ` +
             `Используйте view='${viewsMap[view]}'. Чтобы поменять все кнопки на проекте разом, можно воспользоваться codemod: ` +
-            'npx core-components-codemod --transformers=button-views src/**/*.tsx',
+            'npx @alfalab/core-components-codemod --transformers=button-views src/**/*.tsx',
     );
 };
 

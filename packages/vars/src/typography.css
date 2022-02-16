@@ -341,6 +341,106 @@
     font-family: var(--font-family-styrene);
 }
 
+@define-mixin headline-mobile_xlarge {
+    font-size: 34px;
+    line-height: 40px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin headline-mobile_large {
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin headline-mobile_medium {
+    font-size: 26px;
+    line-height: 32px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin headline-mobile_small {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin headline-mobile_xsmall {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    font-feature-settings: 'ss01';
+    font-family: var(--font-family-styrene);
+}
+
+@define-mixin headline-system-mobile_xlarge {
+    font-size: 34px;
+    line-height: 40px;
+    font-weight: 600;
+}
+
+@define-mixin headline-system-mobile_large {
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 600;
+}
+
+@define-mixin headline-system-mobile_medium {
+    font-size: 26px;
+    line-height: 32px;
+    font-weight: 600;
+}
+
+@define-mixin headline-system-mobile_small {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+}
+
+@define-mixin headline-system-mobile_xsmall {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+@define-mixin promo-system_xlarge {
+    font-size: 48px;
+    line-height: 52px;
+    font-weight: 400;
+}
+
+@define-mixin promo-system_large {
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: 400;
+}
+
+@define-mixin promo-system_medium {
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 400;
+}
+
+@define-mixin promo-system_small {
+    font-size: 22px;
+    line-height: 26px;
+    font-weight: 400;
+}
+
+@define-mixin promo-system_xsmall {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 400;
+}
+
 @define-mixin legacy_primary_small {
     font-size: 14px;
     line-height: 18px;
