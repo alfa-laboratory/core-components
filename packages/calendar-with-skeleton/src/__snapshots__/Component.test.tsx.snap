@@ -15,15 +15,10 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
       >
         <div
           aria-live="polite"
-          class="component period full"
+          class="component monthYear"
         >
           <button
-            aria-label="Предыдущий период"
-            class="component ghost m component ghost iconOnly arrow"
-            type="button"
-          />
-          <button
-            class="component ghost xs component ghost button filled month"
+            class="component ghost xs component ghost button filled button month"
             type="button"
           >
             <span
@@ -33,14 +28,26 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 class="buttonContent"
               >
                 Ноябрь
-                <span
+                <svg
                   class="upDownIcon"
-                />
+                  fill="currentColor"
+                  focusable="false"
+                  height="18"
+                  role="img"
+                  viewBox="0 0 18 18"
+                  width="18"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
               </span>
             </span>
           </button>
           <button
-            class="component ghost xs component ghost button filled year"
+            class="component ghost xs component ghost button filled button year"
             type="button"
           >
             <span
@@ -50,21 +57,28 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                 class="buttonContent"
               >
                 2020
-                <span
+                <svg
                   class="upDownIcon"
-                />
+                  fill="currentColor"
+                  focusable="false"
+                  height="18"
+                  role="img"
+                  viewBox="0 0 18 18"
+                  width="18"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
               </span>
             </span>
           </button>
-          <button
-            aria-label="Следующий период"
-            class="component ghost m component ghost iconOnly arrow"
-            type="button"
-          />
         </div>
       </div>
       <div
-        class="container"
+        class="container days"
       >
         <table
           class="daysTable"
@@ -116,10 +130,12 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               <td />
               <td />
               <td />
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
-                  class="component ghost xs component ghost day firstDay"
+                  class="component ghost xs component ghost day"
                   data-date="1604188800000"
                   tabindex="-1"
                   type="button"
@@ -133,7 +149,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
             </tr>
             <tr>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -148,7 +166,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -163,7 +183,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -178,7 +200,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -193,7 +217,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -208,7 +234,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -223,7 +251,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -240,7 +270,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
             </tr>
             <tr>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -255,7 +287,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -270,7 +304,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -285,7 +321,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -300,7 +338,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -315,7 +355,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -330,7 +372,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -347,7 +391,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
             </tr>
             <tr>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -362,7 +408,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -377,7 +425,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -392,7 +442,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -407,7 +459,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -422,7 +476,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -437,7 +493,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -454,7 +512,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
             </tr>
             <tr>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -469,7 +529,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -484,7 +546,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -499,7 +563,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -514,7 +580,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -529,7 +597,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -544,7 +614,9 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
                   </span>
                 </button>
               </td>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="false"
                   class="component ghost xs component ghost day"
@@ -561,10 +633,12 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
               </td>
             </tr>
             <tr>
-              <td>
+              <td
+                class="dayWrapper"
+              >
                 <button
                   aria-selected="true"
-                  class="component ghost xs component ghost day selected lastDay"
+                  class="component ghost xs component ghost day selected"
                   data-date="1606694400000"
                   tabindex="0"
                   type="button"

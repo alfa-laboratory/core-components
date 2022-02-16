@@ -6,9 +6,9 @@
 
     height: 40px;
     position: relative;
-    padding: 0 var(--gap-s);
+    padding: 0 var(--gap-xs);
     background-color: transparent;
-    border-radius: var(--border-radius-s);
+    border-radius: var(--border-radius-l);
 
     &:not(:disabled):hover {
         background-color: var(--color-light-bg-tertiary);
