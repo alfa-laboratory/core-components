@@ -15,7 +15,7 @@ exports[`Calendar Render tests should render calendar when calendarVisible=\`tru
       >
         <div
           aria-live="polite"
-          class="component"
+          class="component monthYear"
         >
           <button
             class="component ghost xs component ghost button filled button month"

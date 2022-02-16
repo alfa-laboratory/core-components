@@ -12,7 +12,7 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
     >
       <div
         aria-live="polite"
-        class="component"
+        class="component monthYear"
       >
         <button
           class="component ghost xs component ghost button filled button month"
@@ -673,7 +673,7 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
     >
       <div
         aria-live="polite"
-        class="component"
+        class="component monthYear"
       >
         <button
           class="component ghost xs component ghost button filled button month"
@@ -915,7 +915,7 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
     >
       <div
         aria-live="polite"
-        class="component"
+        class="component monthYear"
       >
         <button
           class="component ghost xs component ghost button filled button month"
@@ -2292,7 +2292,7 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
     >
       <div
         aria-live="polite"
-        class="component"
+        class="component monthYear"
       >
         <button
           class="component ghost xs component ghost button filled button month"
@@ -3615,7 +3615,7 @@ exports[`Calendar Display tests should match snapshot 1`] = `
     >
       <div
         aria-live="polite"
-        class="component"
+        class="component monthYear"
       >
         <button
           class="component ghost xs component ghost button filled button month"
