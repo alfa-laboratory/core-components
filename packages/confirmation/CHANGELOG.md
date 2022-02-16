@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [10.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@9.0.7...@alfalab/core-components-confirmation@10.0.0) (2022-02-16)
+
+
+### Features
+
+* **confirmation:** большое обновление компонента ([#958](https://github.com/alfa-laboratory/core-components/issues/958)) ([3e61e7e](https://github.com/alfa-laboratory/core-components/commit/3e61e7e6529662d8fb96acb2898a29fd9c1917ab))
+
+
+### BREAKING CHANGES
+
+* **confirmation:** Удалена пропса code
+
+* feat(code-input): ref updates
+
+* feat(confirmation): updates, fix tests
+
+* feat(confirmation): initial
+
+* feat(confirmation): updates
+
+* feat(confirmation): update tests
+
+* feat(confirmation): updates
+
+* feat(confirmation): dont reset code, if error
+
+* test(confirmation): update snapshot
+* **confirmation:** Удалена пропса code
+
+Co-authored-by: reme3d2y <AYatsenko@alfabank.ru>
+
+
+
+
+
 ## [9.0.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@9.0.6...@alfalab/core-components-confirmation@9.0.7) (2022-02-15)
 
 **Note:** Version bump only for package @alfalab/core-components-confirmation
