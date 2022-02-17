@@ -22,7 +22,7 @@
         "@alfalab/core-components-button": "^5.1.1",
         "@alfalab/core-components-select": "^10.4.4",
         "@alfalab/icons-classic": "^1.76.0",
-        "@alfalab/icons-glyph": "^1.190.0",
+        "@alfalab/icons-glyph": "^2.14.0",
         "classnames": "^2.2.6"
     }
 }
