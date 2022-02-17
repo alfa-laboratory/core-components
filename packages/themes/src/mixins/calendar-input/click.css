@@ -1,4 +1,3 @@
 @define-mixin calendar-input-click {
-    --calendar-input-popover-border-color: transparent;
     --calendar-input-popover-border-radius: var(--border-radius-s);
 }

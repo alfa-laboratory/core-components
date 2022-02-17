@@ -13,13 +13,13 @@ $ yarn add --dev @alfalab/core-components-codemod
 Какой-то один трансформер:
 
 ```bash
-$ npx core-components-codemod --transformers=button-xs src/**/*.tsx
+$ npx @alfalab/core-components-codemod --transformers=button-xs src/**/*.tsx
 ```
 
 Можно сразу несколько трансформеров:
 
 ```bash
-$ npx core-components-codemod --transformers=button-xs,button-views src/**/*.tsx
+$ npx @alfalab/core-components-codemod --transformers=button-xs,button-views src/**/*.tsx
 ```
 
 Сейчас замена компонентов доступна только для кода, написанного на `typescript`. Если кому-то нужно мигрировать с `js` - дайте знать, докрутим.

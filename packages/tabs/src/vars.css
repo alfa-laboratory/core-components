@@ -46,6 +46,12 @@
     /* mobile */
     --secondary-tablist-mobile-gaps: var(--gap-xs);
 
+    /* size xxs */
+    --secondary-tablist-xxs-gaps: var(--gap-xs);
+
+    /* size xs */
+    --secondary-tablist-xs-gaps: var(--gap-xs);
+
     /* size s */
     --secondary-tablist-s-gaps: var(--gap-s);
 
@@ -53,8 +59,8 @@
     --secondary-tablist-m-gaps: var(--gap-s);
 
     /* size l */
-    --secondary-tablist-l-gaps: var(--gap-s);
+    --secondary-tablist-l-gaps: var(--gap-m);
 
     /* size xl */
-    --secondary-tablist-xl-gaps: var(--gap-s);
+    --secondary-tablist-xl-gaps: var(--gap-m);
 }

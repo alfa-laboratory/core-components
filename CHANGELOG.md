@@ -1,3 +1,56 @@
+# [24.0.0](https://github.com/alfa-laboratory/core-components/compare/v23.13.0...v24.0.0) (2022-02-16)
+
+
+### Features
+
+* **code-input:** add component ([#932](https://github.com/alfa-laboratory/core-components/issues/932)) ([dc40cb5](https://github.com/alfa-laboratory/core-components/commit/dc40cb5b28322b4a2dc5735b354a7d45cf34adb9))
+* **confirmation:** большое обновление компонента ([#958](https://github.com/alfa-laboratory/core-components/issues/958)) ([3e61e7e](https://github.com/alfa-laboratory/core-components/commit/3e61e7e6529662d8fb96acb2898a29fd9c1917ab))
+
+
+### BREAKING CHANGES
+
+* **confirmation:** Удалена пропса code
+
+* feat(code-input): ref updates
+
+* feat(confirmation): updates, fix tests
+
+* feat(confirmation): initial
+
+* feat(confirmation): updates
+
+* feat(confirmation): update tests
+
+* feat(confirmation): updates
+
+* feat(confirmation): dont reset code, if error
+
+* test(confirmation): update snapshot
+* **confirmation:** Удалена пропса code
+
+Co-authored-by: reme3d2y <AYatsenko@alfabank.ru>
+
+# [23.13.0](https://github.com/alfa-laboratory/core-components/compare/v23.12.0...v23.13.0) (2022-02-15)
+
+
+### Bug Fixes
+
+* **gallery:** update header button's tooltip position ([#979](https://github.com/alfa-laboratory/core-components/issues/979)) ([8e2acfc](https://github.com/alfa-laboratory/core-components/commit/8e2acfcb772cf4d8051c185a3f1caaaf507b5bc9))
+
+
+### Features
+
+* **notification:** disabled trackMouse ([#987](https://github.com/alfa-laboratory/core-components/issues/987)) ([c237b04](https://github.com/alfa-laboratory/core-components/commit/c237b04be227d370b321bb2d4585ce72b4d9994e))
+* **vars:** updated typography ([#981](https://github.com/alfa-laboratory/core-components/issues/981)) ([95bcce8](https://github.com/alfa-laboratory/core-components/commit/95bcce8e07467c635e2a93c55edfb3550a533ba4))
+
+# [23.12.0](https://github.com/alfa-laboratory/core-components/compare/v23.11.0...v23.12.0) (2022-02-09)
+
+
+### Features
+
+* **tabs:** add xxs xs sizes to secondary view and fix heights ([#985](https://github.com/alfa-laboratory/core-components/issues/985)) ([dd20933](https://github.com/alfa-laboratory/core-components/commit/dd20933f7c9a8f08920f7ad21bacb25983d3e93e))
+* **themes:** introducing intranet theme ([#983](https://github.com/alfa-laboratory/core-components/issues/983)) ([85eb9cf](https://github.com/alfa-laboratory/core-components/commit/85eb9cfffeef31b886c5123d6333e177c261ac62))
+
 # [23.11.0](https://github.com/alfa-laboratory/core-components/compare/v23.10.0...v23.11.0) (2022-02-03)
 
 

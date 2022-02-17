@@ -1,0 +1,21 @@
+@import '../../../../../themes/src/default.css';
+@import '../../../vars.css';
+
+.header {
+    @mixin _confirmation-title;
+}
+
+.description {
+    @mixin _confirmation-text;
+
+    margin-bottom: var(--gap-2xl);
+}
+
+.countdownWrap {
+    display: flex;
+    align-items: center;
+}
+
+.loader {
+    margin-right: var(--gap-xs);
+}

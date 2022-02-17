@@ -1,6 +1,3 @@
-export const IS_BROWSER = typeof window !== 'undefined';
-export const SUPPORTS_INPUT_TYPE_DATE = IS_BROWSER && isInputDateSupported();
-
 /**
  * Возвращает `true`, если поддерживается `input[type="date"]`
  */

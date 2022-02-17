@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.16...@alfalab/core-components-notification@5.1.0) (2022-02-15)
+
+
+### Features
+
+* **notification:** disabled trackMouse ([#987](https://github.com/alfa-laboratory/core-components/issues/987)) ([c237b04](https://github.com/alfa-laboratory/core-components/commit/c237b04be227d370b321bb2d4585ce72b4d9994e))
+
+
+
+
+
+## [5.0.16](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.15...@alfalab/core-components-notification@5.0.16) (2022-02-09)
+
+**Note:** Version bump only for package @alfalab/core-components-notification
+
+
+
+
+
 ## [5.0.15](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.14...@alfalab/core-components-notification@5.0.15) (2022-02-03)
 
 **Note:** Version bump only for package @alfalab/core-components-notification

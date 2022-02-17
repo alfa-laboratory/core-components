@@ -1,28 +1,30 @@
-import React, { ChangeEvent, useCallback, useMemo, useState } from 'react';
-import { MaskedInput, MaskedInputProps } from '@alfalab/core-components-masked-input';
+import React, {
+    ChangeEvent,
+    useCallback,
+    useEffect,
+    useState,
+    forwardRef,
+    FocusEvent,
+    useRef,
+} from 'react';
 
+import { Input, InputProps } from '@alfalab/core-components-input';
+
+import mergeRefs from 'react-merge-refs';
 import {
-    SUPPORTS_INPUT_TYPE_DATE,
     NATIVE_DATE_FORMAT,
-    createAutoCorrectedDatePipe,
     parseDateString,
     formatDate,
-    mask,
+    format,
+    isCompleteDateInput,
+    isInputDateSupported,
+    DATE_MASK,
+    isValid,
 } from './utils';
 
 import styles from './index.module.css';
 
-export type DateInputProps = Omit<MaskedInputProps, 'onBeforeDisplay' | 'mask' | 'onChange'> & {
-    /**
-     * Минимальный год, доступный для ввода
-     */
-    minYear?: number;
-
-    /**
-     * Максимальный год, доступный для ввода
-     */
-    maxYear?: number;
-
+export type DateInputProps = Omit<InputProps, 'onChange'> & {
     /**
      * Управление нативным режимом на мобильных устройствах
      */
@@ -35,59 +37,82 @@ export type DateInputProps = Omit<MaskedInputProps, 'onBeforeDisplay' | 'mask' |
         event: ChangeEvent<HTMLInputElement>,
         payload: { date: Date; value: string },
     ) => void;
+
+    /**
+     * Обработчик окончания ввода
+     */
+    onComplete?: (
+        event: ChangeEvent<HTMLInputElement>,
+        payload: { date: Date; value: string },
+    ) => void;
 };
 
-export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
+export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
     (
         {
-            maxYear,
-            minYear,
             mobileMode = 'input',
-            value,
-            defaultValue,
+            defaultValue = '',
             rightAddons,
+            error,
+            value: propValue,
+            onBlur,
             onChange,
+            onComplete,
             ...restProps
         },
         ref,
     ) => {
-        const uncontrolled = value === undefined;
-        const shouldRenderNative = SUPPORTS_INPUT_TYPE_DATE && mobileMode === 'native';
+        const inputRef = useRef<HTMLInputElement>(null);
 
-        const [stateValue, setStateValue] = useState(defaultValue);
+        const [shouldRenderNative, setShouldRenderNative] = useState(false);
 
-        const inputValue = uncontrolled ? stateValue : value;
+        const [value, setValue] = useState(propValue || defaultValue);
 
-        const pipe = useMemo(
-            () =>
-                createAutoCorrectedDatePipe({
-                    maxYear,
-                    minYear,
-                }),
-            [maxYear, minYear],
-        );
+        const [stateError, setStateError] = useState(!isValid(propValue));
 
-        const changeHandler = useCallback(
-            (event: ChangeEvent<HTMLInputElement>, newValue: string, newDate: Date) => {
-                if (uncontrolled) {
-                    setStateValue(newValue);
-                }
+        const handleValueValidity = useCallback((inputValue: string) => {
+            // Валидируем незаполненное значение только если инпут не в фокусе (блюр, либо установка значения снаружи)
+            const validateIncomplete =
+                inputRef.current && document.activeElement !== inputRef.current;
 
-                if (onChange) {
-                    onChange(event, { date: newDate, value: newValue });
-                }
-            },
-            [onChange, uncontrolled],
-        );
+            if (!inputValue || validateIncomplete || inputValue.length >= DATE_MASK.length) {
+                setStateError(!isValid(inputValue));
+            }
+        }, []);
 
         const handleChange = useCallback(
             (event: ChangeEvent<HTMLInputElement>) => {
-                const newValue = event.target.value;
-                const newDate = parseDateString(newValue);
+                const { value: newValue } = event.target;
 
-                changeHandler(event, newValue, newDate);
+                // Позволяем вводить только цифры и точки
+                if (/[^\d.]/.test(newValue)) {
+                    return;
+                }
+
+                const dots = newValue.match(/\./g);
+
+                // Не даем вводить больше, чем 2 точки
+                if (dots && dots.length > 2) {
+                    return;
+                }
+
+                // Форматируем введенное значение (добавляем точки)
+                const formattedValue = format(newValue);
+                const date = parseDateString(formattedValue);
+
+                setValue(formattedValue);
+
+                if (onChange) onChange(event, { date, value: formattedValue });
+
+                if (isCompleteDateInput(formattedValue)) {
+                    const valid = formattedValue.length > 0 && isValid(formattedValue);
+
+                    if (!valid) return;
+
+                    if (onComplete) onComplete(event, { date, value: formattedValue });
+                }
             },
-            [changeHandler],
+            [onChange, onComplete],
         );
 
         const handleNativeInputChange = useCallback(
@@ -95,24 +120,55 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
                 const newDate = parseDateString(event.target.value, NATIVE_DATE_FORMAT);
                 const newValue = event.target.value === '' ? '' : formatDate(newDate);
 
-                changeHandler(event, newValue, newDate);
+                setValue(newValue);
+
+                if (onComplete) onComplete(event, { date: newDate, value: newValue });
+                if (onChange) onChange(event, { date: newDate, value: newValue });
             },
-            [changeHandler],
+            [onComplete, onChange],
         );
 
+        const handleBlur = useCallback(
+            (event: FocusEvent<HTMLInputElement>) => {
+                handleValueValidity(value);
+
+                if (onBlur) onBlur(event);
+            },
+            [handleValueValidity, onBlur, value],
+        );
+
+        useEffect(() => {
+            if (mobileMode === 'native' && isInputDateSupported()) {
+                setShouldRenderNative(true);
+            }
+        }, [mobileMode]);
+
+        useEffect(() => {
+            if (typeof propValue !== 'undefined') {
+                setValue(propValue);
+            }
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, [propValue]);
+
+        useEffect(() => {
+            handleValueValidity(value);
+        }, [handleValueValidity, value]);
+
         return (
-            <MaskedInput
+            <Input
                 {...restProps}
-                ref={ref}
-                mask={mask}
-                keepCharPositions={true}
-                defaultValue={defaultValue}
-                value={inputValue}
-                onBeforeDisplay={pipe}
+                ref={mergeRefs([ref, inputRef])}
+                value={value}
+                inputMode='decimal'
+                pattern='[0-9\.]*'
                 onChange={handleChange}
+                onBlur={handleBlur}
+                placeholder='ДД.ММ.ГГГГ'
+                error={error || stateError}
                 rightAddons={
                     <React.Fragment>
                         {rightAddons}
+
                         {shouldRenderNative && (
                             <input
                                 type='date'

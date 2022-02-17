@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@5.1.0...@alfalab/core-components-button@5.1.1) (2022-02-15)
+
+**Note:** Version bump only for package @alfalab/core-components-button
+
+
+
+
+
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@5.0.5...@alfalab/core-components-button@5.1.0) (2022-02-09)
+
+
+### Features
+
+* **themes:** introducing intranet theme ([#983](https://github.com/alfa-laboratory/core-components/issues/983)) ([85eb9cf](https://github.com/alfa-laboratory/core-components/commit/85eb9cfffeef31b886c5123d6333e177c261ac62))
+
+
+
+
+
 ## [5.0.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@5.0.4...@alfalab/core-components-button@5.0.5) (2022-02-03)
 
 

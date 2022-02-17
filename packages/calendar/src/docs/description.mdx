@@ -99,35 +99,44 @@ render(() => {
 
 Если свойство `selectedTo` не задано, то подсвечивается период между `selectedFrom` и датой под курсором.
 
-Для автоматического управления выделением можно воспользоваться хуком `usePeriod`
+Компонент содержит два хука, для автоматического управления выделением:
+
+### usePeriod
+
+Используется для одиночных календарей:
+
+-   Сначала выбираются обе даты, затем меняется та, которая ближе к одному из концов выделения.
+-   Клик по выбранной дате снимает с нее выделение
 
 ```tsx live
 render(() => {
     // import { usePeriod } from '@alfalab/core-components/calendar';
 
-    const [value, setValue] = React.useState();
+    const { selectedFrom, selectedTo, updatePeriod } = usePeriod();
 
-    const onPeriodChange = (selectedFrom, selectedTo) => {
-        console.log('selected', selectedFrom, selectedTo);
-    };
+    React.useEffect(() => {
+        console.log('period', selectedFrom, selectedTo);
+    }, [selectedFrom, selectedTo]);
 
-    const { selectedFrom, selectedTo, updatePeriod } = usePeriod({ onPeriodChange });
+    return <Calendar selectedFrom={selectedFrom} selectedTo={selectedTo} onChange={updatePeriod} />;
+});
+```
 
-    const handleChange = date => {
-        const newDate = date === selectedFrom ? undefined : date;
+### usePeriodWithReset
 
-        setValue(newDate);
-        updatePeriod(newDate);
-    };
+- Каждое третье нажатие начинает выделение сначала
 
-    return (
-        <Calendar
-            value={value}
-            selectedFrom={selectedFrom}
-            selectedTo={selectedTo}
-            onChange={handleChange}
-        />
-    );
+```tsx live
+render(() => {
+    // import { usePeriodWithReset } from '@alfalab/core-components/calendar';
+
+    const { selectedFrom, selectedTo, updatePeriod } = usePeriodWithReset();
+
+    React.useEffect(() => {
+        console.log('period', selectedFrom, selectedTo);
+    }, [selectedFrom, selectedTo]);
+
+    return <Calendar selectedFrom={selectedFrom} selectedTo={selectedTo} onChange={updatePeriod} />;
 });
 ```
 
@@ -155,13 +164,6 @@ render(() => {
                 </small>
                 <small>Дата конца: {format(values.valueTo, DATE_FORMAT)}</small>
             </p>
-
-            <PeriodSlider
-                value={values.value}
-                view='full'
-                onPrevArrowClick={handler}
-                onNextArrowClick={handler}
-            />
 
             <br />
 
@@ -194,6 +196,14 @@ render(() => {
 
             <PeriodSlider
                 value={values.value}
+                periodType='day'
+                onPrevArrowClick={handler}
+                onNextArrowClick={handler}
+            />
+            
+            <br />
+
+            <PeriodSlider
                 periodType='day'
                 onPrevArrowClick={handler}
                 onNextArrowClick={handler}

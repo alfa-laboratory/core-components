@@ -11,6 +11,7 @@ const THEMES = [
     'corp',
     'mobile',
     'site',
+    'intranet',
 ]
 
 const Addon = () => {

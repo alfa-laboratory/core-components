@@ -1,0 +1,46 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { text, select, boolean, number } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+
+import { CodeInput } from '..';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../vars.css';
+
+<Meta title='Компоненты/CodeInput' component={CodeInput} />
+
+<!-- Canvas -->
+
+<Story name='CodeInput'>
+    {React.createElement(() => {
+        return (
+            <CodeInput
+                fields={number('fields', 4)}
+                disabled={boolean('disabled', false)}
+                error={text('error', '')}
+                initialValues="1234"
+            />
+        );
+    })}
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='CodeInput'
+    version={version}
+    package='@alfalab/core-components/code-input'
+    stage={2}
+/>
+
+```tsx
+import { CodeInput } from '@alfalab/core-components/code-input';
+```
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props of={CodeInput} />}
+    cssVars={<CssVars css={styles}/>}
+/>

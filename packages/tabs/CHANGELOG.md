@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@6.0.1...@alfalab/core-components-tabs@6.1.0) (2022-02-09)
+
+
+### Features
+
+* **tabs:** add xxs xs sizes to secondary view and fix heights ([#985](https://github.com/alfa-laboratory/core-components/issues/985)) ([dd20933](https://github.com/alfa-laboratory/core-components/commit/dd20933f7c9a8f08920f7ad21bacb25983d3e93e))
+
+
+
+
+
 ## [6.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@6.0.0...@alfalab/core-components-tabs@6.0.1) (2021-12-08)
 
 **Note:** Version bump only for package @alfalab/core-components-tabs

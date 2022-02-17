@@ -1,0 +1,5 @@
+@import '../../../../packages/themes/src/mixins/intranet.css';
+
+:root {
+    @mixin theme-intranet;
+}

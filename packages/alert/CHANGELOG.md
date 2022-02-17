@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.9](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-alert@3.0.8...@alfalab/core-components-alert@3.0.9) (2022-02-15)
+
+**Note:** Version bump only for package @alfalab/core-components-alert
+
+
+
+
+
+## [3.0.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-alert@3.0.7...@alfalab/core-components-alert@3.0.8) (2022-02-09)
+
+**Note:** Version bump only for package @alfalab/core-components-alert
+
+
+
+
+
 ## [3.0.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-alert@3.0.6...@alfalab/core-components-alert@3.0.7) (2022-02-03)
 
 **Note:** Version bump only for package @alfalab/core-components-alert

@@ -1,5 +1,5 @@
 export * from './Component';
-export { usePeriod } from './usePeriod';
+export { usePeriod, usePeriodWithReset } from './usePeriod';
 export { useCalendar } from './useCalendar';
 export * from './components/period-slider';
 export {

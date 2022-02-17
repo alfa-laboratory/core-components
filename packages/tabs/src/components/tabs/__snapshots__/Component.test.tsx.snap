@@ -91,7 +91,7 @@ exports[`Tabs Snapshots tests should match snapshot 2`] = `
 <div>
   <div>
     <div
-      class="component m"
+      class="component s"
       role="tablist"
     >
       <div
@@ -428,7 +428,7 @@ exports[`Tabs Snapshots tests should match snapshot 6`] = `
 <div>
   <div>
     <div
-      class="component m"
+      class="component s"
       role="tablist"
     >
       <div

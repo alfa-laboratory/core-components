@@ -1,3 +1,33 @@
 ```tsx live
-<DateInput />
+<DateInput defaultValue='30.12.2005' />
+```
+
+### Controlled
+
+```tsx live
+render(() => {
+    const [value, setValue] = React.useState('30.12.2005');
+
+    const handleChange = (event, { value }) => setValue(value);
+
+    return (
+        <Space>
+            <DateInput value={value} onChange={handleChange} label='Дата регистрации' />
+
+            <Space direction='horizontal'>
+                <Button size='xxs' type='button' onClick={() => setValue('')}>
+                    Сбросить
+                </Button>
+                <Button size='xxs' type='button' onClick={() => setValue('30.01.2005')}>
+                    Установить 30.01.2005
+                </Button>
+                <Button size='xxs' type='button' onClick={() => setValue('30.02.2005')}>
+                    Установить некорректное значение
+                </Button>
+            </Space>
+
+            <div />
+        </Space>
+    );
+});
 ```

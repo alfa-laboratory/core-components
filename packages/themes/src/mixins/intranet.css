@@ -1,0 +1,23 @@
+@import './button/intranet.css';
+@import './form-control/intranet.css';
+@import './tag/intranet.css';
+@import './checkbox/intranet.css';
+@import './radio/intranet.css';
+@import './confirmation/intranet.css';
+@import './input/intranet.css';
+@import './slider/intranet.css';
+@import './slider-input/intranet.css';
+@import './calendar-input/intranet.css';
+
+@define-mixin theme-intranet {
+    @mixin button-intranet;
+    @mixin tag-intranet;
+    @mixin checkbox-intranet;
+    @mixin radio-intranet;
+    @mixin confirmation-intranet;
+    @mixin form-control-intranet;
+    @mixin input-intranet;
+    @mixin slider-intranet;
+    @mixin slider-input-intranet;
+    @mixin calendar-input-intranet;
+}

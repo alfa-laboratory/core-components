@@ -4,14 +4,12 @@
 .header {
     width: 100%;
     box-sizing: border-box;
-    padding: var(--calendar-header-paddings);
+    padding: var(--gap-m) 0 var(--gap-s);
     transition: box-shadow 0.2s ease;
+    display: flex;
+    justify-content: center;
 }
 
 .withShadow {
     box-shadow: var(--shadow-s);
-}
-
-.monthOnly {
-    padding: var(--calendar-month-only-header-paddings);
 }

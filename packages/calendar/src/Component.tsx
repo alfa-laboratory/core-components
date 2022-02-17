@@ -12,6 +12,7 @@ import { limitDate } from './utils';
 import { View, SelectorView } from './typings';
 
 import styles from './index.module.css';
+import { MonthYearHeader } from './components/month-year-header';
 
 export type CalendarProps = {
     /**
@@ -65,6 +66,11 @@ export type CalendarProps = {
     selectedTo?: number;
 
     /**
+     * Индикатор, что выбран полный период
+     */
+    rangeComplete?: boolean;
+
+    /**
      * Список событий
      */
     events?: Array<Date | number>;
@@ -103,6 +109,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             defaultMonth: defaultMonthTimestamp = +new Date(),
             selectedFrom,
             selectedTo,
+            rangeComplete,
             offDays,
             events,
             onChange,
@@ -219,22 +226,28 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                 data-test-id={dataTestId}
             >
                 <Header view={selectorView} withShadow={scrolled}>
-                    <PeriodSlider
-                        className={styles.period}
-                        value={activeMonth}
-                        periodType='month'
-                        prevArrowDisabled={!canSetPrevMonth}
-                        nextArrowDisabled={!canSetNextMonth}
-                        hideDisabledArrows={true}
-                        onPrevArrowClick={handlePrevArrowClick}
-                        onNextArrowClick={handleNextArrowClick}
-                        onMonthClick={handleMonthClick}
-                        onYearClick={handleYearClick}
-                        view={selectorView === 'month-only' ? 'period' : 'full'}
-                    />
+                    {selectorView === 'month-only' ? (
+                        <PeriodSlider
+                            className={styles.period}
+                            value={activeMonth}
+                            periodType='month'
+                            prevArrowDisabled={!canSetPrevMonth}
+                            nextArrowDisabled={!canSetNextMonth}
+                            hideDisabledArrows={true}
+                            onPrevArrowClick={handlePrevArrowClick}
+                            onNextArrowClick={handleNextArrowClick}
+                        />
+                    ) : (
+                        <MonthYearHeader
+                            className={styles.monthYear}
+                            value={activeMonth}
+                            onMonthClick={handleMonthClick}
+                            onYearClick={handleYearClick}
+                        />
+                    )}
                 </Header>
 
-                <div className={styles.container}>
+                <div className={cn(styles.container, styles[view])}>
                     {view === 'days' && (
                         <DaysTable
                             weeks={weeks}
@@ -243,6 +256,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                             selectedTo={selectedTo}
                             getDayProps={getDayProps}
                             highlighted={highlighted}
+                            rangeComplete={rangeComplete}
                         />
                     )}
 

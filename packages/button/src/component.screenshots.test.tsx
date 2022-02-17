@@ -65,7 +65,7 @@ describe('Button | views & themes', () => {
             theme,
         })();
 
-    ['default', 'click', 'corp', 'site', 'mobile'].map(testCase);
+    ['default', 'click', 'corp', 'site', 'mobile', 'intranet'].map(testCase);
 });
 
 describe('Button | inverted views & themes', () => {
@@ -96,7 +96,7 @@ describe('Button | inverted views & themes', () => {
             theme,
         })();
 
-    ['default', 'click', 'corp', 'site', 'mobile'].map(testCase);
+    ['default', 'click', 'corp', 'site', 'mobile', 'intranet'].map(testCase);
 });
 
 describe(

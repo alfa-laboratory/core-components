@@ -266,8 +266,8 @@ describe('CalendarRange', () => {
 
             fireEvent.mouseEnter(days[1]);
 
-            expect(days[0]).toHaveClass('rangeStart');
-            expect(days[1]).toHaveClass('range');
+            expect(days[0].parentElement).toHaveClass('rangeStart');
+            expect(days[1].parentElement).toHaveClass('range');
         });
 
         it('should select new day, fill inputTo and end selection if clicked on same day twice', () => {
@@ -291,7 +291,7 @@ describe('CalendarRange', () => {
 
             fireEvent.mouseEnter(days[1]);
 
-            expect(days[1]).not.toHaveClass('range');
+            expect(days[1].parentElement).not.toHaveClass('range');
         });
 
         it('should unselected day, clear inputs and cancel selection if clicked on same day thrice', () => {
@@ -342,9 +342,9 @@ describe('CalendarRange', () => {
 
             fireEvent.mouseEnter(days[1]);
 
-            expect(days[0]).toHaveClass('rangeStart');
-            expect(days[1]).not.toHaveClass('rangeStart');
-            expect(days[1]).toHaveClass('range');
+            expect(days[0].parentElement).toHaveClass('rangeStart');
+            expect(days[1].parentElement).not.toHaveClass('rangeStart');
+            expect(days[1].parentElement).toHaveClass('range');
         });
 
         it('should select day, fill inputTo and end selection if clicked date > start date', () => {
@@ -366,7 +366,7 @@ describe('CalendarRange', () => {
 
             Array.from(days)
                 .slice(1, -1)
-                .forEach(day => expect(day).toHaveClass('range'));
+                .forEach(day => expect(day.parentElement).toHaveClass('range'));
         });
 
         it('should keep selection when month changed', async () => {
@@ -394,7 +394,7 @@ describe('CalendarRange', () => {
 
             Array.from(days)
                 .slice(0, -1)
-                .forEach(day => expect(day).toHaveClass('range'));
+                .forEach(day => expect(day.parentElement).toHaveClass('range'));
         });
     });
 
