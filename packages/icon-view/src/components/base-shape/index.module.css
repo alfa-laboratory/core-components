@@ -11,6 +11,10 @@
     color: var(--color-light-text-secondary-transparent);
 }
 
+.bg {
+    fill: #f3f4f5;
+}
+
 .border {
     stroke: var(--color-light-specialbg-component);
     stroke-width: 1px;

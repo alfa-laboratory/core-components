@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-gallery",
-    "version": "3.0.9",
+    "version": "3.0.10",
     "description": "",
     "keywords": [],
     "license": "MIT",
@@ -24,7 +24,7 @@
         "@alfalab/core-components-tooltip": "^4.4.5",
         "@alfalab/core-components-typography": "^2.3.0",
         "@alfalab/hooks": "^1.4.1",
-        "@alfalab/icons-glyph": "^1.190.0",
+        "@alfalab/icons-glyph": "^2.14.0",
         "classnames": "^2.2.6",
         "element-closest": "^3.0.2",
         "swiper": "^6.8.2"

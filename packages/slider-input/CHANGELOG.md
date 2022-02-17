@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.3.16](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.3.15...@alfalab/core-components-slider-input@4.3.16) (2022-02-17)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
 ## [4.3.15](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.3.14...@alfalab/core-components-slider-input@4.3.15) (2022-02-15)
 
 **Note:** Version bump only for package @alfalab/core-components-slider-input

@@ -8,7 +8,7 @@ import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
 import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
 import { PointerDownMIcon } from '@alfalab/icons-glyph/PointerDownMIcon';
-import { ClockMIcon } from '@alfalab/icons-glyph';
+import { ClockMIcon } from '@alfalab/icons-glyph/ClockMIcon';
 
 import { fileIcon, humanFileSize } from './utils';
 

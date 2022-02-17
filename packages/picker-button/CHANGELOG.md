@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.4.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.4.2...@alfalab/core-components-picker-button@7.4.3) (2022-02-17)
+
+
+### Bug Fixes
+
+* imports for glyph icons ([#994](https://github.com/alfa-laboratory/core-components/issues/994)) ([8e807f2](https://github.com/alfa-laboratory/core-components/commit/8e807f26abf0f942fe8eadbd201caecb297b35dc))
+
+
+
+
+
 ## [7.4.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.4.1...@alfalab/core-components-picker-button@7.4.2) (2022-02-15)
 
 **Note:** Version bump only for package @alfalab/core-components-picker-button

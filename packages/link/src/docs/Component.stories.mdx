@@ -1,12 +1,12 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
 import { Typography } from '@alfalab/core-components-typography';
 
 import { Link } from '../Component';
-import { name, version } from '../../package.json';
+import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
@@ -42,8 +42,8 @@ export const VIEWS = ['primary', 'secondary', 'default'];
                         view={select('view', VIEWS, 'primary')}
                         pseudo={boolean('pseudo', false)}
                         href={text('href', '')}
-                        leftAddons={boolean('leftAddons', false) && <Icon />}
-                        rightAddons={boolean('rightAddons', false) && <Icon />}
+                        leftAddons={boolean('leftAddons', false) && <StarMIcon />}
+                        rightAddons={boolean('rightAddons', false) && <StarMIcon />}
                         colors={colors}
                     >
                         {text('text', 'Вернуться в интернет-банк')}

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.15](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount-input@5.3.14...@alfalab/core-components-amount-input@5.3.15) (2022-02-17)
+
+
+### Bug Fixes
+
+* imports for glyph icons ([#994](https://github.com/alfa-laboratory/core-components/issues/994)) ([8e807f2](https://github.com/alfa-laboratory/core-components/commit/8e807f26abf0f942fe8eadbd201caecb297b35dc))
+
+
+
+
+
 ## [5.3.14](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount-input@5.3.13...@alfalab/core-components-amount-input@5.3.14) (2022-02-15)
 
 **Note:** Version bump only for package @alfalab/core-components-amount-input

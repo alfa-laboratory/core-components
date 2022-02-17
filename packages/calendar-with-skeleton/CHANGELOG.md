@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-with-skeleton@3.1.5...@alfalab/core-components-calendar-with-skeleton@3.2.0) (2022-02-17)
+
+
+### Features
+
+* **calendar:** design & logic updates ([#991](https://github.com/alfa-laboratory/core-components/issues/991)) ([358142c](https://github.com/alfa-laboratory/core-components/commit/358142c6d259e1463954139cc648787cdf461f76)), closes [#993](https://github.com/alfa-laboratory/core-components/issues/993) [#990](https://github.com/alfa-laboratory/core-components/issues/990)
+
+
+
+
+
 ## [3.1.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-with-skeleton@3.1.4...@alfalab/core-components-calendar-with-skeleton@3.1.5) (2022-02-15)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar-with-skeleton

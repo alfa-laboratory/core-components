@@ -1,10 +1,10 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
-import Icon from '@alfalab/icons-glyph/CopyMIcon';
+import { CopyMIcon } from '@alfalab/icons-glyph/CopyMIcon';
 
 import { Tag } from '../Component';
-import { name, version } from '../../package.json';
+import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
@@ -38,7 +38,7 @@ export const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
                     size={select('size', SIZES, 'm')}
                     disabled={boolean('disabled', false)}
                     checked={checked || boolean('checked', false)}
-                    rightAddons={boolean('rightAddons', false) && <Icon />}
+                    rightAddons={boolean('rightAddons', false) && <CopyMIcon />}
                     onClick={handleClick}
                     colors={colors}
                 >

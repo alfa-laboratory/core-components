@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { LogoAlfabankMColorIcon } from '@alfalab/icons-classic';
+import { LogoAlfabankMColorIcon } from '@alfalab/icons-classic/LogoAlfabankMColorIcon';
 
 import { BankCard } from './index';
 

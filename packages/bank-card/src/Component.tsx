@@ -3,10 +3,10 @@ import cn from 'classnames';
 import { MaskedInput } from '@alfalab/core-components-masked-input';
 // Дождаться иконку альфы в icons-logotype
 import { BankAlfaLColorIcon } from '@alfalab/icons-classic/BankAlfaLColorIcon';
-
 import { CameraMIcon } from '@alfalab/icons-glyph/CameraMIcon';
-
-import { VisaXxlIcon, MastercardLIcon, MirXxlIcon } from '@alfalab/icons-logotype';
+import { VisaXxlIcon } from '@alfalab/icons-logotype/VisaXxlIcon';
+import { MastercardLIcon } from '@alfalab/icons-logotype/MastercardLIcon';
+import { MirXxlIcon } from '@alfalab/icons-logotype/MirXxlIcon';
 
 import styles from './index.module.css';
 import { validateCardNumber } from './utils';

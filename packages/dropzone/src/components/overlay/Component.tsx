@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
-import { ContainerMIcon } from '@alfalab/icons-glyph';
+import { ContainerMIcon } from '@alfalab/icons-glyph/ContainerMIcon';
 
 import styles from './index.module.css';
 
