@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-date-input@1.3.0...@alfalab/core-components-date-input@2.0.0) (2022-02-17)
+
+
+* refactor/calendar-range (#984) ([714f615](https://github.com/alfa-laboratory/core-components/commit/714f61590586bafe1060e652943e95c133ed002a)), closes [#984](https://github.com/alfa-laboratory/core-components/issues/984)
+
+
+### BREAKING CHANGES
+
+* Большое обновление CalendarRange
+
+* feat(date-input): add some improvements
+
+* feat(date-input): some updates
+
+* feat(date-input): validation
+
+* feat(calendar): change period selection logic
+
+* fix(calendar): range styles
+
+* fix(calendar): fix styles, add rangeComplete flag
+
+* refactor(calendar-range): temporary
+
+* fix(calendar-range): fix hook
+
+* fix(calendar-range): fix period
+
+* fix(calendar-range): fix tests, fix max date
+
+* fix: update exports
+
+* feat(calendar): allow empty values for PeriodSlider, update today
+
+* fix(calendar-range): hide error icon
+
+* chore(calendar-range): demo
+
+* feat(calendar): use IconButton
+
+* feat(calendar-range): add onChange, update demo
+
+* fix(calendar-range): update width
+
+* test(calendar-range): update snapshot
+
+* fix: import date-fns separately
+
+* fix(calendar-range): fix rest props
+
+Co-authored-by: dmitrsavk <dmitrsavk@yandex.ru>
+
+
+
+
+
 # [1.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-date-input@1.2.13...@alfalab/core-components-date-input@1.3.0) (2022-02-17)
 
 
