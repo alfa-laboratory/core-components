@@ -17,7 +17,15 @@ export type ProgressBarProps = {
     /**
      * Цвет заполнения
      */
-    view?: 'positive' | 'negative' | 'attention' | 'link' | 'tertiary' | 'secondary' | 'primary';
+    view?:
+        | 'positive'
+        | 'negative'
+        | 'attention'
+        | 'link'
+        | 'tertiary'
+        | 'secondary'
+        | 'primary'
+        | 'accent';
 
     /**
      * Размер компонента

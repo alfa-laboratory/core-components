@@ -25,6 +25,9 @@
 
     /* primary */
     --progressbar-primary-color: var(--color-light-graphic-primary);
+
+    /* accent */
+    --progressbar-accent-color: var(--color-light-graphic-accent);
 }
 
 .container {
@@ -75,5 +78,9 @@
 
     &.primary {
         background: var(--progressbar-primary-color);
+    }
+
+    &.accent {
+        background: var(--progressbar-accent-color);
     }
 }

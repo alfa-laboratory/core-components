@@ -25,6 +25,7 @@ describe(
                             'tertiary',
                             'secondary',
                             'primary',
+                            'accent',
                         ],
                         value: [0, 50, 100],
                     },
