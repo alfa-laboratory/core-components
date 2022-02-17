@@ -1,5 +1,6 @@
 import React, { FC, useCallback } from 'react';
-import { isSameMonth, isThisMonth } from 'date-fns';
+import isSameMonth from 'date-fns/isSameMonth';
+import isThisMonth from 'date-fns/isThisMonth';
 import { SelectButton, SelectButtonProps } from '../select-button';
 import { monthName } from '../../utils';
 import { Month } from '../../typings';

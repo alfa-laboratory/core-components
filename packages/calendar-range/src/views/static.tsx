@@ -1,6 +1,10 @@
 import React, { useCallback, useState, useRef, FC, useEffect, MouseEvent } from 'react';
 import cn from 'classnames';
-import { addMonths, endOfMonth, max, startOfMonth, subMonths } from 'date-fns';
+import addMonths from 'date-fns/addMonths';
+import endOfMonth from 'date-fns/endOfMonth';
+import max from 'date-fns/max';
+import startOfMonth from 'date-fns/startOfMonth';
+import subMonths from 'date-fns/subMonths';
 import { Calendar, usePeriodWithReset } from '@alfalab/core-components-calendar';
 import {
     formatDate,

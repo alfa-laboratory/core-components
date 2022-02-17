@@ -1,5 +1,10 @@
 import { useState, useCallback, useEffect, useMemo } from 'react';
-import { startOfMonth, addMonths, subMonths, max, min, isEqual } from 'date-fns';
+import startOfMonth from 'date-fns/startOfMonth';
+import addMonths from 'date-fns/addMonths';
+import subMonths from 'date-fns/subMonths';
+import max from 'date-fns/max';
+import min from 'date-fns/min';
+import isEqual from 'date-fns/isEqual';
 
 export function usePopoverViewMonthes({
     dateFrom,

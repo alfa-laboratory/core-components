@@ -1,6 +1,6 @@
 import React, { useCallback, useState, FC, useEffect } from 'react';
 import cn from 'classnames';
-import { startOfMonth } from 'date-fns';
+import startOfMonth from 'date-fns/startOfMonth';
 import {
     CalendarInput,
     CalendarInputProps,
