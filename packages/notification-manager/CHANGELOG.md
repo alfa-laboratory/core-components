@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.18](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@4.0.17...@alfalab/core-components-notification-manager@4.0.18) (2022-02-17)
+
+**Note:** Version bump only for package @alfalab/core-components-notification-manager
+
+
+
+
+
 ## [4.0.17](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification-manager@4.0.16...@alfalab/core-components-notification-manager@4.0.17) (2022-02-15)
 
 **Note:** Version bump only for package @alfalab/core-components-notification-manager

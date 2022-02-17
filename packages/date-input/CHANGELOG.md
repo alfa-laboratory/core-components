@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-date-input@1.2.13...@alfalab/core-components-date-input@1.3.0) (2022-02-17)
+
+
+### Features
+
+* **date-input:** add some improvements ([#971](https://github.com/alfa-laboratory/core-components/issues/971)) ([47756ca](https://github.com/alfa-laboratory/core-components/commit/47756ca1d4eea89f78ed7234e95c02e51dd72e49))
+
+
+
+
+
 ## [1.2.13](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-date-input@1.2.12...@alfalab/core-components-date-input@1.2.13) (2022-02-15)
 
 **Note:** Version bump only for package @alfalab/core-components-date-input

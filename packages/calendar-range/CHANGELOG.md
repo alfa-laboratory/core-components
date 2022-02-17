@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@4.2.5...@alfalab/core-components-calendar-range@4.3.0) (2022-02-17)
+
+
+### Features
+
+* **calendar:** design & logic updates ([#991](https://github.com/alfa-laboratory/core-components/issues/991)) ([358142c](https://github.com/alfa-laboratory/core-components/commit/358142c6d259e1463954139cc648787cdf461f76)), closes [#993](https://github.com/alfa-laboratory/core-components/issues/993) [#990](https://github.com/alfa-laboratory/core-components/issues/990)
+* **date-input:** add some improvements ([#971](https://github.com/alfa-laboratory/core-components/issues/971)) ([47756ca](https://github.com/alfa-laboratory/core-components/commit/47756ca1d4eea89f78ed7234e95c02e51dd72e49))
+
+
+
+
+
 ## [4.2.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@4.2.4...@alfalab/core-components-calendar-range@4.2.5) (2022-02-15)
 
 **Note:** Version bump only for package @alfalab/core-components-calendar-range

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.4.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.4.4...@alfalab/core-components-select@10.4.5) (2022-02-17)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
 ## [10.4.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.4.3...@alfalab/core-components-select@10.4.4) (2022-02-15)
 
 **Note:** Version bump only for package @alfalab/core-components-select

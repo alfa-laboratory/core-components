@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-view@1.1.1...@alfalab/core-components-icon-view@1.1.2) (2022-02-17)
+
+
+### Bug Fixes
+
+* **icon-view:** fix bg-color ([#980](https://github.com/alfa-laboratory/core-components/issues/980)) ([2fbad56](https://github.com/alfa-laboratory/core-components/commit/2fbad5671d64056a4af81c4fe281a82c415ffeb5))
+
+
+
+
+
 ## [1.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-view@1.1.0...@alfalab/core-components-icon-view@1.1.1) (2022-01-27)
 
 
