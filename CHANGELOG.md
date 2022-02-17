@@ -1,3 +1,55 @@
+# [25.0.0](https://github.com/alfa-laboratory/core-components/compare/v24.1.0...v25.0.0) (2022-02-17)
+
+
+* refactor/calendar-range (#984) ([714f615](https://github.com/alfa-laboratory/core-components/commit/714f61590586bafe1060e652943e95c133ed002a)), closes [#984](https://github.com/alfa-laboratory/core-components/issues/984)
+
+
+### BREAKING CHANGES
+
+* Большое обновление CalendarRange
+
+* feat(date-input): add some improvements
+
+* feat(date-input): some updates
+
+* feat(date-input): validation
+
+* feat(calendar): change period selection logic
+
+* fix(calendar): range styles
+
+* fix(calendar): fix styles, add rangeComplete flag
+
+* refactor(calendar-range): temporary
+
+* fix(calendar-range): fix hook
+
+* fix(calendar-range): fix period
+
+* fix(calendar-range): fix tests, fix max date
+
+* fix: update exports
+
+* feat(calendar): allow empty values for PeriodSlider, update today
+
+* fix(calendar-range): hide error icon
+
+* chore(calendar-range): demo
+
+* feat(calendar): use IconButton
+
+* feat(calendar-range): add onChange, update demo
+
+* fix(calendar-range): update width
+
+* test(calendar-range): update snapshot
+
+* fix: import date-fns separately
+
+* fix(calendar-range): fix rest props
+
+Co-authored-by: dmitrsavk <dmitrsavk@yandex.ru>
+
 # [24.1.0](https://github.com/alfa-laboratory/core-components/compare/v24.0.0...v24.1.0) (2022-02-17)
 
 
