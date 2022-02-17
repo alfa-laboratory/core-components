@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { Link } from './index';
 
 describe('Snapshots tests', () => {
@@ -12,7 +12,7 @@ describe('Snapshots tests', () => {
     it('should render left slot', () => {
         expect(
             render(
-                <Link href='' leftAddons={<Icon />}>
+                <Link href='' leftAddons={<StarMIcon />}>
                     Link
                 </Link>,
             ),
@@ -22,7 +22,7 @@ describe('Snapshots tests', () => {
     it('should render right slot', () => {
         expect(
             render(
-                <Link href='' rightAddons={<Icon />}>
+                <Link href='' rightAddons={<StarMIcon />}>
                     Link
                 </Link>,
             ),

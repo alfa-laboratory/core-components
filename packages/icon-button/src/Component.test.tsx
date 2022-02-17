@@ -1,7 +1,7 @@
 import React, { MouseEvent } from 'react';
 import { render, fireEvent } from '@testing-library/react';
 
-import { StarMIcon } from '@alfalab/icons-glyph';
+import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 
 import { IconButton } from './index';
 

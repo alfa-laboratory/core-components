@@ -1,10 +1,10 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import IconM from '@alfalab/icons-glyph/StarMIcon';
+import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Button } from '../';
-import { name, version } from '../../package.json';
+import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
@@ -45,8 +45,8 @@ export const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
                     disabled={boolean('disabled', false)}
                     block={boolean('block', false)}
                     nowrap={boolean('nowrap', false)}
-                    leftAddons={boolean('leftAddons', false) && <IconM />}
-                    rightAddons={boolean('rightAddons', false) && <IconM />}
+                    leftAddons={boolean('leftAddons', false) && <StarMIcon />}
+                    rightAddons={boolean('rightAddons', false) && <StarMIcon />}
                 >
                     {text('label', 'Оплатить')}
                 </Button>

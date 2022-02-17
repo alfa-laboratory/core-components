@@ -1,12 +1,12 @@
-import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story } from '@storybook/addon-docs/blocks';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Input } from '@alfalab/core-components-input';
 
 import { withSuffix as WithSuffix } from '../Component';
-import { name, version } from '../../package.json';
+import { version } from '../../package.json';
 import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
 
@@ -31,8 +31,8 @@ export const SuffixInput = WithSuffix(Input);
         disabled={boolean('disabled', false)}
         label={text('label', '')}
         placeholder={text('placeholder', '')}
-        rightAddons={boolean('rightAddons', false) && !text('error') && <Icon />}
-        leftAddons={boolean('leftAddons', false) && <Icon />}
+        rightAddons={boolean('rightAddons', false) && !text('error') && <StarMIcon />}
+        leftAddons={boolean('leftAddons', false) && <StarMIcon />}
         bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
         readOnly={boolean('readOnly', false)}
     />
