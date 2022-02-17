@@ -1,3 +1,17 @@
+# [24.1.0](https://github.com/alfa-laboratory/core-components/compare/v24.0.0...v24.1.0) (2022-02-17)
+
+
+### Bug Fixes
+
+* imports for glyph icons ([#994](https://github.com/alfa-laboratory/core-components/issues/994)) ([8e807f2](https://github.com/alfa-laboratory/core-components/commit/8e807f26abf0f942fe8eadbd201caecb297b35dc))
+* **icon-view:** fix bg-color ([#980](https://github.com/alfa-laboratory/core-components/issues/980)) ([2fbad56](https://github.com/alfa-laboratory/core-components/commit/2fbad5671d64056a4af81c4fe281a82c415ffeb5))
+
+
+### Features
+
+* **calendar:** design & logic updates ([#991](https://github.com/alfa-laboratory/core-components/issues/991)) ([358142c](https://github.com/alfa-laboratory/core-components/commit/358142c6d259e1463954139cc648787cdf461f76)), closes [#993](https://github.com/alfa-laboratory/core-components/issues/993) [#990](https://github.com/alfa-laboratory/core-components/issues/990)
+* **date-input:** add some improvements ([#971](https://github.com/alfa-laboratory/core-components/issues/971)) ([47756ca](https://github.com/alfa-laboratory/core-components/commit/47756ca1d4eea89f78ed7234e95c02e51dd72e49))
+
 # [24.0.0](https://github.com/alfa-laboratory/core-components/compare/v23.13.0...v24.0.0) (2022-02-16)
 
 
