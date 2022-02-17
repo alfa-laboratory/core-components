@@ -3,7 +3,7 @@
 exports[`CalendarRange Display tests should match snapshot 1`] = `
 <div>
   <div
-    class="component"
+    class="component static"
   >
     <div>
       <div
@@ -35,7 +35,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
         
       </div>
       <div
-        class="component"
+        class="component calendar"
         tabindex="-1"
       >
         <div
@@ -701,7 +701,7 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
         
       </div>
       <div
-        class="component sixWeeks"
+        class="component calendar sixWeeks"
         tabindex="-1"
       >
         <div
