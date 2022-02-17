@@ -1,22 +1,20 @@
-import {
-    addDays,
-    addMonths,
-    addQuarters,
-    addWeeks,
-    addYears,
-    endOfMonth,
-    endOfQuarter,
-    endOfWeek,
-    endOfYear,
-    getQuarter,
-    getYear,
-    isToday,
-    isYesterday,
-    startOfMonth,
-    startOfQuarter,
-    startOfWeek,
-    startOfYear,
-} from 'date-fns';
+import addDays from 'date-fns/addDays';
+import addMonths from 'date-fns/addMonths';
+import addQuarters from 'date-fns/addQuarters';
+import addWeeks from 'date-fns/addWeeks';
+import addYears from 'date-fns/addYears';
+import endOfMonth from 'date-fns/endOfMonth';
+import endOfQuarter from 'date-fns/endOfQuarter';
+import endOfWeek from 'date-fns/endOfWeek';
+import endOfYear from 'date-fns/endOfYear';
+import getQuarter from 'date-fns/getQuarter';
+import getYear from 'date-fns/getYear';
+import isToday from 'date-fns/isToday';
+import isYesterday from 'date-fns/isYesterday';
+import startOfMonth from 'date-fns/startOfMonth';
+import startOfQuarter from 'date-fns/startOfQuarter';
+import startOfWeek from 'date-fns/startOfWeek';
+import startOfYear from 'date-fns/startOfYear';
 
 import { monthName, formatDate } from '../../utils';
 import { PeriodType } from '.';

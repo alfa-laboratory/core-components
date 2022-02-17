@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { useDidUpdateEffect } from '@alfalab/hooks';
-import { differenceInDays } from 'date-fns';
+import differenceInDays from 'date-fns/differenceInDays';
 
 type usePeriodProps = {
     /**

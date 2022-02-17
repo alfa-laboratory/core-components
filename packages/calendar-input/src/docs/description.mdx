@@ -20,7 +20,14 @@ render(() => {
 
     const handleChange = (event, { value }) => setValue(value);
 
-    return <CalendarInput value={value} onChange={handleChange} label='Дата регистрации' />;
+    return (
+        <Space>
+            <CalendarInput value={value} onChange={handleChange} label='Дата регистрации' />
+            <Button type='button' onClick={() => setValue('')}>
+                Reset
+            </Button>
+        </Space>
+    );
 });
 ```
 

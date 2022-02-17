@@ -2,14 +2,12 @@
 import React, { FC, RefCallback, useCallback, useRef } from 'react';
 import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
-import {
-    isEqual,
-    isLastDayOfMonth,
-    isSameDay,
-    isToday,
-    isWithinInterval,
-    startOfMonth,
-} from 'date-fns';
+import isEqual from 'date-fns/isEqual';
+import isLastDayOfMonth from 'date-fns/isLastDayOfMonth';
+import isSameDay from 'date-fns/isSameDay';
+import isToday from 'date-fns/isToday';
+import isWithinInterval from 'date-fns/isWithinInterval';
+import startOfMonth from 'date-fns/startOfMonth';
 import { usePrevious } from '@alfalab/hooks';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { WEEKDAYS, getSelectionRange } from '../../utils';

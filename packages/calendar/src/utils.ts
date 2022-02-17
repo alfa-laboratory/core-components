@@ -1,26 +1,24 @@
-import {
-    eachDayOfInterval,
-    eachMonthOfInterval,
-    eachYearOfInterval,
-    lastDayOfMonth,
-    startOfDay,
-    startOfMonth,
-    startOfYear,
-    endOfYear,
-    isSameDay,
-    isBefore,
-    isAfter,
-    min,
-    max,
-    addDays,
-    addMonths,
-    endOfWeek,
-    startOfWeek,
-    subDays,
-    subMonths,
-    format,
-    parse,
-} from 'date-fns';
+import eachDayOfInterval from 'date-fns/eachDayOfInterval';
+import eachMonthOfInterval from 'date-fns/eachMonthOfInterval';
+import eachYearOfInterval from 'date-fns/eachYearOfInterval';
+import lastDayOfMonth from 'date-fns/lastDayOfMonth';
+import startOfDay from 'date-fns/startOfDay';
+import startOfMonth from 'date-fns/startOfMonth';
+import startOfYear from 'date-fns/startOfYear';
+import endOfYear from 'date-fns/endOfYear';
+import isSameDay from 'date-fns/isSameDay';
+import isBefore from 'date-fns/isBefore';
+import isAfter from 'date-fns/isAfter';
+import min from 'date-fns/min';
+import max from 'date-fns/max';
+import addDays from 'date-fns/addDays';
+import addMonths from 'date-fns/addMonths';
+import endOfWeek from 'date-fns/endOfWeek';
+import startOfWeek from 'date-fns/startOfWeek';
+import subDays from 'date-fns/subDays';
+import subMonths from 'date-fns/subMonths';
+import format from 'date-fns/format';
+import parse from 'date-fns/parse';
 import { DateShift, Day, Month, SpecialDays } from './typings';
 
 export const DAYS_IN_WEEK = 7;

@@ -1,5 +1,6 @@
 import React, { FC, MouseEvent, useCallback, useLayoutEffect, useRef } from 'react';
-import { isSameYear, isThisYear } from 'date-fns';
+import isSameYear from 'date-fns/isSameYear';
+import isThisYear from 'date-fns/isThisYear';
 import { SelectButton, SelectButtonProps } from '../select-button';
 
 import styles from './index.module.css';

@@ -1,7 +1,8 @@
 import React, { FC, MouseEvent, useMemo } from 'react';
 import cn from 'classnames';
 import { IconButton } from '@alfalab/core-components-icon-button';
-import { endOfWeek, startOfWeek } from 'date-fns';
+import endOfWeek from 'date-fns/endOfWeek';
+import startOfWeek from 'date-fns/startOfWeek';
 import { ChevronBackMIcon } from '@alfalab/icons-glyph/ChevronBackMIcon';
 import { formatPeriod, shiftValues } from './utils';
 
@@ -14,11 +15,6 @@ export type PeriodSliderProps = {
      * Активная дата или период
      */
     value?: Date | [Date, Date];
-
-    /**
-     * Вид шапки — с кнопками выбора года и месяца или только период
-     */
-    view?: 'full' | 'period';
 
     /**
      * Тип периода

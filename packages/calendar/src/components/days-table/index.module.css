@@ -65,6 +65,15 @@
         color: var(--calendar-today-color);
     }
 
+    &.rangeComplete {
+        background: var(--calendar-range-complete-background);
+    }
+
+    &.today {
+        font-weight: bold;
+        color: var(--color-light-text-link);
+    }
+
     &.selected,
     &.disabled.selected {
         color: var(--calendar-selected-color);

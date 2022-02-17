@@ -1,6 +1,8 @@
 import React, { forwardRef, useCallback, useMemo, useState } from 'react';
 import cn from 'classnames';
-import { startOfDay, startOfMonth, endOfDay } from 'date-fns';
+import startOfDay from 'date-fns/startOfDay';
+import startOfMonth from 'date-fns/startOfMonth';
+import endOfDay from 'date-fns/endOfDay';
 import { useDidUpdateEffect } from '@alfalab/hooks';
 import { Header } from './components/header';
 import { DaysTable } from './components/days-table';

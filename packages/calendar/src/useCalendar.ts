@@ -1,14 +1,12 @@
 import { KeyboardEvent, MouseEvent, Ref, useCallback, useMemo, useRef, useState } from 'react';
-import {
-    startOfMonth,
-    isSameDay,
-    isSameMonth,
-    isSameYear,
-    setYear,
-    addMonths,
-    subYears,
-    addYears,
-} from 'date-fns';
+import startOfMonth from 'date-fns/startOfMonth';
+import isSameDay from 'date-fns/isSameDay';
+import isSameMonth from 'date-fns/isSameMonth';
+import isSameYear from 'date-fns/isSameYear';
+import setYear from 'date-fns/setYear';
+import addMonths from 'date-fns/addMonths';
+import subYears from 'date-fns/subYears';
+import addYears from 'date-fns/addYears';
 import mergeRefs from 'react-merge-refs';
 import {
     limitDate,

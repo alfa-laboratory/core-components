@@ -1,6 +1,12 @@
 import React from 'react';
 import { render, waitFor, fireEvent, act } from '@testing-library/react';
-import { setMonth, startOfMonth, addMonths, setDate, endOfMonth, startOfDay } from 'date-fns';
+import setMonth from 'date-fns/setMonth';
+import startOfMonth from 'date-fns/startOfMonth';
+import addMonths from 'date-fns/addMonths';
+import setDate from 'date-fns/setDate';
+import endOfMonth from 'date-fns/endOfMonth';
+import startOfDay from 'date-fns/startOfDay';
+import addDays from 'date-fns/addDays';
 import { MONTHS } from '../../calendar/src/utils';
 import { formatDate } from '../../calendar-input/src/utils';
 
@@ -39,13 +45,13 @@ describe('CalendarRange', () => {
     it('should pass custom props to CalendarInputs', () => {
         const { queryByText } = render(
             <CalendarRange
-                inputFromProps={{ error: 'errorFrom' }}
-                inputToProps={{ error: 'errorTo' }}
+                inputFromProps={{ leftAddons: 'addonFrom' }}
+                inputToProps={{ leftAddons: 'addonTo' }}
             />,
         );
 
-        expect(queryByText('errorFrom')).toBeInTheDocument();
-        expect(queryByText('errorTo')).toBeInTheDocument();
+        expect(queryByText('addonFrom')).toBeInTheDocument();
+        expect(queryByText('addonTo')).toBeInTheDocument();
     });
 
     it('should open current and next month by default', () => {
@@ -67,43 +73,47 @@ describe('CalendarRange', () => {
     it('should navigate months by arrows', () => {
         const defaultMonth = setMonth(startOfMonth(new Date()), 4).getTime();
 
-        const { container, queryByLabelText } = render(
+        const { container, queryAllByLabelText } = render(
             <CalendarRange defaultMonth={defaultMonth} />,
         );
 
-        const prevMonthButton = queryByLabelText('Предыдущий период') as HTMLButtonElement;
-        const nextMonthButton = queryByLabelText('Следующий период') as HTMLButtonElement;
+        const [leftPrevMonthButton, rightPrevMonthButton] = queryAllByLabelText(
+            'Предыдущий период',
+        ) as HTMLButtonElement[];
+        const [leftNextMonthButton, rightNextMonthButton] = queryAllByLabelText(
+            'Следующий период',
+        ) as HTMLButtonElement[];
 
-        prevMonthButton.click();
+        leftPrevMonthButton.click();
+
+        expect(container).toHaveTextContent('Апрель');
+        expect(container).toHaveTextContent('Июнь');
+
+        rightPrevMonthButton.click();
 
         expect(container).toHaveTextContent('Апрель');
         expect(container).toHaveTextContent('Май');
 
-        prevMonthButton.click();
-
-        expect(container).toHaveTextContent('Март');
-        expect(container).toHaveTextContent('Апрель');
-
-        nextMonthButton.click();
-
-        expect(container).toHaveTextContent('Апрель');
-        expect(container).toHaveTextContent('Май');
-
-        nextMonthButton.click();
+        leftNextMonthButton.click();
 
         expect(container).toHaveTextContent('Май');
         expect(container).toHaveTextContent('Июнь');
+
+        rightNextMonthButton.click();
+
+        expect(container).toHaveTextContent('Май');
+        expect(container).toHaveTextContent('Июль');
     });
 
     it('should use minDate', () => {
         const defaultMonth = setMonth(startOfMonth(new Date()), 4).getTime();
         const minDate = setDate(defaultMonth, 5).getTime();
 
-        const { container, queryByLabelText } = render(
+        const { container, queryAllByLabelText } = render(
             <CalendarRange defaultMonth={defaultMonth} minDate={minDate} />,
         );
 
-        const prevMonthButton = queryByLabelText('Предыдущий период') as HTMLButtonElement;
+        const prevMonthButton = queryAllByLabelText('Предыдущий период')[0] as HTMLButtonElement;
 
         const firstNonDisabledDayButton = container.querySelector(
             '*[data-date]:not(:disabled)',
@@ -119,17 +129,17 @@ describe('CalendarRange', () => {
         const defaultMonth = setMonth(startOfMonth(new Date()), 4).getTime();
         const maxDate = setDate(addMonths(defaultMonth, 1), 25).getTime();
 
-        const { container, queryByLabelText } = render(
+        const { container, queryAllByLabelText } = render(
             <CalendarRange defaultMonth={defaultMonth} maxDate={maxDate} />,
         );
 
-        const nextMonthButton = queryByLabelText('Следующий период') as HTMLButtonElement;
+        const nextMonthButtons = queryAllByLabelText('Следующий период') as HTMLButtonElement[];
 
         const activeDays = container.querySelectorAll('*[data-date]:not(:disabled)');
         const lastActiveDay = activeDays[activeDays.length - 1] as HTMLButtonElement;
         const date = lastActiveDay.dataset.date as string;
 
-        expect(nextMonthButton).toBeFalsy();
+        expect(nextMonthButtons).toHaveLength(1);
         expect(lastActiveDay).toHaveTextContent('25');
         expect(new Date(+date).getTime()).toBe(maxDate);
     });
@@ -139,9 +149,7 @@ describe('CalendarRange', () => {
 
         const { container } = render(<CalendarRange valueFrom={formatDate(valueFrom)} />);
 
-        const selectedDay = container.querySelector(
-            '*[data-date][aria-selected="true"]',
-        ) as HTMLButtonElement;
+        const selectedDay = container.querySelector('*[data-date].selected') as HTMLButtonElement;
 
         const date = selectedDay.dataset.date as string;
 
@@ -154,9 +162,7 @@ describe('CalendarRange', () => {
 
         const { container } = render(<CalendarRange valueTo={formatDate(valueTo)} />);
 
-        const selectedDay = container.querySelector(
-            '*[data-date][aria-selected="true"]',
-        ) as HTMLButtonElement;
+        const selectedDay = container.querySelector('*[data-date].selected') as HTMLButtonElement;
 
         const date = selectedDay.dataset.date as string;
 
@@ -172,7 +178,7 @@ describe('CalendarRange', () => {
             <CalendarRange valueFrom={formatDate(valueFrom)} valueTo={formatDate(valueTo)} />,
         );
 
-        const selectedDays = container.querySelectorAll('*[data-date][aria-selected="true"]');
+        const selectedDays = container.querySelectorAll('*[data-date].selected');
 
         const dayFrom = selectedDays[0] as HTMLButtonElement;
         const dayTo = selectedDays[1] as HTMLButtonElement;
@@ -261,7 +267,7 @@ describe('CalendarRange', () => {
                 (days[0] as HTMLButtonElement).click();
             });
 
-            expect(days[0]).toHaveAttribute('aria-selected', 'true');
+            expect(days[0]).toHaveClass('selected');
             expect(inputFrom).toHaveValue(formatDate(currentMonth));
 
             fireEvent.mouseEnter(days[1]);
@@ -285,7 +291,7 @@ describe('CalendarRange', () => {
                 (days[0] as HTMLButtonElement).click();
             });
 
-            expect(days[0]).toHaveAttribute('aria-selected');
+            expect(days[0]).toHaveClass('selected');
             expect(inputFrom).toHaveValue(formatDate(currentMonth));
             expect(inputTo).toHaveValue(formatDate(currentMonth));
 
@@ -294,7 +300,7 @@ describe('CalendarRange', () => {
             expect(days[1].parentElement).not.toHaveClass('range');
         });
 
-        it('should unselected day, clear inputs and cancel selection if clicked on same day thrice', () => {
+        it('should start selection if clicked on same day thrice', () => {
             const { container, queryAllByRole } = render(<CalendarRange />);
 
             const days = container.querySelectorAll('*[data-date]');
@@ -313,32 +319,34 @@ describe('CalendarRange', () => {
                 (days[0] as HTMLButtonElement).click();
             });
 
-            expect(days[0]).not.toHaveAttribute('aria-selected');
-            expect(inputFrom).toHaveValue('');
+            expect(days[0]).toHaveClass('selected');
+            expect(inputFrom).toHaveValue(formatDate(currentMonth));
             expect(inputTo).toHaveValue('');
 
             fireEvent.mouseEnter(days[1]);
 
-            expect(days[1]).not.toHaveClass('range');
+            expect(days[1].parentElement).toHaveClass('range');
         });
 
-        it('should select new day, change inputFrom value and start new selection if clicked date < start date', () => {
+        it('should select new day, change inputFrom and inputTo values if clicked date < start date', () => {
             const { container, queryAllByRole } = render(<CalendarRange />);
 
             const days = container.querySelectorAll('*[data-date]');
             const inputFrom = queryAllByRole('textbox')[0] as HTMLInputElement;
+            const inputTo = queryAllByRole('textbox')[1] as HTMLInputElement;
 
             act(() => {
-                (days[1] as HTMLButtonElement).click();
+                (days[2] as HTMLButtonElement).click();
             });
 
             act(() => {
                 (days[0] as HTMLButtonElement).click();
             });
 
-            expect(days[0]).toHaveAttribute('aria-selected', 'true');
-            expect(days[1]).toHaveAttribute('aria-selected', 'false');
+            expect(days[0]).toHaveClass('selected');
+            expect(days[2]).toHaveClass('selected');
             expect(inputFrom).toHaveValue(formatDate(startOfMonth(currentMonth)));
+            expect(inputTo).toHaveValue(formatDate(addDays(startOfMonth(currentMonth), 2)));
 
             fireEvent.mouseEnter(days[1]);
 
@@ -361,7 +369,7 @@ describe('CalendarRange', () => {
                 (days[days.length - 1] as HTMLButtonElement).click();
             });
 
-            expect(days[days.length - 1]).toHaveAttribute('aria-selected');
+            expect(days[days.length - 1]).toHaveClass('selected');
             expect(inputTo).toHaveValue(formatDate(endOfMonth(nextMonth)));
 
             Array.from(days)
@@ -370,10 +378,10 @@ describe('CalendarRange', () => {
         });
 
         it('should keep selection when month changed', async () => {
-            const { container, queryByLabelText } = render(<CalendarRange />);
+            const { container, queryAllByLabelText } = render(<CalendarRange />);
 
             const firstDay = container.querySelector('*[data-date]') as HTMLButtonElement;
-            const nextMonthButton = queryByLabelText('Следующий период') as HTMLButtonElement;
+            const nextMonthButton = queryAllByLabelText('Следующий период')[0] as HTMLButtonElement;
 
             act(() => {
                 firstDay.click();
@@ -399,7 +407,7 @@ describe('CalendarRange', () => {
     });
 
     describe('Callback tests', () => {
-        it('should call onDateFromChange callback', () => {
+        it('should call onDateFromChange callback', async () => {
             const cb = jest.fn();
             const { container } = render(<CalendarRange onDateFromChange={cb} />);
 
@@ -407,22 +415,27 @@ describe('CalendarRange', () => {
             (calendars[0].querySelector('*[data-date]') as HTMLButtonElement).click();
             (calendars[1].querySelector('*[data-date]') as HTMLButtonElement).click();
 
-            expect(cb).toBeCalledTimes(1);
+            await waitFor(() => {
+                expect(cb).toBeCalledTimes(1);
+            });
 
             const { date } = cb.mock.calls[0][0];
 
             expect(MONTHS[new Date(date).getMonth()]).toBe(currentMonthName);
         });
 
-        it('should call onDateToChange callback', () => {
+        it('should call onDateToChange callback', async () => {
             const cb = jest.fn();
             const { container } = render(<CalendarRange onDateToChange={cb} />);
 
             const calendars = container.querySelectorAll('table');
+
             (calendars[0].querySelector('*[data-date]') as HTMLButtonElement).click();
             (calendars[1].querySelector('*[data-date]') as HTMLButtonElement).click();
 
-            expect(cb).toBeCalledTimes(1);
+            await waitFor(() => {
+                expect(cb).toBeCalledTimes(1);
+            });
 
             const { date } = cb.mock.calls[0][0];
 

@@ -3,12 +3,9 @@
 exports[`CalendarRange Display tests should match snapshot 1`] = `
 <div>
   <div
-    class="component"
+    class="component static"
   >
-    <div
-      class="component"
-      tabindex="-1"
-    >
+    <div>
       <div
         class="component component s block hasRightAddons"
       >
@@ -33,635 +30,641 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
           </div>
           <div
             class="addons rightAddons"
-          >
-            <svg
-              class="calendarIcon"
-              fill="currentColor"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-            >
-              <path
-                d="M9 12v2H7v-2h2zm0 6v-2H7v2h2zm2-6h2v2h-2v-2zm2 4h-2v2h2v-2zm4-4v2h-2v-2h2z"
-              />
-              <path
-                clip-rule="evenodd"
-                d="M6 2h2v2h8V2h2v2h3v16a3 3 0 01-3 3H6a3 3 0 01-3-3V4h3V2zm13 7H5v11a1 1 0 001 1h12a1 1 0 001-1V9z"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </div>
+          />
         </div>
         
       </div>
-      <div>
+      <div
+        class="component calendar"
+        tabindex="-1"
+      >
         <div
-          class="component"
-          tabindex="-1"
+          aria-live="polite"
+          class="header monthOnly"
         >
           <div
             aria-live="polite"
-            class="header monthOnly"
+            class="component period"
           >
-            <div
-              aria-live="polite"
-              class="component period"
+            <button
+              aria-label="Предыдущий период"
+              class="component ghost s component ghost iconOnly arrow primary"
+              type="button"
             >
-              <button
-                aria-label="Предыдущий период"
-                class="component ghost s component ghost iconOnly arrow primary"
-                type="button"
+              <span
+                class="addons"
               >
                 <span
-                  class="addons"
+                  class="iconWrapper xs"
                 >
-                  <span
-                    class="iconWrapper xs"
+                  <svg
+                    class="icon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
                   >
-                    <svg
-                      class="icon"
-                      fill="currentColor"
-                      focusable="false"
-                      height="24"
-                      role="img"
-                      viewBox="0 0 24 24"
-                      width="24"
-                    >
-                      <path
-                        d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                    />
+                  </svg>
                 </span>
-              </button>
-              <span
-                class="period"
-              >
-                Октябрь 2020
               </span>
-            </div>
-          </div>
-          <div
-            class="container days"
-          >
-            <table
-              class="daysTable"
+            </button>
+            <span
+              class="period"
             >
-              <thead>
-                <tr>
-                  <th
-                    class="dayName"
+              Октябрь 2020
+            </span>
+            <button
+              aria-label="Следующий период"
+              class="component ghost s component ghost iconOnly arrow primary"
+              type="button"
+            >
+              <span
+                class="addons"
+              >
+                <span
+                  class="iconWrapper xs"
+                >
+                  <svg
+                    class="icon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
                   >
-                    Пн
-                  </th>
-                  <th
-                    class="dayName"
-                  >
-                    Вт
-                  </th>
-                  <th
-                    class="dayName"
-                  >
-                    Ср
-                  </th>
-                  <th
-                    class="dayName"
-                  >
-                    Чт
-                  </th>
-                  <th
-                    class="dayName"
-                  >
-                    Пт
-                  </th>
-                  <th
-                    class="dayName"
-                  >
-                    Сб
-                  </th>
-                  <th
-                    class="dayName"
-                  >
-                    Вс
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td />
-                  <td />
-                  <td />
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1601510400000"
-                      tabindex="0"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        1
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1601596800000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        2
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1601683200000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        3
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1601769600000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        4
-                      </span>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1601856000000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        5
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1601942400000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        6
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1602028800000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        7
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1602115200000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        8
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1602201600000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        9
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1602288000000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        10
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1602374400000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        11
-                      </span>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1602460800000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        12
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1602547200000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        13
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1602633600000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        14
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1602720000000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        15
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1602806400000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        16
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1602892800000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        17
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1602979200000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        18
-                      </span>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1603065600000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        19
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1603152000000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        20
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1603238400000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        21
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1603324800000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        22
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1603411200000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        23
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1603497600000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        24
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1603584000000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        25
-                      </span>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1603670400000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        26
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1603756800000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        27
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1603843200000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        28
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1603929600000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        29
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1604016000000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        30
-                      </span>
-                    </button>
-                  </td>
-                  <td
-                    class="dayWrapper"
-                  >
-                    <button
-                      class="component ghost xs component ghost day"
-                      data-date="1604102400000"
-                      tabindex="-1"
-                      type="button"
-                    >
-                      <span
-                        class="text stretchText"
-                      >
-                        31
-                      </span>
-                    </button>
-                  </td>
-                  <td />
-                </tr>
-              </tbody>
-            </table>
+                    <path
+                      d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </button>
           </div>
+        </div>
+        <div
+          class="container days"
+        >
+          <table
+            class="daysTable left"
+          >
+            <thead>
+              <tr>
+                <th
+                  class="dayName"
+                >
+                  Пн
+                </th>
+                <th
+                  class="dayName"
+                >
+                  Вт
+                </th>
+                <th
+                  class="dayName"
+                >
+                  Ср
+                </th>
+                <th
+                  class="dayName"
+                >
+                  Чт
+                </th>
+                <th
+                  class="dayName"
+                >
+                  Пт
+                </th>
+                <th
+                  class="dayName"
+                >
+                  Сб
+                </th>
+                <th
+                  class="dayName"
+                >
+                  Вс
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td />
+                <td />
+                <td />
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1601510400000"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      1
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1601596800000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      2
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1601683200000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      3
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1601769600000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      4
+                    </span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1601856000000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      5
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1601942400000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      6
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1602028800000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      7
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1602115200000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      8
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1602201600000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      9
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1602288000000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      10
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1602374400000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      11
+                    </span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1602460800000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      12
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1602547200000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      13
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1602633600000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      14
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1602720000000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      15
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1602806400000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      16
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1602892800000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      17
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1602979200000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      18
+                    </span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1603065600000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      19
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1603152000000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      20
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1603238400000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      21
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1603324800000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      22
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1603411200000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      23
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1603497600000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      24
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1603584000000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      25
+                    </span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1603670400000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      26
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1603756800000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      27
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1603843200000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      28
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1603929600000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      29
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1604016000000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      30
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1604102400000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
+                    >
+                      31
+                    </span>
+                  </button>
+                </td>
+                <td />
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -670,657 +673,658 @@ exports[`CalendarRange Display tests should match snapshot 1`] = `
     />
     <div>
       <div
-        class="component"
+        class="component component s block hasRightAddons"
+      >
+        <div
+          class="inner inner"
+        >
+          <div
+            class="inputWrapper"
+          >
+            <div
+              class="input"
+            >
+              <input
+                class="input input"
+                inputmode="decimal"
+                pattern="[0-9\\\\.]*"
+                placeholder="ДД.ММ.ГГГГ"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="addons rightAddons"
+          />
+        </div>
+        
+      </div>
+      <div
+        class="component calendar sixWeeks"
         tabindex="-1"
       >
         <div
-          class="component component s block hasRightAddons"
+          aria-live="polite"
+          class="header monthOnly"
         >
           <div
-            class="inner inner"
+            aria-live="polite"
+            class="component period"
           >
-            <div
-              class="inputWrapper"
+            <button
+              aria-label="Предыдущий период"
+              class="component ghost s component ghost iconOnly arrow primary"
+              type="button"
             >
-              <div
-                class="input"
-              >
-                <input
-                  class="input input"
-                  inputmode="decimal"
-                  pattern="[0-9\\\\.]*"
-                  placeholder="ДД.ММ.ГГГГ"
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-            <div
-              class="addons rightAddons"
-            >
-              <svg
-                class="calendarIcon"
-                fill="currentColor"
-                focusable="false"
-                height="24"
-                role="img"
-                viewBox="0 0 24 24"
-                width="24"
-              >
-                <path
-                  d="M9 12v2H7v-2h2zm0 6v-2H7v2h2zm2-6h2v2h-2v-2zm2 4h-2v2h2v-2zm4-4v2h-2v-2h2z"
-                />
-                <path
-                  clip-rule="evenodd"
-                  d="M6 2h2v2h8V2h2v2h3v16a3 3 0 01-3 3H6a3 3 0 01-3-3V4h3V2zm13 7H5v11a1 1 0 001 1h12a1 1 0 001-1V9z"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </div>
-          </div>
-          
-        </div>
-        <div>
-          <div
-            class="component sixWeeks"
-            tabindex="-1"
-          >
-            <div
-              aria-live="polite"
-              class="header monthOnly"
-            >
-              <div
-                aria-live="polite"
-                class="component period"
+              <span
+                class="addons"
               >
                 <span
-                  class="period"
+                  class="iconWrapper xs"
                 >
-                  Ноябрь 2020
+                  <svg
+                    class="icon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                    />
+                  </svg>
                 </span>
-                <button
-                  aria-label="Следующий период"
-                  class="component ghost s component ghost iconOnly arrow primary"
-                  type="button"
+              </span>
+            </button>
+            <span
+              class="period"
+            >
+              Ноябрь 2020
+            </span>
+            <button
+              aria-label="Следующий период"
+              class="component ghost s component ghost iconOnly arrow primary"
+              type="button"
+            >
+              <span
+                class="addons"
+              >
+                <span
+                  class="iconWrapper xs"
                 >
-                  <span
-                    class="addons"
+                  <svg
+                    class="icon"
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="container days"
+        >
+          <table
+            class="daysTable left"
+          >
+            <thead>
+              <tr>
+                <th
+                  class="dayName"
+                >
+                  Пн
+                </th>
+                <th
+                  class="dayName"
+                >
+                  Вт
+                </th>
+                <th
+                  class="dayName"
+                >
+                  Ср
+                </th>
+                <th
+                  class="dayName"
+                >
+                  Чт
+                </th>
+                <th
+                  class="dayName"
+                >
+                  Пт
+                </th>
+                <th
+                  class="dayName"
+                >
+                  Сб
+                </th>
+                <th
+                  class="dayName"
+                >
+                  Вс
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td />
+                <td />
+                <td />
+                <td />
+                <td />
+                <td />
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1604188800000"
+                    tabindex="0"
+                    type="button"
                   >
                     <span
-                      class="iconWrapper xs"
+                      class="text stretchText"
                     >
-                      <svg
-                        class="icon"
-                        fill="currentColor"
-                        focusable="false"
-                        height="24"
-                        role="img"
-                        viewBox="0 0 24 24"
-                        width="24"
-                      >
-                        <path
-                          d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
-                        />
-                      </svg>
+                      1
                     </span>
-                  </span>
-                </button>
-              </div>
-            </div>
-            <div
-              class="container days"
-            >
-              <table
-                class="daysTable"
-              >
-                <thead>
-                  <tr>
-                    <th
-                      class="dayName"
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1604275200000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      Пн
-                    </th>
-                    <th
-                      class="dayName"
+                      2
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1604361600000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      Вт
-                    </th>
-                    <th
-                      class="dayName"
+                      3
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1604448000000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      Ср
-                    </th>
-                    <th
-                      class="dayName"
+                      4
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1604534400000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      Чт
-                    </th>
-                    <th
-                      class="dayName"
+                      5
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1604620800000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      Пт
-                    </th>
-                    <th
-                      class="dayName"
+                      6
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1604707200000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      Сб
-                    </th>
-                    <th
-                      class="dayName"
+                      7
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1604793600000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      Вс
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td />
-                    <td />
-                    <td />
-                    <td />
-                    <td />
-                    <td />
-                    <td
-                      class="dayWrapper"
+                      8
+                    </span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1604880000000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1604188800000"
-                        tabindex="0"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          1
-                        </span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      class="dayWrapper"
+                      9
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1604966400000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1604275200000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          2
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
+                      10
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1605052800000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1604361600000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          3
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
+                      11
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1605139200000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1604448000000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          4
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
+                      12
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1605225600000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1604534400000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          5
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
+                      13
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1605312000000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1604620800000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          6
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
+                      14
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1605398400000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1604707200000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          7
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
+                      15
+                    </span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1605484800000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1604793600000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          8
-                        </span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      class="dayWrapper"
+                      16
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1605571200000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1604880000000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          9
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
+                      17
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1605657600000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1604966400000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          10
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
+                      18
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1605744000000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1605052800000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          11
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
+                      19
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1605830400000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1605139200000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          12
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
+                      20
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1605916800000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1605225600000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          13
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
+                      21
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1606003200000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1605312000000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          14
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
+                      22
+                    </span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1606089600000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1605398400000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          15
-                        </span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      class="dayWrapper"
+                      23
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1606176000000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1605484800000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          16
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
+                      24
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1606262400000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1605571200000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          17
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
+                      25
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1606348800000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1605657600000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          18
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
+                      26
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1606435200000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1605744000000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          19
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
+                      27
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1606521600000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1605830400000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          20
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
+                      28
+                    </span>
+                  </button>
+                </td>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1606608000000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1605916800000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          21
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
+                      29
+                    </span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="dayWrapper"
+                >
+                  <button
+                    class="component ghost xs component ghost day"
+                    data-date="1606694400000"
+                    tabindex="-1"
+                    type="button"
+                  >
+                    <span
+                      class="text stretchText"
                     >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1606003200000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          22
-                        </span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      class="dayWrapper"
-                    >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1606089600000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          23
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
-                    >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1606176000000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          24
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
-                    >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1606262400000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          25
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
-                    >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1606348800000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          26
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
-                    >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1606435200000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          27
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
-                    >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1606521600000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          28
-                        </span>
-                      </button>
-                    </td>
-                    <td
-                      class="dayWrapper"
-                    >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1606608000000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          29
-                        </span>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      class="dayWrapper"
-                    >
-                      <button
-                        class="component ghost xs component ghost day"
-                        data-date="1606694400000"
-                        tabindex="-1"
-                        type="button"
-                      >
-                        <span
-                          class="text stretchText"
-                        >
-                          30
-                        </span>
-                      </button>
-                    </td>
-                    <td />
-                    <td />
-                    <td />
-                    <td />
-                    <td />
-                    <td />
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+                      30
+                    </span>
+                  </button>
+                </td>
+                <td />
+                <td />
+                <td />
+                <td />
+                <td />
+                <td />
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
