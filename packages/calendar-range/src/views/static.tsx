@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 import React, { useCallback, useState, useRef, FC, useEffect, MouseEvent } from 'react';
 import cn from 'classnames';
 import addMonths from 'date-fns/addMonths';
@@ -208,6 +209,12 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [inputToValue]);
 
+    const { calendarProps: calendarFromProps, ...dateInputFromProps } = inputFromProps;
+    const { calendarProps: calendarToProps, ...dateInputToProps } = inputToProps;
+
+    const CalendarFromComponent = dateInputFromProps.Calendar || Calendar;
+    const CalendarToComponent = dateInputToProps.Calendar || Calendar;
+
     return (
         // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
         <div
@@ -217,22 +224,23 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         >
             <div>
                 <DateInput
-                    {...inputFromProps}
+                    {...dateInputFromProps}
                     mobileMode={
-                        inputFromProps.mobileMode === 'popover'
+                        dateInputFromProps.mobileMode === 'popover'
                             ? 'input'
-                            : inputFromProps.mobileMode
+                            : dateInputFromProps.mobileMode
                     }
                     value={inputFromValue}
                     onChange={handleInputFromChange}
                     onClear={handleClearFrom}
                     onBlur={handleValidInputFrom}
-                    error={bothInvalid || inputFromInvalid}
+                    error={bothInvalid || inputFromInvalid || dateInputFromProps.error}
                     clear={true}
                     block={true}
                 />
-                <Calendar
-                    className={styles.calendar}
+                <CalendarFromComponent
+                    {...calendarFromProps}
+                    className={cn(styles.calendar, calendarFromProps?.className)}
                     month={monthFrom}
                     selectorView='month-only'
                     offDays={offDays}
@@ -251,9 +259,11 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
 
             <div>
                 <DateInput
-                    {...inputToProps}
+                    {...dateInputToProps}
                     mobileMode={
-                        inputToProps.mobileMode === 'popover' ? 'input' : inputToProps.mobileMode
+                        dateInputToProps.mobileMode === 'popover'
+                            ? 'input'
+                            : dateInputToProps.mobileMode
                     }
                     value={inputToValue}
                     onChange={handleInputToChange}
@@ -263,8 +273,9 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                     clear={true}
                     block={true}
                 />
-                <Calendar
-                    className={styles.calendar}
+                <CalendarToComponent
+                    {...calendarToProps}
+                    className={cn(styles.calendar, calendarToProps?.className)}
                     ref={calendarToRef}
                     month={monthTo}
                     selectorView='month-only'

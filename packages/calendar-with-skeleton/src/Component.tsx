@@ -20,12 +20,12 @@ export type CalendarWithSkeletonProps = CalendarProps & {
 };
 
 export const CalendarWithSkeleton = forwardRef<HTMLDivElement, CalendarWithSkeletonProps>(
-    ({ calendarVisible = true, animate = true, ...restProps }, ref) => {
+    ({ calendarVisible = true, animate = true, className, ...restProps }, ref) => {
         const skeletonProps = { visible: true, animate };
 
         return (
             <div
-                className={cn(styles.component, {
+                className={cn(styles.component, className, {
                     [styles.calendarVisible]: calendarVisible,
                 })}
             >
