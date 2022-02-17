@@ -98,17 +98,17 @@ describe('IconView', () => {
 
             const path = baseElement.querySelector('path') as SVGPathElement;
 
-            expect(path.getAttribute('fill')).toBe(color);
+            expect(path).toHaveStyle({ fill: color });
         });
 
-        it('should set background color #f3f4f5 by default', () => {
-            const defaultColor = '#f3f4f5';
+        it('should set background color color-light-bg-secondary by default', () => {
+            const defaultColor = 'var(--color-light-bg-secondary)';
 
             const { baseElement } = render(<SuperEllipse />);
 
             const path = baseElement.querySelector('path') as SVGPathElement;
 
-            expect(path.getAttribute('fill')).toBe(defaultColor);
+            expect(path).toHaveStyle({ fill: defaultColor });
         });
 
         it('should render border path', () => {
@@ -133,7 +133,7 @@ describe('IconView', () => {
 
             expect(image).toBeInTheDocument();
             expect(imagePattern).toBeInTheDocument();
-            expect(path.getAttribute('fill')).toBe(`url(#${patternId})`);
+            expect(path).toHaveStyle({ fill: `url(#${patternId})` });
         });
 
         it('should render top addons', () => {
