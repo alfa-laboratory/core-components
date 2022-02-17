@@ -106,7 +106,10 @@ export const BaseShape = forwardRef<HTMLDivElement, BaseShapeProps>(
                         {imagePattern}
 
                         <path
-                            fill={imagePatternId ? `url(#${imagePatternId})` : backgroundColor}
+                            className={styles.bg}
+                            style={{
+                                fill: imagePatternId ? `url(#${imagePatternId})` : backgroundColor,
+                            }}
                             d={getPath({
                                 size,
                                 hasTopAddons,
