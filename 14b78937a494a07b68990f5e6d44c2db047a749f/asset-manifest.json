@@ -1,0 +1,38 @@
+{
+  "files": {
+    "0.6fd26007.iframe.bundle.js": "./0.6fd26007.iframe.bundle.js",
+    "main.css": "./main.css",
+    "main.js": "./main.7999c370.iframe.bundle.js",
+    "runtime~main.js": "./runtime~main.6228d74a.iframe.bundle.js",
+    "vendors~libphonenumber.js": "./vendors~libphonenumber.084e6a49.iframe.bundle.js",
+    "vendors~main.css": "./vendors~main.css",
+    "vendors~main.js": "./vendors~main.791ea1b5.iframe.bundle.js",
+    "vendors~main.js.map": "./vendors~main.791ea1b5.iframe.bundle.js.map",
+    "5.84d7d127.iframe.bundle.js": "./5.84d7d127.iframe.bundle.js",
+    "5.84d7d127.iframe.bundle.js.map": "./5.84d7d127.iframe.bundle.js.map",
+    "6.06b9c111.iframe.bundle.js": "./6.06b9c111.iframe.bundle.js",
+    "7.74dcb074.iframe.bundle.js": "./7.74dcb074.iframe.bundle.js",
+    "7.74dcb074.iframe.bundle.js.map": "./7.74dcb074.iframe.bundle.js.map",
+    "8.676ee835.iframe.bundle.js": "./8.676ee835.iframe.bundle.js",
+    "5.84d7d127.iframe.bundle.js.LICENSE.txt": "./5.84d7d127.iframe.bundle.js.LICENSE.txt",
+    "7.74dcb074.iframe.bundle.js.LICENSE.txt": "./7.74dcb074.iframe.bundle.js.LICENSE.txt",
+    "iframe.html": "./iframe.html",
+    "main.css.map": "./main.css.map",
+    "precache-manifest.c5c4227f9bb4d9be4715252ce5551187.js": "./precache-manifest.c5c4227f9bb4d9be4715252ce5551187.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.c619061c.chunk.css.map": "./static/css/main.c619061c.chunk.css.map",
+    "static/css/vendors~main.db825e31.chunk.css.map": "./static/css/vendors~main.db825e31.chunk.css.map",
+    "static/media/index.module.css": "./static/media/flag-icon_size_s@2x.790e974d.png",
+    "vendors~main.791ea1b5.iframe.bundle.js.LICENSE.txt": "./vendors~main.791ea1b5.iframe.bundle.js.LICENSE.txt",
+    "vendors~main.css.map": "./vendors~main.css.map"
+  },
+  "entrypoints": [
+    "runtime~main.6228d74a.iframe.bundle.js",
+    "static/css/vendors~main.db825e31.chunk.css",
+    "vendors~main.css",
+    "vendors~main.791ea1b5.iframe.bundle.js",
+    "static/css/main.c619061c.chunk.css",
+    "main.css",
+    "main.7999c370.iframe.bundle.js"
+  ]
+}
