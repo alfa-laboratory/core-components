@@ -85,4 +85,9 @@ export interface DotProps {
      * Значения по этим координатам.
      */
     value: number;
+
+    /**
+     * Выключение анимации при фокусе
+     */
+    unfocusedAnimation?: boolean;
 }
