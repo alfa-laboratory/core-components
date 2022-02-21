@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-progress-bar@2.0.1...@alfalab/core-components-progress-bar@2.1.0) (2022-02-21)
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+* **progress-bar:** add size prop, additional views, new bg color ([#996](https://github.com/alfa-laboratory/core-components/issues/996)) ([63702f7](https://github.com/alfa-laboratory/core-components/commit/63702f7d9637e1fe3da502d7c91c4284453b3b48))
+
+
+
+
+
 ## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-progress-bar@2.0.0...@alfalab/core-components-progress-bar@2.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-progress-bar
