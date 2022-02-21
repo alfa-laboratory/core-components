@@ -49,6 +49,28 @@ render(() => {
     ));
 });
 ```
+## Typography.TitleMobile
+
+```tsx live
+<>
+    <Typography.TitleMobile>Мобильный заголовок для шрифта styrene</Typography.TitleMobile>
+    <Typography.TitleMobile font='system'>
+        Мобильный заголовок для шрифта system
+    </Typography.TitleMobile>
+</>
+```
+
+```tsx live
+render(() => {
+    const VIEW_TYPES = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
+
+    return VIEW_TYPES.map(view => (
+        <Typography.TitleMobile view={view} key={view} tag='div'>
+            Мобильный заголовок view='{view}'
+        </Typography.TitleMobile>
+    ));
+});
+```
 
 ## Typography.Text
 
