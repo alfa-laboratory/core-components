@@ -1,5 +1,5 @@
 /* eslint-disable complexity */
-import React, { useCallback, useState, useRef, FC, useEffect, MouseEvent } from 'react';
+import React, { useCallback, useState, FC, useEffect, MouseEvent } from 'react';
 import cn from 'classnames';
 import addMonths from 'date-fns/addMonths';
 import endOfMonth from 'date-fns/endOfMonth';
@@ -17,10 +17,9 @@ import {
     DateInputProps,
     isCompleteDateInput,
 } from '@alfalab/core-components-date-input';
-
 import { isDayButton } from '../utils';
 import { CalendarRangeProps } from '../Component';
-import { useStaticViewMonthes } from '../hooks';
+import { useSelectionProps, useStaticViewMonthes } from '../hooks';
 
 import styles from './index.module.css';
 
@@ -42,8 +41,6 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
     events,
     dataTestId,
 }) => {
-    const calendarToRef = useRef<HTMLDivElement>(null);
-
     const [inputFromValue, setInputFromValue] = useState<string>(valueFrom);
     const [inputToValue, setInputToValue] = useState<string>(valueTo);
 
@@ -64,7 +61,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         isCompleteDateInput(inputToValue) &&
         parseDateString(inputFromValue).getTime() > parseDateString(inputToValue).getTime();
 
-    const [nextMonthHighlighted, setNextMonthHighlighted] = useState(false);
+    const [highlightedDate, setHighlightedDate] = useState<number | undefined>(undefined);
 
     const period = usePeriodWithReset({
         initialSelectedFrom: dateFrom ? parseDateString(inputFromValue).getTime() : undefined,
@@ -117,20 +114,22 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         setInputToValue(payload.value);
     }, []);
 
-    const handleCalendarToMouseOver = useCallback((event: MouseEvent<HTMLDivElement>) => {
+    const handleMouseOver = useCallback((event: MouseEvent<HTMLDivElement>) => {
         const target = event.target as HTMLElement;
 
-        if (calendarToRef.current?.contains(target)) {
-            const dayHighlighted = isDayButton(target) || isDayButton(target.parentElement);
+        const mouseOverDayButton = isDayButton(target) || isDayButton(target.parentElement);
 
-            setNextMonthHighlighted(highlighted => {
-                if (highlighted && !dayHighlighted) return false;
-                if (!highlighted && dayHighlighted) return true;
-                return highlighted;
-            });
-        } else {
-            setNextMonthHighlighted(false);
+        let date;
+        if (mouseOverDayButton) {
+            const button =
+                target.tagName === 'BUTTON' ? target : (target.parentElement as HTMLButtonElement);
+
+            if (button.dataset.date) {
+                date = +button.dataset.date;
+            }
         }
+
+        setHighlightedDate(date);
     }, []);
 
     const handleClearFrom = useCallback(() => {
@@ -209,6 +208,8 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [inputToValue]);
 
+    const rangeProps = useSelectionProps(period.selectedFrom, period.selectedTo, highlightedDate);
+
     const { calendarProps: calendarFromProps, ...dateInputFromProps } = inputFromProps;
     const { calendarProps: calendarToProps, ...dateInputToProps } = inputToProps;
 
@@ -219,7 +220,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
         // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
         <div
             className={cn(styles.component, styles.static, className)}
-            onMouseOver={handleCalendarToMouseOver}
+            onMouseOver={handleMouseOver}
             data-test-id={dataTestId}
         >
             <div>
@@ -249,9 +250,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                     onMonthChange={handleMonthFromChange}
                     minDate={minDate}
                     maxDate={maxDate && max([maxDate, endOfMonth(subMonths(maxDate, 1))]).getTime()}
-                    selectedFrom={period.selectedFrom}
-                    selectedTo={period.selectedTo || (nextMonthHighlighted ? monthTo : undefined)}
-                    rangeComplete={Boolean(period.selectedFrom && period.selectedTo)}
+                    {...rangeProps}
                 />
             </div>
 
@@ -276,7 +275,6 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                 <CalendarToComponent
                     {...calendarToProps}
                     className={cn(styles.calendar, calendarToProps?.className)}
-                    ref={calendarToRef}
                     month={monthTo}
                     selectorView='month-only'
                     offDays={offDays}
@@ -285,8 +283,7 @@ export const CalendarRangeStatic: FC<CalendarRangeStaticProps> = ({
                     onMonthChange={handleMonthToChange}
                     minDate={minDate && startOfMonth(addMonths(minDate, 1)).getTime()}
                     maxDate={maxDate}
-                    selectedFrom={period.selectedFrom}
-                    selectedTo={period.selectedTo}
+                    {...rangeProps}
                 />
             </div>
         </div>
