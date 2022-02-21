@@ -17,7 +17,20 @@ export type ProgressBarProps = {
     /**
      * Цвет заполнения
      */
-    view?: 'positive' | 'negative';
+    view?:
+        | 'positive'
+        | 'negative'
+        | 'attention'
+        | 'link'
+        | 'tertiary'
+        | 'secondary'
+        | 'primary'
+        | 'accent';
+
+    /**
+     * Размер компонента
+     */
+    size?: 's' | 'm';
 
     /**
      * Id компонента для тестов
@@ -26,13 +39,13 @@ export type ProgressBarProps = {
 };
 
 export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
-    ({ className, value, view = 'positive', dataTestId }, ref) => (
+    ({ className, value, view = 'positive', size = 'm', dataTestId }, ref) => (
         <div
             role='progressbar'
             aria-valuenow={Math.round(value)}
             aria-valuemin={0}
             aria-valuemax={100}
-            className={cn(styles.container, className)}
+            className={cn(styles.container, styles[size], className)}
             data-test-id={dataTestId}
             ref={ref}
         >

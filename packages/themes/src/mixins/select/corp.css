@@ -1,3 +1,4 @@
 @define-mixin select-corp {
     --select-arrow-color: var(--color-light-graphic-secondary);
+    --select-options-list-box-shadow: var(--shadow-m);
 }

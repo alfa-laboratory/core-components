@@ -16,7 +16,17 @@ describe(
                 createSpriteStorybookUrl({
                     componentName: 'ProgressBar',
                     knobs: {
-                        view: ['positive', 'negative'],
+                        size: ['s', 'm'],
+                        view: [
+                            'positive',
+                            'negative',
+                            'attention',
+                            'link',
+                            'tertiary',
+                            'secondary',
+                            'primary',
+                            'accent',
+                        ],
                         value: [0, 50, 100],
                     },
                     size: { width: 130, height: 25 },

@@ -20,7 +20,8 @@ import styles from '!!raw-loader!../index.module.css';
 <Story name='ProgressBar'>
     <ProgressBar
         value={number('value', 40)}
-        view={select('view', ['positive', 'negative'])}
+        view={select('view', ['positive', 'negative', 'attention', 'link', 'tertiary', 'secondary', 'primary', 'accent'])}
+        size={select('size', ['s', 'm'], 'm')}
     />
 </Story>
 
