@@ -3,21 +3,48 @@
 
 :root {
     /* bg */
-    --progressbar-bg-color: var(--color-light-graphic-neutral);
+    --progressbar-bg-color: var(--color-light-bg-primary-inverted-alpha-10);
 
     /* positive */
     --progressbar-positive-color: var(--color-light-graphic-positive);
 
     /* negative */
     --progressbar-negative-color: var(--color-light-graphic-negative);
+
+    /* attention */
+    --progressbar-attention-color: var(--color-light-graphic-attention);
+
+    /* link */
+    --progressbar-link-color: var(--color-light-graphic-link);
+
+    /* tertiary */
+    --progressbar-tertiary-color: var(--color-light-graphic-tertiary);
+
+    /* secondary */
+    --progressbar-secondary-color: var(--color-light-graphic-secondary);
+
+    /* primary */
+    --progressbar-primary-color: var(--color-light-graphic-primary);
+
+    /* accent */
+    --progressbar-accent-color: var(--color-light-graphic-accent);
 }
 
 .container {
     background: var(--progressbar-bg-color);
-    border-radius: var(--border-radius-s);
+
     display: flex;
-    height: 6px;
     overflow: hidden;
+
+    &.s {
+        border-radius: var(--border-radius-s);
+        height: 4px;
+    }
+
+    &.m {
+        border-radius: var(--border-radius-m);
+        height: 8px;
+    }
 }
 
 .filled {
@@ -31,5 +58,29 @@
 
     &.negative {
         background: var(--progressbar-negative-color);
+    }
+
+    &.attention {
+        background: var(--progressbar-attention-color);
+    }
+
+    &.link {
+        background: var(--progressbar-link-color);
+    }
+
+    &.tertiary {
+        background: var(--progressbar-tertiary-color);
+    }
+
+    &.secondary {
+        background: var(--progressbar-secondary-color);
+    }
+
+    &.primary {
+        background: var(--progressbar-primary-color);
+    }
+
+    &.accent {
+        background: var(--progressbar-accent-color);
     }
 }
