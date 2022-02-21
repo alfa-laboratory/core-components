@@ -1,6 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
-import { Typography } from '@alfalab/core-components-typography';
+import { Amount } from '@alfalab/core-components-amount';
+import { TextProps, Typography } from '@alfalab/core-components-typography';
 
 import { DataDynamicBooleanProps } from '../../types/utils/data.types';
 import { LegendProps } from '../../types/legend.types';
@@ -21,7 +22,7 @@ interface Props {
     toggleChart(item: SeriaProps): void;
 }
 
-const icons = {
+export const icons = {
     circleLine: CircleLineIcon,
     filledCircle: FilledCircleIcon,
     strokeCircle: StrokeCircleIcon,
@@ -34,6 +35,11 @@ export const Legends = React.forwardRef<HTMLUListElement, Props>(
             textAlign: legend.align || 'center',
             transform: `translateY(${(legend?.marginTop ? legend.marginTop : 0) *
                 (legend.verticalAlign === 'top' ? -1 : 1)}px)`,
+        };
+
+        const label: TextProps = legend?.typography?.label ?? {
+            view: 'primary-medium',
+            tag: 'span',
         };
 
         return (
@@ -67,12 +73,20 @@ export const Legends = React.forwardRef<HTMLUListElement, Props>(
                                     </i>
                                 ) : null}
                                 <Typography.Text
-                                    view='primary-medium'
-                                    tag='span'
-                                    className={cn(styles.legendValue)}
+                                    {...label}
+                                    className={cn(styles.legendValue, label.className ?? '')}
                                 >
                                     {item.properties.name}
                                 </Typography.Text>
+                                {item.properties.amount && (
+                                    <Amount
+                                        {...item.properties.amount}
+                                        className={cn(
+                                            styles.amount,
+                                            item?.properties?.amount?.className ?? '',
+                                        )}
+                                    />
+                                )}
                             </div>
                         </li>
                     );

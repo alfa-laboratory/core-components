@@ -1,0 +1,7 @@
+@import '../../../../../themes/src/default.css';
+
+.amount {
+    & > span {
+        font-weight: var(--amount-major-part-font-weight);
+    }
+}

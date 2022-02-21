@@ -1,5 +1,13 @@
 import { ReactElement, ReactText, SVGProps } from 'react';
+import { TextProps } from '@alfalab/core-components-typography';
 import { AnimationTiming } from 'recharts/types/util/types';
+import { AmountProps } from '@alfalab/core-components-amount';
+
+export enum ArrangeData {
+    ICON = 'ICON',
+    NAME = 'NAME',
+    VALUE = 'VALUE',
+}
 
 export interface TooltipProps {
     /**
@@ -81,4 +89,22 @@ export interface TooltipProps {
      * Контент для тултипа
      */
     content?: any;
+
+    /**
+     * Контент для тултипа
+     */
+    amount?: AmountProps;
+
+    /**
+     * Пропсы для Typography.Text в тултипе
+     */
+    typography?: {
+        title: TextProps;
+        text: TextProps;
+    };
+
+    /**
+     * Порядок элементов в тултипе
+     */
+    arrangeData: ArrangeData[];
 }

@@ -1,4 +1,4 @@
-import format from 'date-fns/format';
+import { format } from 'date-fns';
 import { Chart } from '../Component';
 
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
@@ -31,7 +31,7 @@ import Changelog from '../../CHANGELOG.md';
             });
             return ({ ...obj, labels, series});
         };
-
+    
         const orientationVertical = {
             bottom: 'bottom',
             top: 'top'
@@ -68,7 +68,7 @@ import Changelog from '../../CHANGELOG.md';
             strokeCircle: 'strokeCircle',
             circle: 'circle',
         };
-
+    
         const responsiveContainerId = 'responsiveContainer';
         const cartesianGridId = 'cartesianGrid';
         const composeChartId = 'composeChart';
@@ -80,19 +80,19 @@ import Changelog from '../../CHANGELOG.md';
         const lineId = 'line';
         const barIdFirst = 'barFirst';
         const barIdSecond = 'barSecond';
-
-
+    
+    
         const debounce = number('debounce', 0, {}, responsiveContainerId);
-
-
+    
+    
         const vertical = boolean('vertical', false, cartesianGridId);
         const horizontal = boolean('horizontal', true, cartesianGridId);
         const strokeDasharray = number('strokeDasharray', 0, {}, cartesianGridId);
         const stroke = text('stroke', 'var(--color-light-border-primary)', cartesianGridId);
         const fill = text('fill', 'var(--color-light-bg-primary)', cartesianGridId);
-
-
-
+    
+    
+    
         const initMarginTop = number('initMargin.top', 40, {}, composeChartId);
         const initMarginBottom = number('initMargin.bottom', 20, {}, composeChartId);
         const marginLeft = number('initMargin.left', 20, {}, composeChartId);
@@ -100,9 +100,10 @@ import Changelog from '../../CHANGELOG.md';
         const barCategoryGap = text('barCategoryGap', '30%', composeChartId);
         const barGap = number('barGap', 4, {}, composeChartId);
         const maxBarSize = number('maxBarSize', 24, {}, composeChartId);
-
-
-
+        const unfocusedAnimation = boolean('unfocusedAnimation', true, composeChartId);
+    
+    
+    
         const xAxisHide = boolean('hide', false, xAxisId);
         const xAxisOrientation = select('orientation', orientationVertical, 'bottom', xAxisId);
         const xAxisAngle = number('angle', 0, {}, xAxisId);
@@ -113,9 +114,9 @@ import Changelog from '../../CHANGELOG.md';
         const xAxisTickMargin = number('tickMargin', 10, {}, xAxisId);
         const xAxisMinTickGap = number('minTickGap', 5, {}, xAxisId);
         const xAxisLine = boolean('axisLine', false, xAxisId);
-
-
-
+    
+    
+    
         const yAxisHide = boolean('hide', false, yAxisId);
         const yAxisOrientation = select('orientation', orientationHorizontal, 'left', yAxisId);
         const yAxisAngle = number('angle', 0, {}, yAxisId);
@@ -128,32 +129,32 @@ import Changelog from '../../CHANGELOG.md';
         const yAxisMinTickGap = number('minTickGap', 5, {}, yAxisId);
         const yAxisLine = boolean('axisLine', false, yAxisId);
         const yAxisLabel = text('label', 'тыс.', yAxisId);
-
-
-
+    
+    
+    
         const legendAlign = select('align', alignHorizontal, 'center', legendId);
         const legendVerticalAlign = select('verticalAlign', alignVertical, 'bottom', legendId);
         const legendMarginTop = number('marginTop', 10, {}, legendId);
         const legendIconHeight = number('iconHeight', 16, {}, legendId);
-
-
-
+    
+    
+    
         const tooltipArrow = boolean('arrow', true, tooltipId);
         const tooltipIsAnimationActive = boolean('isAnimationActive', true, tooltipId);
         const tooltipSeparator = text('separator', ' ', tooltipId);
         const tooltipOffset = number('offset', 20, {}, tooltipId);
-
-
-
+    
+    
+    
         const cursorStroke = text('cursor.stroke', 'var(--color-light-border-primary)', tooltipId);
         const cursorStrokeWidth = number('cursor.strokeWidth', 1, {}, tooltipId);
         const tooltipFilterNull = boolean('filterNull', true, tooltipId);
         const tooltipAnimationBegin = number('animationBegin', 0, {}, tooltipId);
         const tooltipAnimationDuration = number('animationDuration', 500, {}, tooltipId);
         const tooltipAnimationEasing = select('animationEasing', animationType, 'ease', tooltipId);
-
-
-
+    
+    
+    
         const travellerWidth = number('travellerWidth', 20, {}, brushId);
         const brushHeight = number('height', 20, {}, brushId);
         const brushStartIndex = number('startIndex', 0, { min: 0, max: 5 }, brushId);
@@ -161,15 +162,15 @@ import Changelog from '../../CHANGELOG.md';
         const brushStroke = text('stroke', 'var(--color-static-status-blue)', brushId);
         const brushMargin = number('brushMargin', 10, { min: 0, max: 100 }, brushId);
         const brushHeightAlwaysShowText = boolean('alwaysShowText', true, brushId);
-
-
-
+    
+    
+    
         const lineHide = boolean('hide', false, lineId);
         const lineHideLegend = boolean('hideLegend', false, lineId);
         const lineHideTooltip = boolean('hideTooltip', false, lineId);
         const lineZIndex = number('zIndex', 50, {}, lineId);
         const lineIcon = select('icon', iconTypes, 'circleLine', lineId);
-
+    
         const lineName = text('properties.name', 'остаток', lineId);
         const lineStroke = text('properties.stroke', 'var(--color-static-status-blue)', lineId);
         const lineDot = boolean('properties.dot', true, lineId);
@@ -180,33 +181,33 @@ import Changelog from '../../CHANGELOG.md';
         const lineInheritStroke = boolean('properties.inheritStroke', true, lineId);
         const lineStrokeWidth = number('properties.strokeWidth', 2, {}, lineId);
         const lineStrokeDasharray = text('properties.strokeDasharray', '1 0', lineId);
-
-
-
+    
+    
+    
         const barHideFirst = boolean('hide', false, barIdFirst);
         const barHideLegendFirst = boolean('hideLegend', false, barIdFirst);
         const barHideTooltipFirst = boolean('hideTooltip', false, barIdFirst);
         const barZIndexFirst = number('zIndex', 1, {}, barIdFirst);
         const barIconFirst = select('icon', iconTypes, 'circle', barIdFirst);
-
+    
         const barFillFirst = text('properties.fill', 'var(--color-static-graphic-persimmon)', barIdFirst);
         const barNameFirst = text('properties.name', 'расход', barIdFirst);
-
-
-
+    
+    
+    
         const barHideSecond = boolean('hide', false, barIdSecond);
         const barHideLegendSecond = boolean('hideLegend', false, barIdSecond);
         const barHideTooltipSecond = boolean('hideTooltip', false, barIdSecond);
         const barZIndexSecond = number('zIndex', 10, {}, barIdSecond);
         const barIconSecond = select('icon', iconTypes, 'circle', barIdSecond);
-
+    
         const barFillSecond = text('properties.fill', 'var(--color-static-graphic-green-jungle)', barIdSecond);
         const barNameSecond = text('properties.name', 'приход', barIdSecond);
-
+    
         const responsiveContainer = {
             debounce
         };
-
+    
         const cartesianGrid = {
             vertical,
             horizontal,
@@ -214,7 +215,7 @@ import Changelog from '../../CHANGELOG.md';
             stroke,
             fill
         };
-
+    
         const composeChart = {
             initMargin: {
                 top: initMarginTop,
@@ -224,9 +225,10 @@ import Changelog from '../../CHANGELOG.md';
             },
             barGap,
             maxBarSize,
-            barCategoryGap
+            barCategoryGap,
+            unfocusedAnimation
         };
-
+        
         const xAxis = {
             hide: xAxisHide,
             axisLine: xAxisLine,
@@ -243,9 +245,9 @@ import Changelog from '../../CHANGELOG.md';
             reversed: xAxisReversed,
             tickMargin: xAxisTickMargin,
             dataKey: 'label',
-            orientation: xAxisOrientation,
+            orientation: xAxisOrientation
         };
-
+    
         const yAxis = {
             hide: yAxisHide,
             axisLine: yAxisLine,
@@ -264,14 +266,14 @@ import Changelog from '../../CHANGELOG.md';
             tickFormatter: (decimal) => `${decimal}\xa0${yAxisLabel}`,
             orientation: yAxisOrientation,
         };
-
+    
         const legend = {
             verticalAlign: legendVerticalAlign,
             align: legendAlign,
             marginTop: legendMarginTop,
             iconHeight: legendIconHeight,
         };
-
+    
         const tooltip = {
             separator: tooltipSeparator,
             offset: tooltipOffset,
@@ -286,7 +288,7 @@ import Changelog from '../../CHANGELOG.md';
             animationEasing: tooltipAnimationEasing,
             arrow: tooltipArrow,
         };
-
+    
         const brush = {
             dataKey: 'label',
             travellerWidth,
@@ -297,9 +299,9 @@ import Changelog from '../../CHANGELOG.md';
             alwaysShowText: brushHeightAlwaysShowText,
             stroke: brushStroke,
         };
-
+    
         const labelsBarChart = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь'];
-
+    
         const barChartFirst = {
             hide: barHideLegendFirst,
             hideLegend: barHideLegendFirst,
@@ -340,7 +342,7 @@ import Changelog from '../../CHANGELOG.md';
                 },
             ],
         };
-
+    
         const barChartSecond = {
             hide: barHideLegendSecond,
             hideLegend: barHideLegendSecond,
@@ -381,7 +383,7 @@ import Changelog from '../../CHANGELOG.md';
                 },
             ],
         };
-
+    
         const lineChart = {
             hide: lineHide,
             hideLegend: lineHideLegend,
@@ -433,7 +435,7 @@ import Changelog from '../../CHANGELOG.md';
                 },
             ],
         };
-
+    
         const barChartOptions = {
             id: 'bar-chart',
             composeChart,
@@ -447,7 +449,7 @@ import Changelog from '../../CHANGELOG.md';
             labels: labelsBarChart,
             series: [barChartFirst, barChartSecond, lineChart]
         };
-
+        
         return (
             <div style={{ display: 'flex' }}>
                 <div style={{ marginBottom: '20px', top: 25, width: '1050px', height: '600px' }}>
@@ -495,7 +497,7 @@ import Changelog from '../../CHANGELOG.md';
             return ({ ...obj, labels, series});
         };
         const formatXAxis = (time) => format(time, 'dd LLL');
-
+    
         const orientationVertical = {
             bottom: 'bottom',
             top: 'top'
@@ -532,9 +534,9 @@ import Changelog from '../../CHANGELOG.md';
             strokeCircle: 'strokeCircle',
             circle: 'circle',
         };
-
-
-
+    
+    
+    
         const responsiveContainerId = 'responsiveContainerId';
         const cartesianGridId = 'cartesianGridId';
         const composeChartId = 'composeChartId';
@@ -545,35 +547,36 @@ import Changelog from '../../CHANGELOG.md';
         const brushId = 'brushId';
         const lineId = 'lineId';
         const areaId = 'areaId';
-
-
-
-
-
+    
+    
+    
+    
+    
         const debounce = number('debounce', 0, {}, responsiveContainerId);
-
-
-
+    
+    
+    
         const vertical = boolean('vertical', true, cartesianGridId);
         const horizontal = boolean('horizontal', true, cartesianGridId);
         const strokeDasharray = number('strokeDasharray', 0, {}, cartesianGridId);
         const stroke = text('stroke', 'var(--color-light-border-primary)', cartesianGridId);
         const fill = text('fill', 'var(--color-light-bg-primary)', cartesianGridId);
-
-
-
+    
+    
+    
         const initMarginTop = number('initMargin.top', 40, {}, composeChartId);
         const initMarginBottom = number('initMargin.bottom', 20, {}, composeChartId);
         const marginLeft = number('initMargin.left', 20, {}, composeChartId);
         const marginRight = number('initMargin.right', 70, {}, composeChartId);
-
+    
         const barCategoryGap = text('barCategoryGap', '30%', composeChartId);
         const barGap = number('barGap', 4, {}, composeChartId);
         const barSize = number('barSize', 24, {}, composeChartId);
         const maxBarSize = number('maxBarSize', 24, {}, composeChartId);
-
-
-
+        const unfocusedAnimation = boolean('unfocusedAnimation', true, composeChartId);
+    
+    
+    
         const xAxisHide = boolean('hide', false, xAxisId);
         const xAxisOrientation = select('orientation', orientationVertical, 'bottom', xAxisId);
         const xAxisAngle = number('angle', 0, {}, xAxisId);
@@ -584,9 +587,9 @@ import Changelog from '../../CHANGELOG.md';
         const xAxisTickMargin = number('tickMargin', 2, {}, xAxisId);
         const xAxisMinTickGap = number('minTickGap', 20, {}, xAxisId);
         const xAxisLine = boolean('axisLine', false, xAxisId);
-
-
-
+    
+    
+    
         const yAxisHide = boolean('hide', false, yAxisId);
         const yAxisOrientation = select('orientation', orientationHorizontal, 'left', yAxisId);
         const yAxisAngle = number('angle', 0, {}, yAxisId);
@@ -599,31 +602,31 @@ import Changelog from '../../CHANGELOG.md';
         const yAxisTickMargin = number('tickMargin', 0, {}, yAxisId);
         const yAxisLine = boolean('axisLine', false, yAxisId);
         const yAxisLabel = text('label', '', yAxisId);
-
-
-
+    
+    
+    
         const legendAlign = select('align', alignHorizontal, 'right', legendId);
         const legendVerticalAlign = select('verticalAlign', alignVertical, 'top', legendId);
         const legendMarginTop = number('marginTop', 20, {}, legendId);
         const legendIconHeight = number('iconHeight', 20, {}, legendId);
-
-
-
+    
+    
+    
         const tooltipArrow = boolean('arrow', true, tooltipId);
         const tooltipIsAnimationActive = boolean('isAnimationActive', true, tooltipId);
         const tooltipSeparator = text('separator', ' ', tooltipId);
         const tooltipOffset = number('offset', 20, {}, tooltipId);
-
+    
         const cursorStroke = text('cursor.stroke', 'var(--color-light-border-primary)', tooltipId);
         const cursorStrokeWidth = number('cursor.strokeWidth', 1, {}, tooltipId);
-
+    
         const tooltipFilterNull = boolean('filterNull', true, tooltipId);
         const tooltipAnimationBegin = number('animationBegin', 0, {}, tooltipId);
         const tooltipAnimationDuration = number('animationDuration', 500, {}, tooltipId);
         const tooltipAnimationEasing = select('animationEasing', animationType, 'ease', tooltipId);
-
-
-
+    
+    
+    
         const travellerWidth = number('travellerWidth', 20, {}, brushId);
         const brushHeight = number('height', 20, {}, brushId);
         const brushStartIndex = number('startIndex', 0, { min: 0, max: 47 }, brushId);
@@ -631,15 +634,15 @@ import Changelog from '../../CHANGELOG.md';
         const brushStroke = text('stroke', 'var(--color-static-status-blue)', brushId);
         const brushMargin = number('brushMargin', 10, { min: 0, max: 100 }, brushId);
         const brushHeightAlwaysShowText = boolean('alwaysShowText', true, brushId);
-
-
-
+    
+    
+    
         const lineHide = boolean('hide', false, lineId);
         const lineHideLegend = boolean('hideLegend', false, lineId);
         const lineHideTooltip = boolean('hideTooltip', false, lineId);
         const lineZIndex = number('zIndex', 50, {}, lineId);
         const lineIcon = select('icon', iconTypes, 'strokeCircle', lineId);
-
+    
         const lineName = text('properties.name', 'текущий период', lineId);
         const lineStroke = text('properties.stroke', 'var(--color-static-status-blue)', lineId);
         const lineDot = boolean('properties.dot', true, lineId);
@@ -650,21 +653,21 @@ import Changelog from '../../CHANGELOG.md';
         const lineType = select('properties.type', linesType, 'monotone', lineId);
         const lineWidth = number('properties.dotSettings.width', 18, {}, lineId);
         const lineStrokeDasharray = text('properties.strokeDasharray', '10 10', lineId);
-
-
-
+    
+    
+    
         const areaHide = boolean('hide', false, areaId);
         const areaHideLegend = boolean('hideLegend', false, areaId);
         const areaHideTooltip = boolean('hideTooltip', false, areaId);
         const areaZIndex = number('zIndex', 100, {}, areaId);
         const areaIcon = select('icon', iconTypes, 'filledCircle', areaId);
         const areaOffset = number('offset', 0.1, {min: 0, max: 1, step: 0.1}, areaId);
-
+    
         const areaColor_1 = text('gradient.points.color above', 'rgba(0, 112, 224, 0.2)', areaId);
         const areaColorOpacity_1 = number('gradient.points.opacity of color above', 1, {min: 0, max: 1, step: 0.1}, areaId);
         const areaColor_2 = text('gradient.points.color below', 'rgba(0, 128, 255, 0)', areaId);
         const areaColorOpacity_2 = number('gradient opacity of color below', 1, {min: 0, max: 1, step: 0.1}, areaId);
-
+    
         const areaName = text('properties.name', 'предыдущий период', areaId);
         const areaType = select('properties.type', linesType, 'monotone', areaId);
         const areaStroke = text('properties.stroke', 'var(--color-static-status-blue)', areaId);
@@ -674,13 +677,13 @@ import Changelog from '../../CHANGELOG.md';
         const areaStrokeWidth = number('properties.strokeWidth', 2, {}, areaId);
         const areaDot = boolean('properties.dot', true, areaId);
         const areaStrokeDasharray = text('properties.strokeDasharray', '10 10', areaId);
-
-
-
+    
+    
+    
         const responsiveContainer = {
             debounce
         };
-
+    
         const cartesianGrid = {
             vertical,
             horizontal,
@@ -688,7 +691,7 @@ import Changelog from '../../CHANGELOG.md';
             stroke,
             fill,
         };
-
+    
         const composeChart = {
             initMargin: {
                 top: initMarginTop,
@@ -698,9 +701,10 @@ import Changelog from '../../CHANGELOG.md';
             },
             barCategoryGap,
             barSize,
-            maxBarSize
+            maxBarSize,
+            unfocusedAnimation
         };
-
+    
         const xAxis = {
             hide: xAxisHide,
             axisLine: xAxisLine,
@@ -721,7 +725,7 @@ import Changelog from '../../CHANGELOG.md';
             tickFormatter: formatXAxis,
             tickType: 'point',
         };
-
+    
         const yAxis = {
             hide: yAxisHide,
             axisLine: yAxisLine,
@@ -740,14 +744,14 @@ import Changelog from '../../CHANGELOG.md';
             orientation: yAxisOrientation,
             tickMargin: yAxisTickMargin,
         };
-
+    
         const legend = {
             verticalAlign: legendVerticalAlign,
             align: legendAlign,
             marginTop: legendMarginTop,
             iconHeight: legendIconHeight,
         };
-
+    
         const tooltip = {
             separator: tooltipSeparator,
             offset: tooltipOffset,
@@ -763,7 +767,7 @@ import Changelog from '../../CHANGELOG.md';
             arrow: tooltipArrow,
             labelFormatter: formatXAxis,
         };
-
+    
         const brush = {
             dataKey: 'label',
             travellerWidth,
@@ -775,9 +779,9 @@ import Changelog from '../../CHANGELOG.md';
             alwaysShowText: brushHeightAlwaysShowText,
             tickFormatter: formatXAxis
         };
-
+    
         const labelsLineChart = [1608242400000, 1608328800000, 1608415200000, 1608501600000, 1608588000000, 1608674400000, 1608760800000, 1608847200000, 1608933600000, 1609020000000, 1609106400000, 1609192800000, 1609279200000, 1609365600000, 1609452000000, 1609538400000, 1609624800000, 1609711200000, 1609797600000, 1609884000000, 1609970400000, 1610056800000, 1610143200000, 1610229600000, 1610316000000, 1610402400000, 1610488800000, 1610575200000, 1610661600000, 1610748000000, 1610834400000, 1610920800000, 1611007200000, 1611093600000, 1611180000000, 1611266400000, 1611352800000, 1611439200000, 1611525600000, 1611612000000, 1611698400000, 1611784800000, 1611871200000, 1611957600000, 1612044000000, 1612130400000, 1612216800000, 1612303200000];
-
+    
         const lineChart = {
             hide: lineHide,
             hideLegend: lineHideLegend,
@@ -996,7 +1000,7 @@ import Changelog from '../../CHANGELOG.md';
                 },
             ],
         };
-
+    
         const areaChart = {
             hide: areaHide,
             hideLegend: areaHideLegend,
@@ -1229,7 +1233,7 @@ import Changelog from '../../CHANGELOG.md';
                 },
             ],
         };
-
+    
         const lineChartOptions = {
             id: 'line-chart',
             composeChart,
@@ -1243,7 +1247,7 @@ import Changelog from '../../CHANGELOG.md';
             labels: labelsLineChart,
             series: [areaChart]
         };
-
+    
         return (
             <div style={{ display: 'flex' }}>
                 <div style={{ marginBottom: '20px', top: 25, width: '1050px', height: '600px' }}>
@@ -1290,7 +1294,7 @@ import Changelog from '../../CHANGELOG.md';
             });
             return ({ ...obj, labels, series});
         };
-
+    
         const orientationVertical = {
             bottom: 'bottom',
             top: 'top'
@@ -1327,72 +1331,166 @@ import Changelog from '../../CHANGELOG.md';
             strokeCircle: 'strokeCircle',
             circle: 'circle',
         };
-
+    
         const responsiveContainerId = 'responsiveContainer';
         const cartesianGridId = 'cartesianGrid';
         const composeChartId = 'composeChart';
         const xAxisId = 'xAxis';
         const yAxisId = 'yAxis';
-        const barId = 'bar';
-
-
+        const legendId = 'legend';
+        const tooltipId = 'tooltip';
+        const barIdFirst = 'barFirst';
+        const barIdSecond = 'barSecond';
+    
+    
         const debounce = number('debounce', 0, {}, responsiveContainerId);
-
-
+    
+    
         const vertical = boolean('vertical', false, cartesianGridId);
-        const horizontal = boolean('horizontal', false, cartesianGridId);
-
-
-
-        const initMarginTop = number('initMargin.top', 40, {}, composeChartId);
-        const initMarginBottom = number('initMargin.bottom', 20, {}, composeChartId);
-        const marginLeft = number('initMargin.left', 20, {}, composeChartId);
-        const marginRight = number('initMargin.right', 50, {}, composeChartId);
-        const barCategoryGap = text('barCategoryGap', '10%', composeChartId);
-        const barGap = number('barGap', 4, {}, composeChartId);
-        const maxBarSize = number('maxBarSize', 64, {}, composeChartId);
-
-
-
+        const horizontal = boolean('horizontal', true, cartesianGridId);
+        const stroke = text('stroke', 'var(--color-light-bg-neutral)', cartesianGridId);
+    
+    
+    
+        const initMarginTop = number('initMargin.top', 0, {}, composeChartId);
+        const initMarginBottom = number('initMargin.bottom', 32, {}, composeChartId);
+        const marginLeft = number('initMargin.left', 0, {}, composeChartId);
+        const marginRight = number('initMargin.right', 0, {}, composeChartId);
+        const barCategoryGap = text('barCategoryGap', '30%', composeChartId);
+        const barGap = number('barGap', 8, {}, composeChartId);
+        const maxBarSize = number('maxBarSize', 24, {}, composeChartId);
+        const unfocusedAnimation = boolean('unfocusedAnimation', true, composeChartId);
+    
+    
+    
         const xAxisHide = boolean('hide', false, xAxisId);
         const xAxisOrientation = select('orientation', orientationVertical, 'bottom', xAxisId);
         const xAxisTickLine = boolean('tickLine', false, xAxisId);
         const xAxisTickSize = number('tickSize', 6, {}, xAxisId);
-        const xAxisTickMargin = number('tickMargin', 10, {}, xAxisId);
+        const xAxisTickMargin = number('tickMargin', 16, {}, xAxisId);
         const xAxisMinTickGap = number('minTickGap', 5, {}, xAxisId);
         const xAxisLine = boolean('axisLine', false, xAxisId);
-
-
-
-        const yAxisHide = boolean('hide', true, yAxisId);
-
-
-
-        const barHide = boolean('hide', false, barId);
-        const barHideLegend = boolean('hideLegend', false, barId);
-        const barHideTooltip = boolean('hideTooltip', false, barId);
-        const barZIndex = number('zIndex', 10, {}, barId);
-        const barIcon = select('icon', iconTypes, 'circle', barId);
-        const barRadius = object('radius', {
-            top: 10,
-            bottom: 10,
-        }, barId);
-
-        const barFormatter = text('labelList.formatter', '', barId);
-        const barLabelListOffset= number('labelList.offset', 10, {}, barId);
-
-        const barFill = text('properties.fill', 'var(--color-static-graphic-green-jungle)', barId);
-        const barName = text('properties.name', 'приход', barId);
-
+    
+    
+    
+        const yAxisHide = boolean('hide', false, yAxisId);
+        const yAxisTickLine = boolean('tickLine', false, yAxisId);
+        const yAxisTickCoiunt = number('tickCount', 6, {}, yAxisId);
+        const yAxisLine = boolean('axisLine', false, yAxisId);
+    
+    
+    
+        const legendAlign = select('align', alignHorizontal, 'left', legendId);
+        const legendVerticalAlign = select('verticalAlign', alignVertical, 'top', legendId);
+        const legendMarginTop = number('marginTop', 40, {}, legendId);
+        const legendIconHeight = number('iconHeight', 12, {}, legendId);
+        const legendTypography = object('typography', {
+            label: {
+                view: 'primary-medium',
+                tag: 'span',
+            },
+        }, legendId);
+    
+    
+    
+        const tooltipArrow = boolean('arrow', true, tooltipId);
+        const tooltipIsAnimationActive = boolean('isAnimationActive', true, tooltipId);
+        const tooltipSeparator = text('separator', ' ', tooltipId);
+        const tooltipOffset = number('offset', 20, {}, tooltipId);
+    
+    
+    
+        const cursorStroke = text('cursor.stroke', 'var(--color-light-border-primary)', tooltipId);
+        const cursorStrokeWidth = number('cursor.strokeWidth', 1, {}, tooltipId);
+        const tooltipFilterNull = boolean('filterNull', true, tooltipId);
+        const tooltipAnimationBegin = number('animationBegin', 0, {}, tooltipId);
+        const tooltipAnimationDuration = number('animationDuration', 500, {}, tooltipId);
+        const tooltipAnimationEasing = select('animationEasing', animationType, 'ease', tooltipId);
+        const tooltipAmount = object('amount', {
+            currency: 'RUB',
+            minority: 100,
+            view: 'withZeroMinorPart',
+        }, tooltipId);
+        const tooltipTypography = object('typography', {
+            title: {
+                view: 'component',
+                tag: 'span',
+                weight: 'regular',
+            },
+            text: {
+                view: 'component',
+                tag: 'span',
+            },
+        }, tooltipId);
+        const tooltipArrangeData = object('arrangeData', ['ICON', 'NAME', 'VALUE'], tooltipId);
+    
+    
+    
+        const barHideFirts = boolean('hide', false, barIdFirst);
+        const barHideLegendFirts = boolean('hideLegend', false, barIdFirst);
+        const barHideTooltipFirts = boolean('hideTooltip', false, barIdFirst);
+        const barZIndexFirts = number('zIndex', 10, {}, barIdFirst);
+        const barIconFirts = select('icon', iconTypes, 'circle', barIdFirst);
+        const barRadiusFirts = object('radius', {
+            top: 4,
+            bottom: 4,
+        }, barIdFirst);
+    
+        const barFormatterFirts = text('labelList.formatter', '', barIdFirst);
+        const barLabelListOffsetFirts= number('labelList.offset', 10, {}, barIdFirst);
+    
+        const barFillFirts = text('properties.fill', '#DE6C69', barIdFirst);
+        const barNameFirts = text('properties.name', 'Расходы', barIdFirst);
+        const barAmountFirts = object('amount', {
+            currency: 'RUB',
+            minority: 100,
+            view: 'withZeroMinorPart',
+            value: 84927645,
+        }, barIdFirst);
+        const labelListFirst = object('labelList', {
+            formatter: (decimal) => `${decimal}${barFormatterFirts}`,
+            offset: barLabelListOffsetFirts,
+        }, barIdFirst);
+    
+    
+    
+        const barHideSecond = boolean('hide', false, barIdSecond);
+        const barHideLegendSecond = boolean('hideLegend', false, barIdSecond);
+        const barHideTooltipSecond = boolean('hideTooltip', false, barIdSecond);
+        const barZIndexSecond = number('zIndex', 10, {}, barIdSecond);
+        const barIconSecond = select('icon', iconTypes, 'circle', barIdSecond);
+        const barRadiusSecond = object('radius', {
+            top: 4,
+            bottom: 4,
+        }, barIdSecond);
+    
+        const barFormatterSecond = text('labelList.formatter', '', barIdSecond);
+        const barLabelListOffsetSecond = number('labelList.offset', 10, {}, barIdSecond);
+    
+        const barFillSecond = text('properties.fill', '#A6D37E', barIdSecond);
+        const barNameSecond = text('properties.name', 'Доходы', barIdSecond);
+        const barAmountSecond = object('amount', {
+            currency: 'USD',
+            minority: 100,
+            view: 'withZeroMinorPart',
+            value: 832827,
+        }, barIdSecond);
+        const labelListSecond = object('labelList', {
+            formatter: (decimal) => `${decimal}${barFormatterFirts}`,
+            offset: barLabelListOffsetFirts,
+        }, barIdSecond);
+        
+        
         const responsiveContainer = {
             debounce
         };
-
+    
         const cartesianGrid = {
             vertical,
             horizontal,
+            stroke,
         };
-
+    
         const composeChart = {
             initMargin: {
                 top: initMarginTop,
@@ -1403,8 +1501,9 @@ import Changelog from '../../CHANGELOG.md';
             barGap,
             maxBarSize,
             barCategoryGap,
+            unfocusedAnimation,
         };
-
+    
         const xAxis = {
             hide: xAxisHide,
             axisLine: xAxisLine,
@@ -1418,82 +1517,149 @@ import Changelog from '../../CHANGELOG.md';
             tickMargin: xAxisTickMargin,
             dataKey: 'label',
             orientation: xAxisOrientation,
+            tickFormatter: (decimal) => decimal.substr(0, 3),
         };
-
+    
         const yAxis = {
             hide: yAxisHide,
+            tickLine: yAxisTickLine,
+            tickCount: yAxisTickCoiunt,
+            axisLine: yAxisLine,
         };
-
-        const labelsBarChart = ['Long label', 'Label1', 'Label2', 'Label3', 'Label4', 'Label5', 'Label6', 'Label7'];
-
-        const barChart = {
-            hide: barHideLegend,
-            hideLegend: barHideLegend,
-            hideTooltip: barHideTooltip,
-            zIndex: barZIndex,
-            chart: 'bar',
-            icon: barIcon,
-            radius: barRadius || 0,
-            labelList: {
-                formatter: (decimal) => `${decimal}${barFormatter}`,
-                offset: barLabelListOffset,
+    
+        const legend = {
+            verticalAlign: legendVerticalAlign,
+            align: legendAlign,
+            marginTop: legendMarginTop,
+            iconHeight: legendIconHeight,
+            typography: legendTypography,
+        };
+    
+        const tooltip = {
+            amount: tooltipAmount,
+            separator: tooltipSeparator,
+            offset: tooltipOffset,
+            filterNull: tooltipFilterNull,
+            cursor: {
+                stroke: cursorStroke,
+                strokeWidth: cursorStrokeWidth
             },
+            isAnimationActive: tooltipIsAnimationActive,
+            animationBegin: tooltipAnimationBegin,
+            animationDuration: tooltipAnimationDuration,
+            animationEasing: tooltipAnimationEasing,
+            arrow: tooltipArrow,
+            labelFormatter: (text) => `${text} 2021`,
+            arrangeData: tooltipArrangeData,
+            typography: tooltipTypography,
+        };
+    
+        const labelsBarChart = ['Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь'];
+    
+        const barChartFirst = {
+            hide: barHideLegendFirts,
+            hideLegend: barHideLegendFirts,
+            hideTooltip: barHideTooltipFirts,
+            zIndex: barZIndexFirts,
+            chart: 'bar',
+            icon: barIconFirts,
+            radius: barRadiusFirts || 0,
+            labelList: labelListFirst,
             properties: {
-                name: barName,
-                dataKey: 'cm',
+                name: barNameFirts,
+                amount: barAmountFirts,
+                dataKey: 'uv',
                 formatter: (decimal) => `${decimal * 1000}`,
-                fill: barFill,
+                fill: barFillFirts,
             },
             data: [
                 {
-                    label: 'Long label',
-                    value: 5000,
+                    label: 'Июнь',
+                    value: 80,
                 },
                 {
-                    label: 'Label1',
-                    value: 650,
+                    label: 'Июль',
+                    value: 70,
                 },
                 {
-                    label: 'Label2',
-                    value: 3522,
+                    label: 'Август',
+                    value: 75,
                 },
                 {
-                    label: 'Label3',
-                    value: 0,
+                    label: 'Сентябрь',
+                    value: 72,
                 },
                 {
-                    label: 'Label4',
-                    value: 2000,
+                    label: 'Октябрь',
+                    value: 72,
                 },
                 {
-                    label: 'Label5',
-                    value: 1043,
-                },
-                {
-                    label: 'Label6',
-                    value: 600,
-                },
-                {
-                    label: 'Label7',
-                    value: 1,
+                    label: 'Ноябрь',
+                    value: 100,
                 },
             ],
         };
-
+    
+        const barChartSecond = {
+            hide: barHideLegendSecond,
+            hideLegend: barHideLegendSecond,
+            hideTooltip: barHideTooltipSecond,
+            zIndex: barZIndexSecond,
+            chart: 'bar',
+            icon: barIconSecond,
+            radius: barRadiusSecond || 0,
+            labelList: labelListSecond,
+            properties: {
+                name: barNameSecond,
+                amount: barAmountSecond,
+                dataKey: 'pv',
+                formatter: (decimal) => `${decimal * 1000}`,
+                fill: barFillSecond,
+            },
+            data: [
+                {
+                    label: 'Июнь',
+                    value: 58,
+                },
+                {
+                    label: 'Июль',
+                    value: 58,
+                },
+                {
+                    label: 'Август',
+                    value: 58,
+                },
+                {
+                    label: 'Сентябрь',
+                    value: 83,
+                },
+                {
+                    label: 'Октябрь',
+                    value: 58,
+                },
+                {
+                    label: 'Ноябрь',
+                    value: 58,
+                },
+            ],
+        };
+    
         const barChartOptions = {
             id: 'bar-chart',
             composeChart,
             responsiveContainer,
             cartesianGrid,
+            tooltip,
+            legend,
             xAxis,
             yAxis,
             labels: labelsBarChart,
-            series: [barChart]
+            series: [barChartSecond, barChartFirst],
         };
-
+    
         return (
             <div style={{ display: 'flex' }}>
-                <div style={{ marginBottom: '20px', top: 25, width: '1050px', height: '600px' }}>
+                <div style={{ marginBottom: '20px', top: 25, width: '1050px', height: '600px', background: 'var(--color-light-specialbg-primary-grouped)' }}>
                     <Chart
                         id='bar-chart'
                         composeChart={ composeChart }
@@ -1502,7 +1668,9 @@ import Changelog from '../../CHANGELOG.md';
                         xAxis={ xAxis }
                         yAxis={ yAxis }
                         labels={ labelsBarChart }
-                        series={ [barChart] }
+                        series={ [barChartSecond, barChartFirst] }
+                        legend={ legend }
+                        tooltip={tooltip}
                     />
                 </div>
                 <div style={{ width: '500px', height: '600px', overflow: 'auto' }}>
