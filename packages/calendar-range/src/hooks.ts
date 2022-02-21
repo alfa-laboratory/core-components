@@ -169,3 +169,23 @@ export function useStaticViewMonthes({
         handleMonthToChange,
     };
 }
+
+export function useSelectionProps(from?: number, to?: number, highlighted?: number) {
+    return useMemo(() => {
+        if (from && to) {
+            return {
+                rangeComplete: true,
+                selectedFrom: min([from, to]).getTime(),
+                selectedTo: max([from, to]).getTime(),
+            };
+        }
+
+        const dates = [from, to, highlighted].filter(date => date !== undefined) as number[];
+
+        return {
+            rangeComplete: false,
+            selectedFrom: from || dates.length === 2 ? min(dates).getTime() : undefined,
+            selectedTo: to || dates.length === 2 ? max(dates).getTime() : undefined,
+        };
+    }, [from, highlighted, to]);
+}
