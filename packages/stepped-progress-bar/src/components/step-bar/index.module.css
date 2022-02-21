@@ -5,13 +5,41 @@
     height: var(--gap-2xs);
     margin-right: var(--gap-2xs);
     border-radius: var(--border-radius-xs);
-    background: var(--color-light-border-primary);
+    background: var(--color-light-bg-primary-inverted-alpha-10);
 }
 
 .bar:last-child {
     margin-right: 0;
 }
 
-.done {
+.positive {
     background: var(--color-light-graphic-positive);
+}
+
+.attention {
+    background: var(--color-light-graphic-attention);
+}
+
+.negative {
+    background: var(--color-light-graphic-negative);
+}
+
+.link {
+    background: var(--color-light-graphic-link);
+}
+
+.tertiary {
+    background: var(--color-light-graphic-tertiary);
+}
+
+.secondary {
+    background: var(--color-light-graphic-secondary);
+}
+
+.primary {
+    background: var(--color-light-graphic-primary);
+}
+
+.accent {
+    background: var(--color-light-graphic-accent);
 }
