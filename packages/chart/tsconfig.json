@@ -6,6 +6,7 @@
         "rootDirs": ["src"]
     },
     "references": [
-        { "path": "../typography" }
+        { "path": "../typography" },
+        { "path": "../amount" }
     ]
 }
