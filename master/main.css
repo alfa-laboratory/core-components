@@ -1941,23 +1941,50 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 }
 :root {
     /* bg */
-    --progressbar-bg-color: var(--color-light-graphic-neutral);
+    --progressbar-bg-color: var(--color-light-bg-primary-inverted-alpha-10);
 
     /* positive */
     --progressbar-positive-color: var(--color-light-graphic-positive);
 
     /* negative */
     --progressbar-negative-color: var(--color-light-graphic-negative);
+
+    /* attention */
+    --progressbar-attention-color: var(--color-light-graphic-attention);
+
+    /* link */
+    --progressbar-link-color: var(--color-light-graphic-link);
+
+    /* tertiary */
+    --progressbar-tertiary-color: var(--color-light-graphic-tertiary);
+
+    /* secondary */
+    --progressbar-secondary-color: var(--color-light-graphic-secondary);
+
+    /* primary */
+    --progressbar-primary-color: var(--color-light-graphic-primary);
+
+    /* accent */
+    --progressbar-accent-color: var(--color-light-graphic-accent);
 }
 .container_PrB-J {
     background: var(--progressbar-bg-color);
-    border-radius: var(--border-radius-s);
+
     display: -webkit-box;
+
     display: -ms-flexbox;
+
     display: flex;
-    height: 6px;
-    overflow: hidden;
+    overflow: hidden
 }
+.container_PrB-J.s_SRo4o {
+        border-radius: var(--border-radius-s);
+        height: 4px;
+    }
+.container_PrB-J.m_Zi7Bh {
+        border-radius: var(--border-radius-m);
+        height: 8px;
+    }
 .filled_2dSth {
     border-radius: inherit;
     width: 100%;
@@ -1971,6 +1998,24 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     }
 .filled_2dSth.negative_15PXo {
         background: var(--progressbar-negative-color);
+    }
+.filled_2dSth.attention_mJD6f {
+        background: var(--progressbar-attention-color);
+    }
+.filled_2dSth.link_3_zz_ {
+        background: var(--progressbar-link-color);
+    }
+.filled_2dSth.tertiary_2CdUi {
+        background: var(--progressbar-tertiary-color);
+    }
+.filled_2dSth.secondary_E820s {
+        background: var(--progressbar-secondary-color);
+    }
+.filled_2dSth.primary_2fCuw {
+        background: var(--progressbar-primary-color);
+    }
+.filled_2dSth.accent_2QHDP {
+        background: var(--progressbar-accent-color);
     }
 .component_2fnza {
     display: -webkit-inline-box;
