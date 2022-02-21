@@ -1,3 +1,18 @@
+# [25.1.0](https://github.com/alfa-laboratory/core-components/compare/v25.0.0...v25.1.0) (2022-02-21)
+
+
+### Bug Fixes
+
+* **calendar-range:** correct highlights ([#1002](https://github.com/alfa-laboratory/core-components/issues/1002)) ([5c12da2](https://github.com/alfa-laboratory/core-components/commit/5c12da2eb72b146b0a5f58447312f96f4b424c48))
+* **select:** change corp shadow ([#1004](https://github.com/alfa-laboratory/core-components/issues/1004)) ([ea664f6](https://github.com/alfa-laboratory/core-components/commit/ea664f67ce81b66b31aab348cc0c68085711de8a))
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+* **progress-bar:** add size prop, additional views, new bg color ([#996](https://github.com/alfa-laboratory/core-components/issues/996)) ([63702f7](https://github.com/alfa-laboratory/core-components/commit/63702f7d9637e1fe3da502d7c91c4284453b3b48))
+* **stepped-progress-bar:** add view prop, change bg color ([#1000](https://github.com/alfa-laboratory/core-components/issues/1000)) ([3e16926](https://github.com/alfa-laboratory/core-components/commit/3e1692673e694e3fef2913201e18e8a2e21fc980))
+
 # [25.0.0](https://github.com/alfa-laboratory/core-components/compare/v24.1.0...v25.0.0) (2022-02-17)
 
 
