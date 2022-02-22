@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 import cn from 'classnames';
-import { usePathBar } from '../hooks/usePathBar';
+import { usePathBar } from '../../hooks/use-path-bar';
 
-import styles from '../index.module.css';
+import styles from './index.module.css';
 
 // eslint-disable-next-line complexity
 const getPath = (

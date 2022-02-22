@@ -1,5 +1,5 @@
 import React from 'react';
-import { usePathBar } from '../hooks/usePathBar';
+import { usePathBar } from '../../hooks/use-path-bar';
 
 export const CustomizedLabel: React.FC<any> = ({
     x,

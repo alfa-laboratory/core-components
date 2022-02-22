@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
-import { PointIcon } from '../../icons/Point';
+import { PointIcon } from '../../icons/point-icon';
 import { DotProps, DotSettingProps } from '../../types/utils/dot.types';
 
 import styles from './index.module.css';

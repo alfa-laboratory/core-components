@@ -1,0 +1,7 @@
+.bar {
+    transition: opacity 0.2s ease-out;
+}
+
+.unfocused {
+    opacity: 0.3;
+}

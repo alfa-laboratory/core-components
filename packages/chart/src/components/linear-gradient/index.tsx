@@ -1,5 +1,5 @@
 import React from 'react';
-import { GradientProps, LinearGradientProps } from '../types/utils/gradient.types';
+import { GradientProps, LinearGradientProps } from '../../types/utils/gradient.types';
 
 export const LinearGradient = ({ id, gid, points }: LinearGradientProps): React.ReactElement => {
     return (

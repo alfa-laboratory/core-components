@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { RadiusProp } from '../../types/seria.types';
-import { getRadius } from './utils/getRadius';
+import { getRadius } from './utils/get-radius';
 
 export type usePathBarProps = {
     radius?: RadiusProp;
