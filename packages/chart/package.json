@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-typography": "^2.3.0",
+        "@alfalab/core-components-amount": "^2.0.1",
         "classnames": "^2.2.6",
         "recharts": "^2.0.10"
     },
