@@ -1,6 +1,8 @@
 import React, { ButtonHTMLAttributes, FC, useCallback, useContext } from 'react';
 import cn from 'classnames';
-import { Button } from '@alfalab/core-components-button';
+
+import { IconButton } from '@alfalab/core-components-icon-button';
+import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
 
 import { ModalContext } from '../../Context';
 
@@ -34,9 +36,9 @@ export const Closer: FC<CloserProps> = ({ className, fullscreen, align, ...restP
     );
 
     return (
-        <Button
+        <IconButton
+            icon={CrossMIcon}
             type='button'
-            view='ghost'
             className={cn(
                 styles.closer,
                 className,

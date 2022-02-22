@@ -3,9 +3,6 @@
 .closer {
     width: 48px;
     height: 48px;
-    background-image: var(--modal-closer-icon);
-    background-position: center;
-    background-repeat: no-repeat;
     flex-shrink: 0;
     transition: opacity 0.2s ease-out;
 
