@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
-import { PointIcon } from '../../icons/Point';
+import { PointIcon } from '../../icons';
 import { DotProps, DotSettingProps } from '../../types/utils/dot.types';
 
 import styles from './index.module.css';
 
 export const Dot = React.forwardRef<SVGSVGElement, DotProps>(
     (
-        { cx, cy, index, activeDot, dataKey, dotSettings, value, stroke },
+        { cx, cy, index, activeDot, dataKey, dotSettings, value, stroke, unfocusedAnimation },
         ref,
     ): React.ReactElement | null => {
         const [windowWidth, setWindowWidth] = useState<number>(0);
@@ -60,7 +60,9 @@ export const Dot = React.forwardRef<SVGSVGElement, DotProps>(
                         className={cn(
                             styles.dotItem,
                             activeDot === index ? styles.dotActive : '',
-                            typeof activeDot === 'number' && activeDot !== index
+                            typeof activeDot === 'number' &&
+                                activeDot !== index &&
+                                unfocusedAnimation
                                 ? styles.dotUnfocused
                                 : '',
                         )}

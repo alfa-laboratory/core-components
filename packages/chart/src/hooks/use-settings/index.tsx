@@ -2,11 +2,11 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { OptionsProps } from '../../types/options.types';
 import { DataDynamicBooleanProps, DataDynamicProps } from '../../types/utils/data.types';
 
-import { setComposedChartsMargin } from './utils/setComposedChartsMargin';
-import { setDatas } from './utils/setDatas';
-import { setGradientCharts } from './utils/setGradientCharts';
-import { setLegendMargin } from './utils/setLegendMargin';
-import { sortByIndex } from './utils/sortByIndex';
+import { setComposedChartsMargin } from './utils/set-composed-charts-margin';
+import { setDatas } from './utils/set-datas';
+import { setGradientCharts } from './utils/set-gradient-charts';
+import { setLegendMargin } from './utils/set-legend-margin';
+import { sortByIndex } from './utils/sort-by-index';
 
 type Settings = [
     {

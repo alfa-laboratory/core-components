@@ -351,6 +351,19 @@ options: {
          * Отображение стрелки тултипа
          */
         arrow?: false,
+
+        /**
+         * Пропсы для Typography.Text в тултипе
+         */
+        typography?: {
+            title: TextProps;
+            text: TextProps;
+        };
+
+        /**
+         * Порядок элементов в тултипе
+         */
+        arrangeData: ['icon', 'name', 'value'];
     };
 
     /**
@@ -431,6 +444,13 @@ options: {
          * Высота иконок
          */
         iconHeight?: 16,
+
+        /**
+         * Пропсы для Typography.Text легенд
+         */
+        typography?: {
+            label: TextProps;
+        };
     },
 
     /**
