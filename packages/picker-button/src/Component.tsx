@@ -15,7 +15,7 @@ import styles from './index.module.css';
 
 const SIDE_POSITIONS = ['right', 'right-start', 'right-end', 'left', 'left-start', 'left-end'];
 
-export type PickerButtonSize = 'xs' | 's' | 'm';
+export type PickerButtonSize = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
 export type PickerButtonProps = Omit<
     BaseSelectProps,
