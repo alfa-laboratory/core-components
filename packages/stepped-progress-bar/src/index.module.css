@@ -9,9 +9,9 @@
 .stepsContainer {
     width: 100%;
     display: flex;
-    margin-bottom: var(--gap-xs);
 }
 
 .description {
+    margin-top: var(--gap-xs);
     color: var(--color-light-text-secondary-transparent);
 }

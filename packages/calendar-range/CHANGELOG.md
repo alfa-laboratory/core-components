@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@5.0.0...@alfalab/core-components-calendar-range@5.1.0) (2022-02-21)
+
+
+### Bug Fixes
+
+* **calendar-range:** correct highlights ([#1002](https://github.com/alfa-laboratory/core-components/issues/1002)) ([5c12da2](https://github.com/alfa-laboratory/core-components/commit/5c12da2eb72b146b0a5f58447312f96f4b424c48))
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
 # [5.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-range@4.3.0...@alfalab/core-components-calendar-range@5.0.0) (2022-02-17)
 
 

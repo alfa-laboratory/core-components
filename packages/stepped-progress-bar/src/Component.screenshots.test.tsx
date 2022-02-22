@@ -22,6 +22,29 @@ describe(
                     },
                 }),
             ],
+            [
+                'sprite',
+                createSpriteStorybookUrl({
+                    componentName: 'SteppedProgressBar',
+                    knobs: {
+                        step: 8,
+                        maxStep: 10,
+                        view: [
+                            [
+                                'positive',
+                                'negative',
+                                'attention',
+                                'link',
+                                'tertiary',
+                                'secondary',
+                                'primary',
+                                'accent',
+                            ],
+                            'negative',
+                        ],
+                    },
+                }),
+            ],
         ],
     }),
 );

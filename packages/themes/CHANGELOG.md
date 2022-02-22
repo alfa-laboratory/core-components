@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.5.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.5.0...@alfalab/core-components-themes@7.5.1) (2022-02-21)
+
+
+### Bug Fixes
+
+* **select:** change corp shadow ([#1004](https://github.com/alfa-laboratory/core-components/issues/1004)) ([ea664f6](https://github.com/alfa-laboratory/core-components/commit/ea664f67ce81b66b31aab348cc0c68085711de8a))
+
+
+
+
+
 # [7.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.4.0...@alfalab/core-components-themes@7.5.0) (2022-02-17)
 
 
