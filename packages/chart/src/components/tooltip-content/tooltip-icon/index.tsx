@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { LegendProps } from '../../../types/legend.types';
 import { SeriaProps } from '../../../types/seria.types';
 
-import { CircleIcon } from '../../../icons/circle-icon';
+import { CircleIcon } from '../../../icons';
 import { icons } from '../../legends';
 
 import styles from './index.module.css';

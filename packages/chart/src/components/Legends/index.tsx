@@ -7,10 +7,7 @@ import { DataDynamicBooleanProps } from '../../types/utils/data.types';
 import { LegendProps } from '../../types/legend.types';
 import { SeriaProps } from '../../types/seria.types';
 
-import { CircleIcon } from '../../icons/circle-icon';
-import { CircleLineIcon } from '../../icons/circle-line-icon';
-import { FilledCircleIcon } from '../../icons/filled-circle-icon';
-import { StrokeCircleIcon } from '../../icons/stroke-circle-icon';
+import { CircleIcon, CircleLineIcon, FilledCircleIcon, StrokeCircleIcon } from '../../icons';
 
 import styles from './index.module.css';
 

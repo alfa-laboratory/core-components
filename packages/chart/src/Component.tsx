@@ -16,22 +16,25 @@ import {
     LabelList,
 } from 'recharts';
 
-import { CustomizedHOC } from './hoc/customized-hoc';
-import { LinearGradient } from './components/linear-gradient';
-import { Legends } from './components/legends';
-import { Dot } from './components/dot';
-import { useSettings } from './hooks/use-settings';
+import {
+    CustomizedLabel,
+    LinearGradient,
+    Legends,
+    Dot,
+    RectBar,
+    Tick,
+    TooltipContent,
+} from './components';
 
-import { CustomizedLabel } from './components/customized-label';
+import { CustomizedHOC } from './hoc';
+import { useSettings } from './hooks';
+
 import { SeriaProps } from './types/seria.types';
 import { OptionsProps } from './types/options.types';
 import { ToggleChartProps } from './types/chart.types';
 import { DataDynamicProps, DataDynamicBooleanProps } from './types/utils/data.types';
 import { ActiveDotProps } from './types/utils/dot.types';
 import { CoordinatesProps } from './types/utils/coordinates.types';
-import { RectBar } from './components/rect-bar';
-import { Tick } from './components/tick';
-import { TooltipContent } from './components/tooltip-content';
 
 import styles from './index.module.css';
 

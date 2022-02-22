@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { TextProps, Typography } from '@alfalab/core-components-typography';
 
-import { addStr } from '../../helpers';
+import { addStr } from '../../../helpers';
 import { PayloadProps } from '../../../types/payload.types';
 
 export interface TooltipNameProps {

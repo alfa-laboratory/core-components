@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import cn from 'classnames';
-import { usePathBar } from '../../hooks/use-path-bar';
+import { usePathBar } from '../../hooks';
 
 import styles from './index.module.css';
 
