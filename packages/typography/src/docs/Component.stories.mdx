@@ -78,7 +78,7 @@ import { colors } from '../colors';
             'xsmall',
         ];
         const color = select('color', colors, '');
-        const weight = select('weight', ['regular', 'medium', 'bold'], 'medium');
+        const weight = select('weight', ['regular', 'medium', 'bold', '-'], '-');
         const font = select('font', ['styrene', 'system'], 'styrene');
         return VIEW_TYPES.map(view => (
             <Typography.TitleMobile

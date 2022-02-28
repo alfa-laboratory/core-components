@@ -6,14 +6,9 @@
 
 [Подробнее про использование типографики](https://alfa-laboratory.github.io/core-components/master/?path=/docs/гайдлайны-типографика--page)
 
-## Typography.Title
+## Title
 
-```tsx live
-<>
-    <Typography.Title>Стандартный заголовок для шрифта styrene</Typography.Title>
-    <Typography.Title font='system'>Стандартный заголовок для шрифта system</Typography.Title>
-</>
-```
+### Styrene
 
 ```tsx live
 render(() => {
@@ -21,44 +16,27 @@ render(() => {
 
     return VIEW_TYPES.map(view => (
         <Typography.Title view={view} color={color} key={view} tag='div'>
-            заголовок view='{view}'
+            {view}
         </Typography.Title>
     ));
 });
 ```
-
-## Typography.TitleResponsive
-
-```tsx live
-<>
-    <Typography.TitleResponsive>Адаптивный заголовок для шрифта styrene</Typography.TitleResponsive>
-    <Typography.TitleResponsive font='system'>
-        Адаптивный заголовок для шрифта system
-    </Typography.TitleResponsive>
-</>
-```
+### System
 
 ```tsx live
 render(() => {
     const VIEW_TYPES = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
 
     return VIEW_TYPES.map(view => (
-        <Typography.TitleResponsive view={view} key={view} tag='div'>
-            Адаптивный заголовок view='{view}'
-        </Typography.TitleResponsive>
+        <Typography.Title font="system" view={view} color={color} key={view} tag='div'>
+            {view}
+        </Typography.Title>
     ));
 });
 ```
-## Typography.TitleMobile
+## TitleMobile
 
-```tsx live
-<>
-    <Typography.TitleMobile>Мобильный заголовок для шрифта styrene</Typography.TitleMobile>
-    <Typography.TitleMobile font='system'>
-        Мобильный заголовок для шрифта system
-    </Typography.TitleMobile>
-</>
-```
+### Styrene
 
 ```tsx live
 render(() => {
@@ -66,13 +44,57 @@ render(() => {
 
     return VIEW_TYPES.map(view => (
         <Typography.TitleMobile view={view} key={view} tag='div'>
-            Мобильный заголовок view='{view}'
+            {view}
         </Typography.TitleMobile>
     ));
 });
 ```
+### System
 
-## Typography.Text
+```tsx live
+render(() => {
+    const VIEW_TYPES = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
+
+    return VIEW_TYPES.map(view => (
+        <Typography.TitleMobile view={view} font="system" key={view} tag='div'>
+            {view}
+        </Typography.TitleMobile>
+    ));
+});
+```
+## TitleResponsive
+
+До 600рх mobile, после 600px Desktop 
+
+### Styrene
+
+```tsx live
+render(() => {
+    const VIEW_TYPES = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
+
+    return VIEW_TYPES.map(view => (
+        <Typography.TitleResponsive view={view} key={view} tag='div'>
+            {view}
+        </Typography.TitleResponsive>
+    ));
+});
+```
+### System
+
+```tsx live
+render(() => {
+    const VIEW_TYPES = ['xlarge', 'large', 'medium', 'small', 'xsmall'];
+
+    return VIEW_TYPES.map(view => (
+        <Typography.TitleResponsive font="system" view={view} key={view} tag='div'>
+            {view}
+        </Typography.TitleResponsive>
+    ));
+});
+```
+## Text
+
+### System
 
 Компонент для оформления текста. Позволяет задать внешний вид, тэг и цвет текста.
 
