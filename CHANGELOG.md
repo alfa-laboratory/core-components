@@ -1,3 +1,19 @@
+# [25.2.0](https://github.com/alfa-laboratory/core-components/compare/v25.1.0...v25.2.0) (2022-03-01)
+
+
+### Bug Fixes
+
+* **checkbox:** increased checkbox's hint line-height from 18px to 20px ([#1007](https://github.com/alfa-laboratory/core-components/issues/1007)) ([c7ee918](https://github.com/alfa-laboratory/core-components/commit/c7ee918de443339ac06f82196636dbb48ef8c737)), closes [#969](https://github.com/alfa-laboratory/core-components/issues/969)
+* **picker-button:** fixed type of picker-button size prop ([#1006](https://github.com/alfa-laboratory/core-components/issues/1006)) ([38b56c1](https://github.com/alfa-laboratory/core-components/commit/38b56c11d45410a258e18d411aa0ce12b8a6c7e4)), closes [#986](https://github.com/alfa-laboratory/core-components/issues/986)
+* changed dropdown component's box shadow styles ([#1010](https://github.com/alfa-laboratory/core-components/issues/1010)) ([2f997f5](https://github.com/alfa-laboratory/core-components/commit/2f997f5722c89b38a8064924b73c0a8046025aea))
+
+
+### Features
+
+* **base-modal:** add component ref for base modal ([#1008](https://github.com/alfa-laboratory/core-components/issues/1008)) ([fb13dbd](https://github.com/alfa-laboratory/core-components/commit/fb13dbdf6352b10b80a74fa87edfcb1f54b76d5a))
+* **typography:** новый компонент  Typography.TitleMobile  ([#1003](https://github.com/alfa-laboratory/core-components/issues/1003)) ([9b03cf9](https://github.com/alfa-laboratory/core-components/commit/9b03cf90422b05cc927ed98959708430812d1a50))
+* Исправить импорты в сторях. ([#1009](https://github.com/alfa-laboratory/core-components/issues/1009)) ([6f7e393](https://github.com/alfa-laboratory/core-components/commit/6f7e39350fd572dd3e74c4819829f85c4066b170))
+
 # [25.1.0](https://github.com/alfa-laboratory/core-components/compare/v25.0.0...v25.1.0) (2022-02-21)
 
 
