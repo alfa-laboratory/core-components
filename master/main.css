@@ -3957,8 +3957,6 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     display: inline-block;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    -webkit-box-shadow: var(--shadow-s);
-            box-shadow: var(--shadow-s);
     border-radius: var(--calendar-input-popover-border-radius)
 }
 @media (max-width: 374px) {
@@ -4698,7 +4696,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 }
 .hint_1yD21 {
     font-size: 14px;
-    line-height: 18px;
+    line-height: 20px;
     font-weight: 400;
     display: block;
     color: var(--checkbox-hint-color);
@@ -9931,7 +9929,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     /* options list */
 
     --select-options-list-border-radius: 0 0 4px 4px;
-    --select-options-list-box-shadow: var(--shadow-s);
+    --select-options-list-box-shadow: var(--shadow-m);
     --select-options-list-offset: 0;
     --select-options-list-top-padding: 0;
     --select-options-list-bottom-padding: 0;
