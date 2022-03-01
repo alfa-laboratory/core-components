@@ -34,7 +34,7 @@ export type PickerButtonProps = Omit<
     | 'fieldProps'
     | 'hint'
     | 'allowUnselect'
-    | "options"
+    | 'options'
 > &
     Pick<ButtonProps, 'view' | 'loading' | 'leftAddons' | 'rightAddons'> & {
         options: Array<OptionShape & {
@@ -42,7 +42,7 @@ export type PickerButtonProps = Omit<
              * Иконка, отображающаяся слева от текстового представления пункта
              */
             icon?: FC<SVGProps<SVGSVGElement>>;
-        }>
+        }>;
 
         /**
          * Размер кнопки

@@ -19,9 +19,8 @@ export const Option: FC<OptionProps> = ({
     dataTestId,
 }) => {
     const Icon: FC<SVGProps<SVGSVGElement>> | undefined = (option as OptionShape & {
-        icon?: FC<SVGProps<SVGSVGElement>> 
+        icon?: FC<SVGProps<SVGSVGElement>>;
     }).icon;
-    
     const content = children || option.content || option.key;
 
     return (

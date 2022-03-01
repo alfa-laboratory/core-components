@@ -2,13 +2,10 @@ import React, { ButtonHTMLAttributes, FC, SVGProps } from 'react';
 import cn from 'classnames';
 import { Button, ButtonProps } from '@alfalab/core-components-button';
 import { FieldProps as BaseFieldProps } from '@alfalab/core-components-select/src/typings';
-import { ChevronDownMIcon } from '@alfalab/icons-glyph/ChevronDownMIcon';
-import { ChevronDownCompactSIcon } from '@alfalab/icons-glyph/ChevronDownCompactSIcon';
-import { MoreMIcon } from '@alfalab/icons-glyph/MoreMIcon';
-import { MoreSIcon } from '@alfalab/icons-glyph/MoreSIcon';;
 
 import styles from './index.module.css';
 import { PickerButtonSize, PickerButtonVariant } from '..';
+import { getIcon } from '../utils';
 
 type FieldProps = Omit<BaseFieldProps, 'size' | 'hint' | 'success' | 'error' | 'placeholder'> &
     ButtonProps & {
@@ -18,7 +15,7 @@ type FieldProps = Omit<BaseFieldProps, 'size' | 'hint' | 'success' | 'error' | '
 
 export const Field = ({
     buttonSize = 'm',
-    buttonVariant = "default",
+    buttonVariant = 'default',
     view,
     label,
     open,
@@ -32,9 +29,7 @@ export const Field = ({
     valueRenderer,
     ...restProps
 }: FieldProps) => {
-    const Icon: FC<SVGProps<SVGSVGElement>> = buttonVariant === 'compact'
-        ? buttonSize === 'xxs' ? MoreSIcon : MoreMIcon
-        : buttonSize === 'xxs' ? ChevronDownCompactSIcon : ChevronDownMIcon
+    const Icon: FC<SVGProps<SVGSVGElement>> = getIcon(buttonVariant, buttonSize);
 
     const { ref, ...restInnerProps } = innerProps;
 

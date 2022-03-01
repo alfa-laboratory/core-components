@@ -6,7 +6,6 @@ import {
     FocusEvent,
     MouseEvent,
     ReactElement,
-    SVGProps
 } from 'react';
 import { PopoverProps } from '@alfalab/core-components-popover';
 import { InputProps } from '@alfalab/core-components-input';
