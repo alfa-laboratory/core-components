@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Title } from '@storybook/addon-docs/blocks';
+import { Title } from '@storybook/addon-docs';
 import { Status } from 'storybook/blocks/status';
 
 import styles from './ComponentHeader.module.css';
