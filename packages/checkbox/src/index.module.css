@@ -202,7 +202,7 @@
 }
 
 .hint {
-    @mixin system_14-18_regular;
+    @mixin paragraph_primary_small;
     display: block;
     color: var(--checkbox-hint-color);
 }
