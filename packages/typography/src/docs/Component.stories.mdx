@@ -68,6 +68,32 @@ import { colors } from '../colors';
     })}
 </Story>
 
+<Story name='Typography.TitleMobile'>
+    {React.createElement(() => {
+        const VIEW_TYPES = [
+            'xlarge',
+            'large',
+            'medium',
+            'small',
+            'xsmall',
+        ];
+        const color = select('color', colors, '');
+        const weight = select('weight', ['regular', 'medium', 'bold', '-'], '-');
+        const font = select('font', ['styrene', 'system'], 'styrene');
+        return VIEW_TYPES.map(view => (
+            <Typography.TitleMobile
+                view={view}
+                color={color}
+                weight={weight}
+                font={font}
+                key={view}
+            >
+                заголовок view='{view}'
+            </Typography.TitleMobile>
+        ))
+    })}
+</Story>
+
 <Story name='Typography.Text'>
     {React.createElement(() => {
         const VIEW_TYPES = [
