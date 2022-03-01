@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.4.3...@alfalab/core-components-picker-button@7.5.0) (2022-03-01)
+
+
+### Bug Fixes
+
+* **picker-button:** fixed type of picker-button size prop ([#1006](https://github.com/alfa-laboratory/core-components/issues/1006)) ([38b56c1](https://github.com/alfa-laboratory/core-components/commit/38b56c11d45410a258e18d411aa0ce12b8a6c7e4)), closes [#986](https://github.com/alfa-laboratory/core-components/issues/986)
+* changed dropdown component's box shadow styles ([#1010](https://github.com/alfa-laboratory/core-components/issues/1010)) ([2f997f5](https://github.com/alfa-laboratory/core-components/commit/2f997f5722c89b38a8064924b73c0a8046025aea))
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
 ## [7.4.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.4.2...@alfalab/core-components-picker-button@7.4.3) (2022-02-17)
 
 

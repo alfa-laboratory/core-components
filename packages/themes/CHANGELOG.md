@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.5.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.5.1...@alfalab/core-components-themes@7.5.2) (2022-03-01)
+
+
+### Bug Fixes
+
+* changed dropdown component's box shadow styles ([#1010](https://github.com/alfa-laboratory/core-components/issues/1010)) ([2f997f5](https://github.com/alfa-laboratory/core-components/commit/2f997f5722c89b38a8064924b73c0a8046025aea))
+
+
+
+
+
 ## [7.5.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.5.0...@alfalab/core-components-themes@7.5.1) (2022-02-21)
 
 

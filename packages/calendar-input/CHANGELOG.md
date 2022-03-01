@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@6.0.0...@alfalab/core-components-calendar-input@6.1.0) (2022-03-01)
+
+
+### Bug Fixes
+
+* changed dropdown component's box shadow styles ([#1010](https://github.com/alfa-laboratory/core-components/issues/1010)) ([2f997f5](https://github.com/alfa-laboratory/core-components/commit/2f997f5722c89b38a8064924b73c0a8046025aea))
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
 # [6.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-calendar-input@5.3.0...@alfalab/core-components-calendar-input@6.0.0) (2022-02-17)
 
 

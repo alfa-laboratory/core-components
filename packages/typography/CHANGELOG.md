@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-typography@2.3.0...@alfalab/core-components-typography@2.4.0) (2022-03-01)
+
+
+### Features
+
+* **typography:** новый компонент  Typography.TitleMobile  ([#1003](https://github.com/alfa-laboratory/core-components/issues/1003)) ([9b03cf9](https://github.com/alfa-laboratory/core-components/commit/9b03cf90422b05cc927ed98959708430812d1a50))
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
 # [2.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-typography@2.2.0...@alfalab/core-components-typography@2.3.0) (2022-01-17)
 
 
