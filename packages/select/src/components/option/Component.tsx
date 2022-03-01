@@ -1,7 +1,7 @@
-import React, { FC, isValidElement } from 'react';
+import React, { FC, isValidElement, SVGProps } from 'react';
 import cn from 'classnames';
 import { Checkmark as DefaultCheckMark } from '../checkmark';
-import { OptionProps } from '../../typings';
+import { OptionProps, OptionShape } from '../../typings';
 
 import styles from './index.module.css';
 
@@ -18,6 +18,10 @@ export const Option: FC<OptionProps> = ({
     innerProps,
     dataTestId,
 }) => {
+    const Icon: FC<SVGProps<SVGSVGElement>> | undefined = (option as OptionShape & {
+        icon?: FC<SVGProps<SVGSVGElement>> 
+    }).icon;
+    
     const content = children || option.content || option.key;
 
     return (
@@ -37,6 +41,11 @@ export const Option: FC<OptionProps> = ({
                     [styles.textContent]: !isValidElement(content),
                 })}
             >
+                {Icon && (
+                    <span className={cn(styles.iconContainer)}>
+                        <Icon />
+                    </span>
+                )}
                 {content}
             </div>
 
