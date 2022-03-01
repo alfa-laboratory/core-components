@@ -3,9 +3,10 @@ import cn from 'classnames';
 import { Button, ButtonProps } from '@alfalab/core-components-button';
 import { FieldProps as BaseFieldProps } from '@alfalab/core-components-select/src/typings';
 
-import styles from './index.module.css';
-import { PickerButtonSize, PickerButtonVariant } from '..';
+import { PickerButtonSize, PickerButtonVariant } from '../Component';
 import { getIcon } from '../utils';
+
+import styles from './index.module.css';
 
 type FieldProps = Omit<BaseFieldProps, 'size' | 'hint' | 'success' | 'error' | 'placeholder'> &
     ButtonProps & {
@@ -44,7 +45,12 @@ export const Field = ({
                 {...buttonProps}
                 rightAddons={
                     rightAddons ?? (
-                        <span className={cn(styles.iconContainer, buttonVariant !== 'compact' && open && styles.open)}>
+                        <span
+                            className={cn(
+                                styles.iconContainer,
+                                buttonVariant !== 'compact' && open && styles.open,
+                            )}
+                        >
                             <Icon data-test-id='picker-button-icon' />
                         </span>
                     )
