@@ -50,6 +50,11 @@ export type BottomSheetProps = {
     contentClassName?: string;
 
     /**
+     * Дополнительный класс
+     */
+    containerClassName?: string;
+
+    /**
      * TransitionProps, прокидываются в компонент CSSTransitionProps.
      */
     transitionProps?: Partial<TransitionProps>;
@@ -89,6 +94,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             title,
             actionButton,
             contentClassName,
+            containerClassName,
             className,
             children,
             zIndex,
@@ -269,7 +275,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     <div className={styles.marker} />
 
                     <div
-                        className={cn(styles.scrollableContainer, {
+                        className={cn(styles.scrollableContainer, containerClassName, {
                             [styles.scrollLocked]: scrollLocked,
                             [styles.withPadding]: !actionButton,
                         })}
