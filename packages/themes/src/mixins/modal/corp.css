@@ -1,0 +1,4 @@
+@define-mixin modal-corp {
+    --modal-header-highlight-box-shadow: var(--shadow-s);
+    --modal-footer-highlight-box-shadow: var(--shadow-s-up);
+}
