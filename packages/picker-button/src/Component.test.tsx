@@ -104,8 +104,8 @@ describe('Render tests', () => {
         expect(icon.getAttribute('height')).toBe(iconSize);
     });
 
-    it('should have xs class and small icon', async () => {
-        const size = 'xs';
+    it('should have xxs class and small icon', async () => {
+        const size = 'xxs';
         const iconSize = '18';
 
         const { getByTestId } = render(<PickerButton options={options} size={size} />);
