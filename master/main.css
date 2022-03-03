@@ -2658,7 +2658,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 }
 /* TODO: поменять медиа-запросы на миксины */
 .styrene-xlarge_33vyx {
-    font-size: 32px;
+    font-size: 34px;
     line-height: 40px;
     font-weight: 500;
     -webkit-font-feature-settings: 'ss01';
@@ -2666,16 +2666,16 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     font-family: var(--font-family-styrene);
 }
 .styrene-large_B0-Yz {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 30px;
+    line-height: 36px;
     font-weight: 500;
     -webkit-font-feature-settings: 'ss01';
             font-feature-settings: 'ss01';
     font-family: var(--font-family-styrene);
 }
 .styrene-medium_DcKOy {
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 26px;
+    line-height: 32px;
     font-weight: 500;
     -webkit-font-feature-settings: 'ss01';
             font-feature-settings: 'ss01';
@@ -2683,14 +2683,14 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 }
 .styrene-small_1dOhg {
     font-size: 20px;
-    line-height: 24px;
+    line-height: 28px;
     font-weight: 500;
     -webkit-font-feature-settings: 'ss01';
             font-feature-settings: 'ss01';
     font-family: var(--font-family-styrene);
 }
 .styrene-xsmall_XCgFj {
-    font-size: 20px;
+    font-size: 16px;
     line-height: 24px;
     font-weight: 500;
     -webkit-font-feature-settings: 'ss01';
@@ -2738,51 +2738,6 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     margin: var(--gap-3xl) 0 var(--gap-m);
 }
 @media screen and (min-width: 600px) {
-    .styrene-xlarge_33vyx {
-        font-size: 40px;
-        line-height: 48px;
-        font-weight: 500;
-        -webkit-font-feature-settings: 'ss01';
-                font-feature-settings: 'ss01';
-        font-family: var(--font-family-styrene);
-    }
-
-    .styrene-large_B0-Yz {
-        font-size: 32px;
-        line-height: 40px;
-        font-weight: 500;
-        -webkit-font-feature-settings: 'ss01';
-                font-feature-settings: 'ss01';
-        font-family: var(--font-family-styrene);
-    }
-
-    .styrene-medium_DcKOy {
-        font-size: 24px;
-        line-height: 32px;
-        font-weight: 500;
-        -webkit-font-feature-settings: 'ss01';
-                font-feature-settings: 'ss01';
-        font-family: var(--font-family-styrene);
-    }
-
-    .styrene-small_1dOhg {
-        font-size: 24px;
-        line-height: 32px;
-        font-weight: 500;
-        -webkit-font-feature-settings: 'ss01';
-                font-feature-settings: 'ss01';
-        font-family: var(--font-family-styrene);
-    }
-
-    .styrene-xsmall_XCgFj {
-        font-size: 20px;
-        line-height: 24px;
-        font-weight: 500;
-        -webkit-font-feature-settings: 'ss01';
-                font-feature-settings: 'ss01';
-        font-family: var(--font-family-styrene);
-    }
-
     .system-xlarge_3dY46 {
         font-size: 40px;
         line-height: 48px;
@@ -9513,6 +9468,67 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
                         order: 12;
             }
     }
+.container_3dn25 {
+    background: var(--color-light-bg-primary-inverted-alpha-10);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    border-radius: var(--border-radius-m);
+    height: 8px;
+    position: relative;
+}
+.hatch_17j7o {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: inherit;
+    width: 100%;
+    -webkit-transition: -webkit-transform 0.4s ease;
+    transition: -webkit-transform 0.4s ease;
+    transition: transform 0.4s ease;
+    transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+    background: repeating-linear-gradient(
+        -45deg,
+        var(--color-light-graphic-tertiary) 6px 10px,
+        var(--color-light-specialbg-nulled) 10px 18px
+    );
+}
+.filled_22vZY {
+    position: relative;
+    border-radius: inherit;
+    width: 100%;
+    -webkit-transition: -webkit-transform 0.4s ease;
+    transition: -webkit-transform 0.4s ease;
+    transition: transform 0.4s ease;
+    transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+    z-index: 1;
+}
+.positive_mr32A {
+    background: var(--color-light-graphic-positive);
+}
+.attention_2Wo4k {
+    background: var(--color-light-graphic-attention);
+}
+.negative_3lZyP {
+    background: var(--color-light-graphic-negative);
+}
+.link_3RQt5 {
+    background: var(--color-light-graphic-link);
+}
+.tertiary_2PTyS {
+    background: var(--color-light-graphic-tertiary);
+}
+.secondary_3v1aJ {
+    background: var(--color-light-graphic-secondary);
+}
+.primary_19J7P {
+    background: var(--color-light-graphic-primary);
+}
+.accent_1iEea {
+    background: var(--color-light-graphic-accent);
+}
 .componentWrapper_2XkBo {
     position: relative;
     display: -webkit-inline-box;
