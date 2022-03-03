@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.6.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.5.0...@alfalab/core-components-picker-button@7.6.0) (2022-03-03)
+
+
+### Features
+
+* **picker-button:** added new view and updated dropdown options ([#1013](https://github.com/alfa-laboratory/core-components/issues/1013)) ([050fb3e](https://github.com/alfa-laboratory/core-components/commit/050fb3eb6fd6dde057bbfcad5dd807d354125b63))
+
+
+
+
+
 # [7.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-picker-button@7.4.3...@alfalab/core-components-picker-button@7.5.0) (2022-03-01)
 
 
