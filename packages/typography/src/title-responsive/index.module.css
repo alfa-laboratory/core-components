@@ -4,23 +4,23 @@
 /* TODO: поменять медиа-запросы на миксины */
 
 .styrene-xlarge {
-    @mixin headline_medium;
+    @mixin headline-mobile_xlarge;
 }
 
 .styrene-large {
-    @mixin headline_small;
+    @mixin headline-mobile_large;
 }
 
 .styrene-medium {
-    @mixin headline_xsmall;
+    @mixin headline-mobile_medium;
 }
 
 .styrene-small {
-    @mixin headline_xsmall;
+    @mixin headline-mobile_small;
 }
 
 .styrene-xsmall {
-    @mixin headline_xsmall;
+    @mixin headline-mobile_xsmall;
 }
 
 .system-xlarge {
@@ -63,27 +63,7 @@
     @mixin margin-small;
 }
 
-@media screen and (min-width: 320px) {
-    .styrene-xlarge {
-        @mixin headline-mobile_xlarge;
-    }
-
-    .styrene-large {
-        @mixin headline-mobile_large;
-    }
-
-    .styrene-medium {
-        @mixin headline-mobile_medium;
-    }
-
-    .styrene-small {
-        @mixin headline-mobile_small;
-    }
-
-    .styrene-xsmall {
-        @mixin headline-mobile_xsmall;
-    }
-
+@media screen and (min-width: 600px) {
     .system-xlarge {
         @mixin headline-system_large;
     }
