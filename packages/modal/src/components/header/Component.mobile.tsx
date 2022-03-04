@@ -1,8 +1,32 @@
 import React, { FC } from 'react';
+import cn from 'classnames';
+import CrossMIcon from '@alfalab/icons-glyph/CrossMIcon';
 import { Header, HeaderProps } from './Component';
+import { Closer } from '../closer/Component';
 
 import styles from './mobile.module.css';
 
-export type HeaderMobileProps = HeaderProps;
+export type HeaderMobileProps = Omit<HeaderProps, 'closer'> & {
+    /**
+     * Наличие крестика
+     */
+    hasCloser?: boolean;
+};
 
-export const HeaderMobile: FC<HeaderMobileProps> = props => <Header styles={styles} {...props} />;
+export const HeaderMobile: FC<HeaderMobileProps> = ({
+    className,
+    hasCloser,
+    sticky,
+    contentClassName,
+    ...restProps
+}) => (
+    <Header
+        className={cn(className, {
+            [styles.sticky]: sticky,
+        })}
+        contentClassName={cn(styles.content, contentClassName)}
+        closer={hasCloser ? <Closer icon={CrossMIcon} size='xs' /> : null}
+        sticky={sticky}
+        {...restProps}
+    />
+);

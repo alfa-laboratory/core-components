@@ -57,7 +57,7 @@ export const Content = () => {
         const [open, setOpen] = React.useState(false);
         const handleModalOpen = () => setOpen(!open);
         const component = select('ModalComponent', ['ModalResponsive', 'ModalDesktop', 'ModalMobile'], 'ModalResponsive');
-        const header = boolean('header', false);
+        const header = boolean('header', true);
         const headerTitle = text('header.title');
         const hasCloser = boolean('header.hasCloser', true);
         const stickyHeader = boolean('header.sticky', false);
@@ -92,9 +92,6 @@ export const Content = () => {
                             hasCloser={hasCloser}
                             title={headerTitle}
                         />
-                    )}
-                    {!header && hasCloser && (
-                        <ModalDesktop.Closer align='right' />
                     )}
                     <ModalComponent.Content flex={flexContent}>
                         <Content />

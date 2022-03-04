@@ -28,16 +28,19 @@
     --modal-l-content-no-footer-bottom-padding: var(--gap-6xl);
     --modal-content-no-header-top-padding: var(--gap-2xl);
 
-    /* closer */
-    --modal-closer-icon: url('https://alfabank.gcdn.co/icons/glyph_cross_m.svg');
-
     /* sticky */
     --modal-footer-sticky-box-shadow: none;
     --modal-footer-sticky-background: var(--modal-header-background);
 
     /* scroll */
-    --modal-header-highlight-box-shadow: var(--shadow-s);
+    --modal-header-highlight-box-shadow: none;
     --modal-header-highlight-background: var(--color-light-bg-primary);
-    --modal-footer-highlight-box-shadow: var(--shadow-s-up);
+    --modal-footer-highlight-box-shadow: none;
     --modal-footer-highlight-background: var(--color-light-bg-primary);
+
+    /* mobile */
+    --modal-header-mobile-top-padding: var(--gap-s);
+    --modal-header-mobile-font-size: 18px;
+    --modal-header-mobile-line-height: 24px;
+    --modal-header-mobile-font-family: var(--font-family-system);
 }
