@@ -1,3 +1,16 @@
+# [25.4.0](https://github.com/alfa-laboratory/core-components/compare/v25.3.0...v25.4.0) (2022-03-04)
+
+
+### Bug Fixes
+
+* move icon from select to picker-button ([#1020](https://github.com/alfa-laboratory/core-components/issues/1020)) ([0d23257](https://github.com/alfa-laboratory/core-components/commit/0d23257b561329092be551d237389cc06c3d5607))
+* update glyph deps ([#1019](https://github.com/alfa-laboratory/core-components/issues/1019)) ([3e910d0](https://github.com/alfa-laboratory/core-components/commit/3e910d0801c4c46bcd399163200c1f7bfaba375e))
+
+
+### Features
+
+* **modal:** mobile header ([#1018](https://github.com/alfa-laboratory/core-components/issues/1018)) ([54b879f](https://github.com/alfa-laboratory/core-components/commit/54b879f500d1124a6956d3d5a57349c856a09904))
+
 # [25.3.0](https://github.com/alfa-laboratory/core-components/compare/v25.2.0...v25.3.0) (2022-03-03)
 
 
