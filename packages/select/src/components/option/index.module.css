@@ -88,20 +88,8 @@
 
 .content {
     overflow: hidden;
-    display: flex;
     flex: 1;
-    align-items: center;
-}
-
-.content span {
-    white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.iconContainer {
-    display: flex;
-    margin-right: var(--gap-s);
 }
 
 .textContent {
