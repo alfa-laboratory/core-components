@@ -139,9 +139,17 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                 role="option"
               >
                 <div
-                  class="content textContent"
+                  class="content"
                 >
-                  Neptunium
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Neptunium
+                    </div>
+                  </div>
                 </div>
               </div>
               <div
@@ -151,9 +159,17 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                 role="option"
               >
                 <div
-                  class="content textContent"
+                  class="content"
                 >
-                  Plutonium
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Plutonium
+                    </div>
+                  </div>
                 </div>
               </div>
               <div
@@ -163,9 +179,17 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                 role="option"
               >
                 <div
-                  class="content textContent"
+                  class="content"
                 >
-                  Americium
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Americium
+                    </div>
+                  </div>
                 </div>
               </div>
               <div
@@ -175,9 +199,17 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                 role="option"
               >
                 <div
-                  class="content textContent"
+                  class="content"
                 >
-                  Curium
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Curium
+                    </div>
+                  </div>
                 </div>
               </div>
               <div
@@ -187,9 +219,17 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                 role="option"
               >
                 <div
-                  class="content textContent"
+                  class="content"
                 >
-                  Berkelium
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Berkelium
+                    </div>
+                  </div>
                 </div>
               </div>
               <div
@@ -199,9 +239,17 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                 role="option"
               >
                 <div
-                  class="content textContent"
+                  class="content"
                 >
-                  Californium
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Californium
+                    </div>
+                  </div>
                 </div>
               </div>
               <div
@@ -211,9 +259,17 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                 role="option"
               >
                 <div
-                  class="content textContent"
+                  class="content"
                 >
-                  Einsteinium
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Einsteinium
+                    </div>
+                  </div>
                 </div>
               </div>
               <div
@@ -223,9 +279,17 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                 role="option"
               >
                 <div
-                  class="content textContent"
+                  class="content"
                 >
-                  Fermium
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Fermium
+                    </div>
+                  </div>
                 </div>
               </div>
               <div
@@ -235,9 +299,17 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                 role="option"
               >
                 <div
-                  class="content textContent"
+                  class="content"
                 >
-                  Mendelevium
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Mendelevium
+                    </div>
+                  </div>
                 </div>
               </div>
               <div
@@ -247,9 +319,17 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                 role="option"
               >
                 <div
-                  class="content textContent"
+                  class="content"
                 >
-                  Nobelium
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Nobelium
+                    </div>
+                  </div>
                 </div>
               </div>
               <div
@@ -259,9 +339,17 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                 role="option"
               >
                 <div
-                  class="content textContent"
+                  class="content"
                 >
-                  Lawrencium
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Lawrencium
+                    </div>
+                  </div>
                 </div>
               </div>
               <div
@@ -271,9 +359,17 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                 role="option"
               >
                 <div
-                  class="content textContent"
+                  class="content"
                 >
-                  Rutherfordium
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Rutherfordium
+                    </div>
+                  </div>
                 </div>
               </div>
               <div
@@ -283,9 +379,17 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                 role="option"
               >
                 <div
-                  class="content textContent"
+                  class="content"
                 >
-                  Dubnium
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Dubnium
+                    </div>
+                  </div>
                 </div>
               </div>
               <div
@@ -295,9 +399,17 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                 role="option"
               >
                 <div
-                  class="content textContent"
+                  class="content"
                 >
-                  Seaborgium
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Seaborgium
+                    </div>
+                  </div>
                 </div>
               </div>
               <div
@@ -307,9 +419,17 @@ exports[`Snapshots tests should display opened correctly 2`] = `
                 role="option"
               >
                 <div
-                  class="content textContent"
+                  class="content"
                 >
-                  Bohrium
+                  <div
+                    class="container"
+                  >
+                    <div
+                      class="content"
+                    >
+                      Bohrium
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

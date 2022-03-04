@@ -5,13 +5,13 @@ import { ButtonProps } from '@alfalab/core-components-button';
 import {
     BaseSelectProps,
     OptionsList as DefaultOptionsList,
-    Option as DefaultOption,
     Optgroup as DefaultOptgroup,
     BaseSelect,
     OptionShape,
 } from '@alfalab/core-components-select';
 
 import { Field as DefaultField } from './field';
+import { Option as DefaultOption } from './option';
 import styles from './index.module.css';
 
 const SIDE_POSITIONS = ['right', 'right-start', 'right-end', 'left', 'left-start', 'left-end'];
