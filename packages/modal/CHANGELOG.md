@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@4.1.0...@alfalab/core-components-modal@4.2.0) (2022-03-04)
+
+
+### Features
+
+* **modal:** mobile header ([#1018](https://github.com/alfa-laboratory/core-components/issues/1018)) ([54b879f](https://github.com/alfa-laboratory/core-components/commit/54b879f500d1124a6956d3d5a57349c856a09904))
+
+
+
+
+
 # [4.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@4.0.7...@alfalab/core-components-modal@4.1.0) (2022-03-01)
 
 

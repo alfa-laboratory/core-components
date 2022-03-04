@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-file-upload-item@3.4.8...@alfalab/core-components-file-upload-item@3.5.0) (2022-03-04)
+
+
+### Bug Fixes
+
+* update glyph deps ([#1019](https://github.com/alfa-laboratory/core-components/issues/1019)) ([3e910d0](https://github.com/alfa-laboratory/core-components/commit/3e910d0801c4c46bcd399163200c1f7bfaba375e))
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
 ## [3.4.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-file-upload-item@3.4.7...@alfalab/core-components-file-upload-item@3.4.8) (2022-02-17)
 
 
