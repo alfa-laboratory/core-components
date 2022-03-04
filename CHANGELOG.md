@@ -1,3 +1,10 @@
+## [25.4.1](https://github.com/alfa-laboratory/core-components/compare/v25.4.0...v25.4.1) (2022-03-04)
+
+
+### Bug Fixes
+
+* **skeleton:** added dataTestId ([18e4af8](https://github.com/alfa-laboratory/core-components/commit/18e4af805bd4e49a1a3c303cb3b4d9a3a9dd5751))
+
 # [25.4.0](https://github.com/alfa-laboratory/core-components/compare/v25.3.0...v25.4.0) (2022-03-04)
 
 
