@@ -16,7 +16,7 @@
         "react": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/icons-glyph": "^2.14.0",
+        "@alfalab/icons-glyph": "^2.16.0",
         "classnames": "^2.2.6"
     }
 }
