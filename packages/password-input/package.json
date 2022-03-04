@@ -19,7 +19,7 @@
     "dependencies": {
         "@alfalab/core-components-icon-button": "^4.1.6",
         "@alfalab/core-components-input": "^8.0.7",
-        "@alfalab/icons-glyph": "^2.14.0",
+        "@alfalab/icons-glyph": "^2.16.0",
         "classnames": "^2.2.6"
     }
 }
