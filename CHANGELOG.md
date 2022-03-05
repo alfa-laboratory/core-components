@@ -1,3 +1,10 @@
+# [25.5.0](https://github.com/alfa-laboratory/core-components/compare/v25.4.1...v25.5.0) (2022-03-05)
+
+
+### Features
+
+* **circular-progress-bar:** ReactNode as title or subtitle ([#1023](https://github.com/alfa-laboratory/core-components/issues/1023)) ([7ae6df9](https://github.com/alfa-laboratory/core-components/commit/7ae6df9d2e4253f9a94532d155e81032cd96c810))
+
 ## [25.4.1](https://github.com/alfa-laboratory/core-components/compare/v25.4.0...v25.4.1) (2022-03-04)
 
 
