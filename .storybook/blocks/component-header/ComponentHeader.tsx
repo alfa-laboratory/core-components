@@ -41,7 +41,6 @@ export const ComponentHeader: React.FC<ComponentHeaderProps> = ({
                     </a>
                 </div>
                 <div
-                    className={styles.design}
                     className={cn(
                         styles.design,
                         {
