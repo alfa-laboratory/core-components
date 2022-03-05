@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React, { useMemo } from 'react';
+import React, { ReactNode, useMemo } from 'react';
 import { Typography } from '@alfalab/core-components-typography';
 
 import styles from './index.module.css';
@@ -24,12 +24,12 @@ export type CircularProgressBarProps = {
     /**
      * Основной текст
      */
-    title?: string;
+    title?: ReactNode;
 
     /**
      * Дополнительный текст
      */
-    subtitle?: string;
+    subtitle?: ReactNode;
 
     /**
      * Цвет заполнения
@@ -56,7 +56,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     size = 'm',
     className,
     dataTestId,
-    title = value,
+    title = value.toString(),
     subtitle,
     children,
 }) => {
@@ -109,7 +109,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
             <div className={styles.label}>
                 {children || (
                     <React.Fragment>
-                        {title && (
+                        {typeof title === 'string' ? (
                             <Typography.Title
                                 className={styles.title}
                                 color='secondary'
@@ -118,8 +118,10 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                             >
                                 {title}
                             </Typography.Title>
+                        ) : (
+                            title
                         )}
-                        {subtitle && (
+                        {typeof subtitle === 'string' ? (
                             <Typography.Text
                                 tag='div'
                                 className={styles.subtitle}
@@ -128,6 +130,8 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                             >
                                 {subtitle}
                             </Typography.Text>
+                        ) : (
+                            subtitle
                         )}
                     </React.Fragment>
                 )}
