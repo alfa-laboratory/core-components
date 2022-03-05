@@ -15,9 +15,9 @@ export type HeaderMobileProps = Omit<HeaderProps, 'closer'> & {
 
 export const HeaderMobile: FC<HeaderMobileProps> = ({
     className,
-    hasCloser,
-    sticky,
     contentClassName,
+    hasCloser = true,
+    sticky,
     ...restProps
 }) => (
     <Header

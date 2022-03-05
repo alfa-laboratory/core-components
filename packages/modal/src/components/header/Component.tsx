@@ -46,6 +46,9 @@ export type HeaderProps = {
      */
     align?: 'left' | 'right' | 'center';
 
+    /**
+     * Обрезать ли заголовок
+     */
     trim?: boolean;
 
     /**
@@ -95,7 +98,9 @@ export const Header: FC<HeaderProps> = ({
                 </div>
             )}
 
-            {closer && <div className={cn(styles.addon, addonClassName)}>{closer}</div>}
+            {closer && (
+                <div className={cn(styles.addon, styles.closer, addonClassName)}>{closer}</div>
+            )}
         </div>
     );
 };

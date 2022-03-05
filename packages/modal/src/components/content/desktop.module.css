@@ -1,26 +1,27 @@
 @import '../../vars.css';
 
-.content {
-    composes: content from 'index.module.css';
-}
-
-.flex {
-    composes: flex from 'index.module.css';
-}
-
 .s {
     padding: var(--modal-s-content-paddings);
+
+    &:last-child {
+        padding-bottom: var(--modal-s-content-only-bottom-padding);
+    }
 }
 
 .m {
-    padding: var(--modal-m-content-paddings);
+    padding: 0 56px;
+
+    &:last-child {
+        padding-bottom: 56px;
+    }
 }
 
 .l,
+.xl,
 .fullscreen {
-    padding: var(--modal-l-content-paddings);
+    padding: 0 var(--gap-6xl);
 
     &:last-child {
-        padding-bottom: var(--modal-l-content-no-footer-bottom-padding);
+        padding-bottom: var(--gap-6xl);
     }
 }
