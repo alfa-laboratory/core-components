@@ -178,6 +178,7 @@ import { Button } from '@alfalab/core-components-button/dist/modern';
 
 ## Мейнтейнеры
 
--   [Евгений Сергеев](https://github.com/SiebenSieben)
 -   [Александр Яценко](https://github.com/reme3d2y)
--   [Дмитрий Савкин](https://github.com/dmitrsavk)
+-   [Евгений Купава](https://github.com/EGNKupava)
+-   [Рамиль Сагидуллин](https://github.com/blackraydev)
+-   [Евгений Сергеев](https://github.com/SiebenSieben)
