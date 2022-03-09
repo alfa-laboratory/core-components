@@ -52,28 +52,28 @@ export type HeaderProps = {
 }
 
 const DefaultCloser = (
-  <span className={cn(styles.iconContainer)}>
-      <CrossMIcon />
-  </span>
+    <span className={cn(styles.iconContainer)}>
+        <CrossMIcon />
+    </span>
 )
 
 const DefaultBacker = (
-  <span className={cn(styles.iconContainer)}>
-      <ArrowBackMIcon />
-  </span>
+    <span className={cn(styles.iconContainer)}>
+        <ArrowBackMIcon />
+    </span>
 )
 
 const HEADER_OFFSET = 24;
 
 export const Header: FC<HeaderProps> = ({
-  title, 
-  headerClassName,
-  addonClassName,
-  leftAddons = DefaultBacker,
-  rightAddons = DefaultCloser,
-  titleAlign,
-  sticky,
-  onClose
+    title, 
+    headerClassName,
+    addonClassName,
+    leftAddons = DefaultBacker,
+    rightAddons = DefaultCloser,
+    titleAlign,
+    sticky,
+    onClose
 }) => {
     const { headerHighlighted, setHasHeader, setHeaderOffset } = useContext(BaseModalContext);
 
@@ -88,9 +88,9 @@ export const Header: FC<HeaderProps> = ({
     return (
         <div
             className={cn(styles.header, headerClassName, {
-              [styles.justifyEnd]: !title,
-              [styles.highlighted]: headerHighlighted && sticky,
-              [styles.sticky]: sticky
+                [styles.justifyEnd]: !title,
+                [styles.highlighted]: headerHighlighted && sticky,
+                [styles.sticky]: sticky
             })}
         >
             {(leftAddons || titleAlign === 'center') && <div className={cn(styles.addon, addonClassName)}>{leftAddons}</div>}
