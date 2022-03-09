@@ -118,7 +118,7 @@ export const Header: FC<HeaderProps> = ({
                 </Typography.Title>
             )}
 
-            {(rightAddons || titleAlign === 'center') && <div role='closer' onClick={onClose} onKeyDown={handleKeyDown} className={cn(styles.addon, addonClassName)}>{rightAddons}</div>}
+            {(rightAddons || titleAlign === 'center') && <div role='button' onClick={onClose} onKeyDown={handleKeyDown} className={cn(styles.addon, addonClassName)}>{rightAddons}</div>}
         </div>
     )
 }
