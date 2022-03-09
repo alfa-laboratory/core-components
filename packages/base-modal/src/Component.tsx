@@ -294,7 +294,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                             window.innerHeight,
                 );
             }
-        }, [hasFooter, hasHeader]);
+        }, [hasFooter, hasHeader, headerOffset]);
 
         const handleClose = useCallback<Required<BaseModalProps>['onClose']>(
             (event, reason) => {

@@ -1,13 +1,14 @@
-import React, { FC, ReactNode, useContext, useEffect } from "react";
+import React, { FC, KeyboardEventHandler, ReactNode, useContext, useEffect } from 'react';
 import cn from 'classnames';
-import { Typography } from "@alfalab/core-components-typography";
-import { CrossMIcon } from "@alfalab/icons-glyph/CrossMIcon";
-import { ArrowBackMIcon } from "@alfalab/icons-glyph/ArrowBackMIcon";
+import { BaseModalContext } from '@alfalab/core-components-base-modal';
+import { Typography } from '@alfalab/core-components-typography';
+import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
+import { ArrowBackMIcon } from '@alfalab/icons-glyph/ArrowBackMIcon';
 
-import { BottomSheetTitleAlign } from "src/component";
+import { BottomSheetTitleAlign } from 'src/component';
 
 import styles from './index.module.css';
-import { BaseModalContext } from "@alfalab/core-components-base-modal";
+
 
 export type HeaderProps = {
   /**
@@ -55,25 +56,25 @@ const DefaultCloser = (
     <span className={cn(styles.iconContainer)}>
         <CrossMIcon />
     </span>
-)
+);
 
 const DefaultBacker = (
     <span className={cn(styles.iconContainer)}>
         <ArrowBackMIcon />
     </span>
-)
+);
 
 const HEADER_OFFSET = 24;
 
 export const Header: FC<HeaderProps> = ({
-    title, 
+    title,
     headerClassName,
     addonClassName,
     leftAddons = DefaultBacker,
     rightAddons = DefaultCloser,
     titleAlign,
     sticky,
-    onClose
+    onClose,
 }) => {
     const { headerHighlighted, setHasHeader, setHeaderOffset } = useContext(BaseModalContext);
 
@@ -83,14 +84,20 @@ export const Header: FC<HeaderProps> = ({
 
     useEffect(() => {
         setHeaderOffset(HEADER_OFFSET);
-    }, [setHeaderOffset])
+    }, [setHeaderOffset]);
+
+    const handleKeyDown: KeyboardEventHandler = event => {
+        if (event.key === 'Escape') {
+            onClose();
+        }
+    };
 
     return (
         <div
             className={cn(styles.header, headerClassName, {
                 [styles.justifyEnd]: !title,
                 [styles.highlighted]: headerHighlighted && sticky,
-                [styles.sticky]: sticky
+                [styles.sticky]: sticky,
             })}
         >
             {(leftAddons || titleAlign === 'center') && <div className={cn(styles.addon, addonClassName)}>{leftAddons}</div>}
@@ -111,7 +118,7 @@ export const Header: FC<HeaderProps> = ({
                 </Typography.Title>
             )}
 
-            {(rightAddons || titleAlign === 'center') && <div onClick={onClose} className={cn(styles.addon, addonClassName)}>{rightAddons}</div>}
+            {(rightAddons || titleAlign === 'center') && <div role='closer' onClick={onClose} onKeyDown={handleKeyDown} className={cn(styles.addon, addonClassName)}>{rightAddons}</div>}
         </div>
     )
 }
