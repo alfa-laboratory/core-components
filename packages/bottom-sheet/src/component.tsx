@@ -11,12 +11,14 @@ import cn from 'classnames';
 import { TransitionProps } from 'react-transition-group/Transition';
 import { SwipeCallback, useSwipeable } from 'react-swipeable';
 import { BaseModal } from '@alfalab/core-components-base-modal';
-import { Typography } from '@alfalab/core-components-typography';
 
 import { Footer } from './components/footer/Component';
 import { SwipeableBackdrop } from './components/swipeable-backdrop/Component';
 
 import styles from './index.module.css';
+import { Header } from './components/header/Component';
+
+export type BottomSheetTitleAlign = 'center' | 'left' | 'right';
 
 export type BottomSheetProps = {
     /**
@@ -50,6 +52,16 @@ export type BottomSheetProps = {
     contentClassName?: string;
 
     /**
+     * Дополнительный класс
+     */
+    headerClassName?: string;
+
+    /**
+     * Дополнительный класс
+     */
+    addonClassName?: string;
+
+    /**
      * TransitionProps, прокидываются в компонент CSSTransitionProps.
      */
     transitionProps?: Partial<TransitionProps>;
@@ -65,10 +77,55 @@ export type BottomSheetProps = {
     zIndex?: number;
 
     /**
-     * Будет ли свайпаться на десктопе
-     * @default false
+     * Будет ли свайпаться шторка
+     * @default true
      */
-    desktopSwipeable?: boolean;
+    swipeable?: boolean;
+
+    /**
+     * Слот слева
+     */
+    leftAddons?: ReactNode;
+
+    /**
+     * Слот справа
+     */
+    rightAddons?: ReactNode;
+
+    /**
+     * Выравнивание заголовка
+     */
+    titleAlign?: BottomSheetTitleAlign;
+
+    /**
+     * Фиксирует шапку
+     */
+    headerSticky?:  boolean;
+
+    /**
+     * Фиксирует футер
+     */
+    footerSticky?:  boolean;
+
+    /**
+     * Высота шторки
+     */
+    initialHeight?: 'default' | 'full';
+
+    /**
+     * Будет ли виден оверлэй
+     */
+    overlayHidden?: boolean;
+
+    /**
+     * Будет ли видна шапка
+     */
+    headerHidden?: boolean;
+
+    /**
+     * Запретить закрытие шторки кликом на оверлэй
+     */
+    disableOverlayClick?: boolean;
 
     /**
      * Обработчик закрытия
@@ -89,12 +146,23 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             title,
             actionButton,
             contentClassName,
+            headerClassName,
+            addonClassName,
             className,
+            leftAddons,
+            rightAddons,
+            titleAlign = 'center',
+            headerSticky,
+            footerSticky,
+            initialHeight = 'default',
+            overlayHidden,
+            headerHidden,
+            disableOverlayClick,
             children,
             zIndex,
             transitionProps = {},
             dataTestId,
-            desktopSwipeable: trackMouse = false,
+            swipeable: trackMouse = true,
             onClose,
         },
         ref,
@@ -106,6 +174,17 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const sheetHeight = useRef(0);
         const scrollableContainer = useRef<HTMLDivElement | null>(null);
         const scrollableContainerScrollValue = useRef(0);
+
+        const headerProps = {
+            title,
+            headerClassName,
+            addonClassName,
+            leftAddons,
+            rightAddons,
+            titleAlign,
+            sticky: headerSticky,
+            onClose
+        };
 
         const getBackdropOpacity = (offset: number): number => {
             if (sheetHeight.current === 0) return MIN_BACKDROP_OPACITY;
@@ -246,9 +325,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 Backdrop={SwipeableBackdrop}
                 backdropProps={{
                     opacity: backdropOpacity,
-                    handlers: backdropSwipeablehandlers,
+                    handlers: trackMouse ? backdropSwipeablehandlers : false,
                     opacityTimeout: TIMEOUT,
+                    invisible: initialHeight === 'full' ? false : overlayHidden
                 }}
+                disableBackdropClick={overlayHidden ? true : disableOverlayClick}
                 className={styles.modal}
                 transitionProps={{
                     appear: true,
@@ -266,30 +347,27 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     style={getSwipeStyles()}
                     {...sheetSwipeablehandlers}
                 >
-                    <div className={styles.marker} />
+                    {trackMouse && <div className={cn(styles.marker)} />}
 
                     <div
                         className={cn(styles.scrollableContainer, {
-                            [styles.scrollLocked]: scrollLocked,
-                            [styles.withPadding]: !actionButton,
+                            [styles.fullHeight]: initialHeight === 'full',
+                            [styles.scrollLocked]: scrollLocked
                         })}
                         ref={scrollableContainer}
                     >
-                        {title && (
-                            <Typography.Title
-                                view='small'
-                                font='system'
-                                tag='h2'
-                                className={styles.title}
-                                color='primary'
-                            >
-                                {title}
-                            </Typography.Title>
-                        )}
+                        {!headerHidden && <Header {...headerProps} />}
 
-                        <div className={cn(styles.content, contentClassName)}>{children}</div>
+                        <div 
+                            className={cn(styles.content, contentClassName, {
+                                [styles.paddingTop]: headerHidden,
+                                [styles.paddingBottom]: !actionButton
+                            })}
+                        >
+                            {children}
+                        </div>
 
-                        {actionButton && <Footer>{actionButton}</Footer>}
+                        {actionButton && <Footer sticky={footerSticky}>{actionButton}</Footer>}
                     </div>
                 </div>
             </BaseModal>

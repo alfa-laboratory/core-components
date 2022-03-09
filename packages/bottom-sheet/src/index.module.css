@@ -14,10 +14,11 @@
 }
 
 .component {
+    overflow: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
-    max-height: calc(100vh - 72px);
+    max-height: calc(100vh - 24px);
     border-top-right-radius: 16px;
     border-top-left-radius: 16px;
     background: var(--color-light-bg-primary);
@@ -41,24 +42,29 @@
 
 .scrollableContainer {
     overflow: auto;
-    padding-top: var(--gap-2xl);
+    display: flex;
+    flex-direction: column;
 }
 
-.withPadding {
-    padding-bottom: var(--gap-xl);
+.fullHeight {
+    height: 100vh;
 }
 
 .content {
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 0 var(--gap-m) var(--gap-m);
+    padding: 0 var(--gap-m);
     color: var(--color-light-text-primary);
+    background-color: var(--color-light-bg-primary);
 }
 
-.title {
-    margin-bottom: var(--gap-xl);
-    padding: 0 var(--gap-m);
+.paddingTop {
+    padding-top: var(--gap-xl);
+}
+
+.paddingBottom {
+    padding-bottom: var(--gap-m);
 }
 
 .scrollLocked {

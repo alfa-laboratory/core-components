@@ -12,12 +12,17 @@ export type FooterProps = {
     children?: ReactNode;
 
     /**
+     * Фиксирует футер
+     */
+    sticky?:  boolean;
+
+    /**
      * Дополнительный класс
      */
     className?: string;
 };
 
-export const Footer: FC<FooterProps> = ({ children, className }) => {
+export const Footer: FC<FooterProps> = ({ children, className, sticky }) => {
     const { footerHighlighted, setHasFooter } = useContext(BaseModalContext);
 
     useEffect(() => {
@@ -27,7 +32,8 @@ export const Footer: FC<FooterProps> = ({ children, className }) => {
     return (
         <div
             className={cn(styles.footer, className, {
-                [styles.highlighted]: footerHighlighted,
+                [styles.sticky]: sticky,
+                [styles.highlighted]: footerHighlighted && sticky,
             })}
         >
             {children}

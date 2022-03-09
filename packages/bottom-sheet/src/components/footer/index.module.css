@@ -1,10 +1,13 @@
 @import '../../../../themes/src/default.css';
 
 .footer {
+    padding: var(--gap-m) var(--gap-m);
+    background-color: var(--color-light-bg-primary);
+}
+
+.sticky {
     position: sticky;
     bottom: 0;
-    padding: var(--gap-m) var(--gap-m) var(--gap-3xl);
-    background-color: var(--color-light-bg-primary);
 }
 
 .highlighted {

@@ -1,0 +1,61 @@
+@import '../../../../themes/src/default.css';
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: var(--gap-xs);
+    padding-bottom: 0;
+    background-color: var(--color-light-bg-primary);
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+}
+
+.highlighted {
+    box-shadow: var(--shadow-s);
+}
+
+.justifyEnd {
+    justify-content: flex-end;
+}
+
+.addon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 48px;
+    height: 48px;
+}
+
+.iconContainer {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+}
+
+.title {
+    padding: var(--gap-s) var(--gap-xs);
+    width: 100%;
+}
+
+.titleCenter {
+    text-align: center;
+}
+
+.titleLeft {
+    text-align: left;
+}
+
+.titleRight {
+    text-align: right;
+}
