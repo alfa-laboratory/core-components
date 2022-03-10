@@ -35,7 +35,7 @@ export type CloserProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 /**
- * @deprecated Компонент только для внутреннего использования. Используйте Header
+ * @deprecated Компонент только для внутреннего использования. Используйте <Header />
  */
 export const Closer: FC<CloserProps> = ({
     className,
@@ -54,15 +54,19 @@ export const Closer: FC<CloserProps> = ({
     );
 
     return (
-        <IconButton
-            size={size}
+        <div
             className={cn(styles.closer, className, {
                 [styles.sticky]: sticky,
             })}
-            aria-label='закрыть'
-            onClick={handleClick}
-            icon={icon}
-            {...restProps}
-        />
+        >
+            <IconButton
+                size={size}
+                className={styles.button}
+                aria-label='закрыть'
+                onClick={handleClick}
+                icon={icon}
+                {...restProps}
+            />
+        </div>
     );
 };

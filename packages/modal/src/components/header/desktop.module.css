@@ -7,15 +7,31 @@
 
 .content {
     padding-right: var(--gap-m);
-    padding-top: var(--modal-header-desktop-top-padding);
-    font-size: var(--modal-header-desktop-font-size);
-    line-height: var(--modal-header-desktop-line-height);
-    font-family: var(--modal-header-desktop-font-family);
     font-weight: bold;
+    font-family: var(--modal-header-desktop-font-family);
+}
+
+.s .content,
+.m .content {
+    padding-top: var(--modal-s-header-desktop-top-padding);
+    font-size: var(--modal-s-header-desktop-font-size);
+    line-height: var(--modal-s-header-desktop-line-height);
+}
+
+.l .content,
+.xl .content,
+.fullscreen .content {
+    padding-top: var(--modal-l-header-desktop-top-padding);
+    font-size: var(--modal-l-header-desktop-font-size);
+    line-height: var(--modal-l-header-desktop-line-height);
 }
 
 .s {
     padding: var(--modal-s-header-paddings);
+
+    &:not(.hasContent) {
+        padding-bottom: 0;
+    }
 }
 
 .m {
@@ -26,6 +42,10 @@
 .xl,
 .fullscreen {
     padding: var(--gap-xl) var(--gap-xl) var(--gap-m);
+
+    &:not(.hasContent) {
+        padding-bottom: var(--gap-m);
+    }
 }
 
 .sticky {

@@ -18,10 +18,10 @@
     --modal-footer-highlight-background: var(--color-light-bg-secondary);
 
     /* desktop */
-    --modal-header-desktop-top-padding: var(--gap-xs);
-    --modal-header-desktop-font-size: 24px;
-    --modal-header-desktop-line-height: 32px;
-    --modal-header-desktop-font-family: var(--font-family-styrene);
+    --modal-s-header-desktop-top-padding: var(--gap-xs);
+    --modal-s-header-desktop-font-size: 24px;
+    --modal-s-header-desktop-line-height: 32px;
+    --modal-s-header-desktop-font-family: var(--font-family-styrene);
 
     /* mobile */
     --modal-header-mobile-top-padding: 10px;

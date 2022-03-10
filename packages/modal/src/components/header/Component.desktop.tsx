@@ -25,16 +25,25 @@ export const HeaderDesktop: FC<HeaderDesktopProps> = ({
     hasCloser = true,
     sticky,
     leftAddons = <span />,
+    title,
+    children,
     ...restProps
-}) => (
-    <Header
-        className={cn(className, styles.header, size && styles[size], {
-            [styles.sticky]: sticky,
-        })}
-        contentClassName={cn(styles.content, contentClassName)}
-        closer={hasCloser ? <Closer /> : null}
-        leftAddons={leftAddons}
-        sticky={sticky}
-        {...restProps}
-    />
-);
+}) => {
+    const hasContent = title || Boolean(children);
+    return (
+        <Header
+            className={cn(className, styles.header, size && styles[size], {
+                [styles.sticky]: sticky,
+                [styles.hasContent]: hasContent,
+            })}
+            contentClassName={cn(styles.content, contentClassName)}
+            closer={hasCloser ? <Closer /> : null}
+            leftAddons={leftAddons}
+            sticky={sticky}
+            title={title}
+            {...restProps}
+        >
+            {children}
+        </Header>
+    );
+};
