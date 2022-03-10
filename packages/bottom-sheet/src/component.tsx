@@ -100,12 +100,12 @@ export type BottomSheetProps = {
     /**
      * Фиксирует шапку
      */
-    headerSticky?:  boolean;
+    headerSticky?: boolean;
 
     /**
      * Фиксирует футер
      */
-    footerSticky?:  boolean;
+    footerSticky?: boolean;
 
     /**
      * Высота шторки
