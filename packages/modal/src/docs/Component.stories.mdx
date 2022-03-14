@@ -61,6 +61,7 @@ export const Content = () => {
         const headerTitle = text('header.title');
         const hasCloser = boolean('header.hasCloser', true);
         const trim = boolean('header.trim', true);
+        const align = select('header.align', ['left', 'right', 'center'], 'left');
         const stickyHeader = boolean('header.sticky', false);
         const footer = boolean('footer', false);
         const stickyFooter = boolean('footer.sticky', false);
@@ -92,6 +93,7 @@ export const Content = () => {
                             hasCloser={hasCloser}
                             title={headerTitle}
                             trim={trim}
+                            align={align}
                         />
                     )}
                     <ModalComponent.Content flex={flexContent}>

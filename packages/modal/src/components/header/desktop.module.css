@@ -6,14 +6,13 @@
 }
 
 .content {
-    padding-right: var(--gap-m);
     font-weight: bold;
     font-family: var(--modal-header-desktop-font-family);
 }
 
 .s .content,
 .m .content {
-    padding-top: var(--modal-s-header-desktop-top-padding);
+    padding: var(--modal-s-header-desktop-content-paddings);
     font-size: var(--modal-s-header-desktop-font-size);
     line-height: var(--modal-s-header-desktop-line-height);
 }
@@ -21,7 +20,7 @@
 .l .content,
 .xl .content,
 .fullscreen .content {
-    padding-top: var(--modal-l-header-desktop-top-padding);
+    padding: var(--modal-l-header-desktop-content-paddings);
     font-size: var(--modal-l-header-desktop-font-size);
     line-height: var(--modal-l-header-desktop-line-height);
 }
@@ -36,6 +35,10 @@
 
 .m {
     padding: var(--gap-xs) var(--gap-xs) var(--gap-m);
+
+    &:not(.hasContent) {
+        padding-bottom: 0;
+    }
 }
 
 .l,

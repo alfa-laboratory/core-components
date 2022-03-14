@@ -10,5 +10,5 @@
     font-family: var(--modal-header-mobile-font-family);
     font-weight: bold;
 
-    padding: var(--modal-header-mobile-top-padding) var(--gap-xs) 10px var(--gap-m);
+    padding: var(--modal-header-mobile-content-paddings);
 }

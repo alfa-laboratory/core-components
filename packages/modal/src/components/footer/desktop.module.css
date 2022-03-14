@@ -24,5 +24,5 @@
 .l,
 .xl,
 .fullscreen {
-    padding: var(--gap-2xl) var(--gap-6xl);
+    padding: var(--gap-2xl) var(--gap-6xl) var(--gap-6xl);
 }

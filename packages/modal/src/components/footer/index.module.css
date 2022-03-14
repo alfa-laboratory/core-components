@@ -9,7 +9,6 @@
 
 .sticky {
     background: var(--modal-footer-sticky-background);
-    box-shadow: var(--modal-footer-sticky-box-shadow);
     position: sticky;
 }
 

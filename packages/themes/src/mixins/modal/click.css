@@ -10,12 +10,12 @@
     --modal-s-footer-paddings: var(--gap-2xl) var(--gap-4xl) var(--gap-4xl);
 
     /* sticky */
-    --modal-footer-sticky-box-shadow: none;
     --modal-footer-sticky-background: var(--color-light-bg-secondary);
 
     /* scroll */
     --modal-header-highlight-background: var(--color-light-bg-primary);
     --modal-footer-highlight-background: var(--color-light-bg-secondary);
+    --modal-footer-highlight-box-shadow: none;
 
     /* desktop */
     --modal-s-header-desktop-top-padding: var(--gap-xs);
@@ -24,7 +24,7 @@
     --modal-s-header-desktop-font-family: var(--font-family-styrene);
 
     /* mobile */
-    --modal-header-mobile-top-padding: 10px;
+    --modal-header-mobile-content-paddings: 10px var(--gap-xs) 10px var(--gap-m);
     --modal-header-mobile-font-size: 20px;
     --modal-header-mobile-line-height: 28px;
     --modal-header-mobile-font-family: var(--font-family-styrene);
