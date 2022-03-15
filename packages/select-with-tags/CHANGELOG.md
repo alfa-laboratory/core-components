@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@5.2.0...@alfalab/core-components-select-with-tags@5.2.1) (2022-03-04)
+
+
+### Bug Fixes
+
+* update glyph deps ([#1019](https://github.com/alfa-laboratory/core-components/issues/1019)) ([3e910d0](https://github.com/alfa-laboratory/core-components/commit/3e910d0801c4c46bcd399163200c1f7bfaba375e))
+
+
+
+
+
 # [5.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@5.1.2...@alfalab/core-components-select-with-tags@5.2.0) (2022-03-01)
 
 

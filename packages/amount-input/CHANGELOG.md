@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount-input@5.3.15...@alfalab/core-components-amount-input@5.4.0) (2022-03-04)
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
 ## [5.3.15](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount-input@5.3.14...@alfalab/core-components-amount-input@5.3.15) (2022-02-17)
 
 

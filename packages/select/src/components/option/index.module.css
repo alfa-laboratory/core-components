@@ -88,8 +88,8 @@
 
 .content {
     overflow: hidden;
-    text-overflow: ellipsis;
     flex: 1;
+    text-overflow: ellipsis;
 }
 
 .textContent {

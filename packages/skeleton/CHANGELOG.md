@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-skeleton@3.0.2...@alfalab/core-components-skeleton@3.1.0) (2022-03-04)
+
+
+### Bug Fixes
+
+* **skeleton:** added dataTestId ([18e4af8](https://github.com/alfa-laboratory/core-components/commit/18e4af805bd4e49a1a3c303cb3b4d9a3a9dd5751))
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
 ## [3.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-skeleton@3.0.1...@alfalab/core-components-skeleton@3.0.2) (2021-11-16)
 
 

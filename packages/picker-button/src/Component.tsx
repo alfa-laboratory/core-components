@@ -1,21 +1,24 @@
-import React, { forwardRef } from 'react';
+import React, { FC, forwardRef, SVGProps } from 'react';
 import cn from 'classnames';
 import { ButtonProps } from '@alfalab/core-components-button';
 
 import {
     BaseSelectProps,
     OptionsList as DefaultOptionsList,
-    Option as DefaultOption,
     Optgroup as DefaultOptgroup,
     BaseSelect,
+    OptionShape,
 } from '@alfalab/core-components-select';
 
 import { Field as DefaultField } from './field';
+import { Option as DefaultOption } from './option';
 import styles from './index.module.css';
 
 const SIDE_POSITIONS = ['right', 'right-start', 'right-end', 'left', 'left-start', 'left-end'];
 
 export type PickerButtonSize = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
+
+export type PickerButtonVariant = 'default' | 'compact';
 
 export type PickerButtonProps = Omit<
     BaseSelectProps,
@@ -31,12 +34,27 @@ export type PickerButtonProps = Omit<
     | 'fieldProps'
     | 'hint'
     | 'allowUnselect'
+    | 'options'
 > &
     Pick<ButtonProps, 'view' | 'loading' | 'leftAddons' | 'rightAddons'> & {
+        options: Array<
+            OptionShape & {
+                /**
+                 * Иконка, отображающаяся слева от текстового представления пункта
+                 */
+                icon?: FC<SVGProps<SVGSVGElement>>;
+            }
+        >;
+
         /**
          * Размер кнопки
          */
         size?: PickerButtonSize;
+
+        /**
+         * Тип кнопки
+         */
+        variant?: PickerButtonVariant;
     };
 
 export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
@@ -48,11 +66,13 @@ export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
             view,
             loading,
             size = 'm',
+            variant = 'default',
             className,
             leftAddons,
             rightAddons,
             popperClassName,
             optionsListClassName,
+            optionClassName,
             ...restProps
         },
         ref,
@@ -63,6 +83,7 @@ export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
         return (
             <BaseSelect
                 {...restProps}
+                optionProps={{ Checkmark: null }}
                 ref={ref}
                 Option={Option}
                 Field={DefaultField}
@@ -72,6 +93,7 @@ export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
                     loading,
                     /** size у select, button несовместимы */
                     buttonSize: size,
+                    buttonVariant: variant,
                     leftAddons,
                     rightAddons,
                 }}
@@ -82,6 +104,7 @@ export const PickerButton = forwardRef<HTMLInputElement, PickerButtonProps>(
                     [styles.sideGap]: isSideGap,
                 })}
                 optionsListClassName={cn(styles.optionsListContainer, optionsListClassName)}
+                optionClassName={cn(styles.option, optionClassName)}
                 selected={[]}
                 closeOnSelect={true}
             />
