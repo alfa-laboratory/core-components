@@ -57,7 +57,7 @@ export const longText = Array(10).fill(shortText).join('\n\n');
                     open={open}
                     title={text('title', 'Альфа-Бизнес')}
                     actionButton={renderActionButton &&
-                        <Button view="primary" block={true} size="s" onClick={handleClose}>Понятно</Button>}
+                        <Button view="secondary" block={true} size="s" onClick={handleClose}>Понятно</Button>}
                     onClose={handleClose}
                     swipeable={boolean('swipeable', true)}
                     titleAlign={select('titleAlign', ['center', 'left', 'right'], 'center')}

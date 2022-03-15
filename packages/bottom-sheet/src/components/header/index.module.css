@@ -1,5 +1,13 @@
 @import '../../../../themes/src/default.css';
 
+:root {
+    --bottom-sheet-header-border-bottom: none;
+    --bottom-sheet-footer-background-color: var(--color-light-bg-primary);
+    --bottom-sheet-title-font-size: 18px;
+    --bottom-sheet-title-line-height: 24px;
+    --bottom-sheet-title-font-family: var(--font-family-system);
+}
+
 .header {
     display: flex;
     align-items: center;
@@ -36,11 +44,22 @@
 }
 
 .addon {
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     min-width: 48px;
     height: 48px;
+}
+
+.addonLeft {
+    left: 0;
+    margin-left: var(--gap-xs);
+}
+
+.addonRight {
+    right: 0;
+    margin-right: var(--gap-xs);
 }
 
 .title {
@@ -60,12 +79,12 @@
     text-align: left;
 }
 
-.titleRight {
-    text-align: right;
-}
-
 .trimTitle {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.titleIndent {
+    margin: 0 var(--gap-4xl);
 }

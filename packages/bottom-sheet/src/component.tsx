@@ -18,7 +18,7 @@ import { SwipeableBackdrop } from './components/swipeable-backdrop/Component';
 
 import styles from './index.module.css';
 
-export type BottomSheetTitleAlign = 'center' | 'left' | 'right';
+export type BottomSheetTitleAlign = 'center' | 'left';
 
 export type BottomSheetProps = {
     /**

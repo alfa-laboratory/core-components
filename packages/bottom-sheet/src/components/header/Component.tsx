@@ -119,7 +119,7 @@ export const Header: FC<HeaderProps> = ({
             {swipeable && <div className={cn(styles.marker)} />}
 
             {(hasBacker || leftAddons || titleAlign === 'center') && (
-                <div className={cn(styles.addon, addonClassName)}>
+                <div className={cn(styles.addon, styles.addonLeft, addonClassName)}>
                     {hasBacker ? (
                         <Backer className={backerClassName} onClick={onBack} />
                     ) : (
@@ -135,8 +135,8 @@ export const Header: FC<HeaderProps> = ({
                     className={cn(styles.title, {
                         [styles.titleCenter]: titleAlign === 'center',
                         [styles.titleLeft]: titleAlign === 'left',
-                        [styles.titleRight]: titleAlign === 'right',
                         [styles.trimTitle]: trimTitle,
+                        [styles.titleIndent]: hasCloser || hasBacker || leftAddons || rightAddons
                     })}
                     color='primary'
                 >
@@ -145,7 +145,7 @@ export const Header: FC<HeaderProps> = ({
             )}
 
             {(hasCloser || rightAddons || titleAlign === 'center') && (
-                <div className={cn(styles.addon, addonClassName)}>
+                <div className={cn(styles.addon, styles.addonRight, addonClassName)}>
                     {hasCloser ? <Closer className={closerClassName} /> : rightAddons}
                 </div>
             )}
