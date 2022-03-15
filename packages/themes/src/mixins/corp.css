@@ -3,6 +3,7 @@
 @import './tabs/corp.css';
 @import './calendar-input/corp.css';
 @import './select/corp.css';
+@import './bottom-sheet/corp.css';
 
 @define-mixin theme-corp {
     @mixin button-corp;
@@ -10,4 +11,5 @@
     @mixin tabs-corp;
     @mixin calendar-input-corp;
     @mixin select-corp;
+    @mixin bottom-sheet-corp;
 }

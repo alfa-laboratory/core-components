@@ -2,131 +2,151 @@ import React, { FC, KeyboardEventHandler, ReactNode, useContext, useEffect } fro
 import cn from 'classnames';
 import { BaseModalContext } from '@alfalab/core-components-base-modal';
 import { Typography } from '@alfalab/core-components-typography';
-import { CrossMIcon } from '@alfalab/icons-glyph/CrossMIcon';
-import { ArrowBackMIcon } from '@alfalab/icons-glyph/ArrowBackMIcon';
 
-import { BottomSheetTitleAlign } from 'src/component';
+import { BottomSheetTitleAlign, HEADER_OFFSET } from '../../';
+import { Closer } from '../closer/Components';
 
 import styles from './index.module.css';
+import { Backer } from '../backer/Components';
 
 
 export type HeaderProps = {
-  /**
-   * Заголовок
-   */
-  title?: ReactNode;
+    /**
+     * Заголовок
+     */
+    title?: ReactNode;
 
-  /**
-   * Дополнительный класс
-   */
-  headerClassName?: string;
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
 
-  /**
-   * Дополнительный класс
-   */
-  addonClassName?: string;
+    /**
+     * Дополнительный класс для аддонов
+     */
+    addonClassName?: string;
 
-  /**
-   * Слот слева
-   */
-  leftAddons?: ReactNode;
+    /**
+     * Дополнительный класс для компонента крестика
+     */
+    closerClassName?: string;
 
-  /**
-   * Слот справа
-   */
-  rightAddons?: ReactNode;
+    /**
+     * Дополнительный класс для компонента стрелки назад
+     */
+    backerClassName?: string;
 
-  /**
-   * Выравнивание заголовка
-   */
-  titleAlign?: BottomSheetTitleAlign;
+    /**
+     * Будет ли свайпаться шторка
+     * @default true
+     */
+    swipeable?: boolean;
 
-  /**
-   * Фиксирует шапку
-   */
-  sticky?: boolean;
+    /**
+     * Слот слева
+     */
+    leftAddons?: ReactNode;
 
-  /**
-   * Обработчик закрытия
-   */
-  onClose: () => void;
+    /**
+     * Слот справа
+     */
+    rightAddons?: ReactNode;
+
+    /**
+     * Наличие компонента крестика
+     */
+    hasCloser?: boolean;
+
+    /**
+     * Наличие компонента стрелки назад
+     */
+    hasBacker?: boolean;
+
+    /**
+     * Выравнивание заголовка
+     */
+    titleAlign?: BottomSheetTitleAlign;
+
+    /**
+     * Будет ли обрезан заголовок
+     */
+    trimTitle?: boolean;
+
+    /**
+     * Фиксирует шапку
+     */
+    sticky?: boolean;
+
+    /**
+     * Обработчик нажатия на стрелку назад
+     */
+    onBack?: () => void;
 }
-
-const DefaultCloser = (
-    <span className={cn(styles.iconContainer)}>
-        <CrossMIcon />
-    </span>
-);
-
-const DefaultBacker = (
-    <span className={cn(styles.iconContainer)}>
-        <ArrowBackMIcon />
-    </span>
-);
-
-const HEADER_OFFSET = 24;
 
 export const Header: FC<HeaderProps> = ({
     title,
-    headerClassName,
+    className,
     addonClassName,
-    leftAddons = DefaultBacker,
-    rightAddons = DefaultCloser,
+    closerClassName,
+    backerClassName,
+    swipeable,
+    leftAddons,
+    rightAddons,
+    hasCloser,
+    hasBacker,
     titleAlign,
+    trimTitle,
     sticky,
-    onClose,
+    onBack
 }) => {
     const { headerHighlighted, setHasHeader, setHeaderOffset } = useContext(BaseModalContext);
 
     useEffect(() => {
-      setHasHeader(true);
+        setHasHeader(true);
     }, [setHasHeader]);
 
     useEffect(() => {
         setHeaderOffset(HEADER_OFFSET);
     }, [setHeaderOffset]);
 
-    const handleKeyDown: KeyboardEventHandler = event => {
-        if (event.key === 'Escape') {
-            onClose();
-        }
-    };
-
     return (
         <div
-            className={cn(styles.header, headerClassName, {
+            className={cn(styles.header, className, {
                 [styles.justifyEnd]: !title,
                 [styles.highlighted]: headerHighlighted && sticky,
                 [styles.sticky]: sticky,
             })}
         >
-            {(leftAddons || titleAlign === 'center') && <div className={cn(styles.addon, addonClassName)}>{leftAddons}</div>}
+            {swipeable && <div className={cn(styles.marker)} />}
 
-            {title && (
-                <Typography.Title
-                    view='xsmall'
-                    font='system'
-                    tag='h1'
+            {(hasBacker || leftAddons || titleAlign === 'center') && (
+                <div
+                    className={cn(styles.addon, addonClassName)}
+                    onClick={onBack}
+                >
+                    {hasBacker ? <Backer className={backerClassName} onClick={onBack} /> : leftAddons}
+                </div>
+            )}
+
+            {(title || hasBacker || hasCloser) && (
+                <Typography.Text
+                    view='primary-large'
+                    weight='bold'
                     className={cn(styles.title, {
                         [styles.titleCenter]: titleAlign === 'center',
                         [styles.titleLeft]: titleAlign === 'left',
                         [styles.titleRight]: titleAlign === 'right',
+                        [styles.trimTitle]: trimTitle
                     })}
                     color='primary'
                 >
                     {title}
-                </Typography.Title>
+                </Typography.Text>
             )}
 
-            {(rightAddons || titleAlign === 'center') && (
-                <div
-                    tabIndex={0}
-                    role='button'
-                    onClick={onClose}
-                    onKeyDown={handleKeyDown}
-                    className={cn(styles.addon, addonClassName)}
-                >
-                    {rightAddons}
+            {(hasCloser || rightAddons || titleAlign === 'center') && (
+                <div className={cn(styles.addon, addonClassName)}>
+                    {hasCloser ? <Closer className={closerClassName} /> : rightAddons}
                 </div>
             )}
         </div>

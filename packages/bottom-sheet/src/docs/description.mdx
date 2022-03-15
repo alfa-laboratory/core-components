@@ -44,8 +44,8 @@ render(() => {
             <BottomSheet
                 open={open}
                 title='Заголовок'
-                headerHidden
                 onClose={() => setOpen(false)}
+                hideHeader
             >
                 <div style={{ lineHeight: '24px' }}>
                     Сейчас много говорят об отказах банков в проведении операций, блокировках интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки выявлять операции своих клиентов, потенциально нарушающие требования Федерального закона «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» — 115-ФЗ
@@ -76,27 +76,29 @@ render(() => {
         <>
             <Space>
                 <Button view='primary' onClick={() => setOpen(true)}>Пример</Button>
-                <Checkbox
+                <Switch
                     onChange={() => setFullHeight(!fullHeight)}
                     checked={fullHeight}
                     label='Открывать на весь экран'
                 />
-                <Checkbox
+                <Switch
                     onChange={() => setWithTitleAndCloser(!withTitleAndClose)}
                     checked={withTitleAndClose}
                     label='Шапка с заголовком и крестиком'
+                    disabled={unfixedHeaderWithoutContent}
                 />
-                <Checkbox
+                <Switch
                     onChange={() => setUnfixedHeaderWithoutContent(!unfixedHeaderWithoutContent)}
                     checked={unfixedHeaderWithoutContent}
                     label='Нефиксированная шапка без контента'
+                    disabled={withTitleAndClose}
                 />
-                <Checkbox
+                <Switch
                     onChange={() => setOverlayEnabled(!overlayEnabled)}
                     checked={overlayEnabled || fullHeight}
                     label='Включить оверлей'
                 />
-                <Checkbox
+                <Switch
                     onChange={() => setDisableSwiping(!disableSwiping)}
                     checked={disableSwiping}
                     label='Запретить закрытие свайпом'
@@ -106,12 +108,13 @@ render(() => {
             <BottomSheet
                 open={open}
                 swipeable={!disableSwiping}
+                hasCloser={withTitleAndClose}
                 title={withTitleAndClose ? 'Заголовок' : null}
-                rightAddons={withTitleAndClose ? undefined : null}
-                leftAddons={null}
+                rightAddons={unfixedHeaderWithoutContent ? true : false}
+                leftAddons={unfixedHeaderWithoutContent ? true : false}
                 initialHeight={fullHeight ? 'full' : 'default'}
-                headerHidden={unfixedHeaderWithoutContent}
-                overlayHidden={!overlayEnabled}
+                hideHeader={!withTitleAndClose && !unfixedHeaderWithoutContent}
+                hideOverlay={!overlayEnabled}
                 onClose={() => setOpen(false)}
                 actionButton={
                     <Button view='primary' block={true} size='s' onClick={() => setOpen(false)}>
@@ -145,22 +148,24 @@ render(() => {
         <>
             <Space>
                 <Button view='primary' onClick={() => setOpen(true)}>Пример</Button>
-                <Checkbox
+                <Switch
                     onChange={() => setWithTitleAndCloser(!withTitleAndClose)}
                     checked={withTitleAndClose}
                     label='Шапка с заголовком и крестиком'
+                    disabled={unfixedHeaderWithoutContent}
                 />
-                <Checkbox
+                <Switch
                     onChange={() => setUnfixedHeaderWithoutContent(!unfixedHeaderWithoutContent)}
                     checked={unfixedHeaderWithoutContent}
                     label='Нефиксированная шапка без контента'
+                    disabled={withTitleAndClose}
                 />
-                <Checkbox
+                <Switch
                     onChange={() => setFixedFooter(!fixedFooter)}
                     checked={fixedFooter}
                     label='Фиксированный футер'
                 />
-                <Checkbox
+                <Switch
                     onChange={() => setDisableSwiping(!disableSwiping)}
                     checked={disableSwiping}
                     label='Запретить закрытие свайпом'
@@ -169,13 +174,13 @@ render(() => {
 
             <BottomSheet
                 open={open}
-                footerSticky={fixedFooter}
                 swipeable={!disableSwiping}
+                hasCloser={withTitleAndClose}
+                stickyFooter={fixedFooter}
                 title={withTitleAndClose ? 'Заголовок' : null}
-                rightAddons={withTitleAndClose ? undefined : null}
-                leftAddons={null}
-                headerHidden={unfixedHeaderWithoutContent}
-                onClose={() => setOpen(false)}
+                rightAddons={unfixedHeaderWithoutContent ? true : false}
+                leftAddons={unfixedHeaderWithoutContent ? true : false}
+                hideHeader={!withTitleAndClose && !unfixedHeaderWithoutContent}
                 actionButton={
                     <Button view='primary' block={true} size='s' onClick={() => setOpen(false)}>
                         Понятно

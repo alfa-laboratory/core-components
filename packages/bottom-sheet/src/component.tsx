@@ -12,11 +12,11 @@ import { TransitionProps } from 'react-transition-group/Transition';
 import { SwipeCallback, useSwipeable } from 'react-swipeable';
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
+import { Header } from './components/header/Component';
 import { Footer } from './components/footer/Component';
 import { SwipeableBackdrop } from './components/swipeable-backdrop/Component';
 
 import styles from './index.module.css';
-import { Header } from './components/header/Component';
 
 export type BottomSheetTitleAlign = 'center' | 'left' | 'right';
 
@@ -52,14 +52,24 @@ export type BottomSheetProps = {
     contentClassName?: string;
 
     /**
-     * Дополнительный класс
+     * Дополнительный класс шапки
      */
     headerClassName?: string;
 
     /**
-     * Дополнительный класс
+     * Дополнительный класс для аддонов
      */
     addonClassName?: string;
+
+    /**
+     * Дополнительный класс для компонента крестика
+     */
+    closerClassName?: string;
+
+    /**
+     * Дополнительный класс для компонента стрелки назад
+     */
+    backerClassName?: string;
 
     /**
      * TransitionProps, прокидываются в компонент CSSTransitionProps.
@@ -93,6 +103,16 @@ export type BottomSheetProps = {
     rightAddons?: ReactNode;
 
     /**
+     * Наличие компонента крестика
+     */
+    hasCloser?: boolean;
+
+    /**
+     * Наличие компонента стрелки назад
+     */
+    hasBacker?: boolean;
+
+    /**
      * Выравнивание заголовка
      */
     titleAlign?: BottomSheetTitleAlign;
@@ -100,12 +120,12 @@ export type BottomSheetProps = {
     /**
      * Фиксирует шапку
      */
-    headerSticky?: boolean;
+    stickyHeader?: boolean;
 
     /**
      * Фиксирует футер
      */
-    footerSticky?: boolean;
+    stickyFooter?: boolean;
 
     /**
      * Высота шторки
@@ -115,12 +135,17 @@ export type BottomSheetProps = {
     /**
      * Будет ли виден оверлэй
      */
-    overlayHidden?: boolean;
+    hideOverlay?: boolean;
 
     /**
      * Будет ли видна шапка
      */
-    headerHidden?: boolean;
+    hideHeader?: boolean;
+
+    /**
+     * Будет ли обрезан заголовок
+     */
+    trimTitle?: boolean;
 
     /**
      * Запретить закрытие шторки кликом на оверлэй
@@ -131,12 +156,20 @@ export type BottomSheetProps = {
      * Обработчик закрытия
      */
     onClose: () => void;
+
+    /**
+     * Обработчик нажатия на стрелку назад
+     */
+    onBack?: () => void;
 };
 
 const TIMEOUT = 300;
 const SWIPE_CLOSE_VELOCITY = 0.4;
 const MIN_BACKDROP_OPACITY = 0.2;
+const HEADER_HEIGHT = 56;
 
+/* Верхний отступ шторки, если она открыта на максимальную высоту */
+export const HEADER_OFFSET = 24;
 export const CLOSE_OFFSET = 0.2;
 
 export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
@@ -148,22 +181,28 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             contentClassName,
             headerClassName,
             addonClassName,
+            closerClassName,
+            backerClassName,
             className,
             leftAddons,
             rightAddons,
-            titleAlign = 'center',
-            headerSticky,
-            footerSticky,
+            hasCloser,
+            hasBacker,
+            titleAlign = 'left',
+            trimTitle,
+            stickyHeader,
+            stickyFooter,
             initialHeight = 'default',
-            overlayHidden,
-            headerHidden,
+            hideOverlay,
+            hideHeader,
             disableOverlayClick,
             children,
             zIndex,
             transitionProps = {},
             dataTestId,
-            swipeable: trackMouse = true,
+            swipeable = true,
             onClose,
+            onBack
         },
         ref,
     ) => {
@@ -179,11 +218,17 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             title,
             headerClassName,
             addonClassName,
+            closerClassName,
+            backerClassName,
+            swipeable,
             leftAddons,
             rightAddons,
+            hasCloser,
+            hasBacker,
             titleAlign,
-            sticky: headerSticky,
-            onClose
+            trimTitle,
+            sticky: stickyHeader,
+            onBack
         };
 
         const getBackdropOpacity = (offset: number): number => {
@@ -203,9 +248,12 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         /**
          * Если контент внутри шторки скроллится - то шторка не должна свайпаться
+         * Если шапка внутри шторки зафиксирована - то шторка должна свайпаться только в области шапки
          */
-        const shouldSkipSwiping = () => {
-            if (!scrollableContainer.current) {
+        const shouldSkipSwiping = (offsetY: number) => {
+            if (!swipeable) return true;
+
+            if (!scrollableContainer.current || stickyHeader && offsetY <= HEADER_HEIGHT + HEADER_OFFSET) {
                 return false;
             }
 
@@ -224,8 +272,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             }
         };
 
-        const handleSheetSwipedDown: SwipeCallback = ({ velocity }) => {
-            if (shouldSkipSwiping()) {
+        const handleSheetSwipedDown: SwipeCallback = ({ velocity, initial }) => {
+            const offsetY = initial[1];
+
+            if (shouldSkipSwiping(offsetY)) {
                 return;
             }
 
@@ -245,8 +295,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             scrollableContainerScrollValue.current = 0;
         };
 
-        const handleSheetSwiping: SwipeCallback = ({ deltaY }) => {
-            if (shouldSkipSwiping()) {
+        const handleSheetSwiping: SwipeCallback = ({ deltaY, initial }) => {
+            const offsetY = initial[1];
+
+            if (shouldSkipSwiping(offsetY)) {
                 return;
             }
 
@@ -267,7 +319,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const backdropSwipeablehandlers = useSwipeable({
             onSwipedDown: handleBackdropSwipedDown,
             delta: 100,
-            trackMouse,
+            trackMouse: swipeable,
         });
 
         const sheetSwipeablehandlers = useSwipeable({
@@ -275,7 +327,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             onSwipedDown: handleSheetSwipedDown,
             onSwiped: handleSheetSwiped,
             delta: 5,
-            trackMouse,
+            trackMouse: swipeable,
         });
 
         const handleExited = useCallback(
@@ -325,11 +377,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 Backdrop={SwipeableBackdrop}
                 backdropProps={{
                     opacity: backdropOpacity,
-                    handlers: trackMouse ? backdropSwipeablehandlers : false,
+                    handlers: swipeable ? backdropSwipeablehandlers : false,
                     opacityTimeout: TIMEOUT,
-                    invisible: initialHeight === 'full' ? false : overlayHidden
+                    invisible: initialHeight === 'full' ? false : hideOverlay
                 }}
-                disableBackdropClick={overlayHidden ? true : disableOverlayClick}
+                disableBackdropClick={hideOverlay ? true : disableOverlayClick}
                 className={styles.modal}
                 transitionProps={{
                     appear: true,
@@ -347,8 +399,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     style={getSwipeStyles()}
                     {...sheetSwipeablehandlers}
                 >
-                    {trackMouse && <div className={cn(styles.marker)} />}
-
                     <div
                         className={cn(styles.scrollableContainer, {
                             [styles.fullHeight]: initialHeight === 'full',
@@ -356,18 +406,20 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                         })}
                         ref={scrollableContainer}
                     >
-                        {!headerHidden && <Header {...headerProps} />}
+                        {swipeable && hideHeader && <div className={cn(styles.marker)} />}
 
-                        <div 
+                        {!hideHeader && <Header {...headerProps} />}
+
+                        <div
                             className={cn(styles.content, contentClassName, {
-                                [styles.paddingTop]: headerHidden,
-                                [styles.paddingBottom]: !actionButton
+                                [styles.noHeader]: hideHeader,
+                                [styles.noFooter]: !actionButton
                             })}
                         >
                             {children}
                         </div>
 
-                        {actionButton && <Footer sticky={footerSticky}>{actionButton}</Footer>}
+                        {actionButton && <Footer sticky={stickyFooter}>{actionButton}</Footer>}
                     </div>
                 </div>
             </BaseModal>

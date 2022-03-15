@@ -12,6 +12,7 @@
     "references": [
         { "path": "../backdrop" },
         { "path": "../base-modal" },
-        { "path": "../typography" }
+        { "path": "../typography" },
+        { "path": "../icon-button" }
     ]
 }

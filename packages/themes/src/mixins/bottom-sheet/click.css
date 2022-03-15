@@ -1,0 +1,11 @@
+@define-mixin bottom-sheet-click {
+    --header-border-bottom: none;
+    --footer-border-top: none;
+    
+    --footer-background-color: var(--color-light-bg-secondary);
+
+    --title-font-size: 20px;
+    --title-line-height: 28px;
+    --title-font-feature-settings: 'ss01';
+    --title-font-family: var(--font-family-styrene);
+}

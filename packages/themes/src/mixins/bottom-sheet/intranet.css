@@ -1,0 +1,10 @@
+@define-mixin bottom-sheet-intranet {
+    --header-border-bottom: none;
+    --footer-border-top: 1px solid var(--color-light-border-primary);
+
+    --footer-background-color: var(--color-light-bg-primary);
+
+    --title-font-size: 18px;
+    --title-line-height: 24px;
+    --title-font-family: var(--font-family-system);
+}
