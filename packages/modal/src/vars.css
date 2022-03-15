@@ -19,9 +19,6 @@
     --modal-s-content-only-bottom-padding: 56px;
     --modal-s-footer-paddings: var(--gap-xl) 56px 56px;
 
-    /* sticky */
-    --modal-footer-sticky-background: var(--modal-footer-background);
-
     /* scroll */
     --modal-header-highlight-background: var(--color-light-bg-primary);
     --modal-footer-highlight-background: var(--color-light-bg-primary);

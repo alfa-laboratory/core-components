@@ -4,11 +4,10 @@
     width: 100%;
     box-sizing: border-box;
     transition: box-shadow 0.2s ease, background 0.2s ease;
-    background: var(--modal-header-background);
 }
 
 .sticky {
-    background: var(--modal-footer-sticky-background);
+    background: var(--modal-footer-background);
     position: sticky;
 }
 
