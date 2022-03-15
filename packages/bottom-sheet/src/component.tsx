@@ -202,7 +202,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             dataTestId,
             swipeable = true,
             onClose,
-            onBack
+            onBack,
         },
         ref,
     ) => {
@@ -228,7 +228,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             titleAlign,
             trimTitle,
             sticky: stickyHeader,
-            onBack
+            onBack,
         };
 
         const getBackdropOpacity = (offset: number): number => {
@@ -253,7 +253,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const shouldSkipSwiping = (offsetY: number) => {
             if (!swipeable) return true;
 
-            if (!scrollableContainer.current || stickyHeader && offsetY <= HEADER_HEIGHT + HEADER_OFFSET) {
+            if (
+                !scrollableContainer.current ||
+                (stickyHeader && offsetY <= HEADER_HEIGHT + HEADER_OFFSET)
+            ) {
                 return false;
             }
 
@@ -379,7 +382,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     opacity: backdropOpacity,
                     handlers: swipeable ? backdropSwipeablehandlers : false,
                     opacityTimeout: TIMEOUT,
-                    invisible: initialHeight === 'full' ? false : hideOverlay
+                    invisible: initialHeight === 'full' ? false : hideOverlay,
                 }}
                 disableBackdropClick={hideOverlay ? true : disableOverlayClick}
                 className={styles.modal}
@@ -402,7 +405,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     <div
                         className={cn(styles.scrollableContainer, {
                             [styles.fullHeight]: initialHeight === 'full',
-                            [styles.scrollLocked]: scrollLocked
+                            [styles.scrollLocked]: scrollLocked,
                         })}
                         ref={scrollableContainer}
                     >
@@ -413,7 +416,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                         <div
                             className={cn(styles.content, contentClassName, {
                                 [styles.noHeader]: hideHeader,
-                                [styles.noFooter]: !actionButton
+                                [styles.noFooter]: !actionButton,
                             })}
                         >
                             {children}

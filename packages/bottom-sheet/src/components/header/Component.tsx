@@ -9,7 +9,6 @@ import { Closer } from '../closer/Components';
 import styles from './index.module.css';
 import { Backer } from '../backer/Components';
 
-
 export type HeaderProps = {
     /**
      * Заголовок
@@ -81,7 +80,7 @@ export type HeaderProps = {
      * Обработчик нажатия на стрелку назад
      */
     onBack?: () => void;
-}
+};
 
 export const Header: FC<HeaderProps> = ({
     title,
@@ -97,7 +96,7 @@ export const Header: FC<HeaderProps> = ({
     titleAlign,
     trimTitle,
     sticky,
-    onBack
+    onBack,
 }) => {
     const { headerHighlighted, setHasHeader, setHeaderOffset } = useContext(BaseModalContext);
 
@@ -120,11 +119,12 @@ export const Header: FC<HeaderProps> = ({
             {swipeable && <div className={cn(styles.marker)} />}
 
             {(hasBacker || leftAddons || titleAlign === 'center') && (
-                <div
-                    className={cn(styles.addon, addonClassName)}
-                    onClick={onBack}
-                >
-                    {hasBacker ? <Backer className={backerClassName} onClick={onBack} /> : leftAddons}
+                <div className={cn(styles.addon, addonClassName)} onClick={onBack}>
+                    {hasBacker ? (
+                        <Backer className={backerClassName} onClick={onBack} />
+                    ) : (
+                        leftAddons
+                    )}
                 </div>
             )}
 
@@ -136,7 +136,7 @@ export const Header: FC<HeaderProps> = ({
                         [styles.titleCenter]: titleAlign === 'center',
                         [styles.titleLeft]: titleAlign === 'left',
                         [styles.titleRight]: titleAlign === 'right',
-                        [styles.trimTitle]: trimTitle
+                        [styles.trimTitle]: trimTitle,
                     })}
                     color='primary'
                 >
@@ -150,5 +150,5 @@ export const Header: FC<HeaderProps> = ({
                 </div>
             )}
         </div>
-    )
-}
+    );
+};

@@ -14,7 +14,7 @@ export type FooterProps = {
     /**
      * Фиксирует футер
      */
-    sticky?:  boolean;
+    sticky?: boolean;
 
     /**
      * Дополнительный класс

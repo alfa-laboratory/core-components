@@ -11,6 +11,6 @@
 }
 
 .highlighted {
-    border-top: var(--footer-border-top);
-    background-color: var(--footer-background-color);
+    border-top: var(--bottom-sheet-footer-border-top);
+    background-color: var(--bottom-sheet-footer-background-color);
 }

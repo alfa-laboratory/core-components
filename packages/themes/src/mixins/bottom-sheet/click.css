@@ -1,11 +1,9 @@
 @define-mixin bottom-sheet-click {
-    --header-border-bottom: none;
-    --footer-border-top: none;
-    
-    --footer-background-color: var(--color-light-bg-secondary);
-
-    --title-font-size: 20px;
-    --title-line-height: 28px;
-    --title-font-feature-settings: 'ss01';
-    --title-font-family: var(--font-family-styrene);
+    --bottom-sheet-header-border-bottom: none;
+    --bottom-sheet-footer-border-top: none;
+    --bottom-sheet-footer-background-color: var(--color-light-bg-secondary);
+    --bottom-sheet-title-font-size: 20px;
+    --bottom-sheet-title-line-height: 28px;
+    --bottom-sheet-title-font-feature-settings: 'ss01';
+    --bottom-sheet-title-font-family: var(--font-family-styrene);
 }

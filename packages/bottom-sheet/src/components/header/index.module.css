@@ -16,7 +16,7 @@
 }
 
 .highlighted {
-    border-bottom: var(--header-border-bottom);
+    border-bottom: var(--bottom-sheet-header-border-bottom);
 }
 
 .justifyEnd {
@@ -46,10 +46,10 @@
 .title {
     padding: var(--gap-s) var(--gap-xs);
     width: 100%;
-    font-size: var(--title-font-size);
-    line-height: var(--title-line-height);
-    font-feature-settings: var(--title-font-feature-settings);
-    font-family: var(--title-font-family);
+    font-size: var(--bottom-sheet-title-font-size);
+    line-height: var(--bottom-sheet-title-line-height);
+    font-feature-settings: var(--bottom-sheet-title-font-feature-settings);
+    font-family: var(--bottom-sheet-title-font-family);
 }
 
 .titleCenter {

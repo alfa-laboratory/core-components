@@ -1,10 +1,8 @@
 @define-mixin bottom-sheet-mobile {
-    --header-border-bottom: 1px solid var(--color-light-border-primary);
-    --footer-border-top: 1px solid var(--color-light-border-primary);
-
-    --footer-background-color: var(--color-light-bg-primary);
-
-    --title-font-size: 18px;
-    --title-line-height: 24px;
-    --title-font-family: var(--font-family-system);
+    --bottom-sheet-header-border-bottom: 1px solid var(--color-light-border-primary);
+    --bottom-sheet-footer-border-top: 1px solid var(--color-light-border-primary);
+    --bottom-sheet-footer-background-color: var(--color-light-bg-primary);
+    --bottom-sheet-title-font-size: 18px;
+    --bottom-sheet-title-line-height: 24px;
+    --bottom-sheet-title-font-family: var(--font-family-system);
 }
