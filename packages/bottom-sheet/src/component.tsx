@@ -411,11 +411,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     >
                         {swipeable && hideHeader && <div className={cn(styles.marker)} />}
 
-                        {!hideHeader && <Header {...headerProps} />}
+                        {!hideHeader && (hasCloser || hasBacker || leftAddons || rightAddons || title) && <Header {...headerProps} />}
 
                         <div
                             className={cn(styles.content, contentClassName, {
-                                [styles.noHeader]: hideHeader,
+                                [styles.noHeader]: hideHeader || !hasCloser && !hasBacker && !leftAddons && !rightAddons && !title,
                                 [styles.noFooter]: !actionButton,
                             })}
                         >

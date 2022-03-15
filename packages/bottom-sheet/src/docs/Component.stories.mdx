@@ -60,14 +60,14 @@ export const longText = Array(10).fill(shortText).join('\n\n');
                         <Button view="secondary" block={true} size="s" onClick={handleClose}>Понятно</Button>}
                     onClose={handleClose}
                     swipeable={boolean('swipeable', true)}
-                    titleAlign={select('titleAlign', ['center', 'left', 'right'], 'center')}
+                    titleAlign={select('titleAlign', ['center', 'left'], 'center')}
                     trimTitle={boolean('trimTitle', false)}
                     stickyHeader={boolean('stickyHeader', false)}
-                    stickyFooter={boolean('stickyFooter', false)}
                     hasCloser={boolean('hasCloser', false)}
                     hasBacker={boolean('hasBacker', false)}
                     leftAddons={select('leftAddons', [true, false], false)}
                     rightAddons={select('rightAddons', [true, false], false)}
+                    stickyFooter={boolean('stickyFooter', false)}
                     initialHeight={select('initialHeight', ['default', 'full'], 'default')}
                     hideOverlay={boolean('hideOverlay', false)}
                     hideHeader={boolean('hideHeader', false)}

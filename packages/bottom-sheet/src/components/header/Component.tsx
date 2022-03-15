@@ -4,10 +4,10 @@ import { BaseModalContext } from '@alfalab/core-components-base-modal';
 import { Typography } from '@alfalab/core-components-typography';
 
 import { BottomSheetTitleAlign, HEADER_OFFSET } from '../..';
-import { Closer } from '../closer/Components';
+import { Closer } from '../closer/Component';
+import { Backer } from '../backer/Component';
 
 import styles from './index.module.css';
-import { Backer } from '../backer/Components';
 
 export type HeaderProps = {
     /**
@@ -136,7 +136,8 @@ export const Header: FC<HeaderProps> = ({
                         [styles.titleCenter]: titleAlign === 'center',
                         [styles.titleLeft]: titleAlign === 'left',
                         [styles.trimTitle]: trimTitle,
-                        [styles.titleIndent]: hasCloser || hasBacker || leftAddons || rightAddons
+                        [styles.titleIndentLeft]: hasBacker || leftAddons,
+                        [styles.titleIndentRight]: hasCloser || rightAddons,
                     })}
                     color='primary'
                 >

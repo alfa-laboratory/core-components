@@ -85,6 +85,10 @@
     text-overflow: ellipsis;
 }
 
-.titleIndent {
-    margin: 0 var(--gap-4xl);
+.titleIndentRight {
+    margin-right: var(--gap-4xl);
+}
+
+.titleIndentLeft {
+    margin-left: var(--gap-4xl);
 }

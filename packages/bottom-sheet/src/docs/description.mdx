@@ -109,9 +109,10 @@ render(() => {
                 open={open}
                 swipeable={!disableSwiping}
                 hasCloser={withTitleAndClose}
-                title={withTitleAndClose ? 'Заголовок' : null}
-                rightAddons={unfixedHeaderWithoutContent ? true : false}
-                leftAddons={unfixedHeaderWithoutContent ? true : false}
+                title={withTitleAndClose ? 'О статье 115-Ф3' : null}
+                stickyHeader
+                rightAddons={unfixedHeaderWithoutContent ? null : true}
+                leftAddons={null}
                 initialHeight={fullHeight ? 'full' : 'default'}
                 hideHeader={!withTitleAndClose && !unfixedHeaderWithoutContent}
                 hideOverlay={!overlayEnabled}
@@ -174,13 +175,15 @@ render(() => {
 
             <BottomSheet
                 open={open}
+                title="О статье 115-Ф3"
                 swipeable={!disableSwiping}
                 hasCloser={withTitleAndClose}
                 stickyFooter={fixedFooter}
                 title={withTitleAndClose ? 'Заголовок' : null}
-                rightAddons={unfixedHeaderWithoutContent ? true : false}
-                leftAddons={unfixedHeaderWithoutContent ? true : false}
+                rightAddons={unfixedHeaderWithoutContent ? null : true}
+                leftAddons={null}
                 hideHeader={!withTitleAndClose && !unfixedHeaderWithoutContent}
+                onClose={() => setOpen(false)}
                 actionButton={
                     <Button view='primary' block={true} size='s' onClick={() => setOpen(false)}>
                         Понятно
