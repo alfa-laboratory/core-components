@@ -22,6 +22,7 @@
     "dependencies": {
         "@alfalab/core-components-backdrop": "^2.0.1",
         "@alfalab/core-components-base-modal": "^3.2.0",
+        "@alfalab/core-components-icon-button": "^4.1.6",
         "@alfalab/core-components-typography": "^2.4.1",
         "classnames": "^2.2.6",
         "react-swipeable": "^5.5.0",
