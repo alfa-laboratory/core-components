@@ -1,9 +1,9 @@
-import React, { FC, KeyboardEventHandler, ReactNode, useContext, useEffect } from 'react';
+import React, { FC, ReactNode, useContext, useEffect } from 'react';
 import cn from 'classnames';
 import { BaseModalContext } from '@alfalab/core-components-base-modal';
 import { Typography } from '@alfalab/core-components-typography';
 
-import { BottomSheetTitleAlign, HEADER_OFFSET } from '../../';
+import { BottomSheetTitleAlign, HEADER_OFFSET } from '../..';
 import { Closer } from '../closer/Components';
 
 import styles from './index.module.css';
@@ -119,7 +119,7 @@ export const Header: FC<HeaderProps> = ({
             {swipeable && <div className={cn(styles.marker)} />}
 
             {(hasBacker || leftAddons || titleAlign === 'center') && (
-                <div className={cn(styles.addon, addonClassName)} onClick={onBack}>
+                <div className={cn(styles.addon, addonClassName)}>
                     {hasBacker ? (
                         <Backer className={backerClassName} onClick={onBack} />
                     ) : (

@@ -1,8 +1,7 @@
-import React, { ButtonHTMLAttributes, ElementType, useCallback, useContext } from 'react';
+import React, { ButtonHTMLAttributes, ElementType } from 'react';
 import cn from 'classnames';
 import { IconButton, IconButtonProps } from '@alfalab/core-components-icon-button';
 import { ArrowBackMIcon } from '@alfalab/icons-glyph/ArrowBackMIcon';
-import { BaseModalContext } from '@alfalab/core-components-base-modal';
 
 import styles from './index.module.css';
 
