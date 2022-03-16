@@ -88,6 +88,7 @@
         --color-dark-border-tertiary-inverted-alpha-30
     );
     --color-light-graphic-accent-alpha-30: var(--color-dark-graphic-accent-alpha-30);
+    --color-light-graphic-accent-tint-15: var(--color-dark-graphic-accent-shade-15);
     --color-light-graphic-accent-shade-10: var(--color-dark-graphic-accent-tint-10);
     --color-light-graphic-accent-shade-30: var(--color-dark-graphic-accent-tint-30);
     --color-light-graphic-negative-tint-30: var(--color-dark-graphic-negative-shade-30);

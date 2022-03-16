@@ -1,0 +1,9 @@
+@define-mixin calendar-intranet {
+    /* theme */
+    --calendar-today-color: var(--color-light-text-accent);
+    --calendar-range-background: var(--color-light-specialbg-component);
+    --calendar-range-complete-background: var(--color-light-bg-negative-muted);
+    --calendar-selected-background: var(--color-light-graphic-accent);
+    --calendar-selected-hover-background: var(--color-light-graphic-accent-tint-15);
+    --calendar-select-button-selected-background: var(--color-light-graphic-accent);
+}

@@ -32,6 +32,7 @@
     --color-dark-graphic-secondary: #8d8d93;
     --color-dark-graphic-tertiary: #464649;
     --color-dark-specialbg-nulled: rgba(255, 255, 255, 0);
+    --color-dark-specialbg-overlay-fallback: #070707;
     --color-dark-specialbg-primary-grouped: #202022;
     --color-dark-specialbg-secondary-grouped: #2c2c2e;
     --color-dark-specialbg-tertiary-grouped: #3a3a3c;
@@ -85,6 +86,7 @@
     --color-light-graphic-secondary: #8a8a8e;
     --color-light-graphic-tertiary: #c5c5c7;
     --color-light-specialbg-nulled: rgba(255, 255, 255, 0);
+    --color-light-specialbg-overlay-fallback: #5c5c5c;
     --color-light-specialbg-primary-grouped: #f3f4f5;
     --color-light-specialbg-secondary-grouped: #fff;
     --color-light-specialbg-tertiary-grouped: #f3f4f5;
@@ -151,6 +153,7 @@
     --color-dark-bg-tertiary-tint-7: rgb(59, 59, 61);
     --color-dark-border-tertiary-inverted-alpha-30: rgba(243, 244, 245, 0.3);
     --color-dark-graphic-accent-alpha-30: rgba(239, 49, 36, 0.3);
+    --color-dark-graphic-accent-shade-15: rgb(203, 42, 31);
     --color-dark-graphic-accent-tint-10: rgb(241, 70, 58);
     --color-dark-graphic-accent-tint-30: rgb(244, 111, 102);
     --color-dark-graphic-negative-shade-30: rgb(152, 20, 8);
@@ -211,6 +214,7 @@
     --color-light-bg-tertiary-shade-7: rgb(217, 217, 219);
     --color-light-border-tertiary-inverted-alpha-30: rgba(28, 28, 30, 0.3);
     --color-light-graphic-accent-alpha-30: rgba(239, 49, 36, 0.3);
+    --color-light-graphic-accent-tint-15: rgb(241, 80, 69);
     --color-light-graphic-accent-shade-10: rgb(215, 44, 32);
     --color-light-graphic-accent-shade-30: rgb(167, 34, 25);
     --color-light-graphic-negative-tint-30: rgb(245, 133, 125);

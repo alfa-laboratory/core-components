@@ -31,6 +31,7 @@
     },
     "light-graphic-accent": {
         "alpha": [30],
+        "tint": [15],
         "shade": [10, 30]
     },
     "light-graphic-positive": {
