@@ -4,7 +4,6 @@
     height: 100%;
     cursor: pointer;
     outline: none;
-    width: 92px;
     position: relative;
 }
 
@@ -12,9 +11,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 32px;
-    height: 32px;
-    margin-right: var(--gap-s);
+    width: 24px;
+    height: 24px;
+    margin-right: var(--gap-2xs);
 }
 
 .disabled {
