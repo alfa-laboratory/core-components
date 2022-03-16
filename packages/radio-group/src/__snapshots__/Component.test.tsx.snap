@@ -579,7 +579,7 @@ Object {
             class="radio tagLabel"
           >
             <button
-              class="component component s my-tag"
+              class="component component s default my-tag"
               type="button"
             >
               <span>
@@ -596,7 +596,7 @@ Object {
             class="radio tagLabel"
           >
             <button
-              class="component component s"
+              class="component component s default"
               type="button"
             >
               <span>
@@ -613,7 +613,7 @@ Object {
             class="radio tagLabel"
           >
             <button
-              class="component component s"
+              class="component component s default"
               type="button"
             >
               <span>
@@ -646,7 +646,7 @@ Object {
           class="radio tagLabel"
         >
           <button
-            class="component component s my-tag"
+            class="component component s default my-tag"
             type="button"
           >
             <span>
@@ -663,7 +663,7 @@ Object {
           class="radio tagLabel"
         >
           <button
-            class="component component s"
+            class="component component s default"
             type="button"
           >
             <span>
@@ -680,7 +680,7 @@ Object {
           class="radio tagLabel"
         >
           <button
-            class="component component s"
+            class="component component s default"
             type="button"
           >
             <span>
