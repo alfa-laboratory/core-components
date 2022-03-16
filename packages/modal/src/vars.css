@@ -39,4 +39,5 @@
     --modal-header-mobile-font-size: 18px;
     --modal-header-mobile-line-height: 24px;
     --modal-header-mobile-font-family: var(--font-family-system);
+    --modal-header-mobile-font-weight: bold;
 }

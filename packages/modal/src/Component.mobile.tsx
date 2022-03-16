@@ -30,10 +30,6 @@ const ModalMobileComponent = forwardRef<HTMLDivElement, ModalMobileProps>(
                     ...restProps.transitionProps,
                 }}
                 className={cn(className, styles.component)}
-                backdropProps={{
-                    ...restProps.backdropProps,
-                    invisible: true,
-                }}
             >
                 {children}
             </BaseModal>

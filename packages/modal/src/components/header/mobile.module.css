@@ -8,7 +8,7 @@
     font-size: var(--modal-header-mobile-font-size);
     line-height: var(--modal-header-mobile-line-height);
     font-family: var(--modal-header-mobile-font-family);
-    font-weight: bold;
+    font-weight: var(--modal-header-mobile-font-weight);
 
     padding: var(--modal-header-mobile-content-paddings);
 }

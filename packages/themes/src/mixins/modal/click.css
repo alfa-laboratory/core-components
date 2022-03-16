@@ -25,4 +25,5 @@
     --modal-header-mobile-font-size: 20px;
     --modal-header-mobile-line-height: 28px;
     --modal-header-mobile-font-family: var(--font-family-styrene);
+    --modal-header-mobile-font-weight: 400;
 }
