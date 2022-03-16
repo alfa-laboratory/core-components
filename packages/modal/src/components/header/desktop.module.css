@@ -6,7 +6,7 @@
 }
 
 .content {
-    font-weight: bold;
+    font-weight: var(--modal-header-desktop-font-weight);
     font-family: var(--modal-header-desktop-font-family);
 }
 

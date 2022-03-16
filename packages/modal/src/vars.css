@@ -32,6 +32,7 @@
     --modal-l-header-desktop-content-paddings: var(--gap-3xl) var(--gap-m) 0 0;
     --modal-l-header-desktop-font-size: 30px;
     --modal-l-header-desktop-line-height: 36px;
+    --modal-header-desktop-font-weight: bold;
     --modal-header-desktop-font-family: var(--font-family-system);
 
     /* mobile */

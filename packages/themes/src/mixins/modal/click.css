@@ -18,6 +18,7 @@
     --modal-s-header-desktop-content-paddings: var(--gap-xs) var(--gap-m) 0 0;
     --modal-s-header-desktop-font-size: 24px;
     --modal-s-header-desktop-line-height: 32px;
+    --modal-header-desktop-font-weight: 500;
     --modal-header-desktop-font-family: var(--font-family-styrene);
 
     /* mobile */
@@ -25,5 +26,5 @@
     --modal-header-mobile-font-size: 20px;
     --modal-header-mobile-line-height: 28px;
     --modal-header-mobile-font-family: var(--font-family-styrene);
-    --modal-header-mobile-font-weight: 400;
+    --modal-header-mobile-font-weight: 500;
 }
