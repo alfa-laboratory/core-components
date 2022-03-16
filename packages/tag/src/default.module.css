@@ -14,7 +14,9 @@
     --tag-background-color-hover: transparent;
     --tag-background-color-active: var(--color-light-bg-primary-inverted-alpha-7);
     --tag-background-color-checked: var(--color-light-bg-primary-inverted);
-    --tag-background-color-checked-disabled: var(--color-light-bg-primary-inverted-alpha-15);
+    --tag-background-color-checked-hover: var(--color-light-bg-primary-inverted-tint-15);
+    --tag-background-color-checked-active: var(--color-light-bg-primary-inverted-tint-20);
+    --tag-background-color-checked-disabled: var(--color-light-bg-primary-inverted-alpha-30);
 
     /* text color */
     --tag-text-color: var(--color-light-text-primary);
@@ -59,6 +61,11 @@
     }
 
     &:hover:not(:disabled):not(:active) {
-        background-color: var(--tag-background-color-checked);
+        background-color: var(--tag-background-color-checked-hover);
+    }
+
+    &:active:not(:disabled) {
+        background-color: var(--tag-background-color-checked-active);
+        color: var(--tag-text-color-checked);
     }
 }
