@@ -5,4 +5,5 @@
     --bottom-sheet-title-font-size: 18px;
     --bottom-sheet-title-line-height: 24px;
     --bottom-sheet-title-font-family: var(--font-family-system);
+    --bottom-sheet-title-margin-vertical: var(--gap-2xs);
 }

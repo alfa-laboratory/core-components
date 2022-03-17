@@ -136,8 +136,9 @@ export const Header: FC<HeaderProps> = ({
                         [styles.titleCenter]: titleAlign === 'center',
                         [styles.titleLeft]: titleAlign === 'left',
                         [styles.trimTitle]: trimTitle,
-                        [styles.titleIndentLeft]: hasBacker || leftAddons,
-                        [styles.titleIndentRight]: hasCloser || rightAddons,
+                        [styles.titleIndentHorizontal]: titleAlign === 'center' && (hasCloser || hasBacker || leftAddons || rightAddons),
+                        [styles.titleIndentLeft]: titleAlign !== 'center' && (hasBacker || leftAddons),
+                        [styles.titleIndentRight]: titleAlign !== 'center' && (hasCloser || rightAddons),
                     })}
                     color='primary'
                 >

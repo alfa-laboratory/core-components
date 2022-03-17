@@ -6,6 +6,7 @@
     --bottom-sheet-title-font-size: 18px;
     --bottom-sheet-title-line-height: 24px;
     --bottom-sheet-title-font-family: var(--font-family-system);
+    --bottom-sheet-title-margin-vertical: var(--gap-2xs);
 }
 
 .header {
@@ -63,7 +64,8 @@
 }
 
 .title {
-    padding: var(--gap-s) var(--gap-xs);
+    padding: var(--gap-xs) var(--gap-xs);
+    margin: var(--bottom-sheet-title-margin-vertical) 0;
     width: 100%;
     font-size: var(--bottom-sheet-title-font-size);
     line-height: var(--bottom-sheet-title-line-height);
@@ -83,6 +85,10 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.titleIndentHorizontal {
+    margin: var(--bottom-sheet-title-margin-vertical) var(--gap-4xl);
 }
 
 .titleIndentRight {

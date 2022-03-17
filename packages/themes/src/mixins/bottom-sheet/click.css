@@ -6,4 +6,5 @@
     --bottom-sheet-title-line-height: 28px;
     --bottom-sheet-title-font-feature-settings: 'ss01';
     --bottom-sheet-title-font-family: var(--font-family-styrene);
+    --bottom-sheet-title-margin-vertical: var(--gap-3xs);
 }

@@ -17,6 +17,7 @@ import { Footer } from './components/footer/Component';
 import { SwipeableBackdrop } from './components/swipeable-backdrop/Component';
 
 import styles from './index.module.css';
+import { Button } from '../../button/src/Component';
 
 export type BottomSheetTitleAlign = 'center' | 'left';
 
@@ -409,7 +410,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                         })}
                         ref={scrollableContainer}
                     >
-                        {swipeable && hideHeader && <div className={cn(styles.marker)} />}
+                        {swipeable && (hideHeader || !hasCloser && !hasBacker && !leftAddons && !rightAddons && !title) && <div className={cn(styles.marker)} />}
 
                         {!hideHeader && (hasCloser || hasBacker || leftAddons || rightAddons || title) && <Header {...headerProps} />}
 
