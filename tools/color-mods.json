@@ -12,8 +12,12 @@
         "alpha": [8]
     },
     "light-bg-primary-inverted": {
-        "alpha": [3, 7, 10, 15, 20, 30, 40, 50],
+        "alpha": [3, 7, 10, 15, 20, 30, 40, 50, 60, 80],
         "tint": [7, 15, 20]
+    },
+    "light-bg-secondary": {
+        "alpha": [30],
+        "shade": [7, 15]
     },
     "light-bg-secondary-inverted": {
         "alpha": [7, 15, 30],
@@ -24,7 +28,7 @@
     },
     "light-specialbg-component": {
         "shade": [7, 10, 30],
-        "alpha": [30, 60, 80]
+        "alpha": [2, 14, 23]
     },
     "light-specialbg-component-inverted": {
         "tint": [15]
