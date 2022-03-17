@@ -17,7 +17,6 @@ import { Footer } from './components/footer/Component';
 import { SwipeableBackdrop } from './components/swipeable-backdrop/Component';
 
 import styles from './index.module.css';
-import { Button } from '../../button/src/Component';
 
 export type BottomSheetTitleAlign = 'center' | 'left';
 
