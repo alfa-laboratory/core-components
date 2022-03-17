@@ -1,6 +1,5 @@
 import {
     setupScreenshotTesting,
-    createSpriteStorybookUrl,
     createStorybookUrl,
     openBrowserPage,
     matchHtml,
@@ -19,14 +18,79 @@ describe(
     screenshotTesting({
         cases: [
             [
-                'sprite',
-                createSpriteStorybookUrl({
+                'title-align-left',
+                createStorybookUrl({
                     componentName: 'BottomSheet',
-                    size: { width: 350, height: 350 },
                     knobs: {
                         open: true,
                         title: 'Заголовок',
                         children: 'Контент',
+                        titleAlign: 'left',
+                    },
+                }),
+            ],
+            [
+                'no-title',
+                createStorybookUrl({
+                    componentName: 'BottomSheet',
+                    knobs: {
+                        open: true,
+                        children: 'Контент',
+                        hasCloser: true,
+                        hasBacker: true
+                    },
+                }),
+            ],
+            [
+                'full-header-small-height',
+                createStorybookUrl({
+                    componentName: 'BottomSheet',
+                    knobs: {
+                        open: true,
+                        children: 'Контент',
+                        titleAlign: 'center',
+                        title: 'Заголовок',
+                        hasCloser: true,
+                        hasBacker: true
+                    },
+                }),
+            ],
+            [
+                'full-header-full-height',
+                createStorybookUrl({
+                    componentName: 'BottomSheet',
+                    knobs: {
+                        open: true,
+                        children: 'Контент',
+                        titleAlign: 'center',
+                        title: 'Заголовок',
+                        hasCloser: true,
+                        hasBacker: true,
+                        initialHeight: 'full'
+                    },
+                }),
+            ],
+            [
+                'left-title-with-closer',
+                createStorybookUrl({
+                    componentName: 'BottomSheet',
+                    knobs: {
+                        open: true,
+                        children: 'Контент',
+                        titleAlign: 'left',
+                        title: 'Заголовок',
+                        hasCloser: true,
+                    },
+                }),
+            ],
+            [
+                'no-header-no-footer',
+                createStorybookUrl({
+                    componentName: 'BottomSheet',
+                    knobs: {
+                        open: true,
+                        children: 'Контент',
+                        hideHeader: true
                     },
                 }),
             ],

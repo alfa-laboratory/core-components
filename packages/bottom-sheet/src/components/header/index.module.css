@@ -64,6 +64,7 @@
 }
 
 .title {
+    height: 24px;
     padding: var(--gap-xs) var(--gap-xs);
     margin: var(--bottom-sheet-title-margin-vertical) 0;
     width: 100%;
