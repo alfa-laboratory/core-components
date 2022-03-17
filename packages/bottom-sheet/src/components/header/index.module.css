@@ -4,6 +4,7 @@
     --bottom-sheet-header-border-bottom: none;
     --bottom-sheet-footer-background-color: var(--color-light-bg-primary);
     --bottom-sheet-title-font-size: 18px;
+    --bottom-sheet-title-font-weight: 700;
     --bottom-sheet-title-line-height: 24px;
     --bottom-sheet-title-font-family: var(--font-family-system);
     --bottom-sheet-title-margin-vertical: var(--gap-2xs);
@@ -69,6 +70,7 @@
     margin: var(--bottom-sheet-title-margin-vertical) 0;
     width: 100%;
     font-size: var(--bottom-sheet-title-font-size);
+    font-weight: var(--bottom-sheet-title-font-weight);
     line-height: var(--bottom-sheet-title-line-height);
     font-feature-settings: var(--bottom-sheet-title-font-feature-settings);
     font-family: var(--bottom-sheet-title-font-family);
