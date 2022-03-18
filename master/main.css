@@ -3296,14 +3296,11 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
         cursor: default;
     }
 .day_wtdJ6.today_1zoDM {
+        font-weight: bold;
         color: var(--calendar-today-color);
     }
 .day_wtdJ6.rangeComplete_3k0zi {
         background: var(--calendar-range-complete-background);
-    }
-.day_wtdJ6.today_1zoDM {
-        font-weight: bold;
-        color: var(--color-light-text-link);
     }
 .day_wtdJ6.selected_28Iyf,
     .day_wtdJ6.disabled_37x0A.selected_28Iyf {
@@ -3523,15 +3520,15 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
             background-color: var(--color-light-bg-tertiary-shade-7);
         }
 .button_235_J.outlined_zigT1 {
-        border: 1px solid var(--calendar-selector-button-outline-border-color);
+        border: 1px solid var(--calendar-select-button-today-border-color);
     }
 .button_235_J.selected_ctQc_,
     .button_235_J.selected_ctQc_:disabled {
-        background-color: var(--color-light-bg-primary-inverted);
+        background-color: var(--calendar-select-button-selected-background);
         color: var(--color-light-text-primary-inverted)
     }
 .button_235_J.selected_ctQc_:not(:disabled):hover, .button_235_J.selected_ctQc_:disabled:not(:disabled):hover {
-            background-color: var(--color-light-bg-primary-inverted);
+            background-color: var(--calendar-select-button-selected-background);
             color: var(--color-light-text-primary-inverted);
         }
 .button_235_J > * {
@@ -18580,6 +18577,10 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     background: url(https://static.figma.com/app/icon/1/favicon.svg) no-repeat 0 50%;
 }
 
+.commonLink_3jOFr {
+    opacity: 0.8;
+}
+
 .github_1HcXw {
     margin: 0 0 var(--gap-xs);
     padding: 0 0 0 var(--gap-l);
@@ -18607,7 +18608,8 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --calendar-mobile-inner-width: 256px;
 
     /* Кнопки выбора месяцев и годов */
-    --calendar-selector-button-outline-border-color: var(--color-light-border-key);
+    --calendar-select-button-today-border-color: var(--color-light-border-key);
+    --calendar-select-button-selected-background: var(--color-light-bg-primary-inverted);
 
     /* Шапка */
     --calendar-month-only-header-font-family: var(--font-family-system);
@@ -18719,29 +18721,72 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --color-light-blue: #f5f7f9;
 }
 :root {
+    --color-static-corpbg-neutral: #bdc0c2;
+    --color-static-corpbg-primary: #212a33;
+    --color-static-corpbg-secondary: #384048;
+    --color-static-corpbg-tertiary: #7a7f85;
     --color-static-graphic-amethyst: #a489aa;
     --color-static-graphic-blackberry: #bfafc6;
+    --color-static-graphic-blue-chill: #0f9c8c;
     --color-static-graphic-blue-maya: #7eb3ff;
     --color-static-graphic-blue-moody: #7879cf;
     --color-static-graphic-blue-steel: #4f84ba;
     --color-static-graphic-botticelli: #cee5e5;
+    --color-static-graphic-boulder: #7a7a7a;
+    --color-static-graphic-brink-pink: #fc617c;
+    --color-static-graphic-burnt-sienna: #eb7a58;
     --color-static-graphic-carrot: #e8bba3;
+    --color-static-graphic-chatelle: #bfafc6;
+    --color-static-graphic-chathams-blue: #155966;
     --color-static-graphic-chick: #f2db9e;
+    --color-static-graphic-crete: #847128;
+    --color-static-graphic-curious-blue: #2381db;
+    --color-static-graphic-curious-blue-light: #3b99d9;
+    --color-static-graphic-eastern-blue: #269cb3;
+    --color-static-graphic-french-lilac: #d3baed;
+    --color-static-graphic-fuel-yellow: #f29d32;
+    --color-static-graphic-fun-blue: #1d6ab5;
     --color-static-graphic-gallery: #eee;
     --color-static-graphic-green-jungle: #2fc26e;
+    --color-static-graphic-hippie-blue: #5aa4b0;
+    --color-static-graphic-jaffa: #f07134;
+    --color-static-graphic-jaffa-light: #f18836;
+    --color-static-graphic-java: #15c0e0;
+    --color-static-graphic-jungle-green: #2ab79a;
     --color-static-graphic-lavender: #8888ad;
+    --color-static-graphic-mantis: #63cd4f;
+    --color-static-graphic-matisse: #16548f;
+    --color-static-graphic-milano-red: #cd1501;
+    --color-static-graphic-mirage: #1d2434;
+    --color-static-graphic-moon-raker: #e9dbf7;
+    --color-static-graphic-moss-green: #a6d29c;
+    --color-static-graphic-nevada: #626b75;
     --color-static-graphic-olive: #bfd3c9;
+    --color-static-graphic-olivine: #87b965;
     --color-static-graphic-peach: #fcc99b;
     --color-static-graphic-persimmon: #ff5c5c;
+    --color-static-graphic-pewter: #96a5a5;
+    --color-static-graphic-pickled-bluewood: #2d3f50;
+    --color-static-graphic-porsche: #e7b965;
     --color-static-graphic-raspberry: #dfb2bb;
+    --color-static-graphic-red-damask: #da713c;
+    --color-static-graphic-saffron: #f0c330;
     --color-static-graphic-salomie: #fee984;
     --color-static-graphic-sand: #f6bf65;
+    --color-static-graphic-sandy-brown: #f38f6f;
     --color-static-graphic-seawater: #aecfd9;
+    --color-static-graphic-serenade: #fff0e3;
     --color-static-graphic-sky: #a6c0db;
     --color-static-graphic-soft-peach: #f3eaeb;
     --color-static-graphic-solitude: #e8f2fe;
     --color-static-graphic-strawberry: #f8b6a9;
     --color-static-graphic-sundust: #d9d6ce;
+    --color-static-graphic-turkish-rose: #b56a6b;
+    --color-static-graphic-turquoise-blue: #6bd3e6;
+    --color-static-graphic-valencia: #d8463b;
+    --color-static-graphic-waikawa-gray: #5b6d9c;
+    --color-static-graphic-whisper: #f2eff6;
+    --color-static-graphic-zanah: #e1f0de;
     --color-static-local-light-blue: #f5f7f9;
     --color-static-overlay-black-high: rgba(0, 0, 0, 0.32);
     --color-static-overlay-black-low: rgba(0, 0, 0, 0.16);
@@ -18936,6 +18981,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --color-dark-bg-tertiary-tint-7: rgb(74, 89, 104);
     --color-dark-border-tertiary-inverted-alpha-30: rgba(182, 188, 195, 0.3);
     --color-dark-graphic-accent-alpha-30: rgba(239, 49, 36, 0.3);
+    --color-dark-graphic-accent-shade-15: rgb(203, 42, 31);
     --color-dark-graphic-accent-tint-10: rgb(241, 70, 58);
     --color-dark-graphic-accent-tint-30: rgb(244, 111, 102);
     --color-dark-graphic-negative-shade-30: rgb(169, 56, 48);
@@ -19000,6 +19046,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --color-light-bg-tertiary-shade-7: rgb(215, 217, 219);
     --color-light-border-tertiary-inverted-alpha-30: rgba(109, 121, 134, 0.3);
     --color-light-graphic-accent-alpha-30: rgba(239, 49, 36, 0.3);
+    --color-light-graphic-accent-tint-15: rgb(241, 80, 69);
     --color-light-graphic-accent-shade-10: rgb(215, 44, 32);
     --color-light-graphic-accent-shade-30: rgb(167, 34, 25);
     --color-light-graphic-negative-tint-30: rgb(245, 133, 125);
@@ -19052,6 +19099,8 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --color-dynamic-quinary-light: rgba(255, 255, 255, 0.16);
     --color-dynamic-secondary-dark: rgba(0, 0, 0, 0.64);
     --color-dynamic-secondary-light: rgba(255, 255, 255, 0.64);
+    --color-dynamic-senary-dark: rgba(0, 0, 0, 0.12);
+    --color-dynamic-senary-light: rgba(255, 255, 255, 0.12);
     --color-dynamic-tertiary-dark: rgba(0, 0, 0, 0.48);
     --color-dynamic-tertiary-light: rgba(255, 255, 255, 0.48);
     --color-static-primary-dark: rgba(0, 0, 0, 0.8);
@@ -19062,6 +19111,8 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --color-static-quinary-light: rgba(255, 255, 255, 0.16);
     --color-static-secondary-dark: rgba(0, 0, 0, 0.64);
     --color-static-secondary-light: rgba(255, 255, 255, 0.64);
+    --color-static-senary-dark: rgba(0, 0, 0, 0.12);
+    --color-static-senary-light: rgba(255, 255, 255, 0.12);
     --color-static-tertiary-dark: rgba(0, 0, 0, 0.48);
     --color-static-tertiary-light: rgba(255, 255, 255, 0.48);
 }
