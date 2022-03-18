@@ -219,7 +219,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
         const fullHeight = use100vh()!;
-        const targetHeight = fullHeight - HEADER_OFFSET + 'px';
+        const targetHeight = `${fullHeight - HEADER_OFFSET}px`;
 
         const headerProps = {
             title,
