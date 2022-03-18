@@ -1,18 +1,11 @@
 @import '../../vars.css';
 
-.s {
+.s,
+.m {
     padding: var(--modal-s-content-paddings);
 
     &:last-child {
         padding-bottom: var(--modal-s-content-only-bottom-padding);
-    }
-}
-
-.m {
-    padding: 0 56px;
-
-    &:last-child {
-        padding-bottom: 56px;
     }
 }
 

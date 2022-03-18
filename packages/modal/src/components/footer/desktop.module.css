@@ -13,12 +13,9 @@
     }
 }
 
-.s {
-    padding: var(--modal-s-footer-paddings);
-}
-
+.s,
 .m {
-    padding: var(--gap-xl) 56px 56px;
+    padding: var(--modal-s-footer-paddings);
 }
 
 .l,

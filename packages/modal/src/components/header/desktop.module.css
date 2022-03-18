@@ -25,16 +25,9 @@
     line-height: var(--modal-l-header-desktop-line-height);
 }
 
-.s {
-    padding: var(--modal-s-header-paddings);
-
-    &:not(.hasContent) {
-        padding-bottom: 0;
-    }
-}
-
+.s,
 .m {
-    padding: var(--gap-xs) var(--gap-xs) var(--gap-m);
+    padding: var(--modal-s-header-paddings);
 
     &:not(.hasContent) {
         padding-bottom: 0;
