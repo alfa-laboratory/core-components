@@ -1,7 +1,8 @@
 import React, { FC, Fragment } from 'react';
 import { useMedia } from '@alfalab/hooks';
 
-import { BottomSheet, BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
+import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
+import { Button } from '@alfalab/core-components-button';
 
 import { Tooltip, TooltipProps } from '.';
 
@@ -31,17 +32,24 @@ type TooltipResponsiveProps = Omit<TooltipProps, 'open' | 'onClose' | 'onOpen'> 
     onClose: () => void;
 
     /**
-     * Кнопка в мобильной версии (обычно, это кнопка закрытия)
+     * Заголовок кнопки в футере
      */
-    mobileActionButton?: BottomSheetProps['actionButton'];
+    actionButtonTitle?: string;
+
+    /**
+     * Наличие компонента крестика
+     */
+    hasCloser?: boolean;
 };
 
 export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
     defaultMatch = 'mobile',
     content,
     children,
-    mobileActionButton,
     onOpen,
+    onClose,
+    actionButtonTitle = 'Понятно',
+    hasCloser,
     ...restProps
 }) => {
     const [view] = useMedia<View>(
@@ -56,17 +64,30 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
         onOpen();
     };
 
+    const handleClose = () => {
+        onClose();
+    }
+
     const isMobile = view === 'mobile';
 
     return isMobile ? (
         <Fragment>
-            <BottomSheet {...restProps} actionButton={mobileActionButton}>
+            <BottomSheet
+                {...restProps}
+                onClose={handleClose}
+                hasCloser={hasCloser}
+                actionButton={
+                    <Button view='secondary' block={true} size='s' onClick={handleClose}>
+                        {actionButtonTitle}
+                    </Button>
+                }
+            >
                 {content}
             </BottomSheet>
             {/** TODO: проверить тултип на доступность */}
             {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
             <div onClick={handleOpen} className={styles.target}>
-                {children.props.disabled && <div className={styles.overlap} />}
+                {children?.props.disabled && <div className={styles.overlap} />}
                 {children}
             </div>
         </Fragment>
