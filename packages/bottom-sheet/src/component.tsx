@@ -8,7 +8,7 @@ import React, {
     useState,
 } from 'react';
 import cn from 'classnames';
-import Div100vh from 'react-div-100vh';
+import { use100vh } from 'react-div-100vh';
 import { TransitionProps } from 'react-transition-group/Transition';
 import { SwipeCallback, useSwipeable } from 'react-swipeable';
 import { BaseModal } from '@alfalab/core-components-base-modal';
@@ -217,6 +217,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         const emptyHeader = !hasCloser && !hasBacker && !leftAddons && !rightAddons && !title;
 
+        const fullHeight = use100vh();
+
         const headerProps = {
             title,
             headerClassName,
@@ -372,6 +374,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             transform: sheetOffset ? `translateY(${sheetOffset}px)` : '',
         });
 
+        const getHeightStyles = (): CSSProperties => ({
+            height: initialHeight === 'full' ? fullHeight! - HEADER_OFFSET + 'px' : 'unset',
+            maxHeight: fullHeight! - HEADER_OFFSET + 'px'
+        });
+
         return (
             <BaseModal
                 open={open}
@@ -398,16 +405,18 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     onEntered: handleEntered,
                 }}
             >
-                <Div100vh
+                <div
                     className={cn(styles.component, className, {
                         [styles.withTransition]: !sheetOffset,
                     })}
-                    style={getSwipeStyles()}
+                    style={{
+                        ...getSwipeStyles(),
+                        ...getHeightStyles()
+                    }}
                     {...sheetSwipeablehandlers}
                 >
                     <div
                         className={cn(styles.scrollableContainer, {
-                            [styles.fullHeight]: initialHeight === 'full',
                             [styles.scrollLocked]: scrollLocked,
                         })}
                         ref={scrollableContainer}
@@ -427,7 +436,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
                         {actionButton && <Footer sticky={stickyFooter}>{actionButton}</Footer>}
                     </div>
-                </Div100vh>
+                </div>
             </BaseModal>
         );
     },

@@ -43,7 +43,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
           >
             <div
               class="component withTransition"
-              style="height: 768px;"
+              style="max-height: 744px;"
             >
               <div
                 class="scrollableContainer"
@@ -124,7 +124,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
           >
             <div
               class="component withTransition"
-              style="height: 768px;"
+              style="max-height: 744px;"
             >
               <div
                 class="scrollableContainer"

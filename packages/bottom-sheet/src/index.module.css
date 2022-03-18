@@ -14,8 +14,6 @@
 }
 
 .component {
-    /* Из максимальной высоты нужно вычитать HEADER_OFFSET */
-    max-height: calc(100vh - 24px);
     overflow: hidden;
     position: relative;
     display: flex;
@@ -35,6 +33,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    height: 100%;
 }
 
 .marker {
@@ -47,10 +46,6 @@
     transform: translateX(-50%);
     background-color: var(--color-light-graphic-neutral);
     z-index: 1000;
-}
-
-.fullHeight {
-    height: 100vh;
 }
 
 .content {
