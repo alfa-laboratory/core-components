@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState } from 'react';
 
 export function useControlled<T>(controlledValue: T, defaultValue: T): [T, (value: T) => void] {
     const { current: isControlled } = useRef<boolean>(controlledValue !== undefined);

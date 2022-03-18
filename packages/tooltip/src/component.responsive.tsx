@@ -5,6 +5,7 @@ import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
 import { Button } from '@alfalab/core-components-button';
 
 import { Tooltip, TooltipProps } from '.';
+import { useControlled } from './utils';
 
 import styles from './responsive.module.css';
 
@@ -19,17 +20,17 @@ type TooltipResponsiveProps = Omit<TooltipProps, 'open' | 'onClose' | 'onOpen'> 
     /**
      * Управление видимостью
      */
-    open: boolean;
+    open?: boolean;
 
     /**
      * Обработчик открытия
      */
-    onOpen: () => void;
+    onOpen?: () => void;
 
     /**
      * Обработчик закрытия
      */
-    onClose: () => void;
+    onClose?: () => void;
 
     /**
      * Заголовок кнопки в футере
@@ -46,6 +47,7 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
     defaultMatch = 'mobile',
     content,
     children,
+    open,
     onOpen,
     onClose,
     actionButtonTitle = 'Понятно',
@@ -60,12 +62,22 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
         defaultMatch,
     );
 
-    const handleOpen = () => {
-        onOpen();
+    const [openValue, setOpenValueIfUncontrolled] = useControlled(open, false);
+
+    const handleOpen = () => {  
+        if (onOpen) {
+            return onOpen();
+        }
+
+        setOpenValueIfUncontrolled(true);
     };
 
     const handleClose = () => {
-        onClose();
+        if (onClose) {
+            return onClose();
+        }
+
+        setOpenValueIfUncontrolled(false);
     }
 
     const isMobile = view === 'mobile';
@@ -74,6 +86,7 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
         <Fragment>
             <BottomSheet
                 {...restProps}
+                open={Boolean(openValue)}
                 onClose={handleClose}
                 hasCloser={hasCloser}
                 actionButton={
@@ -92,7 +105,7 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
             </div>
         </Fragment>
     ) : (
-        <Tooltip {...restProps} content={content} onOpen={onOpen}>
+        <Tooltip {...restProps} content={content} onOpen={handleOpen}>
             {children}
         </Tooltip>
     );
