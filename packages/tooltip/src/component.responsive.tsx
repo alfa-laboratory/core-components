@@ -64,20 +64,22 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
 
     const [openValue, setOpenValueIfUncontrolled] = useControlled(open, false);
 
-    const handleOpen = () => {  
+    const handleOpen = () => {
         if (onOpen) {
-            return onOpen();
+            onOpen();
         }
-
-        setOpenValueIfUncontrolled(true);
+        else {
+            setOpenValueIfUncontrolled(true);
+        }
     };
 
     const handleClose = () => {
         if (onClose) {
-            return onClose();
+            onClose();
         }
-
-        setOpenValueIfUncontrolled(false);
+        else {
+            setOpenValueIfUncontrolled(false);
+        }
     }
 
     const isMobile = view === 'mobile';
