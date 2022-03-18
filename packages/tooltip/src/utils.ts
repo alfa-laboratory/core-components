@@ -9,7 +9,7 @@ export function useControlled<T>(controlledValue: T, defaultValue: T): [T, (valu
         if (!isControlled) {
             setUncontrolledValue(newValue);
         }
-    }, []);
+    }, [isControlled]);
 
     return [value, setValueIfUncontrolled];
 }
