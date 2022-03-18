@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.6.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.5.2...@alfalab/core-components-themes@7.6.0) (2022-03-04)
+
+
+### Features
+
+* **modal:** mobile header ([#1018](https://github.com/alfa-laboratory/core-components/issues/1018)) ([54b879f](https://github.com/alfa-laboratory/core-components/commit/54b879f500d1124a6956d3d5a57349c856a09904))
+
+
+
+
+
 ## [7.5.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.5.1...@alfalab/core-components-themes@7.5.2) (2022-03-01)
 
 

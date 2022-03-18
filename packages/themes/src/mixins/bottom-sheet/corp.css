@@ -1,0 +1,10 @@
+@define-mixin bottom-sheet-corp {
+    --bottom-sheet-header-border-bottom: 1px solid var(--color-light-border-primary);
+    --bottom-sheet-footer-border-top: 1px solid var(--color-light-border-primary);
+    --bottom-sheet-footer-background-color: var(--color-light-bg-primary);
+    --bottom-sheet-title-font-size: 18px;
+    --bottom-sheet-title-font-weight: 700;
+    --bottom-sheet-title-line-height: 24px;
+    --bottom-sheet-title-font-family: var(--font-family-system);
+    --bottom-sheet-title-margin-vertical: var(--gap-2xs);
+}

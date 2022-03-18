@@ -1,0 +1,17 @@
+@import '../../../themes/src/default.css';
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    display: flex;
+    margin-right: var(--gap-s);
+}
+
+.content {
+    overflow: hidden;
+    flex: 1;
+    text-overflow: ellipsis;
+}

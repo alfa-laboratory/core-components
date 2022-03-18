@@ -1,3 +1,44 @@
+# [25.5.0](https://github.com/alfa-laboratory/core-components/compare/v25.4.1...v25.5.0) (2022-03-05)
+
+
+### Features
+
+* **circular-progress-bar:** ReactNode as title or subtitle ([#1023](https://github.com/alfa-laboratory/core-components/issues/1023)) ([7ae6df9](https://github.com/alfa-laboratory/core-components/commit/7ae6df9d2e4253f9a94532d155e81032cd96c810))
+
+## [25.4.1](https://github.com/alfa-laboratory/core-components/compare/v25.4.0...v25.4.1) (2022-03-04)
+
+
+### Bug Fixes
+
+* **skeleton:** added dataTestId ([18e4af8](https://github.com/alfa-laboratory/core-components/commit/18e4af805bd4e49a1a3c303cb3b4d9a3a9dd5751))
+
+# [25.4.0](https://github.com/alfa-laboratory/core-components/compare/v25.3.0...v25.4.0) (2022-03-04)
+
+
+### Bug Fixes
+
+* move icon from select to picker-button ([#1020](https://github.com/alfa-laboratory/core-components/issues/1020)) ([0d23257](https://github.com/alfa-laboratory/core-components/commit/0d23257b561329092be551d237389cc06c3d5607))
+* update glyph deps ([#1019](https://github.com/alfa-laboratory/core-components/issues/1019)) ([3e910d0](https://github.com/alfa-laboratory/core-components/commit/3e910d0801c4c46bcd399163200c1f7bfaba375e))
+
+
+### Features
+
+* **modal:** mobile header ([#1018](https://github.com/alfa-laboratory/core-components/issues/1018)) ([54b879f](https://github.com/alfa-laboratory/core-components/commit/54b879f500d1124a6956d3d5a57349c856a09904))
+
+# [25.3.0](https://github.com/alfa-laboratory/core-components/compare/v25.2.0...v25.3.0) (2022-03-03)
+
+
+### Bug Fixes
+
+* **code-input:** code-input-request-animation-frame-fix ([#1014](https://github.com/alfa-laboratory/core-components/issues/1014)) ([ad1478e](https://github.com/alfa-laboratory/core-components/commit/ad1478ebfd17679e8a2792462c619f525e5b7bb9))
+* **typography:** changed styrene font styles for title responsive ([#1017](https://github.com/alfa-laboratory/core-components/issues/1017)) ([540b0b5](https://github.com/alfa-laboratory/core-components/commit/540b0b59cf99a4cee0798f50b94e6449be4aa3c6))
+
+
+### Features
+
+* **hatching-progress-bar:** add component ([#1012](https://github.com/alfa-laboratory/core-components/issues/1012)) ([a25a579](https://github.com/alfa-laboratory/core-components/commit/a25a5793df91c9e9cf213c7d1215c771c1851141))
+* **picker-button:** added new view and updated dropdown options ([#1013](https://github.com/alfa-laboratory/core-components/issues/1013)) ([050fb3e](https://github.com/alfa-laboratory/core-components/commit/050fb3eb6fd6dde057bbfcad5dd807d354125b63))
+
 # [25.2.0](https://github.com/alfa-laboratory/core-components/compare/v25.1.0...v25.2.0) (2022-03-01)
 
 

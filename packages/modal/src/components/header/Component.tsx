@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { ModalContext } from '../../Context';
 
-import { Closer } from '../closer/Component';
+import styles from './index.module.css';
 
 export type HeaderProps = {
     /**
@@ -12,9 +12,14 @@ export type HeaderProps = {
     children?: ReactNode;
 
     /**
-     * Наличие крестика
+     * Слот слева
      */
-    hasCloser?: boolean;
+    leftAddons?: ReactNode;
+
+    /**
+     * Компонент крестика
+     */
+    closer?: ReactNode;
 
     /**
      * Дополнительный класс
@@ -22,9 +27,26 @@ export type HeaderProps = {
     className?: string;
 
     /**
+     * Дополнительный класс для аддонов
+     */
+    addonClassName?: string;
+
+    /**
+     * Дополнительный класс для контента
+     */
+    contentClassName?: string;
+
+    /**
      * Заголовок шапки
      */
     title?: string;
+
+    /**
+     * Выравнивание заголовка
+     */
+    align?: 'left' | 'right' | 'center';
+
+    trim?: boolean;
 
     /**
      * Фиксирует шапку
@@ -32,13 +54,17 @@ export type HeaderProps = {
     sticky?: boolean;
 };
 
-export const Header: FC<HeaderProps & { styles: Record<string, string> }> = ({
+export const Header: FC<HeaderProps> = ({
     className,
+    addonClassName,
+    contentClassName,
+    leftAddons,
     children,
+    align = 'left',
+    trim = true,
     title,
-    hasCloser = true,
+    closer,
     sticky,
-    styles,
 }) => {
     const { headerHighlighted, setHasHeader } = useContext(ModalContext);
 
@@ -51,18 +77,25 @@ export const Header: FC<HeaderProps & { styles: Record<string, string> }> = ({
     return (
         <div
             className={cn(styles.header, className, {
-                [styles.highlighted]: sticky && headerHighlighted,
+                [styles.highlighted]: hasContent && sticky && headerHighlighted,
                 [styles.sticky]: sticky,
+                [styles.hasContent]: hasContent,
             })}
         >
+            {leftAddons && <div className={cn(styles.addon, addonClassName)}>{leftAddons}</div>}
+
             {hasContent && (
-                <div className={styles.content}>
+                <div
+                    className={cn(styles.content, contentClassName, styles[align], {
+                        [styles.trim]: trim,
+                    })}
+                >
                     {children}
                     {title && <div className={styles.title}>{title}</div>}
                 </div>
             )}
 
-            {hasCloser && <Closer />}
+            {closer && <div className={cn(styles.addon, addonClassName)}>{closer}</div>}
         </div>
     );
 };

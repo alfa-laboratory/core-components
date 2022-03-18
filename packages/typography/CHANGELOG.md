@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-typography@2.4.0...@alfalab/core-components-typography@2.4.1) (2022-03-03)
+
+
+### Bug Fixes
+
+* **typography:** changed styrene font styles for title responsive ([#1017](https://github.com/alfa-laboratory/core-components/issues/1017)) ([540b0b5](https://github.com/alfa-laboratory/core-components/commit/540b0b59cf99a4cee0798f50b94e6449be4aa3c6))
+
+
+
+
+
 # [2.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-typography@2.3.0...@alfalab/core-components-typography@2.4.0) (2022-03-01)
 
 

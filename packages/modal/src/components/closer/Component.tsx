@@ -1,6 +1,7 @@
-import React, { ButtonHTMLAttributes, FC, useCallback, useContext } from 'react';
+import React, { ButtonHTMLAttributes, ElementType, FC, useCallback, useContext } from 'react';
 import cn from 'classnames';
-import { Button } from '@alfalab/core-components-button';
+import { IconButton, IconButtonProps } from '@alfalab/core-components-icon-button';
+import { CrossHeavyMIcon } from '@alfalab/icons-glyph/CrossHeavyMIcon';
 
 import { ModalContext } from '../../Context';
 
@@ -18,12 +19,29 @@ export type CloserProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     align?: 'left' | 'right';
 
     /**
+     * Размер кнопки
+     */
+    size?: IconButtonProps['size'];
+
+    /**
+     * Иконка
+     */
+    icon?: ElementType;
+
+    /**
      * Флаг, что модальное окно открыто на весь экран
      */
     fullscreen?: boolean;
 };
 
-export const Closer: FC<CloserProps> = ({ className, fullscreen, align, ...restProps }) => {
+export const Closer: FC<CloserProps> = ({
+    className,
+    fullscreen,
+    align,
+    size = 's',
+    icon = CrossHeavyMIcon,
+    ...restProps
+}) => {
     const { onClose } = useContext(ModalContext);
 
     const handleClick = useCallback(
@@ -34,9 +52,8 @@ export const Closer: FC<CloserProps> = ({ className, fullscreen, align, ...restP
     );
 
     return (
-        <Button
-            type='button'
-            view='ghost'
+        <IconButton
+            size={size}
             className={cn(
                 styles.closer,
                 className,
@@ -45,6 +62,7 @@ export const Closer: FC<CloserProps> = ({ className, fullscreen, align, ...restP
             )}
             aria-label='закрыть'
             onClick={handleClick}
+            icon={icon}
             {...restProps}
         />
     );

@@ -14,16 +14,17 @@
     --modal-m-footer-paddings: var(--gap-2xl) var(--gap-4xl) var(--gap-4xl);
     --modal-l-footer-paddings: var(--gap-2xl) var(--gap-6xl) var(--gap-6xl);
 
-    /* closer */
-    --modal-closer-icon: url('https://alfabank.gcdn.co/icons/glyph_cross-heavy_m.svg');
-
     /* sticky */
     --modal-footer-sticky-box-shadow: none;
     --modal-footer-sticky-background: var(--color-light-bg-secondary);
 
     /* scroll */
-    --modal-header-highlight-box-shadow: none;
     --modal-header-highlight-background: var(--color-light-bg-primary);
-    --modal-footer-highlight-box-shadow: none;
     --modal-footer-highlight-background: var(--color-light-bg-secondary);
+
+    /* mobile */
+    --modal-header-mobile-top-padding: 10px;
+    --modal-header-mobile-font-size: 20px;
+    --modal-header-mobile-line-height: 28px;
+    --modal-header-mobile-font-family: var(--font-family-styrene);
 }

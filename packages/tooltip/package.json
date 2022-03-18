@@ -1,6 +1,6 @@
 {
     "name": "@alfalab/core-components-tooltip",
-    "version": "4.5.0",
+    "version": "4.5.1",
     "description": "Tooltip component",
     "keywords": [],
     "license": "MIT",
@@ -20,7 +20,7 @@
         "react-dom": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-bottom-sheet": "^3.1.0",
+        "@alfalab/core-components-bottom-sheet": "^3.1.1",
         "@alfalab/core-components-popover": "^5.6.1",
         "@alfalab/hooks": "^1.4.1",
         "classnames": "^2.2.6",
