@@ -350,6 +350,8 @@ export const SelectMobile = forwardRef(
                     className={styles.sheet}
                     contentClassName={styles.sheetContent}
                     containerClassName={styles.sheetContainer}
+                    title={placeholder}
+                    hasCloser
                 >
                     <div {...menuProps} className={cn(optionsListClassName, styles.optionsList)}>
                         <OptionsList
