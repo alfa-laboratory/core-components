@@ -118,7 +118,6 @@ export const Header: FC<HeaderProps> = ({
         const hasRightPart = hasCloser || rightAddons;
 
         return cn({
-            [styles.titleDefaultIndentHorizontal]: sticky,
             [styles.titleBigIndentHorizontal]: !sticky && titleAlignedCenter && (hasLeftPart || hasRightPart),
             [styles.titleIndentLeft]: !sticky && !titleAlignedCenter && hasLeftPart,
             [styles.titleIndentRight]: !sticky && !titleAlignedCenter && hasRightPart,

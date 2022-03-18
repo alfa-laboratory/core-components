@@ -103,7 +103,3 @@
 .titleIndentLeft {
     margin-left: var(--gap-4xl);
 }
-
-.titleDefaultIndentHorizontal {
-    margin: var(--bottom-sheet-title-margin-vertical) var(--gap-xs);
-}
