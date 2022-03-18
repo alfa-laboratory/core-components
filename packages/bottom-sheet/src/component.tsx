@@ -8,6 +8,7 @@ import React, {
     useState,
 } from 'react';
 import cn from 'classnames';
+import Div100vh from 'react-div-100vh';
 import { TransitionProps } from 'react-transition-group/Transition';
 import { SwipeCallback, useSwipeable } from 'react-swipeable';
 import { BaseModal } from '@alfalab/core-components-base-modal';
@@ -214,6 +215,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const scrollableContainer = useRef<HTMLDivElement | null>(null);
         const scrollableContainerScrollValue = useRef(0);
 
+        const emptyHeader = !hasCloser && !hasBacker && !leftAddons && !rightAddons && !title;
+
         const headerProps = {
             title,
             headerClassName,
@@ -395,7 +398,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     onEntered: handleEntered,
                 }}
             >
-                <div
+                <Div100vh
                     className={cn(styles.component, className, {
                         [styles.withTransition]: !sheetOffset,
                     })}
@@ -409,13 +412,13 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                         })}
                         ref={scrollableContainer}
                     >
-                        {swipeable && (hideHeader || !hasCloser && !hasBacker && !leftAddons && !rightAddons && !title) && <div className={cn(styles.marker)} />}
+                        {swipeable && (hideHeader || emptyHeader) && <div className={cn(styles.marker)} />}
 
-                        {!hideHeader && (hasCloser || hasBacker || leftAddons || rightAddons || title) && <Header {...headerProps} />}
+                        {!hideHeader && !emptyHeader && <Header {...headerProps} />}
 
                         <div
                             className={cn(styles.content, contentClassName, {
-                                [styles.noHeader]: hideHeader || !hasCloser && !hasBacker && !leftAddons && !rightAddons && !title,
+                                [styles.noHeader]: hideHeader || emptyHeader,
                                 [styles.noFooter]: !actionButton,
                             })}
                         >
@@ -424,7 +427,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
                         {actionButton && <Footer sticky={stickyFooter}>{actionButton}</Footer>}
                     </div>
-                </div>
+                </Div100vh>
             </BaseModal>
         );
     },

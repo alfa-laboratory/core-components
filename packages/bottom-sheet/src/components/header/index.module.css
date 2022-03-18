@@ -46,12 +46,15 @@
 }
 
 .addon {
-    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     min-width: 48px;
     height: 48px;
+}
+
+.addonFixed {
+    position: fixed;
 }
 
 .addonLeft {
@@ -90,7 +93,7 @@
     text-overflow: ellipsis;
 }
 
-.titleIndentHorizontal {
+.titleBigIndentHorizontal {
     margin: var(--bottom-sheet-title-margin-vertical) var(--gap-4xl);
 }
 
@@ -100,4 +103,8 @@
 
 .titleIndentLeft {
     margin-left: var(--gap-4xl);
+}
+
+.titleDefaultIndentHorizontal {
+    margin: var(--bottom-sheet-title-margin-vertical) var(--gap-xs);
 }
