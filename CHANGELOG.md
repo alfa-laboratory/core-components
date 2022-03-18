@@ -1,3 +1,15 @@
+# [25.6.0](https://github.com/alfa-laboratory/core-components/compare/v25.5.0...v25.6.0) (2022-03-18)
+
+
+### Bug Fixes
+
+* **intl-phone-input:** design fixes ([#1030](https://github.com/alfa-laboratory/core-components/issues/1030)) ([27cfb9b](https://github.com/alfa-laboratory/core-components/commit/27cfb9be1cac9f0aac151ae2121c426fb123fb3f))
+
+
+### Features
+
+* **calendar:** add intranet theme ([#1026](https://github.com/alfa-laboratory/core-components/issues/1026)) ([292b76c](https://github.com/alfa-laboratory/core-components/commit/292b76c100bb12ebb1011d2a9981ba2b2899dd7a))
+
 # [25.5.0](https://github.com/alfa-laboratory/core-components/compare/v25.4.1...v25.5.0) (2022-03-05)
 
 
