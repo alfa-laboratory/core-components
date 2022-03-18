@@ -217,7 +217,9 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         const emptyHeader = !hasCloser && !hasBacker && !leftAddons && !rightAddons && !title;
 
-        const fullHeight = use100vh();
+        // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
+        const fullHeight = use100vh()!;
+        const targetHeight = fullHeight - HEADER_OFFSET + 'px';
 
         const headerProps = {
             title,
@@ -375,8 +377,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         });
 
         const getHeightStyles = (): CSSProperties => ({
-            height: initialHeight === 'full' ? fullHeight! - HEADER_OFFSET + 'px' : 'unset',
-            maxHeight: fullHeight! - HEADER_OFFSET + 'px'
+            height: initialHeight === 'full' ? targetHeight : 'unset',
+            maxHeight: targetHeight
         });
 
         return (
