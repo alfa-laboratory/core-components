@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ForwardRefRenderFunction } from 'react';
 import {
     render,
     fireEvent,
@@ -8,11 +8,16 @@ import {
     waitFor,
 } from '@testing-library/react';
 
+import * as popoverModule from '@alfalab/core-components-popover';
 import { Tooltip, TooltipProps } from './index';
 
 jest.mock('react-transition-group', () => {
     return { CSSTransition: jest.fn(props => (props.in ? props.children : null)) };
 });
+
+type PopoverComponent = {
+    render?: ForwardRefRenderFunction<HTMLDivElement, popoverModule.PopoverProps>;
+};
 
 const renderTooltip = async (props: TooltipProps): Promise<RenderResult> => {
     let result;
@@ -348,5 +353,26 @@ describe('Props test', () => {
         });
 
         expect(container.firstChild).toEqual(ref.current);
+    });
+
+    it('PopoverComponent should use `anchor` props like anchorElement', async () => {
+        const PopoverComponent = popoverModule.Popover as PopoverComponent;
+        const spy = jest.spyOn(PopoverComponent, 'render');
+
+        const anchor: HTMLDivElement | null = document.createElement('div');
+
+        const expectedProps: TooltipProps = {
+            anchor,
+            children: <div>children</div>,
+            content: <div>I am tooltip</div>,
+            open: true,
+        };
+
+        render(<Tooltip {...expectedProps} />);
+
+        const mockCalls = spy.mock.calls;
+        const lastMockCall = mockCalls[mockCalls.length - 1];
+
+        expect(lastMockCall[0]).toMatchObject({ anchorElement: anchor });
     });
 });
