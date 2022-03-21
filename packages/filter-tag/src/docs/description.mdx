@@ -1,0 +1,22 @@
+import { Container, Row, Col } from 'storybook/blocks';
+
+Компонент FilterTag
+
+```tsx live
+render(() => {
+const SIZES = ['xxs', 'xs', 's'];
+return (
+    <Container>
+        <Row align='middle'>
+            { SIZES.map((size) => (
+                <Col key={size}>
+                    <FilterTag size={size} >
+                        Label
+                    </FilterTag>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+);
+})
+```
