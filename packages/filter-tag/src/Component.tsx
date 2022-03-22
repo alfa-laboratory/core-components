@@ -99,7 +99,10 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
                     type='button'
                     ref={valueRef}
                     disabled={disabled}
-                    className={cn(styles.valueButton, styles[size], { [styles.checked]: checked })}
+                    className={cn(styles.valueButton, styles[size], {
+                        [styles.checked]: checked,
+                        [styles.open]: open,
+                    })}
                     onClick={disabled ? undefined : onClick}
                 >
                     <span>{children}</span>

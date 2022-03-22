@@ -28,8 +28,10 @@
     display: flex;
     width: max-content;
     color: var(--tag-text-color);
-    border: 1px solid var(--tag-border-color);
-    background-color: transparent;
+    border-width: var(--tag-border-width);
+    border-style: solid;
+    border-color: var(--tag-border-color);
+    background-color: var(--tag-background-color);
     transition: background-color 0.2s ease, border 0.2s ease, color 0.2s ease;
     box-sizing: border-box;
     box-shadow: none;
@@ -52,24 +54,36 @@
     }
 
     &:not(.filterTag.disabled).open {
-        border-color: var(--tag-border-color-hover);
         background-color: var(--tag-background-color-hover);
     }
 
     &:not(.filterTag.disabled):active {
-        background-color: var(--tag-background-color-active);
+        border-color: var(--tag-border-color-active);
+    }
+
+    & .valueButton {
+        &:not(.valueButton:disabled):hover {
+            background-color: var(--tag-background-color-hover);
+        }
+
+        &:not(.valueButton:disabled).open {
+            background-color: var(--tag-background-color-hover);
+        }
+
+        &:not(.valueButton:disabled):active {
+            background-color: var(--tag-background-color-active);
+        }
     }
 
     &.disabled {
         cursor: not-allowed;
-        background-color: var(--tag-background-color-checked-disabled);
-        border-color: var(--tag-border-color-checked-disabled);
-        color: var(--tag-text-color-checked-disabled);
+        background-color: var(--tag-background-color-disabled);
+        border-color: var(--tag-border-color-disabled);
+        color: var(--tag-text-color-disabled);
     }
 
     &.checked {
         border-color: var(--tag-border-color-checked);
-        color: var(--tag-text-color-checked);
 
         &.xxs {
             min-width: 84px;
@@ -83,29 +97,36 @@
             min-width: 116px;
         }
 
-        &:not(.filterTag.disabled).open {
+        &:not(.filterTag.disabled).open,
+        &:not(.filterTag.disabled):hover {
             background-color: var(--tag-background-color-checked-hover);
-        }
-
-        &:not(.filterTag.disabled):active {
-            background-color: var(--tag-background-color-checked-active);
+            border-color: var(--tag-border-color-checked);
         }
 
         &.disabled {
-            background-color: var(--tag-background-color-checked-disabled);
             border-color: var(--tag-border-color-checked-disabled);
-            color: var(--tag-text-color-checked-disabled);
         }
 
         & .valueButton {
             background-color: var(--tag-background-color-checked);
-        }
-        & .valueButton:not(.filterTag.disabled):hover {
-            background-color: var(--tag-background-color-checked-hover);
-        }
+            color: var(--tag-text-color-checked);
 
-        & .valueButton:not(.filterTag.disabled):hover + .clear:before {
-            background-color: transparent;
+            &:not(.valueButton:disabled):hover {
+                background-color: var(--tag-background-color-checked-hover);
+            }
+
+            &:not(.valueButton:disabled):active {
+                background-color: var(--tag-background-color-checked-active);
+            }
+
+            &:not(.valueButton:disabled):hover + .clear:before {
+                background-color: transparent;
+            }
+
+            &:disabled {
+                background-color: var(--tag-background-color-checked-disabled);
+                color: var(--tag-text-color-checked-disabled);
+            }
         }
     }
 
@@ -115,8 +136,8 @@
     }
 
     & .valueButton {
-        height: 100%;
         display: flex;
+        height: 100%;
         align-items: center;
         box-shadow: none;
         user-select: none;
@@ -126,10 +147,6 @@
         border: 0;
         color: inherit;
         transition: background-color 0.2s ease, color 0.2s ease;
-
-        &:disabled {
-            cursor: not-allowed;
-        }
 
         & .chevron {
             position: relative;
@@ -141,7 +158,8 @@
 
         &.s {
             @mixin paragraph_primary_medium;
-            padding: var(--gap-s) var(--gap-s) var(--gap-s) var(--gap-xl);
+            padding-right: var(--gap-s);
+            padding-left: var(--gap-xl);
 
             & .chevron {
                 margin: 0 var(--gap-xs);
@@ -150,7 +168,8 @@
 
         &.xs {
             @mixin paragraph_primary_small;
-            padding: var(--gap-xs) var(--gap-xs) var(--gap-xs) var(--gap-l);
+            padding-right: var(--gap-xs);
+            padding-left: var(--gap-l);
 
             & .chevron {
                 margin: 0 var(--gap-xs) 0 var(--gap-2xs);
@@ -159,14 +178,15 @@
 
         &.xxs {
             @mixin paragraph_primary_small;
-            padding: var(--gap-2xs) var(--gap-2xs) var(--gap-2xs) var(--gap-m);
+            padding-right: var(--gap-2xs);
+            padding-left: var(--gap-m);
 
             & .chevron {
                 margin: 0 var(--gap-xs) 0 var(--gap-2xs);
             }
         }
 
-        &.checked {
+        &.checked:not(.valueButton:disabled) {
             padding-right: 0;
         }
     }
@@ -185,13 +205,17 @@
             position: absolute;
             left: 0;
             display: block;
-            background-color: var(--color-light-border-secondary-inverted);
+            background-color: var(--color-dark-border-underline);
             width: 1px;
             transition: background-color 0.2s ease;
         }
 
         &:hover {
             background-color: var(--tag-background-color-checked-hover);
+        }
+
+        &:not(.filterTag.disabled):active {
+            background-color: var(--tag-background-color-checked-active);
         }
 
         &.s {
