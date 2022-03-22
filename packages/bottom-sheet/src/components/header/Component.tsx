@@ -100,6 +100,10 @@ export const Header: FC<HeaderProps> = ({
 }) => {
     const { headerHighlighted, setHasHeader, setHeaderOffset } = useContext(BaseModalContext);
 
+    const hasLeftPart = hasBacker || leftAddons || titleAlign === 'center';
+    const hasRightPart = (hasCloser || rightAddons || titleAlign === 'center');
+    const hasHeaderContent = title || hasBacker || hasCloser;
+
     useEffect(() => {
         setHasHeader(true);
     }, [setHasHeader]);
@@ -107,6 +111,18 @@ export const Header: FC<HeaderProps> = ({
     useEffect(() => {
         setHeaderOffset(HEADER_OFFSET);
     }, [setHeaderOffset]);
+
+    const getTitleIndent = (): string => {
+        const titleAlignedCenter = titleAlign === 'center';
+        const hasLeftPart = hasBacker || leftAddons;
+        const hasRightPart = hasCloser || rightAddons;
+
+        return cn({
+            [styles.titleBigIndentHorizontal]: !sticky && titleAlignedCenter && (hasLeftPart || hasRightPart),
+            [styles.titleIndentLeft]: !sticky && !titleAlignedCenter && hasLeftPart,
+            [styles.titleIndentRight]: !sticky && !titleAlignedCenter && hasRightPart,
+        })
+    }
 
     return (
         <div
@@ -118,8 +134,11 @@ export const Header: FC<HeaderProps> = ({
         >
             {swipeable && <div className={cn(styles.marker)} />}
 
-            {(hasBacker || leftAddons || titleAlign === 'center') && (
-                <div className={cn(styles.addon, styles.addonLeft, addonClassName)}>
+            {hasLeftPart && (
+                <div className={cn(styles.addon, addonClassName, {
+                    [styles.addonFixed]: !sticky,
+                    [styles.addonLeft]: !sticky
+                })}>
                     {hasBacker ? (
                         <Backer className={backerClassName} onClick={onBack} />
                     ) : (
@@ -128,17 +147,14 @@ export const Header: FC<HeaderProps> = ({
                 </div>
             )}
 
-            {(title || hasBacker || hasCloser) && (
+            {hasHeaderContent && (
                 <Typography.Text
                     view='primary-large'
                     weight='bold'
-                    className={cn(styles.title, {
+                    className={cn(styles.title, getTitleIndent(), {
                         [styles.titleCenter]: titleAlign === 'center',
                         [styles.titleLeft]: titleAlign === 'left',
                         [styles.trimTitle]: trimTitle,
-                        [styles.titleIndentHorizontal]: titleAlign === 'center' && (hasCloser || hasBacker || leftAddons || rightAddons),
-                        [styles.titleIndentLeft]: titleAlign !== 'center' && (hasBacker || leftAddons),
-                        [styles.titleIndentRight]: titleAlign !== 'center' && (hasCloser || rightAddons),
                     })}
                     color='primary'
                 >
@@ -146,8 +162,11 @@ export const Header: FC<HeaderProps> = ({
                 </Typography.Text>
             )}
 
-            {(hasCloser || rightAddons || titleAlign === 'center') && (
-                <div className={cn(styles.addon, styles.addonRight, addonClassName)}>
+            {hasRightPart && (
+                <div className={cn(styles.addon, addonClassName, {
+                    [styles.addonFixed]: !sticky,
+                    [styles.addonRight]: !sticky
+                })}>
                     {hasCloser ? <Closer className={closerClassName} /> : rightAddons}
                 </div>
             )}

@@ -8,6 +8,7 @@ import React, {
     useState,
 } from 'react';
 import cn from 'classnames';
+import { use100vh } from 'react-div-100vh';
 import { TransitionProps } from 'react-transition-group/Transition';
 import { SwipeCallback, useSwipeable } from 'react-swipeable';
 import { BaseModal } from '@alfalab/core-components-base-modal';
@@ -220,6 +221,12 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const scrollableContainer = useRef<HTMLDivElement | null>(null);
         const scrollableContainerScrollValue = useRef(0);
 
+        const emptyHeader = !hasCloser && !hasBacker && !leftAddons && !rightAddons && !title;
+
+        // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
+        const fullHeight = use100vh()!;
+        const targetHeight = `${fullHeight - HEADER_OFFSET}px`;
+
         const headerProps = {
             title,
             headerClassName,
@@ -375,6 +382,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             transform: sheetOffset ? `translateY(${sheetOffset}px)` : '',
         });
 
+        const getHeightStyles = (): CSSProperties => ({
+            height: initialHeight === 'full' ? targetHeight : 'unset',
+            maxHeight: targetHeight
+        });
+
         return (
             <BaseModal
                 open={open}
@@ -405,23 +417,25 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     className={cn(styles.component, className, {
                         [styles.withTransition]: !sheetOffset,
                     })}
-                    style={getSwipeStyles()}
+                    style={{
+                        ...getSwipeStyles(),
+                        ...getHeightStyles()
+                    }}
                     {...sheetSwipeablehandlers}
                 >
                     <div
-                        className={cn(styles.scrollableContainer, containerClassName, {
-                            [styles.fullHeight]: initialHeight === 'full',
+                        className={cn(styles.scrollableContainer, {
                             [styles.scrollLocked]: scrollLocked,
                         })}
                         ref={scrollableContainer}
                     >
-                        {swipeable && (hideHeader || !hasCloser && !hasBacker && !leftAddons && !rightAddons && !title) && <div className={cn(styles.marker)} />}
+                        {swipeable && (hideHeader || emptyHeader) && <div className={cn(styles.marker)} />}
 
-                        {!hideHeader && (hasCloser || hasBacker || leftAddons || rightAddons || title) && <Header {...headerProps} />}
+                        {!hideHeader && !emptyHeader && <Header {...headerProps} />}
 
                         <div
                             className={cn(styles.content, contentClassName, {
-                                [styles.noHeader]: hideHeader || !hasCloser && !hasBacker && !leftAddons && !rightAddons && !title,
+                                [styles.noHeader]: hideHeader || emptyHeader,
                                 [styles.noFooter]: !actionButton,
                             })}
                         >
