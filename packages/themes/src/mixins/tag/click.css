@@ -1,12 +1,9 @@
 @define-mixin tag-click {
     /* theme */
     --tag-background-color: var(--color-light-specialbg-component);
-    --tag-background-color-hover: var(--color-light-specialbg-component-alpha-14);
-    --tag-background-color-active: var(--color-light-specialbg-component-alpha-23);
-    --tag-background-color-disabled: var(--color-light-specialbg-component-alpha-2);
-    --tag-background-color-checked-hover: var(--color-light-bg-primary-inverted-alpha-80);
-    --tag-background-color-checked-active: var(--color-light-bg-primary-inverted-alpha-60);
-    --tag-background-color-checked-disabled: var(--color-light-bg-primary-inverted-alpha-30);
+    --tag-background-color-hover: var(--color-light-specialbg-component-shade-10);
+    --tag-background-color-active: var(--color-light-specialbg-component-shade-30);
+    --tag-background-color-disabled: var(--color-light-specialbg-component);
     --tag-border-color: transparent;
     --tag-border-color-hover: transparent;
     --tag-border-color-active: transparent;
