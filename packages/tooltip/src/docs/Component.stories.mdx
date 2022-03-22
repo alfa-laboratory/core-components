@@ -5,6 +5,7 @@ import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 import { Button } from '@alfalab/core-components-button';
 
 import { Tooltip } from '../Component';
+import { TooltipResponsive } from '../component.responsive';
 import { name, version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
@@ -74,6 +75,60 @@ import styles from '!!raw-loader!../index.module.css';
     })}
 </Story>
 
+<Story name='TooltipResponsive'>
+    {React.createElement(() => {
+        const [open, setOpen] = React.useState(false);
+        const handleOpen = () => {
+            setOpen(true);
+        };
+        const handleClose = () => {
+            setOpen(false);
+        };
+        const POSITION_OPTIONS = [
+            'top',
+            'top-start',
+            'top-end',
+            'bottom',
+            'bottom-start',
+            'bottom-end',
+            'right',
+            'right-start',
+            'right-end',
+            'left',
+            'left-start',
+            'left-end',
+        ];
+        return (
+            <div
+                style={{
+                    width: '100%',
+                    height: '300px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
+            >
+                <TooltipResponsive
+                    open={open}
+                    content={<div>Tooltip Responsive</div>}
+                    trigger={select('trigger', ['hover', 'click'], 'hover')}
+                    offset={[number('offset[0]', 0), number('offset[1]', 16)]}
+                    position={select('position', POSITION_OPTIONS, 'left')}
+                    onOpen={handleOpen}
+                    onClose={handleClose}
+                    fallbackPlacements={['bottom', 'top']}
+                    actionButtonTitle={text('title', 'Хорошо')}
+                    view={select('view', ['tooltip', 'hint'], 'tooltip')}
+                    hasCloser={select('hasCloser', [true, false], false)}
+                >
+                    <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
+                        Подробнее
+                    </div>
+                </TooltipResponsive>
+            </div>
+        );
+    })}
+</Story>
 
 <!-- Docs -->
 
@@ -86,7 +141,7 @@ import styles from '!!raw-loader!../index.module.css';
 />
 
 ```tsx
-import { Tooltip } from '@alfalab/core-components/tooltip';
+import { Tooltip, TooltipResponsive } from '@alfalab/core-components/tooltip';
 ```
 
 <Tabs

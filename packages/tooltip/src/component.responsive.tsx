@@ -1,9 +1,11 @@
 import React, { FC, Fragment } from 'react';
 import { useMedia } from '@alfalab/hooks';
 
-import { BottomSheet, BottomSheetProps } from '@alfalab/core-components-bottom-sheet';
+import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
+import { Button } from '@alfalab/core-components-button';
 
 import { Tooltip, TooltipProps } from '.';
+import { useControlled } from './utils';
 
 import styles from './responsive.module.css';
 
@@ -18,30 +20,38 @@ type TooltipResponsiveProps = Omit<TooltipProps, 'open' | 'onClose' | 'onOpen'> 
     /**
      * Управление видимостью
      */
-    open: boolean;
+    open?: boolean;
 
     /**
      * Обработчик открытия
      */
-    onOpen: () => void;
+    onOpen?: () => void;
 
     /**
      * Обработчик закрытия
      */
-    onClose: () => void;
+    onClose?: () => void;
 
     /**
-     * Кнопка в мобильной версии (обычно, это кнопка закрытия)
+     * Заголовок кнопки в футере
      */
-    mobileActionButton?: BottomSheetProps['actionButton'];
+    actionButtonTitle?: string;
+
+    /**
+     * Наличие компонента крестика
+     */
+    hasCloser?: boolean;
 };
 
 export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
     defaultMatch = 'mobile',
     content,
     children,
-    mobileActionButton,
+    open,
     onOpen,
+    onClose,
+    actionButtonTitle = 'Понятно',
+    hasCloser,
     ...restProps
 }) => {
     const [view] = useMedia<View>(
@@ -52,26 +62,52 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
         defaultMatch,
     );
 
+    const [openValue, setOpenValueIfUncontrolled] = useControlled(open, false);
+
     const handleOpen = () => {
-        onOpen();
+        if (onOpen) {
+            onOpen();
+        }
+        else {
+            setOpenValueIfUncontrolled(true);
+        }
     };
+
+    const handleClose = () => {
+        if (onClose) {
+            onClose();
+        }
+        else {
+            setOpenValueIfUncontrolled(false);
+        }
+    }
 
     const isMobile = view === 'mobile';
 
     return isMobile ? (
         <Fragment>
-            <BottomSheet {...restProps} actionButton={mobileActionButton}>
+            <BottomSheet
+                {...restProps}
+                open={Boolean(openValue)}
+                onClose={handleClose}
+                hasCloser={hasCloser}
+                actionButton={
+                    <Button view='secondary' block={true} size='s' onClick={handleClose}>
+                        {actionButtonTitle}
+                    </Button>
+                }
+            >
                 {content}
             </BottomSheet>
             {/** TODO: проверить тултип на доступность */}
             {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
             <div onClick={handleOpen} className={styles.target}>
-                {children.props.disabled && <div className={styles.overlap} />}
+                {children?.props.disabled && <div className={styles.overlap} />}
                 {children}
             </div>
         </Fragment>
     ) : (
-        <Tooltip {...restProps} content={content} onOpen={onOpen}>
+        <Tooltip {...restProps} content={content} onOpen={handleOpen}>
             {children}
         </Tooltip>
     );
