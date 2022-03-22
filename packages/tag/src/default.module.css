@@ -2,7 +2,7 @@
 
 :root {
     /* border */
-    --tag-border-color: var(--color-light-border-secondary-inverted);
+    --tag-border-color: var(--color-light-border-underline);
     --tag-border-color-hover: var(--color-light-border-key);
     --tag-border-color-active: var(--color-light-border-key);
     --tag-border-color-checked: var(--color-light-border-key);
