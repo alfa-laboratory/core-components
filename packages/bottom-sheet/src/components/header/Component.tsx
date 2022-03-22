@@ -101,7 +101,7 @@ export const Header: FC<HeaderProps> = ({
     const { headerHighlighted, setHasHeader, setHeaderOffset } = useContext(BaseModalContext);
 
     const hasLeftPart = hasBacker || leftAddons || titleAlign === 'center';
-    const hasRightPart = (hasCloser || rightAddons || titleAlign === 'center');
+    const hasRightPart = hasCloser || rightAddons || titleAlign === 'center';
     const hasHeaderContent = title || hasBacker || hasCloser;
 
     useEffect(() => {
@@ -118,11 +118,12 @@ export const Header: FC<HeaderProps> = ({
         const hasRightPart = hasCloser || rightAddons;
 
         return cn({
-            [styles.titleBigIndentHorizontal]: !sticky && titleAlignedCenter && (hasLeftPart || hasRightPart),
+            [styles.titleBigIndentHorizontal]:
+                !sticky && titleAlignedCenter && (hasLeftPart || hasRightPart),
             [styles.titleIndentLeft]: !sticky && !titleAlignedCenter && hasLeftPart,
             [styles.titleIndentRight]: !sticky && !titleAlignedCenter && hasRightPart,
-        })
-    }
+        });
+    };
 
     return (
         <div
@@ -135,10 +136,12 @@ export const Header: FC<HeaderProps> = ({
             {swipeable && <div className={cn(styles.marker)} />}
 
             {hasLeftPart && (
-                <div className={cn(styles.addon, addonClassName, {
-                    [styles.addonFixed]: !sticky,
-                    [styles.addonLeft]: !sticky
-                })}>
+                <div
+                    className={cn(styles.addon, addonClassName, {
+                        [styles.addonFixed]: !sticky,
+                        [styles.addonLeft]: !sticky,
+                    })}
+                >
                     {hasBacker ? (
                         <Backer className={backerClassName} onClick={onBack} />
                     ) : (
@@ -163,10 +166,12 @@ export const Header: FC<HeaderProps> = ({
             )}
 
             {hasRightPart && (
-                <div className={cn(styles.addon, addonClassName, {
-                    [styles.addonFixed]: !sticky,
-                    [styles.addonRight]: !sticky
-                })}>
+                <div
+                    className={cn(styles.addon, addonClassName, {
+                        [styles.addonFixed]: !sticky,
+                        [styles.addonRight]: !sticky,
+                    })}
+                >
                     {hasCloser ? <Closer className={closerClassName} /> : rightAddons}
                 </div>
             )}

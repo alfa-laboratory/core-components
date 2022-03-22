@@ -341,7 +341,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         });
 
         const handleExited = useCallback(
-            node => {
+            (node) => {
                 setBackdropOpacity(1);
 
                 if (transitionProps.onExited) {
@@ -378,7 +378,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         const getHeightStyles = (): CSSProperties => ({
             height: initialHeight === 'full' ? targetHeight : 'unset',
-            maxHeight: targetHeight
+            maxHeight: targetHeight,
         });
 
         return (
@@ -413,7 +413,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     })}
                     style={{
                         ...getSwipeStyles(),
-                        ...getHeightStyles()
+                        ...getHeightStyles(),
                     }}
                     {...sheetSwipeablehandlers}
                 >
@@ -423,7 +423,9 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                         })}
                         ref={scrollableContainer}
                     >
-                        {swipeable && (hideHeader || emptyHeader) && <div className={cn(styles.marker)} />}
+                        {swipeable && (hideHeader || emptyHeader) && (
+                            <div className={cn(styles.marker)} />
+                        )}
 
                         {!hideHeader && !emptyHeader && <Header {...headerProps} />}
 

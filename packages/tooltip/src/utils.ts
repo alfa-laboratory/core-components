@@ -5,11 +5,14 @@ export function useControlled<T>(controlledValue: T, defaultValue: T): [T, (valu
     const [uncontrolledValue, setUncontrolledValue] = useState<T>(defaultValue);
     const value = isControlled ? controlledValue : uncontrolledValue;
 
-    const setValueIfUncontrolled = useCallback((newValue: T) => {
-        if (!isControlled) {
-            setUncontrolledValue(newValue);
-        }
-    }, [isControlled]);
+    const setValueIfUncontrolled = useCallback(
+        (newValue: T) => {
+            if (!isControlled) {
+                setUncontrolledValue(newValue);
+            }
+        },
+        [isControlled],
+    );
 
     return [value, setValueIfUncontrolled];
 }

@@ -67,8 +67,7 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
     const handleOpen = () => {
         if (onOpen) {
             onOpen();
-        }
-        else {
+        } else {
             setOpenValueIfUncontrolled(true);
         }
     };
@@ -76,11 +75,10 @@ export const TooltipResponsive: FC<TooltipResponsiveProps> = ({
     const handleClose = () => {
         if (onClose) {
             onClose();
-        }
-        else {
+        } else {
             setOpenValueIfUncontrolled(false);
         }
-    }
+    };
 
     const isMobile = view === 'mobile';
 

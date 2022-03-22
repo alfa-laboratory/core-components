@@ -11,7 +11,7 @@ import {
 import { Tooltip, TooltipProps } from './index';
 
 jest.mock('react-transition-group', () => {
-    return { CSSTransition: jest.fn(props => (props.in ? props.children : null)) };
+    return { CSSTransition: jest.fn((props) => (props.in ? props.children : null)) };
 });
 
 const renderTooltip = async (props: TooltipProps): Promise<RenderResult> => {
