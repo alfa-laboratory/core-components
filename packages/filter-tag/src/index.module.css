@@ -84,6 +84,7 @@
 
     &.checked {
         border-color: var(--tag-border-color-checked);
+        background-color: var(--tag-background-color-checked);
 
         &.xxs {
             min-width: 84px;

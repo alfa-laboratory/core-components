@@ -1,17 +1,123 @@
 import { Container, Row, Col } from 'storybook/blocks';
 
-Компонент FilterTag
+Компонент используется для отображения фильтров с различными вариантами фильтрации.
 
 ```tsx live
 render(() => {
-const SIZES = ['xxs', 'xs', 's'];
+const checkedContent = <span>Время года:<b> Весна</b></span>;
+const content = <span>Время года:</span>;
+
+const [checked, setChecked] = React.useState(false);
+
+return (
+        <FilterTag 
+            size='xxs' 
+            onClick={() => setChecked(true)}
+            onClear={() => setChecked(false)}
+            checked={checked}
+        >
+            {checked ? checkedContent : content}
+        </FilterTag>
+);
+})
+```
+
+## Архитектура
+Компонент используется в комбинацииях с <a href="/docs/компоненты-select--select">Select</a>, <a href="/docs/компоненты-calendar--calendar">Сalendar</a>, 
+и других кастомных контролах вместо стандартного field.
+
+## Примеры
+
+### Размеры
+Рекомендуется использовать S, XS и XXS размеры, в зависимости от контекста.
+
+```tsx live
+render(() => {
+const SIZES = ['s', 'xs', 'xxs'];
+const checkedContent = <span>Время года:<b> Весна</b></span>;
+const content = <span>Время года:</span>;
+const [checkedFilterTag, setCheckedFilterTag] = React.useState(null);
+
 return (
     <Container>
         <Row align='middle'>
             { SIZES.map((size) => (
                 <Col key={size}>
-                    <FilterTag size={size} >
-                        Label
+                    <FilterTag
+                        size={size}
+                        onClick={() => setCheckedFilterTag(size)}
+                        onClear={() => setCheckedFilterTag(null)}
+                        checked={checkedFilterTag === size} 
+                     >
+                        {checkedFilterTag === size ? checkedContent : content}
+                    </FilterTag>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+);
+})
+```
+
+### Варианты
+Доступны два варианта компонента в рамках одной темы: `variant=default`, `variant=alt`.
+
+```tsx live
+render(() => {
+const variants = ['default', 'alt'];
+const checkedContent = <span>Время года:<b> Весна</b></span>;
+const content = <span>Время года:</span>;
+const [checkedFilterTag, setCheckedFilterTag] = React.useState(null);
+
+return (
+    <Container>
+        <Row align='middle'>
+            { variants.map((variant) => (
+                <Col key={variant}>
+                    <FilterTag
+                        size='xxs'
+                        onClick={() => setCheckedFilterTag(variant)}
+                        onClear={() => setCheckedFilterTag(null)}
+                        checked={checkedFilterTag === variant}
+                        variant={variant} 
+                     >
+                        {checkedFilterTag === variant ? checkedContent : content}
+                    </FilterTag>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+);
+})
+```
+
+### Варианты отображения значения
+
+В зависимости от контекста может быть использован один из следующих паттернов с отображением и скрытием лейбла в выбранном состоянии:
+
+```tsx live
+render(() => {
+const label = <span>Время года:</span>;
+const content = {
+    labelItem: <span>Время года:<b> Весна</b></span>,
+    labelCount: <span>Время года:<b> Выбрано 2</b></span>,
+    checkedItem: <b>Весна</b>,
+}
+
+const [checkedFilterTag, setCheckedFilterTag] = React.useState(null);
+
+return (
+    <Container>
+        <Row align='middle'>
+            { Object.entries(content).map(([key, value]) => (
+                <Col key={key}>
+                    <FilterTag
+                        size='xxs'
+                        onClick={() => setCheckedFilterTag(key)}
+                        onClear={() => setCheckedFilterTag(null)}
+                        checked={checkedFilterTag === key}
+                     >
+                        {checkedFilterTag === key ? value : label}
                     </FilterTag>
                 </Col>
             ))}
