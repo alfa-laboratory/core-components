@@ -1,3 +1,15 @@
+# [25.7.0](https://github.com/alfa-laboratory/core-components/compare/v25.6.0...v25.7.0) (2022-03-22)
+
+
+### Bug Fixes
+
+* **radio-group:** add missing 'value' attribute to 'input' tag ([#1033](https://github.com/alfa-laboratory/core-components/issues/1033)) ([0f9cf0e](https://github.com/alfa-laboratory/core-components/commit/0f9cf0ecd74f4764ccd0b2839ba0cdf1b96e75cb)), closes [#1031](https://github.com/alfa-laboratory/core-components/issues/1031)
+
+
+### Features
+
+* **tooltip:** added anchor props ([#1034](https://github.com/alfa-laboratory/core-components/issues/1034)) ([822031b](https://github.com/alfa-laboratory/core-components/commit/822031b3941184689a2a7ed9938c4ec44debc444))
+
 # [25.6.0](https://github.com/alfa-laboratory/core-components/compare/v25.5.0...v25.6.0) (2022-03-18)
 
 
