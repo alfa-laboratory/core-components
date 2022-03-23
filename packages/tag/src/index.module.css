@@ -4,6 +4,7 @@
     /* border */
     --tag-border-width: 1px;
     --tag-border-radius: var(--border-radius-pill);
+    --tag-border-radius-alt: var(--border-radius-s);
 }
 
 .component {
@@ -213,5 +214,5 @@
 }
 
 .alt {
-    border-radius: var(--border-radius-s);
+    border-radius: var(--tag-border-radius-alt);
 }
