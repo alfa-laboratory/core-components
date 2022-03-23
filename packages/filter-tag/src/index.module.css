@@ -130,8 +130,7 @@
     }
 
     &.focused {
-        outline: 2px solid var(--color-light-border-link);
-        outline-offset: 2px;
+        @mixin focus-outline;
     }
 
     & .valueButton {
