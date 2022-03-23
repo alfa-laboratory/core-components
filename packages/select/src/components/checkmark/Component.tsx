@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, FC, SVGProps } from 'react';
 import cn from 'classnames';
 import { Checkbox, CheckboxProps } from '@alfalab/core-components-checkbox';
 import { CheckmarkProps } from '../../typings';
@@ -10,8 +10,10 @@ export const Checkmark = ({
     className,
     multiple,
     position = 'before',
+    icon
 }: CheckmarkProps) => {
     const single = !multiple || position === 'after';
+    const Icon: FC<SVGProps<SVGSVGElement>> | undefined = icon;
 
     const checkmarkClassNames = cn(styles.checkmark, className, styles[position], {
         [styles.multiple]: !single,
@@ -25,7 +27,9 @@ export const Checkmark = ({
     );
 
     return single ? (
-        <span className={checkmarkClassNames} />
+        <span className={checkmarkClassNames}>
+            {Icon && <Icon />}
+        </span>
     ) : (
         <Checkbox
             checked={selected}

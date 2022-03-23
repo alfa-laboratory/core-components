@@ -24,25 +24,13 @@ import { Arrow as DefaultArrow } from '../arrow';
 import { OptionsList as DefaultOptionsList } from '../options-list';
 import { Option as DefaultOption } from '../option';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
+import { Checkmark as DefaultCheckmark } from '../checkmark';
 
-
-import { BaseSelectProps, CheckmarkProps, OptionShape } from '../../typings';
+import { BaseSelectProps, OptionShape } from '../../typings';
 import { processOptions } from '../../utils';
 import { getDataTestId } from '../../../../utils/getDataTestId';
 
 import styles from './index.module.css';
-
-const Checkmark: React.FC<CheckmarkProps> = ({ selected, className }) => {
-    if (selected) {
-        return (
-            <span className={className}>
-                <CheckmarkMIcon />
-            </span>
-        )
-    }
-
-    return null;
-}
 
 export const SelectMobile = forwardRef(
     (
@@ -52,6 +40,7 @@ export const SelectMobile = forwardRef(
             fieldClassName,
             optionsListClassName,
             optionClassName,
+            optionGroupClassName,
             optionsListProps,
             options,
             autocomplete = false,
@@ -85,12 +74,12 @@ export const SelectMobile = forwardRef(
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
             visibleOptions,
-            withConfirm,
+            hasFooter = false,
         }: BaseSelectProps & {
             /**
              * Нужно ли рендерить кнопки с подтверждением / сбросом значений
              */
-            withConfirm?: boolean;
+            hasFooter?: boolean;
          },
         ref,
     ) => {
@@ -216,7 +205,7 @@ export const SelectMobile = forwardRef(
 
                         return {
                             ...changes,
-                            isOpen: !closeOnSelect,
+                            isOpen: !closeOnSelect || hasFooter,
                             // при closeOnSelect === false - сохраняем подсвеченный индекс
                             highlightedIndex:
                                 state.isOpen && !closeOnSelect
@@ -277,14 +266,12 @@ export const SelectMobile = forwardRef(
         const getOptionProps = useCallback(
             (option: OptionShape, index: number) => ({
                 ...(optionProps as object),
-                className: cn(optionClassName, styles.optionClassName),
+                className: cn(styles.option, optionClassName),
                 innerProps: getItemProps({
                     index,
                     item: option,
                     disabled: option.disabled,
                     onMouseDown: (event: MouseEvent) => event.preventDefault(),
-                    /* Отменить закрытие шторки при withConfirm = true */
-                    onClick: (e: any) => e.preventDefault()
                 }),
                 multiple,
                 index,
@@ -294,8 +281,15 @@ export const SelectMobile = forwardRef(
                 highlighted: index === highlightedIndex,
                 selected: selectedItems.includes(option),
                 dataTestId: getDataTestId(dataTestId, 'option'),
-                /* Вынести Checkmark */
-                Checkmark: () => <Checkmark selected={selectedItems.includes(option)} className={styles.checkmark} />,
+                leftCheckmarkHidden: true,
+                Checkmark: () => (
+                    <DefaultCheckmark
+                        selected={selectedItems.includes(option)}
+                        className={styles.checkmark} 
+                        icon={CheckmarkMIcon}
+                        position='after'
+                    />
+                ),
             }),
             [
                 dataTestId,
@@ -380,10 +374,9 @@ export const SelectMobile = forwardRef(
                     contentClassName={styles.sheetContent}
                     containerClassName={styles.sheetContainer}
                     title={placeholder}
-                    actionButton={withConfirm && (
+                    actionButton={hasFooter && (
                         <div className={styles.footer}>
-                            {/* Навесить onClick handler на кнопку "Применить" */}
-                            <Button view='primary' size='s' className={styles.footerButton}>Применить</Button>
+                            <Button view='primary' size='s' className={styles.footerButton} onClick={toggleMenu}>Применить</Button>
                             <Button view='secondary' size='s' className={styles.footerButton} onClick={handleValueReset}>Сбросить</Button>
                         </div>
                     )}
@@ -391,7 +384,6 @@ export const SelectMobile = forwardRef(
                 >
                     <div {...menuProps} className={cn(optionsListClassName, styles.optionsList)}>
                         <OptionsList
-                            /* Изменить padding у optgroup */
                             {...optionsListProps}
                             flatOptions={flatOptions}
                             highlightedIndex={highlightedIndex}
@@ -407,6 +399,7 @@ export const SelectMobile = forwardRef(
                             visibleOptions={visibleOptions}
                             onScroll={onScroll}
                             dataTestId={getDataTestId(dataTestId, 'options-list')}
+                            optionGroupClassName={cn(styles.optionGroup, optionGroupClassName)}
                         />
                     </div>
                 </BottomSheet>

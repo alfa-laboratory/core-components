@@ -17,6 +17,7 @@ export const Option: FC<OptionProps> = ({
     Checkmark = DefaultCheckMark,
     innerProps,
     dataTestId,
+    leftCheckmarkHidden
 }) => {
     const content = children || option.content || option.key;
 
@@ -30,7 +31,7 @@ export const Option: FC<OptionProps> = ({
             })}
             data-test-id={dataTestId}
         >
-            {Checkmark && <Checkmark selected={selected} multiple={multiple} position='before' />}
+            {Checkmark && !leftCheckmarkHidden && <Checkmark selected={selected} multiple={multiple} position='before' />}
 
             <div
                 className={cn(styles.content, {

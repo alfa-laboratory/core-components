@@ -45,6 +45,10 @@
 .checkmark {
     display: flex;
     align-items: center;
+    background: unset;
+    width: unset;
+    height: unset;
+    margin: 0;
 }
 
 .footer {
@@ -57,10 +61,10 @@
     width: 50%;
 }
 
-.optionClassName {
+.option {
     padding: var(--gap-2xs) var(--gap-l) var(--gap-2xs) var(--gap-m);
 }
 
-.optionClassName > span:first-of-type {
-    display: none;
+.optionGroup {
+    padding: var(--gap-m) var(--gap-m) var(--gap-xs);
 }

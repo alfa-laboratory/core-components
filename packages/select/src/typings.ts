@@ -72,6 +72,11 @@ export type BaseSelectProps = {
     optionClassName?: string;
 
     /**
+     * Дополнительный класс для компонента группы пунктов
+     */
+    optionGroupClassName?: string;
+
+    /**
      * Дополнительный класс для поповера
      */
     popperClassName?: string;
@@ -414,6 +419,11 @@ export type OptionsListProps = {
     className?: string;
 
     /**
+     * Дополнительный класс для компонента группы пунктов
+     */
+    optionGroupClassName?: string;
+
+    /**
      * Размер компонента
      */
     size?: 's' | 'm' | 'l' | 'xl';
@@ -506,6 +516,11 @@ export type OptionsListProps = {
 
 export type OptgroupProps = {
     /**
+     * Дополнительный класс для компонента группы пунктов
+     */
+    className?: string;
+
+    /**
      * Размер компонента
      */
     size?: 's' | 'm' | 'l' | 'xl';
@@ -573,6 +588,11 @@ export type OptionProps = {
     Checkmark?: FC<CheckmarkProps>;
 
     /**
+     * Нужно ли скрыть левый компонент пункта меню
+     */
+    leftCheckmarkHidden?: boolean;
+
+    /**
      * Внутренние свойства, которые должны быть установлены компоненту.
      */
     innerProps: {
@@ -610,4 +630,9 @@ export type CheckmarkProps = {
      * Расположение отметки
      */
     position?: 'before' | 'after';
+
+    /**
+     * Иконка выбранного пункта
+     */
+    icon?: React.FC<React.SVGProps<SVGSVGElement>>;
 };
