@@ -11,6 +11,8 @@ import React, {
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
+import { Button } from '@alfalab/core-components-button';
+import { CheckmarkMIcon } from '@alfalab/icons-glyph/CheckmarkMIcon';
 import {
     useMultipleSelection,
     useCombobox,
@@ -23,11 +25,24 @@ import { OptionsList as DefaultOptionsList } from '../options-list';
 import { Option as DefaultOption } from '../option';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
 
-import { BaseSelectProps, OptionShape } from '../../typings';
+
+import { BaseSelectProps, CheckmarkProps, OptionShape } from '../../typings';
 import { processOptions } from '../../utils';
 import { getDataTestId } from '../../../../utils/getDataTestId';
 
 import styles from './index.module.css';
+
+const Checkmark: React.FC<CheckmarkProps> = ({ selected, className }) => {
+    if (selected) {
+        return (
+            <span className={className}>
+                <CheckmarkMIcon />
+            </span>
+        )
+    }
+
+    return null;
+}
 
 export const SelectMobile = forwardRef(
     (
@@ -50,7 +65,7 @@ export const SelectMobile = forwardRef(
             name,
             id,
             selected,
-            size = 's',
+            size = 'm',
             optionsSize = size,
             error,
             hint,
@@ -70,7 +85,13 @@ export const SelectMobile = forwardRef(
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
             visibleOptions,
-        }: BaseSelectProps,
+            withConfirm,
+        }: BaseSelectProps & {
+            /**
+             * Нужно ли рендерить кнопки с подтверждением / сбросом значений
+             */
+            withConfirm?: boolean;
+         },
         ref,
     ) => {
         const rootRef = useRef<HTMLLabelElement>(null);
@@ -249,15 +270,21 @@ export const SelectMobile = forwardRef(
             }
         };
 
+        const handleValueReset = () => {
+            setSelectedItems([]);
+        }
+
         const getOptionProps = useCallback(
             (option: OptionShape, index: number) => ({
                 ...(optionProps as object),
-                className: optionClassName,
+                className: cn(optionClassName, styles.optionClassName),
                 innerProps: getItemProps({
                     index,
                     item: option,
                     disabled: option.disabled,
                     onMouseDown: (event: MouseEvent) => event.preventDefault(),
+                    /* Отменить закрытие шторки при withConfirm = true */
+                    onClick: (e: any) => e.preventDefault()
                 }),
                 multiple,
                 index,
@@ -267,6 +294,8 @@ export const SelectMobile = forwardRef(
                 highlighted: index === highlightedIndex,
                 selected: selectedItems.includes(option),
                 dataTestId: getDataTestId(dataTestId, 'option'),
+                /* Вынести Checkmark */
+                Checkmark: () => <Checkmark selected={selectedItems.includes(option)} className={styles.checkmark} />,
             }),
             [
                 dataTestId,
@@ -351,10 +380,18 @@ export const SelectMobile = forwardRef(
                     contentClassName={styles.sheetContent}
                     containerClassName={styles.sheetContainer}
                     title={placeholder}
+                    actionButton={withConfirm && (
+                        <div className={styles.footer}>
+                            {/* Навесить onClick handler на кнопку "Применить" */}
+                            <Button view='primary' size='s' className={styles.footerButton}>Применить</Button>
+                            <Button view='secondary' size='s' className={styles.footerButton} onClick={handleValueReset}>Сбросить</Button>
+                        </div>
+                    )}
                     hasCloser
                 >
                     <div {...menuProps} className={cn(optionsListClassName, styles.optionsList)}>
                         <OptionsList
+                            /* Изменить padding у optgroup */
                             {...optionsListProps}
                             flatOptions={flatOptions}
                             highlightedIndex={highlightedIndex}
