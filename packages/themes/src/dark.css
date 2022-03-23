@@ -1,4 +1,5 @@
 :root {
+    --spinner-bg: url('data:image/png;base64,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');
     --color-light-bg-accent: var(--color-dark-bg-accent);
     --color-light-bg-attention-muted: var(--color-dark-bg-attention-muted);
     --color-light-bg-info: var(--color-dark-bg-info);
@@ -72,12 +73,15 @@
     --color-light-bg-neutral-shade-10: var(--color-dark-bg-neutral-tint-10);
     --color-light-bg-neutral-shade-15: var(--color-dark-bg-neutral-tint-15);
     --color-light-bg-neutral-shade-30: var(--color-dark-bg-neutral-tint-30);
+    --color-light-bg-neutral-tint-15: var(--color-dark-bg-neutral-shade-15);
+    --color-light-bg-primary-alpha-8: var(--color-dark-bg-primary-alpha-8);
     --color-light-bg-primary-inverted-alpha-3: var(--color-dark-bg-primary-inverted-alpha-3);
     --color-light-bg-primary-inverted-alpha-7: var(--color-dark-bg-primary-inverted-alpha-7);
     --color-light-bg-primary-inverted-alpha-10: var(--color-dark-bg-primary-inverted-alpha-10);
     --color-light-bg-primary-inverted-alpha-15: var(--color-dark-bg-primary-inverted-alpha-15);
     --color-light-bg-primary-inverted-alpha-20: var(--color-dark-bg-primary-inverted-alpha-20);
     --color-light-bg-primary-inverted-alpha-40: var(--color-dark-bg-primary-inverted-alpha-40);
+    --color-light-bg-primary-inverted-alpha-50: var(--color-dark-bg-primary-inverted-alpha-50);
     --color-light-bg-secondary-inverted-alpha-7: var(--color-dark-bg-secondary-inverted-alpha-7);
     --color-light-bg-secondary-inverted-alpha-15: var(--color-dark-bg-secondary-inverted-alpha-15);
     --color-light-bg-tertiary-shade-7: var(--color-dark-bg-tertiary-tint-7);
@@ -105,6 +109,9 @@
     --color-light-specialbg-component-shade-7: var(--color-dark-specialbg-component-tint-7);
     --color-light-specialbg-component-shade-10: var(--color-dark-specialbg-component-tint-10);
     --color-light-specialbg-component-shade-30: var(--color-dark-specialbg-component-tint-30);
+    --color-light-specialbg-component-inverted-tint-15: var(
+        --color-dark-specialbg-component-inverted-shade-15
+    );
     --color-light-text-link-tint-30: var(--color-dark-text-link-shade-30);
     --color-light-text-link-tint-50: var(--color-dark-text-link-shade-50);
     --color-light-text-link-shade-20: var(--color-dark-text-link-tint-20);
@@ -114,8 +121,17 @@
     --color-light-text-primary-tint-50: var(--color-dark-text-primary-shade-50);
     --color-light-text-primary-shade-20: var(--color-dark-text-primary-tint-20);
     --color-light-text-primary-shade-40: var(--color-dark-text-primary-tint-40);
+    --color-light-text-primary-inverted-alpha-40: var(--color-dark-text-primary-inverted-alpha-40);
+    --color-light-text-primary-inverted-tint-30: var(--color-dark-text-primary-inverted-shade-30);
+    --color-light-text-primary-inverted-tint-50: var(--color-dark-text-primary-inverted-shade-50);
     --color-light-text-secondary-tint-30: var(--color-dark-text-secondary-shade-30);
     --color-light-text-secondary-tint-50: var(--color-dark-text-secondary-shade-50);
     --color-light-text-secondary-shade-20: var(--color-dark-text-secondary-tint-20);
     --color-light-text-secondary-shade-40: var(--color-dark-text-secondary-tint-40);
+    --color-light-text-secondary-inverted-tint-30: var(
+        --color-dark-text-secondary-inverted-shade-30
+    );
+    --color-light-text-secondary-inverted-tint-50: var(
+        --color-dark-text-secondary-inverted-shade-50
+    );
 }
