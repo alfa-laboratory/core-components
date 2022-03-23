@@ -5,6 +5,7 @@ import Icon from '@alfalab/icons-classic/BankAlfaSBlackIcon';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
 import { Select } from '../Component';
+import { SelectMobile } from '../components/select-mobile';
 import { name, version } from '../../package.json';
 import { Arrow } from '../components/arrow';
 import Description from './description.mdx';
@@ -66,6 +67,28 @@ export const POSITION_OPTIONS = [
         defaultOpen={boolean('defaultOpen', false)}
         popoverPosition={selectKnob('popoverPosition', POSITION_OPTIONS, 'bottom-start')}
         optionsListWidth={selectKnob('optionsListWidth', ['field', 'content'], 'field')}
+    />
+</Story>
+
+<Story name='SelectMobile'>
+    <SelectMobile
+        block={boolean('block', false)}
+        size={selectKnob('size', ['s', 'm', 'l', 'xl'], 's')}
+        disabled={boolean('disabled', false)}
+        error={text('error', '')}
+        hint={text('hint', '')}
+        options={options}
+        multiple={boolean('multiple', false)}
+        allowUnselect={boolean('allowUnselect', true)}
+        closeOnSelect={boolean('closeOnSelect', true)}
+        Arrow={boolean('Arrow', true) ? Arrow : () => null}
+        circularNavigation={boolean('circularNavigation', false)}
+        nativeSelect={boolean('nativeSelect', false)}
+        placeholder={text('placeholder', 'Выберите элемент')}
+        label={text('label', 'Элемент')}
+        visibleOptions={number('visibleOptions', 5)}
+        defaultOpen={boolean('defaultOpen', false)}
+        hasFooter={boolean('hasFooter', false)}
     />
 </Story>
 
