@@ -107,7 +107,7 @@ describe(
             componentName: 'Tag',
             knobs: {
                 children: 'Оплатить',
-                size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                size: 's',
                 checked: true,
                 disabled: [false, true],
             },
@@ -127,7 +127,7 @@ describe(
             componentName: 'Tag',
             knobs: {
                 children: 'Оплатить',
-                size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
+                size: 's',
                 checked: [true, false],
                 disabled: [false, true],
             },
