@@ -56,6 +56,11 @@ export type FilterTagProps = {
      * Вариант тега
      */
     variant?: 'default' | 'alt';
+
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
 };
 
 export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
@@ -69,6 +74,7 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
             size = 's',
             variant = 'default',
             onClear = () => null,
+            className,
             dataTestId,
             ...restProps
         },
@@ -85,7 +91,7 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
 
         return (
             <div
-                className={cn([styles.filterTag], styles[variant], styles[size], {
+                className={cn(className, [styles.filterTag], styles[variant], styles[size], {
                     [styles.checked]: checked,
                     [styles.disabled]: disabled,
                     [styles.focused]: focused,

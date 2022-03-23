@@ -46,7 +46,7 @@
     }
 
     &.alt {
-        border-radius: var(--border-radius-s);
+        border-radius: var(--tag-border-radius-alt);
     }
 
     &:not(.filterTag.disabled):hover {
@@ -66,10 +66,6 @@
             background-color: var(--tag-background-color-hover);
         }
 
-        &:not(.valueButton:disabled).open {
-            background-color: var(--tag-background-color-hover);
-        }
-
         &:not(.valueButton:disabled):active {
             background-color: var(--tag-background-color-active);
         }
@@ -84,7 +80,10 @@
 
     &.checked {
         border-color: var(--tag-border-color-checked);
-        background-color: var(--tag-background-color-checked);
+
+        &:not(.filterTag.disabled) {
+            background-color: var(--tag-background-color-checked);
+        }
 
         &.xxs {
             min-width: 84px;
@@ -98,7 +97,6 @@
             min-width: 116px;
         }
 
-        &:not(.filterTag.disabled).open,
         &:not(.filterTag.disabled):hover {
             background-color: var(--tag-background-color-checked-hover);
             border-color: var(--tag-border-color-checked);
