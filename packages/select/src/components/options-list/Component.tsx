@@ -48,7 +48,7 @@ export const OptionsList = forwardRef(
                     {group.options.map(option => renderOption(option, counter()))}
                 </Optgroup>
             ),
-            [counter, renderOption, size],
+            [optionGroupClassName, counter, renderOption, size],
         );
 
         useVisibleOptions({

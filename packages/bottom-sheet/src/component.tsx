@@ -424,7 +424,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     {...sheetSwipeablehandlers}
                 >
                     <div
-                        className={cn(styles.scrollableContainer, {
+                        className={cn(styles.scrollableContainer, containerClassName, {
                             [styles.scrollLocked]: scrollLocked,
                         })}
                         ref={scrollableContainer}

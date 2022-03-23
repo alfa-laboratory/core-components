@@ -380,7 +380,7 @@ export const SelectMobile = forwardRef(
                             <Button view='secondary' size='s' className={styles.footerButton} onClick={handleValueReset}>Сбросить</Button>
                         </div>
                     )}
-                    hasCloser
+                    hasCloser={true}
                 >
                     <div {...menuProps} className={cn(optionsListClassName, styles.optionsList)}>
                         <OptionsList
