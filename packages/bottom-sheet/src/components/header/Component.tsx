@@ -36,12 +36,6 @@ export type HeaderProps = {
     backerClassName?: string;
 
     /**
-     * Будет ли свайпаться шторка
-     * @default true
-     */
-    swipeable?: boolean;
-
-    /**
      * Слот слева
      */
     leftAddons?: ReactNode;
@@ -88,7 +82,6 @@ export const Header: FC<HeaderProps> = ({
     addonClassName,
     closerClassName,
     backerClassName,
-    swipeable,
     leftAddons,
     rightAddons,
     hasCloser,
@@ -133,8 +126,6 @@ export const Header: FC<HeaderProps> = ({
                 [styles.sticky]: sticky,
             })}
         >
-            {swipeable && <div className={cn(styles.marker)} />}
-
             {hasLeftPart && (
                 <div
                     className={cn(styles.addon, addonClassName, {

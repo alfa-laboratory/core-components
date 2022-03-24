@@ -168,6 +168,7 @@ const TIMEOUT = 300;
 const SWIPE_CLOSE_VELOCITY = 0.4;
 const MIN_BACKDROP_OPACITY = 0.2;
 const HEADER_HEIGHT = 56;
+const MARKET_HEIGHT = 24;
 
 /* Верхний отступ шторки, если она открыта на максимальную высоту */
 export const HEADER_OFFSET = 24;
@@ -192,7 +193,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             titleAlign = 'left',
             trimTitle,
             stickyHeader,
-            stickyFooter,
+            stickyFooter = true,
             initialHeight = 'default',
             hideOverlay,
             hideHeader,
@@ -227,7 +228,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             addonClassName,
             closerClassName,
             backerClassName,
-            swipeable,
             leftAddons,
             rightAddons,
             hasCloser,
@@ -262,7 +262,8 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
             if (
                 !scrollableContainer.current ||
-                (stickyHeader && offsetY <= HEADER_HEIGHT + HEADER_OFFSET)
+                (stickyHeader && offsetY <= HEADER_HEIGHT + HEADER_OFFSET) ||
+                (!stickyHeader && offsetY <= MARKET_HEIGHT + HEADER_OFFSET)
             ) {
                 return false;
             }
@@ -341,7 +342,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         });
 
         const handleExited = useCallback(
-            (node) => {
+            node => {
                 setBackdropOpacity(1);
 
                 if (transitionProps.onExited) {
@@ -423,9 +424,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                         })}
                         ref={scrollableContainer}
                     >
-                        {swipeable && (hideHeader || emptyHeader) && (
-                            <div className={cn(styles.marker)} />
-                        )}
+                        {swipeable && <div className={cn(styles.marker)} />}
 
                         {!hideHeader && !emptyHeader && <Header {...headerProps} />}
 
