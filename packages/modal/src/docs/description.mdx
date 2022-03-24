@@ -48,7 +48,7 @@ render(() => {
 });
 ```
 
-### Настройка шапки
+### Настройка шапки (HeaderMobile)
 
 ```tsx live
 // import { Typography } from '@alfalab/core-components/typography';
@@ -166,6 +166,7 @@ render(() => {
                 Открыть модалку
             </Button>
             <ModalDesktop open={open} onClose={handleModalOpen} fixedPosition={true}>
+                <ModalDesktop.Header />
                 <ModalDesktop.Content>
                     <p>Сейчас появится контент, который изменит высоту модального окна</p>
                     {loaded ? (

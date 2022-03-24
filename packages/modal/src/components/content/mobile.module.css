@@ -1,11 +1,9 @@
 @import '../../vars.css';
 
 .content {
-    composes: content from 'index.module.css';
+    padding: 0 var(--gap-m);
 
-    padding: 0 var(--gap-m) 0;
-}
-
-.flex {
-    composes: flex from 'index.module.css';
+    &:last-child {
+        padding-bottom: var(--gap-m);
+    }
 }
