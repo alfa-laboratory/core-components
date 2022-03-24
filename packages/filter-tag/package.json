@@ -24,6 +24,6 @@
         "classnames": "^2.2.6",
         "@alfalab/utils": "^1.5.1",
         "@alfalab/core-components-icon-button": "^4.1.5",
-        "@alfalab/core-components-tag": "^4.0.1"
+        "@alfalab/core-components-tag": "^4.1.0"
     }
 }
