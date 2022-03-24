@@ -1,12 +1,21 @@
 @import '../../../../themes/src/default.css';
 
+:root {
+    --bottom-sheet-footer-border-top: 1px solid var(--color-light-border-primary);
+    --bottom-sheet-footer-background-color: var(--color-light-bg-primary);
+}
+
 .footer {
-    position: sticky;
-    bottom: 0;
-    padding: var(--gap-m) var(--gap-m) var(--gap-3xl);
+    padding: var(--gap-m) var(--gap-m);
     background-color: var(--color-light-bg-primary);
 }
 
+.sticky {
+    position: sticky;
+    bottom: 0;
+}
+
 .highlighted {
-    box-shadow: var(--shadow-s-up);
+    border-top: var(--bottom-sheet-footer-border-top);
+    background-color: var(--bottom-sheet-footer-background-color);
 }
