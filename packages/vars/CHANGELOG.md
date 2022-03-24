@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.5.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@5.5.0...@alfalab/core-components-vars@5.5.1) (2022-03-24)
+
+**Note:** Version bump only for package @alfalab/core-components-vars
+
+
+
+
+
 # [5.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@5.4.0...@alfalab/core-components-vars@5.5.0) (2022-03-18)
 
 

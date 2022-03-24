@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.7.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.7.0...@alfalab/core-components-themes@7.7.1) (2022-03-24)
+
+**Note:** Version bump only for package @alfalab/core-components-themes
+
+
+
+
+
 # [7.7.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.6.0...@alfalab/core-components-themes@7.7.0) (2022-03-18)
 
 
