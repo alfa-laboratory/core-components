@@ -1,3 +1,19 @@
+# [26.0.0](https://github.com/alfa-laboratory/core-components/compare/v25.8.0...v26.0.0) (2022-03-24)
+
+
+### Features
+
+* **bottom-sheet:** update-bottom-sheet ([#1025](https://github.com/alfa-laboratory/core-components/issues/1025)) ([26fa9aa](https://github.com/alfa-laboratory/core-components/commit/26fa9aab68bebf0f7093a38bc0f18a9b596ccf37)), closes [#1032](https://github.com/alfa-laboratory/core-components/issues/1032)
+* **modal:** update styles ([#1024](https://github.com/alfa-laboratory/core-components/issues/1024)) ([fdf2cdc](https://github.com/alfa-laboratory/core-components/commit/fdf2cdca9f785b27cd5d3998245a34d42e1240d1))
+
+
+### BREAKING CHANGES
+
+* **modal:** Большое обновление стилей и темизации
+
+* fix(modal): remove unused align
+* **bottom-sheet:** Большое обновление стилей, множество дополнительных настроек
+
 # [25.8.0](https://github.com/alfa-laboratory/core-components/compare/v25.7.0...v25.8.0) (2022-03-24)
 
 
