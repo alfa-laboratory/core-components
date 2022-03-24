@@ -4,6 +4,7 @@
     /* border */
     --tag-border-width: 1px;
     --tag-border-radius: var(--border-radius-pill);
+    --tag-alt-border-radius: var(--border-radius-s);
 }
 
 .component {
@@ -16,7 +17,6 @@
     text-decoration: none;
     border-width: var(--tag-border-width);
     border-style: solid;
-    border-radius: var(--tag-border-radius);
     transition: background-color 0.2s ease, border 0.2s ease, color 0.2s ease;
     box-sizing: border-box;
     box-shadow: none;
@@ -207,4 +207,12 @@
     &.xl {
         padding-left: var(--gap-2xl);
     }
+}
+
+.default {
+    border-radius: var(--tag-border-radius);
+}
+
+.alt {
+    border-radius: var(--tag-alt-border-radius);
 }

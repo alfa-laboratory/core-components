@@ -8,6 +8,10 @@ describe('Snapshots tests', () => {
         expect(render(<Tag>Press me</Tag>)).toMatchSnapshot();
     });
 
+    it('should match snapshot variant=alt', () => {
+        expect(render(<Tag variant='alt'>Press me</Tag>)).toMatchSnapshot();
+    });
+
     it('should match without children snapshot', () => {
         expect(render(<Tag />)).toMatchSnapshot();
     });
@@ -46,6 +50,12 @@ describe('Classes tests', () => {
         const { container } = render(<Tag checked={true} />);
 
         expect(container.firstElementChild).toHaveClass('checked');
+    });
+
+    it('should set `alt` class if prop `variant=alt`', () => {
+        const { container } = render(<Tag variant='alt' />);
+
+        expect(container.firstElementChild).toHaveClass('alt');
     });
 });
 

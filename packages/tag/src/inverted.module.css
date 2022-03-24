@@ -2,7 +2,7 @@
 
 :root {
     /* border */
-    --tag-inverted-border-color: var(--color-dark-border-secondary-inverted);
+    --tag-inverted-border-color: var(--color-dark-border-underline);
     --tag-inverted-border-color-hover: var(--color-dark-border-key);
     --tag-inverted-border-color-active: var(--color-dark-border-key);
     --tag-inverted-border-color-checked: var(--color-dark-border-key);
@@ -12,10 +12,13 @@
     /* background-color */
     --tag-inverted-background-color: transparent;
     --tag-inverted-background-color-hover: transparent;
+    --tag-inverted-background-color-disabled: transparent;
     --tag-inverted-background-color-active: var(--color-dark-bg-primary-inverted-alpha-7);
     --tag-inverted-background-color-checked: var(--color-dark-bg-primary-inverted);
+    --tag-inverted-background-color-checked-hover: var(--color-dark-bg-primary-inverted-shade-7);
+    --tag-inverted-background-color-checked-active: var(--color-dark-bg-primary-inverted-shade-15);
     --tag-inverted-background-color-checked-disabled: var(
-        --color-dark-bg-primary-inverted-alpha-15
+        --color-dark-bg-primary-inverted-alpha-30
     );
 
     /* text color */
@@ -33,6 +36,7 @@
     &:disabled {
         border-color: var(--tag-inverted-border-color-disabled);
         color: var(--tag-inverted-text-color-disabled);
+        background-color: var(--tag-inverted-background-color-disabled);
     }
 }
 
@@ -61,6 +65,11 @@
     }
 
     &:hover:not(:disabled):not(:active) {
-        background-color: var(--tag-inverted-background-color-checked);
+        background-color: var(--tag-inverted-background-color-checked-hover);
+    }
+
+    &:active:not(:disabled) {
+        background-color: var(--tag-inverted-background-color-checked-active);
+        color: var(--tag-inverted-text-color-checked);
     }
 }
