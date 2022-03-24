@@ -46,7 +46,7 @@
     }
 
     &.alt {
-        border-radius: var(--tag-border-radius-alt);
+        border-radius: var(--tag-alt-border-radius);
     }
 
     &:not(.filterTag.disabled):hover {
