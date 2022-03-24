@@ -1,3 +1,16 @@
+# [25.8.0](https://github.com/alfa-laboratory/core-components/compare/v25.7.0...v25.8.0) (2022-03-24)
+
+
+### Bug Fixes
+
+* **attach:** always clear input ([#1038](https://github.com/alfa-laboratory/core-components/issues/1038)) ([f3e85f2](https://github.com/alfa-laboratory/core-components/commit/f3e85f299c4e42253d0354cdd61e005d9fe927f0))
+* **table:** update styles ([#1036](https://github.com/alfa-laboratory/core-components/issues/1036)) ([3fe236d](https://github.com/alfa-laboratory/core-components/commit/3fe236dfb584c3e96fc7fb8c499aee3e9e12e64e))
+
+
+### Features
+
+* add extra classes for radio and checkbox components ([#1039](https://github.com/alfa-laboratory/core-components/issues/1039)) ([c3ed089](https://github.com/alfa-laboratory/core-components/commit/c3ed089360b25d0f7712f2e7608c5a23f11a95df))
+
 # [25.7.0](https://github.com/alfa-laboratory/core-components/compare/v25.6.0...v25.7.0) (2022-03-22)
 
 
