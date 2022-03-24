@@ -44,7 +44,7 @@ export type HeaderProps = {
     /**
      * Выравнивание заголовка
      */
-    align?: 'left' | 'right' | 'center';
+    align?: 'left' | 'center';
 
     /**
      * Обрезать ли заголовок
