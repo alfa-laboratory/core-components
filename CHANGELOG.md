@@ -1,3 +1,40 @@
+# [25.8.0](https://github.com/alfa-laboratory/core-components/compare/v25.7.0...v25.8.0) (2022-03-24)
+
+
+### Bug Fixes
+
+* **attach:** always clear input ([#1038](https://github.com/alfa-laboratory/core-components/issues/1038)) ([f3e85f2](https://github.com/alfa-laboratory/core-components/commit/f3e85f299c4e42253d0354cdd61e005d9fe927f0))
+* **table:** update styles ([#1036](https://github.com/alfa-laboratory/core-components/issues/1036)) ([3fe236d](https://github.com/alfa-laboratory/core-components/commit/3fe236dfb584c3e96fc7fb8c499aee3e9e12e64e))
+
+
+### Features
+
+* add extra classes for radio and checkbox components ([#1039](https://github.com/alfa-laboratory/core-components/issues/1039)) ([c3ed089](https://github.com/alfa-laboratory/core-components/commit/c3ed089360b25d0f7712f2e7608c5a23f11a95df))
+
+# [25.7.0](https://github.com/alfa-laboratory/core-components/compare/v25.6.0...v25.7.0) (2022-03-22)
+
+
+### Bug Fixes
+
+* **radio-group:** add missing 'value' attribute to 'input' tag ([#1033](https://github.com/alfa-laboratory/core-components/issues/1033)) ([0f9cf0e](https://github.com/alfa-laboratory/core-components/commit/0f9cf0ecd74f4764ccd0b2839ba0cdf1b96e75cb)), closes [#1031](https://github.com/alfa-laboratory/core-components/issues/1031)
+
+
+### Features
+
+* **tooltip:** added anchor props ([#1034](https://github.com/alfa-laboratory/core-components/issues/1034)) ([822031b](https://github.com/alfa-laboratory/core-components/commit/822031b3941184689a2a7ed9938c4ec44debc444))
+
+# [25.6.0](https://github.com/alfa-laboratory/core-components/compare/v25.5.0...v25.6.0) (2022-03-18)
+
+
+### Bug Fixes
+
+* **intl-phone-input:** design fixes ([#1030](https://github.com/alfa-laboratory/core-components/issues/1030)) ([27cfb9b](https://github.com/alfa-laboratory/core-components/commit/27cfb9be1cac9f0aac151ae2121c426fb123fb3f))
+
+
+### Features
+
+* **calendar:** add intranet theme ([#1026](https://github.com/alfa-laboratory/core-components/issues/1026)) ([292b76c](https://github.com/alfa-laboratory/core-components/commit/292b76c100bb12ebb1011d2a9981ba2b2899dd7a))
+
 # [25.5.0](https://github.com/alfa-laboratory/core-components/compare/v25.4.1...v25.5.0) (2022-03-05)
 
 

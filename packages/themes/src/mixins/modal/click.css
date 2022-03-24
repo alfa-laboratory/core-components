@@ -1,30 +1,30 @@
 @define-mixin modal-click {
     /* sizes */
-    --modal-s-width: 500px;
-    --modal-header-min-height: 84px;
-    --modal-header-l-min-height: 84px;
     --modal-vertical-padding: var(--gap-4xl);
     --modal-footer-default-gap: var(--gap-xl);
 
     /* paddings */
-    --modal-s-header-paddings: var(--gap-xl) var(--gap-2xl) var(--gap-s) var(--gap-4xl);
-    --modal-m-header-paddings: var(--gap-xl) var(--gap-2xl) var(--gap-s) var(--gap-4xl);
-    --modal-l-header-paddings: var(--gap-xl) var(--gap-2xl) var(--gap-s) var(--gap-6xl);
+    --modal-s-header-paddings: var(--gap-xl) var(--gap-2xl) var(--gap-s) 0;
+    --modal-s-content-paddings: 0 var(--gap-4xl);
+    --modal-s-content-only-bottom-padding: var(--gap-4xl);
     --modal-s-footer-paddings: var(--gap-2xl) var(--gap-4xl) var(--gap-4xl);
-    --modal-m-footer-paddings: var(--gap-2xl) var(--gap-4xl) var(--gap-4xl);
-    --modal-l-footer-paddings: var(--gap-2xl) var(--gap-6xl) var(--gap-6xl);
-
-    /* sticky */
-    --modal-footer-sticky-box-shadow: none;
-    --modal-footer-sticky-background: var(--color-light-bg-secondary);
 
     /* scroll */
     --modal-header-highlight-background: var(--color-light-bg-primary);
     --modal-footer-highlight-background: var(--color-light-bg-secondary);
+    --modal-footer-highlight-box-shadow: none;
+
+    /* desktop */
+    --modal-s-header-desktop-content-paddings: var(--gap-xs) var(--gap-m) 0 0;
+    --modal-s-header-desktop-font-size: 24px;
+    --modal-s-header-desktop-line-height: 32px;
+    --modal-header-desktop-font-weight: 500;
+    --modal-header-desktop-font-family: var(--font-family-styrene);
 
     /* mobile */
-    --modal-header-mobile-top-padding: 10px;
+    --modal-header-mobile-content-paddings: 10px var(--gap-xs) 10px var(--gap-m);
     --modal-header-mobile-font-size: 20px;
     --modal-header-mobile-line-height: 28px;
     --modal-header-mobile-font-family: var(--font-family-styrene);
+    --modal-header-mobile-font-weight: 500;
 }

@@ -3,6 +3,8 @@ import cn from 'classnames';
 
 import { ModalContext } from '../../Context';
 
+import styles from './index.module.css';
+
 export type ContentProps = {
     /**
      * Контент
@@ -20,12 +22,7 @@ export type ContentProps = {
     flex?: boolean;
 };
 
-export const Content: FC<ContentProps & { styles: Record<string, string> }> = ({
-    children,
-    flex,
-    className,
-    styles,
-}) => {
+export const Content: FC<ContentProps> = ({ children, flex, className }) => {
     const { contentRef } = useContext(ModalContext);
 
     return (

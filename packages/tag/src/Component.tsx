@@ -55,6 +55,11 @@ export type TagProps = Omit<NativeProps, 'onClick'> & {
      * Набор цветов для компонента
      */
     colors?: 'default' | 'inverted';
+
+    /**
+     * Вариант тега
+     */
+    variant?: 'default' | 'alt';
 };
 
 export const Tag = forwardRef<HTMLButtonElement, TagProps>(
@@ -70,6 +75,7 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
             name,
             colors = 'default',
             onClick,
+            variant = 'default',
             ...restProps
         },
         ref,
@@ -85,6 +91,7 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
                 styles.component,
                 colorStyles.component,
                 styles[size],
+                styles[variant],
                 {
                     [styles.checked]: checked,
                     [colorStyles.checked]: checked,

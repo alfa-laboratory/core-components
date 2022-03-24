@@ -24,21 +24,23 @@ export type CloserProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     size?: IconButtonProps['size'];
 
     /**
+     * Фиксирует крестик
+     */
+    sticky?: boolean;
+
+    /**
      * Иконка
      */
     icon?: ElementType;
-
-    /**
-     * Флаг, что модальное окно открыто на весь экран
-     */
-    fullscreen?: boolean;
 };
 
+/**
+ * @deprecated Компонент только для внутреннего использования. Используйте <Header />
+ */
 export const Closer: FC<CloserProps> = ({
     className,
-    fullscreen,
-    align,
     size = 's',
+    sticky,
     icon = CrossHeavyMIcon,
     ...restProps
 }) => {
@@ -52,18 +54,19 @@ export const Closer: FC<CloserProps> = ({
     );
 
     return (
-        <IconButton
-            size={size}
-            className={cn(
-                styles.closer,
-                className,
-                fullscreen && styles.fullscreen,
-                align && styles[align],
-            )}
-            aria-label='закрыть'
-            onClick={handleClick}
-            icon={icon}
-            {...restProps}
-        />
+        <div
+            className={cn(styles.closer, className, {
+                [styles.sticky]: sticky,
+            })}
+        >
+            <IconButton
+                size={size}
+                className={styles.button}
+                aria-label='закрыть'
+                onClick={handleClick}
+                icon={icon}
+                {...restProps}
+            />
+        </div>
     );
 };

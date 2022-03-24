@@ -118,4 +118,14 @@
     --color-light-text-secondary-tint-50: var(--color-dark-text-secondary-shade-50);
     --color-light-text-secondary-shade-20: var(--color-dark-text-secondary-tint-20);
     --color-light-text-secondary-shade-40: var(--color-dark-text-secondary-tint-40);
+    --color-light-bg-primary-inverted-alpha-30: var(--color-dark-bg-primary-inverted-alpha-30);
+    --color-light-bg-primary-inverted-tint-15: var(--color-dark-bg-primary-inverted-shade-7);
+    --color-light-bg-primary-inverted-tint-20: var(--color-dark-bg-primary-inverted-shade-20);
+    --color-light-bg-secondary-inverted-alpha-30: var(--color-dark-bg-secondary-inverted-alpha-30);
+    --color-light-bg-secondary-inverted-tint-7: var(--color-dark-bg-secondary-inverted-shade-7);
+    --color-light-bg-secondary-inverted-tint-15: var(--color-dark-bg-secondary-inverted-shade-7);
+    --color-light-bg-secondary-inverted-tint-20: var(--color-dark-bg-secondary-inverted-shade-20);
+    --color-light-specialbg-component-alpha-30: var(--color-dark-specialbg-component-alpha-30);
+    --color-light-specialbg-component-alpha-60: var(--color-dark-specialbg-component-alpha-60);
+    --color-light-specialbg-component-alpha-80: var(--color-dark-specialbg-component-alpha-80);
 }

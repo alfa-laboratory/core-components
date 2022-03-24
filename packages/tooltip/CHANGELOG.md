@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.6.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.5.1...@alfalab/core-components-tooltip@4.6.0) (2022-03-22)
+
+
+### Features
+
+* **tooltip:** added anchor props ([#1034](https://github.com/alfa-laboratory/core-components/issues/1034)) ([822031b](https://github.com/alfa-laboratory/core-components/commit/822031b3941184689a2a7ed9938c4ec44debc444))
+
+
+
+
+
 ## [4.5.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.5.0...@alfalab/core-components-tooltip@4.5.1) (2022-03-03)
 
 **Note:** Version bump only for package @alfalab/core-components-tooltip

@@ -1,3 +1,4 @@
+import { Page } from 'playwright';
 import {
     setupScreenshotTesting,
     createSpriteStorybookUrl,
@@ -14,6 +15,8 @@ const screenshotTesting = setupScreenshotTesting({
 
 const availableThemes = ['default', 'click', 'mobile'];
 
+const clip = { x: 0, y: 0, width: 200, height: 100 };
+
 describe('Tag | main props', () => {
     const testCase = (theme: string) =>
         screenshotTesting({
@@ -24,7 +27,7 @@ describe('Tag | main props', () => {
                         componentName: 'Tag',
                         knobs: {
                             children: 'Оплатить',
-                            size: ['xl', 'l', 'm', 's', 'xs'],
+                            size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
                             checked: [false, true],
                             disabled: [false, true],
                         },
@@ -78,7 +81,7 @@ describe('Tag | inverted', () => {
                         componentName: 'Tag',
                         knobs: {
                             children: 'Оплатить',
-                            size: ['xl', 'l', 'm', 's', 'xs'],
+                            size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
                             checked: [false, true],
                             disabled: [false, true],
                             colors: 'inverted',
@@ -96,3 +99,47 @@ describe('Tag | inverted', () => {
 
     availableThemes.map(testCase);
 });
+
+describe(
+    'Tag | screenshots hover state',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'Tag',
+            knobs: {
+                children: 'Оплатить',
+                size: 's',
+                checked: true,
+                disabled: [false, true],
+            },
+        }),
+        screenshotOpts: { clip },
+        evaluate: (page: Page) => page.hover('button').then(() => page.waitForTimeout(500)),
+        matchImageSnapshotOptions: {
+            customSnapshotIdentifier: (...args) => `hover-${customSnapshotIdentifier(...args)}`,
+        },
+    }),
+);
+
+describe(
+    'Button | screenshots pressed state',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'Tag',
+            knobs: {
+                children: 'Оплатить',
+                size: 's',
+                checked: [true, false],
+                disabled: [false, true],
+            },
+        }),
+        screenshotOpts: { clip },
+        evaluate: (page: Page) => {
+            return page.mouse
+                .move(30, 30)
+                .then(() => page.mouse.down().then(() => page.waitForTimeout(500)));
+        },
+        matchImageSnapshotOptions: {
+            customSnapshotIdentifier: (...args) => `hover-${customSnapshotIdentifier(...args)}`,
+        },
+    }),
+);

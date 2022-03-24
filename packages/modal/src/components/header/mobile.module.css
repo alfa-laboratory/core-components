@@ -5,12 +5,10 @@
 }
 
 .content {
-    padding: var(--modal-header-mobile-padding);
     font-size: var(--modal-header-mobile-font-size);
     line-height: var(--modal-header-mobile-line-height);
     font-family: var(--modal-header-mobile-font-family);
-    font-weight: bold;
+    font-weight: var(--modal-header-mobile-font-weight);
 
-    margin: 0;
-    padding: var(--modal-header-mobile-top-padding) var(--gap-xs) 10px var(--gap-m);
+    padding: var(--modal-header-mobile-content-paddings);
 }

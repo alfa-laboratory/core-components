@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-radio@2.3.1...@alfalab/core-components-radio@2.4.0) (2022-03-24)
+
+
+### Features
+
+* add extra classes for radio and checkbox components ([#1039](https://github.com/alfa-laboratory/core-components/issues/1039)) ([c3ed089](https://github.com/alfa-laboratory/core-components/commit/c3ed089360b25d0f7712f2e7608c5a23f11a95df))
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
 ## [2.3.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-radio@2.3.0...@alfalab/core-components-radio@2.3.1) (2021-12-08)
 
 

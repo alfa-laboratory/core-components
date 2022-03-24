@@ -7,6 +7,8 @@
     --color-dynamic-quinary-light: rgba(255, 255, 255, 0.16);
     --color-dynamic-secondary-dark: rgba(0, 0, 0, 0.64);
     --color-dynamic-secondary-light: rgba(255, 255, 255, 0.64);
+    --color-dynamic-senary-dark: rgba(0, 0, 0, 0.12);
+    --color-dynamic-senary-light: rgba(255, 255, 255, 0.12);
     --color-dynamic-tertiary-dark: rgba(0, 0, 0, 0.48);
     --color-dynamic-tertiary-light: rgba(255, 255, 255, 0.48);
     --color-static-primary-dark: rgba(0, 0, 0, 0.8);
@@ -17,6 +19,8 @@
     --color-static-quinary-light: rgba(255, 255, 255, 0.16);
     --color-static-secondary-dark: rgba(0, 0, 0, 0.64);
     --color-static-secondary-light: rgba(255, 255, 255, 0.64);
+    --color-static-senary-dark: rgba(0, 0, 0, 0.12);
+    --color-static-senary-light: rgba(255, 255, 255, 0.12);
     --color-static-tertiary-dark: rgba(0, 0, 0, 0.48);
     --color-static-tertiary-light: rgba(255, 255, 255, 0.48);
 }

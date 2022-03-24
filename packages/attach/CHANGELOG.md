@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@4.1.0...@alfalab/core-components-attach@4.1.1) (2022-03-24)
+
+
+### Bug Fixes
+
+* **attach:** always clear input ([#1038](https://github.com/alfa-laboratory/core-components/issues/1038)) ([f3e85f2](https://github.com/alfa-laboratory/core-components/commit/f3e85f299c4e42253d0354cdd61e005d9fe927f0))
+
+
+
+
+
 # [4.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@4.0.7...@alfalab/core-components-attach@4.1.0) (2022-02-21)
 
 

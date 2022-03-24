@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import cn from 'classnames';
 import { Title } from '@storybook/addon-docs';
 import { Status } from 'storybook/blocks/status';
 
@@ -39,13 +40,18 @@ export const ComponentHeader: React.FC<ComponentHeaderProps> = ({
                         Github
                     </a>
                 </div>
-                {design && (
-                    <div className={styles.design}>
-                        <a href={design} target='_blank'>
-                            Figma
-                        </a>
-                    </div>
-                )}
+                <div
+                    className={cn(
+                        styles.design,
+                        {
+                            [styles.commonLink]: !design,
+                        },
+                    )}
+                >
+                    <a href={design || 'https://www.figma.com/file/JnpPl4gvg2Zjr7zvTz8mUk/Web-%3A%3A-Core-Default-Components'} target='_blank'>
+                        Figma
+                    </a>
+                </div>
             </div>
         </div>
     );
