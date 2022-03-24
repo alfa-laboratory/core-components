@@ -12456,6 +12456,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     /* border */
     --tag-border-width: 1px;
     --tag-border-radius: var(--border-radius-pill);
+    --tag-alt-border-radius: var(--border-radius-s);
 }
 .component_2dKuC {
     display: -webkit-inline-box;
@@ -12474,7 +12475,6 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     text-decoration: none;
     border-width: var(--tag-border-width);
     border-style: solid;
-    border-radius: var(--tag-border-radius);
     -webkit-transition: background-color 0.2s ease, border 0.2s ease, color 0.2s ease;
     transition: background-color 0.2s ease, border 0.2s ease, color 0.2s ease;
     -webkit-box-sizing: border-box;
@@ -12652,9 +12652,15 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 .withLeftAddons_XlYmR.xl_36uxi {
         padding-left: var(--gap-2xl);
     }
+.default_No8r8 {
+    border-radius: var(--tag-border-radius);
+}
+.alt_3orUD {
+    border-radius: var(--tag-alt-border-radius);
+}
 :root {
     /* border */
-    --tag-border-color: var(--color-light-border-secondary-inverted);
+    --tag-border-color: var(--color-light-border-underline);
     --tag-border-color-hover: var(--color-light-border-key);
     --tag-border-color-active: var(--color-light-border-key);
     --tag-border-color-checked: var(--color-light-border-key);
@@ -12665,8 +12671,11 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --tag-background-color: transparent;
     --tag-background-color-hover: transparent;
     --tag-background-color-active: var(--color-light-bg-primary-inverted-alpha-7);
+    --tag-background-color-disabled: transparent;
     --tag-background-color-checked: var(--color-light-bg-primary-inverted);
-    --tag-background-color-checked-disabled: var(--color-light-bg-primary-inverted-alpha-15);
+    --tag-background-color-checked-hover: var(--color-light-bg-primary-inverted-tint-15);
+    --tag-background-color-checked-active: var(--color-light-bg-primary-inverted-tint-20);
+    --tag-background-color-checked-disabled: var(--color-light-bg-primary-inverted-alpha-30);
 
     /* text color */
     --tag-text-color: var(--color-light-text-primary);
@@ -12682,6 +12691,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 .component_2I5h1:disabled {
         border-color: var(--tag-border-color-disabled);
         color: var(--tag-text-color-disabled);
+        background-color: var(--tag-background-color-disabled);
     }
 .component_2I5h1:hover:not(:disabled) {
         border-color: var(--tag-border-color-hover);
@@ -12703,11 +12713,15 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
         color: var(--tag-text-color-checked-disabled);
     }
 .checked_35ZxE:hover:not(:disabled):not(:active) {
-        background-color: var(--tag-background-color-checked);
+        background-color: var(--tag-background-color-checked-hover);
+    }
+.checked_35ZxE:active:not(:disabled) {
+        background-color: var(--tag-background-color-checked-active);
+        color: var(--tag-text-color-checked);
     }
 :root {
     /* border */
-    --tag-inverted-border-color: var(--color-dark-border-secondary-inverted);
+    --tag-inverted-border-color: var(--color-dark-border-underline);
     --tag-inverted-border-color-hover: var(--color-dark-border-key);
     --tag-inverted-border-color-active: var(--color-dark-border-key);
     --tag-inverted-border-color-checked: var(--color-dark-border-key);
@@ -12717,10 +12731,13 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     /* background-color */
     --tag-inverted-background-color: transparent;
     --tag-inverted-background-color-hover: transparent;
+    --tag-inverted-background-color-disabled: transparent;
     --tag-inverted-background-color-active: var(--color-dark-bg-primary-inverted-alpha-7);
     --tag-inverted-background-color-checked: var(--color-dark-bg-primary-inverted);
+    --tag-inverted-background-color-checked-hover: var(--color-dark-bg-primary-inverted-shade-7);
+    --tag-inverted-background-color-checked-active: var(--color-dark-bg-primary-inverted-shade-15);
     --tag-inverted-background-color-checked-disabled: var(
-        --color-dark-bg-primary-inverted-alpha-15
+        --color-dark-bg-primary-inverted-alpha-30
     );
 
     /* text color */
@@ -12737,6 +12754,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 .component_TwZ_5:disabled {
         border-color: var(--tag-inverted-border-color-disabled);
         color: var(--tag-inverted-text-color-disabled);
+        background-color: var(--tag-inverted-background-color-disabled);
     }
 .component_TwZ_5:hover:not(:disabled) {
         border-color: var(--tag-inverted-border-color-hover);
@@ -12758,7 +12776,11 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
         color: var(--tag-inverted-text-color-checked-disabled);
     }
 .checked_4Rm1r:hover:not(:disabled):not(:active) {
-        background-color: var(--tag-inverted-background-color-checked);
+        background-color: var(--tag-inverted-background-color-checked-hover);
+    }
+.checked_4Rm1r:active:not(:disabled) {
+        background-color: var(--tag-inverted-background-color-checked-active);
+        color: var(--tag-inverted-text-color-checked);
     }
 .tag_2nsFv.tag_2nsFv {
     color: var(--color-light-text-secondary);
@@ -14294,6 +14316,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     -webkit-box-shadow: var(--shadow-xs-hard);
             box-shadow: var(--shadow-xs-hard);
     border-radius: var(--border-radius-m);
+    overflow: auto;
 }
 .hasPagination_SYWcW {
     padding-bottom: 0;
@@ -14368,7 +14391,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     position: relative;
     text-align: left;
     color: var(--color-light-text-primary);
-    padding: var(--gap-2xl) var(--gap-m) 0;
+    padding: var(--gap-2xl) var(--gap-m) var(--gap-2xs);
     border-bottom: 1px solid var(--color-light-border-primary);
     background: var(--color-light-bg-primary);
     vertical-align: top;
@@ -14391,16 +14414,24 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
 }
 .icon_1KvWh {
     cursor: pointer;
     margin-left: var(--gap-xs);
+
+    /**
+     * иконка сортировки должна быть выровнена по верхнему краю,
+     * т.к. текст может быть в две строки
+     */
+    margin-top: 1px;
     color: var(--color-light-graphic-secondary);
     -webkit-transition: color 0.2s ease;
-    transition: color 0.2s ease
+    transition: color 0.2s ease;
+    -ms-flex-negative: 0;
+        flex-shrink: 0
 }
 .icon_1KvWh:hover {
         color: var(--color-light-graphic-primary);
@@ -15836,10 +15867,23 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --color-dark-bg-primary-inverted-alpha-10: rgba(255, 255, 255, 0.1);
     --color-dark-bg-primary-inverted-alpha-15: rgba(255, 255, 255, 0.15);
     --color-dark-bg-primary-inverted-alpha-20: rgba(255, 255, 255, 0.2);
+    --color-dark-bg-primary-inverted-alpha-30: rgba(255, 255, 255, 0.3);
     --color-dark-bg-primary-inverted-alpha-40: rgba(255, 255, 255, 0.4);
     --color-dark-bg-primary-inverted-alpha-50: rgba(255, 255, 255, 0.5);
+    --color-dark-bg-primary-inverted-alpha-60: rgba(255, 255, 255, 0.6);
+    --color-dark-bg-primary-inverted-alpha-80: rgba(255, 255, 255, 0.8);
+    --color-dark-bg-primary-inverted-shade-7: rgb(237, 237, 237);
+    --color-dark-bg-primary-inverted-shade-15: rgb(217, 217, 217);
+    --color-dark-bg-primary-inverted-shade-20: rgb(204, 204, 204);
+    --color-dark-bg-secondary-alpha-30: rgba(35, 53, 73, 0.3);
+    --color-dark-bg-secondary-tint-7: rgb(50, 67, 86);
+    --color-dark-bg-secondary-tint-15: rgb(68, 83, 100);
     --color-dark-bg-secondary-inverted-alpha-7: rgba(182, 188, 195, 0.07);
     --color-dark-bg-secondary-inverted-alpha-15: rgba(182, 188, 195, 0.15);
+    --color-dark-bg-secondary-inverted-alpha-30: rgba(182, 188, 195, 0.3);
+    --color-dark-bg-secondary-inverted-shade-7: rgb(169, 175, 181);
+    --color-dark-bg-secondary-inverted-shade-15: rgb(155, 160, 166);
+    --color-dark-bg-secondary-inverted-shade-20: rgb(146, 150, 156);
     --color-dark-bg-tertiary-tint-7: rgb(74, 89, 104);
     --color-dark-border-tertiary-inverted-alpha-30: rgba(182, 188, 195, 0.3);
     --color-dark-graphic-accent-alpha-30: rgba(239, 49, 36, 0.3);
@@ -15865,6 +15909,9 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --color-dark-specialbg-component-tint-7: rgb(85, 99, 114);
     --color-dark-specialbg-component-tint-10: rgb(90, 104, 118);
     --color-dark-specialbg-component-tint-30: rgb(127, 137, 149);
+    --color-dark-specialbg-component-alpha-2: rgba(72, 87, 103, 0.02);
+    --color-dark-specialbg-component-alpha-14: rgba(72, 87, 103, 0.14);
+    --color-dark-specialbg-component-alpha-23: rgba(72, 87, 103, 0.23);
     --color-dark-specialbg-component-inverted-shade-15: rgba(9, 26, 45, 0.2095);
     --color-dark-text-link-shade-30: rgb(0, 85, 179);
     --color-dark-text-link-shade-50: rgb(0, 61, 128);
@@ -15901,10 +15948,23 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --color-light-bg-primary-inverted-alpha-10: rgba(11, 31, 53, 0.1);
     --color-light-bg-primary-inverted-alpha-15: rgba(11, 31, 53, 0.15);
     --color-light-bg-primary-inverted-alpha-20: rgba(11, 31, 53, 0.2);
+    --color-light-bg-primary-inverted-alpha-30: rgba(11, 31, 53, 0.3);
     --color-light-bg-primary-inverted-alpha-40: rgba(11, 31, 53, 0.4);
     --color-light-bg-primary-inverted-alpha-50: rgba(11, 31, 53, 0.5);
+    --color-light-bg-primary-inverted-alpha-60: rgba(11, 31, 53, 0.6);
+    --color-light-bg-primary-inverted-alpha-80: rgba(11, 31, 53, 0.8);
+    --color-light-bg-primary-inverted-tint-7: rgb(28, 47, 67);
+    --color-light-bg-primary-inverted-tint-15: rgb(48, 65, 83);
+    --color-light-bg-primary-inverted-tint-20: rgb(60, 76, 93);
+    --color-light-bg-secondary-alpha-30: rgba(243, 244, 245, 0.3);
+    --color-light-bg-secondary-shade-7: rgb(226, 227, 228);
+    --color-light-bg-secondary-shade-15: rgb(207, 207, 208);
     --color-light-bg-secondary-inverted-alpha-7: rgba(35, 53, 73, 0.07);
     --color-light-bg-secondary-inverted-alpha-15: rgba(35, 53, 73, 0.15);
+    --color-light-bg-secondary-inverted-alpha-30: rgba(35, 53, 73, 0.3);
+    --color-light-bg-secondary-inverted-tint-7: rgb(50, 67, 86);
+    --color-light-bg-secondary-inverted-tint-15: rgb(68, 83, 100);
+    --color-light-bg-secondary-inverted-tint-20: rgb(79, 93, 109);
     --color-light-bg-tertiary-shade-7: rgb(215, 217, 219);
     --color-light-border-tertiary-inverted-alpha-30: rgba(109, 121, 134, 0.3);
     --color-light-graphic-accent-alpha-30: rgba(239, 49, 36, 0.3);
@@ -15930,6 +15990,9 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --color-light-specialbg-component-shade-7: rgba(10, 29, 49, 0.1351);
     --color-light-specialbg-component-shade-10: rgba(10, 28, 48, 0.163);
     --color-light-specialbg-component-shade-30: rgba(8, 22, 37, 0.349);
+    --color-light-specialbg-component-alpha-2: rgba(11, 31, 53, 0.02);
+    --color-light-specialbg-component-alpha-14: rgba(11, 31, 53, 0.14);
+    --color-light-specialbg-component-alpha-23: rgba(11, 31, 53, 0.23);
     --color-light-specialbg-component-inverted-tint-15: rgba(255, 255, 255, 0.2775);
     --color-light-text-link-tint-30: rgb(77, 162, 255);
     --color-light-text-link-tint-50: rgb(128, 189, 255);
