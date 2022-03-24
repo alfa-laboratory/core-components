@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.7.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.7.0...@alfalab/core-components-themes@7.7.1) (2022-03-24)
+
+**Note:** Version bump only for package @alfalab/core-components-themes
+
+
+
+
+
+# [7.7.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.6.0...@alfalab/core-components-themes@7.7.0) (2022-03-18)
+
+
+### Features
+
+* **calendar:** add intranet theme ([#1026](https://github.com/alfa-laboratory/core-components/issues/1026)) ([292b76c](https://github.com/alfa-laboratory/core-components/commit/292b76c100bb12ebb1011d2a9981ba2b2899dd7a))
+
+
+
+
+
 # [7.6.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.5.2...@alfalab/core-components-themes@7.6.0) (2022-03-04)
 
 

@@ -5,7 +5,8 @@
     --calendar-mobile-inner-width: 256px;
 
     /* Кнопки выбора месяцев и годов */
-    --calendar-selector-button-outline-border-color: var(--color-light-border-key);
+    --calendar-select-button-today-border-color: var(--color-light-border-key);
+    --calendar-select-button-selected-background: var(--color-light-bg-primary-inverted);
 
     /* Шапка */
     --calendar-month-only-header-font-family: var(--font-family-system);

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-radio-group@2.3.0...@alfalab/core-components-radio-group@2.4.0) (2022-03-22)
+
+
+### Bug Fixes
+
+* **radio-group:** add missing 'value' attribute to 'input' tag ([#1033](https://github.com/alfa-laboratory/core-components/issues/1033)) ([0f9cf0e](https://github.com/alfa-laboratory/core-components/commit/0f9cf0ecd74f4764ccd0b2839ba0cdf1b96e75cb)), closes [#1031](https://github.com/alfa-laboratory/core-components/issues/1031)
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
 # [2.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-radio-group@2.2.0...@alfalab/core-components-radio-group@2.3.0) (2021-10-11)
 
 

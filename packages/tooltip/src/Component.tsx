@@ -139,6 +139,11 @@ export type TooltipProps = {
      *  Позволяет тултипу подствраивать свою высоту под границы экрана, если из-за величины контента он выходит за рамки видимой области экрана
      */
     availableHeight?: PopoverProps['availableHeight'];
+
+    /**
+     *  Элемент, относительно которого будет позиционировать тултип.
+     */
+    anchor?: PopoverProps['anchorElement'];
 };
 
 export const Tooltip: FC<TooltipProps> = ({
@@ -165,6 +170,7 @@ export const Tooltip: FC<TooltipProps> = ({
     fallbackPlacements,
     preventOverflow = true,
     availableHeight = false,
+    anchor = null,
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
     const [target, setTarget] = useState<HTMLElement | null>(null);
@@ -324,7 +330,7 @@ export const Tooltip: FC<TooltipProps> = ({
             </div>
 
             <Popover
-                anchorElement={target}
+                anchorElement={anchor || target}
                 open={show}
                 getPortalContainer={getPortalContainer}
                 arrowClassName={cn(arrowClassName, styles.arrow)}

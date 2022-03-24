@@ -168,11 +168,11 @@ export const Attach = React.forwardRef<HTMLInputElement, AttachProps>(
 
         const handleClearClick = useCallback(
             ev => {
-                if (uncontrolled) {
-                    if (inputRef.current) {
-                        inputRef.current.value = '';
-                    }
+                if (inputRef.current) {
+                    inputRef.current.value = '';
+                }
 
+                if (uncontrolled) {
                     setFiles([]);
                 }
 

@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useMemo, useState } from 'react';
+import React, { forwardRef, MouseEvent, useCallback, useMemo, useState } from 'react';
 import cn from 'classnames';
 import startOfDay from 'date-fns/startOfDay';
 import startOfMonth from 'date-fns/startOfMonth';
@@ -93,6 +93,16 @@ export type CalendarProps = {
     onChange?: (date: number) => void;
 
     /**
+     * Обработчик нажатия на кнопку месяца
+     */
+    onMonthClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+
+    /**
+     * Обработчик нажатия на кнопку года
+     */
+    onYearClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -116,6 +126,8 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             events,
             onChange,
             onMonthChange,
+            onMonthClick,
+            onYearClick,
             dataTestId,
         },
         ref,
@@ -196,13 +208,27 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             setNextMonth();
         }, [setNextMonth]);
 
-        const handleMonthClick = useCallback(() => {
-            toggleView('months');
-        }, [toggleView]);
+        const handleMonthClick = useCallback(
+            event => {
+                toggleView('months');
 
-        const handleYearClick = useCallback(() => {
-            toggleView('years');
-        }, [toggleView]);
+                if (onMonthClick) {
+                    onMonthClick(event);
+                }
+            },
+            [onMonthClick, toggleView],
+        );
+
+        const handleYearClick = useCallback(
+            event => {
+                toggleView('years');
+
+                if (onYearClick) {
+                    onYearClick(event);
+                }
+            },
+            [onYearClick, toggleView],
+        );
 
         useDidUpdateEffect(() => {
             setView('days');

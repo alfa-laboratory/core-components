@@ -166,6 +166,7 @@
     --color-dark-bg-tertiary-tint-7: rgb(59, 59, 61);
     --color-dark-border-tertiary-inverted-alpha-30: rgba(243, 244, 245, 0.3);
     --color-dark-graphic-accent-alpha-30: rgba(239, 49, 36, 0.3);
+    --color-dark-graphic-accent-shade-15: rgb(203, 42, 31);
     --color-dark-graphic-accent-tint-10: rgb(241, 70, 58);
     --color-dark-graphic-accent-tint-30: rgb(244, 111, 102);
     --color-dark-graphic-negative-shade-30: rgb(152, 20, 8);
@@ -239,6 +240,7 @@
     --color-light-bg-tertiary-shade-7: rgb(217, 217, 219);
     --color-light-border-tertiary-inverted-alpha-30: rgba(28, 28, 30, 0.3);
     --color-light-graphic-accent-alpha-30: rgba(239, 49, 36, 0.3);
+    --color-light-graphic-accent-tint-15: rgb(241, 80, 69);
     --color-light-graphic-accent-shade-10: rgb(215, 44, 32);
     --color-light-graphic-accent-shade-30: rgb(167, 34, 25);
     --color-light-graphic-negative-tint-30: rgb(245, 133, 125);

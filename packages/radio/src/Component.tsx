@@ -58,6 +58,11 @@ export type RadioProps = Omit<
     className?: string;
 
     /**
+     * Доп. класс радио кнопки
+     */
+    circleClassName?: string;
+
+    /**
      * Выравнивание
      */
     align?: Align;
@@ -89,6 +94,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
         {
             onChange,
             className,
+            circleClassName,
             name,
             disabled,
             inactive,
@@ -135,7 +141,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
                     name={name}
                     {...restProps}
                 />
-                <span className={styles.circle} />
+                <span className={cn(styles.circle, circleClassName)} />
                 {(label || hint) && (
                     <span className={styles.content}>
                         {label && <span className={styles.label}>{label}</span>}

@@ -572,6 +572,34 @@ describe('Calendar', () => {
 
             expect(cb).toBeCalledTimes(2);
         });
+
+        it('should call onMonthClick callback in full view', () => {
+            const cb = jest.fn();
+            const { getByText } = render(
+                <Calendar
+                    defaultMonth={defaultDate.getTime()}
+                    onMonthClick={cb}
+                    selectorView='full'
+                />,
+            );
+
+            getByText('Ноябрь').click();
+            expect(cb).toBeCalledTimes(1);
+        });
+
+        it('should call onYearClick callback in full view', () => {
+            const cb = jest.fn();
+            const { getByText } = render(
+                <Calendar
+                    defaultMonth={defaultDate.getTime()}
+                    onYearClick={cb}
+                    selectorView='full'
+                />,
+            );
+
+            getByText('2020').click();
+            expect(cb).toBeCalledTimes(1);
+        });
     });
 
     describe('Keyboard control', () => {

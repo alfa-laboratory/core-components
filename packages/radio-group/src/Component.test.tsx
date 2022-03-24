@@ -17,13 +17,13 @@ const Group = ({ ...restProps }: Partial<RadioGroupProps>) => (
 
 const TagGroup = ({ ...restProps }: Partial<RadioGroupProps>) => (
     <RadioGroup label='Заголовок группы' type='tag' {...restProps}>
-        <Tag name='one' className='my-tag'>
+        <Tag value='one' className='my-tag'>
             Первый вариант
         </Tag>
 
-        <Tag name='two'>Второй вариант</Tag>
+        <Tag value='two'>Второй вариант</Tag>
 
-        <Tag name='three'>Третий вариант</Tag>
+        <Tag value='three'>Третий вариант</Tag>
     </RadioGroup>
 );
 

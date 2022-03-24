@@ -20,6 +20,10 @@
     background: url(https://static.figma.com/app/icon/1/favicon.svg) no-repeat 0 50%;
 }
 
+.commonLink {
+    opacity: 0.8;
+}
+
 .github {
     margin: 0 0 var(--gap-xs);
     padding: 0 0 0 var(--gap-l);

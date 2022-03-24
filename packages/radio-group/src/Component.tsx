@@ -153,6 +153,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
                         name={name}
                         checked={checked}
                         className={styles.hiddenInput}
+                        value={child.props.value}
                     />
                 </label>
             );
