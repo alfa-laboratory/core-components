@@ -91,7 +91,7 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
 
         return (
             <div
-                className={cn(className, [styles.filterTag], styles[variant], styles[size], {
+                className={cn(className, [styles.component], styles[variant], styles[size], {
                     [styles.checked]: checked,
                     [styles.disabled]: disabled,
                     [styles.focused]: focused,
@@ -119,10 +119,9 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
 
                 {checked && !disabled && (
                     <IconButton
-                        disabled={disabled}
                         className={cn(styles.clear, styles[size])}
                         icon={size === 'xxs' ? CrossCircleSIcon : CrossCircleMIcon}
-                        colors={checked ? 'inverted' : 'default'}
+                        colors='inverted'
                         size='xxs'
                         onClick={handleClear}
                     />

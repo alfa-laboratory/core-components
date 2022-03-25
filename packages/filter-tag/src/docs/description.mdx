@@ -5,7 +5,7 @@ import { Container, Row, Col } from 'storybook/blocks';
 ```tsx live
 render(() => {
 const checkedContent = <span>Время года:<b> Весна</b></span>;
-const content = <span>Время года:</span>;
+const content = <span>Время года</span>;
 
 const [checked, setChecked] = React.useState(false);
 
@@ -35,8 +35,8 @@ return (
 render(() => {
 const SIZES = ['s', 'xs', 'xxs'];
 const checkedContent = <span>Время года:<b> Весна</b></span>;
-const content = <span>Время года:</span>;
-const [checkedFilterTag, setCheckedFilterTag] = React.useState(null);
+const content = <span>Время года</span>;
+const [checkedFilterTag, setCheckedFilterTag] = React.useState([]);
 
 return (
     <Container>
@@ -45,9 +45,9 @@ return (
                 <Col key={size}>
                     <FilterTag
                         size={size}
-                        onClick={() => setCheckedFilterTag(size)}
-                        onClear={() => setCheckedFilterTag(null)}
-                        checked={checkedFilterTag === size} 
+                        onClick={() => setCheckedFilterTag([...checkedFilterTag, size])}
+                        onClear={() => setCheckedFilterTag(checkedFilterTag.filter((item) => item !== size))}
+                        checked={checkedFilterTag.includes(size)} 
                      >
                         {checkedFilterTag === size ? checkedContent : content}
                     </FilterTag>
@@ -66,8 +66,8 @@ return (
 render(() => {
 const variants = ['default', 'alt'];
 const checkedContent = <span>Время года:<b> Весна</b></span>;
-const content = <span>Время года:</span>;
-const [checkedFilterTag, setCheckedFilterTag] = React.useState(null);
+const content = <span>Время года</span>;
+const [checkedFilterTag, setCheckedFilterTag] = React.useState([]);
 
 return (
     <Container>
@@ -76,12 +76,12 @@ return (
                 <Col key={variant}>
                     <FilterTag
                         size='xxs'
-                        onClick={() => setCheckedFilterTag(variant)}
-                        onClear={() => setCheckedFilterTag(null)}
-                        checked={checkedFilterTag === variant}
+                        onClick={() => setCheckedFilterTag([...checkedFilterTag, variant])}
+                        onClear={() => setCheckedFilterTag(checkedFilterTag.filter((item) => item !== variant))}
+                        checked={checkedFilterTag.includes(variant)} 
                         variant={variant} 
                      >
-                        {checkedFilterTag === variant ? checkedContent : content}
+                        {checkedFilterTag.includes(variant) ? checkedContent : content}
                     </FilterTag>
                 </Col>
             ))}
@@ -97,14 +97,14 @@ return (
 
 ```tsx live
 render(() => {
-const label = <span>Время года:</span>;
+const label = <span>Время года</span>;
 const content = {
     labelItem: <span>Время года:<b> Весна</b></span>,
     labelCount: <span>Время года:<b> Выбрано 2</b></span>,
     checkedItem: <b>Весна</b>,
 }
 
-const [checkedFilterTag, setCheckedFilterTag] = React.useState(null);
+const [checkedFilterTag, setCheckedFilterTag] = React.useState([]);
 
 return (
     <Container>
@@ -113,11 +113,11 @@ return (
                 <Col key={key}>
                     <FilterTag
                         size='xxs'
-                        onClick={() => setCheckedFilterTag(key)}
-                        onClear={() => setCheckedFilterTag(null)}
-                        checked={checkedFilterTag === key}
+                        onClick={() => setCheckedFilterTag([...checkedFilterTag, key])}
+                        onClear={() => setCheckedFilterTag(checkedFilterTag.filter((item) => item !== key))}
+                        checked={checkedFilterTag.includes(key)} 
                      >
-                        {checkedFilterTag === key ? value : label}
+                        {checkedFilterTag.includes(key) ? value : label}
                     </FilterTag>
                 </Col>
             ))}

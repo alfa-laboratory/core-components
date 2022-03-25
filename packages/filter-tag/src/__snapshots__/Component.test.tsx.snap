@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="filterTag default s"
+        class="component default s"
       >
         <button
           class="valueButton s"
@@ -37,7 +37,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="filterTag default s"
+      class="component default s"
     >
       <button
         class="valueButton s"
@@ -125,7 +125,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="filterTag alt s"
+        class="component alt s"
       >
         <button
           class="valueButton s"
@@ -156,7 +156,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="filterTag alt s"
+      class="component alt s"
     >
       <button
         class="valueButton s"
@@ -244,7 +244,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="filterTag alt s"
+        class="component alt s"
       >
         <button
           class="valueButton s"
@@ -275,7 +275,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="filterTag alt s"
+      class="component alt s"
     >
       <button
         class="valueButton s"
@@ -363,7 +363,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="filterTag default s"
+        class="component default s"
       >
         <button
           class="valueButton s"
@@ -392,7 +392,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="filterTag default s"
+      class="component default s"
     >
       <button
         class="valueButton s"

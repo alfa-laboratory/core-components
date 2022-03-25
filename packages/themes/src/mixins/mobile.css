@@ -8,6 +8,7 @@
 @import './slider/mobile.css';
 @import './slider-input/mobile.css';
 @import './calendar-input/mobile.css';
+@import './filter-tag/mobile.css';
 
 @define-mixin theme-mobile {
     @mixin button-mobile;
@@ -20,4 +21,6 @@
     @mixin slider-mobile;
     @mixin slider-input-mobile;
     @mixin calendar-input-mobile;
+    @mixin calendar-input-mobile;
+    @mixin filter-tag-mobile;
 }
