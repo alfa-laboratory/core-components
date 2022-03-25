@@ -1,11 +1,5 @@
 @import '../../themes/src/default.css';
-
-:root {
-    /* border */
-    --tag-border-width: 1px;
-    --tag-border-radius: var(--border-radius-pill);
-    --tag-alt-border-radius: var(--border-radius-s);
-}
+@import './vars.css';
 
 .component {
     display: inline-flex;

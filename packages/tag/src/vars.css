@@ -1,0 +1,28 @@
+:root {
+    /* border */
+    --tag-border-color: var(--color-light-border-underline);
+    --tag-border-color-hover: var(--color-light-border-key);
+    --tag-border-color-active: var(--color-light-border-key);
+    --tag-border-color-checked: var(--color-light-border-key);
+    --tag-border-color-disabled: var(--color-light-border-primary);
+    --tag-border-color-checked-disabled: transparent;
+    --tag-border-width: 1px;
+    --tag-border-radius: var(--border-radius-pill);
+    --tag-alt-border-radius: var(--border-radius-s);
+
+    /* background-color */
+    --tag-background-color: transparent;
+    --tag-background-color-hover: transparent;
+    --tag-background-color-active: var(--color-light-bg-primary-inverted-alpha-7);
+    --tag-background-color-disabled: transparent;
+    --tag-background-color-checked: var(--color-light-bg-primary-inverted);
+    --tag-background-color-checked-hover: var(--color-light-bg-primary-inverted-tint-15);
+    --tag-background-color-checked-active: var(--color-light-bg-primary-inverted-tint-20);
+    --tag-background-color-checked-disabled: var(--color-light-bg-primary-inverted-alpha-30);
+
+    /* text color */
+    --tag-text-color: var(--color-light-text-primary);
+    --tag-text-color-checked: var(--color-light-text-primary-inverted);
+    --tag-text-color-disabled: var(--color-light-text-tertiary);
+    --tag-text-color-checked-disabled: var(--color-light-text-primary-inverted);
+}
