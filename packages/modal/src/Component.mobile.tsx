@@ -1,6 +1,5 @@
-import React, { cloneElement, forwardRef, isValidElement } from 'react';
+import React, { forwardRef } from 'react';
 import cn from 'classnames';
-import { useMedia } from '@alfalab/hooks';
 
 import { BaseModal, BaseModalProps } from '@alfalab/core-components-base-modal';
 
@@ -22,14 +21,6 @@ export type ModalMobileProps = BaseModalProps & {
 
 const ModalMobileComponent = forwardRef<HTMLDivElement, ModalMobileProps>(
     ({ children, className, ...restProps }, ref) => {
-        const [size] = useMedia(
-            [
-                ['s', '(max-width: 375px)'],
-                ['m', '(min-width: 376px)'],
-            ],
-            's',
-        );
-
         return (
             <BaseModal
                 {...restProps}
@@ -39,16 +30,8 @@ const ModalMobileComponent = forwardRef<HTMLDivElement, ModalMobileProps>(
                     ...restProps.transitionProps,
                 }}
                 className={cn(className, styles.component)}
-                backdropProps={{
-                    ...restProps.backdropProps,
-                    invisible: true,
-                }}
             >
-                {React.Children.map(children, child =>
-                    isValidElement(child)
-                        ? cloneElement(child, { size: child.props.size || size, fullscreen: true })
-                        : child,
-                )}
+                {children}
             </BaseModal>
         );
     },

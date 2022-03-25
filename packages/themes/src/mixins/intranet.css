@@ -9,6 +9,7 @@
 @import './slider-input/intranet.css';
 @import './calendar/intranet.css';
 @import './calendar-input/intranet.css';
+@import './bottom-sheet/intranet.css';
 
 @define-mixin theme-intranet {
     @mixin button-intranet;
@@ -22,4 +23,5 @@
     @mixin slider-input-intranet;
     @mixin calendar-intranet;
     @mixin calendar-input-intranet;
+    @mixin bottom-sheet-intranet;
 }

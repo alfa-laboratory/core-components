@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@4.2.0...@alfalab/core-components-modal@5.0.0) (2022-03-24)
+
+
+### Features
+
+* **modal:** update styles ([#1024](https://github.com/alfa-laboratory/core-components/issues/1024)) ([fdf2cdc](https://github.com/alfa-laboratory/core-components/commit/fdf2cdca9f785b27cd5d3998245a34d42e1240d1))
+
+
+### BREAKING CHANGES
+
+* **modal:** Большое обновление стилей и темизации
+
+* fix(modal): remove unused align
+
+
+
+
+
 # [4.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@4.1.0...@alfalab/core-components-modal@4.2.0) (2022-03-04)
 
 

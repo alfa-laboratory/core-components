@@ -5,8 +5,12 @@
     box-sizing: border-box;
     display: flex;
     align-items: stretch;
-    justify-content: flex-end;
+    justify-content: space-between;
     transition: box-shadow 0.2s ease, background 0.2s ease;
+
+    &:not(.hasContent) {
+        pointer-events: none;
+    }
 }
 
 .highlighted {
@@ -36,6 +40,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    pointer-events: all;
+}
+
+.closer {
+    margin-left: auto;
 }
 
 .left {

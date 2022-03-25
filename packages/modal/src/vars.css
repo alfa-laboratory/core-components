@@ -1,46 +1,44 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --modal-border-radius: var(--border-radius-m);
+    --modal-border-radius: var(--border-radius-l);
     --modal-vertical-padding: var(--gap-3xl);
     --modal-header-background: var(--color-light-bg-primary);
     --modal-footer-background: var(--color-light-bg-primary);
     --modal-footer-default-gap: var(--gap-m);
 
     /* sizes */
-    --modal-s-width: 476px;
+    --modal-s-width: 500px;
     --modal-m-width: 600px;
     --modal-l-width: 800px;
-    --modal-header-min-height: 48px;
-    --modal-header-l-min-height: 72px;
+    --modal-xl-width: 1140px;
 
     /* paddings */
-    --modal-s-header-paddings: 0 0 0 var(--gap-4xl);
-    --modal-m-header-paddings: 0 0 0 var(--gap-4xl);
-    --modal-l-header-paddings: 0 0 0 var(--gap-6xl);
-    --modal-s-content-paddings: 0 var(--gap-4xl) 0;
-    --modal-m-content-paddings: 0 var(--gap-4xl) 0;
-    --modal-l-content-paddings: 0 var(--gap-6xl) 0;
-    --modal-s-footer-paddings: var(--gap-xl) var(--gap-4xl) var(--gap-4xl);
-    --modal-m-footer-paddings: var(--gap-xl) var(--gap-4xl) var(--gap-4xl);
-    --modal-l-footer-paddings: var(--gap-xl) var(--gap-6xl) var(--gap-6xl);
-    --modal-content-no-footer-bottom-padding: var(--gap-4xl);
-    --modal-l-content-no-footer-bottom-padding: var(--gap-6xl);
-    --modal-content-no-header-top-padding: var(--gap-2xl);
-
-    /* sticky */
-    --modal-footer-sticky-box-shadow: none;
-    --modal-footer-sticky-background: var(--modal-header-background);
+    --modal-s-header-paddings: var(--gap-xs) var(--gap-xs) var(--gap-m);
+    --modal-s-content-paddings: 0 56px;
+    --modal-s-content-only-bottom-padding: 56px;
+    --modal-s-footer-paddings: var(--gap-xl) 56px 56px;
 
     /* scroll */
-    --modal-header-highlight-box-shadow: none;
     --modal-header-highlight-background: var(--color-light-bg-primary);
-    --modal-footer-highlight-box-shadow: none;
     --modal-footer-highlight-background: var(--color-light-bg-primary);
+    --modal-header-highlight-box-shadow: none;
+    --modal-footer-highlight-box-shadow: 0 -1px 0 0 var(--color-light-border-primary);
+
+    /* desktop */
+    --modal-s-header-desktop-content-paddings: var(--gap-3xl) var(--gap-m) 0 0;
+    --modal-s-header-desktop-font-size: 22px;
+    --modal-s-header-desktop-line-height: 26px;
+    --modal-l-header-desktop-content-paddings: var(--gap-3xl) var(--gap-m) 0 0;
+    --modal-l-header-desktop-font-size: 30px;
+    --modal-l-header-desktop-line-height: 36px;
+    --modal-header-desktop-font-weight: bold;
+    --modal-header-desktop-font-family: var(--font-family-system);
 
     /* mobile */
-    --modal-header-mobile-top-padding: var(--gap-s);
+    --modal-header-mobile-content-paddings: var(--gap-s) var(--gap-xs) var(--gap-s) var(--gap-m);
     --modal-header-mobile-font-size: 18px;
     --modal-header-mobile-line-height: 24px;
     --modal-header-mobile-font-family: var(--font-family-system);
+    --modal-header-mobile-font-weight: bold;
 }

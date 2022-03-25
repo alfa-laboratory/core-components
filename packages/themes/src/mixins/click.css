@@ -21,6 +21,7 @@
 @import './slider/click.css';
 @import './dropzone/click.css';
 @import './code-input/click.css';
+@import './bottom-sheet/click.css';
 
 @define-mixin theme-click {
     --disabled-cursor: not-allowed;
@@ -49,4 +50,5 @@
     @mixin slider-click;
     @mixin dropzone-click;
     @mixin code-input-click;
+    @mixin bottom-sheet-click;
 }

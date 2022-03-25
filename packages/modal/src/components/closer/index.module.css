@@ -2,22 +2,21 @@
 
 .closer {
     flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.button {
     background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(10px);
     border-radius: 50px;
 }
 
-.left,
-.right {
+.sticky {
     position: sticky;
     top: calc(var(--modal-vertical-padding) * -1);
-}
-
-.right {
-    margin-left: auto;
-}
-
-.fullscreen {
-    top: 0;
 }
