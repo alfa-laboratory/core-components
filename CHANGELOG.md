@@ -1,3 +1,12 @@
+## [26.0.1](https://github.com/alfa-laboratory/core-components/compare/v26.0.0...v26.0.1) (2022-03-28)
+
+
+### Bug Fixes
+
+* add missing dependency ([#1041](https://github.com/alfa-laboratory/core-components/issues/1041)) ([3b06d3a](https://github.com/alfa-laboratory/core-components/commit/3b06d3a25f76e401a0146e163f8a61585f3eebf1))
+* fix modal and bottom-sheet dark mode ([#1043](https://github.com/alfa-laboratory/core-components/issues/1043)) ([cad36a2](https://github.com/alfa-laboratory/core-components/commit/cad36a25b28bfa71296c3dd9dc325eec28b5c241))
+* **bottom-sheet:** fix bottom-sheet swipeable marker ([#1044](https://github.com/alfa-laboratory/core-components/issues/1044)) ([0734e55](https://github.com/alfa-laboratory/core-components/commit/0734e55cc0e394fb33452f875ffcf47819277aee))
+
 # [26.0.0](https://github.com/alfa-laboratory/core-components/compare/v25.8.0...v26.0.0) (2022-03-24)
 
 
