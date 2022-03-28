@@ -28,7 +28,7 @@ export type CalendarProps = {
     defaultView?: View;
 
     /**
-     * Вид шапки — месяц и год, только месяц или пустой
+     * Вид шапки — месяц и год или только месяц или без шапки
      */
     selectorView?: SelectorView;
 
