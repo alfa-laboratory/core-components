@@ -3192,18 +3192,6 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
         -ms-flex-pack: end;
             justify-content: flex-end;
 }
-.marker_3YxhZ {
-    position: absolute;
-    top: var(--gap-2xs);
-    left: 50%;
-    width: 36px;
-    height: 4px;
-    border-radius: 20px;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
-    background-color: var(--color-light-graphic-neutral);
-    z-index: 1000;
-}
 .addon_X48n3 {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -3319,7 +3307,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     height: 100%;
 }
 .marker_3Bxyq {
-    position: absolute;
+    position: fixed;
     top: var(--gap-2xs);
     left: 50%;
     width: 36px;
