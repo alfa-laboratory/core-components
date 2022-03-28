@@ -57,10 +57,15 @@ export type BottomSheetProps = {
      */
     containerClassName?: string;
 
-    /** 
+    /**
      * Дополнительный класс шапки
      */
     headerClassName?: string;
+
+    /**
+     * Дополнительный класс футера
+     */
+    footerClassName?: string;
 
     /**
      * Дополнительный класс для аддонов
@@ -159,6 +164,11 @@ export type BottomSheetProps = {
     disableOverlayClick?: boolean;
 
     /**
+     * Кол-во пикселей, прокрученных от шапки
+     */
+    contentScrollTop?: number;
+
+    /**
      * Обработчик закрытия
      */
     onClose: () => void;
@@ -187,6 +197,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             contentClassName,
             containerClassName,
             headerClassName,
+            footerClassName,
             addonClassName,
             closerClassName,
             backerClassName,
@@ -203,6 +214,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             hideOverlay,
             hideHeader,
             disableOverlayClick,
+            contentScrollTop,
             children,
             zIndex,
             transitionProps = {},
@@ -279,6 +291,10 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 );
             }
 
+            if (contentScrollTop) {
+                return contentScrollTop > 0;
+            }
+
             return scrollableContainer.current.scrollTop > 0;
         };
 
@@ -347,7 +363,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         });
 
         const handleExited = useCallback(
-            (node) => {
+            node => {
                 setBackdropOpacity(1);
 
                 if (transitionProps.onExited) {
@@ -384,7 +400,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
 
         const getHeightStyles = (): CSSProperties => ({
             height: initialHeight === 'full' ? targetHeight : 'unset',
-            maxHeight: targetHeight
+            maxHeight: targetHeight,
         });
 
         return (
@@ -419,7 +435,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     })}
                     style={{
                         ...getSwipeStyles(),
-                        ...getHeightStyles()
+                        ...getHeightStyles(),
                     }}
                     {...sheetSwipeablehandlers}
                 >
@@ -444,7 +460,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             {children}
                         </div>
 
-                        {actionButton && <Footer sticky={stickyFooter}>{actionButton}</Footer>}
+                        {actionButton && (
+                            <Footer sticky={stickyFooter} className={footerClassName}>
+                                {actionButton}
+                            </Footer>
+                        )}
                     </div>
                 </div>
             </BaseModal>

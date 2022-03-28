@@ -7,6 +7,7 @@ import React, {
     KeyboardEvent,
     FocusEvent,
     useEffect,
+    useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
@@ -80,13 +81,15 @@ export const SelectMobile = forwardRef(
              * Нужно ли рендерить кнопки с подтверждением / сбросом значений
              */
             hasFooter?: boolean;
-         },
+        },
         ref,
     ) => {
         const rootRef = useRef<HTMLLabelElement>(null);
         const fieldRef = useRef<HTMLInputElement>(null);
         const listRef = useRef<HTMLDivElement>(null);
         const initiatorRef = useRef<OptionShape | null>(null);
+
+        const [contentScrollTop, setContentScrollTop] = useState(0);
 
         const itemToString = (option: OptionShape) => (option ? option.key : '');
 
@@ -261,7 +264,8 @@ export const SelectMobile = forwardRef(
 
         const handleValueReset = () => {
             setSelectedItems([]);
-        }
+            toggleMenu();
+        };
 
         const getOptionProps = useCallback(
             (option: OptionShape, index: number) => ({
@@ -285,7 +289,7 @@ export const SelectMobile = forwardRef(
                 Checkmark: () => (
                     <DefaultCheckmark
                         selected={selectedItems.includes(option)}
-                        className={styles.checkmark} 
+                        className={styles.checkmark}
                         icon={CheckmarkMIcon}
                         position='after'
                     />
@@ -321,6 +325,16 @@ export const SelectMobile = forwardRef(
                 )),
             [selectedItems, name],
         );
+
+        const handleOptionListScroll = (event: React.MouseEvent<HTMLDivElement>) => {
+            const { scrollTop } = event.currentTarget;
+
+            setContentScrollTop(scrollTop);
+
+            if (onScroll) {
+                onScroll(event);
+            }
+        };
 
         return (
             <div
@@ -374,12 +388,30 @@ export const SelectMobile = forwardRef(
                     contentClassName={styles.sheetContent}
                     containerClassName={styles.sheetContainer}
                     title={placeholder}
-                    actionButton={hasFooter && (
-                        <div className={styles.footer}>
-                            <Button view='primary' size='s' className={styles.footerButton} onClick={toggleMenu}>Применить</Button>
-                            <Button view='secondary' size='s' className={styles.footerButton} onClick={handleValueReset}>Сбросить</Button>
-                        </div>
-                    )}
+                    actionButton={
+                        hasFooter && (
+                            <div className={styles.footer}>
+                                <Button
+                                    view='primary'
+                                    size='s'
+                                    className={styles.footerButton}
+                                    onClick={toggleMenu}
+                                >
+                                    Применить
+                                </Button>
+                                <Button
+                                    view='secondary'
+                                    size='s'
+                                    className={styles.footerButton}
+                                    onClick={handleValueReset}
+                                >
+                                    Сбросить
+                                </Button>
+                            </div>
+                        )
+                    }
+                    contentScrollTop={contentScrollTop}
+                    stickyHeader={true}
                     hasCloser={true}
                 >
                     <div {...menuProps} className={cn(optionsListClassName, styles.optionsList)}>
@@ -397,7 +429,7 @@ export const SelectMobile = forwardRef(
                             toggleMenu={toggleMenu}
                             getOptionProps={getOptionProps}
                             visibleOptions={visibleOptions}
-                            onScroll={onScroll}
+                            onScroll={handleOptionListScroll}
                             dataTestId={getDataTestId(dataTestId, 'options-list')}
                             optionGroupClassName={cn(styles.optionGroup, optionGroupClassName)}
                         />
