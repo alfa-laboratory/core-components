@@ -5977,6 +5977,267 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     margin-top: var(--gap-2xs);
     margin-left: var(--gap-xl);
 }
+:root {
+    --filter-tag-separator-background-color-hover: transparent;
+}
+.component_3cgxz {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box
+}
+.component_3cgxz.disabled_LHvT1 {
+        background-color: var(--tag-background-color-disabled);
+    }
+.component_3cgxz.default_1RlYK {
+        border-radius: var(--tag-border-radius);
+    }
+.component_3cgxz.alt_2W-qQ {
+        border-radius: var(--tag-alt-border-radius);
+    }
+.component_3cgxz.checked_1imbd:not(.component_3cgxz.disabled_LHvT1) {
+            background-color: var(--tag-background-color-checked);
+        }
+.component_3cgxz.checked_1imbd:not(.component_3cgxz.disabled_LHvT1).xxs_3FUw5 {
+            min-width: 84px;
+        }
+.component_3cgxz.checked_1imbd:not(.component_3cgxz.disabled_LHvT1).xs_3HDV8 {
+            min-width: 104px;
+        }
+.component_3cgxz.checked_1imbd:not(.component_3cgxz.disabled_LHvT1).s_THcGl {
+            min-width: 116px;
+        }
+.component_3cgxz.checked_1imbd:not(.component_3cgxz.disabled_LHvT1):hover {
+            background-color: var(--tag-background-color-checked-hover);
+        }
+.component_3cgxz.checked_1imbd:not(.component_3cgxz.disabled_LHvT1):active {
+            background-color: var(--tag-background-color-checked-active);
+        }
+.focused_3V5Ik {
+    outline: 2px solid var(--focus-color);
+    outline-offset: 2px;
+}
+.chevron_htWl9 {
+    position: relative;
+    -webkit-transition: -webkit-transform 0.2s ease;
+    transition: -webkit-transform 0.2s ease;
+    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+.valueButton_2sJya {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    cursor: pointer;
+    outline: none;
+    white-space: nowrap;
+    color: var(--tag-text-color);
+    background-color: var(--tag-background-color);
+    border-width: var(--tag-border-width);
+    border-color: var(--tag-border-color);
+    border-style: solid;
+    -webkit-transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease
+}
+.valueButton_2sJya.default_1RlYK {
+        border-radius: var(--tag-border-radius);
+    }
+.valueButton_2sJya.alt_2W-qQ {
+        border-radius: var(--tag-alt-border-radius);
+    }
+.valueButton_2sJya.xxs_3FUw5 {
+        min-width: 60px;
+        min-height: var(--size-xs-height)
+    }
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+.valueButton_2sJya.xxs_3FUw5 {
+            /* Хак для ие, в котором не работает центрирование по высоте с использованием флексов, если указан min-height
+            Возможно другое решение - если в будущем у компонента появится обертка, установить ей display: flex / inline-flex */
+            height: 32px
+    }
+        }
+.valueButton_2sJya.xs_3HDV8 {
+        min-width: 72px;
+        min-height: 40px
+    }
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+.valueButton_2sJya.xs_3HDV8 {
+            /* Хак для ие, в котором не работает центрирование по высоте с использованием флексов, если указан min-height
+            Возможно другое решение - если в будущем у компонента появится обертка, установить ей display: flex / inline-flex */
+            height: 40px
+    }
+        }
+.valueButton_2sJya.s_THcGl {
+        min-width: 80px;
+        min-height: var(--size-s-height)
+    }
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+.valueButton_2sJya.s_THcGl {
+            /* Хак для ие, в котором не работает центрирование по высоте с использованием флексов, если указан min-height
+            Возможно другое решение - если в будущем у компонента появится обертка, установить ей display: flex / inline-flex */
+            height: 48px
+    }
+        }
+.valueButton_2sJya:not(.valueButton_2sJya:disabled):hover {
+        background-color: var(--tag-background-color-hover);
+        border-color: var(--tag-border-color-hover);
+    }
+.valueButton_2sJya:not(.valueButton_2sJya:disabled):active {
+        background-color: var(--tag-background-color-active);
+        border-color: var(--tag-border-color-active);
+    }
+.valueButton_2sJya:disabled {
+        cursor: not-allowed;
+        background-color: var(--tag-background-color-disabled);
+        border-color: var(--tag-border-color-disabled);
+        color: var(--tag-text-color-disabled);
+    }
+.valueButton_2sJya.s_THcGl {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+        padding-right: var(--gap-s);
+        padding-left: var(--gap-xl)
+    }
+.valueButton_2sJya.s_THcGl .chevron_htWl9 {
+            margin: 0 var(--gap-xs);
+        }
+.valueButton_2sJya.xs_3HDV8 {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400;
+        padding-right: var(--gap-xs);
+        padding-left: var(--gap-l)
+    }
+.valueButton_2sJya.xs_3HDV8 .chevron_htWl9 {
+            margin: 0 var(--gap-xs) 0 var(--gap-2xs);
+        }
+.valueButton_2sJya.xxs_3FUw5 {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400;
+        padding-right: var(--gap-2xs);
+        padding-left: var(--gap-m)
+    }
+.valueButton_2sJya.xxs_3FUw5 .chevron_htWl9 {
+            margin: 0 var(--gap-xs) 0 var(--gap-2xs);
+        }
+.valueButton_2sJya.open_3vwBJ .chevron_htWl9 {
+        -webkit-transform: rotateZ(180deg);
+                transform: rotateZ(180deg);
+    }
+.valueButton_2sJya.checked_1imbd {
+        background-color: var(--tag-background-color-checked);
+        border-width: 0;
+        color: var(--tag-text-color-checked)
+    }
+.valueButton_2sJya.checked_1imbd.default_1RlYK {
+            border-radius: var(--tag-border-radius) 0 0 var(--tag-border-radius)
+        }
+.valueButton_2sJya.checked_1imbd.default_1RlYK:disabled {
+                border-radius: var(--tag-border-radius);
+            }
+.valueButton_2sJya.checked_1imbd.alt_2W-qQ {
+            border-radius: var(--tag-alt-border-radius) 0 0 var(--tag-alt-border-radius)
+        }
+.valueButton_2sJya.checked_1imbd.alt_2W-qQ:disabled {
+                border-radius: var(--tag-alt-border-radius);
+            }
+.valueButton_2sJya.checked_1imbd:not(.valueButton_2sJya:disabled) {
+            padding-right: 0;
+            border-right-width: 0;
+        }
+.valueButton_2sJya.checked_1imbd:not(.valueButton_2sJya:disabled):hover {
+            background-color: var(--tag-background-color-checked-hover);
+        }
+.valueButton_2sJya.checked_1imbd:not(.valueButton_2sJya:disabled):active {
+            background-color: var(--tag-background-color-checked-active);
+        }
+.valueButton_2sJya.checked_1imbd:not(.valueButton_2sJya:disabled):hover + .clear_1jkFj:before {
+            background-color: var(--filter-tag-separator-background-color-hover);
+        }
+.valueButton_2sJya.checked_1imbd:not(.valueButton_2sJya:disabled):active + .clear_1jkFj:before {
+            background-color: transparent;
+        }
+.valueButton_2sJya.checked_1imbd:disabled {
+            background-color: var(--tag-background-color-checked-disabled);
+            color: var(--tag-text-color-checked-disabled);
+        }
+.clear_1jkFj {
+    position: relative;
+    background-color: var(--tag-background-color-checked)
+}
+.clear_1jkFj.default_1RlYK {
+        border-radius: 0 var(--tag-border-radius) var(--tag-border-radius) 0;
+    }
+.clear_1jkFj.alt_2W-qQ {
+        border-radius: 0 var(--tag-alt-border-radius) var(--tag-alt-border-radius) 0;
+    }
+.clear_1jkFj:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+        display: block;
+        background-color: var(--color-dark-border-underline);
+        width: 1px;
+        -webkit-transition: background-color 0.2s ease;
+        transition: background-color 0.2s ease;
+    }
+.clear_1jkFj:hover:before {
+        background-color: var(--filter-tag-separator-background-color-hover);
+    }
+.clear_1jkFj:active:before {
+        background-color: transparent;
+    }
+.clear_1jkFj:hover {
+        background-color: var(--tag-background-color-checked-hover);
+    }
+.clear_1jkFj:active {
+        background-color: var(--tag-background-color-checked-active);
+    }
+.clear_1jkFj.s_THcGl {
+        padding: 0 var(--gap-s) 0 var(--gap-xs)
+    }
+.clear_1jkFj.s_THcGl:before {
+            height: 24px;
+        }
+.clear_1jkFj.xs_3HDV8 {
+        padding: 0 var(--gap-xs)
+    }
+.clear_1jkFj.xs_3HDV8:before {
+            height: 24px;
+        }
+.clear_1jkFj.xxs_3FUw5 {
+        padding: 0 3px 0 var(--gap-2xs)
+    }
+.clear_1jkFj.xxs_3FUw5:before {
+            height: 20px;
+        }
 .component_3x0eZ {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -12612,12 +12873,6 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
         width: var(--notification-desktop-content-width)
 }
     }
-:root {
-    /* border */
-    --tag-border-width: 1px;
-    --tag-border-radius: var(--border-radius-pill);
-    --tag-alt-border-radius: var(--border-radius-s);
-}
 .component_2dKuC {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
@@ -12818,31 +13073,6 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 .alt_3orUD {
     border-radius: var(--tag-alt-border-radius);
 }
-:root {
-    /* border */
-    --tag-border-color: var(--color-light-border-underline);
-    --tag-border-color-hover: var(--color-light-border-key);
-    --tag-border-color-active: var(--color-light-border-key);
-    --tag-border-color-checked: var(--color-light-border-key);
-    --tag-border-color-disabled: var(--color-light-border-primary);
-    --tag-border-color-checked-disabled: transparent;
-
-    /* background-color */
-    --tag-background-color: transparent;
-    --tag-background-color-hover: transparent;
-    --tag-background-color-active: var(--color-light-bg-primary-inverted-alpha-7);
-    --tag-background-color-disabled: transparent;
-    --tag-background-color-checked: var(--color-light-bg-primary-inverted);
-    --tag-background-color-checked-hover: var(--color-light-bg-primary-inverted-tint-15);
-    --tag-background-color-checked-active: var(--color-light-bg-primary-inverted-tint-20);
-    --tag-background-color-checked-disabled: var(--color-light-bg-primary-inverted-alpha-30);
-
-    /* text color */
-    --tag-text-color: var(--color-light-text-primary);
-    --tag-text-color-checked: var(--color-light-text-primary-inverted);
-    --tag-text-color-disabled: var(--color-light-text-tertiary);
-    --tag-text-color-checked-disabled: var(--color-light-text-primary-inverted);
-}
 .component_2I5h1 {
     color: var(--tag-text-color);
     border-color: var(--tag-border-color);
@@ -12880,6 +13110,35 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
         color: var(--tag-text-color-checked);
     }
 :root {
+    /* border */
+    --tag-border-color: var(--color-light-border-underline);
+    --tag-border-color-hover: var(--color-light-border-key);
+    --tag-border-color-active: var(--color-light-border-key);
+    --tag-border-color-checked: var(--color-light-border-key);
+    --tag-border-color-disabled: var(--color-light-border-primary);
+    --tag-border-color-checked-disabled: transparent;
+    --tag-border-width: 1px;
+    --tag-border-radius: var(--border-radius-pill);
+    --tag-alt-border-radius: var(--border-radius-s);
+
+    /* background-color */
+    --tag-background-color: transparent;
+    --tag-background-color-hover: transparent;
+    --tag-background-color-active: var(--color-light-bg-primary-inverted-alpha-7);
+    --tag-background-color-disabled: transparent;
+    --tag-background-color-checked: var(--color-light-bg-primary-inverted);
+    --tag-background-color-checked-hover: var(--color-light-bg-primary-inverted-tint-15);
+    --tag-background-color-checked-active: var(--color-light-bg-primary-inverted-tint-20);
+    --tag-background-color-checked-disabled: var(--color-light-bg-primary-inverted-alpha-30);
+
+    /* text color */
+    --tag-text-color: var(--color-light-text-primary);
+    --tag-text-color-checked: var(--color-light-text-primary-inverted);
+    --tag-text-color-disabled: var(--color-light-text-tertiary);
+    --tag-text-color-checked-disabled: var(--color-light-text-primary-inverted);
+
+    /* inverted */
+
     /* border */
     --tag-inverted-border-color: var(--color-dark-border-underline);
     --tag-inverted-border-color-hover: var(--color-dark-border-key);
