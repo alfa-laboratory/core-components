@@ -41,12 +41,15 @@ describe('Calendar', () => {
             ).toMatchSnapshot();
         });
 
-        it.each(['month-only', 'full'])('should match selectorView="%s" snapshot', view => {
-            expect(
-                render(<Calendar value={defaultValue} selectorView={view as SelectorView} />)
-                    .container,
-            ).toMatchSnapshot();
-        });
+        it.each(['month-only', 'full', 'empty'])(
+            'should match selectorView="%s" snapshot',
+            view => {
+                expect(
+                    render(<Calendar value={defaultValue} selectorView={view as SelectorView} />)
+                        .container,
+                ).toMatchSnapshot();
+            },
+        );
     });
 
     it('should set `data-test-id` attribute', () => {

@@ -44,7 +44,7 @@ describe(
                     knobs: {
                         month: [1613310391747],
                         value: [1613310391747, 1613137591747],
-                        selectorView: ['month-only', 'full'],
+                        selectorView: ['month-only', 'full', 'empty'],
                     },
                     mockDate: 1613310391747,
                 }),

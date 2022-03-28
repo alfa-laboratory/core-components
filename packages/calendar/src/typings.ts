@@ -28,4 +28,4 @@ export type DateShift =
 
 export type View = 'years' | 'months' | 'days';
 
-export type SelectorView = 'month-only' | 'full';
+export type SelectorView = 'month-only' | 'full' | 'empty';
