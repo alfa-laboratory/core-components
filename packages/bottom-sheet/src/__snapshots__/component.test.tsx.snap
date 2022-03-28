@@ -49,11 +49,11 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
                 class="scrollableContainer"
               >
                 <div
+                  class="marker"
+                />
+                <div
                   class="header"
                 >
-                  <div
-                    class="marker"
-                  />
                   <span
                     class="title titleLeft primary primary-large bold"
                   >
@@ -130,11 +130,11 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
                 class="scrollableContainer"
               >
                 <div
+                  class="marker"
+                />
+                <div
                   class="header"
                 >
-                  <div
-                    class="marker"
-                  />
                   <span
                     class="title titleLeft primary primary-large bold"
                   >
@@ -149,7 +149,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
                   </div>
                 </div>
                 <div
-                  class="footer"
+                  class="footer sticky"
                 >
                   <div />
                 </div>
