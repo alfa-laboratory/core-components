@@ -33,23 +33,24 @@
 
 ```tsx live
 // import { Space } from '@alfalab/core-components/space';
-// import { Typography } from '@alfalab/core-components/typography';
-
-<List tag='ul' marker='–'>
+// import { Typography, typographyPresets } from '@alfalab/core-components/typography';
+// import { listPres } from '@alfalab/core-components/list';
+ 
+<List {...listPresets.mobile}>
     <Space size={2}>
-        <Typography.Text tag='div' view='primary-medium'>
+        <Typography.Text {...typographyPresets.mobile.list.text.primary}>
             Накопительные счета
         </Typography.Text>
-        <Typography.Text tag='div' color='secondary' view='primary-small'>
+        <Typography.Text {...typographyPresets.mobile.list.text.secondary}>
             Индивидуальное обслуживание в любом отделении в России
         </Typography.Text>
     </Space>
 
     <Space size={2}>
-        <Typography.Text tag='div' view='primary-medium'>
+        <Typography.Text  {...typographyPresets.mobile.list.text.primary}>
             Депозиты
         </Typography.Text>
-        <Typography.Text tag='div' color='secondary' view='primary-small'>
+        <Typography.Text {...typographyPresets.mobile.list.text.secondary}>
             Повышенные % ставки по депозитам
         </Typography.Text>
     </Space>
