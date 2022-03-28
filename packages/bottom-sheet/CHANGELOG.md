@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-bottom-sheet@4.0.0...@alfalab/core-components-bottom-sheet@4.0.1) (2022-03-28)
+
+
+### Bug Fixes
+
+* fix modal and bottom-sheet dark mode ([#1043](https://github.com/alfa-laboratory/core-components/issues/1043)) ([cad36a2](https://github.com/alfa-laboratory/core-components/commit/cad36a25b28bfa71296c3dd9dc325eec28b5c241))
+* **bottom-sheet:** fix bottom-sheet swipeable marker ([#1044](https://github.com/alfa-laboratory/core-components/issues/1044)) ([0734e55](https://github.com/alfa-laboratory/core-components/commit/0734e55cc0e394fb33452f875ffcf47819277aee))
+
+
+
+
+
 # [4.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-bottom-sheet@3.1.1...@alfalab/core-components-bottom-sheet@4.0.0) (2022-03-24)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@5.0.0...@alfalab/core-components-modal@5.0.1) (2022-03-28)
+
+
+### Bug Fixes
+
+* fix modal and bottom-sheet dark mode ([#1043](https://github.com/alfa-laboratory/core-components/issues/1043)) ([cad36a2](https://github.com/alfa-laboratory/core-components/commit/cad36a25b28bfa71296c3dd9dc325eec28b5c241))
+
+
+
+
+
 # [5.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-modal@4.2.0...@alfalab/core-components-modal@5.0.0) (2022-03-24)
 
 
