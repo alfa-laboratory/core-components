@@ -3,6 +3,67 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.7.1...@alfalab/core-components-themes@8.0.0) (2022-03-24)
+
+
+### Features
+
+* **bottom-sheet:** update-bottom-sheet ([#1025](https://github.com/alfa-laboratory/core-components/issues/1025)) ([26fa9aa](https://github.com/alfa-laboratory/core-components/commit/26fa9aab68bebf0f7093a38bc0f18a9b596ccf37)), closes [#1032](https://github.com/alfa-laboratory/core-components/issues/1032)
+* **modal:** update styles ([#1024](https://github.com/alfa-laboratory/core-components/issues/1024)) ([fdf2cdc](https://github.com/alfa-laboratory/core-components/commit/fdf2cdca9f785b27cd5d3998245a34d42e1240d1))
+
+
+### BREAKING CHANGES
+
+* **modal:** Большое обновление стилей и темизации
+
+* fix(modal): remove unused align
+* **bottom-sheet:** Большое обновление стилей, множество дополнительных настроек
+
+
+
+
+
+## [7.7.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.7.0...@alfalab/core-components-themes@7.7.1) (2022-03-24)
+
+**Note:** Version bump only for package @alfalab/core-components-themes
+
+
+
+
+
+# [7.7.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.6.0...@alfalab/core-components-themes@7.7.0) (2022-03-18)
+
+
+### Features
+
+* **calendar:** add intranet theme ([#1026](https://github.com/alfa-laboratory/core-components/issues/1026)) ([292b76c](https://github.com/alfa-laboratory/core-components/commit/292b76c100bb12ebb1011d2a9981ba2b2899dd7a))
+
+
+
+
+
+# [7.6.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.5.2...@alfalab/core-components-themes@7.6.0) (2022-03-04)
+
+
+### Features
+
+* **modal:** mobile header ([#1018](https://github.com/alfa-laboratory/core-components/issues/1018)) ([54b879f](https://github.com/alfa-laboratory/core-components/commit/54b879f500d1124a6956d3d5a57349c856a09904))
+
+
+
+
+
+## [7.5.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.5.1...@alfalab/core-components-themes@7.5.2) (2022-03-01)
+
+
+### Bug Fixes
+
+* changed dropdown component's box shadow styles ([#1010](https://github.com/alfa-laboratory/core-components/issues/1010)) ([2f997f5](https://github.com/alfa-laboratory/core-components/commit/2f997f5722c89b38a8064924b73c0a8046025aea))
+
+
+
+
+
 ## [7.5.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.5.0...@alfalab/core-components-themes@7.5.1) (2022-02-21)
 
 

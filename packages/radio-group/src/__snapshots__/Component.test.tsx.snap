@@ -579,8 +579,9 @@ Object {
             class="radio tagLabel"
           >
             <button
-              class="component component s my-tag"
+              class="component component s default my-tag"
               type="button"
+              value="one"
             >
               <span>
                 Первый вариант
@@ -590,14 +591,16 @@ Object {
               autocomplete="off"
               class="hiddenInput"
               type="radio"
+              value="one"
             />
           </label>
           <label
             class="radio tagLabel"
           >
             <button
-              class="component component s"
+              class="component component s default"
               type="button"
+              value="two"
             >
               <span>
                 Второй вариант
@@ -607,14 +610,16 @@ Object {
               autocomplete="off"
               class="hiddenInput"
               type="radio"
+              value="two"
             />
           </label>
           <label
             class="radio tagLabel"
           >
             <button
-              class="component component s"
+              class="component component s default"
               type="button"
+              value="three"
             >
               <span>
                 Третий вариант
@@ -624,6 +629,7 @@ Object {
               autocomplete="off"
               class="hiddenInput"
               type="radio"
+              value="three"
             />
           </label>
         </div>
@@ -646,8 +652,9 @@ Object {
           class="radio tagLabel"
         >
           <button
-            class="component component s my-tag"
+            class="component component s default my-tag"
             type="button"
+            value="one"
           >
             <span>
               Первый вариант
@@ -657,14 +664,16 @@ Object {
             autocomplete="off"
             class="hiddenInput"
             type="radio"
+            value="one"
           />
         </label>
         <label
           class="radio tagLabel"
         >
           <button
-            class="component component s"
+            class="component component s default"
             type="button"
+            value="two"
           >
             <span>
               Второй вариант
@@ -674,14 +683,16 @@ Object {
             autocomplete="off"
             class="hiddenInput"
             type="radio"
+            value="two"
           />
         </label>
         <label
           class="radio tagLabel"
         >
           <button
-            class="component component s"
+            class="component component s default"
             type="button"
+            value="three"
           >
             <span>
               Третий вариант
@@ -691,6 +702,7 @@ Object {
             autocomplete="off"
             class="hiddenInput"
             type="radio"
+            value="three"
           />
         </label>
       </div>

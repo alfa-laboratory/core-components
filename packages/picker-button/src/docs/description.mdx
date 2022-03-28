@@ -2,13 +2,23 @@
 
 ```tsx live
 const options = [
-    { key: 'Заказать карту' },
-    { key: 'Выписка по счёту' },
-    { key: 'Выпустить карту' },
-    { key: 'Скопировать реквизиты' },
+    { key: 'Название опции 1' },
+    { key: 'Название опции 2' },
+    { key: 'Название опции 3' },
 ];
 
-render(<PickerButton options={options} view='primary' label='Picker button' />);
+const optionsWithIcons = [
+    { key: 'Название опции 1', icon: CarMIcon },
+    { key: 'Название опции 2', icon: StarMIcon },
+    { key: 'Название опции 3', icon: CardTransferMIcon },
+];
+
+render(
+    <Space direction="horizontal">
+        <PickerButton options={options} view='primary' label='Picker button' />
+        <PickerButton options={optionsWithIcons} view='primary' variant="compact" />
+    </Space>
+);
 ```
 
 ## Архитектура
@@ -18,17 +28,16 @@ PickerButton это <a href="/docs/компоненты-select--select">Select</
 
 ```tsx live
 const options = [
-    { key: 'Заказать карту' },
-    { key: 'Выписка по счёту' },
-    { key: 'Выпустить карту' },
-    { key: 'Скопировать реквизиты' },
+    { key: 'Название опции 1' },
+    { key: 'Название опции 2' },
+    { key: 'Название опции 3' },
 ];
 
 render(
     <Space direction='horizontal'>
         <PickerButton label='Picker button' options={options} view='primary' size='m' />
         <PickerButton label='Picker button' options={options} view='secondary' size='s' />
-        <PickerButton label='Picker button' options={options} view='tertiary' size='xs' />
+        <PickerButton label='Picker button' options={options} view='tertiary' size='xxs' />
     </Space>,
 );
 ```
@@ -41,17 +50,16 @@ render(
 
 ```tsx live
 const options = [
-    { key: 'Заказать карту' },
-    { key: 'Выписка по счёту' },
-    { key: 'Выпустить карту' },
-    { key: 'Скопировать реквизиты' },
+    { key: 'Пример длинного названия' },
+    { key: 'Название опции' },
+    { key: 'Название опции' },
 ];
 
 render(
     <Space direction='horizontal'>
-        <PickerButton label='Слева' options={options} popoverPosition='bottom-start' />
-        <PickerButton label='По центру' options={options} popoverPosition='bottom' />
-        <PickerButton label='Справа' options={options} popoverPosition='bottom-end' />
+        <PickerButton label='Слева' options={options} popoverPosition='bottom-start' view="primary" />
+        <PickerButton label='По центру' options={options} popoverPosition='bottom' view="primary" />
+        <PickerButton label='Справа' options={options} popoverPosition='bottom-end' view="primary" />
     </Space>,
 );
 ```
@@ -65,11 +73,9 @@ render(
 
 ```tsx live
 const options = [
-    { key: 'Бульвар Рокоссовского' },
-    { key: 'Черкизовская' },
-    { key: 'Преображенская площадь' },
-    { key: 'Сокольники' },
-    { key: 'Красные Ворота' },
+    { key: 'Пример длинного названия' },
+    { key: 'Название опции' },
+    { key: 'Название опции' },
 ];
 
 render(<PickerButton options={options} view='primary' label='Picker button' />);
@@ -88,11 +94,9 @@ const LongContent = ({ text }) => (
 );
 
 const options = [
-    { key: '1', content: <LongContent text='Бульвар Рокоссовского' /> },
-    { key: '2', content: <LongContent text='Черкизовская' /> },
-    { key: '3', content: <LongContent text='Преображенская площадь' /> },
-    { key: '4', content: <LongContent text='Сокольники' /> },
-    { key: '5', content: <LongContent text='Красные Ворота' /> },
+    { key: '1', content: <LongContent text='Пример длинного названия' /> },
+    { key: '2', content: <LongContent text='Название опции' /> },
+    { key: '3', content: <LongContent text='Название опции' /> },
 ];
 
 render(
@@ -132,23 +136,23 @@ css
 
 ```tsx live
 const options = [
-    { key: 'Бульвар Рокоссовского' },
-    { key: 'Черкизовская' },
-    { key: 'Преображенская площадь' },
-    { key: 'Сокольники' },
-    { key: 'Красные Ворота' },
+    { key: 'Название опции 1' },
+    { key: 'Название опции 2' },
+    { key: 'Название опции 3' },
+    { key: 'Название опции 4' },
+    { key: 'Название опции 5' },
 ];
 
 const moreOptions = [
     ...options,
-    { key: 'Комсомольская' },
-    { key: 'Бабушкинская' },
-    { key: 'Курская' },
-    { key: 'Смоленская' },
+    { key: 'Название опции 6' },
+    { key: 'Название опции 7' },
+    { key: 'Название опции 8' },
+    { key: 'Название опции 9' },
 ];
 
 render(
-    <Space fullWidth={true} direction='horizontal'>
+    <Space direction='horizontal'>
         <PickerButton options={options} view='primary' label='До пяти элементов' />
         <PickerButton options={moreOptions} view='primary' label='Больше пяти элементов' />
     </Space>,
@@ -157,24 +161,25 @@ render(
 
 ### Ячейки
 
-#### Высота
-
-По умолчанию размер пунктов меню совпадает с размером контрола, но с помощью свойства
-`optionsSize` можно задать размер отдельно. Рекомендуемый размер пунктов для всех селектов «M».
+Используется кастомная ячейка высотой 48рх.
 
 ```tsx live
 const options = [
-    { key: 'Бульвар Рокоссовского' },
-    { key: 'Черкизовская' },
-    { key: 'Преображенская площадь' },
-    { key: 'Сокольники' },
-    { key: 'Красные Ворота' },
+    { key: 'Название опции 1' },
+    { key: 'Название опции 2' },
+    { key: 'Название опции 3' },
+];
+
+const optionsWithIcons = [
+    { key: 'Название опции 1', icon: CarMIcon },
+    { key: 'Название опции 2', icon: StarMIcon },
+    { key: 'Название опции 3', icon: CardTransferMIcon },
 ];
 
 render(
-    <Space fullWidth={true} direction='horizontal'>
-        <PickerButton options={options} optionsSize='m' view='primary' label='С размером М' />
-        <PickerButton options={options} optionsSize='l' view='primary' label='С размером L' />
+    <Space direction='horizontal'>
+        <PickerButton options={options} optionsSize='s' view='primary' label='Без иконки' />
+        <PickerButton options={optionsWithIcons} optionsSize='s' view='primary' label='С иконкой' />
     </Space>,
 );
 ```
@@ -203,5 +208,5 @@ const options = [
     { key: 'Account4', content: <Card name='Account4 Name ··0000' balance='12 000,00 ₽' /> },
 ];
 
-render(<PickerButton size='m' options={options} label='Выберите карту' />);
+render(<PickerButton size='m' options={options} view="primary" label='Выберите карту' preventFlip={false} />);
 ```

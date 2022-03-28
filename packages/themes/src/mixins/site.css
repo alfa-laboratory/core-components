@@ -2,10 +2,12 @@
 @import './tabs/site.css';
 @import './form-control/site.css';
 @import './input/site.css';
+@import './bottom-sheet/site.css';
 
 @define-mixin theme-site {
     @mixin button-site;
     @mixin form-control-site;
     @mixin tabs-site;
     @mixin input-site;
+    @mixin bottom-sheet-site;
 }

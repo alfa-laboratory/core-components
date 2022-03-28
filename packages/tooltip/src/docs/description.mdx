@@ -152,12 +152,52 @@ const Example = () => {
                 position='right'
                 onOpen={handleOpen}
                 onClose={handleClose}
-                mobileActionButton={
-                    <Button view='outlined' block={true} size='s' onClick={handleClose}>
-                        Закрыть
-                    </Button>
-                }
                 fallbackPlacements={['bottom', 'top']}
+            >
+                <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
+                    Подробнее
+                </div>
+            </TooltipResponsive>
+        </div>
+    );
+};
+
+render(<Example />);
+```
+
+Адаптивный тултип с крестиком на мобильных устройствах.
+
+```tsx live
+const Example = () => {
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    return (
+        <div
+            style={{
+                width: '100%',
+                height: '300px',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}
+        >
+            <TooltipResponsive
+                open={open}
+                content={<div>Tooltip Responsive</div>}
+                position='right'
+                onOpen={handleOpen}
+                onClose={handleClose}
+                fallbackPlacements={['bottom', 'top']}
+                actionButtonTitle='Хорошо'
+                hasCloser
             >
                 <div style={{ padding: '15px', border: '1px dashed rgba(0, 0, 0, 0.1)' }}>
                     Подробнее

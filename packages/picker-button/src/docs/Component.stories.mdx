@@ -1,6 +1,8 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
 import { text, boolean, select } from '@storybook/addon-knobs';
+import { CarMIcon } from '@alfalab/icons-glyph/CarMIcon';
 import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
+import { CardTransferMIcon } from '@alfalab/icons-glyph/CardTransferMIcon';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { PickerButton } from '../Component';
@@ -25,6 +27,7 @@ export const options = [
         label={text('label', 'Действие')}
         size={select('size', ['xxs', 'xs', 's', 'm', 'l', 'xl'], 'm')}
         view={select('view', ['link', 'filled', 'primary', 'secondary', 'outlined', 'ghost'], 'secondary')}
+        variant={select('variant', ['default', 'compact'])}
         disabled={boolean('disabled', false)}
         loading={boolean('loading', false)}
         leftAddons={boolean('Иконка слева', false) ? <StarMIcon /> : null}

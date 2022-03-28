@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { FC, useCallback, useMemo } from 'react';
 
-import { OptionsList, Select, SelectProps } from '@alfalab/core-components-select';
+import { Select, SelectProps, VirtualOptionsList } from '@alfalab/core-components-select';
 import { Country } from '@alfalab/utils';
 
 import { SelectField } from '../select-field';
@@ -51,7 +51,7 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
     const renderOptionsList = useCallback(
         props => (
             <div style={{ width: fieldWidth || 0 }}>
-                <OptionsList {...props} />
+                <VirtualOptionsList {...props} />
             </div>
         ),
         [fieldWidth],

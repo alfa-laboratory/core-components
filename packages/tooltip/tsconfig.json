@@ -9,5 +9,5 @@
             "@alfalab/core-components-*": ["../*/src"]
         }
     },
-    "references": [{ "path": "../popover" }, { "path": "../bottom-sheet" }]
+    "references": [{ "path": "../popover" }, { "path": "../bottom-sheet" }, { "path": "../button" }]
 }

@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-checkbox@2.5.1...@alfalab/core-components-checkbox@2.6.0) (2022-03-24)
+
+
+### Features
+
+* add extra classes for radio and checkbox components ([#1039](https://github.com/alfa-laboratory/core-components/issues/1039)) ([c3ed089](https://github.com/alfa-laboratory/core-components/commit/c3ed089360b25d0f7712f2e7608c5a23f11a95df))
+
+
+
+
+
+## [2.5.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-checkbox@2.5.0...@alfalab/core-components-checkbox@2.5.1) (2022-03-04)
+
+
+### Bug Fixes
+
+* update glyph deps ([#1019](https://github.com/alfa-laboratory/core-components/issues/1019)) ([3e910d0](https://github.com/alfa-laboratory/core-components/commit/3e910d0801c4c46bcd399163200c1f7bfaba375e))
+
+
+
+
+
+# [2.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-checkbox@2.4.1...@alfalab/core-components-checkbox@2.5.0) (2022-03-01)
+
+
+### Bug Fixes
+
+* **checkbox:** increased checkbox's hint line-height from 18px to 20px ([#1007](https://github.com/alfa-laboratory/core-components/issues/1007)) ([c7ee918](https://github.com/alfa-laboratory/core-components/commit/c7ee918de443339ac06f82196636dbb48ef8c737)), closes [#969](https://github.com/alfa-laboratory/core-components/issues/969)
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
 ## [2.4.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-checkbox@2.4.0...@alfalab/core-components-checkbox@2.4.1) (2022-02-17)
 
 

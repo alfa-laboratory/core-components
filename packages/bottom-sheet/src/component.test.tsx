@@ -91,7 +91,7 @@ describe('Bottom sheet', () => {
                 <BottomSheetWrapper dataTestId={dataTestId} ref={ref} />,
             );
 
-            expect(ref.mock.calls).toEqual([[getByTestId(dataTestId)]]);
+            expect(ref.mock.calls[0]).toEqual([getByTestId(dataTestId)]);
         });
 
         it('should render content', () => {

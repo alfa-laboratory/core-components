@@ -14,12 +14,12 @@
 }
 
 .component {
+    overflow: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
-    max-height: calc(100vh - 72px);
-    border-top-right-radius: 16px;
-    border-top-left-radius: 16px;
+    border-top-right-radius: var(--border-radius-xl);
+    border-top-left-radius: var(--border-radius-xl);
     background: var(--color-light-bg-primary);
     transform: translateY(100%);
 }
@@ -28,37 +28,41 @@
     transition: var(--bottom-sheet-out-transition);
 }
 
+.scrollableContainer {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+}
+
 .marker {
     position: absolute;
-    top: var(--gap-xs);
+    top: var(--gap-2xs);
     left: 50%;
     width: 36px;
     height: 4px;
     border-radius: 20px;
     transform: translateX(-50%);
     background-color: var(--color-light-graphic-neutral);
-}
-
-.scrollableContainer {
-    overflow: auto;
-    padding-top: var(--gap-2xl);
-}
-
-.withPadding {
-    padding-bottom: var(--gap-xl);
+    z-index: 1000;
 }
 
 .content {
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 0 var(--gap-m) var(--gap-m);
+    padding: 0 var(--gap-m);
     color: var(--color-light-text-primary);
+    background-color: var(--color-light-bg-primary);
 }
 
-.title {
-    margin-bottom: var(--gap-xl);
-    padding: 0 var(--gap-m);
+.noHeader {
+    padding-top: var(--gap-xl);
+}
+
+.noFooter {
+    padding-bottom: var(--gap-m);
 }
 
 .scrollLocked {

@@ -15,3 +15,7 @@
 .optionsListContainer {
     border-radius: var(--border-radius-s);
 }
+
+.option {
+    padding: 0 var(--gap-m);
+}

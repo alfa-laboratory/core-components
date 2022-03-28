@@ -1,45 +1,53 @@
 @import '../../vars.css';
 
 .header {
-    composes: header from 'index.module.css';
-
-    min-height: var(--modal-header-min-height);
     border-top-left-radius: var(--modal-border-radius);
     border-top-right-radius: var(--modal-border-radius);
 }
 
-.s {
-    padding: var(--modal-s-header-paddings);
+.content {
+    font-weight: var(--modal-header-desktop-font-weight);
+    font-family: var(--modal-header-desktop-font-family);
 }
 
+.s .content,
+.m .content {
+    padding: var(--modal-s-header-desktop-content-paddings);
+    font-size: var(--modal-s-header-desktop-font-size);
+    line-height: var(--modal-s-header-desktop-line-height);
+}
+
+.l .content,
+.xl .content,
+.fullscreen .content {
+    padding: var(--modal-l-header-desktop-content-paddings);
+    font-size: var(--modal-l-header-desktop-font-size);
+    line-height: var(--modal-l-header-desktop-line-height);
+}
+
+.s,
 .m {
-    padding: var(--modal-m-header-paddings);
+    padding: var(--modal-s-header-paddings);
+
+    &:not(.hasContent) {
+        padding-bottom: 0;
+    }
 }
 
 .l,
+.xl,
 .fullscreen {
-    min-height: var(--modal-header-l-min-height);
-    padding: var(--modal-l-header-paddings);
+    padding: var(--gap-xl) var(--gap-xl) var(--gap-m);
+
+    &:not(.hasContent) {
+        padding-bottom: var(--gap-m);
+    }
 }
 
 .sticky {
-    composes: sticky from 'index.module.css';
-
     top: calc(var(--modal-vertical-padding) * -1);
-}
 
-.fullscreen {
-    top: 0;
-}
-
-.highlighted {
-    composes: highlighted from 'index.module.css';
-}
-
-.content {
-    composes: content from 'index.module.css';
-}
-
-.title {
-    composes: title from 'index.module.css';
+    &.fullscreen {
+        top: 0;
+    }
 }

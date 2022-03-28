@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-base-modal@3.2.0...@alfalab/core-components-base-modal@4.0.0) (2022-03-24)
+
+
+### Features
+
+* **bottom-sheet:** update-bottom-sheet ([#1025](https://github.com/alfa-laboratory/core-components/issues/1025)) ([26fa9aa](https://github.com/alfa-laboratory/core-components/commit/26fa9aab68bebf0f7093a38bc0f18a9b596ccf37)), closes [#1032](https://github.com/alfa-laboratory/core-components/issues/1032)
+
+
+### BREAKING CHANGES
+
+* **bottom-sheet:** Большое обновление стилей, множество дополнительных настроек
+
+
+
+
+
+# [3.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-base-modal@3.1.0...@alfalab/core-components-base-modal@3.2.0) (2022-03-01)
+
+
+### Features
+
+* **base-modal:** add component ref for base modal ([#1008](https://github.com/alfa-laboratory/core-components/issues/1008)) ([fb13dbd](https://github.com/alfa-laboratory/core-components/commit/fb13dbdf6352b10b80a74fa87edfcb1f54b76d5a))
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
 # [3.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-base-modal@3.0.2...@alfalab/core-components-base-modal@3.1.0) (2022-01-17)
 
 

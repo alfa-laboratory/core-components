@@ -43,20 +43,25 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
           >
             <div
               class="component withTransition"
+              style="max-height: 744px;"
             >
               <div
-                class="marker"
-              />
-              <div
-                class="scrollableContainer withPadding"
+                class="scrollableContainer"
               >
-                <h2
-                  class="component title system-small bold primary"
-                >
-                  Bottom sheet title
-                </h2>
                 <div
-                  class="content"
+                  class="header"
+                >
+                  <div
+                    class="marker"
+                  />
+                  <span
+                    class="title titleLeft primary primary-large bold"
+                  >
+                    Bottom sheet title
+                  </span>
+                </div>
+                <div
+                  class="content noFooter"
                 >
                   <div>
                     Bottom sheet content
@@ -119,18 +124,23 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
           >
             <div
               class="component withTransition"
+              style="max-height: 744px;"
             >
-              <div
-                class="marker"
-              />
               <div
                 class="scrollableContainer"
               >
-                <h2
-                  class="component title system-small bold primary"
+                <div
+                  class="header"
                 >
-                  Bottom sheet title
-                </h2>
+                  <div
+                    class="marker"
+                  />
+                  <span
+                    class="title titleLeft primary primary-large bold"
+                  >
+                    Bottom sheet title
+                  </span>
+                </div>
                 <div
                   class="content"
                 >

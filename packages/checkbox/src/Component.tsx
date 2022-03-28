@@ -43,6 +43,11 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange'> & {
     size?: 's' | 'm';
 
     /**
+     * Доп. класс чекбокса
+     */
+    boxClassName?: string;
+
+    /**
      * Выравнивание
      */
     align?: Align;
@@ -90,6 +95,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             label,
             hint,
             size = 's',
+            boxClassName,
             align = 'start',
             addons,
             block,
@@ -138,7 +144,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                     data-test-id={dataTestId}
                     {...restProps}
                 />
-                <span className={styles.box}>
+                <span className={cn(styles.box, boxClassName)}>
                     {checked && <CheckmarkCompactMIcon className={styles.checkedIcon} />}
 
                     {indeterminate && !checked && <span className={styles.indeterminateLine} />}

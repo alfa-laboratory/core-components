@@ -11,7 +11,6 @@ import styles from '!!raw-loader!../index.module.css';
 
 export const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
-
 <Meta
     title='Компоненты/Tag'
     component={Tag}
@@ -36,6 +35,7 @@ export const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
             }}>
                 <Tag
                     size={select('size', SIZES, 'm')}
+                    variant={select('variant',['default', 'alt'], 'default')}
                     disabled={boolean('disabled', false)}
                     checked={checked || boolean('checked', false)}
                     rightAddons={boolean('rightAddons', false) && <CopyMIcon />}
@@ -56,7 +56,6 @@ export const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
     version={version}
     package='@alfalab/core-components/tag'
     stage={3}
-    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=214%3A1873'
 />
 
 ```tsx

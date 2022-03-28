@@ -1,3 +1,113 @@
+# [26.0.0](https://github.com/alfa-laboratory/core-components/compare/v25.8.0...v26.0.0) (2022-03-24)
+
+
+### Features
+
+* **bottom-sheet:** update-bottom-sheet ([#1025](https://github.com/alfa-laboratory/core-components/issues/1025)) ([26fa9aa](https://github.com/alfa-laboratory/core-components/commit/26fa9aab68bebf0f7093a38bc0f18a9b596ccf37)), closes [#1032](https://github.com/alfa-laboratory/core-components/issues/1032)
+* **modal:** update styles ([#1024](https://github.com/alfa-laboratory/core-components/issues/1024)) ([fdf2cdc](https://github.com/alfa-laboratory/core-components/commit/fdf2cdca9f785b27cd5d3998245a34d42e1240d1))
+
+
+### BREAKING CHANGES
+
+* **modal:** Большое обновление стилей и темизации
+
+* fix(modal): remove unused align
+* **bottom-sheet:** Большое обновление стилей, множество дополнительных настроек
+
+# [25.8.0](https://github.com/alfa-laboratory/core-components/compare/v25.7.0...v25.8.0) (2022-03-24)
+
+
+### Bug Fixes
+
+* **attach:** always clear input ([#1038](https://github.com/alfa-laboratory/core-components/issues/1038)) ([f3e85f2](https://github.com/alfa-laboratory/core-components/commit/f3e85f299c4e42253d0354cdd61e005d9fe927f0))
+* **table:** update styles ([#1036](https://github.com/alfa-laboratory/core-components/issues/1036)) ([3fe236d](https://github.com/alfa-laboratory/core-components/commit/3fe236dfb584c3e96fc7fb8c499aee3e9e12e64e))
+
+
+### Features
+
+* add extra classes for radio and checkbox components ([#1039](https://github.com/alfa-laboratory/core-components/issues/1039)) ([c3ed089](https://github.com/alfa-laboratory/core-components/commit/c3ed089360b25d0f7712f2e7608c5a23f11a95df))
+
+# [25.7.0](https://github.com/alfa-laboratory/core-components/compare/v25.6.0...v25.7.0) (2022-03-22)
+
+
+### Bug Fixes
+
+* **radio-group:** add missing 'value' attribute to 'input' tag ([#1033](https://github.com/alfa-laboratory/core-components/issues/1033)) ([0f9cf0e](https://github.com/alfa-laboratory/core-components/commit/0f9cf0ecd74f4764ccd0b2839ba0cdf1b96e75cb)), closes [#1031](https://github.com/alfa-laboratory/core-components/issues/1031)
+
+
+### Features
+
+* **tooltip:** added anchor props ([#1034](https://github.com/alfa-laboratory/core-components/issues/1034)) ([822031b](https://github.com/alfa-laboratory/core-components/commit/822031b3941184689a2a7ed9938c4ec44debc444))
+
+# [25.6.0](https://github.com/alfa-laboratory/core-components/compare/v25.5.0...v25.6.0) (2022-03-18)
+
+
+### Bug Fixes
+
+* **intl-phone-input:** design fixes ([#1030](https://github.com/alfa-laboratory/core-components/issues/1030)) ([27cfb9b](https://github.com/alfa-laboratory/core-components/commit/27cfb9be1cac9f0aac151ae2121c426fb123fb3f))
+
+
+### Features
+
+* **calendar:** add intranet theme ([#1026](https://github.com/alfa-laboratory/core-components/issues/1026)) ([292b76c](https://github.com/alfa-laboratory/core-components/commit/292b76c100bb12ebb1011d2a9981ba2b2899dd7a))
+
+# [25.5.0](https://github.com/alfa-laboratory/core-components/compare/v25.4.1...v25.5.0) (2022-03-05)
+
+
+### Features
+
+* **circular-progress-bar:** ReactNode as title or subtitle ([#1023](https://github.com/alfa-laboratory/core-components/issues/1023)) ([7ae6df9](https://github.com/alfa-laboratory/core-components/commit/7ae6df9d2e4253f9a94532d155e81032cd96c810))
+
+## [25.4.1](https://github.com/alfa-laboratory/core-components/compare/v25.4.0...v25.4.1) (2022-03-04)
+
+
+### Bug Fixes
+
+* **skeleton:** added dataTestId ([18e4af8](https://github.com/alfa-laboratory/core-components/commit/18e4af805bd4e49a1a3c303cb3b4d9a3a9dd5751))
+
+# [25.4.0](https://github.com/alfa-laboratory/core-components/compare/v25.3.0...v25.4.0) (2022-03-04)
+
+
+### Bug Fixes
+
+* move icon from select to picker-button ([#1020](https://github.com/alfa-laboratory/core-components/issues/1020)) ([0d23257](https://github.com/alfa-laboratory/core-components/commit/0d23257b561329092be551d237389cc06c3d5607))
+* update glyph deps ([#1019](https://github.com/alfa-laboratory/core-components/issues/1019)) ([3e910d0](https://github.com/alfa-laboratory/core-components/commit/3e910d0801c4c46bcd399163200c1f7bfaba375e))
+
+
+### Features
+
+* **modal:** mobile header ([#1018](https://github.com/alfa-laboratory/core-components/issues/1018)) ([54b879f](https://github.com/alfa-laboratory/core-components/commit/54b879f500d1124a6956d3d5a57349c856a09904))
+
+# [25.3.0](https://github.com/alfa-laboratory/core-components/compare/v25.2.0...v25.3.0) (2022-03-03)
+
+
+### Bug Fixes
+
+* **code-input:** code-input-request-animation-frame-fix ([#1014](https://github.com/alfa-laboratory/core-components/issues/1014)) ([ad1478e](https://github.com/alfa-laboratory/core-components/commit/ad1478ebfd17679e8a2792462c619f525e5b7bb9))
+* **typography:** changed styrene font styles for title responsive ([#1017](https://github.com/alfa-laboratory/core-components/issues/1017)) ([540b0b5](https://github.com/alfa-laboratory/core-components/commit/540b0b59cf99a4cee0798f50b94e6449be4aa3c6))
+
+
+### Features
+
+* **hatching-progress-bar:** add component ([#1012](https://github.com/alfa-laboratory/core-components/issues/1012)) ([a25a579](https://github.com/alfa-laboratory/core-components/commit/a25a5793df91c9e9cf213c7d1215c771c1851141))
+* **picker-button:** added new view and updated dropdown options ([#1013](https://github.com/alfa-laboratory/core-components/issues/1013)) ([050fb3e](https://github.com/alfa-laboratory/core-components/commit/050fb3eb6fd6dde057bbfcad5dd807d354125b63))
+
+# [25.2.0](https://github.com/alfa-laboratory/core-components/compare/v25.1.0...v25.2.0) (2022-03-01)
+
+
+### Bug Fixes
+
+* **checkbox:** increased checkbox's hint line-height from 18px to 20px ([#1007](https://github.com/alfa-laboratory/core-components/issues/1007)) ([c7ee918](https://github.com/alfa-laboratory/core-components/commit/c7ee918de443339ac06f82196636dbb48ef8c737)), closes [#969](https://github.com/alfa-laboratory/core-components/issues/969)
+* **picker-button:** fixed type of picker-button size prop ([#1006](https://github.com/alfa-laboratory/core-components/issues/1006)) ([38b56c1](https://github.com/alfa-laboratory/core-components/commit/38b56c11d45410a258e18d411aa0ce12b8a6c7e4)), closes [#986](https://github.com/alfa-laboratory/core-components/issues/986)
+* changed dropdown component's box shadow styles ([#1010](https://github.com/alfa-laboratory/core-components/issues/1010)) ([2f997f5](https://github.com/alfa-laboratory/core-components/commit/2f997f5722c89b38a8064924b73c0a8046025aea))
+
+
+### Features
+
+* **base-modal:** add component ref for base modal ([#1008](https://github.com/alfa-laboratory/core-components/issues/1008)) ([fb13dbd](https://github.com/alfa-laboratory/core-components/commit/fb13dbdf6352b10b80a74fa87edfcb1f54b76d5a))
+* **typography:** новый компонент  Typography.TitleMobile  ([#1003](https://github.com/alfa-laboratory/core-components/issues/1003)) ([9b03cf9](https://github.com/alfa-laboratory/core-components/commit/9b03cf90422b05cc927ed98959708430812d1a50))
+* Исправить импорты в сторях. ([#1009](https://github.com/alfa-laboratory/core-components/issues/1009)) ([6f7e393](https://github.com/alfa-laboratory/core-components/commit/6f7e39350fd572dd3e74c4819829f85c4066b170))
+
 # [25.1.0](https://github.com/alfa-laboratory/core-components/compare/v25.0.0...v25.1.0) (2022-02-21)
 
 

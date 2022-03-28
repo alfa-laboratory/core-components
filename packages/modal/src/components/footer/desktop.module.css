@@ -1,35 +1,25 @@
 @import '../../vars.css';
 
 .footer {
-    composes: footer from 'index.module.css';
-
     border-bottom-left-radius: var(--modal-border-radius);
     border-bottom-right-radius: var(--modal-border-radius);
 }
 
-.highlighted {
-    composes: highlighted from 'index.module.css';
-}
-
 .sticky {
-    composes: sticky from 'index.module.css';
-
     bottom: calc(var(--modal-vertical-padding) * -1);
+
+    &.fullscreen {
+        bottom: 0;
+    }
 }
 
-.fullscreen {
-    bottom: 0;
-}
-
-.s {
+.s,
+.m {
     padding: var(--modal-s-footer-paddings);
 }
 
-.m {
-    padding: var(--modal-m-footer-paddings);
-}
-
 .l,
+.xl,
 .fullscreen {
-    padding: var(--modal-l-footer-paddings);
+    padding: var(--gap-2xl) var(--gap-6xl) var(--gap-6xl);
 }

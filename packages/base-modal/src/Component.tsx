@@ -162,6 +162,11 @@ export type BaseModalProps = {
      * z-index компонента
      */
     zIndex?: number;
+
+    /**
+     * Реф, который должен быть установлен компонентной области
+     */
+    componentRef?: MutableRefObject<HTMLDivElement | null>;
 };
 
 export type BaseModalContext = {
@@ -170,6 +175,8 @@ export type BaseModalContext = {
     hasScroll?: boolean;
     headerHighlighted?: boolean;
     footerHighlighted?: boolean;
+    headerOffset?: number;
+    setHeaderOffset: (offset: number) => void;
     contentRef: Ref<HTMLElement>;
     setHasHeader: (exists: boolean) => void;
     setHasFooter: (exists: boolean) => void;
@@ -182,6 +189,8 @@ export const BaseModalContext = React.createContext<BaseModalContext>({
     hasScroll: false,
     headerHighlighted: false,
     footerHighlighted: false,
+    headerOffset: 0,
+    setHeaderOffset: () => null,
     contentRef: () => null,
     setHasHeader: () => null,
     setHasFooter: () => null,
@@ -214,6 +223,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             onUnmount,
             dataTestId,
             zIndex = stackingOrder.MODAL,
+            componentRef = null,
         },
         ref,
     ) => {
@@ -223,8 +233,9 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         const [hasFooter, setHasFooter] = useState(false);
         const [headerHighlighted, setHeaderHighlighted] = useState(false);
         const [footerHighlighted, setFooterHighlighted] = useState(false);
+        const [headerOffset, setHeaderOffset] = useState(0);
 
-        const componentRef = useRef<HTMLDivElement>(null);
+        const componentNodeRef = useRef<HTMLDivElement>(null);
         const wrapperRef = useRef<HTMLDivElement>(null);
         const scrollableNodeRef = useRef<HTMLDivElement | null>(null);
         const contentNodeRef = useRef<HTMLDivElement | null>(null);
@@ -267,22 +278,23 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         );
 
         const handleScroll = useCallback(() => {
-            if (!scrollableNodeRef.current || !componentRef.current) return;
+            if (!scrollableNodeRef.current || !componentNodeRef.current) return;
 
             if (hasHeader) {
                 setHeaderHighlighted(
                     !isScrolledToTop(scrollableNodeRef.current) &&
-                        componentRef.current.getBoundingClientRect().top <= 0,
+                        componentNodeRef.current.getBoundingClientRect().top - headerOffset <= 0,
                 );
             }
 
             if (hasFooter) {
                 setFooterHighlighted(
                     !isScrolledToBottom(scrollableNodeRef.current) &&
-                        componentRef.current.getBoundingClientRect().bottom >= window.innerHeight,
+                        componentNodeRef.current.getBoundingClientRect().bottom >=
+                            window.innerHeight,
                 );
             }
-        }, [hasFooter, hasHeader]);
+        }, [hasFooter, hasHeader, headerOffset]);
 
         const handleClose = useCallback<Required<BaseModalProps>['onClose']>(
             (event, reason) => {
@@ -331,7 +343,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
         const getScrollHandler = useCallback(() => {
             if (scrollHandler === 'wrapper') return wrapperRef.current;
-            if (scrollHandler === 'content') return componentRef.current;
+            if (scrollHandler === 'content') return componentNodeRef.current;
             return scrollHandler.current || wrapperRef.current;
         }, [scrollHandler]);
 
@@ -411,6 +423,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 hasScroll,
                 headerHighlighted,
                 footerHighlighted,
+                headerOffset,
+                setHeaderOffset,
                 contentRef,
                 setHasHeader,
                 setHasFooter,
@@ -423,6 +437,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 hasScroll,
                 headerHighlighted,
                 footerHighlighted,
+                headerOffset,
+                setHeaderOffset,
                 handleClose,
             ],
         );
@@ -474,7 +490,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                     >
                                         <div
                                             className={cn(styles.component, className)}
-                                            ref={componentRef}
+                                            ref={mergeRefs([componentRef, componentNodeRef])}
                                         >
                                             <div className={cn(styles.content, contentClassName)}>
                                                 {children}

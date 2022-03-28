@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-bottom-sheet@3.1.1...@alfalab/core-components-bottom-sheet@4.0.0) (2022-03-24)
+
+
+### Features
+
+* **bottom-sheet:** update-bottom-sheet ([#1025](https://github.com/alfa-laboratory/core-components/issues/1025)) ([26fa9aa](https://github.com/alfa-laboratory/core-components/commit/26fa9aab68bebf0f7093a38bc0f18a9b596ccf37)), closes [#1032](https://github.com/alfa-laboratory/core-components/issues/1032)
+
+
+### BREAKING CHANGES
+
+* **bottom-sheet:** Большое обновление стилей, множество дополнительных настроек
+
+
+
+
+
+## [3.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-bottom-sheet@3.1.0...@alfalab/core-components-bottom-sheet@3.1.1) (2022-03-03)
+
+**Note:** Version bump only for package @alfalab/core-components-bottom-sheet
+
+
+
+
+
+# [3.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-bottom-sheet@3.0.2...@alfalab/core-components-bottom-sheet@3.1.0) (2022-03-01)
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
 ## [3.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-bottom-sheet@3.0.1...@alfalab/core-components-bottom-sheet@3.0.2) (2022-01-27)
 
 

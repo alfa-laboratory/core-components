@@ -19,7 +19,6 @@
 .calendarContainer {
     display: inline-block;
     box-sizing: border-box;
-    box-shadow: var(--shadow-s);
     border-radius: var(--calendar-input-popover-border-radius);
 
     @media (max-width: 374px) {

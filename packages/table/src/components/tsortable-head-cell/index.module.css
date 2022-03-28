@@ -6,14 +6,21 @@
 
 .content {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .icon {
     cursor: pointer;
     margin-left: var(--gap-xs);
+
+    /**
+     * иконка сортировки должна быть выровнена по верхнему краю,
+     * т.к. текст может быть в две строки
+     */
+    margin-top: 1px;
     color: var(--color-light-graphic-secondary);
     transition: color 0.2s ease;
+    flex-shrink: 0;
 
     &:hover {
         color: var(--color-light-graphic-primary);
