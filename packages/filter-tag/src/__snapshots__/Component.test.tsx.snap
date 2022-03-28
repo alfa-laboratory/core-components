@@ -9,7 +9,7 @@ Object {
         class="component default s"
       >
         <button
-          class="valueButton s"
+          class="valueButton s default"
           type="button"
         >
           <span>
@@ -40,7 +40,7 @@ Object {
       class="component default s"
     >
       <button
-        class="valueButton s"
+        class="valueButton s default"
         type="button"
       >
         <span>
@@ -128,7 +128,7 @@ Object {
         class="component alt s"
       >
         <button
-          class="valueButton s"
+          class="valueButton s alt"
           type="button"
         >
           <span>
@@ -159,7 +159,7 @@ Object {
       class="component alt s"
     >
       <button
-        class="valueButton s"
+        class="valueButton s alt"
         type="button"
       >
         <span>
@@ -247,7 +247,7 @@ Object {
         class="component alt s"
       >
         <button
-          class="valueButton s"
+          class="valueButton s alt"
           type="button"
         >
           <span>
@@ -278,7 +278,7 @@ Object {
       class="component alt s"
     >
       <button
-        class="valueButton s"
+        class="valueButton s alt"
         type="button"
       >
         <span>
@@ -366,7 +366,7 @@ Object {
         class="component default s"
       >
         <button
-          class="valueButton s"
+          class="valueButton s default"
           type="button"
         >
           <span />
@@ -395,7 +395,7 @@ Object {
       class="component default s"
     >
       <button
-        class="valueButton s"
+        class="valueButton s default"
         type="button"
       >
         <span />

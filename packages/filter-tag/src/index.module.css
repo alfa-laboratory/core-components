@@ -8,26 +8,80 @@
 .component {
     display: flex;
     width: max-content;
-    color: var(--tag-text-color);
-    border-width: var(--tag-border-width);
-    border-style: solid;
-    border-color: var(--tag-border-color);
-    background-color: var(--tag-background-color);
-    transition: border 0.2s ease;
     box-sizing: border-box;
+
+    &.disabled {
+        background-color: var(--tag-background-color-disabled);
+    }
+
+    &.default {
+        border-radius: var(--tag-border-radius);
+    }
+
+    &.alt {
+        border-radius: var(--tag-alt-border-radius);
+    }
+
+    &.checked {
+        &:not(.component.disabled) {
+            background-color: var(--tag-background-color-checked);
+        }
+
+        &:not(.component.disabled).xxs {
+            min-width: 84px;
+        }
+
+        &:not(.component.disabled).xs {
+            min-width: 104px;
+        }
+
+        &:not(.component.disabled).s {
+            min-width: 116px;
+        }
+
+        &:not(.component.disabled):hover {
+            background-color: var(--tag-background-color-checked-hover);
+        }
+
+        &:not(.component.disabled):active {
+            background-color: var(--tag-background-color-checked-active);
+        }
+    }
+}
+
+.focused {
+    @mixin focus-outline;
+}
+
+.chevron {
+    position: relative;
+    transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.valueButton {
+    display: flex;
+    align-items: center;
     box-shadow: none;
     user-select: none;
     cursor: pointer;
     outline: none;
     white-space: nowrap;
-    overflow: hidden;
+    color: var(--tag-text-color);
+    background-color: var(--tag-background-color);
+    border-width: var(--tag-border-width);
+    border-color: var(--tag-border-color);
+    border-style: solid;
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 
-    &:not(.component.disabled):hover {
-        border-color: var(--tag-border-color-hover);
+    &.default {
+        border-radius: var(--tag-border-radius);
     }
 
-    &:not(.component.disabled):active {
-        border-color: var(--tag-border-color-active);
+    &.alt {
+        border-radius: var(--tag-alt-border-radius);
     }
 
     &.xxs {
@@ -63,96 +117,20 @@
         }
     }
 
-    &.disabled {
-        cursor: not-allowed;
-        background-color: var(--tag-background-color-disabled);
-        border-color: var(--tag-border-color-disabled);
-    }
-
-    &.checked {
-        border-color: var(--tag-border-color-checked);
-
-        &:not(.component.disabled) {
-            background-color: var(--tag-background-color-checked);
-        }
-
-        &:not(.component.disabled).xxs {
-            min-width: 84px;
-        }
-
-        &:not(.component.disabled).xs {
-            min-width: 104px;
-        }
-
-        &:not(.component.disabled).s {
-            min-width: 116px;
-        }
-
-        &:not(.component.disabled):hover {
-            background-color: var(--tag-background-color-checked-hover);
-            border-color: var(--tag-border-color-checked);
-        }
-
-        &.disabled {
-            border-color: var(--tag-border-color-checked-disabled);
-        }
-    }
-
-    &.focused {
-        @mixin focus-outline;
-    }
-}
-
-.default {
-    border-radius: var(--tag-border-radius);
-}
-
-.alt {
-    border-radius: var(--tag-alt-border-radius);
-}
-
-.chevron {
-    position: relative;
-    transition: transform 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.valueButton {
-    display: flex;
-    align-items: center;
-    box-shadow: none;
-    user-select: none;
-    cursor: pointer;
-    outline: none;
-    background: transparent;
-    border: 0;
-    color: var(--tag-text-color);
-    transition: background-color 0.2s ease, color 0.2s ease;
-
-    &.xxs {
-        min-width: 60px;
-    }
-
-    &.xs {
-        min-width: 72px;
-    }
-
-    &.s {
-        min-width: 80px;
-    }
-
     &:not(.valueButton:disabled):hover {
         background-color: var(--tag-background-color-hover);
+        border-color: var(--tag-border-color-hover);
     }
 
     &:not(.valueButton:disabled):active {
         background-color: var(--tag-background-color-active);
+        border-color: var(--tag-border-color-active);
     }
 
     &:disabled {
+        cursor: not-allowed;
         background-color: var(--tag-background-color-disabled);
+        border-color: var(--tag-border-color-disabled);
         color: var(--tag-text-color-disabled);
     }
 
@@ -192,10 +170,28 @@
 
     &.checked {
         background-color: var(--tag-background-color-checked);
+        border-width: 0;
         color: var(--tag-text-color-checked);
+
+        &.default {
+            border-radius: var(--tag-border-radius) 0 0 var(--tag-border-radius);
+
+            &:disabled {
+                border-radius: var(--tag-border-radius);
+            }
+        }
+
+        &.alt {
+            border-radius: var(--tag-alt-border-radius) 0 0 var(--tag-alt-border-radius);
+
+            &:disabled {
+                border-radius: var(--tag-alt-border-radius);
+            }
+        }
 
         &:not(.valueButton:disabled) {
             padding-right: 0;
+            border-right-width: 0;
         }
 
         &:not(.valueButton:disabled):hover {
@@ -223,13 +219,22 @@
 
 .clear {
     position: relative;
-    border-radius: 0;
     background-color: var(--tag-background-color-checked);
+
+    &.default {
+        border-radius: 0 var(--tag-border-radius) var(--tag-border-radius) 0;
+    }
+
+    &.alt {
+        border-radius: 0 var(--tag-alt-border-radius) var(--tag-alt-border-radius) 0;
+    }
 
     &:before {
         content: '';
         position: absolute;
         left: 0;
+        top: 50%;
+        transform: translateY(-50%);
         display: block;
         background-color: var(--color-dark-border-underline);
         width: 1px;
@@ -248,7 +253,7 @@
         background-color: var(--tag-background-color-checked-hover);
     }
 
-    &:not(.valueButton:disabled):active {
+    &:active {
         background-color: var(--tag-background-color-checked-active);
     }
 
@@ -269,12 +274,7 @@
     }
 
     &.xxs {
-        padding: 0 7px 0 var(--gap-xs);
-
-        & > span {
-            width: 18px;
-            height: 18px;
-        }
+        padding: 0 3px 0 var(--gap-2xs);
 
         &:before {
             height: 20px;
