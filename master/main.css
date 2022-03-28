@@ -3115,6 +3115,10 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
         color: var(--icon-button-inverted-negative-active-color);
     }
 
+:root {
+    --bottom-sheet-closer-bg-color: var(--color-light-bg-primary-alpha-40);
+}
+
 .closer_3pgjd {
     width: 32px;
     height: 32px;
@@ -3131,10 +3135,14 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 }
 
 .button_1SC8r {
-    background: rgba(0, 0, 0, 0.04);
+    background: var(--bottom-sheet-closer-bg-color);
     -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
     border-radius: 50px;
+}
+
+:root {
+    --bottom-sheet-backer-bg-color: var(--color-light-bg-primary-alpha-40);
 }
 
 .backer_3N8Xt {
@@ -3153,7 +3161,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
 }
 
 .button_3P5Ei {
-    background: rgba(0, 0, 0, 0.04);
+    background: var(--bottom-sheet-backer-bg-color);
     -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
     border-radius: 50px;
@@ -12012,6 +12020,9 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
         white-space: nowrap;
         text-overflow: ellipsis;
     }
+:root {
+    --modal-closer-bg-color: var(--color-light-bg-primary-alpha-40);
+}
 .closer_NTaE0 {
     -ms-flex-negative: 0;
         flex-shrink: 0;
@@ -12029,7 +12040,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
             justify-content: center;
 }
 .button_3_0rq {
-    background: rgba(255, 255, 255, 0.4);
+    background: var(--modal-closer-bg-color);
     -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
     border-radius: 50px;
@@ -16011,6 +16022,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --color-dark-bg-neutral-tint-30: rgb(127, 137, 149);
     --color-dark-bg-neutral-shade-15: rgb(61, 74, 88);
     --color-dark-bg-primary-alpha-8: rgba(11, 31, 53, 0.08);
+    --color-dark-bg-primary-alpha-40: rgba(11, 31, 53, 0.4);
     --color-dark-bg-primary-inverted-alpha-3: rgba(255, 255, 255, 0.03);
     --color-dark-bg-primary-inverted-alpha-7: rgba(255, 255, 255, 0.07);
     --color-dark-bg-primary-inverted-alpha-10: rgba(255, 255, 255, 0.1);
@@ -16092,6 +16104,7 @@ input:focus:not(:read-only) + .suffixContainer_3UK5m,
     --color-light-bg-neutral-shade-30: rgb(153, 155, 157);
     --color-light-bg-neutral-tint-15: rgb(224, 227, 230);
     --color-light-bg-primary-alpha-8: rgba(255, 255, 255, 0.08);
+    --color-light-bg-primary-alpha-40: rgba(255, 255, 255, 0.4);
     --color-light-bg-primary-inverted-alpha-3: rgba(11, 31, 53, 0.03);
     --color-light-bg-primary-inverted-alpha-7: rgba(11, 31, 53, 0.07);
     --color-light-bg-primary-inverted-alpha-10: rgba(11, 31, 53, 0.1);
