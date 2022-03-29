@@ -48,6 +48,11 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange'> & {
     boxClassName?: string;
 
     /**
+     * Доп. класс контента
+     */
+    contentClassName?: string;
+
+    /**
      * Выравнивание
      */
     align?: Align;
@@ -96,6 +101,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             hint,
             size = 's',
             boxClassName,
+            contentClassName,
             align = 'start',
             addons,
             block,
@@ -151,9 +157,11 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                 </span>
 
                 {(label || hint || errorMessage) && (
-                    <span className={styles.content}>
+                    <span className={cn(styles.content, contentClassName)}>
                         {label && <span className={styles.label}>{label}</span>}
+
                         {hint && !errorMessage && <span className={styles.hint}>{hint}</span>}
+
                         {errorMessage && (
                             <span className={styles.errorMessage} role='alert'>
                                 {errorMessage}
