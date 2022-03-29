@@ -28,6 +28,20 @@ describe('Checkbox', () => {
             expect(container.firstElementChild).toHaveClass(className);
         });
 
+        it('should set contentClassName', () => {
+            const className = 'custom-class';
+            const { container } = render(<Checkbox label='label' contentClassName={className} />);
+
+            expect(container.querySelector('.content')).toHaveClass(className);
+        });
+
+        it('should set boxClassName', () => {
+            const className = 'custom-class';
+            const { container } = render(<Checkbox boxClassName={className} />);
+
+            expect(container.querySelector('.box')).toHaveClass(className);
+        });
+
         it('should set `checked` class', () => {
             const { container } = render(<Checkbox checked={true} />);
 
