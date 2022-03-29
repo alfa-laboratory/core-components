@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-checkbox@2.6.0...@alfalab/core-components-checkbox@2.7.0) (2022-03-29)
+
+
+### Features
+
+* add extra content class name prop for radio and checkbox components ([#1048](https://github.com/alfa-laboratory/core-components/issues/1048)) ([3c076b9](https://github.com/alfa-laboratory/core-components/commit/3c076b939a64dff8f9c66bd65f474ccea76c8cad))
+
+
+
+
+
 # [2.6.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-checkbox@2.5.1...@alfalab/core-components-checkbox@2.6.0) (2022-03-24)
 
 

@@ -1,3 +1,42 @@
+# [26.2.0](https://github.com/alfa-laboratory/core-components/compare/v26.1.0...v26.2.0) (2022-03-29)
+
+
+### Features
+
+* add extra content class name prop for radio and checkbox components ([#1048](https://github.com/alfa-laboratory/core-components/issues/1048)) ([3c076b9](https://github.com/alfa-laboratory/core-components/commit/3c076b939a64dff8f9c66bd65f474ccea76c8cad))
+
+# [26.1.0](https://github.com/alfa-laboratory/core-components/compare/v26.0.1...v26.1.0) (2022-03-28)
+
+
+### Features
+
+* **filter-tag:** new component ([#1035](https://github.com/alfa-laboratory/core-components/issues/1035)) ([f97e9c5](https://github.com/alfa-laboratory/core-components/commit/f97e9c59062e56f3bafa855450a33b5f67497143))
+
+## [26.0.1](https://github.com/alfa-laboratory/core-components/compare/v26.0.0...v26.0.1) (2022-03-28)
+
+
+### Bug Fixes
+
+* add missing dependency ([#1041](https://github.com/alfa-laboratory/core-components/issues/1041)) ([3b06d3a](https://github.com/alfa-laboratory/core-components/commit/3b06d3a25f76e401a0146e163f8a61585f3eebf1))
+* fix modal and bottom-sheet dark mode ([#1043](https://github.com/alfa-laboratory/core-components/issues/1043)) ([cad36a2](https://github.com/alfa-laboratory/core-components/commit/cad36a25b28bfa71296c3dd9dc325eec28b5c241))
+* **bottom-sheet:** fix bottom-sheet swipeable marker ([#1044](https://github.com/alfa-laboratory/core-components/issues/1044)) ([0734e55](https://github.com/alfa-laboratory/core-components/commit/0734e55cc0e394fb33452f875ffcf47819277aee))
+
+# [26.0.0](https://github.com/alfa-laboratory/core-components/compare/v25.8.0...v26.0.0) (2022-03-24)
+
+
+### Features
+
+* **bottom-sheet:** update-bottom-sheet ([#1025](https://github.com/alfa-laboratory/core-components/issues/1025)) ([26fa9aa](https://github.com/alfa-laboratory/core-components/commit/26fa9aab68bebf0f7093a38bc0f18a9b596ccf37)), closes [#1032](https://github.com/alfa-laboratory/core-components/issues/1032)
+* **modal:** update styles ([#1024](https://github.com/alfa-laboratory/core-components/issues/1024)) ([fdf2cdc](https://github.com/alfa-laboratory/core-components/commit/fdf2cdca9f785b27cd5d3998245a34d42e1240d1))
+
+
+### BREAKING CHANGES
+
+* **modal:** Большое обновление стилей и темизации
+
+* fix(modal): remove unused align
+* **bottom-sheet:** Большое обновление стилей, множество дополнительных настроек
+
 # [25.8.0](https://github.com/alfa-laboratory/core-components/compare/v25.7.0...v25.8.0) (2022-03-24)
 
 

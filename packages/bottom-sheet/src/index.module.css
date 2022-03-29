@@ -37,7 +37,7 @@
 }
 
 .marker {
-    position: absolute;
+    position: fixed;
     top: var(--gap-2xs);
     left: 50%;
     width: 36px;

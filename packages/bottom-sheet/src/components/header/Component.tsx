@@ -36,12 +36,6 @@ export type HeaderProps = {
     backerClassName?: string;
 
     /**
-     * Будет ли свайпаться шторка
-     * @default true
-     */
-    swipeable?: boolean;
-
-    /**
      * Слот слева
      */
     leftAddons?: ReactNode;
@@ -88,7 +82,6 @@ export const Header: FC<HeaderProps> = ({
     addonClassName,
     closerClassName,
     backerClassName,
-    swipeable,
     leftAddons,
     rightAddons,
     hasCloser,
@@ -101,7 +94,7 @@ export const Header: FC<HeaderProps> = ({
     const { headerHighlighted, setHasHeader, setHeaderOffset } = useContext(BaseModalContext);
 
     const hasLeftPart = hasBacker || leftAddons || titleAlign === 'center';
-    const hasRightPart = (hasCloser || rightAddons || titleAlign === 'center');
+    const hasRightPart = hasCloser || rightAddons || titleAlign === 'center';
     const hasHeaderContent = title || hasBacker || hasCloser;
 
     useEffect(() => {
@@ -118,11 +111,12 @@ export const Header: FC<HeaderProps> = ({
         const hasRightPart = hasCloser || rightAddons;
 
         return cn({
-            [styles.titleBigIndentHorizontal]: !sticky && titleAlignedCenter && (hasLeftPart || hasRightPart),
+            [styles.titleBigIndentHorizontal]:
+                !sticky && titleAlignedCenter && (hasLeftPart || hasRightPart),
             [styles.titleIndentLeft]: !sticky && !titleAlignedCenter && hasLeftPart,
             [styles.titleIndentRight]: !sticky && !titleAlignedCenter && hasRightPart,
-        })
-    }
+        });
+    };
 
     return (
         <div
@@ -132,8 +126,6 @@ export const Header: FC<HeaderProps> = ({
                 [styles.sticky]: sticky,
             })}
         >
-            {swipeable && <div className={cn(styles.marker)} />}
-
             {hasLeftPart && (
                 <div
                     className={cn(styles.addon, addonClassName, {

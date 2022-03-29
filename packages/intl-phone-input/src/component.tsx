@@ -275,7 +275,7 @@ export const IntlPhoneInput = forwardRef<HTMLInputElement, IntlPhoneInputProps>(
                         />
                     ),
                 }}
-                optionsListWidth="field"
+                optionsListWidth='field'
                 closeOnSelect={true}
                 onInput={handleInputChange}
                 onChange={handleChange}
