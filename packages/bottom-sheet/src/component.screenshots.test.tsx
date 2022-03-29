@@ -37,7 +37,7 @@ describe(
                         open: true,
                         children: 'Контент',
                         hasCloser: true,
-                        hasBacker: true
+                        hasBacker: true,
                     },
                 }),
             ],
@@ -51,7 +51,7 @@ describe(
                         titleAlign: 'center',
                         title: 'Заголовок',
                         hasCloser: true,
-                        hasBacker: true
+                        hasBacker: true,
                     },
                 }),
             ],
@@ -66,7 +66,7 @@ describe(
                         title: 'Заголовок',
                         hasCloser: true,
                         hasBacker: true,
-                        initialHeight: 'full'
+                        initialHeight: 'full',
                     },
                 }),
             ],
@@ -90,7 +90,7 @@ describe(
                     knobs: {
                         open: true,
                         children: 'Контент',
-                        hideHeader: true
+                        hideHeader: true,
                     },
                 }),
             ],

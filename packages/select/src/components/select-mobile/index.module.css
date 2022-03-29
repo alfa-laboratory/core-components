@@ -42,15 +42,6 @@
     }
 }
 
-.checkmark {
-    display: flex;
-    align-items: center;
-    background: unset;
-    width: unset;
-    height: unset;
-    margin: 0;
-}
-
 .footer {
     display: flex;
     justify-content: space-between;

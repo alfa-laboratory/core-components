@@ -164,11 +164,6 @@ export type BottomSheetProps = {
     disableOverlayClick?: boolean;
 
     /**
-     * Кол-во пикселей, прокрученных от шапки
-     */
-    contentScrollTop?: number;
-
-    /**
      * Обработчик закрытия
      */
     onClose: () => void;
@@ -214,7 +209,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             hideOverlay,
             hideHeader,
             disableOverlayClick,
-            contentScrollTop,
             children,
             zIndex,
             transitionProps = {},
@@ -289,10 +283,6 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                 scrollableContainerScrollValue.current = Math.floor(
                     scrollableContainer.current.scrollTop,
                 );
-            }
-
-            if (contentScrollTop) {
-                return contentScrollTop > 0;
             }
 
             return scrollableContainer.current.scrollTop > 0;

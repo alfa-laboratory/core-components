@@ -7,13 +7,12 @@ import React, {
     KeyboardEvent,
     FocusEvent,
     useEffect,
-    useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
 import { Button } from '@alfalab/core-components-button';
-import { CheckmarkMIcon } from '@alfalab/icons-glyph/CheckmarkMIcon';
+
 import {
     useMultipleSelection,
     useCombobox,
@@ -22,16 +21,23 @@ import {
 } from 'downshift';
 import { Field as DefaultField } from '../field';
 import { Arrow as DefaultArrow } from '../arrow';
-import { OptionsList as DefaultOptionsList } from '../options-list';
 import { Option as DefaultOption } from '../option';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
-import { Checkmark as DefaultCheckmark } from '../checkmark';
+import { OptionsList } from './options-list';
 
 import { BaseSelectProps, OptionShape } from '../../typings';
 import { processOptions } from '../../utils';
 import { getDataTestId } from '../../../../utils/getDataTestId';
 
 import styles from './index.module.css';
+import { Checkmark } from './checkmark';
+
+export type SelectMobileProps = Omit<BaseSelectProps, 'OptionsList' | 'Checkmark' | 'onScroll'> & {
+    /**
+     * Нужно ли рендерить кнопки с подтверждением / сбросом значений
+     */
+    hasFooter?: boolean;
+};
 
 export const SelectMobile = forwardRef(
     (
@@ -68,28 +74,19 @@ export const SelectMobile = forwardRef(
             onChange,
             onOpen,
             onFocus,
-            onScroll,
             Arrow = DefaultArrow,
             Field = DefaultField,
-            OptionsList = DefaultOptionsList,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
             visibleOptions,
             hasFooter = false,
-        }: BaseSelectProps & {
-            /**
-             * Нужно ли рендерить кнопки с подтверждением / сбросом значений
-             */
-            hasFooter?: boolean;
-        },
+        }: SelectMobileProps,
         ref,
     ) => {
         const rootRef = useRef<HTMLLabelElement>(null);
         const fieldRef = useRef<HTMLInputElement>(null);
         const listRef = useRef<HTMLDivElement>(null);
         const initiatorRef = useRef<OptionShape | null>(null);
-
-        const [contentScrollTop, setContentScrollTop] = useState(0);
 
         const itemToString = (option: OptionShape) => (option ? option.key : '');
 
@@ -156,7 +153,7 @@ export const SelectMobile = forwardRef(
             circularNavigation,
             items: flatOptions,
             itemToString,
-            defaultHighlightedIndex: selectedItems.length === 0 ? -1 : undefined,
+            defaultHighlightedIndex: -1,
             onIsOpenChange: changes => {
                 if (onOpen) {
                     /**
@@ -177,12 +174,8 @@ export const SelectMobile = forwardRef(
                 const { type, changes } = actionAndChanges;
                 const { selectedItem } = changes;
 
-                console.log(type, state);
-
                 switch (type) {
                     case useCombobox.stateChangeTypes.InputBlur:
-                        console.log(state);
-
                         return state;
                     case useCombobox.stateChangeTypes.InputKeyDownEnter:
                     case useCombobox.stateChangeTypes.ItemClick:
@@ -208,7 +201,7 @@ export const SelectMobile = forwardRef(
 
                         return {
                             ...changes,
-                            isOpen: !closeOnSelect || hasFooter,
+                            isOpen: !closeOnSelect,
                             // при closeOnSelect === false - сохраняем подсвеченный индекс
                             highlightedIndex:
                                 state.isOpen && !closeOnSelect
@@ -285,15 +278,7 @@ export const SelectMobile = forwardRef(
                 highlighted: index === highlightedIndex,
                 selected: selectedItems.includes(option),
                 dataTestId: getDataTestId(dataTestId, 'option'),
-                leftCheckmarkHidden: true,
-                Checkmark: () => (
-                    <DefaultCheckmark
-                        selected={selectedItems.includes(option)}
-                        className={styles.checkmark}
-                        icon={CheckmarkMIcon}
-                        position='after'
-                    />
-                ),
+                Checkmark: () => <Checkmark selected={selectedItems.includes(option)} />,
             }),
             [
                 dataTestId,
@@ -325,16 +310,6 @@ export const SelectMobile = forwardRef(
                 )),
             [selectedItems, name],
         );
-
-        const handleOptionListScroll = (event: React.MouseEvent<HTMLDivElement>) => {
-            const { scrollTop } = event.currentTarget;
-
-            setContentScrollTop(scrollTop);
-
-            if (onScroll) {
-                onScroll(event);
-            }
-        };
 
         return (
             <div
@@ -410,8 +385,8 @@ export const SelectMobile = forwardRef(
                             </div>
                         )
                     }
-                    contentScrollTop={contentScrollTop}
                     stickyHeader={true}
+                    stickyFooter={true}
                     hasCloser={true}
                 >
                     <div {...menuProps} className={cn(optionsListClassName, styles.optionsList)}>
@@ -419,7 +394,6 @@ export const SelectMobile = forwardRef(
                             {...optionsListProps}
                             flatOptions={flatOptions}
                             highlightedIndex={highlightedIndex}
-                            open={open}
                             size={size}
                             options={options}
                             Optgroup={Optgroup}
@@ -429,7 +403,6 @@ export const SelectMobile = forwardRef(
                             toggleMenu={toggleMenu}
                             getOptionProps={getOptionProps}
                             visibleOptions={visibleOptions}
-                            onScroll={handleOptionListScroll}
                             dataTestId={getDataTestId(dataTestId, 'options-list')}
                             optionGroupClassName={cn(styles.optionGroup, optionGroupClassName)}
                         />

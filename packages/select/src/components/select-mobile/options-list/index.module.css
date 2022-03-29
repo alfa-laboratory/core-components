@@ -1,0 +1,18 @@
+@import '../../../../../themes/src/default.css';
+@import '../../../vars.css';
+
+.optionsList {
+    width: 100%;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.emptyPlaceholder {
+    padding: var(--gap-m) var(--gap-s);
+    color: var(--select-options-list-empty-placeholder-color);
+}
+
+.l .emptyPlaceholder,
+.xl .emptyPlaceholder {
+    padding: var(--gap-xl) var(--gap-m);
+}

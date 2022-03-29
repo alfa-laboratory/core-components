@@ -21,7 +21,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-button": "^5.1.1",
-        "@alfalab/core-components-bottom-sheet": "^3.1.0",
+        "@alfalab/core-components-bottom-sheet": "^3.1.1",
         "@alfalab/core-components-checkbox": "^2.6.0",
         "@alfalab/core-components-form-control": "^7.4.0",
         "@alfalab/core-components-input": "^8.1.0",

@@ -588,11 +588,6 @@ export type OptionProps = {
     Checkmark?: FC<CheckmarkProps>;
 
     /**
-     * Нужно ли скрыть левый компонент пункта меню
-     */
-    leftCheckmarkHidden?: boolean;
-
-    /**
      * Внутренние свойства, которые должны быть установлены компоненту.
      */
     innerProps: {
