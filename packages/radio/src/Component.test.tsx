@@ -26,6 +26,20 @@ describe('Radio', () => {
             expect(container.firstElementChild).toHaveClass(className);
         });
 
+        it('should set contentClassName', () => {
+            const className = 'custom-class';
+            const { container } = render(<Radio label='label' contentClassName={className} />);
+
+            expect(container.querySelector('.content')).toHaveClass(className);
+        });
+
+        it('should set circleClassName', () => {
+            const className = 'custom-class';
+            const { container } = render(<Radio circleClassName={className} />);
+
+            expect(container.querySelector('.circle')).toHaveClass(className);
+        });
+
         it('should set `checked` class', () => {
             const { container } = render(<Radio checked={true} />);
 
@@ -52,7 +66,7 @@ describe('Radio', () => {
     });
 
     describe('Attributes tests', () => {
-        it('should set `data-test-id` atribute', () => {
+        it('should set `data-test-id` attribute', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(<Radio dataTestId={dataTestId} />);
 
