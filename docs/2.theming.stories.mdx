@@ -1,229 +1,31 @@
-import { Description } from '@storybook/addon-docs/blocks';
-import { Row } from 'storybook/blocks/grid';
-import cn from 'classnames';
+import { Meta } from '@storybook/addon-docs';
 
-import { Typography } from '@alfalab/core-components-typography';
-import { Radio } from '@alfalab/core-components-radio';
-import { Checkbox } from '@alfalab/core-components-checkbox';
+import { ThemingWizard } from 'storybook/theming-wizard';
 
-import styles from './2.theming.stories.module.css';
 
-<Meta
-  title='Гайдлайны/Темизация'
-  parameters={{ previewTabs: { canvas: { hidden: true } }}}
-/>
+<Meta title='Гайдлайны/Темизация' parameters={{ previewTabs: { canvas: { hidden: true } } }} />
 
 ## Темизация
 
-Темы для компонентов доступны в пакете [@alfalab/core-components/themes](https://www.npmjs.com/package/@alfalab/core-components/themes).
+Настройка темизации может несколько отличаться в разных продуктах.
 
-Пакет имеет следующую структуру:
+Выберите конфигурацию своего проекта, чтобы получить инструкцию по настройке.
 
-```
-@alfalab/core-components/themes
-├── component1
-|  └── click.css
-|  └── corp.css
-├── component2
-|  └── click.css
-|  └── site.css
-├── mixins
-|  ├── component1
-|  |  └── click.css
-|  |  └── corp.css
-|  ├── component2
-|  |  └── click.css
-|  |  └── site.css
-|  ├── click.css
-|  └── corp.css
-|  └── site.css
-├── click.css
-├── corp.css
-├── site.css
-└── package.json
-```
+<ThemingWizard />
 
-- В корне пакета лежат css-темы (_click.css и др._), которые переопределяют переменные всех компонентов.
-- В папках находятся темы, разбитые по компонентам.
-- Помимо css тем, доступны миксины из папки `mixins`.
+### Ограничения
 
-Пример css темы:
+#### На одной странице должна использоваться только **одна тема**
 
-```css
-/* @alfalab/core-components/themes/click.css */
+В идеале весь проект должен использовать только одну тему, например тему mobile.
 
-:root {
-    /**
-     * === button ===
-     */
+#### На одной странице должна использоваться только **одна палитра цветов**
 
-    --button-ghost-hover-color: var(--color-red-brand);
-    --button-ghost-active-color: var(--color-red-dark);
-    ...;
-}
-```
+Если в проекте используется и блютинт и индиго, то палитры цветов должны подключаться через отдельные css-бандлы, либо через вставку style-тэга с нужно палитрой на нужной странице.
+Иначе в итоговом css-бандле цвета перезапишут друг-друга.
 
-Пример mixin-темы:
+По умолчанию используется палитра bluetint.
 
-```css
-/* @alfalab/core-components/themes/mixins/click.css */
+#### Темный режим перекрашивает всю страницу целиком
 
-@import './input/click.css';
-@import './button/click.css';
-
-@define-mixin theme-click {
-    @mixin input-click;
-    @mixin button-click;
-    ...;
-}
-```
-
-## Использование
-
-**Core-Components** предоставляет два способа темазации компонентов — в зависимости от того, будете ли вы использовать нативные css-переменных в проде, либо они будут обрабатываться через [postcss-custom-properties](https://github.com/postcss/postcss-custom-properties).
-
-### 1. Использование нативных css-переменных
-
-В этом случае, вам будут доступны все возможности для темизации компонентов:
-- Глобальная темизация
-- Динамическая темизация
-- Темизация по классу
-- Миксины
-
-Для этого, подключите файл с темой в основной js или css файл, после подключения основных стилей.<br/>
-Отключите обработку css переменных, если она включена.
-
-- **Подключение темы в css-файле**:
-
-```css
-/* Глобально применяем тему */
-@import '@alfalab/core-components/themes/click.css';
-
-/* Применяем тему только для инпута */
-@import '@alfalab/core-components/themes/input/click.css';
-```
-
-- **Подключение темы в js-файле**:
-
-```jsx
-import '@alfalab/core-components/themes/click.css';
-import '@alfalab/core-components/themes/input/click.css';
-```
-
-- **Точечная темизация с помощью миксинов**:
-
-```css
-@import '@alfalab/core-components/themes/mixins/dark.css';
-
-.dark-block {
-    /* Применяем тему к конкретному блоку */
-    @mixin theme-dark;
-}
-```
-
-```css
-@import '@alfalab/core-components/themes/mixins/input/dark.css';
-
-.dark-input {
-    /* Темизируем определенный инпут */
-    @mixin input-dark;
-}
-```
-
-- Для поддержки IE11 — используйте данный [полифил](https://github.com/nuxodin/ie11CustomProperties)
-
-- Для поддержки миксинов — используйте [postcss-mixins](https://github.com/postcss/postcss-mixins)
-
-- Если вы используете [arui-scripts](https://github.com/alfa-laboratory/arui-scripts) — [отключите](https://github.com/alfa-laboratory/arui-scripts#тонкая-настройка) обработку переменных с помощью опции `keepCssVars: true`
-
-```json
-"aruiScripts": {
-    "keepCssVars": true
-}
-```
-
-### 2. Темизация при включенной обработке переменных
-
-В этом случае вам будут доступны только глобальные css темы, которые меняют вид всех компонентов сразу.
-
-- Если вы используете [arui-scripts](https://github.com/alfa-laboratory/arui-scripts) — подключите нужную тему в `package.json`:
-
-```json
-"aruiScripts": {
-    "componentsTheme": "./node_modules/@alfalab/core-components/themes/click.css"
-}
-```
-
-- Иначе, используйте плагин [postcss-custom-properties](https://github.com/postcss/postcss-custom-properties), указав в `importFrom` путь к файлу с темой. При этом css-переменные должны вырезаться (`preserve=false`)
-
-```js
-postcssCustomProperties({
-    importFrom: './node_modules/@alfalab/core-components/themes/click.css',
-});
-```
-
-## Примеры
-
-export const css = `.dark {
-    --some-component-var: var(--some-new-color);
-}`;
-
-export const cssMixin = `@define-mixin theme-dark {
-    --some-component-var: var(--some-new-color);
-}
-.dark {
-    @mixin theme-dark;
-}`;
-
-<div className={styles.themeExample}>
-    <div className={cn(styles.dark, styles.container)}>
-        <Typography.Title view='small' className={styles.title}>Dark block</Typography.Title>
-        <Typography.Text tag='p'>
-            Рекомендуемый способ темизации — переопределение нужных переменных по классу:
-        </Typography.Text>
-        <Typography.Text tag='p'>
-            <pre className={styles.cssExample}>{css}</pre>
-        </Typography.Text>
-        <Typography.Text tag='p'>
-            Это позволяет как перекрасить все компоненты на странице, так и применять тему только к выбранному блоку.
-        </Typography.Text>
-        <Typography.Text tag='p'>
-            Для удобства, переопределения переменных можно оформить в виде миксина:
-        </Typography.Text>
-        <Typography.Text tag='p'>
-            <pre className={styles.cssExample}>{cssMixin}</pre>
-        </Typography.Text>
-        <Row>
-            <Checkbox label='Чекбокс на темном фоне' checked />
-        </Row>
-        <Row>
-            <Radio label='Радио-кнопка на темном фоне' checked />
-        </Row>
-        <div className={cn(styles.light, styles.container)}>
-            <Typography.Title view='small' className={styles.title}>Light block</Typography.Title>
-            <Row>
-                <Checkbox label='Чекбокс на светлом фоне' checked />
-            </Row>
-            <Row>
-                <Radio label='Радио-кнопка на светлом фоне' checked />
-            </Row>
-        </div>
-        <div className={cn(styles.redEye, styles.container)}>
-            <Typography.Title view='small' className={styles.title}>Custom block</Typography.Title>
-            <Row>
-                <Checkbox label='Чекбокс' />
-            </Row>
-            <Row>
-                <Radio label='Радио-кнопка' />
-            </Row>
-            <Row>
-                <Checkbox label='Чекбокс' checked />
-            </Row>
-            <Row>
-                <Radio label='Радио-кнопка' checked />
-            </Row>
-        </div>
-    </div>
-</div>
-
-Если остались какие-либо вопросы или документация не кажется понятной — пожалуйста, свяжитесь с мейнтейнерами проекта или создайте issue.
+Темный режим применяется на всю страницу. Перекрасить отдельные блоки нельзя. Если вам это нужно — скорее всего это не темный режим, а inverted версия компонента.

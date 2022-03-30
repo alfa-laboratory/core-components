@@ -11,13 +11,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
       class="header"
     >
       <div
-        class="inner"
+        aria-live="polite"
+        class="component monthYear"
       >
-        <button
-          aria-label="Предыдущий месяц"
-          class="component ghost m component ghost iconOnly arrow"
-          type="button"
-        />
         <button
           class="component ghost xs component ghost button filled button month"
           type="button"
@@ -29,9 +25,21 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               class="buttonContent"
             >
               Ноябрь
-              <span
+              <svg
                 class="upDownIcon"
-              />
+                fill="currentColor"
+                focusable="false"
+                height="18"
+                role="img"
+                viewBox="0 0 18 18"
+                width="18"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </span>
           </span>
         </button>
@@ -46,21 +54,28 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
               class="buttonContent"
             >
               2020
-              <span
+              <svg
                 class="upDownIcon"
-              />
+                fill="currentColor"
+                focusable="false"
+                height="18"
+                role="img"
+                viewBox="0 0 18 18"
+                width="18"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </span>
           </span>
         </button>
-        <button
-          aria-label="Следующий месяц"
-          class="component ghost m component ghost iconOnly arrow"
-          type="button"
-        />
       </div>
     </div>
     <div
-      class="container"
+      class="container days"
     >
       <table
         class="daysTable"
@@ -112,10 +127,12 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             <td />
             <td />
             <td />
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
-                class="component ghost xs component ghost day firstDay"
+                class="component ghost xs component ghost day"
                 data-date="1604188800000"
                 tabindex="-1"
                 type="button"
@@ -129,7 +146,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
           </tr>
           <tr>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -144,7 +163,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -159,7 +180,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -174,7 +197,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -189,7 +214,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -204,7 +231,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -219,7 +248,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -236,7 +267,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
           </tr>
           <tr>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -251,7 +284,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -266,7 +301,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -281,7 +318,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -296,7 +335,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -311,7 +352,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -326,7 +369,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -343,7 +388,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
           </tr>
           <tr>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -358,7 +405,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -373,7 +422,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -388,7 +439,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -403,7 +456,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -418,7 +473,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -433,7 +490,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -450,7 +509,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
           </tr>
           <tr>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -465,7 +526,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -480,7 +543,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -495,7 +560,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -510,7 +577,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -525,7 +594,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -540,7 +611,9 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -557,10 +630,12 @@ exports[`Calendar Display tests should match defaultView="days" snapshot 1`] = `
             </td>
           </tr>
           <tr>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="true"
-                class="component ghost xs component ghost day selected lastDay"
+                class="component ghost xs component ghost day selected"
                 data-date="1606694400000"
                 tabindex="0"
                 type="button"
@@ -597,13 +672,9 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
       class="header"
     >
       <div
-        class="inner"
+        aria-live="polite"
+        class="component monthYear"
       >
-        <button
-          aria-label="Предыдущий месяц"
-          class="component ghost m component ghost iconOnly arrow"
-          type="button"
-        />
         <button
           class="component ghost xs component ghost button filled button month"
           type="button"
@@ -615,9 +686,21 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
               class="buttonContent"
             >
               Ноябрь
-              <span
+              <svg
                 class="upDownIcon"
-              />
+                fill="currentColor"
+                focusable="false"
+                height="18"
+                role="img"
+                viewBox="0 0 18 18"
+                width="18"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </span>
           </span>
         </button>
@@ -632,21 +715,28 @@ exports[`Calendar Display tests should match defaultView="months" snapshot 1`] =
               class="buttonContent"
             >
               2020
-              <span
+              <svg
                 class="upDownIcon"
-              />
+                fill="currentColor"
+                focusable="false"
+                height="18"
+                role="img"
+                viewBox="0 0 18 18"
+                width="18"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </span>
           </span>
         </button>
-        <button
-          aria-label="Следующий месяц"
-          class="component ghost m component ghost iconOnly arrow"
-          type="button"
-        />
       </div>
     </div>
     <div
-      class="container"
+      class="container months"
     >
       <div
         class="monthsTable"
@@ -824,13 +914,9 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
       class="header"
     >
       <div
-        class="inner"
+        aria-live="polite"
+        class="component monthYear"
       >
-        <button
-          aria-label="Предыдущий месяц"
-          class="component ghost m component ghost iconOnly arrow"
-          type="button"
-        />
         <button
           class="component ghost xs component ghost button filled button month"
           type="button"
@@ -842,9 +928,21 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
               class="buttonContent"
             >
               Ноябрь
-              <span
+              <svg
                 class="upDownIcon"
-              />
+                fill="currentColor"
+                focusable="false"
+                height="18"
+                role="img"
+                viewBox="0 0 18 18"
+                width="18"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </span>
           </span>
         </button>
@@ -859,21 +957,28 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
               class="buttonContent"
             >
               2020
-              <span
+              <svg
                 class="upDownIcon"
-              />
+                fill="currentColor"
+                focusable="false"
+                height="18"
+                role="img"
+                viewBox="0 0 18 18"
+                width="18"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </span>
           </span>
         </button>
-        <button
-          aria-label="Следующий месяц"
-          class="component ghost m component ghost iconOnly arrow"
-          type="button"
-        />
       </div>
     </div>
     <div
-      class="container"
+      class="container years"
     >
       <div
         class="yearsTable"
@@ -2168,19 +2273,6 @@ exports[`Calendar Display tests should match defaultView="years" snapshot 1`] = 
               1922
             </span>
           </button>
-          <button
-            aria-selected="false"
-            class="component ghost xs component ghost button default button"
-            data-date="-1546300800000"
-            tabindex="-1"
-            type="button"
-          >
-            <span
-              class="text stretchText"
-            >
-              1921
-            </span>
-          </button>
         </div>
       </div>
     </div>
@@ -2199,13 +2291,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
       class="header"
     >
       <div
-        class="inner"
+        aria-live="polite"
+        class="component monthYear"
       >
-        <button
-          aria-label="Предыдущий месяц"
-          class="component ghost m component ghost iconOnly arrow"
-          type="button"
-        />
         <button
           class="component ghost xs component ghost button filled button month"
           type="button"
@@ -2217,9 +2305,21 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               class="buttonContent"
             >
               Ноябрь
-              <span
+              <svg
                 class="upDownIcon"
-              />
+                fill="currentColor"
+                focusable="false"
+                height="18"
+                role="img"
+                viewBox="0 0 18 18"
+                width="18"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </span>
           </span>
         </button>
@@ -2234,21 +2334,28 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
               class="buttonContent"
             >
               2020
-              <span
+              <svg
                 class="upDownIcon"
-              />
+                fill="currentColor"
+                focusable="false"
+                height="18"
+                role="img"
+                viewBox="0 0 18 18"
+                width="18"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </span>
           </span>
         </button>
-        <button
-          aria-label="Следующий месяц"
-          class="component ghost m component ghost iconOnly arrow"
-          type="button"
-        />
       </div>
     </div>
     <div
-      class="container"
+      class="container days"
     >
       <table
         class="daysTable"
@@ -2300,10 +2407,12 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             <td />
             <td />
             <td />
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
-                class="component ghost xs component ghost day firstDay"
+                class="component ghost xs component ghost day"
                 data-date="1604188800000"
                 tabindex="-1"
                 type="button"
@@ -2317,7 +2426,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
           </tr>
           <tr>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2332,7 +2443,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2347,7 +2460,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2362,7 +2477,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2377,7 +2494,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2392,7 +2511,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2407,7 +2528,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2424,7 +2547,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
           </tr>
           <tr>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2439,7 +2564,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2454,7 +2581,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2469,7 +2598,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2484,7 +2615,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2499,7 +2632,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2514,7 +2649,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2531,7 +2668,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
           </tr>
           <tr>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2546,7 +2685,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2561,7 +2702,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2576,7 +2719,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2591,7 +2736,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2606,7 +2753,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2621,7 +2770,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2638,7 +2789,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
           </tr>
           <tr>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2653,7 +2806,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2668,7 +2823,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2683,7 +2840,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2698,7 +2857,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2713,7 +2874,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2728,7 +2891,9 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2745,10 +2910,12 @@ exports[`Calendar Display tests should match selectorView="full" snapshot 1`] = 
             </td>
           </tr>
           <tr>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="true"
-                class="component ghost xs component ghost day selected lastDay"
+                class="component ghost xs component ghost day selected"
                 data-date="1606694400000"
                 tabindex="0"
                 type="button"
@@ -2785,27 +2952,72 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
       class="header monthOnly"
     >
       <div
-        class="inner"
+        aria-live="polite"
+        class="component period"
       >
         <button
-          aria-label="Предыдущий месяц"
-          class="component ghost m component ghost iconOnly arrow"
+          aria-label="Предыдущий период"
+          class="component ghost s component ghost iconOnly arrow primary"
           type="button"
-        />
-        <span
-          class="button month"
         >
-          Ноябрь
+          <span
+            class="addons"
+          >
+            <span
+              class="iconWrapper xs"
+            >
+              <svg
+                class="icon"
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
+        <span
+          class="period"
+        >
+          Ноябрь 2020
         </span>
         <button
-          aria-label="Следующий месяц"
-          class="component ghost m component ghost iconOnly arrow"
+          aria-label="Следующий период"
+          class="component ghost s component ghost iconOnly arrow primary"
           type="button"
-        />
+        >
+          <span
+            class="addons"
+          >
+            <span
+              class="iconWrapper xs"
+            >
+              <svg
+                class="icon"
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  d="M10 12l5.5 5.5L14 19l-7-7 7-7 1.5 1.5L10 12z"
+                />
+              </svg>
+            </span>
+          </span>
+        </button>
       </div>
     </div>
     <div
-      class="container"
+      class="container days"
     >
       <table
         class="daysTable"
@@ -2857,10 +3069,12 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             <td />
             <td />
             <td />
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
-                class="component ghost xs component ghost day firstDay"
+                class="component ghost xs component ghost day"
                 data-date="1604188800000"
                 tabindex="-1"
                 type="button"
@@ -2874,7 +3088,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
           </tr>
           <tr>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2889,7 +3105,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2904,7 +3122,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2919,7 +3139,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2934,7 +3156,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2949,7 +3173,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2964,7 +3190,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2981,7 +3209,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
           </tr>
           <tr>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -2996,7 +3226,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3011,7 +3243,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3026,7 +3260,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3041,7 +3277,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3056,7 +3294,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3071,7 +3311,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3088,7 +3330,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
           </tr>
           <tr>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3103,7 +3347,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3118,7 +3364,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3133,7 +3381,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3148,7 +3398,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3163,7 +3415,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3178,7 +3432,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3195,7 +3451,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
           </tr>
           <tr>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3210,7 +3468,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3225,7 +3485,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3240,7 +3502,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3255,7 +3519,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3270,7 +3536,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3285,7 +3553,9 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3302,10 +3572,12 @@ exports[`Calendar Display tests should match selectorView="month-only" snapshot 
             </td>
           </tr>
           <tr>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="true"
-                class="component ghost xs component ghost day selected lastDay"
+                class="component ghost xs component ghost day selected"
                 data-date="1606694400000"
                 tabindex="0"
                 type="button"
@@ -3342,13 +3614,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
       class="header"
     >
       <div
-        class="inner"
+        aria-live="polite"
+        class="component monthYear"
       >
-        <button
-          aria-label="Предыдущий месяц"
-          class="component ghost m component ghost iconOnly arrow"
-          type="button"
-        />
         <button
           class="component ghost xs component ghost button filled button month"
           type="button"
@@ -3360,9 +3628,21 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               class="buttonContent"
             >
               Ноябрь
-              <span
+              <svg
                 class="upDownIcon"
-              />
+                fill="currentColor"
+                focusable="false"
+                height="18"
+                role="img"
+                viewBox="0 0 18 18"
+                width="18"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </span>
           </span>
         </button>
@@ -3377,21 +3657,28 @@ exports[`Calendar Display tests should match snapshot 1`] = `
               class="buttonContent"
             >
               2020
-              <span
+              <svg
                 class="upDownIcon"
-              />
+                fill="currentColor"
+                focusable="false"
+                height="18"
+                role="img"
+                viewBox="0 0 18 18"
+                width="18"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M3.293 7.207l1.414-1.414L9 10.086l4.293-4.293 1.414 1.414L9 12.914 3.293 7.207z"
+                  fill-rule="evenodd"
+                />
+              </svg>
             </span>
           </span>
         </button>
-        <button
-          aria-label="Следующий месяц"
-          class="component ghost m component ghost iconOnly arrow"
-          type="button"
-        />
       </div>
     </div>
     <div
-      class="container"
+      class="container days"
     >
       <table
         class="daysTable"
@@ -3443,10 +3730,12 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             <td />
             <td />
             <td />
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
-                class="component ghost xs component ghost day firstDay"
+                class="component ghost xs component ghost day"
                 data-date="1604188800000"
                 tabindex="-1"
                 type="button"
@@ -3460,7 +3749,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
           </tr>
           <tr>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3475,7 +3766,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3490,7 +3783,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3505,7 +3800,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3520,7 +3817,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3535,7 +3834,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3550,7 +3851,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3567,7 +3870,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
           </tr>
           <tr>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3582,7 +3887,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3597,7 +3904,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3612,7 +3921,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3627,7 +3938,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3642,7 +3955,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3657,7 +3972,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3674,7 +3991,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
           </tr>
           <tr>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3689,7 +4008,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3704,7 +4025,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3719,7 +4042,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3734,7 +4059,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3749,7 +4076,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3764,7 +4093,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3781,7 +4112,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
           </tr>
           <tr>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3796,7 +4129,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3811,7 +4146,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3826,7 +4163,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3841,7 +4180,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3856,7 +4197,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3871,7 +4214,9 @@ exports[`Calendar Display tests should match snapshot 1`] = `
                 </span>
               </button>
             </td>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="false"
                 class="component ghost xs component ghost day"
@@ -3888,10 +4233,12 @@ exports[`Calendar Display tests should match snapshot 1`] = `
             </td>
           </tr>
           <tr>
-            <td>
+            <td
+              class="dayWrapper"
+            >
               <button
                 aria-selected="true"
-                class="component ghost xs component ghost day selected lastDay"
+                class="component ghost xs component ghost day selected"
                 data-date="1606694400000"
                 tabindex="0"
                 type="button"

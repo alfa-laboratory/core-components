@@ -1,0 +1,17 @@
+@define-mixin tag-mobile {
+    /* theme */
+    --tag-border-radius: var(--border-radius-l);
+    --tag-background-color: var(--color-light-bg-secondary);
+    --tag-background-color-hover: var(--color-light-bg-secondary);
+    --tag-background-color-active: var(--color-light-bg-secondary-shade-15);
+    --tag-background-color-disabled: var(--color-light-bg-secondary-alpha-30);
+    --tag-background-color-checked: var(--color-light-bg-secondary-inverted);
+    --tag-background-color-checked-hover: var(--color-light-bg-secondary-inverted);
+    --tag-background-color-checked-active: var(--color-light-bg-secondary-inverted-tint-20);
+    --tag-background-color-checked-disabled: var(--color-light-bg-secondary-inverted-alpha-30);
+    --tag-border-color: transparent;
+    --tag-border-color-hover: transparent;
+    --tag-border-color-active: transparent;
+    --tag-border-color-checked: transparent;
+    --tag-border-color-disabled: transparent;
+}

@@ -1,0 +1,22 @@
+.dotUnfocused {
+    opacity: 0.3;
+}
+
+.dot,
+.dotItem,
+.dotWrap {
+    transition: all 0.2s ease;
+}
+
+.dot {
+    animation: showDot 0.5s ease;
+}
+
+@keyframes showDot {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

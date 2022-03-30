@@ -1,6 +1,7 @@
 import React, {
     AnchorHTMLAttributes,
     ButtonHTMLAttributes,
+    ElementType,
     useEffect,
     useRef,
     useState,
@@ -24,7 +25,15 @@ export type ComponentProps = {
     /**
      * Тип кнопки
      */
-    view?: 'primary' | 'secondary' | 'outlined' | 'filled' | 'transparent' | 'link' | 'ghost';
+    view?:
+        | 'primary'
+        | 'secondary'
+        | 'tertiary'
+        | 'outlined' // deprecated
+        | 'filled' // deprecated
+        | 'transparent' // deprecated
+        | 'link'
+        | 'ghost';
 
     /**
      * Слот слева
@@ -39,7 +48,7 @@ export type ComponentProps = {
     /**
      * Размер компонента
      */
-    size?: 'xs' | 's' | 'm' | 'l' | 'xl';
+    size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
     /**
      * Растягивает компонент на ширину контейнера
@@ -54,7 +63,12 @@ export type ComponentProps = {
     /**
      * Выводит ссылку в виде кнопки
      */
-    href?: AnchorHTMLAttributes<HTMLAnchorElement>['href'];
+    href?: string;
+
+    /**
+     * Позволяет использовать кастомный компонент для кнопки (например Link из роутера)
+     */
+    Component?: ElementType;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -88,6 +102,26 @@ export type ButtonProps = Partial<AnchorButtonProps | NativeButtonProps>;
  */
 export const LOADER_MIN_DISPLAY_INTERVAL = 500;
 
+const logWarning = (view: Required<ComponentProps>['view']) => {
+    if (process.env.NODE_ENV !== 'development') {
+        return;
+    }
+
+    const viewsMap: { [key: string]: string } = {
+        filled: 'secondary',
+        transparent: 'secondary',
+        outlined: 'tertiary',
+    };
+
+    // eslint-disable-next-line no-console
+    console.warn(
+        // eslint-disable-next-line prefer-template
+        `@alfalab/core-components/button: view='${view}' будет удален в следующих мажорных версиях. ` +
+            `Используйте view='${viewsMap[view]}'. Чтобы поменять все кнопки на проекте разом, можно воспользоваться codemod: ` +
+            'npx @alfalab/core-components-codemod --transformers=button-views src/**/*.tsx',
+    );
+};
+
 export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
     (
         {
@@ -103,10 +137,15 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
             loading = false,
             nowrap = false,
             colors = 'default',
+            Component = href ? 'a' : 'button',
             ...restProps
         },
         ref,
     ) => {
+        if (['outlined', 'filled', 'transparent'].includes(view)) {
+            logWarning(view);
+        }
+
         const buttonRef = useRef<HTMLElement>(null);
 
         const [focused] = useFocus(buttonRef, 'keyboard');
@@ -116,6 +155,8 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
         const timerId = useRef(0);
 
         const showLoader = loading || !loaderTimePassed;
+
+        const iconOnly = !children;
 
         const componentProps = {
             className: cn(
@@ -127,9 +168,11 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
                 {
                     [styles.focused]: focused,
                     [styles.block]: block,
-                    [styles.iconOnly]: !children,
+                    [styles.iconOnly]: iconOnly,
                     [styles.nowrap]: nowrap,
                     [styles.loading]: showLoader,
+                    [styles.withRightAddons]: Boolean(rightAddons) && !iconOnly,
+                    [styles.withLeftAddons]: Boolean(leftAddons) && !iconOnly,
                     [colorStyles[colors].loading]: showLoader,
                 },
                 className,
@@ -175,16 +218,19 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
         if (href) {
             const { target } = restProps as AnchorHTMLAttributes<HTMLAnchorElement>;
 
+            // Для совместимости с react-router-dom, меняем href на to
+            const hrefProps = { [typeof Component === 'string' ? 'href' : 'to']: href };
+
             return (
-                <a
+                <Component
                     rel={target === '_blank' ? 'noreferrer noopener' : undefined}
                     {...componentProps}
                     {...(restProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
-                    href={href}
+                    {...hrefProps}
                     ref={mergeRefs([buttonRef, ref])}
                 >
                     {buttonChildren}
-                </a>
+                </Component>
             );
         }
 
@@ -193,17 +239,15 @@ export const Button = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, Bu
         >;
 
         return (
-            // eslint-disable-next-line react/button-has-type
-            <button
+            <Component
                 {...componentProps}
                 {...restButtonProps}
-                // eslint-disable-next-line react/button-has-type
                 type={type}
                 disabled={disabled || showLoader}
                 ref={mergeRefs([buttonRef, ref])}
             >
                 {buttonChildren}
-            </button>
+            </Component>
         );
     },
 );

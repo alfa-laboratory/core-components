@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { FC, useCallback, useMemo } from 'react';
 
-import { OptionsList, Select, SelectProps } from '@alfalab/core-components-select';
+import { Select, SelectProps, VirtualOptionsList } from '@alfalab/core-components-select';
 import { Country } from '@alfalab/utils';
 
 import { SelectField } from '../select-field';
@@ -10,7 +10,10 @@ import { FlagIcon } from '../flag-icon';
 
 import styles from './index.module.css';
 
-type CountriesSelectProps = Pick<SelectProps, 'size' | 'disabled' | 'onChange' | 'preventFlip'> & {
+type CountriesSelectProps = Pick<
+    SelectProps,
+    'size' | 'dataTestId' | 'disabled' | 'onChange' | 'preventFlip'
+> & {
     selected: string;
     countries: Country[];
     fieldWidth: number | null;
@@ -24,6 +27,7 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
     fieldWidth,
     preventFlip,
     onChange,
+    dataTestId,
 }) => {
     const options = useMemo(
         () =>
@@ -47,7 +51,7 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
     const renderOptionsList = useCallback(
         props => (
             <div style={{ width: fieldWidth || 0 }}>
-                <OptionsList {...props} />
+                <VirtualOptionsList {...props} />
             </div>
         ),
         [fieldWidth],
@@ -56,6 +60,7 @@ export const CountriesSelect: FC<CountriesSelectProps> = ({
     return (
         <div className={styles.component} onClick={event => event.stopPropagation()}>
             <Select
+                dataTestId={dataTestId}
                 disabled={disabled}
                 size={size}
                 options={options}

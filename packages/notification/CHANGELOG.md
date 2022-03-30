@@ -3,6 +3,159 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.1.1...@alfalab/core-components-notification@5.2.0) (2022-03-04)
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
+## [5.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.1.0...@alfalab/core-components-notification@5.1.1) (2022-02-17)
+
+**Note:** Version bump only for package @alfalab/core-components-notification
+
+
+
+
+
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.16...@alfalab/core-components-notification@5.1.0) (2022-02-15)
+
+
+### Features
+
+* **notification:** disabled trackMouse ([#987](https://github.com/alfa-laboratory/core-components/issues/987)) ([c237b04](https://github.com/alfa-laboratory/core-components/commit/c237b04be227d370b321bb2d4585ce72b4d9994e))
+
+
+
+
+
+## [5.0.16](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.15...@alfalab/core-components-notification@5.0.16) (2022-02-09)
+
+**Note:** Version bump only for package @alfalab/core-components-notification
+
+
+
+
+
+## [5.0.15](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.14...@alfalab/core-components-notification@5.0.15) (2022-02-03)
+
+**Note:** Version bump only for package @alfalab/core-components-notification
+
+
+
+
+
+## [5.0.14](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.13...@alfalab/core-components-notification@5.0.14) (2022-02-02)
+
+**Note:** Version bump only for package @alfalab/core-components-notification
+
+
+
+
+
+## [5.0.13](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.12...@alfalab/core-components-notification@5.0.13) (2021-12-29)
+
+**Note:** Version bump only for package @alfalab/core-components-notification
+
+
+
+
+
+## [5.0.12](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.11...@alfalab/core-components-notification@5.0.12) (2021-12-14)
+
+**Note:** Version bump only for package @alfalab/core-components-notification
+
+
+
+
+
+## [5.0.11](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.10...@alfalab/core-components-notification@5.0.11) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-notification
+
+
+
+
+
+## [5.0.10](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.9...@alfalab/core-components-notification@5.0.10) (2021-12-01)
+
+**Note:** Version bump only for package @alfalab/core-components-notification
+
+
+
+
+
+## [5.0.9](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.8...@alfalab/core-components-notification@5.0.9) (2021-11-26)
+
+**Note:** Version bump only for package @alfalab/core-components-notification
+
+
+
+
+
+## [5.0.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.7...@alfalab/core-components-notification@5.0.8) (2021-11-16)
+
+**Note:** Version bump only for package @alfalab/core-components-notification
+
+
+
+
+
+## [5.0.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.6...@alfalab/core-components-notification@5.0.7) (2021-10-25)
+
+
+### Bug Fixes
+
+* **textarea:** поправлен отступ в размере xl ([#859](https://github.com/alfa-laboratory/core-components/issues/859)) ([fcd586b](https://github.com/alfa-laboratory/core-components/commit/fcd586b03761bda053c7c3fd9381bb94227711d7))
+
+
+
+
+
+## [5.0.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.5...@alfalab/core-components-notification@5.0.6) (2021-09-14)
+
+**Note:** Version bump only for package @alfalab/core-components-notification
+
+
+
+
+
+## [5.0.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.4...@alfalab/core-components-notification@5.0.5) (2021-08-27)
+
+**Note:** Version bump only for package @alfalab/core-components-notification
+
+
+
+
+
+## [5.0.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.3...@alfalab/core-components-notification@5.0.4) (2021-08-04)
+
+**Note:** Version bump only for package @alfalab/core-components-notification
+
+
+
+
+
+## [5.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.2...@alfalab/core-components-notification@5.0.3) (2021-07-23)
+
+**Note:** Version bump only for package @alfalab/core-components-notification
+
+
+
+
+
+## [5.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.1...@alfalab/core-components-notification@5.0.2) (2021-07-19)
+
+**Note:** Version bump only for package @alfalab/core-components-notification
+
+
+
+
+
 ## [5.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-notification@5.0.0...@alfalab/core-components-notification@5.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-notification

@@ -21,7 +21,7 @@ describe('Tabs | TabsDesktop', () => {
                 knobs: {
                     TabsComponent: 'TabsDesktop',
                     view: ['primary', 'secondary'],
-                    size: ['s', 'm', 'l', 'xl'],
+                    size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
                 },
             }),
             viewport: {
@@ -31,7 +31,7 @@ describe('Tabs | TabsDesktop', () => {
             matchImageSnapshotOptions: {
                 failureThresholdType: 'pixel',
                 // TODO: ширина линии на сервере чуть больше
-                failureThreshold: 20,
+                failureThreshold: 40,
                 customSnapshotIdentifier: (...args) =>
                     `${theme}-${customSnapshotIdentifier(...args)}`,
             },

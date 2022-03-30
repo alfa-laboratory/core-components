@@ -38,9 +38,14 @@ export type RadioProps = Omit<
     checked?: boolean;
 
     /**
-     * Управление состоянием активен / не активен
+     * Управление состоянием включен / выключен
      */
     disabled?: boolean;
+
+    /**
+     * Управление состоянием активен / неактивен
+     */
+    inactive?: boolean;
 
     /**
      * Html аттрибут name инпута
@@ -51,6 +56,16 @@ export type RadioProps = Omit<
      * Класс компонента
      */
     className?: string;
+
+    /**
+     * Доп. класс радио кнопки
+     */
+    circleClassName?: string;
+
+    /**
+     * Доп. класс контента
+     */
+    contentClassName?: string;
 
     /**
      * Выравнивание
@@ -84,8 +99,11 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
         {
             onChange,
             className,
+            circleClassName,
+            contentClassName,
             name,
             disabled,
+            inactive,
             dataTestId,
             label,
             checked,
@@ -113,6 +131,7 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
             <label
                 className={cn(styles.container, styles[size], styles[align], className, {
                     [styles.disabled]: disabled,
+                    [styles.inactive]: inactive,
                     [styles.checked]: checked,
                     [styles.focused]: focused,
                     [styles.block]: block,
@@ -123,16 +142,18 @@ export const Radio = forwardRef<HTMLLabelElement, RadioProps>(
                     type='radio'
                     onChange={handleChange}
                     data-test-id={dataTestId}
-                    disabled={disabled}
+                    disabled={disabled || inactive}
                     checked={checked}
                     name={name}
                     {...restProps}
                 />
-                <span className={styles.circle} />
-                <span className={styles.content}>
-                    <span className={styles.label}>{label}</span>
-                    {hint && <span className={styles.hint}>{hint}</span>}
-                </span>
+                <span className={cn(styles.circle, circleClassName)} />
+                {(label || hint) && (
+                    <span className={cn(styles.content, contentClassName)}>
+                        {label && <span className={styles.label}>{label}</span>}
+                        {hint && <span className={styles.hint}>{hint}</span>}
+                    </span>
+                )}
                 {addons && <span className={styles.addons}>{addons}</span>}
             </label>
         );

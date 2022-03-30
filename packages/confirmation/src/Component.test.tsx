@@ -1,12 +1,17 @@
 import React from 'react';
-import { render, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { Confirmation } from './index';
+import { render, fireEvent } from '@testing-library/react';
+import { Confirmation, ConfirmationProps } from './index';
 
+/**
+ * TODO: сделать тесты на все callbacks
+ * TODO: сделать тесты на все таймеры
+ */
 describe('Confirmation', () => {
-    const baseProps = {
-        code: '12345',
-        onInputChange: jest.fn(),
+    const baseProps: ConfirmationProps = {
+        screen: 'INITIAL',
+        state: 'INITIAL',
+        onChangeScreen: jest.fn(),
+        onChangeState: jest.fn(),
         onInputFinished: jest.fn(),
         onSmsRetryClick: jest.fn(),
     };
@@ -18,419 +23,229 @@ describe('Confirmation', () => {
             expect(container).toMatchSnapshot();
         });
 
-        it('should match snapshot with fatal error', () => {
+        it('should match snapshot with CODE_CHECKING state', () => {
+            const { container } = render(<Confirmation {...baseProps} state='CODE_CHECKING' />);
+
+            expect(container).toMatchSnapshot();
+        });
+
+        it('should match snapshot with CODE_SENDING state', () => {
+            const { container } = render(<Confirmation {...baseProps} state='CODE_SENDING' />);
+
+            expect(container).toMatchSnapshot();
+        });
+
+        it('should match snapshot with CODE_ERROR state', () => {
+            const { container } = render(<Confirmation {...baseProps} state='CODE_ERROR' />);
+
+            expect(container).toMatchSnapshot();
+        });
+
+        it('should match snapshot with FATAL_ERROR screen', () => {
+            const { container } = render(<Confirmation {...baseProps} screen='FATAL_ERROR' />);
+
+            expect(container).toMatchSnapshot();
+        });
+
+        it('should match snapshot with HINT screen', () => {
+            const { container } = render(<Confirmation {...baseProps} screen='TEMP_BLOCK' />);
+
+            expect(container).toMatchSnapshot();
+        });
+
+        it('should match snapshot with HINT screen', () => {
+            const { container } = render(<Confirmation {...baseProps} screen='HINT' />);
+
+            expect(container).toMatchSnapshot();
+        });
+    });
+
+    describe('Props tests', () => {
+        it('should render passed texts on INITIAL screen', async () => {
+            const texts = {
+                title: 'Title',
+                linkToHint: 'Link',
+                codeError: 'Code error',
+                codeChecking: 'Code checking',
+                codeSending: 'Code sending',
+                hintButton: 'Hint button',
+            };
+
+            const props = { ...baseProps, texts };
+
+            const { getByText, rerender } = render(<Confirmation {...props} />);
+
+            expect(getByText(texts.title)).toBeInTheDocument();
+            expect(getByText(texts.linkToHint)).toBeInTheDocument();
+
+            rerender(<Confirmation {...props} state='CODE_CHECKING' />);
+
+            expect(getByText(texts.codeChecking)).toBeInTheDocument();
+
+            rerender(<Confirmation {...props} state='CODE_SENDING' />);
+
+            expect(getByText(texts.codeSending)).toBeInTheDocument();
+
+            rerender(<Confirmation {...props} state='CODE_ERROR' />);
+
+            expect(getByText(texts.codeError)).toBeInTheDocument();
+        });
+
+        it('should render passed texts on HINT screen', () => {
+            const texts = {
+                hintButton: 'Hint button',
+            };
+
+            const props = { ...baseProps, texts };
+
+            const { getByText } = render(<Confirmation {...props} screen='HINT' />);
+
+            expect(getByText(texts.hintButton)).toBeInTheDocument();
+        });
+
+        it('should render passed texts on FATAL_ERROR screen', () => {
+            const texts = {
+                fatalErrorTitle: 'Fatal error title',
+                fatalErrorDescription: 'Fatal error description',
+                fatalErrorButton: 'Fatal error button',
+            };
+
+            const props = { ...baseProps, texts };
+
+            const { getByText } = render(<Confirmation {...props} screen='FATAL_ERROR' />);
+
+            expect(getByText(texts.fatalErrorTitle)).toBeInTheDocument();
+            expect(getByText(texts.fatalErrorDescription)).toBeInTheDocument();
+            expect(getByText(texts.fatalErrorButton)).toBeInTheDocument();
+        });
+
+        it('should render passed texts on TEMP_BLOCK screen', () => {
+            const texts = {
+                tempBlockTitle: 'Temp block title',
+                tempBlockDescription: 'Temp block description',
+            };
+
+            const props = { ...baseProps, texts };
+
+            const { getByText } = render(<Confirmation {...props} screen='TEMP_BLOCK' />);
+
+            expect(getByText(texts.tempBlockTitle)).toBeInTheDocument();
+            expect(getByText(texts.tempBlockDescription)).toBeInTheDocument();
+        });
+
+        it('should set `data-test-id` attribute', () => {
+            const testId = 'test-id';
+            const { getByTestId } = render(<Confirmation {...baseProps} dataTestId={testId} />);
+
+            expect(getByTestId(testId)).toBeInTheDocument();
+        });
+
+        it('should set custom class', () => {
+            const className = 'custom-class';
+            const { container } = render(<Confirmation {...baseProps} className={className} />);
+
+            expect(container.firstElementChild).toHaveClass(className);
+        });
+
+        it('should render passed inputs amount', () => {
+            const requiredCharAmount = 2;
+
             const { container } = render(
-                <Confirmation
-                    {...baseProps}
-                    errorIsFatal={true}
-                    errorText='Выполните операцию с самого начала'
-                />,
+                <Confirmation {...baseProps} requiredCharAmount={requiredCharAmount} />,
             );
 
-            expect(container).toMatchSnapshot();
+            const inputs = container.querySelectorAll('input');
+
+            expect(inputs.length).toBe(requiredCharAmount);
         });
 
-        it('should match snapshot with nonFatal error', () => {
-            const { container } = render(
-                <Confirmation {...baseProps} errorIsFatal={false} errorText='Неверный код' />,
-            );
+        it('should render passed phone', () => {
+            const phone = '+7 (999) 999 99-99';
 
-            expect(container).toMatchSnapshot();
-        });
+            const { getByText } = render(<Confirmation {...baseProps} phone={phone} />);
 
-        it('should match snapshot with masked phone', () => {
-            const { container } = render(
-                <Confirmation {...baseProps} phone='+7 999 888 55 66' hasPhoneMask={true} />,
-            );
-
-            expect(container).toMatchSnapshot();
-        });
-
-        it('should match snapshot with unmasked phone', () => {
-            const { container } = render(
-                <Confirmation {...baseProps} phone='+7 999 888 55 66' hasPhoneMask={false} />,
-            );
-
-            expect(container).toMatchSnapshot();
-        });
-
-        it('should match snapshot with signTitle as string', () => {
-            const { container } = render(
-                <Confirmation {...baseProps} signTitle='Кастомный заголовок как текст' />,
-            );
-
-            expect(container).toMatchSnapshot();
-        });
-
-        it('should match snapshot with signTitle as react node', () => {
-            const { container } = render(
-                <Confirmation
-                    {...baseProps}
-                    signTitle={
-                        <div>
-                            <h1>Кастомный заголовок как react node</h1>
-                        </div>
-                    }
-                />,
-            );
-
-            expect(container).toMatchSnapshot();
-        });
-
-        it('should math snapshot without smsCountdown', () => {
-            const { container } = render(<Confirmation {...baseProps} hasSmsCountdown={false} />);
-
-            expect(container).toMatchSnapshot();
+            expect(getByText(`Код отправлен на ${phone}`)).toBeInTheDocument();
         });
     });
 
-    it('should set `data-test-id` attribute', () => {
-        const testId = 'test-id';
-        const { getByTestId } = render(<Confirmation {...baseProps} dataTestId={testId} />);
+    it('Should render custom screens', () => {
+        const initialScreenTitlle = 'Initial screen title';
+        const hintScreenTitlle = 'Hint screen title';
+        const fatalErrorScreenTitlle = 'Fatal error screen title';
+        const tempBlockScreenTitlle = 'Temp block screen title';
 
-        expect(getByTestId(testId)).toBeInTheDocument();
-    });
+        const props = {
+            ...baseProps,
+            getScreensMap: (screensMap: any) => ({
+                ...screensMap,
+                INITIAL: () => <span>{initialScreenTitlle}</span>,
+                HINT: () => <span>{hintScreenTitlle}</span>,
+                FATAL_ERROR: () => <span>{fatalErrorScreenTitlle}</span>,
+                TEMP_BLOCK: () => <span>{tempBlockScreenTitlle}</span>,
+            }),
+        };
 
-    it('should set custom class', () => {
-        const className = 'custom-class';
-        const { container } = render(<Confirmation {...baseProps} className={className} />);
+        const { getByText, rerender } = render(<Confirmation {...props} />);
 
-        expect(container.firstElementChild).toHaveClass(className);
-    });
+        expect(getByText(initialScreenTitlle)).toBeInTheDocument();
 
-    it('should set custom signTitle', () => {
-        const customSignTitle = 'Enter the code';
-        const { getByText } = render(<Confirmation {...baseProps} signTitle={customSignTitle} />);
+        rerender(<Confirmation {...props} screen='HINT' />);
 
-        expect(getByText(customSignTitle)).toBeInTheDocument();
-    });
+        expect(getByText(hintScreenTitlle)).toBeInTheDocument();
 
-    it('should display additionalContent', () => {
-        const additionalContent = <div id='additionalContent' />;
+        rerender(<Confirmation {...props} screen='FATAL_ERROR' />);
 
-        const { container } = render(
-            <Confirmation {...baseProps} additionalContent={additionalContent} />,
-        );
+        expect(getByText(fatalErrorScreenTitlle)).toBeInTheDocument();
 
-        expect(container.querySelector('#additionalContent')).not.toBeNull();
-    });
+        rerender(<Confirmation {...props} screen='TEMP_BLOCK' />);
 
-    it('should call onCountdownFinished when countdown is finished', async () => {
-        const onCountdownFinished = jest.fn();
-
-        render(
-            <Confirmation
-                {...baseProps}
-                onCountdownFinished={onCountdownFinished}
-                countdownDuration={600}
-            />,
-        );
-
-        expect(onCountdownFinished).not.toBeCalled();
-        await waitFor(() => expect(onCountdownFinished).toBeCalledTimes(1));
-    });
-
-    describe('Fatal error tests', () => {
-        const errorText = 'Выполните операцию с самого начала';
-        const defaultButtonErrorText = Confirmation.defaultProps?.buttonErrorText;
-        const customButtonErrorText = 'custom text';
-        const customErrorTitle = 'custom error title';
-
-        it('should set custom errorTitle for fatalError', () => {
-            const { getByText } = render(
-                <Confirmation
-                    {...baseProps}
-                    errorIsFatal={true}
-                    errorText={errorText}
-                    errorTitle={customErrorTitle}
-                />,
-            );
-
-            expect(getByText(customErrorTitle)).toBeInTheDocument();
-        });
-
-        it('should set custom buttonErrorText for fatalError', () => {
-            const { getByText } = render(
-                <Confirmation
-                    {...baseProps}
-                    errorIsFatal={true}
-                    errorText={errorText}
-                    buttonErrorText={customButtonErrorText}
-                />,
-            );
-
-            expect(getByText(customButtonErrorText)).toBeInTheDocument();
-        });
-
-        it('should call onActionWithFatalError when click on buttonError', () => {
-            const onActionWithFatalError = jest.fn();
-            const onSmsRetryClick = jest.fn();
-
-            const { getByText } = render(
-                <Confirmation
-                    {...baseProps}
-                    errorIsFatal={true}
-                    errorText={errorText}
-                    onSmsRetryClick={onSmsRetryClick}
-                    onActionWithFatalError={onActionWithFatalError}
-                />,
-            );
-
-            const buttonError = getByText(defaultButtonErrorText as string);
-            buttonError.click();
-
-            expect(onSmsRetryClick).not.toBeCalled();
-            expect(onActionWithFatalError).toBeCalled();
-        });
-
-        it('should call onSmsRetryClick when click on buttonError if onActionWithFatalError is not passed', () => {
-            const onSmsRetryClick = jest.fn();
-
-            const { getByText } = render(
-                <Confirmation
-                    {...baseProps}
-                    errorIsFatal={true}
-                    errorText={errorText}
-                    onSmsRetryClick={onSmsRetryClick}
-                />,
-            );
-
-            const buttonError = getByText(defaultButtonErrorText as string);
-            buttonError.click();
-
-            expect(onSmsRetryClick).toBeCalled();
-        });
-    });
-
-    describe('Sms retry tests', () => {
-        const buttonReturnInHintText = Confirmation.defaultProps?.buttonReturnText as string;
-        const buttonRetryText = Confirmation.defaultProps?.buttonRetryText as string;
-        const hintLinkText = 'Не приходит сообщение?';
-
-        it('should display retry button', async () => {
-            const { findByText } = render(<Confirmation {...baseProps} countdownDuration={0} />);
-            const buttonRetry = await findByText(buttonRetryText);
-
-            expect(buttonRetry).toBeInTheDocument();
-        });
-
-        it('should set custom buttonRetryText', async () => {
-            const customButtonRetryText = 'Запросить код повторно';
-
-            const { findByText } = render(
-                <Confirmation
-                    {...baseProps}
-                    countdownDuration={0}
-                    buttonRetryText={customButtonRetryText}
-                />,
-            );
-
-            const buttonRetry = await findByText(customButtonRetryText);
-
-            expect(buttonRetry).toBeInTheDocument();
-        });
-
-        it('should set custom buttonReturnText in hint', async () => {
-            const customButtonReturnTextInHint = 'Send code again';
-
-            const { findByText } = render(
-                <Confirmation
-                    {...baseProps}
-                    countdownDuration={0}
-                    buttonReturnText={customButtonReturnTextInHint}
-                />,
-            );
-
-            const buttonRetry = await findByText(buttonRetryText);
-            buttonRetry.click();
-
-            const smsHintButton = await findByText(hintLinkText);
-            smsHintButton.click();
-
-            const buttonWithCustomText = await findByText(customButtonReturnTextInHint);
-
-            expect(buttonWithCustomText).toBeInTheDocument();
-        });
-
-        it('should call onSmsRetryClick when click retry button', async () => {
-            const onSmsRetryClick = jest.fn();
-
-            const { findByText } = render(
-                <Confirmation
-                    {...baseProps}
-                    countdownDuration={0}
-                    onSmsRetryClick={onSmsRetryClick}
-                />,
-            );
-
-            const buttonRetry = await findByText(buttonRetryText);
-            buttonRetry.click();
-
-            expect(onSmsRetryClick).toBeCalled();
-        });
-
-        it('should call onSmsRetryClick when click retry button in hint', async () => {
-            const onSmsRetryClick = jest.fn();
-
-            const { findByText } = render(
-                <Confirmation
-                    {...baseProps}
-                    countdownDuration={0}
-                    onSmsRetryClick={onSmsRetryClick}
-                />,
-            );
-
-            const buttonRetry = await findByText(buttonRetryText);
-            buttonRetry.click();
-
-            const smsHintButton = await findByText(hintLinkText);
-            smsHintButton.click();
-
-            const buttonRetryInHint = await findByText(buttonReturnInHintText);
-            buttonRetryInHint.click();
-
-            expect(onSmsRetryClick).toBeCalled();
-        });
-
-        it('should call onSmsHintLinkClick when click hintLink', async () => {
-            const onSmsHintLinkClick = jest.fn();
-
-            const { findByText } = render(
-                <Confirmation
-                    {...baseProps}
-                    countdownDuration={0}
-                    onSmsHintLinkClick={onSmsHintLinkClick}
-                />,
-            );
-
-            const buttonRetry = await findByText(buttonRetryText);
-            buttonRetry.click();
-
-            const smsHintButton = await findByText(hintLinkText);
-            smsHintButton.click();
-
-            expect(onSmsHintLinkClick).toBeCalled();
-        });
-    });
-
-    describe('Code cheсking tests', () => {
-        const defaultCodeCheckingText = Confirmation.defaultProps?.codeCheckingText;
-        const customCodeCheckingText = 'Идет проверка кода';
-
-        it('should display default codeCheсkingText if codeChecking is true', () => {
-            const { getByText } = render(<Confirmation {...baseProps} codeChecking={true} />);
-
-            expect(getByText(defaultCodeCheckingText as string)).toBeInTheDocument();
-        });
-
-        it('should display custom passed codeCheсkingText if codeChecking is true', () => {
-            const { getByText } = render(
-                <Confirmation
-                    {...baseProps}
-                    codeChecking={true}
-                    codeCheckingText={customCodeCheckingText}
-                />,
-            );
-
-            expect(getByText(customCodeCheckingText)).toBeInTheDocument();
-        });
-    });
-
-    describe('Code sending tests', () => {
-        const defaultCodeSendingText = Confirmation.defaultProps?.codeSendingText;
-        const customCodeSendingText = 'Идет отправка кода';
-
-        it('should display default codeSendingText if codeSending is true', () => {
-            const { getByText } = render(<Confirmation {...baseProps} codeSending={true} />);
-
-            expect(getByText(defaultCodeSendingText as string)).toBeInTheDocument();
-        });
-
-        it('should display custom passed codeSendingText if codeSending is true', () => {
-            const { getByText } = render(
-                <Confirmation
-                    {...baseProps}
-                    codeSending={true}
-                    codeSendingText={customCodeSendingText}
-                />,
-            );
-
-            expect(getByText(customCodeSendingText)).toBeInTheDocument();
-        });
+        expect(getByText(tempBlockScreenTitlle)).toBeInTheDocument();
     });
 
     describe('Input tests', () => {
         const getActiveElement = () => document.activeElement as Element;
 
         it('should focus input on first render', () => {
-            const { container } = render(<Confirmation {...baseProps} code='' />);
+            const { container } = render(<Confirmation {...baseProps} />);
 
             expect(getActiveElement()).toBe(container.querySelector('input'));
         });
 
-        it('should call onInputChange when input is changed', () => {
-            const onInputChange = jest.fn();
-
-            render(<Confirmation {...baseProps} onInputChange={onInputChange} code='' />);
-
-            userEvent.type(getActiveElement(), '1');
-
-            expect(onInputChange).toBeCalledWith({ code: '1' });
-        });
-
         it('should call onInputFinished when input is finished', () => {
-            let code = '';
             const onInputFinished = jest.fn();
-            const onInputChange = (value: { code: string }) => {
-                code = value.code;
-            };
 
-            const getComponent = () => (
+            const { container } = render(
                 <Confirmation
                     {...baseProps}
                     onInputFinished={onInputFinished}
-                    onInputChange={onInputChange}
                     requiredCharAmount={2}
-                    code={code}
-                />
+                />,
             );
 
-            const { rerender } = render(getComponent());
-            userEvent.type(getActiveElement(), '1');
+            const inputs = container.querySelectorAll('input');
 
-            rerender(getComponent());
-            userEvent.type(getActiveElement(), '2');
+            fireEvent.change(inputs[0], { target: { value: '1' } });
+            fireEvent.change(inputs[1], { target: { value: '2' } });
 
             expect(onInputFinished).toBeCalledTimes(1);
         });
 
-        it('should not allow type code longer than requiredCharAmount', () => {
-            let code = '';
-            const onInputChange = jest.fn((value: { code: string }) => {
-                code = value.code;
-            });
+        it('should call onFatalErrorOkButtonClick when click on button', () => {
+            const onFatalErrorOkButtonClick = jest.fn();
 
-            const getComponent = () => (
+            const { container } = render(
                 <Confirmation
                     {...baseProps}
-                    onInputChange={onInputChange}
-                    requiredCharAmount={2}
-                    code={code}
-                />
+                    onFatalErrorOkButtonClick={onFatalErrorOkButtonClick}
+                    screen='FATAL_ERROR'
+                />,
             );
 
-            const { rerender } = render(getComponent());
-            userEvent.type(getActiveElement(), '1');
+            const button = container.querySelector('button') as HTMLButtonElement;
 
-            rerender(getComponent());
-            userEvent.type(getActiveElement(), '2');
+            fireEvent.click(button);
 
-            rerender(getComponent());
-            userEvent.type(getActiveElement(), '3');
-
-            expect(onInputChange).nthCalledWith(1, { code: '1' });
-            expect(onInputChange).nthCalledWith(2, { code: '12' });
-            expect(onInputChange).toBeCalledTimes(2);
+            expect(onFatalErrorOkButtonClick).toBeCalledTimes(1);
         });
     });
 });

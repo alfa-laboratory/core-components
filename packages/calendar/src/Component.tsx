@@ -1,16 +1,20 @@
-import React, { forwardRef, useCallback, useMemo, useState } from 'react';
+import React, { forwardRef, MouseEvent, useCallback, useMemo, useState } from 'react';
 import cn from 'classnames';
-import { startOfMonth } from 'date-fns';
+import startOfDay from 'date-fns/startOfDay';
+import startOfMonth from 'date-fns/startOfMonth';
+import endOfDay from 'date-fns/endOfDay';
 import { useDidUpdateEffect } from '@alfalab/hooks';
 import { Header } from './components/header';
 import { DaysTable } from './components/days-table';
 import { MonthsTable } from './components/months-table';
 import { YearsTable } from './components/years-table';
+import { PeriodSlider } from './components/period-slider';
 import { useCalendar } from './useCalendar';
-import { limitDate, monthName } from './utils';
+import { limitDate } from './utils';
 import { View, SelectorView } from './typings';
 
 import styles from './index.module.css';
+import { MonthYearHeader } from './components/month-year-header';
 
 export type CalendarProps = {
     /**
@@ -64,6 +68,11 @@ export type CalendarProps = {
     selectedTo?: number;
 
     /**
+     * Индикатор, что выбран полный период
+     */
+    rangeComplete?: boolean;
+
+    /**
      * Список событий
      */
     events?: Array<Date | number>;
@@ -84,6 +93,16 @@ export type CalendarProps = {
     onChange?: (date: number) => void;
 
     /**
+     * Обработчик нажатия на кнопку месяца
+     */
+    onMonthClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+
+    /**
+     * Обработчик нажатия на кнопку года
+     */
+    onYearClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -102,10 +121,13 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             defaultMonth: defaultMonthTimestamp = +new Date(),
             selectedFrom,
             selectedTo,
+            rangeComplete,
             offDays,
             events,
             onChange,
             onMonthChange,
+            onMonthClick,
+            onYearClick,
             dataTestId,
         },
         ref,
@@ -129,11 +151,12 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             monthTimestamp,
         ]);
 
-        const minDate = useMemo(() => (minDateTimestamp ? new Date(minDateTimestamp) : undefined), [
-            minDateTimestamp,
-        ]);
+        const minDate = useMemo(
+            () => (minDateTimestamp ? startOfDay(minDateTimestamp) : undefined),
+            [minDateTimestamp],
+        );
 
-        const maxDate = useMemo(() => (maxDateTimestamp ? new Date(maxDateTimestamp) : undefined), [
+        const maxDate = useMemo(() => (maxDateTimestamp ? endOfDay(maxDateTimestamp) : undefined), [
             maxDateTimestamp,
         ]);
 
@@ -185,13 +208,27 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             setNextMonth();
         }, [setNextMonth]);
 
-        const handleMonthClick = useCallback(() => {
-            toggleView('months');
-        }, [toggleView]);
+        const handleMonthClick = useCallback(
+            event => {
+                toggleView('months');
 
-        const handleYearClick = useCallback(() => {
-            toggleView('years');
-        }, [toggleView]);
+                if (onMonthClick) {
+                    onMonthClick(event);
+                }
+            },
+            [onMonthClick, toggleView],
+        );
+
+        const handleYearClick = useCallback(
+            event => {
+                toggleView('years');
+
+                if (onYearClick) {
+                    onYearClick(event);
+                }
+            },
+            [onYearClick, toggleView],
+        );
 
         useDidUpdateEffect(() => {
             setView('days');
@@ -216,20 +253,29 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                 })}
                 data-test-id={dataTestId}
             >
-                <Header
-                    month={monthName(activeMonth)}
-                    year={activeMonth.getFullYear().toString()}
-                    prevArrowVisible={canSetPrevMonth}
-                    nextArrowVisible={canSetNextMonth}
-                    onPrevArrowClick={handlePrevArrowClick}
-                    onNextArrowClick={handleNextArrowClick}
-                    onMonthClick={handleMonthClick}
-                    onYearClick={handleYearClick}
-                    view={selectorView}
-                    withShadow={scrolled}
-                />
+                <Header view={selectorView} withShadow={scrolled}>
+                    {selectorView === 'month-only' ? (
+                        <PeriodSlider
+                            className={styles.period}
+                            value={activeMonth}
+                            periodType='month'
+                            prevArrowDisabled={!canSetPrevMonth}
+                            nextArrowDisabled={!canSetNextMonth}
+                            hideDisabledArrows={true}
+                            onPrevArrowClick={handlePrevArrowClick}
+                            onNextArrowClick={handleNextArrowClick}
+                        />
+                    ) : (
+                        <MonthYearHeader
+                            className={styles.monthYear}
+                            value={activeMonth}
+                            onMonthClick={handleMonthClick}
+                            onYearClick={handleYearClick}
+                        />
+                    )}
+                </Header>
 
-                <div className={styles.container}>
+                <div className={cn(styles.container, styles[view])}>
                     {view === 'days' && (
                         <DaysTable
                             weeks={weeks}
@@ -238,6 +284,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                             selectedTo={selectedTo}
                             getDayProps={getDayProps}
                             highlighted={highlighted}
+                            rangeComplete={rangeComplete}
                         />
                     )}
 

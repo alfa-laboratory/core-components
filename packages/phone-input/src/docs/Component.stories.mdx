@@ -1,10 +1,10 @@
-import { Meta, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Props, Story } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { PhoneInput } from '../Component';
-import { name, version } from '../../package.json';
+import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 
@@ -24,8 +24,10 @@ import Changelog from '../../CHANGELOG.md';
         error={text('error', '')}
         hint={text('hint', '')}
         label={text('label', '')}
-        leftAddons={boolean('leftAddons', false) && <Icon />}
-        rightAddons={boolean('rightAddons', false) && <Icon />}
+        value={text('value', '')}
+        clearableCountryCode={boolean('clearableCountryCode', true)}
+        leftAddons={boolean('leftAddons', false) && <StarMIcon />}
+        rightAddons={boolean('rightAddons', false) && <StarMIcon />}
         bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
     />
 </Story>

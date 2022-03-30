@@ -3,6 +3,237 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.3.16...@alfalab/core-components-slider-input@4.4.0) (2022-03-04)
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
+## [4.3.16](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.3.15...@alfalab/core-components-slider-input@4.3.16) (2022-02-17)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
+## [4.3.15](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.3.14...@alfalab/core-components-slider-input@4.3.15) (2022-02-15)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
+## [4.3.14](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.3.13...@alfalab/core-components-slider-input@4.3.14) (2022-02-09)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
+## [4.3.13](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.3.12...@alfalab/core-components-slider-input@4.3.13) (2022-02-03)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
+## [4.3.12](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.3.11...@alfalab/core-components-slider-input@4.3.12) (2022-02-02)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
+## [4.3.11](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.3.10...@alfalab/core-components-slider-input@4.3.11) (2022-01-17)
+
+
+### Bug Fixes
+
+* **amount-input:** позволяем использовать строки, не рисуем 0 если передана пустая строка ([#941](https://github.com/alfa-laboratory/core-components/issues/941)) ([51c954f](https://github.com/alfa-laboratory/core-components/commit/51c954f238e7dbdbdbbd517e81e0e944f880ded6))
+
+
+
+
+
+## [4.3.10](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.3.9...@alfalab/core-components-slider-input@4.3.10) (2021-12-29)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
+## [4.3.9](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.3.8...@alfalab/core-components-slider-input@4.3.9) (2021-12-14)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
+## [4.3.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.3.7...@alfalab/core-components-slider-input@4.3.8) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
+## [4.3.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.3.6...@alfalab/core-components-slider-input@4.3.7) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
+## [4.3.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.3.5...@alfalab/core-components-slider-input@4.3.6) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
+## [4.3.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.3.4...@alfalab/core-components-slider-input@4.3.5) (2021-11-26)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
+## [4.3.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.3.3...@alfalab/core-components-slider-input@4.3.4) (2021-11-22)
+
+
+### Bug Fixes
+
+* **slider-input:** classnames overriding ([#891](https://github.com/alfa-laboratory/core-components/issues/891)) ([d63d676](https://github.com/alfa-laboratory/core-components/commit/d63d67628c88e54b38244b1f57969844379d311f))
+
+
+
+
+
+## [4.3.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.3.2...@alfalab/core-components-slider-input@4.3.3) (2021-11-16)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
+## [4.3.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.3.1...@alfalab/core-components-slider-input@4.3.2) (2021-10-15)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
+## [4.3.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.3.0...@alfalab/core-components-slider-input@4.3.1) (2021-10-11)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
+# [4.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.2.5...@alfalab/core-components-slider-input@4.3.0) (2021-09-14)
+
+
+### Features
+
+* change error type to ReactNode ([#825](https://github.com/alfa-laboratory/core-components/issues/825)) ([c6d95c1](https://github.com/alfa-laboratory/core-components/commit/c6d95c1c6239f2b2a3bf2c1639554d8500e794f3))
+* **vars:** updated colors and typography from latest alfa-ui-primitives ([#803](https://github.com/alfa-laboratory/core-components/issues/803)) ([0d5b2a3](https://github.com/alfa-laboratory/core-components/commit/0d5b2a30a78e70392dd505790a92bc3bc83f9386))
+
+
+
+
+
+## [4.2.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.2.4...@alfalab/core-components-slider-input@4.2.5) (2021-08-27)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
+## [4.2.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.2.3...@alfalab/core-components-slider-input@4.2.4) (2021-08-26)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
+## [4.2.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.2.2...@alfalab/core-components-slider-input@4.2.3) (2021-08-23)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
+## [4.2.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.2.1...@alfalab/core-components-slider-input@4.2.2) (2021-08-23)
+
+
+### Bug Fixes
+
+* **form-control:** l size offset between value and label (PDS-270) ([#781](https://github.com/alfa-laboratory/core-components/issues/781)) ([311f8a0](https://github.com/alfa-laboratory/core-components/commit/311f8a0eaa97cf7d0c89d4a3cdfc443aef2d763c))
+* **input:** smart error icon ([#746](https://github.com/alfa-laboratory/core-components/issues/746)) ([f1950d6](https://github.com/alfa-laboratory/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/alfa-laboratory/core-components/issues/782)
+
+
+
+
+
+## [4.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.2.0...@alfalab/core-components-slider-input@4.2.1) (2021-08-11)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
+# [4.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.1.0...@alfalab/core-components-slider-input@4.2.0) (2021-08-04)
+
+
+### Features
+
+* add mods colors ([#770](https://github.com/alfa-laboratory/core-components/issues/770)) ([fe985f4](https://github.com/alfa-laboratory/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
+
+
+
+
+
+# [4.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.0.2...@alfalab/core-components-slider-input@4.1.0) (2021-07-23)
+
+
+### Features
+
+* slider input mobile theme (PDS-242) ([#738](https://github.com/alfa-laboratory/core-components/issues/738)) ([6e924aa](https://github.com/alfa-laboratory/core-components/commit/6e924aa90b63b914b6f5690766e41cddabe18e19))
+
+
+
+
+
+## [4.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.0.1...@alfalab/core-components-slider-input@4.0.2) (2021-07-19)
+
+**Note:** Version bump only for package @alfalab/core-components-slider-input
+
+
+
+
+
 ## [4.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider-input@4.0.0...@alfalab/core-components-slider-input@4.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-slider-input

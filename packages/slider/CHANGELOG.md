@@ -3,6 +3,50 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@2.3.0...@alfalab/core-components-slider@2.3.1) (2021-12-08)
+
+
+### Bug Fixes
+
+* актуализируем @alfalab/utils ([#897](https://github.com/alfa-laboratory/core-components/issues/897)) ([30fb88e](https://github.com/alfa-laboratory/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+
+
+
+
+
+# [2.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@2.2.0...@alfalab/core-components-slider@2.3.0) (2021-09-14)
+
+
+### Features
+
+* **vars:** updated colors and typography from latest alfa-ui-primitives ([#803](https://github.com/alfa-laboratory/core-components/issues/803)) ([0d5b2a3](https://github.com/alfa-laboratory/core-components/commit/0d5b2a30a78e70392dd505790a92bc3bc83f9386))
+
+
+
+
+
+# [2.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@2.1.0...@alfalab/core-components-slider@2.2.0) (2021-08-04)
+
+
+### Features
+
+* add mods colors ([#770](https://github.com/alfa-laboratory/core-components/issues/770)) ([fe985f4](https://github.com/alfa-laboratory/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
+
+
+
+
+
+# [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@2.0.1...@alfalab/core-components-slider@2.1.0) (2021-07-23)
+
+
+### Features
+
+* slider input mobile theme (PDS-242) ([#738](https://github.com/alfa-laboratory/core-components/issues/738)) ([6e924aa](https://github.com/alfa-laboratory/core-components/commit/6e924aa90b63b914b6f5690766e41cddabe18e19))
+
+
+
+
+
 ## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-slider@2.0.0...@alfalab/core-components-slider@2.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-slider

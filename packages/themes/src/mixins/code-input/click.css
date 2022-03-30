@@ -1,0 +1,6 @@
+@define-mixin code-input-click {
+    --code-input-font-size: 24px;
+    --code-input-font-weight: 400;
+    --code-input-font-family: var(--font-family-styrene);
+    --code-input-error-bg-color: var(--color-light-bg-secondary);
+}

@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-cdn-icon@3.0.0...@alfalab/core-components-cdn-icon@3.0.1) (2022-01-27)
+
+
+### Bug Fixes
+
+* **cdn-icon:** add className prop ([#957](https://github.com/alfa-laboratory/core-components/issues/957)) ([86f2139](https://github.com/alfa-laboratory/core-components/commit/86f2139fc56fe1cd2669d05d7953075aa8982e22))
+
+
+
+
+
+# [3.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-cdn-icon@2.0.3...@alfalab/core-components-cdn-icon@3.0.0) (2021-12-08)
+
+
+* fix!: новый cdn иконок (#913) (#917) ([224831f](https://github.com/alfa-laboratory/core-components/commit/224831f41ed2de49dc1a228dc081b0629cf274b1)), closes [#913](https://github.com/alfa-laboratory/core-components/issues/913) [#917](https://github.com/alfa-laboratory/core-components/issues/917)
+
+
+### BREAKING CHANGES
+
+* Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.gcdn.co data: 'self'`
+
+This reverts commit 953fbcfec46a40089a5cfde670597315269b05f5.
+
+
+
+
+
+## [2.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-cdn-icon@2.0.2...@alfalab/core-components-cdn-icon@2.0.3) (2021-12-08)
+
+
+### Bug Fixes
+
+* revert 0e8124552206f96149d104f65cff1667e857bf01 ([#916](https://github.com/alfa-laboratory/core-components/issues/916)) ([953fbcf](https://github.com/alfa-laboratory/core-components/commit/953fbcfec46a40089a5cfde670597315269b05f5))
+
+
+
+
+
+## [2.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-cdn-icon@2.0.1...@alfalab/core-components-cdn-icon@2.0.2) (2021-12-08)
+
+
+### Bug Fixes
+
+* новый cdn иконок ([#913](https://github.com/alfa-laboratory/core-components/issues/913)) ([0e81245](https://github.com/alfa-laboratory/core-components/commit/0e8124552206f96149d104f65cff1667e857bf01))
+
+
+
+
+
 ## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-cdn-icon@2.0.0...@alfalab/core-components-cdn-icon@2.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-cdn-icon

@@ -1,7 +1,7 @@
 {
     "name": "@alfalab/core-components-codemod",
-    "version": "1.0.0",
-    "description": "Codemod tools for migrating from feather to core-components",
+    "version": "2.0.0",
+    "description": "Codemod tools for code transforms",
     "keywords": [],
     "license": "MIT",
     "scripts": {

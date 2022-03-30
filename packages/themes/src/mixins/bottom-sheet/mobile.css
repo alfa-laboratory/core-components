@@ -1,0 +1,4 @@
+@define-mixin bottom-sheet-mobile {
+    --bottom-sheet-header-border-bottom: 1px solid var(--color-light-border-primary);
+    --bottom-sheet-footer-border-top: 1px solid var(--color-light-border-primary);
+}

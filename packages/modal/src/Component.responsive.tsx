@@ -36,8 +36,8 @@ const ModalResponsiveComponent = forwardRef<HTMLDivElement, ModalResponsiveProps
     ({ children, ...restProps }, ref) => {
         const [view] = useMedia<View>(
             [
-                ['mobile', '(max-width: 767px)'],
-                ['desktop', '(min-width: 768px)'],
+                ['mobile', '(max-width: 1023px)'],
+                ['desktop', '(min-width: 1024px)'],
             ],
             'desktop',
         );

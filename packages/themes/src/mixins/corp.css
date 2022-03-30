@@ -1,7 +1,17 @@
 @import './button/corp.css';
+@import './input/corp.css';
 @import './tabs/corp.css';
+@import './calendar-input/corp.css';
+@import './select/corp.css';
+@import './bottom-sheet/corp.css';
+@import './modal/corp.css';
 
 @define-mixin theme-corp {
     @mixin button-corp;
+    @mixin input-corp;
     @mixin tabs-corp;
+    @mixin calendar-input-corp;
+    @mixin select-corp;
+    @mixin bottom-sheet-corp;
+    @mixin modal-corp;
 }

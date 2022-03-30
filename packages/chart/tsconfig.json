@@ -1,0 +1,11 @@
+{
+    "include": ["src", "../../typings", "../typography"],
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "dist",
+        "rootDirs": ["src"]
+    },
+    "references": [
+        { "path": "../typography" }
+    ]
+}

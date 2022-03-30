@@ -1,41 +1,44 @@
-@import '../../../../themes/src/default.css';
-
 @define-mixin button-corp {
-    /* core vars */
-    --color-light-specialbg-component: rgba(11, 31, 53, 0.07);
-    --color-light-border-tertiary-inverted: #6d7986;
-    --color-light-text-primary-inverted: #fff;
-    --color-light-border-key-inverted: #fff;
-    --color-light-bg-primary: #fff;
-    --color-static-bg-primary-dark: #000;
+    --button-border-radius: var(--border-radius-s);
+    --button-active-transform: none;
 
     /* secondary */
     --button-secondary-base-bg-color: transparent;
     --button-secondary-hover-bg-color: var(--color-light-specialbg-component);
-    --button-secondary-active-bg-color: color-mod(
-        var(--color-light-specialbg-component) blenda(black 7%)
-    );
+    --button-secondary-active-bg-color: var(--color-light-specialbg-component-shade-7);
     --button-secondary-disabled-bg-color: transparent;
     --button-secondary-base-border-color: var(--color-light-border-tertiary-inverted);
-    --button-secondary-disabled-border-color: color-mod(
-        var(--color-light-border-tertiary-inverted) alpha(30%)
-    );
+    --button-secondary-disabled-border-color: var(--color-light-border-tertiary-inverted-alpha-30);
+
+    /* tertiary */
+    --button-tertiary-base-bg-color: var(--color-light-bg-neutral);
+    --button-tertiary-hover-bg-color: var(--color-light-bg-neutral-shade-7);
+    --button-tertiary-active-bg-color: var(--color-light-bg-neutral-shade-15);
+    --button-tertiary-disabled-bg-color: var(--color-light-bg-neutral-alpha-30);
+    --button-tertiary-base-border-color: transparent;
+    --button-tertiary-disabled-border-color: transparent;
+    --button-tertiary-color: var(--color-light-text-primary);
+    --button-tertiary-disabled-color: var(--color-light-text-primary-alpha-30);
 
     /* inverted-secondary */
+
+    /* TODO colod-mod */
     --button-inverted-secondary-color: var(--color-light-text-primary-inverted);
     --button-inverted-secondary-base-bg-color: transparent;
     --button-inverted-secondary-base-border-color: var(--color-light-border-key-inverted);
-    --button-inverted-secondary-hover-bg-color: color-mod(
-        var(--color-static-bg-primary-dark) alpha(10%)
-    );
-    --button-inverted-secondary-active-bg-color: color-mod(
-        var(--color-static-bg-primary-dark) alpha(20%)
-    );
-    --button-inverted-secondary-disabled-bg-color: color-mod(
-        var(--color-light-bg-primary) alpha(8%)
-    );
+    --button-inverted-secondary-hover-bg-color: var(--color-static-bg-primary-dark-alpha-10);
+    --button-inverted-secondary-active-bg-color: var(--color-static-bg-primary-dark-alpha-20);
+    --button-inverted-secondary-disabled-bg-color: var(--color-light-bg-primary-alpha-8);
     --button-inverted-secondary-disabled-border-color: transparent;
-    --button-inverted-secondary-disabled-color: color-mod(
-        var(--color-light-text-primary-inverted) alpha(40%)
-    );
+    --button-inverted-secondary-disabled-color: var(--color-light-text-primary-inverted-alpha-40);
+
+    /* inverted-tertiary */
+    --button-inverted-tertiary-color: var(--color-dark-text-primary);
+    --button-inverted-tertiary-base-bg-color: var(--color-dark-bg-neutral);
+    --button-inverted-tertiary-hover-bg-color: var(--color-dark-bg-neutral-tint-15);
+    --button-inverted-tertiary-active-bg-color: var(--color-dark-bg-neutral-shade-15);
+    --button-inverted-tertiary-disabled-bg-color: var(--color-dark-bg-neutral-alpha-30);
+    --button-inverted-tertiary-base-border-color: transparent;
+    --button-inverted-tertiary-disabled-border-color: transparent;
+    --button-inverted-tertiary-disabled-color: var(--color-dark-text-primary-alpha-30);
 }

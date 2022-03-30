@@ -3,6 +3,190 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@4.1.0...@alfalab/core-components-attach@4.1.1) (2022-03-24)
+
+
+### Bug Fixes
+
+* **attach:** always clear input ([#1038](https://github.com/alfa-laboratory/core-components/issues/1038)) ([f3e85f2](https://github.com/alfa-laboratory/core-components/commit/f3e85f299c4e42253d0354cdd61e005d9fe927f0))
+
+
+
+
+
+# [4.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@4.0.7...@alfalab/core-components-attach@4.1.0) (2022-02-21)
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+* **progress-bar:** add size prop, additional views, new bg color ([#996](https://github.com/alfa-laboratory/core-components/issues/996)) ([63702f7](https://github.com/alfa-laboratory/core-components/commit/63702f7d9637e1fe3da502d7c91c4284453b3b48))
+
+
+
+
+
+## [4.0.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@4.0.6...@alfalab/core-components-attach@4.0.7) (2022-02-15)
+
+**Note:** Version bump only for package @alfalab/core-components-attach
+
+
+
+
+
+## [4.0.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@4.0.5...@alfalab/core-components-attach@4.0.6) (2022-02-09)
+
+**Note:** Version bump only for package @alfalab/core-components-attach
+
+
+
+
+
+## [4.0.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@4.0.4...@alfalab/core-components-attach@4.0.5) (2022-02-03)
+
+**Note:** Version bump only for package @alfalab/core-components-attach
+
+
+
+
+
+## [4.0.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@4.0.3...@alfalab/core-components-attach@4.0.4) (2022-02-02)
+
+**Note:** Version bump only for package @alfalab/core-components-attach
+
+
+
+
+
+## [4.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@4.0.2...@alfalab/core-components-attach@4.0.3) (2021-12-29)
+
+**Note:** Version bump only for package @alfalab/core-components-attach
+
+
+
+
+
+## [4.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@4.0.1...@alfalab/core-components-attach@4.0.2) (2021-12-14)
+
+**Note:** Version bump only for package @alfalab/core-components-attach
+
+
+
+
+
+## [4.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@4.0.0...@alfalab/core-components-attach@4.0.1) (2021-12-08)
+
+
+### Bug Fixes
+
+* актуализируем @alfalab/utils ([#897](https://github.com/alfa-laboratory/core-components/issues/897)) ([30fb88e](https://github.com/alfa-laboratory/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+
+
+
+
+
+# [4.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@3.2.3...@alfalab/core-components-attach@4.0.0) (2021-11-26)
+
+
+### Features
+
+* **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/alfa-laboratory/core-components/issues/886)) ([88e657a](https://github.com/alfa-laboratory/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/alfa-laboratory/core-components/issues/890)
+
+
+### BREAKING CHANGES
+
+* **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер  на xxs. Можно воспользоваться codemod.
+
+* feat(codemod): add button xs to xxs transformer
+
+* feat(tag): добавлен тэг размера 40px, изменены отступы
+
+Добавлен тэг размером 40px, изменены отступы. Тем, кто использовал размер xs, надо заменить размер
+на xxs.
+* **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер на xxs. Можно воспользоваться codemod.
+
+* test: update screenshots
+
+* test: update screenshots
+
+* feat(button): linter fix
+
+* feat(button): fix min-width
+
+* feat(tag): remove vertical paddings
+
+* feat(tag): remove vertical paddings
+
+* feat(button): updates
+
+
+
+
+
+## [3.2.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@3.2.2...@alfalab/core-components-attach@3.2.3) (2021-11-16)
+
+**Note:** Version bump only for package @alfalab/core-components-attach
+
+
+
+
+
+## [3.2.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@3.2.1...@alfalab/core-components-attach@3.2.2) (2021-09-14)
+
+**Note:** Version bump only for package @alfalab/core-components-attach
+
+
+
+
+
+## [3.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@3.2.0...@alfalab/core-components-attach@3.2.1) (2021-08-27)
+
+**Note:** Version bump only for package @alfalab/core-components-attach
+
+
+
+
+
+# [3.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@3.1.1...@alfalab/core-components-attach@3.2.0) (2021-08-09)
+
+
+### Features
+
+* **attach:** add additional classNames props ([#783](https://github.com/alfa-laboratory/core-components/issues/783)) ([bc8e865](https://github.com/alfa-laboratory/core-components/commit/bc8e86512a95b8690d2115a71a299c19195fa58d))
+
+
+
+
+
+## [3.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@3.1.0...@alfalab/core-components-attach@3.1.1) (2021-08-04)
+
+**Note:** Version bump only for package @alfalab/core-components-attach
+
+
+
+
+
+# [3.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@3.0.2...@alfalab/core-components-attach@3.1.0) (2021-07-23)
+
+
+### Features
+
+* **attach:** simulate controlled state ([#760](https://github.com/alfa-laboratory/core-components/issues/760)) ([5d312bf](https://github.com/alfa-laboratory/core-components/commit/5d312bf632cc716bfc7ecb7b487c4af812838aa9)), closes [#743](https://github.com/alfa-laboratory/core-components/issues/743)
+
+
+
+
+
+## [3.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@3.0.1...@alfalab/core-components-attach@3.0.2) (2021-07-19)
+
+**Note:** Version bump only for package @alfalab/core-components-attach
+
+
+
+
+
 ## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-attach@3.0.0...@alfalab/core-components-attach@3.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-attach

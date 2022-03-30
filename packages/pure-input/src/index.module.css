@@ -1,4 +1,5 @@
 @import '../../themes/src/default.css';
+@import '../../input/src/default.module.css';
 
 .component {
     @mixin system_16-20_regular;

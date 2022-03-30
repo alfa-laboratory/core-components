@@ -1,0 +1,31 @@
+@import '../../../../themes/src/default.css';
+
+.component {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    padding: 0 var(--gap-m) var(--gap-m);
+    background: var(--color-light-bg-primary);
+    box-shadow: var(--shadow-xs-hard);
+    border-radius: var(--border-radius-m);
+    overflow: auto;
+}
+
+.hasPagination {
+    padding-bottom: 0;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    box-sizing: border-box;
+
+    /* TODO: Хак для выравнивания чекбокса */
+    & td:first-child,
+    & th:first-child {
+        & label > *[class^='box'] {
+            margin-top: 0;
+        }
+    }
+}

@@ -1,11 +1,10 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { formatDate } from '@alfalab/core-components-date-input';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
 import { CalendarInput } from '../Component';
-import { formatDate } from '../utils';
-import { name, version } from '../../package.json';
+import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
@@ -14,7 +13,6 @@ import styles from '!!raw-loader!../index.module.css';
 <Meta
     title='Компоненты/CalendarInput'
     component={CalendarInput}
-    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
 
@@ -50,7 +48,6 @@ import styles from '!!raw-loader!../index.module.css';
     version={version}
     package='@alfalab/core-components/calendar-input'
     stage={2}
-    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=13931%3A20767'
 />
 
 ```tsx

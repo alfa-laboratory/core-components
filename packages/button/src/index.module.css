@@ -3,8 +3,9 @@
 :root {
     /* misc */
     --button-font-family: var(--font-family);
-    --button-border-radius: var(--border-radius-s);
-    --button-active-transform: none;
+    --button-border-radius: var(--border-radius-m);
+    --button-active-transform: scale(0.97);
+    --button-font-weight: 500;
 }
 
 .component {
@@ -19,7 +20,7 @@
     margin: 0;
     padding: 0 var(--gap-xl);
     line-height: 20px;
-    font-weight: 500;
+    font-weight: var(--button-font-weight);
     font-family: var(--font-family);
     text-align: center;
     text-decoration: none;
@@ -65,7 +66,7 @@ a.loading {
 
 /* Size */
 
-.xs {
+.xxs {
     min-width: 80px;
     min-height: var(--size-xs-height);
     padding: 0 var(--gap-m);
@@ -73,6 +74,17 @@ a.loading {
 
     &.iconOnly {
         min-width: var(--size-xs-height);
+    }
+}
+
+.xs {
+    min-width: 88px;
+    min-height: 40px;
+    padding: 0 var(--gap-l);
+    font-size: 14px;
+
+    &.iconOnly {
+        min-width: 40px;
     }
 }
 
@@ -89,6 +101,7 @@ a.loading {
 .m {
     min-width: 128px;
     min-height: var(--size-m-height);
+    padding: 0 28px;
     font-size: 16px;
 
     &.iconOnly {
@@ -109,14 +122,74 @@ a.loading {
 }
 
 .xl {
-    min-width: 160px;
+    min-width: 168px;
     min-height: var(--size-xl-height);
-    padding: 0 var(--gap-2xl);
+    padding: 0 36px;
     font-size: 18px;
     line-height: 24px;
 
     &.iconOnly {
         min-width: var(--size-xl-height);
+    }
+}
+
+.withRightAddons {
+    &.xxs {
+        padding-right: var(--gap-s);
+    }
+
+    &.xs {
+        padding-right: var(--gap-m);
+    }
+
+    &.s {
+        padding-right: var(--gap-l);
+    }
+
+    &.m {
+        padding-right: var(--gap-xl);
+    }
+
+    &.l {
+        padding-right: 28px;
+    }
+
+    &.xl {
+        padding-right: var(--gap-2xl);
+    }
+
+    &.ghost {
+        padding-right: 0;
+    }
+}
+
+.withLeftAddons {
+    &.xxs {
+        padding-left: var(--gap-s);
+    }
+
+    &.xs {
+        padding-left: var(--gap-m);
+    }
+
+    &.s {
+        padding-left: var(--gap-l);
+    }
+
+    &.m {
+        padding-left: var(--gap-xl);
+    }
+
+    &.l {
+        padding-left: 28px;
+    }
+
+    &.xl {
+        padding-left: var(--gap-2xl);
+    }
+
+    &.ghost {
+        padding-left: 0;
     }
 }
 
@@ -140,6 +213,10 @@ a.loading {
 
 .component:disabled {
     cursor: var(--disabled-cursor);
+
+    & * {
+        pointer-events: none;
+    }
 }
 
 /* Addons */
@@ -148,18 +225,49 @@ a.loading {
     display: flex;
     flex-shrink: 0;
     align-items: center;
-}
-
-.addons:first-child {
-    margin: 0 var(--gap-xs) 0 0;
-}
-
-.addons:last-child {
-    margin: 0 0 0 var(--gap-xs);
-}
-
-.addons:only-child {
     margin: 0;
+
+    &:first-child {
+        margin-right: var(--gap-2xs);
+    }
+
+    &:last-child {
+        margin-left: var(--gap-2xs);
+    }
+
+    &:only-child {
+        margin: 0;
+    }
+}
+
+.s,
+.m {
+    & .addons:first-child {
+        margin-right: var(--gap-xs);
+    }
+
+    & .addons:last-child {
+        margin-left: var(--gap-xs);
+    }
+
+    & .addons:only-child {
+        margin: 0;
+    }
+}
+
+.l,
+.xl {
+    & .addons:first-child {
+        margin-right: var(--gap-s);
+    }
+
+    & .addons:last-child {
+        margin-left: var(--gap-s);
+    }
+
+    & .addons:only-child {
+        margin: 0;
+    }
 }
 
 .iconOnly {

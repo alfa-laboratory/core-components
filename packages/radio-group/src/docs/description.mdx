@@ -2,10 +2,10 @@
 
 ```tsx live
 render(() => {
-    const [value, setValue] = React.useState({ one: false, two: false, three: false });
+    const [value, setValue] = React.useState('one');
 
     const onChange = (_, payload) => {
-        setValue({ ...value, [payload.name]: payload.checked });
+        setValue(payload.value);
     };
 
     return (
@@ -14,10 +14,11 @@ render(() => {
             direction='vertical'
             name='radioGroup'
             onChange={onChange}
+            value={value}
         >
-            <Radio label='Первый вариант' value='first' />
-            <Radio label='Второй вариант' value='second' />
-            <Radio label='Третий вариант' value='third' />
+            <Radio label='Первый вариант' value='one' />
+            <Radio label='Второй вариант' value='two' />
+            <Radio label='Третий вариант' value='three' />
         </RadioGroup>
     );
 });
@@ -27,10 +28,10 @@ render(() => {
 
 ```tsx live
 render(() => {
-    const [value, setValue] = React.useState({ one: false, two: false, three: false });
+    const [value, setValue] = React.useState('one');
 
     const onChange = (_, payload) => {
-        setValue({ ...value, [payload.name]: payload.checked });
+        setValue(payload.value);
     };
 
     return (
@@ -40,6 +41,7 @@ render(() => {
             direction='horizontal'
             type='tag'
             name='tagRadioGroup'
+            value={value}
         >
             <Tag value='one'>Первый вариант</Tag>
             <Tag value='two'>Второй вариант</Tag>

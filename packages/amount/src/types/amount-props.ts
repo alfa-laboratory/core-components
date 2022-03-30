@@ -1,4 +1,5 @@
 import { CurrencyCodes } from '@alfalab/data';
+import { ReactNode } from 'react';
 
 export type AmountProps = {
     /**
@@ -9,7 +10,12 @@ export type AmountProps = {
     /**
      * Валюта
      */
-    currency: CurrencyCodes;
+    currency?: CurrencyCodes;
+
+    /**
+     * Слот справа
+     */
+    rightAddons?: ReactNode;
 
     /**
      * Количество минорных единиц в валюте
@@ -31,6 +37,11 @@ export type AmountProps = {
      * Делает минорную часть полупрозрачной
      */
     transparentMinor?: boolean;
+
+    /**
+     * Показывать значок + для положительных значений
+     */
+    showPlus?: boolean;
 
     /**
      * Дополнительный класс

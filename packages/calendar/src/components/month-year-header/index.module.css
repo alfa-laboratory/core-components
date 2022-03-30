@@ -1,0 +1,46 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    position: relative;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    border-radius: var(--border-radius-s);
+}
+
+.month {
+    flex-basis: 65%;
+
+    @media (max-width: 374px) {
+        flex-grow: 1;
+    }
+}
+
+.year {
+    flex-basis: 35%;
+    margin-left: var(--gap-xs);
+
+    @media (max-width: 374px) {
+        width: 90px;
+    }
+}
+
+.buttonContent {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.upDownIcon {
+    margin-left: var(--gap-xs);
+
+    @media (max-width: 374px) {
+        margin-left: auto;
+    }
+}

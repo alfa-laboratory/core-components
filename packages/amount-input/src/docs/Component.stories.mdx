@@ -1,10 +1,10 @@
-import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
-import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
 import { AmountInput } from '../Component';
-import { name, version } from '../../package.json';
+import { version } from '../../package.json';
 import Changelog from '../../CHANGELOG.md';
 import Description from './description.mdx';
 import styles from '!!raw-loader!../index.module.css';
@@ -13,7 +13,6 @@ import styles from '!!raw-loader!../index.module.css';
 <Meta
     title='Компоненты/AmountInput'
     component={AmountInput}
-    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
 <!-- Canvas -->
@@ -22,8 +21,10 @@ import styles from '!!raw-loader!../index.module.css';
     <AmountInput
         value={number('value', null)}
         currency={text('currency', 'RUR')}
+        suffix={text('suffix', undefined)}
         integerLength={number('integerLength', 9)}
         minority={number('minority', 100)}
+        integersOnly={boolean('integersOnly', false)}
         bold={boolean('bold', true)}
         block={boolean('block', false)}
         size={select('size', ['s', 'm', 'l', 'xl'], 's')}
@@ -32,7 +33,7 @@ import styles from '!!raw-loader!../index.module.css';
         label={text('label', '')}
         hint={text('hint', '')}
         error={text('error', '')}
-        leftAddons={boolean('leftAddons', false) && <Icon />}
+        leftAddons={boolean('leftAddons', false) && <StarMIcon />}
         bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
         clear={boolean('clear', false)}
         readOnly={boolean('readOnly', false)}
@@ -46,7 +47,6 @@ import styles from '!!raw-loader!../index.module.css';
     version={version}
     package='@alfalab/core-components/amount-input'
     stage={2}
-    design='https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=532%3A544'
 />
 
 ```tsx

@@ -1,0 +1,80 @@
+import { Container, Row, Col } from 'storybook/blocks';
+import { CustomButton } from '../';
+
+Компонент используется при необходимости отобразить кнопку с кастомным цветом фона.
+
+```tsx live
+<Container>
+    <Row align='middle'>
+        <Col>
+            <CustomButton backgroundColor='#FF45C3'>Кнопка</CustomButton>
+        </Col>
+        <Col>
+            <CustomButton backgroundColor='#4AF2FD' contentColor='black'>
+                Кнопка
+            </CustomButton>
+        </Col>
+    </Row>
+</Container>
+```
+
+## Виды кнопок
+
+Размеры и отступы идентичны компоненту <a href="/docs/компоненты-button--button">Button</a>.
+
+На данный момент поддерживается только `view Primary`.
+
+```tsx live
+const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
+
+render(
+    <Container>
+        <Row>
+            {SIZES.map(size => (
+                <Col key={size}>
+                    <CustomButton size={size}>Кнопка</CustomButton>
+                </Col>
+            ))}
+        </Row>
+    </Container>,
+);
+```
+
+## Цвет фона и контента
+
+-   Кнопка может принимать пропс `backgroundColor` отвечающий за цвет фона.
+-   Кнопка может принимать пропс `contentColor = white | black` отвечающий за цвет контента.
+
+```tsx live
+const WHITE_CONTENT_COLORS = [
+    '#FF8510',
+    'linear-gradient(264.15deg, #FF42CA 0%, #FF8A00 100%)',
+    '#FF45C3',
+];
+const BLACK_CONTENT_COLORS = [
+    '#4AF2FD',
+    'linear-gradient(80.38deg, #4AF2FD 0%, #4AFD9C 100%)',
+    '#4AFDA2',
+];
+
+render(
+    <Container>
+        <Row>
+            {WHITE_CONTENT_COLORS.map(color => (
+                <Col key={color}>
+                    <CustomButton backgroundColor={color}>Кнопка</CustomButton>
+                </Col>
+            ))}
+        </Row>
+        <Row>
+            {BLACK_CONTENT_COLORS.map(color => (
+                <Col key={color}>
+                    <CustomButton backgroundColor={color} contentColor='black'>
+                        Кнопка
+                    </CustomButton>
+                </Col>
+            ))}
+        </Row>
+    </Container>,
+);
+```

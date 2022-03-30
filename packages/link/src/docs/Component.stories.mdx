@@ -1,12 +1,12 @@
-import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
 import { Typography } from '@alfalab/core-components-typography';
 
 import { Link } from '../Component';
-import { name, version } from '../../package.json';
+import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
@@ -19,7 +19,6 @@ export const VIEWS = ['primary', 'secondary', 'default'];
 <Meta
     title='Компоненты/Link'
     component={Link}
-    parameters={{ 'theme-switcher': { themes: ['click' ] } }}
 />
 
 
@@ -30,7 +29,7 @@ export const VIEWS = ['primary', 'secondary', 'default'];
         const colors = select('colors', ['default', 'inverted'], 'default');
         return (
             <div style={{
-                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : '#fff',
+                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : 'transparent',
                 padding: '8px',
                 position: 'absolute',
                 top: 0,
@@ -43,8 +42,8 @@ export const VIEWS = ['primary', 'secondary', 'default'];
                         view={select('view', VIEWS, 'primary')}
                         pseudo={boolean('pseudo', false)}
                         href={text('href', '')}
-                        leftAddons={boolean('leftAddons', false) && <Icon />}
-                        rightAddons={boolean('rightAddons', false) && <Icon />}
+                        leftAddons={boolean('leftAddons', false) && <StarMIcon />}
+                        rightAddons={boolean('rightAddons', false) && <StarMIcon />}
                         colors={colors}
                     >
                         {text('text', 'Вернуться в интернет-банк')}
@@ -63,7 +62,6 @@ export const VIEWS = ['primary', 'secondary', 'default'];
     version={version}
     package='@alfalab/core-components/link'
     stage={3}
-    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=719%3A1'
 />
 
 ```tsx

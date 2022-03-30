@@ -27,18 +27,13 @@ Object {
             />
           </svg>
           <div
-            class="name"
+            class="infoSection"
           >
-            <a
-              class="component primary pseudo"
-              href="/link"
+            <div
+              class="name"
             >
-              <span
-                class="text"
-              >
-                Довольно длинное название файла.pdf
-              </span>
-            </a>
+              Довольно длинное название файла.pdf
+            </div>
           </div>
           <div
             class="meta"
@@ -53,6 +48,34 @@ Object {
             </span>
           </div>
         </div>
+        <a
+          aria-label="скачать"
+          class="component ghost s component ghost iconOnly download primary"
+          download="новое_название_файла"
+          href="/link"
+        >
+          <span
+            class="addons"
+          >
+            <span
+              class="iconWrapper xxs"
+            >
+              <svg
+                class="icon"
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  d="M16.444 9.935L13 13.305V3h-2v10.304L7.556 9.935l-1.399 1.43L12 17.08l5.843-5.715-1.399-1.43zM20 21v-2H4v2h16z"
+                />
+              </svg>
+            </span>
+          </span>
+        </a>
         <button
           aria-label="удалить"
           class="component ghost s component ghost iconOnly delete primary"
@@ -106,18 +129,13 @@ Object {
           />
         </svg>
         <div
-          class="name"
+          class="infoSection"
         >
-          <a
-            class="component primary pseudo"
-            href="/link"
+          <div
+            class="name"
           >
-            <span
-              class="text"
-            >
-              Довольно длинное название файла.pdf
-            </span>
-          </a>
+            Довольно длинное название файла.pdf
+          </div>
         </div>
         <div
           class="meta"
@@ -132,6 +150,34 @@ Object {
           </span>
         </div>
       </div>
+      <a
+        aria-label="скачать"
+        class="component ghost s component ghost iconOnly download primary"
+        download="новое_название_файла"
+        href="/link"
+      >
+        <span
+          class="addons"
+        >
+          <span
+            class="iconWrapper xxs"
+          >
+            <svg
+              class="icon"
+              fill="currentColor"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <path
+                d="M16.444 9.935L13 13.305V3h-2v10.304L7.556 9.935l-1.399 1.43L12 17.08l5.843-5.715-1.399-1.43zM20 21v-2H4v2h16z"
+              />
+            </svg>
+          </span>
+        </span>
+      </a>
       <button
         aria-label="удалить"
         class="component ghost s component ghost iconOnly delete primary"

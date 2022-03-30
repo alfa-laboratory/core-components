@@ -3,6 +3,85 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-dropzone@2.2.3...@alfalab/core-components-dropzone@2.3.0) (2022-03-04)
+
+
+### Bug Fixes
+
+* update glyph deps ([#1019](https://github.com/alfa-laboratory/core-components/issues/1019)) ([3e910d0](https://github.com/alfa-laboratory/core-components/commit/3e910d0801c4c46bcd399163200c1f7bfaba375e))
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
+## [2.2.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-dropzone@2.2.2...@alfalab/core-components-dropzone@2.2.3) (2022-02-17)
+
+
+### Bug Fixes
+
+* imports for glyph icons ([#994](https://github.com/alfa-laboratory/core-components/issues/994)) ([8e807f2](https://github.com/alfa-laboratory/core-components/commit/8e807f26abf0f942fe8eadbd201caecb297b35dc))
+
+
+
+
+
+## [2.2.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-dropzone@2.2.1...@alfalab/core-components-dropzone@2.2.2) (2022-01-17)
+
+
+### Bug Fixes
+
+* **dropzone:** корректный сброс dragCounter ([#944](https://github.com/alfa-laboratory/core-components/issues/944)) ([091b4a4](https://github.com/alfa-laboratory/core-components/commit/091b4a4b2f42fb0b84581c875a18c14c735eb92b))
+
+
+
+
+
+## [2.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-dropzone@2.2.0...@alfalab/core-components-dropzone@2.2.1) (2021-11-16)
+
+**Note:** Version bump only for package @alfalab/core-components-dropzone
+
+
+
+
+
+# [2.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-dropzone@2.1.0...@alfalab/core-components-dropzone@2.2.0) (2021-09-14)
+
+
+### Features
+
+* **dropzone:** design improvements (PDS-282) ([#829](https://github.com/alfa-laboratory/core-components/issues/829)) ([437ec3c](https://github.com/alfa-laboratory/core-components/commit/437ec3c80c507a37c8a24106a6ee6514abd68d04))
+
+
+
+
+
+# [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-dropzone@2.0.2...@alfalab/core-components-dropzone@2.1.0) (2021-08-27)
+
+
+### Features
+
+* **dropzone:** add block prop ([#813](https://github.com/alfa-laboratory/core-components/issues/813)) ([39bf4c3](https://github.com/alfa-laboratory/core-components/commit/39bf4c3158525d419c75aedec8be81e4a4bb90da))
+
+
+
+
+
+## [2.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-dropzone@2.0.1...@alfalab/core-components-dropzone@2.0.2) (2021-08-09)
+
+
+### Bug Fixes
+
+* **attach:** fix drag counter & styles ([#786](https://github.com/alfa-laboratory/core-components/issues/786)) ([b075725](https://github.com/alfa-laboratory/core-components/commit/b0757250ea57a6e5db64a5026315f8837e8a3303))
+
+
+
+
+
 ## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-dropzone@2.0.0...@alfalab/core-components-dropzone@2.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-dropzone

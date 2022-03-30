@@ -37,9 +37,14 @@ export type CheckboxGroupProps = {
     className?: string;
 
     /**
-     * Текст ошибки
+     * Отображение ошибки
      */
-    error?: string;
+    error?: ReactNode | boolean;
+
+    /**
+     * Текст подсказки снизу
+     */
+    hint?: ReactNode;
 
     /**
      * Дочерние элементы. Ожидаются компоненты `Checkbox` или `Tag`
@@ -74,6 +79,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
     direction = 'vertical',
     label,
     error,
+    hint,
     onChange,
     type = 'checkbox',
     dataTestId,
@@ -123,6 +129,8 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
         );
     };
 
+    const errorMessage = typeof error === 'boolean' ? '' : error;
+
     return (
         <div
             className={cn(
@@ -148,7 +156,13 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
                 </div>
             ) : null}
 
-            {error && <span className={styles.errorMessage}>{error}</span>}
+            {errorMessage && (
+                <span className={cn(styles.sub, styles.errorMessage)} role='alert'>
+                    {errorMessage}
+                </span>
+            )}
+
+            {hint && !errorMessage && <span className={cn(styles.sub, styles.hint)}>{hint}</span>}
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ForwardRefRenderFunction } from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
@@ -9,6 +9,10 @@ import { FieldProps as BaseFieldProps, Select, OptionsListProps, OptionProps } f
 import * as fieldModule from './components/field';
 import * as optionsListModule from './components/options-list';
 import * as optionModule from './components/option';
+
+type PopoverComponent = {
+    render?: ForwardRefRenderFunction<HTMLDivElement, popoverModule.PopoverProps>;
+};
 
 const baseProps = {
     options: [],
@@ -416,7 +420,7 @@ describe('Select', () => {
         });
 
         it('should transfer props to OptionsList', () => {
-            const spy = jest.spyOn(optionsListModule, 'OptionsList');
+            const spy = jest.spyOn(optionsListModule.OptionsList, 'render' as never);
 
             const optionsListProps: Partial<OptionsListProps> = {
                 emptyPlaceholder: 'list-placeholder',
@@ -488,7 +492,8 @@ describe('Select', () => {
         });
 
         it('should transfer props to Popover', () => {
-            const spy = jest.spyOn(popoverModule, 'Popover');
+            const PopoverComponent = popoverModule.Popover as PopoverComponent;
+            const spy = jest.spyOn(PopoverComponent, 'render');
 
             const cb = () => undefined;
 
@@ -528,6 +533,14 @@ describe('Select', () => {
             expect(container.getElementsByClassName(optionsListClassName)).not.toBeNull();
         });
 
+        it('should set `popoverClassName` class to popover', () => {
+            const optionsListClassName = 'popover-class';
+            const { container } = render(
+                <Select {...baseProps} options={options} popperClassName={optionsListClassName} />,
+            );
+            expect(container.getElementsByClassName(optionsListClassName)).not.toBeNull();
+        });
+
         it('should rendered empty options list with flag `showEmptyOptionsList`', () => {
             const optionsListClassName = 'options-list-class';
             const { container } = render(
@@ -563,7 +576,10 @@ describe('Select', () => {
             const input = container.querySelector('.contentWrapper') as HTMLInputElement;
 
             fireEvent.click(input);
-            expect(cb).toBeCalledTimes(1);
+
+            waitFor(() => {
+                expect(cb).toBeCalledTimes(1);
+            });
         });
 
         it('should call onChange', async () => {
@@ -579,6 +595,23 @@ describe('Select', () => {
             const option = await findByText(options[0].content);
             await fireEvent.click(option);
             expect(cb).toBeCalledTimes(1);
+        });
+
+        it.skip('should call onScroll', async () => {
+            const onScroll = jest.fn();
+
+            const { getByTestId } = render(
+                <Select
+                    {...baseProps}
+                    dataTestId='test-id'
+                    options={options}
+                    onScroll={onScroll}
+                    defaultOpen={true}
+                />,
+            );
+
+            fireEvent.scroll(getByTestId('test-id-options-list'));
+            expect(onScroll).toBeCalledTimes(1);
         });
 
         it('should call valueRenderer', async () => {

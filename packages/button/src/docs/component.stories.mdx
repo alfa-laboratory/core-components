@@ -1,23 +1,22 @@
-import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import IconM from '@alfalab/icons-glyph/StarMIcon';
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Button } from '../';
-import { name, version } from '../../package.json';
+import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 import colorsStyles from '!!raw-loader!../default.module.css';
 
-export const VIEWS = ['primary', 'secondary', 'outlined', 'filled', 'transparent', 'link', 'ghost'];
-export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
+export const VIEWS = ['primary', 'secondary', 'tertiary', 'link', 'ghost'];
+export const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
 
 
 <Meta
     title='Компоненты/Button'
     component={Button}
-    parameters={{ 'theme-switcher': { themes: ['click', 'corp', 'site', 'mobile'] } }}
 />
 
 
@@ -29,7 +28,7 @@ export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
         const colors = select('colors', ['default', 'inverted'], 'default');
         return (
             <div style={{
-                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : '#fff',
+                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : 'transparent',
                 padding: '8px',
                 position: 'absolute',
                 top: 0,
@@ -46,8 +45,8 @@ export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
                     disabled={boolean('disabled', false)}
                     block={boolean('block', false)}
                     nowrap={boolean('nowrap', false)}
-                    leftAddons={boolean('leftAddons', false) && <IconM />}
-                    rightAddons={boolean('rightAddons', false) && <IconM />}
+                    leftAddons={boolean('leftAddons', false) && <StarMIcon />}
+                    rightAddons={boolean('rightAddons', false) && <StarMIcon />}
                 >
                     {text('label', 'Оплатить')}
                 </Button>
@@ -63,7 +62,6 @@ export const SIZES = ['xs', 's', 'm', 'l', 'xl'];
     name='Button'
     version={version}
     stage={3}
-    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=1%3A2'
 />
 
 ```tsx

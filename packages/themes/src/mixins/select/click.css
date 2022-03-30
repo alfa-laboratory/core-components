@@ -1,11 +1,8 @@
-@import '../../../../themes/src/default.css';
-
 @define-mixin select-click {
     /* theme */
     --select-options-list-border-radius: var(--border-radius-s);
     --select-options-list-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
     --select-options-list-offset: 8px;
-    --select-arrow-background: url('https://alfabank.st/icons/glyph_chevron-down_m.svg');
 
     /* options list */
 
@@ -15,7 +12,8 @@
 
     --select-checkmark-margin: 0 0 0 var(--gap-m);
     --select-checkmark-size: 24px;
-    --select-checkmark-order: 1;
-    --select-checkmark-background: url('https://alfabank.st/icons/glyph_checkmark-circle_m_color.svg');
+    --select-checkmark-before-display: none;
+    --select-checkmark-after-display: 'flex';
+    --select-checkmark-background: url('https://alfabank.gcdn.co/icons/glyph_checkmark-circle_m_color.svg');
     --select-checkmark-border-radius: 0;
 }

@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs';
 import { text, boolean, number, select as selectKnob } from '@storybook/addon-knobs';
 import Icon from '@alfalab/icons-classic/BankAlfaSBlackIcon';
 
@@ -41,7 +41,6 @@ export const POSITION_OPTIONS = [
 <Meta
     title='Компоненты/Select'
     component={Select}
-    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
 
@@ -78,7 +77,6 @@ export const POSITION_OPTIONS = [
     version={version}
     package='@alfalab/core-components/select'
     stage={2}
-    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=719%3A0'
 />
 
 ```tsx

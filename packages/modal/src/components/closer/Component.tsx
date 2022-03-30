@@ -1,6 +1,7 @@
-import React, { ButtonHTMLAttributes, FC, useCallback, useContext } from 'react';
+import React, { ButtonHTMLAttributes, ElementType, FC, useCallback, useContext } from 'react';
 import cn from 'classnames';
-import { Button } from '@alfalab/core-components-button';
+import { IconButton, IconButtonProps } from '@alfalab/core-components-icon-button';
+import { CrossHeavyMIcon } from '@alfalab/icons-glyph/CrossHeavyMIcon';
 
 import { ModalContext } from '../../Context';
 
@@ -18,12 +19,31 @@ export type CloserProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     align?: 'left' | 'right';
 
     /**
-     * Флаг, что модальное окно открыто на весь экран
+     * Размер кнопки
      */
-    fullscreen?: boolean;
+    size?: IconButtonProps['size'];
+
+    /**
+     * Фиксирует крестик
+     */
+    sticky?: boolean;
+
+    /**
+     * Иконка
+     */
+    icon?: ElementType;
 };
 
-export const Closer: FC<CloserProps> = ({ className, fullscreen, align, ...restProps }) => {
+/**
+ * @deprecated Компонент только для внутреннего использования. Используйте <Header />
+ */
+export const Closer: FC<CloserProps> = ({
+    className,
+    size = 's',
+    sticky,
+    icon = CrossHeavyMIcon,
+    ...restProps
+}) => {
     const { onClose } = useContext(ModalContext);
 
     const handleClick = useCallback(
@@ -34,18 +54,19 @@ export const Closer: FC<CloserProps> = ({ className, fullscreen, align, ...restP
     );
 
     return (
-        <Button
-            type='button'
-            view='ghost'
-            className={cn(
-                styles.closer,
-                className,
-                fullscreen && styles.fullscreen,
-                align && styles[align],
-            )}
-            aria-label='закрыть'
-            onClick={handleClick}
-            {...restProps}
-        />
+        <div
+            className={cn(styles.closer, className, {
+                [styles.sticky]: sticky,
+            })}
+        >
+            <IconButton
+                size={size}
+                className={styles.button}
+                aria-label='закрыть'
+                onClick={handleClick}
+                icon={icon}
+                {...restProps}
+            />
+        </div>
     );
 };

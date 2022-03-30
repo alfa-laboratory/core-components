@@ -1,7 +1,7 @@
 import React, { MouseEvent } from 'react';
 import { render, fireEvent } from '@testing-library/react';
 
-import { StarMIcon } from '@alfalab/icons-glyph';
+import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 
 import { IconButton } from './index';
 
@@ -18,6 +18,17 @@ describe('IconButton', () => {
             const { getByTestId } = render(<IconButton icon={StarMIcon} dataTestId={dataTestId} />);
 
             expect(getByTestId(dataTestId).tagName).toBe('BUTTON');
+        });
+    });
+
+    describe('Href tests', () => {
+        it('should set `href` attribute and be link', () => {
+            const dataTestId = 'test-id';
+            const href = 'http://example.com';
+
+            expect(
+                render(<IconButton icon={StarMIcon} href={href} dataTestId={dataTestId} />),
+            ).toMatchSnapshot();
         });
     });
 

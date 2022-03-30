@@ -1,10 +1,11 @@
-import React, { useCallback, useRef } from 'react';
+import React, { forwardRef, useCallback, useRef } from 'react';
 import cn from 'classnames';
-import { OptionsListProps, GroupShape } from '../../typings';
+import mergeRefs from 'react-merge-refs';
+import { OptionsListProps, GroupShape, OptionShape } from '../../typings';
 import { Optgroup as DefaultOptgroup } from '../optgroup';
+import { isGroup, useVisibleOptions } from '../../utils';
 
 import styles from './index.module.css';
-import { isGroup, useVisibleOptions } from '../../utils';
 
 const createCounter = () => {
     let count = 0;
@@ -12,53 +13,77 @@ const createCounter = () => {
     return () => count++;
 };
 
-export const OptionsList = ({
-    size = 's',
-    className,
-    Option,
-    options = [],
-    Optgroup = DefaultOptgroup,
-    dataTestId,
-    emptyPlaceholder,
-    visibleOptions = 5,
-    open,
-}: OptionsListProps) => {
-    const listRef = useRef<HTMLDivElement>(null);
-    const counter = createCounter();
+export const OptionsList = forwardRef(
+    (
+        {
+            size = 's',
+            className,
+            Option,
+            getOptionProps,
+            options = [],
+            Optgroup = DefaultOptgroup,
+            dataTestId,
+            emptyPlaceholder,
+            visibleOptions = 5,
+            onScroll,
+            open,
+            header,
+            footer,
+        }: OptionsListProps,
+        ref,
+    ) => {
+        const renderOption = useCallback(
+            (option: OptionShape, index: number) => (
+                <Option key={option.key} {...getOptionProps(option, index)} />
+            ),
+            [getOptionProps],
+        );
 
-    const renderGroup = useCallback(
-        (group: GroupShape) => (
-            <Optgroup label={group.label} key={group.label} size={size}>
-                {group.options.map(option => Option({ option, index: counter() }))}
-            </Optgroup>
-        ),
-        [Option, counter, size],
-    );
+        const listRef = useRef<HTMLDivElement>(null);
+        const counter = createCounter();
+        const renderGroup = useCallback(
+            (group: GroupShape) => (
+                <Optgroup label={group.label} key={group.label} size={size}>
+                    {group.options.map(option => renderOption(option, counter()))}
+                </Optgroup>
+            ),
+            [counter, renderOption, size],
+        );
 
-    useVisibleOptions({
-        visibleOptions,
-        listRef,
-        open,
-        invalidate: options,
-    });
+        useVisibleOptions({
+            visibleOptions,
+            listRef,
+            open,
+            invalidate: options,
+        });
 
-    if (options.length === 0 && !emptyPlaceholder) {
-        return null;
-    }
+        if (options.length === 0 && !emptyPlaceholder) {
+            return null;
+        }
 
-    return (
-        <div
-            className={cn(styles.optionsList, styles[size], className)}
-            data-test-id={dataTestId}
-            ref={listRef}
-        >
-            {options.map(option =>
-                isGroup(option) ? renderGroup(option) : Option({ option, index: counter() }),
-            )}
+        return (
+            <div
+                className={cn(styles.optionsList, styles[size], className)}
+                data-test-id={dataTestId}
+            >
+                {header}
 
-            {emptyPlaceholder && options.length === 0 && (
-                <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>
-            )}
-        </div>
-    );
-};
+                <div
+                    className={styles.scrollable}
+                    ref={mergeRefs([listRef, ref])}
+                    onScroll={onScroll}
+                >
+                    {options.map(option =>
+                        isGroup(option) ? renderGroup(option) : renderOption(option, counter()),
+                    )}
+
+                    {emptyPlaceholder && options.length === 0 && (
+                        <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>
+                    )}
+                </div>
+
+                {footer}
+            </div>
+        );
+    },
+);

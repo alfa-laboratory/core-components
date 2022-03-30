@@ -1,0 +1,81 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+import { select, boolean, text } from '@storybook/addon-knobs';
+import { SfTouchIdXxlIcon } from '@alfalab/icons-glyph/SfTouchIdXxlIcon';
+import { CheckmarkCircleMIcon } from '@alfalab/icons-glyph/CheckmarkCircleMIcon';
+import { AlertCircleMIcon } from '@alfalab/icons-glyph/AlertCircleMIcon';
+
+import { Circle, CircleProps } from '../circle';
+import { SuperEllipse, SuperEllipseProps } from '../super-ellipse';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+
+<Meta
+    title='Компоненты/IconView'
+/>
+
+<!-- Canvas -->
+
+<Story name='SuperEllipse'>
+    {React.createElement(() => {
+        const topAddons = boolean('topAddons', false);
+        const bottomAddons = boolean('bottomAddons', false);
+        return (
+            <SuperEllipse
+                size={select('size', ['48', '64', '80', '128'], '64')}
+                backgroundColor={text('backgroundColor', '#f3f4f5')}
+                border={boolean('border', false)}
+                imageUrl={text('imageUrl', '')}
+                topAddons={topAddons && <AlertCircleMIcon color="#2fc26e" /> }
+                bottomAddons={bottomAddons && <CheckmarkCircleMIcon color="#2fc26e" /> }
+            >
+                <SfTouchIdXxlIcon />
+            </SuperEllipse>
+        )
+    })}
+</Story>
+
+<Story name='Circle'>
+    {React.createElement(() => {
+        const topAddons = boolean('topAddons', false);
+        const bottomAddons = boolean('bottomAddons', false);
+        return (
+            <Circle
+                size={select('size', ['48', '64', '80'], '64')}
+                backgroundColor={text('backgroundColor', '#f3f4f5')}
+                border={boolean('border', false)}
+                imageUrl={text('imageUrl', '')}
+                topAddons={topAddons && <AlertCircleMIcon color="#2fc26e" /> }
+                bottomAddons={bottomAddons && <CheckmarkCircleMIcon color="#2fc26e" /> }
+            >
+                <SfTouchIdXxlIcon />
+            </Circle>
+        )
+    })}
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='IconView'
+    version={version}
+    package='@alfalab/core-components/icon-view'
+    stage={2}
+/>
+
+```tsx
+import { Circle } from '@alfalab/core-components/icon-view/circle';
+import { SuperEllipse } from '@alfalab/core-components/icon-view/super-ellipse';
+```
+
+export const Shapes = {
+    Circle,
+    SuperEllipse,
+}
+
+<Tabs
+    description={<Description />}
+    changelog={<Changelog />}
+    props={<Props components={Shapes} />}
+/>

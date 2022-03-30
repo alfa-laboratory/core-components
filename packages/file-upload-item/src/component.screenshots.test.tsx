@@ -1,6 +1,6 @@
 import { setupScreenshotTesting, generateTestCases } from '../../screenshot-utils';
 
-const clip = { x: 0, y: 0, width: 540, height: 50 };
+const clip = { x: 0, y: 0, width: 1920, height: 150 };
 
 const screenshotTesting = setupScreenshotTesting({
     it,
@@ -80,5 +80,27 @@ describe(
             },
         }),
         screenshotOpts: { clip },
+    }),
+);
+
+describe(
+    'FileUploadItem | ellipsis',
+    screenshotTesting({
+        cases: generateTestCases({
+            componentName: 'FileUploadItem',
+            knobs: {
+                name: [
+                    'very-long-file-name-123-very-long-file-name-123-very-long-file-name-123.jpg',
+                ],
+                uploadDate: ['22.01.2018'],
+                size: [45000],
+                showRestore: [true],
+            },
+        }),
+        screenshotOpts: { clip },
+        viewport: {
+            width: 400,
+            height: 700,
+        },
     }),
 );

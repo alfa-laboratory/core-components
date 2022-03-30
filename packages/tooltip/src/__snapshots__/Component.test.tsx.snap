@@ -92,17 +92,21 @@ Object {
         data-popper-escaped="true"
         data-popper-placement="left"
         data-popper-reference-hidden="true"
-        style="z-index: 50; position: absolute; left: 0px; top: 0px; right: 0px; transform: translate(-10px, 0px);"
+        style="z-index: 50; position: absolute; left: 0px; top: 0px; right: 0px; transform: translate(-16px, 0px);"
       >
         <div
           class="inner popper tooltip"
           style="transition-duration: 150ms;"
         >
           <div
-            class="component"
+            class=""
           >
-            <div>
-              I am tooltip
+            <div
+              class="component"
+            >
+              <div>
+                I am tooltip
+              </div>
             </div>
           </div>
           <div
@@ -197,17 +201,21 @@ Object {
         data-popper-escaped="true"
         data-popper-placement="left"
         data-popper-reference-hidden="true"
-        style="z-index: 50; position: absolute; left: 0px; top: 0px; right: 0px; transform: translate(-10px, 0px);"
+        style="z-index: 50; position: absolute; left: 0px; top: 0px; right: 0px; transform: translate(-16px, 0px);"
       >
         <div
           class="inner popper hint"
           style="transition-duration: 150ms;"
         >
           <div
-            class="component"
+            class=""
           >
-            <div>
-              I am tooltip
+            <div
+              class="component"
+            >
+              <div>
+                I am tooltip
+              </div>
             </div>
           </div>
           <div

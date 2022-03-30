@@ -3,6 +3,271 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@10.1.0...@alfalab/core-components-confirmation@10.1.1) (2022-03-04)
+
+
+### Bug Fixes
+
+* update glyph deps ([#1019](https://github.com/alfa-laboratory/core-components/issues/1019)) ([3e910d0](https://github.com/alfa-laboratory/core-components/commit/3e910d0801c4c46bcd399163200c1f7bfaba375e))
+
+
+
+
+
+# [10.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@10.0.1...@alfalab/core-components-confirmation@10.1.0) (2022-03-03)
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
+## [10.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@10.0.0...@alfalab/core-components-confirmation@10.0.1) (2022-02-17)
+
+
+### Bug Fixes
+
+* imports for glyph icons ([#994](https://github.com/alfa-laboratory/core-components/issues/994)) ([8e807f2](https://github.com/alfa-laboratory/core-components/commit/8e807f26abf0f942fe8eadbd201caecb297b35dc))
+
+
+
+
+
+# [10.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@9.0.7...@alfalab/core-components-confirmation@10.0.0) (2022-02-16)
+
+
+### Features
+
+* **confirmation:** большое обновление компонента ([#958](https://github.com/alfa-laboratory/core-components/issues/958)) ([3e61e7e](https://github.com/alfa-laboratory/core-components/commit/3e61e7e6529662d8fb96acb2898a29fd9c1917ab))
+
+
+### BREAKING CHANGES
+
+* **confirmation:** Удалена пропса code
+
+* feat(code-input): ref updates
+
+* feat(confirmation): updates, fix tests
+
+* feat(confirmation): initial
+
+* feat(confirmation): updates
+
+* feat(confirmation): update tests
+
+* feat(confirmation): updates
+
+* feat(confirmation): dont reset code, if error
+
+* test(confirmation): update snapshot
+* **confirmation:** Удалена пропса code
+
+Co-authored-by: reme3d2y <AYatsenko@alfabank.ru>
+
+
+
+
+
+## [9.0.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@9.0.6...@alfalab/core-components-confirmation@9.0.7) (2022-02-15)
+
+**Note:** Version bump only for package @alfalab/core-components-confirmation
+
+
+
+
+
+## [9.0.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@9.0.5...@alfalab/core-components-confirmation@9.0.6) (2022-02-09)
+
+**Note:** Version bump only for package @alfalab/core-components-confirmation
+
+
+
+
+
+## [9.0.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@9.0.4...@alfalab/core-components-confirmation@9.0.5) (2022-02-03)
+
+**Note:** Version bump only for package @alfalab/core-components-confirmation
+
+
+
+
+
+## [9.0.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@9.0.3...@alfalab/core-components-confirmation@9.0.4) (2022-02-02)
+
+**Note:** Version bump only for package @alfalab/core-components-confirmation
+
+
+
+
+
+## [9.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@9.0.2...@alfalab/core-components-confirmation@9.0.3) (2021-12-29)
+
+**Note:** Version bump only for package @alfalab/core-components-confirmation
+
+
+
+
+
+## [9.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@9.0.1...@alfalab/core-components-confirmation@9.0.2) (2021-12-14)
+
+**Note:** Version bump only for package @alfalab/core-components-confirmation
+
+
+
+
+
+## [9.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@9.0.0...@alfalab/core-components-confirmation@9.0.1) (2021-12-08)
+
+
+### Bug Fixes
+
+* актуализируем @alfalab/utils ([#897](https://github.com/alfa-laboratory/core-components/issues/897)) ([30fb88e](https://github.com/alfa-laboratory/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+
+
+
+
+
+# [9.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@8.5.1...@alfalab/core-components-confirmation@9.0.0) (2021-11-26)
+
+
+### Features
+
+* **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/alfa-laboratory/core-components/issues/886)) ([88e657a](https://github.com/alfa-laboratory/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/alfa-laboratory/core-components/issues/890)
+
+
+### BREAKING CHANGES
+
+* **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер  на xxs. Можно воспользоваться codemod.
+
+* feat(codemod): add button xs to xxs transformer
+
+* feat(tag): добавлен тэг размера 40px, изменены отступы
+
+Добавлен тэг размером 40px, изменены отступы. Тем, кто использовал размер xs, надо заменить размер
+на xxs.
+* **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер на xxs. Можно воспользоваться codemod.
+
+* test: update screenshots
+
+* test: update screenshots
+
+* feat(button): linter fix
+
+* feat(button): fix min-width
+
+* feat(tag): remove vertical paddings
+
+* feat(tag): remove vertical paddings
+
+* feat(button): updates
+
+
+
+
+
+## [8.5.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@8.5.0...@alfalab/core-components-confirmation@8.5.1) (2021-11-16)
+
+**Note:** Version bump only for package @alfalab/core-components-confirmation
+
+
+
+
+
+# [8.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@8.4.0...@alfalab/core-components-confirmation@8.5.0) (2021-10-18)
+
+
+### Features
+
+* **confirmation:** compact code-input if slotsCount > 6 ([99be0e1](https://github.com/alfa-laboratory/core-components/commit/99be0e1744d9782824756c8992fd4b986a589dd7))
+
+
+
+
+
+# [8.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@8.3.0...@alfalab/core-components-confirmation@8.4.0) (2021-10-11)
+
+
+### Features
+
+* проставлен role=alert для ошибок ([#850](https://github.com/alfa-laboratory/core-components/issues/850)) ([dc634a3](https://github.com/alfa-laboratory/core-components/commit/dc634a3d008accfab10192ce234c12ef0ecc7fa9))
+
+
+
+
+
+# [8.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@8.2.2...@alfalab/core-components-confirmation@8.3.0) (2021-09-27)
+
+
+### Features
+
+* **confirmation:** design update, new type of error "overlimit" and blocking input  ([#841](https://github.com/alfa-laboratory/core-components/issues/841)) ([1ea5d31](https://github.com/alfa-laboratory/core-components/commit/1ea5d3117552f7cc9fcd78092edf634d9020b693))
+
+
+
+
+
+## [8.2.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@8.2.1...@alfalab/core-components-confirmation@8.2.2) (2021-09-14)
+
+
+### Bug Fixes
+
+* confirmation & input ([#833](https://github.com/alfa-laboratory/core-components/issues/833)) ([f3c0d62](https://github.com/alfa-laboratory/core-components/commit/f3c0d62c15b3812205b71685c2d37c0a986677ee))
+
+
+
+
+
+## [8.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@8.2.0...@alfalab/core-components-confirmation@8.2.1) (2021-08-27)
+
+**Note:** Version bump only for package @alfalab/core-components-confirmation
+
+
+
+
+
+# [8.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@8.1.1...@alfalab/core-components-confirmation@8.2.0) (2021-08-23)
+
+
+### Features
+
+* **confirmation:** add custom countdown content, change time format ([#804](https://github.com/alfa-laboratory/core-components/issues/804)) ([b87ace1](https://github.com/alfa-laboratory/core-components/commit/b87ace190013cc873133bd1fff23cb6ae0ae3800))
+
+
+
+
+
+## [8.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@8.1.0...@alfalab/core-components-confirmation@8.1.1) (2021-08-04)
+
+**Note:** Version bump only for package @alfalab/core-components-confirmation
+
+
+
+
+
+# [8.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@8.0.2...@alfalab/core-components-confirmation@8.1.0) (2021-07-23)
+
+
+### Features
+
+* **confirmation:** fix timer, some loader refactoring ([#754](https://github.com/alfa-laboratory/core-components/issues/754)) ([187bb0e](https://github.com/alfa-laboratory/core-components/commit/187bb0e72a75c62b117a49917976903257d90bb7))
+
+
+
+
+
+## [8.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@8.0.1...@alfalab/core-components-confirmation@8.0.2) (2021-07-19)
+
+**Note:** Version bump only for package @alfalab/core-components-confirmation
+
+
+
+
+
 ## [8.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-confirmation@8.0.0...@alfalab/core-components-confirmation@8.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-confirmation

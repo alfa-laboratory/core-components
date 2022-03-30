@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-link@3.2.0...@alfalab/core-components-link@3.2.1) (2021-12-08)
+
+
+### Bug Fixes
+
+* актуализируем @alfalab/utils ([#897](https://github.com/alfa-laboratory/core-components/issues/897)) ([30fb88e](https://github.com/alfa-laboratory/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+
+
+
+
+
+# [3.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-link@3.1.0...@alfalab/core-components-link@3.2.0) (2021-08-27)
+
+
+### Features
+
+* custom components for button and link ([#814](https://github.com/alfa-laboratory/core-components/issues/814)) ([a623dd0](https://github.com/alfa-laboratory/core-components/commit/a623dd021ef611f9994a6587ba6a0d0ee9d8929c))
+
+
+
+
+
+# [3.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-link@3.0.1...@alfalab/core-components-link@3.1.0) (2021-08-04)
+
+
+### Features
+
+* add mods colors ([#770](https://github.com/alfa-laboratory/core-components/issues/770)) ([fe985f4](https://github.com/alfa-laboratory/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
+
+
+
+
+
 ## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-link@3.0.0...@alfalab/core-components-link@3.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-link

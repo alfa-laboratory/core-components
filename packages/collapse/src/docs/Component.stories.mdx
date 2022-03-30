@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
 import { Collapse } from '../Component';
@@ -20,12 +20,10 @@ import Changelog from '../../CHANGELOG.md';
         expandedLabel='Скрыть'
         isExpanded={ true }
     >
-        <p style={{ margin: '0 0 16px 0' }}>
-            Альфа-Банк, основанный в 1990 году, является универсальным банком,
-            осуществляющим все основные виды банковских операций, представленных
-            на рынке финансовых услуг, включая обслуживание частных и корпоративных
-            клиентов, инвестиционный банковский бизнес, торговое финансирование и т.д.
-        </p>
+        Альфа-Банк, основанный в 1990 году, является универсальным банком,
+        осуществляющим все основные виды банковских операций, представленных
+        на рынке финансовых услуг, включая обслуживание частных и корпоративных
+        клиентов, инвестиционный банковский бизнес, торговое финансирование и т.д.
     </Collapse>
 </Story>
 
@@ -34,12 +32,12 @@ import Changelog from '../../CHANGELOG.md';
 <ComponentHeader
     name='Collapse'
     version={version}
-    package='@alfalab/core-components/collapse'
+    package='@alfalab/core-components-collapse'
     stage={1}
 />
 
 ```tsx
-import { Collapse } from '@alfalab/core-components/collase';
+import { Collapse } from '@alfalab/core-components-collase';
 ```
 
 <Tabs

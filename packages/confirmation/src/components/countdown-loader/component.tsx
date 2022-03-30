@@ -4,36 +4,34 @@ import styles from './index.module.css';
 
 type Props = {
     progress: number; // 0-1
-    className: string;
+    className?: string;
 };
 
 const SIZE = 16;
+const STROKE_WIDTH = 2;
 
-const RADIUS = SIZE / 2;
-
-const FULL_TURN = Math.PI * 2;
+const CENTER = SIZE / 2;
+const RADIUS = CENTER - STROKE_WIDTH / 2;
+/** Длина окружности */
+const CIRCUMFERENCE = Math.PI * RADIUS * 2;
 
 export const CountdownLoader: FC<Props> = ({ progress, className }) => {
-    const angle = progress < 1 ? progress * FULL_TURN : FULL_TURN;
+    const value = Math.min(progress, 1);
 
-    const x = RADIUS - RADIUS * Math.sin(angle);
-    const y = RADIUS - RADIUS * Math.cos(angle);
+    const strokeDasharray = CIRCUMFERENCE.toFixed(2);
+    const strokeDashoffset = (value * CIRCUMFERENCE).toFixed(2);
 
     return (
         <svg width={SIZE} height={SIZE} viewBox={`0 0 ${SIZE} ${SIZE}`} className={className}>
-            <defs>
-                <mask id='cut'>
-                    <rect width='100%' height='100%' fill='white' />
-                    <circle r={RADIUS * 0.75} cx={RADIUS} cy={RADIUS} fill='black' />
-                    <path
-                        d={`M${RADIUS} 0 V${RADIUS} L${x} ${y} ${
-                            angle <= Math.PI ? 'H0' : `H${SIZE} V${SIZE} H0`
-                        } L0 0 Z`}
-                    />
-                </mask>
-            </defs>
-
-            <circle cx={RADIUS} cy={RADIUS} r={RADIUS} mask='url(#cut)' className={styles.circle} />
+            <circle
+                cx={CENTER}
+                cy={CENTER}
+                r={RADIUS}
+                strokeDasharray={strokeDasharray}
+                strokeDashoffset={strokeDashoffset}
+                transform={`rotate(-90 ${CENTER} ${CENTER})`}
+                className={styles.circle}
+            />
         </svg>
     );
 };

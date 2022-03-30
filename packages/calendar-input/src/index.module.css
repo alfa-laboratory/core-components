@@ -2,7 +2,8 @@
 @import '../../calendar/src/vars.css';
 
 :root {
-    --calendar-input-calendar-icon: url('https://alfabank.st/icons/icon_calendar_m_black.svg');
+    --calendar-input-icon-color: var(--color-light-graphic-primary);
+    --calendar-input-popover-border-radius: 0 0 var(--border-radius-s) var(--border-radius-s);
 }
 
 .component {
@@ -18,21 +19,22 @@
 .calendarContainer {
     display: inline-block;
     box-sizing: border-box;
-    box-shadow: var(--shadow-s);
-    border: 1px solid var(--color-light-border-primary);
-    border-radius: var(--border-radius-m);
+    border-radius: var(--calendar-input-popover-border-radius);
+
+    @media (max-width: 374px) {
+        width: 100%;
+        min-width: 288px;
+    }
 }
 
 .calendarIcon {
     width: 24px;
     height: 24px;
     display: block;
-    background: var(--calendar-input-calendar-icon);
-    background-size: cover;
-    background-position: center;
+    color: var(--calendar-input-icon-color);
 
     &:not(:only-child) {
-        margin-left: var(--gap-2xs);
+        margin-right: var(--gap-2xs);
     }
 }
 

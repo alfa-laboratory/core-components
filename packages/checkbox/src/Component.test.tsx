@@ -14,6 +14,10 @@ describe('Checkbox', () => {
                 render(<Checkbox label='label' hint='hint' indeterminate={true} />),
             ).toMatchSnapshot();
         });
+
+        it('should display error state', () => {
+            expect(render(<Checkbox label='label' hint='hint' error='error' />)).toMatchSnapshot();
+        });
     });
 
     describe('Styles tests', () => {
@@ -22,6 +26,20 @@ describe('Checkbox', () => {
             const { container } = render(<Checkbox className={className} />);
 
             expect(container.firstElementChild).toHaveClass(className);
+        });
+
+        it('should set contentClassName', () => {
+            const className = 'custom-class';
+            const { container } = render(<Checkbox label='label' contentClassName={className} />);
+
+            expect(container.querySelector('.content')).toHaveClass(className);
+        });
+
+        it('should set boxClassName', () => {
+            const className = 'custom-class';
+            const { container } = render(<Checkbox boxClassName={className} />);
+
+            expect(container.querySelector('.box')).toHaveClass(className);
         });
 
         it('should set `checked` class', () => {
@@ -115,6 +133,30 @@ describe('Checkbox', () => {
             const cb = jest.fn();
 
             const { container } = render(<Checkbox onChange={cb} checked={true} disabled={true} />);
+
+            if (container.firstElementChild) {
+                fireEvent.click(container.firstElementChild);
+            }
+
+            expect(cb).not.toBeCalled();
+        });
+
+        test('should not call `onChange` prop if inactive', () => {
+            const cb = jest.fn();
+
+            const { container } = render(<Checkbox onChange={cb} inactive={true} />);
+
+            if (container.firstElementChild) {
+                fireEvent.click(container.firstElementChild);
+            }
+
+            expect(cb).not.toBeCalled();
+        });
+
+        test('should not call `onChange` prop if inactive and checked', () => {
+            const cb = jest.fn();
+
+            const { container } = render(<Checkbox onChange={cb} checked={true} inactive={true} />);
 
             if (container.firstElementChild) {
                 fireEvent.click(container.firstElementChild);

@@ -3,6 +3,178 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@4.1.5...@alfalab/core-components-icon-button@4.1.6) (2022-02-15)
+
+**Note:** Version bump only for package @alfalab/core-components-icon-button
+
+
+
+
+
+## [4.1.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@4.1.4...@alfalab/core-components-icon-button@4.1.5) (2022-02-09)
+
+**Note:** Version bump only for package @alfalab/core-components-icon-button
+
+
+
+
+
+## [4.1.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@4.1.3...@alfalab/core-components-icon-button@4.1.4) (2022-02-03)
+
+**Note:** Version bump only for package @alfalab/core-components-icon-button
+
+
+
+
+
+## [4.1.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@4.1.2...@alfalab/core-components-icon-button@4.1.3) (2022-02-02)
+
+**Note:** Version bump only for package @alfalab/core-components-icon-button
+
+
+
+
+
+## [4.1.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@4.1.1...@alfalab/core-components-icon-button@4.1.2) (2021-12-29)
+
+**Note:** Version bump only for package @alfalab/core-components-icon-button
+
+
+
+
+
+## [4.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@4.1.0...@alfalab/core-components-icon-button@4.1.1) (2021-12-14)
+
+**Note:** Version bump only for package @alfalab/core-components-icon-button
+
+
+
+
+
+# [4.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@4.0.1...@alfalab/core-components-icon-button@4.1.0) (2021-12-09)
+
+
+### Features
+
+* **file-upload-item:** обновлен внешний вид ([#902](https://github.com/alfa-laboratory/core-components/issues/902)) ([d0f7d1e](https://github.com/alfa-laboratory/core-components/commit/d0f7d1ebdf302711a01549e86d0d8a5129b66d82))
+
+
+
+
+
+## [4.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@4.0.0...@alfalab/core-components-icon-button@4.0.1) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-icon-button
+
+
+
+
+
+# [4.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@3.3.1...@alfalab/core-components-icon-button@4.0.0) (2021-11-26)
+
+
+### Features
+
+* **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/alfa-laboratory/core-components/issues/886)) ([88e657a](https://github.com/alfa-laboratory/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/alfa-laboratory/core-components/issues/890)
+
+
+### BREAKING CHANGES
+
+* **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер  на xxs. Можно воспользоваться codemod.
+
+* feat(codemod): add button xs to xxs transformer
+
+* feat(tag): добавлен тэг размера 40px, изменены отступы
+
+Добавлен тэг размером 40px, изменены отступы. Тем, кто использовал размер xs, надо заменить размер
+на xxs.
+* **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер на xxs. Можно воспользоваться codemod.
+
+* test: update screenshots
+
+* test: update screenshots
+
+* feat(button): linter fix
+
+* feat(button): fix min-width
+
+* feat(tag): remove vertical paddings
+
+* feat(tag): remove vertical paddings
+
+* feat(button): updates
+
+
+
+
+
+## [3.3.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@3.3.0...@alfalab/core-components-icon-button@3.3.1) (2021-09-14)
+
+**Note:** Version bump only for package @alfalab/core-components-icon-button
+
+
+
+
+
+# [3.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@3.2.1...@alfalab/core-components-icon-button@3.3.0) (2021-08-31)
+
+
+### Features
+
+* **icon-button:** added 'target' attribute, when IconButton is link ([#823](https://github.com/alfa-laboratory/core-components/issues/823)) ([b2aab6b](https://github.com/alfa-laboratory/core-components/commit/b2aab6be98e01d0e99863f016e08bde384a4ff3c))
+
+
+
+
+
+## [3.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@3.2.0...@alfalab/core-components-icon-button@3.2.1) (2021-08-27)
+
+**Note:** Version bump only for package @alfalab/core-components-icon-button
+
+
+
+
+
+# [3.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@3.1.0...@alfalab/core-components-icon-button@3.2.0) (2021-08-23)
+
+
+### Features
+
+* **icon-button:** Rest props for IconButton from Button ([#805](https://github.com/alfa-laboratory/core-components/issues/805)) ([ee4e170](https://github.com/alfa-laboratory/core-components/commit/ee4e170b6b59800e283080d36bddfdcfe4b57561))
+
+
+
+
+
+# [3.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@3.0.3...@alfalab/core-components-icon-button@3.1.0) (2021-08-04)
+
+
+### Features
+
+* add mods colors ([#770](https://github.com/alfa-laboratory/core-components/issues/770)) ([fe985f4](https://github.com/alfa-laboratory/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
+
+
+
+
+
+## [3.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@3.0.2...@alfalab/core-components-icon-button@3.0.3) (2021-07-23)
+
+**Note:** Version bump only for package @alfalab/core-components-icon-button
+
+
+
+
+
+## [3.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@3.0.1...@alfalab/core-components-icon-button@3.0.2) (2021-07-19)
+
+**Note:** Version bump only for package @alfalab/core-components-icon-button
+
+
+
+
+
 ## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-icon-button@3.0.0...@alfalab/core-components-icon-button@3.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-icon-button

@@ -1,0 +1,34 @@
+@define-mixin form-control-intranet {
+    /* theme */
+    --form-control-border-radius: var(--border-radius-l);
+    --form-control-border-bottom: 0;
+    --form-control-inverted-border-bottom: 0;
+    --form-control-bg-color: var(--color-light-bg-secondary);
+    --form-control-inverted-bg-color: var(--color-light-bg-secondary-inverted);
+
+    /* disabled */
+    --form-control-disabled-opacity: 0.5;
+    --form-control-disabled-border-bottom: 0;
+    --form-control-inverted-disabled-border-bottom: 0;
+    --form-control-disabled-bg-color: var(--color-light-bg-secondary);
+    --form-control-inverted-disabled-bg-color: var(--color-light-bg-secondary-inverted);
+
+    /* focus */
+    --form-control-focus-border-bottom: 0;
+    --form-control-inverted-focus-border-bottom: 0;
+    --form-control-focus-bg-color: var(--color-light-bg-secondary);
+    --form-control-inverted-focus-bg-color: var(--color-light-bg-secondary-inverted);
+    --form-control-hover-bg-color: var(--color-light-bg-secondary);
+    --form-control-inverted-hover-bg-color: var(--color-light-bg-secondary-inverted);
+
+    /* error */
+    --form-control-error-label-color: var(--color-light-text-negative);
+    --form-control-inverted-error-label-color: var(--color-light-text-accent);
+    --form-control-error-shadow: none;
+    --form-control-inverted-error-shadow: none;
+    --form-control-error-border-bottom: 0;
+    --form-control-inverted-error-border-bottom: 0;
+
+    /* paddings */
+    --form-control-sub-paddings: 0 var(--gap-2xs);
+}

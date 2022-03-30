@@ -104,8 +104,8 @@ describe('Render tests', () => {
         expect(icon.getAttribute('height')).toBe(iconSize);
     });
 
-    it('should have xs class and small icon', async () => {
-        const size = 'xs';
+    it('should have xxs class and small icon', async () => {
+        const size = 'xxs';
         const iconSize = '18';
 
         const { getByTestId } = render(<PickerButton options={options} size={size} />);
@@ -137,5 +137,13 @@ describe('Render tests', () => {
             const renderedOptions = document.querySelectorAll('.option');
             expect(renderedOptions).toHaveLength(options.length);
         });
+    });
+
+    it('options container should have sideGap & optionsPopover  class', async () => {
+        const { container } = render(
+            <PickerButton options={options} loading={true} popoverPosition='right' />,
+        );
+        expect(container.getElementsByClassName('optionsPopover')).not.toBeNull();
+        expect(container.getElementsByClassName('sideGap')).not.toBeNull();
     });
 });

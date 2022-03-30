@@ -1,7 +1,6 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --tablist-hidden-scrollbar-height: 20px;
     --primary-tablist-color: var(--color-light-text-secondary);
     --primary-tablist-hover-color: var(--color-light-text-primary);
     --primary-tablist-selected-color: var(--color-light-text-primary);
@@ -47,6 +46,12 @@
     /* mobile */
     --secondary-tablist-mobile-gaps: var(--gap-xs);
 
+    /* size xxs */
+    --secondary-tablist-xxs-gaps: var(--gap-xs);
+
+    /* size xs */
+    --secondary-tablist-xs-gaps: var(--gap-xs);
+
     /* size s */
     --secondary-tablist-s-gaps: var(--gap-s);
 
@@ -54,8 +59,8 @@
     --secondary-tablist-m-gaps: var(--gap-s);
 
     /* size l */
-    --secondary-tablist-l-gaps: var(--gap-s);
+    --secondary-tablist-l-gaps: var(--gap-m);
 
     /* size xl */
-    --secondary-tablist-xl-gaps: var(--gap-s);
+    --secondary-tablist-xl-gaps: var(--gap-m);
 }

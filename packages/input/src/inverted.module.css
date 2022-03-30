@@ -1,0 +1,79 @@
+@import '../../themes/src/default.css';
+
+:root {
+    --input-inverted-color: var(--color-light-text-primary-inverted);
+    --input-inverted-placeholder-color: var(--color-light-text-secondary-inverted-transparent);
+    --input-inverted-focus-placeholder-color: var(--color-light-text-tertiary-inverted);
+    --input-inverted-with-label-placeholder-color: var(--color-light-text-tertiary-inverted);
+    --input-inverted-error-icon: url('https://alfabank.gcdn.co/icons/glyph_alert-circle_m_negative.svg');
+    --input-inverted-success-icon: url('https://alfabank.gcdn.co/icons/icon_ok_s_color.svg');
+    --input-inverted-caret-color: var(--input-inverted-color);
+
+    /* disabled */
+    --input-inverted-disabled-color: var(--color-light-text-secondary-inverted-transparent);
+
+    /* read-only */
+    --input-inverted-read-only-color: var(--color-light-text-secondary-inverted-transparent);
+
+    /* error */
+    --input-inverted-error-color: var(--color-light-text-primary-inverted);
+}
+
+.input {
+    color: var(--input-inverted-color);
+    caret-color: var(--input-inverted-caret-color);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.input:-webkit-autofill {
+    -webkit-text-fill-color: var(--input-inverted-color);
+}
+
+.input::placeholder {
+    color: var(--input-inverted-placeholder-color);
+}
+
+.hasLabel::placeholder {
+    color: var(--input-inverted-with-label-placeholder-color);
+}
+
+.clearIcon {
+    color: var(--color-light-graphic-primary-inverted);
+}
+
+.errorIcon {
+    background-image: var(--input-inverted-error-icon);
+}
+
+.successIcon {
+    background-image: var(--input-inverted-success-icon);
+}
+
+/* READ-ONLY STATE */
+
+.input:read-only {
+    color: var(--input-inverted-read-only-color);
+
+    &:focus::placeholder {
+        color: var(--input-inverted-placeholder-color);
+    }
+}
+
+/* DISABLED STATE */
+
+.input:disabled {
+    color: var(--input-inverted-disabled-color);
+    -webkit-text-fill-color: var(--input-inverted-disabled-color);
+}
+
+/* FOCUS STATE */
+
+.input:focus::placeholder {
+    color: var(--input-inverted-focus-placeholder-color);
+}
+
+/* ERROR STATE */
+.error {
+    color: var(--input-inverted-error-color);
+    caret-color: var(--input-inverted-error-color);
+}

@@ -1,6 +1,6 @@
 .component {
     position: relative;
-    margin: 0 0 24px;
+    margin: 0 0 var(--gap-xl);
 }
 
 .component h1 {
@@ -9,20 +9,24 @@
 
 .version {
     display: inline-block;
-    margin-left: 8px;
+    margin-left: var(--gap-xs);
     color: rgba(11, 31, 53, 0.6);
     font-size: 16px;
     line-height: 1.2;
 }
 
 .design {
-    padding: 0 0 0 20px;
+    padding: 0 0 0 var(--gap-l);
     background: url(https://static.figma.com/app/icon/1/favicon.svg) no-repeat 0 50%;
 }
 
+.commonLink {
+    opacity: 0.8;
+}
+
 .github {
-    margin: 0 0 8px;
-    padding: 0 0 0 20px;
+    margin: 0 0 var(--gap-xs);
+    padding: 0 0 0 var(--gap-l);
     background: url(https://github.githubassets.com/favicons/favicon.svg) no-repeat 0 50%;
     background-size: 16px 16px;
 }
@@ -36,7 +40,7 @@
 }
 
 .links a {
-    color: #0f62fe;
-    border-bottom: 1px solid color-mod(#0f62fe alpha(30%));
+    color: var(--color-light-text-link);
+    border-bottom: 1px solid var(--color-light-text-link-alpha-30);
     text-decoration: none;
 }

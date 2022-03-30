@@ -6,8 +6,8 @@
     --plate-border-radius: var(--border-radius-m);
 
     /* icons */
-    --plate-closer-icon: url('https://alfabank.st/icons/glyph_cross_m.svg');
-    --plate-arrow-icon: url('https://alfabank.st/icons/glyph_chevron-down_m.svg');
+    --plate-closer-icon: url('https://alfabank.gcdn.co/icons/glyph_cross_m.svg');
+    --plate-arrow-icon: url('https://alfabank.gcdn.co/icons/glyph_chevron-down_m.svg');
 }
 
 .component {
@@ -21,10 +21,10 @@
     min-height: 56px;
     padding: var(--gap-m);
     outline: none;
+}
 
-    &.isFolded {
-        cursor: pointer;
-    }
+.foldable {
+    cursor: pointer;
 }
 
 .component * {
@@ -86,6 +86,7 @@
     transition: max-height 2s ease-in-out;
     padding: var(--gap-2xs);
     margin: var(--gap-2xs-neg);
+    cursor: default;
 
     &.isFolded {
         max-height: 0;
@@ -103,7 +104,7 @@
     }
 }
 
-.title + .content .contentInner {
+.title + .content > .contentInner {
     padding-top: var(--gap-xs);
 }
 

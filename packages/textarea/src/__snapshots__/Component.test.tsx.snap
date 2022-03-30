@@ -3,10 +3,10 @@
 exports[`Textarea Snapshots tests should match snapshot 1`] = `
 <div>
   <div
-    class="component s"
+    class="component component s"
   >
     <div
-      class="inner filled"
+      class="inner inner filled"
     >
       <div
         class="inputWrapper"
@@ -16,7 +16,7 @@ exports[`Textarea Snapshots tests should match snapshot 1`] = `
         >
           <textarea
             autocomplete="on"
-            class="textarea s filled"
+            class="textarea textarea s filled"
             rows="1"
           >
             value
@@ -24,7 +24,6 @@ exports[`Textarea Snapshots tests should match snapshot 1`] = `
         </div>
       </div>
     </div>
-    
   </div>
 </div>
 `;
@@ -32,10 +31,10 @@ exports[`Textarea Snapshots tests should match snapshot 1`] = `
 exports[`Textarea Snapshots tests should match snapshot with custom counter 1`] = `
 <div>
   <div
-    class="component s"
+    class="component component s"
   >
     <div
-      class="inner filled"
+      class="inner inner filled"
     >
       <div
         class="inputWrapper"
@@ -45,7 +44,7 @@ exports[`Textarea Snapshots tests should match snapshot with custom counter 1`] 
         >
           <textarea
             autocomplete="on"
-            class="textarea s filled"
+            class="textarea textarea s filled"
             maxlength="500"
             rows="1"
           >
@@ -54,7 +53,6 @@ exports[`Textarea Snapshots tests should match snapshot with custom counter 1`] 
         </div>
       </div>
     </div>
-    
     <span
       class="sub hint"
     >
@@ -67,10 +65,10 @@ exports[`Textarea Snapshots tests should match snapshot with custom counter 1`] 
 exports[`Textarea Snapshots tests should match snapshot with default counter 1`] = `
 <div>
   <div
-    class="component s"
+    class="component component s"
   >
     <div
-      class="inner filled"
+      class="inner inner filled"
     >
       <div
         class="inputWrapper"
@@ -80,7 +78,7 @@ exports[`Textarea Snapshots tests should match snapshot with default counter 1`]
         >
           <textarea
             autocomplete="on"
-            class="textarea s filled"
+            class="textarea textarea s filled"
             maxlength="500"
             rows="1"
           >
@@ -89,7 +87,6 @@ exports[`Textarea Snapshots tests should match snapshot with default counter 1`]
         </div>
       </div>
     </div>
-    
     <span
       class="sub hint"
     >

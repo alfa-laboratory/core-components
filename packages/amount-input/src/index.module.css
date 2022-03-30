@@ -1,9 +1,5 @@
 @import '../../themes/src/default.css';
 
-:root {
-    --amount-input-minor-part-and-currency-color: var(--color-light-text-secondary);
-}
-
 /*
 * Задача:
 * 1) Отобразить символ валюты сразу за последним введенным символом
@@ -21,10 +17,6 @@
     position: relative;
 }
 
-.minorPartAndCurrency {
-    color: var(--amount-input-minor-part-and-currency-color);
-}
-
 .bold .input,
 .bold .suffixContainer {
     font-weight: bold;
@@ -37,6 +29,5 @@
 
 .filled .input,
 .input:focus {
-    -webkit-text-fill-color: transparent; /* Для IE текст будет черным */
-    caret-color: currentColor;
+    -webkit-text-fill-color: transparent;
 }

@@ -7,18 +7,30 @@ import { withSuffix } from '@alfalab/core-components-with-suffix';
 import { getFormattedValue, getAmountValueFromStr } from './utils';
 
 import styles from './index.module.css';
+import defaultColors from './default.module.css';
+import invertedColors from './inverted.module.css';
+
+const colorStyles = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
 
 export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> & {
     /**
      * Денежное значение в минорных единицах
      * Значение null - значит не установлено
      */
-    value?: number | null;
+    value?: string | number | null;
 
     /**
      * Валюта
      */
     currency?: CurrencyCodes;
+
+    /**
+     * Дополнительный закрепленный текст справа от основного значения. (по умолчанию — символ валюты)
+     */
+    suffix?: string;
 
     /**
      * Максимальное число знаков до запятой
@@ -29,6 +41,11 @@ export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> &
      * Минорные единицы
      */
     minority?: number;
+
+    /**
+     * Позволяет вводить только целые значения
+     */
+    integersOnly?: boolean;
 
     /**
      * Жир
@@ -69,8 +86,13 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
             integerLength = 9,
             minority = 100,
             currency = 'RUR',
-            placeholder = `0\u2009${getCurrencySymbol(currency) || ''}`,
+            suffix = currency,
+            placeholder = `0\u2009${
+                suffix === currency ? getCurrencySymbol(currency) || '' : suffix
+            }`,
+            integersOnly = false,
             bold = true,
+            colors = 'default',
             className,
             focusedClassName,
             dataTestId,
@@ -81,39 +103,39 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
         },
         ref,
     ) => {
-        const [inputValue, setInputValue] = useState<string>(
-            formatAmount({
-                // TODO: поддержать nullable в utils
-                value: value as number,
+        const getFormattedAmount = useCallback(() => {
+            if (value === '' || value === null) return '';
+
+            return formatAmount({
+                value: +value,
                 currency,
                 minority,
                 view: 'default',
-            }).formatted,
-        );
+            }).formatted;
+        }, [currency, minority, value]);
+
+        const [inputValue, setInputValue] = useState<string>(getFormattedAmount());
 
         const currencySymbol = getCurrencySymbol(currency);
 
         useEffect(() => {
             const currentAmountValue = getAmountValueFromStr(inputValue, minority);
             if (currentAmountValue !== value) {
-                return setInputValue(
-                    formatAmount({
-                        // TODO: поддержать nullable в utils
-                        value: value as number,
-                        currency,
-                        minority,
-                        view: 'default',
-                    }).formatted,
-                );
+                return setInputValue(getFormattedAmount());
             }
 
             return () => undefined;
             // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [value, currency, minority]);
+        }, [getFormattedAmount]);
 
         const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             const input = e.target;
-            const enteredValue = input.value.replace(/\s/g, '').replace('.', ',');
+            let enteredValue = input.value.replace(/\s/g, '').replace('.', ',');
+
+            if (integersOnly) {
+                [enteredValue] = enteredValue.split(',');
+            }
+
             const isCorrectEnteredValue = RegExp(
                 `(^[0-9]{1,${integerLength}}(,([0-9]+)?)?$|^\\s*$)`,
             ).test(enteredValue);
@@ -140,7 +162,10 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     let notFormattedEnteredValueLength = head.length;
                     if (tail) {
                         notFormattedEnteredValueLength += 1; // запятая или точка
-                        notFormattedEnteredValueLength += tail.slice(0, 2).length; // только 2 символа в минорной части
+                        notFormattedEnteredValueLength += tail.slice(
+                            0,
+                            minority.toString().length - 1,
+                        ).length; // символы в минорной части
                     }
 
                     const diff = newFormattedValue.length - notFormattedEnteredValueLength;
@@ -194,10 +219,10 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                         <Fragment>
                             {majorPart}
 
-                            <span className={styles.minorPartAndCurrency}>
+                            <span className={colorStyles[colors].minorPartAndCurrency}>
                                 {minorPart !== undefined && `,${minorPart}`}
                                 {THINSP}
-                                {currencySymbol}
+                                {suffix === currency ? currencySymbol : suffix}
                             </span>
                         </Fragment>
                     }
@@ -205,11 +230,14 @@ export const AmountInput = forwardRef<HTMLInputElement, AmountInputProps>(
                     clear={clear}
                     placeholder={placeholder}
                     value={inputValue}
+                    colors={colors}
                     className={cn(styles.component, className)}
                     focusedClassName={focusedClassName}
                     inputClassName={styles.input}
                     onChange={handleChange}
                     onClear={handleClear}
+                    inputMode='decimal'
+                    pattern='[0-9\s\.,]*'
                     dataTestId={dataTestId}
                     ref={ref}
                 />

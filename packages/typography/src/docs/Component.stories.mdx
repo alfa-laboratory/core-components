@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs';
 import { text, boolean, select, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
@@ -68,6 +68,32 @@ import { colors } from '../colors';
     })}
 </Story>
 
+<Story name='Typography.TitleMobile'>
+    {React.createElement(() => {
+        const VIEW_TYPES = [
+            'xlarge',
+            'large',
+            'medium',
+            'small',
+            'xsmall',
+        ];
+        const color = select('color', colors, '');
+        const weight = select('weight', ['regular', 'medium', 'bold', '-'], '-');
+        const font = select('font', ['styrene', 'system'], 'styrene');
+        return VIEW_TYPES.map(view => (
+            <Typography.TitleMobile
+                view={view}
+                color={color}
+                weight={weight}
+                font={font}
+                key={view}
+            >
+                заголовок view='{view}'
+            </Typography.TitleMobile>
+        ))
+    })}
+</Story>
+
 <Story name='Typography.Text'>
     {React.createElement(() => {
         const VIEW_TYPES = [
@@ -83,11 +109,12 @@ import { colors } from '../colors';
         const color = select('color', colors, '');
         const tag = select('tag', ['div', 'p', 'span'], 'p');
         const weight = select('weight', ['regular', 'medium', 'bold'], 'regular');
+        const monospace = boolean('monospaceNumbers', false);
         return VIEW_TYPES.map(view => (
-            <Typography.Text view={view} color={color} tag={tag} weight={weight} key={view}>
+            <Typography.Text view={view} color={color} tag={tag} weight={weight} monospaceNumbers={monospace} key={view}>
                 {view}. Космологи́ческая сингуля́рность — состояния Вселенной в определённый момент времени в прошлом,
                 когда плотность энергии (материи) и кривизна пространства-времени были очень велики — порядка
-                планковских значений.
+                планковских значений. 1234567890, например.
             </Typography.Text>
         ));
     })}
@@ -101,7 +128,7 @@ import { colors } from '../colors';
     version={version}
     package='@alfalab/core-components/typography'
     stage={3}
-    design='https://www.figma.com/file/FWya6P55TnXkiVGaM2qBio/2020-Web-Hybrid-Typography?node-id=593%3A0'
+    design='https://www.figma.com/file/FWya6P55TnXkiVGaM2qBio/Web-Hybrid-Typography'
 />
 
 ```tsx

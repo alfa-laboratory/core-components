@@ -1,7 +1,6 @@
-import { ThemeProvider, ensure, themes } from '@storybook/theming';
-import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props, Preview } from '@storybook/addon-docs';
 
-import { Example } from 'storybook/blocks/example';
+import { Example } from 'storybook-addon-live-examples';
 
 export const defaultExample = `
 function Example() {
@@ -28,13 +27,10 @@ export const getCode = () => {
 <Meta
     title='Компоненты/Песочница'
     parameters={{
-        previewTabs: { canvas: { hidden: true } },
-        'theme-switcher': { themes: ['click', 'mobile', 'corp', 'site'] },
+        previewTabs: { canvas: { hidden: true } }
     }}
 />
 
 ## Песочница
 
-<ThemeProvider theme={ensure(themes.light)}>
-    <Example expanded={true} live={true} code={getCode()} />
-</ThemeProvider>
+<Example expanded={true} live={true} code={getCode()} language="jsx" />

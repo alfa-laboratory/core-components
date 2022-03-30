@@ -38,9 +38,14 @@ export type RadioGroupProps = {
     className?: string;
 
     /**
-     * Текст ошибки
+     * Отображение ошибки
      */
-    error?: string;
+    error?: ReactNode | boolean;
+
+    /**
+     * Текст подсказки снизу
+     */
+    hint?: ReactNode;
 
     /**
      * Дочерние элементы. Ожидаются компоненты `Radio` или `Tag`
@@ -87,6 +92,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
             direction = 'vertical',
             label,
             error,
+            hint,
             onChange,
             type = 'radio',
             dataTestId,
@@ -147,10 +153,13 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
                         name={name}
                         checked={checked}
                         className={styles.hiddenInput}
+                        value={child.props.value}
                     />
                 </label>
             );
         };
+
+        const errorMessage = typeof error === 'boolean' ? '' : error;
 
         return (
             <div
@@ -178,7 +187,15 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
                     </div>
                 ) : null}
 
-                {error && <span className={styles.errorMessage}>{error}</span>}
+                {errorMessage && (
+                    <span className={cn(styles.sub, styles.errorMessage)} role='alert'>
+                        {errorMessage}
+                    </span>
+                )}
+
+                {hint && !errorMessage && (
+                    <span className={cn(styles.sub, styles.hint)}>{hint}</span>
+                )}
             </div>
         );
     },

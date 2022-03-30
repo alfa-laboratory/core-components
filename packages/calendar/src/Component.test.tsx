@@ -1,16 +1,14 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {
-    subDays,
-    addDays,
-    setDate,
-    endOfMonth,
-    setMonth,
-    addMonths,
-    endOfYear,
-    subMonths,
-} from 'date-fns';
+import subDays from 'date-fns/subDays';
+import addDays from 'date-fns/addDays';
+import setDate from 'date-fns/setDate';
+import endOfMonth from 'date-fns/endOfMonth';
+import setMonth from 'date-fns/setMonth';
+import addMonths from 'date-fns/addMonths';
+import endOfYear from 'date-fns/endOfYear';
+import subMonths from 'date-fns/subMonths';
 import { act } from 'react-dom/test-utils';
 import { monthName, MONTHS } from './utils';
 import { View, SelectorView } from './typings';
@@ -100,7 +98,7 @@ describe('Calendar', () => {
             <Calendar
                 defaultMonth={defaultDate.getTime()}
                 maxDate={subMonths(defaultDate.getTime(), 1).getTime()}
-                key="2"
+                key='2'
             />,
         );
 
@@ -136,12 +134,16 @@ describe('Calendar', () => {
             const prevMonthMinDate = subDays(defaultDate, 30).getTime();
 
             const { container, getByLabelText } = render(
-                <Calendar value={defaultValue} minDate={prevMonthMinDate} />,
+                <Calendar
+                    value={defaultValue}
+                    minDate={prevMonthMinDate}
+                    selectorView='month-only'
+                />,
             );
 
             expect(container.querySelectorAll('table button:disabled')).toHaveLength(0);
 
-            getByLabelText('Предыдущий месяц').click();
+            getByLabelText('Предыдущий период').click();
 
             const nonDisabledDays = container.querySelectorAll('table button:not(:disabled)');
 
@@ -154,14 +156,24 @@ describe('Calendar', () => {
             const prevMonthMinDate = subDays(defaultDate, 30).getTime();
 
             const { queryByLabelText, rerender } = render(
-                <Calendar value={defaultValue} minDate={currentMonthMinDate} />,
+                <Calendar
+                    value={defaultValue}
+                    minDate={currentMonthMinDate}
+                    selectorView='month-only'
+                />,
             );
 
-            const prevMonthButton = () => queryByLabelText('Предыдущий месяц') as HTMLElement;
+            const prevMonthButton = () => queryByLabelText('Предыдущий период') as HTMLElement;
 
             expect(prevMonthButton()).not.toBeInTheDocument();
 
-            rerender(<Calendar value={defaultValue} minDate={prevMonthMinDate} />);
+            rerender(
+                <Calendar
+                    value={defaultValue}
+                    minDate={prevMonthMinDate}
+                    selectorView='month-only'
+                />,
+            );
 
             expect(prevMonthButton()).toBeInTheDocument();
 
@@ -209,12 +221,12 @@ describe('Calendar', () => {
         it('should disable all days after maxDate', async () => {
             const maxDate = addDays(defaultDate, 10).getTime();
             const { container, getByLabelText } = render(
-                <Calendar value={defaultValue} maxDate={maxDate} />,
+                <Calendar value={defaultValue} maxDate={maxDate} selectorView='month-only' />,
             );
 
             expect(container.querySelectorAll('table button:disabled')).toHaveLength(0);
 
-            getByLabelText('Следующий месяц').click();
+            getByLabelText('Следующий период').click();
 
             await waitForMonthChange();
 
@@ -229,10 +241,10 @@ describe('Calendar', () => {
             const maxDate = addDays(defaultDate, 10).getTime();
 
             const { queryByLabelText } = render(
-                <Calendar value={defaultValue} maxDate={maxDate} />,
+                <Calendar value={defaultValue} maxDate={maxDate} selectorView='month-only' />,
             );
 
-            const nextMonthButton = () => queryByLabelText('Следующий месяц') as HTMLElement;
+            const nextMonthButton = () => queryByLabelText('Следующий период') as HTMLElement;
 
             expect(nextMonthButton()).toBeInTheDocument();
 
@@ -241,19 +253,26 @@ describe('Calendar', () => {
             expect(nextMonthButton()).not.toBeInTheDocument();
         });
 
-        it('should disable next months', () => {
-            const nextYearDate = addDays(defaultDate, 32).getTime();
+        it('should disable next months', async () => {
+            const nextYearDate = addDays(defaultDate, 32);
 
-            const { getByText, getByLabelText, container } = render(
-                <Calendar value={defaultValue} maxDate={nextYearDate} />,
+            const { getByText, container } = render(
+                <Calendar
+                    value={defaultValue}
+                    maxDate={nextYearDate.getTime()}
+                    selectorView='full'
+                />,
             );
 
             getByText('Ноябрь').click();
 
             expect(container.querySelectorAll('button[data-date]:disabled')).toHaveLength(0);
 
-            getByLabelText('Следующий месяц').click();
-            getByLabelText('Следующий месяц').click();
+            getByText(defaultDate.getFullYear().toString()).click();
+
+            getByText(nextYearDate.getFullYear().toString()).click();
+
+            await waitForMonthChange();
 
             getByText('Январь').click();
 
@@ -284,12 +303,12 @@ describe('Calendar', () => {
 
                 if (date < selectedDay || date > highlightedDay) {
                     expect(day).not.toHaveClass('highlighted');
-                    expect(day).not.toHaveClass('range');
+                    expect(day.parentElement).not.toHaveClass('range');
                     return;
                 }
 
                 if (date === selectedDay) {
-                    expect(day).toHaveClass('rangeStart');
+                    expect(day.parentElement).toHaveClass('rangeStart');
                     expect(day).toHaveClass('selected');
                     return;
                 }
@@ -299,7 +318,7 @@ describe('Calendar', () => {
                     return;
                 }
 
-                expect(day).toHaveClass('range');
+                expect(day.parentElement).toHaveClass('range');
             });
         });
 
@@ -325,7 +344,7 @@ describe('Calendar', () => {
 
                 if (date < highlightedDay || date > selectedDay) {
                     expect(day).not.toHaveClass('highlighted');
-                    expect(day).not.toHaveClass('range');
+                    expect(day.parentElement).not.toHaveClass('range');
                     return;
                 }
 
@@ -335,18 +354,18 @@ describe('Calendar', () => {
                 }
 
                 if (date === highlightedDay) {
-                    expect(day).toHaveClass('rangeStart');
+                    expect(day.parentElement).toHaveClass('rangeStart');
                     expect(day).toHaveClass('highlighted');
                     return;
                 }
 
-                expect(day).toHaveClass('range');
+                expect(day.parentElement).toHaveClass('range');
             });
         });
     });
 
     describe('when only selectedTo is set', () => {
-        it('should not highlight anything', () => {
+        it('should highlight days between selectedTo and hightlighted', () => {
             const selectedDay = 15;
             const highlightedDay = 20;
 
@@ -364,8 +383,21 @@ describe('Calendar', () => {
             fireEvent.mouseEnter(days[highlightedDate.getDate() - 1]);
 
             days.forEach(day => {
-                expect(day).not.toHaveClass('range');
-                expect(day).not.toHaveClass('rangeStart');
+                const date = +(day.textContent || '');
+
+                if (date < selectedDay || date > highlightedDay) {
+                    expect(day).not.toHaveClass('highlighted');
+                    expect(day.parentElement).not.toHaveClass('range');
+                    return;
+                }
+
+                if (date === selectedDay) {
+                    expect(day.parentElement).toHaveClass('rangeStart');
+                    expect(day).toHaveClass('selected');
+                    return;
+                }
+
+                expect(day.parentElement).toHaveClass('range');
             });
         });
     });
@@ -398,12 +430,12 @@ describe('Calendar', () => {
 
                 if (date < fromDay || date > toDay) {
                     expect(day).not.toHaveClass('highlighted');
-                    expect(day).not.toHaveClass('range');
+                    expect(day.parentElement).not.toHaveClass('range');
                     return;
                 }
 
                 if (date === fromDay) {
-                    expect(day).toHaveClass('rangeStart');
+                    expect(day.parentElement).toHaveClass('rangeStart');
                     return;
                 }
 
@@ -416,7 +448,7 @@ describe('Calendar', () => {
                     expect(day).toHaveClass('highlighted');
                 }
 
-                expect(day).toHaveClass('range');
+                expect(day.parentElement).toHaveClass('range');
             });
         });
     });
@@ -436,7 +468,7 @@ describe('Calendar', () => {
 
             const days = container.querySelectorAll('button[data-date]');
 
-            expect(days[days.length - 1]).toHaveClass('transitRight');
+            expect(days[days.length - 1].parentElement).toHaveClass('transitRight');
         });
 
         it('should set transitLeft class to first day of selectedTo month', () => {
@@ -448,14 +480,15 @@ describe('Calendar', () => {
                     defaultMonth={defaultValue}
                     selectedTo={selectedTo.getTime()}
                     selectedFrom={selectedFrom.getTime()}
+                    selectorView='month-only'
                 />,
             );
 
-            getByLabelText('Следующий месяц').click();
+            getByLabelText('Следующий период').click();
 
             const days = container.querySelectorAll('button[data-date]');
 
-            expect(days[0]).toHaveClass('transitLeft');
+            expect(days[0].parentElement).toHaveClass('transitLeft');
         });
     });
 
@@ -485,7 +518,7 @@ describe('Calendar', () => {
 
         events.forEach(day => {
             const dayOfMonth = day.getDate().toString();
-            expect(queryByText(dayOfMonth)?.parentNode).toHaveClass('event');
+            expect(queryByText(dayOfMonth)?.firstElementChild).toHaveClass('dot');
         });
     });
 
@@ -499,30 +532,73 @@ describe('Calendar', () => {
             expect(cb).toBeCalledTimes(1);
         });
 
-        it('should call onMonthChange callback', () => {
+        it('should call onMonthChange callback in full view', () => {
             const cb = jest.fn();
-            const { getByLabelText, getByText } = render(
-                <Calendar defaultMonth={defaultDate.getTime()} onMonthChange={cb} />,
+            const { getByText } = render(
+                <Calendar
+                    defaultMonth={defaultDate.getTime()}
+                    onMonthChange={cb}
+                    selectorView='full'
+                />,
             );
 
-            // 1
-            getByLabelText('Следующий месяц').click();
-            // 2
-            getByLabelText('Предыдущий месяц').click();
-
-            // 3
+            // открытие
             getByText('Ноябрь').click();
             act(() => {
+                // изменение
                 getByText('Октябрь').click();
             });
 
-            // 4
             getByText('2020').click();
             act(() => {
                 getByText('2019').click();
             });
 
-            expect(cb).toBeCalledTimes(4);
+            expect(cb).toBeCalledTimes(2);
+        });
+
+        it('should call onMonthChange callback in month-only view', () => {
+            const cb = jest.fn();
+            const { getByLabelText } = render(
+                <Calendar
+                    defaultMonth={defaultDate.getTime()}
+                    onMonthChange={cb}
+                    selectorView='month-only'
+                />,
+            );
+
+            getByLabelText('Следующий период').click();
+            getByLabelText('Предыдущий период').click();
+
+            expect(cb).toBeCalledTimes(2);
+        });
+
+        it('should call onMonthClick callback in full view', () => {
+            const cb = jest.fn();
+            const { getByText } = render(
+                <Calendar
+                    defaultMonth={defaultDate.getTime()}
+                    onMonthClick={cb}
+                    selectorView='full'
+                />,
+            );
+
+            getByText('Ноябрь').click();
+            expect(cb).toBeCalledTimes(1);
+        });
+
+        it('should call onYearClick callback in full view', () => {
+            const cb = jest.fn();
+            const { getByText } = render(
+                <Calendar
+                    defaultMonth={defaultDate.getTime()}
+                    onYearClick={cb}
+                    selectorView='full'
+                />,
+            );
+
+            getByText('2020').click();
+            expect(cb).toBeCalledTimes(1);
         });
     });
 

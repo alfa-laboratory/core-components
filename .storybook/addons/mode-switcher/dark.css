@@ -1,0 +1,11 @@
+@import '../../../packages/themes/src/dark.css';
+
+body {
+    background: var(--color-dark-bg-primary);
+    color: var(--color-dark-text-primary);
+}
+
+#docs-root .sbdocs-wrapper {
+    background: var(--color-dark-bg-primary);
+    color: var(--color-dark-text-primary);
+}

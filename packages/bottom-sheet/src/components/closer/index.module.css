@@ -1,0 +1,18 @@
+:root {
+    --bottom-sheet-closer-bg-color: var(--color-light-bg-primary-alpha-40);
+}
+
+.closer {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.button {
+    background: var(--bottom-sheet-closer-bg-color);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+}

@@ -3,6 +3,108 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.1.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-textarea@6.1.3...@alfalab/core-components-textarea@6.1.4) (2021-12-08)
+
+
+### Bug Fixes
+
+* актуализируем @alfalab/utils ([#897](https://github.com/alfa-laboratory/core-components/issues/897)) ([30fb88e](https://github.com/alfa-laboratory/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+
+
+
+
+
+## [6.1.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-textarea@6.1.2...@alfalab/core-components-textarea@6.1.3) (2021-10-25)
+
+
+### Bug Fixes
+
+* **textarea:** поправлен отступ в размере xl ([#859](https://github.com/alfa-laboratory/core-components/issues/859)) ([fcd586b](https://github.com/alfa-laboratory/core-components/commit/fcd586b03761bda053c7c3fd9381bb94227711d7))
+
+
+
+
+
+## [6.1.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-textarea@6.1.1...@alfalab/core-components-textarea@6.1.2) (2021-10-15)
+
+
+### Bug Fixes
+
+* input & textarea disabled color on safari ([39ea4ef](https://github.com/alfa-laboratory/core-components/commit/39ea4ef7e948016a4ffa17c563cfdd13169a3c2b))
+
+
+
+
+
+## [6.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-textarea@6.1.0...@alfalab/core-components-textarea@6.1.1) (2021-10-11)
+
+**Note:** Version bump only for package @alfalab/core-components-textarea
+
+
+
+
+
+# [6.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-textarea@6.0.6...@alfalab/core-components-textarea@6.1.0) (2021-09-14)
+
+
+### Features
+
+* change error type to ReactNode ([#825](https://github.com/alfa-laboratory/core-components/issues/825)) ([c6d95c1](https://github.com/alfa-laboratory/core-components/commit/c6d95c1c6239f2b2a3bf2c1639554d8500e794f3))
+
+
+
+
+
+## [6.0.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-textarea@6.0.5...@alfalab/core-components-textarea@6.0.6) (2021-08-31)
+
+
+### Bug Fixes
+
+* **textarea:** missing vars ([#817](https://github.com/alfa-laboratory/core-components/issues/817)) ([d03231f](https://github.com/alfa-laboratory/core-components/commit/d03231f24c826f540ecc8c6ddeb2b3e3fec38b6a))
+
+
+
+
+
+## [6.0.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-textarea@6.0.4...@alfalab/core-components-textarea@6.0.5) (2021-08-23)
+
+
+### Bug Fixes
+
+* **form-control:** l size offset between value and label (PDS-270) ([#781](https://github.com/alfa-laboratory/core-components/issues/781)) ([311f8a0](https://github.com/alfa-laboratory/core-components/commit/311f8a0eaa97cf7d0c89d4a3cdfc443aef2d763c))
+* **input:** smart error icon ([#746](https://github.com/alfa-laboratory/core-components/issues/746)) ([f1950d6](https://github.com/alfa-laboratory/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/alfa-laboratory/core-components/issues/782)
+
+
+
+
+
+## [6.0.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-textarea@6.0.3...@alfalab/core-components-textarea@6.0.4) (2021-08-11)
+
+
+### Bug Fixes
+
+* extend hint type to ReactNode ([#792](https://github.com/alfa-laboratory/core-components/issues/792)) ([d02784e](https://github.com/alfa-laboratory/core-components/commit/d02784e392f5ca3a30ae009109fbb6351967f746))
+
+
+
+
+
+## [6.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-textarea@6.0.2...@alfalab/core-components-textarea@6.0.3) (2021-08-04)
+
+**Note:** Version bump only for package @alfalab/core-components-textarea
+
+
+
+
+
+## [6.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-textarea@6.0.1...@alfalab/core-components-textarea@6.0.2) (2021-07-23)
+
+**Note:** Version bump only for package @alfalab/core-components-textarea
+
+
+
+
+
 ## [6.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-textarea@6.0.0...@alfalab/core-components-textarea@6.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-textarea

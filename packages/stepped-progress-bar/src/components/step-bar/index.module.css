@@ -1,0 +1,45 @@
+@import '../../../../themes/src/default.css';
+
+.bar {
+    width: 100%;
+    height: var(--gap-2xs);
+    margin-right: var(--gap-2xs);
+    border-radius: var(--border-radius-xs);
+    background: var(--color-light-bg-primary-inverted-alpha-10);
+}
+
+.bar:last-child {
+    margin-right: 0;
+}
+
+.positive {
+    background: var(--color-light-graphic-positive);
+}
+
+.attention {
+    background: var(--color-light-graphic-attention);
+}
+
+.negative {
+    background: var(--color-light-graphic-negative);
+}
+
+.link {
+    background: var(--color-light-graphic-link);
+}
+
+.tertiary {
+    background: var(--color-light-graphic-tertiary);
+}
+
+.secondary {
+    background: var(--color-light-graphic-secondary);
+}
+
+.primary {
+    background: var(--color-light-graphic-primary);
+}
+
+.accent {
+    background: var(--color-light-graphic-accent);
+}

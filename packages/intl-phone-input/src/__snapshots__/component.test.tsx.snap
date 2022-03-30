@@ -3,7 +3,6 @@
 exports[`IntlPhoneInput should match snapshot 1`] = `
 <div>
   <div
-    aria-expanded="false"
     aria-haspopup="listbox"
     aria-owns="downshift-1-menu"
     class="component"
@@ -11,10 +10,10 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
     tabindex="-1"
   >
     <div
-      class="component m m block hasLeftAddons"
+      class="component component m m block hasLeftAddons"
     >
       <div
-        class="inner filled"
+        class="inner inner filled"
       >
         <div
           class="addons leftAddons addons"
@@ -23,10 +22,10 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
             class="component"
           >
             <div
-              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="downshift-3-menu"
               class="component"
+              data-test-id="countries-select"
               role="combobox"
               tabindex="-1"
             >
@@ -44,12 +43,22 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
                     class="flagIconContainer"
                   >
                     <span
-                      class="flagIcon m ru"
+                      class="flagIcon ru"
                     />
                   </span>
-                  <span
+                  <svg
                     class="arrow"
-                  />
+                    fill="currentColor"
+                    focusable="false"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      d="M12 14L6.5 8.5 5 10l7 7 7-7-1.5-1.5L12 14z"
+                    />
+                  </svg>
                 </div>
               </div>
             </div>
@@ -66,7 +75,7 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
               aria-controls="downshift-1-menu"
               aria-labelledby="downshift-1-label"
               autocomplete="off"
-              class="input"
+              class="input input"
               id="downshift-0-input"
               tabindex="0"
               type="tel"
@@ -75,7 +84,6 @@ exports[`IntlPhoneInput should match snapshot 1`] = `
           </div>
         </div>
       </div>
-      
     </div>
   </div>
 </div>

@@ -1,8 +1,14 @@
 import cn from 'classnames';
-import React, { useMemo } from 'react';
+import React, { ReactNode, useMemo } from 'react';
 import { Typography } from '@alfalab/core-components-typography';
 
 import styles from './index.module.css';
+
+const SIZES = {
+    s: 96,
+    m: 120,
+    l: 144,
+};
 
 export type CircularProgressBarProps = {
     /**
@@ -18,12 +24,12 @@ export type CircularProgressBarProps = {
     /**
      * Основной текст
      */
-    title?: string;
+    title?: ReactNode;
 
     /**
      * Дополнительный текст
      */
-    subtitle?: string;
+    subtitle?: ReactNode;
 
     /**
      * Цвет заполнения
@@ -31,9 +37,9 @@ export type CircularProgressBarProps = {
     view?: 'positive' | 'negative';
 
     /**
-     * Размер (l - 144x144px, m - 120x120px)
+     * Размер (l — 144×144px, m — 120×120px, s — 96×96px)
      */
-    size?: 'l' | 'm';
+    size?: 'l' | 'm' | 's';
 
     /**
      * Id компонента для тестов
@@ -50,7 +56,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
     size = 'm',
     className,
     dataTestId,
-    title = value,
+    title = value.toString(),
     subtitle,
     children,
 }) => {
@@ -58,8 +64,8 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
         const strokeWidth = 8;
         const maxProgress = 100;
         const minProgress = 0;
-        const width = size === 'l' ? 144 : 120;
-        const height = size === 'l' ? 144 : 120;
+        const width = SIZES[size];
+        const height = SIZES[size];
         const center = width / 2;
         const radius = center - strokeWidth / 2;
         const circumference = Math.PI * radius * 2;
@@ -103,7 +109,7 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
             <div className={styles.label}>
                 {children || (
                     <React.Fragment>
-                        {title && (
+                        {typeof title === 'string' ? (
                             <Typography.Title
                                 className={styles.title}
                                 color='secondary'
@@ -112,8 +118,10 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                             >
                                 {title}
                             </Typography.Title>
+                        ) : (
+                            title
                         )}
-                        {subtitle && (
+                        {typeof subtitle === 'string' ? (
                             <Typography.Text
                                 tag='div'
                                 className={styles.subtitle}
@@ -122,6 +130,8 @@ export const CircularProgressBar: React.FC<CircularProgressBarProps> = ({
                             >
                                 {subtitle}
                             </Typography.Text>
+                        ) : (
+                            subtitle
                         )}
                     </React.Fragment>
                 )}

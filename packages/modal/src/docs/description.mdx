@@ -16,7 +16,7 @@ render(() => {
                 Открыть модалку
             </Button>
             <ModalDesktop open={open} onClose={handleModalOpen} size='m'>
-                <ModalDesktop.Header closer={true} />
+                <ModalDesktop.Header hasCloser={true} />
                 <ModalDesktop.Content>
                     <Typography.Title tag='div' view='small'>
                         Почему банк проверяет мои операции?
@@ -48,24 +48,59 @@ render(() => {
 });
 ```
 
-### Плавающий крестик без шапки
+### Настройка шапки (HeaderMobile)
 
 ```tsx live
 // import { Typography } from '@alfalab/core-components/typography';
 
 render(() => {
     const [open, setOpen] = React.useState(false);
+    const [trim, setTrim] = React.useState(true);
+    const [leftAddons, setLeftAddons] = React.useState(false);
+    const [hasCloser, setHasCloser] = React.useState(true);
 
     const handleModalOpen = () => setOpen(!open);
 
     return (
         <React.Fragment>
-            <Button type='button' size='xs' onClick={handleModalOpen}>
-                Открыть модалку
-            </Button>
-            <ModalDesktop open={open} onClose={handleModalOpen}>
-                <ModalDesktop.Closer align='right' />
-                <ModalDesktop.Content>
+            <Space>
+                <Button type='button' size='xs' onClick={handleModalOpen}>
+                    Открыть модалку
+                </Button>
+                <Checkbox
+                    onChange={() => setTrim(!trim)}
+                    checked={trim}
+                    label='Обрезка заголовка'
+                />
+                <Checkbox
+                    onChange={() => setHasCloser(!hasCloser)}
+                    checked={hasCloser}
+                    label='Крестик'
+                />
+                <Checkbox
+                    onChange={() => setLeftAddons(!leftAddons)}
+                    checked={leftAddons}
+                    label='Левый аддон'
+                />
+            </Space>
+            <ModalMobile open={open} onClose={handleModalOpen} size='m'>
+                <ModalMobile.Header
+                    hasCloser={hasCloser}
+                    title='Пример очень-очень длинного заголовка в шапке'
+                    trim={trim}
+                    leftAddons={
+                        leftAddons ? (
+                            <div
+                                style={{
+                                    width: 48,
+                                    height: 48,
+                                    background: 'rgba(207, 112, 255, 0.1)',
+                                }}
+                            />
+                        ) : null
+                    }
+                />
+                <ModalMobile.Content>
                     <Typography.Text tag='p'>
                         Сейчас много говорят об отказах банков в проведении операций, блокировках
                         интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки
@@ -73,29 +108,20 @@ render(() => {
                         Федерального закона 115-ФЗ «О противодействии легализации (отмыванию)
                         доходов, полученных преступным путем, и финансированию терроризма».
                     </Typography.Text>
+                    <br />
                     <Typography.Text tag='p'>
-                        Сейчас много говорят об отказах банков в проведении операций, блокировках
-                        интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки
-                        выявлять операции своих клиентов, потенциально нарушающие требования
-                        Федерального закона 115-ФЗ «О противодействии легализации (отмыванию)
-                        доходов, полученных преступным путем, и финансированию терроризма».
+                        Ознакомиться с требованиями ЦБ РФ можно на официальном сайте. Банки обязаны
+                        предотвращать проведение таких операций и поэтому могут запросить
+                        дополнительную информацию и документы, ограничить доступ к платежам через
+                        интернет-банк или даже отказать в исполнении платежа.
                     </Typography.Text>
-                    <Typography.Text tag='p'>
-                        Сейчас много говорят об отказах банков в проведении операций, блокировках
-                        интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки
-                        выявлять операции своих клиентов, потенциально нарушающие требования
-                        Федерального закона 115-ФЗ «О противодействии легализации (отмыванию)
-                        доходов, полученных преступным путем, и финансированию терроризма».
-                    </Typography.Text>
-                    <Typography.Text tag='p'>
-                        Сейчас много говорят об отказах банков в проведении операций, блокировках
-                        интернет-банка. Это связано с тем, что Центральный банк РФ обязывает банки
-                        выявлять операции своих клиентов, потенциально нарушающие требования
-                        Федерального закона 115-ФЗ «О противодействии легализации (отмыванию)
-                        доходов, полученных преступным путем, и финансированию терроризма».
-                    </Typography.Text>
-                </ModalDesktop.Content>
-            </ModalDesktop>
+                </ModalMobile.Content>
+                <ModalMobile.Footer>
+                    <Button view='primary' size='s' onClick={handleModalOpen}>
+                        Понятно
+                    </Button>
+                </ModalMobile.Footer>
+            </ModalMobile>
         </React.Fragment>
     );
 });
@@ -140,6 +166,7 @@ render(() => {
                 Открыть модалку
             </Button>
             <ModalDesktop open={open} onClose={handleModalOpen} fixedPosition={true}>
+                <ModalDesktop.Header />
                 <ModalDesktop.Content>
                     <p>Сейчас появится контент, который изменит высоту модального окна</p>
                     {loaded ? (
@@ -227,16 +254,7 @@ const Header = () => {
                     paddingTop: '6px',
                 }}
             >
-                <ModalDesktop.Closer
-                    rightAddons={<CrossMIcon />}
-                    align='right'
-                    style={{
-                        background: '#fff',
-                        borderRadius: '50%',
-                        backgroundClip: 'content-box',
-                        padding: '8px',
-                    }}
-                />
+                <ModalDesktop.Closer />
             </div>
         </>
     );

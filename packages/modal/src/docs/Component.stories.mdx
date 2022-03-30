@@ -1,4 +1,4 @@
-import { Meta, Props, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Props, Story } from '@storybook/addon-docs';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
@@ -15,7 +15,6 @@ import vars from '!!raw-loader!../vars.css';
 
 <Meta
     title='Компоненты/Modal'
-    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
 export const Text = () => (
@@ -58,9 +57,11 @@ export const Content = () => {
         const [open, setOpen] = React.useState(false);
         const handleModalOpen = () => setOpen(!open);
         const component = select('ModalComponent', ['ModalResponsive', 'ModalDesktop', 'ModalMobile'], 'ModalResponsive');
-        const header = boolean('header', false);
+        const header = boolean('header', true);
         const headerTitle = text('header.title');
         const hasCloser = boolean('header.hasCloser', true);
+        const trim = boolean('header.trim', true);
+        const align = select('header.align', ['left', 'right', 'center'], 'left');
         const stickyHeader = boolean('header.sticky', false);
         const footer = boolean('footer', false);
         const stickyFooter = boolean('footer.sticky', false);
@@ -75,8 +76,7 @@ export const Content = () => {
             }[component]
         }, [component]);
         const props = ModalComponent !== ModalMobile ? {
-            size: select('size', ['s', 'm', 'l'], 's'),
-            fullscreen: boolean('fullscreen', false),
+            size: select('size', ['s', 'm', 'l', 'xl', 'fullscreen'], 's'),
         } : {};
         return (
             <React.Fragment>
@@ -92,10 +92,9 @@ export const Content = () => {
                             sticky={stickyHeader}
                             hasCloser={hasCloser}
                             title={headerTitle}
+                            trim={trim}
+                            align={align}
                         />
-                    )}
-                    {!header && hasCloser && (
-                        <ModalDesktop.Closer align='right' />
                     )}
                     <ModalComponent.Content flex={flexContent}>
                         <Content />

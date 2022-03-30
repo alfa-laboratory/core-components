@@ -1,5 +1,17 @@
-.addons {
-    padding: 0;
+@import '../../themes/src/default.css';
+
+.eye:last-child {
+    margin-right: var(--gap-s-neg);
+}
+
+.xl {
+    & .eye:last-child {
+        margin-right: var(--gap-m-neg);
+    }
+
+    & .eye {
+        margin-left: var(--gap-2xs);
+    }
 }
 
 .input::-ms-reveal {

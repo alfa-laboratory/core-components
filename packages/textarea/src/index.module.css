@@ -17,7 +17,7 @@
     --textarea-s-filled-margin-top: 23px;
     --textarea-m-filled-margin-top: 28px;
     --textarea-l-filled-margin-top: 32px;
-    --textarea-xl-filled-margin-top: 34px;
+    --textarea-xl-filled-margin-top: 38px;
 
     /* filled min-height */
     --textarea-s-filled-min-height: calc(
@@ -41,7 +41,6 @@
     display: block;
     width: 100%;
     height: 100%;
-    color: var(--input-color);
     background: none;
     border: none;
     margin: 0;
@@ -49,7 +48,6 @@
     box-sizing: border-box;
     resize: none;
     -webkit-appearance: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
     &.s {
         padding-top: var(--textarea-s-padding-top);
@@ -74,12 +72,10 @@
 
 .textarea::placeholder {
     transition: opacity 0.2s ease, color 0.2s ease;
-    color: var(--input-placeholder-color);
 }
 
 .hasLabel::placeholder {
     opacity: 0;
-    color: var(--input-with-label-placeholder-color);
 }
 
 .resizeVertical {
@@ -110,24 +106,19 @@
 
 .textarea:disabled {
     cursor: var(--disabled-cursor);
-    color: var(--input-disabled-color);
+    opacity: 1;
 }
 
 /* READ-ONLY STATE */
 
 .textarea:read-only {
     cursor: var(--disabled-cursor);
-    color: var(--input-read-only-color);
 }
 
 /* FOCUS STATE */
 
 .textarea:focus.hasLabel::placeholder {
     opacity: 1;
-}
-
-.textarea:focus::placeholder {
-    color: var(--input-focus-placeholder-color);
 }
 
 .focusVisible {

@@ -34,6 +34,7 @@ export const BaseSelect = forwardRef(
             fieldClassName,
             optionsListClassName,
             optionClassName,
+            popperClassName,
             options,
             autocomplete = false,
             multiple = false,
@@ -43,6 +44,7 @@ export const BaseSelect = forwardRef(
             circularNavigation = false,
             nativeSelect = false,
             defaultOpen = false,
+            open: openProp,
             popoverPosition = 'bottom-start',
             preventFlip = true,
             optionsListWidth = 'content',
@@ -64,12 +66,14 @@ export const BaseSelect = forwardRef(
             onOpen,
             onFocus,
             onBlur,
+            onScroll,
             Arrow,
             Field = () => null,
             OptionsList = () => null,
             Optgroup = () => null,
             Option = () => null,
             updatePopover,
+            zIndexPopover,
             showEmptyOptionsList = false,
             visibleOptions,
         }: BaseSelectProps,
@@ -78,6 +82,7 @@ export const BaseSelect = forwardRef(
         const rootRef = useRef<HTMLLabelElement>(null);
         const fieldRef = useRef<HTMLInputElement>(null);
         const listRef = useRef<HTMLDivElement>(null);
+        const initiatorRef = useRef<OptionShape | null>(null);
 
         const itemToString = (option: OptionShape) => (option ? option.key : '');
 
@@ -95,8 +100,11 @@ export const BaseSelect = forwardRef(
                     onChange({
                         selectedMultiple: selectedItems,
                         selected: selectedItems.length ? selectedItems[0] : null,
+                        initiator: initiatorRef.current,
                         name,
                     });
+
+                    initiatorRef.current = null;
                 }
             },
             stateReducer: (state, actionAndChanges) => {
@@ -137,16 +145,25 @@ export const BaseSelect = forwardRef(
             openMenu,
         } = useCombobox<OptionShape>({
             id,
+            isOpen: openProp,
             circularNavigation,
             items: flatOptions,
             itemToString,
             defaultHighlightedIndex: selectedItems.length === 0 ? -1 : undefined,
             onIsOpenChange: changes => {
                 if (onOpen) {
-                    onOpen({
-                        open: changes.isOpen,
-                        name,
-                    });
+                    /**
+                     *  Вызываем обработчик асинхронно.
+                     *
+                     * Иначе при клике вне открытого селекта сначала сработает onOpen, который закроет селект,
+                     * А затем сработает onClick кнопки открытия\закрытия с open=false и в итоге селект откроется снова.
+                     */
+                    setTimeout(() => {
+                        onOpen({
+                            open: changes.isOpen,
+                            name,
+                        });
+                    }, 0);
                 }
             },
             stateReducer: (state, actionAndChanges) => {
@@ -156,6 +173,8 @@ export const BaseSelect = forwardRef(
                 switch (type) {
                     case useCombobox.stateChangeTypes.InputKeyDownEnter:
                     case useCombobox.stateChangeTypes.ItemClick:
+                        initiatorRef.current = selectedItem;
+
                         if (selectedItem && !selectedItem.disabled) {
                             const alreadySelected = selectedItems.includes(selectedItem);
                             const allowRemove =
@@ -204,20 +223,31 @@ export const BaseSelect = forwardRef(
         };
 
         const handleFieldBlur = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
-            if (onBlur) onBlur(event);
+            const isNextFocusInsideList = listRef.current?.contains(
+                (event.relatedTarget || document.activeElement) as HTMLElement,
+            );
 
-            inputProps.onBlur(event);
+            if (!isNextFocusInsideList) {
+                if (onBlur) onBlur(event);
+
+                inputProps.onBlur(event);
+            }
         };
 
         const handleFieldKeyDown = (event: KeyboardEvent<HTMLDivElement | HTMLInputElement>) => {
             inputProps.onKeyDown(event);
-
-            if (autocomplete && !open && event.key.length === 1) {
+            if (autocomplete && !open && (event.key.length === 1 || event.key === 'Backspace')) {
                 // Для автокомплита - открываем меню при начале ввода
                 openMenu();
             }
 
-            if ([' ', 'Enter'].includes(event.key) && !autocomplete && !nativeSelect) {
+            if (
+                [' ', 'Enter'].includes(event.key) &&
+                !autocomplete &&
+                !nativeSelect &&
+                (event.target as HTMLElement).tagName !== 'INPUT' &&
+                (event.target as HTMLElement).tagName !== 'BUTTON'
+            ) {
                 // Открываем\закрываем меню по нажатию enter или пробела
                 event.preventDefault();
                 if (!open || highlightedIndex === -1) toggleMenu();
@@ -245,44 +275,47 @@ export const BaseSelect = forwardRef(
             [flatOptions, setSelectedItems],
         );
 
-        const WrappedOption = useCallback(
-            ({ option, index, ...rest }: { option: OptionShape; index: number }) => (
-                <React.Fragment key={option.key}>
-                    {Option({
-                        ...(optionProps as object),
-                        ...rest,
-                        className: optionClassName,
-                        innerProps: getItemProps({
-                            index,
-                            item: option,
-                            disabled: option.disabled,
-                            onMouseDown: (event: MouseEvent) => event.preventDefault(),
-                        }),
-                        index,
-                        option,
-                        size: optionsSize,
-                        disabled: option.disabled,
-                        highlighted: index === highlightedIndex,
-                        selected: selectedItems.includes(option),
-                        dataTestId: getDataTestId(dataTestId, 'option'),
-                    })}
-                </React.Fragment>
-            ),
+        const getOptionProps = useCallback(
+            (option: OptionShape, index: number) => ({
+                ...(optionProps as object),
+                className: optionClassName,
+                innerProps: getItemProps({
+                    index,
+                    item: option,
+                    disabled: option.disabled,
+                    onMouseDown: (event: MouseEvent) => event.preventDefault(),
+                }),
+                multiple,
+                index,
+                option,
+                size: optionsSize,
+                disabled: option.disabled,
+                highlighted: index === highlightedIndex,
+                selected: selectedItems.includes(option),
+                dataTestId: getDataTestId(dataTestId, 'option'),
+            }),
             [
-                Option,
-                optionProps,
-                optionClassName,
-                getItemProps,
-                optionsSize,
-                highlightedIndex,
-                selectedItems,
                 dataTestId,
+                getItemProps,
+                highlightedIndex,
+                multiple,
+                optionClassName,
+                optionProps,
+                optionsSize,
+                selectedItems,
             ],
         );
 
         useEffect(() => {
             if (defaultOpen) openMenu();
         }, [defaultOpen, openMenu]);
+
+        useEffect(() => {
+            if (openProp) {
+                openMenu();
+            }
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        }, []);
 
         const calcOptionsListWidth = useCallback(() => {
             if (listRef.current) {
@@ -355,6 +388,8 @@ export const BaseSelect = forwardRef(
                 <Field
                     selectedMultiple={selectedItems}
                     selected={selectedItems[0]}
+                    setSelectedItems={setSelectedItems}
+                    toggleMenu={toggleMenu}
                     multiple={multiple}
                     open={open}
                     disabled={disabled}
@@ -392,8 +427,9 @@ export const BaseSelect = forwardRef(
                         anchorElement={fieldRef.current as HTMLElement}
                         position={popoverPosition}
                         preventFlip={preventFlip}
-                        popperClassName={styles.popoverInner}
+                        popperClassName={cn(styles.popoverInner, popperClassName)}
                         update={updatePopover}
+                        zIndex={zIndexPopover}
                     >
                         {needRenderOptionsList && (
                             <div
@@ -408,8 +444,13 @@ export const BaseSelect = forwardRef(
                                     size={size}
                                     options={options}
                                     Optgroup={Optgroup}
-                                    Option={WrappedOption}
+                                    Option={Option}
+                                    selectedItems={selectedItems}
+                                    setSelectedItems={setSelectedItems}
+                                    toggleMenu={toggleMenu}
+                                    getOptionProps={getOptionProps}
                                     visibleOptions={visibleOptions}
+                                    onScroll={onScroll}
                                     dataTestId={getDataTestId(dataTestId, 'options-list')}
                                 />
                             </div>

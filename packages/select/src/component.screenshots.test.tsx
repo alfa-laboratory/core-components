@@ -131,13 +131,15 @@ describe('Select | interactions tests', () => {
                     options: JSON.stringify(options),
                 },
             });
-            const { browser, context, page, css } = await openBrowserPage(pageUrl);
+            const { browser, context, page, css } = await openBrowserPage(
+                `${pageUrl}&theme=${theme}`,
+            );
 
             const viewport = { width: 260, height: 768 };
 
             await page.setViewportSize(viewport);
 
-            const match = async () => matchHtml({ page, expect, css, theme, viewport });
+            const match = async () => matchHtml({ page, expect, css, viewport });
 
             try {
                 await match();
@@ -243,8 +245,36 @@ describe('Select | optgroup', () => {
                         componentName: 'Select',
                         knobs: {
                             options: JSON.stringify(groups),
-                            selected: groups[0].options[1].key,
+                            selected: JSON.stringify(groups[0].options[1].key),
                             size: 'l',
+                            defaultOpen: true,
+                            block: true,
+                            placeholder: 'Выберите элемент',
+                        },
+                    }),
+                ],
+            ],
+            screenshotOpts: {
+                fullPage: true,
+            },
+            theme,
+        })();
+
+    ['default', 'click'].map(testCase);
+});
+
+describe('Select | multiple', () => {
+    const testCase = (theme: string) =>
+        screenshotTesting({
+            cases: [
+                [
+                    `${theme}`,
+                    createStorybookUrl({
+                        componentName: 'Select',
+                        knobs: {
+                            options: JSON.stringify(options),
+                            selected: JSON.stringify([options[0].key, options[1].key]),
+                            multiple: true,
                             defaultOpen: true,
                             block: true,
                             placeholder: 'Выберите элемент',

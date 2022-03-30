@@ -8,8 +8,10 @@ import React, {
     ReactNode,
     useRef,
     Fragment,
+    MutableRefObject,
 } from 'react';
 import cn from 'classnames';
+import mergeRefs from 'react-merge-refs';
 
 import { Popover, Position, PopoverProps } from '@alfalab/core-components-popover';
 
@@ -17,7 +19,7 @@ import styles from './index.module.css';
 
 type Trigger = 'click' | 'hover';
 
-type RefElement = HTMLElement | null;
+type RefElement = HTMLDivElement | null;
 
 export type TooltipProps = {
     /**
@@ -115,6 +117,33 @@ export type TooltipProps = {
      * z-index компонента
      */
     zIndex?: number;
+
+    /**
+     * Реф для обертки над дочерними элементами
+     */
+    targetRef?: MutableRefObject<HTMLElement | null>;
+
+    /**
+     * Если тултип не помещается в переданной позиции (position), он попробует открыться в другой позиции,
+     * по очереди для каждой позиции из этого списка.
+     * Если не передавать, то тултип открывается в противоположном направлении от переданного position.
+     */
+    fallbackPlacements?: PopoverProps['fallbackPlacements'];
+
+    /**
+     * Запрещает тултипу менять свою позицию, если он не влезает в видимую область.
+     */
+    preventOverflow?: PopoverProps['preventOverflow'];
+
+    /**
+     *  Позволяет тултипу подствраивать свою высоту под границы экрана, если из-за величины контента он выходит за рамки видимой области экрана
+     */
+    availableHeight?: PopoverProps['availableHeight'];
+
+    /**
+     *  Элемент, относительно которого будет позиционировать тултип.
+     */
+    anchor?: PopoverProps['anchorElement'];
 };
 
 export const Tooltip: FC<TooltipProps> = ({
@@ -125,7 +154,7 @@ export const Tooltip: FC<TooltipProps> = ({
     onOpenDelay = 300,
     dataTestId,
     open: forcedOpen,
-    offset = [0, 10],
+    offset = [0, 16],
     position,
     contentClassName,
     arrowClassName,
@@ -137,17 +166,22 @@ export const Tooltip: FC<TooltipProps> = ({
     onOpen,
     getPortalContainer,
     view = 'tooltip',
+    targetRef = null,
+    fallbackPlacements,
+    preventOverflow = true,
+    availableHeight = false,
+    anchor = null,
 }) => {
     const [visible, setVisible] = useState(!!forcedOpen);
-    const [target, setTarget] = useState<RefElement>(null);
+    const [target, setTarget] = useState<HTMLElement | null>(null);
 
-    const targetRef = React.useRef<RefElement>(null);
-    const contentRef = React.useRef<RefElement>(null);
-
+    const contentRef = useRef<RefElement>(null);
     const timer = useRef(0);
 
+    const show = forcedOpen === undefined ? visible : forcedOpen;
+
     const open = () => {
-        if (!visible) {
+        if (!show) {
             setVisible(true);
 
             if (onOpen) {
@@ -157,34 +191,37 @@ export const Tooltip: FC<TooltipProps> = ({
     };
 
     const close = useCallback(() => {
-        if (visible) {
+        if (show) {
             setVisible(false);
 
             if (onClose) {
                 onClose();
             }
         }
-    }, [onClose, visible]);
+    }, [onClose, show]);
 
     const toggle = () => {
-        if (visible) {
+        if (show) {
             close();
         } else {
             open();
         }
     };
 
-    const clickedOutside = (node: Element): boolean => {
-        if (targetRef.current && targetRef.current.contains(node)) {
-            return false;
-        }
+    const clickedOutside = useCallback(
+        (node: Element): boolean => {
+            if (target && target.contains(node)) {
+                return false;
+            }
 
-        if (contentRef.current && contentRef.current.contains(node)) {
-            return false;
-        }
+            if (contentRef.current && contentRef.current.contains(node)) {
+                return false;
+            }
 
-        return true;
-    };
+            return true;
+        },
+        [target],
+    );
 
     useEffect(() => {
         const handleBodyClick = (event: MouseEvent) => {
@@ -202,7 +239,7 @@ export const Tooltip: FC<TooltipProps> = ({
 
             clearTimeout(timer.current);
         };
-    }, [close]);
+    }, [clickedOutside, close]);
 
     const handleTargetClick = () => {
         toggle();
@@ -285,37 +322,31 @@ export const Tooltip: FC<TooltipProps> = ({
         }
     };
 
-    const handleTargetRef = useCallback((ref: RefElement) => {
-        targetRef.current = ref;
-
-        setTarget(targetRef.current);
-    }, []);
-
-    const show = forcedOpen === undefined ? visible : forcedOpen;
-
     return (
         <Fragment>
-            <div ref={handleTargetRef} {...getTargetProps()}>
+            <div ref={mergeRefs([targetRef, setTarget])} {...getTargetProps()}>
+                {children.props.disabled && <div className={styles.overlap} />}
                 {children}
             </div>
 
-            {target && (
-                <Popover
-                    anchorElement={target}
-                    open={show}
-                    getPortalContainer={getPortalContainer}
-                    arrowClassName={cn(arrowClassName, styles.arrow)}
-                    popperClassName={cn(styles.popper, styles[view])}
-                    className={popoverClassName}
-                    offset={offset}
-                    withArrow={true}
-                    position={position}
-                    update={updatePopover}
-                    zIndex={zIndex}
-                >
-                    <div {...getContentProps()}>{content}</div>
-                </Popover>
-            )}
+            <Popover
+                anchorElement={anchor || target}
+                open={show}
+                getPortalContainer={getPortalContainer}
+                arrowClassName={cn(arrowClassName, styles.arrow)}
+                popperClassName={cn(styles.popper, styles[view])}
+                className={popoverClassName}
+                offset={offset}
+                withArrow={true}
+                position={position}
+                update={updatePopover}
+                zIndex={zIndex}
+                fallbackPlacements={fallbackPlacements}
+                preventOverflow={preventOverflow}
+                availableHeight={availableHeight}
+            >
+                <div {...getContentProps()}>{content}</div>
+            </Popover>
         </Fragment>
     );
 };

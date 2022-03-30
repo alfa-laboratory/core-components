@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 import { ModalContext } from '../../Context';
 
+import styles from './index.module.css';
 import layoutStyles from './layout.module.css';
 
 export type FooterProps = {
@@ -32,14 +33,7 @@ export type FooterProps = {
     gap?: 16 | 24 | 32;
 };
 
-export const Footer: FC<FooterProps & { styles: Record<string, string> }> = ({
-    children,
-    className,
-    sticky,
-    layout = 'start',
-    gap,
-    styles,
-}) => {
+export const Footer: FC<FooterProps> = ({ children, className, sticky, layout = 'start', gap }) => {
     const { footerHighlighted, setHasFooter } = useContext(ModalContext);
 
     useEffect(() => {

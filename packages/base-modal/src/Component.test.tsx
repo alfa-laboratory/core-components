@@ -79,8 +79,8 @@ describe('BaseModal', () => {
         it('should attach a handler to the backdrop that fires onClose', () => {
             const onClose = jest.fn();
             const { getByRole } = render(modal({ onClose }));
-            const backdrop = getByRole('dialog').firstChild as HTMLElement;
-            fireEvent.click(backdrop);
+
+            fireEvent.click(getByRole('dialog'));
 
             expect(onClose.mock.calls.length).toBe(1);
         });
@@ -88,8 +88,8 @@ describe('BaseModal', () => {
         it('should let the user disable backdrop click triggering onClose', () => {
             const onClose = jest.fn();
             const { getByRole } = render(modal({ onClose, disableBackdropClick: true }));
-            const backdrop = getByRole('dialog').firstChild as HTMLElement;
-            fireEvent.click(backdrop);
+
+            fireEvent.click(getByRole('dialog'));
 
             expect(onClose.mock.calls.length).toBe(0);
         });
@@ -97,8 +97,8 @@ describe('BaseModal', () => {
         it('should call through to the user specified onBackdropClick callback', () => {
             const onBackdropClick = jest.fn();
             const { getByRole } = render(modal({ onBackdropClick }));
-            const backdrop = getByRole('dialog').firstChild as HTMLElement;
-            fireEvent.click(backdrop);
+
+            fireEvent.click(getByRole('dialog'));
 
             expect(onBackdropClick.mock.calls.length).toBe(1);
         });

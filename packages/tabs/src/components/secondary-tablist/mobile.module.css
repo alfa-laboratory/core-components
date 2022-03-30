@@ -7,7 +7,3 @@
         margin-left: var(--secondary-tablist-mobile-gaps);
     }
 }
-
-.mobile {
-    height: 48px;
-}

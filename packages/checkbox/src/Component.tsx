@@ -3,7 +3,7 @@ import cn from 'classnames';
 import { useFocus } from '@alfalab/hooks';
 import mergeRefs from 'react-merge-refs';
 
-import CheckedIcon from '@alfalab/icons-glyph/CheckmarkCompactMIcon';
+import { CheckmarkCompactMIcon } from '@alfalab/icons-glyph/CheckmarkCompactMIcon';
 
 import styles from './index.module.css';
 
@@ -43,6 +43,16 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange'> & {
     size?: 's' | 'm';
 
     /**
+     * Доп. класс чекбокса
+     */
+    boxClassName?: string;
+
+    /**
+     * Доп. класс контента
+     */
+    contentClassName?: string;
+
+    /**
      * Выравнивание
      */
     align?: Align;
@@ -58,6 +68,16 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange'> & {
     block?: boolean;
 
     /**
+     * Управление состоянием включен / выключен
+     */
+    disabled?: boolean;
+
+    /**
+     * Управление состоянием активен / неактивен
+     */
+    inactive?: boolean;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
@@ -66,6 +86,11 @@ export type CheckboxProps = Omit<NativeProps, 'size' | 'onChange'> & {
      * Управление неопределенным состоянием чекбокса
      */
     indeterminate?: boolean;
+
+    /**
+     * Отображение ошибки
+     */
+    error?: ReactNode | boolean;
 };
 
 export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
@@ -75,6 +100,8 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             label,
             hint,
             size = 's',
+            boxClassName,
+            contentClassName,
             align = 'start',
             addons,
             block,
@@ -82,8 +109,10 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             className,
             name,
             disabled,
+            inactive,
             dataTestId,
             indeterminate = false,
+            error,
             ...restProps
         },
         ref,
@@ -98,11 +127,14 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
             }
         };
 
+        const errorMessage = typeof error === 'boolean' ? '' : error;
+
         return (
             // eslint-disable-next-line jsx-a11y/label-has-associated-control
             <label
                 className={cn(styles.component, styles[size], styles[align], className, {
                     [styles.disabled]: disabled,
+                    [styles.inactive]: inactive,
                     [styles.checked]: checked,
                     [styles.indeterminate]: indeterminate,
                     [styles.focused]: focused,
@@ -110,25 +142,31 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(
                 })}
                 ref={mergeRefs([labelRef, ref])}
             >
-                <span className={styles.box}>
-                    <input
-                        type='checkbox'
-                        onChange={handleChange}
-                        disabled={disabled}
-                        checked={checked}
-                        data-test-id={dataTestId}
-                        {...restProps}
-                    />
-
-                    {checked && <CheckedIcon className={styles.checkedIcon} />}
+                <input
+                    type='checkbox'
+                    onChange={handleChange}
+                    disabled={disabled || inactive}
+                    checked={checked}
+                    data-test-id={dataTestId}
+                    {...restProps}
+                />
+                <span className={cn(styles.box, boxClassName)}>
+                    {checked && <CheckmarkCompactMIcon className={styles.checkedIcon} />}
 
                     {indeterminate && !checked && <span className={styles.indeterminateLine} />}
                 </span>
 
-                {(label || hint) && (
-                    <span className={styles.content}>
+                {(label || hint || errorMessage) && (
+                    <span className={cn(styles.content, contentClassName)}>
                         {label && <span className={styles.label}>{label}</span>}
-                        {hint && <span className={styles.hint}>{hint}</span>}
+
+                        {hint && !errorMessage && <span className={styles.hint}>{hint}</span>}
+
+                        {errorMessage && (
+                            <span className={styles.errorMessage} role='alert'>
+                                {errorMessage}
+                            </span>
+                        )}
                     </span>
                 )}
 

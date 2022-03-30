@@ -3,6 +3,168 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.18...@alfalab/core-components-toast-plate@4.1.0) (2022-03-04)
+
+
+### Bug Fixes
+
+* update glyph deps ([#1019](https://github.com/alfa-laboratory/core-components/issues/1019)) ([3e910d0](https://github.com/alfa-laboratory/core-components/commit/3e910d0801c4c46bcd399163200c1f7bfaba375e))
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
+## [4.0.18](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.17...@alfalab/core-components-toast-plate@4.0.18) (2022-02-17)
+
+
+### Bug Fixes
+
+* imports for glyph icons ([#994](https://github.com/alfa-laboratory/core-components/issues/994)) ([8e807f2](https://github.com/alfa-laboratory/core-components/commit/8e807f26abf0f942fe8eadbd201caecb297b35dc))
+
+
+
+
+
+## [4.0.17](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.16...@alfalab/core-components-toast-plate@4.0.17) (2022-02-15)
+
+**Note:** Version bump only for package @alfalab/core-components-toast-plate
+
+
+
+
+
+## [4.0.16](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.15...@alfalab/core-components-toast-plate@4.0.16) (2022-02-09)
+
+**Note:** Version bump only for package @alfalab/core-components-toast-plate
+
+
+
+
+
+## [4.0.15](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.14...@alfalab/core-components-toast-plate@4.0.15) (2022-02-03)
+
+**Note:** Version bump only for package @alfalab/core-components-toast-plate
+
+
+
+
+
+## [4.0.14](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.13...@alfalab/core-components-toast-plate@4.0.14) (2022-02-02)
+
+**Note:** Version bump only for package @alfalab/core-components-toast-plate
+
+
+
+
+
+## [4.0.13](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.12...@alfalab/core-components-toast-plate@4.0.13) (2021-12-29)
+
+**Note:** Version bump only for package @alfalab/core-components-toast-plate
+
+
+
+
+
+## [4.0.12](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.11...@alfalab/core-components-toast-plate@4.0.12) (2021-12-14)
+
+**Note:** Version bump only for package @alfalab/core-components-toast-plate
+
+
+
+
+
+## [4.0.11](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.10...@alfalab/core-components-toast-plate@4.0.11) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-toast-plate
+
+
+
+
+
+## [4.0.10](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.9...@alfalab/core-components-toast-plate@4.0.10) (2021-12-01)
+
+
+### Bug Fixes
+
+* **notification:** set word-break: break-word in notif ([8f7615d](https://github.com/alfa-laboratory/core-components/commit/8f7615d2f497d97c0811868e14bf4ccd51710f31))
+* **notification:** убрал word-break: break-all ([db0d2b2](https://github.com/alfa-laboratory/core-components/commit/db0d2b28d12101f1a7bae395cbf17d570b88cc83))
+
+
+
+
+
+## [4.0.9](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.8...@alfalab/core-components-toast-plate@4.0.9) (2021-11-26)
+
+**Note:** Version bump only for package @alfalab/core-components-toast-plate
+
+
+
+
+
+## [4.0.8](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.7...@alfalab/core-components-toast-plate@4.0.8) (2021-11-16)
+
+**Note:** Version bump only for package @alfalab/core-components-toast-plate
+
+
+
+
+
+## [4.0.7](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.6...@alfalab/core-components-toast-plate@4.0.7) (2021-10-25)
+
+
+### Bug Fixes
+
+* **textarea:** поправлен отступ в размере xl ([#859](https://github.com/alfa-laboratory/core-components/issues/859)) ([fcd586b](https://github.com/alfa-laboratory/core-components/commit/fcd586b03761bda053c7c3fd9381bb94227711d7))
+
+
+
+
+
+## [4.0.6](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.5...@alfalab/core-components-toast-plate@4.0.6) (2021-09-14)
+
+**Note:** Version bump only for package @alfalab/core-components-toast-plate
+
+
+
+
+
+## [4.0.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.4...@alfalab/core-components-toast-plate@4.0.5) (2021-08-27)
+
+**Note:** Version bump only for package @alfalab/core-components-toast-plate
+
+
+
+
+
+## [4.0.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.3...@alfalab/core-components-toast-plate@4.0.4) (2021-08-04)
+
+**Note:** Version bump only for package @alfalab/core-components-toast-plate
+
+
+
+
+
+## [4.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.2...@alfalab/core-components-toast-plate@4.0.3) (2021-07-23)
+
+**Note:** Version bump only for package @alfalab/core-components-toast-plate
+
+
+
+
+
+## [4.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.1...@alfalab/core-components-toast-plate@4.0.2) (2021-07-19)
+
+**Note:** Version bump only for package @alfalab/core-components-toast-plate
+
+
+
+
+
 ## [4.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-toast-plate@4.0.0...@alfalab/core-components-toast-plate@4.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-toast-plate

@@ -6,6 +6,7 @@ import React, {
     MouseEvent,
     useRef,
     ReactElement,
+    KeyboardEvent,
 } from 'react';
 import cn from 'classnames';
 import mergeRefs from 'react-merge-refs';
@@ -24,6 +25,11 @@ export type PlateProps = {
      * Управление наличием стрелки скрытия контента
      */
     foldable?: boolean;
+
+    /**
+     * Управление видимостью контента (controlled)
+     */
+    folded?: boolean;
 
     /**
      * Начальное состояние контента при foldable={ true }
@@ -71,11 +77,6 @@ export type PlateProps = {
     contentClassName?: string;
 
     /**
-     * Управление видимостью компонента (controlled)
-     */
-    open?: boolean;
-
-    /**
      * Обработчик клика по плашке
      */
     onClick?: (event?: MouseEvent<HTMLDivElement>) => void;
@@ -84,6 +85,14 @@ export type PlateProps = {
      * Обработчик клика по крестику
      */
     onClose?: (event?: MouseEvent<HTMLButtonElement>) => void;
+
+    /**
+     * Обработчик сворачивания
+     */
+    onToggle?: (
+        event: MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>,
+        payload: { folded: boolean },
+    ) => void;
 
     /**
      * Идентификатор для систем автоматизированного тестирования
@@ -95,7 +104,8 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
     (
         {
             hasCloser,
-            foldable = false,
+            foldable: foldableProp = false,
+            folded: foldedProp,
             defaultFolded = true,
             leftAddons,
             children,
@@ -105,65 +115,75 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
             className,
             buttonsClassName,
             contentClassName,
-            open,
             dataTestId,
             onClick,
             onClose,
+            onToggle,
         },
         ref,
     ) => {
         const plateRef = useRef<HTMLDivElement>(null);
-        const buttonsRef = useRef<HTMLDivElement>(null);
-
-        const uncontrolled = open === undefined;
+        const contentRef = useRef<HTMLDivElement>(null);
 
         const [focused] = useFocus(plateRef, 'keyboard');
 
         const [isHidden, setIsHidden] = useState(false);
-        const [isFolded, setIsFolded] = useState(defaultFolded);
+        const [foldedState, setFoldedState] = useState(defaultFolded);
 
-        const isFoldable = !!title && !!children && foldable;
+        const uncontrolled = foldedProp === undefined;
+
+        const foldable = !!title && !!children && foldableProp;
+        const folded = uncontrolled ? foldedState : foldedProp;
 
         const hasButtons = Array.isArray(buttons) && buttons.length > 0;
         const hasContent = children || hasButtons;
 
         const handleClick = useCallback(
             event => {
-                const eventInsideButtons =
-                    buttonsRef.current && buttonsRef.current.contains(event.target);
+                const eventInsideComponent =
+                    plateRef.current && plateRef.current.contains(event.target);
+
+                const eventInsideContent =
+                    contentRef.current && contentRef.current.contains(event.target);
 
                 const clickSimilarKeys = ['Enter', ' '].includes(event.key);
 
                 const shouldChangeIsFolded =
-                    !eventInsideButtons && (event.type === 'click' || clickSimilarKeys);
+                    eventInsideComponent &&
+                    !eventInsideContent &&
+                    (event.type === 'click' || clickSimilarKeys);
 
-                if (isFoldable && shouldChangeIsFolded) {
-                    setIsFolded(!isFolded);
+                if (foldable && shouldChangeIsFolded) {
+                    if (uncontrolled) {
+                        setFoldedState(!foldedState);
+                    }
+
+                    if (onToggle) {
+                        onToggle(event, { folded: !(uncontrolled ? foldedState : foldedProp) });
+                    }
                 }
 
                 if (onClick) {
                     onClick(event);
                 }
             },
-            [isFoldable, isFolded, onClick],
+            [foldable, onClick, uncontrolled, onToggle, foldedState, foldedProp],
         );
 
         const handleClose = useCallback(
             event => {
-                if (uncontrolled) {
-                    setIsHidden(true);
-                }
+                setIsHidden(true);
 
                 if (onClose) {
                     onClose(event);
                 }
             },
-            [onClose, uncontrolled],
+            [onClose],
         );
 
         const renderButtons = useCallback(
             () => (
-                <div className={cn(styles.buttons, buttonsClassName)} ref={buttonsRef}>
+                <div className={cn(styles.buttons, buttonsClassName)}>
                     {buttons.map((button, index) =>
                         button
                             ? React.cloneElement(button, {
@@ -187,9 +207,10 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                     styles.component,
                     styles[view],
                     {
+                        [styles.foldable]: foldable,
                         [styles.focused]: focused,
                         [styles.isHidden]: hasCloser && isHidden,
-                        [styles.isFolded]: isFoldable && isFolded,
+                        [styles.isFolded]: foldable && folded,
                     },
                     className,
                 )}
@@ -198,7 +219,7 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                 role='alert'
                 ref={mergeRefs([plateRef, ref])}
                 /* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */
-                tabIndex={isFoldable ? 0 : -1}
+                tabIndex={foldable ? 0 : -1}
                 data-test-id={dataTestId}
             >
                 <div className={styles.inner}>
@@ -211,8 +232,9 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                         {title && <div className={styles.title}>{title}</div>}
                         {hasContent && (
                             <div
+                                ref={contentRef}
                                 className={cn(styles.content, {
-                                    [styles.isFolded]: isFoldable && isFolded,
+                                    [styles.isFolded]: foldable && folded,
                                 })}
                             >
                                 <div className={styles.contentInner}>
@@ -223,16 +245,21 @@ export const Plate = forwardRef<HTMLDivElement, PlateProps>(
                         )}
                     </div>
 
-                    {isFoldable && (
+                    {foldable && (
                         <div
                             className={cn(styles.folder, {
-                                [styles.isFolded]: isFolded,
+                                [styles.isFolded]: folded,
                             })}
                         />
                     )}
 
-                    {hasCloser && !isFoldable && (
-                        <Button className={styles.closer} view='ghost' onClick={handleClose} />
+                    {hasCloser && !foldable && (
+                        <Button
+                            className={styles.closer}
+                            aria-label='закрыть'
+                            view='ghost'
+                            onClick={handleClose}
+                        />
                     )}
                 </div>
             </div>

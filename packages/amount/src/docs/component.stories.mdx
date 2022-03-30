@@ -1,4 +1,4 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { getAllCurrencyCodes } from '@alfalab/utils';
 import { Container, Row, Col } from 'storybook/blocks/grid';
@@ -25,6 +25,7 @@ import styles from '!!raw-loader!../index.module.css';
         const value = number('value', 10099);
         const currency = select('currency', currencyCodes, 'RUR');
         const minority = number('minority', 100);
+        const showPlus = boolean('showPlus', false);
         const view = select('view', ['default', 'withZeroMinorPart'], 'default');
         const bold = select('bold', ['full', 'major', 'none'], 'bold');
         const transparentMinor = boolean('transparentMinor', true);
@@ -40,6 +41,7 @@ import styles from '!!raw-loader!../index.module.css';
                             value={value}
                             currency={currency}
                             minority={minority}
+                            showPlus={showPlus}
                             view={view}
                             bold={bold}
                             transparentMinor={transparentMinor}
@@ -50,6 +52,7 @@ import styles from '!!raw-loader!../index.module.css';
                             value={value}
                             currency={currency}
                             minority={minority}
+                            showPlus={showPlus}
                             view={view}
                         />
                     </Col>

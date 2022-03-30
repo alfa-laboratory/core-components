@@ -165,14 +165,11 @@ const max = 600000;
 const step = 1000;
 const steps = ['100 тыс.', '600 тыс.'];
 
-const normalizeValue = (value, min, max) =>
-    value === '' ? '' : Math.min(max, value.toString().replace(/[^\d-]/g, ''));
-
 render(() => {
     const [value, setValue] = React.useState('');
 
     const handleInputChange = (event, { value }) => {
-        setValue(Math.round(+value / 100));
+        setValue(value !== '' ? (+value / 100).toString() : '');
     };
 
     const handleSliderChange = (event, { value }) => {
@@ -214,7 +211,7 @@ render(() => {
     const [value, setValue] = React.useState('');
 
     const handleInputChange = (event, { value }) => {
-        setValue(Math.round(+value / 100));
+        setValue(value !== '' ? (+value / 100).toString() : '');
     };
 
     const handleSliderChange = (event, { value }) => {

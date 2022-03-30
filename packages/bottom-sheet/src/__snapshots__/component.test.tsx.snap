@@ -22,19 +22,19 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
       data-focus-lock-disabled="false"
     >
       <div
+        style="opacity: 1; transition: opacity 300ms ease-in-out; position: relative; z-index: 100;"
+      >
+        <div
+          aria-hidden="true"
+          class="backdrop appear appearActive"
+        />
+      </div>
+      <div
         class="wrapper"
         role="dialog"
         style="z-index: 100;"
         tabindex="-1"
       >
-        <div
-          style="opacity: 1; transition: opacity 300ms ease-in-out;"
-        >
-          <div
-            aria-hidden="true"
-            class="backdrop appear appearActive"
-          />
-        </div>
         <div
           class="component modal appear appearActive"
         >
@@ -43,20 +43,25 @@ exports[`Bottom sheet Snapshots tests should match snapshot 1`] = `
           >
             <div
               class="component withTransition"
+              style="max-height: 744px;"
             >
               <div
-                class="marker"
-              />
-              <div
-                class="scrollableContainer withPadding"
+                class="scrollableContainer"
               >
-                <h2
-                  class="component title system-small bold primary"
-                >
-                  Bottom sheet title
-                </h2>
                 <div
-                  class="content"
+                  class="marker"
+                />
+                <div
+                  class="header"
+                >
+                  <span
+                    class="title titleLeft primary primary-large bold"
+                  >
+                    Bottom sheet title
+                  </span>
+                </div>
+                <div
+                  class="content noFooter"
                 >
                   <div>
                     Bottom sheet content
@@ -98,19 +103,19 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
       data-focus-lock-disabled="false"
     >
       <div
+        style="opacity: 1; transition: opacity 300ms ease-in-out; position: relative; z-index: 100;"
+      >
+        <div
+          aria-hidden="true"
+          class="backdrop appear appearActive"
+        />
+      </div>
+      <div
         class="wrapper"
         role="dialog"
         style="z-index: 100;"
         tabindex="-1"
       >
-        <div
-          style="opacity: 1; transition: opacity 300ms ease-in-out;"
-        >
-          <div
-            aria-hidden="true"
-            class="backdrop appear appearActive"
-          />
-        </div>
         <div
           class="component modal appear appearActive"
         >
@@ -119,18 +124,23 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
           >
             <div
               class="component withTransition"
+              style="max-height: 744px;"
             >
-              <div
-                class="marker"
-              />
               <div
                 class="scrollableContainer"
               >
-                <h2
-                  class="component title system-small bold primary"
+                <div
+                  class="marker"
+                />
+                <div
+                  class="header"
                 >
-                  Bottom sheet title
-                </h2>
+                  <span
+                    class="title titleLeft primary primary-large bold"
+                  >
+                    Bottom sheet title
+                  </span>
+                </div>
                 <div
                   class="content"
                 >
@@ -139,7 +149,7 @@ exports[`Bottom sheet Snapshots tests should match snapshot with action button 1
                   </div>
                 </div>
                 <div
-                  class="footer"
+                  class="footer sticky"
                 >
                   <div />
                 </div>

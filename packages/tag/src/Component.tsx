@@ -4,6 +4,13 @@ import mergeRefs from 'react-merge-refs';
 import { useFocus } from '@alfalab/hooks';
 
 import styles from './index.module.css';
+import defaultColors from './default.module.css';
+import invertedColors from './inverted.module.css';
+
+const colorStylesMap = {
+    default: defaultColors,
+    inverted: invertedColors,
+};
 
 type NativeProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -16,7 +23,7 @@ export type TagProps = Omit<NativeProps, 'onClick'> & {
     /**
      * Размер компонента
      */
-    size?: 'xs' | 's' | 'm' | 'l' | 'xl';
+    size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
     /**
      * Слот слева
@@ -43,6 +50,16 @@ export type TagProps = Omit<NativeProps, 'onClick'> & {
             name?: string;
         },
     ) => void;
+
+    /**
+     * Набор цветов для компонента
+     */
+    colors?: 'default' | 'inverted';
+
+    /**
+     * Вариант тега
+     */
+    variant?: 'default' | 'alt';
 };
 
 export const Tag = forwardRef<HTMLButtonElement, TagProps>(
@@ -56,11 +73,15 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
             className,
             dataTestId,
             name,
+            colors = 'default',
             onClick,
+            variant = 'default',
             ...restProps
         },
         ref,
     ) => {
+        const colorStyles = colorStylesMap[colors];
+
         const tagRef = useRef<HTMLButtonElement>(null);
 
         const [focused] = useFocus(tagRef, 'keyboard');
@@ -68,11 +89,15 @@ export const Tag = forwardRef<HTMLButtonElement, TagProps>(
         const tagProps = {
             className: cn(
                 styles.component,
+                colorStyles.component,
                 styles[size],
+                styles[variant],
                 {
                     [styles.checked]: checked,
+                    [colorStyles.checked]: checked,
                     [styles.focused]: focused,
-                    [styles.iconOnly]: !children,
+                    [styles.withRightAddons]: Boolean(rightAddons),
+                    [styles.withLeftAddons]: Boolean(leftAddons),
                 },
                 className,
             ),

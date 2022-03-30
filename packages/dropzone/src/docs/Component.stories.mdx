@@ -1,4 +1,4 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs';
 import { boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
 
@@ -28,12 +28,15 @@ import Description from './description.mdx';
         return (
             <Dropzone
                 error={boolean('error', false)}
-                overlayVisible={boolean('overlayVisible', false)}
+                block={boolean('block', false)}
+                overlayVisible={boolean('overlayVisible (deprecated)', undefined)}
+                disabled={boolean('disabled', false)}
                 onDrop={handleDrop}
             >
                 <div
                     style={{
-                        width: 400,
+                        minWidth: 400,
+                        width: '100%',
                         height: 200,
                         display: 'flex',
                         alignItems: 'center',

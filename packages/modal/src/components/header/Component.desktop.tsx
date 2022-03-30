@@ -1,30 +1,49 @@
 import React, { FC } from 'react';
 import cn from 'classnames';
 import { Header, HeaderProps } from './Component';
+import { Closer } from '../closer/Component';
+import { ModalDesktopProps } from '../../Component.desktop';
 
 import styles from './desktop.module.css';
 
-export type HeaderDesktopProps = HeaderProps & {
+export type HeaderDesktopProps = Omit<HeaderProps, 'closer'> & {
     /**
      * Размер
      */
-    size?: 's' | 'm' | 'l';
+    size?: ModalDesktopProps['size'];
 
     /**
-     * Флаг, что модальное окно открыто на весь экран
+     * Наличие крестика
      */
-    fullscreen?: boolean;
+    hasCloser?: boolean;
 };
 
 export const HeaderDesktop: FC<HeaderDesktopProps> = ({
     size,
     className,
-    fullscreen,
+    contentClassName,
+    hasCloser = true,
+    sticky,
+    leftAddons = <span />,
+    title,
+    children,
     ...restProps
-}) => (
-    <Header
-        className={cn(className, size && styles[size], fullscreen && styles.fullscreen)}
-        styles={styles}
-        {...restProps}
-    />
-);
+}) => {
+    const hasContent = title || Boolean(children);
+    return (
+        <Header
+            className={cn(className, styles.header, size && styles[size], {
+                [styles.sticky]: sticky,
+                [styles.hasContent]: hasContent,
+            })}
+            contentClassName={cn(styles.content, contentClassName)}
+            closer={hasCloser ? <Closer /> : null}
+            leftAddons={leftAddons}
+            sticky={sticky}
+            title={title}
+            {...restProps}
+        >
+            {children}
+        </Header>
+    );
+};

@@ -6,10 +6,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="component s"
+        class="component component s"
       >
         <div
-          class="inner"
+          class="inner inner"
         >
           <div
             class="inputWrapper"
@@ -18,23 +18,22 @@ Object {
               class="input"
             >
               <input
-                class="input"
+                class="input input"
                 type="tel"
                 value=""
               />
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="component s"
+      class="component component s"
     >
       <div
-        class="inner"
+        class="inner inner"
       >
         <div
           class="inputWrapper"
@@ -43,14 +42,13 @@ Object {
             class="input"
           >
             <input
-              class="input"
+              class="input input"
               type="tel"
               value=""
             />
           </div>
         </div>
       </div>
-      
     </div>
   </div>,
   "debug": [Function],

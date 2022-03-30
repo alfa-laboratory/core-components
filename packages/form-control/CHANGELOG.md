@@ -3,6 +3,73 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-form-control@7.3.0...@alfalab/core-components-form-control@7.4.0) (2021-10-11)
+
+
+### Features
+
+* проставлен role=alert для ошибок ([#850](https://github.com/alfa-laboratory/core-components/issues/850)) ([dc634a3](https://github.com/alfa-laboratory/core-components/commit/dc634a3d008accfab10192ce234c12ef0ecc7fa9))
+
+
+
+
+
+# [7.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-form-control@7.2.2...@alfalab/core-components-form-control@7.3.0) (2021-09-14)
+
+
+### Features
+
+* change error type to ReactNode ([#825](https://github.com/alfa-laboratory/core-components/issues/825)) ([c6d95c1](https://github.com/alfa-laboratory/core-components/commit/c6d95c1c6239f2b2a3bf2c1639554d8500e794f3))
+
+
+
+
+
+## [7.2.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-form-control@7.2.1...@alfalab/core-components-form-control@7.2.2) (2021-08-23)
+
+
+### Bug Fixes
+
+* **form-control:** l size offset between value and label (PDS-270) ([#781](https://github.com/alfa-laboratory/core-components/issues/781)) ([311f8a0](https://github.com/alfa-laboratory/core-components/commit/311f8a0eaa97cf7d0c89d4a3cdfc443aef2d763c))
+* **input:** smart error icon ([#746](https://github.com/alfa-laboratory/core-components/issues/746)) ([f1950d6](https://github.com/alfa-laboratory/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/alfa-laboratory/core-components/issues/782)
+
+
+
+
+
+## [7.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-form-control@7.2.0...@alfalab/core-components-form-control@7.2.1) (2021-08-11)
+
+
+### Bug Fixes
+
+* extend hint type to ReactNode ([#792](https://github.com/alfa-laboratory/core-components/issues/792)) ([d02784e](https://github.com/alfa-laboratory/core-components/commit/d02784e392f5ca3a30ae009109fbb6351967f746))
+
+
+
+
+
+# [7.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-form-control@7.1.0...@alfalab/core-components-form-control@7.2.0) (2021-08-04)
+
+
+### Features
+
+* add mods colors ([#770](https://github.com/alfa-laboratory/core-components/issues/770)) ([fe985f4](https://github.com/alfa-laboratory/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
+
+
+
+
+
+# [7.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-form-control@7.0.1...@alfalab/core-components-form-control@7.1.0) (2021-07-23)
+
+
+### Features
+
+* **input:** input mobile theme (PDS-241) ([#737](https://github.com/alfa-laboratory/core-components/issues/737)) ([88f6f7c](https://github.com/alfa-laboratory/core-components/commit/88f6f7c58968b9564970eaa3d759aa2bc275ca7e))
+
+
+
+
+
 ## [7.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-form-control@7.0.0...@alfalab/core-components-form-control@7.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-form-control

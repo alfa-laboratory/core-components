@@ -1,7 +1,7 @@
-import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs';
 import { select, text, boolean } from '@storybook/addon-knobs';
 import { CssVars, ComponentHeader, Tabs } from 'storybook/blocks';
-import { CheckmarkOnCircleMIcon } from '@alfalab/icons-glyph';
+import { CheckmarkOnCircleMIcon } from '@alfalab/icons-glyph/CheckmarkOnCircleMIcon';
 
 import { Plate } from '../';
 import { Button } from '@alfalab/core-components-button';
@@ -9,7 +9,7 @@ import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
 
-import { name, version } from '../../package.json';
+import { version } from '../../package.json';
 
 <Meta
     title='Компоненты/Plate'

@@ -1,0 +1,3 @@
+@define-mixin slider-input-mobile {
+    --slider-input-font-weight: normal;
+}

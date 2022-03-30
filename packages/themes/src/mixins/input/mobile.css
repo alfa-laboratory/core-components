@@ -1,0 +1,13 @@
+@define-mixin input-mobile {
+    /* theme */
+    --input-error-color: var(--color-light-text-negative);
+    --input-inverted-error-color: var(--color-light-text-accent);
+    --input-error-icon-display: none;
+    --input-disabled-color: var(--color-light-text-primary);
+    --input-inverted-disabled-color: var(--color-light-text-primary-inverted);
+    --input-focus-placeholder-color: var(--color-light-text-tertiary-transparent);
+    --input-inverted-focus-placeholder-color: var(--color-light-text-tertiary-inverted-transparent);
+    --input-caret-color: var(--color-light-text-link);
+    --input-inverted-caret-color: var(--color-light-text-link);
+    --input-error-icon-not-alone-display: none;
+}

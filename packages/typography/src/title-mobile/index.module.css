@@ -1,0 +1,54 @@
+@import '../../../themes/src/default.css';
+@import '../margins.module.css';
+
+.styrene-xlarge {
+    @mixin headline-mobile_xlarge;
+}
+
+.styrene-large {
+    @mixin headline-mobile_large;
+}
+
+.styrene-medium {
+    @mixin headline-mobile_medium;
+}
+
+.styrene-small {
+    @mixin headline-mobile_small;
+}
+
+.styrene-xsmall {
+    @mixin headline-mobile_xsmall;
+}
+
+.system-xlarge {
+    @mixin headline-system-mobile_xlarge;
+}
+
+.system-large {
+    @mixin headline-system-mobile_large;
+}
+
+.system-medium {
+    @mixin headline-system-mobile_medium;
+}
+
+.system-small {
+    @mixin headline-system-mobile_small;
+}
+
+.system-xsmall {
+    @mixin headline-system-mobile_xsmall;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.medium {
+    font-weight: 500;
+}
+
+.regular {
+    font-weight: normal;
+}

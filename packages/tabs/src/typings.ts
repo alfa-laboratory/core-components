@@ -1,4 +1,5 @@
-import { ReactElement, ReactNode, FC } from 'react';
+import { FC, ReactElement, ReactNode } from 'react';
+
 import { TagProps } from '@alfalab/core-components-tag';
 
 export type SelectedId = string | number;
@@ -34,7 +35,7 @@ export type TabsProps = {
     /**
      * Высота заголовков табов
      */
-    size?: 's' | 'm' | 'l' | 'xl';
+    size?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
     /**
      * Режим отображения по умолчанию
@@ -133,6 +134,7 @@ export type TabListProps = Pick<
         id: SelectedId;
         disabled?: boolean;
         rightAddons?: ReactNode;
+        hidden?: boolean;
     }>;
 };
 

@@ -3,6 +3,186 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@5.0.0...@alfalab/core-components-tooltip@5.0.1) (2022-03-28)
+
+**Note:** Version bump only for package @alfalab/core-components-tooltip
+
+
+
+
+
+# [5.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.6.0...@alfalab/core-components-tooltip@5.0.0) (2022-03-24)
+
+
+### Features
+
+* **bottom-sheet:** update-bottom-sheet ([#1025](https://github.com/alfa-laboratory/core-components/issues/1025)) ([26fa9aa](https://github.com/alfa-laboratory/core-components/commit/26fa9aab68bebf0f7093a38bc0f18a9b596ccf37)), closes [#1032](https://github.com/alfa-laboratory/core-components/issues/1032)
+
+
+### BREAKING CHANGES
+
+* **bottom-sheet:** Большое обновление стилей, множество дополнительных настроек
+
+
+
+
+
+# [4.6.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.5.1...@alfalab/core-components-tooltip@4.6.0) (2022-03-22)
+
+
+### Features
+
+* **tooltip:** added anchor props ([#1034](https://github.com/alfa-laboratory/core-components/issues/1034)) ([822031b](https://github.com/alfa-laboratory/core-components/commit/822031b3941184689a2a7ed9938c4ec44debc444))
+
+
+
+
+
+## [4.5.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.5.0...@alfalab/core-components-tooltip@4.5.1) (2022-03-03)
+
+**Note:** Version bump only for package @alfalab/core-components-tooltip
+
+
+
+
+
+# [4.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.4.5...@alfalab/core-components-tooltip@4.5.0) (2022-03-01)
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
+## [4.4.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.4.4...@alfalab/core-components-tooltip@4.4.5) (2022-02-15)
+
+**Note:** Version bump only for package @alfalab/core-components-tooltip
+
+
+
+
+
+## [4.4.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.4.3...@alfalab/core-components-tooltip@4.4.4) (2022-01-27)
+
+**Note:** Version bump only for package @alfalab/core-components-tooltip
+
+
+
+
+
+## [4.4.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.4.2...@alfalab/core-components-tooltip@4.4.3) (2022-01-17)
+
+**Note:** Version bump only for package @alfalab/core-components-tooltip
+
+
+
+
+
+## [4.4.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.4.1...@alfalab/core-components-tooltip@4.4.2) (2021-12-29)
+
+
+### Bug Fixes
+
+* **button:** решение проблемы с тултипом и заблокированной кнопкой ([#920](https://github.com/alfa-laboratory/core-components/issues/920)) ([d04f311](https://github.com/alfa-laboratory/core-components/commit/d04f31109baf340a4dc7264d3b8ab13109a5a68c)), closes [#799](https://github.com/alfa-laboratory/core-components/issues/799)
+
+
+
+
+
+## [4.4.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.4.0...@alfalab/core-components-tooltip@4.4.1) (2021-12-08)
+
+
+### Bug Fixes
+
+* актуализируем @alfalab/utils ([#897](https://github.com/alfa-laboratory/core-components/issues/897)) ([30fb88e](https://github.com/alfa-laboratory/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+
+
+
+
+
+# [4.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.3.2...@alfalab/core-components-tooltip@4.4.0) (2021-12-01)
+
+
+### Features
+
+* **popover:** add availableHieght prop, update related snapshots ([43b4ebd](https://github.com/alfa-laboratory/core-components/commit/43b4ebd6ba092f22d0dfc845f3f0113b390317dc)), closes [#758](https://github.com/alfa-laboratory/core-components/issues/758)
+* **tooltip:** add availableHeight and preventOverflow props ([b401524](https://github.com/alfa-laboratory/core-components/commit/b401524b0eb0b9e06593883a889b99198982c718)), closes [#758](https://github.com/alfa-laboratory/core-components/issues/758)
+
+
+
+
+
+## [4.3.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.3.1...@alfalab/core-components-tooltip@4.3.2) (2021-11-26)
+
+**Note:** Version bump only for package @alfalab/core-components-tooltip
+
+
+
+
+
+## [4.3.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.3.0...@alfalab/core-components-tooltip@4.3.1) (2021-09-14)
+
+**Note:** Version bump only for package @alfalab/core-components-tooltip
+
+
+
+
+
+# [4.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.2.0...@alfalab/core-components-tooltip@4.3.0) (2021-09-06)
+
+
+### Features
+
+* **tooltip:** update shadow and arrow size/position ([2d40988](https://github.com/alfa-laboratory/core-components/commit/2d40988f3c376c51907aa8a4845ba25c7c43a2f4))
+
+
+
+
+
+# [4.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.1.2...@alfalab/core-components-tooltip@4.2.0) (2021-08-23)
+
+
+### Features
+
+* **tooltip:** add TooltipResponsive,  add `fallbackPlacements` prop ([#780](https://github.com/alfa-laboratory/core-components/issues/780)) ([61d780c](https://github.com/alfa-laboratory/core-components/commit/61d780c750bd9c0331d275f1b12b0512bb3d2049))
+
+
+
+
+
+## [4.1.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.1.1...@alfalab/core-components-tooltip@4.1.2) (2021-08-04)
+
+**Note:** Version bump only for package @alfalab/core-components-tooltip
+
+
+
+
+
+## [4.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.1.0...@alfalab/core-components-tooltip@4.1.1) (2021-07-23)
+
+
+### Bug Fixes
+
+* **tooltip:** fix bug with controlled state ([#759](https://github.com/alfa-laboratory/core-components/issues/759)) ([dd0144e](https://github.com/alfa-laboratory/core-components/commit/dd0144e880e0dac6bac1ab9d15832341761993e9))
+
+
+
+
+
+# [4.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.0.1...@alfalab/core-components-tooltip@4.1.0) (2021-07-19)
+
+
+### Features
+
+* **tooltip:** add target ref property ([#755](https://github.com/alfa-laboratory/core-components/issues/755)) ([9aa962d](https://github.com/alfa-laboratory/core-components/commit/9aa962d8b280e8d6af8ac4324a78b4bdebbfc536))
+
+
+
+
+
 ## [4.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tooltip@4.0.0...@alfalab/core-components-tooltip@4.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-tooltip

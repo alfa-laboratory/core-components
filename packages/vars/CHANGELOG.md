@@ -3,6 +3,190 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.5.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@5.5.1...@alfalab/core-components-vars@5.5.2) (2022-03-28)
+
+
+### Bug Fixes
+
+* fix modal and bottom-sheet dark mode ([#1043](https://github.com/alfa-laboratory/core-components/issues/1043)) ([cad36a2](https://github.com/alfa-laboratory/core-components/commit/cad36a25b28bfa71296c3dd9dc325eec28b5c241))
+
+
+
+
+
+## [5.5.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@5.5.0...@alfalab/core-components-vars@5.5.1) (2022-03-24)
+
+**Note:** Version bump only for package @alfalab/core-components-vars
+
+
+
+
+
+# [5.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@5.4.0...@alfalab/core-components-vars@5.5.0) (2022-03-18)
+
+
+### Features
+
+* **calendar:** add intranet theme ([#1026](https://github.com/alfa-laboratory/core-components/issues/1026)) ([292b76c](https://github.com/alfa-laboratory/core-components/commit/292b76c100bb12ebb1011d2a9981ba2b2899dd7a))
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
+# [5.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@5.3.0...@alfalab/core-components-vars@5.4.0) (2022-02-17)
+
+
+### Features
+
+* **calendar:** design & logic updates ([#991](https://github.com/alfa-laboratory/core-components/issues/991)) ([358142c](https://github.com/alfa-laboratory/core-components/commit/358142c6d259e1463954139cc648787cdf461f76)), closes [#993](https://github.com/alfa-laboratory/core-components/issues/993) [#990](https://github.com/alfa-laboratory/core-components/issues/990)
+
+
+
+
+
+# [5.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@5.2.0...@alfalab/core-components-vars@5.3.0) (2022-02-15)
+
+
+### Features
+
+* **vars:** updated typography ([#981](https://github.com/alfa-laboratory/core-components/issues/981)) ([95bcce8](https://github.com/alfa-laboratory/core-components/commit/95bcce8e07467c635e2a93c55edfb3550a533ba4))
+
+
+
+
+
+# [5.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@5.1.1...@alfalab/core-components-vars@5.2.0) (2022-01-27)
+
+
+### Features
+
+* **vars:** build color-mod ([#953](https://github.com/alfa-laboratory/core-components/issues/953)) ([aa64366](https://github.com/alfa-laboratory/core-components/commit/aa64366d970be46776d23c9d13ebec413b2ac4d9))
+
+
+
+
+
+## [5.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@5.1.0...@alfalab/core-components-vars@5.1.1) (2022-01-17)
+
+
+### Bug Fixes
+
+* **vars:** remove unused colors ([#945](https://github.com/alfa-laboratory/core-components/issues/945)) ([310a70a](https://github.com/alfa-laboratory/core-components/commit/310a70a8be6bff687861d3d643ebc347ecf6cd6d))
+
+
+
+
+
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@5.0.0...@alfalab/core-components-vars@5.1.0) (2021-12-09)
+
+
+### Features
+
+* **status:** добавлено 10% прозрачности в цвет фона ([#896](https://github.com/alfa-laboratory/core-components/issues/896)) ([b55c62b](https://github.com/alfa-laboratory/core-components/commit/b55c62b49cc52a15ff7497b9ad329773fba15959))
+
+
+
+
+
+# [5.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@4.1.0...@alfalab/core-components-vars@5.0.0) (2021-11-26)
+
+
+### Features
+
+* **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/alfa-laboratory/core-components/issues/886)) ([88e657a](https://github.com/alfa-laboratory/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/alfa-laboratory/core-components/issues/890)
+
+
+### BREAKING CHANGES
+
+* **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер  на xxs. Можно воспользоваться codemod.
+
+* feat(codemod): add button xs to xxs transformer
+
+* feat(tag): добавлен тэг размера 40px, изменены отступы
+
+Добавлен тэг размером 40px, изменены отступы. Тем, кто использовал размер xs, надо заменить размер
+на xxs.
+* **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер на xxs. Можно воспользоваться codemod.
+
+* test: update screenshots
+
+* test: update screenshots
+
+* feat(button): linter fix
+
+* feat(button): fix min-width
+
+* feat(tag): remove vertical paddings
+
+* feat(tag): remove vertical paddings
+
+* feat(button): updates
+
+
+
+
+
+# [4.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@4.0.0...@alfalab/core-components-vars@4.1.0) (2021-09-16)
+
+
+### Features
+
+* **gallery:** add component ([#815](https://github.com/alfa-laboratory/core-components/issues/815)) ([7ffd20e](https://github.com/alfa-laboratory/core-components/commit/7ffd20e2d007f658223d29aa943639c13ad51342)), closes [#774](https://github.com/alfa-laboratory/core-components/issues/774) [#795](https://github.com/alfa-laboratory/core-components/issues/795)
+
+
+
+
+
+# [4.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@3.1.1...@alfalab/core-components-vars@4.0.0) (2021-09-14)
+
+
+### Features
+
+* dark themes ([#778](https://github.com/alfa-laboratory/core-components/issues/778)) ([d848d16](https://github.com/alfa-laboratory/core-components/commit/d848d165b59182e6521d28efc2aadeecebc00d93))
+* **vars:** updated colors and typography from latest alfa-ui-primitives ([#803](https://github.com/alfa-laboratory/core-components/issues/803)) ([0d5b2a3](https://github.com/alfa-laboratory/core-components/commit/0d5b2a30a78e70392dd505790a92bc3bc83f9386))
+
+
+### BREAKING CHANGES
+
+* remove dark-theme-injector. remove vars duplications
+
+
+
+
+
+## [3.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@3.1.0...@alfalab/core-components-vars@3.1.1) (2021-08-23)
+
+
+### Bug Fixes
+
+* **input:** smart error icon ([#746](https://github.com/alfa-laboratory/core-components/issues/746)) ([f1950d6](https://github.com/alfa-laboratory/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/alfa-laboratory/core-components/issues/782)
+
+
+
+
+
+# [3.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@3.0.1...@alfalab/core-components-vars@3.1.0) (2021-08-04)
+
+
+### Features
+
+* add mods colors ([#770](https://github.com/alfa-laboratory/core-components/issues/770)) ([fe985f4](https://github.com/alfa-laboratory/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
+
+
+
+
+
+## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@3.0.0...@alfalab/core-components-vars@3.0.1) (2021-07-19)
+
+**Note:** Version bump only for package @alfalab/core-components-vars
+
+
+
+
+
 # [3.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-vars@2.6.2...@alfalab/core-components-vars@3.0.0) (2021-07-09)
 
 

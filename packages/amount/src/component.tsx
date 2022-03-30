@@ -16,6 +16,8 @@ export const Amount: React.FC<AmountProps> = ({
     view = 'default',
     bold = 'major',
     transparentMinor = true,
+    rightAddons,
+    showPlus = false,
     className,
     dataTestId,
 }) => {
@@ -34,6 +36,7 @@ export const Amount: React.FC<AmountProps> = ({
             })}
             data-test-id={dataTestId}
         >
+            {showPlus && value > 0 ? '+' : ''}
             {majorPart}
             <span
                 className={cn(styles.minorPartAndCurrency, {
@@ -43,8 +46,8 @@ export const Amount: React.FC<AmountProps> = ({
             >
                 {minorPart && AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR}
                 {minorPart}
-                {THINSP}
-                {currencySymbol}
+                {currency ? `${THINSP}${currencySymbol}` : null}
+                {rightAddons}
             </span>
         </span>
     );

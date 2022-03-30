@@ -12,7 +12,12 @@ import {
 import axios from 'axios';
 import { MatchImageSnapshotOptions } from 'jest-image-snapshot';
 import kebab from 'lodash.kebabcase';
-import { STYLES_URL, ScreenshotOpts, EvaluateFn } from './setupScreenshotTesting';
+import {
+    STYLES_URL,
+    VENDOR_STYLES_URL,
+    ScreenshotOpts,
+    EvaluateFn,
+} from './setupScreenshotTesting';
 
 type CustomSnapshotIdentifierParams = {
     currentTestName: string;
@@ -44,12 +49,10 @@ export const customSnapshotIdentifier = ({
     return kebab(`${currentTestName}${counter > 1 ? `-${counter}` : ''}`);
 };
 
-const getPageHtml = async (page: Page, css?: string, theme?: string) => {
+const getPageHtml = async (page: Page, css?: string) => {
     const [head, body] = await Promise.all([page?.innerHTML('head'), page?.innerHTML('body')]);
 
-    const themeAttr = theme ? ` data-theme="${theme}"` : '';
-
-    return `<html><head>${head}</head><body${themeAttr}><style>${css}</style>${body}</body></html>`;
+    return `<html><head><style>${css}</style>${head}</head><body>${body}</body></html>`;
 };
 
 export type MatchHtmlParams = {
@@ -59,7 +62,6 @@ export type MatchHtmlParams = {
     matchImageSnapshotOptions?: MatchImageSnapshotOptions;
     screenshotOpts?: ScreenshotOpts;
     evaluate?: EvaluateFn;
-    theme?: string;
     viewport?: { width: number; height: number };
 };
 
@@ -81,10 +83,12 @@ export const matchHtml = async ({
     matchImageSnapshotOptions,
     screenshotOpts = screenshotDefaultOpts,
     evaluate,
-    theme,
     viewport = defaultViewport,
 }: MatchHtmlParams) => {
-    const pageHtml = await getPageHtml(page, css, theme);
+    let pageHtml = await getPageHtml(page, css);
+
+    // FIXME: gcdn.co недоступен на playwright сервере
+    pageHtml = pageHtml.replace(/alfabank\.gcdn\.co/g, 'alfabank.st');
 
     const image = await axios.post(
         playwrightUrl,
@@ -127,14 +131,17 @@ export const openBrowserPage = async (
     const context = await browser.newContext({ viewport: defaultViewport });
     const page = await context.newPage();
 
-    const [css] = await Promise.all([
+    const [mainCss, vendorCss] = await Promise.all([
         axios.get(STYLES_URL, {
             responseType: 'text',
         }),
+        axios.get(VENDOR_STYLES_URL, { responseType: 'text' }),
         page.goto(pageUrl),
     ]);
 
-    return { browser, context, page, css: css?.data };
+    const css = `${mainCss?.data}\n${vendorCss?.data}`;
+
+    return { browser, context, page, css };
 };
 
 export const closeBrowser = async ({ page, context, browser }: CloseBrowserParams) => {

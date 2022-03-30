@@ -1,13 +1,14 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
-import { FileUploadItem, FileStatuses } from './index';
+import { FileUploadItem, FileStatuses } from '.';
 
 export const fileProps = {
     name: 'Довольно длинное название файла.pdf',
     uploadDate: '22.01.2018',
     size: 45000,
     downloadLink: '/link',
+    download: 'новое_название_файла',
     uploadStatus: 'SUCCESS' as FileStatuses,
     showDelete: true,
 };
@@ -40,6 +41,15 @@ describe('FileUploadItem', () => {
         expect(container.firstElementChild).toHaveClass(className);
     });
 
+    it('should use custom icon', () => {
+        const dataTestId = 'test-id';
+        const { queryByTestId } = render(
+            <FileUploadItem icon={() => <div data-test-id={dataTestId} />} />,
+        );
+
+        expect(queryByTestId(dataTestId)).toBeInTheDocument();
+    });
+
     describe('Callbacks tests', () => {
         it('should call `onDelete` prop', () => {
             const cb = jest.fn();
@@ -67,14 +77,16 @@ describe('FileUploadItem', () => {
             expect(cb.mock.calls[0][0]).toBe(fileId);
         });
 
-        it('should call `onRestore` prop', () => {
+        it('should call `onDownload` prop', async () => {
             const cb = jest.fn();
             const fileId = 'id';
-            const { getByText } = render(
+            const { baseElement } = render(
                 <FileUploadItem {...fileProps} downloadLink='/link' onDownload={cb} id={fileId} />,
             );
 
-            fireEvent.click(getByText(fileProps.name));
+            const downloadButton = baseElement.querySelector('a') as HTMLAnchorElement;
+
+            fireEvent.click(downloadButton);
 
             expect(cb).toBeCalledTimes(1);
             expect(cb.mock.calls[0][0]).toBe(fileId);

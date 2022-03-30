@@ -1,0 +1,41 @@
+@import '../../../themes/src/default.css';
+@import '../../../calendar/src/vars.css';
+
+.component {
+    display: flex;
+
+    & button[aria-selected='true'] {
+        cursor: pointer;
+    }
+
+    & *[class*='errorIcon_'] {
+        display: none;
+    }
+
+    & *[class*='calendarIcon_'] {
+        margin-right: 0;
+    }
+}
+
+.divider {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    margin: 0 var(--gap-xs);
+
+    &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: var(--color-light-graphic-primary);
+    }
+}
+
+.static {
+    & .calendar {
+        width: var(--calendar-inner-width);
+    }
+}

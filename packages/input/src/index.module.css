@@ -1,21 +1,11 @@
 @import '../../themes/src/default.css';
 
 :root {
-    --input-clear-icon: url('https://alfabank.st/icons/glyph_cross-circle_m.svg');
-    --input-color: var(--color-light-text-primary);
-    --input-placeholder-color: var(--color-light-text-secondary);
-    --input-focus-placeholder-color: var(--color-light-text-tertiary);
-    --input-with-label-placeholder-color: var(--color-light-text-tertiary);
-    --input-error-icon-display: flex;
-    --input-success-icon-display: flex;
-    --input-error-icon: url('https://alfabank.st/icons/glyph_alert-circle_m_negative.svg');
-    --input-success-icon: url('https://alfabank.st/icons/icon_ok_s_color.svg');
+    --input-error-icon-display: block;
+    --input-success-icon-display: block;
 
-    /* disabled */
-    --input-disabled-color: var(--color-light-text-secondary);
-
-    /* read-only */
-    --input-read-only-color: var(--color-light-text-secondary);
+    /* управляет видимостью иконки ошибки, если она стоит рядом с другой иконкой */
+    --input-error-icon-not-alone-display: block;
 }
 
 @define-mixin _input-icon {
@@ -32,7 +22,6 @@
     display: block;
     width: 100%;
     height: 100%;
-    color: var(--input-color);
     background: none;
     border: none;
     margin: 0;
@@ -40,17 +29,14 @@
     text-overflow: ellipsis;
     box-sizing: border-box;
     -webkit-appearance: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .input::placeholder {
     transition: opacity 0.2s ease, color 0.2s ease;
-    color: var(--input-placeholder-color);
 }
 
 .hasLabel::placeholder {
     opacity: 0;
-    color: var(--input-with-label-placeholder-color);
 }
 
 .block {
@@ -58,10 +44,7 @@
 }
 
 .clearIcon {
-    @mixin _input-icon;
-
     display: block;
-    background-image: var(--input-clear-icon);
     opacity: 0.3;
     transition: opacity 0.2s ease;
 
@@ -78,21 +61,39 @@
     @mixin _input-icon;
 
     display: var(--input-error-icon-display);
-    background-image: var(--input-error-icon);
+
+    &:not(:only-child) {
+        margin-left: var(--gap-2xs);
+    }
+}
+
+* + .errorIcon {
+    display: var(--input-error-icon-not-alone-display);
+}
+
+.clearButton + * {
+    margin-left: var(--gap-2xs);
+}
+
+.clearButton + .errorIcon {
+    display: var(--input-error-icon-display);
 }
 
 .successIcon {
     @mixin _input-icon;
 
     display: var(--input-success-icon-display);
-    background-image: var(--input-success-icon);
+
+    &:not(:only-child) {
+        margin-left: var(--gap-2xs);
+    }
 }
 
 /* DISABLED STATE */
 
 .input:disabled {
     cursor: var(--disabled-cursor);
-    color: var(--input-disabled-color);
+    opacity: 1;
 }
 
 /* FOCUS STATE */
@@ -101,24 +102,11 @@
     opacity: 1;
 }
 
-.input:focus::placeholder {
-    color: var(--input-focus-placeholder-color);
-}
-
 .focusVisible {
     @mixin focus-outline;
 }
 
 /* READ-ONLY STATE */
-
-.input:read-only {
-    cursor: var(--disabled-cursor);
-    color: var(--input-read-only-color);
-
-    &:focus::placeholder {
-        color: var(--input-placeholder-color);
-    }
-}
 
 .hasLabel:read-only:focus::placeholder {
     opacity: 0;

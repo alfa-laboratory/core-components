@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount@2.0.3...@alfalab/core-components-amount@2.1.0) (2022-02-02)
+
+
+### Features
+
+* **amount:** add rightAddons, add showPlus, make currency optional ([#955](https://github.com/alfa-laboratory/core-components/issues/955)) ([ac35b9a](https://github.com/alfa-laboratory/core-components/commit/ac35b9aaf842d88fd28caeb4f888cdf74facf644))
+
+
+
+
+
+## [2.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount@2.0.2...@alfalab/core-components-amount@2.0.3) (2021-12-08)
+
+
+### Bug Fixes
+
+* актуализируем @alfalab/utils ([#897](https://github.com/alfa-laboratory/core-components/issues/897)) ([30fb88e](https://github.com/alfa-laboratory/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+
+
+
+
+
+## [2.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount@2.0.1...@alfalab/core-components-amount@2.0.2) (2021-07-23)
+
+**Note:** Version bump only for package @alfalab/core-components-amount
+
+
+
+
+
 ## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-amount@2.0.0...@alfalab/core-components-amount@2.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-amount

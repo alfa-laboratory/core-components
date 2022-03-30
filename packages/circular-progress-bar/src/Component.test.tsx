@@ -14,6 +14,18 @@ describe('ProgressBar', () => {
             const { container } = render(<CircularProgressBar value={20} view='negative' />);
             expect(container).toMatchSnapshot();
         });
+
+        it('should match custom title & subtitle snapshot', () => {
+            const { container } = render(
+                <CircularProgressBar
+                    value={20}
+                    view='negative'
+                    title={<span style={{ color: 'red' }}>title</span>}
+                    subtitle={<span style={{ color: 'green' }}>subtitle</span>}
+                />,
+            );
+            expect(container).toMatchSnapshot();
+        });
     });
 
     describe('Attributes tests', () => {

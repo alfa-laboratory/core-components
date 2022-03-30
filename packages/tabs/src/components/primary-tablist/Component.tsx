@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from 'react';
-import cn from 'classnames';
 import { KeyboardFocusable } from '@alfalab/core-components-keyboard-focusable';
-import { useTabs } from '../../useTabs';
+import cn from 'classnames';
+import { Styles, TabListProps } from '../../typings';
+
 import { ScrollableContainer } from '../scrollable-container';
-import { TabListProps, Styles } from '../../typings';
+import { useTabs } from '../../useTabs';
 
 export const PrimaryTabList = ({
     size,
@@ -33,27 +34,31 @@ export const PrimaryTabList = ({
 
     const renderContent = () => (
         <React.Fragment>
-            {titles.map((item, index) => (
-                <KeyboardFocusable key={item.id}>
-                    {(ref, focused) => (
-                        <button
-                            {...getTabListItemProps(index, ref)}
-                            type='button'
-                            className={cn(styles.title, {
-                                [styles.selected]: item.id === selectedId,
-                                [styles.disabled]: item.disabled,
-                            })}
-                        >
-                            <span className={focused ? styles.focused : undefined}>
-                                {item.title}
-                            </span>
-                            {item.rightAddons && (
-                                <span className={styles.rightAddons}>{item.rightAddons}</span>
-                            )}
-                        </button>
-                    )}
-                </KeyboardFocusable>
-            ))}
+            {titles.map((item, index) => {
+                if (item.hidden) return null;
+
+                return (
+                    <KeyboardFocusable key={item.id}>
+                        {(ref, focused) => (
+                            <button
+                                {...getTabListItemProps(index, ref)}
+                                type='button'
+                                className={cn(styles.title, {
+                                    [styles.selected]: item.id === selectedId,
+                                    [styles.disabled]: item.disabled,
+                                })}
+                            >
+                                <span className={focused ? styles.focused : undefined}>
+                                    {item.title}
+                                </span>
+                                {item.rightAddons && (
+                                    <span className={styles.rightAddons}>{item.rightAddons}</span>
+                                )}
+                            </button>
+                        )}
+                    </KeyboardFocusable>
+                );
+            })}
 
             <div className={styles.line} ref={lineRef} />
         </React.Fragment>
@@ -63,9 +68,7 @@ export const PrimaryTabList = ({
         <div
             role='tablist'
             data-test-id={dataTestId}
-            className={cn(styles.component, className, size && styles[size], {
-                [styles.scrollable]: scrollable,
-            })}
+            className={cn(styles.component, className, size && styles[size])}
         >
             {scrollable ? (
                 <ScrollableContainer

@@ -1,0 +1,48 @@
+@import '../../themes/src/default.css';
+@import './vars.css';
+
+.component {
+    color: var(--tag-inverted-text-color);
+    border-color: var(--tag-inverted-border-color);
+    background-color: var(--tag-inverted-background-color);
+
+    &:disabled {
+        border-color: var(--tag-inverted-border-color-disabled);
+        color: var(--tag-inverted-text-color-disabled);
+        background-color: var(--tag-inverted-background-color-disabled);
+    }
+}
+
+.component {
+    &:hover:not(:disabled) {
+        border-color: var(--tag-inverted-border-color-hover);
+        background-color: var(--tag-inverted-background-color-hover);
+    }
+
+    &:active:not(:disabled) {
+        border-color: var(--tag-inverted-border-color-active);
+        background-color: var(--tag-inverted-background-color-active);
+        color: var(--tag-inverted-text-color);
+    }
+}
+
+.checked {
+    border-color: var(--tag-inverted-border-color-checked);
+    background-color: var(--tag-inverted-background-color-checked);
+    color: var(--tag-inverted-text-color-checked);
+
+    &:disabled {
+        background-color: var(--tag-inverted-background-color-checked-disabled);
+        border-color: var(--tag-inverted-border-color-checked-disabled);
+        color: var(--tag-inverted-text-color-checked-disabled);
+    }
+
+    &:hover:not(:disabled):not(:active) {
+        background-color: var(--tag-inverted-background-color-checked-hover);
+    }
+
+    &:active:not(:disabled) {
+        background-color: var(--tag-inverted-background-color-checked-active);
+        color: var(--tag-inverted-text-color-checked);
+    }
+}

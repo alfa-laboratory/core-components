@@ -1,7 +1,4 @@
-@import '../../../../themes/src/default.css';
-
 @define-mixin button-site {
     /* theme */
-    --button-border-radius: var(--border-radius-m);
     --button-active-transform: scale(0.97);
 }

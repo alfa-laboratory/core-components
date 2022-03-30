@@ -189,7 +189,7 @@ describe('Button', () => {
             );
 
             const button = getByTestId(dataTestId);
-            const getLoader = () => container.querySelector('svg');
+            const getLoader = () => container.querySelector('div');
 
             const start = Date.now();
 
@@ -212,7 +212,7 @@ describe('Button', () => {
             );
 
             const button = getByTestId(dataTestId);
-            const getLoader = () => container.querySelector('svg');
+            const getLoader = () => container.querySelector('div');
 
             const start = Date.now();
 
@@ -225,6 +225,34 @@ describe('Button', () => {
             const duration = Date.now() - start;
 
             expect(duration).toBeGreaterThanOrEqual(TIMEOUT);
+        });
+    });
+
+    describe('Custom component', () => {
+        it('should use custom component', () => {
+            const cb = jest.fn();
+            cb.mockReturnValue(null);
+
+            render(<Button Component={cb} dataTestId={dataTestId} />);
+
+            expect(cb).toBeCalled();
+
+            const props = cb.mock.calls[0][0];
+            expect(props['data-test-id']).toBe(dataTestId);
+        });
+
+        it('should pass `to` instead `href` to custom component', () => {
+            const cb = jest.fn();
+            cb.mockReturnValue(null);
+
+            render(<Button Component={cb} href='test' />);
+
+            expect(cb).toBeCalled();
+
+            const props = cb.mock.calls[0][0];
+
+            expect(props.href).toBeFalsy();
+            expect(props.to).toBe('test');
         });
     });
 

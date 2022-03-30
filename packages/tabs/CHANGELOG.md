@@ -3,6 +3,166 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@6.2.0...@alfalab/core-components-tabs@6.2.1) (2022-03-28)
+
+**Note:** Version bump only for package @alfalab/core-components-tabs
+
+
+
+
+
+# [6.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@6.1.0...@alfalab/core-components-tabs@6.2.0) (2022-03-24)
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
+# [6.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@6.0.1...@alfalab/core-components-tabs@6.1.0) (2022-02-09)
+
+
+### Features
+
+* **tabs:** add xxs xs sizes to secondary view and fix heights ([#985](https://github.com/alfa-laboratory/core-components/issues/985)) ([dd20933](https://github.com/alfa-laboratory/core-components/commit/dd20933f7c9a8f08920f7ad21bacb25983d3e93e))
+
+
+
+
+
+## [6.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@6.0.0...@alfalab/core-components-tabs@6.0.1) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-tabs
+
+
+
+
+
+# [6.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@5.2.5...@alfalab/core-components-tabs@6.0.0) (2021-11-26)
+
+
+### Features
+
+* **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/alfa-laboratory/core-components/issues/886)) ([88e657a](https://github.com/alfa-laboratory/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/alfa-laboratory/core-components/issues/890)
+
+
+### BREAKING CHANGES
+
+* **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер  на xxs. Можно воспользоваться codemod.
+
+* feat(codemod): add button xs to xxs transformer
+
+* feat(tag): добавлен тэг размера 40px, изменены отступы
+
+Добавлен тэг размером 40px, изменены отступы. Тем, кто использовал размер xs, надо заменить размер
+на xxs.
+* **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер на xxs. Можно воспользоваться codemod.
+
+* test: update screenshots
+
+* test: update screenshots
+
+* feat(button): linter fix
+
+* feat(button): fix min-width
+
+* feat(tag): remove vertical paddings
+
+* feat(tag): remove vertical paddings
+
+* feat(button): updates
+
+
+
+
+
+## [5.2.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@5.2.4...@alfalab/core-components-tabs@5.2.5) (2021-11-23)
+
+
+### Bug Fixes
+
+* **tabs:** hide native scrollbar on scrollable tabs properly ([0134956](https://github.com/alfa-laboratory/core-components/commit/0134956f2af01720500f7ad06caeeb4569e74d50)), closes [#879](https://github.com/alfa-laboratory/core-components/issues/879)
+
+
+
+
+
+## [5.2.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@5.2.3...@alfalab/core-components-tabs@5.2.4) (2021-10-13)
+
+
+### Bug Fixes
+
+* **tabs:** фикс бага при скрытии табов ([#851](https://github.com/alfa-laboratory/core-components/issues/851)) ([5d5dcd9](https://github.com/alfa-laboratory/core-components/commit/5d5dcd966fface279921bea5610e9b3af3f2117b))
+
+
+
+
+
+## [5.2.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@5.2.2...@alfalab/core-components-tabs@5.2.3) (2021-09-14)
+
+**Note:** Version bump only for package @alfalab/core-components-tabs
+
+
+
+
+
+## [5.2.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@5.2.1...@alfalab/core-components-tabs@5.2.2) (2021-08-27)
+
+
+### Bug Fixes
+
+* **tabs:** fix tabs hidden ([#816](https://github.com/alfa-laboratory/core-components/issues/816)) ([68468dd](https://github.com/alfa-laboratory/core-components/commit/68468dd6e74a465f2d4bcde87d7852bcaf934783))
+
+
+
+
+
+## [5.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@5.2.0...@alfalab/core-components-tabs@5.2.1) (2021-08-26)
+
+
+### Bug Fixes
+
+* **tabs:** height styles ([#810](https://github.com/alfa-laboratory/core-components/issues/810)) ([b3b96e7](https://github.com/alfa-laboratory/core-components/commit/b3b96e7efb4771c0009c29e851ce1d69f4c61ff4))
+
+
+
+
+
+# [5.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@5.1.0...@alfalab/core-components-tabs@5.2.0) (2021-08-23)
+
+
+### Features
+
+* **tag:** add inverted colors ([#784](https://github.com/alfa-laboratory/core-components/issues/784)) ([d3681ae](https://github.com/alfa-laboratory/core-components/commit/d3681aeefe02e5f481d066013911a1877a165bb2))
+
+
+
+
+
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@5.0.2...@alfalab/core-components-tabs@5.1.0) (2021-08-04)
+
+
+### Features
+
+* add mods colors ([#770](https://github.com/alfa-laboratory/core-components/issues/770)) ([fe985f4](https://github.com/alfa-laboratory/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
+
+
+
+
+
+## [5.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@5.0.1...@alfalab/core-components-tabs@5.0.2) (2021-07-23)
+
+**Note:** Version bump only for package @alfalab/core-components-tabs
+
+
+
+
+
 ## [5.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tabs@5.0.0...@alfalab/core-components-tabs@5.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-tabs

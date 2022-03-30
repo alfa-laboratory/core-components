@@ -1,0 +1,93 @@
+@import '../../../../themes/src/default.css';
+
+:root {
+    --bottom-sheet-header-border-bottom: none;
+    --bottom-sheet-footer-background-color: var(--color-light-bg-primary);
+    --bottom-sheet-title-font-size: 18px;
+    --bottom-sheet-title-font-weight: 700;
+    --bottom-sheet-title-line-height: 24px;
+    --bottom-sheet-title-font-family: var(--font-family-system);
+    --bottom-sheet-title-margin-vertical: var(--gap-2xs);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: var(--gap-xs);
+    padding-bottom: 0;
+    background-color: var(--color-light-bg-primary);
+    border-top-right-radius: var(--border-radius-xl);
+    border-top-left-radius: var(--border-radius-xl);
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+}
+
+.highlighted {
+    border-bottom: var(--bottom-sheet-header-border-bottom);
+}
+
+.justifyEnd {
+    justify-content: flex-end;
+}
+
+.addon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 48px;
+    height: 48px;
+}
+
+.addonFixed {
+    position: fixed;
+}
+
+.addonLeft {
+    left: 0;
+    margin-left: var(--gap-xs);
+}
+
+.addonRight {
+    right: 0;
+    margin-right: var(--gap-xs);
+}
+
+.title {
+    height: 24px;
+    padding: var(--gap-xs) var(--gap-xs);
+    margin: var(--bottom-sheet-title-margin-vertical) 0;
+    width: 100%;
+    font-size: var(--bottom-sheet-title-font-size);
+    font-weight: var(--bottom-sheet-title-font-weight);
+    line-height: var(--bottom-sheet-title-line-height);
+    font-family: var(--bottom-sheet-title-font-family);
+}
+
+.titleCenter {
+    text-align: center;
+}
+
+.titleLeft {
+    text-align: left;
+}
+
+.trimTitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.titleBigIndentHorizontal {
+    margin: var(--bottom-sheet-title-margin-vertical) var(--gap-4xl);
+}
+
+.titleIndentRight {
+    margin-right: var(--gap-4xl);
+}
+
+.titleIndentLeft {
+    margin-left: var(--gap-4xl);
+}

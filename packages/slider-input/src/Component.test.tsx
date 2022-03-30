@@ -55,6 +55,24 @@ describe('SliderInput', () => {
 
             expect(container.getElementsByClassName(className).length).toBe(1);
         });
+
+        it('should set `focusedClassName` class to slider', () => {
+            const className = 'test-class';
+            const { container, queryByRole } = render(<SliderInput focusedClassName={className} />);
+
+            const input = queryByRole('textbox');
+
+            if (input) input.focus();
+
+            expect(container.getElementsByClassName(className).length).toBe(1);
+        });
+
+        it('should set `fieldClassName` class to slider', () => {
+            const className = 'test-class';
+            const { container } = render(<SliderInput fieldClassName={className} />);
+
+            expect(container.getElementsByClassName(className).length).toBe(1);
+        });
     });
 
     describe('Attributes tests', () => {

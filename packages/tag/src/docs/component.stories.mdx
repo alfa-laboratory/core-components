@@ -1,0 +1,70 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import { text, select, boolean } from '@storybook/addon-knobs';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
+import { CopyMIcon } from '@alfalab/icons-glyph/CopyMIcon';
+
+import { Tag } from '../Component';
+import { version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../index.module.css';
+
+export const SIZES = ['xxs', 'xs', 's', 'm', 'l', 'xl'];
+
+<Meta
+    title='Компоненты/Tag'
+    component={Tag}
+/>
+
+<!-- Canvas -->
+
+<Story name='Tag'>
+    {React.createElement(() => {
+        const [checked, setChecked] = React.useState(false);
+        const handleClick = () => setChecked(!checked);
+        const colors = select('colors', ['default', 'inverted'], 'default');
+        return (
+            <div style={{
+                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : 'transparent',
+                padding: '8px',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+            }}>
+                <Tag
+                    size={select('size', SIZES, 'm')}
+                    variant={select('variant',['default', 'alt'], 'default')}
+                    disabled={boolean('disabled', false)}
+                    checked={checked || boolean('checked', false)}
+                    rightAddons={boolean('rightAddons', false) && <CopyMIcon />}
+                    onClick={handleClick}
+                    colors={colors}
+                >
+                    {text('label', 'Оплатить')}
+                </Tag>
+            </div>
+        );
+    })}
+</Story>
+
+<!-- Docs -->
+
+<ComponentHeader
+    name='Tag'
+    version={version}
+    package='@alfalab/core-components/tag'
+    stage={3}
+/>
+
+```tsx
+import { Tag } from '@alfalab/core-components/tag';
+```
+
+<Tabs
+    description={<Description />}
+    props={<Props of={Tag} />}
+    cssVars={<CssVars css={styles} />}
+    changelog={<Changelog />}
+/>

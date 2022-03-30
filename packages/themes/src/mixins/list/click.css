@@ -1,9 +1,4 @@
-@import '../../../../themes/src/default.css';
-
 @define-mixin list-click {
-    /* core vars */
-    --gap-m: 16px;
-
     /* theme */
     --list-item-margin: var(--gap-m);
 }

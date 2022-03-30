@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
@@ -12,7 +12,6 @@ import styles from '!!raw-loader!../index.module.css';
 <Meta
     title='Компоненты/SliderInput'
     component={SliderInput}
-    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
 
@@ -52,7 +51,6 @@ import styles from '!!raw-loader!../index.module.css';
     version={version}
     package='@alfalab/core-components/slider-input'
     stage={2}
-    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=719%3A1'
 />
 
 ```tsx

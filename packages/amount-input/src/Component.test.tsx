@@ -7,11 +7,16 @@ import { render, fireEvent, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { CurrencyCodes } from '@alfalab/data';
 import { AmountInput } from './index';
+import { AmountInputProps } from './Component';
 
 describe('AmountInput', () => {
     const THINSP = String.fromCharCode(8201);
 
-    function renderAmountInput(value: number | null, currency: CurrencyCodes | null = 'RUR') {
+    function renderAmountInput(
+        value: AmountInputProps['value'],
+        currency: CurrencyCodes | null = 'RUR',
+        props: AmountInputProps = {},
+    ) {
         // TODO: почему тесты в кор компонентах цепляются к data-test-id вместо label?
         const dataTestId = 'test-id';
         const { getByTestId } = render(
@@ -20,6 +25,7 @@ describe('AmountInput', () => {
                 currency={currency as CurrencyCodes}
                 minority={100}
                 dataTestId={dataTestId}
+                {...props}
             />,
         );
 
@@ -63,6 +69,26 @@ describe('AmountInput', () => {
         expect(input.placeholder).toBe('Сумма');
     });
 
+    it('should use custom suffix when currency empty', () => {
+        const input = renderAmountInput(null, null, { suffix: '%' });
+        expect(input.placeholder).toBe(`0${THINSP}%`);
+    });
+
+    it('should use custom suffix', () => {
+        const input = renderAmountInput(null, 'RUR', { suffix: '%' });
+        expect(input.placeholder).toBe(`0${THINSP}%`);
+    });
+
+    it('should allow to clean suffix when currency empty', () => {
+        const input = renderAmountInput(null, null, { suffix: '' });
+        expect(input.placeholder).toBe(`0${THINSP}`);
+    });
+
+    it('should allow to clean suffix', () => {
+        const input = renderAmountInput(null, 'RUR', { suffix: '' });
+        expect(input.placeholder).toBe(`0${THINSP}`);
+    });
+
     it('should render passed amount', () => {
         const input = renderAmountInput(1234567);
         expect(input.value).toBe(`12${THINSP}345,67`);
@@ -78,6 +104,11 @@ describe('AmountInput', () => {
         expect(input.value).toBe('');
     });
 
+    it('should render empty input if passed amount.value is empty string', () => {
+        const input = renderAmountInput('');
+        expect(input.value).toBe('');
+    });
+
     it('should render 0 in input if passed amount.value is 0', () => {
         const input = renderAmountInput(0);
         expect(input.value).toBe('0');
@@ -85,6 +116,11 @@ describe('AmountInput', () => {
 
     it('should render passed decimal amount', () => {
         const input = renderAmountInput(1234567);
+        expect(input.value).toBe(`12${THINSP}345,67`);
+    });
+
+    it('should render passed decimal amount if value is string', () => {
+        const input = renderAmountInput('1234567');
         expect(input.value).toBe(`12${THINSP}345,67`);
     });
 
@@ -130,6 +166,29 @@ describe('AmountInput', () => {
 
         fireEvent.change(input, { target: { value: '!' } });
         expect(input.value).toBe(`12${THINSP}345,67`);
+    });
+
+    it('should allow enter only integer values when integersOnly is true', async () => {
+        const input = renderAmountInput(12345, 'RUR', { integersOnly: true });
+
+        expect(input.value).toBe('123,45');
+
+        await userEvent.type(input, '1');
+        expect(input.value).toBe('123');
+
+        await userEvent.type(input, '.');
+        expect(input.value).toBe('123');
+
+        await userEvent.type(input, ',');
+        expect(input.value).toBe('123');
+
+        await userEvent.type(input, '.50');
+        expect(input.value).toBe(`12${THINSP}350`);
+
+        input.focus();
+        input.setSelectionRange(0, 3);
+        await userEvent.paste(input, '123.456');
+        expect(input.value).toBe('123');
     });
 
     it('should avoid inserting leading zero before number, but allow inserting zero', async () => {

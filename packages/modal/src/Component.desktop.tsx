@@ -17,10 +17,11 @@ export type ModalDesktopProps = BaseModalProps & {
      * Ширина модального окна
      * @default "m"
      */
-    size?: 's' | 'm' | 'l';
+    size?: 's' | 'm' | 'l' | 'xl' | 'fullscreen';
 
     /**
      * Растягивает модальное окно на весь экран
+     * @deprecated Используйте размер fullscreen
      */
     fullscreen?: boolean;
 
@@ -51,6 +52,9 @@ const ModalDesktopComponent = forwardRef<HTMLDivElement, ModalDesktopProps>(
         },
         ref,
     ) => {
+        // TODO: удалить, после удаления пропсы fullscreen
+        const componentSize = fullscreen ? 'fullscreen' : size;
+
         const modalRef = useRef<HTMLElement>(null);
 
         const handleEntered: TransitionProps['onEntered'] = useCallback(
@@ -78,11 +82,12 @@ const ModalDesktopComponent = forwardRef<HTMLDivElement, ModalDesktopProps>(
                 {...restProps}
                 ref={mergeRefs([ref, modalRef])}
                 wrapperClassName={cn(styles.wrapper, wrapperClassName, {
-                    [styles.fullscreen]: fullscreen,
+                    [styles.fullscreen]: componentSize === 'fullscreen',
                 })}
-                className={cn(styles.component, className, !fullscreen && styles[size])}
+                className={cn(styles.component, className, styles[componentSize])}
                 backdropProps={{
-                    invisible: fullscreen,
+                    ...restProps.backdropProps,
+                    invisible: componentSize === 'fullscreen',
                 }}
                 transitionProps={{
                     classNames: transitions,
@@ -91,9 +96,7 @@ const ModalDesktopComponent = forwardRef<HTMLDivElement, ModalDesktopProps>(
                 }}
             >
                 {React.Children.map(children, child =>
-                    isValidElement(child)
-                        ? cloneElement(child, { size: child.props.size || size, fullscreen })
-                        : child,
+                    isValidElement(child) ? cloneElement(child, { size: componentSize }) : child,
                 )}
             </BaseModal>
         );

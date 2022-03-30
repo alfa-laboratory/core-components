@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { Link } from './index';
 
 describe('Snapshots tests', () => {
@@ -12,7 +12,7 @@ describe('Snapshots tests', () => {
     it('should render left slot', () => {
         expect(
             render(
-                <Link href='' leftAddons={<Icon />}>
+                <Link href='' leftAddons={<StarMIcon />}>
                     Link
                 </Link>,
             ),
@@ -22,7 +22,7 @@ describe('Snapshots tests', () => {
     it('should render right slot', () => {
         expect(
             render(
-                <Link href='' rightAddons={<Icon />}>
+                <Link href='' rightAddons={<StarMIcon />}>
                     Link
                 </Link>,
             ),
@@ -95,6 +95,26 @@ describe('Attributes tests', () => {
         const relAttr = container.firstElementChild?.getAttribute('rel');
 
         expect(relAttr).toBe('noreferrer noopener');
+    });
+});
+
+describe('Custom component', () => {
+    it('should use custom component and replace `href` to `to`', () => {
+        const cb = jest.fn();
+        cb.mockReturnValue(null);
+
+        render(
+            <Link Component={cb} href='test'>
+                Link
+            </Link>,
+        );
+
+        expect(cb).toBeCalled();
+
+        const props = cb.mock.calls[0][0];
+
+        expect(props.href).toBeFalsy();
+        expect(props.to).toBe('test');
     });
 });
 

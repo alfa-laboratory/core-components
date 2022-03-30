@@ -26,8 +26,10 @@ module.exports = {
             name: '@storybook/addon-docs',
             options: { transcludeMarkdown: true },
         },
+        'storybook-addon-live-examples',
         '@storybook/preset-create-react-app',
         './addons/theme-switcher/register.js',
+        './addons/mode-switcher/register.js',
     ],
     webpackFinal: async config => {
         addPackagesDir(config);

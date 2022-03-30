@@ -1,203 +1,212 @@
-Компонент PickerButton. Использует селект, но с кнопкой вместо стандартного Field.
-Кнопка содержит несколько команд, объединенных по смыслу. Используется для скрытия редких или одинаковых по контексту действий.
+Компонент используется для скрытия редких или одинаковых по контексту действий.
 
 ```tsx live
 const options = [
-    { key: 'Заказать карту' },
-    { key: 'Выписка по счёту' },
-    { key: 'Выпустить карту' },
-    { key: 'Скопировать реквизиты' },
+    { key: 'Название опции 1' },
+    { key: 'Название опции 2' },
+    { key: 'Название опции 3' },
 ];
 
-render(<PickerButton options={options} label='Выберите действие' />);
+const optionsWithIcons = [
+    { key: 'Название опции 1', icon: CarMIcon },
+    { key: 'Название опции 2', icon: StarMIcon },
+    { key: 'Название опции 3', icon: CardTransferMIcon },
+];
+
+render(
+    <Space direction="horizontal">
+        <PickerButton options={options} view='primary' label='Picker button' />
+        <PickerButton options={optionsWithIcons} view='primary' variant="compact" />
+    </Space>
+);
+```
+
+## Архитектура
+
+PickerButton это <a href="/docs/компоненты-select--select">Select</a> с <a href="/docs/компоненты-button--button">Button</a> вместо стандартного `field`.
+Поэтому PickerButton доступен во всех `size` и `view`, которые есть у <a href="/docs/компоненты-button--button">Button</a>.
+
+```tsx live
+const options = [
+    { key: 'Название опции 1' },
+    { key: 'Название опции 2' },
+    { key: 'Название опции 3' },
+];
+
+render(
+    <Space direction='horizontal'>
+        <PickerButton label='Picker button' options={options} view='primary' size='m' />
+        <PickerButton label='Picker button' options={options} view='secondary' size='s' />
+        <PickerButton label='Picker button' options={options} view='tertiary' size='xxs' />
+    </Space>,
+);
 ```
 
 ## Примеры
 
-### Кастомизированные элементы
+### Позиционирование
+
+Если места достаточно, список открывается под контролом, если недостасточно над ним.
 
 ```tsx live
 const options = [
-    { key: 'Заказать карту' },
-    { key: 'Выписка по счёту' },
-    { key: 'Выпустить карту' },
-    { key: 'Скопировать реквизиты' },
+    { key: 'Пример длинного названия' },
+    { key: 'Название опции' },
+    { key: 'Название опции' },
 ];
 
-const groupedOptions = [
-    {
-        label: 'Группа №1',
-        options: [{ key: 'Заказать карту' }, { key: 'Выписка по счёту' }],
-    },
-    {
-        label: 'Группа №2',
-        options: [{ key: 'Удалить' }, { key: 'Переименовать' }],
-    },
+render(
+    <Space direction='horizontal'>
+        <PickerButton label='Слева' options={options} popoverPosition='bottom-start' view="primary" />
+        <PickerButton label='По центру' options={options} popoverPosition='bottom' view="primary" />
+        <PickerButton label='Справа' options={options} popoverPosition='bottom-end' view="primary" />
+    </Space>,
+);
+```
+
+### Ширина выпадающего списка
+
+#### Дефолтная
+
+Обычно ширину выпадающего списка задает контент.
+Если контент слишком длинный, то можно изменить это поведение.
+
+```tsx live
+const options = [
+    { key: 'Пример длинного названия' },
+    { key: 'Название опции' },
+    { key: 'Название опции' },
 ];
 
-const customOptionList = props => (
-    <div>
-        <b>Header</b>
-        <OptionsList {...props} />
+render(<PickerButton options={options} view='primary' label='Picker button' />);
+```
+
+#### Равная вызывающему контролу
+
+Можно использовать `optionsListWidth='field'`
+— в этом случае ширина выпадающего меню будет равна ширине контрола, а лишний контент обрежется.
+
+```tsx live
+const LongContent = ({ text }) => (
+    <span style={{ whiteSpace: 'nowrap' }} title={text}>
+        {text}
+    </span>
+);
+
+const options = [
+    { key: '1', content: <LongContent text='Пример длинного названия' /> },
+    { key: '2', content: <LongContent text='Название опции' /> },
+    { key: '3', content: <LongContent text='Название опции' /> },
+];
+
+render(
+    <PickerButton
+        options={options}
+        view='primary'
+        optionsListWidth='field'
+        label='Picker button'
+    />,
+);
+```
+
+#### Кастомная
+
+Кастомную ширину можно задать с помощью стилей и `optionsListClassName`
+
+```tsx
+/*
+css
+.customWidth {
+    width: 300px;
+}
+*/
+
+<PickerButton
+    options={options}
+    optionsListClassName={styles.customWidth}
+    view='primary'
+    label='Picker button'
+/>
+```
+
+### Высота выпадающего списка
+
+Если в списке менее шести элементов — он отображается полноразмерно.
+Если элементов больше — высота списка устанавливается равной 5,5 ячейкам и появляется скролл.
+
+```tsx live
+const options = [
+    { key: 'Название опции 1' },
+    { key: 'Название опции 2' },
+    { key: 'Название опции 3' },
+    { key: 'Название опции 4' },
+    { key: 'Название опции 5' },
+];
+
+const moreOptions = [
+    ...options,
+    { key: 'Название опции 6' },
+    { key: 'Название опции 7' },
+    { key: 'Название опции 8' },
+    { key: 'Название опции 9' },
+];
+
+render(
+    <Space direction='horizontal'>
+        <PickerButton options={options} view='primary' label='До пяти элементов' />
+        <PickerButton options={moreOptions} view='primary' label='Больше пяти элементов' />
+    </Space>,
+);
+```
+
+### Ячейки
+
+Используется кастомная ячейка высотой 48рх.
+
+```tsx live
+const options = [
+    { key: 'Название опции 1' },
+    { key: 'Название опции 2' },
+    { key: 'Название опции 3' },
+];
+
+const optionsWithIcons = [
+    { key: 'Название опции 1', icon: CarMIcon },
+    { key: 'Название опции 2', icon: StarMIcon },
+    { key: 'Название опции 3', icon: CardTransferMIcon },
+];
+
+render(
+    <Space direction='horizontal'>
+        <PickerButton options={options} optionsSize='s' view='primary' label='Без иконки' />
+        <PickerButton options={optionsWithIcons} optionsSize='s' view='primary' label='С иконкой' />
+    </Space>,
+);
+```
+
+### Кастомный контент
+
+Компонент позволяет использовать html в качестве `content` у вариантов выбора.
+
+```tsx live
+const Card = ({ name, balance }) => (
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+        <div
+            style={{ width: '76px', height: '48px', marginRight: '16px', background: '#E7E9EB' }}
+        />
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span style={{ fontSize: '14px' }}>{name}</span>
+            <span style={{ fontSize: '16px' }}>{balance}</span>
+        </div>
     </div>
 );
 
-render(
-    <Space fullWidth={true} direction='horizontal'>
-        <PickerButton label='Custom OptionList' options={options} OptionsList={customOptionList} />
-
-        <PickerButton label='Grouped options' options={groupedOptions} />
-
-        {React.createElement(() => {
-            const [selected, setSelected] = React.useState(null);
-            const handleChange = ({ selected }) => {
-                setSelected(selected ? selected.key : null);
-            };
-            const CustomOptionList = props => (
-                <div>
-                    <span
-                        style={{
-                            display: 'inline-block',
-                            color: '#b6bcc3',
-                            fontSize: '14px',
-                            padding: '16px 24px',
-                        }}
-                    >
-                        Выберите счёт получателя
-                    </span>
-                    <OptionsList {...props} />
-                </div>
-            );
-            const Card = ({ bankName, cardNumber }) => (
-                <div
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        fontSize: '16px',
-                        padding: '8px 0',
-                        whiteSpace: 'nowrap',
-                    }}
-                >
-                    <span>{cardNumber}</span>
-                    <span style={{ color: '#b6bcc3' }}>{bankName}</span>
-                </div>
-            );
-            return (
-                <PickerButton
-                    label='Custom options'
-                    selected={selected}
-                    onChange={handleChange}
-                    options={[
-                        {
-                            key: 'Account1',
-                            content: (
-                                <Card bankName='Сбербанк' cardNumber='40817 810 3 0130 0000001' />
-                            ),
-                        },
-                        {
-                            key: 'Account2',
-                            content: (
-                                <Card
-                                    bankName='Промсвязьбанк'
-                                    cardNumber='40817 810 3 0130 0000001'
-                                />
-                            ),
-                        },
-                        {
-                            key: 'Account3',
-                            content: <Card bankName='ВТБ' cardNumber='40817 810 3 0130 0000002' />,
-                        },
-                        {
-                            key: 'Account4',
-                            content: (
-                                <Card bankName='Тинькофф' cardNumber='40817 810 3 0130 0000003' />
-                            ),
-                        },
-                    ]}
-                    OptionsList={CustomOptionList}
-                    multiple={false}
-                    size='s'
-                    view='primary'
-                    allowUnselect={true}
-                    popoverPosition='bottom-end'
-                />
-            );
-        })}
-    </Space>,
-);
-```
-
-### Разные размеры
-
-```tsx live
 const options = [
-    { key: 'Заказать карту' },
-    { key: 'Выписка по счёту' },
-    { key: 'Выпустить карту' },
-    { key: 'Скопировать реквизиты' },
+    { key: 'Account1', content: <Card name='Account1 Name ··0000' balance='100 000,00 ₽' /> },
+    { key: 'Account2', content: <Card name='Account2 Name ··0000' balance='150 000,00 ₽' /> },
+    { key: 'Account3', content: <Card name='Account3 Name ··0000' balance='230 000,00 ₽' /> },
+    { key: 'Account4', content: <Card name='Account4 Name ··0000' balance='12 000,00 ₽' /> },
 ];
 
-render(
-    <Space fullWidth={true} direction='horizontal'>
-        <PickerButton label='Secondary xs' options={options} size='xs' />
-        <PickerButton label='Secondary s' options={options} size='s' />
-        <PickerButton label='Secondary m' options={options} size='m' />
-    </Space>,
-);
-```
-
-### Разные типы кнопок
-
-```tsx live
-const options = [
-    { key: 'Заказать карту' },
-    { key: 'Выписка по счёту' },
-    { key: 'Выпустить карту' },
-    { key: 'Скопировать реквизиты' },
-];
-
-render(
-    <Space fullWidth={true} direction='horizontal'>
-        <PickerButton label='Primary m' options={options} view='primary' />
-        <PickerButton label='Outlined m' options={options} view='outlined' />
-        <PickerButton label='Ghost m' options={options} view='ghost' />
-    </Space>,
-);
-```
-
-### Разные состояния кнопок
-
-```tsx live
-const options = [
-    { key: 'Заказать карту' },
-    { key: 'Выписка по счёту' },
-    { key: 'Выпустить карту' },
-    { key: 'Скопировать реквизиты' },
-];
-
-render(
-    <Space fullWidth={true} direction='horizontal'>
-        <PickerButton label='Secondary disabled' options={options} disabled={true} />
-        <PickerButton label='Secondary loading' options={options} loading={true} />
-    </Space>,
-);
-```
-
-### Позиционирование меню
-
-```tsx live
-const options = [
-    { key: 'Заказать карту' },
-    { key: 'Выписка по счёту' },
-    { key: 'Выпустить карту' },
-    { key: 'Скопировать реквизиты' },
-];
-
-render(
-    <Space fullWidth={true} direction='horizontal'>
-        <PickerButton label='start' options={options} popoverPosition='bottom-start' size='xs' />
-        <PickerButton label='center' options={options} popoverPosition='bottom' size='xs' />
-        <PickerButton label='end' options={options} popoverPosition='bottom-end' size='xs' />
-    </Space>,
-);
+render(<PickerButton size='m' options={options} view="primary" label='Выберите карту' preventFlip={false} />);
 ```

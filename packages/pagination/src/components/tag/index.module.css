@@ -1,0 +1,40 @@
+@import '../../../../themes/src/default.css';
+
+.tag.tag {
+    color: var(--color-light-text-secondary);
+    border-radius: var(--border-radius-m);
+    border: none;
+    flex-shrink: 0;
+    min-width: auto;
+    min-height: auto;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+
+    &:disabled:not(.checked) {
+        opacity: 0.3;
+    }
+
+    &:hover:not(:disabled) {
+        background-color: var(--color-light-bg-tertiary);
+        color: var(--color-light-text-primary);
+    }
+
+    &:active:not(:disabled) {
+        background-color: var(--color-light-bg-neutral);
+    }
+
+    &.checked {
+        cursor: default;
+        background-color: var(--color-light-bg-secondary-inverted);
+        color: var(--color-light-text-primary-inverted);
+    }
+
+    &.checked:hover:not(:disabled) {
+        color: var(--color-light-text-primary-inverted);
+    }
+
+    &.checked:active:not(:disabled) {
+        color: var(--color-light-text-primary);
+    }
+}

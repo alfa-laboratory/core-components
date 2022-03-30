@@ -6,10 +6,10 @@ exports[`SliderInput should match snapshot 1`] = `
     class="component s"
   >
     <div
-      class="component input s block"
+      class="component component input s block"
     >
       <div
-        class="inner"
+        class="field inner inner"
       >
         <div
           class="inputWrapper"
@@ -18,7 +18,7 @@ exports[`SliderInput should match snapshot 1`] = `
             class="input"
           >
             <input
-              class="input"
+              class="input input"
               inputmode="numeric"
               pattern="[0-9]*"
               type="text"
@@ -48,7 +48,6 @@ exports[`SliderInput should match snapshot 1`] = `
           value="0"
         />
       </div>
-      
     </div>
   </div>
 </div>

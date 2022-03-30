@@ -17,13 +17,13 @@ const Group = ({ ...restProps }: Partial<RadioGroupProps>) => (
 
 const TagGroup = ({ ...restProps }: Partial<RadioGroupProps>) => (
     <RadioGroup label='Заголовок группы' type='tag' {...restProps}>
-        <Tag name='one' className='my-tag'>
+        <Tag value='one' className='my-tag'>
             Первый вариант
         </Tag>
 
-        <Tag name='two'>Второй вариант</Tag>
+        <Tag value='two'>Второй вариант</Tag>
 
-        <Tag name='three'>Третий вариант</Tag>
+        <Tag value='three'>Третий вариант</Tag>
     </RadioGroup>
 );
 
@@ -118,6 +118,24 @@ describe('RadioGroup', () => {
             const { getByText } = render(<Group error={errorText} />);
 
             expect(getByText(errorText)).toBeInTheDocument();
+        });
+
+        it('should contain hint message', () => {
+            const hint = 'hint';
+
+            const { queryByText } = render(<Group hint={hint} />);
+
+            expect(queryByText(hint)).toBeInTheDocument();
+        });
+
+        it('should error instread hint', () => {
+            const errorText = 'I am error';
+            const hint = 'hint';
+
+            const { queryByText } = render(<Group error={errorText} hint={hint} />);
+
+            expect(queryByText(errorText)).toBeInTheDocument();
+            expect(queryByText(hint)).not.toBeInTheDocument();
         });
 
         it('should disable all inputs if `disabled` prop is present', () => {

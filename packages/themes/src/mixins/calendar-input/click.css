@@ -1,5 +1,3 @@
-@import '../../../../themes/src/default.css';
-
 @define-mixin calendar-input-click {
-    --calendar-input-calendar-icon: url('https://alfabank.st/icons/glyph_calendar_m.svg');
+    --calendar-input-popover-border-radius: var(--border-radius-s);
 }

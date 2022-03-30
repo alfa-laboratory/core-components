@@ -1,5 +1,7 @@
 @import '../../vars.css';
 
 .circle {
-    fill: var(--color-light-graphic-tertiary);
+    fill: transparent;
+    stroke: var(--color-light-graphic-tertiary);
+    stroke-width: 2px;
 }

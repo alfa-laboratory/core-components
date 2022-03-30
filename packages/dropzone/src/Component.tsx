@@ -1,7 +1,7 @@
-import React, { FC, useCallback, useRef, useState } from 'react';
+import React, { ComponentType, FC, useCallback, useRef, useState } from 'react';
 import cn from 'classnames';
-import { ContainerMIcon } from '@alfalab/icons-glyph';
 import { preventAndStopEvent } from './utils';
+import { Overlay as DefaultOverlay, OverlayProps } from './components';
 
 import styles from './index.module.css';
 
@@ -17,14 +17,30 @@ export type DropzoneProps = {
     text?: string;
 
     /**
+     * Заблокированное состояние
+     */
+    disabled?: boolean;
+
+    /**
      * Состояние ошибки
      */
     error?: boolean;
 
     /**
+     * Растягивать ли компонент на всю ширину
+     */
+    block?: boolean;
+
+    /**
+     * @deprecated(используйте Overlay)
      * Позволяет вручную управлять видимостью заглушки
      */
     overlayVisible?: boolean;
+
+    /**
+     * Компонент оверлея
+     */
+    Overlay?: ComponentType<OverlayProps>;
 
     /**
      * Обработчик события 'drop'
@@ -57,31 +73,44 @@ export const Dropzone: FC<DropzoneProps> = ({
     children,
     text = 'Перетащите файлы',
     error = false,
-    overlayVisible = false,
+    overlayVisible,
+    Overlay = DefaultOverlay,
     onDragEnter,
     onDragLeave,
     onDragOver,
     onDrop,
+    block = false,
+    disabled,
     dataTestId,
 }) => {
     const [dragOver, setDragOver] = useState(false);
 
+    /**
+     * При ховере дочерних элементов срабатывает dragLeave, из-за чего пропадает оверлей
+     * https://stackoverflow.com/a/21002544
+     */
     const dragCounter = useRef(0);
 
     const handleDragOver = useCallback(
         (event: React.DragEvent<HTMLElement>) => {
             preventAndStopEvent(event);
 
+            if (disabled) return;
+
             if (onDragOver) {
                 onDragOver(event);
             }
         },
-        [onDragOver],
+        [onDragOver, disabled],
     );
 
     const handleDragEnter = useCallback(
         (event: React.DragEvent<HTMLElement>) => {
             preventAndStopEvent(event);
+
+            if (disabled) return;
+
+            dragCounter.current += 1;
 
             setDragOver(true);
 
@@ -89,12 +118,14 @@ export const Dropzone: FC<DropzoneProps> = ({
                 onDragEnter(event);
             }
         },
-        [onDragEnter],
+        [disabled, onDragEnter],
     );
 
     const handleDragLeave = useCallback(
         (event: React.DragEvent<HTMLElement>) => {
             preventAndStopEvent(event);
+
+            if (disabled) return;
 
             dragCounter.current -= 1;
 
@@ -106,14 +137,17 @@ export const Dropzone: FC<DropzoneProps> = ({
                 onDragLeave(event);
             }
         },
-        [onDragLeave],
+        [disabled, onDragLeave],
     );
 
     const handleDrop = useCallback(
         (event: React.DragEvent<HTMLElement>) => {
             preventAndStopEvent(event);
 
+            if (disabled) return;
+
             setDragOver(false);
+            dragCounter.current = 0;
 
             if (event.dataTransfer.files && event.dataTransfer.files.length > 0) {
                 if (onDrop) {
@@ -121,29 +155,27 @@ export const Dropzone: FC<DropzoneProps> = ({
                 }
 
                 event.dataTransfer.clearData();
-                dragCounter.current = 0;
             }
         },
-        [onDrop],
+        [disabled, onDrop],
     );
 
     return (
         <div
             className={cn(styles.component, className, {
-                [styles.dragOver]: dragOver || overlayVisible,
+                [styles.dragOver]: dragOver,
                 [styles.error]: error,
+                [styles.block]: block,
+                [styles.disabled]: disabled,
             })}
+            data-test-id={dataTestId}
             onDragEnter={handleDragEnter}
             onDragLeave={handleDragLeave}
             onDragOver={handleDragOver}
             onDrop={handleDrop}
-            data-test-id={dataTestId}
         >
             {children}
-            <div className={styles.overlay}>
-                <ContainerMIcon />
-                <span className={styles.text}>{text}</span>
-            </div>
+            {Overlay && <Overlay text={text} visible={Boolean(dragOver || overlayVisible)} />}
         </div>
     );
 };

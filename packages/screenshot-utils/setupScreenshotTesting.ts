@@ -5,6 +5,7 @@ import { defaultViewport, matchHtml, MatchHtmlParams } from './helpers';
 
 export const STORYBOOK_URL = process.env.STORYBOOK_URL || 'http://localhost:9009/iframe.html';
 export const STYLES_URL = 'http://localhost:9009/main.css';
+export const VENDOR_STYLES_URL = 'http://localhost:9009/vendors~main.css';
 
 export type ScreenshotOpts = {
     /**
@@ -31,6 +32,7 @@ export type EvaluateFn = (page: Page) => void;
 
 export type ScreenshotTestingParams = Omit<MatchHtmlParams, 'page' | 'css' | 'expect'> & {
     cases: Array<[string, string]>;
+    theme?: string;
 };
 
 export const setupScreenshotTesting = ({
@@ -44,7 +46,7 @@ export const setupScreenshotTesting = ({
     afterAll: jest.Lifecycle;
     expect: jest.Expect;
 }) => {
-    return ({ cases, ...matchHtmlArgs }: ScreenshotTestingParams) => () => {
+    return ({ cases, theme, ...matchHtmlArgs }: ScreenshotTestingParams) => () => {
         let browser: Browser;
         let context: BrowserContext;
         let page: Page;
@@ -67,7 +69,8 @@ export const setupScreenshotTesting = ({
         });
 
         it.each(cases)('%s', async (_, link: string) => {
-            await page?.goto(encodeURI(link));
+            // TODO
+            await page?.goto(encodeURI(link + (theme ? `&theme=${theme}` : '')));
 
             await matchHtml({
                 page,

@@ -3,6 +3,383 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.6.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.6.3...@alfalab/core-components-select@10.6.4) (2022-03-29)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.6.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.6.2...@alfalab/core-components-select@10.6.3) (2022-03-24)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.6.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.6.1...@alfalab/core-components-select@10.6.2) (2022-03-04)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.6.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.6.0...@alfalab/core-components-select@10.6.1) (2022-03-04)
+
+
+### Bug Fixes
+
+* move icon from select to picker-button ([#1020](https://github.com/alfa-laboratory/core-components/issues/1020)) ([0d23257](https://github.com/alfa-laboratory/core-components/commit/0d23257b561329092be551d237389cc06c3d5607))
+
+
+
+
+
+# [10.6.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.5.0...@alfalab/core-components-select@10.6.0) (2022-03-03)
+
+
+### Features
+
+* **picker-button:** added new view and updated dropdown options ([#1013](https://github.com/alfa-laboratory/core-components/issues/1013)) ([050fb3e](https://github.com/alfa-laboratory/core-components/commit/050fb3eb6fd6dde057bbfcad5dd807d354125b63))
+
+
+
+
+
+# [10.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.4.5...@alfalab/core-components-select@10.5.0) (2022-03-01)
+
+
+### Bug Fixes
+
+* changed dropdown component's box shadow styles ([#1010](https://github.com/alfa-laboratory/core-components/issues/1010)) ([2f997f5](https://github.com/alfa-laboratory/core-components/commit/2f997f5722c89b38a8064924b73c0a8046025aea))
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
+## [10.4.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.4.4...@alfalab/core-components-select@10.4.5) (2022-02-17)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.4.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.4.3...@alfalab/core-components-select@10.4.4) (2022-02-15)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.4.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.4.2...@alfalab/core-components-select@10.4.3) (2022-02-09)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.4.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.4.1...@alfalab/core-components-select@10.4.2) (2022-02-03)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.4.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.4.0...@alfalab/core-components-select@10.4.1) (2022-02-02)
+
+
+### Bug Fixes
+
+* **input-autocomplete:** open list on backspace ([#964](https://github.com/alfa-laboratory/core-components/issues/964)) ([4d4f126](https://github.com/alfa-laboratory/core-components/commit/4d4f1267a98f05c184267564cd0a2517803bd08b))
+
+
+
+
+
+# [10.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.3.0...@alfalab/core-components-select@10.4.0) (2022-01-27)
+
+
+### Features
+
+* **picker-button:** gap между picker-button и popover в 8px ([#935](https://github.com/alfa-laboratory/core-components/issues/935)) ([9b3aa2b](https://github.com/alfa-laboratory/core-components/commit/9b3aa2b70b534d8e571baa62b973e1f67667ac43))
+* **select:** add OptionsListWithApply ([#948](https://github.com/alfa-laboratory/core-components/issues/948)) ([d8ef8dd](https://github.com/alfa-laboratory/core-components/commit/d8ef8dd257dfc100095c923c4f3e317787ed1877))
+
+
+
+
+
+# [10.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.2.4...@alfalab/core-components-select@10.3.0) (2021-12-29)
+
+
+### Features
+
+* **select:** чекбоксы в выпадашке множественного выбора [#903](https://github.com/alfa-laboratory/core-components/issues/903)) ([f5638ef](https://github.com/alfa-laboratory/core-components/commit/f5638ef589468de0dc0473d30871035d8c4efab5))
+
+
+
+
+
+## [10.2.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.2.3...@alfalab/core-components-select@10.2.4) (2021-12-14)
+
+
+### Bug Fixes
+
+* **picker-button:** wrap field with div ([b51bce8](https://github.com/alfa-laboratory/core-components/commit/b51bce85b39583e7bb1107f56c6e64a6f2b96d5c)), closes [#914](https://github.com/alfa-laboratory/core-components/issues/914)
+
+
+
+
+
+## [10.2.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.2.2...@alfalab/core-components-select@10.2.3) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.2.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.2.1...@alfalab/core-components-select@10.2.2) (2021-12-08)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.2.0...@alfalab/core-components-select@10.2.1) (2021-12-08)
+
+
+### Bug Fixes
+
+* актуализируем @alfalab/utils ([#897](https://github.com/alfa-laboratory/core-components/issues/897)) ([30fb88e](https://github.com/alfa-laboratory/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+
+
+
+
+
+# [10.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.1.2...@alfalab/core-components-select@10.2.0) (2021-12-01)
+
+
+### Features
+
+* **circular-progress-bar:** new size S ([d34db5c](https://github.com/alfa-laboratory/core-components/commit/d34db5cca682bc63f948a0dad322604c8044a6b8))
+
+
+
+
+
+## [10.1.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.1.1...@alfalab/core-components-select@10.1.2) (2021-11-26)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [10.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.1.0...@alfalab/core-components-select@10.1.1) (2021-11-16)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+# [10.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@10.0.0...@alfalab/core-components-select@10.1.0) (2021-11-08)
+
+
+### Features
+
+* **select:** добавлено свойство z-index для поповера ([#871](https://github.com/alfa-laboratory/core-components/issues/871)) ([4a53483](https://github.com/alfa-laboratory/core-components/commit/4a534835a9e6c9ec7793733467194536cfd96a91))
+
+
+
+
+
+# [10.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.7.1...@alfalab/core-components-select@10.0.0) (2021-10-15)
+
+
+### Features
+
+* **select:** переход к темизации цвета иконки ([112cd95](https://github.com/alfa-laboratory/core-components/commit/112cd95242e27f5065eb2a8349d3afbddfdee638))
+
+
+### BREAKING CHANGES
+
+* **select:** удалена переменная --select-arrow-background
+
+
+
+
+
+## [9.7.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.7.0...@alfalab/core-components-select@9.7.1) (2021-10-15)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+# [9.7.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.6.0...@alfalab/core-components-select@9.7.0) (2021-10-11)
+
+
+### Features
+
+* проставлен role=alert для ошибок ([#850](https://github.com/alfa-laboratory/core-components/issues/850)) ([dc634a3](https://github.com/alfa-laboratory/core-components/commit/dc634a3d008accfab10192ce234c12ef0ecc7fa9))
+
+
+
+
+
+# [9.6.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.5.0...@alfalab/core-components-select@9.6.0) (2021-09-27)
+
+
+### Features
+
+* **select:** controlled open ([#839](https://github.com/alfa-laboratory/core-components/issues/839)) ([95d0470](https://github.com/alfa-laboratory/core-components/commit/95d0470a86e1a54f4cb4b789bb7e3281a1f0a401))
+
+
+
+
+
+# [9.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.4.4...@alfalab/core-components-select@9.5.0) (2021-09-14)
+
+
+### Features
+
+* change error type to ReactNode ([#825](https://github.com/alfa-laboratory/core-components/issues/825)) ([c6d95c1](https://github.com/alfa-laboratory/core-components/commit/c6d95c1c6239f2b2a3bf2c1639554d8500e794f3))
+
+
+
+
+
+## [9.4.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.4.3...@alfalab/core-components-select@9.4.4) (2021-09-08)
+
+
+### Bug Fixes
+
+* **base-select:** lazy loading ([#831](https://github.com/alfa-laboratory/core-components/issues/831)) ([78f2b86](https://github.com/alfa-laboratory/core-components/commit/78f2b86221d8af7bf5019104aba743546fc31b45))
+
+
+
+
+
+## [9.4.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.4.2...@alfalab/core-components-select@9.4.3) (2021-09-06)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [9.4.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.4.1...@alfalab/core-components-select@9.4.2) (2021-08-27)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [9.4.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.4.0...@alfalab/core-components-select@9.4.1) (2021-08-23)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+# [9.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.3.2...@alfalab/core-components-select@9.4.0) (2021-08-23)
+
+
+### Bug Fixes
+
+* **form-control:** l size offset between value and label (PDS-270) ([#781](https://github.com/alfa-laboratory/core-components/issues/781)) ([311f8a0](https://github.com/alfa-laboratory/core-components/commit/311f8a0eaa97cf7d0c89d4a3cdfc443aef2d763c))
+* **input:** smart error icon ([#746](https://github.com/alfa-laboratory/core-components/issues/746)) ([f1950d6](https://github.com/alfa-laboratory/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/alfa-laboratory/core-components/issues/782)
+
+
+### Features
+
+* **tooltip:** add TooltipResponsive,  add `fallbackPlacements` prop ([#780](https://github.com/alfa-laboratory/core-components/issues/780)) ([61d780c](https://github.com/alfa-laboratory/core-components/commit/61d780c750bd9c0331d275f1b12b0512bb3d2049))
+
+
+
+
+
+## [9.3.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.3.1...@alfalab/core-components-select@9.3.2) (2021-08-13)
+
+
+### Bug Fixes
+
+* **select:** lazy loading select ([#797](https://github.com/alfa-laboratory/core-components/issues/797)) ([68b5602](https://github.com/alfa-laboratory/core-components/commit/68b560208ff288657aa1698387c617c7c1449a8d))
+
+
+
+
+
+## [9.3.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.3.0...@alfalab/core-components-select@9.3.1) (2021-08-11)
+
+
+### Bug Fixes
+
+* **select:** remove wron prop passed into renderOption method ([#791](https://github.com/alfa-laboratory/core-components/issues/791)) ([5231813](https://github.com/alfa-laboratory/core-components/commit/523181355ebde537aa802f86c27e867d9261095a))
+* extend hint type to ReactNode ([#792](https://github.com/alfa-laboratory/core-components/issues/792)) ([d02784e](https://github.com/alfa-laboratory/core-components/commit/d02784e392f5ca3a30ae009109fbb6351967f746))
+
+
+
+
+
+# [9.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.2.2...@alfalab/core-components-select@9.3.0) (2021-08-04)
+
+
+### Features
+
+* add mods colors ([#770](https://github.com/alfa-laboratory/core-components/issues/770)) ([fe985f4](https://github.com/alfa-laboratory/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
+
+
+
+
+
+## [9.2.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.2.1...@alfalab/core-components-select@9.2.2) (2021-08-03)
+
+**Note:** Version bump only for package @alfalab/core-components-select
+
+
+
+
+
+## [9.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.2.0...@alfalab/core-components-select@9.2.1) (2021-07-23)
+
+
+### Bug Fixes
+
+* select & calendar-input use glyph icons ([#742](https://github.com/alfa-laboratory/core-components/issues/742)) ([6b04ae4](https://github.com/alfa-laboratory/core-components/commit/6b04ae49fc4f3805ef362dcb68939b72fc99814b))
+
+
+
+
+
+# [9.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.1.0...@alfalab/core-components-select@9.2.0) (2021-07-19)
+
+
+### Features
+
+* **select:** add scroll handler ([#756](https://github.com/alfa-laboratory/core-components/issues/756)) ([b25351b](https://github.com/alfa-laboratory/core-components/commit/b25351b74913244fb131d4aa1bc09900be362258))
+
+
+
+
+
 # [9.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select@9.0.0...@alfalab/core-components-select@9.1.0) (2021-07-09)
 
 

@@ -1,31 +1,11 @@
-import { Description } from '@storybook/addon-docs/blocks';
+import { Meta } from '@storybook/addon-docs';
 
-import { Plate } from '../packages/plate/src';
-import { Badge } from '../packages/badge/src';
-import { AlertCircleMIcon } from '@alfalab/icons-glyph';
-
-<Meta
-  title='Гайдлайны/Иконки' 
-  parameters={{ previewTabs: { canvas: { hidden: true } }}}
-/>
+<Meta title='Гайдлайны/Иконки' parameters={{ previewTabs: { canvas: { hidden: true } } }} />
 
 ## Иконки
 
-Все иконки из Figma доступны для использования в двух вариантах:
-
-- [Библиотека иконок в виде React компонентов](https://github.com/alfa-laboratory/icons)
-- CDN с иконками: `alfabank.st/icons/` + название иконки (например, https://alfabank.st/icons/glyph_star_m.svg)
+Все иконки из Figma доступны для использования в [библиотеке иконок в виде React компонентов](https://github.com/alfa-laboratory/icons).
 
 Для удобства воспользуйтесь [витриной иконок с поиском](https://alfa-laboratory.github.io/icons-demo/).
 
 Иконки из пакета [icons-glyph](https://github.com/alfa-laboratory/icons) одноцветные и легко могут быть перекрашены с помощью `color`.
-
-<div style={{marginTop: 24}}>
-<Plate view='attention' leftAddons={<Badge view='icon' iconColor='attention' content={<AlertCircleMIcon />} />}>
-
-Проверьте, что `alfabank.st` добавлен в список разрешённых источников:
-
-<p style={{marginBottom: 8}}><code>'img-src': `'self' click.alfabank.ru alfabank.st data: 'self'`</code></p>
-
-</Plate>
-</div>

@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, FC } from 'react';
+import React, { HTMLAttributes, forwardRef } from 'react';
 import cn from 'classnames';
 
 import { Color } from '../colors';
@@ -33,6 +33,11 @@ export type TextProps = Omit<NativeProps, 'color'> & {
     weight?: 'regular' | 'medium' | 'bold';
 
     /**
+     * Делает цифры моноширинными
+     */
+    monospaceNumbers?: boolean;
+
+    /**
      * HTML тег
      */
     tag?: 'p' | 'span' | 'div';
@@ -53,27 +58,36 @@ export type TextProps = Omit<NativeProps, 'color'> & {
     children?: React.ReactNode;
 };
 
-export const Text: FC<TextProps> = ({
-    view = 'primary-medium',
-    tag: Component = 'span',
-    weight = 'regular',
-    color,
-    className,
-    dataTestId,
-    children,
-    ...restProps
-}) => (
-    <Component
-        className={cn(
-            { [styles.paragraph]: Component === 'p' },
+type TextElementType = HTMLParagraphElement | HTMLSpanElement | HTMLDivElement;
+
+export const Text = forwardRef<TextElementType, TextProps>(
+    (
+        {
+            view = 'primary-medium',
+            tag: Component = 'span',
+            weight = 'regular',
+            monospaceNumbers = false,
+            color,
             className,
-            color && colors[color],
-            styles[view],
-            styles[weight],
-        )}
-        data-test-id={dataTestId}
-        {...restProps}
-    >
-        {children}
-    </Component>
+            dataTestId,
+            children,
+            ...restProps
+        },
+        ref,
+    ) => (
+        <Component
+            className={cn(
+                { [styles.paragraph]: Component === 'p', [styles.monospace]: monospaceNumbers },
+                className,
+                color && colors[color],
+                styles[view],
+                styles[weight],
+            )}
+            data-test-id={dataTestId}
+            ref={ref as never}
+            {...restProps}
+        >
+            {children}
+        </Component>
+    ),
 );

@@ -3,23 +3,31 @@
 :root {
     /* primary */
     --button-primary-base-bg-color: var(--color-light-bg-accent);
-    --button-primary-hover-bg-color: color-mod(var(--button-primary-base-bg-color) shade(7%));
-    --button-primary-active-bg-color: color-mod(var(--button-primary-base-bg-color) shade(15%));
-    --button-primary-disabled-bg-color: color-mod(var(--button-primary-base-bg-color) alpha(30%));
+    --button-primary-hover-bg-color: var(--color-light-bg-accent-shade-7);
+    --button-primary-active-bg-color: var(--color-light-bg-accent-shade-15);
+    --button-primary-disabled-bg-color: var(--color-light-bg-accent-alpha-30);
     --button-primary-color: var(--color-light-text-primary-inverted);
     --button-primary-disabled-color: var(--color-light-text-primary-inverted);
 
     /* secondary */
     --button-secondary-base-bg-color: var(--color-light-bg-neutral);
-    --button-secondary-hover-bg-color: color-mod(var(--button-secondary-base-bg-color) shade(7%));
-    --button-secondary-active-bg-color: color-mod(var(--button-secondary-base-bg-color) shade(15%));
-    --button-secondary-disabled-bg-color: color-mod(
-        var(--button-secondary-base-bg-color) alpha(30%)
-    );
+    --button-secondary-hover-bg-color: var(--color-light-bg-neutral-shade-7);
+    --button-secondary-active-bg-color: var(--color-light-bg-neutral-shade-15);
+    --button-secondary-disabled-bg-color: var(--color-light-bg-neutral-alpha-30);
     --button-secondary-base-border-color: transparent;
     --button-secondary-disabled-border-color: transparent;
     --button-secondary-color: var(--color-light-text-primary);
-    --button-secondary-disabled-color: color-mod(var(--color-light-text-primary) alpha(30%));
+    --button-secondary-disabled-color: var(--color-light-text-primary-alpha-30);
+
+    /* tertiary */
+    --button-tertiary-base-bg-color: transparent;
+    --button-tertiary-hover-bg-color: rgba(0, 0, 0, 0.07);
+    --button-tertiary-active-bg-color: rgba(0, 0, 0, 0.15);
+    --button-tertiary-disabled-bg-color: transparent;
+    --button-tertiary-base-border-color: var(--color-light-border-tertiary-inverted);
+    --button-tertiary-disabled-border-color: var(--color-light-border-tertiary-inverted-alpha-30);
+    --button-tertiary-color: var(--color-light-text-primary);
+    --button-tertiary-disabled-color: var(--color-light-text-primary-alpha-30);
 
     /* outlined */
     --button-outlined-base-bg-color: transparent;
@@ -27,17 +35,15 @@
     --button-outlined-active-bg-color: rgba(0, 0, 0, 0.15);
     --button-outlined-disabled-bg-color: transparent;
     --button-outlined-base-border-color: var(--color-light-border-tertiary-inverted);
-    --button-outlined-disabled-border-color: color-mod(
-        var(--color-light-border-tertiary-inverted) alpha(30%)
-    );
+    --button-outlined-disabled-border-color: var(--color-light-border-tertiary-inverted-alpha-30);
     --button-outlined-color: var(--color-light-text-primary);
-    --button-outlined-disabled-color: color-mod(var(--color-light-text-primary) alpha(30%));
+    --button-outlined-disabled-color: var(--color-light-text-primary-alpha-30);
 
     /* ghost */
     --button-ghost-base-color: var(--color-light-text-primary);
-    --button-ghost-hover-color: color-mod(var(--button-ghost-base-color) tint(30%));
-    --button-ghost-active-color: color-mod(var(--button-ghost-base-color) tint(50%));
-    --button-ghost-disabled-color: color-mod(var(--button-ghost-base-color) alpha(30%));
+    --button-ghost-hover-color: var(--color-light-text-primary-tint-30);
+    --button-ghost-active-color: var(--color-light-text-primary-tint-50);
+    --button-ghost-disabled-color: var(--color-light-text-primary-alpha-30);
 }
 
 .primary {
@@ -81,29 +87,43 @@
     }
 }
 
+.tertiary {
+    color: var(--button-tertiary-color);
+    background-color: var(--button-tertiary-base-bg-color);
+    border: 1px solid var(--button-tertiary-base-border-color);
+
+    &:hover {
+        background-color: var(--button-tertiary-hover-bg-color);
+    }
+
+    &:active {
+        background-color: var(--button-tertiary-active-bg-color);
+    }
+}
+
 .filled {
     color: var(--color-light-text-primary);
     background-color: var(--color-light-bg-neutral);
 
     &:hover {
-        background-color: color-mod(var(--color-light-bg-neutral) shade(7%));
+        background-color: var(--color-light-bg-neutral-shade-7);
     }
 
     &:active {
-        background-color: color-mod(var(--color-light-bg-neutral) shade(15%));
+        background-color: var(--color-light-bg-neutral-shade-15);
     }
 }
 
 .transparent {
     color: var(--color-light-text-primary);
-    background-color: color-mod(var(--color-light-bg-primary-inverted) alpha(10%));
+    background-color: var(--color-light-bg-primary-inverted-alpha-10);
 
     &:hover {
-        background-color: color-mod(var(--color-light-bg-primary-inverted) alpha(20%));
+        background-color: var(--color-light-bg-primary-inverted-alpha-20);
     }
 
     &:active {
-        background-color: color-mod(var(--color-light-bg-primary-inverted) alpha(40%));
+        background-color: var(--color-light-bg-primary-inverted-alpha-40);
     }
 }
 
@@ -116,7 +136,7 @@
     }
 
     &:active {
-        background-color: color-mod(var(--color-light-specialbg-component) blenda(black 7%));
+        background-color: var(--color-light-specialbg-component-shade-7);
     }
 }
 
@@ -167,9 +187,20 @@
         }
     }
 
+    &.tertiary {
+        color: var(--button-tertiary-disabled-color);
+        background-color: var(--button-tertiary-disabled-bg-color);
+        border-color: var(--button-tertiary-disabled-border-color);
+
+        &.loading {
+            color: var(--button-tertiary-color);
+            border-color: var(--button-tertiary-border-color);
+        }
+    }
+
     &.filled {
-        color: color-mod(var(--color-light-text-primary) alpha(30%));
-        background-color: color-mod(var(--color-light-bg-neutral) alpha(30%));
+        color: var(--color-light-text-primary-alpha-30);
+        background-color: var(--color-light-bg-neutral-alpha-30);
 
         &.loading {
             color: var(--color-light-text-primary);
@@ -178,17 +209,17 @@
     }
 
     &.transparent {
-        color: color-mod(var(--color-light-text-primary) alpha(30%));
-        background-color: color-mod(var(--color-light-bg-primary-inverted) alpha(3%));
+        color: var(--color-light-text-primary-alpha-30);
+        background-color: var(--color-light-bg-primary-inverted-alpha-3);
 
         &.loading {
             color: var(--color-light-text-primary);
-            background-color: color-mod(var(--color-light-bg-primary-inverted) alpha(10%));
+            background-color: var(--color-light-bg-primary-inverted-alpha-10);
         }
     }
 
     &.link {
-        color: color-mod(var(--color-light-text-primary) alpha(30%));
+        color: var(--color-light-text-primary-alpha-30);
         background-color: transparent;
 
         &.loading {

@@ -24,7 +24,13 @@ import { Portal, PortalProps } from '@alfalab/core-components-portal';
 import { Backdrop as DefaultBackdrop, BackdropProps } from '@alfalab/core-components-backdrop';
 import { Stack, stackingOrder } from '@alfalab/core-components-stack';
 
-import { handleContainer, hasScrollbar, isScrolledToBottom, isScrolledToTop } from './utils';
+import {
+    handleContainer,
+    hasScrollbar,
+    isScrolledToBottom,
+    isScrolledToTop,
+    restoreContainerStyles,
+} from './utils';
 
 import styles from './index.module.css';
 
@@ -156,6 +162,11 @@ export type BaseModalProps = {
      * z-index компонента
      */
     zIndex?: number;
+
+    /**
+     * Реф, который должен быть установлен компонентной области
+     */
+    componentRef?: MutableRefObject<HTMLDivElement | null>;
 };
 
 export type BaseModalContext = {
@@ -164,6 +175,8 @@ export type BaseModalContext = {
     hasScroll?: boolean;
     headerHighlighted?: boolean;
     footerHighlighted?: boolean;
+    headerOffset?: number;
+    setHeaderOffset: (offset: number) => void;
     contentRef: Ref<HTMLElement>;
     setHasHeader: (exists: boolean) => void;
     setHasFooter: (exists: boolean) => void;
@@ -176,6 +189,8 @@ export const BaseModalContext = React.createContext<BaseModalContext>({
     hasScroll: false,
     headerHighlighted: false,
     footerHighlighted: false,
+    headerOffset: 0,
+    setHeaderOffset: () => null,
     contentRef: () => null,
     setHasHeader: () => null,
     setHasFooter: () => null,
@@ -208,6 +223,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
             onUnmount,
             dataTestId,
             zIndex = stackingOrder.MODAL,
+            componentRef = null,
         },
         ref,
     ) => {
@@ -217,12 +233,13 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         const [hasFooter, setHasFooter] = useState(false);
         const [headerHighlighted, setHeaderHighlighted] = useState(false);
         const [footerHighlighted, setFooterHighlighted] = useState(false);
+        const [headerOffset, setHeaderOffset] = useState(0);
 
-        const componentRef = useRef<HTMLDivElement>(null);
+        const componentNodeRef = useRef<HTMLDivElement>(null);
         const wrapperRef = useRef<HTMLDivElement>(null);
         const scrollableNodeRef = useRef<HTMLDivElement | null>(null);
         const contentNodeRef = useRef<HTMLDivElement | null>(null);
-        const restoreContainerStyles = useRef<null | Function>(null);
+        const restoreContainerStylesRef = useRef<null | Function>(null);
 
         const checkToHasScrollBar = () => {
             if (scrollableNodeRef.current) {
@@ -233,6 +250,10 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         };
 
         const shouldRender = keepMounted || open || !exited;
+
+        const getContainer = useCallback(() => {
+            return (container ? container() : document.body) as HTMLElement;
+        }, [container]);
 
         const resizeObserver = useMemo(() => new ResizeObserver(checkToHasScrollBar), []);
 
@@ -257,22 +278,23 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         );
 
         const handleScroll = useCallback(() => {
-            if (!scrollableNodeRef.current || !componentRef.current) return;
+            if (!scrollableNodeRef.current || !componentNodeRef.current) return;
 
             if (hasHeader) {
                 setHeaderHighlighted(
                     !isScrolledToTop(scrollableNodeRef.current) &&
-                        componentRef.current.getBoundingClientRect().top <= 0,
+                        componentNodeRef.current.getBoundingClientRect().top - headerOffset <= 0,
                 );
             }
 
             if (hasFooter) {
                 setFooterHighlighted(
                     !isScrolledToBottom(scrollableNodeRef.current) &&
-                        componentRef.current.getBoundingClientRect().bottom >= window.innerHeight,
+                        componentNodeRef.current.getBoundingClientRect().bottom >=
+                            window.innerHeight,
                 );
             }
-        }, [hasFooter, hasHeader]);
+        }, [hasFooter, hasHeader, headerOffset]);
 
         const handleClose = useCallback<Required<BaseModalProps>['onClose']>(
             (event, reason) => {
@@ -294,7 +316,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
         );
 
         const handleBackdropClick = (event: MouseEvent<HTMLElement>) => {
-            if (!disableBackdropClick) {
+            if (!disableBackdropClick && event.target === wrapperRef.current) {
                 handleClose(event, 'backdropClick');
             }
         };
@@ -321,7 +343,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
         const getScrollHandler = useCallback(() => {
             if (scrollHandler === 'wrapper') return wrapperRef.current;
-            if (scrollHandler === 'content') return componentRef.current;
+            if (scrollHandler === 'content') return componentNodeRef.current;
             return scrollHandler.current || wrapperRef.current;
         }, [scrollHandler]);
 
@@ -361,9 +383,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
                 if (onUnmount) onUnmount();
 
-                if (restoreContainerStyles.current) {
-                    restoreContainerStyles.current();
-                    restoreContainerStyles.current = null;
+                if (restoreContainerStylesRef.current) {
+                    restoreContainerStylesRef.current();
                 }
             },
             [handleScroll, onUnmount, removeResizeHandle, transitionProps],
@@ -371,12 +392,14 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
         useEffect(() => {
             if (open) {
-                restoreContainerStyles.current = handleContainer(
-                    (container ? container() : document.body) as HTMLElement,
-                );
+                handleContainer(getContainer());
+
+                restoreContainerStylesRef.current = () => {
+                    restoreContainerStylesRef.current = null;
+                    restoreContainerStyles(getContainer());
+                };
             }
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [open]);
+        }, [getContainer, open]);
 
         useEffect(() => {
             if (open) setExited(false);
@@ -384,11 +407,11 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
 
         useEffect(() => {
             return () => {
-                resizeObserver.disconnect();
-
-                if (restoreContainerStyles.current) {
-                    restoreContainerStyles.current();
+                if (restoreContainerStylesRef.current) {
+                    restoreContainerStylesRef.current();
                 }
+
+                resizeObserver.disconnect();
             };
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
@@ -400,6 +423,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 hasScroll,
                 headerHighlighted,
                 footerHighlighted,
+                headerOffset,
+                setHeaderOffset,
                 contentRef,
                 setHasHeader,
                 setHasFooter,
@@ -412,6 +437,8 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                 hasScroll,
                 headerHighlighted,
                 footerHighlighted,
+                headerOffset,
+                setHeaderOffset,
                 handleClose,
             ],
         );
@@ -428,6 +455,16 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                 disabled={disableFocusLock || !open}
                                 returnFocus={!disableRestoreFocus}
                             >
+                                {Backdrop && (
+                                    <Backdrop
+                                        {...backdropProps}
+                                        className={cn(backdropProps.className, styles.backdrop)}
+                                        open={open}
+                                        style={{
+                                            zIndex: computedZIndex,
+                                        }}
+                                    />
+                                )}
                                 <div
                                     role='dialog'
                                     className={cn(styles.wrapper, wrapperClassName, {
@@ -435,20 +472,13 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                     })}
                                     ref={mergeRefs([ref, wrapperRef])}
                                     onKeyDown={handleKeyDown}
+                                    onClick={handleBackdropClick}
                                     tabIndex={-1}
                                     data-test-id={dataTestId}
                                     style={{
                                         zIndex: computedZIndex,
                                     }}
                                 >
-                                    {Backdrop && (
-                                        <Backdrop
-                                            {...backdropProps}
-                                            className={cn(backdropProps.className, styles.backdrop)}
-                                            open={open}
-                                            onClick={handleBackdropClick}
-                                        />
-                                    )}
                                     <CSSTransition
                                         appear={true}
                                         timeout={200}
@@ -460,7 +490,7 @@ export const BaseModal = forwardRef<HTMLDivElement, BaseModalProps>(
                                     >
                                         <div
                                             className={cn(styles.component, className)}
-                                            ref={componentRef}
+                                            ref={mergeRefs([componentRef, componentNodeRef])}
                                         >
                                             <div className={cn(styles.content, contentClassName)}>
                                                 {children}

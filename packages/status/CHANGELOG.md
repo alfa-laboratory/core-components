@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-status@2.1.0...@alfalab/core-components-status@2.2.0) (2021-12-09)
+
+
+### Features
+
+* **status:** добавлено 10% прозрачности в цвет фона ([#896](https://github.com/alfa-laboratory/core-components/issues/896)) ([b55c62b](https://github.com/alfa-laboratory/core-components/commit/b55c62b49cc52a15ff7497b9ad329773fba15959))
+
+
+
+
+
+# [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-status@2.0.1...@alfalab/core-components-status@2.1.0) (2021-08-04)
+
+
+### Features
+
+* add mods colors ([#770](https://github.com/alfa-laboratory/core-components/issues/770)) ([fe985f4](https://github.com/alfa-laboratory/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
+
+
+
+
+
 ## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-status@2.0.0...@alfalab/core-components-status@2.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-status

@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs';
 import { text, boolean, select } from '@storybook/addon-knobs';
 import { Checkbox } from '@alfalab/core-components-checkbox';
 import { ComponentHeader, Tabs} from 'storybook/blocks';
@@ -27,17 +27,20 @@ import Description from './description.mdx';
         const error = text('error', '');
         const disabled = boolean('disabled', false);
         const label = text('label', 'Заголовок группы');
+        const hint = text('hint', '');
+        const size = select('Checkbox.size', ['s', 'm'], 's');
         return (
             <CheckboxGroup
                 label={label}
+                hint={hint}
                 onChange={onChange}
                 direction={direction}
                 error={error}
                 disabled={disabled}
             >
-                <Checkbox label='Первый вариант' name='one' checked={value.one} />
-                <Checkbox label='Второй вариант' name='two' checked={value.two} />
-                <Checkbox label='Третий вариант' name='three' checked={value.three} />
+                <Checkbox size={size} label='Первый вариант' name='one' checked={value.one} />
+                <Checkbox size={size} label='Второй вариант' name='two' checked={value.two} />
+                <Checkbox size={size} label='Третий вариант' name='three' checked={value.three} />
             </CheckboxGroup>
         );
     })}
@@ -51,7 +54,6 @@ import Description from './description.mdx';
     version={version}
     package='@alfalab/core-components/checkbox-group'
     stage={2}
-    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=83%3A306'
 />
 
 ```tsx

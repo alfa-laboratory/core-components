@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-switch@2.2.0...@alfalab/core-components-switch@2.2.1) (2021-12-08)
+
+
+### Bug Fixes
+
+* актуализируем @alfalab/utils ([#897](https://github.com/alfa-laboratory/core-components/issues/897)) ([30fb88e](https://github.com/alfa-laboratory/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+
+
+
+
+
+# [2.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-switch@2.1.0...@alfalab/core-components-switch@2.2.0) (2021-08-03)
+
+
+### Features
+
+* add inactive controls (PDS-266) ([#765](https://github.com/alfa-laboratory/core-components/issues/765)) ([ec02c89](https://github.com/alfa-laboratory/core-components/commit/ec02c89ab6bf038c026ca0a72b3185525334840a))
+
+
+
+
+
+# [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-switch@2.0.1...@alfalab/core-components-switch@2.1.0) (2021-07-23)
+
+
+### Features
+
+* checkbox/radio/switch design updates (PDS-252) ([#735](https://github.com/alfa-laboratory/core-components/issues/735)) ([62f3c63](https://github.com/alfa-laboratory/core-components/commit/62f3c63279872a80ffb1c018b08addf897597b26))
+
+
+
+
+
 ## [2.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-switch@2.0.0...@alfalab/core-components-switch@2.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-switch

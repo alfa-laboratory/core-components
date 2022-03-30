@@ -1,0 +1,19 @@
+### Пошаговый прогрессбар с описанием под шкалой
+
+```tsx live
+<SteppedProgressBar
+    step={5}
+    maxStep={10}
+    description={"Шаг 5 из 10"}
+/>
+```
+
+### Пошаговый прогрессбар с выбором цветов отдельных сегментов
+
+```tsx live
+<SteppedProgressBar
+    step={8}
+    maxStep={10}
+    view={['positive', 'negative', 'attention', 'link', 'tertiary', 'secondary', 'primary', 'accent']}
+/>
+```

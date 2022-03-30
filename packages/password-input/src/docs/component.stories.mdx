@@ -1,9 +1,10 @@
-import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { ComponentHeader, Tabs } from 'storybook/blocks';
+import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 
 import { PasswordInput } from '..';
-import { name, version } from '../../package.json';
+import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 
@@ -11,7 +12,6 @@ import Changelog from '../../CHANGELOG.md';
 <Meta
     title='Компоненты/PasswordInput'
     component={PasswordInput}
-    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
 <!-- Canvas -->
@@ -26,7 +26,8 @@ import Changelog from '../../CHANGELOG.md';
         hint={text('hint', '')}
         error={text('error', '')}
         success={boolean('success', false)}
-        leftAddons={boolean('leftAddons', false) && <Icon />}
+        leftAddons={boolean('leftAddons', false) && <StarMIcon />}
+        rightAddons={boolean('rightAddons', false) && <StarMIcon />}
         bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
         readOnly={boolean('readOnly', false)}
     />
@@ -39,7 +40,6 @@ import Changelog from '../../CHANGELOG.md';
     version={version}
     package='@alfalab/core-components/password-input'
     stage={2}
-    design='https://www.figma.com/file/uGndMZufgvqxaNQTaNTEjG/B2B-Web-Components?node-id=17757%3A0'
 />
 
 ```tsx

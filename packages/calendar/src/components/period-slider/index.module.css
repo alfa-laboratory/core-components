@@ -1,0 +1,47 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    position: relative;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.period {
+    font-family: var(--calendar-month-only-header-font-family);
+    font-size: var(--calendar-month-only-header-font-size);
+    font-weight: var(--calendar-month-only-header-font-weight);
+    line-height: 24px;
+    text-align: center;
+
+    @media (max-width: 374px) {
+        width: auto;
+        flex-grow: 1;
+    }
+}
+
+.empty {
+    color: var(--color-light-text-secondary);
+}
+
+.arrow {
+    position: absolute;
+    top: 4px;
+
+    &:first-child {
+        left: 0;
+    }
+
+    &:last-child {
+        right: 0;
+        transform: rotateY(180deg);
+    }
+}
+
+.full .arrow {
+    @media (max-width: 374px) {
+        display: none;
+    }
+}

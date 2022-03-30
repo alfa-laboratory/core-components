@@ -3,6 +3,128 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tag@4.1.0...@alfalab/core-components-tag@4.2.0) (2022-03-28)
+
+
+### Features
+
+* **filter-tag:** new component ([#1035](https://github.com/alfa-laboratory/core-components/issues/1035)) ([f97e9c5](https://github.com/alfa-laboratory/core-components/commit/f97e9c59062e56f3bafa855450a33b5f67497143))
+
+
+
+
+
+# [4.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tag@4.0.1...@alfalab/core-components-tag@4.1.0) (2022-03-24)
+
+
+### Bug Fixes
+
+* imports for glyph icons ([#994](https://github.com/alfa-laboratory/core-components/issues/994)) ([8e807f2](https://github.com/alfa-laboratory/core-components/commit/8e807f26abf0f942fe8eadbd201caecb297b35dc))
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
+## [4.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tag@4.0.0...@alfalab/core-components-tag@4.0.1) (2021-12-08)
+
+
+### Bug Fixes
+
+* актуализируем @alfalab/utils ([#897](https://github.com/alfa-laboratory/core-components/issues/897)) ([30fb88e](https://github.com/alfa-laboratory/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+
+
+
+
+
+# [4.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tag@3.4.0...@alfalab/core-components-tag@4.0.0) (2021-11-26)
+
+
+### Features
+
+* **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/alfa-laboratory/core-components/issues/886)) ([88e657a](https://github.com/alfa-laboratory/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/alfa-laboratory/core-components/issues/890)
+
+
+### BREAKING CHANGES
+
+* **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер  на xxs. Можно воспользоваться codemod.
+
+* feat(codemod): add button xs to xxs transformer
+
+* feat(tag): добавлен тэг размера 40px, изменены отступы
+
+Добавлен тэг размером 40px, изменены отступы. Тем, кто использовал размер xs, надо заменить размер
+на xxs.
+* **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер на xxs. Можно воспользоваться codemod.
+
+* test: update screenshots
+
+* test: update screenshots
+
+* feat(button): linter fix
+
+* feat(button): fix min-width
+
+* feat(tag): remove vertical paddings
+
+* feat(tag): remove vertical paddings
+
+* feat(button): updates
+
+
+
+
+
+# [3.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tag@3.3.0...@alfalab/core-components-tag@3.4.0) (2021-09-14)
+
+
+### Features
+
+* **vars:** updated colors and typography from latest alfa-ui-primitives ([#803](https://github.com/alfa-laboratory/core-components/issues/803)) ([0d5b2a3](https://github.com/alfa-laboratory/core-components/commit/0d5b2a30a78e70392dd505790a92bc3bc83f9386))
+
+
+
+
+
+# [3.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tag@3.2.0...@alfalab/core-components-tag@3.3.0) (2021-08-23)
+
+
+### Features
+
+* **tag:** add inverted colors ([#784](https://github.com/alfa-laboratory/core-components/issues/784)) ([d3681ae](https://github.com/alfa-laboratory/core-components/commit/d3681aeefe02e5f481d066013911a1877a165bb2))
+
+
+
+
+
+# [3.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tag@3.1.0...@alfalab/core-components-tag@3.2.0) (2021-08-04)
+
+
+### Features
+
+* add mods colors ([#770](https://github.com/alfa-laboratory/core-components/issues/770)) ([fe985f4](https://github.com/alfa-laboratory/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
+
+
+
+
+
+# [3.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tag@3.0.1...@alfalab/core-components-tag@3.1.0) (2021-07-23)
+
+
+### Features
+
+* add mobile theme for tag, radio, checkbox (PDS-244/247/248) ([#717](https://github.com/alfa-laboratory/core-components/issues/717)) ([36e2d99](https://github.com/alfa-laboratory/core-components/commit/36e2d99c716a03e7f319439df9ca47ec43ad4b71))
+
+
+
+
+
 ## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-tag@3.0.0...@alfalab/core-components-tag@3.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-tag

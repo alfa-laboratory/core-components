@@ -1,29 +1,31 @@
-import {
-    eachDayOfInterval,
-    eachMonthOfInterval,
-    eachYearOfInterval,
-    lastDayOfMonth,
-    startOfDay,
-    startOfMonth,
-    startOfYear,
-    endOfYear,
-    isSameDay,
-    isBefore,
-    isAfter,
-    min,
-    max,
-    addDays,
-    addMonths,
-    endOfWeek,
-    startOfWeek,
-    subDays,
-    subMonths,
-} from 'date-fns';
+import eachDayOfInterval from 'date-fns/eachDayOfInterval';
+import eachMonthOfInterval from 'date-fns/eachMonthOfInterval';
+import eachYearOfInterval from 'date-fns/eachYearOfInterval';
+import lastDayOfMonth from 'date-fns/lastDayOfMonth';
+import startOfDay from 'date-fns/startOfDay';
+import startOfMonth from 'date-fns/startOfMonth';
+import startOfYear from 'date-fns/startOfYear';
+import endOfYear from 'date-fns/endOfYear';
+import isSameDay from 'date-fns/isSameDay';
+import isBefore from 'date-fns/isBefore';
+import isAfter from 'date-fns/isAfter';
+import min from 'date-fns/min';
+import max from 'date-fns/max';
+import addDays from 'date-fns/addDays';
+import addMonths from 'date-fns/addMonths';
+import endOfWeek from 'date-fns/endOfWeek';
+import startOfWeek from 'date-fns/startOfWeek';
+import subDays from 'date-fns/subDays';
+import subMonths from 'date-fns/subMonths';
+import format from 'date-fns/format';
+import parse from 'date-fns/parse';
 import { DateShift, Day, Month, SpecialDays } from './typings';
 
 export const DAYS_IN_WEEK = 7;
 export const MONTHS_IN_YEAR = 12;
 export const SUNDAY_INDEX = 6;
+export const DATE_FORMAT = 'dd.MM.yyyy';
+export const NATIVE_DATE_FORMAT = 'yyyy-MM-dd';
 
 export const WEEKDAYS = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 export const MONTHS = [
@@ -187,12 +189,15 @@ export function getSelectionRange(
     to?: Date | number,
     highlighted?: Date | number,
 ) {
-    const end = to || highlighted;
+    if (!from && !to) return null;
 
-    if (from && end && from !== end) {
+    const end = to || highlighted;
+    const start = from || highlighted;
+
+    if (start && end && start !== end) {
         return {
-            start: min([from, end]),
-            end: max([from, end]),
+            start: min([start, end]),
+            end: max([start, end]),
         };
     }
 
@@ -245,3 +250,9 @@ export function simulateTab(node: HTMLElement) {
         node.dispatchEvent(event);
     }
 }
+
+export const formatDate = (date: Date | number, dateFormat = DATE_FORMAT) =>
+    format(date, dateFormat);
+
+export const parseDateString = (value: string, dateFormat = DATE_FORMAT) =>
+    parse(value, dateFormat, new Date());

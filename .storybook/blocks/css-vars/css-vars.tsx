@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import cn from 'classnames';
 
-import { Example } from '../example';
+import { Example } from 'storybook-addon-live-examples';
 
 type Props = {
     css: string;
@@ -39,7 +39,7 @@ export const CssVars: FC<Props> = ({ css, title }) => {
         <div>
             {title && <h2 className={cn('sbdocs', 'sbdocs-h2')}>{title}</h2>}
 
-            <Example language='css' code={vars} />
+            {vars && <Example language='css' code={vars} live={false} />}
         </div>
     );
 };

@@ -3,6 +3,210 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@5.2.2...@alfalab/core-components-select-with-tags@5.2.3) (2022-03-28)
+
+**Note:** Version bump only for package @alfalab/core-components-select-with-tags
+
+
+
+
+
+## [5.2.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@5.2.1...@alfalab/core-components-select-with-tags@5.2.2) (2022-03-24)
+
+**Note:** Version bump only for package @alfalab/core-components-select-with-tags
+
+
+
+
+
+## [5.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@5.2.0...@alfalab/core-components-select-with-tags@5.2.1) (2022-03-04)
+
+
+### Bug Fixes
+
+* update glyph deps ([#1019](https://github.com/alfa-laboratory/core-components/issues/1019)) ([3e910d0](https://github.com/alfa-laboratory/core-components/commit/3e910d0801c4c46bcd399163200c1f7bfaba375e))
+
+
+
+
+
+# [5.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@5.1.2...@alfalab/core-components-select-with-tags@5.2.0) (2022-03-01)
+
+
+### Bug Fixes
+
+* changed dropdown component's box shadow styles ([#1010](https://github.com/alfa-laboratory/core-components/issues/1010)) ([2f997f5](https://github.com/alfa-laboratory/core-components/commit/2f997f5722c89b38a8064924b73c0a8046025aea))
+
+
+### Features
+
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
+## [5.1.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@5.1.1...@alfalab/core-components-select-with-tags@5.1.2) (2022-02-17)
+
+
+### Bug Fixes
+
+* imports for glyph icons ([#994](https://github.com/alfa-laboratory/core-components/issues/994)) ([8e807f2](https://github.com/alfa-laboratory/core-components/commit/8e807f26abf0f942fe8eadbd201caecb297b35dc))
+
+
+
+
+
+## [5.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@5.1.0...@alfalab/core-components-select-with-tags@5.1.1) (2022-02-02)
+
+
+### Bug Fixes
+
+* **select-with-tags:** update tag size to xxs ([#960](https://github.com/alfa-laboratory/core-components/issues/960)) ([4234826](https://github.com/alfa-laboratory/core-components/commit/4234826e5dedebc1e6555dfba181981eea4db69f))
+
+
+
+
+
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@5.0.2...@alfalab/core-components-select-with-tags@5.1.0) (2021-12-29)
+
+
+### Features
+
+* **select:** чекбоксы в выпадашке множественного выбора [#903](https://github.com/alfa-laboratory/core-components/issues/903)) ([f5638ef](https://github.com/alfa-laboratory/core-components/commit/f5638ef589468de0dc0473d30871035d8c4efab5))
+
+
+
+
+
+## [5.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@5.0.1...@alfalab/core-components-select-with-tags@5.0.2) (2021-12-22)
+
+
+### Bug Fixes
+
+* add missing vars imports ([#931](https://github.com/alfa-laboratory/core-components/issues/931)) ([35ba847](https://github.com/alfa-laboratory/core-components/commit/35ba847d39924e713166d79ae6d64444131794a1))
+
+
+
+
+
+## [5.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@5.0.0...@alfalab/core-components-select-with-tags@5.0.1) (2021-12-08)
+
+
+### Bug Fixes
+
+* актуализируем @alfalab/utils ([#897](https://github.com/alfa-laboratory/core-components/issues/897)) ([30fb88e](https://github.com/alfa-laboratory/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+
+
+
+
+
+# [5.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@4.0.0...@alfalab/core-components-select-with-tags@5.0.0) (2021-11-26)
+
+
+### Features
+
+* **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/alfa-laboratory/core-components/issues/886)) ([88e657a](https://github.com/alfa-laboratory/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/alfa-laboratory/core-components/issues/890)
+
+
+### BREAKING CHANGES
+
+* **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер  на xxs. Можно воспользоваться codemod.
+
+* feat(codemod): add button xs to xxs transformer
+
+* feat(tag): добавлен тэг размера 40px, изменены отступы
+
+Добавлен тэг размером 40px, изменены отступы. Тем, кто использовал размер xs, надо заменить размер
+на xxs.
+* **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер на xxs. Можно воспользоваться codemod.
+
+* test: update screenshots
+
+* test: update screenshots
+
+* feat(button): linter fix
+
+* feat(button): fix min-width
+
+* feat(tag): remove vertical paddings
+
+* feat(tag): remove vertical paddings
+
+* feat(button): updates
+
+
+
+
+
+# [4.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@3.3.0...@alfalab/core-components-select-with-tags@4.0.0) (2021-11-16)
+
+
+### Features
+
+* **select:** controlled open ([#839](https://github.com/alfa-laboratory/core-components/issues/839)) ([95d0470](https://github.com/alfa-laboratory/core-components/commit/95d0470a86e1a54f4cb4b789bb7e3281a1f0a401))
+* **select:** переход к темизации цвета иконки ([112cd95](https://github.com/alfa-laboratory/core-components/commit/112cd95242e27f5065eb2a8349d3afbddfdee638))
+
+
+### BREAKING CHANGES
+
+* **select:** удалена переменная --select-arrow-background
+
+
+
+
+
+# [3.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@3.2.0...@alfalab/core-components-select-with-tags@3.3.0) (2021-09-14)
+
+
+### Features
+
+* change error type to ReactNode ([#825](https://github.com/alfa-laboratory/core-components/issues/825)) ([c6d95c1](https://github.com/alfa-laboratory/core-components/commit/c6d95c1c6239f2b2a3bf2c1639554d8500e794f3))
+
+
+
+
+
+# [3.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@3.1.0...@alfalab/core-components-select-with-tags@3.2.0) (2021-08-23)
+
+
+### Bug Fixes
+
+* **input:** smart error icon ([#746](https://github.com/alfa-laboratory/core-components/issues/746)) ([f1950d6](https://github.com/alfa-laboratory/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/alfa-laboratory/core-components/issues/782)
+
+
+### Features
+
+* **tag:** add inverted colors ([#784](https://github.com/alfa-laboratory/core-components/issues/784)) ([d3681ae](https://github.com/alfa-laboratory/core-components/commit/d3681aeefe02e5f481d066013911a1877a165bb2))
+
+
+
+
+
+# [3.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@3.0.2...@alfalab/core-components-select-with-tags@3.1.0) (2021-08-04)
+
+
+### Features
+
+* add mods colors ([#770](https://github.com/alfa-laboratory/core-components/issues/770)) ([fe985f4](https://github.com/alfa-laboratory/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
+
+
+
+
+
+## [3.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@3.0.1...@alfalab/core-components-select-with-tags@3.0.2) (2021-07-23)
+
+
+### Bug Fixes
+
+* select & calendar-input use glyph icons ([#742](https://github.com/alfa-laboratory/core-components/issues/742)) ([6b04ae4](https://github.com/alfa-laboratory/core-components/commit/6b04ae49fc4f3805ef362dcb68939b72fc99814b))
+
+
+
+
+
 ## [3.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-select-with-tags@3.0.0...@alfalab/core-components-select-with-tags@3.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-select-with-tags

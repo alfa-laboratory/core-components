@@ -30,34 +30,11 @@ yarn add @alfalab/core-components-button
 
 ```jsx
 import { Button } from '@alfalab/core-components/button';
-import { Button } from '@alfalab/core-components-button';
 ```
 
 ## Темизация
 
-1.  Создайте у себя на проекте css файл с темой, например, theme.css:
-
-    ```
-    :root {
-        --border-radius: var(--border-radius-l);
-    }
-    ```
-
-2.  Подключите файл с темой:
-
--   Если вы используете нативные css-переменные, то просто подключите файл к проекту.
-
--   Если вы используете [arui-scripts](https://github.com/alfa-laboratory/arui-scripts), то добавьте в `package.json`:
-
-    ```
-    "aruiScripts": {
-        "componentsTheme": "./node_modules/@alfalab/core-components-themes/click.css"
-    }
-    ```
-
--   В другом случае - используйте [postcss-custom-properties](https://github.com/postcss/postcss-custom-properties), указав в `importFrom` путь к файлу с темой.
-
-[Подробнее о темизации](https://alfa-laboratory.github.io/core-components/master/?path=/docs/гайдлайны-темизация--page)
+[Гайд по настройке темизации](https://alfa-laboratory.github.io/core-components/master/?path=/docs/гайдлайны-темизация--page)
 
 ## Поддерживаемые браузеры
 
@@ -174,17 +151,17 @@ import { Button } from '@alfalab/core-components-button';
 Импорт `ES5` с css-модулями:
 
 ```tsx
-import { Button } from '@alfalab/core-components-button/dist/cssm';
-// или
 import { Button } from '@alfalab/core-components/button/cssm';
+// или
+import { Button } from '@alfalab/core-components-button/dist/cssm';
 ```
 
 Импорт `ES2020`:
 
 ```tsx
-import { Button } from '@alfalab/core-components-button/dist/modern';
-// или
 import { Button } from '@alfalab/core-components/button/modern';
+// или
+import { Button } from '@alfalab/core-components-button/dist/modern';
 ```
 
 ## Правила контрибьютинга
@@ -201,6 +178,7 @@ import { Button } from '@alfalab/core-components/button/modern';
 
 ## Мейнтейнеры
 
--   [Евгений Сергеев](https://github.com/SiebenSieben)
 -   [Александр Яценко](https://github.com/reme3d2y)
--   [Дмитрий Савкин](https://github.com/dmitrsavk)
+-   [Евгений Купава](https://github.com/EGNKupava)
+-   [Рамиль Сагидуллин](https://github.com/blackraydev)
+-   [Евгений Сергеев](https://github.com/SiebenSieben)

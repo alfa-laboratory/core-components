@@ -3,6 +3,83 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-popover@5.6.0...@alfalab/core-components-popover@5.6.1) (2022-02-15)
+
+
+### Bug Fixes
+
+* **gallery:** update header button's tooltip position ([#979](https://github.com/alfa-laboratory/core-components/issues/979)) ([8e2acfc](https://github.com/alfa-laboratory/core-components/commit/8e2acfcb772cf4d8051c185a3f1caaaf507b5bc9))
+
+
+
+
+
+# [5.6.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-popover@5.5.0...@alfalab/core-components-popover@5.6.0) (2021-12-01)
+
+
+### Features
+
+* **popover:** add availableHieght prop, update related snapshots ([43b4ebd](https://github.com/alfa-laboratory/core-components/commit/43b4ebd6ba092f22d0dfc845f3f0113b390317dc)), closes [#758](https://github.com/alfa-laboratory/core-components/issues/758)
+
+
+
+
+
+# [5.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-popover@5.4.0...@alfalab/core-components-popover@5.5.0) (2021-09-14)
+
+
+### Features
+
+* **popover:** add useAnchorWidth prop ([#826](https://github.com/alfa-laboratory/core-components/issues/826)) ([8df55c4](https://github.com/alfa-laboratory/core-components/commit/8df55c4c496467c363c5c09c14d1bd08a9709ebf)), closes [#787](https://github.com/alfa-laboratory/core-components/issues/787)
+
+
+
+
+
+# [5.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-popover@5.3.0...@alfalab/core-components-popover@5.4.0) (2021-09-06)
+
+
+### Features
+
+* **tooltip:** update shadow and arrow size/position ([2d40988](https://github.com/alfa-laboratory/core-components/commit/2d40988f3c376c51907aa8a4845ba25c7c43a2f4))
+
+
+
+
+
+# [5.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-popover@5.2.0...@alfalab/core-components-popover@5.3.0) (2021-08-23)
+
+
+### Features
+
+* **tooltip:** add TooltipResponsive,  add `fallbackPlacements` prop ([#780](https://github.com/alfa-laboratory/core-components/issues/780)) ([61d780c](https://github.com/alfa-laboratory/core-components/commit/61d780c750bd9c0331d275f1b12b0512bb3d2049))
+
+
+
+
+
+# [5.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-popover@5.1.0...@alfalab/core-components-popover@5.2.0) (2021-08-04)
+
+
+### Features
+
+* add mods colors ([#770](https://github.com/alfa-laboratory/core-components/issues/770)) ([fe985f4](https://github.com/alfa-laboratory/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
+
+
+
+
+
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-popover@5.0.1...@alfalab/core-components-popover@5.1.0) (2021-07-19)
+
+
+### Features
+
+* **tooltip:** add target ref property ([#755](https://github.com/alfa-laboratory/core-components/issues/755)) ([9aa962d](https://github.com/alfa-laboratory/core-components/commit/9aa962d8b280e8d6af8ac4324a78b4bdebbfc536))
+
+
+
+
+
 ## [5.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-popover@5.0.0...@alfalab/core-components-popover@5.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-popover

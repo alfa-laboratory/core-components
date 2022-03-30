@@ -8,6 +8,7 @@ import {
     ReactElement,
 } from 'react';
 import { PopoverProps } from '@alfalab/core-components-popover';
+import { InputProps } from '@alfalab/core-components-input';
 
 export type OptionShape = {
     /**
@@ -71,6 +72,11 @@ export type BaseSelectProps = {
     optionClassName?: string;
 
     /**
+     * Дополнительный класс для поповера
+     */
+    popperClassName?: string;
+
+    /**
      * Список вариантов выбора
      */
     options: Array<OptionShape | GroupShape>;
@@ -94,6 +100,11 @@ export type BaseSelectProps = {
      * Начальное состояние селекта
      */
     defaultOpen?: boolean;
+
+    /**
+     * Управление открытием
+     */
+    open?: boolean;
 
     /**
      * Возможность выбрать несколько значений
@@ -134,12 +145,12 @@ export type BaseSelectProps = {
     /**
      * Отображение ошибки
      */
-    error?: string | boolean;
+    error?: ReactNode | boolean;
 
     /**
      * Подсказка под полем
      */
-    hint?: string;
+    hint?: ReactNode;
 
     /**
      * Возможность использовать селект как input-autocomplete
@@ -244,6 +255,7 @@ export type BaseSelectProps = {
     onChange?: (payload: {
         selected: OptionShape | null;
         selectedMultiple: OptionShape[];
+        initiator: OptionShape | null;
         name?: string;
     }) => void;
 
@@ -263,9 +275,19 @@ export type BaseSelectProps = {
     onFocus?: (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => void;
 
     /**
+     * Обработчик скрола
+     */
+    onScroll?: (event: MouseEvent<HTMLDivElement>) => void;
+
+    /**
      * Хранит функцию, с помощью которой можно обновить положение поповера
      */
     updatePopover?: PopoverProps['update'];
+
+    /**
+     * z-index поповера
+     */
+    zIndexPopover?: PopoverProps['zIndex'];
 
     /**
      * Показывать OptionsList, если он пустой
@@ -296,6 +318,16 @@ export type FieldProps = {
     selectedMultiple?: OptionShape[];
 
     /**
+     * Метод для ручной установки выбранных пунктов
+     */
+    setSelectedItems: (selected: OptionShape[]) => void;
+
+    /**
+     * Метод переключающий видимость выпадающего списка
+     */
+    toggleMenu: () => void;
+
+    /**
      * Флаг, можно ли выбрать несколько значений
      */
     multiple?: boolean;
@@ -323,7 +355,7 @@ export type FieldProps = {
     /**
      * Отображение ошибки
      */
-    error?: string | boolean;
+    error?: ReactNode | boolean;
 
     /**
      * Отображение иконки успеха
@@ -333,7 +365,7 @@ export type FieldProps = {
     /**
      * Подсказка под полем
      */
-    hint?: string;
+    hint?: ReactNode;
 
     /**
      * Компонент стрелки
@@ -389,7 +421,37 @@ export type OptionsListProps = {
     /**
      * Компонент пункта меню
      */
-    Option: (props: { option: OptionShape; index: number }) => JSX.Element | null;
+    Option: FC<OptionProps>;
+
+    /**
+     * Функция для получения пропсов для ячейки
+     */
+    getOptionProps: (option: OptionShape, index: number) => OptionProps;
+
+    /**
+     * Список выбранных пунктов
+     */
+    selectedItems?: OptionShape[];
+
+    /**
+     * Метод для ручной установки выбранных пунктов
+     */
+    setSelectedItems: (selected: OptionShape[]) => void;
+
+    /**
+     * Метод переключающий видимость выпадающего списка
+     */
+    toggleMenu: () => void;
+
+    /**
+     * Контент шапки
+     */
+    header?: ReactNode;
+
+    /**
+     * Контент футера
+     */
+    footer?: ReactNode;
 
     /**
      * Список вариантов выбора
@@ -427,9 +489,19 @@ export type OptionsListProps = {
     visibleOptions?: number;
 
     /**
+     * Обработчик скрола
+     */
+    onScroll?: (event: MouseEvent<HTMLDivElement>) => void;
+
+    /**
      * Идентификатор для систем автоматизированного тестирования
      */
     dataTestId?: string;
+
+    /**
+     * Дополнительные пропсы для Input'a, находящегося внутри кастомного OptionsList
+     */
+    inputProps?: InputProps;
 };
 
 export type OptgroupProps = {
@@ -471,7 +543,7 @@ export type OptionProps = {
     option: OptionShape;
 
     /**
-     * Индект пункта
+     * Индекс пункта
      */
     index: number;
 
@@ -489,6 +561,11 @@ export type OptionProps = {
      * Флаг, заблокирован ли данный пункт
      */
     disabled?: boolean;
+
+    /**
+     * Флаг множественного выбора
+     */
+    multiple?: boolean;
 
     /**
      * Компонент пункта меню
@@ -518,4 +595,19 @@ export type CheckmarkProps = {
      * Флаг, данный пункт выбран
      */
     selected?: boolean;
+
+    /**
+     * Дополнительный класс
+     */
+    className?: string;
+
+    /**
+     * Флаг множественного выбора
+     */
+    multiple?: boolean;
+
+    /**
+     * Расположение отметки
+     */
+    position?: 'before' | 'after';
 };

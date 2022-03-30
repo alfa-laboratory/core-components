@@ -9,10 +9,10 @@ Object {
         class="container bold"
       >
         <div
-          class="component component hasSuffix s"
+          class="component component component hasSuffix s"
         >
           <div
-            class="inner"
+            class="inner inner"
           >
             <div
               class="inputWrapper"
@@ -21,7 +21,9 @@ Object {
                 class="input"
               >
                 <input
-                  class="input input"
+                  class="input input input"
+                  inputmode="decimal"
+                  pattern="[0-9\\\\s\\\\.,]*"
                   placeholder="0 ₽"
                   type="text"
                   value=""
@@ -47,7 +49,6 @@ Object {
               </div>
             </div>
           </div>
-          
         </div>
       </div>
     </div>
@@ -57,10 +58,10 @@ Object {
       class="container bold"
     >
       <div
-        class="component component hasSuffix s"
+        class="component component component hasSuffix s"
       >
         <div
-          class="inner"
+          class="inner inner"
         >
           <div
             class="inputWrapper"
@@ -69,7 +70,9 @@ Object {
               class="input"
             >
               <input
-                class="input input"
+                class="input input input"
+                inputmode="decimal"
+                pattern="[0-9\\\\s\\\\.,]*"
                 placeholder="0 ₽"
                 type="text"
                 value=""
@@ -95,7 +98,6 @@ Object {
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   </div>,
@@ -162,10 +164,10 @@ Object {
         class="container bold"
       >
         <div
-          class="component component hasSuffix s"
+          class="component component component hasSuffix s"
         >
           <div
-            class="inner"
+            class="inner inner"
           >
             <div
               class="inputWrapper"
@@ -174,7 +176,9 @@ Object {
                 class="input"
               >
                 <input
-                  class="input input"
+                  class="input input input"
+                  inputmode="decimal"
+                  pattern="[0-9\\\\s\\\\.,]*"
                   placeholder="0 ₽"
                   type="text"
                   value=""
@@ -200,7 +204,6 @@ Object {
               </div>
             </div>
           </div>
-          
         </div>
       </div>
     </div>
@@ -209,10 +212,10 @@ Object {
         class="container bold filled"
       >
         <div
-          class="component component suffixVisible hasSuffix s"
+          class="component component component suffixVisible hasSuffix s"
         >
           <div
-            class="inner filled"
+            class="inner inner filled"
           >
             <div
               class="inputWrapper"
@@ -221,7 +224,9 @@ Object {
                 class="input"
               >
                 <input
-                  class="input input"
+                  class="input input input"
+                  inputmode="decimal"
+                  pattern="[0-9\\\\s\\\\.,]*"
                   placeholder="0 $"
                   type="text"
                   value="12 345,67"
@@ -250,7 +255,6 @@ Object {
               </div>
             </div>
           </div>
-          
         </div>
       </div>
     </div>
@@ -260,10 +264,10 @@ Object {
       class="container bold filled"
     >
       <div
-        class="component component suffixVisible hasSuffix s"
+        class="component component component suffixVisible hasSuffix s"
       >
         <div
-          class="inner filled"
+          class="inner inner filled"
         >
           <div
             class="inputWrapper"
@@ -272,7 +276,9 @@ Object {
               class="input"
             >
               <input
-                class="input input"
+                class="input input input"
+                inputmode="decimal"
+                pattern="[0-9\\\\s\\\\.,]*"
                 placeholder="0 $"
                 type="text"
                 value="12 345,67"
@@ -301,7 +307,6 @@ Object {
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   </div>,

@@ -1,14 +1,13 @@
+/* eslint-disable complexity */
 import React, { FC, RefCallback, useCallback, useRef } from 'react';
 import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
-import {
-    isEqual,
-    isLastDayOfMonth,
-    isSameDay,
-    isToday,
-    isWithinInterval,
-    startOfMonth,
-} from 'date-fns';
+import isEqual from 'date-fns/isEqual';
+import isLastDayOfMonth from 'date-fns/isLastDayOfMonth';
+import isSameDay from 'date-fns/isSameDay';
+import isToday from 'date-fns/isToday';
+import isWithinInterval from 'date-fns/isWithinInterval';
+import startOfMonth from 'date-fns/startOfMonth';
 import { usePrevious } from '@alfalab/hooks';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { WEEKDAYS, getSelectionRange } from '../../utils';
@@ -38,6 +37,11 @@ export type DaysTableProps = {
     selectedTo?: Date | number;
 
     /**
+     * Индикатор, что выбран полный период
+     */
+    rangeComplete?: boolean;
+
+    /**
      * Подсвеченная дата (ховер)
      */
     highlighted?: Date | number;
@@ -54,6 +58,7 @@ export const DaysTable: FC<DaysTableProps> = ({
     highlighted,
     selectedFrom,
     selectedTo,
+    rangeComplete = selectedFrom && selectedTo,
     getDayProps,
 }) => {
     const activeMonthRef = useRef(activeMonth);
@@ -76,13 +81,16 @@ export const DaysTable: FC<DaysTableProps> = ({
         [],
     );
 
-    const renderDay = (day: Day) => {
+    const renderDay = (day: Day, dayIdx: number) => {
+        if (!day) return <td key={dayIdx} />;
+
         const daySelected =
             day.selected ||
             (selectedFrom && isSameDay(day.date, selectedFrom)) ||
             (selectedTo && isSameDay(day.date, selectedTo));
 
-        const inRange = !daySelected && selection && isWithinInterval(day.date, selection);
+        const dayHighlighted = highlighted && isEqual(day.date, highlighted);
+        const inRange = selection && isWithinInterval(day.date, selection);
 
         const firstDay = day.date.getDate() === 1;
         const lastDay = isLastDayOfMonth(day.date);
@@ -91,50 +99,53 @@ export const DaysTable: FC<DaysTableProps> = ({
         const transitRight = lastDay && inRange && selection && day.date < selection.end;
 
         const rangeStart = selection && isSameDay(day.date, selection.start);
+        const rangeEnd = selection && isSameDay(day.date, selection.end);
 
         const dayProps = getDayProps(day);
 
         return (
-            <Button
-                {...dayProps}
-                ref={node => {
-                    /**
-                     * После анимации реф-коллбэк вызывается еще раз, и в него передается null и старый activeMonth.
-                     * Поэтому приходится хранить актуальный месяц в рефе и сравнивать с ним.
-                     */
-                    if (startOfMonth(day.date).getTime() === activeMonthRef.current.getTime()) {
-                        dayProps.ref(node as HTMLButtonElement);
-                    }
-                }}
-                type='button'
-                view='ghost'
-                size='xs'
-                disabled={day.disabled}
-                className={cn(styles.day, {
-                    [styles.selected]: daySelected,
+            <td
+                key={day.date.getTime()}
+                className={cn(styles.dayWrapper, {
                     [styles.range]: inRange,
-                    [styles.rangeStart]: rangeStart,
+                    [styles.rangeComplete]: inRange && rangeComplete,
                     [styles.transitLeft]: transitLeft,
                     [styles.transitRight]: transitRight,
-                    [styles.today]: isToday(day.date),
-                    [styles.firstDay]: firstDay,
-                    [styles.lastDay]: lastDay,
-                    [styles.event]: day.event,
-                    [styles.disabled]: day.disabled,
-                    [styles.highlighted]: highlighted && isEqual(day.date, highlighted),
+                    [styles.rangeStart]: rangeStart,
+                    [styles.rangeEnd]: rangeEnd,
                 })}
             >
-                {day.date.getDate()}
-            </Button>
+                <Button
+                    {...dayProps}
+                    ref={node => {
+                        /**
+                         * После анимации реф-коллбэк вызывается еще раз, и в него передается null и старый activeMonth.
+                         * Поэтому приходится хранить актуальный месяц в рефе и сравнивать с ним.
+                         */
+                        if (startOfMonth(day.date).getTime() === activeMonthRef.current.getTime()) {
+                            dayProps.ref(node as HTMLButtonElement);
+                        }
+                    }}
+                    type='button'
+                    view='ghost'
+                    size='xs'
+                    disabled={day.disabled}
+                    className={cn(styles.day, {
+                        [styles.selected]: daySelected,
+                        [styles.today]: isToday(day.date),
+                        [styles.disabled]: day.disabled,
+                        [styles.highlighted]: dayHighlighted,
+                    })}
+                >
+                    {day.event && <span className={styles.dot} />}
+                    {day.date.getDate()}
+                </Button>
+            </td>
         );
     };
 
     const renderWeek = (week: Day[], weekIdx: number) => (
-        <tr key={weekIdx}>
-            {week.map((day: Day, dayIdx: number) => (
-                <td key={day ? day.date.getTime() : dayIdx}>{day && renderDay(day)}</td>
-            ))}
-        </tr>
+        <tr key={weekIdx}>{week.map(renderDay)}</tr>
     );
 
     return (

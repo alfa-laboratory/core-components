@@ -3,6 +3,337 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@8.0.1...@alfalab/core-components-themes@8.1.0) (2022-03-28)
+
+
+### Features
+
+* **filter-tag:** new component ([#1035](https://github.com/alfa-laboratory/core-components/issues/1035)) ([f97e9c5](https://github.com/alfa-laboratory/core-components/commit/f97e9c59062e56f3bafa855450a33b5f67497143))
+
+
+
+
+
+## [8.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@8.0.0...@alfalab/core-components-themes@8.0.1) (2022-03-28)
+
+
+### Bug Fixes
+
+* fix modal and bottom-sheet dark mode ([#1043](https://github.com/alfa-laboratory/core-components/issues/1043)) ([cad36a2](https://github.com/alfa-laboratory/core-components/commit/cad36a25b28bfa71296c3dd9dc325eec28b5c241))
+
+
+
+
+
+# [8.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.7.1...@alfalab/core-components-themes@8.0.0) (2022-03-24)
+
+
+### Features
+
+* **bottom-sheet:** update-bottom-sheet ([#1025](https://github.com/alfa-laboratory/core-components/issues/1025)) ([26fa9aa](https://github.com/alfa-laboratory/core-components/commit/26fa9aab68bebf0f7093a38bc0f18a9b596ccf37)), closes [#1032](https://github.com/alfa-laboratory/core-components/issues/1032)
+* **modal:** update styles ([#1024](https://github.com/alfa-laboratory/core-components/issues/1024)) ([fdf2cdc](https://github.com/alfa-laboratory/core-components/commit/fdf2cdca9f785b27cd5d3998245a34d42e1240d1))
+
+
+### BREAKING CHANGES
+
+* **modal:** Большое обновление стилей и темизации
+
+* fix(modal): remove unused align
+* **bottom-sheet:** Большое обновление стилей, множество дополнительных настроек
+
+
+
+
+
+## [7.7.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.7.0...@alfalab/core-components-themes@7.7.1) (2022-03-24)
+
+**Note:** Version bump only for package @alfalab/core-components-themes
+
+
+
+
+
+# [7.7.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.6.0...@alfalab/core-components-themes@7.7.0) (2022-03-18)
+
+
+### Features
+
+* **calendar:** add intranet theme ([#1026](https://github.com/alfa-laboratory/core-components/issues/1026)) ([292b76c](https://github.com/alfa-laboratory/core-components/commit/292b76c100bb12ebb1011d2a9981ba2b2899dd7a))
+
+
+
+
+
+# [7.6.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.5.2...@alfalab/core-components-themes@7.6.0) (2022-03-04)
+
+
+### Features
+
+* **modal:** mobile header ([#1018](https://github.com/alfa-laboratory/core-components/issues/1018)) ([54b879f](https://github.com/alfa-laboratory/core-components/commit/54b879f500d1124a6956d3d5a57349c856a09904))
+
+
+
+
+
+## [7.5.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.5.1...@alfalab/core-components-themes@7.5.2) (2022-03-01)
+
+
+### Bug Fixes
+
+* changed dropdown component's box shadow styles ([#1010](https://github.com/alfa-laboratory/core-components/issues/1010)) ([2f997f5](https://github.com/alfa-laboratory/core-components/commit/2f997f5722c89b38a8064924b73c0a8046025aea))
+
+
+
+
+
+## [7.5.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.5.0...@alfalab/core-components-themes@7.5.1) (2022-02-21)
+
+
+### Bug Fixes
+
+* **select:** change corp shadow ([#1004](https://github.com/alfa-laboratory/core-components/issues/1004)) ([ea664f6](https://github.com/alfa-laboratory/core-components/commit/ea664f67ce81b66b31aab348cc0c68085711de8a))
+
+
+
+
+
+# [7.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.4.0...@alfalab/core-components-themes@7.5.0) (2022-02-17)
+
+
+### Features
+
+* **calendar:** design & logic updates ([#991](https://github.com/alfa-laboratory/core-components/issues/991)) ([358142c](https://github.com/alfa-laboratory/core-components/commit/358142c6d259e1463954139cc648787cdf461f76)), closes [#993](https://github.com/alfa-laboratory/core-components/issues/993) [#990](https://github.com/alfa-laboratory/core-components/issues/990)
+
+
+
+
+
+# [7.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.3.0...@alfalab/core-components-themes@7.4.0) (2022-02-16)
+
+
+### Features
+
+* **code-input:** add component ([#932](https://github.com/alfa-laboratory/core-components/issues/932)) ([dc40cb5](https://github.com/alfa-laboratory/core-components/commit/dc40cb5b28322b4a2dc5735b354a7d45cf34adb9))
+
+
+
+
+
+# [7.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.2.1...@alfalab/core-components-themes@7.3.0) (2022-02-09)
+
+
+### Features
+
+* **themes:** introducing intranet theme ([#983](https://github.com/alfa-laboratory/core-components/issues/983)) ([85eb9cf](https://github.com/alfa-laboratory/core-components/commit/85eb9cfffeef31b886c5123d6333e177c261ac62))
+
+
+
+
+
+## [7.2.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.2.0...@alfalab/core-components-themes@7.2.1) (2022-02-02)
+
+
+### Bug Fixes
+
+* **themes:** fix font weight mobile button ([#972](https://github.com/alfa-laboratory/core-components/issues/972)) ([447a89d](https://github.com/alfa-laboratory/core-components/commit/447a89dde25aa7659d771ae1c722086354323706))
+
+
+
+
+
+# [7.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.1.0...@alfalab/core-components-themes@7.2.0) (2021-12-29)
+
+
+### Features
+
+* **select:** чекбоксы в выпадашке множественного выбора [#903](https://github.com/alfa-laboratory/core-components/issues/903)) ([f5638ef](https://github.com/alfa-laboratory/core-components/commit/f5638ef589468de0dc0473d30871035d8c4efab5))
+
+
+
+
+
+# [7.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@7.0.0...@alfalab/core-components-themes@7.1.0) (2021-12-20)
+
+
+### Features
+
+* **checkbox-group:** add click theme ([967d585](https://github.com/alfa-laboratory/core-components/commit/967d58538c5537fc2b3ac583fb742ebaef86109e))
+
+
+
+
+
+# [7.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@6.0.2...@alfalab/core-components-themes@7.0.0) (2021-12-08)
+
+
+* fix!: новый cdn иконок (#913) (#917) ([224831f](https://github.com/alfa-laboratory/core-components/commit/224831f41ed2de49dc1a228dc081b0629cf274b1)), closes [#913](https://github.com/alfa-laboratory/core-components/issues/913) [#917](https://github.com/alfa-laboratory/core-components/issues/917)
+
+
+### BREAKING CHANGES
+
+* Добавьте новый домен в список разрешенных 'img-src': `'self' alfabank.gcdn.co data: 'self'`
+
+This reverts commit 953fbcfec46a40089a5cfde670597315269b05f5.
+
+
+
+
+
+## [6.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@6.0.1...@alfalab/core-components-themes@6.0.2) (2021-12-08)
+
+
+### Bug Fixes
+
+* revert 0e8124552206f96149d104f65cff1667e857bf01 ([#916](https://github.com/alfa-laboratory/core-components/issues/916)) ([953fbcf](https://github.com/alfa-laboratory/core-components/commit/953fbcfec46a40089a5cfde670597315269b05f5))
+
+
+
+
+
+## [6.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@6.0.0...@alfalab/core-components-themes@6.0.1) (2021-12-08)
+
+
+### Bug Fixes
+
+* новый cdn иконок ([#913](https://github.com/alfa-laboratory/core-components/issues/913)) ([0e81245](https://github.com/alfa-laboratory/core-components/commit/0e8124552206f96149d104f65cff1667e857bf01))
+* **dropzone:** изменение темы клика ([#893](https://github.com/alfa-laboratory/core-components/issues/893)) ([cadc6da](https://github.com/alfa-laboratory/core-components/commit/cadc6da29896e6a033bac8e91723b20beb404b32))
+
+
+
+
+
+# [6.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@5.1.0...@alfalab/core-components-themes@6.0.0) (2021-11-26)
+
+
+### Features
+
+* **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/alfa-laboratory/core-components/issues/886)) ([88e657a](https://github.com/alfa-laboratory/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/alfa-laboratory/core-components/issues/890)
+
+
+### BREAKING CHANGES
+
+* **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер  на xxs. Можно воспользоваться codemod.
+
+* feat(codemod): add button xs to xxs transformer
+
+* feat(tag): добавлен тэг размера 40px, изменены отступы
+
+Добавлен тэг размером 40px, изменены отступы. Тем, кто использовал размер xs, надо заменить размер
+на xxs.
+* **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер на xxs. Можно воспользоваться codemod.
+
+* test: update screenshots
+
+* test: update screenshots
+
+* feat(button): linter fix
+
+* feat(button): fix min-width
+
+* feat(tag): remove vertical paddings
+
+* feat(tag): remove vertical paddings
+
+* feat(button): updates
+
+
+
+
+
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@5.0.1...@alfalab/core-components-themes@5.1.0) (2021-10-15)
+
+
+### Features
+
+* **themes:** обновлённые темы для calendar-input и select ([5ae76c3](https://github.com/alfa-laboratory/core-components/commit/5ae76c314bf33236767056b77969ca7003057532))
+
+
+
+
+
+## [5.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@5.0.0...@alfalab/core-components-themes@5.0.1) (2021-10-15)
+
+
+### Bug Fixes
+
+* **calendar-input:** remove popover border in click theme ([7a76759](https://github.com/alfa-laboratory/core-components/commit/7a76759ccc5741a03a4c90f97cce6f67255b1c4b))
+* **calendar-input:** update border-radius ([0d06aca](https://github.com/alfa-laboratory/core-components/commit/0d06aca7162c85f987c1172ea037b5b3bc66f8c5))
+
+
+
+
+
+# [5.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@4.6.2...@alfalab/core-components-themes@5.0.0) (2021-09-14)
+
+
+### Features
+
+* dark themes ([#778](https://github.com/alfa-laboratory/core-components/issues/778)) ([d848d16](https://github.com/alfa-laboratory/core-components/commit/d848d165b59182e6521d28efc2aadeecebc00d93))
+* **dropzone:** design improvements (PDS-282) ([#829](https://github.com/alfa-laboratory/core-components/issues/829)) ([437ec3c](https://github.com/alfa-laboratory/core-components/commit/437ec3c80c507a37c8a24106a6ee6514abd68d04))
+* **vars:** updated colors and typography from latest alfa-ui-primitives ([#803](https://github.com/alfa-laboratory/core-components/issues/803)) ([0d5b2a3](https://github.com/alfa-laboratory/core-components/commit/0d5b2a30a78e70392dd505790a92bc3bc83f9386))
+
+
+### BREAKING CHANGES
+
+* remove dark-theme-injector. remove vars duplications
+
+
+
+
+
+## [4.6.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@4.6.1...@alfalab/core-components-themes@4.6.2) (2021-09-08)
+
+
+### Bug Fixes
+
+* wrong mobile colors ([#832](https://github.com/alfa-laboratory/core-components/issues/832)) ([d9e275b](https://github.com/alfa-laboratory/core-components/commit/d9e275b6ac60e635dec4b655bfc859f079cb9840))
+
+
+
+
+
+## [4.6.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@4.6.0...@alfalab/core-components-themes@4.6.1) (2021-08-23)
+
+
+### Bug Fixes
+
+* **input:** smart error icon ([#746](https://github.com/alfa-laboratory/core-components/issues/746)) ([f1950d6](https://github.com/alfa-laboratory/core-components/commit/f1950d6d516d17d993f0865c10390b6301bb2707)), closes [#782](https://github.com/alfa-laboratory/core-components/issues/782)
+
+
+
+
+
+# [4.6.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@4.5.0...@alfalab/core-components-themes@4.6.0) (2021-08-04)
+
+
+### Features
+
+* add mods colors ([#770](https://github.com/alfa-laboratory/core-components/issues/770)) ([fe985f4](https://github.com/alfa-laboratory/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
+
+
+
+
+
+# [4.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@4.4.0...@alfalab/core-components-themes@4.5.0) (2021-07-23)
+
+
+### Bug Fixes
+
+* select & calendar-input use glyph icons ([#742](https://github.com/alfa-laboratory/core-components/issues/742)) ([6b04ae4](https://github.com/alfa-laboratory/core-components/commit/6b04ae49fc4f3805ef362dcb68939b72fc99814b))
+
+
+### Features
+
+* slider input mobile theme (PDS-242) ([#738](https://github.com/alfa-laboratory/core-components/issues/738)) ([6e924aa](https://github.com/alfa-laboratory/core-components/commit/6e924aa90b63b914b6f5690766e41cddabe18e19))
+* **input:** input mobile theme (PDS-241) ([#737](https://github.com/alfa-laboratory/core-components/issues/737)) ([88f6f7c](https://github.com/alfa-laboratory/core-components/commit/88f6f7c58968b9564970eaa3d759aa2bc275ca7e))
+* add mobile theme for tag, radio, checkbox (PDS-244/247/248) ([#717](https://github.com/alfa-laboratory/core-components/issues/717)) ([36e2d99](https://github.com/alfa-laboratory/core-components/commit/36e2d99c716a03e7f319439df9ca47ec43ad4b71))
+
+
+
+
+
 # [4.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-themes@4.3.0...@alfalab/core-components-themes@4.4.0) (2021-07-09)
 
 

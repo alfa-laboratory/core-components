@@ -1,5 +1,3 @@
-@import '../../../../themes/src/default.css';
-
 @define-mixin confirmation-mobile {
     /* theme */
     --confirmation-title-font-size: 18px;

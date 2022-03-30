@@ -26,8 +26,8 @@ describe(
                     size: { width: 200, height: 80 },
                     knobs: {
                         children: 'Оплатить',
-                        view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
-                        size: ['xs', 's', 'm', 'l'],
+                        view: ['primary', 'secondary', 'tertiary', 'link', 'ghost'],
+                        size: ['xxs', 'xs', 's', 'm', 'l', 'xl'],
                     },
                 }),
             ],
@@ -48,7 +48,7 @@ describe('Button | views & themes', () => {
                         componentName: 'Button',
                         knobs: {
                             children: 'Оплатить',
-                            view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
+                            view: ['primary', 'secondary', 'tertiary', 'link', 'ghost'],
                             disabled: [false, true],
                         },
                         size: { width: 150, height: 80 },
@@ -65,7 +65,7 @@ describe('Button | views & themes', () => {
             theme,
         })();
 
-    ['default', 'click', 'corp', 'site', 'mobile'].map(testCase);
+    ['default', 'click', 'corp', 'site', 'mobile', 'intranet'].map(testCase);
 });
 
 describe('Button | inverted views & themes', () => {
@@ -78,7 +78,7 @@ describe('Button | inverted views & themes', () => {
                         componentName: 'Button',
                         knobs: {
                             children: 'Оплатить',
-                            view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
+                            view: ['primary', 'secondary', 'tertiary', 'link', 'ghost'],
                             disabled: [false, true],
                             colors: 'inverted',
                         },
@@ -96,7 +96,7 @@ describe('Button | inverted views & themes', () => {
             theme,
         })();
 
-    ['default', 'click', 'corp', 'site', 'mobile'].map(testCase);
+    ['default', 'click', 'corp', 'site', 'mobile', 'intranet'].map(testCase);
 });
 
 describe(
@@ -110,7 +110,7 @@ describe(
                     size: { width: 500, height: 80 },
                     knobs: {
                         children: 'Оплатить',
-                        view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
+                        view: ['primary', 'secondary', 'tertiary', 'link', 'ghost'],
                         block: true,
                     },
                 }),
@@ -129,7 +129,7 @@ describe(
             componentName: 'Button',
             knobs: {
                 children: 'Оплатить',
-                view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
+                view: ['primary', 'secondary', 'tertiary', 'link', 'ghost'],
                 loading: true,
             },
         }),
@@ -149,7 +149,7 @@ describe(
             componentName: 'Button',
             knobs: {
                 children: 'Оплатить',
-                view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
+                view: ['primary', 'secondary', 'tertiary', 'link', 'ghost'],
                 colors: ['default', 'inverted'],
             },
         }),
@@ -168,7 +168,7 @@ describe(
             componentName: 'Button',
             knobs: {
                 children: 'Оплатить',
-                view: ['primary', 'secondary', 'outlined', 'filled', 'link', 'ghost'],
+                view: ['primary', 'secondary', 'tertiary', 'link', 'ghost'],
                 colors: ['default', 'inverted'],
             },
         }),

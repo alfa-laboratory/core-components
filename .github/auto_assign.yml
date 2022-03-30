@@ -1,18 +1,15 @@
 addReviewers: true
 
 reviewers:
-    - stepancar
+    - EGNKupava
+    - blackraydev
+    - Oladii
     - Heymdall
-    - IBelyaev
-    - aweppc
     - Artess999
-    - aso1datov
-    - FenkoAlex
+    - stepancar
     - NatalyaZ
-    - raylyanway
     - YozhEzhi
     - denisx
-    - vorozhtsoff
 
 skipKeywords:
     - wip

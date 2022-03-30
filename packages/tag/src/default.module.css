@@ -1,0 +1,48 @@
+@import '../../themes/src/default.css';
+@import './vars.css';
+
+.component {
+    color: var(--tag-text-color);
+    border-color: var(--tag-border-color);
+    background-color: var(--tag-background-color);
+
+    &:disabled {
+        border-color: var(--tag-border-color-disabled);
+        color: var(--tag-text-color-disabled);
+        background-color: var(--tag-background-color-disabled);
+    }
+}
+
+.component {
+    &:hover:not(:disabled) {
+        border-color: var(--tag-border-color-hover);
+        background-color: var(--tag-background-color-hover);
+    }
+
+    &:active:not(:disabled) {
+        border-color: var(--tag-border-color-active);
+        background-color: var(--tag-background-color-active);
+        color: var(--tag-text-color);
+    }
+}
+
+.checked {
+    border-color: var(--tag-border-color-checked);
+    background-color: var(--tag-background-color-checked);
+    color: var(--tag-text-color-checked);
+
+    &:disabled {
+        background-color: var(--tag-background-color-checked-disabled);
+        border-color: var(--tag-border-color-checked-disabled);
+        color: var(--tag-text-color-checked-disabled);
+    }
+
+    &:hover:not(:disabled):not(:active) {
+        background-color: var(--tag-background-color-checked-hover);
+    }
+
+    &:active:not(:disabled) {
+        background-color: var(--tag-background-color-checked-active);
+        color: var(--tag-text-color-checked);
+    }
+}

@@ -1,0 +1,9 @@
+@define-mixin bottom-sheet-click {
+    --bottom-sheet-footer-border-top: none;
+    --bottom-sheet-footer-background-color: var(--color-light-bg-secondary);
+    --bottom-sheet-title-font-size: 20px;
+    --bottom-sheet-title-font-weight: 500;
+    --bottom-sheet-title-line-height: 28px;
+    --bottom-sheet-title-font-family: var(--font-family-styrene);
+    --bottom-sheet-title-margin-vertical: var(--gap-3xs);
+}

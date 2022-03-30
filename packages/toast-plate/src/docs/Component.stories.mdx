@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
 import { Button } from '@alfalab/core-components-button';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
@@ -13,7 +13,6 @@ import styles from '!!raw-loader!../index.module.css';
 <Meta
     title='Компоненты/ToastPlate'
     component={ToastPlate}
-    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
 <!-- Canvas -->
@@ -43,7 +42,6 @@ import styles from '!!raw-loader!../index.module.css';
     version={version}
     package={name}
     stage={2}
-    design='https://www.figma.com/file/KlFOLLkKO8rtvvQE3RXuhq/Click-Library?node-id=15915%3A56409'
 />
 
 ```tsx

@@ -1,10 +1,10 @@
-import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import Icon from '@alfalab/icons-glyph/StarMIcon';
+import { StarMIcon } from '@alfalab/icons-glyph/StarMIcon';
 import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
 import { FormControl } from '../Component';
-import { name, version } from '../../package.json';
+import { version } from '../../package.json';
 import Description from './description.mdx';
 import Changelog from '../../CHANGELOG.md';
 import styles from '!!raw-loader!../index.module.css';
@@ -13,26 +13,41 @@ import styles from '!!raw-loader!../index.module.css';
 <Meta
     title='Компоненты/FormControl'
     component={FormControl}
-    parameters={{ 'theme-switcher': { themes: ['click'] } }}
 />
 
 
 <!-- Canvas -->
 
 <Story name='FormControl'>
-    <FormControl
-        block={boolean('block', true)}
-        size={select('size', ['s', 'm', 'l', 'xl'], 's')}
-        disabled={boolean('disabled', false)}
-        filled={boolean('filled', false)}
-        focused={boolean('focused', false)}
-        label={text('label', '')}
-        hint={text('hint', '')}
-        error={text('error', '')}
-        rightAddons={boolean('rightAddons', false) && !text('error') && <Icon />}
-        leftAddons={boolean('leftAddons', false) && <Icon />}
-        bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
-    />
+    {React.createElement(() => {
+        const colors = select('colors', ['default', 'inverted'], 'default');
+        return (
+            <div style={{
+                backgroundColor: colors === 'inverted' ? 'var(--color-light-bg-primary-inverted)' : 'transparent',
+                padding: '8px',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+            }}>
+                <FormControl
+                    block={boolean('block', true)}
+                    size={select('size', ['s', 'm', 'l', 'xl'], 's')}
+                    colors={colors}
+                    disabled={boolean('disabled', false)}
+                    filled={boolean('filled', false)}
+                    focused={boolean('focused', false)}
+                    label={text('label', '')}
+                    hint={text('hint', '')}
+                    error={text('error', '')}
+                    rightAddons={boolean('rightAddons', false) && <StarMIcon />}
+                    leftAddons={boolean('leftAddons', false) && <StarMIcon />}
+                    bottomAddons={boolean('bottomAddons', false) && <span>bottom text</span>}
+                />
+            </div>
+        );
+    })}
 </Story>
 
 
@@ -43,7 +58,6 @@ import styles from '!!raw-loader!../index.module.css';
     version={version}
     package='@alfalab/core-components/form-control'
     stage={3}
-    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=49%3A0'
 />
 
 ```tsx

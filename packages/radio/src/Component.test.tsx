@@ -12,6 +12,10 @@ describe('Radio', () => {
         it('should display with description correctly', () => {
             expect(render(<Radio hint='hint' label='text' />)).toMatchSnapshot();
         });
+
+        it('should display without label or hint', () => {
+            expect(render(<Radio />)).toMatchSnapshot();
+        });
     });
 
     describe('Styles tests', () => {
@@ -20,6 +24,20 @@ describe('Radio', () => {
             const { container } = render(<Radio className={className} />);
 
             expect(container.firstElementChild).toHaveClass(className);
+        });
+
+        it('should set contentClassName', () => {
+            const className = 'custom-class';
+            const { container } = render(<Radio label='label' contentClassName={className} />);
+
+            expect(container.querySelector('.content')).toHaveClass(className);
+        });
+
+        it('should set circleClassName', () => {
+            const className = 'custom-class';
+            const { container } = render(<Radio circleClassName={className} />);
+
+            expect(container.querySelector('.circle')).toHaveClass(className);
         });
 
         it('should set `checked` class', () => {
@@ -48,7 +66,7 @@ describe('Radio', () => {
     });
 
     describe('Attributes tests', () => {
-        it('should set `data-test-id` atribute', () => {
+        it('should set `data-test-id` attribute', () => {
             const dataTestId = 'test-id';
             const { getByTestId } = render(<Radio dataTestId={dataTestId} />);
 
@@ -119,6 +137,30 @@ describe('Radio', () => {
             const cb = jest.fn();
 
             const { container } = render(<Radio onChange={cb} checked={true} disabled={true} />);
+
+            if (container.firstElementChild) {
+                fireEvent.click(container.firstElementChild);
+            }
+
+            expect(cb).not.toBeCalled();
+        });
+
+        test('should not call `onChange` prop if inactive', () => {
+            const cb = jest.fn();
+
+            const { container } = render(<Radio onChange={cb} inactive={true} />);
+
+            if (container.firstElementChild) {
+                fireEvent.click(container.firstElementChild);
+            }
+
+            expect(cb).not.toBeCalled();
+        });
+
+        test('should not call `onChange` prop if inactive and checked', () => {
+            const cb = jest.fn();
+
+            const { container } = render(<Radio onChange={cb} checked={true} inactive={true} />);
 
             if (container.firstElementChild) {
                 fireEvent.click(container.firstElementChild);

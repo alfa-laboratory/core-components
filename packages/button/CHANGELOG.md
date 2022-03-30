@@ -3,6 +3,174 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@5.1.0...@alfalab/core-components-button@5.1.1) (2022-02-15)
+
+**Note:** Version bump only for package @alfalab/core-components-button
+
+
+
+
+
+# [5.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@5.0.5...@alfalab/core-components-button@5.1.0) (2022-02-09)
+
+
+### Features
+
+* **themes:** introducing intranet theme ([#983](https://github.com/alfa-laboratory/core-components/issues/983)) ([85eb9cf](https://github.com/alfa-laboratory/core-components/commit/85eb9cfffeef31b886c5123d6333e177c261ac62))
+
+
+
+
+
+## [5.0.5](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@5.0.4...@alfalab/core-components-button@5.0.5) (2022-02-03)
+
+
+### Bug Fixes
+
+* **loader:** fix animation in IE ([#970](https://github.com/alfa-laboratory/core-components/issues/970)) ([03df943](https://github.com/alfa-laboratory/core-components/commit/03df9438f00bda639aae78aadb940161112a2672))
+
+
+
+
+
+## [5.0.4](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@5.0.3...@alfalab/core-components-button@5.0.4) (2022-02-02)
+
+
+### Bug Fixes
+
+* **themes:** fix font weight mobile button ([#972](https://github.com/alfa-laboratory/core-components/issues/972)) ([447a89d](https://github.com/alfa-laboratory/core-components/commit/447a89dde25aa7659d771ae1c722086354323706))
+
+
+
+
+
+## [5.0.3](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@5.0.2...@alfalab/core-components-button@5.0.3) (2021-12-29)
+
+
+### Bug Fixes
+
+* **button:** решение проблемы с тултипом и заблокированной кнопкой ([#920](https://github.com/alfa-laboratory/core-components/issues/920)) ([d04f311](https://github.com/alfa-laboratory/core-components/commit/d04f31109baf340a4dc7264d3b8ab13109a5a68c)), closes [#799](https://github.com/alfa-laboratory/core-components/issues/799)
+* **button:** убраны лишние отступы для вида ghost ([#933](https://github.com/alfa-laboratory/core-components/issues/933)) ([f43cdf6](https://github.com/alfa-laboratory/core-components/commit/f43cdf6afe349d2c7cb0d8436123e63aed347b54))
+
+
+
+
+
+## [5.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@5.0.1...@alfalab/core-components-button@5.0.2) (2021-12-14)
+
+
+### Bug Fixes
+
+* **button:** удален вызов console.warn, если process.env.NODE_ENV !== 'development' ([d3e14ce](https://github.com/alfa-laboratory/core-components/commit/d3e14cef7835b5512e4848c5a1048475a8990018))
+
+
+
+
+
+## [5.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@5.0.0...@alfalab/core-components-button@5.0.1) (2021-12-08)
+
+
+### Bug Fixes
+
+* актуализируем @alfalab/utils ([#897](https://github.com/alfa-laboratory/core-components/issues/897)) ([30fb88e](https://github.com/alfa-laboratory/core-components/commit/30fb88eee36f68cabf80069e5125d911fabde4a5))
+
+
+
+
+
+# [5.0.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@4.4.0...@alfalab/core-components-button@5.0.0) (2021-11-26)
+
+
+### Features
+
+* **button:** добавлена кнопка размера 40px, изменены скругления ([#886](https://github.com/alfa-laboratory/core-components/issues/886)) ([88e657a](https://github.com/alfa-laboratory/core-components/commit/88e657a9f0f68b8b58f6e9437053954ee984f83c)), closes [#890](https://github.com/alfa-laboratory/core-components/issues/890)
+
+
+### BREAKING CHANGES
+
+* **button:** Кнопка размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер  на xxs. Можно воспользоваться codemod.
+
+* feat(codemod): add button xs to xxs transformer
+
+* feat(tag): добавлен тэг размера 40px, изменены отступы
+
+Добавлен тэг размером 40px, изменены отступы. Тем, кто использовал размер xs, надо заменить размер
+на xxs.
+* **button:** Тэг размера xs теперь имеет размер 40px. Тем, кто использовал размер xs, надо
+заменить размер на xxs. Можно воспользоваться codemod.
+
+* test: update screenshots
+
+* test: update screenshots
+
+* feat(button): linter fix
+
+* feat(button): fix min-width
+
+* feat(tag): remove vertical paddings
+
+* feat(tag): remove vertical paddings
+
+* feat(button): updates
+
+
+
+
+
+# [4.4.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@4.3.0...@alfalab/core-components-button@4.4.0) (2021-09-14)
+
+
+### Features
+
+* **vars:** updated colors and typography from latest alfa-ui-primitives ([#803](https://github.com/alfa-laboratory/core-components/issues/803)) ([0d5b2a3](https://github.com/alfa-laboratory/core-components/commit/0d5b2a30a78e70392dd505790a92bc3bc83f9386))
+
+
+
+
+
+# [4.3.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@4.2.0...@alfalab/core-components-button@4.3.0) (2021-08-27)
+
+
+### Features
+
+* custom components for button and link ([#814](https://github.com/alfa-laboratory/core-components/issues/814)) ([a623dd0](https://github.com/alfa-laboratory/core-components/commit/a623dd021ef611f9994a6587ba6a0d0ee9d8929c))
+
+
+
+
+
+# [4.2.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@4.1.0...@alfalab/core-components-button@4.2.0) (2021-08-04)
+
+
+### Features
+
+* add mods colors ([#770](https://github.com/alfa-laboratory/core-components/issues/770)) ([fe985f4](https://github.com/alfa-laboratory/core-components/commit/fe985f467b4d47a5152e168d2ab3846872d1a574))
+
+
+
+
+
+# [4.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@4.0.2...@alfalab/core-components-button@4.1.0) (2021-07-23)
+
+
+### Features
+
+* **input:** input mobile theme (PDS-241) ([#737](https://github.com/alfa-laboratory/core-components/issues/737)) ([88f6f7c](https://github.com/alfa-laboratory/core-components/commit/88f6f7c58968b9564970eaa3d759aa2bc275ca7e))
+* add mobile theme for tag, radio, checkbox (PDS-244/247/248) ([#717](https://github.com/alfa-laboratory/core-components/issues/717)) ([36e2d99](https://github.com/alfa-laboratory/core-components/commit/36e2d99c716a03e7f319439df9ca47ec43ad4b71))
+
+
+
+
+
+## [4.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@4.0.1...@alfalab/core-components-button@4.0.2) (2021-07-19)
+
+**Note:** Version bump only for package @alfalab/core-components-button
+
+
+
+
+
 ## [4.0.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-button@4.0.0...@alfalab/core-components-button@4.0.1) (2021-07-09)
 
 **Note:** Version bump only for package @alfalab/core-components-button

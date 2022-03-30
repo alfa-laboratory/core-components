@@ -16,15 +16,9 @@ export type LoaderProps = {
 };
 
 export const Loader: React.FC<LoaderProps> = ({ className, dataTestId }) => (
-    <svg
-        height='24'
-        width='24'
-        viewBox='0 0 24 24'
-        className={cn(styles.component, className)}
-        data-test-id={dataTestId}
-    >
-        <circle cx='4' cy='12' r='2' />
-        <circle cx='12' cy='12' r='2' />
-        <circle cx='20' cy='12' r='2' />
-    </svg>
+    <div className={cn(styles.component, className)} data-test-id={dataTestId}>
+        <div />
+        <div />
+        <div />
+    </div>
 );
