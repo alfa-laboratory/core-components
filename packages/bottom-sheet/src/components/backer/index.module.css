@@ -1,5 +1,5 @@
 :root {
-    --bottom-sheet-backer-bg-color: var(--color-light-bg-primary-alpha-40);
+    --bottom-sheet-backer-bg-color: var(--color-light-bg-primary-inverted-alpha-3);
 }
 
 .backer {
@@ -9,6 +9,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    color: var(--color-light-graphic-primary);
 }
 
 .button {

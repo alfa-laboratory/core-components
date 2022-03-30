@@ -42,16 +42,6 @@
     }
 }
 
-.footer {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-}
-
-.footerButton {
-    width: 50%;
-}
-
 .option {
     padding: var(--gap-2xs) var(--gap-l) var(--gap-2xs) var(--gap-m);
 

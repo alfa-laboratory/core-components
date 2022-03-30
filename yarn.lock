@@ -9,33 +9,6 @@
   dependencies:
     classnames "^2.2.6"
 
-"@alfalab/core-components-base-modal@^3.2.0":
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/@alfalab/core-components-base-modal/-/core-components-base-modal-3.2.0.tgz#38242a795c388815ce3e5505b45cb813931a0b92"
-  integrity sha512-2N5qhWzs3gDQpobGV49g3Wfp/IxyGLjICEAkMA3Yu68UReYOsHl9ziANsbLLn2CTmlhRqLMNOhmieWoZKMiqMw==
-  dependencies:
-    "@alfalab/core-components-backdrop" "^2.0.1"
-    "@alfalab/core-components-global-store" "^1.1.0"
-    "@alfalab/core-components-portal" "^2.0.1"
-    "@alfalab/core-components-stack" "^3.0.1"
-    classnames "^2.2.6"
-    react-focus-lock "^2.5.0"
-    react-merge-refs "^1.1.0"
-    react-transition-group "^4.3.0"
-    resize-observer "^1.0.0"
-
-"@alfalab/core-components-bottom-sheet@^3.1.1":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@alfalab/core-components-bottom-sheet/-/core-components-bottom-sheet-3.1.1.tgz#051928e383b7f67849b649596b4f4bb6a1b46bab"
-  integrity sha512-scx/XKrwu92yFDhlt/zhCDjw5fGbqUkYSPQGDbQIe58ZJZRroCR/BvmVNMd7VhpAKcYQY2zd7Vzt8o38LHwGiw==
-  dependencies:
-    "@alfalab/core-components-backdrop" "^2.0.1"
-    "@alfalab/core-components-base-modal" "^3.2.0"
-    "@alfalab/core-components-typography" "^2.4.1"
-    classnames "^2.2.6"
-    react-swipeable "^5.5.0"
-    react-transition-group "^4.3.0"
-
 "@alfalab/core-components-button@^1.10.0":
   version "1.15.4"
   resolved "https://registry.yarnpkg.com/@alfalab/core-components-button/-/core-components-button-1.15.4.tgz#f607b43f4a0d43f557a76e3e4fa83b6fb062d116"

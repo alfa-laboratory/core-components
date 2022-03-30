@@ -7,11 +7,11 @@ import React, {
     KeyboardEvent,
     FocusEvent,
     useEffect,
+    ReactNode,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
-import { Button } from '@alfalab/core-components-button';
 
 import {
     useMultipleSelection,
@@ -34,9 +34,15 @@ import { Checkmark } from './checkmark';
 
 export type SelectMobileProps = Omit<BaseSelectProps, 'OptionsList' | 'Checkmark' | 'onScroll'> & {
     /**
-     * Нужно ли рендерить кнопки с подтверждением / сбросом значений
+     * Футер
      */
-    hasFooter?: boolean;
+    footer?: ReactNode;
+
+    /**
+     * Будет ли свайпаться шторка
+     *
+     */
+    swipeable?: boolean;
 };
 
 export const SelectMobile = forwardRef(
@@ -79,7 +85,8 @@ export const SelectMobile = forwardRef(
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
             visibleOptions,
-            hasFooter = false,
+            swipeable,
+            footer,
         }: SelectMobileProps,
         ref,
     ) => {
@@ -255,11 +262,6 @@ export const SelectMobile = forwardRef(
             }
         };
 
-        const handleValueReset = () => {
-            setSelectedItems([]);
-            toggleMenu();
-        };
-
         const getOptionProps = useCallback(
             (option: OptionShape, index: number) => ({
                 ...(optionProps as object),
@@ -363,31 +365,11 @@ export const SelectMobile = forwardRef(
                     contentClassName={styles.sheetContent}
                     containerClassName={styles.sheetContainer}
                     title={placeholder}
-                    actionButton={
-                        hasFooter && (
-                            <div className={styles.footer}>
-                                <Button
-                                    view='primary'
-                                    size='s'
-                                    className={styles.footerButton}
-                                    onClick={toggleMenu}
-                                >
-                                    Применить
-                                </Button>
-                                <Button
-                                    view='secondary'
-                                    size='s'
-                                    className={styles.footerButton}
-                                    onClick={handleValueReset}
-                                >
-                                    Сбросить
-                                </Button>
-                            </div>
-                        )
-                    }
+                    actionButton={footer}
                     stickyHeader={true}
                     stickyFooter={true}
                     hasCloser={true}
+                    swipeable={swipeable}
                 >
                     <div {...menuProps} className={cn(optionsListClassName, styles.optionsList)}>
                         <OptionsList
