@@ -14,8 +14,8 @@ export const Amount: React.FC<AmountProps> = ({
     minority,
     currency,
     view = 'default',
-    bold = 'major',
-    transparentMinor = true,
+    bold,
+    transparentMinor,
     rightAddons,
     showPlus = false,
     className,
@@ -28,11 +28,14 @@ export const Amount: React.FC<AmountProps> = ({
         view,
     });
 
+    const defaultStyles = bold === undefined && transparentMinor === undefined;
+
     return (
         <span
             className={cn(styles.component, className, {
                 [styles.bold]: bold === 'full',
                 [styles.boldMajor]: bold === 'major',
+                [styles.default]: defaultStyles,
             })}
             data-test-id={dataTestId}
         >
@@ -42,6 +45,7 @@ export const Amount: React.FC<AmountProps> = ({
                 className={cn(styles.minorPartAndCurrency, {
                     [styles.transparentMinor]: transparentMinor,
                     [styles.normalMinor]: bold === 'major',
+                    [styles.defaultMinor]: defaultStyles,
                 })}
             >
                 {minorPart && AMOUNT_MAJOR_MINOR_PARTS_SEPARATOR}

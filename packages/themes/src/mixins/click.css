@@ -1,3 +1,4 @@
+@import './amount/click.css';
 @import './form-control/click.css';
 @import './input/click.css';
 @import './button/click.css';
@@ -49,4 +50,5 @@
     @mixin dropzone-click;
     @mixin code-input-click;
     @mixin bottom-sheet-click;
+    @mixin amount-click;
 }
