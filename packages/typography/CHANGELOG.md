@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-typography@2.4.1...@alfalab/core-components-typography@2.5.0) (2022-03-30)
+
+
+### Features
+
+* **list:** added list & typography presets ([#1047](https://github.com/alfa-laboratory/core-components/issues/1047)) ([67b6a77](https://github.com/alfa-laboratory/core-components/commit/67b6a77d1327b090b010eb061f83a2e6a0cb67b9))
+
+
+
+
+
 ## [2.4.1](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-typography@2.4.0...@alfalab/core-components-typography@2.4.1) (2022-03-03)
 
 

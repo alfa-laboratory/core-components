@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-list@2.0.2...@alfalab/core-components-list@2.1.0) (2022-03-30)
+
+
+### Features
+
+* **list:** added list & typography presets ([#1047](https://github.com/alfa-laboratory/core-components/issues/1047)) ([67b6a77](https://github.com/alfa-laboratory/core-components/commit/67b6a77d1327b090b010eb061f83a2e6a0cb67b9))
+* Исправить импорты в сторях. ([#998](https://github.com/alfa-laboratory/core-components/issues/998)) ([e6a654a](https://github.com/alfa-laboratory/core-components/commit/e6a654a0599451c7d149484cb61d8067eed083b7))
+
+
+
+
+
 ## [2.0.2](https://github.com/alfa-laboratory/core-components/compare/@alfalab/core-components-list@2.0.1...@alfalab/core-components-list@2.0.2) (2021-07-23)
 
 **Note:** Version bump only for package @alfalab/core-components-list
