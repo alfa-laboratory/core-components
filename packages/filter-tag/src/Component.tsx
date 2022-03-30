@@ -30,7 +30,7 @@ export type FilterTagProps = {
     /**
      * Обработчик клика
      */
-    onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+    onClick?: (event: MouseEvent<HTMLDivElement>) => void;
 
     /**
      * Обработчик очистки
@@ -90,6 +90,7 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
         };
 
         return (
+            // eslint-disable-next-line jsx-a11y/click-events-have-key-events
             <div
                 className={cn(className, [styles.component], styles[variant], styles[size], {
                     [styles.checked]: checked,
@@ -99,6 +100,7 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
                 })}
                 ref={ref}
                 data-test-id={dataTestId}
+                onClick={disabled ? undefined : onClick}
                 {...restProps}
             >
                 <button
@@ -109,7 +111,6 @@ export const FilterTag = forwardRef<HTMLDivElement, FilterTagProps>(
                         [styles.checked]: checked,
                         [styles.open]: open,
                     })}
-                    onClick={disabled ? undefined : onClick}
                 >
                     <span>{children}</span>
                     <span className={styles.chevron}>
