@@ -1,3 +1,15 @@
+# [26.3.0](https://github.com/alfa-laboratory/core-components/compare/v26.2.0...v26.3.0) (2022-03-30)
+
+
+### Bug Fixes
+
+* **filter-tag:** move onClick from btn to div ([#1049](https://github.com/alfa-laboratory/core-components/issues/1049)) ([616a90a](https://github.com/alfa-laboratory/core-components/commit/616a90af9b0b95de324d3475572d5ac85d3e7a2a))
+
+
+### Features
+
+* **list:** added list & typography presets ([#1047](https://github.com/alfa-laboratory/core-components/issues/1047)) ([67b6a77](https://github.com/alfa-laboratory/core-components/commit/67b6a77d1327b090b010eb061f83a2e6a0cb67b9))
+
 # [26.2.0](https://github.com/alfa-laboratory/core-components/compare/v26.1.0...v26.2.0) (2022-03-29)
 
 
