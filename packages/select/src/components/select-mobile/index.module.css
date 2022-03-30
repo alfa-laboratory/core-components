@@ -54,6 +54,10 @@
 
 .option {
     padding: var(--gap-2xs) var(--gap-l) var(--gap-2xs) var(--gap-m);
+
+    &:before {
+        display: none;
+    }
 }
 
 .optionGroup {
