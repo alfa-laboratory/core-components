@@ -278,7 +278,7 @@ export const Chart = (props: OptionsProps) => {
                             dataKey={`${item.properties.dataKey}`}
                             stroke='transparent'
                             fill={
-                                item.gradient.gid
+                                item?.gradient?.gid
                                     ? `url(#${state.id}-${item.gradient.gid})`
                                     : item.properties.fill
                             }
