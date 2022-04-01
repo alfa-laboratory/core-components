@@ -1,3 +1,4 @@
+import { TextProps } from '@alfalab/core-components-typography';
 import { Formatter } from 'recharts/types/component/DefaultLegendContent';
 
 export interface LegendProps {
@@ -32,4 +33,11 @@ export interface LegendProps {
      * Высота иконок
      */
     iconHeight?: number;
+
+    /**
+     * Пропсы для Typography.Text легенд
+     */
+    typography?: {
+        label: TextProps;
+    };
 }

@@ -10,7 +10,7 @@ export interface BrushProps {
     /**
      * Ширина ползунков
      */
-    travallerWidth?: number;
+    travellerWidth?: number;
 
     /**
      * Начальный индекс интервала показа

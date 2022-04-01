@@ -16,22 +16,25 @@ import {
     LabelList,
 } from 'recharts';
 
-import { CustomizedHOC } from './hoc/Customized';
-import { LinearGradient } from './components/LinearGradient';
-import { Legends } from './components/Legends';
-import { Dot } from './components/Dot';
-import { useSettings } from './hooks/useSettings';
+import {
+    CustomizedLabel,
+    LinearGradient,
+    Legends,
+    Dot,
+    RectBar,
+    Tick,
+    TooltipContent,
+} from './components';
 
-import { CustomizedLabel } from './components/CustomizedLabel';
+import { CustomizedHOC } from './hoc';
+import { useSettings } from './hooks';
+
 import { SeriaProps } from './types/seria.types';
 import { OptionsProps } from './types/options.types';
 import { ToggleChartProps } from './types/chart.types';
 import { DataDynamicProps, DataDynamicBooleanProps } from './types/utils/data.types';
 import { ActiveDotProps } from './types/utils/dot.types';
 import { CoordinatesProps } from './types/utils/coordinates.types';
-import { RectBar } from './components/RectBar';
-import { Tick } from './components/Tick';
-import { TooltipContent } from './components/TooltipContent';
 
 import styles from './index.module.css';
 
@@ -186,7 +189,12 @@ export const Chart = (props: OptionsProps) => {
             <Tooltip
                 ref={tooltipRef}
                 {...state.tooltip}
-                content={CustomizedHOC(TooltipContent, { series: state.series, tooltipArrowSide })}
+                content={CustomizedHOC(TooltipContent, {
+                    series: state.series,
+                    tooltipArrowSide,
+                    legend: state.legend,
+                    tooltip: state.tooltip,
+                })}
             />
         );
     }, [state, tooltipArrowSide]);
@@ -204,7 +212,13 @@ export const Chart = (props: OptionsProps) => {
                         <Bar
                             key={`${state.id}-${properties.dataKey}`}
                             {...properties}
-                            shape={<RectBar radius={radius} />}
+                            shape={
+                                <RectBar
+                                    radius={radius}
+                                    activeDotsState={activeDotsState}
+                                    unfocusedAnimation={state.composeChart.unfocusedAnimation}
+                                />
+                            }
                         >
                             {labelList && (
                                 <LabelList
@@ -215,12 +229,14 @@ export const Chart = (props: OptionsProps) => {
                             )}
                             {data.map((_: DataDynamicProps, index: number) => {
                                 const key = `${state.id}-${properties.dataKey}-${index}`;
+
                                 return (
                                     <Cell
                                         key={key}
                                         className={cn(
                                             styles.bar,
                                             typeof activeDotsState.active === 'number' &&
+                                                state.composeChart.unfocusedAnimation &&
                                                 activeDotsState.active !== index
                                                 ? styles.unfocused
                                                 : '',
@@ -245,6 +261,8 @@ export const Chart = (props: OptionsProps) => {
                                           inherit: properties?.inheritStroke
                                               ? properties.inheritStroke
                                               : false,
+                                          unfocusedAnimation:
+                                              state.composeChart.unfocusedAnimation || false,
                                       })
                                     : false
                             }

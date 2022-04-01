@@ -33,4 +33,9 @@ export interface ComposedChartProps {
      * Разрыв между двумя столбцами одной категории
      */
     barGap?: number;
+
+    /**
+     * Делать опасити всем элементам кроме наведенного
+     */
+    unfocusedAnimation?: boolean;
 }
