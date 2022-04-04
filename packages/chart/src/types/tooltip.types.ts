@@ -3,7 +3,13 @@ import { TextProps } from '@alfalab/core-components-typography';
 import { AnimationTiming } from 'recharts/types/util/types';
 import { AmountProps } from '@alfalab/core-components-amount';
 
-export type ArrangeData = 'ICON' | 'NAME' | 'VALUE';
+export enum ArrangeData {
+    ICON = 'ICON',
+    NAME = 'NAME',
+    VALUE = 'VALUE',
+}
+
+export type Amount = Omit<AmountProps, 'value'>;
 
 export interface TooltipProps {
     /**
@@ -89,7 +95,7 @@ export interface TooltipProps {
     /**
      * Контент для тултипа
      */
-    amount?: Omit<AmountProps, 'value'>;
+    amount?: Amount;
 
     /**
      * Пропсы для Typography.Text в тултипе

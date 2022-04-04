@@ -1,16 +1,17 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Amount, AmountProps } from '@alfalab/core-components-amount';
+import { Amount } from '@alfalab/core-components-amount';
 import { TextProps, Typography } from '@alfalab/core-components-typography';
 
 import { PayloadProps } from '../../../types/payload.types';
 import { SeriaProps } from '../../../types/seria.types';
+import { Amount as AmountProp } from '../../../types/tooltip.types';
 
 import styles from './index.module.css';
 
 export interface TooltipValueProps {
-    amount?: AmountProps;
+    amount?: AmountProp;
     entry: PayloadProps;
     text: TextProps;
     data: SeriaProps;
