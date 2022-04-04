@@ -7,32 +7,32 @@ export interface AxisProps {
     hide?: boolean;
 
     /**
-     * Отображение линии оси.
+     * Отображение линии оси
      */
     axisLine: boolean;
 
     /**
-     * Тип оси.
+     * Тип оси
      */
     type: 'number' | 'category';
 
     /**
-     * Разрешить значениям оси быть десятичными или нет.
+     * Разрешить значениям оси быть десятичными или нет
      */
     allowDecimals?: boolean;
 
     /**
-     * Разрешить или нет на оси дублировать категории, если "type" оси - "category".
+     * Разрешить или нет на оси дублировать категории, если "type" оси - "category"
      */
     allowDuplicatedCategory?: boolean;
 
     /**
-     * Угол наклона значений оси.
+     * Угол наклона значений оси
      */
     angle?: number;
 
     /**
-     * Количество делений оси. Не используется, если "тип" - "категория".
+     * Количество делений оси. Не используется, если "тип" - "категория"
      */
     tickCount?: number;
 
@@ -42,7 +42,7 @@ export interface AxisProps {
     interval?: 'preserveStart' | 'preserveEnd' | 'preserveStartEnd' | number;
 
     /**
-     * Минимальный зазор между двумя соседними делениями оси.
+     * Минимальный зазор между двумя соседними делениями оси
      */
     minTickGap?: number;
 
@@ -57,7 +57,7 @@ export interface AxisProps {
     tickSize?: number;
 
     /**
-     * Если установлено значение true, галочки переворачиваются вокруг оси, отображая метки внутри диаграммы, а не снаружи.
+     * Если установлено значение true, галочки переворачиваются вокруг оси, отображая метки внутри диаграммы, а не снаружи
      */
     mirror?: boolean;
 
@@ -72,7 +72,7 @@ export interface AxisProps {
     tickMargin?: number;
 
     /**
-     * Функция форматирования значения деления оси.
+     * Функция форматирования значения деления оси
      */
     tickFormatter?: (value: any, index: number) => string;
 
@@ -84,4 +84,14 @@ export interface AxisProps {
         | ReactElement<SVGElement>
         | ((props: any) => ReactElement<SVGElement>)
         | boolean;
+
+    /**
+     * Ширина оси
+     */
+    width: number;
+
+    /**
+     * Длина оси
+     */
+    height: number;
 }
