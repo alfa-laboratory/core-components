@@ -88,10 +88,10 @@ export interface AxisProps {
     /**
      * Ширина оси
      */
-    width: number;
+    width?: number;
 
     /**
      * Длина оси
      */
-    height: number;
+    height?: number;
 }

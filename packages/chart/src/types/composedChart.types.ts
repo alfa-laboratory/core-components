@@ -25,6 +25,12 @@ export interface ComposedChartProps {
     maxBarSize?: number;
 
     /**
+     * Ширина или высота каждой полосы. Если barSize не указан, размер бара будет рассчитываться по barCategoryGap,
+     * barGap и количеству групп баров.
+     */
+    barSize?: number;
+
+    /**
      * Разрыв между двумя категориями столбцов, который может быть процентным или фиксированным значением
      */
     barCategoryGap?: string | number;
