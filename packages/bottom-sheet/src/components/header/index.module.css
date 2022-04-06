@@ -12,7 +12,6 @@
 
 .header {
     display: flex;
-    align-items: center;
     padding: var(--gap-xs);
     padding-bottom: 0;
     background-color: var(--color-light-bg-primary);
@@ -57,7 +56,6 @@
 }
 
 .title {
-    height: 24px;
     padding: var(--gap-xs) var(--gap-xs);
     margin: var(--bottom-sheet-title-margin-vertical) 0;
     width: 100%;

@@ -10,6 +10,7 @@
 @import './calendar-input/mobile.css';
 @import './filter-tag/mobile.css';
 @import './bottom-sheet/mobile.css';
+@import './select/mobile.css';
 
 @define-mixin theme-mobile {
     @mixin button-mobile;
@@ -24,4 +25,5 @@
     @mixin calendar-input-mobile;
     @mixin filter-tag-mobile;
     @mixin bottom-sheet-mobile;
+    @mixin select-mobile;
 }

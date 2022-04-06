@@ -1,8 +1,11 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useContext, useEffect } from 'react';
 import cn from 'classnames';
-import { OptionsListProps, GroupShape, OptionShape } from '../../../typings';
+import { Button } from '@alfalab/core-components-button';
+
+import { GroupShape, OptionShape, OptionsListProps } from '../../../typings';
 import { Optgroup as DefaultOptgroup } from '../../optgroup';
 import { isGroup } from '../../../utils';
+import { BaseModalContext } from '../../../../../base-modal/src/Component';
 
 import styles from './index.module.css';
 
@@ -22,7 +25,16 @@ export const OptionsList = ({
     Optgroup = DefaultOptgroup,
     dataTestId,
     emptyPlaceholder,
+    showFooter,
+    onApply = () => null,
+    onClear = () => null,
 }: OptionsListProps) => {
+    const { footerHighlighted, setHasFooter } = useContext(BaseModalContext);
+
+    useEffect(() => {
+        setHasFooter(true);
+    }, [setHasFooter]);
+
     const renderOption = useCallback(
         (option: OptionShape, index: number) => (
             <Option key={option.key} {...getOptionProps(option, index)} />
@@ -57,6 +69,32 @@ export const OptionsList = ({
 
             {emptyPlaceholder && options.length === 0 && (
                 <div className={styles.emptyPlaceholder}>{emptyPlaceholder}</div>
+            )}
+
+            {showFooter && (
+                <div
+                    className={cn(styles.footer, className, {
+                        [styles.highlighted]: footerHighlighted,
+                    })}
+                >
+                    <Button
+                        size='s'
+                        view='primary'
+                        onClick={onApply}
+                        className={styles.footerButton}
+                    >
+                        Применить
+                    </Button>
+
+                    <Button
+                        size='s'
+                        view='secondary'
+                        onClick={onClear}
+                        className={styles.footerButton}
+                    >
+                        Сбросить
+                    </Button>
+                </div>
             )}
         </div>
     );

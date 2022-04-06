@@ -8,17 +8,18 @@ import React, {
     FocusEvent,
     useEffect,
     ReactNode,
+    useState,
 } from 'react';
 import mergeRefs from 'react-merge-refs';
 import cn from 'classnames';
 import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
-
 import {
     useMultipleSelection,
     useCombobox,
     UseMultipleSelectionProps,
     UseMultipleSelectionState,
 } from 'downshift';
+
 import { Field as DefaultField } from '../field';
 import { Arrow as DefaultArrow } from '../arrow';
 import { Option as DefaultOption } from '../option';
@@ -28,9 +29,10 @@ import { OptionsList } from './options-list';
 import { BaseSelectProps, OptionShape } from '../../typings';
 import { processOptions } from '../../utils';
 import { getDataTestId } from '../../../../utils/getDataTestId';
+import { Checkmark } from './checkmark';
+import { OptionsListWithApply } from '../../presets/useSelectWithApply/options-list-with-apply';
 
 import styles from './index.module.css';
-import { Checkmark } from './checkmark';
 
 export type SelectMobileProps = Omit<BaseSelectProps, 'OptionsList' | 'Checkmark' | 'onScroll'> & {
     /**
@@ -84,7 +86,6 @@ export const SelectMobile = forwardRef(
             Field = DefaultField,
             Optgroup = DefaultOptgroup,
             Option = DefaultOption,
-            visibleOptions,
             swipeable,
             footer,
         }: SelectMobileProps,
@@ -101,6 +102,8 @@ export const SelectMobile = forwardRef(
             options,
             selected,
         ]);
+
+        const [selectedDraft, setSelectedDraft] = useState<OptionShape[]>(selectedOptions);
 
         const useMultipleSelectionProps: UseMultipleSelectionProps<OptionShape> = {
             itemToString,
@@ -208,7 +211,7 @@ export const SelectMobile = forwardRef(
 
                         return {
                             ...changes,
-                            isOpen: !closeOnSelect,
+                            isOpen: !closeOnSelect || multiple,
                             // при closeOnSelect === false - сохраняем подсвеченный индекс
                             highlightedIndex:
                                 state.isOpen && !closeOnSelect
@@ -313,6 +316,23 @@ export const SelectMobile = forwardRef(
             [selectedItems, name],
         );
 
+        const handleApply = useCallback(() => {
+            setSelectedDraft(selectedItems);
+        }, [setSelectedDraft, selectedItems]);
+
+        const handleClear = useCallback(() => {
+            setSelectedDraft([]);
+            setSelectedItems([]);
+        }, [setSelectedDraft, setSelectedItems]);
+
+        const handleClose = useCallback(() => {
+            if (multiple) {
+                setSelectedItems(selectedDraft);
+            }
+
+            toggleMenu();
+        }, [setSelectedItems, selectedDraft, toggleMenu, multiple]);
+
         return (
             <div
                 {...getComboboxProps({
@@ -325,7 +345,7 @@ export const SelectMobile = forwardRef(
                 data-test-id={getDataTestId(dataTestId)}
             >
                 <Field
-                    selectedMultiple={selectedItems}
+                    selectedMultiple={selectedDraft}
                     selected={selectedItems[0]}
                     setSelectedItems={setSelectedItems}
                     toggleMenu={toggleMenu}
@@ -360,33 +380,35 @@ export const SelectMobile = forwardRef(
 
                 <BottomSheet
                     open={open}
-                    onClose={() => toggleMenu()}
+                    onClose={handleClose}
                     className={styles.sheet}
                     contentClassName={styles.sheetContent}
                     containerClassName={styles.sheetContainer}
                     title={placeholder}
                     actionButton={footer}
                     stickyHeader={true}
-                    stickyFooter={true}
                     hasCloser={true}
                     swipeable={swipeable}
                 >
                     <div {...menuProps} className={cn(optionsListClassName, styles.optionsList)}>
-                        <OptionsList
+                        <OptionsListWithApply
                             {...optionsListProps}
                             flatOptions={flatOptions}
                             highlightedIndex={highlightedIndex}
                             size={size}
                             options={options}
+                            OptionsList={OptionsList}
                             Optgroup={Optgroup}
                             Option={Option}
                             selectedItems={selectedItems}
                             setSelectedItems={setSelectedItems}
                             toggleMenu={toggleMenu}
                             getOptionProps={getOptionProps}
-                            visibleOptions={visibleOptions}
                             dataTestId={getDataTestId(dataTestId, 'options-list')}
                             optionGroupClassName={cn(styles.optionGroup, optionGroupClassName)}
+                            showFooter={multiple}
+                            onApply={handleApply}
+                            onClear={handleClear}
                         />
                     </div>
                 </BottomSheet>

@@ -512,6 +512,21 @@ export type OptionsListProps = {
      * Дополнительные пропсы для Input'a, находящегося внутри кастомного OptionsList
      */
     inputProps?: InputProps;
+
+    /**
+     * Нужно ли показывать футер
+     */
+    showFooter?: boolean;
+
+    /**
+     * Обработчик подтверждения изменений
+     */
+    onApply?: () => void;
+
+    /**
+     * Обработчик отмены изменений
+     */
+    onClear?: () => void;
 };
 
 export type OptgroupProps = {
