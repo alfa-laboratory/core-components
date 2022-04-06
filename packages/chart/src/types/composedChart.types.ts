@@ -26,7 +26,7 @@ export interface ComposedChartProps {
 
     /**
      * Ширина или высота каждой полосы. Если barSize не указан, размер бара будет рассчитываться по barCategoryGap,
-     * barGap и количеству групп баров.
+     * barGap и количеству групп баров
      */
     barSize?: number;
 
