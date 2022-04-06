@@ -10,18 +10,6 @@
     position: relative;
 }
 
-.tooltipList {
-    position: relative;
-    z-index: 5;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.tooltipItem {
-    margin-bottom: 10px;
-}
-
 .tooltipArrow {
     position: absolute;
     left: 0;
@@ -48,4 +36,16 @@
 .tooltipArrowRight {
     left: 100%;
     transform: translate(-50%, -50%) scale(-1, 1) rotate(45deg);
+}
+
+.tooltipList {
+    position: relative;
+    z-index: 5;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tooltipItem {
+    margin-bottom: 10px;
 }

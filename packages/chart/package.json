@@ -15,7 +15,8 @@
         "access": "public"
     },
     "dependencies": {
-        "@alfalab/core-components-typography": "^2.5.0",
+        "@alfalab/core-components-typography": "^2.4.1",
+        "@alfalab/core-components-amount": "^2.0.1",
         "classnames": "^2.2.6",
         "recharts": "^2.0.10"
     },

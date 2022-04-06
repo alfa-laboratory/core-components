@@ -34,3 +34,10 @@
 .legendValue {
     text-transform: capitalize;
 }
+
+.amount {
+    margin-left: var(--gap-2xs);
+    & > span {
+        font-weight: var(--amount-major-part-font-weight);
+    }
+}

@@ -5,15 +5,15 @@
         transition: d 0.2s ease-out;
     }
 
+    & :global(.recharts-label-list tspan),
     & :global(.recharts-text tspan) {
         fill: var(--color-light-text-primary);
-        font-size: 16px;
-        line-height: 22px;
+        @mixin paragraph_component;
     }
 }
 
 .bar {
-    transition: opacity 0.2s ease-out, d 0.2s ease-out;
+    transition: opacity 0.2s ease-out;
 }
 
 .unfocused {

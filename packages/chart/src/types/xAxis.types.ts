@@ -2,7 +2,7 @@ import { AxisProps } from './utils/axis.types';
 
 export interface XAxisProps extends AxisProps {
     /**
-     * Ключ данных, отображаемых на оси.
+     * Ключ данных, отображаемых на оси
      */
     dataKey: string | number;
 

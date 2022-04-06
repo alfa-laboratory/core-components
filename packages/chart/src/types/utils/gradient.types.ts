@@ -1,33 +1,33 @@
 export interface GradientProps {
     /**
-     * Отступ.
+     * Отступ
      */
     offset: number;
 
     /**
-     * Цвет.
+     * Цвет
      */
     stopColor: string;
 
     /**
-     * Значение празрачности.
+     * Значение празрачности
      */
     stopOpacity: number;
 }
 
 export interface LinearGradientProps {
     /**
-     * Индефикатор графика.
+     * Индефикатор графика
      */
     id: string;
 
     /**
-     * Индефикатор градиента.
+     * Индефикатор градиента
      */
     gid: string;
 
     /**
-     * Массив настроек градинта.
+     * Массив настроек градинта
      */
     points: GradientProps[];
 }

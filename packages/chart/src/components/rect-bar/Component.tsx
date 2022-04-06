@@ -1,5 +1,8 @@
 import React, { useMemo } from 'react';
-import { usePathBar } from '../hooks/usePathBar';
+import cn from 'classnames';
+import { usePathBar } from '../../hooks';
+
+import styles from './index.module.css';
 
 // eslint-disable-next-line complexity
 const getPath = (
@@ -27,7 +30,19 @@ const getPath = (
         Z
     `;
 
-export const RectBar = ({ fill, x, y, width, height, radius, background }: any): JSX.Element => {
+export const RectBar = (props: any): JSX.Element => {
+    const {
+        fill,
+        x,
+        y,
+        width,
+        height,
+        radius,
+        background,
+        activeDotsState,
+        index,
+        unfocusedAnimation,
+    } = props;
     const [initHeight, topRadius, bottomRadius, initY]: any = usePathBar({
         radius,
         height,
@@ -41,9 +56,29 @@ export const RectBar = ({ fill, x, y, width, height, radius, background }: any):
                 d={getPath(x, width, height, initHeight, topRadius, bottomRadius, initY)}
                 stroke='none'
                 fill={fill}
+                className={cn(
+                    styles.bar,
+                    typeof activeDotsState.active === 'number' &&
+                        unfocusedAnimation &&
+                        activeDotsState.active !== index
+                        ? styles.unfocused
+                        : '',
+                )}
             />
         ),
-        [x, width, height, initHeight, topRadius, bottomRadius, initY, fill],
+        [
+            x,
+            width,
+            height,
+            initHeight,
+            topRadius,
+            bottomRadius,
+            initY,
+            fill,
+            activeDotsState.active,
+            unfocusedAnimation,
+            index,
+        ],
     );
 
     return <React.Fragment>{path}</React.Fragment>;

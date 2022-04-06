@@ -47,7 +47,7 @@ export interface SeriaProps {
     /**
      * Оффсет для градиента (только для типа area)
      */
-    offset: number;
+    offset?: number;
 
     /**
      * Заливка графика
@@ -57,7 +57,7 @@ export interface SeriaProps {
     /**
      * Прозрачность
      */
-    gradient: {
+    gradient?: {
         /**
          * Индефикатор градиента
          */

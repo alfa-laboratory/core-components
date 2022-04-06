@@ -3,39 +3,39 @@ import { DataProps } from './data.types';
 
 export interface DotSettingProps {
     /**
-     * Значение media query.
+     * Значение media query
      */
     media?: number;
 
     /**
-     * Значение маштаба при ховере.
+     * Значение маштаба при ховере
      */
     scale: number;
 
     /**
-     * Начальный значения маштаба.
+     * Начальный значения маштаба
      */
     initScale: number;
 
     /**
-     * Ширина точки.
+     * Ширина точки
      */
     width: number;
 
     /**
-     * Высота точки.
+     * Высота точки
      */
     height: number;
 }
 
 export interface ActiveDotProps {
     /**
-     * Индекс предыдущей точки.
+     * Индекс предыдущей точки
      */
     prev: number | null;
 
     /**
-     * Индекс активной точки.
+     * Индекс активной точки
      */
     active: number | null;
 }
@@ -47,42 +47,47 @@ export interface PointProps extends CoordinatesProps {
 
 export interface DotProps {
     /**
-     * Индекс активной точки на графике.
+     * Индекс активной точки на графике
      */
     activeDot: null | number;
 
     /**
-     * Координата Х.
+     * Координата Х
      */
     cx: number;
 
     /**
-     * Координата У.
+     * Координата У
      */
     cy: number;
 
     /**
-     * Ключ данных.
+     * Ключ данных
      */
     dataKey: string;
 
     /**
-     * Параметры точки.
+     * Параметры точки
      */
     dotSettings?: DotSettingProps;
 
     /**
-     * Индекс.
+     * Индекс
      */
     index: number;
 
     /**
-     * Цвет линии.
+     * Цвет линии
      */
     stroke: string;
 
     /**
-     * Значения по этим координатам.
+     * Значения по этим координатам
      */
     value: number;
+
+    /**
+     * Выключение анимации при фокусе
+     */
+    unfocusedAnimation?: boolean;
 }
