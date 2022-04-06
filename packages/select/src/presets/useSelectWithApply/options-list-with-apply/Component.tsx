@@ -1,11 +1,16 @@
 import React, { forwardRef, RefAttributes, useCallback, useEffect, useRef } from 'react';
+import cn from 'classnames';
+import { Button } from '@alfalab/core-components-button';
 
 import { OptionShape, OptionsListProps } from '../../../typings';
-import { OptionsList as DefaultOptionsList } from '../../../components/select-mobile/options-list';
+import { OptionsList as DefaultOptionsList } from '../../../components';
 
 import { SELECT_ALL_KEY } from '../hook';
 
+import styles from './index.module.css';
+
 type OptionsListWithApplyProps = OptionsListProps & {
+    showClear?: boolean;
     onClose?: () => void;
     selectedDraft?: OptionShape[];
     OptionsList?: React.FC<OptionsListProps & RefAttributes<unknown>>;
@@ -17,11 +22,13 @@ export const OptionsListWithApply = forwardRef(
             toggleMenu,
             OptionsList = DefaultOptionsList,
             getOptionProps: defaultGetOptionProps,
+            showClear = true,
             selectedDraft = [],
             flatOptions = [],
             onApply = () => null,
             onClear = () => null,
             onClose = () => null,
+            visibleOptions = 5,
             ...restProps
         }: OptionsListWithApplyProps,
         ref,
@@ -79,11 +86,33 @@ export const OptionsListWithApply = forwardRef(
             <OptionsList
                 {...restProps}
                 ref={ref}
+                visibleOptions={visibleOptions}
                 toggleMenu={toggleMenu}
                 flatOptions={flatOptions}
                 getOptionProps={getOptionProps}
                 onApply={handleApply}
                 onClear={handleClear}
+                footer={
+                    <div
+                        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+                        tabIndex={0}
+                        className={cn(styles.footer, {
+                            [styles.withBorder]:
+                                visibleOptions && flatOptions.length > visibleOptions,
+                        })}
+                        ref={footerRef}
+                    >
+                        <Button size='xxs' view='primary' onClick={handleApply}>
+                            Применить
+                        </Button>
+
+                        {showClear && (
+                            <Button size='xxs' view='secondary' onClick={handleClear}>
+                                Сбросить
+                            </Button>
+                        )}
+                    </div>
+                }
             />
         );
     },

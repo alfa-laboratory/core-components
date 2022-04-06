@@ -103,6 +103,8 @@ export const SelectMobile = forwardRef(
             selected,
         ]);
 
+        const selectedOptionsRef = useRef<OptionShape[]>(selectedOptions);
+
         const [selectedDraft, setSelectedDraft] = useState<OptionShape[]>(selectedOptions);
 
         const useMultipleSelectionProps: UseMultipleSelectionProps<OptionShape> = {
@@ -205,6 +207,7 @@ export const SelectMobile = forwardRef(
                                     addSelectedItem(selectedItem);
                                 } else {
                                     setSelectedItems([selectedItem]);
+                                    setSelectedDraft([selectedItem]);
                                 }
                             }
                         }
@@ -229,6 +232,12 @@ export const SelectMobile = forwardRef(
             { suppressRefError: true },
         );
         const inputProps = getInputProps(getDropdownProps({ ref: mergeRefs([ref, fieldRef]) }));
+
+        useEffect(() => {
+            setSelectedDraft(selectedOptions);
+            setSelectedItems(selectedOptions);
+            selectedOptionsRef.current = selectedOptions;
+        }, [setSelectedItems, selectedOptions]);
 
         const handleFieldFocus = (event: FocusEvent<HTMLDivElement | HTMLInputElement>) => {
             if (onFocus) onFocus(event);
