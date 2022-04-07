@@ -70,7 +70,7 @@ export const SelectMobile = forwardRef(
             id,
             selected,
             size = 'm',
-            optionsSize = size,
+            optionsSize = 'm',
             error,
             hint,
             block,
@@ -199,7 +199,12 @@ export const SelectMobile = forwardRef(
                                 allowUnselect || (multiple && selectedItems.length > 1);
 
                             if (alreadySelected && allowRemove) {
-                                removeSelectedItem(selectedItem);
+                                if (multiple) {
+                                    removeSelectedItem(selectedItem);
+                                } else {
+                                    setSelectedItems([]);
+                                    setSelectedDraft([]);
+                                }
                             }
 
                             if (!alreadySelected) {
