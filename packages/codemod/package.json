@@ -12,9 +12,9 @@
     },
     "bin": "./bin/index.js",
     "dependencies": {
-        "chalk": "^4.1.1",
-        "lodash.kebabcase": "^4.1.1",
-        "shelljs": "^0.8.4",
-        "yargs": "^17.0.1"
+        "chalk": "4.1.1",
+        "lodash.kebabcase": "4.1.1",
+        "shelljs": "0.8.4",
+        "yargs": "17.0.1"
     }
 }

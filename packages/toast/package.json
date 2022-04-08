@@ -16,16 +16,16 @@
         "access": "public"
     },
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1"
+        "react": "16.9.0 || 17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-popover": "^5.6.1",
-        "@alfalab/core-components-portal": "^2.0.1",
-        "@alfalab/core-components-stack": "^3.0.1",
-        "@alfalab/core-components-toast-plate": "^4.1.0",
-        "@alfalab/hooks": "^1.4.1",
-        "classnames": "^2.2.6",
-        "react-merge-refs": "^1.1.0",
-        "react-transition-group": "^4.3.0"
+        "@alfalab/core-components-popover": "5.6.1",
+        "@alfalab/core-components-portal": "2.0.1",
+        "@alfalab/core-components-stack": "3.0.1",
+        "@alfalab/core-components-toast-plate": "4.1.0",
+        "@alfalab/hooks": "1.4.1",
+        "classnames": "2.2.6",
+        "react-merge-refs": "1.1.0",
+        "react-transition-group": "4.3.0"
     }
 }

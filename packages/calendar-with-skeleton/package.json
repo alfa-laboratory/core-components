@@ -16,13 +16,13 @@
         "access": "public"
     },
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1",
-        "react-dom": "^16.9.0 || ^17.0.1"
+        "react": "16.9.0 || 17.0.1",
+        "react-dom": "16.9.0 || 17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-calendar": "^5.2.0",
-        "@alfalab/core-components-skeleton": "^3.1.0",
-        "classnames": "^2.2.6",
-        "react-transition-group": "^4.3.0"
+        "@alfalab/core-components-calendar": "5.2.0",
+        "@alfalab/core-components-skeleton": "3.1.0",
+        "classnames": "2.2.6",
+        "react-transition-group": "4.3.0"
     }
 }

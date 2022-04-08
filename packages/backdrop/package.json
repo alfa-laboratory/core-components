@@ -15,13 +15,13 @@
         "access": "public"
     },
     "dependencies": {
-        "classnames": "^2.2.6",
-        "react-transition-group": "^4.3.0"
+        "classnames": "2.2.6",
+        "react-transition-group": "4.3.0"
     },
     "devDependencies": {
-        "@types/react-transition-group": "^4.2.4"
+        "@types/react-transition-group": "4.2.4"
     },
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1"
+        "react": "16.9.0 || 17.0.1"
     }
 }

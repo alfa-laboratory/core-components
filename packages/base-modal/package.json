@@ -15,20 +15,20 @@
         "access": "public"
     },
     "dependencies": {
-        "@alfalab/core-components-backdrop": "^2.0.1",
-        "@alfalab/core-components-global-store": "^1.1.0",
-        "@alfalab/core-components-portal": "^2.0.1",
-        "@alfalab/core-components-stack": "^3.0.1",
-        "classnames": "^2.2.6",
-        "react-focus-lock": "^2.5.0",
-        "react-merge-refs": "^1.1.0",
-        "react-transition-group": "^4.3.0",
-        "resize-observer": "^1.0.0"
+        "@alfalab/core-components-backdrop": "2.0.1",
+        "@alfalab/core-components-global-store": "1.1.0",
+        "@alfalab/core-components-portal": "2.0.1",
+        "@alfalab/core-components-stack": "3.0.1",
+        "classnames": "2.2.6",
+        "react-focus-lock": "2.5.0",
+        "react-merge-refs": "1.1.0",
+        "react-transition-group": "4.3.0",
+        "resize-observer": "1.0.0"
     },
     "devDependencies": {
-        "@types/react-transition-group": "^4.2.4"
+        "@types/react-transition-group": "4.2.4"
     },
     "peerDependencies": {
-        "react": "^16.9.0 || ^17.0.1"
+        "react": "16.9.0 || 17.0.1"
     }
 }
