@@ -106,7 +106,7 @@
         "@storybook/preset-create-react-app": "3.2.0",
         "@storybook/preset-typescript": "3.0.0",
         "@storybook/react": "6.3.3",
-        "@testing-library/dom": "7.22.2",
+        "@testing-library/dom": "7.31.2",
         "@testing-library/jest-dom": "5.10.1",
         "@testing-library/react": "10.2.1",
         "@testing-library/react-hooks": "5.1.3",
