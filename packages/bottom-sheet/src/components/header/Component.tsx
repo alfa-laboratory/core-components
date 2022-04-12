@@ -18,7 +18,7 @@ export type HeaderProps = {
     /**
      * Дополнительный класс
      */
-    className?: string;
+     headerClassName?: string;
 
     /**
      * Дополнительный класс для аддонов
@@ -78,7 +78,7 @@ export type HeaderProps = {
 
 export const Header: FC<HeaderProps> = ({
     title,
-    className,
+    headerClassName,
     addonClassName,
     closerClassName,
     backerClassName,
@@ -120,7 +120,7 @@ export const Header: FC<HeaderProps> = ({
 
     return (
         <div
-            className={cn(styles.header, className, {
+            className={cn(styles.header, headerClassName, {
                 [styles.justifyEnd]: !title,
                 [styles.highlighted]: headerHighlighted && sticky,
                 [styles.sticky]: sticky,
