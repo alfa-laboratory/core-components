@@ -16,14 +16,14 @@
         "access": "public"
     },
     "peerDependencies": {
-        "react": "16.9.0 || 17.0.1",
-        "react-dom": "16.9.0 || 17.0.1"
+        "react": "^16.9.0 || ^17.0.1",
+        "react-dom": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-icon-button": "4.1.5",
-        "@alfalab/core-components-tag": "4.2.0",
-        "@alfalab/hooks": "1.4.1",
-        "@alfalab/utils": "1.5.1",
+        "@alfalab/core-components-icon-button": "^4.1.5",
+        "@alfalab/core-components-tag": "^4.2.0",
+        "@alfalab/hooks": "^1.4.1",
+        "@alfalab/utils": "^1.5.1",
         "classnames": "2.2.6"
     }
 }

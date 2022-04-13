@@ -16,21 +16,21 @@
         "access": "public"
     },
     "peerDependencies": {
-        "react": "16.9.0 || 17.0.1",
-        "react-dom": "16.9.0 || 17.0.1"
+        "react": "^16.9.0 || ^17.0.1",
+        "react-dom": "^16.9.0 || ^17.0.1"
     },
     "dependencies": {
-        "@alfalab/core-components-portal": "2.0.1",
-        "@alfalab/core-components-stack": "3.0.1",
+        "@alfalab/core-components-portal": "^2.0.1",
+        "@alfalab/core-components-stack": "^3.0.1",
         "@popperjs/core": "2.3.3",
         "classnames": "2.2.6",
         "popper-max-size-modifier": "0.2.0",
         "react-merge-refs": "1.1.0",
         "react-popper": "2.2.5",
-        "react-transition-group": "4.3.0",
+        "react-transition-group": "4.4.1",
         "resize-observer": "1.0.0"
     },
     "devDependencies": {
-        "@types/react-transition-group": "4.2.4"
+        "@types/react-transition-group": "^4.2.4"
     }
 }
