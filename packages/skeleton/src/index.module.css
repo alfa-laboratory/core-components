@@ -1,4 +1,4 @@
-@import '../../vars/src/colors-indigo.css';
+@import '../../themes/src/default.css';
 
 :root {
     --skeleton-display: block;

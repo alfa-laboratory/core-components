@@ -1,3 +1,5 @@
+@import '../../themes/src/default.css';
+
 .suffixContainer {
     @mixin system_16-20_regular;
 
