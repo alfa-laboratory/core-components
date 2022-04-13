@@ -1,3 +1,21 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [26.4.0](https://github.com/alfa-laboratory/core-components/compare/v26.3.0...v26.4.0) (2022-04-13)
+
+
+### Features
+
+* **select:** add select mobile ([#1016](https://github.com/alfa-laboratory/core-components/issues/1016)) ([b3cfb0d](https://github.com/alfa-laboratory/core-components/commit/b3cfb0d0e9496ba2e4260e962eaf3f9cf85635c6))
+
+
+### Bug Fixes
+
+* **bottom-sheet:** fix prop headerClassName ([#1057](https://github.com/alfa-laboratory/core-components/issues/1057)) ([2fb3290](https://github.com/alfa-laboratory/core-components/commit/2fb329047fd1ef997082d127d9f26195dbfe57ad))
+* **themes:** fix build themes mobile & intranet ([#1055](https://github.com/alfa-laboratory/core-components/issues/1055)) ([f95f035](https://github.com/alfa-laboratory/core-components/commit/f95f035bdeee3071e2f2ebfaa35c0cc10585044b))
+* **themes:** Добавил пропущенные [@imports](https://github.com/imports) из themes/src/default.css ([#1053](https://github.com/alfa-laboratory/core-components/issues/1053)) ([06f0427](https://github.com/alfa-laboratory/core-components/commit/06f0427e4089db902bb269ab3b31f935921cff9f)), closes [#1052](https://github.com/alfa-laboratory/core-components/issues/1052)
+
 # [26.3.0](https://github.com/alfa-laboratory/core-components/compare/v26.2.0...v26.3.0) (2022-03-30)
 
 
