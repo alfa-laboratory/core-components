@@ -72,6 +72,11 @@ export type BaseSelectProps = {
     optionClassName?: string;
 
     /**
+     * Дополнительный класс для компонента группы пунктов
+     */
+    optionGroupClassName?: string;
+
+    /**
      * Дополнительный класс для поповера
      */
     popperClassName?: string;
@@ -414,6 +419,11 @@ export type OptionsListProps = {
     className?: string;
 
     /**
+     * Дополнительный класс для компонента группы пунктов
+     */
+    optionGroupClassName?: string;
+
+    /**
      * Размер компонента
      */
     size?: 's' | 'm' | 'l' | 'xl';
@@ -502,9 +512,29 @@ export type OptionsListProps = {
      * Дополнительные пропсы для Input'a, находящегося внутри кастомного OptionsList
      */
     inputProps?: InputProps;
+
+    /**
+     * Нужно ли показывать футер
+     */
+    showFooter?: boolean;
+
+    /**
+     * Обработчик подтверждения изменений
+     */
+    onApply?: () => void;
+
+    /**
+     * Обработчик отмены изменений
+     */
+    onClear?: () => void;
 };
 
 export type OptgroupProps = {
+    /**
+     * Дополнительный класс для компонента группы пунктов
+     */
+    className?: string;
+
     /**
      * Размер компонента
      */
@@ -610,4 +640,9 @@ export type CheckmarkProps = {
      * Расположение отметки
      */
     position?: 'before' | 'after';
+
+    /**
+     * Иконка выбранного пункта
+     */
+    icon?: React.FC<React.SVGProps<SVGSVGElement>>;
 };

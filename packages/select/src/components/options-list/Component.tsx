@@ -18,6 +18,7 @@ export const OptionsList = forwardRef(
         {
             size = 's',
             className,
+            optionGroupClassName,
             Option,
             getOptionProps,
             options = [],
@@ -43,11 +44,11 @@ export const OptionsList = forwardRef(
         const counter = createCounter();
         const renderGroup = useCallback(
             (group: GroupShape) => (
-                <Optgroup label={group.label} key={group.label} size={size}>
+                <Optgroup className={optionGroupClassName} label={group.label} key={group.label} size={size}>
                     {group.options.map(option => renderOption(option, counter()))}
                 </Optgroup>
             ),
-            [counter, renderOption, size],
+            [optionGroupClassName, counter, renderOption, size],
         );
 
         useVisibleOptions({

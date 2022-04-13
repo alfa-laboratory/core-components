@@ -1,0 +1,22 @@
+@import '../../../../../themes/src/default.css';
+@import '../../../vars.css';
+
+.checkmark {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--select-mobile-checkmark-background);
+    background-size: cover;
+    width: 24px;
+    height: 24px;
+    opacity: 0;
+
+    &:first-child {
+        display: none;
+    }
+
+    &.selected {
+        opacity: 1;
+    }
+}

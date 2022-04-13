@@ -53,9 +53,19 @@ export type BottomSheetProps = {
     contentClassName?: string;
 
     /**
+     * Дополнительный класс
+     */
+    containerClassName?: string;
+
+    /**
      * Дополнительный класс шапки
      */
     headerClassName?: string;
+
+    /**
+     * Дополнительный класс футера
+     */
+    footerClassName?: string;
 
     /**
      * Дополнительный класс для аддонов
@@ -181,7 +191,9 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
             title,
             actionButton,
             contentClassName,
+            containerClassName,
             headerClassName,
+            footerClassName,
             addonClassName,
             closerClassName,
             backerClassName,
@@ -419,7 +431,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                     {...sheetSwipeablehandlers}
                 >
                     <div
-                        className={cn(styles.scrollableContainer, {
+                        className={cn(styles.scrollableContainer, containerClassName, {
                             [styles.scrollLocked]: scrollLocked,
                         })}
                         ref={scrollableContainer}
@@ -437,7 +449,11 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
                             {children}
                         </div>
 
-                        {actionButton && <Footer sticky={stickyFooter}>{actionButton}</Footer>}
+                        {actionButton && (
+                            <Footer sticky={stickyFooter} className={footerClassName}>
+                                {actionButton}
+                            </Footer>
+                        )}
                     </div>
                 </div>
             </BaseModal>

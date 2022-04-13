@@ -1,0 +1,45 @@
+@import '../../../../../themes/src/default.css';
+@import '../../../vars.css';
+
+:root {
+    --select-mobile-footer-border-top: 1px solid var(--color-light-border-primary);
+    --select-mobile-footer-background-color: var(--color-light-bg-primary);
+}
+
+.optionsList {
+    width: 100%;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.emptyPlaceholder {
+    padding: var(--gap-m) var(--gap-s);
+    color: var(--select-options-list-empty-placeholder-color);
+}
+
+.l .emptyPlaceholder,
+.xl .emptyPlaceholder {
+    padding: var(--gap-xl) var(--gap-m);
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    padding: var(--gap-m) var(--gap-m);
+    background-color: var(--color-light-bg-primary);
+    bottom: 0;
+
+    & .footerButton:first-of-type {
+        margin-right: var(--gap-m);
+    }
+}
+
+.footerButton {
+    width: 50%;
+}
+
+.highlighted {
+    border-top: var(--select-mobile-footer-border-top);
+    background-color: var(--select-mobile-footer-background-color);
+}

@@ -3,6 +3,7 @@
 @import './form-control/site.css';
 @import './input/site.css';
 @import './bottom-sheet/site.css';
+@import './select/site.css';
 
 @define-mixin theme-site {
     @mixin button-site;
@@ -10,4 +11,5 @@
     @mixin tabs-site;
     @mixin input-site;
     @mixin bottom-sheet-site;
+    @mixin select-site;
 }

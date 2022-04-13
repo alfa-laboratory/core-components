@@ -1,7 +1,7 @@
 import React, { forwardRef, RefAttributes, useCallback, useEffect, useRef } from 'react';
-
 import cn from 'classnames';
 import { Button } from '@alfalab/core-components-button';
+
 import { OptionShape, OptionsListProps } from '../../../typings';
 import { OptionsList as DefaultOptionsList } from '../../../components';
 
@@ -11,8 +11,6 @@ import styles from './index.module.css';
 
 type OptionsListWithApplyProps = OptionsListProps & {
     showClear?: boolean;
-    onApply?: () => void;
-    onClear?: () => void;
     onClose?: () => void;
     selectedDraft?: OptionShape[];
     OptionsList?: React.FC<OptionsListProps & RefAttributes<unknown>>;
@@ -92,6 +90,8 @@ export const OptionsListWithApply = forwardRef(
                 toggleMenu={toggleMenu}
                 flatOptions={flatOptions}
                 getOptionProps={getOptionProps}
+                onApply={handleApply}
+                onClear={handleClear}
                 footer={
                     <div
                         // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex

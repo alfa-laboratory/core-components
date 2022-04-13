@@ -12,12 +12,12 @@
 
 .header {
     display: flex;
-    align-items: center;
     padding: var(--gap-xs);
     padding-bottom: 0;
     background-color: var(--color-light-bg-primary);
     border-top-right-radius: var(--border-radius-xl);
     border-top-left-radius: var(--border-radius-xl);
+    z-index: 1;
 }
 
 .sticky {
@@ -56,7 +56,6 @@
 }
 
 .title {
-    height: 24px;
     padding: var(--gap-xs) var(--gap-xs);
     margin: var(--bottom-sheet-title-margin-vertical) 0;
     width: 100%;

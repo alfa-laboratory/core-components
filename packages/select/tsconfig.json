@@ -15,6 +15,8 @@
         { "path": "../input" },
         { "path": "../popover" },
         { "path": "../skeleton" },
-        { "path": "../checkbox" }
+        { "path": "../checkbox" },
+        { "path": "../bottom-sheet" },
+        { "path": "../base-modal" },
     ]
 }

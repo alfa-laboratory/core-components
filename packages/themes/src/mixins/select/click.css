@@ -16,4 +16,10 @@
     --select-checkmark-after-display: 'flex';
     --select-checkmark-background: url('https://alfabank.gcdn.co/icons/glyph_checkmark-circle_m_color.svg');
     --select-checkmark-border-radius: 0;
+    --select-mobile-checkmark-background: url('https://alfabank.gcdn.co/icons/glyph_checkmark-circle_m_color.svg');
+
+    /* select mobile footer */
+
+    --select-mobile-footer-border-top: none;
+    --select-mobile-footer-background-color: var(--color-light-bg-secondary);
 }

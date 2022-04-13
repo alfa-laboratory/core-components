@@ -1,0 +1,55 @@
+@import '../../../../themes/src/default.css';
+@import '../../vars.css';
+
+.component {
+    width: max-content;
+    position: relative;
+    outline: 0;
+}
+
+.popoverInner {
+    padding-top: var(--select-options-list-offset);
+    padding-bottom: var(--select-options-list-offset);
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    position: relative;
+}
+
+.sheet {
+    overflow: hidden;
+}
+
+.sheetContent {
+    padding: 0;
+}
+
+.sheetContainer {
+    padding: 0;
+}
+
+.block {
+    width: 100%;
+}
+
+/* width: max-content; fix for IE */
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .component {
+        float: left;
+        clear: left;
+    }
+}
+
+.option {
+    padding: var(--gap-2xs) var(--gap-l) var(--gap-2xs) var(--gap-m);
+
+    &:before {
+        display: none;
+    }
+}
+
+.optionGroup {
+    padding: var(--gap-m) var(--gap-m) var(--gap-xs);
+}
