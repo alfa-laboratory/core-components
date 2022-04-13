@@ -11,7 +11,7 @@ const replaceMixinToRoot = css => css.replace(/@define-mixin.*$/m, ':root {');
 
 const bluetintThemes = ['mobile', 'intranet'];
 const getPalette = cssFile =>
-    bluetintThemes.some(x => x.includes(cssFile)) ? 'bluetint' : 'indigo';
+    bluetintThemes.some(x => cssFile.includes(x)) ? 'bluetint' : 'indigo';
 
 const createColorsByPaletteFilter = palette => {
     return filePath => {
