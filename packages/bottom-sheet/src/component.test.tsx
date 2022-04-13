@@ -137,7 +137,7 @@ describe('Bottom sheet', () => {
         });
 
         it('should set className', () => {
-            const className = 'class-name';
+            const className = 'class-name-1';
 
             render(<BottomSheetWrapper className={className} />);
 
@@ -145,9 +145,17 @@ describe('Bottom sheet', () => {
         });
 
         it('should set contentClassName', () => {
-            const className = 'class-name';
+            const className = 'class-name-2';
 
             render(<BottomSheetWrapper contentClassName={className} />);
+
+            expect(document.body.querySelector(`.${className}`)).toBeInTheDocument();
+        });
+
+        it('should set headerClassName', () => {
+            const className = 'class-name-3';
+
+            render(<BottomSheetWrapper headerClassName={className} />);
 
             expect(document.body.querySelector(`.${className}`)).toBeInTheDocument();
         });

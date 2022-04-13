@@ -13,7 +13,7 @@ import { TransitionProps } from 'react-transition-group/Transition';
 import { SwipeCallback, useSwipeable } from 'react-swipeable';
 import { BaseModal } from '@alfalab/core-components-base-modal';
 
-import { Header } from './components/header/Component';
+import { Header, HeaderProps } from './components/header/Component';
 import { Footer } from './components/footer/Component';
 import { SwipeableBackdrop } from './components/swipeable-backdrop/Component';
 
@@ -234,7 +234,7 @@ export const BottomSheet = forwardRef<HTMLDivElement, BottomSheetProps>(
         const fullHeight = use100vh()!;
         const targetHeight = `${fullHeight - HEADER_OFFSET}px`;
 
-        const headerProps = {
+        const headerProps: HeaderProps = {
             title,
             headerClassName,
             addonClassName,
