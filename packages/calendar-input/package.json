@@ -22,8 +22,8 @@
         "@alfalab/core-components-calendar": "^5.2.0",
         "@alfalab/core-components-date-input": "^2.1.0",
         "@alfalab/core-components-popover": "^5.6.1",
-        "classnames": "^2.2.6",
-        "date-fns": "^2.16.1",
-        "react-merge-refs": "^1.1.0"
+        "classnames": "2.2.6",
+        "date-fns": "2.16.1",
+        "react-merge-refs": "1.1.0"
     }
 }

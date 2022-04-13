@@ -21,6 +21,6 @@
     },
     "dependencies": {
         "@alfalab/hooks": "^1.4.1",
-        "react-node-resolver": "^2.0.1"
+        "react-node-resolver": "2.0.1"
     }
 }

@@ -15,8 +15,8 @@
         "access": "public"
     },
     "dependencies": {
-        "classnames": "^2.2.6",
-        "react-transition-group": "^4.3.0"
+        "classnames": "2.2.6",
+        "react-transition-group": "4.4.1"
     },
     "devDependencies": {
         "@types/react-transition-group": "^4.2.4"

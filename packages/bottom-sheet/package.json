@@ -24,9 +24,9 @@
         "@alfalab/core-components-base-modal": "^4.0.0",
         "@alfalab/core-components-icon-button": "^4.1.6",
         "@alfalab/core-components-typography": "^2.5.0",
-        "classnames": "^2.2.6",
-        "react-div-100vh": "^0.7.0",
-        "react-swipeable": "^5.5.0",
-        "react-transition-group": "^4.3.0"
+        "classnames": "2.2.6",
+        "react-div-100vh": "0.7.0",
+        "react-swipeable": "5.5.1",
+        "react-transition-group": "4.4.1"
     }
 }

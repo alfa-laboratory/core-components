@@ -16,8 +16,8 @@
     },
     "dependencies": {
         "@alfalab/core-components-typography": "^2.5.0",
-        "classnames": "^2.2.6",
-        "recharts": "^2.0.10"
+        "classnames": "2.2.6",
+        "recharts": "2.1.2"
     },
     "devDependencies": {
         "@types/react-transition-group": "^4.2.4"

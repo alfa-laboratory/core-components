@@ -22,7 +22,7 @@
     "dependencies": {
         "@alfalab/core-components-calendar": "^5.2.0",
         "@alfalab/core-components-skeleton": "^3.1.0",
-        "classnames": "^2.2.6",
-        "react-transition-group": "^4.3.0"
+        "classnames": "2.2.6",
+        "react-transition-group": "4.4.1"
     }
 }

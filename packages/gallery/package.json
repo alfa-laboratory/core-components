@@ -25,8 +25,8 @@
         "@alfalab/core-components-typography": "^2.5.0",
         "@alfalab/hooks": "^1.4.1",
         "@alfalab/icons-glyph": "^2.16.0",
-        "classnames": "^2.2.6",
-        "element-closest": "^3.0.2",
-        "swiper": "^6.8.2"
+        "classnames": "2.2.6",
+        "element-closest": "3.0.2",
+        "swiper": "6.8.2"
     }
 }

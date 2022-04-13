@@ -20,7 +20,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-input": "^8.1.0",
-        "date-fns": "^2.16.1",
-        "react-merge-refs": "^1.1.0"
+        "date-fns": "2.16.1",
+        "react-merge-refs": "1.1.0"
     }
 }

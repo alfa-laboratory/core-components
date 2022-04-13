@@ -24,8 +24,8 @@
         "@alfalab/core-components-select": "^10.6.4",
         "@alfalab/hooks": "^1.4.1",
         "@alfalab/utils": "^1.5.1",
-        "classnames": "^2.2.6",
-        "libphonenumber-js": "^1.8.4",
-        "react-merge-refs": "^1.1.0"
+        "classnames": "2.2.6",
+        "libphonenumber-js": "1.9.6",
+        "react-merge-refs": "1.1.0"
     }
 }

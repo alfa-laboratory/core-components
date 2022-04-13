@@ -20,7 +20,7 @@
     },
     "dependencies": {
         "@alfalab/core-components-masked-input": "^4.3.0",
-        "classnames": "^2.2.6",
-        "text-mask-core": "^5.1.2"
+        "classnames": "2.2.6",
+        "text-mask-core": "5.1.2"
     }
 }
