@@ -77,7 +77,7 @@ describe('FileUploadItem', () => {
             expect(cb.mock.calls[0][0]).toBe(fileId);
         });
 
-        it('should call `onDownload` prop', async() => {
+        it('should call `onDownload` prop', async () => {
             const cb = jest.fn();
             const fileId = 'id';
             const { baseElement } = render(

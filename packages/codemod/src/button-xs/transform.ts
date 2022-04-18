@@ -31,7 +31,7 @@ const buttonTransform: Transform = (fileInfo, api) => {
     /**
      * Находим использование компонента Tag и меняем ему пропсы
      */
-     source.findJSXElements('Tag').forEach(path => {
+    source.findJSXElements('Tag').forEach(path => {
         j(path).replaceWith((path: ASTPath<JSXElement>) => {
             const { node } = path;
 

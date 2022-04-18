@@ -3,14 +3,34 @@
 :root {
     --amount-major-part-font-weight: bold;
     --amount-minor-part-font-weight: normal;
+    --amount-minor-part-opacity: 0.6;
 }
 
 .component {
     white-space: nowrap;
+}
+
+.transparentMinor {
+    opacity: 0.6;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.boldMajor {
+    font-weight: bold;
+}
+
+.normalMinor {
+    font-weight: normal;
+}
+
+.default {
     font-weight: var(--amount-major-part-font-weight);
 }
 
-.minorPartAndCurrency {
-    opacity: 0.6;
+.defaultMinor {
+    opacity: var(--amount-minor-part-opacity);
     font-weight: var(--amount-minor-part-font-weight);
 }

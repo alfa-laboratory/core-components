@@ -72,7 +72,9 @@ describe('DateInput', () => {
             const onChange = jest.fn();
             const onComplete = jest.fn();
             const value = '01.01.2020';
-            const { queryByRole } = render(<DateInput onChange={onChange} onComplete={onComplete} />);
+            const { queryByRole } = render(
+                <DateInput onChange={onChange} onComplete={onComplete} />,
+            );
 
             const input = queryByRole('textbox') as HTMLInputElement;
 

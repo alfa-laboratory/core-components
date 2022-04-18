@@ -29,6 +29,16 @@ export type AmountProps = {
     view?: 'default' | 'withZeroMinorPart';
 
     /**
+     * Управление жирностью
+     */
+    bold?: 'full' | 'major' | 'none';
+
+    /**
+     * Делает минорную часть полупрозрачной
+     */
+    transparentMinor?: boolean;
+
+    /**
      * Показывать значок + для положительных значений
      */
     showPlus?: boolean;

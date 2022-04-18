@@ -27,7 +27,6 @@
     --disabled-cursor: not-allowed;
     --arrow-transform: rotate(-180deg);
 
-    @mixin amount-click;
     @mixin form-control-click;
     @mixin input-click;
     @mixin button-click;
@@ -51,4 +50,5 @@
     @mixin dropzone-click;
     @mixin code-input-click;
     @mixin bottom-sheet-click;
+    @mixin amount-click;
 }
