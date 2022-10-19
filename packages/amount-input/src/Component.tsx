@@ -17,6 +17,11 @@ const colorStyles = {
 
 export type AmountInputProps = Omit<InputProps, 'value' | 'onChange' | 'type'> & {
     /**
+     * Начальное значение поля
+     */
+    defaultValue?: string | number;
+
+    /**
      * Денежное значение в минорных единицах
      * Значение null - значит не установлено
      */
