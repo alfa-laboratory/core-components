@@ -6,7 +6,7 @@ import styles from './index.module.css';
 
 export type HeaderProps = {
     /**
-     * Вид шапки — месяц и год или только месяц
+     * Вид шапки — месяц и год или только месяц или без шапки
      */
     view?: SelectorView;
 
