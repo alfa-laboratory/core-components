@@ -134,7 +134,7 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(
             };
 
             const clone = cloneElement(child, {
-                onClick: handleChange,
+                onChange: handleChange,
                 disabled,
                 ...child.props,
                 checked,
